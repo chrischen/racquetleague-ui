@@ -9,8 +9,9 @@ import * as DateFns from "date-fns";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as FormSection from "../molecules/forms/FormSection.re.mjs";
+import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as Core from "@linaria/core";
+import * as Core$1 from "@linaria/core";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -24,6 +25,7 @@ import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutati
 import * as Zod$1 from "@hookform/resolvers/zod";
 import * as CreateLocationEventMutation_graphql from "../../__generated__/CreateLocationEventMutation_graphql.re.mjs";
 import * as CreateLocationEvent_location_graphql from "../../__generated__/CreateLocationEvent_location_graphql.re.mjs";
+import * as CreateLocationEvent_activities_graphql from "../../__generated__/CreateLocationEvent_activities_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -47,10 +49,19 @@ function use$1(fRef) {
   return RescriptRelay_Fragment.useFragment(CreateLocationEvent_location_graphql.node, convertFragment, fRef);
 }
 
+var convertFragment$1 = CreateLocationEvent_activities_graphql.Internal.convertFragment;
+
+function use$2(fRef) {
+  return RescriptRelay_Fragment.useFragment(CreateLocationEvent_activities_graphql.node, convertFragment$1, fRef);
+}
+
 var schema = Zod.object({
       title: Zod.string({
               required_error: t`Title is required`
             }).min(1),
+      activity: Zod.string({
+            required_error: t`Activity is required`
+          }),
       maxRsvps: Zod.number({}).gte(1).optional(),
       startDate: Zod.string({
               required_error: t`Event date is required`
@@ -64,6 +75,7 @@ var schema = Zod.object({
 
 function CreateLocationEvent(props) {
   var $$location = use$1(props.location);
+  var query = use$2(props.query);
   var match = use();
   var commitMutationCreate = match[0];
   var navigate = ReactRouterDom.useNavigate();
@@ -94,12 +106,14 @@ function CreateLocationEvent(props) {
           setValue("endTime", defaultEndTime, undefined);
         }), []);
   var onSubmit = function (data) {
+    console.log(data);
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "EventsListFragment_events", undefined);
     var startDate = DateFns.parseISO(data.startDate);
     var endDate = DateFns.parse(data.endTime, "HH:mm", startDate);
     commitMutationCreate({
           connections: [connectionId],
           input: {
+            activity: data.activity,
             details: Core__Option.getOr(data.details, ""),
             endDate: Util.Datetime.fromDate(endDate),
             listed: data.listed,
@@ -146,6 +160,14 @@ function CreateLocationEvent(props) {
                             } else {
                               tmp = "";
                             }
+                            var match$1 = formState.errors.activity;
+                            var tmp$1;
+                            if (match$1 !== undefined) {
+                              var message$1 = match$1.message;
+                              tmp$1 = message$1 !== undefined ? message$1 : "";
+                            } else {
+                              tmp$1 = "";
+                            }
                             return JsxRuntime.jsx(JsxRuntime.Fragment, {
                                         children: Caml_option.some(JsxRuntime.jsx(Grid.make, {
                                                   className: "grid-cols-1",
@@ -169,11 +191,31 @@ function CreateLocationEvent(props) {
                                                                                       children: tmp
                                                                                     })
                                                                               ],
-                                                                              className: "col-span-full"
+                                                                              className: "sm:col-span-4 md:col-span-3"
+                                                                            }),
+                                                                        JsxRuntime.jsxs("div", {
+                                                                              children: [
+                                                                                JsxRuntime.jsx(Form.Select.make, {
+                                                                                      label: t`Activity`,
+                                                                                      name: "activity",
+                                                                                      id: "activity",
+                                                                                      options: query.activities.map(function (activity) {
+                                                                                            return [
+                                                                                                    Core.i18n._(activity.name),
+                                                                                                    activity.id
+                                                                                                  ];
+                                                                                          }),
+                                                                                      register: register("activity", undefined)
+                                                                                    }),
+                                                                                JsxRuntime.jsx("p", {
+                                                                                      children: tmp$1
+                                                                                    })
+                                                                              ],
+                                                                              className: "sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg"
                                                                             }),
                                                                         JsxRuntime.jsx("div", {
                                                                               children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                    label: t`Date and Time`,
+                                                                                    label: t`Date and Start Time`,
                                                                                     name: "startDate",
                                                                                     id: "startDate",
                                                                                     type_: "datetime-local",
@@ -183,7 +225,7 @@ function CreateLocationEvent(props) {
                                                                             }),
                                                                         JsxRuntime.jsx("div", {
                                                                               children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                    label: t`Date and Time`,
+                                                                                    label: t`End Time`,
                                                                                     name: "endTime",
                                                                                     id: "endTime",
                                                                                     type_: "time",
@@ -202,7 +244,7 @@ function CreateLocationEvent(props) {
                                                                                               if (v === "") {
                                                                                                 return ;
                                                                                               } else {
-                                                                                                return Caml_option.some(Core__Int.fromString(undefined, v));
+                                                                                                return Caml_option.some(Core__Int.fromString(v, undefined));
                                                                                               }
                                                                                             })
                                                                                         })
@@ -239,10 +281,10 @@ function CreateLocationEvent(props) {
                                                                                     className: "flex items-center",
                                                                                     children: [
                                                                                       JsxRuntime.jsx(React$1.Switch, {
-                                                                                            className: Core.cx(listed ? "bg-indigo-600" : "bg-gray-200", "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"),
+                                                                                            className: Core$1.cx(listed ? "bg-indigo-600" : "bg-gray-200", "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"),
                                                                                             children: JsxRuntime.jsx("span", {
                                                                                                   "aria-hidden": true,
-                                                                                                  className: Core.cx(listed ? "translate-x-5" : "translate-x-0", "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out")
+                                                                                                  className: Core$1.cx(listed ? "translate-x-5" : "translate-x-0", "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out")
                                                                                                 }),
                                                                                             checked: listed,
                                                                                             onChange: (function (param) {
@@ -282,6 +324,22 @@ function CreateLocationEvent(props) {
                       }))
             });
 }
+
+t({
+      id: "Badminton"
+    });
+
+t({
+      id: "Table Tennis"
+    });
+
+t({
+      id: "Pickleball"
+    });
+
+t({
+      id: "Futsal"
+    });
 
 var make = CreateLocationEvent;
 

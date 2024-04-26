@@ -22,7 +22,7 @@ module CurrentTime = {
     let query = DeferTestRouteFragment.use(fragmentRefs)
     <>
       {React.string("Current time: ")}
-      {React.string(query.currentTime->Option.map(Float.toString)->Option.getOr("0"))}
+      {React.string(query.currentTime->Option.map(Float.toString(_))->Option.getOr("0"))}
     </>
   }
 }
@@ -33,7 +33,7 @@ module CurrentTime2 = {
     let query = DeferTestRouteFragment2.use(fragmentRefs)
     <>
       {React.string("Current time2: ")}
-      {React.string(query.currentTime2->Option.map(Float.toString)->Option.getOr("0"))}
+      {React.string(query.currentTime2->Option.map(Float.toString(_))->Option.getOr("0"))}
     </>
   }
 }

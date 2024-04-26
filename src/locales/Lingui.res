@@ -60,6 +60,9 @@ module Util = {
   external plural: (int, pluralOpts) => React.element = "plural";
 }
 module UtilString = {
+  type msgObj = { id?: string, comment?: string, message?: string }
+  @val
+  external td: (msgObj) => string = "t";
   @val @taggedTemplate
   external t: (array<string>, array<string>) => string = "t";
 
@@ -69,4 +72,7 @@ module UtilString = {
   }
   @val
   external plural: (int, pluralOpts) => string = "plural";
+
+  @module("@lingui/core") @scope("i18n")
+  external dynamic: string => string = "_";
 }

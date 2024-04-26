@@ -12,6 +12,10 @@ module Mutation = %relay(`
         __typename
         id
         title
+        activity {
+          name
+          slug
+        }
         startDate
         endDate
         listed
@@ -27,6 +31,15 @@ module Fragment = %relay(`
     details
   }
 `)
+module ActivitiesFragment = %relay(`
+  fragment CreateLocationEvent_activities on Query {
+    activities {
+      id
+      name
+      slug
+    }
+  }
+`)
 
 @module("../layouts/appContext")
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
@@ -34,6 +47,7 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 @rhf
 type inputs = {
   title: Zod.string_,
+  activity: Zod.string_,
   maxRsvps: Zod.optional<Zod.number>,
   startDate: Zod.string_,
   endTime: Zod.string_,
@@ -45,6 +59,7 @@ let schema = Zod.z->Zod.object(
   (
     {
       title: Zod.z->Zod.string({required_error: ts`Title is required`})->Zod.String.min(1),
+      activity: Zod.z->Zod.string({required_error: ts`Activity is required`}),
       maxRsvps: Zod.z->Zod.number({})->Zod.Number.gte(1.)->Zod.optional,
       startDate: Zod.z->Zod.string({required_error: ts`Event date is required`})->Zod.String.min(1),
       endTime: Zod.z->Zod.string({required_error: ts`End time is required`})->Zod.String.min(5),
@@ -55,10 +70,13 @@ let schema = Zod.z->Zod.object(
 )
 
 @react.component
-let make = (~location) => {
+let make = (~location, ~query) => {
   open Lingui.Util
+  let td = Lingui.UtilString.dynamic
   open Form
   let location = Fragment.use(location)
+  let query = ActivitiesFragment.use(query)
+
   let (commitMutationCreate, _) = Mutation.use()
   let navigate = Router.useNavigate()
 
@@ -69,11 +87,15 @@ let make = (~location) => {
     },
   )
 
-  let listed = watch(Listed)->Option.map(listed => switch listed {
-    | Bool(bool) => bool
-    | _ => false
-
-  })->Option.getOr(false)
+  let listed =
+    watch(Listed)
+    ->Option.map(listed =>
+      switch listed {
+      | Bool(bool) => bool
+      | _ => false
+      }
+    )
+    ->Option.getOr(false)
 
   React.useEffect(() => {
     // @NOTE: Date.make runs an effect therefore cannot be part of the render
@@ -98,6 +120,7 @@ let make = (~location) => {
   }, [])
 
   let onSubmit = (data: inputs) => {
+    Js.log(data);
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
       "client:root"->RescriptRelay.makeDataId,
       "EventsListFragment_events",
@@ -110,12 +133,13 @@ let make = (~location) => {
       ~variables={
         input: {
           title: data.title,
+          activity: data.activity,
           maxRsvps: ?data.maxRsvps->Option.map(Float.toInt),
           details: data.details->Option.getOr(""),
           locationId: location.id,
           startDate: startDate->Util.Datetime.fromDate,
           endDate: endDate->Util.Datetime.fromDate,
-          listed: data.listed
+          listed: data.listed,
         },
         connections: [connectionId],
       },
@@ -141,7 +165,7 @@ let make = (~location) => {
               title={t`${location.name->Option.getOr("?")} Event Details`}
               description={t`Details specific to this event on the specified date and time.`}>
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <div className="col-span-full">
+                <div className="sm:col-span-4 md:col-span-3">
                   <Input
                     label={t`Title`}
                     id="title"
@@ -156,9 +180,27 @@ let make = (~location) => {
                     }->React.string}
                   </p>
                 </div>
+                <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg">
+                  <Select
+                    label={t`Activity`}
+                    id="activity"
+                    name="activity"
+                    options={query.activities->Array.map(activity => (
+                      td(activity.name),
+                      activity.id,
+                    ))}
+                    register={register(Activity)}
+                  />
+                  <p>
+                    {switch formState.errors.activity {
+                    | Some({message: ?Some(message)}) => message
+                    | _ => ""
+                    }->React.string}
+                  </p>
+                </div>
                 <div className="sm:col-span-2">
                   <Input
-                    label={t`Date and Time`}
+                    label={t`Date and Start Time`}
                     type_="datetime-local"
                     id="startDate"
                     name="startDate"
@@ -167,7 +209,7 @@ let make = (~location) => {
                 </div>
                 <div className="sm:col-span-2">
                   <Input
-                    label={t`Date and Time`}
+                    label={t`End Time`}
                     type_="time"
                     id="endTime"
                     name="endTime"
@@ -230,7 +272,9 @@ let make = (~location) => {
                     <HeadlessUi.Switch.Label \"as"="span" className="ml-3 text-sm">
                       <span className="font-medium text-gray-900"> {t`List publicly`} </span>
                       {" "->React.string}
-                      <span className="text-gray-500">{t`Show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`}</span>
+                      <span className="text-gray-500">
+                        {t`Show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`}
+                      </span>
                     </HeadlessUi.Switch.Label>
                   </HeadlessUi.Switch.Group>
                 </div>
@@ -243,3 +287,14 @@ let make = (~location) => {
     </WaitForMessages>
   </FramerMotion.Div>
 }
+let td = Lingui.UtilString.td
+
+// NOTE: Force lingui to extract these dynamic Activity names
+@live
+td({id: "Badminton"})->ignore
+@live
+td({id: "Table Tennis"})->ignore
+@live
+td({id: "Pickleball"})->ignore
+@live
+td({id: "Futsal"})->ignore

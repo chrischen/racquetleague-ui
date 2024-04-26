@@ -10,15 +10,19 @@ import * as EventsListRefetchQuery_graphql from "./EventsListRefetchQuery_graphq
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"events_edges_node":{"f":""}}};
+var fragmentConverter = {"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""}}};
+
+var fragmentConverterMap = {
+  "Util.Datetime": Util.Datetime.parse
+};
 
 function convertFragment(v) {
-  return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
+  return RescriptRelay.convertObj(v, fragmentConverter, fragmentConverterMap, undefined);
 }
 
 var Internal = {
   fragmentConverter: fragmentConverter,
-  fragmentConverterMap: undefined,
+  fragmentConverterMap: fragmentConverterMap,
   convertFragment: convertFragment
 };
 
@@ -147,6 +151,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "id",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "startDate",
                   "storageKey": null
                 },
                 {

@@ -18,6 +18,7 @@ type enum_RequiredFieldAction_input =
 
 @live
 type rec input_CreateEventInput = {
+  activity: string,
   details?: string,
   endDate: Util.Datetime.t,
   listed?: bool,
@@ -29,6 +30,7 @@ type rec input_CreateEventInput = {
 
 @live
 and input_CreateEventInput_nullable = {
+  activity: string,
   details?: Js.Null.t<string>,
   endDate: Util.Datetime.t,
   listed?: Js.Null.t<bool>,
@@ -57,9 +59,13 @@ and input_CreateLocationInput_nullable = {
 @live
 and input_EventFilters = {
   locationId?: string,
+  userId?: string,
+  viewer?: bool,
 }
 
 @live
 and input_EventFilters_nullable = {
   locationId?: Js.Null.t<string>,
+  userId?: Js.Null.t<string>,
+  viewer?: Js.Null.t<bool>,
 }

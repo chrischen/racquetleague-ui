@@ -17,11 +17,11 @@ msgstr ""
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:86
+#: src/components/pages/Event.re.mjs:87
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:88
+#: src/components/pages/Event.re.mjs:89
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:160
+#: src/components/pages/Event.re.mjs:167
 msgid "Attendees"
 msgstr ""
 
@@ -41,15 +41,15 @@ msgstr ""
 msgid "Confirmed"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:172
+#: src/components/pages/Event.re.mjs:179
 msgid "Details"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:117
+#: src/components/pages/Event.re.mjs:118
 msgid "event @"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:232
+#: src/components/pages/Event.re.mjs:239
 msgid "Event Location"
 msgstr ""
 

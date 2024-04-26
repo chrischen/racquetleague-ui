@@ -55,6 +55,11 @@ export const routes: RouteObject[] = [
           //
           // },
           {
+            path: "events",
+            lazy: () => import("./components/routes/ViewerEventsRoute.gen"),
+            handle: "src/components/routes/ViewerEventsRoute.gen.tsx",
+          },
+          {
             path: "events/create",
             lazy: () => import("./components/routes/CreateEventRoute.gen"),
             handle: "src/components/routes/CreateEventRoute.gen.tsx",

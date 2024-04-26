@@ -2,8 +2,13 @@
 
 import * as Util from "../shared/Util.re.mjs";
 import * as Layout from "../shared/Layout.re.mjs";
+import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as DateFns from "date-fns";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
@@ -147,20 +152,20 @@ function EventsList$EventItem(props) {
           var minutes = (duration | 0) % 60;
           if (minutes === 0) {
             return plural(hours | 0, {
-                        one: t`${hours.toString()} hour`,
-                        other: t`${hours.toString()} hours`
+                        one: t`${hours.toString(undefined)} hour`,
+                        other: t`${hours.toString(undefined)} hours`
                       });
           } else {
             return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                         children: [
                           plural(hours | 0, {
-                                one: t`${hours.toString()} hour`,
-                                other: t`${hours.toString()} hours`
+                                one: t`${hours.toString(undefined)} hour`,
+                                other: t`${hours.toString(undefined)} hours`
                               }),
                           " ",
                           plural(minutes, {
-                                one: t`${minutes.toString()} minute`,
-                                other: t`${minutes.toString()} minutes`
+                                one: t`${minutes.toString(undefined)} minute`,
+                                other: t`${minutes.toString(undefined)} minutes`
                               })
                         ]
                       });
@@ -183,8 +188,14 @@ function EventsList$EventItem(props) {
                                             children: JsxRuntime.jsxs(ReactRouterDom.Link, {
                                                   to: "/events/" + match.id,
                                                   children: [
-                                                    JsxRuntime.jsx("span", {
-                                                          children: Core__Option.getOr(match.title, t`[Missing Title]`),
+                                                    JsxRuntime.jsxs("span", {
+                                                          children: [
+                                                            Core__Option.getOr(Core__Option.map(match.activity, (function (a) {
+                                                                        return a.name;
+                                                                      })), null),
+                                                            " / ",
+                                                            Core__Option.getOr(match.title, t`[Missing Title]`)
+                                                          ],
                                                           className: "truncate"
                                                         }),
                                                     JsxRuntime.jsx("span", {
@@ -200,28 +211,17 @@ function EventsList$EventItem(props) {
                                   }),
                               JsxRuntime.jsxs("div", {
                                     children: [
-                                      JsxRuntime.jsx("p", {
-                                            children: Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
-                                                        return Core__Option.map(l.name, (function (name) {
-                                                                      return name;
-                                                                    }));
-                                                      })), t`[Location Missing]`),
-                                            className: "truncate"
-                                          }),
-                                      JsxRuntime.jsx("svg", {
-                                            children: JsxRuntime.jsx("circle", {
-                                                  cx: (1).toString(),
-                                                  cy: (1).toString(),
-                                                  r: (1).toString()
-                                                }),
-                                            className: "h-0.5 w-0.5 flex-none fill-gray-600",
-                                            viewBox: "0 0 2 2"
-                                          }),
                                       JsxRuntime.jsxs("p", {
                                             children: [
                                               Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
                                                           return JsxRuntime.jsx(ReactIntl.FormattedTime, {
                                                                       value: Util.Datetime.toDate(startDate)
+                                                                    });
+                                                        })), null),
+                                              " -> ",
+                                              Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
+                                                          return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                      value: Util.Datetime.toDate(endDate)
                                                                     });
                                                         })), null),
                                               Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
@@ -235,17 +235,21 @@ function EventsList$EventItem(props) {
                                                         })), null)
                                             ],
                                             className: "whitespace-nowrap"
-                                          })
+                                          }),
+                                      " @ "
                                     ],
                                     className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
                                   }),
                               JsxRuntime.jsx("div", {
                                     children: JsxRuntime.jsx("span", {
-                                          children: Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                                                      return JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                                  value: Util.Datetime.toDate(startDate)
-                                                                });
-                                                    })), "???"),
+                                          children: JsxRuntime.jsx("p", {
+                                                children: Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
+                                                            return Core__Option.map(l.name, (function (name) {
+                                                                          return name;
+                                                                        }));
+                                                          })), t`[Location Missing]`),
+                                                className: "truncate"
+                                              }),
                                           className: "whitespace-nowrap"
                                         }),
                                     className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
@@ -255,7 +259,7 @@ function EventsList$EventItem(props) {
                           }),
                       JsxRuntime.jsxs("div", {
                             children: [
-                              playersCount.toString() + " ",
+                              playersCount.toString(undefined) + " ",
                               plural(playersCount, {
                                     one: "player",
                                     other: "players"
@@ -274,49 +278,129 @@ var EventItem = {
   make: EventsList$EventItem
 };
 
+function sortByDate(dates, $$event) {
+  Core__Option.map($$event.startDate, (function (startDate) {
+          var startDateString = DateFns.format(Util.Datetime.toDate(startDate), "yyyy-MM-dd");
+          var events = Js_dict.get(dates, startDateString);
+          if (events !== undefined) {
+            dates[startDateString] = Belt_Array.concatMany([
+                  [$$event],
+                  events
+                ]);
+          } else {
+            dates[startDateString] = [$$event];
+          }
+        }));
+  return dates;
+}
+
 function EventsList(props) {
   ReactExperimental.useTransition();
   var match = usePagination(props.events);
-  var isLoadingPrevious = match.isLoadingPrevious;
   var data = match.data;
   var events = getConnectionNodes(data.events);
   var pageInfo = data.events.pageInfo;
-  var hasPrevious = pageInfo.hasPreviousPage;
+  var viewer = GlobalQuery.useViewer();
+  var eventsByDate = Core__Array.reduce(events, {}, sortByDate);
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                JsxRuntime.jsxs(Layout.Container.make, {
-                      children: [
-                        isLoadingPrevious ? null : Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
-                                      return JsxRuntime.jsx(ReactRouterDom.Link, {
+                match.isLoadingPrevious ? null : Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
+                              return JsxRuntime.jsxs(Layout.Container.make, {
+                                          children: [
+                                            JsxRuntime.jsx(ReactRouterDom.Link, {
                                                   to: "./?before=" + startCursor,
                                                   children: t`...load past events`
-                                                });
-                                    })), null),
-                        hasPrevious && !isLoadingPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
-                                      return JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                  to: "./?before=" + startCursor,
-                                                  children: t`load previous`
-                                                });
-                                    })), null) : null
-                      ]
-                    }),
+                                                }),
+                                            " ",
+                                            JsxRuntime.jsx("svg", {
+                                                  children: JsxRuntime.jsx("circle", {
+                                                        cx: (1).toString(undefined),
+                                                        cy: (1).toString(undefined),
+                                                        r: (1).toString(undefined)
+                                                      }),
+                                                  className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                  viewBox: "0 0 2 2"
+                                                }),
+                                            " ",
+                                            JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                  to: "../",
+                                                  children: t`public events`
+                                                }),
+                                            Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
+                                                        return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                    children: [
+                                                                      " ",
+                                                                      JsxRuntime.jsx("svg", {
+                                                                            children: JsxRuntime.jsx("circle", {
+                                                                                  cx: (1).toString(undefined),
+                                                                                  cy: (1).toString(undefined),
+                                                                                  r: (1).toString(undefined)
+                                                                                }),
+                                                                            className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                                            viewBox: "0 0 2 2"
+                                                                          }),
+                                                                      " ",
+                                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                            to: "../events",
+                                                                            children: t`my events`
+                                                                          })
+                                                                    ]
+                                                                  });
+                                                      })), null)
+                                          ]
+                                        });
+                            })), null),
                 JsxRuntime.jsx("ul", {
-                      children: events.map(function (edge) {
-                            return JsxRuntime.jsx(EventsList$EventItem, {
-                                        event: edge.fragmentRefs
-                                      }, edge.id);
+                      children: Js_dict.entries(eventsByDate).map(function (param) {
+                            var dateString = param[0];
+                            var date = DateFns.parseISO(dateString);
+                            var until = DifferenceInMinutes.differenceInMinutes(date, new Date());
+                            return JsxRuntime.jsxs("li", {
+                                        children: [
+                                          JsxRuntime.jsx("div", {
+                                                children: JsxRuntime.jsx(Layout.Container.make, {
+                                                      children: JsxRuntime.jsxs("h3", {
+                                                            children: [
+                                                              JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                                    value: date,
+                                                                    weekday: "long",
+                                                                    month: "short",
+                                                                    day: "numeric"
+                                                                  }),
+                                                              " ",
+                                                              JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
+                                                                    value: until,
+                                                                    unit: "minute",
+                                                                    updateIntervalInSeconds: 1
+                                                                  })
+                                                            ]
+                                                          })
+                                                    }),
+                                                className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"
+                                              }),
+                                          JsxRuntime.jsx("ul", {
+                                                children: param[1].map(function (edge) {
+                                                      return JsxRuntime.jsx(EventsList$EventItem, {
+                                                                  event: edge.fragmentRefs
+                                                                }, edge.id);
+                                                    }),
+                                                className: "divide-y divide-gray-200",
+                                                role: "list"
+                                              })
+                                        ]
+                                      }, dateString);
                           }),
-                      className: "divide-y divide-gray-200",
+                      className: "",
                       role: "list"
                     }),
-                JsxRuntime.jsx(Layout.Container.make, {
-                      children: match.hasNext && !match.isLoadingNext ? Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
+                match.hasNext && !match.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
+                        children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
                                     return JsxRuntime.jsx(ReactRouterDom.Link, {
                                                 to: "./?after=" + endCursor,
                                                 children: t`load more`
                                               });
-                                  })), null) : null
-                    })
+                                  })), null)
+                      }) : null
               ]
             });
 }
@@ -331,6 +415,7 @@ export {
   NodeId ,
   NodeIdDto ,
   EventItem ,
+  sortByDate ,
   make$1 as make,
   $$default as default,
 }

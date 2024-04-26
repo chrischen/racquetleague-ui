@@ -38,7 +38,7 @@ async function loader(param) {
   var params = param.params;
   var query = Core__Option.getExn(Core__Option.map(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), (function (env) {
               return CreateEventPageQuery_graphql.load(env, {}, "store-or-network", undefined, undefined);
-            })));
+            })), undefined);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

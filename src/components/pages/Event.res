@@ -8,6 +8,10 @@ module EventQuery = %relay(`
       __id
       title
       details
+      activity {
+        name
+        slug
+      }
       startDate
       endDate
       location {
@@ -76,7 +80,7 @@ let make = () => {
 
   event
   ->Option.map(event => {
-    let {__id, title, details, location, fragmentRefs} = event
+    let {__id, title, activity, details, location, fragmentRefs} = event
 
     // let startDate =
     //   event.startDate->Option.getOr(
@@ -152,6 +156,8 @@ let make = () => {
                     </div>
                     <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900">
                       // <PageTitle>
+                      {activity->Option.map(a => a.name->React.string)->Option.getOr(React.null)}
+                      {" / "->React.string}
                       {title->Option.map(React.string)->Option.getOr(React.null)}
 
                       // </PageTitle>
@@ -174,7 +180,6 @@ let make = () => {
                   //   className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   //   {"Send"->React.string}
                   // </a>
-
                   // <Menu as="div" className="relative sm:hidden">
                   //   <Menu.Button className="-m-3 block p-3">
                   //     <span className="sr-only">More</span>
@@ -234,9 +239,7 @@ let make = () => {
               </div>
               <div
                 className="-mx-4 px-4 py-8 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-14 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-16 xl:pb-20 xl:pt-16">
-                <h2 className="text-base font-semibold leading-6 text-gray-900">
-                  {t`Details`}
-                </h2>
+                <h2 className="text-base font-semibold leading-6 text-gray-900"> {t`Details`} </h2>
                 {event.startDate
                 ->Option.flatMap(startDate =>
                   event.endDate->Option.map(
@@ -269,12 +272,16 @@ let make = () => {
                   )
                 )
                 ->Option.getOr("???"->React.string)}
-                {location->Option.flatMap(location => location.details
-                ->Option.map(details =>
-                  <p className="mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
-                    {details->React.string}
-                  </p>
-                ))
+                {location
+                ->Option.flatMap(location =>
+                  location.details->Option.map(
+                    details =>
+                      <p
+                        className="mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
+                        {details->React.string}
+                      </p>,
+                  )
+                )
                 ->Option.getOr(React.null)}
                 {details
                 ->Option.map(details =>

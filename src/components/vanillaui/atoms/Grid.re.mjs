@@ -14,12 +14,12 @@ function Grid(props) {
   if (cols !== undefined) {
     return JsxRuntime.jsx("div", {
                 children: children,
-                className: base + " grid-cols-" + cols.toString() + otherClasses
+                className: base + " grid-cols-" + cols.toString(undefined) + otherClasses
               });
   } else if (rows !== undefined) {
     return JsxRuntime.jsx("div", {
                 children: children,
-                className: base + " grid-rows-" + rows.toString() + otherClasses
+                className: base + " grid-rows-" + rows.toString(undefined) + otherClasses
               });
   } else {
     return JsxRuntime.jsx("div", {

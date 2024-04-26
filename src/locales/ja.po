@@ -350,6 +350,57 @@ msgstr "プロフィール写真"
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
+#: src/components/organisms/EventsList.re.mjs:339
+msgid "my events"
+msgstr "私のイベント"
+
+#: src/components/organisms/EventsList.re.mjs:321
+msgid "public events"
+msgstr "公開イベント"
+
+#: src/components/pages/CreateLocationEvent.re.mjs:197
+msgid "Activity"
+msgstr "アクティビティ"
+
+#: src/components/pages/CreateLocationEvent.re.mjs:62
+msgid "Activity is required"
+msgstr "アクティビティが必要です"
+
+#: src/components/pages/CreateLocationEvent.re.mjs:218
+msgid "Date and Start Time"
+msgstr "日付と開始時刻"
+
+#: src/components/pages/CreateLocationEvent.re.mjs:228
+msgid "End Time"
+msgstr "終了時刻"
+
+msgid "Football"
+msgstr "サッカー"
+
+msgid "Futsal"
+msgstr "フットサル"
+
+msgid "Pickleball"
+msgstr "ピクルボール"
+
+msgid "Squash"
+msgstr "スカッシュ"
+
+msgid "Table Tennis"
+msgstr "卓球"
+
+msgid "Tennis"
+msgstr "テニス"
+
+msgid "Volleyball"
+msgstr "バレーボール"
+
+msgid "Badminton"
+msgstr "バドミントン"
+
+msgid "American Football"
+msgstr "アメリカンフットボール"
+
 #: src/components/pages/LoginPage.re.mjs:104
 #, fuzzy
 #~ msgid "Publicy displayed on event attendance lists"

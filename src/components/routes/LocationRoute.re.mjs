@@ -30,7 +30,7 @@ async function loader(param) {
                           },
                           id: params.locationId
                         }, "store-or-network", undefined, undefined);
-            })));
+            })), undefined);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

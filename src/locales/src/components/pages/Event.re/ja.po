@@ -17,11 +17,11 @@ msgstr ""
 msgid "{0, plural, one {player} other {players}}"
 msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/Event.re.mjs:86
+#: src/components/pages/Event.re.mjs:87
 msgid "{0} hours"
 msgstr "{0} 時間"
 
-#: src/components/pages/Event.re.mjs:88
+#: src/components/pages/Event.re.mjs:89
 msgid "{0} hours and {1} minutes"
 msgstr "{0} 時間 {1} 分"
 
@@ -33,7 +33,7 @@ msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
 
-#: src/components/pages/Event.re.mjs:160
+#: src/components/pages/Event.re.mjs:167
 msgid "Attendees"
 msgstr "参加者"
 
@@ -41,15 +41,15 @@ msgstr "参加者"
 msgid "Confirmed"
 msgstr "確認済み"
 
-#: src/components/pages/Event.re.mjs:172
+#: src/components/pages/Event.re.mjs:179
 msgid "Details"
 msgstr "詳細"
 
-#: src/components/pages/Event.re.mjs:117
+#: src/components/pages/Event.re.mjs:118
 msgid "event @"
 msgstr "イベント @"
 
-#: src/components/pages/Event.re.mjs:232
+#: src/components/pages/Event.re.mjs:239
 msgid "Event Location"
 msgstr "イベント場所"
 

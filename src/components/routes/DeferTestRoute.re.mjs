@@ -89,8 +89,8 @@ function DeferTestRoute$CurrentTime(props) {
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 "Current time: ",
-                Core__Option.getOr(Core__Option.map(query.currentTime, (function (prim) {
-                            return prim.toString();
+                Core__Option.getOr(Core__Option.map(query.currentTime, (function (__x) {
+                            return __x.toString(undefined);
                           })), "0")
               ]
             });
@@ -105,8 +105,8 @@ function DeferTestRoute$CurrentTime2(props) {
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 "Current time2: ",
-                Core__Option.getOr(Core__Option.map(query.currentTime2, (function (prim) {
-                            return prim.toString();
+                Core__Option.getOr(Core__Option.map(query.currentTime2, (function (__x) {
+                            return __x.toString(undefined);
                           })), "0")
               ]
             });

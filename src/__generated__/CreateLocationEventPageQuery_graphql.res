@@ -9,6 +9,7 @@ module Types = {
   }
   type response = {
     location: option<response_location>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #CreateLocationEvent_activities]>,
   }
   @live
   type rawResponse = response
@@ -48,7 +49,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"location":{"f":""}}}`
+    json`{"__root":{"location":{"f":""},"":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = ()
@@ -62,7 +63,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"location":{"f":""}}}`
+    json`{"__root":{"location":{"f":""},"":{"f":""}}}`
   )
   @live
   let responseConverterMap = ()
@@ -104,7 +105,21 @@ v1 = [
     "name": "id",
     "variableName": "locationId"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -127,6 +142,11 @@ return {
           }
         ],
         "storageKey": null
+      },
+      {
+        "args": null,
+        "kind": "FragmentSpread",
+        "name": "CreateLocationEvent_activities"
       }
     ],
     "type": "Query",
@@ -146,20 +166,8 @@ return {
         "name": "location",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "name",
-            "storageKey": null
-          },
+          (v2/*: any*/),
+          (v3/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -169,16 +177,36 @@ return {
           }
         ],
         "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Activity",
+        "kind": "LinkedField",
+        "name": "activities",
+        "plural": true,
+        "selections": [
+          (v2/*: any*/),
+          (v3/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "slug",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "06e68ff112bcc36aa90cf1d7861c9d67",
+    "cacheID": "9b2de24ae038c3d2dd4a4b2ecc905eca",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventPageQuery",
     "operationKind": "query",
-    "text": "query CreateLocationEventPageQuery(\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEvent_location\n    id\n  }\n}\n\nfragment CreateLocationEvent_location on Location {\n  id\n  name\n  details\n}\n"
+    "text": "query CreateLocationEventPageQuery(\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEvent_location\n    id\n  }\n  ...CreateLocationEvent_activities\n}\n\nfragment CreateLocationEvent_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEvent_location on Location {\n  id\n  name\n  details\n}\n"
   }
 };
 })() `)

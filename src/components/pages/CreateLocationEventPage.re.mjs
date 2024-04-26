@@ -54,7 +54,8 @@ function CreateLocationEventPage(props) {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map(query.location, (function ($$location) {
                                     return JsxRuntime.jsx(CreateLocationEvent.make, {
-                                                location: $$location.fragmentRefs
+                                                location: $$location.fragmentRefs,
+                                                query: query.fragmentRefs
                                               });
                                   })), t`Location doesn't exist.`);
                 })

@@ -21,13 +21,13 @@ function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
 }
 
-var wrapResponseConverter = {"__root":{"location":{"f":""}}};
+var wrapResponseConverter = {"__root":{"location":{"f":""},"":{"f":""}}};
 
 function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, undefined, null);
 }
 
-var responseConverter = {"__root":{"location":{"f":""}}};
+var responseConverter = {"__root":{"location":{"f":""},"":{"f":""}}};
 
 function convertResponse(v) {
   return RescriptRelay.convertObj(v, responseConverter, undefined, undefined);
@@ -63,7 +63,21 @@ v1 = [
     "name": "id",
     "variableName": "locationId"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -86,6 +100,11 @@ return {
           }
         ],
         "storageKey": null
+      },
+      {
+        "args": null,
+        "kind": "FragmentSpread",
+        "name": "CreateLocationEvent_activities"
       }
     ],
     "type": "Query",
@@ -105,20 +124,8 @@ return {
         "name": "location",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "name",
-            "storageKey": null
-          },
+          (v2/*: any*/),
+          (v3/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -128,16 +135,36 @@ return {
           }
         ],
         "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Activity",
+        "kind": "LinkedField",
+        "name": "activities",
+        "plural": true,
+        "selections": [
+          (v2/*: any*/),
+          (v3/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "slug",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "06e68ff112bcc36aa90cf1d7861c9d67",
+    "cacheID": "9b2de24ae038c3d2dd4a4b2ecc905eca",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventPageQuery",
     "operationKind": "query",
-    "text": "query CreateLocationEventPageQuery(\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEvent_location\n    id\n  }\n}\n\nfragment CreateLocationEvent_location on Location {\n  id\n  name\n  details\n}\n"
+    "text": "query CreateLocationEventPageQuery(\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEvent_location\n    id\n  }\n  ...CreateLocationEvent_activities\n}\n\nfragment CreateLocationEvent_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEvent_location on Location {\n  id\n  name\n  details\n}\n"
   }
 };
 })());

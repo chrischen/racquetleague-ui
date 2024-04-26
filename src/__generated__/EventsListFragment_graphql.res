@@ -6,6 +6,7 @@ module Types = {
 
   type rec fragment_events_edges_node = {
     @live id: string,
+    startDate: option<Util.Datetime.t>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventsList_event]>,
   }
   and fragment_events_edges = {
@@ -31,10 +32,12 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"events_edges_node":{"f":""}}}`
+    json`{"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""}}}`
   )
   @live
-  let fragmentConverterMap = ()
+  let fragmentConverterMap = {
+    "Util.Datetime": Util.Datetime.parse,
+  }
   @live
   let convertFragment = v => v->RescriptRelay.convertObj(
     fragmentConverter,
@@ -184,6 +187,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "id",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "startDate",
                   "storageKey": null
                 },
                 {

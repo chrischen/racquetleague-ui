@@ -13,61 +13,69 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:292
+#: src/components/organisms/EventsList.re.mjs:312
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
-#: src/components/organisms/EventsList.re.mjs:208
+#: src/components/organisms/EventsList.re.mjs:250
 msgid "[Location Missing]"
 msgstr "[場所がありません]"
 
-#: src/components/organisms/EventsList.re.mjs:187
+#: src/components/organisms/EventsList.re.mjs:197
 msgid "[Missing Title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/organisms/EventsList.re.mjs:149
-#: src/components/organisms/EventsList.re.mjs:156
+#: src/components/organisms/EventsList.re.mjs:154
+#: src/components/organisms/EventsList.re.mjs:161
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/EventsList.re.mjs:150
-#: src/components/organisms/EventsList.re.mjs:157
+#: src/components/organisms/EventsList.re.mjs:155
+#: src/components/organisms/EventsList.re.mjs:162
 msgid "{0} hour"
 msgstr "{0} 時間"
 
-#: src/components/organisms/EventsList.re.mjs:151
-#: src/components/organisms/EventsList.re.mjs:158
+#: src/components/organisms/EventsList.re.mjs:156
+#: src/components/organisms/EventsList.re.mjs:163
 msgid "{0} hours"
 msgstr "{0} 時間"
 
-#: src/components/organisms/EventsList.re.mjs:162
+#: src/components/organisms/EventsList.re.mjs:167
 msgid "{0} minute"
 msgstr "{0} 分"
 
-#: src/components/organisms/EventsList.re.mjs:163
+#: src/components/organisms/EventsList.re.mjs:168
 msgid "{0} minutes"
 msgstr "{0} 分"
 
-#: src/components/organisms/EventsList.re.mjs:161
+#: src/components/organisms/EventsList.re.mjs:166
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr "{minutes, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventsList.re.mjs:259
+#: src/components/organisms/EventsList.re.mjs:263
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventsList.re.mjs:316
+#: src/components/organisms/EventsList.re.mjs:400
 msgid "load more"
 msgstr "もっと読み込む"
-
-#: src/components/organisms/EventsList.re.mjs:298
-msgid "load previous"
-msgstr "前のものを読み込む"
 
 #: src/components/pages/LocationPage.re.mjs:49
 msgid "location"
 msgstr "場所"
 
+#: src/components/organisms/EventsList.re.mjs:345
+msgid "my events"
+msgstr "私のイベント"
+
 #: src/components/pages/LocationPage.re.mjs:69
 msgid "Page not found"
 msgstr "ページが見つかりません"
+
+#: src/components/organisms/EventsList.re.mjs:327
+msgid "public events"
+msgstr "公開イベント"
+
+#: src/components/organisms/EventsList.re.mjs:298
+#~ msgid "load previous"
+#~ msgstr "前のものを読み込む"

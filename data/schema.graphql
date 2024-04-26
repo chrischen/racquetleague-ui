@@ -23,7 +23,14 @@ directive @stream(
   label: String
 ) on FIELD
 
+type Activity implements Node {
+  id: ID!
+  name: String!
+  slug: String!
+}
+
 input CreateEventInput {
+  activity: ID!
   details: String
   endDate: Datetime!
   listed: Boolean
@@ -48,6 +55,7 @@ type Error {
 }
 
 type Event implements Node {
+  activity: Activity
   details: String
   endDate: Datetime
   id: ID!
@@ -80,6 +88,8 @@ type EventEdge {
 
 input EventFilters {
   locationId: ID
+  userId: ID
+  viewer: Boolean
 }
 
 """A connection to users."""
@@ -178,6 +188,8 @@ type PageInfo {
 }
 
 type Query {
+  activities: [Activity!]!
+
   """The current time on the server, as a timestamp."""
   currentTime: Float
 
@@ -205,6 +217,6 @@ type User implements Node {
 }
 
 type Viewer {
-  event(id: ID!): Event
+  events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
   user: User
 }

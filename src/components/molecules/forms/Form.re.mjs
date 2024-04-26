@@ -51,7 +51,7 @@ function Form$Input(props) {
                                   }),
                               tmp
                             ],
-                            className: "flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
+                            className: "flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600"
                           }),
                       className: "mt-2"
                     })

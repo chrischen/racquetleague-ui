@@ -177,7 +177,7 @@ function EventRsvps(props) {
                                   }),
                               JsxRuntime.jsxs("dd", {
                                     children: [
-                                      rsvps.length.toString() + " ",
+                                      rsvps.length.toString(undefined) + " ",
                                       plural(rsvps.length, {
                                             one: "player",
                                             other: "players"
@@ -198,7 +198,7 @@ function EventRsvps(props) {
                                           if (count !== 0) {
                                             return JsxRuntime.jsxs("dd", {
                                                         children: [
-                                                          count.toString(),
+                                                          count.toString(undefined),
                                                           " ",
                                                           plural(waitlistCount, {
                                                                 one: "spot available",
@@ -320,7 +320,7 @@ function EventRsvps(props) {
                                         }),
                                     JsxRuntime.jsxs("dd", {
                                           children: [
-                                            waitlistCount.toString() + " ",
+                                            waitlistCount.toString(undefined) + " ",
                                             plural(waitlistCount, {
                                                   one: "player",
                                                   other: "players"

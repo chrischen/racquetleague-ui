@@ -17,6 +17,7 @@ module Fragment = %relay(`
       edges {
         node {
           id
+          startDate
           ...EventsList_event
         }
       }
@@ -34,10 +35,14 @@ module ItemFragment = %relay(`
   fragment EventsList_event on Event {
     id
     title
+    activity {
+      name
+    }
     location {
       id
       name
     }
+    maxRsvps
     rsvps {
       edges {
         node {
@@ -81,7 +86,7 @@ module EventItem = {
   let ts = Lingui.UtilString.t
   @react.component
   let make = (~event) => {
-    let {id, title, location, startDate, rsvps, endDate} = ItemFragment.use(event)
+    let {id, title, activity, location, startDate, rsvps, endDate} = ItemFragment.use(event)
     let playersCount =
       rsvps
       ->Option.flatMap(rsvps => rsvps.edges->Option.map(edges => edges->Array.length))
@@ -133,25 +138,23 @@ module EventItem = {
             <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
               <Link to={"/events/" ++ id} className="flex gap-x-2">
                 <span className="truncate">
-                  {title->Option.getOr(ts`[Missing Title]`)->React.string}
+                {activity->Option.map(a => a.name->React.string)->Option.getOr(React.null)}{" / "->React.string}{title->Option.getOr(ts`[Missing Title]`)->React.string}
                 </span>
                 <span className="absolute inset-0" />
               </Link>
             </h2>
           </div>
           <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
-            <p className="truncate">
-              {location
-              ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-              ->Option.getOr(t`[Location Missing]`)}
-            </p>
-            <svg viewBox="0 0 2 2" className="h-0.5 w-0.5 flex-none fill-gray-600">
-              <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-            </svg>
             <p className="whitespace-nowrap">
               {startDate
               ->Option.map(startDate =>
                 <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
+              )
+              ->Option.getOr(React.null)}
+              {" -> "->React.string}
+              {endDate
+              ->Option.map(endDate =>
+                <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />
               )
               ->Option.getOr(React.null)}
               {duration
@@ -162,14 +165,15 @@ module EventItem = {
               </>)
               ->Option.getOr(React.null)}
             </p>
+            {" @ "->React.string}
           </div>
           <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
             <span className="whitespace-nowrap">
-              {startDate
-              ->Option.map(startDate =>
-                <ReactIntl.FormattedDate value={startDate->Util.Datetime.toDate} />
-              )
-              ->Option.getOr("???"->React.string)}
+              <p className="truncate">
+                {location
+                ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
+                ->Option.getOr(t`[Location Missing]`)}
+              </p>
             </span>
           </div>
         </div>
@@ -188,6 +192,24 @@ module EventItem = {
   }
 }
 
+type dateEntry = (string, array<EventsListFragment_graphql.Types.fragment_events_edges_node>)
+type dates = dict<array<EventsListFragment_graphql.Types.fragment_events_edges_node>>
+// type dates = array<dateEntry>;
+let sortByDate = (
+  dates: dates,
+  event: EventsListFragment_graphql.Types.fragment_events_edges_node,
+): dates => {
+  event.startDate
+  ->Option.map(startDate => {
+    let startDateString = startDate->Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd")
+    switch dates->Js.Dict.get(startDateString) {
+    | None => dates->Js.Dict.set(startDateString, [event])
+    | Some(events) => dates->Js.Dict.set(startDateString, [event, ...events])
+    }
+  })
+  ->ignore
+  dates
+}
 @genType @react.component
 let make = (~events) => {
   open Lingui.Util
@@ -202,37 +224,72 @@ let make = (~events) => {
   //     loadNext(~count=1)->ignore
   //   })
   //
+  let viewer = GlobalQuery.useViewer()
+  let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate)
+
   <>
-    <Layout.Container>
-      {!isLoadingPrevious
-        ? pageInfo.startCursor
-          ->Option.map(startCursor =>
+    {!isLoadingPrevious
+      ? pageInfo.startCursor
+        ->Option.map(startCursor =>
+          <Layout.Container>
             <Util.Link to={"./" ++ "?before=" ++ startCursor}> {t`...load past events`} </Util.Link>
-          )
-          ->Option.getOr(React.null)
-        : React.null}
-      {hasPrevious && !isLoadingPrevious
-        ? pageInfo.startCursor
-          ->Option.map(startCursor =>
-            <Util.Link to={"./" ++ "?before=" ++ startCursor}> {t`load previous`} </Util.Link>
-          )
-          ->Option.getOr(React.null)
-        : React.null}
-    </Layout.Container>
-    <ul role="list" className="divide-y divide-gray-200">
-      {events
-      ->Array.map(edge => <EventItem key={edge.id} event=edge.fragmentRefs />)
+            {" "->React.string}
+            <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
+              <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
+
+            </svg>{" "->React.string}
+            <Util.Link to={"../"}> {t`public events`} </Util.Link>
+            {viewer.user
+            ->Option.map(_ => <>
+              {" "->React.string}
+              <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
+                <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
+              </svg>
+              {" "->React.string}
+              <Util.Link to={"../events"}> {t`my events`} </Util.Link>
+            </>)
+            ->Option.getOr(React.null)}
+          </Layout.Container>
+        )
+        ->Option.getOr(React.null)
+      : React.null}
+    <ul role="list" className="">
+      {eventsByDate
+      ->Js.Dict.entries
+      ->Array.map(((dateString, events)) => {
+        let date = dateString->DateFns.parseISO
+        let until = date->DateFns.differenceInMinutes(Js.Date.make())
+        <li key={dateString}>
+          <div
+            className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
+            <Layout.Container>
+              <h3>
+                <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
+                {" "->React.string}
+                <ReactIntl.FormattedRelativeTime
+                  value={until} unit=#minute updateIntervalInSeconds=1.
+                />
+              </h3>
+            </Layout.Container>
+          </div>
+          <ul role="list" className="divide-y divide-gray-200">
+            {events
+            ->Array.map(edge => <EventItem key={edge.id} event=edge.fragmentRefs />)
+            ->React.array}
+          </ul>
+        </li>
+      })
       ->React.array}
     </ul>
-    <Layout.Container>
-      {hasNext && !isLoadingNext
-        ? pageInfo.endCursor
+    {hasNext && !isLoadingNext
+      ? <Layout.Container>
+          {pageInfo.endCursor
           ->Option.map(endCursor =>
             <Util.Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Util.Link>
           )
-          ->Option.getOr(React.null)
-        : React.null}
-    </Layout.Container>
+          ->Option.getOr(React.null)}
+        </Layout.Container>
+      : React.null}
   </>
 }
 

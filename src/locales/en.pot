@@ -408,3 +408,54 @@ msgstr ""
 #: src/components/organisms/EventsList.re.mjs:292
 msgid "...load past events"
 msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:339
+msgid "my events"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:321
+msgid "public events"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:197
+msgid "Activity"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:62
+msgid "Activity is required"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:218
+msgid "Date and Start Time"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:228
+msgid "End Time"
+msgstr ""
+
+msgid "Football"
+msgstr ""
+
+msgid "Futsal"
+msgstr ""
+
+msgid "Pickleball"
+msgstr ""
+
+msgid "Squash"
+msgstr ""
+
+msgid "Table Tennis"
+msgstr ""
+
+msgid "Tennis"
+msgstr ""
+
+msgid "Volleyball"
+msgstr ""
+
+msgid "Badminton"
+msgstr ""
+
+msgid "American Football"
+msgstr ""

@@ -40,7 +40,7 @@ async function loader(param) {
               return CreateLocationEventPageQuery_graphql.load(env, {
                           locationId: params.locationId
                         }, "store-or-network", undefined, undefined);
-            })));
+            })), undefined);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

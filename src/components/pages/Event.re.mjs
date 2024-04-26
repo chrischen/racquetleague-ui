@@ -71,6 +71,7 @@ function $$Event(props) {
                     var title = $$event.title;
                     var $$location = $$event.location;
                     var details = $$event.details;
+                    var activity = $$event.activity;
                     var until = Core__Option.map($$event.startDate, (function (startDate) {
                             return DifferenceInMinutes.differenceInMinutes(Util.Datetime.toDate(startDate), new Date());
                           }));
@@ -83,9 +84,9 @@ function $$Event(props) {
                             var hours = duration / 60;
                             var minutes = (duration | 0) % 60;
                             if (minutes === 0) {
-                              return t`${hours.toString()} hours`;
+                              return t`${hours.toString(undefined)} hours`;
                             } else {
-                              return t`${hours.toString()} hours and ${minutes.toString()} minutes`;
+                              return t`${hours.toString(undefined)} hours and ${minutes.toString(undefined)} minutes`;
                             }
                           }));
                     return JsxRuntime.jsx(WaitForMessages.make, {
@@ -130,10 +131,16 @@ function $$Event(props) {
                                                                                             ],
                                                                                             className: "text-base leading-6 text-gray-500"
                                                                                           }),
-                                                                                      JsxRuntime.jsx("div", {
-                                                                                            children: Core__Option.getOr(Core__Option.map(title, (function (prim) {
-                                                                                                        return prim;
-                                                                                                      })), null),
+                                                                                      JsxRuntime.jsxs("div", {
+                                                                                            children: [
+                                                                                              Core__Option.getOr(Core__Option.map(activity, (function (a) {
+                                                                                                          return a.name;
+                                                                                                        })), null),
+                                                                                              " / ",
+                                                                                              Core__Option.getOr(Core__Option.map(title, (function (prim) {
+                                                                                                          return prim;
+                                                                                                        })), null)
+                                                                                            ],
                                                                                             className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
                                                                                           })
                                                                                     ]

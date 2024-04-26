@@ -4,7 +4,10 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_location = {
+  type rec fragment_activity = {
+    name: string,
+  }
+  and fragment_location = {
     @live id: string,
     name: option<string>,
   }
@@ -18,9 +21,11 @@ module Types = {
     edges: option<array<option<fragment_rsvps_edges>>>,
   }
   type fragment = {
+    activity: option<fragment_activity>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
     location: option<fragment_location>,
+    maxRsvps: option<int>,
     rsvps: option<fragment_rsvps>,
     startDate: option<Util.Datetime.t>,
     title: option<string>,
@@ -67,6 +72,13 @@ var v0 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
+},
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
 };
 return {
   "argumentDefinitions": [],
@@ -85,20 +97,33 @@ return {
     {
       "alias": null,
       "args": null,
+      "concreteType": "Activity",
+      "kind": "LinkedField",
+      "name": "activity",
+      "plural": false,
+      "selections": [
+        (v1/*: any*/)
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Location",
       "kind": "LinkedField",
       "name": "location",
       "plural": false,
       "selections": [
         (v0/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "name",
-          "storageKey": null
-        }
+        (v1/*: any*/)
       ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "maxRsvps",
       "storageKey": null
     },
     {

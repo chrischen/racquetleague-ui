@@ -37,6 +37,7 @@ by various facets, such as all public events, viewer's confirmed events, etc.
 - [ ] Calendar feed of EventsList
 
 ### EventsList Filters (views)
+- [X] Viewer's events list
 - [ ] Viewer's confirmed events list
 - [ ] Viewer's joinable events (includes unlisted events for which the viewer is
 a member of the event's group)
@@ -49,6 +50,7 @@ a member of the event's group)
 - [ ] Assign a Group to an Event (group owns the Event)
 - [x] Unlisted events
 - [ ] Earmark spots for certain player levels
+- [ ] Photo gallery (for showing the court or instructions on entry)
 
 ### Location
 - [ ] Assign a Group to a Location (group owns the location record)
