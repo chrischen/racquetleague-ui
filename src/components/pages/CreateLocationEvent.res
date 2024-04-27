@@ -58,11 +58,11 @@ type inputs = {
 let schema = Zod.z->Zod.object(
   (
     {
-      title: Zod.z->Zod.string({required_error: ts`Title is required`})->Zod.String.min(1),
-      activity: Zod.z->Zod.string({required_error: ts`Activity is required`}),
+      title: Zod.z->Zod.string({required_error: ts`title is required`})->Zod.String.min(1),
+      activity: Zod.z->Zod.string({required_error: ts`activity is required`}),
       maxRsvps: Zod.z->Zod.number({})->Zod.Number.gte(1.)->Zod.optional,
-      startDate: Zod.z->Zod.string({required_error: ts`Event date is required`})->Zod.String.min(1),
-      endTime: Zod.z->Zod.string({required_error: ts`End time is required`})->Zod.String.min(5),
+      startDate: Zod.z->Zod.string({required_error: ts`event date is required`})->Zod.String.min(1),
+      endTime: Zod.z->Zod.string({required_error: ts`end time is required`})->Zod.String.min(5),
       details: Zod.z->Zod.string({})->Zod.optional,
       listed: Zod.z->Zod.boolean({}),
     }: inputs
@@ -120,7 +120,6 @@ let make = (~location, ~query) => {
   }, [])
 
   let onSubmit = (data: inputs) => {
-    Js.log(data);
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
       "client:root"->RescriptRelay.makeDataId,
       "EventsListFragment_events",
@@ -162,12 +161,12 @@ let make = (~location, ~query) => {
         <Grid className="grid-cols-1">
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormSection
-              title={t`${location.name->Option.getOr("?")} Event Details`}
-              description={t`Details specific to this event on the specified date and time.`}>
+              title={t`${location.name->Option.getOr("?")} event details`}
+              description={t`details specific to this event on the specified date and time.`}>
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-4 md:col-span-3">
                   <Input
-                    label={t`Title`}
+                    label={t`title`}
                     id="title"
                     name="title"
                     placeholder={ts`All Level Badminton`}
@@ -182,7 +181,7 @@ let make = (~location, ~query) => {
                 </div>
                 <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg">
                   <Select
-                    label={t`Activity`}
+                    label={t`activity`}
                     id="activity"
                     name="activity"
                     options={query.activities->Array.map(activity => (
@@ -200,7 +199,7 @@ let make = (~location, ~query) => {
                 </div>
                 <div className="sm:col-span-2">
                   <Input
-                    label={t`Date and Start Time`}
+                    label={t`date and start time`}
                     type_="datetime-local"
                     id="startDate"
                     name="startDate"
@@ -209,7 +208,7 @@ let make = (~location, ~query) => {
                 </div>
                 <div className="sm:col-span-2">
                   <Input
-                    label={t`End Time`}
+                    label={t`end time`}
                     type_="time"
                     id="endTime"
                     name="endTime"
@@ -218,7 +217,7 @@ let make = (~location, ~query) => {
                 </div>
                 <div className="sm:col-span-2">
                   <Input
-                    label={t`Max participants`}
+                    label={t`max participants`}
                     type_="number"
                     id="maxRsvps"
                     name="maxRsvps"
@@ -230,11 +229,11 @@ let make = (~location, ~query) => {
                 </div>
                 <div className="col-span-full">
                   <TextArea
-                    label={t`Location Details`}
+                    label={t`location details`}
                     id="location_details"
                     name="location_details"
                     hint={<Router.Link to="/locations/edit/">
-                      {t`Edit the location to edit the details for this location.`}
+                      {t`edit the location to edit the details for this location.`}
                     </Router.Link>}
                     disabled=true
                     defaultValue={location.details->Option.getOr("")}
@@ -242,10 +241,10 @@ let make = (~location, ~query) => {
                 </div>
                 <div className="col-span-full">
                   <TextArea
-                    label={t`Event Details`}
+                    label={t`event details`}
                     id="details"
                     name="details"
-                    hint={t`Any details from the location will already be included. Mention any additional event-specific instructions, rules, or details.`}
+                    hint={t`any details from the location will already be included. Mention any additional event-specific instructions, rules, or details.`}
                     register={register(Details)}
                   />
                 </div>
@@ -270,10 +269,10 @@ let make = (~location, ~query) => {
                       />
                     </HeadlessUi.Switch>
                     <HeadlessUi.Switch.Label \"as"="span" className="ml-3 text-sm">
-                      <span className="font-medium text-gray-900"> {t`List publicly`} </span>
+                      <span className="font-medium text-gray-900"> {t`list publicly`} </span>
                       {" "->React.string}
                       <span className="text-gray-500">
-                        {t`Show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`}
+                        {t`show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`}
                       </span>
                     </HeadlessUi.Switch.Label>
                   </HeadlessUi.Switch.Group>

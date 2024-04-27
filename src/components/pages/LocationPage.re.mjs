@@ -66,7 +66,7 @@ function LocationPage(props) {
                                                 ]
                                               });
                                   })), JsxRuntime.jsx(Layout.Container.make, {
-                                  children: t`Page not found`
+                                  children: t`page not found`
                                 }));
                 })
             });

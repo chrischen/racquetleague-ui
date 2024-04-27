@@ -11,7 +11,7 @@ function NotFound(props) {
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsx(Layout.Container.make, {
-                              children: t`Page not found.`
+                              children: t`page not found.`
                             });
                 })
             });

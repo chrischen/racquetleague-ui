@@ -45,8 +45,8 @@ function CreateEvent(props) {
                               children: JsxRuntime.jsxs(Grid.make, {
                                     children: [
                                       JsxRuntime.jsx(FormSection.make, {
-                                            title: t`Event Location`,
-                                            description: Caml_option.some(t`Choose the location where this event will be held.`),
+                                            title: t`event location`,
+                                            description: Caml_option.some(t`choose the location where this event will be held.`),
                                             children: JsxRuntime.jsxs("div", {
                                                   children: [
                                                     JsxRuntime.jsx("ul", {
@@ -62,7 +62,7 @@ function CreateEvent(props) {
                                                     JsxRuntime.jsxs("a", {
                                                           children: [
                                                             showCreateLocation ? "- " : "+ ",
-                                                            t`Add New Location`
+                                                            t`add new location`
                                                           ],
                                                           href: "#",
                                                           onClick: (function (param) {

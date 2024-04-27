@@ -18,12 +18,20 @@ msgid "...load past events"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:250
-msgid "[Location Missing]"
+msgid "[location missing]"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:250
+#~ msgid "[Location Missing]"
+#~ msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:197
+msgid "[missing title]"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:197
-msgid "[Missing Title]"
-msgstr ""
+#~ msgid "[Missing Title]"
+#~ msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:154
 #: src/components/organisms/EventsList.re.mjs:161

@@ -18,11 +18,11 @@ msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
 #: src/components/organisms/EventsList.re.mjs:250
-msgid "[Location Missing]"
+msgid "[location missing]"
 msgstr "[場所がありません]"
 
 #: src/components/organisms/EventsList.re.mjs:197
-msgid "[Missing Title]"
+msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
 #: src/components/organisms/EventsList.re.mjs:154
@@ -71,19 +71,3 @@ msgstr "私のイベント"
 #: src/components/organisms/EventsList.re.mjs:327
 msgid "public events"
 msgstr "公開イベント"
-
-#: src/components/pages/CreateEvent.re.mjs:155
-#~ msgid ""
-#~ "Any details from the location will already be included. Mention any "
-#~ "additional event-specific instructions, rules, or details."
-#~ msgstr ""
-#~ "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、"
-#~ "詳細」があれば記載してください。"
-
-#: src/components/organisms/EventsList.re.mjs:298
-#~ msgid "load previous"
-#~ msgstr "前のものを読み込む"
-
-#: src/components/pages/CreateEvent.re.mjs:108
-#~ msgid "Title"
-#~ msgstr "タイトル"

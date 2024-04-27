@@ -162,7 +162,7 @@ function Form$ImageUpload(props) {
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsx("label", {
-                      children: t`Cover photo`,
+                      children: t`cover photo`,
                       className: "block text-sm font-medium leading-6 text-gray-900",
                       htmlFor: "cover-photo"
                     }),
@@ -219,14 +219,14 @@ function Form$Footer(props) {
               children: [
                 Core__Option.getOr(Core__Option.map(props.onCancel, (function (onCancel) {
                             return JsxRuntime.jsx("button", {
-                                        children: t`Cancel`,
+                                        children: t`cancel`,
                                         className: "text-sm font-semibold leading-6 text-gray-900",
                                         type: "button",
                                         onClick: onCancel
                                       });
                           })), null),
                 JsxRuntime.jsx("button", {
-                      children: t`Save`,
+                      children: t`save`,
                       className: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
                       type: "submit"
                     })

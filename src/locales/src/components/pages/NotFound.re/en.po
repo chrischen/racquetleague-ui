@@ -14,5 +14,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/pages/NotFound.re.mjs:14
-msgid "Page not found."
+msgid "page not found."
 msgstr ""
+
+#: src/components/pages/NotFound.re.mjs:14
+#~ msgid "Page not found."
+#~ msgstr ""

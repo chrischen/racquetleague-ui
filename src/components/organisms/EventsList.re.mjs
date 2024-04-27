@@ -194,7 +194,7 @@ function EventsList$EventItem(props) {
                                                                         return a.name;
                                                                       })), null),
                                                             " / ",
-                                                            Core__Option.getOr(match.title, t`[Missing Title]`)
+                                                            Core__Option.getOr(match.title, t`[missing title]`)
                                                           ],
                                                           className: "truncate"
                                                         }),
@@ -247,7 +247,7 @@ function EventsList$EventItem(props) {
                                                             return Core__Option.map(l.name, (function (name) {
                                                                           return name;
                                                                         }));
-                                                          })), t`[Location Missing]`),
+                                                          })), t`[location missing]`),
                                                 className: "truncate"
                                               }),
                                           className: "whitespace-nowrap"

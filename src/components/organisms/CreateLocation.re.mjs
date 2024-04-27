@@ -69,10 +69,10 @@ var ControllerOfInputs = {};
 
 var schema = Zod.object({
       name: Zod.string({
-              required_error: t`Name is required`
+              required_error: t`name is required`
             }).min(1),
       address: Zod.string({
-              required_error: t`Address is required`
+              required_error: t`address is required`
             }).min(1),
       links: Zod.string({}).optional(),
       details: Zod.string({}).optional()
@@ -124,54 +124,57 @@ function CreateLocation(props) {
                               children: JsxRuntime.jsxs(Grid.make, {
                                     className: "grid-cols-1",
                                     children: [
-                                      JsxRuntime.jsxs(FormSection.make, {
-                                            title: t`Location`,
-                                            children: [
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsx(Form.Input.make, {
-                                                            label: t`Name`,
-                                                            name: "name",
-                                                            id: "name",
-                                                            placeholder: t`Akabane Elementary School`,
-                                                            register: register("name", undefined)
-                                                          }),
-                                                      JsxRuntime.jsx("p", {
-                                                            children: tmp
-                                                          })
-                                                    ],
-                                                    className: "col-span-full"
-                                                  }),
-                                              JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx(Form.Input.make, {
-                                                          label: t`Address`,
-                                                          name: "address",
-                                                          id: "address",
-                                                          register: register("address", undefined)
+                                      JsxRuntime.jsx(FormSection.make, {
+                                            title: t`location`,
+                                            children: JsxRuntime.jsxs("div", {
+                                                  children: [
+                                                    JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx(Form.Input.make, {
+                                                                  label: t`name`,
+                                                                  name: "name",
+                                                                  id: "name",
+                                                                  placeholder: t`Akabane Elementary School`,
+                                                                  register: register("name", undefined)
+                                                                }),
+                                                            JsxRuntime.jsx("p", {
+                                                                  children: tmp
+                                                                })
+                                                          ],
+                                                          className: "col-span-full"
                                                         }),
-                                                    className: "sm:col-span-2"
-                                                  }),
-                                              JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx(Form.Input.make, {
-                                                          label: t`Maps link`,
-                                                          name: "links",
-                                                          id: "links",
-                                                          placeholder: "https://maps.app.goo.gl/77FBSgrFRFAQrPrM8",
-                                                          register: register("links", undefined)
+                                                    JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsx(Form.Input.make, {
+                                                                label: t`address`,
+                                                                name: "address",
+                                                                id: "address",
+                                                                register: register("address", undefined)
+                                                              }),
+                                                          className: "sm:col-span-3"
                                                         }),
-                                                    className: "sm:col-span-2"
-                                                  }),
-                                              JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx(Form.TextArea.make, {
-                                                          label: t`Details`,
-                                                          name: "details",
-                                                          id: "details",
-                                                          hint: Caml_option.some(t`Instructions or information that will apply to all events held at this location.`),
-                                                          register: register("details", undefined)
+                                                    JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsx(Form.Input.make, {
+                                                                label: t`maps link`,
+                                                                name: "links",
+                                                                id: "links",
+                                                                placeholder: "https://maps.app.goo.gl/77FBSgrFRFAQrPrM8",
+                                                                register: register("links", undefined)
+                                                              }),
+                                                          className: "sm:col-span-2"
                                                         }),
-                                                    className: "col-span-full"
-                                                  })
-                                            ]
+                                                    JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsx(Form.TextArea.make, {
+                                                                label: t`details`,
+                                                                name: "details",
+                                                                id: "details",
+                                                                hint: Caml_option.some(t`Instructions or information that will apply to all events held at this location.`),
+                                                                register: register("details", undefined)
+                                                              }),
+                                                          className: "col-span-full"
+                                                        })
+                                                  ],
+                                                  className: "mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+                                                })
                                           }),
                                       JsxRuntime.jsx(Form.Footer.make, {
                                             onCancel: onCancel

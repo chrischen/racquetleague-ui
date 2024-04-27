@@ -18,12 +18,20 @@ msgid "...load past events"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:250
-msgid "[Location Missing]"
+msgid "[location missing]"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:250
+#~ msgid "[Location Missing]"
+#~ msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:197
+msgid "[missing title]"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:197
-msgid "[Missing Title]"
-msgstr ""
+#~ msgid "[Missing Title]"
+#~ msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:154
 #: src/components/organisms/EventsList.re.mjs:161
@@ -73,8 +81,12 @@ msgid "my events"
 msgstr ""
 
 #: src/components/pages/LocationPage.re.mjs:69
-msgid "Page not found"
+msgid "page not found"
 msgstr ""
+
+#: src/components/pages/LocationPage.re.mjs:69
+#~ msgid "Page not found"
+#~ msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:327
 msgid "public events"

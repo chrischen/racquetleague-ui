@@ -48,8 +48,8 @@ type inputs = {
 let schema = Zod.z->Zod.object(
   (
     {
-      name: Zod.z->Zod.string({required_error: ts`Name is required`})->Zod.String.min(1),
-      address: Zod.z->Zod.string({required_error: ts`Address is required`})->Zod.String.min(1),
+      name: Zod.z->Zod.string({required_error: ts`name is required`})->Zod.String.min(1),
+      address: Zod.z->Zod.string({required_error: ts`address is required`})->Zod.String.min(1),
       links: Zod.z->Zod.string({})->Zod.optional,
       details: Zod.z->Zod.string({})->Zod.optional,
     }: inputs
@@ -81,19 +81,23 @@ let make = (~onCancel) => {
       (),
     )
 
-    let links = data.links->Option.map(link => link->String.splitByRegExp(%re("/,[ ]+/"))->Array.reduce([], (acc, link) => {
-      switch link {
+    let links = data.links->Option.map(link =>
+      link
+      ->String.splitByRegExp(%re("/,[ ]+/"))
+      ->Array.reduce([], (acc, link) => {
+        switch link {
         | Some(link) => acc->Array.concat([link])
         | None => acc
-      }
-    }))
+        }
+      })
+    )
     commitMutationCreate(
       ~variables={
         input: {
           name: data.name,
           address: data.address,
-          links: ?links,
-          details: ?data.details
+          ?links,
+          details: ?data.details,
         },
         connections: [connectionId],
       },
@@ -105,50 +109,49 @@ let make = (~onCancel) => {
     {() =>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid className="grid-cols-1">
-          <FormSection title={t`Location`}>
-            <div className="col-span-full">
-              <Input
-                label={t`Name`}
-                id="name"
-                name="name"
-                placeholder={ts`Akabane Elementary School`}
-                register={register(Name)}
-              />
-              <p>
-                {switch errors.name {
-                | Some({message: ?Some(message)}) => message
-                | _ => ""
-                }->React.string}
-              </p>
-            </div>
-            <div className="sm:col-span-2">
-              <Input
-                label={t`Address`}
-                id="address"
-                name="address"
-                register={register(Address)}
-              />
-            </div>
-            <div className="sm:col-span-2">
-              <Input
-                label={t`Maps link`}
-                id="links"
-                name="links"
-                placeholder="https://maps.app.goo.gl/77FBSgrFRFAQrPrM8"
-                register={register(Links)}
-              />
-            </div>
-            <div className="col-span-full">
-              <TextArea
-                label={t`Details`}
-                id="details"
-                name="details"
-                hint={t`Instructions or information that will apply to all events held at this location.`}
-                register={register(Details)}
-              />
+          <FormSection title={t`location`}>
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="col-span-full">
+                <Input
+                  label={t`name`}
+                  id="name"
+                  name="name"
+                  placeholder={ts`Akabane Elementary School`}
+                  register={register(Name)}
+                />
+                <p>
+                  {switch errors.name {
+                  | Some({message: ?Some(message)}) => message
+                  | _ => ""
+                  }->React.string}
+                </p>
+              </div>
+              <div className="sm:col-span-3">
+                <Input
+                  label={t`address`} id="address" name="address" register={register(Address)}
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <Input
+                  label={t`maps link`}
+                  id="links"
+                  name="links"
+                  placeholder="https://maps.app.goo.gl/77FBSgrFRFAQrPrM8"
+                  register={register(Links)}
+                />
+              </div>
+              <div className="col-span-full">
+                <TextArea
+                  label={t`details`}
+                  id="details"
+                  name="details"
+                  hint={t`Instructions or information that will apply to all events held at this location.`}
+                  register={register(Details)}
+                />
+              </div>
             </div>
           </FormSection>
-          <Form.Footer onCancel/>
+          <Form.Footer onCancel />
         </Grid>
       </form>}
   </WaitForMessages>

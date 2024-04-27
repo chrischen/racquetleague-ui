@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/components/pages/CreateLocationEvent.re.mjs:327
+msgid "Badminton"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/components/pages/CreateLocationEvent.re.mjs:331
 msgid "Table Tennis"
 msgstr ""
@@ -28,38 +33,57 @@ msgstr ""
 msgid "Futsal"
 msgstr ""
 
-#. js-lingui-explicit-id
-#: src/components/pages/CreateLocationEvent.re.mjs:327
-msgid "Badminton"
+#: src/components/pages/CreateLocationEvent.re.mjs:176
+msgid "{0} event details"
 msgstr ""
 
-#: src/components/pages/CreateLocationEvent.re.mjs:176
-msgid "{0} Event Details"
-msgstr ""
+#: src/components/pages/CreateLocationEvent.re.mjs:177
+#~ msgid "{0} Event Details"
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:198
-msgid "Activity"
+msgid "activity"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:199
+#~ msgid "Activity"
+#~ msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:63
+msgid "activity is required"
 msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:63
-msgid "Activity is required"
-msgstr ""
+#~ msgid "Activity is required"
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:186
 msgid "All Level Badminton"
 msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:272
-msgid "Any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:273
+#~ msgid "Any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+#~ msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:222
+msgid "cancel"
 msgstr ""
 
 #: src/components/molecules/forms/Form.re.mjs:222
-msgid "Cancel"
-msgstr ""
+#~ msgid "Cancel"
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:217
-msgid "Date and Start Time"
+msgid "date and start time"
 msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:218
+#~ msgid "Date and Start Time"
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:176
 #: src/components/pages/CreateLocationEvent.re.mjs:186
@@ -72,57 +96,109 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:177
-msgid "Details specific to this event on the specified date and time."
+msgid "details specific to this event on the specified date and time."
 msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:177
+#~ msgid "Details specific to this event on the specified date and time."
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:260
-msgid "Edit the location to edit the details for this location."
+msgid "edit the location to edit the details for this location."
 msgstr ""
 
+#: src/components/pages/CreateLocationEvent.re.mjs:261
+#~ msgid "Edit the location to edit the details for this location."
+#~ msgstr ""
+
 #: src/components/pages/CreateLocationEvent.re.mjs:227
-msgid "End Time"
+msgid "end time"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:228
+#~ msgid "End Time"
+#~ msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:70
+msgid "end time is required"
 msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:70
-msgid "End time is required"
+#~ msgid "End time is required"
+#~ msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:67
+msgid "event date is required"
 msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:67
-msgid "Event date is required"
-msgstr ""
+#~ msgid "Event date is required"
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:269
-msgid "Event Details"
+msgid "event details"
 msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:270
+#~ msgid "Event Details"
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:298
-msgid "List publicly"
+msgid "list publicly"
 msgstr ""
 
+#: src/components/pages/CreateLocationEvent.re.mjs:299
+#~ msgid "List publicly"
+#~ msgstr ""
+
 #: src/components/pages/CreateLocationEvent.re.mjs:255
-msgid "Location Details"
+msgid "location details"
 msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:256
+#~ msgid "Location Details"
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEventPage.re.mjs:60
 msgid "Location doesn't exist."
 msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:237
-msgid "Max participants"
+msgid "max participants"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:238
+#~ msgid "Max participants"
+#~ msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:229
+msgid "save"
 msgstr ""
 
 #: src/components/molecules/forms/Form.re.mjs:229
-msgid "Save"
-msgstr ""
+#~ msgid "Save"
+#~ msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:303
-msgid "Show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
 msgstr ""
 
+#: src/components/pages/CreateLocationEvent.re.mjs:304
+#~ msgid "Show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+#~ msgstr ""
+
 #: src/components/pages/CreateLocationEvent.re.mjs:183
-msgid "Title"
+msgid "title"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:184
+#~ msgid "Title"
+#~ msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:60
+msgid "title is required"
 msgstr ""
 
 #: src/components/pages/CreateLocationEvent.re.mjs:60
-msgid "Title is required"
-msgstr ""
+#~ msgid "Title is required"
+#~ msgstr ""

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"e6nW9P\":\"Page not found.\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"aUpomp\":\"page not found.\",\"e6nW9P\":\"Page not found.\"}");

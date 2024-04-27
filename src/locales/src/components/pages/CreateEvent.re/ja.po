@@ -14,71 +14,57 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/pages/CreateEvent.re.mjs:65
-msgid "Add New Location"
+msgid "add new location"
 msgstr "新しい場所を追加"
 
-#: src/components/organisms/CreateLocation.re.mjs:147
-msgid "Address"
+#: src/components/organisms/CreateLocation.re.mjs:148
+msgid "address"
 msgstr "住所"
 
 #: src/components/organisms/CreateLocation.re.mjs:75
-msgid "Address is required"
+msgid "address is required"
 msgstr "住所が必要です"
 
-#: src/components/organisms/CreateLocation.re.mjs:136
+#: src/components/organisms/CreateLocation.re.mjs:137
 msgid "Akabane Elementary School"
 msgstr "赤羽小学校"
 
 #: src/components/molecules/forms/Form.re.mjs:222
-msgid "Cancel"
+msgid "cancel"
 msgstr "キャンセル"
 
 #: src/components/pages/CreateEvent.re.mjs:49
-msgid "Choose the location where this event will be held."
+msgid "choose the location where this event will be held."
 msgstr "このイベントが開催される場所を選択してください。"
 
-#: src/components/organisms/CreateLocation.re.mjs:166
-msgid "Details"
+#: src/components/organisms/CreateLocation.re.mjs:167
+msgid "details"
 msgstr "詳細"
 
 #: src/components/pages/CreateEvent.re.mjs:48
-msgid "Event Location"
+msgid "event location"
 msgstr "イベント場所"
 
-#: src/components/organisms/CreateLocation.re.mjs:169
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
+#: src/components/organisms/CreateLocation.re.mjs:170
+msgid "Instructions or information that will apply to all events held at this location."
 msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
 
 #: src/components/organisms/CreateLocation.re.mjs:128
-msgid "Location"
+msgid "location"
 msgstr "場所"
 
-#: src/components/organisms/CreateLocation.re.mjs:156
-msgid "Maps link"
+#: src/components/organisms/CreateLocation.re.mjs:157
+msgid "maps link"
 msgstr "マップリンク"
 
-#: src/components/organisms/CreateLocation.re.mjs:133
-msgid "Name"
+#: src/components/organisms/CreateLocation.re.mjs:134
+msgid "name"
 msgstr "場所名"
 
 #: src/components/organisms/CreateLocation.re.mjs:72
-msgid "Name is required"
+msgid "name is required"
 msgstr "場所名は必須"
 
 #: src/components/molecules/forms/Form.re.mjs:229
-msgid "Save"
+msgid "save"
 msgstr "保存"
-
-#: src/components/pages/CreateEvent.re.mjs:155
-#~ msgid ""
-#~ "Any details from the location will already be included. Mention any "
-#~ "additional event-specific instructions, rules, or details."
-#~ msgstr ""
-#~ "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、"
-#~ "詳細」があれば記載してください。"
-
-#: src/components/pages/CreateEvent.re.mjs:108
-#~ msgid "Title"
-#~ msgstr "タイトル"

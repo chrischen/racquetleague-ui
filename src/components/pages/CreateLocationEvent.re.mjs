@@ -57,17 +57,17 @@ function use$2(fRef) {
 
 var schema = Zod.object({
       title: Zod.string({
-              required_error: t`Title is required`
+              required_error: t`title is required`
             }).min(1),
       activity: Zod.string({
-            required_error: t`Activity is required`
+            required_error: t`activity is required`
           }),
       maxRsvps: Zod.number({}).gte(1).optional(),
       startDate: Zod.string({
-              required_error: t`Event date is required`
+              required_error: t`event date is required`
             }).min(1),
       endTime: Zod.string({
-              required_error: t`End time is required`
+              required_error: t`end time is required`
             }).min(5),
       details: Zod.string({}).optional(),
       listed: Zod.boolean({})
@@ -106,7 +106,6 @@ function CreateLocationEvent(props) {
           setValue("endTime", defaultEndTime, undefined);
         }), []);
   var onSubmit = function (data) {
-    console.log(data);
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "EventsListFragment_events", undefined);
     var startDate = DateFns.parseISO(data.startDate);
     var endDate = DateFns.parse(data.endTime, "HH:mm", startDate);
@@ -174,14 +173,14 @@ function CreateLocationEvent(props) {
                                                   children: JsxRuntime.jsxs("form", {
                                                         children: [
                                                           JsxRuntime.jsx(FormSection.make, {
-                                                                title: t`${Core__Option.getOr($$location.name, "?")} Event Details`,
-                                                                description: Caml_option.some(t`Details specific to this event on the specified date and time.`),
+                                                                title: t`${Core__Option.getOr($$location.name, "?")} event details`,
+                                                                description: Caml_option.some(t`details specific to this event on the specified date and time.`),
                                                                 children: JsxRuntime.jsxs("div", {
                                                                       children: [
                                                                         JsxRuntime.jsxs("div", {
                                                                               children: [
                                                                                 JsxRuntime.jsx(Form.Input.make, {
-                                                                                      label: t`Title`,
+                                                                                      label: t`title`,
                                                                                       name: "title",
                                                                                       id: "title",
                                                                                       placeholder: t`All Level Badminton`,
@@ -196,7 +195,7 @@ function CreateLocationEvent(props) {
                                                                         JsxRuntime.jsxs("div", {
                                                                               children: [
                                                                                 JsxRuntime.jsx(Form.Select.make, {
-                                                                                      label: t`Activity`,
+                                                                                      label: t`activity`,
                                                                                       name: "activity",
                                                                                       id: "activity",
                                                                                       options: query.activities.map(function (activity) {
@@ -215,7 +214,7 @@ function CreateLocationEvent(props) {
                                                                             }),
                                                                         JsxRuntime.jsx("div", {
                                                                               children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                    label: t`Date and Start Time`,
+                                                                                    label: t`date and start time`,
                                                                                     name: "startDate",
                                                                                     id: "startDate",
                                                                                     type_: "datetime-local",
@@ -225,7 +224,7 @@ function CreateLocationEvent(props) {
                                                                             }),
                                                                         JsxRuntime.jsx("div", {
                                                                               children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                    label: t`End Time`,
+                                                                                    label: t`end time`,
                                                                                     name: "endTime",
                                                                                     id: "endTime",
                                                                                     type_: "time",
@@ -235,7 +234,7 @@ function CreateLocationEvent(props) {
                                                                             }),
                                                                         JsxRuntime.jsx("div", {
                                                                               children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                    label: t`Max participants`,
+                                                                                    label: t`max participants`,
                                                                                     name: "maxRsvps",
                                                                                     id: "maxRsvps",
                                                                                     type_: "number",
@@ -253,12 +252,12 @@ function CreateLocationEvent(props) {
                                                                             }),
                                                                         JsxRuntime.jsx("div", {
                                                                               children: JsxRuntime.jsx(Form.TextArea.make, {
-                                                                                    label: t`Location Details`,
+                                                                                    label: t`location details`,
                                                                                     name: "location_details",
                                                                                     id: "location_details",
                                                                                     hint: Caml_option.some(JsxRuntime.jsx(ReactRouterDom.Link, {
                                                                                               to: "/locations/edit/",
-                                                                                              children: t`Edit the location to edit the details for this location.`
+                                                                                              children: t`edit the location to edit the details for this location.`
                                                                                             })),
                                                                                     defaultValue: Core__Option.getOr($$location.details, ""),
                                                                                     disabled: true
@@ -267,10 +266,10 @@ function CreateLocationEvent(props) {
                                                                             }),
                                                                         JsxRuntime.jsx("div", {
                                                                               children: JsxRuntime.jsx(Form.TextArea.make, {
-                                                                                    label: t`Event Details`,
+                                                                                    label: t`event details`,
                                                                                     name: "details",
                                                                                     id: "details",
-                                                                                    hint: Caml_option.some(t`Any details from the location will already be included. Mention any additional event-specific instructions, rules, or details.`),
+                                                                                    hint: Caml_option.some(t`any details from the location will already be included. Mention any additional event-specific instructions, rules, or details.`),
                                                                                     register: register("details", undefined)
                                                                                   }),
                                                                               className: "col-span-full"
@@ -296,12 +295,12 @@ function CreateLocationEvent(props) {
                                                                                             className: "ml-3 text-sm",
                                                                                             children: [
                                                                                               JsxRuntime.jsx("span", {
-                                                                                                    children: t`List publicly`,
+                                                                                                    children: t`list publicly`,
                                                                                                     className: "font-medium text-gray-900"
                                                                                                   }),
                                                                                               " ",
                                                                                               JsxRuntime.jsx("span", {
-                                                                                                    children: t`Show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`,
+                                                                                                    children: t`show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`,
                                                                                                     className: "text-gray-500"
                                                                                                   })
                                                                                             ]

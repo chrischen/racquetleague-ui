@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-27 15:49+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:28
+msgid "are you in a private browsing mode?"
+msgstr "プライベートブラウジングモードですか？"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:22
+msgid "login failed"
+msgstr "ログインに失敗しました"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:18
+msgid "login with Line"
+msgstr "Lineでログイン"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:32
+msgid "please try again outside of private browsing as it can interfere with Line login. if the problem pursists, you can try the safe-mode login button below."
+msgstr "Lineログインに影響を与える可能性があるため、プライベートブラウジング外で再試行してください。問題が解決しない場合は、下のセーフモードログインボタンを試してみてください。"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:36
+msgid "safe-mode login with Line"
+msgstr "Lineでセーフモードログイン"

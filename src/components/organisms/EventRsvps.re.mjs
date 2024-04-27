@@ -172,7 +172,7 @@ function EventRsvps(props) {
                       JsxRuntime.jsxs("div", {
                             children: [
                               JsxRuntime.jsx("dt", {
-                                    children: t`Confirmed`,
+                                    children: t`confirmed`,
                                     className: "text-sm font-semibold leading-6 text-gray-900"
                                   }),
                               JsxRuntime.jsxs("dd", {
@@ -209,12 +209,12 @@ function EventRsvps(props) {
                                                       });
                                           } else {
                                             return JsxRuntime.jsx("dd", {
-                                                        children: t`Join Waitlist`,
+                                                        children: t`join waitlist`,
                                                         className: "rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-600 ring-1 ring-inset ring-yellow-600/20"
                                                       });
                                           }
                                         })), JsxRuntime.jsx("dd", {
-                                        children: t`Spots Available`,
+                                        children: t`spots available`,
                                         className: "rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20"
                                       }))
                             ],
@@ -315,7 +315,7 @@ function EventRsvps(props) {
                             children: JsxRuntime.jsxs("div", {
                                   children: [
                                     JsxRuntime.jsx("dt", {
-                                          children: t`Waitlist`,
+                                          children: t`waitlist`,
                                           className: "text-sm font-semibold leading-6 text-gray-900"
                                         }),
                                     JsxRuntime.jsxs("dd", {

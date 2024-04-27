@@ -18,13 +18,13 @@ msgid "(logout)"
 msgstr "(サインアウト)"
 
 #: src/components/molecules/LoginLink.re.mjs:10
+#~ msgid "login"
+#~ msgstr "ログイン"
+
+#: src/components/molecules/LoginLink.re.mjs:10
 msgid "login with Line"
 msgstr "Lineでログイン"
 
 #: src/components/organisms/Nav.re.mjs:102
 msgid "racquet league"
 msgstr "ラケットリーグ"
-
-#: src/components/molecules/LoginLink.re.mjs:10
-#~ msgid "login"
-#~ msgstr "ログイン"

@@ -164,7 +164,7 @@ function $$Event(props) {
                                                                 JsxRuntime.jsxs("div", {
                                                                       children: [
                                                                         JsxRuntime.jsx("h2", {
-                                                                              children: t`Attendees`,
+                                                                              children: t`attendees`,
                                                                               className: "sr-only"
                                                                             }),
                                                                         JsxRuntime.jsx(EventRsvps.make, {
@@ -176,7 +176,7 @@ function $$Event(props) {
                                                                 JsxRuntime.jsxs("div", {
                                                                       children: [
                                                                         JsxRuntime.jsx("h2", {
-                                                                              children: t`Details`,
+                                                                              children: t`details`,
                                                                               className: "text-base font-semibold leading-6 text-gray-900"
                                                                             }),
                                                                         Core__Option.getOr(Core__Option.flatMap($$event.startDate, (function (startDate) {
@@ -236,7 +236,7 @@ function $$Event(props) {
                                                                 JsxRuntime.jsxs("div", {
                                                                       children: [
                                                                         JsxRuntime.jsx("h2", {
-                                                                              children: t`Event Location`,
+                                                                              children: t`event location`,
                                                                               className: "text-sm font-semibold leading-6 text-gray-900"
                                                                             }),
                                                                         Core__Option.getOr(Core__Option.map($$location, (function ($$location) {
@@ -257,7 +257,7 @@ function $$Event(props) {
                                   })
                               });
                   })), JsxRuntime.jsx("div", {
-                  children: "Event Doesn't Exist"
+                  children: t`event doesn't exist`
                 }));
 }
 

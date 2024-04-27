@@ -26,16 +26,24 @@ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:175
-msgid "Confirmed"
+msgid "confirmed"
 msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:175
+#~ msgid "Confirmed"
+#~ msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:30
 msgid "join event"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:212
-msgid "Join Waitlist"
+msgid "join waitlist"
 msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:212
+#~ msgid "Join Waitlist"
+#~ msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:20
 msgid "leave event"
@@ -69,9 +77,17 @@ msgid "Player"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:217
-msgid "Spots Available"
+msgid "spots available"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:217
+#~ msgid "Spots Available"
+#~ msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:318
+msgid "waitlist"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:318
-msgid "Waitlist"
-msgstr ""
+#~ msgid "Waitlist"
+#~ msgstr ""

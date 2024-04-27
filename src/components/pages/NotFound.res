@@ -3,6 +3,6 @@
 let make = () => {
   open Lingui.Util
   <WaitForMessages>
-    {() => <Layout.Container> {t`Page not found.`} </Layout.Container>}
+    {() => <Layout.Container> {t`page not found.`} </Layout.Container>}
   </WaitForMessages>
 }

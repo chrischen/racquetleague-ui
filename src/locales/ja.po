@@ -54,15 +54,15 @@ msgid "all events"
 msgstr "すべてのイベント"
 
 #: src/components/pages/CreateEvent.mjs:84
-msgid "End Date"
+msgid "end date"
 msgstr "終了日"
 
 #: src/components/pages/CreateEvent.mjs:74
-msgid "Start Date"
+msgid "start date"
 msgstr "開始日"
 
 #: src/components/pages/CreateEvent.mjs:64
-msgid "Title"
+msgid "title"
 msgstr "タイトル"
 
 #: src/components/organisms/Nav.mjs:78
@@ -86,37 +86,37 @@ msgstr ""
 "細」があれば記載してください。"
 
 #: src/components/molecules/forms/Form.re.mjs:172
-msgid "Cancel"
+msgid "cancel"
 msgstr "キャンセル"
 
 #: src/components/pages/CreateEvent.re.mjs:132
 #: src/components/pages/CreateEvent.re.mjs:142
-msgid "Date and Time"
+msgid "date and time"
 msgstr "日時"
 
 #: src/components/molecules/forms/FormSection.re.mjs:12
 #: src/components/pages/CreateEvent.re.mjs:152
-msgid "Details"
+msgid "details"
 msgstr "詳細"
 
 #: src/components/pages/CreateEvent.re.mjs:103
-msgid "Details specific to this event on the specified date and time."
+msgid "details specific to this event on the specified date and time."
 msgstr "指定された日時のこのイベントに特有の詳細。"
 
 #: src/components/pages/CreateEvent.re.mjs:122
-msgid "Location (Google Maps link)"
-msgstr "場所（Googleマップリンク）"
+msgid "location (google maps link)"
+msgstr "場所（googleマップリンク）"
 
 #: src/components/molecules/forms/Form.re.mjs:177
-msgid "Save"
+msgid "save"
 msgstr "保存"
 
 #: src/components/organisms/CreateLocation.re.mjs:147
-msgid "Address"
+msgid "address"
 msgstr "住所"
 
 #: src/components/organisms/CreateLocation.re.mjs:75
-msgid "Address is required"
+msgid "address is required"
 msgstr "住所が必要です"
 
 #: src/components/organisms/CreateLocation.re.mjs:136
@@ -125,24 +125,20 @@ msgstr "赤羽小学校"
 
 #: src/components/organisms/CreateLocation.re.mjs:169
 msgid ""
-"Instructions or information that will apply to all events held at this "
+"instructions or information that will apply to all events held at this "
 "location."
 msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
 
-#: src/components/organisms/CreateLocation.re.mjs:128
-msgid "Location"
-msgstr "場所"
-
 #: src/components/organisms/CreateLocation.re.mjs:156
-msgid "Maps link"
+msgid "maps link"
 msgstr "マップリンク"
 
 #: src/components/organisms/CreateLocation.re.mjs:133
-msgid "Name"
+msgid "name"
 msgstr "場所名"
 
 #: src/components/organisms/CreateLocation.re.mjs:72
-msgid "Name is required"
+msgid "name is required"
 msgstr "場所名は必須"
 
 #: src/components/organisms/EventsList.re.mjs:152
@@ -154,15 +150,15 @@ msgid "Add New Location"
 msgstr "新しい場所を追加"
 
 #: src/components/pages/CreateEvent.re.mjs:46
-msgid "Choose the location where this event will be held."
+msgid "choose the location where this event will be held."
 msgstr "このイベントが開催される場所を選択してください。"
 
 #: src/components/pages/CreateEvent.re.mjs:45
-msgid "Event Location"
+msgid "event location"
 msgstr "イベント場所"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:132
-msgid "{0} Event Details"
+msgid "{0} event Details"
 msgstr "{0} イベント詳細"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:142
@@ -170,31 +166,31 @@ msgid "All Level Badminton"
 msgstr "すべてのレベルのバドミントン"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:178
-msgid "Edit the location to edit the details for this location."
+msgid "edit the location to edit the details for this location."
 msgstr "この場所の詳細を編集するには、場所を編集します。"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:55
-msgid "End time is required"
+msgid "end time is required"
 msgstr "終了時刻が必要です"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:52
-msgid "Event date is required"
+msgid "event date is required"
 msgstr "イベント日付が必要です"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:187
-msgid "Event Details"
+msgid "event details"
 msgstr "イベント詳細"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:173
-msgid "Location Details"
+msgid "location details"
 msgstr "場所の詳細"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:49
-msgid "Title is required"
+msgid "title is required"
 msgstr "タイトルが必要です"
 
 #: src/components/pages/CreateLocationEventPage.re.mjs:59
-msgid "Location doesn't exist."
+msgid "location doesn't exist."
 msgstr "場所が存在しません。"
 
 #: src/components/pages/Event.re.mjs:87
@@ -206,11 +202,11 @@ msgid "{0} hours and {1} minutes"
 msgstr "{0} 時間 {1} 分"
 
 #: src/components/organisms/EventsList.re.mjs:218
-msgid "[Location Missing]"
+msgid "[location missing]"
 msgstr "[場所がありません]"
 
 #: src/components/organisms/EventsList.re.mjs:185
-msgid "[Missing Title]"
+msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
 #: src/components/organisms/EventsList.re.mjs:148
@@ -250,23 +246,19 @@ msgstr "プレイヤー"
 
 #: src/components/organisms/EventRsvps.re.mjs:198
 #: src/components/organisms/EventRsvps.re.mjs:208
-msgid "Spots Available"
+msgid "spots available"
 msgstr "利用可能なスポット"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:182
-msgid "Max participants"
+msgid "max participants"
 msgstr "最大参加者数"
-
-#: src/components/pages/Event.re.mjs:160
-msgid "Attendees"
-msgstr "参加者"
 
 #: src/components/pages/Event.re.mjs:117
 msgid "event @"
 msgstr "イベント @"
 
 #: src/components/organisms/EventRsvps.re.mjs:311
-msgid "Waitlist"
+msgid "waitlist"
 msgstr "ウェイトリスト"
 
 #: src/components/organisms/EventRsvps.re.mjs:203
@@ -278,15 +270,15 @@ msgid "copyright the racquet league contributors"
 msgstr "著作権ラケットリーグの寄稿者"
 
 #: src/components/organisms/EventRsvps.re.mjs:175
-msgid "Confirmed"
+msgid "confirmed"
 msgstr "確認済み"
 
 #: src/components/pages/NotFound.re.mjs:11
-msgid "Page not found."
+msgid "page not found."
 msgstr "ページが見つかりません。"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:258
-msgid "List publicly"
+msgid "list publicly"
 msgstr "一般公開リスト"
 
 #: src/components/pages/LocationPage.re.mjs:49
@@ -294,12 +286,12 @@ msgid "location"
 msgstr "場所"
 
 #: src/components/pages/LocationPage.re.mjs:69
-msgid "Page not found"
+msgid "page not found"
 msgstr "ページが見つかりません"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:263
 msgid ""
-"Show your event publicly on our home page. Otherwise, only people with a "
+"show your event publicly on our home page. Otherwise, only people with a "
 "link to your event will be able to find it."
 msgstr ""
 "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
@@ -310,40 +302,36 @@ msgid "login with Line"
 msgstr "Lineでログイン"
 
 #: src/components/pages/LoginPage.re.mjs:96
-msgid "Display Name"
+msgid "display name"
 msgstr "表示名"
 
 #: src/components/pages/LoginPage.re.mjs:76
-msgid "Email Address"
+msgid "email address"
 msgstr "メールアドレス"
 
-#: src/components/pages/LoginPage.re.mjs:60
-msgid "Login with Line"
-msgstr "Lineでログイン"
-
 #: src/components/pages/LoginPage.re.mjs:83
-msgid "Notification of updates or cancellations to events (you can opt out)"
+msgid "notification of updates or cancellations to events (you can opt out)"
 msgstr "イベントの更新やキャンセルの通知（オプトアウト可能）"
 
 #: src/components/pages/LoginPage.re.mjs:100
-msgid "Publicly displayed on event attendance lists"
+msgid "publicly displayed on event attendance lists"
 msgstr "イベント出席リストに公開されます"
 
 #: src/components/pages/LoginPage.re.mjs:70
-msgid "We will collect the following information from your Line account"
+msgid "we will collect the following information from your Line account"
 msgstr "Lineアカウントから以下の情報を収集します"
 
 #: src/components/pages/LoginPage.re.mjs:84
-msgid "Event organizers and other users cannot view your email"
+msgid "event organizers and other users cannot view your email"
 msgstr ""
 "イベント主催者や他のユーザーはあなたのメールアドレスを見ることはできません"
 
 #: src/components/pages/LoginPage.re.mjs:61
-msgid "Privacy Disclosure"
+msgid "privacy disclosure"
 msgstr "プライバシー開示"
 
 #: src/components/pages/LoginPage.re.mjs:100
-msgid "Profile Picture"
+msgid "profile picture"
 msgstr "プロフィール写真"
 
 #: src/components/organisms/EventsList.re.mjs:292
@@ -359,19 +347,19 @@ msgid "public events"
 msgstr "公開イベント"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:197
-msgid "Activity"
+msgid "activity"
 msgstr "アクティビティ"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:62
-msgid "Activity is required"
+msgid "activity is required"
 msgstr "アクティビティが必要です"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:218
-msgid "Date and Start Time"
+msgid "date and start time"
 msgstr "日付と開始時刻"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:228
-msgid "End Time"
+msgid "end time"
 msgstr "終了時刻"
 
 msgid "Football"
@@ -401,7 +389,59 @@ msgstr "バドミントン"
 msgid "American Football"
 msgstr "アメリカンフットボール"
 
-#: src/components/pages/LoginPage.re.mjs:104
-#, fuzzy
-#~ msgid "Publicy displayed on event attendance lists"
-#~ msgstr "イベント出席リストに公開されます"
+#: src/components/pages/LoginLineErrorPage.re.mjs:32
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem pursists, you can try the safe-mode login button below."
+msgstr ""
+"Lineログインに影響を与える可能性があるため、プライベートブラウジング外で再試"
+"行してください。問題が解決しない場合は、下のセーフモードログインボタンを試し"
+"てみてください。"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:36
+msgid "safe-mode login with Line"
+msgstr "Lineでセーフモードログイン"
+
+#: src/components/organisms/CreateLocation.re.mjs:170
+msgid ""
+"Instructions or information that will apply to all events held at this "
+"location."
+msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
+
+#: src/components/organisms/EventRsvps.re.mjs:212
+msgid "join waitlist"
+msgstr "ウェイトリストに参加"
+
+#: src/components/pages/CreateEvent.re.mjs:65
+msgid "add new location"
+msgstr "新しい場所を追加"
+
+#: src/components/pages/CreateLocationEvent.re.mjs:176
+msgid "{0} event details"
+msgstr "{0} イベント詳細"
+
+#: src/components/pages/CreateLocationEvent.re.mjs:272
+msgid ""
+"any details from the location will already be included. Mention any "
+"additional event-specific instructions, rules, or details."
+msgstr ""
+
+#: src/components/pages/CreateLocationEventPage.re.mjs:60
+msgid "Location doesn't exist."
+msgstr "場所が存在しません。"
+
+#: src/components/pages/Event.re.mjs:167
+msgid "attendees"
+msgstr "参加者"
+
+#: src/components/pages/Event.re.mjs:260
+msgid "event doesn't exist"
+msgstr "イベントが存在しません"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:28
+msgid "are you in a private browsing mode?"
+msgstr "プライベートブラウジングモードですか？"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:22
+msgid "login failed"
+msgstr "ログインに失敗しました"

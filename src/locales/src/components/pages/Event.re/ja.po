@@ -34,23 +34,27 @@ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
 
 #: src/components/pages/Event.re.mjs:167
-msgid "Attendees"
+msgid "attendees"
 msgstr "参加者"
 
 #: src/components/organisms/EventRsvps.re.mjs:175
-msgid "Confirmed"
+msgid "confirmed"
 msgstr "確認済み"
 
 #: src/components/pages/Event.re.mjs:179
-msgid "Details"
+msgid "details"
 msgstr "詳細"
 
 #: src/components/pages/Event.re.mjs:118
 msgid "event @"
 msgstr "イベント @"
 
+#: src/components/pages/Event.re.mjs:260
+msgid "event doesn't exist"
+msgstr "イベントが存在しません"
+
 #: src/components/pages/Event.re.mjs:239
-msgid "Event Location"
+msgid "event location"
 msgstr "イベント場所"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:30
@@ -58,7 +62,7 @@ msgid "join event"
 msgstr "参加する"
 
 #: src/components/organisms/EventRsvps.re.mjs:212
-msgid "Join Waitlist"
+msgid "join waitlist"
 msgstr "ウェイトリストに参加"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:20
@@ -89,17 +93,9 @@ msgid "Player"
 msgstr "プレイヤー"
 
 #: src/components/organisms/EventRsvps.re.mjs:217
-msgid "Spots Available"
+msgid "spots available"
 msgstr "利用可能なスポット"
 
 #: src/components/organisms/EventRsvps.re.mjs:318
-msgid "Waitlist"
+msgid "waitlist"
 msgstr "ウェイトリスト"
-
-#: src/components/pages/Event.re.mjs:102
-#~ msgid "event:"
-#~ msgstr "イベント:"
-
-#: src/components/molecules/LoginLink.re.mjs:10
-#~ msgid "login"
-#~ msgstr "ログイン"

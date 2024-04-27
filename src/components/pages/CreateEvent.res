@@ -41,8 +41,8 @@ let make = (~locations) => {
     {() => <Layout.Container>
     <Grid>
       <FormSection
-        title={t`Event Location`}
-        description={t`Choose the location where this event will be held.`}>
+        title={t`event location`}
+        description={t`choose the location where this event will be held.`}>
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
           <ul>
             {locations
@@ -56,7 +56,7 @@ let make = (~locations) => {
             ->React.array}
           </ul>
           <a href="#" onClick={_ => setShowCreateLocation(prev => !prev)}>
-          {(showCreateLocation ? "- " : "+ ")->React.string}{t`Add New Location`}
+          {(showCreateLocation ? "- " : "+ ")->React.string}{t`add new location`}
           </a>
           <FramerMotion.AnimatePresence mode="sync">
             {showCreateLocation

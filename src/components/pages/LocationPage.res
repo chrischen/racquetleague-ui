@@ -33,7 +33,7 @@ let make = () => {
         </Layout.Container>
         <EventsList events={query.fragmentRefs} />
       </>)
-      ->Option.getOr(<Layout.Container>{t`Page not found`}</Layout.Container>)
+      ->Option.getOr(<Layout.Container>{t`page not found`}</Layout.Container>)
     }}
   </WaitForMessages>
 }

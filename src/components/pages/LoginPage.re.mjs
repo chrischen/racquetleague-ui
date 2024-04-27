@@ -15,34 +15,34 @@ function LoginPage(props) {
                                 JsxRuntime.jsxs("h1", {
                                       children: [
                                         JsxRuntime.jsx("div", {
-                                              children: t`Login with Line`,
+                                              children: t`login with Line`,
                                               className: "text-base leading-6 text-gray-500"
                                             }),
                                         JsxRuntime.jsx("div", {
-                                              children: t`Privacy Disclosure`,
+                                              children: t`privacy disclosure`,
                                               className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
                                             })
                                       ]
                                     }),
                                 JsxRuntime.jsx("h2", {
-                                      children: t`We will collect the following information from your Line account`,
+                                      children: t`we will collect the following information from your Line account`,
                                       className: "mt-4 text-lg font-semibold leading-6 text-gray-900"
                                     }),
                                 JsxRuntime.jsxs("dl", {
                                       children: [
                                         JsxRuntime.jsx("dt", {
-                                              children: t`Email Address`,
+                                              children: t`email address`,
                                               className: "mt-4 text-lg font-semibold leading-6 text-gray-900"
                                             }),
                                         JsxRuntime.jsx("dd", {
                                               children: JsxRuntime.jsxs("ul", {
                                                     children: [
                                                       JsxRuntime.jsx("li", {
-                                                            children: t`Notification of updates or cancellations to events (you can opt out)`,
+                                                            children: t`notification of updates or cancellations to events (you can opt out)`,
                                                             className: "mt-1"
                                                           }),
                                                       JsxRuntime.jsx("li", {
-                                                            children: t`Event organizers and other users cannot view your email`,
+                                                            children: t`event organizers and other users cannot view your email`,
                                                             className: "mt-1"
                                                           })
                                                     ],
@@ -51,19 +51,19 @@ function LoginPage(props) {
                                               className: "mt-2 text-base leading-6 text-gray-500"
                                             }),
                                         JsxRuntime.jsx("dt", {
-                                              children: t`Display Name`,
+                                              children: t`display name`,
                                               className: "mt-4 text-lg font-semibold leading-6 text-gray-900"
                                             }),
                                         JsxRuntime.jsx("dd", {
-                                              children: t`Publicly displayed on event attendance lists`,
+                                              children: t`publicly displayed on event attendance lists`,
                                               className: "mt-2 text-base leading-6 text-gray-500"
                                             }),
                                         JsxRuntime.jsx("dt", {
-                                              children: t`Profile Picture`,
+                                              children: t`profile picture`,
                                               className: "mt-4 text-lg font-semibold leading-6 text-gray-900"
                                             }),
                                         JsxRuntime.jsx("dd", {
-                                              children: t`Publicly displayed on event attendance lists`,
+                                              children: t`publicly displayed on event attendance lists`,
                                               className: "mt-2 text-base leading-6 text-gray-500"
                                             })
                                       ],

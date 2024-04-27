@@ -138,7 +138,7 @@ module EventItem = {
             <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
               <Link to={"/events/" ++ id} className="flex gap-x-2">
                 <span className="truncate">
-                {activity->Option.map(a => a.name->React.string)->Option.getOr(React.null)}{" / "->React.string}{title->Option.getOr(ts`[Missing Title]`)->React.string}
+                {activity->Option.map(a => a.name->React.string)->Option.getOr(React.null)}{" / "->React.string}{title->Option.getOr(ts`[missing title]`)->React.string}
                 </span>
                 <span className="absolute inset-0" />
               </Link>
@@ -172,7 +172,7 @@ module EventItem = {
               <p className="truncate">
                 {location
                 ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-                ->Option.getOr(t`[Location Missing]`)}
+                ->Option.getOr(t`[location missing]`)}
               </p>
             </span>
           </div>

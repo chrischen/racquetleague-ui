@@ -142,7 +142,7 @@ let make = (~event) => {
     <dl className="flex flex-wrap">
       <div className="flex-auto pl-6 pt-6">
         <dt className="text-sm font-semibold leading-6 text-gray-900">
-          {t`Confirmed`}
+          {t`confirmed`}
         </dt>
         <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
           {(rsvps->Array.length->Int.toString ++ " ")->React.string}
@@ -157,7 +157,7 @@ let make = (~event) => {
           | 0 =>
             <dd
               className="rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-600 ring-1 ring-inset ring-yellow-600/20">
-              {t`Join Waitlist`}
+              {t`join waitlist`}
             </dd>
           | _ =>
             <dd
@@ -171,7 +171,7 @@ let make = (~event) => {
         ->Option.getOr(
           <dd
             className="rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20">
-            {t`Spots Available`}
+            {t`spots available`}
           </dd>,
         )}
       </div>
@@ -237,7 +237,7 @@ let make = (~event) => {
       </div>
       <div className="mt-6 border-t border-gray-900/5 pl-6 pt-6">
         <div className="flex-auto">
-          <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`Waitlist`} </dt>
+          <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`waitlist`} </dt>
           <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
             {(waitlistCount->Int.toString ++ " ")->React.string}
             {plural(waitlistCount, {one: "player", other: "players"})}

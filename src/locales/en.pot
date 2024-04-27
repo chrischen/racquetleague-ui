@@ -49,22 +49,6 @@ msgstr ""
 msgid "Players"
 msgstr ""
 
-#: src/components/organisms/ViewerRsvpStatus.mjs:14
-msgid "You are going to this event"
-msgstr ""
-
-#: src/components/pages/Events.mjs:60
-msgid "All Events"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.mjs:208
-msgid "Load More"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.mjs:201
-msgid "No players yet"
-msgstr ""
-
 #: src/components/organisms/EventRsvps.mjs:161
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
@@ -117,130 +101,16 @@ msgstr ""
 msgid "login"
 msgstr ""
 
-#: src/components/organisms/ViewerRsvpStatus.mjs:40
-msgid "login to join the event"
-msgstr ""
-
-#: src/components/pages/CreateEvent.re.mjs:155
-msgid ""
-"Any details from the location will already be included. Mention any "
-"additional event-specific instructions, rules, or details."
-msgstr ""
-
 #: src/components/pages/CreateEvent.re.mjs:111
 msgid "Badminton @ Akabanebashi 3 Courts"
-msgstr ""
-
-#: src/components/molecules/forms/Form.re.mjs:172
-msgid "Cancel"
-msgstr ""
-
-#: src/components/pages/CreateEvent.re.mjs:132
-#: src/components/pages/CreateEvent.re.mjs:142
-msgid "Date and Time"
-msgstr ""
-
-#: src/components/molecules/forms/FormSection.re.mjs:12
-#: src/components/pages/CreateEvent.re.mjs:152
-msgid "Details"
-msgstr ""
-
-#: src/components/pages/CreateEvent.re.mjs:103
-msgid "Details specific to this event on the specified date and time."
-msgstr ""
-
-#: src/components/pages/CreateEvent.re.mjs:122
-msgid "Location (Google Maps link)"
-msgstr ""
-
-#: src/components/molecules/forms/Form.re.mjs:177
-msgid "Save"
-msgstr ""
-
-#: src/components/organisms/CreateLocation.re.mjs:147
-msgid "Address"
-msgstr ""
-
-#: src/components/organisms/CreateLocation.re.mjs:75
-msgid "Address is required"
 msgstr ""
 
 #: src/components/organisms/CreateLocation.re.mjs:136
 msgid "Akabane Elementary School"
 msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:169
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
-msgstr ""
-
-#: src/components/organisms/CreateLocation.re.mjs:128
-msgid "Location"
-msgstr ""
-
-#: src/components/organisms/CreateLocation.re.mjs:156
-msgid "Maps link"
-msgstr ""
-
-#: src/components/organisms/CreateLocation.re.mjs:133
-msgid "Name"
-msgstr ""
-
-#: src/components/organisms/CreateLocation.re.mjs:72
-msgid "Name is required"
-msgstr ""
-
 #: src/components/organisms/EventsList.re.mjs:152
 msgid "{playersCount, plural, one {player} other {players}}"
-msgstr ""
-
-#: src/components/pages/CreateEvent.re.mjs:62
-msgid "Add New Location"
-msgstr ""
-
-#: src/components/pages/CreateEvent.re.mjs:46
-msgid "Choose the location where this event will be held."
-msgstr ""
-
-#: src/components/pages/CreateEvent.re.mjs:45
-msgid "Event Location"
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:132
-msgid "{0} Event Details"
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:142
-msgid "All Level Badminton"
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:178
-msgid "Edit the location to edit the details for this location."
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:55
-msgid "End time is required"
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:52
-msgid "Event date is required"
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:187
-msgid "Event Details"
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:173
-msgid "Location Details"
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:49
-msgid "Title is required"
-msgstr ""
-
-#: src/components/pages/CreateLocationEventPage.re.mjs:59
-msgid "Location doesn't exist."
 msgstr ""
 
 #: src/components/pages/Event.re.mjs:87
@@ -249,14 +119,6 @@ msgstr ""
 
 #: src/components/pages/Event.re.mjs:89
 msgid "{0} hours and {1} minutes"
-msgstr ""
-
-#: src/components/organisms/EventsList.re.mjs:218
-msgid "[Location Missing]"
-msgstr ""
-
-#: src/components/organisms/EventsList.re.mjs:185
-msgid "[Missing Title]"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:148
@@ -285,26 +147,8 @@ msgstr ""
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:203
-msgid "Join Waitlist"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:246
-#: src/components/organisms/EventRsvps.re.mjs:356
-msgid "Player"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:198
-#: src/components/organisms/EventRsvps.re.mjs:208
-msgid "Spots Available"
-msgstr ""
-
-#: src/components/pages/CreateLocationEvent.re.mjs:182
-msgid "Max participants"
-msgstr ""
-
 #: src/components/pages/Event.re.mjs:160
-msgid "Attendees"
+msgid "attendees"
 msgstr ""
 
 #: src/components/pages/Event.re.mjs:117
@@ -458,4 +302,250 @@ msgid "Badminton"
 msgstr ""
 
 msgid "American Football"
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:28
+msgid "Are you in a private browsing mode?"
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:22
+msgid "Login Failed"
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:32
+msgid ""
+"Please try again outside of private browsing as it can interfere with Line "
+"login. If the problem pursists, you can try the safe-mode login button below."
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:36
+msgid "safe-mode login with Line"
+msgstr ""
+
+#: src/components/organisms/CreateLocation.re.mjs:148
+msgid "address"
+msgstr ""
+
+#: src/components/organisms/CreateLocation.re.mjs:75
+msgid "address is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocation.re.mjs:167
+msgid "details"
+msgstr ""
+
+#: src/components/organisms/CreateLocation.re.mjs:157
+msgid "maps link"
+msgstr ""
+
+#: src/components/organisms/CreateLocation.re.mjs:134
+msgid "name"
+msgstr ""
+
+#: src/components/organisms/CreateLocation.re.mjs:72
+msgid "name is required"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:175
+msgid "confirmed"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:212
+msgid "join waitlist"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:217
+msgid "spots available"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:318
+msgid "waitlist"
+msgstr ""
+
+#: src/components/pages/CreateEvent.re.mjs:65
+msgid "add new location"
+msgstr ""
+
+#: src/components/pages/CreateEvent.re.mjs:49
+msgid "choose the location where this event will be held."
+msgstr ""
+
+#: src/components/pages/CreateEvent.re.mjs:48
+msgid "event location"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:176
+msgid "{0} event details"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:198
+msgid "activity"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:272
+msgid ""
+"any details from the location will already be included. Mention any "
+"additional event-specific instructions, rules, or details."
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:217
+msgid "date and start time"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:260
+msgid "edit the location to edit the details for this location."
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:227
+msgid "end time"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:269
+msgid "event details"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:298
+msgid "list publicly"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:255
+msgid "location details"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:237
+msgid "max participants"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:303
+msgid ""
+"show your event publicly on our home page. Otherwise, only people with a "
+"link to your event will be able to find it."
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:183
+msgid "title"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:260
+msgid "event doesn't exist"
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:28
+msgid "are you in a private browsing mode?"
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:22
+msgid "login failed"
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:32
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. If the problem pursists, you can try the safe-mode login button below."
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:222
+msgid "cancel"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:229
+msgid "save"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:250
+msgid "[location missing]"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:197
+msgid "[missing title]"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:63
+msgid "activity is required"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:177
+msgid "details specific to this event on the specified date and time."
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:70
+msgid "end time is required"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:67
+msgid "event date is required"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:60
+msgid "title is required"
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:32
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem pursists, you can try the safe-mode login button below."
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:54
+msgid "display name"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:34
+msgid "email address"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:45
+msgid "event organizers and other users cannot view your email"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:41
+msgid "notification of updates or cancellations to events (you can opt out)"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:22
+msgid "privacy disclosure"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:62
+msgid "profile picture"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:58
+#: src/components/pages/LoginPage.re.mjs:66
+msgid "publicly displayed on event attendance lists"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:28
+msgid "we will collect the following information from your Line account"
+msgstr ""
+
+#: src/components/pages/NotFound.re.mjs:14
+msgid "page not found."
+msgstr ""
+
+#: src/components/organisms/CreateLocation.re.mjs:170
+msgid ""
+"Instructions or information that will apply to all events held at this "
+"location."
+msgstr ""
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:40
+msgid "login to join the event"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:255
+#: src/components/organisms/EventRsvps.re.mjs:365
+msgid "Player"
+msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:186
+msgid "All Level Badminton"
+msgstr ""
+
+#: src/components/pages/CreateLocationEventPage.re.mjs:60
+msgid "Location doesn't exist."
+msgstr ""
+
+#: src/components/pages/LocationPage.re.mjs:69
+msgid "page not found"
 msgstr ""

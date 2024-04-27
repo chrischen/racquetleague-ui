@@ -61,7 +61,7 @@ module ImgixParams = {
       let values = auto->String.split(",")
       switch values->Array.find(x => x == "format") {
       | Some(_) => auto
-      | None => ["format"]->Array.concat(values)->Array.joinWith(",")
+      | None => ["format"]->Array.concat(values)->Array.join(",")
       }
     })
     ->Belt.Option.getWithDefault("format")
