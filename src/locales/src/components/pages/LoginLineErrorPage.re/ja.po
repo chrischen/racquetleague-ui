@@ -13,22 +13,27 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:28
+#: src/components/pages/LoginLineErrorPage.re.mjs:33
 msgid "are you in a private browsing mode?"
 msgstr "プライベートブラウジングモードですか？"
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:22
+#: src/components/pages/LoginLineErrorPage.re.mjs:27
 msgid "login failed"
 msgstr "ログインに失敗しました"
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:18
+#: src/components/pages/LoginLineErrorPage.re.mjs:23
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:32
-msgid "please try again outside of private browsing as it can interfere with Line login. if the problem pursists, you can try the safe-mode login button below."
-msgstr "Lineログインに影響を与える可能性があるため、プライベートブラウジング外で再試行してください。問題が解決しない場合は、下のセーフモードログインボタンを試してみてください。"
+#: src/components/pages/LoginLineErrorPage.re.mjs:37
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem pursists, you can try the safe-mode login button below."
+msgstr ""
+"Lineログインに影響を与える可能性があるため、プライベートブラウジング外で再試"
+"行してください。問題が解決しない場合は、下のセーフモードログインボタンを試し"
+"てみてください。"
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:36
+#: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"
 msgstr "Lineでセーフモードログイン"

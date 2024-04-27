@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/LoginPage.re.mjs:54
+#: src/components/pages/LoginPage.re.mjs:57
 msgid "display name"
 msgstr ""
 
@@ -21,7 +21,7 @@ msgstr ""
 #~ msgid "Display Name"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:34
+#: src/components/pages/LoginPage.re.mjs:37
 msgid "email address"
 msgstr ""
 
@@ -29,7 +29,7 @@ msgstr ""
 #~ msgid "Email Address"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:45
+#: src/components/pages/LoginPage.re.mjs:48
 msgid "event organizers and other users cannot view your email"
 msgstr ""
 
@@ -45,8 +45,8 @@ msgstr ""
 #~ msgid "Login"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:18
-#: src/components/pages/LoginPage.re.mjs:73
+#: src/components/pages/LoginPage.re.mjs:21
+#: src/components/pages/LoginPage.re.mjs:76
 msgid "login with Line"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 #~ msgid "not"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:41
+#: src/components/pages/LoginPage.re.mjs:44
 msgid "notification of updates or cancellations to events (you can opt out)"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr ""
 #~ msgid "Notification of updates or cancellations to events (you can opt out)"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:22
+#: src/components/pages/LoginPage.re.mjs:25
 msgid "privacy disclosure"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 #~ msgid "Privacy Disclosure"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:62
+#: src/components/pages/LoginPage.re.mjs:65
 msgid "profile picture"
 msgstr ""
 
@@ -86,8 +86,8 @@ msgstr ""
 #~ msgid "Profile Picture"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:58
-#: src/components/pages/LoginPage.re.mjs:66
+#: src/components/pages/LoginPage.re.mjs:61
+#: src/components/pages/LoginPage.re.mjs:69
 msgid "publicly displayed on event attendance lists"
 msgstr ""
 
@@ -100,7 +100,7 @@ msgstr ""
 #~ msgid "Publicy displayed on event attendance lists"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:28
+#: src/components/pages/LoginPage.re.mjs:31
 msgid "we will collect the following information from your Line account"
 msgstr ""
 

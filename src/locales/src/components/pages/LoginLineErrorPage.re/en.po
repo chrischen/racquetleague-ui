@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:28
+#: src/components/pages/LoginLineErrorPage.re.mjs:33
 msgid "are you in a private browsing mode?"
 msgstr ""
 
@@ -21,7 +21,7 @@ msgstr ""
 #~ msgid "Are you in a private browsing mode?"
 #~ msgstr ""
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:22
+#: src/components/pages/LoginLineErrorPage.re.mjs:27
 msgid "login failed"
 msgstr ""
 
@@ -29,7 +29,7 @@ msgstr ""
 #~ msgid "Login Failed"
 #~ msgstr ""
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:18
+#: src/components/pages/LoginLineErrorPage.re.mjs:23
 msgid "login with Line"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 #~ msgid "Login with Line"
 #~ msgstr ""
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:32
+#: src/components/pages/LoginLineErrorPage.re.mjs:37
 msgid "please try again outside of private browsing as it can interfere with Line login. if the problem pursists, you can try the safe-mode login button below."
 msgstr ""
 
@@ -49,6 +49,6 @@ msgstr ""
 #~ msgid "Please try again outside of private browsing as it can interfere with Line login. If the problem pursists, you can try the safe-mode login button below."
 #~ msgstr ""
 
-#: src/components/pages/LoginLineErrorPage.re.mjs:36
+#: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"
 msgstr ""

@@ -50,7 +50,7 @@ msgstr "もっと読み込む"
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
-#: src/components/molecules/LoginLink.re.mjs:10
+#: src/components/molecules/LoginLink.re.mjs:18
 msgid "login with Line"
 msgstr "Lineでログイン"
 
