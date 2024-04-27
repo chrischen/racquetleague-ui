@@ -1,12 +1,10 @@
 %%raw("import { t } from '@lingui/macro'")
 
-type loaderData = None
-@module("react-router-dom")
-external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
-
 @react.component
 let make = () => {
+  let {search} = Router.useLocation();
   open Lingui.Util
+  let search = search == "" ? None : Some(search);
   <WaitForMessages>
     {_ =>
       <Layout.Container>
@@ -22,7 +20,12 @@ let make = () => {
         <p className="mt-2 text-base leading-6 text-gray-500">
           {t`please try again outside of private browsing as it can interfere with Line login. if the problem pursists, you can try the safe-mode login button below.`}
         </p>
-        <a href="/login?safe=true" className="block mt-4 text-2xl"> {t`safe-mode login with Line`} </a>
+        <a
+          href={"/login" ++
+          search->Option.map(search => search ++ "&safe=true")->Option.getOr("?safe=true")}
+          className="block mt-4 text-2xl">
+          {t`safe-mode login with Line`}
+        </a>
       </Layout.Container>}
   </WaitForMessages>
 }
