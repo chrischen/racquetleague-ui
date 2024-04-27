@@ -18,7 +18,7 @@ let make = () => {
           {t`are you in a private browsing mode?`}
         </h2>
         <p className="mt-2 text-base leading-6 text-gray-500">
-          {t`please try again outside of private browsing as it can interfere with Line login. if the problem pursists, you can try the safe-mode login button below.`}
+          {t`please try again outside of private browsing as it can interfere with Line login. if the problem persists, you can try the safe-mode login button below.`}
         </p>
         <a
           href={"/login" ++

@@ -38,8 +38,12 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:37
-msgid "please try again outside of private browsing as it can interfere with Line login. if the problem pursists, you can try the safe-mode login button below."
+msgid "please try again outside of private browsing as it can interfere with Line login. if the problem persists, you can try the safe-mode login button below."
 msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:37
+#~ msgid "please try again outside of private browsing as it can interfere with Line login. if the problem pursists, you can try the safe-mode login button below."
+#~ msgstr ""
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:32
 #~ msgid "please try again outside of private browsing as it can interfere with Line login. If the problem pursists, you can try the safe-mode login button below."
