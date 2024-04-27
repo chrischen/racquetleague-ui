@@ -13,6 +13,8 @@ var Await = {};
 
 var Link = {};
 
+var LinkWithOpts = {};
+
 export {
   Outlet ,
   SearchParams ,
@@ -20,5 +22,6 @@ export {
   RouterRequest ,
   Await ,
   Link ,
+  LinkWithOpts ,
 }
 /* No side effect */

@@ -2,12 +2,15 @@
 
 import * as Layout from "../shared/Layout.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
+import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { t } from '@lingui/macro'
 ;
 
 function LoginPage(props) {
+  var match = ReactRouterDom.useLocation();
+  var search = match.search;
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsxs(Layout.Container.make, {
@@ -72,7 +75,7 @@ function LoginPage(props) {
                                 JsxRuntime.jsx("a", {
                                       children: t`login with Line`,
                                       className: "block mt-4 text-2xl",
-                                      href: "/login"
+                                      href: "/login" + search
                                     })
                               ]
                             });

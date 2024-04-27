@@ -4,15 +4,19 @@ module Outlet = {
 }
 
 @module("react-router-dom")
-external useParams: unit => Js.Json.t = "useParams"
+external useParams: unit => 'a = "useParams"
 
 type navOpts = {replace: bool}
 type navigate = (string, option<navOpts>) => unit
 @module("react-router-dom")
 external useNavigate: unit => navigate = "useNavigate"
 
-type t = {pathname: string}
-@module("react-router-dom") external useLocation: unit => t = "useLocation"
+@module("react-router-dom")
+external useSearchParams: unit => (string, string => unit) = "useSearchParams"
+
+// @TODO: Binding to location type may be wrong
+type location<'a> = {pathname: string, search: string, hash?: string, state?: 'a}
+@module("react-router-dom") external useLocation: unit => location<'a> = "useLocation"
 
 module SearchParams = {
   type t
@@ -20,6 +24,7 @@ module SearchParams = {
   @send external get: (t, string) => option<string> = "get";
   @send external getAll: (t, string) => option<array<string>> = "getAll";
   @send external entries: (t) => option<Js.Array2.array_like<array<array<string>>>> = "entries";
+  @send external toString: t => string= "toString";
 }
 module URL = {
   type t = {searchParams: SearchParams.t}
@@ -47,10 +52,29 @@ external useAsyncValue: unit => 'a = "useAsyncValue"
 module Link = {
   @react.component @module("react-router-dom")
   external make: (
-    ~to: string,
+    ~to: string=?,
     ~children: React.element,
     ~className: string=?,
     ~reloadDocument: bool=?,
     ~unstable_viewTransition: bool=?,
   ) => React.element = "Link"
+}
+
+@module("react-router-dom")
+external createSearchParams: 'a => SearchParams.t = "createSearchParams"
+
+module LinkWithOpts = {
+  type to<'a>= {
+    pathname?: string,
+    search?: string
+  }
+  @react.component @module("react-router-dom")
+  external make: (
+    ~to: to<'a>=?,
+    ~children: React.element,
+    ~className: string=?,
+    ~reloadDocument: bool=?,
+    ~unstable_viewTransition: bool=?,
+  ) => React.element = "Link"
+
 }

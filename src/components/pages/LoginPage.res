@@ -7,6 +7,7 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 @react.component
 let make = () => {
   open Lingui.Util
+  let { search } = Router.useLocation();
   <WaitForMessages>
     {_ =>
       <Layout.Container>
@@ -40,7 +41,7 @@ let make = () => {
           {t`publicly displayed on event attendance lists`}
           </dd>
         </dl>
-        <a href="/login" className="block mt-4 text-2xl">{t`login with Line`}</a>
+        <a href={"/login" ++ search} className="block mt-4 text-2xl">{t`login with Line`}</a>
       </Layout.Container>}
   </WaitForMessages>
 }
