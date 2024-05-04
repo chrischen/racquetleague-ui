@@ -1,6 +1,8 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t, plural } from '@lingui/macro'")
-open Util
+
+open Util;
+open LangProvider.Router;
 module Fragment = %relay(`
   fragment EventsListFragment on Query
   @argumentDefinitions (
@@ -136,9 +138,11 @@ module EventItem = {
               <div className="h-2 w-2 rounded-full bg-current" />
             </div>
             <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
-              <Link to={"/events/" ++ id} className="flex gap-x-2">
+              <Link to={"/events/" ++ id} relative="path" className="flex gap-x-2">
                 <span className="truncate">
-                {activity->Option.map(a => a.name->React.string)->Option.getOr(React.null)}{" / "->React.string}{title->Option.getOr(ts`[missing title]`)->React.string}
+                  {activity->Option.map(a => a.name->React.string)->Option.getOr(React.null)}
+                  {" / "->React.string}
+                  {title->Option.getOr(ts`[missing title]`)->React.string}
                 </span>
                 <span className="absolute inset-0" />
               </Link>
@@ -195,13 +199,22 @@ module EventItem = {
 type dateEntry = (string, array<EventsListFragment_graphql.Types.fragment_events_edges_node>)
 type dates = dict<array<EventsListFragment_graphql.Types.fragment_events_edges_node>>
 // type dates = array<dateEntry>;
+let toLocalTime = date => {
+  Js.Date.fromFloat(date->Js.Date.getTime +. date->Js.Date.getTimezoneOffset *. 60. *. 1000.)
+}
 let sortByDate = (
   dates: dates,
   event: EventsListFragment_graphql.Types.fragment_events_edges_node,
 ): dates => {
   event.startDate
   ->Option.map(startDate => {
-    let startDateString = startDate->Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd")
+    // startDate in UTC
+    let startDate = startDate->Datetime.toDate
+
+    // Date string in local time
+    // let startDateString = ReactIntl.useIntl()->ReactIntl.Intl.formatDateWithOptions(startDate, ReactIntl.dateTimeFormatOptions(~day=#"2-digit", ~month=#"2-digit", ~year=#"2-digit", ()));
+    let startDateString = startDate->toLocalTime->Js.Date.toISOString->String.slice(~start=0, ~end=10);
+
     switch dates->Js.Dict.get(startDateString) {
     | None => dates->Js.Dict.set(startDateString, [event])
     | Some(events) => dates->Js.Dict.set(startDateString, [event, ...events])
@@ -232,13 +245,13 @@ let make = (~events) => {
       ? pageInfo.startCursor
         ->Option.map(startCursor =>
           <Layout.Container>
-            <Util.Link to={"./" ++ "?before=" ++ startCursor}> {t`...load past events`} </Util.Link>
+            <Link to={"./" ++ "?before=" ++ startCursor}> {t`...load past events`} </Link>
             {" "->React.string}
             <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
               <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-
-            </svg>{" "->React.string}
-            <Util.Link to={"../"}> {t`public events`} </Util.Link>
+            </svg>
+            {" "->React.string}
+            <Link to={"/"}> {t`public events`} </Link>
             {viewer.user
             ->Option.map(_ => <>
               {" "->React.string}
@@ -246,7 +259,7 @@ let make = (~events) => {
                 <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
               </svg>
               {" "->React.string}
-              <Util.Link to={"../events"}> {t`my events`} </Util.Link>
+              <Link to={"/events"} relative="path"> {t`my events`} </Link>
             </>)
             ->Option.getOr(React.null)}
           </Layout.Container>
@@ -257,18 +270,24 @@ let make = (~events) => {
       {eventsByDate
       ->Js.Dict.entries
       ->Array.map(((dateString, events)) => {
-        let date = dateString->DateFns.parseISO
-        let until = date->DateFns.differenceInMinutes(Js.Date.make())
+        // This date is in local time
+        // @NOTE: Potential bug as dateString possibly needs to be converted
+        // back to UTC
+        // Js.log(dateString);
+        let date = dateString->Js.Date.fromString
+
+        // Local time difference in minutes
+        // let until = date->DateFns.differenceInMinutes(Js.Date.make())
         <li key={dateString}>
           <div
             className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
             <Layout.Container>
               <h3>
                 <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
-                {" "->React.string}
-                <ReactIntl.FormattedRelativeTime
-                  value={until} unit=#minute updateIntervalInSeconds=1.
-                />
+                // {" "->React.string}
+                // <ReactIntl.FormattedRelativeTime
+                //   value={until} unit=#minute updateIntervalInSeconds=1.
+                // />
               </h3>
             </Layout.Container>
           </div>
@@ -285,7 +304,7 @@ let make = (~events) => {
       ? <Layout.Container>
           {pageInfo.endCursor
           ->Option.map(endCursor =>
-            <Util.Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Util.Link>
+            <Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Link>
           )
           ->Option.getOr(React.null)}
         </Layout.Container>

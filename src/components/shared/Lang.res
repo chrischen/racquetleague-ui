@@ -21,11 +21,6 @@ module RouteParams = {
   }
 }
 
-type locale = {
-  locale: string,
-  lang: string,
-}
-
 module LoaderArgs = {
   type t = {
     context?: RelayEnv.context,
@@ -46,8 +41,9 @@ let loader = async ({ params }: LoaderArgs.t) => {
 
   Lingui.i18n.activate(lang)
   {
-    locale,
+    LangProvider.locale,
     lang,
+    timezone: "jst"
   }
 }
 // %raw("loader.hydrate = false")

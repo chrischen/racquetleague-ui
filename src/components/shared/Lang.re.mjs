@@ -36,7 +36,8 @@ async function loader(param) {
   Lingui.i18n.activate(lang);
   return {
           locale: locale,
-          lang: lang
+          lang: lang,
+          timezone: "jst"
         };
 }
 

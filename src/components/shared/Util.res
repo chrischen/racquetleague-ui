@@ -13,16 +13,6 @@ module Helmet = {
     ~script: option<array<inlineScript>>=?,
   ) => React.element = "Helmet"
 }
-module Link = {
-  @react.component @module("react-router-dom")
-  external make: (
-    ~to: string,
-    ~children: React.element,
-    ~className: string=?,
-    ~reloadDocument: bool=?,
-    ~unstable_viewTransition: bool=?,
-  ) => React.element = "Link"
-}
 
 @live
 module Datetime: {
@@ -45,6 +35,6 @@ module Datetime: {
 }
 
 @module("react")
-external startTransition: ((. unit => unit) => unit) = "startTransition"
+external startTransition: (unit => unit) => unit = "startTransition"
 
 @val external encodeURIComponent: string => string = "encodeURIComponent"

@@ -52,9 +52,10 @@ external useAsyncValue: unit => 'a = "useAsyncValue"
 module Link = {
   @react.component @module("react-router-dom")
   external make: (
-    ~to: string=?,
+    ~to: string,
     ~children: React.element,
     ~className: string=?,
+    ~relative: string=?,
     ~reloadDocument: bool=?,
     ~unstable_viewTransition: bool=?,
   ) => React.element = "Link"
@@ -64,15 +65,16 @@ module Link = {
 external createSearchParams: 'a => SearchParams.t = "createSearchParams"
 
 module LinkWithOpts = {
-  type to<'a>= {
+  type to= {
     pathname?: string,
     search?: string
   }
   @react.component @module("react-router-dom")
   external make: (
-    ~to: to<'a>=?,
+    ~to: to,
     ~children: React.element,
     ~className: string=?,
+    ~relative: string=?,
     ~reloadDocument: bool=?,
     ~unstable_viewTransition: bool=?,
   ) => React.element = "Link"

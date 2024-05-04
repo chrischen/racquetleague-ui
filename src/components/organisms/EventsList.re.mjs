@@ -3,16 +3,15 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
-import * as DateFns from "date-fns";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as Core from "@linaria/core";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
-import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -185,7 +184,7 @@ function EventsList$EventItem(props) {
                                             className: Core.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
                                           }),
                                       JsxRuntime.jsx("h2", {
-                                            children: JsxRuntime.jsxs(ReactRouterDom.Link, {
+                                            children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
                                                   to: "/events/" + match.id,
                                                   children: [
                                                     JsxRuntime.jsxs("span", {
@@ -202,7 +201,8 @@ function EventsList$EventItem(props) {
                                                           className: "absolute inset-0"
                                                         })
                                                   ],
-                                                  className: "flex gap-x-2"
+                                                  className: "flex gap-x-2",
+                                                  relative: "path"
                                                 }),
                                             className: "min-w-0 text-sm font-semibold leading-6 text-white"
                                           })
@@ -278,9 +278,14 @@ var EventItem = {
   make: EventsList$EventItem
 };
 
+function toLocalTime(date) {
+  return new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
+}
+
 function sortByDate(dates, $$event) {
   Core__Option.map($$event.startDate, (function (startDate) {
-          var startDateString = DateFns.format(Util.Datetime.toDate(startDate), "yyyy-MM-dd");
+          var startDate$1 = Util.Datetime.toDate(startDate);
+          var startDateString = toLocalTime(startDate$1).toISOString().slice(0, 10);
           var events = Js_dict.get(dates, startDateString);
           if (events !== undefined) {
             dates[startDateString] = Belt_Array.concatMany([
@@ -307,7 +312,7 @@ function EventsList(props) {
                 match.isLoadingPrevious ? null : Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
                               return JsxRuntime.jsxs(Layout.Container.make, {
                                           children: [
-                                            JsxRuntime.jsx(ReactRouterDom.Link, {
+                                            JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                                   to: "./?before=" + startCursor,
                                                   children: t`...load past events`
                                                 }),
@@ -322,8 +327,8 @@ function EventsList(props) {
                                                   viewBox: "0 0 2 2"
                                                 }),
                                             " ",
-                                            JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                  to: "../",
+                                            JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                  to: "/",
                                                   children: t`public events`
                                                 }),
                                             Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
@@ -340,9 +345,10 @@ function EventsList(props) {
                                                                             viewBox: "0 0 2 2"
                                                                           }),
                                                                       " ",
-                                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                            to: "../events",
-                                                                            children: t`my events`
+                                                                      JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                            to: "/events",
+                                                                            children: t`my events`,
+                                                                            relative: "path"
                                                                           })
                                                                     ]
                                                                   });
@@ -353,27 +359,18 @@ function EventsList(props) {
                 JsxRuntime.jsx("ul", {
                       children: Js_dict.entries(eventsByDate).map(function (param) {
                             var dateString = param[0];
-                            var date = DateFns.parseISO(dateString);
-                            var until = DifferenceInMinutes.differenceInMinutes(date, new Date());
+                            var date = new Date(dateString);
                             return JsxRuntime.jsxs("li", {
                                         children: [
                                           JsxRuntime.jsx("div", {
                                                 children: JsxRuntime.jsx(Layout.Container.make, {
-                                                      children: JsxRuntime.jsxs("h3", {
-                                                            children: [
-                                                              JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                                    value: date,
-                                                                    weekday: "long",
-                                                                    month: "short",
-                                                                    day: "numeric"
-                                                                  }),
-                                                              " ",
-                                                              JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
-                                                                    value: until,
-                                                                    unit: "minute",
-                                                                    updateIntervalInSeconds: 1
-                                                                  })
-                                                            ]
+                                                      children: JsxRuntime.jsx("h3", {
+                                                            children: JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                                  value: date,
+                                                                  weekday: "long",
+                                                                  month: "short",
+                                                                  day: "numeric"
+                                                                })
                                                           })
                                                     }),
                                                 className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"
@@ -395,7 +392,7 @@ function EventsList(props) {
                     }),
                 match.hasNext && !match.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
                         children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
-                                    return JsxRuntime.jsx(ReactRouterDom.Link, {
+                                    return JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                                 to: "./?after=" + endCursor,
                                                 children: t`load more`
                                               });
@@ -415,6 +412,7 @@ export {
   NodeId ,
   NodeIdDto ,
   EventItem ,
+  toLocalTime ,
   sortByDate ,
   make$1 as make,
   $$default as default,

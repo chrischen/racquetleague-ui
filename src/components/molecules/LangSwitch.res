@@ -1,3 +1,4 @@
+open LangProvider.Router;
 module LocaleButton = {
   type t = {locale: string, display: string}
   @genType @react.component
@@ -6,11 +7,11 @@ module LocaleButton = {
     switch active {
     | true => <span> {React.string(locale.display)} </span>
     | false =>
-      <Util.Link to={locPath ++ path}>
+      <Link to={locPath ++ path}>
         <span>
           {React.string(locale.display)}
         </span>
-      </Util.Link>
+      </Link>
     }
   }
 }

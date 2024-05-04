@@ -6,8 +6,6 @@ import * as Json_Decode$JsonCombinators from "@glennsl/rescript-json-combinators
 
 var Helmet = {};
 
-var Link = {};
-
 function fromDate(d) {
   return d;
 }
@@ -35,7 +33,6 @@ var Datetime = {
 
 export {
   Helmet ,
-  Link ,
   Datetime ,
 }
 /* No side effect */

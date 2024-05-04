@@ -8,9 +8,8 @@ import * as LogoutLink from "../molecules/LogoutLink.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as React$1 from "@lingui/react";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
-import * as ReactRouterDom from "react-router-dom";
 import * as Nav_query_graphql from "../../__generated__/Nav_query_graphql.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as Nav_viewer_graphql from "../../__generated__/Nav_viewer_graphql.re.mjs";
@@ -87,8 +86,6 @@ var MenuInstance = {
 };
 
 function Nav(props) {
-  var match = React$1.useLingui();
-  var locale = match.i18n.locale;
   var query = use(props.query);
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
@@ -96,8 +93,8 @@ function Nav(props) {
                               children: JsxRuntime.jsx("header", {
                                     children: JsxRuntime.jsxs("nav", {
                                           children: [
-                                            JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                  to: "/" + locale,
+                                            JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                  to: "/",
                                                   children: JsxRuntime.jsx("span", {
                                                         children: t`racquet league`
                                                       })
@@ -123,7 +120,7 @@ function Nav(props) {
                                                                                     ], Core__Option.getOr(user.lineUsername, ""));
                                                                         }));
                                                           })), (function (param) {
-                                                        return JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                        return JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                                                     to: "/events/create",
                                                                     children: "Add Event"
                                                                   });

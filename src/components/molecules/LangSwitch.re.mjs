@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as React$1 from "@lingui/react";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -14,7 +15,7 @@ function LangSwitch$LocaleButton(props) {
                 children: locale.display
               });
   } else {
-    return JsxRuntime.jsx(ReactRouterDom.Link, {
+    return JsxRuntime.jsx(LangProvider.Router.Link.make, {
                 to: locPath + props.path,
                 children: JsxRuntime.jsx("span", {
                       children: locale.display

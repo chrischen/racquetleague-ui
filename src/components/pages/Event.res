@@ -1,6 +1,7 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
 open Lingui.Util
+open LangProvider.Router;
 
 module EventQuery = %relay(`
   query EventQuery($eventId: ID!, $after: String, $first: Int, $before: String) {
@@ -146,9 +147,9 @@ let make = () => {
                         ->Option.flatMap(location =>
                           location.name->Option.map(
                             name =>
-                              <Router.Link to={"/locations/" ++ location.id}>
+                              <Link to={"/locations/" ++ location.id}>
                                 {name->React.string}
-                              </Router.Link>,
+                              </Link>,
                           )
                         )
                         ->Option.getOr(React.null)}

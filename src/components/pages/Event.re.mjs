@@ -10,6 +10,7 @@ import * as EventRsvps from "../organisms/EventRsvps.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as EventLocation from "../organisms/EventLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -120,7 +121,7 @@ function $$Event(props) {
                                                                                               JsxRuntime.jsx("span", {
                                                                                                     children: Core__Option.getOr(Core__Option.flatMap($$location, (function ($$location) {
                                                                                                                 return Core__Option.map($$location.name, (function (name) {
-                                                                                                                              return JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                                                                              return JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                                                                                                                           to: "/locations/" + $$location.id,
                                                                                                                                           children: name
                                                                                                                                         });

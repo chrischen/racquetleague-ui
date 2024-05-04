@@ -1,6 +1,7 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
 open Lingui.Util
+open LangProvider.Router;
 
 module Fragment = %relay(`
   fragment Nav_query on Query {
@@ -49,16 +50,15 @@ module MenuInstance = {
 
 @genType @react.component
 let make = (~query) => {
-  let {i18n: {locale}} = Lingui.useLingui()
   let query = Fragment.use(query)
   <WaitForMessages>
     {() =>
       <Layout.Container className="mt-4">
         <header>
           <nav>
-            <Util.Link to={"/" ++ locale}>
+            <Link to={"/"}>
               <span> {t`racquet league`} </span>
-            </Util.Link>
+            </Link>
             {React.string(" - ")}
             {query.viewer
             ->Option.map(viewer =>
@@ -79,7 +79,7 @@ let make = (~query) => {
               )
             )
             ->Option.map(_ =>
-              <Util.Link to="/events/create"> {"Add Event"->React.string} </Util.Link>
+              <Link to="/events/create"> {"Add Event"->React.string} </Link>
             )
             ->Option.getOr(React.null)}
           </nav>
