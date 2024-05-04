@@ -31,6 +31,10 @@ function EventLocation(props) {
         }));
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
+                JsxRuntime.jsx("h3", {
+                      children: Core__Option.getOr($$location.name, ""),
+                      className: "text-lg font-bold text-gray-900 mt-8"
+                    }),
                 Core__Option.getOr(Core__Option.map($$location.address, (function (address) {
                             return JsxRuntime.jsx("p", {
                                         children: Core__Option.getOr(Core__Option.map(defaultLink, (function (link) {
