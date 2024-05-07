@@ -47,6 +47,11 @@ input CreateLocationInput {
   name: String!
 }
 
+input CreateSubscriptionInput {
+  topic: String!
+  user: String!
+}
+
 """A date."""
 scalar Datetime
 
@@ -154,6 +159,7 @@ type LocationEdge {
 type Mutation {
   createEvent(input: CreateEventInput!): MutationResult2!
   createLocation(input: CreateLocationInput!): MutationResult!
+  createSubscription(input: CreateSubscriptionInput!): SubscriptionMutationResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
 }
@@ -208,6 +214,17 @@ type Rsvp implements Node {
   joinTime: Int
   leaveDate: Datetime
   user: User
+}
+
+type Subscription {
+  id: ID!
+  topic: String!
+  user: ID!
+}
+
+type SubscriptionMutationResult implements HasErrors {
+  errors: [Error!]
+  subscription: Subscription
 }
 
 type User implements Node {

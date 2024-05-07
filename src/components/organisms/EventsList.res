@@ -200,7 +200,7 @@ type dateEntry = (string, array<EventsListFragment_graphql.Types.fragment_events
 type dates = dict<array<EventsListFragment_graphql.Types.fragment_events_edges_node>>
 // type dates = array<dateEntry>;
 let toLocalTime = date => {
-  Js.Date.fromFloat(date->Js.Date.getTime +. date->Js.Date.getTimezoneOffset *. 60. *. 1000.)
+  Js.Date.fromFloat(date->Js.Date.getTime -. date->Js.Date.getTimezoneOffset *. 60. *. 1000.)
 }
 let sortByDate = (
   dates: dates,

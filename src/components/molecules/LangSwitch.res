@@ -1,4 +1,4 @@
-open LangProvider.Router;
+open Router;
 module LocaleButton = {
   type t = {locale: string, display: string}
   @genType @react.component
@@ -37,6 +37,8 @@ let make = () => {
   })
   ->React.array
 }
+type array<'a> = array<'a>
+
 
 @genType
 let default = make

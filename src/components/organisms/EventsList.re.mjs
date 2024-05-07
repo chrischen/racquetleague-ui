@@ -279,7 +279,7 @@ var EventItem = {
 };
 
 function toLocalTime(date) {
-  return new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
+  return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
 }
 
 function sortByDate(dates, $$event) {
