@@ -77,9 +77,7 @@ let make = () => {
   let td = Lingui.UtilString.dynamic
   let query = useLoaderData()
   let {event} = EventQuery.usePreloaded(~queryRef=query.data)
-
-  // let (commitMutationLeave, _isMutationInFlight) = EventLeaveMutation.use()
-  // let (commitMutationJoin, _isMutationInFlight) = EventJoinMutation.use()
+  let viewer = GlobalQuery.useViewer()
 
   event
   ->Option.map(event => {
@@ -112,6 +110,8 @@ let make = () => {
         t`${hours->Float.toString} hours and ${minutes->Int.toString} minutes`
       }
     })
+
+    let activityName = activity->Option.flatMap(activity => activity.name->Option.map(td))->Option.getOr("---");
 
     <WaitForMessages>
       {() =>
@@ -237,9 +237,9 @@ let make = () => {
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div
                 className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
-                {activity
-                ->Option.map(activity => <SubscribeActivity activity=activity.fragmentRefs />)
-                ->Option.getOr(React.null)}
+                {viewer.user->Option.flatMap(_ => activity
+                ->Option.map(activity => <SubscribeActivity activity=activity.fragmentRefs />))
+                ->Option.getOr(t`login to subscribe to ${activityName} events`)}
               </div>
             </div>
           </Layout.Container>

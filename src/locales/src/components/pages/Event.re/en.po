@@ -15,25 +15,25 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:318
+#: src/components/pages/Event.re.mjs:328
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:322
+#: src/components/pages/Event.re.mjs:332
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:326
+#: src/components/pages/Event.re.mjs:336
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:330
+#: src/components/pages/Event.re.mjs:340
 msgid "Futsal"
 msgstr ""
 
@@ -41,11 +41,11 @@ msgstr ""
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:90
+#: src/components/pages/Event.re.mjs:95
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:92
+#: src/components/pages/Event.re.mjs:97
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:186
+#: src/components/pages/Event.re.mjs:196
 msgid "attendees"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 #~ msgid "Confirmed"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:198
+#: src/components/pages/Event.re.mjs:208
 msgid "details"
 msgstr ""
 
@@ -81,15 +81,15 @@ msgstr ""
 #~ msgid "Details"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:121
+#: src/components/pages/Event.re.mjs:129
 msgid "event @"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:278
+#: src/components/pages/Event.re.mjs:288
 msgid "event doesn't exist"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:258
+#: src/components/pages/Event.re.mjs:268
 msgid "event location"
 msgstr ""
 
@@ -128,6 +128,10 @@ msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:40
 msgid "login to join the event"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:183
+msgid "login to subscribe to {activityName} events"
 msgstr ""
 
 #: src/components/molecules/LoginLink.re.mjs:21

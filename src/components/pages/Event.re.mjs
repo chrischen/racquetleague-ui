@@ -9,6 +9,7 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as EventRsvps from "../organisms/EventRsvps.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
@@ -67,8 +68,12 @@ var EventQuery = {
 var sessionContext = AppContext.SessionContext;
 
 function $$Event(props) {
+  var td = function (prim) {
+    return Core.i18n._(prim);
+  };
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
+  var viewer = GlobalQuery.useViewer();
   return Core__Option.getOr(Core__Option.map(match.event, (function ($$event) {
                     var fragmentRefs = $$event.fragmentRefs;
                     var title = $$event.title;
@@ -92,6 +97,9 @@ function $$Event(props) {
                               return t`${hours.toString(undefined)} hours and ${minutes.toString(undefined)} minutes`;
                             }
                           }));
+                    var activityName = Core__Option.getOr(Core__Option.flatMap(activity, (function (activity) {
+                                return Core__Option.map(activity.name, td);
+                              })), "---");
                     return JsxRuntime.jsx(WaitForMessages.make, {
                                 children: (function () {
                                     return JsxRuntime.jsxs("main", {
@@ -166,11 +174,13 @@ function $$Event(props) {
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsx("div", {
                                                               children: JsxRuntime.jsx("div", {
-                                                                    children: Core__Option.getOr(Core__Option.map(activity, (function (activity) {
-                                                                                return JsxRuntime.jsx(SubscribeActivity.make, {
-                                                                                            activity: activity.fragmentRefs
-                                                                                          });
-                                                                              })), null),
+                                                                    children: Core__Option.getOr(Core__Option.flatMap(viewer.user, (function (param) {
+                                                                                return Core__Option.map(activity, (function (activity) {
+                                                                                              return JsxRuntime.jsx(SubscribeActivity.make, {
+                                                                                                          activity: activity.fragmentRefs
+                                                                                                        });
+                                                                                            }));
+                                                                              })), t`login to subscribe to ${activityName} events`),
                                                                     className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
                                                                   }),
                                                               className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"

@@ -567,3 +567,7 @@ msgstr ""
 #: src/components/molecules/SubscribeActivity.re.mjs:104
 msgid "you will receive email notifications for new events"
 msgstr ""
+
+#: src/components/pages/Event.re.mjs:183
+msgid "login to subscribe to {activityName} events"
+msgstr ""

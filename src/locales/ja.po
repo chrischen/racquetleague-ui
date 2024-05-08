@@ -415,7 +415,9 @@ msgstr "{0} イベント詳細"
 msgid ""
 "any details from the location will already be included. Mention any "
 "additional event-specific instructions, rules, or details."
-msgstr "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳細」があれば記載してください。"
+msgstr ""
+"ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
+"細」があれば記載してください。"
 
 #: src/components/pages/CreateLocationEventPage.re.mjs:60
 msgid "Location doesn't exist."
@@ -457,3 +459,8 @@ msgstr "{activityName} のイベントから登録解除"
 #: src/components/molecules/SubscribeActivity.re.mjs:104
 msgid "you will receive email notifications for new events"
 msgstr "新しいイベントについてメール通知を受け取ります"
+
+#: src/components/pages/Event.re.mjs:183
+#, fuzzy
+msgid "login to subscribe to {activityName} events"
+msgstr "ログインして{activityName}のイベントに登録"
