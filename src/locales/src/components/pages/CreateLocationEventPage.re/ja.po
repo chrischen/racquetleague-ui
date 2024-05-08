@@ -54,6 +54,8 @@ msgid ""
 "any details from the location will already be included. Mention any "
 "additional event-specific instructions, rules, or details."
 msgstr ""
+"ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
+"細」があれば記載してください。"
 
 #: src/components/molecules/forms/Form.re.mjs:222
 msgid "cancel"

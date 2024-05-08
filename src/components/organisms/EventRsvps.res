@@ -140,7 +140,7 @@ let make = (~event) => {
 
   <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
     <dl className="flex flex-wrap">
-      <div className="flex-auto pl-6 pt-6">
+      <div className="flex-auto pl-6 pt-4">
         <dt className="text-sm font-semibold leading-6 text-gray-900">
           {t`confirmed`}
         </dt>
@@ -175,7 +175,7 @@ let make = (~event) => {
           </dd>,
         )}
       </div>
-      <div className="mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-6">
+      <div className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-4">
         {<>
           <ul className="">
             <FramerMotion.AnimatePresence>
@@ -235,7 +235,7 @@ let make = (~event) => {
           </em>
         </>}
       </div>
-      <div className="mt-6 border-t border-gray-900/5 pl-6 pt-6">
+      <div className="mt-4 border-t border-gray-900/5 pl-6 pt-4">
         <div className="flex-auto">
           <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`waitlist`} </dt>
           <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
@@ -244,7 +244,7 @@ let make = (~event) => {
           </dd>
         </div>
       </div>
-      <div className="mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 p-6">
+      <div className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4">
         {<>
           <ul className="">
             <FramerMotion.AnimatePresence>

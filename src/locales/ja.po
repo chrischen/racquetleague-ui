@@ -415,7 +415,7 @@ msgstr "{0} イベント詳細"
 msgid ""
 "any details from the location will already be included. Mention any "
 "additional event-specific instructions, rules, or details."
-msgstr ""
+msgstr "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳細」があれば記載してください。"
 
 #: src/components/pages/CreateLocationEventPage.re.mjs:60
 msgid "Location doesn't exist."
@@ -445,3 +445,15 @@ msgstr ""
 "Lineログインに影響を与える可能性があるため、プライベートブラウジング外で再試"
 "行してください。問題が解決しない場合は、下のセーフモードログインボタンを試し"
 "てみてください。"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:112
+msgid "subscribe to all {activityName} events"
+msgstr "{activityName} のすべてのイベントに登録"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:91
+msgid "unsubscribe from {activityName} events"
+msgstr "{activityName} のイベントから登録解除"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:104
+msgid "you will receive email notifications for new events"
+msgstr "新しいイベントについてメール通知を受け取ります"

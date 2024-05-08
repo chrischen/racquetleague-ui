@@ -200,7 +200,7 @@ function CreateLocationEvent(props) {
                                                                                       id: "activity",
                                                                                       options: query.activities.map(function (activity) {
                                                                                             return [
-                                                                                                    Core.i18n._(activity.name),
+                                                                                                    Core.i18n._(Core__Option.getOr(activity.name, "---")),
                                                                                                     activity.id
                                                                                                   ];
                                                                                           }),

@@ -1,7 +1,7 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
 open Lingui.Util
-open LangProvider.Router;
+open LangProvider.Router
 
 module EventQuery = %relay(`
   query EventQuery($eventId: ID!, $after: String, $first: Int, $before: String) {
@@ -12,6 +12,7 @@ module EventQuery = %relay(`
       activity {
         name
         slug
+        ...SubscribeActivity_activity
       }
       startDate
       endDate
@@ -73,6 +74,7 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
 @genType @react.component
 let make = () => {
+  let td = Lingui.UtilString.dynamic
   let query = useLoaderData()
   let {event} = EventQuery.usePreloaded(~queryRef=query.data)
 
@@ -147,9 +149,7 @@ let make = () => {
                         ->Option.flatMap(location =>
                           location.name->Option.map(
                             name =>
-                              <Link to={"/locations/" ++ location.id}>
-                                {name->React.string}
-                              </Link>,
+                              <Link to={"/locations/" ++ location.id}> {name->React.string} </Link>,
                           )
                         )
                         ->Option.getOr(React.null)}
@@ -157,7 +157,9 @@ let make = () => {
                     </div>
                     <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900">
                       // <PageTitle>
-                      {activity->Option.map(a => a.name->React.string)->Option.getOr(React.null)}
+                      {activity
+                      ->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))
+                      ->Option.getOr(React.null)}
                       {" / "->React.string}
                       {title->Option.map(React.string)->Option.getOr(React.null)}
 
@@ -230,16 +232,27 @@ let make = () => {
               </div>
             </Layout.Container>
           </header>
-          <Layout.Container className="py-16">
+          <Layout.Container className="py-4">
+            <div
+              className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              <div
+                className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
+                {activity
+                ->Option.map(activity => <SubscribeActivity activity=activity.fragmentRefs />)
+                ->Option.getOr(React.null)}
+              </div>
+            </div>
+          </Layout.Container>
+          <Layout.Container>
             // <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div
-              className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div className="lg:col-start-3 lg:row-end-1">
                 <h2 className="sr-only"> {t`attendees`} </h2>
                 <EventRsvps event=fragmentRefs />
               </div>
               <div
-                className="-mx-4 px-4 py-8 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-14 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-16 xl:pb-20 xl:pt-16">
+                className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-12 xl:py-8">
                 <h2 className="text-base font-semibold leading-6 text-gray-900"> {t`details`} </h2>
                 {event.startDate
                 ->Option.flatMap(startDate =>
@@ -293,7 +306,7 @@ let make = () => {
                 ->Option.getOr(React.null)}
               </div>
               <div className="lg:col-start-3">
-                <h2 className="text-sm font-semibold leading-6 text-gray-900">
+                <h2 className="text-base font-semibold leading-6 text-gray-900">
                   {t`event location`}
                 </h2>
                 {location
@@ -369,4 +382,15 @@ let loader = async ({?context, params, request}: LoaderArgs.t) => {
 
 // @genType
 // let \"HydrateFallbackElement" = <div> {React.string("Loading fallback...")} </div>
-%raw("loader.hydrate = true")
+// %raw("loader.hydrate = true")
+
+// @NOTE Force lingui to include the potential dynamic values here
+let td = Lingui.UtilString.td
+@live
+td({id: "Badminton"})->ignore
+@live
+td({id: "Table Tennis"})->ignore
+@live
+td({id: "Pickleball"})->ignore
+@live
+td({id: "Futsal"})->ignore

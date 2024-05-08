@@ -21,11 +21,11 @@ msgstr "(サインアウト)"
 msgid "copyright the racquet league contributors"
 msgstr "著作権ラケットリーグの寄稿者"
 
-#: src/components/molecules/LoginLink.re.mjs:18
+#: src/components/molecules/LoginLink.re.mjs:21
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/organisms/Nav.re.mjs:102
+#: src/components/organisms/Nav.re.mjs:99
 msgid "racquet league"
 msgstr "ラケットリーグ"
 

@@ -9,11 +9,13 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as EventRsvps from "../organisms/EventRsvps.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as EventLocation from "../organisms/EventLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
+import * as SubscribeActivity from "../molecules/SubscribeActivity.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventQuery_graphql from "../../__generated__/EventQuery_graphql.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
@@ -134,8 +136,10 @@ function $$Event(props) {
                                                                                           }),
                                                                                       JsxRuntime.jsxs("div", {
                                                                                             children: [
-                                                                                              Core__Option.getOr(Core__Option.map(activity, (function (a) {
-                                                                                                          return a.name;
+                                                                                              Core__Option.getOr(Core__Option.flatMap(activity, (function (a) {
+                                                                                                          return Core__Option.map(a.name, (function (name) {
+                                                                                                                        return Core.i18n._(name);
+                                                                                                                      }));
                                                                                                         })), null),
                                                                                               " / ",
                                                                                               Core__Option.getOr(Core__Option.map(title, (function (prim) {
@@ -158,6 +162,20 @@ function $$Event(props) {
                                                               })
                                                         ],
                                                         className: "relative isolate pt-4"
+                                                      }),
+                                                  JsxRuntime.jsx(Layout.Container.make, {
+                                                        children: JsxRuntime.jsx("div", {
+                                                              children: JsxRuntime.jsx("div", {
+                                                                    children: Core__Option.getOr(Core__Option.map(activity, (function (activity) {
+                                                                                return JsxRuntime.jsx(SubscribeActivity.make, {
+                                                                                            activity: activity.fragmentRefs
+                                                                                          });
+                                                                              })), null),
+                                                                    className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
+                                                                  }),
+                                                              className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+                                                            }),
+                                                        className: "py-4"
                                                       }),
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsxs("div", {
@@ -232,13 +250,13 @@ function $$Event(props) {
                                                                                               });
                                                                                   })), null)
                                                                       ],
-                                                                      className: "-mx-4 px-4 py-8 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-14 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-16 xl:pb-20 xl:pt-16"
+                                                                      className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-12 xl:py-8"
                                                                     }),
                                                                 JsxRuntime.jsxs("div", {
                                                                       children: [
                                                                         JsxRuntime.jsx("h2", {
                                                                               children: t`event location`,
-                                                                              className: "text-sm font-semibold leading-6 text-gray-900"
+                                                                              className: "text-base font-semibold leading-6 text-gray-900"
                                                                             }),
                                                                         Core__Option.getOr(Core__Option.map($$location, (function ($$location) {
                                                                                     return JsxRuntime.jsx(EventLocation.make, {
@@ -249,9 +267,8 @@ function $$Event(props) {
                                                                       className: "lg:col-start-3"
                                                                     })
                                                               ],
-                                                              className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-                                                            }),
-                                                        className: "py-16"
+                                                              className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+                                                            })
                                                       })
                                                 ]
                                               });
@@ -294,7 +311,25 @@ async function loader(param) {
             });
 }
 
-((loader.hydrate = true));
+function td(prim) {
+  return t(prim);
+}
+
+t({
+      id: "Badminton"
+    });
+
+t({
+      id: "Table Tennis"
+    });
+
+t({
+      id: "Pickleball"
+    });
+
+t({
+      id: "Futsal"
+    });
 
 var make = $$Event;
 
@@ -311,5 +346,6 @@ export {
   LoaderArgs ,
   loadMessages ,
   loader ,
+  td ,
 }
 /*  Not a pure module */

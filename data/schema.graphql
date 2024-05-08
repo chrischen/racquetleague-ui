@@ -25,8 +25,18 @@ directive @stream(
 
 type Activity implements Node {
   id: ID!
-  name: String!
-  slug: String!
+  name: String
+  slug: String
+  sub: Subscription
+}
+
+type ActivitySubscriptionMutationResult implements HasErrors {
+  activity: Activity
+  errors: [Error!]
+}
+
+input CreateActivitySubscriptionInput {
+  activityId: String!
 }
 
 input CreateEventInput {
@@ -47,13 +57,12 @@ input CreateLocationInput {
   name: String!
 }
 
-input CreateSubscriptionInput {
-  topic: String!
-  user: String!
-}
-
 """A date."""
 scalar Datetime
+
+input DeleteActivitySubscriptionInput {
+  subscriptionId: String!
+}
 
 type Error {
   message: String!
@@ -157,9 +166,10 @@ type LocationEdge {
 }
 
 type Mutation {
+  createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   createEvent(input: CreateEventInput!): MutationResult2!
   createLocation(input: CreateLocationInput!): MutationResult!
-  createSubscription(input: CreateSubscriptionInput!): SubscriptionMutationResult!
+  deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
 }
@@ -195,6 +205,7 @@ type PageInfo {
 
 type Query {
   activities: [Activity!]!
+  activity(id: ID!): Activity
 
   """The current time on the server, as a timestamp."""
   currentTime: Float
@@ -218,13 +229,7 @@ type Rsvp implements Node {
 
 type Subscription {
   id: ID!
-  topic: String!
-  user: ID!
-}
-
-type SubscriptionMutationResult implements HasErrors {
-  errors: [Error!]
-  subscription: Subscription
+  topic: String
 }
 
 type User implements Node {
@@ -235,5 +240,6 @@ type User implements Node {
 
 type Viewer {
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
+  subscriptions: [Subscription!]!
   user: User
 }

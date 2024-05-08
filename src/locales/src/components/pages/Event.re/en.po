@@ -13,15 +13,39 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:132
+#: src/components/pages/Event.re.mjs:318
+msgid "Badminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:136
+#: src/components/pages/Event.re.mjs:322
+msgid "Table Tennis"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:140
+#: src/components/pages/Event.re.mjs:326
+msgid "Pickleball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:144
+#: src/components/pages/Event.re.mjs:330
+msgid "Futsal"
+msgstr ""
+
 #: src/components/organisms/EventRsvps.re.mjs:181
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:87
+#: src/components/pages/Event.re.mjs:90
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:89
+#: src/components/pages/Event.re.mjs:92
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
@@ -33,7 +57,7 @@ msgstr ""
 msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:167
+#: src/components/pages/Event.re.mjs:186
 msgid "attendees"
 msgstr ""
 
@@ -49,7 +73,7 @@ msgstr ""
 #~ msgid "Confirmed"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:179
+#: src/components/pages/Event.re.mjs:198
 msgid "details"
 msgstr ""
 
@@ -57,15 +81,15 @@ msgstr ""
 #~ msgid "Details"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:118
+#: src/components/pages/Event.re.mjs:121
 msgid "event @"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:260
+#: src/components/pages/Event.re.mjs:278
 msgid "event doesn't exist"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:239
+#: src/components/pages/Event.re.mjs:258
 msgid "event location"
 msgstr ""
 
@@ -106,7 +130,7 @@ msgstr ""
 msgid "login to join the event"
 msgstr ""
 
-#: src/components/molecules/LoginLink.re.mjs:18
+#: src/components/molecules/LoginLink.re.mjs:21
 msgid "login with Line"
 msgstr ""
 
@@ -128,6 +152,14 @@ msgstr ""
 #~ msgid "Spots Available"
 #~ msgstr ""
 
+#: src/components/molecules/SubscribeActivity.re.mjs:112
+msgid "subscribe to all {activityName} events"
+msgstr ""
+
+#: src/components/molecules/SubscribeActivity.re.mjs:91
+msgid "unsubscribe from {activityName} events"
+msgstr ""
+
 #: src/components/organisms/EventRsvps.re.mjs:318
 msgid "waitlist"
 msgstr ""
@@ -135,3 +167,7 @@ msgstr ""
 #: src/components/organisms/EventRsvps.re.mjs:318
 #~ msgid "Waitlist"
 #~ msgstr ""
+
+#: src/components/molecules/SubscribeActivity.re.mjs:104
+msgid "you will receive email notifications for new events"
+msgstr ""

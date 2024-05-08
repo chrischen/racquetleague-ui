@@ -186,7 +186,7 @@ function EventRsvps(props) {
                                     className: "mt-1 text-base font-semibold leading-6 text-gray-900"
                                   })
                             ],
-                            className: "flex-auto pl-6 pt-6"
+                            className: "flex-auto pl-6 pt-4"
                           }),
                       JsxRuntime.jsxs("div", {
                             children: [
@@ -309,7 +309,7 @@ function EventRsvps(props) {
                                         })
                                   ]
                                 }),
-                            className: "mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-6"
+                            className: "mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-4"
                           }),
                       JsxRuntime.jsx("div", {
                             children: JsxRuntime.jsxs("div", {
@@ -331,7 +331,7 @@ function EventRsvps(props) {
                                   ],
                                   className: "flex-auto"
                                 }),
-                            className: "mt-6 border-t border-gray-900/5 pl-6 pt-6"
+                            className: "mt-4 border-t border-gray-900/5 pl-6 pt-4"
                           }),
                       JsxRuntime.jsx("div", {
                             children: JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -396,7 +396,7 @@ function EventRsvps(props) {
                                         })
                                   ]
                                 }),
-                            className: "mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 p-6"
+                            className: "mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4"
                           })
                     ],
                     className: "flex flex-wrap"

@@ -555,3 +555,15 @@ msgid ""
 "please try again outside of private browsing as it can interfere with Line "
 "login. if the problem persists, you can try the safe-mode login button below."
 msgstr ""
+
+#: src/components/molecules/SubscribeActivity.re.mjs:112
+msgid "subscribe to all {activityName} events"
+msgstr ""
+
+#: src/components/molecules/SubscribeActivity.re.mjs:91
+msgid "unsubscribe from {activityName} events"
+msgstr ""
+
+#: src/components/molecules/SubscribeActivity.re.mjs:104
+msgid "you will receive email notifications for new events"
+msgstr ""

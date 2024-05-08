@@ -8,9 +8,10 @@ import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
+import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
-import * as Core from "@linaria/core";
+import * as Core$1 from "@linaria/core";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -125,6 +126,10 @@ var NodeIdDto = {
   toDomain: toDomain
 };
 
+function td(prim) {
+  return Core.i18n._(prim);
+}
+
 function ts(prim0, prim1) {
   return Caml_splice_call.spliceApply(t, [
               prim0,
@@ -181,7 +186,7 @@ function EventsList$EventItem(props) {
                                             children: JsxRuntime.jsx("div", {
                                                   className: "h-2 w-2 rounded-full bg-current"
                                                 }),
-                                            className: Core.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
+                                            className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
                                           }),
                                       JsxRuntime.jsx("h2", {
                                             children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
@@ -189,8 +194,10 @@ function EventsList$EventItem(props) {
                                                   children: [
                                                     JsxRuntime.jsxs("span", {
                                                           children: [
-                                                            Core__Option.getOr(Core__Option.map(match.activity, (function (a) {
-                                                                        return a.name;
+                                                            Core__Option.getOr(Core__Option.flatMap(match.activity, (function (a) {
+                                                                        return Core__Option.map(a.name, (function (name) {
+                                                                                      return Core.i18n._(name);
+                                                                                    }));
                                                                       })), null),
                                                             " / ",
                                                             Core__Option.getOr(match.title, t`[missing title]`)
@@ -265,7 +272,7 @@ function EventsList$EventItem(props) {
                                     other: "players"
                                   })
                             ],
-                            className: Core.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
+                            className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
                           })
                     ],
                     className: "relative flex items-center space-x-4 py-4"
@@ -274,6 +281,7 @@ function EventsList$EventItem(props) {
 }
 
 var EventItem = {
+  td: td,
   ts: ts,
   make: EventsList$EventItem
 };
@@ -402,6 +410,26 @@ function EventsList(props) {
             });
 }
 
+function td$1(prim) {
+  return t(prim);
+}
+
+t({
+      id: "Badminton"
+    });
+
+t({
+      id: "Table Tennis"
+    });
+
+t({
+      id: "Pickleball"
+    });
+
+t({
+      id: "Futsal"
+    });
+
 var make$1 = EventsList;
 
 var $$default = EventsList;
@@ -416,5 +444,6 @@ export {
   sortByDate ,
   make$1 as make,
   $$default as default,
+  td$1 as td,
 }
 /*  Not a pure module */

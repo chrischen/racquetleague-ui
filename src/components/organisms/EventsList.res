@@ -85,6 +85,7 @@ module NodeIdDto: {
 
 module EventItem = {
   open Lingui.Util
+  let td = Lingui.UtilString.dynamic
   let ts = Lingui.UtilString.t
   @react.component
   let make = (~event) => {
@@ -140,7 +141,7 @@ module EventItem = {
             <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
               <Link to={"/events/" ++ id} relative="path" className="flex gap-x-2">
                 <span className="truncate">
-                  {activity->Option.map(a => a.name->React.string)->Option.getOr(React.null)}
+                  {activity->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))->Option.getOr(React.null)}
                   {" / "->React.string}
                   {title->Option.getOr(ts`[missing title]`)->React.string}
                 </span>
@@ -314,3 +315,14 @@ let make = (~events) => {
 
 @genType
 let default = make
+
+// @NOTE Force lingui to include the potential dynamic values here
+let td = Lingui.UtilString.td
+@live
+td({id: "Badminton"})->ignore
+@live
+td({id: "Table Tennis"})->ignore
+@live
+td({id: "Pickleball"})->ignore
+@live
+td({id: "Futsal"})->ignore

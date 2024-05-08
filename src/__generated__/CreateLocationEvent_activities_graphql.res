@@ -6,8 +6,8 @@ module Types = {
 
   type rec fragment_activities = {
     @live id: string,
-    name: string,
-    slug: string,
+    name: option<string>,
+    slug: option<string>,
   }
   type fragment = {
     activities: array<fragment_activities>,

@@ -5,7 +5,7 @@ module Types = {
   @@warning("-30")
 
   type rec fragment_activity = {
-    name: string,
+    name: option<string>,
   }
   and fragment_location = {
     @live id: string,

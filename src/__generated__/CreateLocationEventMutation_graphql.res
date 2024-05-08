@@ -7,8 +7,8 @@ module Types = {
   @live type createEventInput = RelaySchemaAssets_graphql.input_CreateEventInput
   @live
   type rec response_createEvent_event_activity = {
-    name: string,
-    slug: string,
+    name: option<string>,
+    slug: option<string>,
   }
   @live
   and response_createEvent_event = {

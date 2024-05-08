@@ -185,7 +185,7 @@ let make = (~location, ~query) => {
                     id="activity"
                     name="activity"
                     options={query.activities->Array.map(activity => (
-                      td(activity.name),
+                      td(activity.name->Option.getOr("---")),
                       activity.id,
                     ))}
                     register={register(Activity)}
