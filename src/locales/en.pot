@@ -571,3 +571,7 @@ msgstr ""
 #: src/components/pages/Event.re.mjs:183
 msgid "login to subscribe to {activityName} events"
 msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:182
+msgid "{maxRsvps, plural, one {player} other {players}}"
+msgstr ""

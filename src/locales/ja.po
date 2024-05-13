@@ -461,6 +461,9 @@ msgid "you will receive email notifications for new events"
 msgstr "新しいイベントについてメール通知を受け取ります"
 
 #: src/components/pages/Event.re.mjs:183
-#, fuzzy
 msgid "login to subscribe to {activityName} events"
 msgstr "ログインして{activityName}のイベントに登録"
+
+#: src/components/organisms/EventRsvps.re.mjs:182
+msgid "{maxRsvps, plural, one {player} other {players}}"
+msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"

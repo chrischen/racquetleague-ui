@@ -134,19 +134,27 @@ let make = (~event) => {
 
   let waitlistCount =
     (rsvps->Array.length->Int.toFloat -.
-      maxRsvps->Option.map(Int.toFloat)->Option.getOr(0.))
+      maxRsvps->Option.map(Int.toFloat)->Option.getOr(rsvps->Array.length->Int.toFloat))
     ->Math.max(0.)
     ->Float.toInt
 
   <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
     <dl className="flex flex-wrap">
       <div className="flex-auto pl-6 pt-4">
-        <dt className="text-sm font-semibold leading-6 text-gray-900">
-          {t`confirmed`}
-        </dt>
+        <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`confirmed`} </dt>
         <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
-          {(rsvps->Array.length->Int.toString ++ " ")->React.string}
-          {plural(rsvps->Array.length, {one: "player", other: "players"})}
+          {switch maxRsvps {
+          | Some(max) =>
+            <>
+              {(rsvps->Array.length->Int.toString ++ " / " ++ max->Int.toString ++ " ")->React.string}
+              {plural(max, {one: "player", other: "players"})}
+            </>
+          | None =>
+            <>
+              {(rsvps->Array.length->Int.toString ++ " ")->React.string}
+              {plural(rsvps->Array.length, {one: "player", other: "players"})}
+            </>
+          }}
         </dd>
       </div>
       <div className="flex-none self-end px-6 pt-4">
@@ -157,21 +165,19 @@ let make = (~event) => {
           | 0 =>
             <dd
               className="rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-600 ring-1 ring-inset ring-yellow-600/20">
-              {t`join waitlist`}
+              {viewerHasRsvp ? <button onClick=onLeave>{t`leave event`}</button> : <button onClick=onJoin>{t`join waitlist`}</button>}
             </dd>
           | _ =>
             <dd
               className="rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20">
-              {count->Int.toString->React.string}
-              {" "->React.string}
-              {plural(waitlistCount, {one: "spot available", other: "spots available"})}
+              {viewerHasRsvp ? <button onClick=onLeave>{t`leave event`}</button> : <button onClick=onJoin>{t`join event`}</button>}
             </dd>
           }
         })
         ->Option.getOr(
           <dd
             className="rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20">
-            {t`spots available`}
+              {viewerHasRsvp ? <button onClick=onLeave>{t`leave event`}</button> : <button onClick=onJoin>{t`join event`}</button>}
           </dd>,
         )}
       </div>

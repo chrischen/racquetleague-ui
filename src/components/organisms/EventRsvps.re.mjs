@@ -165,7 +165,7 @@ function EventRsvps(props) {
   };
   var waitlistCount = Math.max(rsvps.length - Core__Option.getOr(Core__Option.map(maxRsvps, (function (prim) {
                   return prim;
-                })), 0), 0) | 0;
+                })), rsvps.length), 0) | 0;
   return JsxRuntime.jsx("div", {
               children: JsxRuntime.jsxs("dl", {
                     children: [
@@ -175,14 +175,24 @@ function EventRsvps(props) {
                                     children: t`confirmed`,
                                     className: "text-sm font-semibold leading-6 text-gray-900"
                                   }),
-                              JsxRuntime.jsxs("dd", {
-                                    children: [
-                                      rsvps.length.toString(undefined) + " ",
-                                      plural(rsvps.length, {
-                                            one: "player",
-                                            other: "players"
-                                          })
-                                    ],
+                              JsxRuntime.jsx("dd", {
+                                    children: maxRsvps !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                            children: [
+                                              rsvps.length.toString(undefined) + " / " + maxRsvps.toString(undefined) + " ",
+                                              plural(maxRsvps, {
+                                                    one: "player",
+                                                    other: "players"
+                                                  })
+                                            ]
+                                          }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                            children: [
+                                              rsvps.length.toString(undefined) + " ",
+                                              plural(rsvps.length, {
+                                                    one: "player",
+                                                    other: "players"
+                                                  })
+                                            ]
+                                          }),
                                     className: "mt-1 text-base font-semibold leading-6 text-gray-900"
                                   })
                             ],
@@ -196,25 +206,36 @@ function EventRsvps(props) {
                                   }),
                               Core__Option.getOr(Core__Option.map(spotsAvailable, (function (count) {
                                           if (count !== 0) {
-                                            return JsxRuntime.jsxs("dd", {
-                                                        children: [
-                                                          count.toString(undefined),
-                                                          " ",
-                                                          plural(waitlistCount, {
-                                                                one: "spot available",
-                                                                other: "spots available"
-                                                              })
-                                                        ],
+                                            return JsxRuntime.jsx("dd", {
+                                                        children: viewerHasRsvp ? JsxRuntime.jsx("button", {
+                                                                children: t`leave event`,
+                                                                onClick: onLeave
+                                                              }) : JsxRuntime.jsx("button", {
+                                                                children: t`join event`,
+                                                                onClick: onJoin
+                                                              }),
                                                         className: "rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20"
                                                       });
                                           } else {
                                             return JsxRuntime.jsx("dd", {
-                                                        children: t`join waitlist`,
+                                                        children: viewerHasRsvp ? JsxRuntime.jsx("button", {
+                                                                children: t`leave event`,
+                                                                onClick: onLeave
+                                                              }) : JsxRuntime.jsx("button", {
+                                                                children: t`join waitlist`,
+                                                                onClick: onJoin
+                                                              }),
                                                         className: "rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-600 ring-1 ring-inset ring-yellow-600/20"
                                                       });
                                           }
                                         })), JsxRuntime.jsx("dd", {
-                                        children: t`spots available`,
+                                        children: viewerHasRsvp ? JsxRuntime.jsx("button", {
+                                                children: t`leave event`,
+                                                onClick: onLeave
+                                              }) : JsxRuntime.jsx("button", {
+                                                children: t`join event`,
+                                                onClick: onJoin
+                                              }),
                                         className: "rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20"
                                       }))
                             ],
