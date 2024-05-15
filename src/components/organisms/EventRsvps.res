@@ -129,7 +129,7 @@ let make = (~event) => {
     )
 
   let isWaitlist = count => {
-    maxRsvps->Option.flatMap(max => count > max ? Some() : None)->Option.isSome
+    maxRsvps->Option.flatMap(max => count >= max ? Some() : None)->Option.isSome
   }
 
   let waitlistCount =
@@ -146,7 +146,7 @@ let make = (~event) => {
           {switch maxRsvps {
           | Some(max) =>
             <>
-              {(rsvps->Array.length->Int.toString ++ " / " ++ max->Int.toString ++ " ")->React.string}
+              {(Js.Math.min_int(rsvps->Array.length, max)->Int.toString ++ " / " ++ max->Int.toString ++ " ")->React.string}
               {plural(max, {one: "player", other: "players"})}
             </>
           | None =>

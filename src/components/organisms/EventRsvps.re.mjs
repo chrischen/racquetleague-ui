@@ -157,7 +157,7 @@ function EventRsvps(props) {
         }));
   var isWaitlist = function (count) {
     return Core__Option.isSome(Core__Option.flatMap(maxRsvps, (function (max) {
-                      if (count > max) {
+                      if (count >= max) {
                         return Caml_option.some(undefined);
                       }
                       
@@ -178,7 +178,7 @@ function EventRsvps(props) {
                               JsxRuntime.jsx("dd", {
                                     children: maxRsvps !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                             children: [
-                                              rsvps.length.toString(undefined) + " / " + maxRsvps.toString(undefined) + " ",
+                                              Math.min(rsvps.length, maxRsvps).toString(undefined) + " / " + maxRsvps.toString(undefined) + " ",
                                               plural(maxRsvps, {
                                                     one: "player",
                                                     other: "players"
