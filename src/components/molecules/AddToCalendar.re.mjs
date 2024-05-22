@@ -11,7 +11,7 @@ function AddToCalendar(props) {
   var viewer = GlobalQuery.useViewer();
   return Core__Option.getOr(Core__Option.map(viewer.user, (function (user) {
                     return JsxRuntime.jsx("a", {
-                                children: t`add to calendar`,
+                                children: t`sync calendar`,
                                 href: "webcal://www.racquetleague.com/cal-feed/" + user.id
                               });
                   })), null);

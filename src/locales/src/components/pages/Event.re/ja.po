@@ -57,10 +57,6 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/molecules/AddToCalendar.re.mjs:14
-msgid "add to calendar"
-msgstr "カレンダーに追加"
-
 #: src/components/pages/Event.re.mjs:197
 msgid "attendees"
 msgstr "参加者"
@@ -133,6 +129,10 @@ msgstr "プレイヤー"
 msgid "subscribe to all {activityName} events"
 msgstr "{activityName} のすべてのイベントに登録"
 
+#: src/components/molecules/AddToCalendar.re.mjs:14
+msgid "sync calendar"
+msgstr "カレンダー同期"
+
 #: src/components/molecules/SubscribeActivity.re.mjs:91
 msgid "unsubscribe from {activityName} events"
 msgstr "{activityName} のイベントから登録解除"
@@ -149,6 +149,11 @@ msgstr "新しいイベントについてメール通知を受け取ります"
 #~ msgid ""
 #~ "{waitlistCount, plural, one {spot available} other {spots available}}"
 #~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
+
+#: src/components/molecules/AddToCalendar.re.mjs:14
+#, fuzzy
+#~ msgid "add to calendar"
+#~ msgstr "カレンダー同期"
 
 #: src/components/organisms/EventRsvps.re.mjs:217
 #~ msgid "spots available"

@@ -62,8 +62,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
-msgid "add to calendar"
-msgstr ""
+#~ msgid "add to calendar"
+#~ msgstr ""
 
 #: src/components/pages/Event.re.mjs:197
 msgid "attendees"
@@ -171,6 +171,10 @@ msgstr ""
 
 #: src/components/molecules/SubscribeActivity.re.mjs:112
 msgid "subscribe to all {activityName} events"
+msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:14
+msgid "sync calendar"
 msgstr ""
 
 #: src/components/molecules/SubscribeActivity.re.mjs:91

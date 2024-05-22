@@ -579,3 +579,7 @@ msgstr ""
 #: src/components/molecules/AddToCalendar.re.mjs:14
 msgid "add to calendar"
 msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:14
+msgid "sync calendar"
+msgstr ""
