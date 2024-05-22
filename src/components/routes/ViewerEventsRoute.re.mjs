@@ -11,6 +11,7 @@ import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
 import * as EventsList from "../organisms/EventsList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -72,6 +73,11 @@ function ViewerEventsRoute(props) {
                                             children: JsxRuntime.jsx(PageTitle.make, {
                                                   children: t`all events`
                                                 })
+                                          })
+                                    }),
+                                JsxRuntime.jsx(Layout.Container.make, {
+                                      children: JsxRuntime.jsx(Grid.make, {
+                                            children: JsxRuntime.jsx(AddToCalendar.make, {})
                                           })
                                     }),
                                 JsxRuntime.jsx(React.Suspense, {

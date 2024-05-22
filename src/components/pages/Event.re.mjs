@@ -13,6 +13,7 @@ import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as EventLocation from "../organisms/EventLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -208,6 +209,7 @@ function $$Event(props) {
                                                                               children: t`details`,
                                                                               className: "text-base font-semibold leading-6 text-gray-900"
                                                                             }),
+                                                                        JsxRuntime.jsx(AddToCalendar.make, {}),
                                                                         Core__Option.getOr(Core__Option.flatMap($$event.startDate, (function (startDate) {
                                                                                     return Core__Option.map($$event.endDate, (function (endDate) {
                                                                                                   return JsxRuntime.jsxs("p", {

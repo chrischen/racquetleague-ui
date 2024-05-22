@@ -14,26 +14,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:417
+#: src/components/organisms/EventsList.re.mjs:419
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:421
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:425
+#: src/components/organisms/EventsList.re.mjs:427
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:429
+#: src/components/organisms/EventsList.re.mjs:431
 msgid "Futsal"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:325
+#: src/components/organisms/EventsList.re.mjs:332
 msgid "...load past events"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "all events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:405
+#: src/components/organisms/EventsList.re.mjs:407
 msgid "load more"
 msgstr ""
 
@@ -96,10 +96,10 @@ msgstr ""
 #~ msgid "load previous"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:358
+#: src/components/organisms/EventsList.re.mjs:365
 msgid "my events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:340
+#: src/components/organisms/EventsList.re.mjs:347
 msgid "public events"
 msgstr ""
