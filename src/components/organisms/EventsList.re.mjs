@@ -294,9 +294,9 @@ function sortByDate(intl, dates, $$event) {
   Core__Option.map($$event.startDate, (function (startDate) {
           var startDate$1 = Util.Datetime.toDate(startDate);
           var startDateString = intl.formatDate(startDate$1, {
-                year: "2-digit",
-                month: "2-digit",
-                day: "2-digit"
+                weekday: "long",
+                month: "short",
+                day: "numeric"
               });
           var events = Js_dict.get(dates, startDateString);
           if (events !== undefined) {
@@ -374,18 +374,13 @@ function EventsList(props) {
                 JsxRuntime.jsx("ul", {
                       children: Js_dict.entries(eventsByDate).map(function (param) {
                             var dateString = param[0];
-                            var date = new Date(dateString);
+                            new Date(dateString);
                             return JsxRuntime.jsxs("li", {
                                         children: [
                                           JsxRuntime.jsx("div", {
                                                 children: JsxRuntime.jsx(Layout.Container.make, {
                                                       children: JsxRuntime.jsx("h3", {
-                                                            children: JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                                  value: date,
-                                                                  weekday: "long",
-                                                                  month: "short",
-                                                                  day: "numeric"
-                                                                })
+                                                            children: dateString
                                                           })
                                                     }),
                                                 className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"

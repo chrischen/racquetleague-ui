@@ -214,7 +214,7 @@ let sortByDate = (
     let startDate = startDate->Datetime.toDate
 
     // Date string in local time
-    let startDateString = intl->ReactIntl.Intl.formatDateWithOptions(startDate, ReactIntl.dateTimeFormatOptions(~day=#"2-digit", ~month=#"2-digit", ~year=#"2-digit", ()));
+    let startDateString = intl->ReactIntl.Intl.formatDateWithOptions(startDate, ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ()));
 
     switch dates->Js.Dict.get(startDateString) {
     | None => dates->Js.Dict.set(startDateString, [event])
@@ -277,6 +277,7 @@ let make = (~events) => {
         // back to UTC
         // Js.log(dateString);
         let date = dateString->Js.Date.fromString
+        let date = dateString
 
         // Local time difference in minutes
         // let until = date->DateFns.differenceInMinutes(Js.Date.make())
@@ -285,7 +286,8 @@ let make = (~events) => {
             className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
             <Layout.Container>
               <h3>
-                <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
+              {date->React.string}
+                // <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
                 // {" "->React.string}
                 // <ReactIntl.FormattedRelativeTime
                 //   value={until} unit=#minute updateIntervalInSeconds=1.
