@@ -102,7 +102,7 @@ let make = () => {
       )
     )
     let duration = duration->Option.map(duration => {
-      let hours = duration /. 60.
+      let hours = Js.Math.floor_float(duration /. 60.)
       let minutes = mod(duration->Float.toInt, 60)
       if minutes == 0 {
         t`${hours->Float.toString} hours`

@@ -90,7 +90,7 @@ function $$Event(props) {
                                         }));
                           }));
                     var duration$1 = Core__Option.map(duration, (function (duration) {
-                            var hours = duration / 60;
+                            var hours = Math.floor(duration / 60);
                             var minutes = (duration | 0) % 60;
                             if (minutes === 0) {
                               return t`${hours.toString(undefined)} hours`;
