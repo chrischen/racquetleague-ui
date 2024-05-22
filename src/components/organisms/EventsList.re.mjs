@@ -290,10 +290,14 @@ function toLocalTime(date) {
   return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
 }
 
-function sortByDate(dates, $$event) {
+function sortByDate(intl, dates, $$event) {
   Core__Option.map($$event.startDate, (function (startDate) {
           var startDate$1 = Util.Datetime.toDate(startDate);
-          var startDateString = toLocalTime(startDate$1).toISOString().slice(0, 10);
+          var startDateString = intl.formatDate(startDate$1, {
+                year: "2-digit",
+                month: "2-digit",
+                day: "2-digit"
+              });
           var events = Js_dict.get(dates, startDateString);
           if (events !== undefined) {
             dates[startDateString] = Belt_Array.concatMany([
@@ -313,8 +317,11 @@ function EventsList(props) {
   var data = match.data;
   var events = getConnectionNodes(data.events);
   var pageInfo = data.events.pageInfo;
+  var intl = ReactIntl.useIntl();
   var viewer = GlobalQuery.useViewer();
-  var eventsByDate = Core__Array.reduce(events, {}, sortByDate);
+  var eventsByDate = Core__Array.reduce(events, {}, (function (extra, extra$1) {
+          return sortByDate(intl, extra, extra$1);
+        }));
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 match.isLoadingPrevious ? null : Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {

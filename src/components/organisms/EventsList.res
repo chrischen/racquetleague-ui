@@ -204,6 +204,7 @@ let toLocalTime = date => {
   Js.Date.fromFloat(date->Js.Date.getTime -. date->Js.Date.getTimezoneOffset *. 60. *. 1000.)
 }
 let sortByDate = (
+  intl,
   dates: dates,
   event: EventsListFragment_graphql.Types.fragment_events_edges_node,
 ): dates => {
@@ -213,8 +214,7 @@ let sortByDate = (
     let startDate = startDate->Datetime.toDate
 
     // Date string in local time
-    // let startDateString = ReactIntl.useIntl()->ReactIntl.Intl.formatDateWithOptions(startDate, ReactIntl.dateTimeFormatOptions(~day=#"2-digit", ~month=#"2-digit", ~year=#"2-digit", ()));
-    let startDateString = startDate->toLocalTime->Js.Date.toISOString->String.slice(~start=0, ~end=10);
+    let startDateString = intl->ReactIntl.Intl.formatDateWithOptions(startDate, ReactIntl.dateTimeFormatOptions(~day=#"2-digit", ~month=#"2-digit", ~year=#"2-digit", ()));
 
     switch dates->Js.Dict.get(startDateString) {
     | None => dates->Js.Dict.set(startDateString, [event])
@@ -238,8 +238,9 @@ let make = (~events) => {
   //     loadNext(~count=1)->ignore
   //   })
   //
+  let intl = ReactIntl.useIntl();
   let viewer = GlobalQuery.useViewer()
-  let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate)
+  let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, ...))
 
   <>
     {!isLoadingPrevious
