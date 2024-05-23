@@ -35,6 +35,11 @@ type ActivitySubscriptionMutationResult implements HasErrors {
   errors: [Error!]
 }
 
+type Coords {
+  lat: Float!
+  lng: Float!
+}
+
 input CreateActivitySubscriptionInput {
   activityId: String!
 }
@@ -54,6 +59,7 @@ input CreateLocationInput {
   address: String!
   details: String
   links: [String!]
+  listed: Boolean
   name: String!
 }
 
@@ -141,9 +147,11 @@ type LeaveEventResult implements HasErrors {
 type Location implements Node {
   active: Boolean
   address: String
+  coords: Coords
   details: String
   id: ID!
   links: [String!]
+  listed: Boolean
   name: String
 }
 

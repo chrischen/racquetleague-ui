@@ -23,6 +23,7 @@ module Fragment = %relay(`
           ...EventsList_event
         }
       }
+      ...PinMap_eventConnection
       pageInfo {
         hasNextPage
         hasPreviousPage
@@ -234,7 +235,10 @@ let sortByDate = (
 let make = (~events) => {
   open Lingui.Util
   let (_isPending, _) = ReactExperimental.useTransition()
-  let {data, isLoadingNext, hasNext, isLoadingPrevious} = Fragment.usePagination(events)
+  let { events: eventsQuery } = Fragment.use(events);
+  let {data, isLoadingNext, hasNext, isLoadingPrevious} = Fragment.usePagination(
+    events,
+  )
   let events = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
@@ -319,6 +323,13 @@ let make = (~events) => {
           ->Option.getOr(React.null)}
         </Layout.Container>
       : React.null}
+    <Layout.Container>
+      <Grid>
+        <div className="w-full h-96">
+          <PinMap connection={eventsQuery.fragmentRefs} />
+        </div>
+      </Grid>
+    </Layout.Container>
   </>
 }
 

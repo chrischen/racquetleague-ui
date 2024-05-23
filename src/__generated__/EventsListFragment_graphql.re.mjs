@@ -10,7 +10,7 @@ import * as EventsListRefetchQuery_graphql from "./EventsListRefetchQuery_graphq
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""}}};
+var fragmentConverter = {"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}};
 
 var fragmentConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -184,6 +184,11 @@ return {
             }
           ],
           "storageKey": null
+        },
+        {
+          "args": null,
+          "kind": "FragmentSpread",
+          "name": "PinMap_eventConnection"
         },
         {
           "alias": null,

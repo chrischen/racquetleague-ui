@@ -251,7 +251,39 @@ return {
                     "plural": false,
                     "selections": [
                       (v5/*: any*/),
-                      (v6/*: any*/)
+                      (v6/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "Coords",
+                        "kind": "LinkedField",
+                        "name": "coords",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "lng",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "lat",
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "address",
+                        "storageKey": null
+                      }
                     ],
                     "storageKey": null
                   },
@@ -380,12 +412,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "5946879b92d40a41cc93762a5c57d332",
+    "cacheID": "8c68daa2829b02482ae11b9662bd7e15",
     "id": null,
     "metadata": {},
     "name": "EventsQuery",
     "operationKind": "query",
-    "text": "query EventsQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n) {\n  ...EventsListFragment_4ysDAd\n}\n\nfragment EventsListFragment_4ysDAd on Query {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n"
+    "text": "query EventsQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n) {\n  ...EventsListFragment_4ysDAd\n}\n\nfragment EventsListFragment_4ysDAd on Query {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        coords {\n          lng\n          lat\n        }\n        address\n        id\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

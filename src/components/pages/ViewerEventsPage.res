@@ -23,7 +23,7 @@ let make = () => {
       <>
         <Layout.Container>
           <Grid>
-            <PageTitle> {t`all events`} </PageTitle>
+            <PageTitle> {t`my events`} </PageTitle>
           </Grid>
         </Layout.Container>
         <Layout.Container>

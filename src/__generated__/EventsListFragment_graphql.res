@@ -21,6 +21,7 @@ module Types = {
   and fragment_events = {
     edges: option<array<option<fragment_events_edges>>>,
     pageInfo: fragment_events_pageInfo,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PinMap_eventConnection]>,
   }
   type fragment = {
     events: fragment_events,
@@ -32,7 +33,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""}}}`
+    json`{"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = {
@@ -220,6 +221,11 @@ return {
             }
           ],
           "storageKey": null
+        },
+        {
+          "args": null,
+          "kind": "FragmentSpread",
+          "name": "PinMap_eventConnection"
         },
         {
           "alias": null,

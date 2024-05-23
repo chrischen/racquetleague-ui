@@ -55,6 +55,7 @@ and input_CreateLocationInput = {
   address: string,
   details?: string,
   links?: array<string>,
+  listed?: bool,
   name: string,
 }
 
@@ -63,6 +64,7 @@ and input_CreateLocationInput_nullable = {
   address: string,
   details?: Js.Null.t<string>,
   links?: Js.Null.t<array<string>>,
+  listed?: Js.Null.t<bool>,
   name: string,
 }
 

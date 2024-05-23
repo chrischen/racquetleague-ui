@@ -50,7 +50,7 @@ function ViewerEventsPage(props) {
                                 JsxRuntime.jsx(Layout.Container.make, {
                                       children: JsxRuntime.jsx(Grid.make, {
                                             children: JsxRuntime.jsx(PageTitle.make, {
-                                                  children: t`all events`
+                                                  children: t`my events`
                                                 })
                                           })
                                     }),

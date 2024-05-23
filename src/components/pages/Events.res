@@ -38,8 +38,7 @@ let make = () => {
             <PageTitle> {t`all events`} </PageTitle>
           </Grid>
         </Layout.Container>
-        <React.Suspense
-          fallback={<Layout.Container> {"Loading events..."->React.string} </Layout.Container>}>
+        <React.Suspense fallback={<Layout.Container> {t`loading events...`} </Layout.Container>}>
           <EventsList events=fragmentRefs />
         </React.Suspense>
       </>

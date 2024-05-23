@@ -79,7 +79,7 @@ function Events(props) {
                                                 events: fragmentRefs
                                               })),
                                       fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                                children: "Loading events..."
+                                                children: t`loading events...`
                                               }))
                                     })
                               ]
