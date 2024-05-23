@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 20:16+0900\n"
+"POT-Creation-Date: 2024-05-23 13:21+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
 "Language-Team: \n"
@@ -12,26 +12,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:419
-#~ msgid "Badminton"
-#~ msgstr "バドミントン"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:423
-#~ msgid "Table Tennis"
-#~ msgstr "卓球"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:427
-#~ msgid "Pickleball"
-#~ msgstr "ピクルボール"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:431
-#~ msgid "Futsal"
-#~ msgstr "フットサル"
 
 #: src/components/organisms/EventsList.re.mjs:332
 msgid "...load past events"
@@ -76,22 +56,22 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
+#: src/components/pages/ViewerEventsPage.re.mjs:53
+msgid "all events"
+msgstr "すべてのイベント"
+
 #: src/components/organisms/EventsList.re.mjs:407
 msgid "load more"
 msgstr "もっと読み込む"
-
-#: src/components/pages/LocationPage.re.mjs:49
-msgid "location"
-msgstr "場所"
 
 #: src/components/organisms/EventsList.re.mjs:365
 msgid "my events"
 msgstr "私のイベント"
 
-#: src/components/pages/LocationPage.re.mjs:69
-msgid "page not found"
-msgstr "ページが見つかりません"
-
 #: src/components/organisms/EventsList.re.mjs:347
 msgid "public events"
 msgstr "公開イベント"
+
+#: src/components/molecules/AddToCalendar.re.mjs:17
+msgid "sync calendar"
+msgstr "カレンダー同期"

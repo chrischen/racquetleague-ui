@@ -1,4 +1,4 @@
-/* @sourceLoc ViewerEventsRoute.res */
+/* @sourceLoc ViewerEventsPage.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -184,7 +184,7 @@ return {
     ],
     "kind": "Fragment",
     "metadata": null,
-    "name": "ViewerEventsRouteQuery",
+    "name": "ViewerEventsPageQuery",
     "selections": [
       {
         "args": (v5/*: any*/),
@@ -205,7 +205,7 @@ return {
       (v3/*: any*/)
     ],
     "kind": "Operation",
-    "name": "ViewerEventsRouteQuery",
+    "name": "ViewerEventsPageQuery",
     "selections": [
       {
         "alias": null,
@@ -397,12 +397,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "518efcf34a1f61d1ab90956020fa29f4",
+    "cacheID": "5f97bba364b1e2be88e812ee7734fae0",
     "id": null,
     "metadata": {},
-    "name": "ViewerEventsRouteQuery",
+    "name": "ViewerEventsPageQuery",
     "operationKind": "query",
-    "text": "query ViewerEventsRouteQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n  $filters: EventFilters\n) {\n  ...EventsListFragment_N8DiW\n}\n\nfragment EventsListFragment_N8DiW on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n"
+    "text": "query ViewerEventsPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n  $filters: EventFilters\n) {\n  ...EventsListFragment_N8DiW\n}\n\nfragment EventsListFragment_N8DiW on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n"
   }
 };
 })() `)

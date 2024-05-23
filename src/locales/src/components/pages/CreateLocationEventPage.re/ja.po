@@ -50,12 +50,8 @@ msgid "All Level Badminton"
 msgstr "すべてのレベルのバドミントン"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:272
-msgid ""
-"any details from the location will already be included. Mention any "
-"additional event-specific instructions, rules, or details."
-msgstr ""
-"ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
-"細」があれば記載してください。"
+msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+msgstr "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳細」があれば記載してください。"
 
 #: src/components/molecules/forms/Form.re.mjs:222
 msgid "cancel"
@@ -110,12 +106,8 @@ msgid "save"
 msgstr "保存"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:303
-msgid ""
-"show your event publicly on our home page. Otherwise, only people with a "
-"link to your event will be able to find it."
-msgstr ""
-"ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
-"持っている人だけがイベントを見つけることができます。"
+msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+msgstr "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを持っている人だけがイベントを見つけることができます。"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:183
 msgid "title"

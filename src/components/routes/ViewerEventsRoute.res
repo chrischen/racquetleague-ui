@@ -1,12 +1,4 @@
-%%raw("import { css, cx } from '@linaria/core'")
-%%raw("import { t } from '@lingui/macro'")
-open Lingui.Util
 
-module EventsQuery = %relay(`
-  query ViewerEventsRouteQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
-    ... EventsListFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate, filters: $filters)
-  }
-`)
 /* module Fragment = %relay(`
   fragment Events_event on Event {
     ... Event_event
@@ -20,45 +12,11 @@ module EventsQuery = %relay(`
 		}
   }
 `)*/
-type loaderData = ViewerEventsRouteQuery_graphql.queryRef
-@module("react-router-dom")
-external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
-
-@genType @react.component
-let make = () => {
-  //let { fragmentRefs } = Fragment.use(events)
-  let query = useLoaderData()
-  let {fragmentRefs} = EventsQuery.usePreloaded(~queryRef=query.data)
-
-  <WaitForMessages>
-    {() => {
-      <>
-        <Layout.Container>
-          <Grid>
-            <PageTitle> {t`all events`} </PageTitle>
-          </Grid>
-        </Layout.Container>
-        <Layout.Container>
-          <Grid>
-            <AddToCalendar />
-          </Grid>
-        </Layout.Container>
-        <React.Suspense
-          fallback={<Layout.Container> {"Loading events..."->React.string} </Layout.Container>}>
-          <EventsList events=fragmentRefs />
-        </React.Suspense>
-      </>
-    }}
-  </WaitForMessages>
-}
 
 @genType
-let default = make
+let \"Component" = ViewerEventsPage.make
 
-@genType
-let \"Component" = make
-
-type params = {...ViewerEventsRouteQuery_graphql.Types.variables, lang: option<string>}
+type params = {...ViewerEventsPageQuery_graphql.Types.variables, lang: option<string>}
 module LoaderArgs = {
   type t = {
     context?: RelayEnv.context,
@@ -69,8 +27,8 @@ module LoaderArgs = {
 
 let loadMessages = lang => {
   let messages = switch lang {
-  | "ja" => Lingui.import("../../locales/src/components/pages/Events.re/ja")
-  | _ => Lingui.import("../../locales/src/components/pages/Events.re/en")
+  | "ja" => Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/ja")
+  | _ => Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/en")
   }->Promise.thenResolve(messages =>
     Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
   )
@@ -99,7 +57,7 @@ let loader = async ({?context, params, request}: LoaderArgs.t) => {
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
     WaitForMessages.data: Option.map(RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr), env =>
-      ViewerEventsRouteQuery_graphql.load(
+      ViewerEventsPageQuery_graphql.load(
         ~environment=env,
         ~variables={
           ?after,
