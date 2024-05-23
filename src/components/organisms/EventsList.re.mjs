@@ -152,7 +152,7 @@ function EventsList$EventItem(props) {
                       }));
         }));
   var duration$1 = Core__Option.map(duration, (function (duration) {
-          var hours = duration / 60;
+          var hours = Math.floor(duration / 60);
           var minutes = (duration | 0) % 60;
           if (minutes === 0) {
             return plural(hours | 0, {
@@ -412,25 +412,20 @@ function EventsList(props) {
             });
 }
 
-function td$1(prim) {
-  return t(prim);
+function __unused() {
+  t({
+        id: "Badminton"
+      });
+  t({
+        id: "Table Tennis"
+      });
+  t({
+        id: "Pickleball"
+      });
+  t({
+        id: "Futsal"
+      });
 }
-
-t({
-      id: "Badminton"
-    });
-
-t({
-      id: "Table Tennis"
-    });
-
-t({
-      id: "Pickleball"
-    });
-
-t({
-      id: "Futsal"
-    });
 
 var make$1 = EventsList;
 
@@ -446,6 +441,6 @@ export {
   sortByDate ,
   make$1 as make,
   $$default as default,
-  td$1 as td,
+  __unused ,
 }
 /*  Not a pure module */

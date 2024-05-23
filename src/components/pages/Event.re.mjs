@@ -323,25 +323,20 @@ async function loader(param) {
             });
 }
 
-function td(prim) {
-  return t(prim);
+function __unused() {
+  t({
+        id: "Badminton"
+      });
+  t({
+        id: "Table Tennis"
+      });
+  t({
+        id: "Pickleball"
+      });
+  t({
+        id: "Futsal"
+      });
 }
-
-t({
-      id: "Badminton"
-    });
-
-t({
-      id: "Table Tennis"
-    });
-
-t({
-      id: "Pickleball"
-    });
-
-t({
-      id: "Futsal"
-    });
 
 var make = $$Event;
 
@@ -358,6 +353,6 @@ export {
   LoaderArgs ,
   loadMessages ,
   loader ,
-  td ,
+  __unused ,
 }
 /*  Not a pure module */

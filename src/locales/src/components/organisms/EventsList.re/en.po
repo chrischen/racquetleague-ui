@@ -14,22 +14,22 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:419
+#: src/components/organisms/EventsList.re.mjs:416
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:423
+#: src/components/organisms/EventsList.re.mjs:419
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:427
+#: src/components/organisms/EventsList.re.mjs:422
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:431
+#: src/components/organisms/EventsList.re.mjs:425
 msgid "Futsal"
 msgstr ""
 

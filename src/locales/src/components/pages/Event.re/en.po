@@ -15,25 +15,25 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:330
+#: src/components/pages/Event.re.mjs:327
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:334
+#: src/components/pages/Event.re.mjs:330
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:338
+#: src/components/pages/Event.re.mjs:333
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:342
+#: src/components/pages/Event.re.mjs:336
 msgid "Futsal"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "subscribe to all {activityName} events"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:14
+#: src/components/molecules/AddToCalendar.re.mjs:17
 msgid "sync calendar"
 msgstr ""
 

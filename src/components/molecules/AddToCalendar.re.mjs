@@ -2,6 +2,7 @@
 
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { t } from '@lingui/macro'
@@ -9,12 +10,16 @@ import { t } from '@lingui/macro'
 
 function AddToCalendar(props) {
   var viewer = GlobalQuery.useViewer();
-  return Core__Option.getOr(Core__Option.map(viewer.user, (function (user) {
-                    return JsxRuntime.jsx("a", {
-                                children: t`sync calendar`,
-                                href: "webcal://www.racquetleague.com/cal-feed/" + user.id
-                              });
-                  })), null);
+  return JsxRuntime.jsx(WaitForMessages.make, {
+              children: (function () {
+                  return Core__Option.getOr(Core__Option.map(viewer.user, (function (user) {
+                                    return JsxRuntime.jsx("a", {
+                                                children: t`sync calendar`,
+                                                href: "webcal://www.racquetleague.com/cal-feed/" + user.id
+                                              });
+                                  })), null);
+                })
+            });
 }
 
 var make = AddToCalendar;

@@ -471,3 +471,8 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 #: src/components/molecules/AddToCalendar.re.mjs:14
 msgid "sync calendar"
 msgstr "カレンダー同期"
+
+#: src/components/molecules/AddToCalendar.re.mjs:14
+#, fuzzy
+#~ msgid "add to calendar"
+#~ msgstr "カレンダー同期"

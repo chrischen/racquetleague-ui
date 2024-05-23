@@ -5,8 +5,6 @@
 
 import * as AddToCalendarJS from './AddToCalendar.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 export type props = {};
 
-export const make: (_1:props) => PervasivesU_Jsx_element = AddToCalendarJS.make as any;
+export const make: React.ComponentType<{}> = AddToCalendarJS.make as any;

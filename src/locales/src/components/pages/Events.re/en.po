@@ -15,23 +15,23 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/organisms/EventsList.re.mjs:419
-msgid "Badminton"
-msgstr ""
+#~ msgid "Badminton"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/organisms/EventsList.re.mjs:423
-msgid "Table Tennis"
-msgstr ""
+#~ msgid "Table Tennis"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/organisms/EventsList.re.mjs:427
-msgid "Pickleball"
-msgstr ""
+#~ msgid "Pickleball"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/organisms/EventsList.re.mjs:431
-msgid "Futsal"
-msgstr ""
+#~ msgid "Futsal"
+#~ msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:332
 msgid "...load past events"

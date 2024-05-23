@@ -391,12 +391,14 @@ let loader = async ({?context, params, request}: LoaderArgs.t) => {
 // %raw("loader.hydrate = true")
 
 // @NOTE Force lingui to include the potential dynamic values here
-let td = Lingui.UtilString.td
-@live
-td({id: "Badminton"})->ignore
-@live
-td({id: "Table Tennis"})->ignore
-@live
-td({id: "Pickleball"})->ignore
-@live
-td({id: "Futsal"})->ignore
+let __unused = () => {
+  let td = Lingui.UtilString.td
+
+  @live (td({id: "Badminton"})->ignore)
+
+  @live (td({id: "Table Tennis"})->ignore)
+
+  @live (td({id: "Pickleball"})->ignore)
+
+  @live (td({id: "Futsal"})->ignore)
+}

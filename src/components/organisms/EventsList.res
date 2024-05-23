@@ -1,8 +1,8 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t, plural } from '@lingui/macro'")
 
-open Util;
-open LangProvider.Router;
+open Util
+open LangProvider.Router
 module Fragment = %relay(`
   fragment EventsListFragment on Query
   @argumentDefinitions (
@@ -105,7 +105,7 @@ module EventItem = {
       )
     )
     let duration = duration->Option.map(duration => {
-      let hours = duration /. 60.
+      let hours = Js.Math.floor_float(duration /. 60.)
       let minutes = mod(duration->Float.toInt, 60)
       if minutes == 0 {
         plural(
@@ -141,7 +141,9 @@ module EventItem = {
             <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
               <Link to={"/events/" ++ id} relative="path" className="flex gap-x-2">
                 <span className="truncate">
-                  {activity->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))->Option.getOr(React.null)}
+                  {activity
+                  ->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))
+                  ->Option.getOr(React.null)}
                   {" / "->React.string}
                   {title->Option.getOr(ts`[missing title]`)->React.string}
                 </span>
@@ -214,7 +216,11 @@ let sortByDate = (
     let startDate = startDate->Datetime.toDate
 
     // Date string in local time
-    let startDateString = intl->ReactIntl.Intl.formatDateWithOptions(startDate, ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ()));
+    let startDateString =
+      intl->ReactIntl.Intl.formatDateWithOptions(
+        startDate,
+        ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ()),
+      )
 
     switch dates->Js.Dict.get(startDateString) {
     | None => dates->Js.Dict.set(startDateString, [event])
@@ -238,7 +244,7 @@ let make = (~events) => {
   //     loadNext(~count=1)->ignore
   //   })
   //
-  let intl = ReactIntl.useIntl();
+  let intl = ReactIntl.useIntl()
   let viewer = GlobalQuery.useViewer()
   let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, ...))
 
@@ -286,7 +292,7 @@ let make = (~events) => {
             className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
             <Layout.Container>
               <h3>
-              {date->React.string}
+                {date->React.string}
                 // <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
                 // {" "->React.string}
                 // <ReactIntl.FormattedRelativeTime
@@ -320,12 +326,14 @@ let make = (~events) => {
 let default = make
 
 // @NOTE Force lingui to include the potential dynamic values here
-let td = Lingui.UtilString.td
-@live
-td({id: "Badminton"})->ignore
-@live
-td({id: "Table Tennis"})->ignore
-@live
-td({id: "Pickleball"})->ignore
-@live
-td({id: "Futsal"})->ignore
+let __unused = () => {
+  let td = Lingui.UtilString.td
+
+  @live (td({id: "Badminton"})->ignore)
+
+  @live (td({id: "Table Tennis"})->ignore)
+
+  @live (td({id: "Pickleball"})->ignore)
+
+  @live (td({id: "Futsal"})->ignore)
+}
