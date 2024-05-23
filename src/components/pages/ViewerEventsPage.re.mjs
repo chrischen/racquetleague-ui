@@ -55,9 +55,7 @@ function ViewerEventsPage(props) {
                                           })
                                     }),
                                 JsxRuntime.jsx(Layout.Container.make, {
-                                      children: JsxRuntime.jsx(Grid.make, {
-                                            children: JsxRuntime.jsx(AddToCalendar.make, {})
-                                          })
+                                      children: JsxRuntime.jsx(AddToCalendar.make, {})
                                     }),
                                 JsxRuntime.jsx(React.Suspense, {
                                       children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {

@@ -54,6 +54,7 @@ and input_CreateEventInput_nullable = {
 and input_CreateLocationInput = {
   address: string,
   details?: string,
+  externalMedia?: array<string>,
   links?: array<string>,
   listed?: bool,
   name: string,
@@ -63,6 +64,7 @@ and input_CreateLocationInput = {
 and input_CreateLocationInput_nullable = {
   address: string,
   details?: Js.Null.t<string>,
+  externalMedia?: Js.Null.t<array<string>>,
   links?: Js.Null.t<array<string>>,
   listed?: Js.Null.t<bool>,
   name: string,

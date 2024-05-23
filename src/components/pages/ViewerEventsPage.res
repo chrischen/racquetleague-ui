@@ -27,9 +27,7 @@ let make = () => {
           </Grid>
         </Layout.Container>
         <Layout.Container>
-          <Grid>
-            <AddToCalendar />
-          </Grid>
+          <AddToCalendar />
         </Layout.Container>
         <React.Suspense
           fallback={<Layout.Container> {"Loading events..."->React.string} </Layout.Container>}>
@@ -39,4 +37,3 @@ let make = () => {
     }}
   </WaitForMessages>
 }
-
