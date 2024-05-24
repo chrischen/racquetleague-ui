@@ -252,10 +252,6 @@ let make = () => {
             // <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-              <div className="lg:col-start-3 lg:row-end-1">
-                <h2 className="sr-only"> {t`attendees`} </h2>
-                <EventRsvps event=fragmentRefs />
-              </div>
               <div
                 className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-12 xl:py-8">
                 <h2 className="text-base font-semibold leading-6 text-gray-900"> {t`details`} </h2>
@@ -310,6 +306,14 @@ let make = () => {
                   </p>
                 )
                 ->Option.getOr(React.null)}
+              </div>
+              <div
+                className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 xl:px-12 xl:py-8">
+                <h2 className="text-base font-semibold leading-6 text-gray-900"> {t`media`} </h2>
+              </div>
+              <div className="lg:col-start-3 lg:row-end-1">
+                <h2 className="sr-only"> {t`attendees`} </h2>
+                <EventRsvps event=fragmentRefs />
               </div>
               <div className="lg:col-start-3">
                 <h2 className="text-base font-semibold leading-6 text-gray-900">

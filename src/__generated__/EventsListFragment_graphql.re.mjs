@@ -57,7 +57,14 @@ function makeNode(rescript_graphql_node_EventsListRefetchQuery) {
   return ((function(){
 var v0 = [
   "events"
-];
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
 return {
   "argumentDefinitions": [
     {
@@ -146,18 +153,24 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
-                  "storageKey": null
-                },
+                (v1/*: any*/),
                 {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
                   "name": "startDate",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "Location",
+                  "kind": "LinkedField",
+                  "name": "location",
+                  "plural": false,
+                  "selections": [
+                    (v1/*: any*/)
+                  ],
                   "storageKey": null
                 },
                 {

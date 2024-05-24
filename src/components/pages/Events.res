@@ -26,9 +26,11 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 
 @genType @react.component
 let make = () => {
+  open Router
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
   let {fragmentRefs} = EventsQuery.usePreloaded(~queryRef=query.data)
+  let viewer = GlobalQuery.useViewer()
 
   <WaitForMessages>
     {() => {
@@ -36,6 +38,19 @@ let make = () => {
         <Layout.Container>
           <Grid>
             <PageTitle> {t`all events`} </PageTitle>
+            <div>
+              <Link to={"/"}> {t`public events`} </Link>
+              {viewer.user
+              ->Option.map(_ => <>
+                {" "->React.string}
+                <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
+                  <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
+                </svg>
+                {" "->React.string}
+                <Link to={"/events"} relative="path"> {t`my events`} </Link>
+              </>)
+              ->Option.getOr(React.null)}
+            </div>
           </Grid>
         </Layout.Container>
         <React.Suspense fallback={<Layout.Container> {t`loading events...`} </Layout.Container>}>

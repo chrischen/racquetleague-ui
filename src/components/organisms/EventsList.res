@@ -20,6 +20,9 @@ module Fragment = %relay(`
         node {
           id
           startDate
+          location {
+            id
+          }
           ...EventsList_event
         }
       }
@@ -89,7 +92,7 @@ module EventItem = {
   let td = Lingui.UtilString.dynamic
   let ts = Lingui.UtilString.t
   @react.component
-  let make = (~event) => {
+  let make = (~event, ~highlightedLocation: bool=false) => {
     let {id, title, activity, location, startDate, rsvps, endDate} = ItemFragment.use(event)
     let playersCount =
       rsvps
@@ -131,7 +134,8 @@ module EventItem = {
         </>
       }
     })
-    <li>
+    let highlighted = highlightedLocation ? "bg-yellow-100/35" : ""
+    <li className=highlighted>
       <Layout.Container className="relative flex items-center space-x-4 py-4">
         <div className="min-w-0 flex-auto">
           <div className="flex items-center gap-x-3">
@@ -173,11 +177,10 @@ module EventItem = {
               </>)
               ->Option.getOr(React.null)}
             </p>
-            {" @ "->React.string}
           </div>
           <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
             <span className="whitespace-nowrap">
-              <p className="truncate">
+              <p className=Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])>
                 {location
                 ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
                 ->Option.getOr(t`[location missing]`)}
@@ -235,13 +238,12 @@ let sortByDate = (
 let make = (~events) => {
   open Lingui.Util
   let (_isPending, _) = ReactExperimental.useTransition()
-  let { events: eventsQuery } = Fragment.use(events);
-  let {data, isLoadingNext, hasNext, isLoadingPrevious} = Fragment.usePagination(
-    events,
-  )
+  let {events: eventsQuery} = Fragment.use(events)
+  let {data, isLoadingNext, hasNext, isLoadingPrevious} = Fragment.usePagination(events)
   let events = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
+  let (highlightedLocation, setHighlightedLocation) = React.useState(() => "")
 
   // let onLoadMore = _ =>
   //   startTransition(() => {
@@ -252,84 +254,87 @@ let make = (~events) => {
   let viewer = GlobalQuery.useViewer()
   let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, ...))
 
+  // React.useEffect(() => {
+  //   setHighlightedLocations(_ => "asdf"])
+  //   None
+  // }, [highlightedLocations])
   <>
     {!isLoadingPrevious
       ? pageInfo.startCursor
         ->Option.map(startCursor =>
           <Layout.Container>
             <Link to={"./" ++ "?before=" ++ startCursor}> {t`...load past events`} </Link>
-            {" "->React.string}
-            <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
-              <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-            </svg>
-            {" "->React.string}
-            <Link to={"/"}> {t`public events`} </Link>
-            {viewer.user
-            ->Option.map(_ => <>
-              {" "->React.string}
-              <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
-                <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-              </svg>
-              {" "->React.string}
-              <Link to={"/events"} relative="path"> {t`my events`} </Link>
-            </>)
-            ->Option.getOr(React.null)}
           </Layout.Container>
         )
         ->Option.getOr(React.null)
       : React.null}
-    <ul role="list" className="">
-      {eventsByDate
-      ->Js.Dict.entries
-      ->Array.map(((dateString, events)) => {
-        // This date is in local time
-        // @NOTE: Potential bug as dateString possibly needs to be converted
-        // back to UTC
-        // Js.log(dateString);
-        let date = dateString->Js.Date.fromString
-        let date = dateString
+    // <Layout.Container>
+    <div className="mx-auto w-full grow lg:flex">
+      <div className="flex-1 xl:flex">
+        <div className="lg:w-full xl:w-full">
+          <ul role="list" className="">
+            {eventsByDate
+            ->Js.Dict.entries
+            ->Array.map(((dateString, events)) => {
+              // This date is in local time
+              // @NOTE: Potential bug as dateString possibly needs to be converted
+              // back to UTC
+              // Js.log(dateString);
+              let date = dateString->Js.Date.fromString
+              let date = dateString
 
-        // Local time difference in minutes
-        // let until = date->DateFns.differenceInMinutes(Js.Date.make())
-        <li key={dateString}>
-          <div
-            className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
-            <Layout.Container>
-              <h3>
-                {date->React.string}
-                // <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
-                // {" "->React.string}
-                // <ReactIntl.FormattedRelativeTime
-                //   value={until} unit=#minute updateIntervalInSeconds=1.
-                // />
-              </h3>
-            </Layout.Container>
-          </div>
-          <ul role="list" className="divide-y divide-gray-200">
-            {events
-            ->Array.map(edge => <EventItem key={edge.id} event=edge.fragmentRefs />)
+              // Local time difference in minutes
+              // let until = date->DateFns.differenceInMinutes(Js.Date.make())
+              <li key={dateString}>
+                <div
+                  className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
+                  <Layout.Container>
+                    <h3>
+                      {date->React.string}
+                      // <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
+                      // {" "->React.string}
+                      // <ReactIntl.FormattedRelativeTime
+                      //   value={until} unit=#minute updateIntervalInSeconds=1.
+                      // />
+                    </h3>
+                  </Layout.Container>
+                </div>
+                <ul role="list" className="divide-y divide-gray-200">
+                  {events
+                  ->Array.map(edge =>
+                    <EventItem
+                      highlightedLocation={edge.location
+                      ->Option.map(location => highlightedLocation == location.id)
+                      ->Option.getOr(false)}
+                      key={edge.id}
+                      event=edge.fragmentRefs
+                    />
+                  )
+                  ->React.array}
+                </ul>
+              </li>
+            })
             ->React.array}
           </ul>
-        </li>
-      })
-      ->React.array}
-    </ul>
-    {hasNext && !isLoadingNext
-      ? <Layout.Container>
-          {pageInfo.endCursor
-          ->Option.map(endCursor =>
-            <Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Link>
-          )
-          ->Option.getOr(React.null)}
-        </Layout.Container>
-      : React.null}
-    <Layout.Container>
-      <Grid>
-        <div className="w-full h-96">
-          <PinMap connection={eventsQuery.fragmentRefs} />
+          {hasNext && !isLoadingNext
+            ? <Layout.Container>
+                {pageInfo.endCursor
+                ->Option.map(endCursor =>
+                  <Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Link>
+                )
+                ->Option.getOr(React.null)}
+              </Layout.Container>
+            : React.null}
         </div>
-      </Grid>
-    </Layout.Container>
+      </div>
+      <div
+        className="shrink-0 border-t border-gray-200 lg:w-1/2 xl:w-2/3 lg:border-l lg:border-t-0">
+        <div className="w-full lg:h-full lg:min-h-96 h-96">
+          <PinMap connection={eventsQuery.fragmentRefs} onLocationClick={location => setHighlightedLocation(_ => location.id)} />
+        </div>
+      </div>
+    </div>
+    // </Layout.Container>
   </>
 }
 

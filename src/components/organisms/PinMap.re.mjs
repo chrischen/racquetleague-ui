@@ -2,7 +2,6 @@
 
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as ReactGoogleMaps from "@vis.gl/react-google-maps";
@@ -27,7 +26,7 @@ var Fragment = {
 };
 
 function PinMap(props) {
-  var navigate = ReactRouterDom.useNavigate();
+  var onLocationClick = props.onLocationClick;
   var connection = use(props.connection);
   var locations = Core__Option.getOr(connection.edges, []).map(function (__x) {
         return Core__Option.flatMap(__x, (function (edge) {
@@ -52,12 +51,12 @@ function PinMap(props) {
                     },
                     children: Caml_option.some(locations.map(function ($$location) {
                               return Core__Option.getOr(Core__Option.flatMap($$location, (function (param) {
-                                                var id = param[0];
-                                                return Core__Option.map(param[1].coords, (function (coords) {
+                                                var $$location = param[1];
+                                                return Core__Option.map($$location.coords, (function (coords) {
                                                               return JsxRuntime.jsx(ReactGoogleMaps.AdvancedMarker, {
                                                                           position: coords,
                                                                           onClick: (function (e) {
-                                                                              navigate("/events/" + id, undefined);
+                                                                              onLocationClick($$location);
                                                                             })
                                                                         }, coords.lat.toString(undefined) + "|" + coords.lng.toString(undefined));
                                                             }));
@@ -73,4 +72,4 @@ export {
   Fragment ,
   make ,
 }
-/* react-router-dom Not a pure module */
+/* react/jsx-runtime Not a pure module */

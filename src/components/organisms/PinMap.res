@@ -5,6 +5,7 @@ module Fragment = %relay(`
         id
         startDate
         location {
+          id
           coords {
             lng
             lat
@@ -16,8 +17,8 @@ module Fragment = %relay(`
   }
 `)
 @react.component
-let make = (~connection: RescriptRelay.fragmentRefs<[#PinMap_eventConnection]>) => {
-  let navigate = Router.useNavigate()
+let make = (~connection: RescriptRelay.fragmentRefs<[#PinMap_eventConnection]>, ~onLocationClick) => {
+  // let navigate = Router.useNavigate()
   let connection = Fragment.use(connection)
   let locations =
     connection.edges
@@ -36,7 +37,8 @@ let make = (~connection: RescriptRelay.fragmentRefs<[#PinMap_eventConnection]>) 
                 key={coords.lat->Float.toString ++ "|" ++ coords.lng->Float.toString}
                 position={(coords :> GoogleMap.Map.coords)}
                 onClick={e => {
-                  navigate("/events/" ++ id, None)
+                  onLocationClick(location);
+                  // navigate("/events/" ++ id, None)
                 }}
               />
             },

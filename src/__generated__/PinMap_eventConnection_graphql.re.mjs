@@ -24,7 +24,15 @@ var Internal = {
 
 var Utils = {};
 
-var node = {
+var node = ((function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -46,13 +54,7 @@ var node = {
           "name": "node",
           "plural": false,
           "selections": [
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "id",
-              "storageKey": null
-            },
+            (v0/*: any*/),
             {
               "alias": null,
               "args": null,
@@ -68,6 +70,7 @@ var node = {
               "name": "location",
               "plural": false,
               "selections": [
+                (v0/*: any*/),
                 {
                   "alias": null,
                   "args": null,
@@ -113,6 +116,7 @@ var node = {
   "type": "EventConnection",
   "abstractKey": null
 };
+})());
 
 export {
   Types ,
@@ -120,4 +124,4 @@ export {
   Utils ,
   node ,
 }
-/* RescriptRelay Not a pure module */
+/* node Not a pure module */

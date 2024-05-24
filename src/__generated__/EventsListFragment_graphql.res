@@ -4,8 +4,12 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_events_edges_node = {
+  type rec fragment_events_edges_node_location = {
     @live id: string,
+  }
+  and fragment_events_edges_node = {
+    @live id: string,
+    location: option<fragment_events_edges_node_location>,
     startDate: option<Util.Datetime.t>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventsList_event]>,
   }
@@ -94,7 +98,14 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
   %raw(json`(function(){
 var v0 = [
   "events"
-];
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
 return {
   "argumentDefinitions": [
     {
@@ -183,18 +194,24 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
-                  "storageKey": null
-                },
+                (v1/*: any*/),
                 {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
                   "name": "startDate",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "Location",
+                  "kind": "LinkedField",
+                  "name": "location",
+                  "plural": false,
+                  "selections": [
+                    (v1/*: any*/)
+                  ],
                   "storageKey": null
                 },
                 {

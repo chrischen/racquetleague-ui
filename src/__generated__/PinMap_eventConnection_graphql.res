@@ -11,6 +11,7 @@ module Types = {
   and fragment_edges_node_location = {
     address: option<string>,
     coords: option<fragment_edges_node_location_coords>,
+    @live id: string,
   }
   and fragment_edges_node = {
     @live id: string,
@@ -58,7 +59,15 @@ type relayOperationNode
 type operationType = RescriptRelay.fragmentNode<relayOperationNode>
 
 
-let node: operationType = %raw(json` {
+let node: operationType = %raw(json` (function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -80,13 +89,7 @@ let node: operationType = %raw(json` {
           "name": "node",
           "plural": false,
           "selections": [
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "id",
-              "storageKey": null
-            },
+            (v0/*: any*/),
             {
               "alias": null,
               "args": null,
@@ -102,6 +105,7 @@ let node: operationType = %raw(json` {
               "name": "location",
               "plural": false,
               "selections": [
+                (v0/*: any*/),
                 {
                   "alias": null,
                   "args": null,
@@ -146,5 +150,6 @@ let node: operationType = %raw(json` {
   ],
   "type": "EventConnection",
   "abstractKey": null
-} `)
+};
+})() `)
 

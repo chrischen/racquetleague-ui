@@ -194,18 +194,6 @@ function $$Event(props) {
                                                                 JsxRuntime.jsxs("div", {
                                                                       children: [
                                                                         JsxRuntime.jsx("h2", {
-                                                                              children: t`attendees`,
-                                                                              className: "sr-only"
-                                                                            }),
-                                                                        JsxRuntime.jsx(EventRsvps.make, {
-                                                                              event: fragmentRefs
-                                                                            })
-                                                                      ],
-                                                                      className: "lg:col-start-3 lg:row-end-1"
-                                                                    }),
-                                                                JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsx("h2", {
                                                                               children: t`details`,
                                                                               className: "text-base font-semibold leading-6 text-gray-900"
                                                                             }),
@@ -263,6 +251,25 @@ function $$Event(props) {
                                                                                   })), null)
                                                                       ],
                                                                       className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-12 xl:py-8"
+                                                                    }),
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsx("h2", {
+                                                                            children: t`media`,
+                                                                            className: "text-base font-semibold leading-6 text-gray-900"
+                                                                          }),
+                                                                      className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 xl:px-12 xl:py-8"
+                                                                    }),
+                                                                JsxRuntime.jsxs("div", {
+                                                                      children: [
+                                                                        JsxRuntime.jsx("h2", {
+                                                                              children: t`attendees`,
+                                                                              className: "sr-only"
+                                                                            }),
+                                                                        JsxRuntime.jsx(EventRsvps.make, {
+                                                                              event: fragmentRefs
+                                                                            })
+                                                                      ],
+                                                                      className: "lg:col-start-3 lg:row-end-1"
                                                                     }),
                                                                 JsxRuntime.jsxs("div", {
                                                                       children: [

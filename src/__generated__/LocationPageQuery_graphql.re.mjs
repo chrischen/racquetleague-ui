@@ -243,26 +243,6 @@ return {
                   {
                     "alias": null,
                     "args": null,
-                    "kind": "ScalarField",
-                    "name": "title",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "concreteType": "Activity",
-                    "kind": "LinkedField",
-                    "name": "activity",
-                    "plural": false,
-                    "selections": [
-                      (v6/*: any*/),
-                      (v9/*: any*/)
-                    ],
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
                     "concreteType": "Location",
                     "kind": "LinkedField",
                     "name": "location",
@@ -296,6 +276,26 @@ return {
                         "storageKey": null
                       },
                       (v8/*: any*/)
+                    ],
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "title",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Activity",
+                    "kind": "LinkedField",
+                    "name": "activity",
+                    "plural": false,
+                    "selections": [
+                      (v6/*: any*/),
+                      (v9/*: any*/)
                     ],
                     "storageKey": null
                   },
@@ -424,12 +424,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "fdebc37bad12a0fddf06a60ca25a387e",
+    "cacheID": "318a6e0f8e49929ce8fbb0963564941e",
     "id": null,
     "metadata": {},
     "name": "LocationPageQuery",
     "operationKind": "query",
-    "text": "query LocationPageQuery(\n  $id: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $filters: EventFilters!\n) {\n  location(id: $id) {\n    name\n    ...EventLocation_location\n    id\n  }\n  ...EventsListFragment_1FujIK\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventsListFragment_1FujIK on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters) {\n    edges {\n      node {\n        id\n        startDate\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        coords {\n          lng\n          lat\n        }\n        address\n        id\n      }\n    }\n  }\n}\n"
+    "text": "query LocationPageQuery(\n  $id: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $filters: EventFilters!\n) {\n  location(id: $id) {\n    name\n    ...EventLocation_location\n    id\n  }\n  ...EventsListFragment_1FujIK\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventsListFragment_1FujIK on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters) {\n    edges {\n      node {\n        id\n        startDate\n        location {\n          id\n        }\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
   }
 };
 })());

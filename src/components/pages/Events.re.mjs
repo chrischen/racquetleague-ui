@@ -10,6 +10,7 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
 import * as EventsList from "../organisms/EventsList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -63,15 +64,48 @@ function Events(props) {
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
   var fragmentRefs = match.fragmentRefs;
+  var viewer = GlobalQuery.useViewer();
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                               children: [
                                 JsxRuntime.jsx(Layout.Container.make, {
-                                      children: JsxRuntime.jsx(Grid.make, {
-                                            children: JsxRuntime.jsx(PageTitle.make, {
-                                                  children: t`all events`
-                                                })
+                                      children: JsxRuntime.jsxs(Grid.make, {
+                                            children: [
+                                              JsxRuntime.jsx(PageTitle.make, {
+                                                    children: t`all events`
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                            to: "/",
+                                                            children: t`public events`
+                                                          }),
+                                                      Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
+                                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                              children: [
+                                                                                " ",
+                                                                                JsxRuntime.jsx("svg", {
+                                                                                      children: JsxRuntime.jsx("circle", {
+                                                                                            cx: (1).toString(undefined),
+                                                                                            cy: (1).toString(undefined),
+                                                                                            r: (1).toString(undefined)
+                                                                                          }),
+                                                                                      className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                                                      viewBox: "0 0 2 2"
+                                                                                    }),
+                                                                                " ",
+                                                                                JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                                      to: "/events",
+                                                                                      children: t`my events`,
+                                                                                      relative: "path"
+                                                                                    })
+                                                                              ]
+                                                                            });
+                                                                })), null)
+                                                    ]
+                                                  })
+                                            ]
                                           })
                                     }),
                                 JsxRuntime.jsx(React.Suspense, {
