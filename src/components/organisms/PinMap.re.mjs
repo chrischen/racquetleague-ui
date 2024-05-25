@@ -49,7 +49,7 @@ function PinMap(props) {
                       lat: 35.6895,
                       lng: 139.6917
                     },
-                    children: Caml_option.some(locations.map(function ($$location) {
+                    children: Caml_option.some(locations.map(function ($$location, i) {
                               return Core__Option.getOr(Core__Option.flatMap($$location, (function (param) {
                                                 var $$location = param[1];
                                                 return Core__Option.map($$location.coords, (function (coords) {
@@ -58,7 +58,7 @@ function PinMap(props) {
                                                                           onClick: (function (e) {
                                                                               onLocationClick($$location);
                                                                             })
-                                                                        }, coords.lat.toString(undefined) + "|" + coords.lng.toString(undefined));
+                                                                        }, coords.lat.toString(undefined) + "|" + coords.lng.toString(undefined) + i.toString(undefined));
                                                             }));
                                               })), null);
                             }))

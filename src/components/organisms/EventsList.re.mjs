@@ -15,6 +15,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as Core$1 from "@linaria/core";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
+import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -279,7 +280,8 @@ function EventsList$EventItem(props) {
                     ],
                     className: "relative flex items-center space-x-4 py-4"
                   }),
-              className: highlighted
+              className: highlighted,
+              id: highlightedLocation ? "highlighted" : ""
             });
 }
 
@@ -327,11 +329,15 @@ function EventsList(props) {
       });
   var setHighlightedLocation = match$2[1];
   var highlightedLocation = match$2[0];
+  ReactRouterDom.useNavigate();
   var intl = ReactIntl.useIntl();
   GlobalQuery.useViewer();
   var eventsByDate = Core__Array.reduce(events$1, {}, (function (extra, extra$1) {
           return sortByDate(intl, extra, extra$1);
         }));
+  React.useEffect((function () {
+          ((window.location.hash = '#highlighted'));
+        }), [highlightedLocation]);
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 match$1.isLoadingPrevious ? null : Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
@@ -344,53 +350,50 @@ function EventsList(props) {
                             })), null),
                 JsxRuntime.jsxs("div", {
                       children: [
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("ul", {
-                                            children: Js_dict.entries(eventsByDate).map(function (param) {
-                                                  var dateString = param[0];
-                                                  new Date(dateString);
-                                                  return JsxRuntime.jsxs("li", {
-                                                              children: [
-                                                                JsxRuntime.jsx("div", {
-                                                                      children: JsxRuntime.jsx(Layout.Container.make, {
-                                                                            children: JsxRuntime.jsx("h3", {
-                                                                                  children: dateString
-                                                                                })
-                                                                          }),
-                                                                      className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("ul", {
+                                      children: Js_dict.entries(eventsByDate).map(function (param) {
+                                            var dateString = param[0];
+                                            new Date(dateString);
+                                            return JsxRuntime.jsxs("li", {
+                                                        children: [
+                                                          JsxRuntime.jsx("div", {
+                                                                children: JsxRuntime.jsx(Layout.Container.make, {
+                                                                      children: JsxRuntime.jsx("h3", {
+                                                                            children: dateString
+                                                                          })
                                                                     }),
-                                                                JsxRuntime.jsx("ul", {
-                                                                      children: param[1].map(function (edge) {
-                                                                            return JsxRuntime.jsx(EventsList$EventItem, {
-                                                                                        event: edge.fragmentRefs,
-                                                                                        highlightedLocation: Core__Option.getOr(Core__Option.map(edge.location, (function ($$location) {
-                                                                                                    return highlightedLocation === $$location.id;
-                                                                                                  })), false)
-                                                                                      }, edge.id);
-                                                                          }),
-                                                                      className: "divide-y divide-gray-200",
-                                                                      role: "list"
-                                                                    })
-                                                              ]
-                                                            }, dateString);
-                                                }),
-                                            className: "",
-                                            role: "list"
+                                                                className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"
+                                                              }),
+                                                          JsxRuntime.jsx("ul", {
+                                                                children: param[1].map(function (edge) {
+                                                                      return JsxRuntime.jsx(EventsList$EventItem, {
+                                                                                  event: edge.fragmentRefs,
+                                                                                  highlightedLocation: Core__Option.getOr(Core__Option.map(edge.location, (function ($$location) {
+                                                                                              return highlightedLocation === $$location.id;
+                                                                                            })), false)
+                                                                                }, edge.id);
+                                                                    }),
+                                                                className: "divide-y divide-gray-200",
+                                                                role: "list"
+                                                              })
+                                                        ]
+                                                      }, dateString);
                                           }),
-                                      match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
-                                              children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
-                                                          return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                      to: "./?after=" + endCursor,
-                                                                      children: t`load more`
-                                                                    });
-                                                        })), null)
-                                            }) : null
-                                    ],
-                                    className: "lg:w-full xl:w-full"
-                                  }),
-                              className: "flex-1 xl:flex"
+                                      className: "",
+                                      role: "list"
+                                    }),
+                                match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
+                                        children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
+                                                    return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                to: "./?after=" + endCursor,
+                                                                children: t`load more`
+                                                              });
+                                                  })), null)
+                                      }) : null
+                              ],
+                              className: "w-full lg:w-1/2 xl:w-1/3"
                             }),
                         JsxRuntime.jsx("div", {
                               children: JsxRuntime.jsx("div", {

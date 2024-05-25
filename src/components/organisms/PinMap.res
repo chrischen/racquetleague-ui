@@ -28,13 +28,13 @@ let make = (~connection: RescriptRelay.fragmentRefs<[#PinMap_eventConnection]>, 
   <GoogleMap.APIProvider apiKey="AIzaSyBFLsnHmBaptaYoFhkXI6uL6peX579N5UY">
     <GoogleMap.Map mapId="eventsListMap" defaultZoom=12 defaultCenter={lat: 35.6895, lng: 139.6917}>
       {locations
-      ->Array.map(location => {
+      ->Array.mapWithIndex((location, i) => {
         location
         ->Option.flatMap(((id, location)) =>
           location.coords->Option.map(
             coords => {
               <GoogleMap.AdvancedMarker
-                key={coords.lat->Float.toString ++ "|" ++ coords.lng->Float.toString}
+                key={coords.lat->Float.toString ++ "|" ++ coords.lng->Float.toString ++ i->Int.toString}
                 position={(coords :> GoogleMap.Map.coords)}
                 onClick={e => {
                   onLocationClick(location);

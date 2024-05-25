@@ -135,7 +135,7 @@ module EventItem = {
       }
     })
     let highlighted = highlightedLocation ? "bg-yellow-100/35" : ""
-    <li className=highlighted>
+    <li className=highlighted id={highlightedLocation ? "highlighted" : ""}>
       <Layout.Container className="relative flex items-center space-x-4 py-4">
         <div className="min-w-0 flex-auto">
           <div className="flex items-center gap-x-3">
@@ -180,7 +180,7 @@ module EventItem = {
           </div>
           <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
             <span className="whitespace-nowrap">
-              <p className=Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])>
+              <p className={Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])}>
                 {location
                 ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
                 ->Option.getOr(t`[location missing]`)}
@@ -244,6 +244,7 @@ let make = (~events) => {
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
   let (highlightedLocation, setHighlightedLocation) = React.useState(() => "")
+  let navigate = Router.useNavigate();
 
   // let onLoadMore = _ =>
   //   startTransition(() => {
@@ -254,10 +255,13 @@ let make = (~events) => {
   let viewer = GlobalQuery.useViewer()
   let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, ...))
 
-  // React.useEffect(() => {
-  //   setHighlightedLocations(_ => "asdf"])
-  //   None
-  // }, [highlightedLocations])
+  React.useEffect(() => {
+
+    %raw("window.location.hash = '#highlighted'");
+    // navigate("./#highlighted", None);
+    // setHighlightedLocations(_ => "asdf"])
+    None
+  }, [highlightedLocation])
   <>
     {!isLoadingPrevious
       ? pageInfo.startCursor
@@ -270,67 +274,68 @@ let make = (~events) => {
       : React.null}
     // <Layout.Container>
     <div className="mx-auto w-full grow lg:flex">
-      <div className="flex-1 xl:flex">
-        <div className="lg:w-full xl:w-full">
-          <ul role="list" className="">
-            {eventsByDate
-            ->Js.Dict.entries
-            ->Array.map(((dateString, events)) => {
-              // This date is in local time
-              // @NOTE: Potential bug as dateString possibly needs to be converted
-              // back to UTC
-              // Js.log(dateString);
-              let date = dateString->Js.Date.fromString
-              let date = dateString
+      <div className="w-full lg:w-1/2 xl:w-1/3">
+        <ul role="list" className="">
+          {eventsByDate
+          ->Js.Dict.entries
+          ->Array.map(((dateString, events)) => {
+            // This date is in local time
+            // @NOTE: Potential bug as dateString possibly needs to be converted
+            // back to UTC
+            // Js.log(dateString);
+            let date = dateString->Js.Date.fromString
+            let date = dateString
 
-              // Local time difference in minutes
-              // let until = date->DateFns.differenceInMinutes(Js.Date.make())
-              <li key={dateString}>
-                <div
-                  className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
-                  <Layout.Container>
-                    <h3>
-                      {date->React.string}
-                      // <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
-                      // {" "->React.string}
-                      // <ReactIntl.FormattedRelativeTime
-                      //   value={until} unit=#minute updateIntervalInSeconds=1.
-                      // />
-                    </h3>
-                  </Layout.Container>
-                </div>
-                <ul role="list" className="divide-y divide-gray-200">
-                  {events
-                  ->Array.map(edge =>
-                    <EventItem
-                      highlightedLocation={edge.location
-                      ->Option.map(location => highlightedLocation == location.id)
-                      ->Option.getOr(false)}
-                      key={edge.id}
-                      event=edge.fragmentRefs
-                    />
-                  )
-                  ->React.array}
-                </ul>
-              </li>
-            })
-            ->React.array}
-          </ul>
-          {hasNext && !isLoadingNext
-            ? <Layout.Container>
-                {pageInfo.endCursor
-                ->Option.map(endCursor =>
-                  <Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Link>
+            // Local time difference in minutes
+            // let until = date->DateFns.differenceInMinutes(Js.Date.make())
+            <li key={dateString}>
+              <div
+                className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
+                <Layout.Container>
+                  <h3>
+                    {date->React.string}
+                    // <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
+                    // {" "->React.string}
+                    // <ReactIntl.FormattedRelativeTime
+                    //   value={until} unit=#minute updateIntervalInSeconds=1.
+                    // />
+                  </h3>
+                </Layout.Container>
+              </div>
+              <ul role="list" className="divide-y divide-gray-200">
+                {events
+                ->Array.map(edge =>
+                  <EventItem
+                    highlightedLocation={edge.location
+                    ->Option.map(location => highlightedLocation == location.id)
+                    ->Option.getOr(false)}
+                    key={edge.id}
+                    event=edge.fragmentRefs
+                  />
                 )
-                ->Option.getOr(React.null)}
-              </Layout.Container>
-            : React.null}
-        </div>
+                ->React.array}
+              </ul>
+            </li>
+          })
+          ->React.array}
+        </ul>
+        {hasNext && !isLoadingNext
+          ? <Layout.Container>
+              {pageInfo.endCursor
+              ->Option.map(endCursor =>
+                <Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Link>
+              )
+              ->Option.getOr(React.null)}
+            </Layout.Container>
+          : React.null}
       </div>
       <div
         className="shrink-0 border-t border-gray-200 lg:w-1/2 xl:w-2/3 lg:border-l lg:border-t-0">
         <div className="w-full lg:h-full lg:min-h-96 h-96">
-          <PinMap connection={eventsQuery.fragmentRefs} onLocationClick={location => setHighlightedLocation(_ => location.id)} />
+          <PinMap
+            connection={eventsQuery.fragmentRefs}
+            onLocationClick={location => setHighlightedLocation(_ => location.id)}
+          />
         </div>
       </div>
     </div>
