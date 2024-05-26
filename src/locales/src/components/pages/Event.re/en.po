@@ -15,25 +15,25 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:327
+#: src/components/pages/Event.re.mjs:350
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:330
+#: src/components/pages/Event.re.mjs:353
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:333
+#: src/components/pages/Event.re.mjs:356
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:336
+#: src/components/pages/Event.re.mjs:359
 msgid "Futsal"
 msgstr ""
 
@@ -41,11 +41,11 @@ msgstr ""
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:96
+#: src/components/pages/Event.re.mjs:97
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:98
+#: src/components/pages/Event.re.mjs:99
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
@@ -65,7 +65,7 @@ msgstr ""
 #~ msgid "add to calendar"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:197
+#: src/components/pages/Event.re.mjs:281
 msgid "attendees"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 #~ msgid "Confirmed"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:209
+#: src/components/pages/Event.re.mjs:201
 msgid "details"
 msgstr ""
 
@@ -89,15 +89,15 @@ msgstr ""
 #~ msgid "Details"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:130
+#: src/components/pages/Event.re.mjs:131
 msgid "event @"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:290
+#: src/components/pages/Event.re.mjs:313
 msgid "event doesn't exist"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:270
+#: src/components/pages/Event.re.mjs:293
 msgid "event location"
 msgstr ""
 
@@ -143,12 +143,16 @@ msgstr ""
 msgid "login to join the event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:184
+#: src/components/pages/Event.re.mjs:185
 msgid "login to subscribe to {activityName} events"
 msgstr ""
 
 #: src/components/molecules/LoginLink.re.mjs:21
 msgid "login with Line"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:263
+msgid "media"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:294

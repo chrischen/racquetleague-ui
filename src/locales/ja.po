@@ -472,6 +472,14 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
+#: src/components/pages/Event.re.mjs:263
+msgid "media"
+msgstr "メディア"
+
+#: src/components/pages/Events.re.mjs:116
+msgid "loading events..."
+msgstr "イベントを読み込んでいます..."
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

@@ -13,62 +13,63 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventsList.re.mjs:332
+#: src/components/organisms/EventsList.re.mjs:347
 msgid "...load past events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:257
+#: src/components/organisms/EventsList.re.mjs:260
 msgid "[location missing]"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:203
+#: src/components/organisms/EventsList.re.mjs:209
 msgid "[missing title]"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:158
-#: src/components/organisms/EventsList.re.mjs:165
+#: src/components/organisms/EventsList.re.mjs:163
+#: src/components/organisms/EventsList.re.mjs:170
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:159
-#: src/components/organisms/EventsList.re.mjs:166
+#: src/components/organisms/EventsList.re.mjs:164
+#: src/components/organisms/EventsList.re.mjs:171
 msgid "{0} hour"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:160
-#: src/components/organisms/EventsList.re.mjs:167
+#: src/components/organisms/EventsList.re.mjs:165
+#: src/components/organisms/EventsList.re.mjs:172
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:171
+#: src/components/organisms/EventsList.re.mjs:176
 msgid "{0} minute"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:172
+#: src/components/organisms/EventsList.re.mjs:177
 msgid "{0} minutes"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:170
+#: src/components/organisms/EventsList.re.mjs:175
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:270
+#: src/components/organisms/EventsList.re.mjs:273
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
 #: src/components/pages/ViewerEventsPage.re.mjs:53
-msgid "all events"
-msgstr ""
+#~ msgid "all events"
+#~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:407
+#: src/components/organisms/EventsList.re.mjs:391
 msgid "load more"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:365
+#: src/components/pages/ViewerEventsPage.re.mjs:57
+#: src/components/pages/ViewerEventsPage.re.mjs:81
 msgid "my events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:347
+#: src/components/pages/ViewerEventsPage.re.mjs:63
 msgid "public events"
 msgstr ""
 

@@ -14,30 +14,30 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:416
+#: src/components/organisms/EventsList.re.mjs:420
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:419
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:422
+#: src/components/organisms/EventsList.re.mjs:426
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:425
+#: src/components/organisms/EventsList.re.mjs:429
 msgid "Futsal"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:332
+#: src/components/organisms/EventsList.re.mjs:347
 msgid "...load past events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:257
+#: src/components/organisms/EventsList.re.mjs:260
 msgid "[location missing]"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 #~ msgid "[Location Missing]"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:203
+#: src/components/organisms/EventsList.re.mjs:209
 msgid "[missing title]"
 msgstr ""
 
@@ -53,38 +53,38 @@ msgstr ""
 #~ msgid "[Missing Title]"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:158
-#: src/components/organisms/EventsList.re.mjs:165
+#: src/components/organisms/EventsList.re.mjs:163
+#: src/components/organisms/EventsList.re.mjs:170
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:159
-#: src/components/organisms/EventsList.re.mjs:166
+#: src/components/organisms/EventsList.re.mjs:164
+#: src/components/organisms/EventsList.re.mjs:171
 msgid "{0} hour"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:160
-#: src/components/organisms/EventsList.re.mjs:167
+#: src/components/organisms/EventsList.re.mjs:165
+#: src/components/organisms/EventsList.re.mjs:172
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:171
+#: src/components/organisms/EventsList.re.mjs:176
 msgid "{0} minute"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:172
+#: src/components/organisms/EventsList.re.mjs:177
 msgid "{0} minutes"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:170
+#: src/components/organisms/EventsList.re.mjs:175
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:270
+#: src/components/organisms/EventsList.re.mjs:273
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:407
+#: src/components/organisms/EventsList.re.mjs:391
 msgid "load more"
 msgstr ""
 
@@ -93,9 +93,9 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:365
-msgid "my events"
-msgstr ""
+#~ msgid "my events"
+#~ msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:347
-msgid "public events"
-msgstr ""
+#~ msgid "public events"
+#~ msgstr ""

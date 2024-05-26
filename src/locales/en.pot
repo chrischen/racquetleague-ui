@@ -583,3 +583,11 @@ msgstr ""
 #: src/components/molecules/AddToCalendar.re.mjs:14
 msgid "sync calendar"
 msgstr ""
+
+#: src/components/pages/Event.re.mjs:263
+msgid "media"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:116
+msgid "loading events..."
+msgstr ""

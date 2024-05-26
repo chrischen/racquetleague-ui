@@ -13,65 +13,66 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:332
+#: src/components/organisms/EventsList.re.mjs:347
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
-#: src/components/organisms/EventsList.re.mjs:257
+#: src/components/organisms/EventsList.re.mjs:260
 msgid "[location missing]"
 msgstr "[場所がありません]"
 
-#: src/components/organisms/EventsList.re.mjs:203
+#: src/components/organisms/EventsList.re.mjs:209
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/organisms/EventsList.re.mjs:158
-#: src/components/organisms/EventsList.re.mjs:165
+#: src/components/organisms/EventsList.re.mjs:163
+#: src/components/organisms/EventsList.re.mjs:170
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/EventsList.re.mjs:159
-#: src/components/organisms/EventsList.re.mjs:166
+#: src/components/organisms/EventsList.re.mjs:164
+#: src/components/organisms/EventsList.re.mjs:171
 msgid "{0} hour"
 msgstr "{0} 時間"
 
-#: src/components/organisms/EventsList.re.mjs:160
-#: src/components/organisms/EventsList.re.mjs:167
+#: src/components/organisms/EventsList.re.mjs:165
+#: src/components/organisms/EventsList.re.mjs:172
 msgid "{0} hours"
 msgstr "{0} 時間"
 
-#: src/components/organisms/EventsList.re.mjs:171
+#: src/components/organisms/EventsList.re.mjs:176
 msgid "{0} minute"
 msgstr "{0} 分"
 
-#: src/components/organisms/EventsList.re.mjs:172
+#: src/components/organisms/EventsList.re.mjs:177
 msgid "{0} minutes"
 msgstr "{0} 分"
 
-#: src/components/organisms/EventsList.re.mjs:170
+#: src/components/organisms/EventsList.re.mjs:175
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr "{minutes, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventsList.re.mjs:270
+#: src/components/organisms/EventsList.re.mjs:273
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/ViewerEventsPage.re.mjs:53
-msgid "all events"
-msgstr "すべてのイベント"
-
-#: src/components/organisms/EventsList.re.mjs:407
+#: src/components/organisms/EventsList.re.mjs:391
 msgid "load more"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/EventsList.re.mjs:365
+#: src/components/pages/ViewerEventsPage.re.mjs:57
+#: src/components/pages/ViewerEventsPage.re.mjs:81
 msgid "my events"
 msgstr "私のイベント"
 
-#: src/components/organisms/EventsList.re.mjs:347
+#: src/components/pages/ViewerEventsPage.re.mjs:63
 msgid "public events"
 msgstr "公開イベント"
 
 #: src/components/molecules/AddToCalendar.re.mjs:17
 msgid "sync calendar"
 msgstr "カレンダー同期"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:53
+#~ msgid "all events"
+#~ msgstr "すべてのイベント"
