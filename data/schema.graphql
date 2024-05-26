@@ -58,7 +58,6 @@ input CreateEventInput {
 input CreateLocationInput {
   address: String!
   details: String
-  externalMedia: [String!]
   links: [String!]
   listed: Boolean
   name: String!
@@ -150,10 +149,10 @@ type Location implements Node {
   address: String
   coords: Coords
   details: String
-  externalMedia: [String!]
   id: ID!
   links: [String!]
   listed: Boolean
+  media: [Media!]
   name: String
 }
 
@@ -173,6 +172,12 @@ type LocationEdge {
 
   """The item at the end of the edge."""
   node: Location
+}
+
+type Media {
+  id: ID!
+  title: String
+  url: String
 }
 
 type Mutation {

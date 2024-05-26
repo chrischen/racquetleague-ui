@@ -13,7 +13,7 @@ module Types = {
     details: option<string>,
     @live id: string,
     name: option<string>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventLocation_location]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventLocation_location | #MediaList_location]>,
   }
   and response_event = {
     @live __id: RescriptRelay.dataId,
@@ -286,6 +286,11 @@ return {
               {
                 "args": null,
                 "kind": "FragmentSpread",
+                "name": "MediaList_location"
+              },
+              {
+                "args": null,
+                "kind": "FragmentSpread",
                 "name": "EventLocation_location"
               }
             ],
@@ -364,6 +369,26 @@ return {
               (v11/*: any*/),
               (v7/*: any*/),
               (v6/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Media",
+                "kind": "LinkedField",
+                "name": "media",
+                "plural": true,
+                "selections": [
+                  (v5/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "url",
+                    "storageKey": null
+                  },
+                  (v11/*: any*/)
+                ],
+                "storageKey": null
+              },
               {
                 "alias": null,
                 "args": null,
@@ -511,12 +536,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "7d43d97315ea7f6ac58aea6d21352d96",
+    "cacheID": "ef981816862ea46c550781e6b08d32e1",
     "id": null,
     "metadata": {},
     "name": "EventQuery",
     "operationKind": "query",
-    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    startDate\n    endDate\n    location {\n      id\n      name\n      details\n      ...EventLocation_location\n    }\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  lineUsername\n  rating\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
+    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    startDate\n    endDate\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  lineUsername\n  rating\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    title\n    url\n    id\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
   }
 };
 })() `)

@@ -6,6 +6,7 @@ import * as Layout from "../shared/Layout.re.mjs";
 import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
+import * as $$MediaList from "../organisms/MediaList.re.mjs";
 import * as EventRsvps from "../organisms/EventRsvps.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -191,73 +192,88 @@ function $$Event(props) {
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsxs("div", {
                                                               children: [
-                                                                JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsx("h2", {
-                                                                              children: t`details`,
-                                                                              className: "text-base font-semibold leading-6 text-gray-900"
-                                                                            }),
-                                                                        JsxRuntime.jsx(AddToCalendar.make, {}),
-                                                                        Core__Option.getOr(Core__Option.flatMap($$event.startDate, (function (startDate) {
-                                                                                    return Core__Option.map($$event.endDate, (function (endDate) {
-                                                                                                  return JsxRuntime.jsxs("p", {
-                                                                                                              children: [
-                                                                                                                JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                                                                                      value: Util.Datetime.toDate(startDate)
-                                                                                                                    }),
-                                                                                                                " ",
-                                                                                                                JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                                                      value: Util.Datetime.toDate(startDate)
-                                                                                                                    }),
-                                                                                                                " -> ",
-                                                                                                                JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                                                      value: Util.Datetime.toDate(endDate)
-                                                                                                                    }),
-                                                                                                                " ",
-                                                                                                                Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
-                                                                                                                            return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                                                                                        children: [
-                                                                                                                                          " (",
-                                                                                                                                          duration,
-                                                                                                                                          ") "
-                                                                                                                                        ]
-                                                                                                                                      });
-                                                                                                                          })), null),
-                                                                                                                Core__Option.getOr(Core__Option.map(until, (function (until) {
-                                                                                                                            return JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
-                                                                                                                                        value: until,
-                                                                                                                                        unit: "minute",
-                                                                                                                                        updateIntervalInSeconds: 1
-                                                                                                                                      });
-                                                                                                                          })), null)
-                                                                                                              ],
-                                                                                                              className: "mt-4 lg:text-xl leading-8 text-gray-700"
-                                                                                                            });
-                                                                                                }));
-                                                                                  })), "???"),
-                                                                        Core__Option.getOr(Core__Option.flatMap($$location, (function ($$location) {
-                                                                                    return Core__Option.map($$location.details, (function (details) {
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsxs("div", {
+                                                                            children: [
+                                                                              JsxRuntime.jsxs("div", {
+                                                                                    children: [
+                                                                                      JsxRuntime.jsx("h2", {
+                                                                                            children: t`details`,
+                                                                                            className: "text-base font-semibold leading-6 text-gray-900"
+                                                                                          }),
+                                                                                      JsxRuntime.jsx(AddToCalendar.make, {}),
+                                                                                      Core__Option.getOr(Core__Option.flatMap($$event.startDate, (function (startDate) {
+                                                                                                  return Core__Option.map($$event.endDate, (function (endDate) {
+                                                                                                                return JsxRuntime.jsxs("p", {
+                                                                                                                            children: [
+                                                                                                                              JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                                                                                                    value: Util.Datetime.toDate(startDate)
+                                                                                                                                  }),
+                                                                                                                              " ",
+                                                                                                                              JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                                                                    value: Util.Datetime.toDate(startDate)
+                                                                                                                                  }),
+                                                                                                                              " -> ",
+                                                                                                                              JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                                                                    value: Util.Datetime.toDate(endDate)
+                                                                                                                                  }),
+                                                                                                                              " ",
+                                                                                                                              Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
+                                                                                                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                                                                      children: [
+                                                                                                                                                        " (",
+                                                                                                                                                        duration,
+                                                                                                                                                        ") "
+                                                                                                                                                      ]
+                                                                                                                                                    });
+                                                                                                                                        })), null),
+                                                                                                                              Core__Option.getOr(Core__Option.map(until, (function (until) {
+                                                                                                                                          return JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
+                                                                                                                                                      value: until,
+                                                                                                                                                      unit: "minute",
+                                                                                                                                                      updateIntervalInSeconds: 1
+                                                                                                                                                    });
+                                                                                                                                        })), null)
+                                                                                                                            ],
+                                                                                                                            className: "mt-4 lg:text-xl leading-8 text-gray-700"
+                                                                                                                          });
+                                                                                                              }));
+                                                                                                })), "???"),
+                                                                                      Core__Option.getOr(Core__Option.flatMap($$location, (function ($$location) {
+                                                                                                  return Core__Option.map($$location.details, (function (details) {
+                                                                                                                return JsxRuntime.jsx("p", {
+                                                                                                                            children: details,
+                                                                                                                            className: "mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap"
+                                                                                                                          });
+                                                                                                              }));
+                                                                                                })), null),
+                                                                                      Core__Option.getOr(Core__Option.map(details, (function (details) {
                                                                                                   return JsxRuntime.jsx("p", {
                                                                                                               children: details,
                                                                                                               className: "mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap"
                                                                                                             });
-                                                                                                }));
-                                                                                  })), null),
-                                                                        Core__Option.getOr(Core__Option.map(details, (function (details) {
-                                                                                    return JsxRuntime.jsx("p", {
-                                                                                                children: details,
-                                                                                                className: "mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap"
-                                                                                              });
-                                                                                  })), null)
-                                                                      ],
-                                                                      className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-12 xl:py-8"
-                                                                    }),
-                                                                JsxRuntime.jsx("div", {
-                                                                      children: JsxRuntime.jsx("h2", {
-                                                                            children: t`media`,
-                                                                            className: "text-base font-semibold leading-6 text-gray-900"
+                                                                                                })), null)
+                                                                                    ],
+                                                                                    className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8"
+                                                                                  }),
+                                                                              Core__Option.getOr(Core__Option.map($$event.location, (function ($$location) {
+                                                                                          return JsxRuntime.jsxs("div", {
+                                                                                                      children: [
+                                                                                                        JsxRuntime.jsx("h2", {
+                                                                                                              children: t`media`,
+                                                                                                              className: "text-base font-semibold leading-6 text-gray-900"
+                                                                                                            }),
+                                                                                                        JsxRuntime.jsx($$MediaList.make, {
+                                                                                                              media: $$location.fragmentRefs
+                                                                                                            })
+                                                                                                      ],
+                                                                                                      className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8"
+                                                                                                    });
+                                                                                        })), null)
+                                                                            ],
+                                                                            className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
                                                                           }),
-                                                                      className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 xl:px-12 xl:py-8"
+                                                                      className: "lg:col-span-2 lg:row-span-2 lg:row-end-2"
                                                                     }),
                                                                 JsxRuntime.jsxs("div", {
                                                                       children: [

@@ -20,6 +20,7 @@ module EventQuery = %relay(`
         id
         name
         details
+        ...MediaList_location
         ...EventLocation_location
       }
       ...EventRsvps_event @arguments(after: $after, first: $first, before: $before)
@@ -252,64 +253,79 @@ let make = () => {
             // <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-              <div
-                className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-12 xl:py-8">
-                <h2 className="text-base font-semibold leading-6 text-gray-900"> {t`details`} </h2>
-                <AddToCalendar />
-                {event.startDate
-                ->Option.flatMap(startDate =>
-                  event.endDate->Option.map(
-                    endDate =>
-                      <p className="mt-4 lg:text-xl leading-8 text-gray-700">
-                        <ReactIntl.FormattedDate value={startDate->Util.Datetime.toDate} />
-                        {" "->React.string}
-                        <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
-                        {" -> "->React.string}
-                        <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />
-                        {" "->React.string}
-                        {duration
-                        ->Option.map(
-                          duration => <>
-                            {" ("->React.string}
-                            {duration}
-                            {") "->React.string}
-                          </>,
-                        )
-                        ->Option.getOr(React.null)}
-                        {until
-                        ->Option.map(
-                          until =>
-                            <ReactIntl.FormattedRelativeTime
-                              value={until} unit=#minute updateIntervalInSeconds=1.
-                            />,
-                        )
-                        ->Option.getOr(React.null)}
-                      </p>,
-                  )
-                )
-                ->Option.getOr("???"->React.string)}
-                {location
-                ->Option.flatMap(location =>
-                  location.details->Option.map(
-                    details =>
+              <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
+                <div
+                  className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
+                  <div
+                    className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8">
+                    <h2 className="text-base font-semibold leading-6 text-gray-900">
+                      {t`details`}
+                    </h2>
+                    <AddToCalendar />
+                    {event.startDate
+                    ->Option.flatMap(startDate =>
+                      event.endDate->Option.map(
+                        endDate =>
+                          <p className="mt-4 lg:text-xl leading-8 text-gray-700">
+                            <ReactIntl.FormattedDate value={startDate->Util.Datetime.toDate} />
+                            {" "->React.string}
+                            <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
+                            {" -> "->React.string}
+                            <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />
+                            {" "->React.string}
+                            {duration
+                            ->Option.map(
+                              duration => <>
+                                {" ("->React.string}
+                                {duration}
+                                {") "->React.string}
+                              </>,
+                            )
+                            ->Option.getOr(React.null)}
+                            {until
+                            ->Option.map(
+                              until =>
+                                <ReactIntl.FormattedRelativeTime
+                                  value={until} unit=#minute updateIntervalInSeconds=1.
+                                />,
+                            )
+                            ->Option.getOr(React.null)}
+                          </p>,
+                      )
+                    )
+                    ->Option.getOr("???"->React.string)}
+                    {location
+                    ->Option.flatMap(location =>
+                      location.details->Option.map(
+                        details =>
+                          <p
+                            className="mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
+                            {details->React.string}
+                          </p>,
+                      )
+                    )
+                    ->Option.getOr(React.null)}
+                    {details
+                    ->Option.map(details =>
                       <p
                         className="mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
                         {details->React.string}
-                      </p>,
+                      </p>
+                    )
+                    ->Option.getOr(React.null)}
+                  </div>
+                  {event.location
+                  ->Option.map(location =>
+                    <div
+                      className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8">
+                      <h2 className="text-base font-semibold leading-6 text-gray-900">
+                        {t`media`}
+                      </h2>
+                      <MediaList media=location.fragmentRefs />
+                    </div>
                   )
-                )
-                ->Option.getOr(React.null)}
-                {details
-                ->Option.map(details =>
-                  <p className="mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
-                    {details->React.string}
-                  </p>
-                )
-                ->Option.getOr(React.null)}
-              </div>
-              <div
-                className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 lg:col-span-2 xl:px-12 xl:py-8">
-                <h2 className="text-base font-semibold leading-6 text-gray-900"> {t`media`} </h2>
+                  ->Option.getOr(React.null)}
+                </div>
               </div>
               <div className="lg:col-start-3 lg:row-end-1">
                 <h2 className="sr-only"> {t`attendees`} </h2>
