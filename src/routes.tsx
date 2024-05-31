@@ -91,6 +91,11 @@ export const routes: RouteObject[] = [
 
           },
           {
+            path: "league",
+            lazy: () => import("./components/routes/LeagueRoute.gen"),
+            handle: "src/components/routes/LeagueRoute.gen.tsx",
+          },
+          {
             path: "*",
             lazy: () => import("./components/routes/NotFoundRoute.gen"),
             handle: "src/components/routes/NotFoundRoute.gen.tsx",

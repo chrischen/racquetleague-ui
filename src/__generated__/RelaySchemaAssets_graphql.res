@@ -2,6 +2,19 @@
 @@warning("-30")
 
 @live @unboxed
+type enum_Gender = 
+  | @as("female") Female
+  | @as("male") Male
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_Gender_input = 
+  | @as("female") Female
+  | @as("male") Male
+
+
+@live @unboxed
 type enum_RequiredFieldAction = 
   | NONE
   | LOG

@@ -130,6 +130,11 @@ type EventRsvpEdge {
   node: Rsvp
 }
 
+enum Gender {
+  female
+  male
+}
+
 interface HasErrors {
   errors: [Error!]
 }
@@ -172,6 +177,32 @@ type LocationEdge {
 
   """The item at the end of the edge."""
   node: Location
+}
+
+type Match {
+  createdAt: Datetime
+  id: ID!
+  losers: [User!]
+  namespace: String
+  score: [Float!]
+  winners: [User!]
+}
+
+"""A connection to users."""
+type MatchConnection {
+  """A list of edges."""
+  edges: [MatchEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+type MatchEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Match
 }
 
 type Media {
@@ -231,8 +262,37 @@ type Query {
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
   location(id: ID!): Location
   locations(after: String, before: String, first: Int): LocationConnection!
+  matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String!): MatchConnection!
   node(id: ID!): Node
+  ratings(activitySlug: String!, after: String, before: String, first: Int, namespace: String!): RatingConnection!
   viewer: Viewer
+}
+
+type Rating {
+  createdAt: Datetime
+  id: ID!
+  mu: Float
+  namespace: String
+  sigma: Float
+  updatedAt: Datetime
+  user: User
+}
+
+"""A connection to users."""
+type RatingConnection {
+  """A list of edges."""
+  edges: [RatingEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+type RatingEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Rating
 }
 
 type Rsvp implements Node {
@@ -248,9 +308,11 @@ type Subscription {
 }
 
 type User implements Node {
+  gender: Gender
   id: ID!
   lineUsername: String
-  rating: Int
+  picture: String
+  rating(activitySlug: String!, namespace: String!): Float
 }
 
 type Viewer {

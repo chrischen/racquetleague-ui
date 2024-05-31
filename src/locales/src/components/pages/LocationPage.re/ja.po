@@ -13,6 +13,26 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#. js-lingui-explicit-id
+#: src/components/organisms/EventsList.re.mjs:419
+#~ msgid "Badminton"
+#~ msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/EventsList.re.mjs:423
+#~ msgid "Table Tennis"
+#~ msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/EventsList.re.mjs:427
+#~ msgid "Pickleball"
+#~ msgstr "ピクルボール"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/EventsList.re.mjs:431
+#~ msgid "Futsal"
+#~ msgstr "フットサル"
+
 #: src/components/organisms/EventsList.re.mjs:347
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
@@ -64,33 +84,13 @@ msgstr "もっと読み込む"
 msgid "location"
 msgstr "場所"
 
-#: src/components/pages/LocationPage.re.mjs:69
-msgid "page not found"
-msgstr "ページが見つかりません"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:419
-#~ msgid "Badminton"
-#~ msgstr "バドミントン"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:423
-#~ msgid "Table Tennis"
-#~ msgstr "卓球"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:427
-#~ msgid "Pickleball"
-#~ msgstr "ピクルボール"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:431
-#~ msgid "Futsal"
-#~ msgstr "フットサル"
-
 #: src/components/organisms/EventsList.re.mjs:365
 #~ msgid "my events"
 #~ msgstr "私のイベント"
+
+#: src/components/pages/LocationPage.re.mjs:69
+msgid "page not found"
+msgstr "ページが見つかりません"
 
 #: src/components/organisms/EventsList.re.mjs:347
 #~ msgid "public events"

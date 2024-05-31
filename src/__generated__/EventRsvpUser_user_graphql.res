@@ -6,7 +6,6 @@ module Types = {
 
   type fragment = {
     lineUsername: option<string>,
-    rating: option<int>,
   }
 }
 
@@ -52,13 +51,6 @@ let node: operationType = %raw(json` {
       "args": null,
       "kind": "ScalarField",
       "name": "lineUsername",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "rating",
       "storageKey": null
     }
   ],

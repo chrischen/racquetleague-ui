@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"1f2gf2\":\"...load past ratings\",\"/et5Fb\":\"load more\",\"KVmFBN\":\"my events\",\"ut1WZb\":\"public events\",\"/FbSfc\":\"sync calendar\"}");

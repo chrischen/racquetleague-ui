@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-05-28 00:36+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/organisms/RatingList.re.mjs:216
+msgid "...load past ratings"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:236
+msgid "load more"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:57
+#: src/components/pages/LeaguePage.re.mjs:81
+msgid "my events"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:63
+msgid "public events"
+msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:17
+msgid "sync calendar"
+msgstr ""

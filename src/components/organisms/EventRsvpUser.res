@@ -4,7 +4,6 @@
 module Fragment = %relay(`
   fragment EventRsvpUser_user on User {
     lineUsername
-    rating
   }
 `)
 

@@ -264,13 +264,6 @@ return {
                             "kind": "ScalarField",
                             "name": "lineUsername",
                             "storageKey": null
-                          },
-                          {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "rating",
-                            "storageKey": null
                           }
                         ],
                         "storageKey": null
@@ -348,12 +341,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "29eb294a90cc62b5272efe13c44f39d1",
+    "cacheID": "562c6acbf65c60813c7b668f33508be1",
     "id": null,
     "metadata": {},
     "name": "EventStoryQuery",
     "operationKind": "query",
-    "text": "query EventStoryQuery(\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: \"1\") {\n    title\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  lineUsername\n  rating\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
+    "text": "query EventStoryQuery(\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: \"1\") {\n    title\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
   }
 };
 })() `)

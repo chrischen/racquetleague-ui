@@ -31,13 +31,6 @@ var node = {
       "kind": "ScalarField",
       "name": "lineUsername",
       "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "rating",
-      "storageKey": null
     }
   ],
   "type": "User",
