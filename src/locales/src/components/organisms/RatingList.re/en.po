@@ -6,11 +6,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:216
-msgid "...load past ratings"
+#: src/components/organisms/RatingList.re.mjs:204
+msgid "--"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:236
-msgid "load more"
+#: src/components/organisms/RatingList.re.mjs:257
+msgid "...load higher rated players"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:223
+#~ msgid "...load past ratings"
+#~ msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:199
+msgid "Female"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:242
+#~ msgid "load more"
+#~ msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:272
+msgid "Load more players..."
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:201
+msgid "Male"
 msgstr ""

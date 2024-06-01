@@ -21,10 +21,6 @@ msgstr "参加する"
 msgid "leave event"
 msgstr "離れる"
 
-#: src/components/molecules/LoginLink.re.mjs:10
-#~ msgid "login"
-#~ msgstr "ログイン"
-
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:40
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
@@ -32,3 +28,7 @@ msgstr "イベントに参加するにはログインしてください"
 #: src/components/molecules/LoginLink.re.mjs:21
 msgid "login with Line"
 msgstr "Lineでログイン"
+
+#: src/components/molecules/LoginLink.re.mjs:10
+#~ msgid "login"
+#~ msgstr "ログイン"

@@ -7,7 +7,7 @@ function PageTitle(props) {
               children: JsxRuntime.jsx("div", {
                     children: JsxRuntime.jsx("h1", {
                           children: props.children,
-                          className: "text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight"
+                          className: "text-2xl font-bold leading-7  sm:truncate sm:text-3xl sm:tracking-tight"
                         }),
                     className: "min-w-0 flex-1"
                   }),

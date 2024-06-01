@@ -9,11 +9,11 @@ interface HtmlProps {
 
 function Html({ lang, head, end }: HtmlProps) {
   return (
-    <html lang={lang ?? "en"}>
+    <html lang={lang ?? "en"} className="h-full">
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       {head}
-      <body>
+      <body className="h-full">
         <div id="root"></div>
         {end}
       </body>

@@ -166,7 +166,7 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
-                    "name": "mu",
+                    "name": "ordinal",
                     "storageKey": null
                   },
                   {
@@ -190,6 +190,13 @@ return {
                         "args": null,
                         "kind": "ScalarField",
                         "name": "picture",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "gender",
                         "storageKey": null
                       }
                     ],
@@ -272,12 +279,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "04978e914651e8f40afdc621f248d9b7",
+    "cacheID": "3118ee537e30a7f269b510ca2f0b7826",
     "id": null,
     "metadata": {},
     "name": "RatingListRefetchQuery",
     "operationKind": "query",
-    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  mu\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n"
+    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
   }
 };
 })());

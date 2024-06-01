@@ -26,7 +26,7 @@ msgstr "卓球"
 #. js-lingui-explicit-id
 #: src/components/organisms/EventsList.re.mjs:426
 msgid "Pickleball"
-msgstr "ピクルボール"
+msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
 #: src/components/organisms/EventsList.re.mjs:429

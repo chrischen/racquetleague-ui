@@ -56,10 +56,6 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/ViewerEventsPage.re.mjs:53
-#~ msgid "all events"
-#~ msgstr "すべてのイベント"
-
 #: src/components/organisms/EventsList.re.mjs:391
 msgid "load more"
 msgstr "もっと読み込む"
@@ -76,3 +72,7 @@ msgstr "公開イベント"
 #: src/components/molecules/AddToCalendar.re.mjs:17
 msgid "sync calendar"
 msgstr "カレンダー同期"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:53
+#~ msgid "all events"
+#~ msgstr "すべてのイベント"

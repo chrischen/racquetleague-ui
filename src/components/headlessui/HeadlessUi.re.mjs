@@ -10,7 +10,28 @@ var Switch = {
   Label: Label
 };
 
+var Disclosure = {};
+
+var DisclosureButton = {};
+
+var DisclosurePanel = {};
+
+var Menu = {};
+
+var MenuButton = {};
+
+var MenuItem = {};
+
+var MenuItems = {};
+
 export {
   Switch ,
+  Disclosure ,
+  DisclosureButton ,
+  DisclosurePanel ,
+  Menu ,
+  MenuButton ,
+  MenuItem ,
+  MenuItems ,
 }
 /* No side effect */

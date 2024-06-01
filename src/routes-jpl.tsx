@@ -14,8 +14,8 @@ export const routes: RouteObject[] = [
         path: "",
         // Declaring handle allows the server to pull the scripts needed based on
         // the entrypoint to avoid waterfall loading of dependencies
-        lazy: () => import("./components/routes/DefaultLayoutRoute.gen"),
-        handle: "src/components/routes/DefaultLayoutRoute.gen.tsx",
+        lazy: () => import("./components/routes/LeagueLayoutRoute.gen"),
+        handle: "src/components/routes/LeagueLayoutRoute.gen.tsx",
         HydrateFallbackElement: <>Loading Fallback...</>,
         children: [
           {

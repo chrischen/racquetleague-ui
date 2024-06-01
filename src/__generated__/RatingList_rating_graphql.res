@@ -5,13 +5,14 @@ module Types = {
   @@warning("-30")
 
   type rec fragment_user = {
+    gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
     picture: option<string>,
   }
   type fragment = {
     @live id: string,
-    mu: option<float>,
+    ordinal: option<float>,
     user: option<fragment_user>,
   }
 }
@@ -41,6 +42,21 @@ external getFragmentRef:
 module Utils = {
   @@warning("-33")
   open Types
+  @live
+  external gender_toString: RelaySchemaAssets_graphql.enum_Gender => string = "%identity"
+  @live
+  external gender_input_toString: RelaySchemaAssets_graphql.enum_Gender_input => string = "%identity"
+  @live
+  let gender_decode = (enum: RelaySchemaAssets_graphql.enum_Gender): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let gender_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    gender_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode
@@ -66,7 +82,7 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "mu",
+      "name": "ordinal",
       "storageKey": null
     },
     {
@@ -90,6 +106,13 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "picture",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "gender",
           "storageKey": null
         }
       ],

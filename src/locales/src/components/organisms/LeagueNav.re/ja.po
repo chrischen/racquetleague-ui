@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-02 02:41+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/LogoutLink.re.mjs:10
+msgid "(logout)"
+msgstr "(サインアウト)"
+
+#: src/components/organisms/LeagueNav.re.mjs:115
+msgid "About"
+msgstr "について"
+
+#: src/components/organisms/LeagueNav.re.mjs:110
+msgid "Find Games"
+msgstr "ゲームを見つける"
+
+#: src/components/molecules/LoginLink.re.mjs:21
+msgid "login with Line"
+msgstr "Lineでログイン"
+
+#: src/components/organisms/LeagueNav.re.mjs:246
+msgid "Open main menu"
+msgstr "メインメニューを開く"
+
+#: src/components/organisms/LeagueNav.re.mjs:194
+msgid "Open user menu"
+msgstr "ユーザーメニューを開く"
+
+#: src/components/organisms/LeagueNav.re.mjs:202
+#: src/components/organisms/LeagueNav.re.mjs:288
+msgid "Profile picture"
+msgstr "プロフィール写真"
+
+#: src/components/organisms/LeagueNav.re.mjs:105
+msgid "Rankings"
+msgstr "ランキング"
+
+#: src/components/organisms/LeagueNav.re.mjs:171
+#: src/components/organisms/LeagueNav.re.mjs:315
+msgid "View notifications"
+msgstr "通知を表示"

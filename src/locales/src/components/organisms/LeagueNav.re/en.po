@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-06-02 02:41+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/molecules/LogoutLink.re.mjs:10
+msgid "(logout)"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:115
+msgid "About"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:110
+msgid "Find Games"
+msgstr ""
+
+#: src/components/molecules/LoginLink.re.mjs:21
+msgid "login with Line"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:246
+msgid "Open main menu"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:194
+msgid "Open user menu"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:202
+#: src/components/organisms/LeagueNav.re.mjs:288
+msgid "Profile picture"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:105
+msgid "Rankings"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:171
+#: src/components/organisms/LeagueNav.re.mjs:315
+msgid "View notifications"
+msgstr ""

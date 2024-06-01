@@ -61,6 +61,7 @@ export default {
           800: '#c182f8',
           900: '#8d6ba6',
         },
+        leaguePrimary: "#BC012C"
       },
       borderRadius: {
         lg: "var(--radius)",

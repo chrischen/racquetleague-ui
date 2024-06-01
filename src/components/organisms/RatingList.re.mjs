@@ -8,12 +8,12 @@ import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
-import * as Core$1 from "@linaria/core";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
+import * as Solid from "@heroicons/react/24/solid";
 import * as RatingList_rating_graphql from "../../__generated__/RatingList_rating_graphql.re.mjs";
 import * as RatingListFragment_graphql from "../../__generated__/RatingListFragment_graphql.re.mjs";
 import * as RatingListRefetchQuery_graphql from "../../__generated__/RatingListRefetchQuery_graphql.re.mjs";
@@ -76,7 +76,13 @@ function useOpt$1(fRef) {
   return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, RatingList_rating_graphql.node, convertFragment$1);
 }
 
+var ItemFragment_gender_decode = RatingList_rating_graphql.Utils.gender_decode;
+
+var ItemFragment_gender_fromString = RatingList_rating_graphql.Utils.gender_fromString;
+
 var ItemFragment = {
+  gender_decode: ItemFragment_gender_decode,
+  gender_fromString: ItemFragment_gender_fromString,
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment$1,
@@ -137,61 +143,89 @@ function ts(prim0, prim1) {
 function RatingList$RatingItem(props) {
   var match = use$1(props.rating);
   var user = match.user;
-  return JsxRuntime.jsx("li", {
-              children: JsxRuntime.jsxs("div", {
-                    children: [
-                      JsxRuntime.jsxs("div", {
-                            children: [
-                              JsxRuntime.jsx("div", {
-                                    children: JsxRuntime.jsx("div", {
-                                          className: "h-2 w-2 rounded-full bg-current"
-                                        }),
-                                    className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
-                                  }),
-                              JsxRuntime.jsx("h2", {
-                                    children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                                          to: "/players/" + match.id,
-                                          children: [
-                                            Core__Option.getOr(Core__Option.flatMap(user, (function (user) {
-                                                        return Core__Option.map(user.picture, (function (picture) {
-                                                                      return JsxRuntime.jsx("img", {
-                                                                                  height: "50",
-                                                                                  src: picture,
-                                                                                  width: "50"
-                                                                                });
-                                                                    }));
-                                                      })), null),
-                                            Core__Option.getOr(Core__Option.flatMap(user, (function (user) {
-                                                        return Core__Option.map(user.lineUsername, (function (lineUsername) {
-                                                                      return JsxRuntime.jsx("span", {
-                                                                                  children: lineUsername,
-                                                                                  className: "truncate"
-                                                                                });
-                                                                    }));
-                                                      })), null)
-                                          ],
-                                          className: "flex gap-x-2",
-                                          relative: "path"
-                                        }),
-                                    className: "min-w-0 text-sm font-semibold leading-6 text-white"
-                                  })
-                            ],
-                            className: "flex items-center gap-x-3"
-                          }),
-                      JsxRuntime.jsx("div", {
-                            children: JsxRuntime.jsx("p", {
-                                  children: Core__Option.getOr(Core__Option.map(match.mu, (function (mu) {
-                                              return mu.toString(undefined);
-                                            })), "mu missing"),
-                                  className: "whitespace-nowrap"
-                                }),
-                            className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
-                          })
-                    ],
-                    className: "min-w-0 flex-auto"
-                  }),
-              className: ""
-            });
+  return JsxRuntime.jsxs("li", {
+              children: [
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        Core__Option.getOr(Core__Option.flatMap(user, (function (user) {
+                                    return Core__Option.map(user.picture, (function (picture) {
+                                                  return JsxRuntime.jsx("img", {
+                                                              className: "h-24 w-24 flex-none rounded-full bg-gray-50",
+                                                              alt: "",
+                                                              src: picture
+                                                            });
+                                                }));
+                                  })), null),
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("p", {
+                                      children: JsxRuntime.jsxs("a", {
+                                            children: [
+                                              JsxRuntime.jsx("span", {
+                                                    className: "absolute inset-x-0 -top-px bottom-0"
+                                                  }),
+                                              Core__Option.getOr(Core__Option.flatMap(user, (function (user) {
+                                                          return Core__Option.map(user.lineUsername, (function (lineUsername) {
+                                                                        return lineUsername;
+                                                                      }));
+                                                        })), null)
+                                            ],
+                                            href: "#"
+                                          }),
+                                      className: "text-lg mt-9 font-semibold leading-6 text-gray-900"
+                                    }),
+                                JsxRuntime.jsx("p", {
+                                      children: JsxRuntime.jsx("a", {
+                                            className: "relative truncate hover:underline",
+                                            href: "#"
+                                          }),
+                                      className: "mt-1 flex text-xs leading-5 text-gray-500"
+                                    })
+                              ],
+                              className: "min-w-0 flex-auto"
+                            })
+                      ],
+                      className: "flex min-w-0 gap-x-4"
+                    }),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("p", {
+                                      children: Core__Option.getOr(Core__Option.flatMap(user, (function (user) {
+                                                  return Core__Option.map(user.gender, (function (gender) {
+                                                                if (gender === "female" || gender === "male") {
+                                                                  if (gender === "female") {
+                                                                    return t`Female`;
+                                                                  } else {
+                                                                    return t`Male`;
+                                                                  }
+                                                                } else {
+                                                                  return t`--`;
+                                                                }
+                                                              }));
+                                                })), null),
+                                      className: "text-sm leading-6 text-gray-900"
+                                    }),
+                                JsxRuntime.jsx("p", {
+                                      children: Core__Option.getOr(Core__Option.map(match.ordinal, (function (ordinal) {
+                                                  return ordinal.toString(undefined);
+                                                })), "ordinal missing"),
+                                      className: "mt-1 text-xs leading-5 text-gray-500"
+                                    })
+                              ],
+                              className: "hidden sm:flex sm:flex-col sm:items-end"
+                            }),
+                        JsxRuntime.jsx(Solid.ChevronRightIcon, {
+                              className: "h-5 w-5 flex-none text-gray-400",
+                              "aria-hidden": "true"
+                            })
+                      ],
+                      className: "flex shrink-0 items-center gap-x-4"
+                    })
+              ],
+              className: "relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6 lg:px-8"
+            }, match.id);
 }
 
 var RatingItem = {
@@ -208,44 +242,38 @@ function RatingList(props) {
   var data = match.data;
   var ratings$1 = getConnectionNodes(data.ratings);
   var pageInfo = data.ratings.pageInfo;
+  var hasPrevious = pageInfo.hasPreviousPage;
   React.useState(function () {
         return "";
       });
   ReactRouterDom.useNavigate();
   ReactIntl.useIntl();
   GlobalQuery.useViewer();
-  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+  return JsxRuntime.jsxs(Layout.Container.make, {
               children: [
-                match.isLoadingPrevious ? null : Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
-                              return JsxRuntime.jsx(Layout.Container.make, {
-                                          children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                to: "./?before=" + startCursor,
-                                                children: t`...load past ratings`
-                                              })
+                !match.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
+                              return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                          to: "./?before=" + startCursor,
+                                          children: t`...load higher rated players`
                                         });
-                            })), null),
-                JsxRuntime.jsxs(Layout.Container.make, {
-                      children: [
-                        JsxRuntime.jsx("ul", {
-                              children: ratings$1.map(function (edge) {
-                                    return JsxRuntime.jsx(RatingList$RatingItem, {
-                                                rating: edge.fragmentRefs
-                                              }, edge.id);
-                                  }),
-                              className: "divide-y divide-gray-200",
-                              role: "list"
-                            }),
-                        match.hasNext && !match.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
-                                children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
-                                            return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                        to: "./?after=" + endCursor,
-                                                        children: t`load more`
-                                                      });
-                                          })), null)
-                              }) : null
-                      ]
-                    })
-              ]
+                            })), null) : null,
+                JsxRuntime.jsx("ul", {
+                      children: ratings$1.map(function (edge) {
+                            return JsxRuntime.jsx(RatingList$RatingItem, {
+                                        rating: edge.fragmentRefs
+                                      }, edge.id);
+                          }),
+                      className: "divide-y divide-gray-200",
+                      role: "list"
+                    }),
+                match.hasNext && !match.isLoadingNext ? Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
+                              return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                          to: "./?after=" + endCursor,
+                                          children: t`Load more players...`
+                                        });
+                            })), null) : null
+              ],
+              className: "mt-4"
             });
 }
 

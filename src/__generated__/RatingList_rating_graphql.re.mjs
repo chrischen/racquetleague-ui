@@ -17,7 +17,21 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-var Utils = {};
+function gender_decode($$enum) {
+  if ($$enum === "female" || $$enum === "male") {
+    return $$enum;
+  }
+  
+}
+
+function gender_fromString(str) {
+  return gender_decode(str);
+}
+
+var Utils = {
+  gender_decode: gender_decode,
+  gender_fromString: gender_fromString
+};
 
 var node = ((function(){
 var v0 = {
@@ -38,7 +52,7 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "mu",
+      "name": "ordinal",
       "storageKey": null
     },
     {
@@ -62,6 +76,13 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "picture",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "gender",
           "storageKey": null
         }
       ],

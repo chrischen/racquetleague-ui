@@ -91,11 +91,6 @@ export const routes: RouteObject[] = [
 
           },
           {
-            path: "league",
-            lazy: () => import("./components/routes/LeagueRoute.gen"),
-            handle: "src/components/routes/LeagueRoute.gen.tsx",
-          },
-          {
             path: "*",
             lazy: () => import("./components/routes/NotFoundRoute.gen"),
             handle: "src/components/routes/NotFoundRoute.gen.tsx",
@@ -103,6 +98,21 @@ export const routes: RouteObject[] = [
 
         ]
       },
+      {
+        path: "league",
+        // Declaring handle allows the server to pull the scripts needed based on
+        // the entrypoint to avoid waterfall loading of dependencies
+        lazy: () => import("./components/routes/LeagueLayoutRoute.gen"),
+        handle: "src/components/routes/LeagueLayoutRoute.gen.tsx",
+        HydrateFallbackElement: <>Loading Fallback...</>,
+        children: [
+          {
+            path: "",
+            lazy: () => import("./components/routes/LeagueRoute.gen"),
+            handle: "src/components/routes/LeagueRoute.gen.tsx",
+          },
+        ]
+      }
     ]
   }
 ];

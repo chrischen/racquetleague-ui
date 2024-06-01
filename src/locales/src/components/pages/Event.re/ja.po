@@ -29,7 +29,7 @@ msgstr "卓球"
 #: src/components/molecules/SubscribeActivity.re.mjs:140
 #: src/components/pages/Event.re.mjs:356
 msgid "Pickleball"
-msgstr "ピクルボール"
+msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
@@ -56,15 +56,6 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 #: src/components/organisms/EventRsvps.re.mjs:345
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
-
-#: src/components/organisms/EventRsvps.re.mjs:203
-#~ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
-#~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
-
-#: src/components/molecules/AddToCalendar.re.mjs:14
-#, fuzzy
-#~ msgid "add to calendar"
-#~ msgstr "カレンダー同期"
 
 #: src/components/pages/Event.re.mjs:281
 msgid "attendees"
@@ -138,10 +129,6 @@ msgstr "まだプレイヤーはいません"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventRsvps.re.mjs:217
-#~ msgid "spots available"
-#~ msgstr "利用可能なスポット"
-
 #: src/components/molecules/SubscribeActivity.re.mjs:112
 msgid "subscribe to all {activityName} events"
 msgstr "{activityName} のすべてのイベントに登録"
@@ -161,3 +148,17 @@ msgstr "ウェイトリスト"
 #: src/components/molecules/SubscribeActivity.re.mjs:104
 msgid "you will receive email notifications for new events"
 msgstr "新しいイベントについてメール通知を受け取ります"
+
+#: src/components/organisms/EventRsvps.re.mjs:203
+#~ msgid ""
+#~ "{waitlistCount, plural, one {spot available} other {spots available}}"
+#~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
+
+#: src/components/molecules/AddToCalendar.re.mjs:14
+#, fuzzy
+#~ msgid "add to calendar"
+#~ msgstr "カレンダー同期"
+
+#: src/components/organisms/EventRsvps.re.mjs:217
+#~ msgid "spots available"
+#~ msgstr "利用可能なスポット"

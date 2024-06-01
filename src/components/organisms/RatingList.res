@@ -35,11 +35,12 @@ module Fragment = %relay(`
 module ItemFragment = %relay(`
   fragment RatingList_rating on Rating {
     id
-    mu
+    ordinal
     user {
       id
       lineUsername
       picture
+      gender
     }
   }
 `)
@@ -72,45 +73,66 @@ module NodeIdDto: {
 
 module RatingItem = {
   open Lingui.Util
+  open HeroIcons
   let td = Lingui.UtilString.dynamic
   let ts = Lingui.UtilString.t
   @react.component
   let make = (~rating, ~highlightedLocation: bool=false) => {
-    let {id, mu, user} = ItemFragment.use(rating)
-    <li className="">
-      <div className="min-w-0 flex-auto">
-        <div className="flex items-center gap-x-3">
-          <div
-            className={Util.cx(["text-green-400 bg-green-400/10", "flex-none rounded-full p-1"])}>
-            <div className="h-2 w-2 rounded-full bg-current" />
-          </div>
-          <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
-            <Link to={"/players/" ++ id} relative="path" className="flex gap-x-2">
+    let {id, ordinal, user} = ItemFragment.use(rating)
+    <li
+      key={id}
+      className="relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6 lg:px-8">
+      <div className="flex min-w-0 gap-x-4">
+        {user
+        ->Option.flatMap(user =>
+          user.picture->Option.map(picture =>
+            <img className="h-24 w-24 flex-none rounded-full bg-gray-50" src={picture} alt="" />
+          )
+        )
+        ->Option.getOr(React.null)}
+        <div className="min-w-0 flex-auto">
+          <p className="text-lg mt-9 font-semibold leading-6 text-gray-900">
+            <a href="#">
+              <span className="absolute inset-x-0 -top-px bottom-0" />
               {user
               ->Option.flatMap(user =>
-                user.picture->Option.map(picture => <img width="50" height="50" src={picture} />)
+                user.lineUsername->Option.map(lineUsername => lineUsername->React.string)
               )
               ->Option.getOr(React.null)}
-              {user->Option.flatMap(user =>
-                user.lineUsername->Option.map(lineUsername =>
-                  <span className="truncate"> {lineUsername->React.string} </span>
-                )
-              )->Option.getOr(React.null)}
-            </Link>
-          </h2>
-        </div>
-        <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
-          <p className="whitespace-nowrap">
-            {mu
-            ->Option.map(mu => mu->Float.toString->React.string)
-            ->Option.getOr("mu missing"->React.string)}
+            </a>
+          </p>
+          <p className="mt-1 flex text-xs leading-5 text-gray-500">
+            <a href="#" className="relative truncate hover:underline" />
           </p>
         </div>
       </div>
+      <div className="flex shrink-0 items-center gap-x-4">
+        <div className="hidden sm:flex sm:flex-col sm:items-end">
+          <p className="text-sm leading-6 text-gray-900"> 
+              {user
+              ->Option.flatMap(user =>
+                user.gender->Option.map(gender => switch gender {
+                  | Male => t`Male`
+                  | Female => t`Female`
+                  | _ => t`--`
+                })
+              )
+              ->Option.getOr(React.null)}
+          </p>
+          <p className="mt-1 text-xs leading-5 text-gray-500">
+            {ordinal
+            ->Option.map(ordinal => ordinal->Float.toString->React.string)
+            ->Option.getOr("ordinal missing"->React.string)}
+          </p>
+        </div>
+        <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" \"aria-hidden"="true" />
+      </div>
     </li>
+
     // )->Result.getOr(React.null)
   }
 }
+
 
 @genType @react.component
 let make = (~ratings) => {
@@ -132,33 +154,29 @@ let make = (~ratings) => {
   let intl = ReactIntl.useIntl()
   let viewer = GlobalQuery.useViewer()
 
-  <>
-    {!isLoadingPrevious
+  <Layout.Container className="mt-4">
+    {!isLoadingPrevious && hasPrevious
       ? pageInfo.startCursor
         ->Option.map(startCursor =>
-          <Layout.Container>
-            <Link to={"./" ++ "?before=" ++ startCursor}> {t`...load past ratings`} </Link>
-          </Layout.Container>
+          <Link to={"./" ++ "?before=" ++ startCursor}> {t`...load higher rated players`} </Link>
         )
         ->Option.getOr(React.null)
       : React.null}
-    <Layout.Container>
-      <ul role="list" className="divide-y divide-gray-200">
-        {ratings
-        ->Array.map(edge => <RatingItem key={edge.id} rating=edge.fragmentRefs />)
-        ->React.array}
-      </ul>
-      {hasNext && !isLoadingNext
-        ? <Layout.Container>
-            {pageInfo.endCursor
-            ->Option.map(endCursor =>
-              <Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Link>
-            )
-            ->Option.getOr(React.null)}
-          </Layout.Container>
-        : React.null}
-    </Layout.Container>
-  </>
+    <ul role="list" className="divide-y divide-gray-200">
+      {ratings
+      ->Array.map(edge => <RatingItem key={edge.id} rating=edge.fragmentRefs />)
+      ->React.array}
+    </ul>
+    {hasNext && !isLoadingNext
+      ? {
+          pageInfo.endCursor
+          ->Option.map(endCursor =>
+            <Link to={"./" ++ "?after=" ++ endCursor}> {t`Load more players...`} </Link>
+          )
+          ->Option.getOr(React.null)
+        }
+      : React.null}
+  </Layout.Container>
 }
 
 @genType

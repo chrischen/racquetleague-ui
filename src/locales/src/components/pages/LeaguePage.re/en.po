@@ -6,24 +6,90 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:216
-msgid "...load past ratings"
+#: src/components/organisms/RatingList.re.mjs:204
+msgid "--"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:236
-msgid "load more"
+#: src/components/organisms/RatingList.re.mjs:257
+msgid "...load higher rated players"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:223
+#~ msgid "...load past ratings"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:147
+msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:199
+msgid "Female"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:81
+msgid "Hesacore Grip"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:54
+#~ msgid "japan pickle league"
+#~ msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:242
+#~ msgid "load more"
+#~ msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:272
+msgid "Load more players..."
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:165
+msgid "Loading rankings..."
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:201
+msgid "Male"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:87
+msgid "Multiple colors available."
 msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:57
 #: src/components/pages/LeaguePage.re.mjs:81
-msgid "my events"
+#~ msgid "my events"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:54
+msgid "Next Prize: June 10"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:142
+msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:63
-msgid "public events"
+#~ msgid "public events"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:62
+#~ msgid "Recreational Doubles"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:137
+msgid "Recreational Doubles Rankings"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:17
-msgid "sync calendar"
+#~ msgid "sync calendar"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:58
+msgid "This prize will be awarded to the top male and female players on this day."
 msgstr ""

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"1f2gf2\":\"...load past ratings\",\"/et5Fb\":\"load more\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"QUVyh4\":\"--\",\"k9aPnD\":\"...load higher rated players\",\"1f2gf2\":\"...load past ratings\",\"M9iqFS\":\"Female\",\"/et5Fb\":\"load more\",\"UqCm6U\":\"Load more players...\",\"CvCWBI\":\"Male\"}");

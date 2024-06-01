@@ -25,10 +25,6 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventRsvps.re.mjs:203
-#~ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
-#~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
-
 #: src/components/organisms/EventRsvps.re.mjs:175
 msgid "confirmed"
 msgstr "確認済み"
@@ -73,10 +69,15 @@ msgstr "まだプレイヤーはいません"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventRsvps.re.mjs:217
-#~ msgid "spots available"
-#~ msgstr "利用可能なスポット"
-
 #: src/components/organisms/EventRsvps.re.mjs:339
 msgid "waitlist"
 msgstr "ウェイトリスト"
+
+#: src/components/organisms/EventRsvps.re.mjs:203
+#~ msgid ""
+#~ "{waitlistCount, plural, one {spot available} other {spots available}}"
+#~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
+
+#: src/components/organisms/EventRsvps.re.mjs:217
+#~ msgid "spots available"
+#~ msgstr "利用可能なスポット"

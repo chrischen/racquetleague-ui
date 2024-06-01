@@ -273,6 +273,7 @@ type Rating {
   id: ID!
   mu: Float
   namespace: String
+  ordinal: Float
   sigma: Float
   updatedAt: Datetime
   user: User
