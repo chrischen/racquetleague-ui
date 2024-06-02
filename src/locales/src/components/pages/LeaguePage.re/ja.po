@@ -13,15 +13,11 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:204
-msgid "--"
-msgstr "--"
-
-#: src/components/organisms/RatingList.re.mjs:257
+#: src/components/organisms/RatingList.re.mjs:274
 msgid "...load higher rated players"
 msgstr "... より高い評価のプレイヤーを読み込む"
 
-#: src/components/pages/LeaguePage.re.mjs:147
+#: src/components/pages/LeaguePage.re.mjs:144
 msgid ""
 "Currently the league is in testing mode. To participate, please join the "
 "Pickleball events here:"
@@ -29,35 +25,35 @@ msgstr ""
 "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに"
 "参加してください:"
 
-#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:204
 msgid "Female"
 msgstr "女性"
 
-#: src/components/pages/LeaguePage.re.mjs:81
+#: src/components/pages/LeaguePage.re.mjs:80
 msgid "Hesacore Grip"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:272
+#: src/components/organisms/RatingList.re.mjs:290
 msgid "Load more players..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/pages/LeaguePage.re.mjs:165
+#: src/components/pages/LeaguePage.re.mjs:162
 msgid "Loading rankings..."
 msgstr "ランキングを読み込んでいます..."
 
-#: src/components/organisms/RatingList.re.mjs:201
+#: src/components/organisms/RatingList.re.mjs:206
 msgid "Male"
 msgstr "男性"
 
-#: src/components/pages/LeaguePage.re.mjs:87
+#: src/components/pages/LeaguePage.re.mjs:86
 msgid "Multiple colors available."
 msgstr "複数の色が利用可能です。"
 
-#: src/components/pages/LeaguePage.re.mjs:54
+#: src/components/pages/LeaguePage.re.mjs:53
 msgid "Next Prize: June 10"
 msgstr "次の賞品: 6月10日"
 
-#: src/components/pages/LeaguePage.re.mjs:142
+#: src/components/pages/LeaguePage.re.mjs:139
 msgid ""
 "Play doubles games with different partners and receive an individual rating. "
 "Prizes are awarded monthly to top players."
@@ -65,15 +61,19 @@ msgstr ""
 "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は"
 "毎月トッププレイヤーに授与されます。"
 
-#: src/components/pages/LeaguePage.re.mjs:137
-msgid "Recreational Doubles Rankings"
-msgstr "レクリエーショナルダブルスランキング"
+#: src/components/pages/LeaguePage.re.mjs:134
+msgid "Recreational Doubles"
+msgstr "レクリエーショナルダブルス"
 
-#: src/components/pages/LeaguePage.re.mjs:58
+#: src/components/pages/LeaguePage.re.mjs:57
 msgid ""
 "This prize will be awarded to the top male and female players on this day."
 msgstr ""
 "この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
+
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "--"
+#~ msgstr "--"
 
 #: src/components/organisms/RatingList.re.mjs:223
 #~ msgid "...load past ratings"
@@ -96,9 +96,9 @@ msgstr ""
 #~ msgid "public events"
 #~ msgstr "公開イベント"
 
-#: src/components/pages/LeaguePage.re.mjs:62
-#~ msgid "Recreational Doubles"
-#~ msgstr "レクリエーショナルダブルス"
+#: src/components/pages/LeaguePage.re.mjs:137
+#~ msgid "Recreational Doubles Rankings"
+#~ msgstr "レクリエーショナルダブルスランキング"
 
 #: src/components/molecules/AddToCalendar.re.mjs:17
 #~ msgid "sync calendar"

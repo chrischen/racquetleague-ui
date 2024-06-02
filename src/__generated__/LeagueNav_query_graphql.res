@@ -5,6 +5,7 @@ module Types = {
   @@warning("-30")
 
   type rec fragment_viewer_user = {
+    @live id: string,
     lineUsername: option<string>,
     picture: option<string>,
   }
@@ -70,6 +71,13 @@ let node: operationType = %raw(json` {
           "name": "user",
           "plural": false,
           "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "id",
+              "storageKey": null
+            },
             {
               "alias": null,
               "args": null,

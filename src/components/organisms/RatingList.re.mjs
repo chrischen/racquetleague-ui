@@ -141,91 +141,108 @@ function ts(prim0, prim1) {
 }
 
 function RatingList$RatingItem(props) {
+  var maxRating = props.maxRating;
   var match = use$1(props.rating);
-  var user = match.user;
-  return JsxRuntime.jsxs("li", {
-              children: [
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        Core__Option.getOr(Core__Option.flatMap(user, (function (user) {
-                                    return Core__Option.map(user.picture, (function (picture) {
-                                                  return JsxRuntime.jsx("img", {
-                                                              className: "h-24 w-24 flex-none rounded-full bg-gray-50",
-                                                              alt: "",
-                                                              src: picture
-                                                            });
-                                                }));
-                                  })), null),
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("p", {
-                                      children: JsxRuntime.jsxs("a", {
-                                            children: [
-                                              JsxRuntime.jsx("span", {
-                                                    className: "absolute inset-x-0 -top-px bottom-0"
-                                                  }),
-                                              Core__Option.getOr(Core__Option.flatMap(user, (function (user) {
-                                                          return Core__Option.map(user.lineUsername, (function (lineUsername) {
-                                                                        return lineUsername;
-                                                                      }));
-                                                        })), null)
-                                            ],
-                                            href: "#"
-                                          }),
-                                      className: "text-lg mt-9 font-semibold leading-6 text-gray-900"
-                                    }),
-                                JsxRuntime.jsx("p", {
-                                      children: JsxRuntime.jsx("a", {
-                                            className: "relative truncate hover:underline",
-                                            href: "#"
-                                          }),
-                                      className: "mt-1 flex text-xs leading-5 text-gray-500"
-                                    })
-                              ],
-                              className: "min-w-0 flex-auto"
-                            })
-                      ],
-                      className: "flex min-w-0 gap-x-4"
-                    }),
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("p", {
-                                      children: Core__Option.getOr(Core__Option.flatMap(user, (function (user) {
-                                                  return Core__Option.map(user.gender, (function (gender) {
-                                                                if (gender === "female" || gender === "male") {
-                                                                  if (gender === "female") {
-                                                                    return t`Female`;
-                                                                  } else {
-                                                                    return t`Male`;
-                                                                  }
-                                                                } else {
-                                                                  return t`--`;
-                                                                }
-                                                              }));
-                                                })), null),
-                                      className: "text-sm leading-6 text-gray-900"
-                                    }),
-                                JsxRuntime.jsx("p", {
-                                      children: Core__Option.getOr(Core__Option.map(match.ordinal, (function (ordinal) {
-                                                  return ordinal.toString(undefined);
-                                                })), "ordinal missing"),
-                                      className: "mt-1 text-xs leading-5 text-gray-500"
-                                    })
-                              ],
-                              className: "hidden sm:flex sm:flex-col sm:items-end"
-                            }),
-                        JsxRuntime.jsx(Solid.ChevronRightIcon, {
-                              className: "h-5 w-5 flex-none text-gray-400",
-                              "aria-hidden": "true"
-                            })
-                      ],
-                      className: "flex shrink-0 items-center gap-x-4"
-                    })
-              ],
-              className: "relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6 lg:px-8"
-            }, match.id);
+  var ordinal = match.ordinal;
+  var id = match.id;
+  var tier = Core__Option.getOr(Core__Option.map(Core__Option.map(ordinal, (function (ordinal) {
+                  return Math.max(0, ordinal / maxRating * 100.0);
+                })), (function (__x) {
+              return __x.toFixed(2);
+            })), "0.0");
+  return Core__Option.getOr(Core__Option.map(match.user, (function (user) {
+                    return JsxRuntime.jsxs("li", {
+                                children: [
+                                  JsxRuntime.jsxs("div", {
+                                        children: [
+                                          JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
+                                                              return JsxRuntime.jsx("img", {
+                                                                          className: "h-24 w-24 flex-none rounded-full bg-gray-50",
+                                                                          alt: "",
+                                                                          src: picture
+                                                                        });
+                                                            })), null),
+                                                  JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsx("p", {
+                                                                children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                                                                      to: "/p/" + user.id,
+                                                                      children: [
+                                                                        JsxRuntime.jsx("span", {
+                                                                              className: "absolute inset-x-0 -top-px bottom-0"
+                                                                            }),
+                                                                        Core__Option.getOr(Core__Option.map(user.lineUsername, (function (lineUsername) {
+                                                                                    return lineUsername;
+                                                                                  })), null)
+                                                                      ]
+                                                                    }),
+                                                                className: "text-lg mt-9 font-semibold leading-6 text-gray-900"
+                                                              }),
+                                                          JsxRuntime.jsx("p", {
+                                                                children: JsxRuntime.jsx("a", {
+                                                                      className: "relative truncate hover:underline",
+                                                                      href: "#"
+                                                                    }),
+                                                                className: "mt-1 flex text-xs leading-5 text-gray-500"
+                                                              })
+                                                        ],
+                                                        className: "min-w-0 flex-auto"
+                                                      })
+                                                ],
+                                                className: "flex min-w-0 gap-x-4"
+                                              }),
+                                          JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsx("p", {
+                                                                children: Core__Option.getOr(Core__Option.map(user.gender, (function (gender) {
+                                                                            if (gender === "female" || gender === "male") {
+                                                                              if (gender === "female") {
+                                                                                return t`Female`;
+                                                                              } else {
+                                                                                return t`Male`;
+                                                                              }
+                                                                            } else {
+                                                                              return "--";
+                                                                            }
+                                                                          })), null),
+                                                                className: "text-sm leading-6 text-gray-900"
+                                                              }),
+                                                          JsxRuntime.jsx("p", {
+                                                                children: Core__Option.getOr(Core__Option.map(ordinal, (function (ordinal) {
+                                                                            return ordinal.toFixed(2);
+                                                                          })), "ordinal missing"),
+                                                                className: "mt-1 text-xs leading-5 text-gray-500"
+                                                              })
+                                                        ],
+                                                        className: "sm:flex sm:flex-col sm:items-end"
+                                                      }),
+                                                  JsxRuntime.jsx(Solid.ChevronRightIcon, {
+                                                        className: "h-5 w-5 flex-none text-gray-400",
+                                                        "aria-hidden": "true"
+                                                      })
+                                                ],
+                                                className: "flex shrink-0 items-center gap-x-4"
+                                              })
+                                        ],
+                                        className: "flex justify-between gap-x-6 "
+                                      }),
+                                  JsxRuntime.jsx("div", {
+                                        children: JsxRuntime.jsx("div", {
+                                              className: "h-2 rounded-full bg-red-400",
+                                              style: {
+                                                width: tier + "%"
+                                              }
+                                            }),
+                                        className: "overflow-hidden rounded-full bg-gray-200 mt-5"
+                                      })
+                                ],
+                                className: "relative px-4 py-5 hover:bg-gray-50 sm:px-6 lg:px-8"
+                              }, id);
+                  })), null);
 }
 
 var RatingItem = {
@@ -260,7 +277,8 @@ function RatingList(props) {
                 JsxRuntime.jsx("ul", {
                       children: ratings$1.map(function (edge) {
                             return JsxRuntime.jsx(RatingList$RatingItem, {
-                                        rating: edge.fragmentRefs
+                                        rating: edge.fragmentRefs,
+                                        maxRating: 11.71
                                       }, edge.id);
                           }),
                       className: "divide-y divide-gray-200",

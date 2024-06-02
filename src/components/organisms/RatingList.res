@@ -77,62 +77,65 @@ module RatingItem = {
   let td = Lingui.UtilString.dynamic
   let ts = Lingui.UtilString.t
   @react.component
-  let make = (~rating, ~highlightedLocation: bool=false) => {
+  let make = (~rating, ~maxRating, ~highlightedLocation: bool=false) => {
     let {id, ordinal, user} = ItemFragment.use(rating)
-    <li
-      key={id}
-      className="relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6 lg:px-8">
-      <div className="flex min-w-0 gap-x-4">
-        {user
-        ->Option.flatMap(user =>
-          user.picture->Option.map(picture =>
-            <img className="h-24 w-24 flex-none rounded-full bg-gray-50" src={picture} alt="" />
-          )
-        )
-        ->Option.getOr(React.null)}
-        <div className="min-w-0 flex-auto">
-          <p className="text-lg mt-9 font-semibold leading-6 text-gray-900">
-            <a href="#">
-              <span className="absolute inset-x-0 -top-px bottom-0" />
-              {user
-              ->Option.flatMap(user =>
-                user.lineUsername->Option.map(lineUsername => lineUsername->React.string)
-              )
-              ->Option.getOr(React.null)}
-            </a>
-          </p>
-          <p className="mt-1 flex text-xs leading-5 text-gray-500">
-            <a href="#" className="relative truncate hover:underline" />
-          </p>
-        </div>
-      </div>
-      <div className="flex shrink-0 items-center gap-x-4">
-        <div className="hidden sm:flex sm:flex-col sm:items-end">
-          <p className="text-sm leading-6 text-gray-900"> 
-              {user
-              ->Option.flatMap(user =>
-                user.gender->Option.map(gender => switch gender {
+    let tier = ordinal->Option.map(ordinal => Math.max(0., (ordinal /. maxRating) *. 100.0))->Option.map(Float.toFixed(_, ~digits=2))->Option.getOr("0.0")
+    user
+    ->Option.map(user =>
+      <li
+        key={id}
+        className="relative px-4 py-5 hover:bg-gray-50 sm:px-6 lg:px-8">
+        <div className="flex justify-between gap-x-6 ">
+          <div className="flex min-w-0 gap-x-4">
+            {user.picture
+            ->Option.map(picture =>
+              <img className="h-24 w-24 flex-none rounded-full bg-gray-50" src={picture} alt="" />
+            )
+            ->Option.getOr(React.null)}
+            <div className="min-w-0 flex-auto">
+              <p className="text-lg mt-9 font-semibold leading-6 text-gray-900">
+                <Link to={"/p/" ++ user.id}>
+                  <span className="absolute inset-x-0 -top-px bottom-0" />
+                  {user.lineUsername
+                  ->Option.map(lineUsername => lineUsername->React.string)
+                  ->Option.getOr(React.null)}
+                </Link>
+              </p>
+              <p className="mt-1 flex text-xs leading-5 text-gray-500">
+                <a href="#" className="relative truncate hover:underline" />
+              </p>
+            </div>
+          </div>
+          <div className="flex shrink-0 items-center gap-x-4">
+            <div className="sm:flex sm:flex-col sm:items-end">
+              <p className="text-sm leading-6 text-gray-900">
+                {user.gender
+                ->Option.map(gender =>
+                  switch gender {
                   | Male => t`Male`
                   | Female => t`Female`
-                  | _ => t`--`
-                })
-              )
-              ->Option.getOr(React.null)}
-          </p>
-          <p className="mt-1 text-xs leading-5 text-gray-500">
-            {ordinal
-            ->Option.map(ordinal => ordinal->Float.toString->React.string)
-            ->Option.getOr("ordinal missing"->React.string)}
-          </p>
+                  | _ => "--"->React.string
+                  }
+                )
+                ->Option.getOr(React.null)}
+              </p>
+              <p className="mt-1 text-xs leading-5 text-gray-500">
+                {ordinal
+                ->Option.map(ordinal => ordinal->Float.toFixed(~digits=2)->React.string)
+                ->Option.getOr("ordinal missing"->React.string)}
+              </p>
+            </div>
+            <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" \"aria-hidden"="true" />
+          </div>
         </div>
-        <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" \"aria-hidden"="true" />
-      </div>
-    </li>
-
-    // )->Result.getOr(React.null)
+        <div className="overflow-hidden rounded-full bg-gray-200 mt-5">
+          <div className="h-2 rounded-full bg-red-400" style={{width: tier ++ "%"}} />
+        </div>
+      </li>
+    )
+    ->Option.getOr(React.null)
   }
 }
-
 
 @genType @react.component
 let make = (~ratings) => {
@@ -164,7 +167,7 @@ let make = (~ratings) => {
       : React.null}
     <ul role="list" className="divide-y divide-gray-200">
       {ratings
-      ->Array.map(edge => <RatingItem key={edge.id} rating=edge.fragmentRefs />)
+      ->Array.map(edge => <RatingItem key={edge.id} maxRating=11.71 rating=edge.fragmentRefs />)
       ->React.array}
     </ul>
     {hasNext && !isLoadingNext

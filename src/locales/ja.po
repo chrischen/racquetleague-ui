@@ -550,7 +550,9 @@ msgstr "男性"
 msgid ""
 "Currently the league is in testing mode. To participate, please join the "
 "Pickleball events here:"
-msgstr "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに参加してください:"
+msgstr ""
+"現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに"
+"参加してください:"
 
 #: src/components/pages/LeaguePage.re.mjs:81
 msgid "Hesacore Grip"
@@ -568,7 +570,9 @@ msgstr "次の賞品: 6月10日"
 msgid ""
 "Play doubles games with different partners and receive an individual rating. "
 "Prizes are awarded monthly to top players."
-msgstr "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は毎月トッププレイヤーに授与されます。"
+msgstr ""
+"異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は"
+"毎月トッププレイヤーに授与されます。"
 
 #: src/components/pages/LeaguePage.re.mjs:137
 msgid "Recreational Doubles Rankings"
@@ -577,7 +581,42 @@ msgstr "レクリエーショナルダブルスランキング"
 #: src/components/pages/LeaguePage.re.mjs:58
 msgid ""
 "This prize will be awarded to the top male and female players on this day."
-msgstr "この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
+msgstr ""
+"この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
+
+#: src/components/organisms/LeagueNav.re.mjs:128
+msgid "Logout"
+msgstr "ログアウト"
+
+#: src/components/organisms/LeagueNav.re.mjs:124
+msgid "Your Profile"
+msgstr "あなたのプロフィール"
+
+#: src/components/pages/FindGamesPage.re.mjs:28
+msgid "Where to Play"
+msgstr "プレイする場所"
+
+#: src/components/pages/LeagueAboutPage.re.mjs:28
+msgid "About the League"
+msgstr "リーグについて"
+
+#: src/components/pages/LeagueAboutPage.re.mjs:44
+msgid ""
+"Ratings are assigned to individual players just by playing doubles games, "
+"even with different partners each game. For doubles ratings we use OpenSkill "
+"(a derivative of TrueSkill), and for singles ratings we use Glicko2."
+msgstr ""
+"ダブルスゲームをプレイするだけで、異なるパートナーとのゲームごとに個別のプレ"
+"イヤーに評価が割り当てられます。ダブルスの評価にはOpenSkill（TrueSkillの派"
+"生）を使用し、シングルスの評価にはGlicko2を使用しています。"
+
+#: src/components/pages/LeagueAboutPage.re.mjs:34
+msgid ""
+"The Japan Pickleball League is an open-source non-profit project to help "
+"improve the quality of community recreational pickleball games and events."
+msgstr ""
+"日本ピクルボールリーグは、コミュニティのレクリエーショナルピクルボールゲーム"
+"とイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

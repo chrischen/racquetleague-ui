@@ -140,6 +140,13 @@ let node: operationType = %raw(json` {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "lineUsername",
                 "storageKey": null
               },
@@ -148,13 +155,6 @@ let node: operationType = %raw(json` {
                 "args": null,
                 "kind": "ScalarField",
                 "name": "picture",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
                 "storageKey": null
               }
             ],
@@ -166,12 +166,12 @@ let node: operationType = %raw(json` {
     ]
   },
   "params": {
-    "cacheID": "d668457d942a4ea953d23773ddaea981",
+    "cacheID": "7b8abe0ad49368648be4083a5d26d9d2",
     "id": null,
     "metadata": {},
     "name": "LeagueLayoutQuery",
     "operationKind": "query",
-    "text": "query LeagueLayoutQuery {\n  ...LeagueNav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment LeagueNav_query on Query {\n  viewer {\n    user {\n      lineUsername\n      picture\n      id\n    }\n    ...LeagueNav_viewer\n  }\n}\n\nfragment LeagueNav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n"
+    "text": "query LeagueLayoutQuery {\n  ...LeagueNav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment LeagueNav_query on Query {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n    ...LeagueNav_viewer\n  }\n}\n\nfragment LeagueNav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n"
   }
 } `)
 

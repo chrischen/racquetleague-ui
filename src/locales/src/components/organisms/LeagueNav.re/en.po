@@ -6,16 +6,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
 msgstr ""
 
-#: src/components/organisms/LeagueNav.re.mjs:115
+#: src/components/organisms/LeagueNav.re.mjs:114
 msgid "About"
 msgstr ""
 
-#: src/components/organisms/LeagueNav.re.mjs:110
+#: src/components/organisms/LeagueNav.re.mjs:109
 msgid "Find Games"
 msgstr ""
 
@@ -23,24 +29,32 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/organisms/LeagueNav.re.mjs:246
+#: src/components/organisms/LeagueNav.re.mjs:127
+msgid "Logout"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:250
 msgid "Open main menu"
 msgstr ""
 
-#: src/components/organisms/LeagueNav.re.mjs:194
+#: src/components/organisms/LeagueNav.re.mjs:200
 msgid "Open user menu"
 msgstr ""
 
-#: src/components/organisms/LeagueNav.re.mjs:202
-#: src/components/organisms/LeagueNav.re.mjs:288
+#: src/components/organisms/LeagueNav.re.mjs:206
+#: src/components/organisms/LeagueNav.re.mjs:292
 msgid "Profile picture"
 msgstr ""
 
-#: src/components/organisms/LeagueNav.re.mjs:105
+#: src/components/organisms/LeagueNav.re.mjs:104
 msgid "Rankings"
 msgstr ""
 
-#: src/components/organisms/LeagueNav.re.mjs:171
-#: src/components/organisms/LeagueNav.re.mjs:315
+#: src/components/organisms/LeagueNav.re.mjs:175
+#: src/components/organisms/LeagueNav.re.mjs:317
 msgid "View notifications"
+msgstr ""
+
+#: src/components/organisms/LeagueNav.re.mjs:123
+msgid "Your Profile"
 msgstr ""

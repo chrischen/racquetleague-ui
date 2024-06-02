@@ -99,28 +99,37 @@ function LeagueNav(props) {
             })), JsxRuntime.jsx(LoginLink.make, {}));
   var match = ReactRouterDom.useLocation();
   var pathname = match.pathname;
-  console.log(pathname);
   var navigation = [
     {
       name: t`Rankings`,
-      href: "/",
-      current: pathname.indexOf("/league") > -1 || pathname === "/"
+      href: "/league",
+      current: pathname === "/league" || pathname === "/"
     },
     {
       name: t`Find Games`,
-      href: "/play",
-      current: pathname.indexOf("/play") > -1
+      href: "/league/games",
+      current: pathname.indexOf("/games") > -1
     },
     {
       name: t`About`,
-      href: "/about",
+      href: "/league/about",
       current: pathname.indexOf("/about") > -1
     }
   ];
-  var userNavigation = [{
-      name: "Sign out",
-      href: "/logout"
-    }];
+  var userNavigation = Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
+              return Core__Option.map(viewer.user, (function (user) {
+                            return [
+                                    {
+                                      name: t`Your Profile`,
+                                      href: "/p/" + user.id
+                                    },
+                                    {
+                                      name: t`Logout`,
+                                      href: "/logout"
+                                    }
+                                  ];
+                          }));
+            })), []);
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsx("header", {
@@ -140,21 +149,15 @@ function LeagueNav(props) {
                                                                                         children: JsxRuntime.jsx(LangSwitch.make, {}),
                                                                                         className: "flex flex-shrink-0 items-center sm:hidden inline-flex items-center px-1 pt-1 text-sm font-medium"
                                                                                       }),
-                                                                                  JsxRuntime.jsxs("div", {
-                                                                                        children: [
-                                                                                          navigation.map(function (item) {
-                                                                                                return JsxRuntime.jsx("a", {
-                                                                                                            children: item.name,
-                                                                                                            "aria-current": item.current ? "page" : "false",
-                                                                                                            className: Core.cx(item.current ? "border-leaguePrimary text-gray-900" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700", "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"),
-                                                                                                            href: item.href
-                                                                                                          }, item.name);
-                                                                                              }),
-                                                                                          JsxRuntime.jsx("div", {
-                                                                                                children: JsxRuntime.jsx(LangSwitch.make, {}),
-                                                                                                className: "inline-flex items-center px-1 pt-0 text-sm font-medium"
-                                                                                              })
-                                                                                        ],
+                                                                                  JsxRuntime.jsx("div", {
+                                                                                        children: navigation.map(function (item) {
+                                                                                              return JsxRuntime.jsx("a", {
+                                                                                                          children: item.name,
+                                                                                                          "aria-current": item.current ? "page" : "false",
+                                                                                                          className: Core.cx(item.current ? "border-leaguePrimary text-gray-900" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700", "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"),
+                                                                                                          href: item.href
+                                                                                                        }, item.name);
+                                                                                            }),
                                                                                         className: "hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8"
                                                                                       })
                                                                                 ],
@@ -162,6 +165,7 @@ function LeagueNav(props) {
                                                                               }),
                                                                           JsxRuntime.jsxs("div", {
                                                                                 children: [
+                                                                                  JsxRuntime.jsx(LangSwitch.make, {}),
                                                                                   JsxRuntime.jsxs("button", {
                                                                                         children: [
                                                                                           JsxRuntime.jsx("span", {
@@ -176,38 +180,38 @@ function LeagueNav(props) {
                                                                                                 "aria-hidden": "true"
                                                                                               })
                                                                                         ],
-                                                                                        className: "relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+                                                                                        className: "relative rounded-full bg-white ml-3 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2",
                                                                                         type: "button"
                                                                                       }),
                                                                                   JsxRuntime.jsxs(React$1.Menu, {
                                                                                         as: "div",
                                                                                         className: "relative ml-3",
                                                                                         children: [
-                                                                                          JsxRuntime.jsx("div", {
-                                                                                                children: JsxRuntime.jsxs(React$1.MenuButton, {
-                                                                                                      className: "relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
-                                                                                                      children: [
-                                                                                                        JsxRuntime.jsx("span", {
-                                                                                                              className: "absolute -inset-1.5"
-                                                                                                            }),
-                                                                                                        JsxRuntime.jsx("span", {
-                                                                                                              children: t`Open user menu`,
-                                                                                                              className: "sr-only"
-                                                                                                            }),
-                                                                                                        Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
-                                                                                                                    return Core__Option.flatMap(viewer.user, (function (user) {
-                                                                                                                                  return Core__Option.map(user.picture, (function (picture) {
-                                                                                                                                                return JsxRuntime.jsx("img", {
-                                                                                                                                                            className: "h-8 w-8 rounded-full",
-                                                                                                                                                            alt: t`Profile picture`,
-                                                                                                                                                            src: picture
-                                                                                                                                                          });
-                                                                                                                                              }));
-                                                                                                                                }));
-                                                                                                                  })), null)
-                                                                                                      ]
-                                                                                                    })
-                                                                                              }),
+                                                                                          Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
+                                                                                                      return Core__Option.map(viewer.user, (function (user) {
+                                                                                                                    return JsxRuntime.jsx("div", {
+                                                                                                                                children: JsxRuntime.jsxs(React$1.MenuButton, {
+                                                                                                                                      className: "relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2",
+                                                                                                                                      children: [
+                                                                                                                                        JsxRuntime.jsx("span", {
+                                                                                                                                              className: "absolute -inset-1.5"
+                                                                                                                                            }),
+                                                                                                                                        JsxRuntime.jsx("span", {
+                                                                                                                                              children: t`Open user menu`,
+                                                                                                                                              className: "sr-only"
+                                                                                                                                            }),
+                                                                                                                                        Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
+                                                                                                                                                    return JsxRuntime.jsx("img", {
+                                                                                                                                                                className: "h-8 w-8 rounded-full",
+                                                                                                                                                                alt: t`Profile picture`,
+                                                                                                                                                                src: picture
+                                                                                                                                                              });
+                                                                                                                                                  })), null)
+                                                                                                                                      ]
+                                                                                                                                    })
+                                                                                                                              });
+                                                                                                                  }));
+                                                                                                    })), JsxRuntime.jsx(LoginLink.make, {})),
                                                                                           JsxRuntime.jsx(React$1.Transition, {
                                                                                                 enter: "transition ease-out duration-200",
                                                                                                 enterFrom: "transform opacity-0 scale-95",
@@ -237,7 +241,7 @@ function LeagueNav(props) {
                                                                               }),
                                                                           JsxRuntime.jsx("div", {
                                                                                 children: JsxRuntime.jsxs(React$1.DisclosureButton, {
-                                                                                      className: "relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+                                                                                      className: "relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2",
                                                                                       children: [
                                                                                         JsxRuntime.jsx("span", {
                                                                                               className: "absolute -inset-0.5"
@@ -268,7 +272,7 @@ function LeagueNav(props) {
                                                                                       return JsxRuntime.jsx(React$1.DisclosureButton, {
                                                                                                   as: "a",
                                                                                                   href: item.href,
-                                                                                                  className: Core.cx(item.current ? "border-indigo-500 bg-indigo-50 text-indigo-700" : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800", "block border-l-4 py-2 pl-3 pr-4 text-base font-medium"),
+                                                                                                  className: Core.cx(item.current ? "border-red-500 bg-red-50 text-red-700" : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800", "block border-l-4 py-2 pl-3 pr-4 text-base font-medium"),
                                                                                                   children: item.name,
                                                                                                   ariaCurrent: item.current ? "page" : "false"
                                                                                                 }, item.name);
@@ -277,64 +281,68 @@ function LeagueNav(props) {
                                                                               }),
                                                                           JsxRuntime.jsxs("div", {
                                                                                 children: [
-                                                                                  JsxRuntime.jsxs("div", {
-                                                                                        children: [
-                                                                                          JsxRuntime.jsx("div", {
-                                                                                                children: Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
-                                                                                                            return Core__Option.flatMap(viewer.user, (function (user) {
-                                                                                                                          return Core__Option.map(user.picture, (function (picture) {
-                                                                                                                                        return JsxRuntime.jsx("img", {
-                                                                                                                                                    className: "h-10 w-10 rounded-full",
-                                                                                                                                                    alt: t`Profile picture`,
-                                                                                                                                                    src: picture
-                                                                                                                                                  });
-                                                                                                                                      }));
-                                                                                                                        }));
-                                                                                                          })), null),
-                                                                                                className: "flex-shrink-0"
-                                                                                              }),
-                                                                                          JsxRuntime.jsxs("div", {
-                                                                                                children: [
-                                                                                                  JsxRuntime.jsx("div", {
-                                                                                                        children: "userName",
-                                                                                                        className: "text-base font-medium text-gray-800"
-                                                                                                      }),
-                                                                                                  JsxRuntime.jsx("div", {
-                                                                                                        children: "userEmail",
-                                                                                                        className: "text-sm font-medium text-gray-500"
-                                                                                                      })
-                                                                                                ],
-                                                                                                className: "ml-3"
-                                                                                              }),
-                                                                                          JsxRuntime.jsxs("button", {
-                                                                                                children: [
-                                                                                                  JsxRuntime.jsx("span", {
-                                                                                                        className: "absolute -inset-1.5"
-                                                                                                      }),
-                                                                                                  JsxRuntime.jsx("span", {
-                                                                                                        children: t`View notifications`,
-                                                                                                        className: "sr-only"
-                                                                                                      }),
-                                                                                                  JsxRuntime.jsx(Outline.BellIcon, {
-                                                                                                        className: "h-6 w-6",
-                                                                                                        "aria-hidden": "true"
-                                                                                                      })
-                                                                                                ],
-                                                                                                className: "relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
-                                                                                                type: "button"
-                                                                                              })
-                                                                                        ],
-                                                                                        className: "flex items-center px-4"
-                                                                                      }),
+                                                                                  Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
+                                                                                              return Core__Option.map(viewer.user, (function (user) {
+                                                                                                            return JsxRuntime.jsxs("div", {
+                                                                                                                        children: [
+                                                                                                                          JsxRuntime.jsx("div", {
+                                                                                                                                children: Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
+                                                                                                                                            return JsxRuntime.jsx("img", {
+                                                                                                                                                        className: "h-10 w-10 rounded-full",
+                                                                                                                                                        alt: t`Profile picture`,
+                                                                                                                                                        src: picture
+                                                                                                                                                      });
+                                                                                                                                          })), null),
+                                                                                                                                className: "flex-shrink-0"
+                                                                                                                              }),
+                                                                                                                          JsxRuntime.jsxs("div", {
+                                                                                                                                children: [
+                                                                                                                                  JsxRuntime.jsx("div", {
+                                                                                                                                        children: Core__Option.getOr(user.lineUsername, ""),
+                                                                                                                                        className: "text-base font-medium text-gray-800"
+                                                                                                                                      }),
+                                                                                                                                  JsxRuntime.jsx("div", {
+                                                                                                                                        children: "",
+                                                                                                                                        className: "text-sm font-medium text-gray-500"
+                                                                                                                                      })
+                                                                                                                                ],
+                                                                                                                                className: "ml-3"
+                                                                                                                              }),
+                                                                                                                          JsxRuntime.jsxs("button", {
+                                                                                                                                children: [
+                                                                                                                                  JsxRuntime.jsx("span", {
+                                                                                                                                        className: "absolute -inset-1.5"
+                                                                                                                                      }),
+                                                                                                                                  JsxRuntime.jsx("span", {
+                                                                                                                                        children: t`View notifications`,
+                                                                                                                                        className: "sr-only"
+                                                                                                                                      }),
+                                                                                                                                  JsxRuntime.jsx(Outline.BellIcon, {
+                                                                                                                                        className: "h-6 w-6",
+                                                                                                                                        "aria-hidden": "true"
+                                                                                                                                      })
+                                                                                                                                ],
+                                                                                                                                className: "relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2",
+                                                                                                                                type: "button"
+                                                                                                                              })
+                                                                                                                        ],
+                                                                                                                        className: "flex items-center px-4"
+                                                                                                                      });
+                                                                                                          }));
+                                                                                            })), null),
                                                                                   JsxRuntime.jsx("div", {
-                                                                                        children: userNavigation.map(function (item) {
-                                                                                              return JsxRuntime.jsx(React$1.DisclosureButton, {
-                                                                                                          as: "a",
-                                                                                                          href: item.href,
-                                                                                                          className: "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800",
-                                                                                                          children: item.name
-                                                                                                        }, item.name);
-                                                                                            }),
+                                                                                        children: Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
+                                                                                                    return Core__Option.map(viewer.user, (function (user) {
+                                                                                                                  return userNavigation.map(function (item) {
+                                                                                                                              return JsxRuntime.jsx(React$1.DisclosureButton, {
+                                                                                                                                          as: "a",
+                                                                                                                                          href: item.href,
+                                                                                                                                          className: "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800",
+                                                                                                                                          children: item.name
+                                                                                                                                        }, item.name);
+                                                                                                                            });
+                                                                                                                }));
+                                                                                                  })), JsxRuntime.jsx(LoginLink.make, {})),
                                                                                         className: "mt-3 space-y-1"
                                                                                       })
                                                                                 ],
