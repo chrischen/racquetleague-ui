@@ -153,7 +153,8 @@ export async function render(
   });
 
   let routes: RouteObject[];
-  if (req.headers?.host === "local.japanpickleleague.com:3000") {
+  if (req.headers?.host === "local.japanpickleleague.com:3000"
+    || req.headers?.host === "www.japanpickleleague.com") {
     routes = routesJpl;
   } else {
     routes = routesRl;
