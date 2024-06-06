@@ -29,6 +29,7 @@ module Types = {
     rsvps: option<fragment_rsvps>,
     startDate: option<Util.Datetime.t>,
     title: option<string>,
+    viewerRsvpStatus: option<RelaySchemaAssets_graphql.enum_RsvpStatus>,
   }
 }
 
@@ -59,6 +60,21 @@ external getFragmentRef:
 module Utils = {
   @@warning("-33")
   open Types
+  @live
+  external rsvpStatus_toString: RelaySchemaAssets_graphql.enum_RsvpStatus => string = "%identity"
+  @live
+  external rsvpStatus_input_toString: RelaySchemaAssets_graphql.enum_RsvpStatus_input => string = "%identity"
+  @live
+  let rsvpStatus_decode = (enum: RelaySchemaAssets_graphql.enum_RsvpStatus): option<RelaySchemaAssets_graphql.enum_RsvpStatus_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let rsvpStatus_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_RsvpStatus_input> => {
+    rsvpStatus_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode
@@ -117,6 +133,13 @@ return {
         (v0/*: any*/),
         (v1/*: any*/)
       ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "viewerRsvpStatus",
       "storageKey": null
     },
     {

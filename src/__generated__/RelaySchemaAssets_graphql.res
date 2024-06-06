@@ -15,6 +15,19 @@ type enum_Gender_input =
 
 
 @live @unboxed
+type enum_RsvpStatus = 
+  | Joined
+  | Waitlist
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_RsvpStatus_input = 
+  | Joined
+  | Waitlist
+
+
+@live @unboxed
 type enum_RequiredFieldAction = 
   | NONE
   | LOG

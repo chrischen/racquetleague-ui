@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import url from "url";
 import path from "node:path";
+import cors from "cors";
 import { fileURLToPath } from "node:url";
 import express from "express";
 
@@ -50,6 +51,10 @@ export async function createServer(
 
   const app = express();
 
+  var corsOptions = {
+    origin: ['https://www.racquetleague.com', 'https://www.japanpickleleague.com'],
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
   /**
    * @type {import('vite').ViteDevServer}
    */
@@ -80,6 +85,7 @@ export async function createServer(
     // app.use(requestPath + "assets", express.static("dist/client/assets"));
     app.use(
       requestPath + "assets",
+      cors(corsOptions),
       expressStaticGzip(resolve("dist/client/assets"), {
         enableBrotli: true,
         orderPreference: ["br", "gz"],

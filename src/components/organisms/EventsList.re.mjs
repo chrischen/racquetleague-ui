@@ -82,7 +82,13 @@ function useOpt$1(fRef) {
   return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, EventsList_event_graphql.node, convertFragment$1);
 }
 
+var ItemFragment_rsvpStatus_decode = EventsList_event_graphql.Utils.rsvpStatus_decode;
+
+var ItemFragment_rsvpStatus_fromString = EventsList_event_graphql.Utils.rsvpStatus_fromString;
+
 var ItemFragment = {
+  rsvpStatus_decode: ItemFragment_rsvpStatus_decode,
+  rsvpStatus_fromString: ItemFragment_rsvpStatus_fromString,
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment$1,
@@ -144,6 +150,7 @@ function EventsList$EventItem(props) {
   var __highlightedLocation = props.highlightedLocation;
   var highlightedLocation = __highlightedLocation !== undefined ? __highlightedLocation : false;
   var match = use$1(props.event);
+  var viewerRsvpStatus = match.viewerRsvpStatus;
   var startDate = match.startDate;
   var endDate = match.endDate;
   var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
@@ -181,6 +188,16 @@ function EventsList$EventItem(props) {
           }
         }));
   var highlighted = highlightedLocation ? "bg-yellow-100/35" : "";
+  var tmp;
+  tmp = viewerRsvpStatus !== undefined && (viewerRsvpStatus === "Joined" || viewerRsvpStatus === "Waitlist") ? (
+      viewerRsvpStatus === "Joined" ? JsxRuntime.jsx("div", {
+              children: t`joined`,
+              className: Core$1.cx("text-green-600 bg-green-400/10 ring-green-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
+            }) : JsxRuntime.jsx("div", {
+              children: t`waitlist`,
+              className: Core$1.cx("text-green-600 bg-green-400/10 ring-green-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
+            })
+    ) : null;
   return JsxRuntime.jsx("li", {
               children: JsxRuntime.jsxs(Layout.Container.make, {
                     children: [
@@ -276,7 +293,8 @@ function EventsList$EventItem(props) {
                                   })
                             ],
                             className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-                          })
+                          }),
+                      tmp
                     ],
                     className: "relative flex items-center space-x-4 py-4"
                   }),

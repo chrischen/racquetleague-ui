@@ -48,6 +48,7 @@ module ItemFragment = %relay(`
       id
       name
     }
+    viewerRsvpStatus
     maxRsvps
     rsvps {
       edges {
@@ -93,7 +94,7 @@ module EventItem = {
   let ts = Lingui.UtilString.t
   @react.component
   let make = (~event, ~highlightedLocation: bool=false) => {
-    let {id, title, activity, location, startDate, rsvps, endDate} = ItemFragment.use(event)
+    let {id, title, activity, location, startDate, rsvps, endDate, viewerRsvpStatus} = ItemFragment.use(event)
     let playersCount =
       rsvps
       ->Option.flatMap(rsvps => rsvps.edges->Option.map(edges => edges->Array.length))
@@ -196,6 +197,24 @@ module EventItem = {
           {(playersCount->Int.toString ++ " ")->React.string}
           {plural(playersCount, {one: "player", other: "players"})}
         </div>
+        {switch viewerRsvpStatus {
+          | Some(Joined) => <div
+          className={Util.cx([
+            "text-green-600 bg-green-400/10 ring-green-400/30",
+            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+          ])}>
+          {t`joined`}
+          </div>
+          | Some(Waitlist) => <div
+          className={Util.cx([
+            "text-green-600 bg-green-400/10 ring-green-400/30",
+            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+          ])}>
+          {t`waitlist`}
+          </div>
+          | Some(FutureAddedValue(_)) => React.null
+          | None => React.null
+        }}
         // <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" ariaHidden="true" />
       </Layout.Container>
     </li>

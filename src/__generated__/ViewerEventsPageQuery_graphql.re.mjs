@@ -260,6 +260,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "viewerRsvpStatus",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "maxRsvps",
                     "storageKey": null
                   },
@@ -381,12 +388,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e77fc57c85be4169a4badaf679d1f0eb",
+    "cacheID": "f8fd8d692e66988795294426871e28c0",
     "id": null,
     "metadata": {},
     "name": "ViewerEventsPageQuery",
     "operationKind": "query",
-    "text": "query ViewerEventsPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n  $filters: EventFilters\n) {\n  ...EventsListFragment_N8DiW\n}\n\nfragment EventsListFragment_N8DiW on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        location {\n          id\n        }\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
+    "text": "query ViewerEventsPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n  $filters: EventFilters\n) {\n  ...EventsListFragment_N8DiW\n}\n\nfragment EventsListFragment_N8DiW on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        location {\n          id\n        }\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
   }
 };
 })());

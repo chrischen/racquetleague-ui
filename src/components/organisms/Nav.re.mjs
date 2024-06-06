@@ -116,7 +116,8 @@ function Nav(props) {
                                                                           return Core__Array.indexOfOpt([
                                                                                       "Hasby Riduan",
                                                                                       "hasbyriduan9",
-                                                                                      "notchrischen"
+                                                                                      "notchrischen",
+                                                                                      "Matthew"
                                                                                     ], Core__Option.getOr(user.lineUsername, ""));
                                                                         }));
                                                           })), (function (param) {

@@ -643,7 +643,15 @@ msgstr "プレイヤープロフィールページ"
 msgid "Rating"
 msgstr "評価"
 
+#: src/components/organisms/EventsList.re.mjs:197
+msgid "joined"
+msgstr "参加"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"
 #~ msgstr "カレンダー同期"
+
+#: src/components/organisms/EventsList.re.mjs:194
+#~ msgid "Joined"
+#~ msgstr "参加"

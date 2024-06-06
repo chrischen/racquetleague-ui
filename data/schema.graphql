@@ -86,6 +86,7 @@ type Event implements Node {
   rsvps(after: String, before: String, first: Int): EventRsvpConnection
   startDate: Datetime
   title: String
+  viewerRsvpStatus: RsvpStatus
 }
 
 """A connection to users."""
@@ -302,6 +303,11 @@ type Rsvp implements Node {
   joinTime: Int
   leaveDate: Datetime
   user: User
+}
+
+enum RsvpStatus {
+  Joined
+  Waitlist
 }
 
 type Subscription {

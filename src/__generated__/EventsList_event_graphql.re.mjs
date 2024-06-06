@@ -22,7 +22,21 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-var Utils = {};
+function rsvpStatus_decode($$enum) {
+  if ($$enum === "Joined" || $$enum === "Waitlist") {
+    return $$enum;
+  }
+  
+}
+
+function rsvpStatus_fromString(str) {
+  return rsvpStatus_decode(str);
+}
+
+var Utils = {
+  rsvpStatus_decode: rsvpStatus_decode,
+  rsvpStatus_fromString: rsvpStatus_fromString
+};
 
 var node = ((function(){
 var v0 = {
@@ -76,6 +90,13 @@ return {
         (v0/*: any*/),
         (v1/*: any*/)
       ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "viewerRsvpStatus",
       "storageKey": null
     },
     {

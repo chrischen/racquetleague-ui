@@ -744,3 +744,7 @@ msgstr ""
 #: src/components/pages/LeaguePlayerPage.re.mjs:182
 msgid "Rating"
 msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:197
+msgid "joined"
+msgstr ""
