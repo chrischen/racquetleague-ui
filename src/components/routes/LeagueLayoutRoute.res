@@ -18,20 +18,18 @@ let loadMessages = lang => {
 type params = {lang: option<string>}
 module LoaderArgs = {
   type t = {
-    context?: RelayEnv.context,
+    context: RelayEnv.context,
     params: params,
     request: Router.RouterRequest.t,
   }
 }
 @genType
-let loader = async ({?context, params}: LoaderArgs.t) => {
+let loader = async ({context, params}: LoaderArgs.t) => {
   Router.defer({
-    WaitForMessages.data: Option.map(RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr), env =>
-      DefaultLayoutQuery_graphql.load(
-        ~environment=env,
-        ~variables=(),
-        ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-      )
+    WaitForMessages.data: DefaultLayoutQuery_graphql.load(
+      ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
+      ~variables=(),
+      ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),
     i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
   })

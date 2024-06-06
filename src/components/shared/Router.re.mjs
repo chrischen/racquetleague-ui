@@ -13,6 +13,8 @@ var Await = {};
 
 var Link = {};
 
+var NavLink = {};
+
 var LinkWithOpts = {};
 
 export {
@@ -22,6 +24,7 @@ export {
   RouterRequest ,
   Await ,
   Link ,
+  NavLink ,
   LinkWithOpts ,
 }
 /* No side effect */

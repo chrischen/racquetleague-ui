@@ -7,7 +7,10 @@ module Query = %relay(`
   }
 `)
 
-type loaderData = LeaguePageQuery_graphql.queryRef
+type loaderData = {
+  pageKey: string,
+  query: LeaguePageQuery_graphql.queryRef,
+}
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
@@ -73,8 +76,9 @@ let make = () => {
   open Lingui.Util
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
+  Js.log(query.data.pageKey);
   // let viewer = GlobalQuery.useViewer()
-  let {fragmentRefs} = Query.usePreloaded(~queryRef=query.data)
+  let {fragmentRefs} = Query.usePreloaded(~queryRef=query.data.query)
 
   let link = <a href="https://www.racquetleague.com"> {"Racquet League."->React.string} </a>
   <WaitForMessages>

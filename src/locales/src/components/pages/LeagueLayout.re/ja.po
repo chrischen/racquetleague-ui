@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "(サインアウト)"
 
-#: src/components/organisms/LeagueNav.re.mjs:114
+#: src/components/organisms/LeagueNav.re.mjs:112
 msgid "About"
 msgstr "について"
 
@@ -25,7 +25,7 @@ msgstr "について"
 msgid "copyright the racquet league contributors"
 msgstr "著作権ラケットリーグの寄稿者"
 
-#: src/components/organisms/LeagueNav.re.mjs:109
+#: src/components/organisms/LeagueNav.re.mjs:108
 msgid "Find Games"
 msgstr "ゲームを見つける"
 
@@ -37,20 +37,20 @@ msgstr "日本ピックルリーグ"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/organisms/LeagueNav.re.mjs:127
+#: src/components/organisms/LeagueNav.re.mjs:124
 msgid "Logout"
 msgstr "ログアウト"
 
-#: src/components/organisms/LeagueNav.re.mjs:250
+#: src/components/organisms/LeagueNav.re.mjs:251
 msgid "Open main menu"
 msgstr "メインメニューを開く"
 
-#: src/components/organisms/LeagueNav.re.mjs:200
+#: src/components/organisms/LeagueNav.re.mjs:198
 msgid "Open user menu"
 msgstr "ユーザーメニューを開く"
 
-#: src/components/organisms/LeagueNav.re.mjs:206
-#: src/components/organisms/LeagueNav.re.mjs:292
+#: src/components/organisms/LeagueNav.re.mjs:204
+#: src/components/organisms/LeagueNav.re.mjs:293
 msgid "Profile picture"
 msgstr "プロフィール写真"
 
@@ -58,12 +58,12 @@ msgstr "プロフィール写真"
 msgid "Rankings"
 msgstr "ランキング"
 
-#: src/components/organisms/LeagueNav.re.mjs:175
-#: src/components/organisms/LeagueNav.re.mjs:317
+#: src/components/organisms/LeagueNav.re.mjs:173
+#: src/components/organisms/LeagueNav.re.mjs:318
 msgid "View notifications"
 msgstr "通知を表示"
 
-#: src/components/organisms/LeagueNav.re.mjs:123
+#: src/components/organisms/LeagueNav.re.mjs:120
 msgid "Your Profile"
 msgstr "あなたのプロフィール"
 

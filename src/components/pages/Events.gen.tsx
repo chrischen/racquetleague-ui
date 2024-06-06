@@ -28,7 +28,7 @@ export type params = {
 };
 
 export type LoaderArgs_t = {
-  readonly context?: RelayEnv_context; 
+  readonly context: RelayEnv_context; 
   readonly params: params; 
   readonly request: Router_RouterRequest_t
 };
@@ -41,6 +41,6 @@ export default $$default;
 
 export const Component: React.ComponentType<{}> = EventsJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<(undefined | EventsQuery_graphql_queryRef)>> = EventsJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<EventsQuery_graphql_queryRef>> = EventsJS.loader as any;
 
 export const HydrateFallbackElement: PervasivesU_Jsx_element = EventsJS.HydrateFallbackElement as any;

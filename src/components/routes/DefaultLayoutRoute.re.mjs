@@ -6,7 +6,6 @@ import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as DefaultLayout from "../pages/DefaultLayout.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -31,9 +30,7 @@ var LoaderArgs = {};
 
 async function loader(param) {
   return ReactRouterDom.defer({
-              data: Core__Option.map(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), (function (env) {
-                      return DefaultLayoutQuery_graphql.load(env, undefined, "store-or-network", undefined, undefined);
-                    })),
+              data: DefaultLayoutQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), undefined, "store-or-network", undefined, undefined),
               i18nLoaders: Caml_option.some(Localized.loadMessages(param.params.lang, loadMessages))
             });
 }

@@ -17,7 +17,7 @@ let \"Component" = CreateLocationEventPage.make
 type params = {locationId: string, lang: option<string>}
 module LoaderArgs = {
   type t = {
-    context?: RelayEnv.context,
+    context: RelayEnv.context,
     params: params,
     request: Router.RouterRequest.t,
   }
@@ -36,15 +36,12 @@ let loadMessages = lang => {
 }
 
 @genType
-let loader = async ({?context, params}: LoaderArgs.t) => {
-  let query =
-    Option.map(RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr), env =>
-      CreateLocationEventPageQuery_graphql.load(
-        ~environment=env,
-        ~variables={locationId: params.locationId},
-        ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-      )
-    )->Option.getExn
+let loader = async ({context, params}: LoaderArgs.t) => {
+  let query = CreateLocationEventPageQuery_graphql.load(
+    ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
+    ~variables={locationId: params.locationId},
+    ~fetchPolicy=RescriptRelay.StoreOrNetwork,
+  )
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   Router.defer({
     WaitForMessages.data: query,

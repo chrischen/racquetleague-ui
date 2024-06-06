@@ -18,13 +18,13 @@ import type {queryRef as DefaultLayoutQuery_graphql_queryRef} from '../../../src
 export type params = { readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
-  readonly context?: RelayEnv_context; 
+  readonly context: RelayEnv_context; 
   readonly params: params; 
   readonly request: Router_RouterRequest_t
 };
 
 export const Component: React.ComponentType<{}> = DefaultLayoutRouteJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<(undefined | DefaultLayoutQuery_graphql_queryRef)>)> = DefaultLayoutRouteJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<DefaultLayoutQuery_graphql_queryRef>)> = DefaultLayoutRouteJS.loader as any;
 
 export const HydrateFallbackElement: JSX.Element = DefaultLayoutRouteJS.HydrateFallbackElement as any;

@@ -20,11 +20,11 @@ export type DeferTest_props = {};
 export type params = { readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
-  readonly context?: RelayEnv_context; 
+  readonly context: RelayEnv_context; 
   readonly params: params; 
   readonly request: Router_RouterRequest_t
 };
 
 export const Component: (_1:DeferTest_props) => PervasivesU_Jsx_element = DeferTestRouteJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<(undefined | DeferTestRouteQuery_graphql_queryRef)>)> = DeferTestRouteJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<DeferTestRouteQuery_graphql_queryRef>)> = DeferTestRouteJS.loader as any;

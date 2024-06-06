@@ -13,6 +13,8 @@ var ChevronRightIcon = {};
 
 var CloudArrowUpIcon = {};
 
+var CheckIcon = {};
+
 export {
   PhotoIcon ,
   Bars3Icon ,
@@ -20,5 +22,6 @@ export {
   XMarkIcon ,
   ChevronRightIcon ,
   CloudArrowUpIcon ,
+  CheckIcon ,
 }
 /* No side effect */

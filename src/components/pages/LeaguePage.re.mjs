@@ -115,7 +115,8 @@ function LeaguePage$PrizeInfo(props) {
 
 function LeaguePage(props) {
   var query = ReactRouterDom.useLoaderData();
-  var match = usePreloaded(query.data);
+  console.log(query.data.pageKey);
+  var match = usePreloaded(query.data.query);
   var fragmentRefs = match.fragmentRefs;
   JsxRuntime.jsx("a", {
         children: "Racquet League.",

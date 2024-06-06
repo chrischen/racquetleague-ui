@@ -62,21 +62,19 @@ let \"Component" = DeferTest.make
 type params = {lang: option<string>}
 module LoaderArgs = {
   type t = {
-    context?: RelayEnv.context,
+    context: RelayEnv.context,
     params: params,
     request: Router.RouterRequest.t,
   }
 }
 
 @genType
-let loader = async ({?context}: LoaderArgs.t) => {
+let loader = async ({context}: LoaderArgs.t) => {
   Router.defer({
-    WaitForMessages.data: Option.map(RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr), env =>
-      DeferTestRouteQuery_graphql.load(
-        ~environment=env,
-        ~variables=(),
-        ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-      )
+    WaitForMessages.data: DeferTestRouteQuery_graphql.load(
+      ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
+      ~variables=(),
+      ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),
   })
 }

@@ -334,14 +334,12 @@ async function loader(param) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   return ReactRouterDom.defer({
-              data: Core__Option.map(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), (function (env) {
-                      return EventQuery_graphql.load(env, {
-                                  after: after,
-                                  before: before,
-                                  eventId: params.eventId,
-                                  first: 20
-                                }, "store-or-network", undefined, undefined);
-                    })),
+              data: EventQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
+                    after: after,
+                    before: before,
+                    eventId: params.eventId,
+                    first: 20
+                  }, "store-or-network", undefined, undefined),
               i18nLoaders: Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
             });
 }

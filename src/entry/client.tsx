@@ -1,6 +1,7 @@
-import { StrictMode } from "react";
+import type { RouteObject } from "react-router-dom";
 import type { HelmetServerState } from "react-helmet-async";
 import type { RecordMap } from "./RelayEnvironment";
+import { StrictMode } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
@@ -9,7 +10,8 @@ import { environment } from "./RelayEnv.re.mjs";
 import { createBrowserRouter } from "react-router-dom";
 import { matchRoutes } from "react-router";
 import { bootOnClient } from "../../server/RelaySSRUtils.re.mjs";
-import { routes } from "../routes";
+// import { routes } from "../routes";
+// import { routes as routesJpl } from "../routes-jpl";
 import { Wrapper } from "../wrapper.tsx";
 
 const helmetContext: { helmet: HelmetServerState | undefined } = {
@@ -25,7 +27,7 @@ declare global {
   }
 }
 
-export const renderApp = () => {
+export const renderApp = (routes: RouteObject[]) => () => {
   const router = createBrowserRouter(routes, { future: { v7_partialHydration: true } });
 
   const jsx = (
@@ -41,6 +43,14 @@ export const renderApp = () => {
 }
 
 async function hydrate(app: HTMLElement) {
+  let routes: RouteObject[];
+  if (window.location.hostname == "www.japanpickleleague.com"
+    || window.location.hostname == "local.japanpickleleague.com") {
+    routes = (await import("../routes-jpl.tsx")).routes;
+  } else {
+    routes = (await import("../routes.tsx")).routes;
+  }
+
   // Determine if any of the initial routes are lazy
   const lazyMatches = matchRoutes(routes, window.location)?.filter(
     (m) => m.route.lazy
@@ -58,7 +68,7 @@ async function hydrate(app: HTMLElement) {
   }
 
 
-  bootOnClient(app, renderApp);
+  await bootOnClient(app, renderApp(routes));
 }
 
 if (app) {

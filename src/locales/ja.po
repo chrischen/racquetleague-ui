@@ -618,6 +618,31 @@ msgstr ""
 "日本ピクルボールリーグは、コミュニティのレクリエーショナルピクルボールゲーム"
 "とイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"
 
+#: src/components/organisms/MatchList.re.mjs:352
+msgid "...load previous matches"
+msgstr "前のものを読み込む"
+
+#: src/components/organisms/MatchList.re.mjs:374
+msgid "Load more matches..."
+msgstr "もっとプレイヤーを読み込む..."
+
+#: src/components/organisms/MatchList.re.mjs:343
+msgid "Match History"
+msgstr "対戦履歴"
+
+#: src/components/organisms/MatchList.re.mjs:269
+msgid "Score:"
+msgstr "スコア:"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:80
+msgid "Player Profile Page"
+msgstr "プレイヤープロフィールページ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:174
+#: src/components/pages/LeaguePlayerPage.re.mjs:182
+msgid "Rating"
+msgstr "評価"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

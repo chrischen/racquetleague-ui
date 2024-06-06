@@ -19,6 +19,26 @@ export const routes: RouteObject[] = [
         HydrateFallbackElement: <>Loading Fallback...</>,
         children: [
           {
+            path: "",
+            lazy: () => import("./components/routes/LeagueRoute.gen"),
+            handle: "src/components/routes/LeagueRoute.gen.tsx",
+          },
+          {
+            path: "games",
+            lazy: () => import("./components/routes/FindGamesRoute.gen"),
+            handle: "src/components/routes/FindGamesRoute.gen.tsx",
+          },
+          {
+            path: "about",
+            lazy: () => import("./components/routes/LeagueAboutRoute.gen"),
+            handle: "src/components/routes/LeagueAboutRoute.gen.tsx",
+          },
+          {
+            path: "p/:userId",
+            lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
+            handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",
+          },
+          {
             path: "oauth-login",
             lazy: () => import("./components/routes/LoginRoute.gen"),
             handle: "src/components/routes/LoginRoute.gen.tsx",
@@ -27,11 +47,6 @@ export const routes: RouteObject[] = [
             path: "oauth/line/error",
             lazy: () => import("./components/routes/LoginLineErrorRoute.gen"),
             handle: "src/components/routes/LoginLineErrorRoute.gen.tsx",
-          },
-          {
-            path: "league",
-            lazy: () => import("./components/routes/LeagueRoute.gen"),
-            handle: "src/components/routes/LeagueRoute.gen.tsx",
           },
           {
             path: "*",

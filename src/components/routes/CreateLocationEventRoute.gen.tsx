@@ -18,7 +18,7 @@ import type {queryRef as CreateLocationEventPageQuery_graphql_queryRef} from '..
 export type params = { readonly locationId: string; readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
-  readonly context?: RelayEnv_context; 
+  readonly context: RelayEnv_context; 
   readonly params: params; 
   readonly request: Router_RouterRequest_t
 };

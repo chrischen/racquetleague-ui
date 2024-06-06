@@ -142,13 +142,11 @@ async function loader(param) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   return {
-          data: Core__Option.map(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), (function (env) {
-                  return EventsQuery_graphql.load(env, {
-                              after: after,
-                              afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
-                              before: before
-                            }, "store-or-network", undefined, undefined);
-                })),
+          data: EventsQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
+                after: after,
+                afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
+                before: before
+              }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
         };
 }

@@ -31,13 +31,13 @@ export type params = {
 };
 
 export type LoaderArgs_t = {
-  readonly context?: RelayEnv_context; 
+  readonly context: RelayEnv_context; 
   readonly params: params; 
   readonly request: Router_RouterRequest_t
 };
 
 export const Component: React.ComponentType<{}> = ViewerEventsRouteJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<(undefined | ViewerEventsPageQuery_graphql_queryRef)>> = ViewerEventsRouteJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<ViewerEventsPageQuery_graphql_queryRef>> = ViewerEventsRouteJS.loader as any;
 
 export const HydrateFallbackElement: PervasivesU_Jsx_element = ViewerEventsRouteJS.HydrateFallbackElement as any;

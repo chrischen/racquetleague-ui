@@ -146,9 +146,7 @@ var LoaderArgs = {};
 
 async function loader(param) {
   return ReactRouterDom.defer({
-              data: Core__Option.map(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), (function (env) {
-                      return DeferTestRouteQuery_graphql.load(env, undefined, "store-or-network", undefined, undefined);
-                    }))
+              data: DeferTestRouteQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), undefined, "store-or-network", undefined, undefined)
             });
 }
 

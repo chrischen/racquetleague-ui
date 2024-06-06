@@ -13,9 +13,9 @@ import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen'
 
 import type {data as WaitForMessages_data} from '../../../src/components/shared/i18n/WaitForMessages.gen';
 
-import type {props as LeaguePage_props} from '../../../src/components/pages/LeaguePage.gen';
+import type {loaderData as LeaguePage_loaderData} from '../../../src/components/pages/LeaguePage.gen';
 
-import type {queryRef as LeaguePageQuery_graphql_queryRef} from '../../../src/__generated__/LeaguePageQuery_graphql.gen';
+import type {props as LeaguePage_props} from '../../../src/components/pages/LeaguePage.gen';
 
 export type params = {
   readonly activitySlug: string; 
@@ -27,13 +27,13 @@ export type params = {
 };
 
 export type LoaderArgs_t = {
-  readonly context?: RelayEnv_context; 
+  readonly context: RelayEnv_context; 
   readonly params: params; 
   readonly request: Router_RouterRequest_t
 };
 
 export const Component: React.ComponentType<{}> = LeagueRouteJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<(undefined | LeaguePageQuery_graphql_queryRef)>> = LeagueRouteJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<LeaguePage_loaderData>> = LeagueRouteJS.loader as any;
 
 export const HydrateFallbackElement: PervasivesU_Jsx_element = LeagueRouteJS.HydrateFallbackElement as any;

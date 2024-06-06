@@ -6,7 +6,6 @@ import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as LeaguePage from "../pages/LeaguePage.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as LeaguePageQuery_graphql from "../../__generated__/LeaguePageQuery_graphql.re.mjs";
 
@@ -30,14 +29,17 @@ async function loader(param) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   return {
-          data: Core__Option.map(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), (function (env) {
+          data: {
+            pageKey: "rankings",
+            query: (function (env) {
                   return LeaguePageQuery_graphql.load(env, {
                               activitySlug: "pickleball",
                               after: after,
                               before: before,
                               namespace: "doubles:rec"
                             }, "store-or-network", undefined, undefined);
-                })),
+                })(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR))
+          },
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
         };
 }

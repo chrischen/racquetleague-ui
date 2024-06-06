@@ -22,3 +22,8 @@ module CloudArrowUpIcon = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CloudArrowUpIcon"
 }
+
+module CheckIcon = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CheckIcon"
+}

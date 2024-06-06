@@ -21,10 +21,10 @@ type location<'a> = {pathname: string, search: string, hash?: string, state?: 'a
 module SearchParams = {
   type t
 
-  @send external get: (t, string) => option<string> = "get";
-  @send external getAll: (t, string) => option<array<string>> = "getAll";
-  @send external entries: (t) => option<Js.Array2.array_like<array<array<string>>>> = "entries";
-  @send external toString: t => string= "toString";
+  @send external get: (t, string) => option<string> = "get"
+  @send external getAll: (t, string) => option<array<string>> = "getAll"
+  @send external entries: t => option<Js.Array2.array_like<array<array<string>>>> = "entries"
+  @send external toString: t => string = "toString"
 }
 module URL = {
   type t = {searchParams: SearchParams.t}
@@ -58,16 +58,30 @@ module Link = {
     ~relative: string=?,
     ~reloadDocument: bool=?,
     ~unstable_viewTransition: bool=?,
+    ~ariaCurrent: [> #page | #"false"]=?,
   ) => React.element = "Link"
+}
+module NavLink = {
+  type linkState = {isActive: bool, isPending: bool, isTransitioning: bool};
+  @react.component @module("react-router-dom")
+  external make: (
+    ~to: string,
+    ~children: React.element,
+    ~className: linkState => string=?,
+    ~relative: string=?,
+    ~reloadDocument: bool=?,
+    ~unstable_viewTransition: bool=?,
+    // ~ariaCurrent: [> #page | #"false"]=?,
+  ) => React.element = "NavLink"
 }
 
 @module("react-router-dom")
 external createSearchParams: 'a => SearchParams.t = "createSearchParams"
 
 module LinkWithOpts = {
-  type to= {
+  type to = {
     pathname?: string,
-    search?: string
+    search?: string,
   }
   @react.component @module("react-router-dom")
   external make: (
@@ -78,5 +92,4 @@ module LinkWithOpts = {
     ~reloadDocument: bool=?,
     ~unstable_viewTransition: bool=?,
   ) => React.element = "Link"
-
 }

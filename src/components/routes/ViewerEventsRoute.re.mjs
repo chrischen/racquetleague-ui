@@ -6,7 +6,6 @@ import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as ViewerEventsPage from "../pages/ViewerEventsPage.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as ViewerEventsPageQuery_graphql from "../../__generated__/ViewerEventsPageQuery_graphql.re.mjs";
@@ -31,16 +30,14 @@ async function loader(param) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   return {
-          data: Core__Option.map(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), (function (env) {
-                  return ViewerEventsPageQuery_graphql.load(env, {
-                              after: after,
-                              afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
-                              before: before,
-                              filters: {
-                                viewer: true
-                              }
-                            }, "store-or-network", undefined, undefined);
-                })),
+          data: ViewerEventsPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
+                after: after,
+                afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
+                before: before,
+                filters: {
+                  viewer: true
+                }
+              }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
         };
 }

@@ -70,7 +70,7 @@ let \"Component" = make
 type params = {...EventsQuery_graphql.Types.variables, lang: option<string>}
 module LoaderArgs = {
   type t = {
-    context?: RelayEnv.context,
+    context: RelayEnv.context,
     params: params,
     request: Router.RouterRequest.t,
   }
@@ -99,7 +99,7 @@ let loadMessages = lang => {
   [messages]
 }
 @genType
-let loader = async ({?context, params, request}: LoaderArgs.t) => {
+let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
@@ -107,12 +107,10 @@ let loader = async ({?context, params, request}: LoaderArgs.t) => {
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
-    WaitForMessages.data: Option.map(RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr), env =>
-      EventsQuery_graphql.load(
-        ~environment=env,
-        ~variables={?after, ?before, afterDate: Js.Date.make()->Util.Datetime.fromDate},
-        ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-      )
+    WaitForMessages.data: EventsQuery_graphql.load(
+      ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
+      ~variables={?after, ?before, afterDate: Js.Date.make()->Util.Datetime.fromDate},
+      ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),
     // i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
     // i18nData: !RelaySSRUtils.ssr ? await Localized.loadMessages(params.lang, loadMessages) : %raw("[]"),

@@ -20,7 +20,9 @@ import { makeServer } from "./RelayEnv.re.mjs";
 import Html, { Head } from "./Html";
 import PreloadInsertingStreamNode from "../../server/PreloadInsertingStreamNode.mjs";
 import { createFetchRequest } from "./fetch";
-import { routes } from "../routes";
+import type { RouteObject } from "react-router-dom"
+import { routes as routesRl } from "../routes";
+import { routes as routesJpl } from "../routes-jpl";
 import { Wrapper } from "../wrapper.tsx";
 
 interface CriticalCss {
@@ -40,8 +42,6 @@ export interface HtmlProps {
   };
 }
 
-/* React Router */
-const handler = createStaticHandler(routes);
 
 interface ManifestEntry {
   file: string;
@@ -135,7 +135,7 @@ export async function render(
   req: Request,
   res: Response,
   url: string,
-  bootstrap: Maybe<string>,
+  bootstrap?: string,
   viteHead?: string,
   manifest?: Manifest
 ): Promise<CriticalCss | undefined | void> {
@@ -152,8 +152,15 @@ export async function render(
     res.end();
   });
 
+  let routes: RouteObject[];
+  if (req.headers?.host === "local.japanpickleleague.com:3000") {
+    routes = routesJpl;
+  } else {
+    routes = routesRl;
+  }
   const environment = makeServer(transformStream.onQuery.bind(transformStream), req);
   /* React Router */
+  const handler = createStaticHandler(routes);
   const fetchRequest = createFetchRequest(req);
   const context = await handler.query(fetchRequest, {
     requestContext: {

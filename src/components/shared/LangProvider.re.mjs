@@ -65,6 +65,17 @@ var Link = {
 function make$2(props) {
   var locale = React.useContext(context);
   var newrecord = Caml_obj.obj_dup(props);
+  newrecord.to = props.to.startsWith("/") ? "/" + locale.lang + props.to : props.to;
+  return JsxRuntime.jsx(ReactRouterDom.NavLink, newrecord);
+}
+
+var NavLink = {
+  make: make$2
+};
+
+function make$3(props) {
+  var locale = React.useContext(context);
+  var newrecord = Caml_obj.obj_dup(props);
   var newrecord$1 = Caml_obj.obj_dup(props.to);
   newrecord$1.pathname = Core__Option.map(props.to.pathname, (function (pathname) {
           if (pathname.startsWith("/")) {
@@ -78,19 +89,20 @@ function make$2(props) {
 }
 
 var LinkWithOpts = {
-  make: make$2
+  make: make$3
 };
 
 var Router = {
   Link: Link,
+  NavLink: NavLink,
   LinkWithOpts: LinkWithOpts
 };
 
-var make$3 = LangProvider;
+var make$4 = LangProvider;
 
 export {
   LocaleContext ,
-  make$3 as make,
+  make$4 as make,
   Router ,
 }
 /* make Not a pure module */

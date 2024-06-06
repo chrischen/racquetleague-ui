@@ -5,7 +5,6 @@ import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LocationPage from "../pages/LocationPage.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as LocationPageQuery_graphql from "../../__generated__/LocationPageQuery_graphql.re.mjs";
@@ -23,14 +22,12 @@ function loadMessages(lang) {
 
 async function loader(param) {
   var params = param.params;
-  var query = Core__Option.getExn(Core__Option.map(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), (function (env) {
-              return LocationPageQuery_graphql.load(env, {
-                          filters: {
-                            locationId: params.locationId
-                          },
-                          id: params.locationId
-                        }, "store-or-network", undefined, undefined);
-            })), undefined);
+  var query = LocationPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
+        filters: {
+          locationId: params.locationId
+        },
+        id: params.locationId
+      }, "store-or-network", undefined, undefined);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

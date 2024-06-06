@@ -262,9 +262,10 @@ type Query {
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
   location(id: ID!): Location
   locations(after: String, before: String, first: Int): LocationConnection!
-  matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String!): MatchConnection!
+  matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
   node(id: ID!): Node
   ratings(activitySlug: String!, after: String, before: String, first: Int, namespace: String!): RatingConnection!
+  user(id: ID!): User
   viewer: Viewer
 }
 

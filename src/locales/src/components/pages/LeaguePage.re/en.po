@@ -25,7 +25,7 @@ msgstr ""
 #~ msgid "...load past ratings"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:144
+#: src/components/pages/LeaguePage.re.mjs:145
 msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Load more players..."
 msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:162
+#: src/components/pages/LeaguePage.re.mjs:163
 msgid "Loading rankings..."
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Next Prize: June 10"
 msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:139
+#: src/components/pages/LeaguePage.re.mjs:140
 msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 #~ msgid "public events"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:134
+#: src/components/pages/LeaguePage.re.mjs:135
 msgid "Recreational Doubles"
 msgstr ""
 

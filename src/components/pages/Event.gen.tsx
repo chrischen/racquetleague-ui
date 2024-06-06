@@ -24,7 +24,7 @@ export type params = {
 };
 
 export type LoaderArgs_t = {
-  readonly context?: RelayEnv_context; 
+  readonly context: RelayEnv_context; 
   readonly params: params; 
   readonly request: Router_RouterRequest_t
 };
@@ -37,4 +37,4 @@ export default $$default;
 
 export const Component: React.ComponentType<{}> = EventJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<(undefined | EventQuery_graphql_queryRef)>)> = EventJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<EventQuery_graphql_queryRef>)> = EventJS.loader as any;

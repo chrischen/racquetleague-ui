@@ -40,7 +40,7 @@ let make = () => {
 module Router = {
   // Locale-aware Link component
   module Link = {
-    let make = (props: Router.Link.props<string, React.element, string, string, bool, bool>) => {
+    let make = (props: Router.Link.props<string, React.element, string, string, bool, bool, [> #page | #"false"]>) => {
       let locale = React.useContext(LocaleContext.context)
       let props = {
         ...props,
@@ -51,6 +51,20 @@ module Router = {
       }
 
       <Router.Link {...props} />
+    }
+  }
+  module NavLink = {
+    let make = (props: Router.NavLink.props<string, React.element, Router.NavLink.linkState => string, string, bool, bool>) => {
+      let locale = React.useContext(LocaleContext.context)
+      let props = {
+        ...props,
+        to: switch props.to->String.startsWith("/") {
+        | true => "/" ++ locale.lang ++ props.to
+        | false => props.to
+        },
+      }
+
+      <Router.NavLink {...props} />
     }
   }
   module LinkWithOpts = {

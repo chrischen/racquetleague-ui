@@ -719,3 +719,28 @@ msgid ""
 "The Japan Pickleball League is an open-source non-profit project to help "
 "improve the quality of community recreational pickleball games and events."
 msgstr ""
+
+#: src/components/organisms/MatchList.re.mjs:349
+msgid "...load previous matches"
+msgstr ""
+
+#: src/components/organisms/MatchList.re.mjs:371
+msgid "Load more matches..."
+msgstr ""
+
+#: src/components/organisms/MatchList.re.mjs:343
+msgid "Match History"
+msgstr ""
+
+#: src/components/organisms/MatchList.re.mjs:269
+msgid "Score:"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:80
+msgid "Player Profile Page"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:174
+#: src/components/pages/LeaguePlayerPage.re.mjs:182
+msgid "Rating"
+msgstr ""

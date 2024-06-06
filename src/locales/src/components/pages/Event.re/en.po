@@ -15,25 +15,25 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:350
+#: src/components/pages/Event.re.mjs:348
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:353
+#: src/components/pages/Event.re.mjs:351
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:356
+#: src/components/pages/Event.re.mjs:354
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:359
+#: src/components/pages/Event.re.mjs:357
 msgid "Futsal"
 msgstr ""
 

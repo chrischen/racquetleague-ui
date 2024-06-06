@@ -28,10 +28,10 @@ let makeServer = (~onQuery, ~_request: request) => {
 }
 
 type context = {environment: RescriptRelay.Environment.t}
-let getRelayEnv = (context: option<context>, ssr): option<RescriptRelay.Environment.t> => {
+let getRelayEnv = (context: context, ssr): RescriptRelay.Environment.t => {
   if ssr {
-    context->Option.map(context => context.environment)
+    context.environment
   } else {
-    Some(environment)
+    environment
   }
 }

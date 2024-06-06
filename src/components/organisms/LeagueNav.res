@@ -51,15 +51,17 @@ module MenuInstance = {
   external make: unit => React.element = "MenuInstance"
 }
 
-type navItem = {name: string, href: string, current: bool}
+type navItem = {name: string, href: string}
 
-type userNav = {name: string, href: string}
+@module("react-router-dom")
+external useLoaderData: unit => WaitForMessages.data<LeaguePage.loaderData> = "useLoaderData"
 @genType @react.component
 let make = (~query) => {
   open HeadlessUi
   open HeroIcons
   let ts = Lingui.UtilString.t
   let query = Fragment.use(query)
+
 
   let _loginEls = {
     query.viewer
@@ -75,25 +77,22 @@ let make = (~query) => {
   let navigation = [
     {
       name: ts`Rankings`,
-      href: "/league",
-      current: pathname == "/league" || pathname == "/" ? true : false,
+      href: "/",
     },
     {
       name: ts`Find Games`,
-      href: "/league/games",
-      current: pathname->String.indexOf("/games") > -1 ? true : false,
+      href: "/games",
     },
     {
       name: ts`About`,
-      href: "/league/about",
-      current: pathname->String.indexOf("/about") > -1 ? true : false,
+      href: "/about",
     },
   ]
   let userNavigation =
     query.viewer
     ->Option.flatMap(viewer =>
       viewer.user->Option.map(user => [
-        {name: ts`Your Profile`, href: "/p/" ++ user.id},
+        {name: ts`Your Profile`, href: "/league/p/" ++ user.id},
         // {name: ts`Settings`, href: "#"},
         {name: ts`Logout`, href: "/logout"},
       ])
@@ -128,18 +127,19 @@ let make = (~query) => {
                       <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                         {navigation
                         ->Array.map((item: navItem) =>
-                          <a
+                          <NavLink
                             key={item.name}
-                            href={item.href}
-                            className={Util.cx([
-                              item.current
+                            to={item.href}
+                            className={({isActive, _}) => Util.cx([
+                              isActive
                                 ? "border-leaguePrimary text-gray-900"
                                 : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
                               "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium",
                             ])}
-                            ariaCurrent={item.current ? #page : #"false"}>
+                            // ariaCurrent={item.current ? #page : #"false"}>
+                            >
                             {item.name->React.string}
-                          </a>
+                          </NavLink>
                         )
                         ->React.array}
                         // <div className="inline-flex items-center px-1 pt-0 text-sm font-medium">
@@ -192,14 +192,14 @@ let make = (~query) => {
                             {userNavigation->Array.map(item =>
                               <MenuItem key={item.name}>
                                 {({focus}) =>
-                                  <a
-                                    href={item.href}
-                                    className={Util.cx([
+                                  <NavLink
+                                    to={item.href}
+                                    className={(_) => Util.cx([
                                       focus ? "bg-gray-100" : "",
                                       "block px-4 py-2 text-sm text-gray-700",
                                     ])}>
                                     {item.name->React.string}
-                                  </a>}
+                                  </NavLink>}
                               </MenuItem>
                             )}
                           </MenuItems>
@@ -223,20 +223,24 @@ let make = (~query) => {
                     <div className="space-y-1 pb-3 pt-2">
                       {navigation
                       ->Array.map(item =>
-                        <DisclosureButton
+                        // <DisclosureButton
+                        <NavLink
                           key={item.name}
-                          \"as"="a"
-                          href={item.href}
-                          className={Util.cx([
-                            item.current
+                          // \"as"="a"
+                          // href={item.href}
+                          to={item.href}
+                          className={({isActive, _}) => Util.cx([
+                            isActive
                               ? "border-red-500 bg-red-50 text-red-700"
                               : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800",
                             "block border-l-4 py-2 pl-3 pr-4 text-base font-medium",
                           ])}
-                          ariaCurrent={item.current ? #page : #"false"}>
-                          {item.name}
-                        </DisclosureButton>
+                          // ariaCurrent={item.current ? #page : #"false"}>
+                          >
+                          {item.name->React.string}
+                        </NavLink>
                       )
+// </DisclosureButton>
                       ->React.array}
                     </div>
                     <div className="border-t border-gray-200 pb-3 pt-4">
@@ -282,13 +286,15 @@ let make = (~query) => {
                             userNavigation
                             ->Array.map(
                               item =>
-                                <DisclosureButton
+                                // <DisclosureButton
+                                <NavLink
                                   key={item.name}
-                                  \"as"="a"
-                                  href={item.href}
-                                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800">
-                                  {item.name}
-                                </DisclosureButton>,
+                                  // \"as"="a"
+                                  to={item.href}
+                                  className={({isActive, _}) => "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"}>
+                                  {item.name->React.string}
+                                </NavLink>,
+                              // </DisclosureButton>,
                             )
                             ->React.array
                           })

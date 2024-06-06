@@ -7,6 +7,7 @@ import * as LangSwitch from "../molecules/LangSwitch.re.mjs";
 import * as LogoutLink from "../molecules/LogoutLink.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as Core from "@linaria/core";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -97,23 +98,19 @@ function LeagueNav(props) {
                           fallback: "..."
                         });
             })), JsxRuntime.jsx(LoginLink.make, {}));
-  var match = ReactRouterDom.useLocation();
-  var pathname = match.pathname;
+  ReactRouterDom.useLocation();
   var navigation = [
     {
       name: t`Rankings`,
-      href: "/league",
-      current: pathname === "/league" || pathname === "/"
+      href: "/"
     },
     {
       name: t`Find Games`,
-      href: "/league/games",
-      current: pathname.indexOf("/games") > -1
+      href: "/games"
     },
     {
       name: t`About`,
-      href: "/league/about",
-      current: pathname.indexOf("/about") > -1
+      href: "/about"
     }
   ];
   var userNavigation = Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
@@ -121,7 +118,7 @@ function LeagueNav(props) {
                             return [
                                     {
                                       name: t`Your Profile`,
-                                      href: "/p/" + user.id
+                                      href: "/league/p/" + user.id
                                     },
                                     {
                                       name: t`Logout`,
@@ -151,11 +148,12 @@ function LeagueNav(props) {
                                                                                       }),
                                                                                   JsxRuntime.jsx("div", {
                                                                                         children: navigation.map(function (item) {
-                                                                                              return JsxRuntime.jsx("a", {
+                                                                                              return JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
+                                                                                                          to: item.href,
                                                                                                           children: item.name,
-                                                                                                          "aria-current": item.current ? "page" : "false",
-                                                                                                          className: Core.cx(item.current ? "border-leaguePrimary text-gray-900" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700", "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"),
-                                                                                                          href: item.href
+                                                                                                          className: (function (param) {
+                                                                                                              return Core.cx(param.isActive ? "border-leaguePrimary text-gray-900" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700", "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium");
+                                                                                                            })
                                                                                                         }, item.name);
                                                                                             }),
                                                                                         className: "hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8"
@@ -224,10 +222,13 @@ function LeagueNav(props) {
                                                                                                       children: userNavigation.map(function (item) {
                                                                                                             return JsxRuntime.jsx(React$1.MenuItem, {
                                                                                                                         children: (function (param) {
-                                                                                                                            return JsxRuntime.jsx("a", {
+                                                                                                                            var focus = param.focus;
+                                                                                                                            return JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
+                                                                                                                                        to: item.href,
                                                                                                                                         children: item.name,
-                                                                                                                                        className: Core.cx(param.focus ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700"),
-                                                                                                                                        href: item.href
+                                                                                                                                        className: (function (param) {
+                                                                                                                                            return Core.cx(focus ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700");
+                                                                                                                                          })
                                                                                                                                       });
                                                                                                                           })
                                                                                                                       }, item.name);
@@ -269,12 +270,12 @@ function LeagueNav(props) {
                                                                         children: [
                                                                           JsxRuntime.jsx("div", {
                                                                                 children: navigation.map(function (item) {
-                                                                                      return JsxRuntime.jsx(React$1.DisclosureButton, {
-                                                                                                  as: "a",
-                                                                                                  href: item.href,
-                                                                                                  className: Core.cx(item.current ? "border-red-500 bg-red-50 text-red-700" : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800", "block border-l-4 py-2 pl-3 pr-4 text-base font-medium"),
+                                                                                      return JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
+                                                                                                  to: item.href,
                                                                                                   children: item.name,
-                                                                                                  ariaCurrent: item.current ? "page" : "false"
+                                                                                                  className: (function (param) {
+                                                                                                      return Core.cx(param.isActive ? "border-red-500 bg-red-50 text-red-700" : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800", "block border-l-4 py-2 pl-3 pr-4 text-base font-medium");
+                                                                                                    })
                                                                                                 }, item.name);
                                                                                     }),
                                                                                 className: "space-y-1 pb-3 pt-2"
@@ -334,11 +335,12 @@ function LeagueNav(props) {
                                                                                         children: Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
                                                                                                     return Core__Option.map(viewer.user, (function (user) {
                                                                                                                   return userNavigation.map(function (item) {
-                                                                                                                              return JsxRuntime.jsx(React$1.DisclosureButton, {
-                                                                                                                                          as: "a",
-                                                                                                                                          href: item.href,
-                                                                                                                                          className: "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800",
-                                                                                                                                          children: item.name
+                                                                                                                              return JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
+                                                                                                                                          to: item.href,
+                                                                                                                                          children: item.name,
+                                                                                                                                          className: (function (param) {
+                                                                                                                                              return "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800";
+                                                                                                                                            })
                                                                                                                                         }, item.name);
                                                                                                                             });
                                                                                                                 }));
