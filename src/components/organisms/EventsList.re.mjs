@@ -284,6 +284,7 @@ function EventsList$EventItem(props) {
                             ],
                             className: "min-w-0 flex-auto"
                           }),
+                      tmp,
                       JsxRuntime.jsxs("div", {
                             children: [
                               playersCount.toString(undefined) + " ",
@@ -293,8 +294,7 @@ function EventsList$EventItem(props) {
                                   })
                             ],
                             className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-                          }),
-                      tmp
+                          })
                     ],
                     className: "relative flex items-center space-x-4 py-4"
                   }),

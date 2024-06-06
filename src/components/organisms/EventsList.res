@@ -189,14 +189,6 @@ module EventItem = {
             </span>
           </div>
         </div>
-        <div
-          className={Util.cx([
-            "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
-            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-          ])}>
-          {(playersCount->Int.toString ++ " ")->React.string}
-          {plural(playersCount, {one: "player", other: "players"})}
-        </div>
         {switch viewerRsvpStatus {
           | Some(Joined) => <div
           className={Util.cx([
@@ -215,6 +207,14 @@ module EventItem = {
           | Some(FutureAddedValue(_)) => React.null
           | None => React.null
         }}
+        <div
+          className={Util.cx([
+            "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
+            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+          ])}>
+          {(playersCount->Int.toString ++ " ")->React.string}
+          {plural(playersCount, {one: "player", other: "players"})}
+        </div>
         // <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" ariaHidden="true" />
       </Layout.Container>
     </li>
