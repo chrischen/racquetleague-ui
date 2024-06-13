@@ -63,11 +63,23 @@ input CreateLocationInput {
   name: String!
 }
 
+type CreateMatchResponse implements HasErrors {
+  errors: [Error!]
+  match: Match
+}
+
 """A date."""
 scalar Datetime
 
 input DeleteActivitySubscriptionInput {
   subscriptionId: String!
+}
+
+input DoublesMatchInput {
+  createdAt: Datetime!
+  losers: [String!]!
+  score: [Float!]
+  winners: [String!]!
 }
 
 type Error {
@@ -145,6 +157,12 @@ type JoinEventResult implements HasErrors {
   errors: [Error!]
 }
 
+input LeagueMatchInput {
+  activitySlug: String!
+  doublesMatch: DoublesMatchInput!
+  namespace: String!
+}
+
 type LeaveEventResult implements HasErrors {
   errors: [Error!]
   eventIds: [ID!]
@@ -216,6 +234,7 @@ type Mutation {
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   createEvent(input: CreateEventInput!): MutationResult2!
   createLocation(input: CreateLocationInput!): MutationResult!
+  createMatch(match: LeagueMatchInput!): CreateMatchResponse!
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!

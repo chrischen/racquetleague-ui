@@ -20,10 +20,12 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-function makeConnectionId(connectionParentDataId, activitySlug, userId) {
+function makeConnectionId(connectionParentDataId, activitySlug, namespace, userId) {
   var activitySlug$1 = activitySlug;
+  var namespace$1 = namespace;
   var args = {
     activitySlug: activitySlug$1,
+    namespace: namespace$1,
     userId: userId
   };
   return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "MatchListFragment_matches", args);
@@ -51,7 +53,19 @@ function makeNode(rescript_graphql_node_MatchListRefetchQuery) {
   return ((function(){
 var v0 = [
   "matches"
-];
+],
+v1 = {
+  "kind": "ClientExtension",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "__id",
+      "storageKey": null
+    }
+  ]
+};
 return {
   "argumentDefinitions": [
     {
@@ -73,6 +87,11 @@ return {
       "defaultValue": 20,
       "kind": "LocalArgument",
       "name": "first"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "namespace"
     },
     {
       "defaultValue": null,
@@ -112,6 +131,11 @@ return {
           "kind": "Variable",
           "name": "activitySlug",
           "variableName": "activitySlug"
+        },
+        {
+          "kind": "Variable",
+          "name": "namespace",
+          "variableName": "namespace"
         },
         {
           "kind": "Variable",
@@ -210,10 +234,12 @@ return {
             }
           ],
           "storageKey": null
-        }
+        },
+        (v1/*: any*/)
       ],
       "storageKey": null
-    }
+    },
+    (v1/*: any*/)
   ],
   "type": "Query",
   "abstractKey": null

@@ -14,25 +14,17 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/pages/FindGamesPage.re.mjs:34
-msgid ""
-"Currently the league is in testing mode. To participate, please join the "
-"Pickleball events here:"
-msgstr ""
-"現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに"
-"参加してください:"
-
-#: src/components/pages/FindGamesPage.re.mjs:28
-msgid "Where to Play"
-msgstr "プレイする場所"
+msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
+msgstr "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに参加してください:"
 
 #: src/components/pages/FindGamesPage.re.mjs:33
-#~ msgid ""
-#~ "Play doubles games with different partners and receive an individual "
-#~ "rating. Prizes are awarded monthly to top players."
-#~ msgstr ""
-#~ "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品"
-#~ "は毎月トッププレイヤーに授与されます。"
+#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+#~ msgstr "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は毎月トッププレイヤーに授与されます。"
 
 #: src/components/pages/FindGamesPage.re.mjs:28
 #~ msgid "Recreational Doubles"
 #~ msgstr "レクリエーショナルダブルス"
+
+#: src/components/pages/FindGamesPage.re.mjs:28
+msgid "Where to Play"
+msgstr "プレイする場所"

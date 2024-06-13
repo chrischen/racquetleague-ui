@@ -11,12 +11,15 @@ module Fragment = %relay(`
     before: { type: "String" }
     first: { type: "Int", defaultValue: 20 }
     activitySlug: { type: "String!" }
+    namespace: { type: "String!" }
     userId: { type: "ID" }
   )
   @refetchable(queryName: "MatchListRefetchQuery")
   {
-    matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId)
+    __id
+    matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId)
     @connection(key: "MatchListFragment_matches") {
+      __id
       edges {
         node {
           id
@@ -104,12 +107,12 @@ module InlineTeam = {
     // ->Option.getOr(React.null)}
     (player, i) => {
       let player = MatchListTeamFragment.use(player)
-      <>
-        <Link to={"/p/" ++ player.id} key={player.id} className="font-medium text-gray-900">
+      <React.Fragment key={player.id}>
+        <Link to={"../p/" ++ player.id} key={player.id} className="font-medium text-gray-900">
           {player.lineUsername->Option.getOr("")->React.string}
         </Link>
         {i != players->Array.length - 1 ? " • "->React.string : React.null}
-      </>
+      </React.Fragment>
     })
     ->React.array
   }
@@ -279,7 +282,7 @@ let make = (~matches, ~user=?) => {
         ->Option.getOr(React.null)
       : React.null}
     <div className="flow-root mt-5">
-      <ul role="list" className="-mb-8">
+      <ul role="list" className="">
         {matches
         ->Array.mapWithIndex((edge, idx) =>
           <Match key={edge.id} match=edge.fragmentRefs idx length={matches->Array.length} ?user />
@@ -287,15 +290,17 @@ let make = (~matches, ~user=?) => {
         ->React.array}
       </ul>
     </div>
-    {hasNext && !isLoadingNext
-      ? {
-          pageInfo.endCursor
-          ->Option.map(endCursor =>
-            <Link to={"./" ++ "?after=" ++ endCursor}> {t`Load more matches...`} </Link>
-          )
-          ->Option.getOr(React.null)
-        }
-      : React.null}
+    <div className="">
+      {hasNext && !isLoadingNext
+        ? {
+            pageInfo.endCursor
+            ->Option.map(endCursor =>
+              <Link to={"./" ++ "?after=" ++ endCursor}> {t`Load more matches...`} </Link>
+            )
+            ->Option.getOr(React.null)
+          }
+        : React.null}
+    </div>
   </Layout.Container>
 }
 

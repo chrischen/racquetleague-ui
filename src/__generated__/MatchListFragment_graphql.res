@@ -18,10 +18,12 @@ module Types = {
     startCursor: option<string>,
   }
   and fragment_matches = {
+    @live __id: RescriptRelay.dataId,
     edges: option<array<option<fragment_matches_edges>>>,
     pageInfo: fragment_matches_pageInfo,
   }
   type fragment = {
+    @live __id: RescriptRelay.dataId,
     matches: fragment_matches,
   }
 }
@@ -58,9 +60,10 @@ let connectionKey = "MatchListFragment_matches"
 )
 
 @live
-let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~activitySlug: string, ~userId: option<string>=?) => {
+let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~activitySlug: string, ~namespace: string, ~userId: option<string>=?) => {
   let activitySlug = Some(activitySlug)
-  let args = {"activitySlug": activitySlug, "userId": userId}
+  let namespace = Some(namespace)
+  let args = {"activitySlug": activitySlug, "namespace": namespace, "userId": userId}
   internal_makeConnectionId(connectionParentDataId, args)
 }
 module Utils = {
@@ -90,7 +93,19 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
   %raw(json`(function(){
 var v0 = [
   "matches"
-];
+],
+v1 = {
+  "kind": "ClientExtension",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "__id",
+      "storageKey": null
+    }
+  ]
+};
 return {
   "argumentDefinitions": [
     {
@@ -112,6 +127,11 @@ return {
       "defaultValue": 20,
       "kind": "LocalArgument",
       "name": "first"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "namespace"
     },
     {
       "defaultValue": null,
@@ -151,6 +171,11 @@ return {
           "kind": "Variable",
           "name": "activitySlug",
           "variableName": "activitySlug"
+        },
+        {
+          "kind": "Variable",
+          "name": "namespace",
+          "variableName": "namespace"
         },
         {
           "kind": "Variable",
@@ -249,10 +274,12 @@ return {
             }
           ],
           "storageKey": null
-        }
+        },
+        (v1/*: any*/)
       ],
       "storageKey": null
-    }
+    },
+    (v1/*: any*/)
   ],
   "type": "Query",
   "abstractKey": null

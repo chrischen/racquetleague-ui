@@ -60,7 +60,9 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
       ~variables={
         ?after,
         ?before,
+        first: 5,
         activitySlug: "pickleball",
+        namespace: "doubles:rec",
         userId: params.userId,
         // namespace: "doubles:rec"
       },

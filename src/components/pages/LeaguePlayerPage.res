@@ -2,14 +2,14 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module Query = %relay(`
-  query LeaguePlayerPageQuery($after: String, $first: Int, $before: String, $activitySlug: String!, $userId: ID!) {
-    ... MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId)
+  query LeaguePlayerPageQuery($after: String, $first: Int, $before: String, $activitySlug: String!, $namespace: String!, $userId: ID!) {
+    ... MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId)
     user(id: $userId) {
       id
       picture
       lineUsername
       gender
-      rating(activitySlug: $activitySlug, namespace: "doubles:rec")
+      rating(activitySlug: $activitySlug, namespace: $namespace)
       ...MatchListUser_user
     }
   }

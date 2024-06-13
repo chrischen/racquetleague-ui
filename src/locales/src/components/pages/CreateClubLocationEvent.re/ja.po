@@ -1,0 +1,114 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-10 02:26+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateClubLocationEvent.re.mjs:377
+#~ msgid "Badminton"
+#~ msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateClubLocationEvent.re.mjs:381
+#~ msgid "Table Tennis"
+#~ msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateClubLocationEvent.re.mjs:385
+#~ msgid "Pickleball"
+#~ msgstr "ピックルボール"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateClubLocationEvent.re.mjs:389
+#~ msgid "Futsal"
+#~ msgstr "フットサル"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:222
+msgid "{0} event details"
+msgstr "{0} イベント詳細"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:244
+msgid "activity"
+msgstr "アクティビティ"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:109
+msgid "activity is required"
+msgstr "アクティビティが必要です"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:232
+msgid "All Level Badminton"
+msgstr "すべてのレベルのバドミントン"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:318
+msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+msgstr "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳細」があれば記載してください。"
+
+#: src/components/molecules/forms/Form.re.mjs:222
+msgid "cancel"
+msgstr "キャンセル"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:263
+msgid "date and start time"
+msgstr "日付と開始時刻"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:223
+msgid "details specific to this event on the specified date and time."
+msgstr "指定された日時のこのイベントに特有の詳細。"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:306
+msgid "edit the location to edit the details for this location."
+msgstr "この場所の詳細を編集するには、場所を編集します。"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:273
+msgid "end time"
+msgstr "終了時刻"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:116
+msgid "end time is required"
+msgstr "終了時刻が必要です"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:113
+msgid "event date is required"
+msgstr "イベント日付が必要です"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:315
+msgid "event details"
+msgstr "イベント詳細"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:344
+msgid "list publicly"
+msgstr "一般公開リスト"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:301
+msgid "location details"
+msgstr "場所の詳細"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:283
+msgid "max participants"
+msgstr "最大参加者数"
+
+#: src/components/molecules/forms/Form.re.mjs:229
+msgid "save"
+msgstr "保存"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:349
+msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+msgstr "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを持っている人だけがイベントを見つけることができます。"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:229
+msgid "title"
+msgstr "タイトル"
+
+#: src/components/pages/CreateClubLocationEvent.re.mjs:106
+msgid "title is required"
+msgstr "タイトルが必要です"

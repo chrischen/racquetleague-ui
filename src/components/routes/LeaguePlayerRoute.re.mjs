@@ -33,6 +33,8 @@ async function loader(param) {
                 activitySlug: "pickleball",
                 after: after,
                 before: before,
+                first: 5,
+                namespace: "doubles:rec",
                 userId: params.userId
               }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))

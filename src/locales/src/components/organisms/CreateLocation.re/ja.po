@@ -34,9 +34,7 @@ msgid "details"
 msgstr "詳細"
 
 #: src/components/organisms/CreateLocation.re.mjs:170
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
+msgid "Instructions or information that will apply to all events held at this location."
 msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
 
 #: src/components/organisms/CreateLocation.re.mjs:128

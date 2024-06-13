@@ -41,6 +41,9 @@ module Number = {
 
   @send
   external gte: (number, number) => number = "gte"
+
+  @send
+  external lte: (number, number) => number = "lte"
 }
 @send
 external number: (t, params) => number = "number"

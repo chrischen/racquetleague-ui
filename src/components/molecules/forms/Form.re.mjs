@@ -18,22 +18,24 @@ function Form$Input(props) {
   var __type_ = props.type_;
   var id = props.id;
   var name = props.name;
+  var className = props.className;
   var type_ = __type_ !== undefined ? __type_ : "text";
   var tmp;
   if (register !== undefined) {
     var newrecord = Caml_obj.obj_dup(register);
-    tmp = JsxRuntime.jsx("input", (newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.placeholder = placeholder, newrecord.name = name, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", newrecord.defaultValue = defaultValue, newrecord));
+    tmp = JsxRuntime.jsx("input", (newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.placeholder = placeholder, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
   } else {
     tmp = JsxRuntime.jsx("input", {
           defaultValue: defaultValue,
-          className: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+          className: Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"),
           id: id,
           autoComplete: autoComplete,
           name: name,
           placeholder: placeholder,
           type: type_,
           value: value,
-          onBlur: onBlur
+          onBlur: onBlur,
+          onChange: props.onChange
         });
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -69,10 +71,11 @@ function Form$Select(props) {
   var options = props.options;
   var id = props.id;
   var name = props.name;
+  var className = props.className;
   var tmp;
   if (register !== undefined) {
     var newrecord = Caml_obj.obj_dup(register);
-    tmp = JsxRuntime.jsx("select", (newrecord.name = name, newrecord.id = id, newrecord.className = "mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6", newrecord.defaultValue = defaultValue, newrecord.children = options.map(function (param) {
+    tmp = JsxRuntime.jsx("select", (newrecord.name = name, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord.children = options.map(function (param) {
                 var value = param[1];
                 return JsxRuntime.jsx("option", {
                             children: param[0],
@@ -88,7 +91,7 @@ function Form$Select(props) {
                           });
               }),
           defaultValue: defaultValue,
-          className: "mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6",
+          className: Core__Option.getOr(className, "mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"),
           id: id,
           name: name
         });

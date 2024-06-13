@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-06-10 02:26+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:148
+msgid "address"
+msgstr ""
+
+#: src/components/organisms/CreateClubLocation.re.mjs:75
+msgid "address is required"
+msgstr ""
+
+#: src/components/organisms/CreateClubLocation.re.mjs:137
+msgid "Akabane Elementary School"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:222
+msgid "cancel"
+msgstr ""
+
+#: src/components/organisms/CreateClubLocation.re.mjs:167
+msgid "details"
+msgstr ""
+
+#: src/components/organisms/CreateClubLocation.re.mjs:170
+msgid "Instructions or information that will apply to all events held at this location."
+msgstr ""
+
+#: src/components/organisms/CreateClubLocation.re.mjs:128
+msgid "location"
+msgstr ""
+
+#: src/components/organisms/CreateClubLocation.re.mjs:157
+msgid "maps link"
+msgstr ""
+
+#: src/components/organisms/CreateClubLocation.re.mjs:134
+msgid "name"
+msgstr ""
+
+#: src/components/organisms/CreateClubLocation.re.mjs:72
+msgid "name is required"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:229
+msgid "save"
+msgstr ""

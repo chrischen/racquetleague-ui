@@ -18,19 +18,9 @@ msgid "About the League"
 msgstr "リーグについて"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:40
-msgid ""
-"Ratings are assigned to individual players just by playing doubles games, "
-"even with different partners each game. For doubles ratings we use OpenSkill "
-"(a derivative of TrueSkill), and for singles ratings we use Glicko2."
-msgstr ""
-"ダブルスゲームをプレイするだけで、異なるパートナーとのゲームごとに個別のプレ"
-"イヤーに評価が割り当てられます。ダブルスの評価にはOpenSkill（TrueSkillの派"
-"生）を使用し、シングルスの評価にはGlicko2を使用しています。"
+msgid "Ratings are assigned to individual players just by playing doubles games, even with different partners each game. For doubles ratings we use OpenSkill (a derivative of TrueSkill), and for singles ratings we use Glicko2."
+msgstr "ダブルスゲームをプレイするだけで、異なるパートナーとのゲームごとに個別のプレイヤーに評価が割り当てられます。ダブルスの評価にはOpenSkill（TrueSkillの派生）を使用し、シングルスの評価にはGlicko2を使用しています。"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:37
-msgid ""
-"The Japan Pickleball League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"日本ピクルボールリーグは、コミュニティのレクリエーショナルピクルボールゲーム"
-"とイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"
+msgid "The Japan Pickleball League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "日本ピクルボールリーグは、コミュニティのレクリエーショナルピクルボールゲームとイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"

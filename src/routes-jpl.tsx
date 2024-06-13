@@ -29,6 +29,11 @@ export const routes: RouteObject[] = [
             handle: "src/components/routes/FindGamesRoute.gen.tsx",
           },
           {
+            path: "events/:eventId",
+            lazy: () => import("./components/routes/LeagueEventRoute.gen"),
+            handle: "src/components/routes/LeagueEventRoute.gen.tsx",
+          },
+          {
             path: "about",
             lazy: () => import("./components/routes/LeagueAboutRoute.gen"),
             handle: "src/components/routes/LeagueAboutRoute.gen.tsx",

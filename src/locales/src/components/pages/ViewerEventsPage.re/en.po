@@ -52,7 +52,7 @@ msgstr ""
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:290
+#: src/components/organisms/EventsList.re.mjs:291
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 

@@ -54,6 +54,10 @@ msgstr "ユーザーメニューを開く"
 msgid "Profile picture"
 msgstr "プロフィール写真"
 
+#: src/components/organisms/Nav.re.mjs:99
+#~ msgid "racquet league"
+#~ msgstr "ラケットリーグ"
+
 #: src/components/organisms/LeagueNav.re.mjs:104
 msgid "Rankings"
 msgstr "ランキング"
@@ -66,7 +70,3 @@ msgstr "通知を表示"
 #: src/components/organisms/LeagueNav.re.mjs:120
 msgid "Your Profile"
 msgstr "あなたのプロフィール"
-
-#: src/components/organisms/Nav.re.mjs:99
-#~ msgid "racquet league"
-#~ msgstr "ラケットリーグ"

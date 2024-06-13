@@ -105,6 +105,22 @@ and input_DeleteActivitySubscriptionInput_nullable = {
 }
 
 @live
+and input_DoublesMatchInput = {
+  createdAt: Util.Datetime.t,
+  losers: array<string>,
+  score?: array<float>,
+  winners: array<string>,
+}
+
+@live
+and input_DoublesMatchInput_nullable = {
+  createdAt: Util.Datetime.t,
+  losers: array<string>,
+  score?: Js.Null.t<array<float>>,
+  winners: array<string>,
+}
+
+@live
 and input_EventFilters = {
   locationId?: string,
   userId?: string,
@@ -116,4 +132,18 @@ and input_EventFilters_nullable = {
   locationId?: Js.Null.t<string>,
   userId?: Js.Null.t<string>,
   viewer?: Js.Null.t<bool>,
+}
+
+@live
+and input_LeagueMatchInput = {
+  activitySlug: string,
+  doublesMatch: input_DoublesMatchInput,
+  namespace: string,
+}
+
+@live
+and input_LeagueMatchInput_nullable = {
+  activitySlug: string,
+  doublesMatch: input_DoublesMatchInput_nullable,
+  namespace: string,
 }

@@ -5,7 +5,9 @@ module Input = {
   @react.component
   let make = (
     ~label: React.element,
-    ~name: string,
+    ~onChange: option<'a => unit>=?,
+    ~className: option<string>=?,
+    ~name: option<string>=?,
     ~id: string,
     ~type_: option<string>="text",
     ~autoComplete: option<string>=?,
@@ -16,7 +18,7 @@ module Input = {
     ~defaultValue: option<string>=?,
   ) => {
     <>
-      <label htmlFor=name className="block text-sm font-medium leading-6 text-gray-900">
+      <label htmlFor=?name className="block text-sm font-medium leading-6 text-gray-900">
         {label}
       </label>
       <div className="mt-2">
@@ -27,11 +29,12 @@ module Input = {
           | Some(register) =>
             <input
               {...register}
+              // ?onChange
               type_
-              name
+              // name
               id
               ?autoComplete
-              className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+              className={className->Option.getOr("block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6")}
               ?placeholder
               ?onBlur
               ?value
@@ -40,10 +43,11 @@ module Input = {
           | None =>
             <input
               type_
-              name
+              ?name
               id
+              ?onChange
               ?autoComplete
-              className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+              className={className->Option.getOr("block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6")}
               ?placeholder
               ?onBlur
               ?value
@@ -60,6 +64,7 @@ module Select = {
   @react.component
   let make = (
     ~label: React.element,
+    ~className: option<string>=?,
     ~name: string,
     ~id: string,
     ~options: array<(string, string)>,
@@ -77,7 +82,7 @@ module Select = {
           {...register}
           id
           name
-          className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className={className->Option.getOr("mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6")}
           ?defaultValue>
           {options
           ->Array.map(((name, value)) => <option value key=value> {name->React.string} </option>)
@@ -87,7 +92,7 @@ module Select = {
         <select
           id
           name
-          className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className={className->Option.getOr("mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6")}
           ?defaultValue>
           {options
           ->Array.map(((name, value)) => <option value> {name->React.string} </option>)

@@ -117,6 +117,11 @@ export const routes: RouteObject[] = [
             handle: "src/components/routes/FindGamesRoute.gen.tsx",
           },
           {
+            path: "events/:eventId",
+            lazy: () => import("./components/routes/LeagueEventRoute.gen"),
+            handle: "src/components/routes/LeagueEventRoute.gen.tsx",
+          },
+          {
             path: "about",
             lazy: () => import("./components/routes/LeagueAboutRoute.gen"),
             handle: "src/components/routes/LeagueAboutRoute.gen.tsx",
@@ -126,6 +131,21 @@ export const routes: RouteObject[] = [
             lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
             handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",
           },
+          {
+            path: "oauth-login",
+            lazy: () => import("./components/routes/LoginRoute.gen"),
+            handle: "src/components/routes/LoginRoute.gen.tsx",
+          },
+          {
+            path: "oauth/line/error",
+            lazy: () => import("./components/routes/LoginLineErrorRoute.gen"),
+            handle: "src/components/routes/LoginLineErrorRoute.gen.tsx",
+          },
+          {
+            path: "*",
+            lazy: () => import("./components/routes/NotFoundRoute.gen"),
+            handle: "src/components/routes/NotFoundRoute.gen.tsx",
+          }
         ]
       }
     ]
