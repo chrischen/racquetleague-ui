@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"X/qsY6\":\"load More\",\"Zv81lg\":\"Loser Points\",\"827u5r\":\"no players yet\",\"vRayGs\":\"Player\",\"/5sKgB\":\"Select Losers\",\"hN/Ko1\":\"Select Winners\",\"hmkH4p\":\"Winner Points\"}");

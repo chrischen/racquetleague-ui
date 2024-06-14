@@ -748,3 +748,42 @@ msgstr ""
 #: src/components/organisms/EventsList.re.mjs:197
 msgid "joined"
 msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:372
+msgid "Loser Points"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:359
+msgid "Select Losers"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:315
+msgid "Select Winners"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:328
+msgid "Winner Points"
+msgstr ""
+
+#: src/components/pages/FindGamesPage.re.mjs:33
+msgid "Find League Games"
+msgstr ""
+
+#: src/components/pages/FindGamesPage.re.mjs:30
+msgid ""
+"To participate in the league and win prizes, please join the league events."
+msgstr ""
+
+#: src/components/pages/LeagueAboutPage.re.mjs:22
+msgid ""
+"The Tokyo Badminton League is an open-source non-profit project to help "
+"improve the quality of community recreational pickleball games and events."
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:32
+msgid "Tokyo Badminton League"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:64
+msgid "To participate, please join the badminton events here:"
+msgstr ""

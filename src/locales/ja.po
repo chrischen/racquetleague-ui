@@ -647,6 +647,45 @@ msgstr "評価"
 msgid "joined"
 msgstr "参加"
 
+#: src/components/organisms/AddLeagueMatch.re.mjs:372
+msgid "Loser Points"
+msgstr "敗者ポイント"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:359
+msgid "Select Losers"
+msgstr "敗者を選択"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:315
+msgid "Select Winners"
+msgstr "勝者を選択"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:328
+msgid "Winner Points"
+msgstr "勝者ポイント"
+
+#: src/components/pages/FindGamesPage.re.mjs:33
+msgid "Find League Games"
+msgstr "リーグゲームを見つける"
+
+#: src/components/pages/FindGamesPage.re.mjs:30
+msgid ""
+"To participate in the league and win prizes, please join the league events."
+msgstr "リーグに参加して賞品を獲得するには、リーグのイベントに参加してください。"
+
+#: src/components/pages/LeagueAboutPage.re.mjs:22
+msgid ""
+"The Tokyo Badminton League is an open-source non-profit project to help "
+"improve the quality of community recreational pickleball games and events."
+msgstr "東京バドミントンリーグは、コミュニティのレクリエーショナルピクルボールゲームとイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"
+
+#: src/components/pages/LeaguePage.re.mjs:32
+msgid "Tokyo Badminton League"
+msgstr "東京バドミントンリーグ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:64
+msgid "To participate, please join the badminton events here:"
+msgstr "参加するには、こちらのバドミントンイベントに参加してください:"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

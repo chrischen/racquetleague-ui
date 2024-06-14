@@ -168,7 +168,7 @@ function RatingList$RatingItem(props) {
                                                         children: [
                                                           JsxRuntime.jsx("p", {
                                                                 children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                                                                      to: "/p/" + user.id,
+                                                                      to: "./p/" + user.id,
                                                                       children: [
                                                                         JsxRuntime.jsx("span", {
                                                                               className: "absolute inset-x-0 -top-px bottom-0"

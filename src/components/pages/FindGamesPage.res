@@ -20,7 +20,6 @@ let make = () => {
   // let viewer = GlobalQuery.useViewer()
   // let {fragmentRefs} = Query.usePreloaded(~queryRef=query.data)
 
-  let link = <a href="https://www.racquetleague.com"> {"Racquet League."->React.string} </a>
   <WaitForMessages>
     {() => {
       <>
@@ -32,10 +31,10 @@ let make = () => {
               </span>
             </PageTitle>
             <p>
-              {t`Currently the league is in testing mode. To participate, please join the Pickleball events here:`}
+              {t`To participate in the league and win prizes, please join the league events.`}
               {" "->React.string}
-              <a className="text-gray-200" href="https://www.racquetleague.com">
-                {"> Racquet League <"->React.string}
+              <a className="text-gray-200 border-red-200 rounded p-5 border-2" href="https://www.racquetleague.com">
+                {t`Find League Games`}
               </a>
             </p>
           </Layout.Container>

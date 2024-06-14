@@ -30,7 +30,7 @@ async function loader(param) {
   }
   return {
           data: LeaguePlayerPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
-                activitySlug: "pickleball",
+                activitySlug: params.activitySlug,
                 after: after,
                 before: before,
                 first: 5,

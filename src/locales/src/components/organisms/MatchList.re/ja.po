@@ -13,21 +13,29 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/MatchList.re.mjs:370
+msgid "...load previous matches"
+msgstr "前のものを読み込む"
+
+#: src/components/organisms/MatchList.re.mjs:393
+msgid "Load more matches..."
+msgstr "もっとプレイヤーを読み込む..."
+
+#: src/components/organisms/MatchList.re.mjs:364
+msgid "Match History"
+msgstr "対戦履歴"
+
+#: src/components/organisms/MatchList.re.mjs:286
+msgid "Score:"
+msgstr "スコア:"
+
 #: src/components/organisms/MatchList.re.mjs:274
 #~ msgid "...load higher rated players"
 #~ msgstr "... より高い評価のプレイヤーを読み込む"
 
-#: src/components/organisms/MatchList.re.mjs:369
-msgid "...load previous matches"
-msgstr "前のものを読み込む"
-
 #: src/components/organisms/MatchList.re.mjs:204
 #~ msgid "Female"
 #~ msgstr "女性"
-
-#: src/components/organisms/MatchList.re.mjs:391
-msgid "Load more matches..."
-msgstr "もっとプレイヤーを読み込む..."
 
 #: src/components/organisms/MatchList.re.mjs:290
 #~ msgid "Load more players..."
@@ -36,11 +44,3 @@ msgstr "もっとプレイヤーを読み込む..."
 #: src/components/organisms/MatchList.re.mjs:206
 #~ msgid "Male"
 #~ msgstr "男性"
-
-#: src/components/organisms/MatchList.re.mjs:363
-msgid "Match History"
-msgstr "対戦履歴"
-
-#: src/components/organisms/MatchList.re.mjs:285
-msgid "Score:"
-msgstr "スコア:"

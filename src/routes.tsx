@@ -107,29 +107,36 @@ export const routes: RouteObject[] = [
         HydrateFallbackElement: <>Loading Fallback...</>,
         children: [
           {
-            path: "",
+            path: ":activitySlug",
             lazy: () => import("./components/routes/LeagueRoute.gen"),
             handle: "src/components/routes/LeagueRoute.gen.tsx",
-          },
-          {
-            path: "games",
-            lazy: () => import("./components/routes/FindGamesRoute.gen"),
-            handle: "src/components/routes/FindGamesRoute.gen.tsx",
+            children: [
+              {
+                path: "",
+                lazy: () => import("./components/routes/LeagueRankingsRoute.gen"),
+                handle: "src/components/routes/LeagueRankingsRoute.gen.tsx",
+              },
+              {
+                path: "p/:userId",
+                lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
+                handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",
+              },
+              {
+                path: "games",
+                lazy: () => import("./components/routes/FindGamesRoute.gen"),
+                handle: "src/components/routes/FindGamesRoute.gen.tsx",
+              },
+              {
+                path: "about",
+                lazy: () => import("./components/routes/LeagueAboutRoute.gen"),
+                handle: "src/components/routes/LeagueAboutRoute.gen.tsx",
+              },
+            ]
           },
           {
             path: "events/:eventId",
             lazy: () => import("./components/routes/LeagueEventRoute.gen"),
             handle: "src/components/routes/LeagueEventRoute.gen.tsx",
-          },
-          {
-            path: "about",
-            lazy: () => import("./components/routes/LeagueAboutRoute.gen"),
-            handle: "src/components/routes/LeagueAboutRoute.gen.tsx",
-          },
-          {
-            path: "p/:userId",
-            lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
-            handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",
           },
           {
             path: "oauth-login",

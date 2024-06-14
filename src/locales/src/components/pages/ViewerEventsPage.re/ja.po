@@ -56,17 +56,9 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/ViewerEventsPage.re.mjs:53
-#~ msgid "all events"
-#~ msgstr "すべてのイベント"
-
 #: src/components/organisms/EventsList.re.mjs:194
 msgid "joined"
 msgstr "参加"
-
-#: src/components/organisms/EventsList.re.mjs:194
-#~ msgid "Joined"
-#~ msgstr "参加"
 
 #: src/components/organisms/EventsList.re.mjs:409
 msgid "load more"
@@ -88,3 +80,11 @@ msgstr "カレンダー同期"
 #: src/components/organisms/EventsList.re.mjs:197
 msgid "waitlist"
 msgstr "ウェイトリスト"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:53
+#~ msgid "all events"
+#~ msgstr "すべてのイベント"
+
+#: src/components/organisms/EventsList.re.mjs:194
+#~ msgid "Joined"
+#~ msgstr "参加"

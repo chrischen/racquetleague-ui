@@ -61,7 +61,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         ?after,
         ?before,
         first: 5,
-        activitySlug: "pickleball",
+        activitySlug: params.activitySlug,
         namespace: "doubles:rec",
         userId: params.userId,
         // namespace: "doubles:rec"

@@ -98,19 +98,21 @@ function LeagueNav(props) {
                           fallback: "..."
                         });
             })), JsxRuntime.jsx(LoginLink.make, {}));
-  ReactRouterDom.useLocation();
+  var params = ReactRouterDom.useParams();
+  var slug = params.activitySlug;
+  var root = slug !== undefined && slug !== "" ? "/league/" + slug + "/" : "/";
   var navigation = [
     {
       name: t`Rankings`,
-      href: "/"
+      href: root
     },
     {
       name: t`Find Games`,
-      href: "/games"
+      href: root + "games"
     },
     {
       name: t`About`,
-      href: "/about"
+      href: root + "about"
     }
   ];
   var userNavigation = Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
@@ -144,7 +146,7 @@ function LeagueNav(props) {
                                                                                 children: [
                                                                                   JsxRuntime.jsx("div", {
                                                                                         children: JsxRuntime.jsx(LangSwitch.make, {}),
-                                                                                        className: "flex flex-shrink-0 items-center sm:hidden inline-flex items-center px-1 pt-1 text-sm font-medium"
+                                                                                        className: "flex flex-shrink-0 sm:hidden items-center px-1 pt-1 text-sm font-medium"
                                                                                       }),
                                                                                   JsxRuntime.jsx("div", {
                                                                                         children: navigation.map(function (item) {
@@ -333,7 +335,7 @@ function LeagueNav(props) {
                                                                                             })), null),
                                                                                   JsxRuntime.jsx("div", {
                                                                                         children: Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
-                                                                                                    return Core__Option.map(viewer.user, (function (user) {
+                                                                                                    return Core__Option.map(viewer.user, (function (param) {
                                                                                                                   return userNavigation.map(function (item) {
                                                                                                                               return JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
                                                                                                                                           to: item.href,

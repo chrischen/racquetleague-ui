@@ -263,7 +263,7 @@ let make = (~event) => {
           </section>
           <div className="mx-auto col-span-2">
             <Input
-              className="mx-auto w-5 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
+              className="w-11 sm:w-24 md:w-32  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
               label={t`Winner Points`}
               type_="number"
               id="scoreWinner"
@@ -290,7 +290,7 @@ let make = (~event) => {
           </section>
           <div className="mx-auto col-span-2">
             <Input
-              className="mx-auto w-5 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
+              className="w-11 sm:w-24 md:w-32 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
               label={t`Loser Points`}
               type_="number"
               id="scoreLoser"
@@ -304,7 +304,7 @@ let make = (~event) => {
           </div>
         </div>
         <div className="lg:col-span-4 gap-4">
-          <input type_="submit" value="Submit" />
+          <input type_="submit" className="mx-auto block text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" value="Submit" />
         </div>
       </div>
     </form>

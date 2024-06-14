@@ -124,7 +124,7 @@ return {
     ],
     "kind": "Fragment",
     "metadata": null,
-    "name": "LeaguePageQuery",
+    "name": "LeagueRankingsPageQuery",
     "selections": [
       {
         "args": (v5/*: any*/),
@@ -145,7 +145,7 @@ return {
       (v4/*: any*/)
     ],
     "kind": "Operation",
-    "name": "LeaguePageQuery",
+    "name": "LeagueRankingsPageQuery",
     "selections": [
       {
         "alias": null,
@@ -289,12 +289,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "9c4ce35e929d03fa5082f94e51d8b67d",
+    "cacheID": "1c219aa77c09daf31eb3fa934cf8c8c1",
     "id": null,
     "metadata": {},
-    "name": "LeaguePageQuery",
+    "name": "LeagueRankingsPageQuery",
     "operationKind": "query",
-    "text": "query LeaguePageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
+    "text": "query LeagueRankingsPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
   }
 };
 })());

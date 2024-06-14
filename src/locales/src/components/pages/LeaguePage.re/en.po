@@ -18,48 +18,48 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:274
-msgid "...load higher rated players"
-msgstr ""
+#~ msgid "...load higher rated players"
+#~ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:223
 #~ msgid "...load past ratings"
 #~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:145
-msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
-msgstr ""
+#~ msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
+#~ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:204
-msgid "Female"
-msgstr ""
+#~ msgid "Female"
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:80
-msgid "Hesacore Grip"
-msgstr ""
-
-#: src/components/pages/LeaguePage.re.mjs:54
-#~ msgid "japan pickle league"
+#~ msgid "Hesacore Grip"
 #~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:39
+msgid "japan pickle league"
+msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:242
 #~ msgid "load more"
 #~ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:290
-msgid "Load more players..."
-msgstr ""
+#~ msgid "Load more players..."
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:163
-msgid "Loading rankings..."
-msgstr ""
+#~ msgid "Loading rankings..."
+#~ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:206
-msgid "Male"
-msgstr ""
+#~ msgid "Male"
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:86
-msgid "Multiple colors available."
-msgstr ""
+#~ msgid "Multiple colors available."
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:57
 #: src/components/pages/LeaguePage.re.mjs:81
@@ -67,20 +67,20 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:53
-msgid "Next Prize: June 10"
-msgstr ""
+#~ msgid "Next Prize: June 10"
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:140
-msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
-msgstr ""
+#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:63
 #~ msgid "public events"
 #~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:135
-msgid "Recreational Doubles"
-msgstr ""
+#~ msgid "Recreational Doubles"
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:137
 #~ msgid "Recreational Doubles Rankings"
@@ -91,5 +91,9 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:57
-msgid "This prize will be awarded to the top male and female players on this day."
+#~ msgid "This prize will be awarded to the top male and female players on this day."
+#~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:32
+msgid "Tokyo Badminton League"
 msgstr ""

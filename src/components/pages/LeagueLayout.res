@@ -2,8 +2,8 @@
 %%raw("import { t } from '@lingui/macro'")
 %%raw("import '../../global/static.css'")
 
-@module("./jpl-logo.png")
-external jplLogo: string = "default"
+// @module("./jpl-logo.png")
+// external jplLogo: string = "default"
 
 module Query = %relay(`
   query LeagueLayoutQuery {
@@ -24,7 +24,6 @@ external useLoaderData: unit => WaitForMessages.data<LeagueLayoutQuery_graphql.q
 // }
 
 module Layout = {
-  open Lingui.Util
   let ts = Lingui.UtilString.t
   @react.component
   let make = (~children, ~query, ~viewer: option<Query.Types.response_viewer>) => {
@@ -36,18 +35,7 @@ module Layout = {
         <React.Suspense fallback={"..."->React.string}>
           <LeagueNav query={query} />
         </React.Suspense>
-        <header>
-          <Layout.Container className="py-20">
-            <img className="mx-auto" src={jplLogo} alt={ts`japan pickle league`} />
-          </Layout.Container>
-        </header>
-        <main>
-          // <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <React.Suspense fallback={<Layout.Container> {"..."->React.string} </Layout.Container>}>
-            {children}
-          </React.Suspense>
-          // </div>
-        </main>
+        {children}
         <Footer />
       </Grid>
     </GlobalQuery.Provider>

@@ -84,6 +84,10 @@ msgstr "参加"
 msgid "load more"
 msgstr "もっと読み込む"
 
+#: src/components/organisms/EventsList.re.mjs:197
+msgid "waitlist"
+msgstr "ウェイトリスト"
+
 #: src/components/organisms/EventsList.re.mjs:365
 #~ msgid "my events"
 #~ msgstr "私のイベント"
@@ -91,7 +95,3 @@ msgstr "もっと読み込む"
 #: src/components/organisms/EventsList.re.mjs:347
 #~ msgid "public events"
 #~ msgstr "公開イベント"
-
-#: src/components/organisms/EventsList.re.mjs:197
-msgid "waitlist"
-msgstr "ウェイトリスト"

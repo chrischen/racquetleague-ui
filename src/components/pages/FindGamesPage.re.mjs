@@ -13,10 +13,6 @@ import { t } from '@lingui/macro'
 ;
 
 function FindGamesPage(props) {
-  JsxRuntime.jsx("a", {
-        children: "Racquet League.",
-        href: "https://www.racquetleague.com"
-      });
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsx(JsxRuntime.Fragment, {
@@ -31,11 +27,11 @@ function FindGamesPage(props) {
                                                     }),
                                                 JsxRuntime.jsxs("p", {
                                                       children: [
-                                                        t`Currently the league is in testing mode. To participate, please join the Pickleball events here:`,
+                                                        t`To participate in the league and win prizes, please join the league events.`,
                                                         " ",
                                                         JsxRuntime.jsx("a", {
-                                                              children: "> Racquet League <",
-                                                              className: "text-gray-200",
+                                                              children: t`Find League Games`,
+                                                              className: "text-gray-200 border-red-200 rounded p-5 border-2",
                                                               href: "https://www.racquetleague.com"
                                                             })
                                                       ]

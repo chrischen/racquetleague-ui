@@ -14,14 +14,26 @@ export const routes: RouteObject[] = [
         path: "",
         // Declaring handle allows the server to pull the scripts needed based on
         // the entrypoint to avoid waterfall loading of dependencies
-        lazy: () => import("./components/routes/LeagueLayoutRoute.gen"),
-        handle: "src/components/routes/LeagueLayoutRoute.gen.tsx",
+        lazy: () => import("./components/routes/PickleLeagueLayoutRoute.gen"),
+        handle: "src/components/routes/PickleLeagueLayoutRoute.gen.tsx",
         HydrateFallbackElement: <>Loading Fallback...</>,
         children: [
           {
             path: "",
             lazy: () => import("./components/routes/LeagueRoute.gen"),
             handle: "src/components/routes/LeagueRoute.gen.tsx",
+            children: [
+              {
+                path: "",
+                lazy: () => import("./components/routes/PickleLeagueRankingsRoute.gen"),
+                handle: "src/components/routes/PickleLeagueRankingsRoute.gen.tsx",
+              },
+              {
+                path: "p/:userId",
+                lazy: () => import("./components/routes/PickleLeaguePlayerRoute.gen"),
+                handle: "src/components/routes/PickleLeaguePlayerRoute.gen.tsx",
+              },
+            ]
           },
           {
             path: "games",
@@ -30,18 +42,13 @@ export const routes: RouteObject[] = [
           },
           {
             path: "events/:eventId",
-            lazy: () => import("./components/routes/LeagueEventRoute.gen"),
-            handle: "src/components/routes/LeagueEventRoute.gen.tsx",
+            lazy: () => import("./components/routes/PickleLeagueEventRoute.gen"),
+            handle: "src/components/routes/PickleLeagueEventRoute.gen.tsx",
           },
           {
             path: "about",
-            lazy: () => import("./components/routes/LeagueAboutRoute.gen"),
-            handle: "src/components/routes/LeagueAboutRoute.gen.tsx",
-          },
-          {
-            path: "p/:userId",
-            lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
-            handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",
+            lazy: () => import("./components/routes/PickleLeagueAboutRoute.gen"),
+            handle: "src/components/routes/PickleLeagueAboutRoute.gen.tsx",
           },
           {
             path: "oauth-login",

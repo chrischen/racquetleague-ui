@@ -13,14 +13,18 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/LeagueAboutPage.re.mjs:27
+#: src/components/pages/LeagueAboutPage.re.mjs:40
 msgid "About the League"
 msgstr ""
 
-#: src/components/pages/LeagueAboutPage.re.mjs:40
+#: src/components/pages/LeagueAboutPage.re.mjs:51
 msgid "Ratings are assigned to individual players just by playing doubles games, even with different partners each game. For doubles ratings we use OpenSkill (a derivative of TrueSkill), and for singles ratings we use Glicko2."
 msgstr ""
 
-#: src/components/pages/LeagueAboutPage.re.mjs:37
+#: src/components/pages/LeagueAboutPage.re.mjs:29
 msgid "The Japan Pickleball League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr ""
+
+#: src/components/pages/LeagueAboutPage.re.mjs:22
+msgid "The Tokyo Badminton League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
 msgstr ""

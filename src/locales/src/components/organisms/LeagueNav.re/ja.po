@@ -17,11 +17,11 @@ msgstr ""
 msgid "(logout)"
 msgstr "(サインアウト)"
 
-#: src/components/organisms/LeagueNav.re.mjs:112
+#: src/components/organisms/LeagueNav.re.mjs:114
 msgid "About"
 msgstr "について"
 
-#: src/components/organisms/LeagueNav.re.mjs:108
+#: src/components/organisms/LeagueNav.re.mjs:110
 msgid "Find Games"
 msgstr "ゲームを見つける"
 
@@ -29,32 +29,32 @@ msgstr "ゲームを見つける"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/organisms/LeagueNav.re.mjs:124
+#: src/components/organisms/LeagueNav.re.mjs:126
 msgid "Logout"
 msgstr "ログアウト"
 
-#: src/components/organisms/LeagueNav.re.mjs:251
+#: src/components/organisms/LeagueNav.re.mjs:253
 msgid "Open main menu"
 msgstr "メインメニューを開く"
 
-#: src/components/organisms/LeagueNav.re.mjs:198
+#: src/components/organisms/LeagueNav.re.mjs:200
 msgid "Open user menu"
 msgstr "ユーザーメニューを開く"
 
-#: src/components/organisms/LeagueNav.re.mjs:204
-#: src/components/organisms/LeagueNav.re.mjs:293
+#: src/components/organisms/LeagueNav.re.mjs:206
+#: src/components/organisms/LeagueNav.re.mjs:295
 msgid "Profile picture"
 msgstr "プロフィール写真"
 
-#: src/components/organisms/LeagueNav.re.mjs:104
+#: src/components/organisms/LeagueNav.re.mjs:106
 msgid "Rankings"
 msgstr "ランキング"
 
-#: src/components/organisms/LeagueNav.re.mjs:173
-#: src/components/organisms/LeagueNav.re.mjs:318
+#: src/components/organisms/LeagueNav.re.mjs:175
+#: src/components/organisms/LeagueNav.re.mjs:320
 msgid "View notifications"
 msgstr "通知を表示"
 
-#: src/components/organisms/LeagueNav.re.mjs:120
+#: src/components/organisms/LeagueNav.re.mjs:122
 msgid "Your Profile"
 msgstr "あなたのプロフィール"

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"QUVyh4\":\"--\",\"k9aPnD\":\"... より高い評価のプレイヤーを読み込む\",\"1f2gf2\":\"...過去の評価を読み込む\",\"M9iqFS\":\"女性\",\"/et5Fb\":\"もっと読み込む\",\"UqCm6U\":\"もっとプレイヤーを読み込む...\",\"CvCWBI\":\"男性\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"k9aPnD\":\"... より高い評価のプレイヤーを読み込む\",\"M9iqFS\":\"女性\",\"UqCm6U\":\"もっとプレイヤーを読み込む...\",\"CvCWBI\":\"男性\",\"QUVyh4\":\"--\",\"1f2gf2\":\"...過去の評価を読み込む\",\"/et5Fb\":\"もっと読み込む\"}");

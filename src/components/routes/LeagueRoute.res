@@ -15,11 +15,10 @@
 @genType
 let \"Component" = LeaguePage.make
 
-type params = {...LeaguePageQuery_graphql.Types.variables, lang: option<string>}
 module LoaderArgs = {
   type t = {
     context: RelayEnv.context,
-    params: params,
+    params: LeaguePage.params,
     request: Router.RouterRequest.t,
   }
 }
@@ -58,21 +57,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
-    WaitForMessages.data: {
-      LeaguePage.pageKey: "rankings",
-      query: RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)->(env =>
-        LeaguePageQuery_graphql.load(
-          ~environment=env,
-          ~variables={
-            ?after,
-            ?before,
-            activitySlug: "pickleball",
-            namespace: "doubles:rec",
-          },
-          ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-        )
-      )
-    },
+    WaitForMessages.data: None,
     // i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
     // i18nData: !RelaySSRUtils.ssr ? await Localized.loadMessages(params.lang, loadMessages) : %raw("[]"),
     i18nLoaders: ?(

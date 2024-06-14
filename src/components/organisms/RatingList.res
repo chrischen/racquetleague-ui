@@ -94,7 +94,7 @@ module RatingItem = {
             ->Option.getOr(React.null)}
             <div className="min-w-0 flex-auto">
               <p className="text-lg mt-9 font-semibold leading-6 text-gray-900">
-                <Link to={"/p/" ++ user.id}>
+                <Link to={"./p/" ++ user.id}>
                   <span className="absolute inset-x-0 -top-px bottom-0" />
                   {user.lineUsername
                   ->Option.map(lineUsername => lineUsername->React.string)

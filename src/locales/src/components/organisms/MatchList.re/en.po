@@ -17,7 +17,7 @@ msgstr ""
 #~ msgid "...load higher rated players"
 #~ msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:369
+#: src/components/organisms/MatchList.re.mjs:370
 msgid "...load previous matches"
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 #~ msgid "Female"
 #~ msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:391
+#: src/components/organisms/MatchList.re.mjs:393
 msgid "Load more matches..."
 msgstr ""
 
@@ -37,10 +37,10 @@ msgstr ""
 #~ msgid "Male"
 #~ msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:363
+#: src/components/organisms/MatchList.re.mjs:364
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:285
+#: src/components/organisms/MatchList.re.mjs:286
 msgid "Score:"
 msgstr ""

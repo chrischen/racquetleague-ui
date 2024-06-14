@@ -1,16 +1,14 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
 
-module Query = %relay(`
-  query LeaguePageQuery($after: String, $first: Int, $before: String, $activitySlug: String!, $namespace: String!) {
-    ... RatingListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace)
-  }
-`)
+// module Query = %relay(`
+//   query LeaguePageQuery($after: String, $first: Int, $before: String, $activitySlug: String!, $namespace: String!) {
+//     ... RatingListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace)
+//   }
+// `)
 
-type loaderData = {
-  pageKey: string,
-  query: LeaguePageQuery_graphql.queryRef,
-}
+type params = {activitySlug: option<string>, lang: option<string>}
+type loaderData = {}
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
@@ -71,42 +69,40 @@ module PrizeInfo = {
     </div>
 }
 
+@module("./jpl-logo.png")
+external jplLogo: string = "default"
+
 @genType @react.component
 let make = () => {
   open Lingui.Util
+  let ts = Lingui.UtilString.t;
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
-  Js.log(query.data.pageKey);
-  // let viewer = GlobalQuery.useViewer()
-  let {fragmentRefs} = Query.usePreloaded(~queryRef=query.data.query)
+  let params: params = Router.useParams()
 
   let link = <a href="https://www.racquetleague.com"> {"Racquet League."->React.string} </a>
   <WaitForMessages>
     {() => {
       <>
-        <PrizeInfo />
-        <div className="py-10 text-white bg-leaguePrimary">
-          <Layout.Container>
-            <PageTitle>
-              <span className="text-white font-extrabold text-3xl">
-                {t`Recreational Doubles`}
-              </span>
-            </PageTitle>
-            <p className="mt-5">
-              {t`Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players.`}
-            </p>
-            <p>
-              {t`Currently the league is in testing mode. To participate, please join the Pickleball events here:`}
-              {" "->React.string}
-              <a className="text-gray-200" href="https://www.racquetleague.com">
-                {"> Racquet League <"->React.string}
-              </a>
-            </p>
-          </Layout.Container>
-        </div>
-        <React.Suspense fallback={<Layout.Container> {t`Loading rankings...`} </Layout.Container>}>
-          <RatingList ratings=fragmentRefs />
-        </React.Suspense>
+        <header>
+          <div className="py-10">
+            <Layout.Container>
+              <PageTitle>
+                <h1 className="text-2xl text-center">
+                  {switch params.activitySlug {
+                  | None
+                  | Some("") => <img className="mx-auto" src={jplLogo} alt={ts`japan pickle league`} />
+                  | _ => t`Tokyo Badminton League`
+
+                  }}
+                </h1>
+              </PageTitle>
+            </Layout.Container>
+          </div>
+        </header>
+        <main>
+          <Router.Outlet />
+        </main>
       </>
     }}
   </WaitForMessages>

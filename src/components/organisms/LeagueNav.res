@@ -62,7 +62,6 @@ let make = (~query) => {
   let ts = Lingui.UtilString.t
   let query = Fragment.use(query)
 
-
   let _loginEls = {
     query.viewer
     ->Option.map(viewer =>
@@ -73,19 +72,24 @@ let make = (~query) => {
     ->Option.getOr(<LoginLink />)
   }
 
-  let {pathname} = Router.useLocation()
+  let params: LeaguePage.params = Router.useParams()
+  let root = switch params.activitySlug {
+  | None
+  | Some("") => "/"
+  | Some(slug) => "/league/" ++ slug ++ "/"
+  }
   let navigation = [
     {
       name: ts`Rankings`,
-      href: "/",
+      href: root,
     },
     {
       name: ts`Find Games`,
-      href: "/games",
+      href: root ++ "games",
     },
     {
       name: ts`About`,
-      href: "/about",
+      href: root ++ "about",
     },
   ]
   let userNavigation =
@@ -111,7 +115,7 @@ let make = (~query) => {
                     // Large screen nav
                     <div className="flex">
                       <div
-                        className="flex flex-shrink-0 items-center sm:hidden inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        className="flex flex-shrink-0 sm:hidden items-center px-1 pt-1 text-sm font-medium">
                         //   <img
                         //     className="block h-8 w-auto lg:hidden"
                         //     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -130,14 +134,15 @@ let make = (~query) => {
                           <NavLink
                             key={item.name}
                             to={item.href}
-                            className={({isActive, _}) => Util.cx([
-                              isActive
-                                ? "border-leaguePrimary text-gray-900"
-                                : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
-                              "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium",
-                            ])}
+                            className={({isActive, _}) =>
+                              Util.cx([
+                                isActive
+                                  ? "border-leaguePrimary text-gray-900"
+                                  : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
+                                "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium",
+                              ])}
                             // ariaCurrent={item.current ? #page : #"false"}>
-                            >
+                          >
                             {item.name->React.string}
                           </NavLink>
                         )
@@ -194,10 +199,11 @@ let make = (~query) => {
                                 {({focus}) =>
                                   <NavLink
                                     to={item.href}
-                                    className={(_) => Util.cx([
-                                      focus ? "bg-gray-100" : "",
-                                      "block px-4 py-2 text-sm text-gray-700",
-                                    ])}>
+                                    className={_ =>
+                                      Util.cx([
+                                        focus ? "bg-gray-100" : "",
+                                        "block px-4 py-2 text-sm text-gray-700",
+                                      ])}>
                                     {item.name->React.string}
                                   </NavLink>}
                               </MenuItem>
@@ -229,18 +235,19 @@ let make = (~query) => {
                           // \"as"="a"
                           // href={item.href}
                           to={item.href}
-                          className={({isActive, _}) => Util.cx([
-                            isActive
-                              ? "border-red-500 bg-red-50 text-red-700"
-                              : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800",
-                            "block border-l-4 py-2 pl-3 pr-4 text-base font-medium",
-                          ])}
+                          className={({isActive, _}) =>
+                            Util.cx([
+                              isActive
+                                ? "border-red-500 bg-red-50 text-red-700"
+                                : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800",
+                              "block border-l-4 py-2 pl-3 pr-4 text-base font-medium",
+                            ])}
                           // ariaCurrent={item.current ? #page : #"false"}>
-                          >
+                        >
                           {item.name->React.string}
                         </NavLink>
                       )
-// </DisclosureButton>
+                      // </DisclosureButton>
                       ->React.array}
                     </div>
                     <div className="border-t border-gray-200 pb-3 pt-4">
@@ -282,7 +289,7 @@ let make = (~query) => {
                       <div className="mt-3 space-y-1">
                         {query.viewer
                         ->Option.flatMap(viewer =>
-                          viewer.user->Option.map(user => {
+                          viewer.user->Option.map(_ => {
                             userNavigation
                             ->Array.map(
                               item =>
@@ -291,7 +298,8 @@ let make = (~query) => {
                                   key={item.name}
                                   // \"as"="a"
                                   to={item.href}
-                                  className={({isActive, _}) => "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"}>
+                                  className={({isActive: _, _}) =>
+                                    "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"}>
                                   {item.name->React.string}
                                 </NavLink>,
                               // </DisclosureButton>,

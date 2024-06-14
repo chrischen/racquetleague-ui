@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-14 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:169
+msgid "load More"
+msgstr "もっと読み込む"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:372
+msgid "Loser Points"
+msgstr "敗者ポイント"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:162
+msgid "no players yet"
+msgstr "まだプレイヤーはいません"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:136
+msgid "Player"
+msgstr "プレイヤー"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:359
+msgid "Select Losers"
+msgstr "敗者を選択"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:315
+msgid "Select Winners"
+msgstr "勝者を選択"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:328
+msgid "Winner Points"
+msgstr "勝者ポイント"

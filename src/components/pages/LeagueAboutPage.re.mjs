@@ -3,6 +3,7 @@
 import * as Layout from "../shared/Layout.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
+import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { css, cx } from '@linaria/core'
@@ -12,10 +13,22 @@ import { t } from '@lingui/macro'
 ;
 
 function LeagueAboutPage(props) {
-  JsxRuntime.jsx("a", {
-        children: "Racquet League.",
-        href: "https://www.racquetleague.com"
-      });
+  var params = ReactRouterDom.useParams();
+  var match = params.activitySlug;
+  var description;
+  var exit = 0;
+  if (match !== undefined && match !== "") {
+    description = JsxRuntime.jsx("p", {
+          children: t`The Tokyo Badminton League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events.`
+        });
+  } else {
+    exit = 1;
+  }
+  if (exit === 1) {
+    description = JsxRuntime.jsx("p", {
+          children: t`The Japan Pickleball League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events.`
+        });
+  }
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -33,9 +46,7 @@ function LeagueAboutPage(props) {
                                     }),
                                 JsxRuntime.jsxs(Layout.Container.make, {
                                       children: [
-                                        JsxRuntime.jsx("p", {
-                                              children: t`The Japan Pickleball League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events.`
-                                            }),
+                                        description,
                                         JsxRuntime.jsx("p", {
                                               children: t`Ratings are assigned to individual players just by playing doubles games, even with different partners each game. For doubles ratings we use OpenSkill (a derivative of TrueSkill), and for singles ratings we use Glicko2.`,
                                               className: "mt-5"

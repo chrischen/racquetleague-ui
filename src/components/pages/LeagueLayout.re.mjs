@@ -3,12 +3,10 @@
 import * as Grid from "../vanillaui/atoms/Grid.re.mjs";
 import * as React from "react";
 import * as Footer from "../organisms/Footer.re.mjs";
-import * as Layout from "../shared/Layout.re.mjs";
 import * as LeagueNav from "../organisms/LeagueNav.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import JplLogoPng from "./jpl-logo.png";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -23,8 +21,6 @@ import { t } from '@lingui/macro'
 
 import '../../global/static.css'
 ;
-
-var jplLogo = JplLogoPng;
 
 var convertVariables = LeagueLayoutQuery_graphql.Internal.convertVariables;
 
@@ -84,31 +80,14 @@ function LeagueLayout$Layout(props) {
                                     })),
                             fallback: "..."
                           }),
-                      JsxRuntime.jsx("header", {
-                            children: JsxRuntime.jsx(Layout.Container.make, {
-                                  children: JsxRuntime.jsx("img", {
-                                        className: "mx-auto",
-                                        alt: t`japan pickle league`,
-                                        src: jplLogo
-                                      }),
-                                  className: "py-20"
-                                })
-                          }),
-                      JsxRuntime.jsx("main", {
-                            children: JsxRuntime.jsx(React.Suspense, {
-                                  children: Caml_option.some(props.children),
-                                  fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                            children: "..."
-                                          }))
-                                })
-                          }),
+                      props.children,
                       JsxRuntime.jsx(Footer.make, {})
                     ]
                   })
             });
 }
 
-var Layout$1 = {
+var Layout = {
   ts: ts,
   make: LeagueLayout$Layout
 };
@@ -126,9 +105,8 @@ function LeagueLayout(props) {
 var make = LeagueLayout;
 
 export {
-  jplLogo ,
   Query ,
-  Layout$1 as Layout,
+  Layout ,
   make ,
 }
 /*  Not a pure module */
