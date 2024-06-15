@@ -75,7 +75,7 @@ external jplLogo: string = "default"
 @genType @react.component
 let make = () => {
   open Lingui.Util
-  let ts = Lingui.UtilString.t;
+  let ts = Lingui.UtilString.t
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
   let params: params = Router.useParams()
@@ -88,14 +88,12 @@ let make = () => {
           <div className="py-10">
             <Layout.Container>
               <PageTitle>
-                <h1 className="text-2xl text-center">
-                  {switch params.activitySlug {
-                  | None
-                  | Some("") => <img className="mx-auto" src={jplLogo} alt={ts`japan pickle league`} />
-                  | _ => t`Tokyo Badminton League`
-
-                  }}
-                </h1>
+                {switch params.activitySlug {
+                | None
+                | Some("") =>
+                  <img className="mx-auto" src={jplLogo} alt={ts`japan pickle league`} />
+                | _ => t`Tokyo Badminton League`
+                }}
               </PageTitle>
             </Layout.Container>
           </div>

@@ -46,10 +46,7 @@ function LeaguePage(props) {
                                       children: JsxRuntime.jsx("div", {
                                             children: JsxRuntime.jsx(Layout.Container.make, {
                                                   children: JsxRuntime.jsx(PageTitle.make, {
-                                                        children: JsxRuntime.jsx("h1", {
-                                                              children: tmp,
-                                                              className: "text-2xl text-center"
-                                                            })
+                                                        children: tmp
                                                       })
                                                 }),
                                             className: "py-10"

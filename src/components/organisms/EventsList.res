@@ -94,7 +94,17 @@ module EventItem = {
   let ts = Lingui.UtilString.t
   @react.component
   let make = (~event, ~highlightedLocation: bool=false) => {
-    let {id, title, activity, location, startDate, rsvps, endDate, viewerRsvpStatus} = ItemFragment.use(event)
+    let {
+      id,
+      title,
+      activity,
+      location,
+      startDate,
+      rsvps,
+      maxRsvps,
+      endDate,
+      viewerRsvpStatus,
+    } = ItemFragment.use(event)
     let playersCount =
       rsvps
       ->Option.flatMap(rsvps => rsvps.edges->Option.map(edges => edges->Array.length))
@@ -190,30 +200,36 @@ module EventItem = {
           </div>
         </div>
         {switch viewerRsvpStatus {
-          | Some(Joined) => <div
-          className={Util.cx([
-            "text-green-600 bg-green-400/10 ring-green-400/30",
-            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-          ])}>
-          {t`joined`}
+        | Some(Joined) =>
+          <div
+            className={Util.cx([
+              "text-green-600 bg-green-400/10 ring-green-400/30",
+              "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+            ])}>
+            {t`joined`}
           </div>
-          | Some(Waitlist) => <div
-          className={Util.cx([
-            "text-green-600 bg-green-400/10 ring-green-400/30",
-            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-          ])}>
-          {t`waitlist`}
+        | Some(Waitlist) =>
+          <div
+            className={Util.cx([
+              "text-green-600 bg-green-400/10 ring-green-400/30",
+              "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+            ])}>
+            {t`waitlist`}
           </div>
-          | Some(FutureAddedValue(_)) => React.null
-          | None => React.null
+        | Some(FutureAddedValue(_)) => React.null
+        | None => React.null
         }}
         <div
           className={Util.cx([
             "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
             "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
           ])}>
-          {(playersCount->Int.toString ++ " ")->React.string}
+          {maxRsvps
+          ->Option.map(maxRsvps => (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ ts`players`)->React.string )
+          ->Option.getOr(<>
+            {(playersCount->Int.toString ++ " ")->React.string}
           {plural(playersCount, {one: "player", other: "players"})}
+          </>)}
         </div>
         // <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" ariaHidden="true" />
       </Layout.Container>
@@ -263,7 +279,7 @@ let make = (~events) => {
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
   let (highlightedLocation, setHighlightedLocation) = React.useState(() => "")
-  let navigate = Router.useNavigate();
+  let navigate = Router.useNavigate()
 
   // let onLoadMore = _ =>
   //   startTransition(() => {
@@ -275,8 +291,8 @@ let make = (~events) => {
   let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, ...))
 
   React.useEffect(() => {
+    %raw("window.location.hash = '#highlighted'")
 
-    %raw("window.location.hash = '#highlighted'");
     // navigate("./#highlighted", None);
     // setHighlightedLocations(_ => "asdf"])
     None

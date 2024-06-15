@@ -285,14 +285,18 @@ function EventsList$EventItem(props) {
                             className: "min-w-0 flex-auto"
                           }),
                       tmp,
-                      JsxRuntime.jsxs("div", {
-                            children: [
-                              playersCount.toString(undefined) + " ",
-                              plural(playersCount, {
-                                    one: "player",
-                                    other: "players"
-                                  })
-                            ],
+                      JsxRuntime.jsx("div", {
+                            children: Core__Option.getOr(Core__Option.map(match.maxRsvps, (function (maxRsvps) {
+                                        return playersCount.toString(undefined) + "/" + maxRsvps.toString(undefined) + " " + t`players`;
+                                      })), JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                      children: [
+                                        playersCount.toString(undefined) + " ",
+                                        plural(playersCount, {
+                                              one: "player",
+                                              other: "players"
+                                            })
+                                      ]
+                                    })),
                             className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
                           })
                     ],
