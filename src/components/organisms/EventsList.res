@@ -211,7 +211,7 @@ module EventItem = {
         | Some(Waitlist) =>
           <div
             className={Util.cx([
-              "text-green-600 bg-green-400/10 ring-green-400/30",
+              "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30",
               "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
             ])}>
             {t`waitlist`}

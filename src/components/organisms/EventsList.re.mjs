@@ -195,7 +195,7 @@ function EventsList$EventItem(props) {
               className: Core$1.cx("text-green-600 bg-green-400/10 ring-green-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
             }) : JsxRuntime.jsx("div", {
               children: t`waitlist`,
-              className: Core$1.cx("text-green-600 bg-green-400/10 ring-green-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
+              className: Core$1.cx("text-yellow-600 bg-yellow-400/10 ring-yellow-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
             })
     ) : null;
   return JsxRuntime.jsx("li", {

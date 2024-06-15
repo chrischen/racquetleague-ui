@@ -31,7 +31,7 @@ async function loader(param) {
   }
   return ReactRouterDom.defer({
               data: LeagueEventPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
-                    activitySlug: "badminton",
+                    activitySlug: "pickleball",
                     after: after,
                     before: before,
                     eventId: params.eventId,
