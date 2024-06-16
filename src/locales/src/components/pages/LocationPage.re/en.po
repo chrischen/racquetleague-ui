@@ -33,7 +33,7 @@ msgstr ""
 #~ msgid "Futsal"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:365
+#: src/components/organisms/EventsList.re.mjs:369
 msgid "...load past events"
 msgstr ""
 
@@ -80,7 +80,7 @@ msgstr ""
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:291
+#: src/components/organisms/EventsList.re.mjs:294
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 #~ msgid "Joined"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:409
+#: src/components/organisms/EventsList.re.mjs:413
 msgid "load more"
 msgstr ""
 
@@ -115,6 +115,10 @@ msgstr ""
 #: src/components/pages/LocationPage.re.mjs:69
 #~ msgid "Page not found"
 #~ msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:290
+msgid "players"
+msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:347
 #~ msgid "public events"

@@ -787,3 +787,7 @@ msgstr ""
 #: src/components/pages/LeagueRankingsPage.re.mjs:64
 msgid "To participate, please join the badminton events here:"
 msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:290
+msgid "players"
+msgstr ""
