@@ -271,7 +271,7 @@ let make = () => {
                 <div
                   className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                   <div
-                    className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
+                    className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
                     <Link
                       to={"/events/update/" ++
                       event.id ++
@@ -290,7 +290,7 @@ let make = () => {
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div
-                className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
+                className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
                 {viewer.user
                 ->Option.flatMap(_ =>
                   activity->Option.map(
@@ -309,7 +309,7 @@ let make = () => {
                 <div
                   className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
                   <div
-                    className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8">
+                    className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8">
                     <h2 className="text-base font-semibold leading-6 text-gray-900">
                       {t`details`}
                     </h2>
@@ -370,7 +370,7 @@ let make = () => {
                   {event.location
                   ->Option.map(location =>
                     <div
-                      className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8">
+                      className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8">
                       <h2 className="text-base font-semibold leading-6 text-gray-900">
                         {t`media`}
                       </h2>

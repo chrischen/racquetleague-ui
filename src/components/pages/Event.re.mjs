@@ -214,7 +214,7 @@ function $$Event(props) {
                                                                                                         })), ""),
                                                                                               children: t`edit event`
                                                                                             }),
-                                                                                        className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
+                                                                                        className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
                                                                                       }),
                                                                                   className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
                                                                                 }),
@@ -234,7 +234,7 @@ function $$Event(props) {
                                                                                                         });
                                                                                             }));
                                                                               })), t`login to subscribe to ${activityName} events`),
-                                                                    className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
+                                                                    className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
                                                                   }),
                                                               className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
                                                             }),
@@ -322,7 +322,7 @@ function $$Event(props) {
                                                                                                             });
                                                                                                 })), null)
                                                                                     ],
-                                                                                    className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8"
+                                                                                    className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8"
                                                                                   }),
                                                                               Core__Option.getOr(Core__Option.map($$event.location, (function ($$location) {
                                                                                           return JsxRuntime.jsxs("div", {
@@ -335,7 +335,7 @@ function $$Event(props) {
                                                                                                               media: $$location.fragmentRefs
                                                                                                             })
                                                                                                       ],
-                                                                                                      className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8"
+                                                                                                      className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8"
                                                                                                     });
                                                                                         })), null)
                                                                             ],
