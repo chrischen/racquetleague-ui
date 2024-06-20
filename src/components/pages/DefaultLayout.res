@@ -31,7 +31,7 @@ module Layout = {
         <React.Suspense fallback={"..."->React.string}>
           <Nav query={query} />
         </React.Suspense>
-        <React.Suspense fallback={<Layout.Container>{"..."->React.string}</Layout.Container>}> {children} </React.Suspense>
+        {children}
         <Footer />
       </Grid>
     </GlobalQuery.Provider>

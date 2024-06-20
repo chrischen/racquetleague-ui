@@ -53,7 +53,11 @@ module UpdateMutation = %relay(`
         id
         title
         details
+        maxRsvps
         activity {
+          id
+        }
+        location {
           id
         }
         startDate

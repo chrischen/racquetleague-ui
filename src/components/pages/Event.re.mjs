@@ -22,6 +22,7 @@ import * as ReactRouterDom from "react-router-dom";
 import * as SubscribeActivity from "../molecules/SubscribeActivity.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventQuery_graphql from "../../__generated__/EventQuery_graphql.re.mjs";
+import * as ReactHelmetAsync from "react-helmet-async";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
@@ -103,10 +104,30 @@ function $$Event(props) {
                     var activityName = Core__Option.getOr(Core__Option.flatMap(activity, (function (activity) {
                                 return Core__Option.map(activity.name, td);
                               })), "---");
+                    var pageTitle = Core__Option.getOr(Core__Option.flatMap(activity, (function (a) {
+                                return Core__Option.map(a.name, (function (name) {
+                                              return Core.i18n._(name);
+                                            }));
+                              })), "") + " / " + Core__Option.getOr(title, "") + Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
+                                return " / " + duration;
+                              })), "") + " @ " + Core__Option.getOr(Core__Option.flatMap($$location, (function ($$location) {
+                                return $$location.name;
+                              })), "?");
                     return JsxRuntime.jsx(WaitForMessages.make, {
                                 children: (function () {
                                     return JsxRuntime.jsxs("main", {
                                                 children: [
+                                                  JsxRuntime.jsxs(ReactHelmetAsync.Helmet, {
+                                                        children: [
+                                                          JsxRuntime.jsx("title", {
+                                                                children: pageTitle
+                                                              }),
+                                                          JsxRuntime.jsx("meta", {
+                                                                content: pageTitle,
+                                                                property: "og:title"
+                                                              })
+                                                        ]
+                                                      }),
                                                   JsxRuntime.jsxs("header", {
                                                         children: [
                                                           JsxRuntime.jsxs("div", {

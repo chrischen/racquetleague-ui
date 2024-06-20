@@ -109,18 +109,38 @@ let make = () => {
       let hours = Js.Math.floor_float(duration /. 60.)
       let minutes = mod(duration->Float.toInt, 60)
       if minutes == 0 {
-        t`${hours->Float.toString} hours`
+        ts`${hours->Float.toString} hours`
       } else {
-        t`${hours->Float.toString} hours and ${minutes->Int.toString} minutes`
+        ts`${hours->Float.toString} hours and ${minutes->Int.toString} minutes`
       }
     })
 
     let activityName =
       activity->Option.flatMap(activity => activity.name->Option.map(td))->Option.getOr("---")
 
+    let pageTitle = {
+      activity
+      ->Option.flatMap(a => a.name->Option.map(name => td(name)))
+      ->Option.getOr("") ++
+      " / " ++
+      title->Option.getOr("") ++
+      duration
+      ->Option.map(duration => " / " ++ duration)
+      ->Option.getOr("") ++
+      " @ " ++
+      location
+      ->Option.flatMap(location => location.name)
+      ->Option.getOr("?")
+    }
+
     <WaitForMessages>
       {() =>
         <main>
+          <Util.Helmet>
+            <title> {pageTitle->React.string} </title>
+            <meta property="og:title" content=pageTitle />
+            // <meta property="og:description" content="LINE is a new communication app" />
+          </Util.Helmet>
           <header className="relative isolate pt-4">
             <div className="absolute inset-0 -z-10 overflow-hidden" ariaHidden=true>
               <div
@@ -170,7 +190,7 @@ let make = () => {
                       {duration
                       ->Option.map(duration => <>
                         {" / "->React.string}
-                        {duration}
+                        {duration->React.string}
                       </>)
                       ->Option.getOr(React.null)}
 
