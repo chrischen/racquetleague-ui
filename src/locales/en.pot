@@ -791,3 +791,23 @@ msgstr ""
 #: src/components/organisms/EventsList.re.mjs:290
 msgid "players"
 msgstr ""
+
+#: src/components/pages/CreateLocationEvent.re.mjs:262
+msgid "All Level"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:194
+msgid "edit event"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:280
+msgid "good luck, have fun"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:289
+msgid "notes"
+msgstr ""
+
+#: src/components/pages/UpdateLocationEventPage.re.mjs:64
+msgid "Event or Location doesn't exist."
+msgstr ""

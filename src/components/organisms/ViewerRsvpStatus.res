@@ -9,18 +9,28 @@ let make = (~onJoin, ~onLeave, ~joined: bool) => {
   | Some(_) =>
     joined
       ? <>
-          <a href="#" onClick={onLeave}>
+          <a
+            href="#"
+            onClick={e => {
+              e->JsxEventU.Mouse.preventDefault
+              onLeave()
+            }}>
             {"⭠"->React.string}
             {t`leave event`}
           </a>
         </>
-      : <a href="#" onClick={onJoin}>
+      : <a
+          href="#"
+          onClick={e => {
+            e->JsxEventU.Mouse.preventDefault
+            onJoin()
+          }}>
           {"⭢"->React.string}
           {t`join event`}
         </a>
   | None =>
     <>
-      <em>{t`login to join the event`}</em>
+      <em> {t`login to join the event`} </em>
       {" "->React.string}
       <LoginLink />
     </>

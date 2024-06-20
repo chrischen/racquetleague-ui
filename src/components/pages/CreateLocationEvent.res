@@ -12,9 +12,49 @@ module Mutation = %relay(`
         __typename
         id
         title
+        details
         activity {
+          id
           name
           slug
+        }
+        startDate
+        endDate
+        listed
+      }
+    }
+  }
+`)
+
+module EventFragment = %relay(`
+  fragment CreateLocationEvent_event on Event {
+    id
+    title
+    details
+    maxRsvps
+    activity {
+      id
+      name
+      slug
+    }
+    startDate
+    endDate
+    listed
+  }
+`)
+module UpdateMutation = %relay(`
+ mutation CreateLocationEventUpdateMutation(
+    $eventId: ID!,
+    $input: CreateEventInput!
+  ) {
+    updateEvent(eventId: $eventId, input: $input) {
+      event {
+        __typename
+        id
+        title
+        details
+        activity {
+          id
         }
         startDate
         endDate
@@ -69,21 +109,46 @@ let schema = Zod.z->Zod.object(
   ),
 )
 
+type action = Create | Update(CreateLocationEvent_event_graphql.Types.fragment)
+let makeAction = (event: option<CreateLocationEvent_event_graphql.Types.fragment>) =>
+  switch event {
+  | Some(event) => Update(event)
+  | None => Create
+  }
+
 @react.component
-let make = (~location, ~query) => {
+let make = (~event=?, ~location, ~query) => {
   open Lingui.Util
   let td = Lingui.UtilString.dynamic
   open Form
+  let event = event->Option.map(event => EventFragment.use(event))
   let location = Fragment.use(location)
   let query = ActivitiesFragment.use(query)
 
   let (commitMutationCreate, _) = Mutation.use()
+  let (commitMutationUpdate, _) = UpdateMutation.use()
   let navigate = Router.useNavigate()
+
+  let action = makeAction(event)
 
   let {register, handleSubmit, formState, getFieldState, setValue, watch} = useFormOfInputs(
     ~options={
       resolver: Resolver.zodResolver(schema),
-      defaultValues: {listed: false},
+      defaultValues: event
+      ->Option.map((event): defaultValuesOfInputs => {
+        title: event.title->Option.getOr(""),
+        activity: event.activity->Option.map(a => a.id)->Option.getOr(""),
+        maxRsvps: event.maxRsvps->Option.map(Int.toFloat),
+        startDate: event.startDate
+        ->Option.map(d => d->Util.Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:00"))
+        ->Option.getOr(""),
+        endTime: event.endDate
+        ->Option.map(d => d->Util.Datetime.toDate->DateFns.formatWithPattern("HH:mm"))
+        ->Option.getOr(""),
+        details: event.details,
+        listed: event.listed->Option.getOr(false),
+      })
+      ->Option.getOr({listed: false}),
     },
   )
 
@@ -98,56 +163,85 @@ let make = (~location, ~query) => {
     ->Option.getOr(false)
 
   React.useEffect(() => {
-    // @NOTE: Date.make runs an effect therefore cannot be part of the render
-    let now = Js.Date.make()
-    let currentISODate =
-      Js.Date.fromFloat(now->Js.Date.getTime -. now->Js.Date.getTimezoneOffset *. 60000.)
-      ->Js.Date.toISOString
-      ->String.slice(~start=0, ~end=16)
+    switch action {
+    | Create =>
+      // @NOTE: Date.make runs an effect therefore cannot be part of the render
+      let now = Js.Date.make()
+      let currentISODate =
+        Js.Date.fromFloat(now->Js.Date.getTime -. now->Js.Date.getTimezoneOffset *. 60000.)
+        ->Js.Date.toISOString
+        ->String.slice(~start=0, ~end=16)
 
-    let currentDate = DateFns.parseISO(currentISODate)
-    let defaultStartDate = currentDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:00")
+      let currentDate = DateFns.parseISO(currentISODate)
+      let defaultStartDate = currentDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:00")
 
-    let defaultEndTime =
-      defaultStartDate
-      ->DateFns.parseISO
-      ->DateFns.addHours(2.0)
-      ->DateFns.formatWithPattern("HH:mm")
-    setValue(StartDate, Value(defaultStartDate))
-    setValue(EndTime, Value(defaultEndTime))
+      let defaultEndTime =
+        defaultStartDate
+        ->DateFns.parseISO
+        ->DateFns.addHours(2.0)
+        ->DateFns.formatWithPattern("HH:mm")
+      setValue(StartDate, Value(defaultStartDate))
+      setValue(EndTime, Value(defaultEndTime))
+    | Update(_) => ()
+    }
 
     None
   }, [])
 
   let onSubmit = (data: inputs) => {
-    let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-      "client:root"->RescriptRelay.makeDataId,
-      "EventsListFragment_events",
-      (),
-    )
+    switch action {
+    | Create =>
+      let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+        "client:root"->RescriptRelay.makeDataId,
+        "EventsListFragment_events",
+        (),
+      )
 
-    let startDate = data.startDate->DateFns.parseISO
-    let endDate = DateFns2.parse(data.endTime, "HH:mm", startDate)
-    commitMutationCreate(
-      ~variables={
-        input: {
-          title: data.title,
-          activity: data.activity,
-          maxRsvps: ?data.maxRsvps->Option.map(Float.toInt),
-          details: data.details->Option.getOr(""),
-          locationId: location.id,
-          startDate: startDate->Util.Datetime.fromDate,
-          endDate: endDate->Util.Datetime.fromDate,
-          listed: data.listed,
+      let startDate = data.startDate->DateFns.parseISO
+      let endDate = DateFns2.parse(data.endTime, "HH:mm", startDate)
+      commitMutationCreate(
+        ~variables={
+          input: {
+            title: data.title,
+            activity: data.activity,
+            maxRsvps: ?data.maxRsvps->Option.map(Float.toInt),
+            details: data.details->Option.getOr(""),
+            locationId: location.id,
+            startDate: startDate->Util.Datetime.fromDate,
+            endDate: endDate->Util.Datetime.fromDate,
+            listed: data.listed,
+          },
+          connections: [connectionId],
         },
-        connections: [connectionId],
-      },
-      ~onCompleted=(response, _errors) => {
-        response.createEvent.event
-        ->Option.map(event => navigate("/events/" ++ event.id, None))
-        ->ignore
-      },
-    )->RescriptRelay.Disposable.ignore
+        ~onCompleted=(response, _errors) => {
+          response.createEvent.event
+          ->Option.map(event => navigate("/events/" ++ event.id, None))
+          ->ignore
+        },
+      )->RescriptRelay.Disposable.ignore
+    | Update(event) => {
+        let startDate = data.startDate->DateFns.parseISO
+        let endDate = DateFns2.parse(data.endTime, "HH:mm", startDate)
+        commitMutationUpdate(
+          ~variables={
+            eventId: event.id,
+            input: {
+              title: data.title,
+              activity: data.activity,
+              maxRsvps: ?data.maxRsvps->Option.map(Float.toInt),
+              details: data.details->Option.getOr(""),
+              locationId: location.id,
+              startDate: startDate->Util.Datetime.fromDate,
+              endDate: endDate->Util.Datetime.fromDate,
+              listed: data.listed,
+            },
+          },
+          ~onCompleted=(response, _errors) => {
+            navigate("/events/" ++ event.id, None)
+          },
+        )->RescriptRelay.Disposable.ignore
+      }
+    }
   }
   // let onSubmit = data => Js.log(data)
 
@@ -169,7 +263,7 @@ let make = (~location, ~query) => {
                     label={t`title`}
                     id="title"
                     name="title"
-                    placeholder={ts`All Level Badminton`}
+                    placeholder={ts`All Level`}
                     register={register(Title)}
                   />
                   <p>
@@ -236,7 +330,7 @@ let make = (~location, ~query) => {
                       {t`edit the location to edit the details for this location.`}
                     </Router.Link>}
                     disabled=true
-                    defaultValue={location.details->Option.getOr("")}
+                    value={location.details->Option.getOr("")}
                   />
                 </div>
                 <div className="col-span-full">

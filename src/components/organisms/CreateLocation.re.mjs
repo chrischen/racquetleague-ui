@@ -11,6 +11,7 @@ import * as RelayRuntime from "relay-runtime";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
+import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
@@ -79,14 +80,17 @@ var schema = Zod.object({
     });
 
 function CreateLocation(props) {
+  var onClose = props.onClose;
   var onCancel = props.onCancel;
   var match = use();
   var commitMutationCreate = match[0];
+  var navigate = ReactRouterDom.useNavigate();
   var match$1 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: {}
       });
   var errors = match$1.formState.errors;
+  var reset = match$1.reset;
   var handleSubmit = match$1.handleSubmit;
   var register = match$1.register;
   var onSubmit = function (data) {
@@ -108,7 +112,13 @@ function CreateLocation(props) {
             links: links,
             name: data.name
           }
-        }, undefined, undefined, undefined, undefined, undefined, undefined);
+        }, undefined, undefined, undefined, (function (response, _errors) {
+            Core__Option.map(response.createLocation.location, (function ($$location) {
+                    navigate($$location.id, undefined);
+                  }));
+            reset(undefined);
+            onClose();
+          }), undefined, undefined);
   };
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {

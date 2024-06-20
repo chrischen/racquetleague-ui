@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:30
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:35
 msgid "join event"
 msgstr ""
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:20
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:22
 msgid "leave event"
 msgstr ""
 
@@ -25,10 +25,11 @@ msgstr ""
 #~ msgid "login"
 #~ msgstr ""
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:40
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
 msgid "login to join the event"
 msgstr ""
 
-#: src/components/molecules/LoginLink.re.mjs:21
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr ""

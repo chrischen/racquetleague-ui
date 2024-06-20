@@ -226,90 +226,96 @@ let make = (~query) => {
                   // </div>
                   // Large screen nav
                   <DisclosurePanel className="sm:hidden">
-                    <div className="space-y-1 pb-3 pt-2">
-                      {navigation
-                      ->Array.map(item =>
-                        // <DisclosureButton
-                        <NavLink
-                          key={item.name}
-                          // \"as"="a"
-                          // href={item.href}
-                          to={item.href}
-                          className={({isActive, _}) =>
-                            Util.cx([
-                              isActive
-                                ? "border-red-500 bg-red-50 text-red-700"
-                                : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800",
-                              "block border-l-4 py-2 pl-3 pr-4 text-base font-medium",
-                            ])}
-                          // ariaCurrent={item.current ? #page : #"false"}>
-                        >
-                          {item.name->React.string}
-                        </NavLink>
-                      )
-                      // </DisclosureButton>
-                      ->React.array}
-                    </div>
-                    <div className="border-t border-gray-200 pb-3 pt-4">
-                      {query.viewer
-                      ->Option.flatMap(viewer =>
-                        viewer.user->Option.map(user =>
-                          <div className="flex items-center px-4">
-                            <div className="flex-shrink-0">
-                              {user.picture
-                              ->Option.map(
-                                picture =>
-                                  <img
-                                    className="h-10 w-10 rounded-full"
-                                    src=picture
-                                    alt={ts`Profile picture`}
-                                  />,
-                              )
-                              ->Option.getOr(React.null)}
-                            </div>
-                            <div className="ml-3">
-                              <div className="text-base font-medium text-gray-800">
-                                {user.lineUsername->Option.getOr("")->React.string}
-                              </div>
-                              <div className="text-sm font-medium text-gray-500">
-                                {""->React.string}
-                              </div>
-                            </div>
-                            <button
-                              type_="button"
-                              className="relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
-                              <span className="absolute -inset-1.5" />
-                              <span className="sr-only"> {t`View notifications`} </span>
-                              <BellIcon className="h-6 w-6" \"aria-hidden"="true" />
-                            </button>
-                          </div>
+                    {({DisclosurePanel.close: close}) => <>
+                      <div className="space-y-1 pb-3 pt-2">
+                        {navigation
+                        ->Array.map(item =>
+                          // <DisclosureButton
+                          <NavLink
+                            key={item.name}
+                            // \"as"="a"
+                            // href={item.href}
+                            onClick={_ => {
+                              close()
+                            }}
+                            to={item.href}
+                            className={({isActive, _}) =>
+                              Util.cx([
+                                isActive
+                                  ? "border-red-500 bg-red-50 text-red-700"
+                                  : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800",
+                                "block border-l-4 py-2 pl-3 pr-4 text-base font-medium",
+                              ])}
+                            // ariaCurrent={item.current ? #page : #"false"}>
+                          >
+                            {item.name->React.string}
+                          </NavLink>
                         )
-                      )
-                      ->Option.getOr(React.null)}
-                      <div className="mt-3 space-y-1">
+                        // </DisclosureButton>
+                        ->React.array}
+                      </div>
+                      <div className="border-t border-gray-200 pb-3 pt-4">
                         {query.viewer
                         ->Option.flatMap(viewer =>
-                          viewer.user->Option.map(_ => {
-                            userNavigation
-                            ->Array.map(
-                              item =>
-                                // <DisclosureButton
-                                <NavLink
-                                  key={item.name}
-                                  // \"as"="a"
-                                  to={item.href}
-                                  className={({isActive: _, _}) =>
-                                    "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"}>
-                                  {item.name->React.string}
-                                </NavLink>,
-                              // </DisclosureButton>,
-                            )
-                            ->React.array
-                          })
+                          viewer.user->Option.map(user =>
+                            <div className="flex items-center px-4">
+                              <div className="flex-shrink-0">
+                                {user.picture
+                                ->Option.map(
+                                  picture =>
+                                    <img
+                                      className="h-10 w-10 rounded-full"
+                                      src=picture
+                                      alt={ts`Profile picture`}
+                                    />,
+                                )
+                                ->Option.getOr(React.null)}
+                              </div>
+                              <div className="ml-3">
+                                <div className="text-base font-medium text-gray-800">
+                                  {user.lineUsername->Option.getOr("")->React.string}
+                                </div>
+                                <div className="text-sm font-medium text-gray-500">
+                                  {""->React.string}
+                                </div>
+                              </div>
+                              <button
+                                type_="button"
+                                className="relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                <span className="absolute -inset-1.5" />
+                                <span className="sr-only"> {t`View notifications`} </span>
+                                <BellIcon className="h-6 w-6" \"aria-hidden"="true" />
+                              </button>
+                            </div>
+                          )
                         )
-                        ->Option.getOr(<LoginLink />)}
+                        ->Option.getOr(React.null)}
+                        <div className="mt-3 space-y-1">
+                          {query.viewer
+                          ->Option.flatMap(viewer =>
+                            viewer.user->Option.map(_ => {
+                              userNavigation
+                              ->Array.map(
+                                item =>
+                                  // <DisclosureButton
+                                  <NavLink
+                                    key={item.name}
+                                    // \"as"="a"
+                                    to={item.href}
+                                    onClick={_ => close()}
+                                    className={({isActive: _, _}) =>
+                                      "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"}>
+                                    {item.name->React.string}
+                                  </NavLink>,
+                                // </DisclosureButton>,
+                              )
+                              ->React.array
+                            })
+                          )
+                          ->Option.getOr(<LoginLink />)}
+                        </div>
                       </div>
-                    </div>
+                    </>}
                   </DisclosurePanel>
                 </Layout.Container>}
             </Disclosure>

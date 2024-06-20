@@ -5,7 +5,9 @@ module Types = {
   @@warning("-30")
 
   type fragment = {
+    @live id: string,
     lineUsername: option<string>,
+    picture: option<string>,
   }
 }
 
@@ -46,6 +48,20 @@ let node: operationType = %raw(json` {
   "metadata": null,
   "name": "EventRsvpUser_user",
   "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "id",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "picture",
+      "storageKey": null
+    },
     {
       "alias": null,
       "args": null,

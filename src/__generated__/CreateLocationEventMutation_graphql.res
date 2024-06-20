@@ -7,6 +7,7 @@ module Types = {
   @live type createEventInput = RelaySchemaAssets_graphql.input_CreateEventInput
   @live
   type rec response_createEvent_event_activity = {
+    @live id: string,
     name: option<string>,
     slug: option<string>,
   }
@@ -14,6 +15,7 @@ module Types = {
   and response_createEvent_event = {
     @live __typename: [ | #Event],
     activity: option<response_createEvent_event_activity>,
+    details: option<string>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
     listed: option<bool>,
@@ -124,56 +126,87 @@ v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "__typename",
+  "name": "id",
   "storageKey": null
 },
 v3 = {
   "alias": null,
   "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-},
-v4 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "title",
-  "storageKey": null
-},
-v5 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-},
-v6 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "slug",
-  "storageKey": null
-},
-v7 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "startDate",
-  "storageKey": null
-},
-v8 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "endDate",
-  "storageKey": null
-},
-v9 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "listed",
+  "concreteType": "Event",
+  "kind": "LinkedField",
+  "name": "event",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "__typename",
+      "storageKey": null
+    },
+    (v2/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "title",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "details",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Activity",
+      "kind": "LinkedField",
+      "name": "activity",
+      "plural": false,
+      "selections": [
+        (v2/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "name",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "slug",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "startDate",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "endDate",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "listed",
+      "storageKey": null
+    }
+  ],
   "storageKey": null
 };
 return {
@@ -191,36 +224,7 @@ return {
         "name": "createEvent",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "Event",
-            "kind": "LinkedField",
-            "name": "event",
-            "plural": false,
-            "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/),
-              (v4/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Activity",
-                "kind": "LinkedField",
-                "name": "activity",
-                "plural": false,
-                "selections": [
-                  (v5/*: any*/),
-                  (v6/*: any*/)
-                ],
-                "storageKey": null
-              },
-              (v7/*: any*/),
-              (v8/*: any*/),
-              (v9/*: any*/)
-            ],
-            "storageKey": null
-          }
+          (v3/*: any*/)
         ],
         "storageKey": null
       }
@@ -242,37 +246,7 @@ return {
         "name": "createEvent",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "Event",
-            "kind": "LinkedField",
-            "name": "event",
-            "plural": false,
-            "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/),
-              (v4/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Activity",
-                "kind": "LinkedField",
-                "name": "activity",
-                "plural": false,
-                "selections": [
-                  (v5/*: any*/),
-                  (v6/*: any*/),
-                  (v3/*: any*/)
-                ],
-                "storageKey": null
-              },
-              (v7/*: any*/),
-              (v8/*: any*/),
-              (v9/*: any*/)
-            ],
-            "storageKey": null
-          },
+          (v3/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -300,12 +274,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "53ff07b442bc2f61af72ae7c8aae9c3a",
+    "cacheID": "21fe6fdd852024d872a78bd417a1688d",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      activity {\n        name\n        slug\n        id\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
   }
 };
 })() `)

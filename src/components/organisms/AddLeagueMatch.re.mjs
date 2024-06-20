@@ -5,6 +5,7 @@ import * as Form from "../molecules/forms/Form.re.mjs";
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
@@ -110,7 +111,19 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                           children: [
                             JsxRuntime.jsx("ul", {
                                   children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
-                                        children: players.length !== 0 ? players.map(function (edge, i) {
+                                        children: players.length !== 0 ? players.toSorted(function (a, b) {
+                                                  var userA = Core__Option.map(a.user, (function (user) {
+                                                          return Core__Option.getOr(user.rating, 0);
+                                                        }));
+                                                  var userB = Core__Option.map(b.user, (function (user) {
+                                                          return Core__Option.getOr(user.rating, 0);
+                                                        }));
+                                                  if (Caml_obj.lessthan(userA, userB)) {
+                                                    return 1;
+                                                  } else {
+                                                    return -1;
+                                                  }
+                                                }).map(function (edge, i) {
                                                 return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
                                                                   return JsxRuntime.jsxs(FramerMotion.motion.li, {
                                                                               className: "mt-4 flex w-full flex-none gap-x-4 px-6",
@@ -139,13 +152,19 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                                                                                       className: "flex-none"
                                                                                     }),
                                                                                 JsxRuntime.jsx("div", {
-                                                                                      children: JsxRuntime.jsx("a", {
-                                                                                            children: JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                  user: user.fragmentRefs,
-                                                                                                  highlight: selected.findIndex(function (id) {
-                                                                                                        return id === user.id;
-                                                                                                      }) >= 0
-                                                                                                }),
+                                                                                      children: JsxRuntime.jsxs("a", {
+                                                                                            children: [
+                                                                                              JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                                                    user: user.fragmentRefs,
+                                                                                                    highlight: selected.findIndex(function (id) {
+                                                                                                          return id === user.id;
+                                                                                                        }) >= 0
+                                                                                                  }),
+                                                                                              " - ",
+                                                                                              Core__Option.getOr(Core__Option.map(user.rating, (function (__x) {
+                                                                                                          return __x.toFixed(2);
+                                                                                                        })), "0.0")
+                                                                                            ],
                                                                                             href: "#",
                                                                                             onClick: (function (e) {
                                                                                                 e.preventDefault();

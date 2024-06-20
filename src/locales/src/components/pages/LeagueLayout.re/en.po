@@ -33,7 +33,8 @@ msgstr ""
 #~ msgid "japan pickle league"
 #~ msgstr ""
 
-#: src/components/molecules/LoginLink.re.mjs:21
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr ""
 
@@ -50,7 +51,7 @@ msgid "Open user menu"
 msgstr ""
 
 #: src/components/organisms/LeagueNav.re.mjs:206
-#: src/components/organisms/LeagueNav.re.mjs:295
+#: src/components/organisms/LeagueNav.re.mjs:301
 msgid "Profile picture"
 msgstr ""
 
@@ -63,7 +64,7 @@ msgid "Rankings"
 msgstr ""
 
 #: src/components/organisms/LeagueNav.re.mjs:175
-#: src/components/organisms/LeagueNav.re.mjs:320
+#: src/components/organisms/LeagueNav.re.mjs:326
 msgid "View notifications"
 msgstr ""
 

@@ -38,44 +38,49 @@ let make = (~locations) => {
   let (showCreateLocation, setShowCreateLocation) = React.useState(() => false)
 
   <WaitForMessages>
-    {() => <Layout.Container>
-    <Grid>
-      <FormSection
-        title={t`event location`}
-        description={t`choose the location where this event will be held.`}>
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
-          <ul>
-            {locations
-            ->Array.map(node =>
-              <li key={node.id}>
-                <Router.Link to={node.id->Util.encodeURIComponent}>
-                  {node.name->Option.getOr("?")->React.string}
-                </Router.Link>
-              </li>
-            )
-            ->React.array}
-          </ul>
-          <a href="#" onClick={_ => setShowCreateLocation(prev => !prev)}>
-          {(showCreateLocation ? "- " : "+ ")->React.string}{t`add new location`}
-          </a>
-          <FramerMotion.AnimatePresence mode="sync">
-            {showCreateLocation
-              ? <FramerMotion.Div
-                  className=""
-                  style={opacity: 1., y: 0.}
-                  initial={opacity: 0., scale: 1., y: -50.}
-                  animate={opacity: 1., scale: 1., y: 0.00}
-                  exit={opacity: 0., scale: 1., y: -50.}>
-                  <CreateLocation onCancel={_ => setShowCreateLocation(_ => false)} />
-                </FramerMotion.Div>
-              : React.null}
+    {() =>
+      <Layout.Container>
+        <Grid>
+          <FormSection
+            title={t`event location`}
+            description={t`choose the location where this event will be held.`}>
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
+              <ul>
+                {locations
+                ->Array.map(node =>
+                  <li key={node.id}>
+                    <Router.Link to={node.id->Util.encodeURIComponent}>
+                      {node.name->Option.getOr("?")->React.string}
+                    </Router.Link>
+                  </li>
+                )
+                ->React.array}
+              </ul>
+              <a href="#" onClick={_ => setShowCreateLocation(prev => !prev)}>
+                {(showCreateLocation ? "- " : "+ ")->React.string}
+                {t`add new location`}
+              </a>
+              <FramerMotion.AnimatePresence mode="sync">
+                {showCreateLocation
+                  ? <FramerMotion.Div
+                      className=""
+                      style={opacity: 1., y: 0.}
+                      initial={opacity: 0., scale: 1., y: -50.}
+                      animate={opacity: 1., scale: 1., y: 0.00}
+                      exit={opacity: 0., scale: 1., y: -50.}>
+                      <CreateLocation
+                        onCancel={_ => setShowCreateLocation(_ => false)}
+                        onClose={() => setShowCreateLocation(_ => false)}
+                      />
+                    </FramerMotion.Div>
+                  : React.null}
+              </FramerMotion.AnimatePresence>
+            </div>
+          </FormSection>
+          <FramerMotion.AnimatePresence mode="wait">
+            <Router.Outlet />
           </FramerMotion.AnimatePresence>
-        </div>
-      </FormSection>
-      <FramerMotion.AnimatePresence mode="wait">
-        <Router.Outlet />
-      </FramerMotion.AnimatePresence>
-      </Grid>
-    </Layout.Container>}
+        </Grid>
+      </Layout.Container>}
   </WaitForMessages>
 }

@@ -9,6 +9,7 @@ module Types = {
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvpUser_user]>,
   }
   and fragment_rsvps_edges_node = {
+    rating: option<float>,
     user: option<fragment_rsvps_edges_node_user>,
   }
   and fragment_rsvps_edges = {
@@ -201,6 +202,13 @@ return {
                       "name": "EventRsvpUser_user"
                     }
                   ],
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "rating",
                   "storageKey": null
                 },
                 {

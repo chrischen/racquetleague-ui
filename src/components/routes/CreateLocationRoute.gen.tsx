@@ -23,6 +23,6 @@ export type LoaderArgs_t = {
   readonly request: Router_RouterRequest_t
 };
 
-export const Component: React.ComponentType<{ readonly onCancel: (_1:JsxEventU_Mouse_t) => void }> = CreateLocationRouteJS.Component as any;
+export const Component: React.ComponentType<{ readonly onCancel: (_1:JsxEventU_Mouse_t) => void; readonly onClose: () => void }> = CreateLocationRouteJS.Component as any;
 
 export const loader: <T1>(param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<(undefined | T1)>)> = CreateLocationRouteJS.loader as any;

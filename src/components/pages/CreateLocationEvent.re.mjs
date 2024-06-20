@@ -23,9 +23,11 @@ import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
+import * as CreateLocationEvent_event_graphql from "../../__generated__/CreateLocationEvent_event_graphql.re.mjs";
 import * as CreateLocationEventMutation_graphql from "../../__generated__/CreateLocationEventMutation_graphql.re.mjs";
 import * as CreateLocationEvent_location_graphql from "../../__generated__/CreateLocationEvent_location_graphql.re.mjs";
 import * as CreateLocationEvent_activities_graphql from "../../__generated__/CreateLocationEvent_activities_graphql.re.mjs";
+import * as CreateLocationEventUpdateMutation_graphql from "../../__generated__/CreateLocationEventUpdateMutation_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -43,16 +45,28 @@ RescriptRelay_Mutation.commitMutation(convertVariables, CreateLocationEventMutat
 
 var use = RescriptRelay_Mutation.useMutation(convertVariables, CreateLocationEventMutation_graphql.node, convertResponse, convertWrapRawResponse);
 
-var convertFragment = CreateLocationEvent_location_graphql.Internal.convertFragment;
+var convertFragment = CreateLocationEvent_event_graphql.Internal.convertFragment;
 
-function use$1(fRef) {
-  return RescriptRelay_Fragment.useFragment(CreateLocationEvent_location_graphql.node, convertFragment, fRef);
-}
+var convertVariables$1 = CreateLocationEventUpdateMutation_graphql.Internal.convertVariables;
 
-var convertFragment$1 = CreateLocationEvent_activities_graphql.Internal.convertFragment;
+var convertResponse$1 = CreateLocationEventUpdateMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = CreateLocationEventUpdateMutation_graphql.Internal.convertWrapRawResponse;
+
+RescriptRelay_Mutation.commitMutation(convertVariables$1, CreateLocationEventUpdateMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, CreateLocationEventUpdateMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var convertFragment$1 = CreateLocationEvent_location_graphql.Internal.convertFragment;
 
 function use$2(fRef) {
-  return RescriptRelay_Fragment.useFragment(CreateLocationEvent_activities_graphql.node, convertFragment$1, fRef);
+  return RescriptRelay_Fragment.useFragment(CreateLocationEvent_location_graphql.node, convertFragment$1, fRef);
+}
+
+var convertFragment$2 = CreateLocationEvent_activities_graphql.Internal.convertFragment;
+
+function use$3(fRef) {
+  return RescriptRelay_Fragment.useFragment(CreateLocationEvent_activities_graphql.node, convertFragment$2, fRef);
 }
 
 var schema = Zod.object({
@@ -73,23 +87,58 @@ var schema = Zod.object({
       listed: Zod.boolean({})
     });
 
+function makeAction($$event) {
+  if ($$event !== undefined) {
+    return {
+            TAG: "Update",
+            _0: $$event
+          };
+  } else {
+    return "Create";
+  }
+}
+
 function CreateLocationEvent(props) {
-  var $$location = use$1(props.location);
-  var query = use$2(props.query);
+  var $$event = Core__Option.map(props.event, (function ($$event) {
+          return RescriptRelay_Fragment.useFragment(CreateLocationEvent_event_graphql.node, convertFragment, $$event);
+        }));
+  var $$location = use$2(props.location);
+  var query = use$3(props.query);
   var match = use();
   var commitMutationCreate = match[0];
+  var match$1 = use$1();
+  var commitMutationUpdate = match$1[0];
   var navigate = ReactRouterDom.useNavigate();
-  var match$1 = ReactHookForm.useForm({
+  var action = makeAction($$event);
+  var match$2 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
-        defaultValues: {
-          listed: false
-        }
+        defaultValues: Core__Option.getOr(Core__Option.map($$event, (function ($$event) {
+                    return {
+                            title: Core__Option.getOr($$event.title, ""),
+                            activity: Core__Option.getOr(Core__Option.map($$event.activity, (function (a) {
+                                        return a.id;
+                                      })), ""),
+                            maxRsvps: Caml_option.some(Core__Option.map($$event.maxRsvps, (function (prim) {
+                                        return prim;
+                                      }))),
+                            startDate: Core__Option.getOr(Core__Option.map($$event.startDate, (function (d) {
+                                        return DateFns.format(Util.Datetime.toDate(d), "yyyy-MM-dd'T'HH:00");
+                                      })), ""),
+                            endTime: Core__Option.getOr(Core__Option.map($$event.endDate, (function (d) {
+                                        return DateFns.format(Util.Datetime.toDate(d), "HH:mm");
+                                      })), ""),
+                            details: Caml_option.some($$event.details),
+                            listed: Core__Option.getOr($$event.listed, false)
+                          };
+                  })), {
+              listed: false
+            })
       });
-  var setValue = match$1.setValue;
-  var formState = match$1.formState;
-  var handleSubmit = match$1.handleSubmit;
-  var register = match$1.register;
-  var listed = Core__Option.getOr(Core__Option.map(match$1.watch("listed"), (function (listed) {
+  var setValue = match$2.setValue;
+  var formState = match$2.formState;
+  var handleSubmit = match$2.handleSubmit;
+  var register = match$2.register;
+  var listed = Core__Option.getOr(Core__Option.map(match$2.watch("listed"), (function (listed) {
               if (!Array.isArray(listed) && (listed === null || typeof listed !== "object") && typeof listed !== "string" && typeof listed !== "number" && typeof listed !== "boolean" || typeof listed !== "boolean") {
                 return false;
               } else {
@@ -97,36 +146,62 @@ function CreateLocationEvent(props) {
               }
             })), false);
   React.useEffect((function () {
-          var now = new Date();
-          var currentISODate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
-          var currentDate = DateFns.parseISO(currentISODate);
-          var defaultStartDate = DateFns.format(currentDate, "yyyy-MM-dd'T'HH:00");
-          var defaultEndTime = DateFns.format(DateFns.addHours(DateFns.parseISO(defaultStartDate), 2.0), "HH:mm");
-          setValue("startDate", defaultStartDate, undefined);
-          setValue("endTime", defaultEndTime, undefined);
+          if (typeof action !== "object") {
+            var now = new Date();
+            var currentISODate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+            var currentDate = DateFns.parseISO(currentISODate);
+            var defaultStartDate = DateFns.format(currentDate, "yyyy-MM-dd'T'HH:00");
+            var defaultEndTime = DateFns.format(DateFns.addHours(DateFns.parseISO(defaultStartDate), 2.0), "HH:mm");
+            setValue("startDate", defaultStartDate, undefined);
+            setValue("endTime", defaultEndTime, undefined);
+          }
+          
         }), []);
   var onSubmit = function (data) {
-    var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "EventsListFragment_events", undefined);
-    var startDate = DateFns.parseISO(data.startDate);
-    var endDate = DateFns.parse(data.endTime, "HH:mm", startDate);
-    commitMutationCreate({
-          connections: [connectionId],
+    if (typeof action !== "object") {
+      var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "EventsListFragment_events", undefined);
+      var startDate = DateFns.parseISO(data.startDate);
+      var endDate = DateFns.parse(data.endTime, "HH:mm", startDate);
+      commitMutationCreate({
+            connections: [connectionId],
+            input: {
+              activity: data.activity,
+              details: Core__Option.getOr(data.details, ""),
+              endDate: Util.Datetime.fromDate(endDate),
+              listed: data.listed,
+              locationId: $$location.id,
+              maxRsvps: Core__Option.map(data.maxRsvps, (function (prim) {
+                      return prim | 0;
+                    })),
+              startDate: Util.Datetime.fromDate(startDate),
+              title: data.title
+            }
+          }, undefined, undefined, undefined, (function (response, _errors) {
+              Core__Option.map(response.createEvent.event, (function ($$event) {
+                      navigate("/events/" + $$event.id, undefined);
+                    }));
+            }), undefined, undefined);
+      return ;
+    }
+    var $$event = action._0;
+    var startDate$1 = DateFns.parseISO(data.startDate);
+    var endDate$1 = DateFns.parse(data.endTime, "HH:mm", startDate$1);
+    commitMutationUpdate({
+          eventId: $$event.id,
           input: {
             activity: data.activity,
             details: Core__Option.getOr(data.details, ""),
-            endDate: Util.Datetime.fromDate(endDate),
+            endDate: Util.Datetime.fromDate(endDate$1),
             listed: data.listed,
             locationId: $$location.id,
             maxRsvps: Core__Option.map(data.maxRsvps, (function (prim) {
                     return prim | 0;
                   })),
-            startDate: Util.Datetime.fromDate(startDate),
+            startDate: Util.Datetime.fromDate(startDate$1),
             title: data.title
           }
         }, undefined, undefined, undefined, (function (response, _errors) {
-            Core__Option.map(response.createEvent.event, (function ($$event) {
-                    navigate("/events/" + $$event.id, undefined);
-                  }));
+            navigate("/events/" + $$event.id, undefined);
           }), undefined, undefined);
   };
   return JsxRuntime.jsx(FramerMotion.motion.div, {
@@ -183,7 +258,7 @@ function CreateLocationEvent(props) {
                                                                                       label: t`title`,
                                                                                       name: "title",
                                                                                       id: "title",
-                                                                                      placeholder: t`All Level Badminton`,
+                                                                                      placeholder: t`All Level`,
                                                                                       register: register("title", undefined)
                                                                                     }),
                                                                                 JsxRuntime.jsx("p", {
@@ -259,7 +334,7 @@ function CreateLocationEvent(props) {
                                                                                               to: "/locations/edit/",
                                                                                               children: t`edit the location to edit the details for this location.`
                                                                                             })),
-                                                                                    defaultValue: Core__Option.getOr($$location.details, ""),
+                                                                                    value: Core__Option.getOr($$location.details, ""),
                                                                                     disabled: true
                                                                                   }),
                                                                               className: "col-span-full"

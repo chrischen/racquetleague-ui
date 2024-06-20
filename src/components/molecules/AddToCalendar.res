@@ -8,7 +8,12 @@ let make = () => {
     {() =>
       viewer.user
       ->Option.map(user =>
-        <a href={"webcal://www.racquetleague.com/cal-feed/" ++ user.id}> {t`sync calendar`} </a>
+        <div className="flex items-center lg:text-sm">
+          <Lucide.CalendarPlus
+            className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
+          />
+          <a href={"webcal://www.racquetleague.com/cal-feed/" ++ user.id}> {t`sync calendar`} </a>
+        </div>
       )
       ->Option.getOr(React.null)}
   </WaitForMessages>

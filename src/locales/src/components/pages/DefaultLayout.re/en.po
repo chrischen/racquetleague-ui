@@ -25,7 +25,8 @@ msgstr ""
 #~ msgid "login"
 #~ msgstr ""
 
-#: src/components/molecules/LoginLink.re.mjs:21
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr ""
 

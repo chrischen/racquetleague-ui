@@ -56,14 +56,16 @@ let schema = Zod.z->Zod.object(
   ),
 )
 @react.component
-let make = (~onCancel) => {
+let make = (~onCancel, ~onClose) => {
   open Lingui.Util
   open Form
   let (commitMutationCreate, _) = CreateLocationMutation.use()
+  let navigate = Router.useNavigate()
 
   let {
     register,
     handleSubmit,
+    reset,
     // watch,
     formState: {errors},
     // getFieldState,
@@ -100,6 +102,13 @@ let make = (~onCancel) => {
           details: ?data.details,
         },
         connections: [connectionId],
+      },
+      ~onCompleted=(response, _errors) => {
+        response.createLocation.location
+        ->Option.map(location => navigate(location.id, None))
+        ->ignore
+        reset();
+        onClose()
       },
     )->RescriptRelay.Disposable.ignore
   }

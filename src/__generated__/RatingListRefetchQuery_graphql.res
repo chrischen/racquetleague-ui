@@ -330,12 +330,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3118ee537e30a7f269b510ca2f0b7826",
+    "cacheID": "14accb23cafc9a6bdcebcd68c28e8bb1",
     "id": null,
     "metadata": {},
     "name": "RatingListRefetchQuery",
     "operationKind": "query",
-    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
+    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ordinal\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
   }
 };
 })() `)

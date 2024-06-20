@@ -99,6 +99,11 @@ function CreateEvent(props) {
                                                                                 setShowCreateLocation(function (param) {
                                                                                       return false;
                                                                                     });
+                                                                              }),
+                                                                            onClose: (function () {
+                                                                                setShowCreateLocation(function (param) {
+                                                                                      return false;
+                                                                                    });
                                                                               })
                                                                           }))
                                                                 }) : null

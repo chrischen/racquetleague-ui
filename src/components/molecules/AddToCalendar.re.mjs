@@ -2,6 +2,7 @@
 
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
@@ -13,9 +14,18 @@ function AddToCalendar(props) {
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map(viewer.user, (function (user) {
-                                    return JsxRuntime.jsx("a", {
-                                                children: t`sync calendar`,
-                                                href: "webcal://www.racquetleague.com/cal-feed/" + user.id
+                                    return JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsx(LucideReact.CalendarPlus, {
+                                                        className: "mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500",
+                                                        "aria-hidden": "true"
+                                                      }),
+                                                  JsxRuntime.jsx("a", {
+                                                        children: t`sync calendar`,
+                                                        href: "webcal://www.racquetleague.com/cal-feed/" + user.id
+                                                      })
+                                                ],
+                                                className: "flex items-center lg:text-sm"
                                               });
                                   })), null);
                 })

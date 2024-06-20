@@ -4,6 +4,7 @@ import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -141,12 +142,13 @@ function ts(prim0, prim1) {
 }
 
 function RatingList$RatingItem(props) {
+  var minRating = props.minRating;
   var maxRating = props.maxRating;
   var match = use$1(props.rating);
   var ordinal = match.ordinal;
   var id = match.id;
-  var tier = Core__Option.getOr(Core__Option.map(Core__Option.map(ordinal, (function (ordinal) {
-                  return Math.max(0, ordinal / maxRating * 100.0);
+  var tier = Core__Option.getOr(Core__Option.map(Core__Option.map(ordinal, (function (rating) {
+                  return (rating - minRating) / (maxRating - minRating) * 100;
                 })), (function (__x) {
               return __x.toFixed(2);
             })), "0.0");
@@ -266,6 +268,20 @@ function RatingList(props) {
   ReactRouterDom.useNavigate();
   ReactIntl.useIntl();
   GlobalQuery.useViewer();
+  var maxRating = Core__Array.reduce(ratings$1, 0, (function (acc, next) {
+          if (Core__Option.getOr(next.ordinal, 0) > acc) {
+            return Core__Option.getOr(next.ordinal, 0);
+          } else {
+            return acc;
+          }
+        }));
+  var minRating = Core__Array.reduce(ratings$1, maxRating, (function (acc, next) {
+          if (Core__Option.getOr(next.ordinal, maxRating) < acc) {
+            return Core__Option.getOr(next.ordinal, maxRating);
+          } else {
+            return acc;
+          }
+        }));
   return JsxRuntime.jsxs(Layout.Container.make, {
               children: [
                 !match.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
@@ -278,7 +294,8 @@ function RatingList(props) {
                       children: ratings$1.map(function (edge) {
                             return JsxRuntime.jsx(RatingList$RatingItem, {
                                         rating: edge.fragmentRefs,
-                                        maxRating: 11.71
+                                        maxRating: maxRating,
+                                        minRating: minRating
                                       }, edge.id);
                           }),
                       className: "divide-y divide-gray-200",

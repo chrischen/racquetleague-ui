@@ -19,6 +19,7 @@ module Fragment = %relay(`
       edges {
         node {
           id
+          ordinal
           ...RatingList_rating
         }
       }
@@ -77,9 +78,9 @@ module RatingItem = {
   let td = Lingui.UtilString.dynamic
   let ts = Lingui.UtilString.t
   @react.component
-  let make = (~rating, ~maxRating, ~highlightedLocation: bool=false) => {
+  let make = (~rating, ~maxRating, ~minRating, ~highlightedLocation: bool=false) => {
     let {id, ordinal, user} = ItemFragment.use(rating)
-    let tier = ordinal->Option.map(ordinal => Math.max(0., (ordinal /. maxRating) *. 100.0))->Option.map(Float.toFixed(_, ~digits=2))->Option.getOr("0.0")
+    let tier = ordinal->Option.map(rating => (rating -. minRating) /. (maxRating-.minRating) *. 100.)->Option.map(Float.toFixed(_, ~digits=2))->Option.getOr("0.0")
     user
     ->Option.map(user =>
       <li
@@ -157,6 +158,15 @@ let make = (~ratings) => {
   let intl = ReactIntl.useIntl()
   let viewer = GlobalQuery.useViewer()
 
+
+  let maxRating =
+    ratings->Array.reduce(0., (acc, next) =>
+      next.ordinal->Option.getOr(0.) > acc ? next.ordinal->Option.getOr(0.) : acc
+    )
+  let minRating =
+    ratings->Array.reduce(maxRating, (acc, next) =>
+      next.ordinal->Option.getOr(maxRating) < acc ? next.ordinal->Option.getOr(maxRating) : acc
+    )
   <Layout.Container className="mt-4">
     {!isLoadingPrevious && hasPrevious
       ? pageInfo.startCursor
@@ -167,7 +177,7 @@ let make = (~ratings) => {
       : React.null}
     <ul role="list" className="divide-y divide-gray-200">
       {ratings
-      ->Array.map(edge => <RatingItem key={edge.id} maxRating=11.71 rating=edge.fragmentRefs />)
+      ->Array.map(edge => <RatingItem key={edge.id} maxRating minRating rating=edge.fragmentRefs />)
       ->React.array}
     </ul>
     {hasNext && !isLoadingNext

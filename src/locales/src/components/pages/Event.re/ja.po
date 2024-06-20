@@ -15,125 +15,134 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:348
+#: src/components/pages/Event.re.mjs:381
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:351
+#: src/components/pages/Event.re.mjs:384
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:354
+#: src/components/pages/Event.re.mjs:387
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:357
+#: src/components/pages/Event.re.mjs:390
 msgid "Futsal"
 msgstr "フットサル"
 
-#: src/components/organisms/EventRsvps.re.mjs:190
+#: src/components/organisms/EventRsvps.re.mjs:234
 msgid "{0, plural, one {player} other {players}}"
 msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/Event.re.mjs:97
+#: src/components/pages/Event.re.mjs:98
 msgid "{0} hours"
 msgstr "{0} 時間"
 
-#: src/components/pages/Event.re.mjs:99
+#: src/components/pages/Event.re.mjs:100
 msgid "{0} hours and {1} minutes"
 msgstr "{0} 時間 {1} 分"
 
-#: src/components/organisms/EventRsvps.re.mjs:182
+#: src/components/organisms/EventRsvps.re.mjs:226
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventRsvps.re.mjs:345
+#: src/components/organisms/EventRsvps.re.mjs:388
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/Event.re.mjs:281
+#: src/components/pages/Event.re.mjs:328
 msgid "attendees"
 msgstr "参加者"
 
-#: src/components/organisms/EventRsvps.re.mjs:175
+#: src/components/organisms/EventRsvps.re.mjs:219
 msgid "confirmed"
 msgstr "確認済み"
 
-#: src/components/pages/Event.re.mjs:201
+#: src/components/pages/Event.re.mjs:231
 msgid "details"
 msgstr "詳細"
 
-#: src/components/pages/Event.re.mjs:131
+#: src/components/pages/Event.re.mjs:194
+msgid "edit event"
+msgstr "イベントを編集"
+
+#: src/components/pages/Event.re.mjs:132
 msgid "event @"
 msgstr "イベント @"
 
-#: src/components/pages/Event.re.mjs:313
+#: src/components/pages/Event.re.mjs:346
 msgid "event doesn't exist"
 msgstr "イベントが存在しません"
 
-#: src/components/pages/Event.re.mjs:293
-msgid "event location"
-msgstr "イベント場所"
+#: src/components/pages/Event.re.mjs:280
+msgid "good luck, have fun"
+msgstr "がんばってください"
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:30
-#: src/components/organisms/EventRsvps.re.mjs:214
-#: src/components/organisms/EventRsvps.re.mjs:236
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:35
+#: src/components/organisms/EventRsvps.re.mjs:187
+#: src/components/organisms/EventRsvps.re.mjs:201
 msgid "join event"
 msgstr "参加する"
 
-#: src/components/organisms/EventRsvps.re.mjs:225
-msgid "join waitlist"
-msgstr "ウェイトリストに参加"
-
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:20
-#: src/components/organisms/EventRsvps.re.mjs:211
-#: src/components/organisms/EventRsvps.re.mjs:222
-#: src/components/organisms/EventRsvps.re.mjs:233
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:22
+#: src/components/organisms/EventRsvps.re.mjs:209
 msgid "leave event"
 msgstr "離れる"
 
-#: src/components/organisms/EventRsvps.re.mjs:326
-#: src/components/organisms/EventRsvps.re.mjs:413
+#: src/components/organisms/EventRsvps.re.mjs:369
+#: src/components/organisms/EventRsvps.re.mjs:456
 msgid "load More"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:40
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
+#: src/components/organisms/EventRsvps.re.mjs:194
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
-#: src/components/pages/Event.re.mjs:185
+#: src/components/pages/Event.re.mjs:215
 msgid "login to subscribe to {activityName} events"
 msgstr "ログインして{activityName}のイベントに登録"
 
-#: src/components/molecules/LoginLink.re.mjs:21
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/Event.re.mjs:263
+#: src/components/pages/Event.re.mjs:310
 msgid "media"
 msgstr "メディア"
 
-#: src/components/organisms/EventRsvps.re.mjs:294
-#: src/components/organisms/EventRsvps.re.mjs:406
+#: src/components/organisms/EventRsvps.re.mjs:337
+#: src/components/organisms/EventRsvps.re.mjs:449
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/EventRsvps.re.mjs:276
-#: src/components/organisms/EventRsvps.re.mjs:386
+#: src/components/pages/Event.re.mjs:289
+msgid "notes"
+msgstr "メモ"
+
+#: src/components/organisms/EventRsvps.re.mjs:315
+#: src/components/organisms/EventRsvps.re.mjs:429
 msgid "Player"
 msgstr "プレイヤー"
+
+#: src/components/organisms/EventRsvps.re.mjs:254
+#: src/components/organisms/EventRsvps.re.mjs:264
+msgid "spots available"
+msgstr "利用可能なスポット"
 
 #: src/components/molecules/SubscribeActivity.re.mjs:112
 msgid "subscribe to all {activityName} events"
 msgstr "{activityName} のすべてのイベントに登録"
 
-#: src/components/molecules/AddToCalendar.re.mjs:17
+#: src/components/molecules/AddToCalendar.re.mjs:24
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
@@ -141,7 +150,8 @@ msgstr "カレンダー同期"
 msgid "unsubscribe from {activityName} events"
 msgstr "{activityName} のイベントから登録解除"
 
-#: src/components/organisms/EventRsvps.re.mjs:339
+#: src/components/organisms/EventRsvps.re.mjs:259
+#: src/components/organisms/EventRsvps.re.mjs:382
 msgid "waitlist"
 msgstr "ウェイトリスト"
 
@@ -159,6 +169,10 @@ msgstr "新しいイベントについてメール通知を受け取ります"
 #~ msgid "add to calendar"
 #~ msgstr "カレンダー同期"
 
-#: src/components/organisms/EventRsvps.re.mjs:217
-#~ msgid "spots available"
-#~ msgstr "利用可能なスポット"
+#: src/components/pages/Event.re.mjs:308
+#~ msgid "event location"
+#~ msgstr "イベント場所"
+
+#: src/components/organisms/EventRsvps.re.mjs:225
+#~ msgid "join waitlist"
+#~ msgstr "ウェイトリストに参加"

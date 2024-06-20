@@ -6,6 +6,7 @@ module Types = {
 
   type rec fragment_ratings_edges_node = {
     @live id: string,
+    ordinal: option<float>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #RatingList_rating]>,
   }
   and fragment_ratings_edges = {
@@ -185,6 +186,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "id",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "ordinal",
                   "storageKey": null
                 },
                 {

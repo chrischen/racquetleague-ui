@@ -13,19 +13,20 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:30
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:35
 msgid "join event"
 msgstr "参加する"
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:20
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:22
 msgid "leave event"
 msgstr "離れる"
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:40
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
-#: src/components/molecules/LoginLink.re.mjs:21
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr "Lineでログイン"
 

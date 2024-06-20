@@ -10,6 +10,7 @@ module Types = {
   }
   and fragment_rsvps_edges_node_user = {
     @live id: string,
+    rating: option<float>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvpUser_user]>,
   }
   and fragment_rsvps_edges_node = {
@@ -211,6 +212,24 @@ return {
                   "plural": false,
                   "selections": [
                     (v1/*: any*/),
+                    {
+                      "alias": null,
+                      "args": [
+                        {
+                          "kind": "Literal",
+                          "name": "activitySlug",
+                          "value": "pickleball"
+                        },
+                        {
+                          "kind": "Literal",
+                          "name": "namespace",
+                          "value": "doubles:rec"
+                        }
+                      ],
+                      "kind": "ScalarField",
+                      "name": "rating",
+                      "storageKey": "rating(activitySlug:\"pickleball\",namespace:\"doubles:rec\")"
+                    },
                     {
                       "args": null,
                       "kind": "FragmentSpread",

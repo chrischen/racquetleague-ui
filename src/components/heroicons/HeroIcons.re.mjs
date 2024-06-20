@@ -15,6 +15,8 @@ var CloudArrowUpIcon = {};
 
 var CheckIcon = {};
 
+var CalendarIcon = {};
+
 export {
   PhotoIcon ,
   Bars3Icon ,
@@ -23,5 +25,6 @@ export {
   ChevronRightIcon ,
   CloudArrowUpIcon ,
   CheckIcon ,
+  CalendarIcon ,
 }
 /* No side effect */

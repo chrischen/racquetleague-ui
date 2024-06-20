@@ -98,6 +98,7 @@ type Event implements Node {
   rsvps(after: String, before: String, first: Int): EventRsvpConnection
   startDate: Datetime
   title: String
+  viewerIsAdmin: Boolean!
   viewerRsvpStatus: RsvpStatus
 }
 
@@ -238,6 +239,7 @@ type Mutation {
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
+  updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
 }
 
 type MutationResult implements HasErrors {
@@ -321,6 +323,7 @@ type Rsvp implements Node {
   id: ID!
   joinTime: Int
   leaveDate: Datetime
+  rating(namespace: String): Float
   user: User
 }
 
@@ -339,7 +342,7 @@ type User implements Node {
   id: ID!
   lineUsername: String
   picture: String
-  rating(activitySlug: String!, namespace: String!): Float
+  rating(activitySlug: String!, namespace: String): Float
 }
 
 type Viewer {

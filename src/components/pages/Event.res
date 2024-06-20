@@ -7,6 +7,7 @@ module EventQuery = %relay(`
   query EventQuery($eventId: ID!, $after: String, $first: Int, $before: String) {
     event(id: $eventId) {
       __id
+      id
       title
       details
       activity {
@@ -14,6 +15,7 @@ module EventQuery = %relay(`
         slug
         ...SubscribeActivity_activity
       }
+      viewerIsAdmin
       startDate
       endDate
       location {
@@ -76,6 +78,7 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 @genType @react.component
 let make = () => {
   let td = Lingui.UtilString.dynamic
+  let ts = Lingui.UtilString.t
   let query = useLoaderData()
   let {event} = EventQuery.usePreloaded(~queryRef=query.data)
   let viewer = GlobalQuery.useViewer()
@@ -164,6 +167,12 @@ let make = () => {
                       ->Option.getOr(React.null)}
                       {" / "->React.string}
                       {title->Option.map(React.string)->Option.getOr(React.null)}
+                      {duration
+                      ->Option.map(duration => <>
+                        {" / "->React.string}
+                        {duration}
+                      </>)
+                      ->Option.getOr(React.null)}
 
                       // </PageTitle>
                     </div>
@@ -234,6 +243,29 @@ let make = () => {
               </div>
             </Layout.Container>
           </header>
+          {viewer.user
+          ->Option.map(_ =>
+            switch event.viewerIsAdmin {
+            | true =>
+              <Layout.Container className="py-4">
+                <div
+                  className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                  <div
+                    className="-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
+                    <Link
+                      to={"/events/update/" ++
+                      event.id ++
+                      "/" ++
+                      event.location->Option.map(l => l.id)->Option.getOr("")}>
+                      {t`edit event`}
+                    </Link>
+                  </div>
+                </div>
+              </Layout.Container>
+            | false => React.null
+            }
+          )
+          ->Option.getOr(React.null)}
           <Layout.Container className="py-4">
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -261,27 +293,21 @@ let make = () => {
                     <h2 className="text-base font-semibold leading-6 text-gray-900">
                       {t`details`}
                     </h2>
-                    <AddToCalendar />
-                    {event.startDate
-                    ->Option.flatMap(startDate =>
-                      event.endDate->Option.map(
-                        endDate =>
-                          <p className="mt-4 lg:text-xl leading-8 text-gray-700">
+                    <div
+                      className="font-bold flex items-center mt-4 lg:text-xl leading-8 text-gray-700">
+                      <Lucide.CalendarClock
+                        className="mr-2 h-7 w-7 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
+                      />
+                      {event.startDate
+                      ->Option.flatMap(startDate =>
+                        event.endDate->Option.map(
+                          endDate => <>
                             <ReactIntl.FormattedDate value={startDate->Util.Datetime.toDate} />
                             {" "->React.string}
                             <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
                             {" -> "->React.string}
                             <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />
                             {" "->React.string}
-                            {duration
-                            ->Option.map(
-                              duration => <>
-                                {" ("->React.string}
-                                {duration}
-                                {") "->React.string}
-                              </>,
-                            )
-                            ->Option.getOr(React.null)}
                             {until
                             ->Option.map(
                               until =>
@@ -290,28 +316,35 @@ let make = () => {
                                 />,
                             )
                             ->Option.getOr(React.null)}
-                          </p>,
+                          </>,
+                        )
                       )
-                    )
-                    ->Option.getOr("???"->React.string)}
+                      ->Option.getOr("???"->React.string)}
+                    </div>
+                    <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
+                      <AddToCalendar />
+                    </div>
                     {location
-                    ->Option.flatMap(location =>
-                      location.details->Option.map(
-                        details =>
-                          <p
-                            className="mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
-                            {details->React.string}
-                          </p>,
-                      )
-                    )
+                    ->Option.map(location => <EventLocation location=location.fragmentRefs />)
                     ->Option.getOr(React.null)}
                     {details
-                    ->Option.map(details =>
-                      <p
-                        className="mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
-                        {details->React.string}
-                      </p>
-                    )
+                    ->Option.map(details => <>
+                      <div
+                        className="font-bold flex items-center mt-4 lg:text-xl leading-8 text-gray-700">
+                        <Lucide.Info
+                          className="mr-2 h-7 w-7 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
+                        />
+                        {t`notes`}
+                      </div>
+                      <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
+                        <p className="lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
+                          {switch details {
+                          | "" => ts`good luck, have fun`
+                          | d => d
+                          }->React.string}
+                        </p>
+                      </div>
+                    </>)
                     ->Option.getOr(React.null)}
                   </div>
                   {event.location
@@ -330,14 +363,6 @@ let make = () => {
               <div className="lg:col-start-3 lg:row-end-1">
                 <h2 className="sr-only"> {t`attendees`} </h2>
                 <EventRsvps event=fragmentRefs />
-              </div>
-              <div className="lg:col-start-3">
-                <h2 className="text-base font-semibold leading-6 text-gray-900">
-                  {t`event location`}
-                </h2>
-                {location
-                ->Option.map(location => <EventLocation location=location.fragmentRefs />)
-                ->Option.getOr(React.null)}
               </div>
             </div>
             // </div>

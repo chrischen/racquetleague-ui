@@ -2,11 +2,16 @@
 
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as Core from "@linaria/core";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as EventRsvpUser_user_graphql from "../../__generated__/EventRsvpUser_user_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
+;
+
+import { t, plural } from '@lingui/macro'
 ;
 
 var convertFragment = EventRsvpUser_user_graphql.Internal.convertFragment;
@@ -32,13 +37,55 @@ function EventRsvpUser(props) {
   var highlight = __highlight !== undefined ? __highlight : false;
   var user = use(props.user);
   var display = Core__Option.getOr(user.lineUsername, "[Line username missing]");
-  if (highlight) {
-    return JsxRuntime.jsx("strong", {
-                children: display
-              });
-  } else {
-    return display;
-  }
+  return JsxRuntime.jsxs("div", {
+              children: [
+                Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
+                            return JsxRuntime.jsx("img", {
+                                        className: Core.cx(highlight ? "h-14 w-14" : "h-12 w-12", "flex-none rounded-full bg-gray-50", highlight ? "drop-shadow-lg" : ""),
+                                        alt: "",
+                                        src: picture
+                                      });
+                          })), JsxRuntime.jsx("div", {
+                          className: "h-12 w-12 flex-none rounded-full bg-gray-50"
+                        })),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx("p", {
+                              children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                                    to: "/league/badminton/p/" + user.id,
+                                    children: [
+                                      JsxRuntime.jsx("span", {
+                                            className: "absolute inset-x-0 -top-px bottom-0"
+                                          }),
+                                      highlight ? JsxRuntime.jsx("strong", {
+                                              children: display,
+                                              className: "text-lg"
+                                            }) : display
+                                    ]
+                                  }),
+                              className: "text-sm font-semibold leading-6 text-gray-900"
+                            }),
+                        JsxRuntime.jsx("p", {
+                              children: JsxRuntime.jsx("span", {
+                                    className: "relative truncate hover:underline"
+                                  }),
+                              className: "mt-1 flex text-xs leading-5 text-gray-500"
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx("div", {
+                                    className: "h-2 rounded-full bg-red-400",
+                                    style: {
+                                      width: Core__Option.getOr(props.ratingPercent, 0).toFixed(3) + "%"
+                                    }
+                                  }),
+                              className: "overflow-hidden rounded-full bg-gray-200 mt-1"
+                            })
+                      ],
+                      className: "min-w-0 flex-auto"
+                    })
+              ],
+              className: Core.cx("relative flex min-w-0 gap-x-4", highlight ? "py-3 mx-0" : "mx-4")
+            });
 }
 
 var make = EventRsvpUser;

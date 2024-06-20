@@ -22,6 +22,7 @@ module Fragment = %relay(`
             id
             ...EventRsvpUser_user
           }
+          rating
         }
       }
       pageInfo {
@@ -138,6 +139,39 @@ let make = (~event) => {
     ->Math.max(0.)
     ->Float.toInt
 
+  let maxRating =
+    rsvps->Array.reduce(0., (acc, next) =>
+      next.rating->Option.getOr(0.) > acc ? next.rating->Option.getOr(0.) : acc
+    )
+  let minRating =
+    rsvps->Array.reduce(maxRating, (acc, next) =>
+      next.rating->Option.getOr(maxRating) < acc ? next.rating->Option.getOr(maxRating) : acc
+    )
+
+  let joinButton = switch viewer.user {
+  | Some(_) =>
+    <button
+      onClick=onJoin
+      className="inline-flex w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+      {t`join event`}
+    </button>
+  | None =>
+    <div className="text-center">
+      <p><em> {t`login to join the event`} </em></p>
+      <LoginLink className="mt-2 inline-block" />
+      <button
+        disabled=true
+        className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-red-200 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+        {t`join event`}
+      </button>
+    </div>
+  }
+  let leaveButton =
+    <button
+      onClick=onLeave
+      className="inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+      {t`leave event`}
+    </button>
   <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
     <dl className="flex flex-wrap">
       <div className="flex-auto pl-6 pt-4">
@@ -146,7 +180,9 @@ let make = (~event) => {
           {switch maxRsvps {
           | Some(max) =>
             <>
-              {(Js.Math.min_int(rsvps->Array.length, max)->Int.toString ++ " / " ++ max->Int.toString ++ " ")->React.string}
+              {(Js.Math.min_int(rsvps->Array.length, max)->Int.toString ++
+              " / " ++
+              max->Int.toString ++ " ")->React.string}
               {plural(max, {one: "player", other: "players"})}
             </>
           | None =>
@@ -165,24 +201,32 @@ let make = (~event) => {
           | 0 =>
             <dd
               className="rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-600 ring-1 ring-inset ring-yellow-600/20">
-              {viewerHasRsvp ? <button onClick=onLeave>{t`leave event`}</button> : <button onClick=onJoin>{t`join waitlist`}</button>}
+              {t`waitlist`}
             </dd>
           | _ =>
             <dd
               className="rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20">
-              {viewerHasRsvp ? <button onClick=onLeave>{t`leave event`}</button> : <button onClick=onJoin>{t`join event`}</button>}
+              {t`spots available`}
             </dd>
           }
         })
         ->Option.getOr(
           <dd
             className="rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20">
-              {viewerHasRsvp ? <button onClick=onLeave>{t`leave event`}</button> : <button onClick=onJoin>{t`join event`}</button>}
+            {t`spots available`}
           </dd>,
         )}
       </div>
-      <div className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-4">
+      <div className="mt-4 w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-4">
         {<>
+          {spotsAvailable
+          ->Option.map(count => {
+            switch count {
+            | 0 => viewerHasRsvp ? leaveButton : joinButton
+            | _ => viewerHasRsvp ? leaveButton : joinButton
+            }
+          })
+          ->Option.getOr({viewerHasRsvp ? leaveButton : joinButton})}
           <ul className="">
             <FramerMotion.AnimatePresence>
               {switch rsvps {
@@ -195,7 +239,7 @@ let make = (~event) => {
                     switch isWaitlist(i) {
                     | false =>
                       <FramerMotion.Li
-                        className="mt-4 flex w-full flex-none gap-x-4 px-6"
+                        className="mt-4 flex w-full flex-none"
                         style={originX: 0.05, originY: 0.05}
                         key={user.id}
                         initial={opacity: 0., scale: 1.15}
@@ -205,9 +249,15 @@ let make = (~event) => {
                           <span className="sr-only"> {t`Player`} </span>
                           // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
                         </div>
-                        <div className="text-sm font-medium leading-6 text-gray-900">
+                        <div className="w-full text-sm font-medium leading-6 text-gray-900">
                           <EventRsvpUser
                             user={user.fragmentRefs}
+                            rating=?edge.rating
+                            ratingPercent={edge.rating
+                            ->Option.map(
+                              rating => (rating -. minRating) /. (maxRating -. minRating) *. 100.,
+                            )
+                            ->Option.getOr(0.)}
                             highlight={viewer.user
                             ->Option.map(viewer => viewer.id == user.id)
                             ->Option.getOr(false)}

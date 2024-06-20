@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CreateLocation.re.mjs:148
+#: src/components/organisms/CreateLocation.re.mjs:158
 msgid "address"
 msgstr ""
 
@@ -21,7 +21,7 @@ msgstr ""
 #~ msgid "Address"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:75
+#: src/components/organisms/CreateLocation.re.mjs:76
 msgid "address is required"
 msgstr ""
 
@@ -29,11 +29,11 @@ msgstr ""
 #~ msgid "Address is required"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:137
+#: src/components/organisms/CreateLocation.re.mjs:147
 msgid "Akabane Elementary School"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:222
+#: src/components/molecules/forms/Form.re.mjs:226
 msgid "cancel"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 #~ msgid "Cancel"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:167
+#: src/components/organisms/CreateLocation.re.mjs:177
 msgid "details"
 msgstr ""
 
@@ -53,11 +53,11 @@ msgstr ""
 #~ msgid "Details specific to this location."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:170
+#: src/components/organisms/CreateLocation.re.mjs:180
 msgid "Instructions or information that will apply to all events held at this location."
 msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:128
+#: src/components/organisms/CreateLocation.re.mjs:138
 msgid "location"
 msgstr ""
 
@@ -65,7 +65,7 @@ msgstr ""
 #~ msgid "Location"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:157
+#: src/components/organisms/CreateLocation.re.mjs:167
 msgid "maps link"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 #~ msgid "Maps link"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:134
+#: src/components/organisms/CreateLocation.re.mjs:144
 msgid "name"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 #~ msgid "Name"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocation.re.mjs:72
+#: src/components/organisms/CreateLocation.re.mjs:73
 msgid "name is required"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 #~ msgid "Name is required"
 #~ msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:229
+#: src/components/molecules/forms/Form.re.mjs:233
 msgid "save"
 msgstr ""
 

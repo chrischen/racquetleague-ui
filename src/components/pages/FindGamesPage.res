@@ -33,7 +33,7 @@ let make = () => {
             <p>
               {t`To participate in the league and win prizes, please join the league events.`}
               {" "->React.string}
-              <a className="text-gray-200 border-red-200 rounded p-5 border-2" href="https://www.racquetleague.com">
+              <a className="text-gray-200 border-red-200 rounded p-5 border-2 inline-block mt-5" href="https://www.racquetleague.com">
                 {t`Find League Games`}
               </a>
             </p>

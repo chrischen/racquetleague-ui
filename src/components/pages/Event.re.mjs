@@ -14,6 +14,7 @@ import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as EventLocation from "../organisms/EventLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -154,6 +155,14 @@ function $$Event(props) {
                                                                                               " / ",
                                                                                               Core__Option.getOr(Core__Option.map(title, (function (prim) {
                                                                                                           return prim;
+                                                                                                        })), null),
+                                                                                              Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
+                                                                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                                      children: [
+                                                                                                                        " / ",
+                                                                                                                        duration
+                                                                                                                      ]
+                                                                                                                    });
                                                                                                         })), null)
                                                                                             ],
                                                                                             className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
@@ -173,6 +182,27 @@ function $$Event(props) {
                                                         ],
                                                         className: "relative isolate pt-4"
                                                       }),
+                                                  Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
+                                                              if ($$event.viewerIsAdmin) {
+                                                                return JsxRuntime.jsx(Layout.Container.make, {
+                                                                            children: JsxRuntime.jsx("div", {
+                                                                                  children: JsxRuntime.jsx("div", {
+                                                                                        children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                              to: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
+                                                                                                          return l.id;
+                                                                                                        })), ""),
+                                                                                              children: t`edit event`
+                                                                                            }),
+                                                                                        className: "-mx-6 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
+                                                                                      }),
+                                                                                  className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+                                                                                }),
+                                                                            className: "py-4"
+                                                                          });
+                                                              } else {
+                                                                return null;
+                                                              }
+                                                            })), null),
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsx("div", {
                                                               children: JsxRuntime.jsx("div", {
@@ -201,56 +231,73 @@ function $$Event(props) {
                                                                                             children: t`details`,
                                                                                             className: "text-base font-semibold leading-6 text-gray-900"
                                                                                           }),
-                                                                                      JsxRuntime.jsx(AddToCalendar.make, {}),
-                                                                                      Core__Option.getOr(Core__Option.flatMap($$event.startDate, (function (startDate) {
-                                                                                                  return Core__Option.map($$event.endDate, (function (endDate) {
-                                                                                                                return JsxRuntime.jsxs("p", {
-                                                                                                                            children: [
-                                                                                                                              JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                                                                                                    value: Util.Datetime.toDate(startDate)
-                                                                                                                                  }),
-                                                                                                                              " ",
-                                                                                                                              JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                                                                    value: Util.Datetime.toDate(startDate)
-                                                                                                                                  }),
-                                                                                                                              " -> ",
-                                                                                                                              JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                                                                    value: Util.Datetime.toDate(endDate)
-                                                                                                                                  }),
-                                                                                                                              " ",
-                                                                                                                              Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
-                                                                                                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                                                                                                      children: [
-                                                                                                                                                        " (",
-                                                                                                                                                        duration,
-                                                                                                                                                        ") "
-                                                                                                                                                      ]
-                                                                                                                                                    });
-                                                                                                                                        })), null),
-                                                                                                                              Core__Option.getOr(Core__Option.map(until, (function (until) {
-                                                                                                                                          return JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
-                                                                                                                                                      value: until,
-                                                                                                                                                      unit: "minute",
-                                                                                                                                                      updateIntervalInSeconds: 1
-                                                                                                                                                    });
-                                                                                                                                        })), null)
-                                                                                                                            ],
-                                                                                                                            className: "mt-4 lg:text-xl leading-8 text-gray-700"
-                                                                                                                          });
-                                                                                                              }));
-                                                                                                })), "???"),
-                                                                                      Core__Option.getOr(Core__Option.flatMap($$location, (function ($$location) {
-                                                                                                  return Core__Option.map($$location.details, (function (details) {
-                                                                                                                return JsxRuntime.jsx("p", {
-                                                                                                                            children: details,
-                                                                                                                            className: "mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap"
-                                                                                                                          });
-                                                                                                              }));
+                                                                                      JsxRuntime.jsxs("div", {
+                                                                                            children: [
+                                                                                              JsxRuntime.jsx(LucideReact.CalendarClock, {
+                                                                                                    className: "mr-2 h-7 w-7 flex-shrink-0 text-gray-500",
+                                                                                                    "aria-hidden": "true"
+                                                                                                  }),
+                                                                                              Core__Option.getOr(Core__Option.flatMap($$event.startDate, (function (startDate) {
+                                                                                                          return Core__Option.map($$event.endDate, (function (endDate) {
+                                                                                                                        return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                                                    children: [
+                                                                                                                                      JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                                                                                                            value: Util.Datetime.toDate(startDate)
+                                                                                                                                          }),
+                                                                                                                                      " ",
+                                                                                                                                      JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                                                                            value: Util.Datetime.toDate(startDate)
+                                                                                                                                          }),
+                                                                                                                                      " -> ",
+                                                                                                                                      JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                                                                            value: Util.Datetime.toDate(endDate)
+                                                                                                                                          }),
+                                                                                                                                      " ",
+                                                                                                                                      Core__Option.getOr(Core__Option.map(until, (function (until) {
+                                                                                                                                                  return JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
+                                                                                                                                                              value: until,
+                                                                                                                                                              unit: "minute",
+                                                                                                                                                              updateIntervalInSeconds: 1
+                                                                                                                                                            });
+                                                                                                                                                })), null)
+                                                                                                                                    ]
+                                                                                                                                  });
+                                                                                                                      }));
+                                                                                                        })), "???")
+                                                                                            ],
+                                                                                            className: "font-bold flex items-center mt-4 lg:text-xl leading-8 text-gray-700"
+                                                                                          }),
+                                                                                      JsxRuntime.jsx("div", {
+                                                                                            children: JsxRuntime.jsx(AddToCalendar.make, {}),
+                                                                                            className: "ml-3 border-gray-200 border-l-4 pl-5 mt-4"
+                                                                                          }),
+                                                                                      Core__Option.getOr(Core__Option.map($$location, (function ($$location) {
+                                                                                                  return JsxRuntime.jsx(EventLocation.make, {
+                                                                                                              location: $$location.fragmentRefs
+                                                                                                            });
                                                                                                 })), null),
                                                                                       Core__Option.getOr(Core__Option.map(details, (function (details) {
-                                                                                                  return JsxRuntime.jsx("p", {
-                                                                                                              children: details,
-                                                                                                              className: "mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap"
+                                                                                                  var tmp = details === "" ? t`good luck, have fun` : details;
+                                                                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                              children: [
+                                                                                                                JsxRuntime.jsxs("div", {
+                                                                                                                      children: [
+                                                                                                                        JsxRuntime.jsx(LucideReact.Info, {
+                                                                                                                              className: "mr-2 h-7 w-7 flex-shrink-0 text-gray-500",
+                                                                                                                              "aria-hidden": "true"
+                                                                                                                            }),
+                                                                                                                        t`notes`
+                                                                                                                      ],
+                                                                                                                      className: "font-bold flex items-center mt-4 lg:text-xl leading-8 text-gray-700"
+                                                                                                                    }),
+                                                                                                                JsxRuntime.jsx("div", {
+                                                                                                                      children: JsxRuntime.jsx("p", {
+                                                                                                                            children: tmp,
+                                                                                                                            className: "lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap"
+                                                                                                                          }),
+                                                                                                                      className: "ml-3 border-gray-200 border-l-4 pl-5 mt-4"
+                                                                                                                    })
+                                                                                                              ]
                                                                                                             });
                                                                                                 })), null)
                                                                                     ],
@@ -286,20 +333,6 @@ function $$Event(props) {
                                                                             })
                                                                       ],
                                                                       className: "lg:col-start-3 lg:row-end-1"
-                                                                    }),
-                                                                JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsx("h2", {
-                                                                              children: t`event location`,
-                                                                              className: "text-base font-semibold leading-6 text-gray-900"
-                                                                            }),
-                                                                        Core__Option.getOr(Core__Option.map($$location, (function ($$location) {
-                                                                                    return JsxRuntime.jsx(EventLocation.make, {
-                                                                                                location: $$location.fragmentRefs
-                                                                                              });
-                                                                                  })), null)
-                                                                      ],
-                                                                      className: "lg:col-start-3"
                                                                     })
                                                               ],
                                                               className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"

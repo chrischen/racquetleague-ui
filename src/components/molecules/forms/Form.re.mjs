@@ -133,7 +133,8 @@ function Form$TextArea(props) {
           id: id,
           disabled: disabled,
           name: name,
-          rows: rows
+          rows: rows,
+          value: props.value
         });
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {

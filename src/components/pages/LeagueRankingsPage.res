@@ -7,9 +7,7 @@ module Query = %relay(`
   }
 `)
 
-type loaderData = {
-  query: LeagueRankingsPageQuery_graphql.queryRef,
-}
+type loaderData = {query: LeagueRankingsPageQuery_graphql.queryRef}
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 

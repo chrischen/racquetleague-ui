@@ -2,6 +2,7 @@
 
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as EventLocation_location_graphql from "../../__generated__/EventLocation_location_graphql.re.mjs";
@@ -31,34 +32,53 @@ function EventLocation(props) {
         }));
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                JsxRuntime.jsx("h3", {
-                      children: Core__Option.getOr($$location.name, ""),
-                      className: "text-lg font-bold text-gray-900 mt-8"
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx(LucideReact.MapPin, {
+                              className: "mr-2 h-7 w-7 flex-shrink-0 text-gray-500",
+                              "aria-hidden": "true"
+                            }),
+                        Core__Option.getOr(Core__Option.map($$location.name, (function (prim) {
+                                    return prim;
+                                  })), null)
+                      ],
+                      className: "font-bold flex items-center mt-4 lg:text-xl leading-8 text-gray-700"
                     }),
-                Core__Option.getOr(Core__Option.map($$location.address, (function (address) {
-                            return JsxRuntime.jsx("p", {
-                                        children: Core__Option.getOr(Core__Option.map(defaultLink, (function (link) {
-                                                    return JsxRuntime.jsx("a", {
-                                                                children: address,
-                                                                href: link,
-                                                                rel: "noopener noreferrer",
-                                                                target: "_blank"
-                                                              });
-                                                  })), address),
-                                        className: "mt-4 lg:text-xl leading-8 text-gray-700"
-                                      });
-                          })), ""),
-                Core__Option.getOr(Core__Option.map($$location.links, (function (links) {
-                            return links.map(function (link) {
-                                        return JsxRuntime.jsx("a", {
-                                                    children: link,
-                                                    className: "mt-4 lg:text-sm leading-8 italic text-gray-700",
-                                                    href: link,
-                                                    rel: "noopener noreferrer",
-                                                    target: "_blank"
-                                                  }, link);
-                                      });
-                          })), null)
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        Core__Option.getOr(Core__Option.map($$location.address, (function (address) {
+                                    return JsxRuntime.jsx("p", {
+                                                children: Core__Option.getOr(Core__Option.map(defaultLink, (function (link) {
+                                                            return JsxRuntime.jsx("a", {
+                                                                        children: address,
+                                                                        href: link,
+                                                                        rel: "noopener noreferrer",
+                                                                        target: "_blank"
+                                                                      });
+                                                          })), address),
+                                                className: "lg:text-sm leading-8 text-gray-700"
+                                              });
+                                  })), ""),
+                        Core__Option.getOr(Core__Option.map($$location.links, (function (links) {
+                                    return links.map(function (link) {
+                                                return JsxRuntime.jsx("a", {
+                                                            children: link,
+                                                            className: "mt-4 lg:text-sm leading-8 italic text-gray-700",
+                                                            href: link,
+                                                            rel: "noopener noreferrer",
+                                                            target: "_blank"
+                                                          }, link);
+                                              });
+                                  })), null),
+                        Core__Option.getOr(Core__Option.map($$location.details, (function (details) {
+                                    return JsxRuntime.jsx("p", {
+                                                children: details,
+                                                className: "mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap"
+                                              });
+                                  })), null)
+                      ],
+                      className: "ml-3 border-gray-200 border-l-4 pl-5 mt-4"
+                    })
               ]
             });
 }
@@ -69,4 +89,4 @@ export {
   Fragment ,
   make ,
 }
-/* react/jsx-runtime Not a pure module */
+/* lucide-react Not a pure module */

@@ -9,6 +9,8 @@ import { t } from '@lingui/macro'
 ;
 
 function ViewerRsvpStatus(props) {
+  var onLeave = props.onLeave;
+  var onJoin = props.onJoin;
   var viewer = GlobalQuery.useViewer();
   var match = viewer.user;
   if (match !== undefined) {
@@ -20,7 +22,10 @@ function ViewerRsvpStatus(props) {
                               t`leave event`
                             ],
                             href: "#",
-                            onClick: props.onLeave
+                            onClick: (function (e) {
+                                e.preventDefault();
+                                onLeave();
+                              })
                           }))
                 });
     } else {
@@ -30,7 +35,10 @@ function ViewerRsvpStatus(props) {
                     t`join event`
                   ],
                   href: "#",
-                  onClick: props.onJoin
+                  onClick: (function (e) {
+                      e.preventDefault();
+                      onJoin();
+                    })
                 });
     }
   } else {

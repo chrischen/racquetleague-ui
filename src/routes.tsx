@@ -79,6 +79,20 @@ export const routes: RouteObject[] = [
 
           },
           {
+            path: "events/update/:eventId",
+            lazy: () => import("./components/routes/UpdateEventRoute.gen"),
+            handle: "src/components/routes/UpdateEventRoute.gen.tsx",
+            children: [
+              {
+                path: ":locationId",
+                lazy: () => import("./components/routes/UpdateLocationEventRoute.gen"),
+                handle: "src/components/routes/UpdateLocationEventRoute.gen.tsx",
+              },
+
+            ]
+
+          },
+          {
             path: "events/:eventId",
             lazy: () => import("./components/pages/Event.gen"),
             handle: "src/components/pages/Event.gen.tsx",

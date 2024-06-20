@@ -27,3 +27,7 @@ module CheckIcon = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CheckIcon"
 }
+module CalendarIcon = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CalendarIcon"
+}

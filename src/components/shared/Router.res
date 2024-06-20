@@ -69,6 +69,7 @@ module NavLink = {
     ~children: React.element,
     ~className: linkState => string=?,
     ~relative: string=?,
+    ~onClick: 'a => unit=?,
     ~reloadDocument: bool=?,
     ~unstable_viewTransition: bool=?,
     // ~ariaCurrent: [> #page | #"false"]=?,

@@ -40,7 +40,17 @@ let make = () => {
 module Router = {
   // Locale-aware Link component
   module Link = {
-    let make = (props: Router.Link.props<string, React.element, string, string, bool, bool, [> #page | #"false"]>) => {
+    let make = (
+      props: Router.Link.props<
+        string,
+        React.element,
+        string,
+        string,
+        bool,
+        bool,
+        [> #page | #"false"],
+      >,
+    ) => {
       let locale = React.useContext(LocaleContext.context)
       let props = {
         ...props,
@@ -54,7 +64,17 @@ module Router = {
     }
   }
   module NavLink = {
-    let make = (props: Router.NavLink.props<string, React.element, Router.NavLink.linkState => string, string, bool, bool>) => {
+    let make = (
+      props: Router.NavLink.props<
+        string,
+        React.element,
+        Router.NavLink.linkState => string,
+        string,
+        'a => unit,
+        bool,
+        bool,
+      >,
+    ) => {
       let locale = React.useContext(LocaleContext.context)
       let props = {
         ...props,
@@ -69,17 +89,26 @@ module Router = {
   }
   module LinkWithOpts = {
     let make = (
-      props: Router.LinkWithOpts.props<Router.LinkWithOpts.to, React.element, string, string, bool, bool>,
+      props: Router.LinkWithOpts.props<
+        Router.LinkWithOpts.to,
+        React.element,
+        string,
+        string,
+        bool,
+        bool,
+      >,
     ) => {
       let locale = React.useContext(LocaleContext.context)
       let props = {
         ...props,
         to: {
           ...props.to,
-          pathname: ?props.to.pathname->Option.map(pathname => switch pathname->String.startsWith("/") {
-          | true => "/" ++ locale.lang ++ pathname
-          | false => pathname
-          }),
+          pathname: ?props.to.pathname->Option.map(pathname =>
+            switch pathname->String.startsWith("/") {
+            | true => "/" ++ locale.lang ++ pathname
+            | false => pathname
+            }
+          ),
         },
       }
 

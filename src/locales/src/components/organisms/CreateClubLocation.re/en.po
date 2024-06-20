@@ -25,7 +25,7 @@ msgstr ""
 msgid "Akabane Elementary School"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:222
+#: src/components/molecules/forms/Form.re.mjs:226
 msgid "cancel"
 msgstr ""
 
@@ -53,6 +53,6 @@ msgstr ""
 msgid "name is required"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:229
+#: src/components/molecules/forms/Form.re.mjs:233
 msgid "save"
 msgstr ""

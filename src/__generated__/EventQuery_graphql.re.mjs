@@ -93,52 +93,59 @@ v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "title",
+  "name": "id",
   "storageKey": null
 },
 v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "details",
+  "name": "title",
   "storageKey": null
 },
 v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "name",
+  "name": "details",
   "storageKey": null
 },
 v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "slug",
+  "name": "name",
   "storageKey": null
 },
 v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "startDate",
+  "name": "slug",
   "storageKey": null
 },
 v10 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "endDate",
+  "name": "viewerIsAdmin",
   "storageKey": null
 },
 v11 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "id",
+  "name": "startDate",
   "storageKey": null
 },
-v12 = [
+v12 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "endDate",
+  "storageKey": null
+},
+v13 = [
   {
     "kind": "Variable",
     "name": "after",
@@ -155,7 +162,7 @@ v12 = [
     "variableName": "first"
   }
 ],
-v13 = {
+v14 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -189,6 +196,7 @@ return {
         "selections": [
           (v5/*: any*/),
           (v6/*: any*/),
+          (v7/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -197,8 +205,8 @@ return {
             "name": "activity",
             "plural": false,
             "selections": [
-              (v7/*: any*/),
               (v8/*: any*/),
+              (v9/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -207,8 +215,9 @@ return {
             ],
             "storageKey": null
           },
-          (v9/*: any*/),
           (v10/*: any*/),
+          (v11/*: any*/),
+          (v12/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -217,9 +226,9 @@ return {
             "name": "location",
             "plural": false,
             "selections": [
-              (v11/*: any*/),
+              (v5/*: any*/),
+              (v8/*: any*/),
               (v7/*: any*/),
-              (v6/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -234,11 +243,11 @@ return {
             "storageKey": null
           },
           {
-            "args": (v12/*: any*/),
+            "args": (v13/*: any*/),
             "kind": "FragmentSpread",
             "name": "EventRsvps_event"
           },
-          (v13/*: any*/)
+          (v14/*: any*/)
         ],
         "storageKey": null
       }
@@ -267,6 +276,7 @@ return {
         "selections": [
           (v5/*: any*/),
           (v6/*: any*/),
+          (v7/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -275,9 +285,9 @@ return {
             "name": "activity",
             "plural": false,
             "selections": [
-              (v7/*: any*/),
               (v8/*: any*/),
-              (v11/*: any*/),
+              (v9/*: any*/),
+              (v5/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -286,15 +296,16 @@ return {
                 "name": "sub",
                 "plural": false,
                 "selections": [
-                  (v11/*: any*/)
+                  (v5/*: any*/)
                 ],
                 "storageKey": null
               }
             ],
             "storageKey": null
           },
-          (v9/*: any*/),
           (v10/*: any*/),
+          (v11/*: any*/),
+          (v12/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -303,9 +314,9 @@ return {
             "name": "location",
             "plural": false,
             "selections": [
-              (v11/*: any*/),
+              (v5/*: any*/),
+              (v8/*: any*/),
               (v7/*: any*/),
-              (v6/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -314,7 +325,7 @@ return {
                 "name": "media",
                 "plural": true,
                 "selections": [
-                  (v5/*: any*/),
+                  (v6/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -322,7 +333,7 @@ return {
                     "name": "url",
                     "storageKey": null
                   },
-                  (v11/*: any*/)
+                  (v5/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -352,7 +363,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v12/*: any*/),
+            "args": (v13/*: any*/),
             "concreteType": "EventRsvpConnection",
             "kind": "LinkedField",
             "name": "rsvps",
@@ -382,7 +393,14 @@ return {
                         "name": "user",
                         "plural": false,
                         "selections": [
-                          (v11/*: any*/),
+                          (v5/*: any*/),
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "picture",
+                            "storageKey": null
+                          },
                           {
                             "alias": null,
                             "args": null,
@@ -393,7 +411,14 @@ return {
                         ],
                         "storageKey": null
                       },
-                      (v11/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "rating",
+                        "storageKey": null
+                      },
+                      (v5/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -451,27 +476,26 @@ return {
           },
           {
             "alias": null,
-            "args": (v12/*: any*/),
+            "args": (v13/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "EventRsvps_event_rsvps",
             "kind": "LinkedHandle",
             "name": "rsvps"
           },
-          (v11/*: any*/),
-          (v13/*: any*/)
+          (v14/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "6976cb59d9eba78fbdf8100b5d8b68cd",
+    "cacheID": "f0b207320f909b7ee6c062629c9f3481",
     "id": null,
     "metadata": {},
     "name": "EventQuery",
     "operationKind": "query",
-    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    startDate\n    endDate\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    title\n    url\n    id\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
+    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    id\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    viewerIsAdmin\n    startDate\n    endDate\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    ...EventRsvps_event_4uAqg1\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  id\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    title\n    url\n    id\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
   }
 };
 })());

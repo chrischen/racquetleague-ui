@@ -23,6 +23,7 @@ module Fragment = %relay(`
         node {
           user {
             id
+            rating(activitySlug: "pickleball", namespace: "doubles:rec")
             ...EventRsvpUser_user
           }
         }
@@ -75,7 +76,12 @@ module SelectEventPlayersList = {
               {switch players {
               | [] => t`no players yet`
               | players =>
-                players
+                players->Array.toSorted((a, b) => {
+                  let userA = a.user->Option.map(user => user.rating->Option.getOr(0.))
+                  let userB = b.user->Option.map(user => user.rating->Option.getOr(0.))
+                  userA < userB ? 1. : -1.;
+
+                })
                 ->Array.mapWithIndex((edge, i) => {
                   edge.user
                   ->Option.map(user => {
@@ -101,7 +107,7 @@ module SelectEventPlayersList = {
                           <EventRsvpUser
                             user={user.fragmentRefs}
                             highlight={selected->Array.findIndex(id => id == user.id) >= 0}
-                          />
+                          />{" - "->React.string}{user.rating->Option.map(Float.toFixed(_,~digits=2))->Option.getOr("0.0")->React.string}
                         </a>
                       </div>
                     </FramerMotion.Li>

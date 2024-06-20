@@ -85,7 +85,7 @@ msgstr ""
 msgid "public events"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:17
+#: src/components/molecules/AddToCalendar.re.mjs:24
 msgid "sync calendar"
 msgstr ""
 

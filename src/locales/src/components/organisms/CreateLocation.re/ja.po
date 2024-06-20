@@ -13,46 +13,48 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateLocation.re.mjs:148
+#: src/components/organisms/CreateLocation.re.mjs:158
 msgid "address"
 msgstr "住所"
 
-#: src/components/organisms/CreateLocation.re.mjs:75
+#: src/components/organisms/CreateLocation.re.mjs:76
 msgid "address is required"
 msgstr "住所が必要です"
 
-#: src/components/organisms/CreateLocation.re.mjs:137
+#: src/components/organisms/CreateLocation.re.mjs:147
 msgid "Akabane Elementary School"
 msgstr "赤羽小学校"
 
-#: src/components/molecules/forms/Form.re.mjs:222
+#: src/components/molecules/forms/Form.re.mjs:226
 msgid "cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/CreateLocation.re.mjs:167
+#: src/components/organisms/CreateLocation.re.mjs:177
 msgid "details"
 msgstr "詳細"
 
-#: src/components/organisms/CreateLocation.re.mjs:170
-msgid "Instructions or information that will apply to all events held at this location."
+#: src/components/organisms/CreateLocation.re.mjs:180
+msgid ""
+"Instructions or information that will apply to all events held at this "
+"location."
 msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
 
-#: src/components/organisms/CreateLocation.re.mjs:128
+#: src/components/organisms/CreateLocation.re.mjs:138
 msgid "location"
 msgstr "場所"
 
-#: src/components/organisms/CreateLocation.re.mjs:157
+#: src/components/organisms/CreateLocation.re.mjs:167
 msgid "maps link"
 msgstr "マップリンク"
 
-#: src/components/organisms/CreateLocation.re.mjs:134
+#: src/components/organisms/CreateLocation.re.mjs:144
 msgid "name"
 msgstr "場所名"
 
-#: src/components/organisms/CreateLocation.re.mjs:72
+#: src/components/organisms/CreateLocation.re.mjs:73
 msgid "name is required"
 msgstr "場所名は必須"
 
-#: src/components/molecules/forms/Form.re.mjs:229
+#: src/components/molecules/forms/Form.re.mjs:233
 msgid "save"
 msgstr "保存"

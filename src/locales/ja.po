@@ -693,6 +693,26 @@ msgstr "参加するには、こちらのバドミントンイベントに参加
 msgid "players"
 msgstr "プレイヤー"
 
+#: src/components/pages/CreateLocationEvent.re.mjs:262
+msgid "All Level"
+msgstr "すべてのレベル"
+
+#: src/components/pages/Event.re.mjs:194
+msgid "edit event"
+msgstr "イベントを編集"
+
+#: src/components/pages/Event.re.mjs:280
+msgid "good luck, have fun"
+msgstr "がんばってください"
+
+#: src/components/pages/Event.re.mjs:289
+msgid "notes"
+msgstr "メモ"
+
+#: src/components/pages/UpdateLocationEventPage.re.mjs:64
+msgid "Event or Location doesn't exist."
+msgstr "イベントまたは場所が存在しません。"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"
