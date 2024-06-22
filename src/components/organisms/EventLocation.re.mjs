@@ -59,17 +59,20 @@ function EventLocation(props) {
                                                 className: "lg:text-sm leading-8 text-gray-700"
                                               });
                                   })), ""),
-                        Core__Option.getOr(Core__Option.map($$location.links, (function (links) {
-                                    return links.map(function (link) {
-                                                return JsxRuntime.jsx("a", {
-                                                            children: link,
-                                                            className: "mt-4 lg:text-sm leading-8 italic text-gray-700",
-                                                            href: link,
-                                                            rel: "noopener noreferrer",
-                                                            target: "_blank"
-                                                          }, link);
-                                              });
-                                  })), null),
+                        JsxRuntime.jsx("p", {
+                              children: Core__Option.getOr(Core__Option.map($$location.links, (function (links) {
+                                          return links.map(function (link) {
+                                                      return JsxRuntime.jsx("a", {
+                                                                  children: link,
+                                                                  className: "mt-4 lg:text-sm leading-8 italic text-gray-700 truncate",
+                                                                  href: link,
+                                                                  rel: "noopener noreferrer",
+                                                                  target: "_blank"
+                                                                }, link);
+                                                    });
+                                        })), null),
+                              className: "truncate"
+                            }),
                         Core__Option.getOr(Core__Option.map($$location.details, (function (details) {
                                     return JsxRuntime.jsx("p", {
                                                 children: details,

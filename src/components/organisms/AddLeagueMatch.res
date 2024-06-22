@@ -23,9 +23,9 @@ module Fragment = %relay(`
         node {
           user {
             id
-            rating(activitySlug: "pickleball", namespace: "doubles:rec")
             ...EventRsvpUser_user
           }
+          rating
         }
       }
       pageInfo {
@@ -68,19 +68,28 @@ module SelectEventPlayersList = {
         loadNext(~count=1)->ignore
       })
     // let viewer = GlobalQuery.useViewer()
+
+    let maxRating =
+      players->Array.reduce(0., (acc, next) =>
+        next.rating->Option.getOr(0.) > acc ? next.rating->Option.getOr(0.) : acc
+      )
+    let minRating =
+      players->Array.reduce(maxRating, (acc, next) =>
+        next.rating->Option.getOr(maxRating) < acc ? next.rating->Option.getOr(maxRating) : acc
+      )
     <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
       <div className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4">
         {<>
-          <ul className="">
+          <ul className="w-full">
             <FramerMotion.AnimatePresence>
               {switch players {
               | [] => t`no players yet`
               | players =>
-                players->Array.toSorted((a, b) => {
-                  let userA = a.user->Option.map(user => user.rating->Option.getOr(0.))
-                  let userB = b.user->Option.map(user => user.rating->Option.getOr(0.))
-                  userA < userB ? 1. : -1.;
-
+                players
+                ->Array.toSorted((a, b) => {
+                  let userA = a.rating->Option.map(r => r)->Option.getOr(0.)
+                  let userB = b.rating->Option.map(r => r)->Option.getOr(0.)
+                  userA < userB ? 1. : -1.
                 })
                 ->Array.mapWithIndex((edge, i) => {
                   edge.user
@@ -96,7 +105,7 @@ module SelectEventPlayersList = {
                         <span className="sr-only"> {t`Player`} </span>
                         // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
                       </div>
-                      <div className="text-sm font-medium leading-6 text-gray-900">
+                      <div className="text-sm w-full font-medium leading-6 text-gray-900">
                         <a
                           href="#"
                           onClick={e => {
@@ -105,9 +114,15 @@ module SelectEventPlayersList = {
                             ()
                           }}>
                           <EventRsvpUser
+                            link=false
                             user={user.fragmentRefs}
                             highlight={selected->Array.findIndex(id => id == user.id) >= 0}
-                          />{" - "->React.string}{user.rating->Option.map(Float.toFixed(_,~digits=2))->Option.getOr("0.0")->React.string}
+                            ratingPercent={edge.rating
+                            ->Option.map(
+                              rating => (rating -. minRating) /. (maxRating -. minRating) *. 100.,
+                            )
+                            ->Option.getOr(0.)}
+                          />
                         </a>
                       </div>
                     </FramerMotion.Li>
@@ -310,7 +325,11 @@ let make = (~event) => {
           </div>
         </div>
         <div className="lg:col-span-4 gap-4">
-          <input type_="submit" className="mx-auto block text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" value="Submit" />
+          <input
+            type_="submit"
+            className="mx-auto block text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+            value="Submit"
+          />
         </div>
       </div>
     </form>

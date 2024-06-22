@@ -33,8 +33,10 @@ var Fragment = {
 };
 
 function EventRsvpUser(props) {
+  var __link = props.link;
   var __highlight = props.highlight;
   var highlight = __highlight !== undefined ? __highlight : false;
+  var link = __link !== undefined ? __link : true;
   var user = use(props.user);
   var display = Core__Option.getOr(user.lineUsername, "[Line username missing]");
   return JsxRuntime.jsxs("div", {
@@ -50,19 +52,24 @@ function EventRsvpUser(props) {
                         })),
                 JsxRuntime.jsxs("div", {
                       children: [
-                        JsxRuntime.jsx("p", {
-                              children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                                    to: "/league/badminton/p/" + user.id,
-                                    children: [
-                                      JsxRuntime.jsx("span", {
-                                            className: "absolute inset-x-0 -top-px bottom-0"
-                                          }),
-                                      highlight ? JsxRuntime.jsx("strong", {
-                                              children: display,
-                                              className: "text-lg"
-                                            }) : display
-                                    ]
-                                  }),
+                        JsxRuntime.jsxs("p", {
+                              children: [
+                                JsxRuntime.jsx("span", {
+                                      className: "absolute inset-x-0 -top-px bottom-0"
+                                    }),
+                                link ? JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                        to: "/league/badminton/p/" + user.id,
+                                        children: highlight ? JsxRuntime.jsx("strong", {
+                                                children: display,
+                                                className: "text-lg"
+                                              }) : display
+                                      }) : (
+                                    highlight ? JsxRuntime.jsx("strong", {
+                                            children: display,
+                                            className: "text-lg"
+                                          }) : display
+                                  )
+                              ],
                               className: "text-sm font-semibold leading-6 text-gray-900"
                             }),
                         JsxRuntime.jsx("p", {

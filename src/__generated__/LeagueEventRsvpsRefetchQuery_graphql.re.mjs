@@ -214,24 +214,6 @@ return {
                               (v4/*: any*/),
                               {
                                 "alias": null,
-                                "args": [
-                                  {
-                                    "kind": "Literal",
-                                    "name": "activitySlug",
-                                    "value": "pickleball"
-                                  },
-                                  {
-                                    "kind": "Literal",
-                                    "name": "namespace",
-                                    "value": "doubles:rec"
-                                  }
-                                ],
-                                "kind": "ScalarField",
-                                "name": "rating",
-                                "storageKey": "rating(activitySlug:\"pickleball\",namespace:\"doubles:rec\")"
-                              },
-                              {
-                                "alias": null,
                                 "args": null,
                                 "kind": "ScalarField",
                                 "name": "picture",
@@ -245,6 +227,13 @@ return {
                                 "storageKey": null
                               }
                             ],
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "rating",
                             "storageKey": null
                           },
                           (v4/*: any*/),
@@ -328,12 +317,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "590bfdd3a22b92f883ff1faf8ed1b4ed",
+    "cacheID": "98dbecfa389d43094bcecb6618fc80b5",
     "id": null,
     "metadata": {},
     "name": "LeagueEventRsvpsRefetchQuery",
     "operationKind": "query",
-    "text": "query LeagueEventRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 50\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...AddLeagueMatch_event_4uAqg1\n    id\n  }\n}\n\nfragment AddLeagueMatch_event_4uAqg1 on Event {\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          rating(activitySlug: \"pickleball\", namespace: \"doubles:rec\")\n          ...EventRsvpUser_user\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvpUser_user on User {\n  id\n  picture\n  lineUsername\n}\n"
+    "text": "query LeagueEventRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 50\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...AddLeagueMatch_event_4uAqg1\n    id\n  }\n}\n\nfragment AddLeagueMatch_event_4uAqg1 on Event {\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvpUser_user on User {\n  id\n  picture\n  lineUsername\n}\n"
   }
 };
 })());

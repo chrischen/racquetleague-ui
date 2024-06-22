@@ -15,6 +15,7 @@ module Fragment = %relay(`
 let make = (
   ~user,
   ~highlight: bool=false,
+  ~link: bool=true,
   ~rating: option<float>=?,
   ~ratingPercent: option<float>=?,
 ) => {
@@ -47,18 +48,33 @@ let make = (
   <div className={Util.cx(["relative flex min-w-0 gap-x-4", highlight ? "py-3 mx-0" : "mx-4"])}>
     {user.picture
     ->Option.map(picture =>
-      <img className={Util.cx([highlight ? "h-14 w-14" : "h-12 w-12", "flex-none rounded-full bg-gray-50", highlight ? "drop-shadow-lg" : ""])} src={picture} alt="" />
+      <img
+        className={Util.cx([
+          highlight ? "h-14 w-14" : "h-12 w-12",
+          "flex-none rounded-full bg-gray-50",
+          highlight ? "drop-shadow-lg" : "",
+        ])}
+        src={picture}
+        alt=""
+      />
     )
     ->Option.getOr(<div className="h-12 w-12 flex-none rounded-full bg-gray-50" />)}
     <div className="min-w-0 flex-auto">
       <p className="text-sm font-semibold leading-6 text-gray-900">
-        <Link to={"/league/badminton/p/" ++ user.id}>
-          <span className="absolute inset-x-0 -top-px bottom-0" />
-          {switch highlight {
-          | true => <strong className="text-lg"> {display} </strong>
-          | false => display
-          }}
-        </Link>
+        <span className="absolute inset-x-0 -top-px bottom-0" />
+        {link
+          ? <Link to={"/league/badminton/p/" ++ user.id}>
+              {switch highlight {
+              | true => <strong className="text-lg"> {display} </strong>
+              | false => display
+              }}
+            </Link>
+          : {
+              switch highlight {
+              | true => <strong className="text-lg"> {display} </strong>
+              | false => display
+              }
+            }}
       </p>
       <p className="mt-1 flex text-xs leading-5 text-gray-500">
         <span className="relative truncate hover:underline" />

@@ -32,6 +32,7 @@ let make = (~location) => {
         </p>
       )
       ->Option.getOr(""->React.string)}
+      <p className="truncate">
       {location.links
       ->Option.map(links =>
         links
@@ -39,7 +40,7 @@ let make = (~location) => {
           <a
             key={link}
             href={link}
-            className="mt-4 lg:text-sm leading-8 italic text-gray-700"
+            className="mt-4 lg:text-sm leading-8 italic text-gray-700 truncate"
             target="_blank"
             rel="noopener noreferrer">
             {link->React.string}
@@ -48,6 +49,7 @@ let make = (~location) => {
         ->React.array
       )
       ->Option.getOr(React.null)}
+      </p>
       {location.details
       ->Option.map(details =>
         <p className="mt-4 lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">

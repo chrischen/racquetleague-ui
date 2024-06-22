@@ -5,8 +5,8 @@ import * as Form from "../molecules/forms/Form.re.mjs";
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
-import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -105,6 +105,20 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
           loadNext(1, undefined);
         });
   };
+  var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
+          if (Core__Option.getOr(next.rating, 0) > acc) {
+            return Core__Option.getOr(next.rating, 0);
+          } else {
+            return acc;
+          }
+        }));
+  var minRating = Core__Array.reduce(players, maxRating, (function (acc, next) {
+          if (Core__Option.getOr(next.rating, maxRating) < acc) {
+            return Core__Option.getOr(next.rating, maxRating);
+          } else {
+            return acc;
+          }
+        }));
   return JsxRuntime.jsx("div", {
               children: JsxRuntime.jsx("div", {
                     children: JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -112,13 +126,13 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                             JsxRuntime.jsx("ul", {
                                   children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
                                         children: players.length !== 0 ? players.toSorted(function (a, b) {
-                                                  var userA = Core__Option.map(a.user, (function (user) {
-                                                          return Core__Option.getOr(user.rating, 0);
-                                                        }));
-                                                  var userB = Core__Option.map(b.user, (function (user) {
-                                                          return Core__Option.getOr(user.rating, 0);
-                                                        }));
-                                                  if (Caml_obj.lessthan(userA, userB)) {
+                                                  var userA = Core__Option.getOr(Core__Option.map(a.rating, (function (r) {
+                                                              return r;
+                                                            })), 0);
+                                                  var userB = Core__Option.getOr(Core__Option.map(b.rating, (function (r) {
+                                                              return r;
+                                                            })), 0);
+                                                  if (userA < userB) {
                                                     return 1;
                                                   } else {
                                                     return -1;
@@ -152,19 +166,17 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                                                                                       className: "flex-none"
                                                                                     }),
                                                                                 JsxRuntime.jsx("div", {
-                                                                                      children: JsxRuntime.jsxs("a", {
-                                                                                            children: [
-                                                                                              JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                    user: user.fragmentRefs,
-                                                                                                    highlight: selected.findIndex(function (id) {
-                                                                                                          return id === user.id;
-                                                                                                        }) >= 0
-                                                                                                  }),
-                                                                                              " - ",
-                                                                                              Core__Option.getOr(Core__Option.map(user.rating, (function (__x) {
-                                                                                                          return __x.toFixed(2);
-                                                                                                        })), "0.0")
-                                                                                            ],
+                                                                                      children: JsxRuntime.jsx("a", {
+                                                                                            children: JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                                                  user: user.fragmentRefs,
+                                                                                                  highlight: selected.findIndex(function (id) {
+                                                                                                        return id === user.id;
+                                                                                                      }) >= 0,
+                                                                                                  link: false,
+                                                                                                  ratingPercent: Core__Option.getOr(Core__Option.map(edge.rating, (function (rating) {
+                                                                                                              return (rating - minRating) / (maxRating - minRating) * 100;
+                                                                                                            })), 0)
+                                                                                                }),
                                                                                             href: "#",
                                                                                             onClick: (function (e) {
                                                                                                 e.preventDefault();
@@ -173,14 +185,14 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                                                                                                       }));
                                                                                               })
                                                                                           }),
-                                                                                      className: "text-sm font-medium leading-6 text-gray-900"
+                                                                                      className: "text-sm w-full font-medium leading-6 text-gray-900"
                                                                                     })
                                                                               ]
                                                                             }, user.id);
                                                                 })), null);
                                               }) : t`no players yet`
                                       }),
-                                  className: ""
+                                  className: "w-full"
                                 }),
                             JsxRuntime.jsx("em", {
                                   children: match$1.isLoadingNext ? "..." : (
