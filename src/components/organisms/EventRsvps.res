@@ -13,6 +13,9 @@ module Fragment = %relay(`
   {
     __id
     maxRsvps
+    activity {
+      slug
+    }
     rsvps(after: $after, first: $first, before: $before)
     @connection(key: "EventRsvps_event_rsvps")
     {
@@ -82,7 +85,7 @@ let make = (~event) => {
       loadNext(~count=1)->ignore
     })
 
-  let {__id, maxRsvps} = Fragment.use(event)
+  let {__id, maxRsvps, activity} = Fragment.use(event)
   let (commitMutationLeave, _isMutationInFlight) = EventRsvpsLeaveMutation.use()
   let (commitMutationJoin, _isMutationInFlight) = EventRsvpsJoinMutation.use()
 
@@ -124,6 +127,8 @@ let make = (~event) => {
     )->RescriptRelay.Disposable.ignore
   }
 
+  let activitySlug = activity->Option.flatMap(a => a.slug)
+
   let spotsAvailable =
     maxRsvps->Option.map(max =>
       (max->Int.toFloat -. rsvps->Array.length->Int.toFloat)->Math.max(0.)->Float.toInt
@@ -157,7 +162,9 @@ let make = (~event) => {
     </button>
   | None =>
     <div className="text-center">
-      <p><em> {t`login to join the event`} </em></p>
+      <p>
+        <em> {t`login to join the event`} </em>
+      </p>
       <LoginLink className="mt-2 inline-block" />
       <button
         disabled=true
@@ -173,6 +180,7 @@ let make = (~event) => {
       {t`leave event`}
     </button>
   <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
+    <h2 className="sr-only"> {t`attendees`} </h2>
     <dl className="flex flex-wrap">
       <div className="flex-auto pl-6 pt-4">
         <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`confirmed`} </dt>
@@ -251,6 +259,10 @@ let make = (~event) => {
                         </div>
                         <div className="w-full text-sm font-medium leading-6 text-gray-900">
                           <EventRsvpUser
+                            link={"/league/" ++
+                            activitySlug->Option.getOr("badminton") ++
+                            "/p/" ++
+                            user.id}
                             user={user.fragmentRefs}
                             rating=?edge.rating
                             ratingPercent={edge.rating
@@ -314,7 +326,7 @@ let make = (~event) => {
                     switch isWaitlist(i) {
                     | true =>
                       <FramerMotion.Li
-                        className="mt-4 flex w-full flex-none gap-x-4 px-6"
+                        className="mt-4 flex w-full flex-none"
                         style={originX: 0.05, originY: 0.05}
                         key={user.id}
                         initial={opacity: 0., scale: 1.15}
@@ -324,9 +336,19 @@ let make = (~event) => {
                           <span className="sr-only"> {t`Player`} </span>
                           // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
                         </div>
-                        <div className="text-sm font-medium leading-6 text-gray-900">
+                        <div className="w-full text-sm font-medium leading-6 text-gray-900">
                           <EventRsvpUser
+                            link={"/league/" ++
+                            activitySlug->Option.getOr("badminton") ++
+                            "/p/" ++
+                            user.id}
                             user={user.fragmentRefs}
+                            rating=?edge.rating
+                            ratingPercent={edge.rating
+                            ->Option.map(
+                              rating => (rating -. minRating) /. (maxRating -. minRating) *. 100.,
+                            )
+                            ->Option.getOr(0.)}
                             highlight={viewer.user
                             ->Option.map(viewer => viewer.id == user.id)
                             ->Option.getOr(false)}

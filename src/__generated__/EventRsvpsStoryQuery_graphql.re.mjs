@@ -141,6 +141,25 @@ return {
           },
           {
             "alias": null,
+            "args": null,
+            "concreteType": "Activity",
+            "kind": "LinkedField",
+            "name": "activity",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "slug",
+                "storageKey": null
+              },
+              (v2/*: any*/)
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
             "args": (v3/*: any*/),
             "concreteType": "EventRsvpConnection",
             "kind": "LinkedField",
@@ -279,12 +298,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "00864cabca3992999dbd5d06809cdfa3",
+    "cacheID": "24a6c85f0ead7d7dc1637087724257e3",
     "id": null,
     "metadata": {},
     "name": "EventRsvpsStoryQuery",
     "operationKind": "query",
-    "text": "query EventRsvpsStoryQuery(\n  $after: String\n  $first: Int\n) {\n  event(id: \"1\") {\n    id\n    ...EventRsvps_event_2HEEH6\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  id\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_2HEEH6 on Event {\n  maxRsvps\n  rsvps(after: $after, first: $first) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
+    "text": "query EventRsvpsStoryQuery(\n  $after: String\n  $first: Int\n) {\n  event(id: \"1\") {\n    id\n    ...EventRsvps_event_2HEEH6\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_2HEEH6 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
   }
 };
 })());

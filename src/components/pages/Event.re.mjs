@@ -204,7 +204,8 @@ function $$Event(props) {
                                                         className: "relative isolate pt-4"
                                                       }),
                                                   Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
-                                                              if ($$event.viewerIsAdmin) {
+                                                              var match = $$event.viewerIsAdmin;
+                                                              if (match !== undefined && match) {
                                                                 return JsxRuntime.jsx(Layout.Container.make, {
                                                                             children: JsxRuntime.jsx("div", {
                                                                                   children: JsxRuntime.jsx("div", {
@@ -343,16 +344,50 @@ function $$Event(props) {
                                                                           }),
                                                                       className: "lg:col-span-2 lg:row-span-2 lg:row-end-2"
                                                                     }),
-                                                                JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsx("h2", {
-                                                                              children: t`attendees`,
-                                                                              className: "sr-only"
-                                                                            }),
-                                                                        JsxRuntime.jsx(EventRsvps.make, {
-                                                                              event: fragmentRefs
-                                                                            })
-                                                                      ],
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsxs("div", {
+                                                                            children: [
+                                                                              JsxRuntime.jsx(EventRsvps.make, {
+                                                                                    event: fragmentRefs
+                                                                                  }),
+                                                                              Core__Option.getOr((function (__x) {
+                                                                                        return Core__Option.flatMap(__x, (function (viewerHasRsvp) {
+                                                                                                      return Core__Option.flatMap($$event.activity, (function (activity) {
+                                                                                                                    return Core__Option.map(activity.slug, (function (slug) {
+                                                                                                                                  if (!viewerHasRsvp) {
+                                                                                                                                    return null;
+                                                                                                                                  }
+                                                                                                                                  switch (slug) {
+                                                                                                                                    case "badminton" :
+                                                                                                                                    case "pickleball" :
+                                                                                                                                        break;
+                                                                                                                                    default:
+                                                                                                                                      return null;
+                                                                                                                                  }
+                                                                                                                                  var tmp = slug === "pickleball" ? JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                                          to: "https://www.japanpickleleague.com/events/" + $$event.id,
+                                                                                                                                          children: t`submit matches`
+                                                                                                                                        }) : JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                                          to: "/league/events/" + $$event.id,
+                                                                                                                                          children: t`submit matches`
+                                                                                                                                        });
+                                                                                                                                  return JsxRuntime.jsxs("div", {
+                                                                                                                                              children: [
+                                                                                                                                                JsxRuntime.jsx("h2", {
+                                                                                                                                                      children: t`league`,
+                                                                                                                                                      className: "text-base font-semibold leading-6 text-gray-900"
+                                                                                                                                                    }),
+                                                                                                                                                tmp
+                                                                                                                                              ],
+                                                                                                                                              className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
+                                                                                                                                            });
+                                                                                                                                }));
+                                                                                                                  }));
+                                                                                                    }));
+                                                                                      })($$event.viewerHasRsvp), null)
+                                                                            ],
+                                                                            className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
+                                                                          }),
                                                                       className: "lg:col-start-3 lg:row-end-1"
                                                                     })
                                                               ],

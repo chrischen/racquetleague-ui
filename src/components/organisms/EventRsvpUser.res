@@ -5,7 +5,6 @@
 module Fragment = %relay(`
   fragment EventRsvpUser_user on User
   {
-    id
     picture
     lineUsername
   }
@@ -15,7 +14,7 @@ module Fragment = %relay(`
 let make = (
   ~user,
   ~highlight: bool=false,
-  ~link: bool=true,
+  ~link: string=?,
   ~rating: option<float>=?,
   ~ratingPercent: option<float>=?,
 ) => {
@@ -61,20 +60,24 @@ let make = (
     ->Option.getOr(<div className="h-12 w-12 flex-none rounded-full bg-gray-50" />)}
     <div className="min-w-0 flex-auto">
       <p className="text-sm font-semibold leading-6 text-gray-900">
-        <span className="absolute inset-x-0 -top-px bottom-0" />
-        {link
-          ? <Link to={"/league/badminton/p/" ++ user.id}>
-              {switch highlight {
-              | true => <strong className="text-lg"> {display} </strong>
-              | false => display
-              }}
-            </Link>
-          : {
-              switch highlight {
-              | true => <strong className="text-lg"> {display} </strong>
-              | false => display
-              }
+        {switch link {
+        | Some(link) =>
+          <Link to={link}>
+            <span className="absolute inset-x-0 -top-px bottom-0" />
+            {switch highlight {
+            | true => <strong className="text-lg"> {display} </strong>
+            | false => display
             }}
+          </Link>
+        | None =>
+          <>
+            <span className="absolute inset-x-0 -top-px bottom-0" />
+            {switch highlight {
+            | true => <strong className="text-lg"> {display} </strong>
+            | false => display
+            }}
+          </>
+        }}
       </p>
       <p className="mt-1 flex text-xs leading-5 text-gray-500">
         <span className="relative truncate hover:underline" />

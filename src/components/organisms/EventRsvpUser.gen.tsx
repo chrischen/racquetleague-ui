@@ -17,8 +17,8 @@ export type props<user,highlight,link,rating,ratingPercent> = {
   readonly ratingPercent?: ratingPercent
 };
 
-export const make: (_1:props<RescriptRelay_fragmentRefs<"EventRsvpUser_user">,boolean,boolean,number,number>) => PervasivesU_Jsx_element = EventRsvpUserJS.make as any;
+export const make: (_1:props<RescriptRelay_fragmentRefs<"EventRsvpUser_user">,boolean,string,number,number>) => PervasivesU_Jsx_element = EventRsvpUserJS.make as any;
 
-export const $$default: (_1:props<RescriptRelay_fragmentRefs<"EventRsvpUser_user">,boolean,boolean,number,number>) => PervasivesU_Jsx_element = EventRsvpUserJS.default as any;
+export const $$default: (_1:props<RescriptRelay_fragmentRefs<"EventRsvpUser_user">,boolean,string,number,number>) => PervasivesU_Jsx_element = EventRsvpUserJS.default as any;
 
 export default $$default;

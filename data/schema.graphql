@@ -98,7 +98,8 @@ type Event implements Node {
   rsvps(after: String, before: String, first: Int): EventRsvpConnection
   startDate: Datetime
   title: String
-  viewerIsAdmin: Boolean!
+  viewerHasRsvp: Boolean
+  viewerIsAdmin: Boolean
   viewerRsvpStatus: RsvpStatus
 }
 

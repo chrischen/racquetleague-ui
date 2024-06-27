@@ -114,7 +114,6 @@ module SelectEventPlayersList = {
                             ()
                           }}>
                           <EventRsvpUser
-                            link=false
                             user={user.fragmentRefs}
                             highlight={selected->Array.findIndex(id => id == user.id) >= 0}
                             ratingPercent={edge.rating

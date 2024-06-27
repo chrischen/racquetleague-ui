@@ -172,7 +172,6 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                                                                                                   highlight: selected.findIndex(function (id) {
                                                                                                         return id === user.id;
                                                                                                       }) >= 0,
-                                                                                                  link: false,
                                                                                                   ratingPercent: Core__Option.getOr(Core__Option.map(edge.rating, (function (rating) {
                                                                                                               return (rating - minRating) / (maxRating - minRating) * 100;
                                                                                                             })), 0)

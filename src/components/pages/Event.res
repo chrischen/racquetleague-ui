@@ -16,6 +16,7 @@ module EventQuery = %relay(`
         ...SubscribeActivity_activity
       }
       viewerIsAdmin
+      viewerHasRsvp
       startDate
       endDate
       location {
@@ -266,7 +267,7 @@ let make = () => {
           {viewer.user
           ->Option.map(_ =>
             switch event.viewerIsAdmin {
-            | true =>
+            | Some(true) =>
               <Layout.Container className="py-4">
                 <div
                   className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -282,7 +283,7 @@ let make = () => {
                   </div>
                 </div>
               </Layout.Container>
-            | false => React.null
+            | _ => React.null
             }
           )
           ->Option.getOr(React.null)}
@@ -381,8 +382,43 @@ let make = () => {
                 </div>
               </div>
               <div className="lg:col-start-3 lg:row-end-1">
-                <h2 className="sr-only"> {t`attendees`} </h2>
-                <EventRsvps event=fragmentRefs />
+                <div
+                  className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
+                  <EventRsvps event=fragmentRefs />
+                  {event.viewerHasRsvp
+                  ->Option.flatMap(_, viewerHasRsvp =>
+                    event.activity->Option.flatMap(
+                      activity =>
+                        activity.slug->Option.map(
+                          slug =>
+                            switch (viewerHasRsvp, slug) {
+                            | (true, "pickleball" as slug)
+                            | (true, "badminton" as slug) =>
+                              <div
+                                className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
+                                <h2 className="text-base font-semibold leading-6 text-gray-900">
+                                  {t`league`}
+                                </h2>
+                                {switch slug {
+                                | "pickleball" =>
+                                  <Link
+                                    to={"https://www.japanpickleleague.com/events/" ++ event.id}>
+                                    {t`submit matches`}
+                                  </Link>
+
+                                | _ =>
+                                  <Link to={"/league/events/" ++ event.id}>
+                                    {t`submit matches`}
+                                  </Link>
+                                }}
+                              </div>
+                            | _ => React.null
+                            },
+                        ),
+                    )
+                  )
+                  ->Option.getOr(React.null)}
+                </div>
               </div>
             </div>
             // </div>

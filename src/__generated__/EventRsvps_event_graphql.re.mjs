@@ -114,6 +114,24 @@ return {
       "storageKey": null
     },
     {
+      "alias": null,
+      "args": null,
+      "concreteType": "Activity",
+      "kind": "LinkedField",
+      "name": "activity",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "slug",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
       "alias": "rsvps",
       "args": null,
       "concreteType": "EventRsvpConnection",

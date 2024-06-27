@@ -90,6 +90,7 @@ let make = () => {
               <PageTitle>
                 {switch params.activitySlug {
                 | None
+                | Some("pickleball")
                 | Some("") =>
                   <img className="mx-auto" src={jplLogo} alt={ts`japan pickle league`} />
                 | _ => t`Tokyo Badminton League`

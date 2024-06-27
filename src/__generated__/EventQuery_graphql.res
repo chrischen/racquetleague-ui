@@ -24,7 +24,8 @@ module Types = {
     location: option<response_event_location>,
     startDate: option<Util.Datetime.t>,
     title: option<string>,
-    viewerIsAdmin: bool,
+    viewerHasRsvp: option<bool>,
+    viewerIsAdmin: option<bool>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvps_event]>,
   }
   type response = {
@@ -200,17 +201,24 @@ v11 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "startDate",
+  "name": "viewerHasRsvp",
   "storageKey": null
 },
 v12 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "startDate",
+  "storageKey": null
+},
+v13 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "endDate",
   "storageKey": null
 },
-v13 = [
+v14 = [
   {
     "kind": "Variable",
     "name": "after",
@@ -227,7 +235,7 @@ v13 = [
     "variableName": "first"
   }
 ],
-v14 = {
+v15 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -283,6 +291,7 @@ return {
           (v10/*: any*/),
           (v11/*: any*/),
           (v12/*: any*/),
+          (v13/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -308,11 +317,11 @@ return {
             "storageKey": null
           },
           {
-            "args": (v13/*: any*/),
+            "args": (v14/*: any*/),
             "kind": "FragmentSpread",
             "name": "EventRsvps_event"
           },
-          (v14/*: any*/)
+          (v15/*: any*/)
         ],
         "storageKey": null
       }
@@ -371,6 +380,7 @@ return {
           (v10/*: any*/),
           (v11/*: any*/),
           (v12/*: any*/),
+          (v13/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -428,7 +438,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v13/*: any*/),
+            "args": (v14/*: any*/),
             "concreteType": "EventRsvpConnection",
             "kind": "LinkedField",
             "name": "rsvps",
@@ -541,26 +551,26 @@ return {
           },
           {
             "alias": null,
-            "args": (v13/*: any*/),
+            "args": (v14/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "EventRsvps_event_rsvps",
             "kind": "LinkedHandle",
             "name": "rsvps"
           },
-          (v14/*: any*/)
+          (v15/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "f0b207320f909b7ee6c062629c9f3481",
+    "cacheID": "80cbc6592c86d9a83b6a8114231d0f7e",
     "id": null,
     "metadata": {},
     "name": "EventQuery",
     "operationKind": "query",
-    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    id\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    viewerIsAdmin\n    startDate\n    endDate\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    ...EventRsvps_event_4uAqg1\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  id\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    title\n    url\n    id\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
+    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    id\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    viewerIsAdmin\n    viewerHasRsvp\n    startDate\n    endDate\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    ...EventRsvps_event_4uAqg1\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    title\n    url\n    id\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
   }
 };
 })() `)

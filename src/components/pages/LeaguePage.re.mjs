@@ -28,8 +28,15 @@ function LeaguePage(props) {
                   var match = params.activitySlug;
                   var tmp;
                   var exit = 0;
-                  if (match !== undefined && match !== "") {
-                    tmp = t`Tokyo Badminton League`;
+                  if (match !== undefined) {
+                    switch (match) {
+                      case "" :
+                      case "pickleball" :
+                          exit = 1;
+                          break;
+                      default:
+                        tmp = t`Tokyo Badminton League`;
+                    }
                   } else {
                     exit = 1;
                   }

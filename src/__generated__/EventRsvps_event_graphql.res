@@ -4,7 +4,10 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_rsvps_edges_node_user = {
+  type rec fragment_activity = {
+    slug: option<string>,
+  }
+  and fragment_rsvps_edges_node_user = {
     @live id: string,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvpUser_user]>,
   }
@@ -26,6 +29,7 @@ module Types = {
   }
   type fragment = {
     @live __id: RescriptRelay.dataId,
+    activity: option<fragment_activity>,
     @live id: string,
     maxRsvps: option<int>,
     rsvps: option<fragment_rsvps>,
@@ -161,6 +165,24 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "maxRsvps",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Activity",
+      "kind": "LinkedField",
+      "name": "activity",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "slug",
+          "storageKey": null
+        }
+      ],
       "storageKey": null
     },
     {

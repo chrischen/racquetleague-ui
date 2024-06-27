@@ -29,13 +29,6 @@ var node = {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "id",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
       "name": "picture",
       "storageKey": null
     },
