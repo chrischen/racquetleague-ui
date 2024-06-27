@@ -5,8 +5,8 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as CreateLocationEvent from "./CreateLocationEvent.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as CreateLocationEventForm from "../organisms/CreateLocationEventForm.re.mjs";
 import * as UpdateLocationEventPageQuery_graphql from "../../__generated__/UpdateLocationEventPageQuery_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
@@ -55,7 +55,7 @@ function UpdateLocationEventPage(props) {
               children: (function () {
                   return Core__Option.getOr(Core__Option.flatMap(query.location, (function ($$location) {
                                     return Core__Option.map(query.event, (function ($$event) {
-                                                  return JsxRuntime.jsx(CreateLocationEvent.make, {
+                                                  return JsxRuntime.jsx(CreateLocationEventForm.make, {
                                                               event: Caml_option.some($$event.fragmentRefs),
                                                               location: $$location.fragmentRefs,
                                                               query: query.fragmentRefs

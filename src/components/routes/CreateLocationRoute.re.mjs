@@ -4,8 +4,8 @@ import * as React from "react";
 import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as CreateLocation from "../organisms/CreateLocation.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
+import * as CreateLocationForm from "../organisms/CreateLocationForm.re.mjs";
 
 var isEmptyObj = (obj => Object.keys(obj).length === 0 && obj.constructor === Object);
 
@@ -23,7 +23,7 @@ function parseData(json) {
 var LoaderArgs = {};
 
 function loadMessages(lang) {
-  var tmp = lang === "ja" ? import("../../locales/src/components/organisms/CreateLocation.re/ja") : import("../../locales/src/components/organisms/CreateLocation.re/en");
+  var tmp = lang === "ja" ? import("../../locales/src/components/organisms/CreateLocationForm.re/ja") : import("../../locales/src/components/organisms/CreateLocationForm.re/en");
   return [tmp.then(function (messages) {
                 React.startTransition(function () {
                       Lingui.i18n.load(lang, messages.messages);
@@ -41,7 +41,7 @@ async function loader(param) {
             });
 }
 
-var Component = CreateLocation.make;
+var Component = CreateLocationForm.make;
 
 export {
   isEmptyObj ,

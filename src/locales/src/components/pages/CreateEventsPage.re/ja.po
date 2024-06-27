@@ -1,0 +1,164 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-24 16:22+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/CreateClubForm.re.mjs:184
+msgid "about"
+msgstr "約"
+
+#: src/components/organisms/SelectClub.re.mjs:73
+msgid "add new club"
+msgstr "新しいクラブを追加"
+
+#: src/components/molecules/forms/Form.re.mjs:226
+msgid "cancel"
+msgstr "キャンセル"
+
+#: src/components/organisms/SelectClub.re.mjs:50
+msgid "choose the club where this event will be held."
+msgstr "このイベントが開催されるクラブを選択してください。"
+
+#: src/components/organisms/CreateClubForm.re.mjs:144
+msgid "club"
+msgstr "クラブ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+msgid "main activity"
+msgstr "主なアクティビティ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:83
+msgid "main activity is required"
+msgstr "主なアクティビティが必要です"
+
+#: src/components/organisms/CreateClubForm.re.mjs:150
+msgid "name"
+msgstr "場所名"
+
+#: src/components/organisms/CreateClubForm.re.mjs:80
+msgid "name is required"
+msgstr "場所名は必須"
+
+#: src/components/molecules/forms/Form.re.mjs:233
+msgid "save"
+msgstr "保存"
+
+#: src/components/organisms/SelectClub.re.mjs:49
+msgid "select club"
+msgstr "クラブを選択"
+
+#: src/components/organisms/CreateClubForm.re.mjs:187
+msgid "tell people about your club"
+msgstr "あなたのクラブについて人々に伝える"
+
+#: src/components/organisms/CreateClubForm.re.mjs:153
+msgid "ゆびバド"
+msgstr "ゆびバド"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:227
+#~ msgid "Badminton"
+#~ msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:231
+#~ msgid "Table Tennis"
+#~ msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:235
+#~ msgid "Pickleball"
+#~ msgstr "ピックルボール"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:239
+#~ msgid "Futsal"
+#~ msgstr "フットサル"
+
+#: src/components/pages/CreateEvents.re.mjs:160
+#~ msgid "activity"
+#~ msgstr "アクティビティ"
+
+#: src/components/pages/CreateEvents.re.mjs:52
+#~ msgid "activity is required"
+#~ msgstr "アクティビティが必要です"
+
+#: src/components/organisms/SelectLocation.re.mjs:65
+#~ msgid "add new location"
+#~ msgstr "新しい場所を追加"
+
+#: src/components/organisms/CreateLocationForm.re.mjs:158
+#~ msgid "address"
+#~ msgstr "住所"
+
+#: src/components/organisms/CreateLocationForm.re.mjs:76
+#~ msgid "address is required"
+#~ msgstr "住所が必要です"
+
+#: src/components/organisms/CreateLocationForm.re.mjs:147
+#~ msgid "Akabane Elementary School"
+#~ msgstr "赤羽小学校"
+
+#: src/components/pages/CreateEvents.re.mjs:138
+#~ msgid "bulk events"
+#~ msgstr "すべてのイベント"
+
+#: src/components/organisms/SelectLocation.re.mjs:49
+#~ msgid "choose the location where this event will be held."
+#~ msgstr "このイベントが開催される場所を選択してください。"
+
+#: src/components/organisms/CreateLocationForm.re.mjs:177
+#~ msgid "details"
+#~ msgstr "詳細"
+
+#: src/components/organisms/SelectLocation.re.mjs:48
+#~ msgid "event location"
+#~ msgstr "イベント場所"
+
+#: src/components/pages/CreateEvents.re.mjs:145
+#~ msgid "events"
+#~ msgstr "私のイベント"
+
+#: src/components/pages/CreateEvents.re.mjs:49
+#~ msgid "input is required"
+#~ msgstr "タイトルが必要です"
+
+#: src/components/organisms/CreateLocationForm.re.mjs:180
+#~ msgid ""
+#~ "Instructions or information that will apply to all events held at this "
+#~ "location."
+#~ msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
+
+#: src/components/pages/CreateEvents.re.mjs:198
+#~ msgid "list publicly"
+#~ msgstr "一般公開リスト"
+
+#: src/components/organisms/CreateLocationForm.re.mjs:138
+#~ msgid "location"
+#~ msgstr "場所"
+
+#: src/components/organisms/CreateLocationForm.re.mjs:167
+#~ msgid "maps link"
+#~ msgstr "マップリンク"
+
+#: src/components/pages/CreateEvents.re.mjs:203
+#~ msgid ""
+#~ "show your event publicly on our home page. Otherwise, only people with a "
+#~ "link to your event will be able to find it."
+#~ msgstr ""
+#~ "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンク"
+#~ "を持っている人だけがイベントを見つけることができます。"
+
+#: src/components/pages/CreateEvents.re.mjs:148
+#~ msgid "type your events here"
+#~ msgstr "ここにイベントを入力してください"

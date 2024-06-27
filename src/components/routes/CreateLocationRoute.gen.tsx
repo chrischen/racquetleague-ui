@@ -13,7 +13,7 @@ import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen'
 
 import type {data as WaitForMessages_data} from '../../../src/components/shared/i18n/WaitForMessages.gen';
 
-import type {props as CreateLocation_props} from '../../../src/components/organisms/CreateLocation.gen';
+import type {props as CreateLocationForm_props} from '../../../src/components/organisms/CreateLocationForm.gen';
 
 export type params = { readonly lang: (undefined | string) };
 

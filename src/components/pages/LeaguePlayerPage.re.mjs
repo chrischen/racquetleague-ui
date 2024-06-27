@@ -183,8 +183,10 @@ function LeaguePlayerPage(props) {
                                                                                                 className: "truncate text-sm font-medium text-gray-500"
                                                                                               }),
                                                                                           JsxRuntime.jsx("dd", {
-                                                                                                children: Core__Option.getOr(Core__Option.map(user.rating, (function (__x) {
-                                                                                                            return __x.toFixed(2);
+                                                                                                children: Core__Option.getOr(Core__Option.flatMap(user.rating, (function (r) {
+                                                                                                            return Core__Option.map(r.ordinal, (function (__x) {
+                                                                                                                          return __x.toFixed(2);
+                                                                                                                        }));
                                                                                                           })), "Unrated"),
                                                                                                 className: "mt-1 text-3xl font-semibold tracking-tight text-gray-900"
                                                                                               })

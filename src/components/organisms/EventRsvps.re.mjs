@@ -172,15 +172,23 @@ function EventRsvps(props) {
                   return prim;
                 })), rsvps.length), 0) | 0;
   var maxRating = Core__Array.reduce(rsvps, 0, (function (acc, next) {
-          if (Core__Option.getOr(next.rating, 0) > acc) {
-            return Core__Option.getOr(next.rating, 0);
+          if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                        return r.ordinal;
+                      })), 0) > acc) {
+            return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                              return r.ordinal;
+                            })), 0);
           } else {
             return acc;
           }
         }));
   var minRating = Core__Array.reduce(rsvps, maxRating, (function (acc, next) {
-          if (Core__Option.getOr(next.rating, maxRating) < acc) {
-            return Core__Option.getOr(next.rating, maxRating);
+          if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                        return r.ordinal;
+                      })), maxRating) < acc) {
+            return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                              return r.ordinal;
+                            })), maxRating);
           } else {
             return acc;
           }
@@ -332,9 +340,13 @@ function EventRsvps(props) {
                                                                                                                       return viewer.id === user.id;
                                                                                                                     })), false),
                                                                                                           link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
-                                                                                                          rating: edge.rating,
-                                                                                                          ratingPercent: Core__Option.getOr(Core__Option.map(edge.rating, (function (rating) {
-                                                                                                                      return (rating - minRating) / (maxRating - minRating) * 100;
+                                                                                                          rating: Core__Option.flatMap(edge.rating, (function (r) {
+                                                                                                                  return r.ordinal;
+                                                                                                                })),
+                                                                                                          ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
+                                                                                                                      return Core__Option.map(rating.ordinal, (function (ordinal) {
+                                                                                                                                    return (ordinal - minRating) / (maxRating - minRating) * 100;
+                                                                                                                                  }));
                                                                                                                     })), 0)
                                                                                                         }),
                                                                                                     className: "w-full text-sm font-medium leading-6 text-gray-900"
@@ -447,9 +459,13 @@ function EventRsvps(props) {
                                                                                                                     return viewer.id === user.id;
                                                                                                                   })), false),
                                                                                                         link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
-                                                                                                        rating: edge.rating,
-                                                                                                        ratingPercent: Core__Option.getOr(Core__Option.map(edge.rating, (function (rating) {
-                                                                                                                    return (rating - minRating) / (maxRating - minRating) * 100;
+                                                                                                        rating: Core__Option.flatMap(edge.rating, (function (r) {
+                                                                                                                return r.ordinal;
+                                                                                                              })),
+                                                                                                        ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
+                                                                                                                    return Core__Option.map(rating.ordinal, (function (ordinal) {
+                                                                                                                                  return (ordinal - minRating) / (maxRating - minRating) * 100;
+                                                                                                                                }));
                                                                                                                   })), 0)
                                                                                                       }),
                                                                                                   className: "w-full text-sm font-medium leading-6 text-gray-900"

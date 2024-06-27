@@ -713,6 +713,87 @@ msgstr "メモ"
 msgid "Event or Location doesn't exist."
 msgstr "イベントまたは場所が存在しません。"
 
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:318
+msgid "Basketball"
+msgstr "バスケットボール"
+
+#: src/components/pages/CreateEvents.re.mjs:138
+msgid "bulk events"
+msgstr "すべてのイベント"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:197
+msgid "create multiple events at one time"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:145
+msgid "events"
+msgstr "私のイベント"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:92
+msgid "events preview"
+msgstr "イベントプレビュー"
+
+#: src/components/pages/CreateEvents.re.mjs:49
+msgid "input is required"
+msgstr "タイトルが必要です"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:214
+msgid "preview events"
+msgstr "イベントをプレビュー"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:206
+msgid "type your events here"
+msgstr "ここにイベントを入力してください"
+
+#: src/components/organisms/CreateClubForm.re.mjs:184
+msgid "about"
+msgstr "約"
+
+#: src/components/organisms/CreateClubForm.re.mjs:144
+msgid "club"
+msgstr "クラブ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+msgid "main activity"
+msgstr "主なアクティビティ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:83
+msgid "main activity is required"
+msgstr "主なアクティビティが必要です"
+
+#: src/components/organisms/CreateClubForm.re.mjs:187
+msgid "tell people about your club"
+msgstr "あなたのクラブについて人々に伝える"
+
+#: src/components/organisms/CreateClubForm.re.mjs:153
+msgid "ゆびバド"
+msgstr "ゆびバド"
+
+#: src/components/organisms/SelectClub.re.mjs:73
+msgid "add new club"
+msgstr "新しいクラブを追加"
+
+#: src/components/organisms/SelectClub.re.mjs:50
+msgid "choose the club where this event will be held."
+msgstr "このイベントが開催されるクラブを選択してください。"
+
+#: src/components/organisms/SelectClub.re.mjs:49
+msgid "select club"
+msgstr "クラブを選択"
+
+#: src/components/pages/CreateClubEventsPage.re.mjs:60
+msgid "club doesn't exist."
+msgstr "クラブが存在しません。"
+
+#: src/components/pages/Event.re.mjs:377
+msgid "league"
+msgstr "ラケットリーグ"
+
+#: src/components/pages/Event.re.mjs:369 src/components/pages/Event.re.mjs:372
+msgid "submit matches"
+msgstr "試合を提出"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

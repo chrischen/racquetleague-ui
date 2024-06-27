@@ -50,7 +50,7 @@ msgstr ""
 #~ msgid "leave event"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:188
+#: src/components/organisms/AddLeagueMatch.re.mjs:213
 msgid "load More"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 #~ msgid "login with Line"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:391
+#: src/components/organisms/AddLeagueMatch.re.mjs:413
 msgid "Loser Points"
 msgstr ""
 
@@ -78,11 +78,11 @@ msgstr ""
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:181
+#: src/components/organisms/AddLeagueMatch.re.mjs:206
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:149
+#: src/components/organisms/AddLeagueMatch.re.mjs:175
 msgid "Player"
 msgstr ""
 
@@ -90,11 +90,11 @@ msgstr ""
 msgid "Score:"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:378
+#: src/components/organisms/AddLeagueMatch.re.mjs:400
 msgid "Select Losers"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:334
+#: src/components/organisms/AddLeagueMatch.re.mjs:358
 msgid "Select Winners"
 msgstr ""
 
@@ -102,6 +102,6 @@ msgstr ""
 #~ msgid "waitlist"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:347
+#: src/components/organisms/AddLeagueMatch.re.mjs:371
 msgid "Winner Points"
 msgstr ""

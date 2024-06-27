@@ -96,7 +96,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "CreateLocationEvent_location"
+            "name": "CreateLocationEventForm_location"
           }
         ],
         "storageKey": null
@@ -104,7 +104,7 @@ return {
       {
         "args": null,
         "kind": "FragmentSpread",
-        "name": "CreateLocationEvent_activities"
+        "name": "CreateLocationEventForm_activities"
       }
     ],
     "type": "Query",
@@ -159,12 +159,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "9b2de24ae038c3d2dd4a4b2ecc905eca",
+    "cacheID": "07b267323833aefba68bb3a9e23cedae",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventPageQuery",
     "operationKind": "query",
-    "text": "query CreateLocationEventPageQuery(\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEvent_location\n    id\n  }\n  ...CreateLocationEvent_activities\n}\n\nfragment CreateLocationEvent_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEvent_location on Location {\n  id\n  name\n  details\n}\n"
+    "text": "query CreateLocationEventPageQuery(\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  ...CreateLocationEventForm_activities\n}\n\nfragment CreateLocationEventForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n"
   }
 };
 })());

@@ -5,7 +5,7 @@ module Types = {
   @@warning("-30")
 
   type response = {
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #CreateEvent_query]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #SelectLocation_query]>,
   }
   @live
   type rawResponse = response
@@ -142,7 +142,7 @@ return {
       {
         "args": (v3/*: any*/),
         "kind": "FragmentSpread",
-        "name": "CreateEvent_query"
+        "name": "SelectLocation_query"
       }
     ],
     "type": "Query",
@@ -249,19 +249,19 @@ return {
         "args": (v3/*: any*/),
         "filters": null,
         "handle": "connection",
-        "key": "CreateEvent_locations",
+        "key": "SelectLocation_locations",
         "kind": "LinkedHandle",
         "name": "locations"
       }
     ]
   },
   "params": {
-    "cacheID": "3806b770ad66201b432668f200c32af0",
+    "cacheID": "edc6c6b84a98a3b7c2e37738420078b7",
     "id": null,
     "metadata": {},
     "name": "UpdateEventPageQuery",
     "operationKind": "query",
-    "text": "query UpdateEventPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n) {\n  ...CreateEvent_query_4uAqg1\n}\n\nfragment CreateEvent_query_4uAqg1 on Query {\n  locations(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        name\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
+    "text": "query UpdateEventPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n) {\n  ...SelectLocation_query_4uAqg1\n}\n\nfragment SelectLocation_query_4uAqg1 on Query {\n  locations(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        name\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -98,7 +98,7 @@ return {
       {
         "args": (v3/*: any*/),
         "kind": "FragmentSpread",
-        "name": "CreateEvent_query"
+        "name": "SelectLocation_query"
       }
     ],
     "type": "Query",
@@ -205,19 +205,19 @@ return {
         "args": (v3/*: any*/),
         "filters": null,
         "handle": "connection",
-        "key": "CreateEvent_locations",
+        "key": "SelectLocation_locations",
         "kind": "LinkedHandle",
         "name": "locations"
       }
     ]
   },
   "params": {
-    "cacheID": "5fa317a22d2d1838bed44a487eeffb97",
+    "cacheID": "c27b3988cb6cc7e9518aa8dc19bf932d",
     "id": null,
     "metadata": {},
     "name": "CreateEventPageQuery",
     "operationKind": "query",
-    "text": "query CreateEventPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n) {\n  ...CreateEvent_query_4uAqg1\n}\n\nfragment CreateEvent_query_4uAqg1 on Query {\n  locations(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        name\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
+    "text": "query CreateEventPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n) {\n  ...SelectLocation_query_4uAqg1\n}\n\nfragment SelectLocation_query_4uAqg1 on Query {\n  locations(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        name\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
   }
 };
 })());

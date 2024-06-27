@@ -4,12 +4,15 @@
 module Types = {
   @@warning("-30")
 
-  type rec response_user = {
+  type rec response_user_rating = {
+    ordinal: option<float>,
+  }
+  and response_user = {
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
     picture: option<string>,
-    rating: option<float>,
+    rating: option<response_user_rating>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #MatchListUser_user]>,
   }
   type response = {
@@ -231,23 +234,24 @@ v13 = {
   "name": "gender",
   "storageKey": null
 },
-v14 = {
+v14 = [
+  (v6/*: any*/),
+  (v7/*: any*/)
+],
+v15 = {
   "alias": null,
-  "args": [
-    (v6/*: any*/),
-    (v7/*: any*/)
-  ],
+  "args": null,
   "kind": "ScalarField",
-  "name": "rating",
+  "name": "ordinal",
   "storageKey": null
 },
-v15 = [
+v16 = [
   (v10/*: any*/),
   (v12/*: any*/),
   (v11/*: any*/),
   (v13/*: any*/)
 ],
-v16 = {
+v17 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -290,7 +294,18 @@ return {
           (v11/*: any*/),
           (v12/*: any*/),
           (v13/*: any*/),
-          (v14/*: any*/),
+          {
+            "alias": null,
+            "args": (v14/*: any*/),
+            "concreteType": "Rating",
+            "kind": "LinkedField",
+            "name": "rating",
+            "plural": false,
+            "selections": [
+              (v15/*: any*/)
+            ],
+            "storageKey": null
+          },
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -348,7 +363,7 @@ return {
                     "kind": "LinkedField",
                     "name": "winners",
                     "plural": true,
-                    "selections": (v15/*: any*/),
+                    "selections": (v16/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -358,7 +373,7 @@ return {
                     "kind": "LinkedField",
                     "name": "losers",
                     "plural": true,
-                    "selections": (v15/*: any*/),
+                    "selections": (v16/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -434,7 +449,7 @@ return {
             ],
             "storageKey": null
           },
-          (v16/*: any*/)
+          (v17/*: any*/)
         ],
         "storageKey": null
       },
@@ -451,7 +466,7 @@ return {
         "kind": "LinkedHandle",
         "name": "matches"
       },
-      (v16/*: any*/),
+      (v17/*: any*/),
       {
         "alias": null,
         "args": (v9/*: any*/),
@@ -464,19 +479,31 @@ return {
           (v11/*: any*/),
           (v12/*: any*/),
           (v13/*: any*/),
-          (v14/*: any*/)
+          {
+            "alias": null,
+            "args": (v14/*: any*/),
+            "concreteType": "Rating",
+            "kind": "LinkedField",
+            "name": "rating",
+            "plural": false,
+            "selections": [
+              (v15/*: any*/),
+              (v10/*: any*/)
+            ],
+            "storageKey": null
+          }
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "d0544c688997ddddf9e301e90c21b6dd",
+    "cacheID": "26591ee5c1a1f7b47caf1985454ee072",
     "id": null,
     "metadata": {},
     "name": "LeaguePlayerPageQuery",
     "operationKind": "query",
-    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n  $userId: ID!\n) {\n  ...MatchListFragment_2KkbcH\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace)\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n  $userId: ID!\n) {\n  ...MatchListFragment_2KkbcH\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace) {\n      ordinal\n      id\n    }\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
   }
 };
 })() `)

@@ -9,7 +9,9 @@ module Query = %relay(`
       picture
       lineUsername
       gender
-      rating(activitySlug: $activitySlug, namespace: $namespace)
+      rating(activitySlug: $activitySlug, namespace: $namespace) {
+        ordinal
+      }
       ...MatchListUser_user
     }
   }
@@ -101,7 +103,7 @@ let make = () => {
                         </dt>
                         <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
                           {user.rating
-                          ->Option.map(Float.toFixed(_, ~digits=2))
+                          ->Option.flatMap(r => r.ordinal->Option.map(Float.toFixed(_, ~digits=2)))
                           ->Option.getOr("Unrated")
                           ->React.string}
                         </dd>

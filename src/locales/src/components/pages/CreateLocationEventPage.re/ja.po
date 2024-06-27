@@ -14,42 +14,52 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/CreateLocationEvent.re.mjs:403
+#: src/components/organisms/CreateLocationEventForm.re.mjs:402
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/pages/CreateLocationEvent.re.mjs:407
+#: src/components/organisms/CreateLocationEventForm.re.mjs:406
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/CreateLocationEvent.re.mjs:411
+#: src/components/organisms/CreateLocationEventForm.re.mjs:410
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/pages/CreateLocationEvent.re.mjs:415
+#: src/components/organisms/CreateLocationEventForm.re.mjs:414
 msgid "Futsal"
 msgstr "フットサル"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:252
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:418
+msgid "Basketball"
+msgstr "バスケットボール"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:422
+msgid "Volleyball"
+msgstr "バレーボール"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:251
 msgid "{0} event details"
 msgstr "{0} イベント詳細"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:274
+#: src/components/organisms/CreateLocationEventForm.re.mjs:273
 msgid "activity"
 msgstr "アクティビティ"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:77
+#: src/components/organisms/CreateLocationEventForm.re.mjs:77
 msgid "activity is required"
 msgstr "アクティビティが必要です"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:262
+#: src/components/organisms/CreateLocationEventForm.re.mjs:261
 msgid "All Level"
 msgstr "すべてのレベル"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:348
+#: src/components/organisms/CreateLocationEventForm.re.mjs:347
 msgid ""
 "any details from the location will already be included. Mention any "
 "additional event-specific instructions, rules, or details."
@@ -61,47 +71,47 @@ msgstr ""
 msgid "cancel"
 msgstr "キャンセル"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:293
+#: src/components/organisms/CreateLocationEventForm.re.mjs:292
 msgid "date and start time"
 msgstr "日付と開始時刻"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:253
+#: src/components/organisms/CreateLocationEventForm.re.mjs:252
 msgid "details specific to this event on the specified date and time."
 msgstr "指定された日時のこのイベントに特有の詳細。"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:336
+#: src/components/organisms/CreateLocationEventForm.re.mjs:335
 msgid "edit the location to edit the details for this location."
 msgstr "この場所の詳細を編集するには、場所を編集します。"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:303
+#: src/components/organisms/CreateLocationEventForm.re.mjs:302
 msgid "end time"
 msgstr "終了時刻"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:84
+#: src/components/organisms/CreateLocationEventForm.re.mjs:84
 msgid "end time is required"
 msgstr "終了時刻が必要です"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:81
+#: src/components/organisms/CreateLocationEventForm.re.mjs:81
 msgid "event date is required"
 msgstr "イベント日付が必要です"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:345
+#: src/components/organisms/CreateLocationEventForm.re.mjs:344
 msgid "event details"
 msgstr "イベント詳細"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:374
+#: src/components/organisms/CreateLocationEventForm.re.mjs:373
 msgid "list publicly"
 msgstr "一般公開リスト"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:331
+#: src/components/organisms/CreateLocationEventForm.re.mjs:330
 msgid "location details"
 msgstr "場所の詳細"
 
 #: src/components/pages/CreateLocationEventPage.re.mjs:60
-msgid "Location doesn't exist."
+msgid "location doesn't exist."
 msgstr "場所が存在しません。"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:313
+#: src/components/organisms/CreateLocationEventForm.re.mjs:312
 msgid "max participants"
 msgstr "最大参加者数"
 
@@ -109,7 +119,7 @@ msgstr "最大参加者数"
 msgid "save"
 msgstr "保存"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:379
+#: src/components/organisms/CreateLocationEventForm.re.mjs:378
 msgid ""
 "show your event publicly on our home page. Otherwise, only people with a "
 "link to your event will be able to find it."
@@ -117,14 +127,18 @@ msgstr ""
 "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
 "持っている人だけがイベントを見つけることができます。"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:259
+#: src/components/organisms/CreateLocationEventForm.re.mjs:258
 msgid "title"
 msgstr "タイトル"
 
-#: src/components/pages/CreateLocationEvent.re.mjs:74
+#: src/components/organisms/CreateLocationEventForm.re.mjs:74
 msgid "title is required"
 msgstr "タイトルが必要です"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:198
 #~ msgid "All Level Badminton"
 #~ msgstr "すべてのレベルのバドミントン"
+
+#: src/components/pages/CreateLocationEventPage.re.mjs:60
+#~ msgid "Location doesn't exist."
+#~ msgstr "場所が存在しません。"

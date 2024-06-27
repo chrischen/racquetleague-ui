@@ -25,7 +25,10 @@ module Fragment = %relay(`
             id
             ...EventRsvpUser_user
           }
-          rating
+          rating {
+            mu
+            ordinal
+          }
         }
       }
       pageInfo {
@@ -71,11 +74,15 @@ module SelectEventPlayersList = {
 
     let maxRating =
       players->Array.reduce(0., (acc, next) =>
-        next.rating->Option.getOr(0.) > acc ? next.rating->Option.getOr(0.) : acc
+        next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.) > acc
+          ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.)
+          : acc
       )
     let minRating =
       players->Array.reduce(maxRating, (acc, next) =>
-        next.rating->Option.getOr(maxRating) < acc ? next.rating->Option.getOr(maxRating) : acc
+        next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating) < acc
+          ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating)
+          : acc
       )
     <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
       <div className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4">
@@ -87,8 +94,10 @@ module SelectEventPlayersList = {
               | players =>
                 players
                 ->Array.toSorted((a, b) => {
-                  let userA = a.rating->Option.map(r => r)->Option.getOr(0.)
-                  let userB = b.rating->Option.map(r => r)->Option.getOr(0.)
+                  let userA =
+                    a.rating->Option.flatMap(r => r.mu)->Option.map(r => r)->Option.getOr(0.)
+                  let userB =
+                    b.rating->Option.flatMap(r => r.mu)->Option.map(r => r)->Option.getOr(0.)
                   userA < userB ? 1. : -1.
                 })
                 ->Array.mapWithIndex((edge, i) => {
@@ -117,8 +126,11 @@ module SelectEventPlayersList = {
                             user={user.fragmentRefs}
                             highlight={selected->Array.findIndex(id => id == user.id) >= 0}
                             ratingPercent={edge.rating
-                            ->Option.map(
-                              rating => (rating -. minRating) /. (maxRating -. minRating) *. 100.,
+                            ->Option.flatMap(
+                              rating =>
+                                rating.mu->Option.map(
+                                  mu => (mu -. minRating) /. (maxRating -. minRating) *. 100.,
+                                ),
                             )
                             ->Option.getOr(0.)}
                           />
@@ -228,8 +240,6 @@ let make = (~event) => {
   }
 
   let onSubmit = (data: inputsMatch) => {
-    Js.log(data)
-
     activity
     ->Option.flatMap(activity =>
       activity.slug->Option.map(slug => {
@@ -291,8 +301,6 @@ let make = (~event) => {
                 ScoreWinner,
                 ~options={
                   setValueAs: v => {
-                    Js.log("Set value as")
-                    Js.log(v)
                     v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
                   },
                 },

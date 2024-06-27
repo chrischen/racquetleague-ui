@@ -127,7 +127,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "CreateLocationEvent_location"
+            "name": "CreateLocationEventForm_location"
           }
         ],
         "storageKey": null
@@ -143,7 +143,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "CreateLocationEvent_event"
+            "name": "CreateLocationEventForm_event"
           }
         ],
         "storageKey": null
@@ -151,7 +151,7 @@ return {
       {
         "args": null,
         "kind": "FragmentSpread",
-        "name": "CreateLocationEvent_activities"
+        "name": "CreateLocationEventForm_activities"
       }
     ],
     "type": "Query",
@@ -248,12 +248,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c22abf3ee0bdcef2e71028b8afa46f15",
+    "cacheID": "2e41f1202be22bfc006790386ff061d0",
     "id": null,
     "metadata": {},
     "name": "UpdateLocationEventPageQuery",
     "operationKind": "query",
-    "text": "query UpdateLocationEventPageQuery(\n  $eventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEvent_location\n    id\n  }\n  event(id: $eventId) {\n    ...CreateLocationEvent_event\n    id\n  }\n  ...CreateLocationEvent_activities\n}\n\nfragment CreateLocationEvent_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEvent_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  activity {\n    id\n    name\n    slug\n  }\n  startDate\n  endDate\n  listed\n}\n\nfragment CreateLocationEvent_location on Location {\n  id\n  name\n  details\n}\n"
+    "text": "query UpdateLocationEventPageQuery(\n  $eventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $eventId) {\n    ...CreateLocationEventForm_event\n    id\n  }\n  ...CreateLocationEventForm_activities\n}\n\nfragment CreateLocationEventForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  activity {\n    id\n    name\n    slug\n  }\n  startDate\n  endDate\n  listed\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n"
   }
 };
 })());

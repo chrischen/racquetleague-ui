@@ -1,0 +1,132 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-27 18:02+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:402
+msgid "Badminton"
+msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:406
+msgid "Table Tennis"
+msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:410
+msgid "Pickleball"
+msgstr "ピックルボール"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:414
+msgid "Futsal"
+msgstr "フットサル"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:418
+msgid "Basketball"
+msgstr "バスケットボール"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:422
+msgid "Volleyball"
+msgstr "バレーボール"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:251
+msgid "{0} event details"
+msgstr "{0} イベント詳細"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:273
+msgid "activity"
+msgstr "アクティビティ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:77
+msgid "activity is required"
+msgstr "アクティビティが必要です"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:261
+msgid "All Level"
+msgstr "すべてのレベル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:347
+msgid ""
+"any details from the location will already be included. Mention any "
+"additional event-specific instructions, rules, or details."
+msgstr ""
+"ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
+"細」があれば記載してください。"
+
+#: src/components/molecules/forms/Form.re.mjs:226
+msgid "cancel"
+msgstr "キャンセル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:292
+msgid "date and start time"
+msgstr "日付と開始時刻"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:252
+msgid "details specific to this event on the specified date and time."
+msgstr "指定された日時のこのイベントに特有の詳細。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:335
+msgid "edit the location to edit the details for this location."
+msgstr "この場所の詳細を編集するには、場所を編集します。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:302
+msgid "end time"
+msgstr "終了時刻"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:84
+msgid "end time is required"
+msgstr "終了時刻が必要です"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:81
+msgid "event date is required"
+msgstr "イベント日付が必要です"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:344
+msgid "event details"
+msgstr "イベント詳細"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:373
+msgid "list publicly"
+msgstr "一般公開リスト"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:330
+msgid "location details"
+msgstr "場所の詳細"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:312
+msgid "max participants"
+msgstr "最大参加者数"
+
+#: src/components/molecules/forms/Form.re.mjs:233
+msgid "save"
+msgstr "保存"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:378
+msgid ""
+"show your event publicly on our home page. Otherwise, only people with a "
+"link to your event will be able to find it."
+msgstr ""
+"ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
+"持っている人だけがイベントを見つけることができます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:258
+msgid "title"
+msgstr "タイトル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:74
+msgid "title is required"
+msgstr "タイトルが必要です"

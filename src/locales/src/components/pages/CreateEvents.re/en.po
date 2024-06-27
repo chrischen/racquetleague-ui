@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-06-24 16:15+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:227
+msgid "Badminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:231
+msgid "Table Tennis"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:235
+msgid "Pickleball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:239
+msgid "Futsal"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:160
+msgid "activity"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:52
+msgid "activity is required"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:138
+msgid "bulk events"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:226
+msgid "cancel"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:139
+msgid "create multiple events at one time"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:145
+msgid "events"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:49
+msgid "input is required"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:198
+msgid "list publicly"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:233
+msgid "save"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:203
+msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:148
+msgid "type your events here"
+msgstr ""

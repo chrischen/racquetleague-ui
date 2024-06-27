@@ -211,8 +211,20 @@ return {
                       {
                         "alias": null,
                         "args": null,
-                        "kind": "ScalarField",
+                        "concreteType": "Rating",
+                        "kind": "LinkedField",
                         "name": "rating",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "ordinal",
+                            "storageKey": null
+                          },
+                          (v2/*: any*/)
+                        ],
                         "storageKey": null
                       },
                       (v2/*: any*/),
@@ -298,12 +310,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "24a6c85f0ead7d7dc1637087724257e3",
+    "cacheID": "c53a76e064a95efa3c2904665a18518e",
     "id": null,
     "metadata": {},
     "name": "EventRsvpsStoryQuery",
     "operationKind": "query",
-    "text": "query EventRsvpsStoryQuery(\n  $after: String\n  $first: Int\n) {\n  event(id: \"1\") {\n    id\n    ...EventRsvps_event_2HEEH6\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_2HEEH6 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
+    "text": "query EventRsvpsStoryQuery(\n  $after: String\n  $first: Int\n) {\n  event(id: \"1\") {\n    id\n    ...EventRsvps_event_2HEEH6\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_2HEEH6 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating {\n          ordinal\n          id\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
   }
 };
 })());

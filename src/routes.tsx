@@ -65,6 +65,19 @@ export const routes: RouteObject[] = [
             handle: "src/components/routes/ViewerEventsRoute.gen.tsx",
           },
           {
+            path: "events/create-bulk",
+            lazy: () => import("./components/routes/CreateEventsRoute.gen"),
+            handle: "src/components/routes/CreateEventsRoute.gen.tsx",
+            children: [
+              {
+                path: ":clubId",
+                lazy: () => import("./components/routes/CreateClubEventsRoute.gen"),
+                handle: "src/components/routes/CreateClubEventsRoute.gen.tsx",
+              },
+
+            ]
+          },
+          {
             path: "events/create",
             lazy: () => import("./components/routes/CreateEventRoute.gen"),
             handle: "src/components/routes/CreateEventRoute.gen.tsx",

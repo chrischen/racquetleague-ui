@@ -423,8 +423,20 @@ return {
                       {
                         "alias": null,
                         "args": null,
-                        "kind": "ScalarField",
+                        "concreteType": "Rating",
+                        "kind": "LinkedField",
                         "name": "rating",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "ordinal",
+                            "storageKey": null
+                          },
+                          (v5/*: any*/)
+                        ],
                         "storageKey": null
                       },
                       (v5/*: any*/),
@@ -499,12 +511,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "80cbc6592c86d9a83b6a8114231d0f7e",
+    "cacheID": "a944c81da826cb1aec3469a5bcf0765c",
     "id": null,
     "metadata": {},
     "name": "EventQuery",
     "operationKind": "query",
-    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    id\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    viewerIsAdmin\n    viewerHasRsvp\n    startDate\n    endDate\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    ...EventRsvps_event_4uAqg1\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    title\n    url\n    id\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
+    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    id\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    viewerIsAdmin\n    viewerHasRsvp\n    startDate\n    endDate\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    ...EventRsvps_event_4uAqg1\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating {\n          ordinal\n          id\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    title\n    url\n    id\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
   }
 };
 })());

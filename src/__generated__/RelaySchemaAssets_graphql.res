@@ -53,6 +53,20 @@ and input_CreateActivitySubscriptionInput_nullable = {
 }
 
 @live
+and input_CreateClubInput = {
+  activity: string,
+  description?: string,
+  name: string,
+}
+
+@live
+and input_CreateClubInput_nullable = {
+  activity: string,
+  description?: Js.Null.t<string>,
+  name: string,
+}
+
+@live
 and input_CreateEventInput = {
   activity: string,
   details?: string,
@@ -74,6 +88,22 @@ and input_CreateEventInput_nullable = {
   maxRsvps?: Js.Null.t<int>,
   startDate: Util.Datetime.t,
   title: string,
+}
+
+@live
+and input_CreateEventsInput = {
+  activityId: string,
+  clubId: string,
+  input: string,
+  listed: bool,
+}
+
+@live
+and input_CreateEventsInput_nullable = {
+  activityId: string,
+  clubId: string,
+  input: string,
+  listed: bool,
 }
 
 @live

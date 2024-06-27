@@ -12,7 +12,7 @@ let parseData: 'a => data<'a> = json => {
 }
 
 @genType
-let \"Component" = CreateLocation.make
+let \"Component" = CreateLocationForm.make
 
 type params = {lang: option<string>}
 module LoaderArgs = {
@@ -24,8 +24,8 @@ module LoaderArgs = {
 }
 let loadMessages = lang => {
   let messages = switch lang {
-  | "ja" => Lingui.import("../../locales/src/components/organisms/CreateLocation.re/ja")
-  | _ => Lingui.import("../../locales/src/components/organisms/CreateLocation.re/en")
+  | "ja" => Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/ja")
+  | _ => Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/en")
   }->Promise.thenResolve(messages =>
     Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
   )

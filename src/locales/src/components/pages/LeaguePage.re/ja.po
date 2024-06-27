@@ -13,11 +13,11 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LeaguePage.re.mjs:39
+#: src/components/pages/LeaguePage.re.mjs:46
 msgid "japan pickle league"
 msgstr "日本ピックルリーグ"
 
-#: src/components/pages/LeaguePage.re.mjs:32
+#: src/components/pages/LeaguePage.re.mjs:38
 msgid "Tokyo Badminton League"
 msgstr "東京バドミントンリーグ"
 

@@ -292,8 +292,20 @@ return {
                           {
                             "alias": null,
                             "args": null,
-                            "kind": "ScalarField",
+                            "concreteType": "Rating",
+                            "kind": "LinkedField",
                             "name": "rating",
+                            "plural": false,
+                            "selections": [
+                              {
+                                "alias": null,
+                                "args": null,
+                                "kind": "ScalarField",
+                                "name": "ordinal",
+                                "storageKey": null
+                              },
+                              (v4/*: any*/)
+                            ],
                             "storageKey": null
                           },
                           (v4/*: any*/),
@@ -377,12 +389,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "0cd30c28e671729681dcc01c4517b072",
+    "cacheID": "4dba7cbd09f8e95d75eb3814385dd71e",
     "id": null,
     "metadata": {},
     "name": "EventRsvpsRefetchQuery",
     "operationKind": "query",
-    "text": "query EventRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 20\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
+    "text": "query EventRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 20\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating {\n          ordinal\n          id\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
   }
 };
 })() `)

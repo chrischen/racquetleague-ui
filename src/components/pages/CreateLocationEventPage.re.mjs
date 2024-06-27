@@ -4,8 +4,8 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as CreateLocationEvent from "./CreateLocationEvent.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as CreateLocationEventForm from "../organisms/CreateLocationEventForm.re.mjs";
 import * as CreateLocationEventPageQuery_graphql from "../../__generated__/CreateLocationEventPageQuery_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
@@ -53,11 +53,11 @@ function CreateLocationEventPage(props) {
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map(query.location, (function ($$location) {
-                                    return JsxRuntime.jsx(CreateLocationEvent.make, {
+                                    return JsxRuntime.jsx(CreateLocationEventForm.make, {
                                                 location: $$location.fragmentRefs,
                                                 query: query.fragmentRefs
                                               });
-                                  })), t`Location doesn't exist.`);
+                                  })), t`location doesn't exist.`);
                 })
             });
 }

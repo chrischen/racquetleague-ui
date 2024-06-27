@@ -811,3 +811,84 @@ msgstr ""
 #: src/components/pages/UpdateLocationEventPage.re.mjs:64
 msgid "Event or Location doesn't exist."
 msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:318
+msgid "Basketball"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:197
+msgid "create multiple events at one time"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+msgid "events"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:92
+msgid "events preview"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:59
+msgid "input is required"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:214
+msgid "preview events"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:206
+msgid "type your events here"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:184
+msgid "about"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:144
+msgid "club"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+msgid "main activity"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:83
+msgid "main activity is required"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:187
+msgid "tell people about your club"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:153
+msgid "ゆびバド"
+msgstr ""
+
+#: src/components/organisms/SelectClub.re.mjs:73
+msgid "add new club"
+msgstr ""
+
+#: src/components/organisms/SelectClub.re.mjs:50
+msgid "choose the club where this event will be held."
+msgstr ""
+
+#: src/components/organisms/SelectClub.re.mjs:49
+msgid "select club"
+msgstr ""
+
+#: src/components/pages/CreateClubEventsPage.re.mjs:60
+msgid "club doesn't exist."
+msgstr ""
+
+#: src/components/pages/CreateLocationEventPage.re.mjs:60
+msgid "location doesn't exist."
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:377
+msgid "league"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:369 src/components/pages/Event.re.mjs:372
+msgid "submit matches"
+msgstr ""

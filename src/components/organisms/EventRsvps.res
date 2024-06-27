@@ -25,7 +25,9 @@ module Fragment = %relay(`
             id
             ...EventRsvpUser_user
           }
-          rating
+          rating {
+            ordinal
+          }
         }
       }
       pageInfo {
@@ -146,11 +148,15 @@ let make = (~event) => {
 
   let maxRating =
     rsvps->Array.reduce(0., (acc, next) =>
-      next.rating->Option.getOr(0.) > acc ? next.rating->Option.getOr(0.) : acc
+      next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(0.) > acc
+        ? next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(0.)
+        : acc
     )
   let minRating =
     rsvps->Array.reduce(maxRating, (acc, next) =>
-      next.rating->Option.getOr(maxRating) < acc ? next.rating->Option.getOr(maxRating) : acc
+      next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(maxRating) < acc
+        ? next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(maxRating)
+        : acc
     )
 
   let joinButton = switch viewer.user {
@@ -264,11 +270,11 @@ let make = (~event) => {
                             "/p/" ++
                             user.id}
                             user={user.fragmentRefs}
-                            rating=?edge.rating
+                            rating=?(edge.rating->Option.flatMap(r => r.ordinal))
                             ratingPercent={edge.rating
-                            ->Option.map(
-                              rating => (rating -. minRating) /. (maxRating -. minRating) *. 100.,
-                            )
+                            ->Option.flatMap(
+                              rating => rating.ordinal->Option.map(ordinal => (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
+                            ))
                             ->Option.getOr(0.)}
                             highlight={viewer.user
                             ->Option.map(viewer => viewer.id == user.id)
@@ -343,11 +349,11 @@ let make = (~event) => {
                             "/p/" ++
                             user.id}
                             user={user.fragmentRefs}
-                            rating=?edge.rating
+                            rating=?(edge.rating->Option.flatMap(r => r.ordinal))
                             ratingPercent={edge.rating
-                            ->Option.map(
-                              rating => (rating -. minRating) /. (maxRating -. minRating) *. 100.,
-                            )
+                            ->Option.flatMap(
+                              rating => rating.ordinal->Option.map(ordinal => (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
+                            ))
                             ->Option.getOr(0.)}
                             highlight={viewer.user
                             ->Option.map(viewer => viewer.id == user.id)

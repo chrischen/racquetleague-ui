@@ -106,15 +106,23 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
         });
   };
   var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
-          if (Core__Option.getOr(next.rating, 0) > acc) {
-            return Core__Option.getOr(next.rating, 0);
+          if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                        return r.mu;
+                      })), 0) > acc) {
+            return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                              return r.mu;
+                            })), 0);
           } else {
             return acc;
           }
         }));
   var minRating = Core__Array.reduce(players, maxRating, (function (acc, next) {
-          if (Core__Option.getOr(next.rating, maxRating) < acc) {
-            return Core__Option.getOr(next.rating, maxRating);
+          if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                        return r.mu;
+                      })), maxRating) < acc) {
+            return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                              return r.mu;
+                            })), maxRating);
           } else {
             return acc;
           }
@@ -126,10 +134,14 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                             JsxRuntime.jsx("ul", {
                                   children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
                                         children: players.length !== 0 ? players.toSorted(function (a, b) {
-                                                  var userA = Core__Option.getOr(Core__Option.map(a.rating, (function (r) {
+                                                  var userA = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(a.rating, (function (r) {
+                                                                  return r.mu;
+                                                                })), (function (r) {
                                                               return r;
                                                             })), 0);
-                                                  var userB = Core__Option.getOr(Core__Option.map(b.rating, (function (r) {
+                                                  var userB = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(b.rating, (function (r) {
+                                                                  return r.mu;
+                                                                })), (function (r) {
                                                               return r;
                                                             })), 0);
                                                   if (userA < userB) {
@@ -172,8 +184,10 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                                                                                                   highlight: selected.findIndex(function (id) {
                                                                                                         return id === user.id;
                                                                                                       }) >= 0,
-                                                                                                  ratingPercent: Core__Option.getOr(Core__Option.map(edge.rating, (function (rating) {
-                                                                                                              return (rating - minRating) / (maxRating - minRating) * 100;
+                                                                                                  ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
+                                                                                                              return Core__Option.map(rating.mu, (function (mu) {
+                                                                                                                            return (mu - minRating) / (maxRating - minRating) * 100;
+                                                                                                                          }));
                                                                                                             })), 0)
                                                                                                 }),
                                                                                             href: "#",
@@ -296,7 +310,6 @@ function AddLeagueMatch(props) {
         });
   };
   var onSubmit = function (data) {
-    console.log(data);
     Core__Option.flatMap(activity, (function (activity) {
             return Core__Option.map(activity.slug, (function (slug) {
                           var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
@@ -361,8 +374,6 @@ function AddLeagueMatch(props) {
                                                 type_: "number",
                                                 register: register("scoreWinner", {
                                                       setValueAs: (function (v) {
-                                                          console.log("Set value as");
-                                                          console.log(v);
                                                           if (v === "") {
                                                             return 0;
                                                           } else {

@@ -169,8 +169,26 @@ return {
                 {
                   "alias": null,
                   "args": null,
-                  "kind": "ScalarField",
+                  "concreteType": "Rating",
+                  "kind": "LinkedField",
                   "name": "rating",
+                  "plural": false,
+                  "selections": [
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "mu",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "ordinal",
+                      "storageKey": null
+                    }
+                  ],
                   "storageKey": null
                 },
                 {

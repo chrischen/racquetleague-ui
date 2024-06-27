@@ -1,6 +1,6 @@
 module Query = %relay(`
   query UpdateEventPageQuery($after: String, $first: Int, $before: String) {
-    ...CreateEvent_query @arguments(after: $after, first: $first, before: $before)
+    ...SelectLocation_query @arguments(after: $after, first: $first, before: $before)
   }
   `)
 type loaderData = UpdateEventPageQuery_graphql.queryRef
@@ -11,5 +11,5 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 let make = () => {
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
-  <CreateEvent locations={query.fragmentRefs} />
+  <SelectLocation locations={query.fragmentRefs} />
 }

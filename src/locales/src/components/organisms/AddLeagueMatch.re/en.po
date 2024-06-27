@@ -13,30 +13,30 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:188
+#: src/components/organisms/AddLeagueMatch.re.mjs:213
 msgid "load More"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:391
+#: src/components/organisms/AddLeagueMatch.re.mjs:413
 msgid "Loser Points"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:181
+#: src/components/organisms/AddLeagueMatch.re.mjs:206
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:149
+#: src/components/organisms/AddLeagueMatch.re.mjs:175
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:378
+#: src/components/organisms/AddLeagueMatch.re.mjs:400
 msgid "Select Losers"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:334
+#: src/components/organisms/AddLeagueMatch.re.mjs:358
 msgid "Select Winners"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:347
+#: src/components/organisms/AddLeagueMatch.re.mjs:371
 msgid "Winner Points"
 msgstr ""

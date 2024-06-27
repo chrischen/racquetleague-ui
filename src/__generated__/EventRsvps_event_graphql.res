@@ -7,12 +7,15 @@ module Types = {
   type rec fragment_activity = {
     slug: option<string>,
   }
+  and fragment_rsvps_edges_node_rating = {
+    ordinal: option<float>,
+  }
   and fragment_rsvps_edges_node_user = {
     @live id: string,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvpUser_user]>,
   }
   and fragment_rsvps_edges_node = {
-    rating: option<float>,
+    rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
   }
   and fragment_rsvps_edges = {
@@ -229,8 +232,19 @@ return {
                 {
                   "alias": null,
                   "args": null,
-                  "kind": "ScalarField",
+                  "concreteType": "Rating",
+                  "kind": "LinkedField",
                   "name": "rating",
+                  "plural": false,
+                  "selections": [
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "ordinal",
+                      "storageKey": null
+                    }
+                  ],
                   "storageKey": null
                 },
                 {

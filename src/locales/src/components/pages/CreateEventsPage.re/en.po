@@ -1,0 +1,162 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-06-24 16:22+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:227
+#~ msgid "Badminton"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:231
+#~ msgid "Table Tennis"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:235
+#~ msgid "Pickleball"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateEvents.re.mjs:239
+#~ msgid "Futsal"
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:184
+msgid "about"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:160
+#~ msgid "activity"
+#~ msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:52
+#~ msgid "activity is required"
+#~ msgstr ""
+
+#: src/components/organisms/SelectClub.re.mjs:73
+msgid "add new club"
+msgstr ""
+
+#: src/components/organisms/SelectLocation.re.mjs:65
+#~ msgid "add new location"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationForm.re.mjs:158
+#~ msgid "address"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationForm.re.mjs:76
+#~ msgid "address is required"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationForm.re.mjs:147
+#~ msgid "Akabane Elementary School"
+#~ msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:138
+#~ msgid "bulk events"
+#~ msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:226
+msgid "cancel"
+msgstr ""
+
+#: src/components/organisms/SelectClub.re.mjs:50
+msgid "choose the club where this event will be held."
+msgstr ""
+
+#: src/components/organisms/SelectLocation.re.mjs:49
+#~ msgid "choose the location where this event will be held."
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:144
+msgid "club"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:139
+#~ msgid "create multiple events at one time"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationForm.re.mjs:177
+#~ msgid "details"
+#~ msgstr ""
+
+#: src/components/organisms/SelectLocation.re.mjs:48
+#~ msgid "event location"
+#~ msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:145
+#~ msgid "events"
+#~ msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:49
+#~ msgid "input is required"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationForm.re.mjs:180
+#~ msgid "Instructions or information that will apply to all events held at this location."
+#~ msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:198
+#~ msgid "list publicly"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationForm.re.mjs:138
+#~ msgid "location"
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+msgid "main activity"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:83
+msgid "main activity is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationForm.re.mjs:167
+#~ msgid "maps link"
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:150
+msgid "name"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:80
+msgid "name is required"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:233
+msgid "save"
+msgstr ""
+
+#: src/components/organisms/SelectClub.re.mjs:49
+msgid "select club"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:203
+#~ msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:187
+msgid "tell people about your club"
+msgstr ""
+
+#: src/components/pages/CreateEvents.re.mjs:148
+#~ msgid "type your events here"
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:153
+msgid "ゆびバド"
+msgstr ""

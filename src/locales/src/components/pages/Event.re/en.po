@@ -15,45 +15,45 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:381
+#: src/components/pages/Event.re.mjs:437
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:384
+#: src/components/pages/Event.re.mjs:440
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:387
+#: src/components/pages/Event.re.mjs:443
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:390
+#: src/components/pages/Event.re.mjs:446
 msgid "Futsal"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:234
+#: src/components/organisms/EventRsvps.re.mjs:250
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:98
+#: src/components/pages/Event.re.mjs:99
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:100
+#: src/components/pages/Event.re.mjs:101
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:226
+#: src/components/organisms/EventRsvps.re.mjs:242
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:388
+#: src/components/organisms/EventRsvps.re.mjs:409
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr ""
 
@@ -65,7 +65,7 @@ msgstr ""
 #~ msgid "add to calendar"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:328
+#: src/components/organisms/EventRsvps.re.mjs:227
 msgid "attendees"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 #~ msgid "Attendees"
 #~ msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:219
+#: src/components/organisms/EventRsvps.re.mjs:235
 msgid "confirmed"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 #~ msgid "Confirmed"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:231
+#: src/components/pages/Event.re.mjs:253
 msgid "details"
 msgstr ""
 
@@ -89,15 +89,15 @@ msgstr ""
 #~ msgid "Details"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:194
+#: src/components/pages/Event.re.mjs:216
 msgid "edit event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:132
+#: src/components/pages/Event.re.mjs:153
 msgid "event @"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:346
+#: src/components/pages/Event.re.mjs:402
 msgid "event doesn't exist"
 msgstr ""
 
@@ -113,13 +113,13 @@ msgstr ""
 #~ msgid "event:"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:280
+#: src/components/pages/Event.re.mjs:302
 msgid "good luck, have fun"
 msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
-#: src/components/organisms/EventRsvps.re.mjs:187
-#: src/components/organisms/EventRsvps.re.mjs:201
+#: src/components/organisms/EventRsvps.re.mjs:198
+#: src/components/organisms/EventRsvps.re.mjs:212
 msgid "join event"
 msgstr ""
 
@@ -131,13 +131,17 @@ msgstr ""
 #~ msgid "Join Waitlist"
 #~ msgstr ""
 
+#: src/components/pages/Event.re.mjs:377
+msgid "league"
+msgstr ""
+
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:22
-#: src/components/organisms/EventRsvps.re.mjs:209
+#: src/components/organisms/EventRsvps.re.mjs:220
 msgid "leave event"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:369
-#: src/components/organisms/EventRsvps.re.mjs:456
+#: src/components/organisms/EventRsvps.re.mjs:390
+#: src/components/organisms/EventRsvps.re.mjs:486
 msgid "load More"
 msgstr ""
 
@@ -146,11 +150,11 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
-#: src/components/organisms/EventRsvps.re.mjs:194
+#: src/components/organisms/EventRsvps.re.mjs:205
 msgid "login to join the event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:215
+#: src/components/pages/Event.re.mjs:237
 msgid "login to subscribe to {activityName} events"
 msgstr ""
 
@@ -159,32 +163,37 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:310
+#: src/components/pages/Event.re.mjs:332
 msgid "media"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:337
-#: src/components/organisms/EventRsvps.re.mjs:449
+#: src/components/organisms/EventRsvps.re.mjs:358
+#: src/components/organisms/EventRsvps.re.mjs:479
 msgid "no players yet"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:289
+#: src/components/pages/Event.re.mjs:311
 msgid "notes"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:315
-#: src/components/organisms/EventRsvps.re.mjs:429
+#: src/components/organisms/EventRsvps.re.mjs:331
+#: src/components/organisms/EventRsvps.re.mjs:450
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:254
-#: src/components/organisms/EventRsvps.re.mjs:264
+#: src/components/organisms/EventRsvps.re.mjs:270
+#: src/components/organisms/EventRsvps.re.mjs:280
 msgid "spots available"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:217
 #~ msgid "Spots Available"
 #~ msgstr ""
+
+#: src/components/pages/Event.re.mjs:369
+#: src/components/pages/Event.re.mjs:372
+msgid "submit matches"
+msgstr ""
 
 #: src/components/molecules/SubscribeActivity.re.mjs:112
 msgid "subscribe to all {activityName} events"
@@ -198,8 +207,8 @@ msgstr ""
 msgid "unsubscribe from {activityName} events"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:259
-#: src/components/organisms/EventRsvps.re.mjs:382
+#: src/components/organisms/EventRsvps.re.mjs:275
+#: src/components/organisms/EventRsvps.re.mjs:403
 msgid "waitlist"
 msgstr ""
 

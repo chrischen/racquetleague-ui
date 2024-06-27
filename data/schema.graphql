@@ -35,6 +35,31 @@ type ActivitySubscriptionMutationResult implements HasErrors {
   errors: [Error!]
 }
 
+type Club {
+  defaultActivity: Activity
+  description: String
+  id: ID!
+  name: String
+}
+
+"""A connection to clubs."""
+type ClubConnection {
+  """A list of edges."""
+  edges: [ClubEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+"""An edge to a club."""
+type ClubEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Club
+}
+
 type Coords {
   lat: Float!
   lng: Float!
@@ -42,6 +67,17 @@ type Coords {
 
 input CreateActivitySubscriptionInput {
   activityId: String!
+}
+
+input CreateClubInput {
+  activity: ID!
+  description: String
+  name: String!
+}
+
+type CreateClubResult implements HasErrors {
+  club: Club
+  errors: [Error!]
 }
 
 input CreateEventInput {
@@ -53,6 +89,18 @@ input CreateEventInput {
   maxRsvps: Int
   startDate: Datetime!
   title: String!
+}
+
+input CreateEventsInput {
+  activityId: String!
+  clubId: String!
+  input: String!
+  listed: Boolean!
+}
+
+type CreateEventsResult implements HasErrors {
+  errors: [Error!]
+  events: [Event!]
 }
 
 input CreateLocationInput {
@@ -182,7 +230,7 @@ type Location implements Node {
   name: String
 }
 
-"""A connection to users."""
+"""A connection to locations."""
 type LocationConnection {
   """A list of edges."""
   edges: [LocationEdge]
@@ -191,7 +239,7 @@ type LocationConnection {
   pageInfo: PageInfo!
 }
 
-"""An edge to a user."""
+"""An edge to a location."""
 type LocationEdge {
   """A cursor for use in pagination."""
   cursor: String!
@@ -234,7 +282,9 @@ type Media {
 
 type Mutation {
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
+  createClub(input: CreateClubInput!): CreateClubResult!
   createEvent(input: CreateEventInput!): MutationResult2!
+  createEvents(input: CreateEventsInput!): CreateEventsResult!
   createLocation(input: CreateLocationInput!): MutationResult!
   createMatch(match: LeagueMatchInput!): CreateMatchResponse!
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
@@ -275,6 +325,8 @@ type PageInfo {
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
+  club(id: ID!): Club
+  clubs(after: String, before: String, first: Int): ClubConnection!
 
   """The current time on the server, as a timestamp."""
   currentTime: Float
@@ -287,6 +339,7 @@ type Query {
   locations(after: String, before: String, first: Int): LocationConnection!
   matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
   node(id: ID!): Node
+  parseBulkEvents(input: String!): String!
   ratings(activitySlug: String!, after: String, before: String, first: Int, namespace: String!): RatingConnection!
   user(id: ID!): User
   viewer: Viewer
@@ -324,7 +377,7 @@ type Rsvp implements Node {
   id: ID!
   joinTime: Int
   leaveDate: Datetime
-  rating(namespace: String): Float
+  rating(namespace: String): Rating
   user: User
 }
 
@@ -343,10 +396,11 @@ type User implements Node {
   id: ID!
   lineUsername: String
   picture: String
-  rating(activitySlug: String!, namespace: String): Float
+  rating(activitySlug: String!, namespace: String): Rating
 }
 
 type Viewer {
+  adminClubs(after: String, before: String, first: Int): ClubConnection!
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
   subscriptions: [Subscription!]!
   user: User
