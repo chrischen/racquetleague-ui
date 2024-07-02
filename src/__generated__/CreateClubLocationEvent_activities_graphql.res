@@ -1,16 +1,16 @@
-/* @sourceLoc MediaList.res */
+/* @sourceLoc CreateClubLocationEvent.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
   @@warning("-30")
 
-  type rec fragment_media = {
+  type rec fragment_activities = {
     @live id: string,
-    title: option<string>,
-    url: option<string>,
+    name: option<string>,
+    slug: option<string>,
   }
   type fragment = {
-    media: option<array<fragment_media>>,
+    activities: array<fragment_activities>,
   }
 }
 
@@ -34,7 +34,7 @@ module Internal = {
 type t
 type fragmentRef
 external getFragmentRef:
-  RescriptRelay.fragmentRefs<[> | #MediaList_location]> => fragmentRef = "%identity"
+  RescriptRelay.fragmentRefs<[> | #CreateClubLocationEvent_activities]> => fragmentRef = "%identity"
 
 module Utils = {
   @@warning("-33")
@@ -49,14 +49,14 @@ let node: operationType = %raw(json` {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MediaList_location",
+  "name": "CreateClubLocationEvent_activities",
   "selections": [
     {
       "alias": null,
       "args": null,
-      "concreteType": "Media",
+      "concreteType": "Activity",
       "kind": "LinkedField",
-      "name": "media",
+      "name": "activities",
       "plural": true,
       "selections": [
         {
@@ -70,21 +70,21 @@ let node: operationType = %raw(json` {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "title",
+          "name": "name",
           "storageKey": null
         },
         {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "url",
+          "name": "slug",
           "storageKey": null
         }
       ],
       "storageKey": null
     }
   ],
-  "type": "Location",
+  "type": "Query",
   "abstractKey": null
 } `)
 

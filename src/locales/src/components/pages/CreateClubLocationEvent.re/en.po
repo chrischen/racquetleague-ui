@@ -53,7 +53,7 @@ msgstr ""
 msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:222
+#: src/components/molecules/forms/Form.re.mjs:226
 msgid "cancel"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr ""
 msgid "max participants"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:229
+#: src/components/molecules/forms/Form.re.mjs:233
 msgid "save"
 msgstr ""
 

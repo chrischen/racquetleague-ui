@@ -794,6 +794,14 @@ msgstr "ラケットリーグ"
 msgid "submit matches"
 msgstr "試合を提出"
 
+#: src/components/pages/ClubPage.re.mjs:69
+msgid "club not found"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:195
+msgid "hosted by {name}"
+msgstr "{name}主催"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

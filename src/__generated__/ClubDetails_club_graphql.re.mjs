@@ -23,42 +23,24 @@ var node = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MediaList_location",
+  "name": "ClubDetails_club",
   "selections": [
     {
       "alias": null,
       "args": null,
-      "concreteType": "Media",
-      "kind": "LinkedField",
-      "name": "media",
-      "plural": true,
-      "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "title",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "url",
-          "storageKey": null
-        }
-      ],
+      "kind": "ScalarField",
+      "name": "name",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "description",
       "storageKey": null
     }
   ],
-  "type": "Location",
+  "type": "Club",
   "abstractKey": null
 };
 

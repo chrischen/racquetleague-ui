@@ -4,8 +4,8 @@ export const YouTube = ({ url }) => <iframe
 	height="300"
 	src={url}
 	title="YouTube video player"
-	frameborder="0"
+	frameBorder="0"
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-	referrerpolicy="strict-origin-when-cross-origin"
-	allowfullscreen={true}
+	referrerPolicy="strict-origin-when-cross-origin"
+	allowFullScreen={true}
 />;

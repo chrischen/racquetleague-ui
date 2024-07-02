@@ -14,16 +14,6 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:318
-msgid "Basketball"
-msgstr "バスケットボール"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:322
-msgid "Volleyball"
-msgstr "バレーボール"
-
-#. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:302
 msgid "Badminton"
 msgstr "バドミントン"
@@ -42,6 +32,16 @@ msgstr "ピックルボール"
 #: src/components/organisms/CreateClubEventsForm.re.mjs:314
 msgid "Futsal"
 msgstr "フットサル"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:318
+msgid "Basketball"
+msgstr "バスケットボール"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:322
+msgid "Volleyball"
+msgstr "バレーボール"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:196
 msgid "{0} event details"

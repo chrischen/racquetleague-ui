@@ -187,7 +187,21 @@ function $$Event(props) {
                                                                                                         })), null)
                                                                                             ],
                                                                                             className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
-                                                                                          })
+                                                                                          }),
+                                                                                      Core__Option.getOr(Core__Option.flatMap($$event.club, (function (club) {
+                                                                                                  return Core__Option.map(club.name, (function (name) {
+                                                                                                                return JsxRuntime.jsx("div", {
+                                                                                                                            children: JsxRuntime.jsx("span", {
+                                                                                                                                  children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                                        to: "/clubs/" + club.id,
+                                                                                                                                        children: t`hosted by ${name}`
+                                                                                                                                      }),
+                                                                                                                                  className: "text-gray-700"
+                                                                                                                                }),
+                                                                                                                            className: "mt-2 text-base leading-6 text-gray-500"
+                                                                                                                          });
+                                                                                                              }));
+                                                                                                })), null)
                                                                                     ]
                                                                                   }),
                                                                               className: "flex items-center gap-x-6"

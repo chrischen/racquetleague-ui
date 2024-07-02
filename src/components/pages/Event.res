@@ -26,6 +26,10 @@ module EventQuery = %relay(`
         ...MediaList_location
         ...EventLocation_location
       }
+      club {
+        id
+        name
+      }
       ...EventRsvps_event @arguments(after: $after, first: $first, before: $before)
     }
   }
@@ -197,6 +201,18 @@ let make = () => {
 
                       // </PageTitle>
                     </div>
+                    {event.club
+                    ->Option.flatMap(club => {
+                      club.name->Option.map(
+                        name =>
+                          <div className="mt-2 text-base leading-6 text-gray-500">
+                            <span className="text-gray-700">
+                              <Link to={"/clubs/" ++ club.id}> {t`hosted by ${name}`} </Link>
+                            </span>
+                          </div>,
+                      )
+                    })
+                    ->Option.getOr(React.null)}
                   </h1>
                 </div>
                 <div className="flex items-center gap-x-4 sm:gap-x-6">

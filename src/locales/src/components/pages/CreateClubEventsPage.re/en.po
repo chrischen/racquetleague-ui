@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:318
-msgid "Basketball"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:322
-msgid "Volleyball"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:302
 msgid "Badminton"
 msgstr ""
@@ -41,6 +31,16 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:314
 msgid "Futsal"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:318
+msgid "Basketball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:322
+msgid "Volleyball"
 msgstr ""
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:196

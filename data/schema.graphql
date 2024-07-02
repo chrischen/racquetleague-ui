@@ -136,6 +136,7 @@ type Error {
 
 type Event implements Node {
   activity: Activity
+  club: Club
   details: String
   endDate: Datetime
   id: ID!
@@ -170,6 +171,7 @@ type EventEdge {
 }
 
 input EventFilters {
+  clubId: ID
   locationId: ID
   userId: ID
   viewer: Boolean

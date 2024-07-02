@@ -1,6 +1,7 @@
 module Fragment = %relay(`
 	fragment MediaList_location on Location {
 		media {
+      id
 			title
 			url
 		}
@@ -21,10 +22,12 @@ let make = (~media) => {
   media
   ->Array.map(media => {
     media.url
-    ->Option.map(url => <>
-      <p> {media.title->Option.map(_, React.string)->Option.getOr(React.null)} </p>
-			<YouTube url={url} />
-    </>)
+    ->Option.map(url =>
+      <React.Fragment key={media.id}>
+        <p> {media.title->Option.map(_, React.string)->Option.getOr(React.null)} </p>
+        <YouTube url={url} />
+      </React.Fragment>
+    )
     ->Option.getOr(React.null)
   })
   ->React.array

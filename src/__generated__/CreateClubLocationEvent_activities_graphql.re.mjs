@@ -23,14 +23,14 @@ var node = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MediaList_location",
+  "name": "CreateClubLocationEvent_activities",
   "selections": [
     {
       "alias": null,
       "args": null,
-      "concreteType": "Media",
+      "concreteType": "Activity",
       "kind": "LinkedField",
-      "name": "media",
+      "name": "activities",
       "plural": true,
       "selections": [
         {
@@ -44,21 +44,21 @@ var node = {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "title",
+          "name": "name",
           "storageKey": null
         },
         {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "url",
+          "name": "slug",
           "storageKey": null
         }
       ],
       "storageKey": null
     }
   ],
-  "type": "Location",
+  "type": "Query",
   "abstractKey": null
 };
 

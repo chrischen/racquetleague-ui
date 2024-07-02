@@ -892,3 +892,15 @@ msgstr ""
 #: src/components/pages/Event.re.mjs:369 src/components/pages/Event.re.mjs:372
 msgid "submit matches"
 msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:69
+msgid "club not found"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:195
+msgid "hosted by"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:195
+msgid "hosted by {name}"
+msgstr ""

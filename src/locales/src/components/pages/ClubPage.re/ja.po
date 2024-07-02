@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-02 01:25+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventsList.re.mjs:369
+msgid "...load past events"
+msgstr "...過去のイベントを読み込む"
+
+#: src/components/organisms/EventsList.re.mjs:277
+msgid "[location missing]"
+msgstr "[場所がありません]"
+
+#: src/components/organisms/EventsList.re.mjs:226
+msgid "[missing title]"
+msgstr "[タイトルがありません]"
+
+#: src/components/organisms/EventsList.re.mjs:170
+#: src/components/organisms/EventsList.re.mjs:177
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{0, plural, one {{1}} other {{2}}}"
+
+#: src/components/organisms/EventsList.re.mjs:171
+#: src/components/organisms/EventsList.re.mjs:178
+msgid "{0} hour"
+msgstr "{0} 時間"
+
+#: src/components/organisms/EventsList.re.mjs:172
+#: src/components/organisms/EventsList.re.mjs:179
+msgid "{0} hours"
+msgstr "{0} 時間"
+
+#: src/components/organisms/EventsList.re.mjs:183
+msgid "{0} minute"
+msgstr "{0} 分"
+
+#: src/components/organisms/EventsList.re.mjs:184
+msgid "{0} minutes"
+msgstr "{0} 分"
+
+#: src/components/organisms/EventsList.re.mjs:182
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{minutes, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventsList.re.mjs:294
+msgid "{playersCount, plural, one {player} other {players}}"
+msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
+
+#: src/components/pages/ClubPage.re.mjs:49
+msgid "club"
+msgstr "クラブ"
+
+#: src/components/pages/ClubPage.re.mjs:69
+msgid "club not found"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:194
+msgid "joined"
+msgstr "参加"
+
+#: src/components/organisms/EventsList.re.mjs:413
+msgid "load more"
+msgstr "もっと読み込む"
+
+#: src/components/organisms/EventsList.re.mjs:290
+msgid "players"
+msgstr "プレイヤー"
+
+#: src/components/organisms/EventsList.re.mjs:197
+msgid "waitlist"
+msgstr "ウェイトリスト"
+
+#: src/components/pages/ClubPage.re.mjs:69
+#~ msgid "page not found"
+#~ msgstr "ページが見つかりません"

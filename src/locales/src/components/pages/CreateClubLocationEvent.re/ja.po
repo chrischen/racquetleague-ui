@@ -13,26 +13,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#. js-lingui-explicit-id
-#: src/components/pages/CreateClubLocationEvent.re.mjs:377
-#~ msgid "Badminton"
-#~ msgstr "バドミントン"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateClubLocationEvent.re.mjs:381
-#~ msgid "Table Tennis"
-#~ msgstr "卓球"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateClubLocationEvent.re.mjs:385
-#~ msgid "Pickleball"
-#~ msgstr "ピックルボール"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateClubLocationEvent.re.mjs:389
-#~ msgid "Futsal"
-#~ msgstr "フットサル"
-
 #: src/components/pages/CreateClubLocationEvent.re.mjs:222
 msgid "{0} event details"
 msgstr "{0} イベント詳細"
@@ -50,10 +30,14 @@ msgid "All Level Badminton"
 msgstr "すべてのレベルのバドミントン"
 
 #: src/components/pages/CreateClubLocationEvent.re.mjs:318
-msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
-msgstr "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳細」があれば記載してください。"
+msgid ""
+"any details from the location will already be included. Mention any "
+"additional event-specific instructions, rules, or details."
+msgstr ""
+"ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
+"細」があれば記載してください。"
 
-#: src/components/molecules/forms/Form.re.mjs:222
+#: src/components/molecules/forms/Form.re.mjs:226
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -97,13 +81,17 @@ msgstr "場所の詳細"
 msgid "max participants"
 msgstr "最大参加者数"
 
-#: src/components/molecules/forms/Form.re.mjs:229
+#: src/components/molecules/forms/Form.re.mjs:233
 msgid "save"
 msgstr "保存"
 
 #: src/components/pages/CreateClubLocationEvent.re.mjs:349
-msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
-msgstr "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを持っている人だけがイベントを見つけることができます。"
+msgid ""
+"show your event publicly on our home page. Otherwise, only people with a "
+"link to your event will be able to find it."
+msgstr ""
+"ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
+"持っている人だけがイベントを見つけることができます。"
 
 #: src/components/pages/CreateClubLocationEvent.re.mjs:229
 msgid "title"
@@ -112,3 +100,23 @@ msgstr "タイトル"
 #: src/components/pages/CreateClubLocationEvent.re.mjs:106
 msgid "title is required"
 msgstr "タイトルが必要です"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateClubLocationEvent.re.mjs:377
+#~ msgid "Badminton"
+#~ msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateClubLocationEvent.re.mjs:381
+#~ msgid "Table Tennis"
+#~ msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateClubLocationEvent.re.mjs:385
+#~ msgid "Pickleball"
+#~ msgstr "ピックルボール"
+
+#. js-lingui-explicit-id
+#: src/components/pages/CreateClubLocationEvent.re.mjs:389
+#~ msgid "Futsal"
+#~ msgstr "フットサル"
