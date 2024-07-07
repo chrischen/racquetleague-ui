@@ -47,9 +47,9 @@ export const routes: RouteObject[] = [
             handle: "src/components/routes/LocationRoute.gen.tsx",
           },
           {
-            path: "clubs/:clubId",
+            path: "clubs/:slug",
             lazy: () => import("./components/routes/ClubRoute.gen"),
-            handle: "src/components/routes/ClubRoute.gen.tsx",
+            handle: "src/components/routes/ClubRoute.gen.tsx"
           },
           // {
           //   path: "",

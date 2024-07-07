@@ -108,6 +108,13 @@ v6 = [
     "name": "slug",
     "storageKey": null
   }
+],
+v7 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 20
+  }
 ];
 return {
   "fragment": {
@@ -151,7 +158,7 @@ return {
       {
         "args": null,
         "kind": "FragmentSpread",
-        "name": "CreateLocationEventForm_activities"
+        "name": "CreateLocationEventForm_query"
       }
     ],
     "type": "Query",
@@ -244,16 +251,122 @@ return {
         "plural": true,
         "selections": (v6/*: any*/),
         "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Viewer",
+        "kind": "LinkedField",
+        "name": "viewer",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": (v7/*: any*/),
+            "concreteType": "ClubConnection",
+            "kind": "LinkedField",
+            "name": "adminClubs",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "ClubEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Club",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      (v3/*: any*/),
+                      (v4/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "__typename",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "cursor",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "PageInfo",
+                "kind": "LinkedField",
+                "name": "pageInfo",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "endCursor",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "hasNextPage",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": "adminClubs(first:20)"
+          },
+          {
+            "alias": null,
+            "args": (v7/*: any*/),
+            "filters": null,
+            "handle": "connection",
+            "key": "SelectClub_adminClubs",
+            "kind": "LinkedHandle",
+            "name": "adminClubs"
+          },
+          {
+            "kind": "ClientExtension",
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "__id",
+                "storageKey": null
+              }
+            ]
+          }
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "2e41f1202be22bfc006790386ff061d0",
+    "cacheID": "d0022dca200c1ad0616fbabbc4891025",
     "id": null,
     "metadata": {},
     "name": "UpdateLocationEventPageQuery",
     "operationKind": "query",
-    "text": "query UpdateLocationEventPageQuery(\n  $eventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $eventId) {\n    ...CreateLocationEventForm_event\n    id\n  }\n  ...CreateLocationEventForm_activities\n}\n\nfragment CreateLocationEventForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  activity {\n    id\n    name\n    slug\n  }\n  startDate\n  endDate\n  listed\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n"
+    "text": "query UpdateLocationEventPageQuery(\n  $eventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $eventId) {\n    ...CreateLocationEventForm_event\n    id\n  }\n  ...CreateLocationEventForm_query\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  activity {\n    id\n    name\n    slug\n  }\n  startDate\n  endDate\n  listed\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment CreateLocationEventForm_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...SelectClubStateful_query_1nITBn\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 20) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment SelectClubStateful_query_1nITBn on Query {\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 20) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n"
   }
 };
 })());

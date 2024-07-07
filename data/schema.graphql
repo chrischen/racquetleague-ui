@@ -40,6 +40,7 @@ type Club {
   description: String
   id: ID!
   name: String
+  slug: String
 }
 
 """A connection to clubs."""
@@ -73,6 +74,7 @@ input CreateClubInput {
   activity: ID!
   description: String
   name: String!
+  slug: String!
 }
 
 type CreateClubResult implements HasErrors {
@@ -82,6 +84,7 @@ type CreateClubResult implements HasErrors {
 
 input CreateEventInput {
   activity: ID!
+  clubId: ID!
   details: String
   endDate: Datetime!
   listed: Boolean
@@ -171,7 +174,7 @@ type EventEdge {
 }
 
 input EventFilters {
-  clubId: ID
+  clubSlug: String
   locationId: ID
   userId: ID
   viewer: Boolean
@@ -327,7 +330,7 @@ type PageInfo {
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
-  club(id: ID!): Club
+  club(id: ID, slug: String): Club
   clubs(after: String, before: String, first: Int): ClubConnection!
 
   """The current time on the server, as a timestamp."""

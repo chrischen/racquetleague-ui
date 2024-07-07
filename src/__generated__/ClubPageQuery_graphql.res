@@ -18,31 +18,35 @@ module Types = {
   @live
   type variables = {
     after?: string,
+    afterDate?: Util.Datetime.t,
     before?: string,
     filters: eventFilters,
     first?: int,
-    @live id: string,
+    slug: string,
   }
   @live
   type refetchVariables = {
     after: option<option<string>>,
+    afterDate: option<option<Util.Datetime.t>>,
     before: option<option<string>>,
     filters: option<eventFilters>,
     first: option<option<int>>,
-    @live id: option<string>,
+    slug: option<string>,
   }
   @live let makeRefetchVariables = (
     ~after=?,
+    ~afterDate=?,
     ~before=?,
     ~filters=?,
     ~first=?,
-    ~id=?,
+    ~slug=?,
   ): refetchVariables => {
     after: after,
+    afterDate: afterDate,
     before: before,
     filters: filters,
     first: first,
-    id: id
+    slug: slug
   }
 
 }
@@ -53,10 +57,12 @@ type queryRef
 module Internal = {
   @live
   let variablesConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"eventFilters":{},"__root":{"filters":{"r":"eventFilters"}}}`
+    json`{"eventFilters":{},"__root":{"filters":{"r":"eventFilters"},"afterDate":{"c":"Util.Datetime"}}}`
   )
   @live
-  let variablesConverterMap = ()
+  let variablesConverterMap = {
+    "Util.Datetime": Util.Datetime.serialize,
+  }
   @live
   let convertVariables = v => v->RescriptRelay.convertObj(
     variablesConverter,
@@ -118,42 +124,52 @@ var v0 = {
 v1 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "before"
+  "name": "afterDate"
 },
 v2 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "filters"
+  "name": "before"
 },
 v3 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "first"
+  "name": "filters"
 },
 v4 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "id"
+  "name": "first"
 },
-v5 = [
+v5 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "slug"
+},
+v6 = [
   {
     "kind": "Variable",
-    "name": "id",
-    "variableName": "id"
+    "name": "slug",
+    "variableName": "slug"
   }
 ],
-v6 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v7 = [
+v8 = [
   {
     "kind": "Variable",
     "name": "after",
     "variableName": "after"
+  },
+  {
+    "kind": "Variable",
+    "name": "afterDate",
+    "variableName": "afterDate"
   },
   {
     "kind": "Variable",
@@ -171,7 +187,7 @@ v7 = [
     "variableName": "first"
   }
 ],
-v8 = {
+v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -185,7 +201,8 @@ return {
       (v1/*: any*/),
       (v2/*: any*/),
       (v3/*: any*/),
-      (v4/*: any*/)
+      (v4/*: any*/),
+      (v5/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
@@ -193,13 +210,13 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v6/*: any*/),
         "concreteType": "Club",
         "kind": "LinkedField",
         "name": "club",
         "plural": false,
         "selections": [
-          (v6/*: any*/),
+          (v7/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -209,7 +226,7 @@ return {
         "storageKey": null
       },
       {
-        "args": (v7/*: any*/),
+        "args": (v8/*: any*/),
         "kind": "FragmentSpread",
         "name": "EventsListFragment"
       }
@@ -220,24 +237,25 @@ return {
   "kind": "Request",
   "operation": {
     "argumentDefinitions": [
-      (v4/*: any*/),
+      (v5/*: any*/),
       (v0/*: any*/),
+      (v4/*: any*/),
+      (v2/*: any*/),
       (v3/*: any*/),
-      (v1/*: any*/),
-      (v2/*: any*/)
+      (v1/*: any*/)
     ],
     "kind": "Operation",
     "name": "ClubPageQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v6/*: any*/),
         "concreteType": "Club",
         "kind": "LinkedField",
         "name": "club",
         "plural": false,
         "selections": [
-          (v6/*: any*/),
+          (v7/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -245,13 +263,13 @@ return {
             "name": "description",
             "storageKey": null
           },
-          (v8/*: any*/)
+          (v9/*: any*/)
         ],
         "storageKey": null
       },
       {
         "alias": null,
-        "args": (v7/*: any*/),
+        "args": (v8/*: any*/),
         "concreteType": "EventConnection",
         "kind": "LinkedField",
         "name": "events",
@@ -273,7 +291,7 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v8/*: any*/),
+                  (v9/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -289,8 +307,15 @@ return {
                     "name": "location",
                     "plural": false,
                     "selections": [
-                      (v8/*: any*/),
-                      (v6/*: any*/),
+                      (v9/*: any*/),
+                      (v7/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "links",
+                        "storageKey": null
+                      },
                       {
                         "alias": null,
                         "args": null,
@@ -341,8 +366,8 @@ return {
                     "name": "activity",
                     "plural": false,
                     "selections": [
-                      (v6/*: any*/),
-                      (v8/*: any*/)
+                      (v7/*: any*/),
+                      (v9/*: any*/)
                     ],
                     "storageKey": null
                   },
@@ -384,7 +409,7 @@ return {
                             "name": "node",
                             "plural": false,
                             "selections": [
-                              (v8/*: any*/)
+                              (v9/*: any*/)
                             ],
                             "storageKey": null
                           }
@@ -399,6 +424,13 @@ return {
                     "args": null,
                     "kind": "ScalarField",
                     "name": "endDate",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "details",
                     "storageKey": null
                   },
                   {
@@ -465,7 +497,7 @@ return {
       },
       {
         "alias": null,
-        "args": (v7/*: any*/),
+        "args": (v8/*: any*/),
         "filters": [
           "filters",
           "afterDate"
@@ -478,12 +510,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d9dbd34f05d0ded6962e0b97b28311c8",
+    "cacheID": "b8949b6cf6cacccb6f13989dde8c008b",
     "id": null,
     "metadata": {},
     "name": "ClubPageQuery",
     "operationKind": "query",
-    "text": "query ClubPageQuery(\n  $id: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $filters: EventFilters!\n) {\n  club(id: $id) {\n    name\n    ...ClubDetails_club\n    id\n  }\n  ...EventsListFragment_1FujIK\n}\n\nfragment ClubDetails_club on Club {\n  name\n  description\n}\n\nfragment EventsListFragment_1FujIK on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters) {\n    edges {\n      node {\n        id\n        startDate\n        location {\n          id\n        }\n        ...EventsList_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
+    "text": "query ClubPageQuery(\n  $slug: String!\n  $after: String\n  $first: Int\n  $before: String\n  $filters: EventFilters!\n  $afterDate: Datetime\n) {\n  club(slug: $slug) {\n    name\n    ...ClubDetails_club\n    id\n  }\n  ...EventsListFragment_N8DiW\n}\n\nfragment ClubDetails_club on Club {\n  name\n  description\n}\n\nfragment EventsListFragment_N8DiW on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        location {\n          id\n        }\n        ...EventsList_event\n        ...EventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

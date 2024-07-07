@@ -17,6 +17,7 @@ module Types = {
     defaultActivity: option<response_createClub_club_defaultActivity>,
     @live id: string,
     name: option<string>,
+    slug: option<string>,
   }
   @live
   and response_createClub_errors = {
@@ -134,6 +135,13 @@ v3 = {
 v4 = {
   "alias": null,
   "args": null,
+  "kind": "ScalarField",
+  "name": "slug",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
   "concreteType": "Club",
   "kind": "LinkedField",
   "name": "club",
@@ -148,6 +156,7 @@ v4 = {
     },
     (v2/*: any*/),
     (v3/*: any*/),
+    (v4/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -158,20 +167,14 @@ v4 = {
       "selections": [
         (v2/*: any*/),
         (v3/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "slug",
-          "storageKey": null
-        }
+        (v4/*: any*/)
       ],
       "storageKey": null
     }
   ],
   "storageKey": null
 },
-v5 = {
+v6 = {
   "alias": null,
   "args": null,
   "concreteType": "Error",
@@ -204,8 +207,8 @@ return {
         "name": "createClub",
         "plural": false,
         "selections": [
-          (v4/*: any*/),
-          (v5/*: any*/)
+          (v5/*: any*/),
+          (v6/*: any*/)
         ],
         "storageKey": null
       }
@@ -227,7 +230,7 @@ return {
         "name": "createClub",
         "plural": false,
         "selections": [
-          (v4/*: any*/),
+          (v5/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -249,19 +252,19 @@ return {
               }
             ]
           },
-          (v5/*: any*/)
+          (v6/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "e0dc138bb66456c075d483c4d8ab3ecf",
+    "cacheID": "f4174e4911c4e463a1f25ed09a8693fa",
     "id": null,
     "metadata": {},
     "name": "CreateClubFormMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateClubFormMutation(\n  $input: CreateClubInput!\n) {\n  createClub(input: $input) {\n    club {\n      __typename\n      id\n      name\n      defaultActivity {\n        id\n        name\n        slug\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation CreateClubFormMutation(\n  $input: CreateClubInput!\n) {\n  createClub(input: $input) {\n    club {\n      __typename\n      id\n      name\n      slug\n      defaultActivity {\n        id\n        name\n        slug\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

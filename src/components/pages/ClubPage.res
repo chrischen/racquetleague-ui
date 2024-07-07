@@ -1,12 +1,12 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module Query = %relay(`
-  query ClubPageQuery($id: ID!, $after: String, $first: Int, $before: String, $filters: EventFilters!) {
-    club(id: $id) {
+  query ClubPageQuery($slug: String!, $after: String, $first: Int, $before: String, $filters: EventFilters!, $afterDate: Datetime) {
+    club(slug: $slug) {
       name
       ...ClubDetails_club
     }
-    ...EventsListFragment @arguments(after: $after, first: $first, before: $before, filters: $filters)
+    ...EventsListFragment @arguments(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
   }
   `)
 type loaderData = ClubPageQuery_graphql.queryRef
@@ -33,7 +33,7 @@ let make = () => {
         </Layout.Container>
         <EventsList events={query.fragmentRefs} />
       </>)
-      ->Option.getOr(<Layout.Container>{t`club not found`}</Layout.Container>)
+      ->Option.getOr(<Layout.Container> {t`club not found`} </Layout.Container>)
     }}
   </WaitForMessages>
 }

@@ -904,3 +904,19 @@ msgstr ""
 #: src/components/pages/Event.re.mjs:195
 msgid "hosted by {name}"
 msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+msgid "slug"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:83
+msgid "url slug is required"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+msgid "yubibado"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:507
+msgid "share as text"
+msgstr ""

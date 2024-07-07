@@ -76,12 +76,32 @@ module Fragment = %relay(`
     details
   }
 `)
-module ActivitiesFragment = %relay(`
-  fragment CreateLocationEventForm_activities on Query {
+module QueryFragment = %relay(`
+  fragment CreateLocationEventForm_query on Query
+  @argumentDefinitions (
+    after: { type: "String" }
+    before: { type: "String" }
+    first: { type: "Int", defaultValue: 20 }
+  )
+  {
     activities {
       id
       name
       slug
+    }
+    ...SelectClubStateful_query @arguments(after: $after, first: $first, before: $before)
+    ...CreateClubForm_activities
+    viewer {
+      __id
+      adminClubs(after: $after, first: $first, before: $before)
+      @connection(key: "SelectClub_adminClubs") {
+        edges {
+          node {
+            id
+            name
+          }
+        }
+      }
     }
   }
 `)
@@ -93,6 +113,7 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 type inputs = {
   title: Zod.string_,
   activity: Zod.string_,
+  // clubId: Zod.string_,
   maxRsvps: Zod.optional<Zod.number>,
   startDate: Zod.string_,
   endTime: Zod.string_,
@@ -105,6 +126,7 @@ let schema = Zod.z->Zod.object(
     {
       title: Zod.z->Zod.string({required_error: ts`title is required`})->Zod.String.min(1),
       activity: Zod.z->Zod.string({required_error: ts`activity is required`}),
+      // clubId: Zod.z->Zod.string({required_error: ts`club is required`}),
       maxRsvps: Zod.z->Zod.number({})->Zod.Number.gte(1.)->Zod.optional,
       startDate: Zod.z->Zod.string({required_error: ts`event date is required`})->Zod.String.min(1),
       endTime: Zod.z->Zod.string({required_error: ts`end time is required`})->Zod.String.min(5),
@@ -128,7 +150,11 @@ let make = (~event=?, ~location, ~query) => {
   open Form
   let event = event->Option.map(event => EventFragment.use(event))
   let location = Fragment.use(location)
-  let query = ActivitiesFragment.use(query)
+  let query = QueryFragment.use(query)
+  let clubs =
+    query.viewer
+    ->Option.map(viewer => viewer.adminClubs->QueryFragment.getConnectionNodes)
+    ->Option.getOr([])
 
   let (commitMutationCreate, _) = Mutation.use()
   let (commitMutationUpdate, _) = UpdateMutation.use()
@@ -166,6 +192,9 @@ let make = (~event=?, ~location, ~query) => {
       }
     )
     ->Option.getOr(false)
+  let (selectedClub, setSelectedClub) = React.useState(() =>
+    clubs->Array.get(0)->Option.map(c => c.id)
+  )
 
   React.useEffect(() => {
     switch action {
@@ -212,6 +241,7 @@ let make = (~event=?, ~location, ~query) => {
             maxRsvps: ?data.maxRsvps->Option.map(Float.toInt),
             details: data.details->Option.getOr(""),
             locationId: location.id,
+            clubId: selectedClub->Option.getOr(""),
             startDate: startDate->Util.Datetime.fromDate,
             endDate: endDate->Util.Datetime.fromDate,
             listed: data.listed,
@@ -236,6 +266,7 @@ let make = (~event=?, ~location, ~query) => {
               maxRsvps: ?data.maxRsvps->Option.map(Float.toInt),
               details: data.details->Option.getOr(""),
               locationId: location.id,
+              clubId: selectedClub->Option.getOr(""),
               startDate: startDate->Util.Datetime.fromDate,
               endDate: endDate->Util.Datetime.fromDate,
               listed: data.listed,
@@ -258,6 +289,13 @@ let make = (~event=?, ~location, ~query) => {
     <WaitForMessages>
       {() => <>
         <Grid className="grid-cols-1">
+          <SelectClubStateful
+            clubs={clubs}
+            onSelected={id => setSelectedClub(_ => Some(id))}
+            fragments={query.fragmentRefs}
+            value=selectedClub
+            connectionId=?{query.viewer->Option.map(v => v.__id)}
+          />
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormSection
               title={t`${location.name->Option.getOr("?")} event details`}

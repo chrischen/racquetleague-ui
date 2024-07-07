@@ -193,7 +193,7 @@ function $$Event(props) {
                                                                                                                 return JsxRuntime.jsx("div", {
                                                                                                                             children: JsxRuntime.jsx("span", {
                                                                                                                                   children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                                                        to: "/clubs/" + club.id,
+                                                                                                                                        to: "/clubs/" + Core__Option.getOr(club.slug, ""),
                                                                                                                                         children: t`hosted by ${name}`
                                                                                                                                       }),
                                                                                                                                   className: "text-gray-700"

@@ -8,6 +8,64 @@ import * as Solid from "@heroicons/react/24/solid";
 import { t } from '@lingui/macro'
 ;
 
+function Form$PrefixedInput(props) {
+  var defaultValue = props.defaultValue;
+  var value = props.value;
+  var register = props.register;
+  var onBlur = props.onBlur;
+  var placeholder = props.placeholder;
+  var autoComplete = props.autoComplete;
+  var __type_ = props.type_;
+  var id = props.id;
+  var name = props.name;
+  var className = props.className;
+  var type_ = __type_ !== undefined ? __type_ : "text";
+  var tmp;
+  if (register !== undefined) {
+    var newrecord = Caml_obj.obj_dup(register);
+    tmp = JsxRuntime.jsx("input", (newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.placeholder = placeholder, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
+  } else {
+    tmp = JsxRuntime.jsx("input", {
+          defaultValue: defaultValue,
+          className: Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"),
+          id: id,
+          autoComplete: autoComplete,
+          name: name,
+          placeholder: placeholder,
+          type: type_,
+          value: value,
+          onBlur: onBlur,
+          onChange: props.onChange
+        });
+  }
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                JsxRuntime.jsx("label", {
+                      children: props.label,
+                      className: "block text-sm font-medium leading-6 text-gray-900",
+                      htmlFor: name
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx("span", {
+                                    children: props.prefix,
+                                    className: "flex select-none items-center pl-3 text-gray-500 sm:text-sm"
+                                  }),
+                              tmp
+                            ],
+                            className: "flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
+                          }),
+                      className: "mt-2"
+                    })
+              ]
+            });
+}
+
+var PrefixedInput = {
+  make: Form$PrefixedInput
+};
+
 function Form$Input(props) {
   var defaultValue = props.defaultValue;
   var value = props.value;
@@ -244,6 +302,7 @@ var Footer = {
 };
 
 export {
+  PrefixedInput ,
   Input ,
   Select ,
   PhotoIcon ,

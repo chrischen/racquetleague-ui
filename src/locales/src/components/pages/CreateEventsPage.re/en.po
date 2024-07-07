@@ -33,7 +33,7 @@ msgstr ""
 #~ msgid "Futsal"
 #~ msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:184
+#: src/components/organisms/CreateClubForm.re.mjs:213
 msgid "about"
 msgstr ""
 
@@ -69,7 +69,7 @@ msgstr ""
 #~ msgid "bulk events"
 #~ msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:226
+#: src/components/molecules/forms/Form.re.mjs:284
 msgid "cancel"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 #~ msgid "choose the location where this event will be held."
 #~ msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:144
+#: src/components/organisms/CreateClubForm.re.mjs:156
 msgid "club"
 msgstr ""
 
@@ -117,11 +117,11 @@ msgstr ""
 #~ msgid "location"
 #~ msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:165
+#: src/components/organisms/CreateClubForm.re.mjs:194
 msgid "main activity"
 msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:83
+#: src/components/organisms/CreateClubForm.re.mjs:86
 msgid "main activity is required"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgstr ""
 #~ msgid "maps link"
 #~ msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:150
+#: src/components/organisms/CreateClubForm.re.mjs:162
 msgid "name"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "name is required"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:233
+#: src/components/molecules/forms/Form.re.mjs:291
 msgid "save"
 msgstr ""
 
@@ -149,7 +149,11 @@ msgstr ""
 #~ msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
 #~ msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:187
+#: src/components/organisms/CreateClubForm.re.mjs:177
+msgid "slug"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:216
 msgid "tell people about your club"
 msgstr ""
 
@@ -157,6 +161,14 @@ msgstr ""
 #~ msgid "type your events here"
 #~ msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:153
+#: src/components/organisms/CreateClubForm.re.mjs:83
+msgid "url slug is required"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+msgid "yubibado"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
 msgid "ゆびバド"
 msgstr ""

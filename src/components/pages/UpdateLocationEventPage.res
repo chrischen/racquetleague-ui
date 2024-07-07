@@ -7,7 +7,7 @@ module Query = %relay(`
     event(id: $eventId) {
       ...CreateLocationEventForm_event
     }
-    ...CreateLocationEventForm_activities
+    ...CreateLocationEventForm_query
   }
   `)
 type loaderData = UpdateLocationEventPageQuery_graphql.queryRef

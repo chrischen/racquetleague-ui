@@ -179,6 +179,11 @@ return {
                   "name": "EventsList_event"
                 },
                 {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "EventsListText_event"
+                },
+                {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",

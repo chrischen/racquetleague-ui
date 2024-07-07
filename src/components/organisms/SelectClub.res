@@ -14,6 +14,7 @@ module Fragment = %relay(`
   {
     ...CreateClubForm_activities
     viewer {
+      __id
       adminClubs(after: $after, first: $first, before: $before)
       @connection(key: "SelectClub_adminClubs") {
         edges {
@@ -33,8 +34,12 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 @react.component
 let make = (~clubs) => {
   open Lingui.Util
+  let navigate = Router.useNavigate()
   let data = Fragment.use(clubs)
-  let clubs = data.viewer->Option.map(viewer => viewer.adminClubs->Fragment.getConnectionNodes)->Option.getOr([])
+  let clubs =
+    data.viewer
+    ->Option.map(viewer => viewer.adminClubs->Fragment.getConnectionNodes)
+    ->Option.getOr([])
 
   let (showCreateclub, setShowCreateclub) = React.useState(() => false)
 
@@ -71,9 +76,13 @@ let make = (~clubs) => {
                       animate={opacity: 1., scale: 1., y: 0.00}
                       exit={opacity: 0., scale: 1., y: -50.}>
                       <CreateClubForm
+                        connectionId=?{data.viewer->Option.map(v => v.__id)}
                         query={data.fragmentRefs}
                         onCancel={_ => setShowCreateclub(_ => false)}
-                        onClose={() => setShowCreateclub(_ => false)}
+                        onCreated={club => {
+                          setShowCreateclub(_ => false)
+                          navigate(Util.encodeURIComponent(club.id), None)
+                        }}
                       />
                     </FramerMotion.Div>
                   : React.null}

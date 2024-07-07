@@ -67,7 +67,7 @@ msgstr ""
 "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
 "細」があれば記載してください。"
 
-#: src/components/molecules/forms/Form.re.mjs:226
+#: src/components/molecules/forms/Form.re.mjs:284
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -115,7 +115,7 @@ msgstr "場所の詳細"
 msgid "max participants"
 msgstr "最大参加者数"
 
-#: src/components/molecules/forms/Form.re.mjs:233
+#: src/components/molecules/forms/Form.re.mjs:291
 msgid "save"
 msgstr "保存"
 

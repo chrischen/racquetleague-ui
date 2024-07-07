@@ -1,5 +1,4 @@
 %%raw("import { t } from '@lingui/macro'")
-open Lingui.Util
 open LangProvider.Router
 
 @module("./btn_login_base@2x.png")

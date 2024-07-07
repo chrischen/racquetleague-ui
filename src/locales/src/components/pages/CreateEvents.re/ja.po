@@ -51,7 +51,7 @@ msgstr "キャンセル"
 
 #: src/components/pages/CreateEvents.re.mjs:139
 msgid "create multiple events at one time"
-msgstr ""
+msgstr "一度に複数のイベントを作成"
 
 #: src/components/pages/CreateEvents.re.mjs:145
 msgid "events"

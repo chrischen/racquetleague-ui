@@ -24,6 +24,7 @@ module Fragment = %relay(`
             id
           }
           ...EventsList_event
+          ...EventsListText_event
         }
       }
       ...PinMap_eventConnection
@@ -62,6 +63,30 @@ module ItemFragment = %relay(`
   }
 `)
 
+module TextItemFragment = %relay(`
+  fragment EventsListText_event on Event {
+    id
+    title
+    details
+    activity {
+      name
+    }
+    location {
+      name
+      links
+    }
+    rsvps {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+    maxRsvps
+    startDate
+    endDate
+  }
+`)
 module NodeId: {
   type t
   let toId: t => string
@@ -85,6 +110,131 @@ module NodeIdDto: {
     | [key, id] => Ok(NodeId.make(key, id))
     | _ => Error(#InvalidNode)
     }
+  }
+}
+
+module TextEventItem = {
+  open Lingui.UtilString
+  let td = Lingui.UtilString.dynamic
+  let ts = Lingui.UtilString.t
+
+  let make = (~event) => {
+    let {id, title, location, details, rsvps, startDate, maxRsvps, endDate} = TextItemFragment.use(
+      event,
+    )
+    let {i18n: {locale}} = Lingui.useLingui()
+    let intl = ReactIntl.useIntl()
+
+    let playersCount =
+      rsvps
+      ->Option.flatMap(rsvps => rsvps.edges->Option.map(edges => edges->Array.length))
+      ->Option.getOr(0)
+
+    let spaceAvailable = switch maxRsvps {
+    | Some(max) => max - playersCount > 0 ? "🈳" : "🈵"
+    | None => "🈳"
+    }
+
+    let duration = startDate->Option.flatMap(startDate =>
+      endDate->Option.map(endDate =>
+        endDate
+        ->Util.Datetime.toDate
+        ->DateFns.differenceInMinutes(startDate->Util.Datetime.toDate)
+      )
+    )
+    let duration = duration->Option.map(duration => {
+      let hours = Js.Math.floor_float(duration /. 60.)
+      let minutes = mod(duration->Float.toInt, 60)
+      if minutes == 0 {
+        plural(
+          hours->Float.toInt,
+          {one: ts`${hours->Float.toString} hour`, other: ts`${hours->Float.toString} hours`},
+        )
+      } else {
+        plural(
+          hours->Float.toInt,
+          {one: ts`${hours->Float.toString} hour`, other: ts`${hours->Float.toString} hours`},
+        ) ++
+        " " ++
+        plural(
+          minutes,
+          {
+            one: ts`${minutes->Int.toString} minute`,
+            other: ts`${minutes->Int.toString} minutes`,
+          },
+        )
+      }
+    })
+
+    let str = title->Option.getOr(ts`[missing title]`) ++ "\n"
+
+    // Date string in local time
+
+    "🗓 " ++
+    startDate
+    ->Option.map(startDate => {
+      let startDate = startDate->Util.Datetime.toDate
+      intl->ReactIntl.Intl.formatDateWithOptions(
+        startDate,
+        ReactIntl.dateTimeFormatOptions(~weekday=#short, ~day=#numeric, ~month=#numeric, ()),
+      ) ++
+      " " ++
+      intl->ReactIntl.Intl.formatTime(startDate)
+    })
+    ->Option.getOr("") ++
+    "->" ++
+    endDate
+    ->Option.map(endDate => intl->ReactIntl.Intl.formatTime(endDate->Util.Datetime.toDate))
+    ->Option.getOr("") ++
+    duration
+    ->Option.map(duration => " (" ++ duration ++ ") ")
+    ->Option.getOr("") ++
+    spaceAvailable ++
+    "\n" ++
+    "📍 " ++
+    location
+    ->Option.flatMap(l => l.name->Option.map(name => name))
+    ->Option.getOr(ts`[location missing]`) ++
+    "\n" ++
+    details->Option.getOr("") ++
+    // "\n" ++
+    // maxRsvps
+    // ->Option.map(maxRsvps =>
+    //   (ts`Max`) ++ " " ++ maxRsvps->Int.toString ++ " " ++ ts(["players"], []) ++ "\n"
+    // )
+    // ->Option.getOr("") ++
+    location
+    ->Option.flatMap(l =>
+      l.links->Option.flatMap(l =>
+        l->Array.get(0)->Option.map(mapLink => "\n" ++ "🧭 " ++ mapLink)
+      )
+    )
+    ->Option.getOr("") ++
+    "\n" ++
+    "👉 " ++ "https://www.racquetleague.com/" ++
+    locale ++
+    "/events/" ++
+    id ++
+    "\n\n" ++ "-----------------------------"
+  }
+}
+
+module TextEventsList = {
+  let toLocalTime = date => {
+    Js.Date.fromFloat(date->Js.Date.getTime -. date->Js.Date.getTimezoneOffset *. 60. *. 1000.)
+  }
+  @genType @react.component
+  let make = (~events) => {
+    let (_isPending, _) = ReactExperimental.useTransition()
+    let {data} = Fragment.usePagination(events)
+    let events = data.events->Fragment.getConnectionNodes
+
+    let str = {
+      events
+      ->Array.map(edge => TextEventItem.make(~event=edge.fragmentRefs))
+      ->Array.join("\n\n")
+    }
+    <textarea readOnly=true className="w-full" rows=10 value={str} />
   }
 }
 
@@ -225,10 +375,13 @@ module EventItem = {
             "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
           ])}>
           {maxRsvps
-          ->Option.map(maxRsvps => (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ ts`players`)->React.string )
+          ->Option.map(maxRsvps =>
+            (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ (ts`players`))
+              ->React.string
+          )
           ->Option.getOr(<>
             {(playersCount->Int.toString ++ " ")->React.string}
-          {plural(playersCount, {one: "player", other: "players"})}
+            {plural(playersCount, {one: "player", other: "players"})}
           </>)}
         </div>
         // <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" ariaHidden="true" />
@@ -273,13 +426,14 @@ let sortByDate = (
 let make = (~events) => {
   open Lingui.Util
   let (_isPending, _) = ReactExperimental.useTransition()
+  let eventsFragment = events
   let {events: eventsQuery} = Fragment.use(events)
   let {data, isLoadingNext, hasNext, isLoadingPrevious} = Fragment.usePagination(events)
   let events = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
   let (highlightedLocation, setHighlightedLocation) = React.useState(() => "")
-  let navigate = Router.useNavigate()
+  let (shareOpen, setShareOpen) = React.useState(() => false)
 
   // let onLoadMore = _ =>
   //   startTransition(() => {
@@ -287,7 +441,6 @@ let make = (~events) => {
   //   })
   //
   let intl = ReactIntl.useIntl()
-  let viewer = GlobalQuery.useViewer()
   let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, ...))
 
   React.useEffect(() => {
@@ -298,14 +451,23 @@ let make = (~events) => {
     None
   }, [highlightedLocation])
   <>
-    {!isLoadingPrevious
-      ? pageInfo.startCursor
-        ->Option.map(startCursor =>
-          <Layout.Container>
+    <Layout.Container>
+      {!isLoadingPrevious && hasPrevious
+        ? pageInfo.startCursor
+          ->Option.map(startCursor =>
             <Link to={"./" ++ "?before=" ++ startCursor}> {t`...load past events`} </Link>
-          </Layout.Container>
-        )
-        ->Option.getOr(React.null)
+          )
+          ->Option.getOr(React.null)
+        : React.null}
+      {" • "->React.string}
+      <UiAction onClick={() => setShareOpen(v => !v)} active={shareOpen}>
+        {t`share as text`}
+      </UiAction>
+    </Layout.Container>
+    {shareOpen
+      ? <Layout.Container>
+          <TextEventsList events=eventsFragment />
+        </Layout.Container>
       : React.null}
     // <Layout.Container>
     <div className="mx-auto w-full grow lg:flex">

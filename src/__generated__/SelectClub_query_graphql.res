@@ -15,6 +15,7 @@ module Types = {
     edges: option<array<option<fragment_viewer_adminClubs_edges>>>,
   }
   and fragment_viewer = {
+    @live __id: RescriptRelay.dataId,
     adminClubs: fragment_viewer_adminClubs,
   }
   type fragment = {
@@ -229,6 +230,18 @@ return {
             }
           ],
           "storageKey": null
+        },
+        {
+          "kind": "ClientExtension",
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "__id",
+              "storageKey": null
+            }
+          ]
         }
       ],
       "storageKey": null

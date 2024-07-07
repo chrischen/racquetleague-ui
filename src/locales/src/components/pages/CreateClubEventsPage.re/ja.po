@@ -55,7 +55,7 @@ msgstr "アクティビティ"
 msgid "activity is required"
 msgstr "アクティビティが必要です"
 
-#: src/components/molecules/forms/Form.re.mjs:226
+#: src/components/molecules/forms/Form.re.mjs:284
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -65,7 +65,7 @@ msgstr "クラブが存在しません。"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:197
 msgid "create multiple events at one time"
-msgstr ""
+msgstr "一度に複数のイベントを作成"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:203
 msgid "events"
@@ -87,7 +87,7 @@ msgstr "一般公開リスト"
 msgid "preview events"
 msgstr "イベントをプレビュー"
 
-#: src/components/molecules/forms/Form.re.mjs:233
+#: src/components/molecules/forms/Form.re.mjs:291
 msgid "save"
 msgstr "保存"
 

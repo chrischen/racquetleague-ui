@@ -5,22 +5,23 @@ import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as PinMap from "./PinMap.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
-import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as Core$1 from "@linaria/core";
+import * as React$1 from "@lingui/react";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
-import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as EventsList_event_graphql from "../../__generated__/EventsList_event_graphql.re.mjs";
 import * as EventsListFragment_graphql from "../../__generated__/EventsListFragment_graphql.re.mjs";
+import * as EventsListText_event_graphql from "../../__generated__/EventsListText_event_graphql.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 import * as EventsListRefetchQuery_graphql from "../../__generated__/EventsListRefetchQuery_graphql.re.mjs";
 
@@ -96,6 +97,24 @@ var ItemFragment = {
   useOpt: useOpt$1
 };
 
+var convertFragment$2 = EventsListText_event_graphql.Internal.convertFragment;
+
+function use$2(fRef) {
+  return RescriptRelay_Fragment.useFragment(EventsListText_event_graphql.node, convertFragment$2, fRef);
+}
+
+function useOpt$2(fRef) {
+  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, EventsListText_event_graphql.node, convertFragment$2);
+}
+
+var TextItemFragment = {
+  Types: undefined,
+  Operation: undefined,
+  convertFragment: convertFragment$2,
+  use: use$2,
+  useOpt: useOpt$2
+};
+
 function make(key, id) {
   return [
           key,
@@ -140,6 +159,109 @@ function td(prim) {
 }
 
 function ts(prim0, prim1) {
+  return Caml_splice_call.spliceApply(t, [
+              prim0,
+              prim1
+            ]);
+}
+
+function make$1($$event) {
+  var match = use$2($$event);
+  var startDate = match.startDate;
+  var maxRsvps = match.maxRsvps;
+  var $$location = match.location;
+  var endDate = match.endDate;
+  var match$1 = React$1.useLingui();
+  var intl = ReactIntl.useIntl();
+  var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
+              return Core__Option.map(rsvps.edges, (function (edges) {
+                            return edges.length;
+                          }));
+            })), 0);
+  var spaceAvailable = maxRsvps !== undefined && (maxRsvps - playersCount | 0) <= 0 ? "🈵" : "🈳";
+  var duration = Core__Option.flatMap(startDate, (function (startDate) {
+          return Core__Option.map(endDate, (function (endDate) {
+                        return DifferenceInMinutes.differenceInMinutes(Util.Datetime.toDate(endDate), Util.Datetime.toDate(startDate));
+                      }));
+        }));
+  var duration$1 = Core__Option.map(duration, (function (duration) {
+          var hours = Math.floor(duration / 60);
+          var minutes = (duration | 0) % 60;
+          if (minutes === 0) {
+            return plural(hours | 0, {
+                        one: t`${hours.toString(undefined)} hour`,
+                        other: t`${hours.toString(undefined)} hours`
+                      });
+          } else {
+            return plural(hours | 0, {
+                        one: t`${hours.toString(undefined)} hour`,
+                        other: t`${hours.toString(undefined)} hours`
+                      }) + " " + plural(minutes, {
+                        one: t`${minutes.toString(undefined)} minute`,
+                        other: t`${minutes.toString(undefined)} minutes`
+                      });
+          }
+        }));
+  Core__Option.getOr(match.title, t`[missing title]`) + "\n";
+  return "🗓 " + Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
+                    var startDate$1 = Util.Datetime.toDate(startDate);
+                    return intl.formatDate(startDate$1, {
+                                weekday: "short",
+                                month: "numeric",
+                                day: "numeric"
+                              }) + " " + intl.formatTime(startDate$1);
+                  })), "") + "->" + Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
+                    return intl.formatTime(Util.Datetime.toDate(endDate));
+                  })), "") + Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
+                    return " (" + duration + ") ";
+                  })), "") + spaceAvailable + "\n📍 " + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                    return Core__Option.map(l.name, (function (name) {
+                                  return name;
+                                }));
+                  })), t`[location missing]`) + "\n" + Core__Option.getOr(match.details, "") + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                    return Core__Option.flatMap(l.links, (function (l) {
+                                  return Core__Option.map(l[0], (function (mapLink) {
+                                                return "\n🧭 " + mapLink;
+                                              }));
+                                }));
+                  })), "") + "\n👉 https://www.racquetleague.com/" + match$1.i18n.locale + "/events/" + match.id + "\n\n-----------------------------";
+}
+
+var TextEventItem = {
+  td: td,
+  ts: ts,
+  make: make$1
+};
+
+function toLocalTime(date) {
+  return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
+}
+
+function EventsList$TextEventsList(props) {
+  ReactExperimental.useTransition();
+  var match = usePagination(props.events);
+  var events = getConnectionNodes(match.data.events);
+  var str = events.map(function (edge) {
+          return make$1(edge.fragmentRefs);
+        }).join("\n\n");
+  return JsxRuntime.jsx("textarea", {
+              className: "w-full",
+              readOnly: true,
+              rows: 10,
+              value: str
+            });
+}
+
+var TextEventsList = {
+  toLocalTime: toLocalTime,
+  make: EventsList$TextEventsList
+};
+
+function td$1(prim) {
+  return Core.i18n._(prim);
+}
+
+function ts$1(prim0, prim1) {
   return Caml_splice_call.spliceApply(t, [
               prim0,
               prim1
@@ -308,12 +430,12 @@ function EventsList$EventItem(props) {
 }
 
 var EventItem = {
-  td: td,
-  ts: ts,
+  td: td$1,
+  ts: ts$1,
   make: EventsList$EventItem
 };
 
-function toLocalTime(date) {
+function toLocalTime$1(date) {
   return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
 }
 
@@ -346,14 +468,18 @@ function EventsList(props) {
   var data = match$1.data;
   var events$1 = getConnectionNodes(data.events);
   var pageInfo = data.events.pageInfo;
+  var hasPrevious = pageInfo.hasPreviousPage;
   var match$2 = React.useState(function () {
         return "";
       });
   var setHighlightedLocation = match$2[1];
   var highlightedLocation = match$2[0];
-  ReactRouterDom.useNavigate();
+  var match$3 = React.useState(function () {
+        return false;
+      });
+  var setShareOpen = match$3[1];
+  var shareOpen = match$3[0];
   var intl = ReactIntl.useIntl();
-  GlobalQuery.useViewer();
   var eventsByDate = Core__Array.reduce(events$1, {}, (function (extra, extra$1) {
           return sortByDate(intl, extra, extra$1);
         }));
@@ -362,14 +488,31 @@ function EventsList(props) {
         }), [highlightedLocation]);
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                match$1.isLoadingPrevious ? null : Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
-                              return JsxRuntime.jsx(Layout.Container.make, {
-                                          children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                to: "./?before=" + startCursor,
-                                                children: t`...load past events`
-                                              })
-                                        });
-                            })), null),
+                JsxRuntime.jsxs(Layout.Container.make, {
+                      children: [
+                        !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
+                                      return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                  to: "./?before=" + startCursor,
+                                                  children: t`...load past events`
+                                                });
+                                    })), null) : null,
+                        " • ",
+                        JsxRuntime.jsx(UiAction.make, {
+                              onClick: (function () {
+                                  setShareOpen(function (v) {
+                                        return !v;
+                                      });
+                                }),
+                              active: shareOpen,
+                              children: t`share as text`
+                            })
+                      ]
+                    }),
+                shareOpen ? JsxRuntime.jsx(Layout.Container.make, {
+                        children: JsxRuntime.jsx(EventsList$TextEventsList, {
+                              events: events
+                            })
+                      }) : null,
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsxs("div", {
@@ -453,19 +596,22 @@ function __unused() {
       });
 }
 
-var make$1 = EventsList;
+var make$2 = EventsList;
 
 var $$default = EventsList;
 
 export {
   Fragment ,
   ItemFragment ,
+  TextItemFragment ,
   NodeId ,
   NodeIdDto ,
+  TextEventItem ,
+  TextEventsList ,
   EventItem ,
-  toLocalTime ,
+  toLocalTime$1 as toLocalTime,
   sortByDate ,
-  make$1 as make,
+  make$2 as make,
   $$default as default,
   __unused ,
 }

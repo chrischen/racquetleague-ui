@@ -11,7 +11,7 @@ module Types = {
     @live id: string,
     location: option<fragment_events_edges_node_location>,
     startDate: option<Util.Datetime.t>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventsList_event]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventsListText_event | #EventsList_event]>,
   }
   and fragment_events_edges = {
     node: option<fragment_events_edges_node>,
@@ -218,6 +218,11 @@ return {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "EventsList_event"
+                },
+                {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "EventsListText_event"
                 },
                 {
                   "alias": null,

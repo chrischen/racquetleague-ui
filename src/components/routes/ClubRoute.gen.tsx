@@ -15,7 +15,7 @@ import type {props as ClubPage_props} from '../../../src/components/pages/ClubPa
 
 import type {queryRef as ClubPageQuery_graphql_queryRef} from '../../../src/__generated__/ClubPageQuery_graphql.gen';
 
-export type params = { readonly clubId: string; readonly lang: (undefined | string) };
+export type params = { readonly slug: string; readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
   readonly context: RelayEnv_context; 

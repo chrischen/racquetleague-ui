@@ -282,6 +282,18 @@ return {
             "key": "SelectClub_adminClubs",
             "kind": "LinkedHandle",
             "name": "adminClubs"
+          },
+          {
+            "kind": "ClientExtension",
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "__id",
+                "storageKey": null
+              }
+            ]
           }
         ],
         "storageKey": null

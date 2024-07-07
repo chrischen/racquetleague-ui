@@ -1,7 +1,7 @@
 @genType
 let \"Component" = ClubPage.make
 
-type params = {clubId: string, lang: option<string>}
+type params = {slug: string, lang: option<string>}
 module LoaderArgs = {
   type t = {
     context: RelayEnv.context,
@@ -25,7 +25,7 @@ let loadMessages = lang => {
 let loader = async ({context, params}: LoaderArgs.t) => {
   let query = ClubPageQuery_graphql.load(
     ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-    ~variables={id: params.clubId, filters: {clubId: params.clubId}},
+    ~variables={slug: params.slug, filters: {clubSlug: params.slug}, afterDate: Js.Date.make()->Util.Datetime.fromDate},
     ~fetchPolicy=RescriptRelay.StoreOrNetwork,
   )
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore

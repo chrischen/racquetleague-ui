@@ -1,6 +1,71 @@
 %%raw("import { t } from '@lingui/macro'")
 open Lingui.Util
 
+module PrefixedInput = {
+  @react.component
+  let make = (
+    ~label: React.element,
+    ~prefix: string,
+    ~onChange: option<'a => unit>=?,
+    ~className: option<string>=?,
+    ~name: option<string>=?,
+    ~id: string,
+    ~type_: option<string>="text",
+    ~autoComplete: option<string>=?,
+    ~placeholder: option<string>=?,
+    ~onBlur: option<JsxEventU.Focus.t => unit>=?,
+    ~register: option<JsxDOM.domProps>=?,
+    ~value: option<string>=?,
+    ~defaultValue: option<string>=?,
+  ) => {
+    <>
+      <label htmlFor=?name className="block text-sm font-medium leading-6 text-gray-900">
+        {label}
+      </label>
+      <div className="mt-2">
+        <div
+          className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+          <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
+            {prefix->React.string}
+          </span>
+          {switch register {
+          | Some(register) =>
+            <input
+              {...register}
+              // ?onChange
+              type_
+              // name
+              id
+              ?autoComplete
+              className={className->Option.getOr(
+                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+              )}
+              ?placeholder
+              ?onBlur
+              ?value
+              ?defaultValue
+            />
+          | None =>
+            <input
+              type_
+              ?name
+              id
+              ?onChange
+              ?autoComplete
+              className={className->Option.getOr(
+                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+              )}
+              ?placeholder
+              ?onBlur
+              ?value
+              ?defaultValue
+            />
+          }}
+        </div>
+      </div>
+    </>
+  }
+}
 module Input = {
   @react.component
   let make = (
@@ -34,7 +99,9 @@ module Input = {
               // name
               id
               ?autoComplete
-              className={className->Option.getOr("block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6")}
+              className={className->Option.getOr(
+                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+              )}
               ?placeholder
               ?onBlur
               ?value
@@ -47,7 +114,9 @@ module Input = {
               id
               ?onChange
               ?autoComplete
-              className={className->Option.getOr("block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6")}
+              className={className->Option.getOr(
+                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+              )}
               ?placeholder
               ?onBlur
               ?value
@@ -82,7 +151,9 @@ module Select = {
           {...register}
           id
           name
-          className={className->Option.getOr("mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6")}
+          className={className->Option.getOr(
+            "mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6",
+          )}
           ?defaultValue>
           {options
           ->Array.map(((name, value)) => <option value key=value> {name->React.string} </option>)
@@ -92,7 +163,9 @@ module Select = {
         <select
           id
           name
-          className={className->Option.getOr("mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6")}
+          className={className->Option.getOr(
+            "mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6",
+          )}
           ?defaultValue>
           {options
           ->Array.map(((name, value)) => <option value> {name->React.string} </option>)
@@ -187,12 +260,14 @@ module Footer = {
   @react.component
   let make = (~onCancel: option<JsxEventU.Mouse.t => unit>=?) => {
     <div className="mt-6 flex items-center justify-end gap-x-6">
-      {onCancel->Option.map(onCancel =>
+      {onCancel
+      ->Option.map(onCancel =>
         <button
           type_="button" onClick=onCancel className="text-sm font-semibold leading-6 text-gray-900">
           {t`cancel`}
         </button>
-      )->Option.getOr(React.null)}
+      )
+      ->Option.getOr(React.null)}
       <button
         type_="submit"
         className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">

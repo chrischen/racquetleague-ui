@@ -19,14 +19,15 @@ import * as ReactHookForm from "react-hook-form";
 import * as ReactRouterDom from "react-router-dom";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as SelectClubStateful from "./SelectClubStateful.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
 import * as CreateLocationEventForm_event_graphql from "../../__generated__/CreateLocationEventForm_event_graphql.re.mjs";
+import * as CreateLocationEventForm_query_graphql from "../../__generated__/CreateLocationEventForm_query_graphql.re.mjs";
 import * as CreateLocationEventFormMutation_graphql from "../../__generated__/CreateLocationEventFormMutation_graphql.re.mjs";
 import * as CreateLocationEventForm_location_graphql from "../../__generated__/CreateLocationEventForm_location_graphql.re.mjs";
-import * as CreateLocationEventForm_activities_graphql from "../../__generated__/CreateLocationEventForm_activities_graphql.re.mjs";
 import * as CreateLocationEventFormUpdateMutation_graphql from "../../__generated__/CreateLocationEventFormUpdateMutation_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
@@ -63,10 +64,12 @@ function use$2(fRef) {
   return RescriptRelay_Fragment.useFragment(CreateLocationEventForm_location_graphql.node, convertFragment$1, fRef);
 }
 
-var convertFragment$2 = CreateLocationEventForm_activities_graphql.Internal.convertFragment;
+var getConnectionNodes = CreateLocationEventForm_query_graphql.Utils.getConnectionNodes;
+
+var convertFragment$2 = CreateLocationEventForm_query_graphql.Internal.convertFragment;
 
 function use$3(fRef) {
-  return RescriptRelay_Fragment.useFragment(CreateLocationEventForm_activities_graphql.node, convertFragment$2, fRef);
+  return RescriptRelay_Fragment.useFragment(CreateLocationEventForm_query_graphql.node, convertFragment$2, fRef);
 }
 
 var schema = Zod.object({
@@ -104,6 +107,9 @@ function CreateLocationEventForm(props) {
         }));
   var $$location = use$2(props.location);
   var query = use$3(props.query);
+  var clubs = Core__Option.getOr(Core__Option.map(query.viewer, (function (viewer) {
+              return getConnectionNodes(viewer.adminClubs);
+            })), []);
   var match = use();
   var commitMutationCreate = match[0];
   var match$1 = use$1();
@@ -145,6 +151,13 @@ function CreateLocationEventForm(props) {
                 return listed;
               }
             })), false);
+  var match$3 = React.useState(function () {
+        return Core__Option.map(clubs[0], (function (c) {
+                      return c.id;
+                    }));
+      });
+  var setSelectedClub = match$3[1];
+  var selectedClub = match$3[0];
   React.useEffect((function () {
           if (typeof action !== "object") {
             var now = new Date();
@@ -166,6 +179,7 @@ function CreateLocationEventForm(props) {
             connections: [connectionId],
             input: {
               activity: data.activity,
+              clubId: Core__Option.getOr(selectedClub, ""),
               details: Core__Option.getOr(data.details, ""),
               endDate: Util.Datetime.fromDate(endDate),
               listed: data.listed,
@@ -190,6 +204,7 @@ function CreateLocationEventForm(props) {
           eventId: $$event.id,
           input: {
             activity: data.activity,
+            clubId: Core__Option.getOr(selectedClub, ""),
             details: Core__Option.getOr(data.details, ""),
             endDate: Util.Datetime.fromDate(endDate$1),
             listed: data.listed,
@@ -243,155 +258,170 @@ function CreateLocationEventForm(props) {
                               tmp$1 = "";
                             }
                             return JsxRuntime.jsx(JsxRuntime.Fragment, {
-                                        children: Caml_option.some(JsxRuntime.jsx(Grid.make, {
+                                        children: Caml_option.some(JsxRuntime.jsxs(Grid.make, {
                                                   className: "grid-cols-1",
-                                                  children: JsxRuntime.jsxs("form", {
-                                                        children: [
-                                                          JsxRuntime.jsx(FormSection.make, {
-                                                                title: t`${Core__Option.getOr($$location.name, "?")} event details`,
-                                                                description: Caml_option.some(t`details specific to this event on the specified date and time.`),
-                                                                children: JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsxs("div", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx(Form.Input.make, {
-                                                                                      label: t`title`,
-                                                                                      name: "title",
-                                                                                      id: "title",
-                                                                                      placeholder: t`All Level`,
-                                                                                      register: register("title", undefined)
+                                                  children: [
+                                                    JsxRuntime.jsx(SelectClubStateful.make, {
+                                                          clubs: clubs,
+                                                          onSelected: (function (id) {
+                                                              setSelectedClub(function (param) {
+                                                                    return id;
+                                                                  });
+                                                            }),
+                                                          value: Caml_option.some(selectedClub),
+                                                          connectionId: Core__Option.map(query.viewer, (function (v) {
+                                                                  return v.__id;
+                                                                })),
+                                                          fragments: query.fragmentRefs
+                                                        }),
+                                                    JsxRuntime.jsxs("form", {
+                                                          children: [
+                                                            JsxRuntime.jsx(FormSection.make, {
+                                                                  title: t`${Core__Option.getOr($$location.name, "?")} event details`,
+                                                                  description: Caml_option.some(t`details specific to this event on the specified date and time.`),
+                                                                  children: JsxRuntime.jsxs("div", {
+                                                                        children: [
+                                                                          JsxRuntime.jsxs("div", {
+                                                                                children: [
+                                                                                  JsxRuntime.jsx(Form.Input.make, {
+                                                                                        label: t`title`,
+                                                                                        name: "title",
+                                                                                        id: "title",
+                                                                                        placeholder: t`All Level`,
+                                                                                        register: register("title", undefined)
+                                                                                      }),
+                                                                                  JsxRuntime.jsx("p", {
+                                                                                        children: tmp
+                                                                                      })
+                                                                                ],
+                                                                                className: "sm:col-span-4 md:col-span-3"
+                                                                              }),
+                                                                          JsxRuntime.jsxs("div", {
+                                                                                children: [
+                                                                                  JsxRuntime.jsx(Form.Select.make, {
+                                                                                        label: t`activity`,
+                                                                                        name: "activity",
+                                                                                        id: "activity",
+                                                                                        options: query.activities.map(function (activity) {
+                                                                                              return [
+                                                                                                      Core.i18n._(Core__Option.getOr(activity.name, "---")),
+                                                                                                      activity.id
+                                                                                                    ];
+                                                                                            }),
+                                                                                        register: register("activity", undefined)
+                                                                                      }),
+                                                                                  JsxRuntime.jsx("p", {
+                                                                                        children: tmp$1
+                                                                                      })
+                                                                                ],
+                                                                                className: "sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx(Form.Input.make, {
+                                                                                      label: t`date and start time`,
+                                                                                      name: "startDate",
+                                                                                      id: "startDate",
+                                                                                      type_: "datetime-local",
+                                                                                      register: register("startDate", undefined)
                                                                                     }),
-                                                                                JsxRuntime.jsx("p", {
-                                                                                      children: tmp
-                                                                                    })
-                                                                              ],
-                                                                              className: "sm:col-span-4 md:col-span-3"
-                                                                            }),
-                                                                        JsxRuntime.jsxs("div", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx(Form.Select.make, {
-                                                                                      label: t`activity`,
-                                                                                      name: "activity",
-                                                                                      id: "activity",
-                                                                                      options: query.activities.map(function (activity) {
-                                                                                            return [
-                                                                                                    Core.i18n._(Core__Option.getOr(activity.name, "---")),
-                                                                                                    activity.id
-                                                                                                  ];
-                                                                                          }),
-                                                                                      register: register("activity", undefined)
+                                                                                className: "sm:col-span-2"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx(Form.Input.make, {
+                                                                                      label: t`end time`,
+                                                                                      name: "endTime",
+                                                                                      id: "endTime",
+                                                                                      type_: "time",
+                                                                                      register: register("endTime", undefined)
                                                                                     }),
-                                                                                JsxRuntime.jsx("p", {
-                                                                                      children: tmp$1
-                                                                                    })
-                                                                              ],
-                                                                              className: "sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg"
-                                                                            }),
-                                                                        JsxRuntime.jsx("div", {
-                                                                              children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                    label: t`date and start time`,
-                                                                                    name: "startDate",
-                                                                                    id: "startDate",
-                                                                                    type_: "datetime-local",
-                                                                                    register: register("startDate", undefined)
-                                                                                  }),
-                                                                              className: "sm:col-span-2"
-                                                                            }),
-                                                                        JsxRuntime.jsx("div", {
-                                                                              children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                    label: t`end time`,
-                                                                                    name: "endTime",
-                                                                                    id: "endTime",
-                                                                                    type_: "time",
-                                                                                    register: register("endTime", undefined)
-                                                                                  }),
-                                                                              className: "sm:col-span-2"
-                                                                            }),
-                                                                        JsxRuntime.jsx("div", {
-                                                                              children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                    label: t`max participants`,
-                                                                                    name: "maxRsvps",
-                                                                                    id: "maxRsvps",
-                                                                                    type_: "number",
-                                                                                    register: register("maxRsvps", {
-                                                                                          setValueAs: (function (v) {
-                                                                                              if (v === "") {
-                                                                                                return ;
-                                                                                              } else {
-                                                                                                return Caml_option.some(Core__Int.fromString(v, undefined));
-                                                                                              }
-                                                                                            })
-                                                                                        })
-                                                                                  }),
-                                                                              className: "sm:col-span-2"
-                                                                            }),
-                                                                        JsxRuntime.jsx("div", {
-                                                                              children: JsxRuntime.jsx(Form.TextArea.make, {
-                                                                                    label: t`location details`,
-                                                                                    name: "location_details",
-                                                                                    id: "location_details",
-                                                                                    hint: Caml_option.some(JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                                              to: "/locations/edit/",
-                                                                                              children: t`edit the location to edit the details for this location.`
-                                                                                            })),
-                                                                                    value: Core__Option.getOr($$location.details, ""),
-                                                                                    disabled: true
-                                                                                  }),
-                                                                              className: "col-span-full"
-                                                                            }),
-                                                                        JsxRuntime.jsx("div", {
-                                                                              children: JsxRuntime.jsx(Form.TextArea.make, {
-                                                                                    label: t`event details`,
-                                                                                    name: "details",
-                                                                                    id: "details",
-                                                                                    hint: Caml_option.some(t`any details from the location will already be included. Mention any additional event-specific instructions, rules, or details.`),
-                                                                                    register: register("details", undefined)
-                                                                                  }),
-                                                                              className: "col-span-full"
-                                                                            }),
-                                                                        JsxRuntime.jsx("div", {
-                                                                              children: JsxRuntime.jsxs(React$1.Switch.Group, {
-                                                                                    as: "div",
-                                                                                    className: "flex items-center",
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx(React$1.Switch, {
-                                                                                            className: Core$1.cx(listed ? "bg-indigo-600" : "bg-gray-200", "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"),
-                                                                                            children: JsxRuntime.jsx("span", {
-                                                                                                  "aria-hidden": true,
-                                                                                                  className: Core$1.cx(listed ? "translate-x-5" : "translate-x-0", "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out")
-                                                                                                }),
-                                                                                            checked: listed,
-                                                                                            onChange: (function (param) {
-                                                                                                setValue("listed", !listed, undefined);
+                                                                                className: "sm:col-span-2"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx(Form.Input.make, {
+                                                                                      label: t`max participants`,
+                                                                                      name: "maxRsvps",
+                                                                                      id: "maxRsvps",
+                                                                                      type_: "number",
+                                                                                      register: register("maxRsvps", {
+                                                                                            setValueAs: (function (v) {
+                                                                                                if (v === "") {
+                                                                                                  return ;
+                                                                                                } else {
+                                                                                                  return Caml_option.some(Core__Int.fromString(v, undefined));
+                                                                                                }
                                                                                               })
-                                                                                          }),
-                                                                                      JsxRuntime.jsxs(React$1.Switch.Label, {
-                                                                                            as: "span",
-                                                                                            className: "ml-3 text-sm",
-                                                                                            children: [
-                                                                                              JsxRuntime.jsx("span", {
-                                                                                                    children: t`list publicly`,
-                                                                                                    className: "font-medium text-gray-900"
-                                                                                                  }),
-                                                                                              " ",
-                                                                                              JsxRuntime.jsx("span", {
-                                                                                                    children: t`show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`,
-                                                                                                    className: "text-gray-500"
-                                                                                                  })
-                                                                                            ]
                                                                                           })
-                                                                                    ]
-                                                                                  }),
-                                                                              className: "col-span-full"
-                                                                            })
-                                                                      ],
-                                                                      className: "mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
-                                                                    })
-                                                              }),
-                                                          JsxRuntime.jsx(Form.Footer.make, {})
-                                                        ],
-                                                        onSubmit: handleSubmit(onSubmit)
-                                                      })
+                                                                                    }),
+                                                                                className: "sm:col-span-2"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx(Form.TextArea.make, {
+                                                                                      label: t`location details`,
+                                                                                      name: "location_details",
+                                                                                      id: "location_details",
+                                                                                      hint: Caml_option.some(JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                                                to: "/locations/edit/",
+                                                                                                children: t`edit the location to edit the details for this location.`
+                                                                                              })),
+                                                                                      value: Core__Option.getOr($$location.details, ""),
+                                                                                      disabled: true
+                                                                                    }),
+                                                                                className: "col-span-full"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx(Form.TextArea.make, {
+                                                                                      label: t`event details`,
+                                                                                      name: "details",
+                                                                                      id: "details",
+                                                                                      hint: Caml_option.some(t`any details from the location will already be included. Mention any additional event-specific instructions, rules, or details.`),
+                                                                                      register: register("details", undefined)
+                                                                                    }),
+                                                                                className: "col-span-full"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsxs(React$1.Switch.Group, {
+                                                                                      as: "div",
+                                                                                      className: "flex items-center",
+                                                                                      children: [
+                                                                                        JsxRuntime.jsx(React$1.Switch, {
+                                                                                              className: Core$1.cx(listed ? "bg-indigo-600" : "bg-gray-200", "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"),
+                                                                                              children: JsxRuntime.jsx("span", {
+                                                                                                    "aria-hidden": true,
+                                                                                                    className: Core$1.cx(listed ? "translate-x-5" : "translate-x-0", "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out")
+                                                                                                  }),
+                                                                                              checked: listed,
+                                                                                              onChange: (function (param) {
+                                                                                                  setValue("listed", !listed, undefined);
+                                                                                                })
+                                                                                            }),
+                                                                                        JsxRuntime.jsxs(React$1.Switch.Label, {
+                                                                                              as: "span",
+                                                                                              className: "ml-3 text-sm",
+                                                                                              children: [
+                                                                                                JsxRuntime.jsx("span", {
+                                                                                                      children: t`list publicly`,
+                                                                                                      className: "font-medium text-gray-900"
+                                                                                                    }),
+                                                                                                " ",
+                                                                                                JsxRuntime.jsx("span", {
+                                                                                                      children: t`show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`,
+                                                                                                      className: "text-gray-500"
+                                                                                                    })
+                                                                                              ]
+                                                                                            })
+                                                                                      ]
+                                                                                    }),
+                                                                                className: "col-span-full"
+                                                                              })
+                                                                        ],
+                                                                        className: "mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+                                                                      })
+                                                                }),
+                                                            JsxRuntime.jsx(Form.Footer.make, {})
+                                                          ],
+                                                          onSubmit: handleSubmit(onSubmit)
+                                                        })
+                                                  ]
                                                 }))
                                       });
                           })

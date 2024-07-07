@@ -31,6 +31,7 @@ function use(fRef) {
 }
 
 function SelectClub(props) {
+  var navigate = ReactRouterDom.useNavigate();
   var data = use(props.clubs);
   var clubs = Core__Option.getOr(Core__Option.map(data.viewer, (function (viewer) {
               return getConnectionNodes(viewer.adminClubs);
@@ -103,16 +104,20 @@ function SelectClub(props) {
                                                                     y: -50
                                                                   },
                                                                   children: Caml_option.some(JsxRuntime.jsx(CreateClubForm.make, {
+                                                                            connectionId: Core__Option.map(data.viewer, (function (v) {
+                                                                                    return v.__id;
+                                                                                  })),
                                                                             query: data.fragmentRefs,
                                                                             onCancel: (function (param) {
                                                                                 setShowCreateclub(function (param) {
                                                                                       return false;
                                                                                     });
                                                                               }),
-                                                                            onClose: (function () {
+                                                                            onCreated: (function (club) {
                                                                                 setShowCreateclub(function (param) {
                                                                                       return false;
                                                                                     });
+                                                                                navigate(encodeURIComponent(club.id), undefined);
                                                                               })
                                                                           }))
                                                                 }) : null

@@ -195,11 +195,11 @@ msgstr "場所が存在しません。"
 
 #: src/components/pages/Event.re.mjs:87
 msgid "{0} hours"
-msgstr "{0} 時間"
+msgstr "{0}時間"
 
 #: src/components/pages/Event.re.mjs:89
 msgid "{0} hours and {1} minutes"
-msgstr "{0} 時間 {1} 分"
+msgstr "{0}時間{1}分"
 
 #: src/components/organisms/EventsList.re.mjs:218
 msgid "[location missing]"
@@ -217,15 +217,15 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 #: src/components/organisms/EventsList.re.mjs:149
 #: src/components/organisms/EventsList.re.mjs:156
 msgid "{0} hour"
-msgstr "{0} 時間"
+msgstr "{0}時間"
 
 #: src/components/organisms/EventsList.re.mjs:161
 msgid "{0} minute"
-msgstr "{0} 分"
+msgstr "{0}分"
 
 #: src/components/organisms/EventsList.re.mjs:162
 msgid "{0} minutes"
-msgstr "{0} 分"
+msgstr "{0}分"
 
 #: src/components/organisms/EventsList.re.mjs:160
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -724,7 +724,7 @@ msgstr "すべてのイベント"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:197
 msgid "create multiple events at one time"
-msgstr ""
+msgstr "一度に複数のイベントを作成"
 
 #: src/components/pages/CreateEvents.re.mjs:145
 msgid "events"
@@ -796,11 +796,27 @@ msgstr "試合を提出"
 
 #: src/components/pages/ClubPage.re.mjs:69
 msgid "club not found"
-msgstr ""
+msgstr "クラブが見つかりません"
 
 #: src/components/pages/Event.re.mjs:195
 msgid "hosted by {name}"
 msgstr "{name}主催"
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+msgid "slug"
+msgstr "スラッグ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:83
+msgid "url slug is required"
+msgstr "URLスラッグが必要です"
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+msgid "yubibado"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:507
+msgid "share as text"
+msgstr "テキストとして共有"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
@@ -810,3 +826,8 @@ msgstr "{name}主催"
 #: src/components/organisms/EventsList.re.mjs:194
 #~ msgid "Joined"
 #~ msgstr "参加"
+
+#: src/components/pages/Event.re.mjs:195
+#, fuzzy
+#~ msgid "hosted by"
+#~ msgstr "{name}主催"

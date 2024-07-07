@@ -11,7 +11,6 @@ import * as RelayRuntime from "relay-runtime";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
-import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -79,6 +78,9 @@ var schema = Zod.object({
       name: Zod.string({
               required_error: t`name is required`
             }).min(1),
+      slug: Zod.string({
+              required_error: t`url slug is required`
+            }).min(1),
       activity: Zod.string({
               required_error: t`main activity is required`
             }).min(1),
@@ -86,11 +88,11 @@ var schema = Zod.object({
     });
 
 function CreateClubForm(props) {
-  var onClose = props.onClose;
+  var onCreated = props.onCreated;
   var onCancel = props.onCancel;
+  var connectionId = props.connectionId;
   var match = use$1();
   var commitMutationCreate = match[0];
-  var navigate = ReactRouterDom.useNavigate();
   var match$1 = use(props.query);
   var activities = match$1.activities;
   var match$2 = ReactHookForm.useForm({
@@ -102,20 +104,23 @@ function CreateClubForm(props) {
   var handleSubmit = match$2.handleSubmit;
   var register = match$2.register;
   var onSubmit = function (data) {
-    var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "SelectClub_adminClubs", undefined);
+    console.log(connectionId);
+    var connections = Core__Option.getOr(Core__Option.map(connectionId, (function (connectionId) {
+                return [RelayRuntime.ConnectionHandler.getConnectionID(connectionId, "SelectClub_adminClubs", undefined)];
+              })), []);
     commitMutationCreate({
-          connections: [connectionId],
+          connections: connections,
           input: {
             activity: data.activity,
             description: data.description,
-            name: data.name
+            name: data.name,
+            slug: data.slug
           }
         }, undefined, undefined, undefined, (function (response, _errors) {
             Core__Option.map(response.createClub.club, (function (club) {
-                    navigate(encodeURIComponent(club.id), undefined);
+                    reset(undefined);
+                    return onCreated(club);
                   }));
-            reset(undefined);
-            onClose();
           }), undefined, undefined);
   };
   return JsxRuntime.jsx(WaitForMessages.make, {
@@ -128,13 +133,21 @@ function CreateClubForm(props) {
                   } else {
                     tmp = "";
                   }
-                  var match$1 = errors.activity;
+                  var match$1 = errors.slug;
                   var tmp$1;
                   if (match$1 !== undefined) {
                     var message$1 = match$1.message;
                     tmp$1 = message$1 !== undefined ? message$1 : "";
                   } else {
                     tmp$1 = "";
+                  }
+                  var match$2 = errors.activity;
+                  var tmp$2;
+                  if (match$2 !== undefined) {
+                    var message$2 = match$2.message;
+                    tmp$2 = message$2 !== undefined ? message$2 : "";
+                  } else {
+                    tmp$2 = "";
                   }
                   return JsxRuntime.jsx("form", {
                               children: JsxRuntime.jsxs(Grid.make, {
@@ -161,6 +174,23 @@ function CreateClubForm(props) {
                                                         }),
                                                     JsxRuntime.jsxs("div", {
                                                           children: [
+                                                            JsxRuntime.jsx(Form.PrefixedInput.make, {
+                                                                  label: t`slug`,
+                                                                  prefix: "www.racquetleague.com/clubs/",
+                                                                  className: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+                                                                  name: "slug",
+                                                                  id: "slug",
+                                                                  placeholder: t`yubibado`,
+                                                                  register: register("slug", undefined)
+                                                                }),
+                                                            JsxRuntime.jsx("p", {
+                                                                  children: tmp$1
+                                                                })
+                                                          ],
+                                                          className: "sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg"
+                                                        }),
+                                                    JsxRuntime.jsxs("div", {
+                                                          children: [
                                                             JsxRuntime.jsx(Form.Select.make, {
                                                                   label: t`main activity`,
                                                                   name: "activity",
@@ -174,7 +204,7 @@ function CreateClubForm(props) {
                                                                   register: register("activity", undefined)
                                                                 }),
                                                             JsxRuntime.jsx("p", {
-                                                                  children: tmp$1
+                                                                  children: tmp$2
                                                                 })
                                                           ],
                                                           className: "sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg"

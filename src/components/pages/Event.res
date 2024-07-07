@@ -27,8 +27,8 @@ module EventQuery = %relay(`
         ...EventLocation_location
       }
       club {
-        id
         name
+        slug
       }
       ...EventRsvps_event @arguments(after: $after, first: $first, before: $before)
     }
@@ -207,7 +207,7 @@ let make = () => {
                         name =>
                           <div className="mt-2 text-base leading-6 text-gray-500">
                             <span className="text-gray-700">
-                              <Link to={"/clubs/" ++ club.id}> {t`hosted by ${name}`} </Link>
+                              <Link to={"/clubs/" ++ club.slug->Option.getOr("")}> {t`hosted by ${name}`} </Link>
                             </span>
                           </div>,
                       )

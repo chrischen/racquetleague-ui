@@ -25,7 +25,11 @@ let loadMessages = lang => {
 let loader = async ({context, params}: LoaderArgs.t) => {
   let query = LocationPageQuery_graphql.load(
     ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-    ~variables={id: params.locationId, filters: {locationId: params.locationId}},
+    ~variables={
+      id: params.locationId,
+      filters: {locationId: params.locationId},
+      afterDate: Js.Date.make()->Util.Datetime.fromDate,
+    },
     ~fetchPolicy=RescriptRelay.StoreOrNetwork,
   )
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore

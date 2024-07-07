@@ -57,6 +57,7 @@ and input_CreateClubInput = {
   activity: string,
   description?: string,
   name: string,
+  slug: string,
 }
 
 @live
@@ -64,11 +65,13 @@ and input_CreateClubInput_nullable = {
   activity: string,
   description?: Js.Null.t<string>,
   name: string,
+  slug: string,
 }
 
 @live
 and input_CreateEventInput = {
   activity: string,
+  clubId: string,
   details?: string,
   endDate: Util.Datetime.t,
   listed?: bool,
@@ -81,6 +84,7 @@ and input_CreateEventInput = {
 @live
 and input_CreateEventInput_nullable = {
   activity: string,
+  clubId: string,
   details?: Js.Null.t<string>,
   endDate: Util.Datetime.t,
   listed?: Js.Null.t<bool>,
@@ -152,7 +156,7 @@ and input_DoublesMatchInput_nullable = {
 
 @live
 and input_EventFilters = {
-  clubId?: string,
+  clubSlug?: string,
   locationId?: string,
   userId?: string,
   viewer?: bool,
@@ -160,7 +164,7 @@ and input_EventFilters = {
 
 @live
 and input_EventFilters_nullable = {
-  clubId?: Js.Null.t<string>,
+  clubSlug?: Js.Null.t<string>,
   locationId?: Js.Null.t<string>,
   userId?: Js.Null.t<string>,
   viewer?: Js.Null.t<bool>,
