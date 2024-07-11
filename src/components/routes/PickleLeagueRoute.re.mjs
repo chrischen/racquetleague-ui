@@ -20,7 +20,6 @@ function loadMessages(lang) {
 
 async function loader(param) {
   var params = param.params;
-  new URL(param.request.url);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

@@ -31,7 +31,6 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 let make = (~locations) => {
   open Lingui.Util
   // let ts = Lingui.UtilString.t
-  let {pathname} = Router.useLocation()
 
   let data = Fragment.use(locations)
   let locations = data.locations->Fragment.getConnectionNodes

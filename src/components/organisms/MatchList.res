@@ -1,7 +1,6 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t, plural } from '@lingui/macro'")
 
-open Util
 open Lingui.Util
 open LangProvider.Router
 module Fragment = %relay(`

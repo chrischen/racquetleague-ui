@@ -30,13 +30,13 @@ let make = (~connection: RescriptRelay.fragmentRefs<[#PinMap_eventConnection]>, 
       {locations
       ->Array.mapWithIndex((location, i) => {
         location
-        ->Option.flatMap(((id, location)) =>
+        ->Option.flatMap(((_id, location)) =>
           location.coords->Option.map(
             coords => {
               <GoogleMap.AdvancedMarker
                 key={coords.lat->Float.toString ++ "|" ++ coords.lng->Float.toString ++ i->Int.toString}
                 position={(coords :> GoogleMap.Map.coords)}
-                onClick={e => {
+                onClick={_ => {
                   onLocationClick(location);
                   // navigate("/events/" ++ id, None)
                 }}

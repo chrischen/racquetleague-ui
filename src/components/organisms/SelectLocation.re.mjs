@@ -31,7 +31,6 @@ function use(fRef) {
 }
 
 function SelectLocation(props) {
-  ReactRouterDom.useLocation();
   var data = use(props.locations);
   var locations = getConnectionNodes(data.locations);
   var match = React.useState(function () {

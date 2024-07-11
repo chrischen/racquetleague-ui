@@ -215,7 +215,7 @@ function CreateLocationEventForm(props) {
             startDate: Util.Datetime.fromDate(startDate$1),
             title: data.title
           }
-        }, undefined, undefined, undefined, (function (response, _errors) {
+        }, undefined, undefined, undefined, (function (_response, _errors) {
             navigate("/events/" + $$event.id, undefined);
           }), undefined, undefined);
   };

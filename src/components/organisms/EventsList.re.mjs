@@ -202,7 +202,6 @@ function make$1($$event) {
                       });
           }
         }));
-  Core__Option.getOr(match.title, t`[missing title]`) + "\n";
   return "🗓 " + Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
                     var startDate$1 = Util.Datetime.toDate(startDate);
                     return intl.formatDate(startDate$1, {
@@ -520,7 +519,6 @@ function EventsList(props) {
                                 JsxRuntime.jsx("ul", {
                                       children: Js_dict.entries(eventsByDate).map(function (param) {
                                             var dateString = param[0];
-                                            new Date(dateString);
                                             return JsxRuntime.jsxs("li", {
                                                         children: [
                                                           JsxRuntime.jsx("div", {

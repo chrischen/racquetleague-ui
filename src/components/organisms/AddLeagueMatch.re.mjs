@@ -8,7 +8,6 @@ import * as Layout from "../shared/Layout.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
-import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
@@ -149,7 +148,7 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
                                                   } else {
                                                     return -1;
                                                   }
-                                                }).map(function (edge, i) {
+                                                }).map(function (edge) {
                                                 return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
                                                                   return JsxRuntime.jsxs(FramerMotion.motion.li, {
                                                                               className: "mt-4 flex w-full flex-none gap-x-4 px-6",
@@ -258,7 +257,6 @@ function AddLeagueMatch(props) {
       });
   var setLosingPlayers = match$4[1];
   var losingPlayers = match$4[0];
-  GlobalQuery.useViewer();
   var onSelectWinningPlayer = function (playerId) {
     setWinningPlayers(function (players) {
           var len = players.length;

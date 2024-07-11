@@ -9,8 +9,6 @@
 
 type params = {activitySlug: option<string>, lang: option<string>}
 type loaderData = {}
-@module("react-router-dom")
-external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
 module PrizeInfo = {
   @module("./prize.jpg")
@@ -77,10 +75,8 @@ let make = () => {
   open Lingui.Util
   let ts = Lingui.UtilString.t
   //let { fragmentRefs } = Fragment.use(events)
-  let query = useLoaderData()
   let params: params = Router.useParams()
 
-  let link = <a href="https://www.racquetleague.com"> {"Racquet League."->React.string} </a>
   <WaitForMessages>
     {() => {
       <>

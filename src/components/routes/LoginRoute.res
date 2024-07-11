@@ -22,7 +22,7 @@ let loadMessages = lang => {
 }
 
 @genType
-let loader = async ({?context, params}: LoaderArgs.t) => {
+let loader = async ({params}: LoaderArgs.t) => {
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   Router.defer({
     WaitForMessages.data: None,

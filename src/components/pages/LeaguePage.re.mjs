@@ -17,12 +17,7 @@ import { t } from '@lingui/macro'
 var jplLogo = JplLogoPng;
 
 function LeaguePage(props) {
-  ReactRouterDom.useLoaderData();
   var params = ReactRouterDom.useParams();
-  JsxRuntime.jsx("a", {
-        children: "Racquet League.",
-        href: "https://www.racquetleague.com"
-      });
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   var match = params.activitySlug;

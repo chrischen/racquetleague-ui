@@ -69,7 +69,7 @@ module CreateLeagueMatchMutation = %relay(`
 
 module SelectEventPlayersList = {
   @react.component
-  let make = (~event, ~selected: array<string>, ~onSelectPlayer: string => unit=?) => {
+  let make = (~event, ~selected: array<string>, ~onSelectPlayer: option<string => unit>=?) => {
     let (_isPending, startTransition) = ReactExperimental.useTransition()
     let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
     let players = data.rsvps->Fragment.getConnectionNodes
@@ -107,7 +107,7 @@ module SelectEventPlayersList = {
                     b.rating->Option.flatMap(r => r.mu)->Option.map(r => r)->Option.getOr(0.)
                   userA < userB ? 1. : -1.
                 })
-                ->Array.mapWithIndex((edge, i) => {
+                ->Array.map(edge => {
                   edge.user
                   ->Option.map(user => {
                     <FramerMotion.Li
@@ -187,7 +187,7 @@ let schema = Zod.z->Zod.object(
 let make = (~event) => {
   open Form
   let {__id, activity} = Fragment.use(event)
-  let {register, handleSubmit, formState, getFieldState, setValue, watch} = useFormOfInputsMatch(
+  let {register, handleSubmit, setValue } = useFormOfInputsMatch(
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {},
@@ -197,8 +197,6 @@ let make = (~event) => {
 
   let (winningPlayers, setWinningPlayers) = React.useState(() => [])
   let (losingPlayers, setLosingPlayers) = React.useState(() => [])
-
-  let viewer = GlobalQuery.useViewer()
 
   // let onCreateMatch = _ => {
   //   let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(

@@ -119,7 +119,7 @@ module TextEventItem = {
   let ts = Lingui.UtilString.t
 
   let make = (~event) => {
-    let {id, title, location, details, rsvps, startDate, maxRsvps, endDate} = TextItemFragment.use(
+    let {id, location, details, rsvps, startDate, maxRsvps, endDate} = TextItemFragment.use(
       event,
     )
     let {i18n: {locale}} = Lingui.useLingui()
@@ -165,8 +165,6 @@ module TextEventItem = {
         )
       }
     })
-
-    let str = title->Option.getOr(ts`[missing title]`) ++ "\n"
 
     // Date string in local time
 
@@ -444,7 +442,7 @@ let make = (~events) => {
   let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, ...))
 
   React.useEffect(() => {
-    %raw("window.location.hash = '#highlighted'")
+    %raw("window.location.hash = '#highlighted'")->ignore
 
     // navigate("./#highlighted", None);
     // setHighlightedLocations(_ => "asdf"])
@@ -480,7 +478,6 @@ let make = (~events) => {
             // @NOTE: Potential bug as dateString possibly needs to be converted
             // back to UTC
             // Js.log(dateString);
-            let date = dateString->Js.Date.fromString
             let date = dateString
 
             // Local time difference in minutes

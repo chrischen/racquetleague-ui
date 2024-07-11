@@ -14,13 +14,12 @@ module Fragment = %relay(`
 let make = (
   ~user,
   ~highlight: bool=false,
-  ~link: string=?,
+  ~link: option<string>=?,
   ~rating: option<float>=?,
   ~ratingPercent: option<float>=?,
 ) => {
   open LangProvider.Router
   // open Lingui.Util;
-  let ts = Lingui.UtilString.t
   let user = Fragment.use(user)
 
   /* switch user.lineUsername {

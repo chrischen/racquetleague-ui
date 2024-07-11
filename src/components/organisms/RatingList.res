@@ -1,7 +1,6 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t, plural } from '@lingui/macro'")
 
-open Util
 open LangProvider.Router
 module Fragment = %relay(`
   fragment RatingListFragment on Query
@@ -142,22 +141,10 @@ module RatingItem = {
 let make = (~ratings) => {
   open Lingui.Util
   let (_isPending, _) = ReactExperimental.useTransition()
-  let {ratings: ratingsQuery} = Fragment.use(ratings)
   let {data, isLoadingNext, hasNext, isLoadingPrevious} = Fragment.usePagination(ratings)
   let ratings = data.ratings->Fragment.getConnectionNodes
   let pageInfo = data.ratings.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
-  let (highlightedLocation, setHighlightedLocation) = React.useState(() => "")
-  let navigate = Router.useNavigate()
-
-  // let onLoadMore = _ =>
-  //   startTransition(() => {
-  //     loadNext(~count=1)->ignore
-  //   })
-  //
-  let intl = ReactIntl.useIntl()
-  let viewer = GlobalQuery.useViewer()
-
 
   let maxRating =
     ratings->Array.reduce(0., (acc, next) =>

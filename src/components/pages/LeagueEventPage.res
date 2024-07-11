@@ -21,12 +21,10 @@ let make = () => {
   open Lingui.Util
   let query = useLoaderData()
   let {event, fragmentRefs: queryRefs} = Query.usePreloaded(~queryRef=query.data)
-  let viewer = GlobalQuery.useViewer()
-
   <WaitForMessages>
     {() => {
       event->Option.map(event => {
-        let {__id, title, fragmentRefs} = event
+        let {__id, _, fragmentRefs} = event
         <>
           <React.Suspense
             fallback={<Layout.Container> {t`Loading rankings...`} </Layout.Container>}>

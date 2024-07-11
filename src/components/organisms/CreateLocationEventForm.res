@@ -272,7 +272,7 @@ let make = (~event=?, ~location, ~query) => {
               listed: data.listed,
             },
           },
-          ~onCompleted=(response, _errors) => {
+          ~onCompleted=(_response, _errors) => {
             navigate("/events/" ++ event.id, None)
           },
         )->RescriptRelay.Disposable.ignore

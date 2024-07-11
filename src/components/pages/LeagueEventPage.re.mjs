@@ -4,7 +4,6 @@ import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as MatchList from "../organisms/MatchList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as AddLeagueMatch from "../organisms/AddLeagueMatch.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -60,7 +59,6 @@ function LeagueEventPage(props) {
   var match = usePreloaded(query.data);
   var queryRefs = match.fragmentRefs;
   var $$event = match.event;
-  GlobalQuery.useViewer();
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map($$event, (function ($$event) {

@@ -55,7 +55,7 @@ function PinMap(props) {
                                                 return Core__Option.map($$location.coords, (function (coords) {
                                                               return JsxRuntime.jsx(ReactGoogleMaps.AdvancedMarker, {
                                                                           position: coords,
-                                                                          onClick: (function (e) {
+                                                                          onClick: (function (param) {
                                                                               onLocationClick($$location);
                                                                             })
                                                                         }, coords.lat.toString(undefined) + "|" + coords.lng.toString(undefined) + i.toString(undefined));
