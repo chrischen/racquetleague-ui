@@ -104,7 +104,6 @@ function CreateClubForm(props) {
   var handleSubmit = match$2.handleSubmit;
   var register = match$2.register;
   var onSubmit = function (data) {
-    console.log(connectionId);
     var connections = Core__Option.getOr(Core__Option.map(connectionId, (function (connectionId) {
                 return [RelayRuntime.ConnectionHandler.getConnectionID(connectionId, "SelectClub_adminClubs", undefined)];
               })), []);

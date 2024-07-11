@@ -77,7 +77,6 @@ let make = (~connectionId=?, ~query, ~onCancel, ~onCreated, ~inline: bool=false)
     },
   )
   let onSubmit = (data: inputs) => {
-    Js.log(connectionId)
     let connections =
       connectionId
       ->Option.map(connectionId => [

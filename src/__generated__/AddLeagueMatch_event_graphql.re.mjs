@@ -174,6 +174,7 @@ return {
                   "name": "rating",
                   "plural": false,
                   "selections": [
+                    (v1/*: any*/),
                     {
                       "alias": null,
                       "args": null,

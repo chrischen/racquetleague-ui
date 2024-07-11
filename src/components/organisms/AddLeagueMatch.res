@@ -26,6 +26,7 @@ module Fragment = %relay(`
             ...EventRsvpUser_user
           }
           rating {
+            id
             mu
             ordinal
           }
@@ -55,6 +56,12 @@ module CreateLeagueMatchMutation = %relay(`
         }
         score
         createdAt
+      }
+      ratings {
+        id
+        mu
+        sigma
+        ordinal
       }
     }
   }

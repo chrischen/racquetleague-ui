@@ -23,8 +23,16 @@ module Types = {
     winners: option<array<response_createMatch_match_winners>>,
   }
   @live
+  and response_createMatch_ratings = {
+    @live id: string,
+    mu: option<float>,
+    ordinal: option<float>,
+    sigma: option<float>,
+  }
+  @live
   and response_createMatch = {
     match: option<response_createMatch_match>,
+    ratings: option<array<response_createMatch_ratings>>,
   }
   @live
   type response = {
@@ -153,7 +161,40 @@ v6 = {
   "name": "createdAt",
   "storageKey": null
 },
-v7 = [
+v7 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "Rating",
+  "kind": "LinkedField",
+  "name": "ratings",
+  "plural": true,
+  "selections": [
+    (v2/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "mu",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "sigma",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "ordinal",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v8 = [
   (v3/*: any*/),
   (v2/*: any*/)
 ];
@@ -205,7 +246,8 @@ return {
               (v6/*: any*/)
             ],
             "storageKey": null
-          }
+          },
+          (v7/*: any*/)
         ],
         "storageKey": null
       }
@@ -243,7 +285,7 @@ return {
                 "kind": "LinkedField",
                 "name": "winners",
                 "plural": true,
-                "selections": (v7/*: any*/),
+                "selections": (v8/*: any*/),
                 "storageKey": null
               },
               {
@@ -253,7 +295,7 @@ return {
                 "kind": "LinkedField",
                 "name": "losers",
                 "plural": true,
-                "selections": (v7/*: any*/),
+                "selections": (v8/*: any*/),
                 "storageKey": null
               },
               (v5/*: any*/),
@@ -281,19 +323,20 @@ return {
                 "value": "MatchEdge"
               }
             ]
-          }
+          },
+          (v7/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "1d3f20c306b819f2119c3c7b36245ba7",
+    "cacheID": "a1862f302e483d25732c94ab78d43dfa",
     "id": null,
     "metadata": {},
     "name": "AddLeagueMatchMutation",
     "operationKind": "mutation",
-    "text": "mutation AddLeagueMatchMutation(\n  $matchInput: LeagueMatchInput!\n) {\n  createMatch(match: $matchInput) {\n    match {\n      id\n      winners {\n        lineUsername\n        id\n      }\n      losers {\n        lineUsername\n        id\n      }\n      score\n      createdAt\n    }\n  }\n}\n"
+    "text": "mutation AddLeagueMatchMutation(\n  $matchInput: LeagueMatchInput!\n) {\n  createMatch(match: $matchInput) {\n    match {\n      id\n      winners {\n        lineUsername\n        id\n      }\n      losers {\n        lineUsername\n        id\n      }\n      score\n      createdAt\n    }\n    ratings {\n      id\n      mu\n      sigma\n      ordinal\n    }\n  }\n}\n"
   }
 };
 })() `)

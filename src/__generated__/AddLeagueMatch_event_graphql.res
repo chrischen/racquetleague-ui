@@ -9,6 +9,7 @@ module Types = {
     slug: option<string>,
   }
   and fragment_rsvps_edges_node_rating = {
+    @live id: string,
     mu: option<float>,
     ordinal: option<float>,
   }
@@ -232,6 +233,7 @@ return {
                   "name": "rating",
                   "plural": false,
                   "selections": [
+                    (v1/*: any*/),
                     {
                       "alias": null,
                       "args": null,

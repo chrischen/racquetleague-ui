@@ -117,6 +117,7 @@ input CreateLocationInput {
 type CreateMatchResponse implements HasErrors {
   errors: [Error!]
   match: Match
+  ratings: [Rating!]
 }
 
 """A date."""
