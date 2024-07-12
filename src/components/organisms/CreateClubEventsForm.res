@@ -30,6 +30,7 @@ module Fragment = %relay(`
   fragment CreateClubEventsForm_club on Club {
     id
     name
+    slug
   }
 `)
 module QueryFragment = %relay(`
@@ -147,7 +148,9 @@ let make = (~query, ~club) => {
       },
       ~onCompleted=(response, _errors) => {
         response.createEvents.events
-        ->Option.map(_ => navigate("/clubs/" ++ club.id, None))
+        ->Option.map(_ =>
+          navigate(club.slug->Option.map(slug => "/clubs/" ++ slug)->Option.getOr("/"), None)
+        )
         ->ignore
       },
     )->RescriptRelay.Disposable.ignore

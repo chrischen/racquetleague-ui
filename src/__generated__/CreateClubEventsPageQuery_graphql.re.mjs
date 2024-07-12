@@ -64,20 +64,29 @@ v1 = [
     "variableName": "clubId"
   }
 ],
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-},
-v3 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-};
+v2 = [
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "id",
+    "storageKey": null
+  },
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "name",
+    "storageKey": null
+  },
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "slug",
+    "storageKey": null
+  }
+];
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -123,10 +132,7 @@ return {
         "kind": "LinkedField",
         "name": "club",
         "plural": false,
-        "selections": [
-          (v2/*: any*/),
-          (v3/*: any*/)
-        ],
+        "selections": (v2/*: any*/),
         "storageKey": null
       },
       {
@@ -136,28 +142,18 @@ return {
         "kind": "LinkedField",
         "name": "activities",
         "plural": true,
-        "selections": [
-          (v2/*: any*/),
-          (v3/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "slug",
-            "storageKey": null
-          }
-        ],
+        "selections": (v2/*: any*/),
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "58e27301a5353a17daa3f0c4052832fd",
+    "cacheID": "ab0c31711d5cd8ab00b5f1895df696fd",
     "id": null,
     "metadata": {},
     "name": "CreateClubEventsPageQuery",
     "operationKind": "query",
-    "text": "query CreateClubEventsPageQuery(\n  $clubId: ID!\n) {\n  club(id: $clubId) {\n    ...CreateClubEventsForm_club\n    id\n  }\n  ...CreateClubEventsForm_query\n}\n\nfragment CreateClubEventsForm_club on Club {\n  id\n  name\n}\n\nfragment CreateClubEventsForm_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n"
+    "text": "query CreateClubEventsPageQuery(\n  $clubId: ID!\n) {\n  club(id: $clubId) {\n    ...CreateClubEventsForm_club\n    id\n  }\n  ...CreateClubEventsForm_query\n}\n\nfragment CreateClubEventsForm_club on Club {\n  id\n  name\n  slug\n}\n\nfragment CreateClubEventsForm_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n"
   }
 };
 })());

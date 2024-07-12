@@ -145,7 +145,9 @@ function CreateClubEventsForm(props) {
           }
         }, undefined, undefined, undefined, (function (response, _errors) {
             Core__Option.map(response.createEvents.events, (function (param) {
-                    navigate("/clubs/" + club.id, undefined);
+                    navigate(Core__Option.getOr(Core__Option.map(club.slug, (function (slug) {
+                                    return "/clubs/" + slug;
+                                  })), "/"), undefined);
                   }));
           }), undefined, undefined);
   };
