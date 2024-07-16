@@ -119,9 +119,7 @@ module TextEventItem = {
   let ts = Lingui.UtilString.t
 
   let make = (~event) => {
-    let {id, location, details, rsvps, startDate, maxRsvps, endDate} = TextItemFragment.use(
-      event,
-    )
+    let {id, location, details, rsvps, startDate, maxRsvps, endDate} = TextItemFragment.use(event)
     let {i18n: {locale}} = Lingui.useLingui()
     let intl = ReactIntl.useIntl()
 
@@ -209,7 +207,8 @@ module TextEventItem = {
     )
     ->Option.getOr("") ++
     "\n" ++
-    "👉 " ++ "https://www.racquetleague.com/" ++
+    "👉 " ++
+    "https://www.racquetleague.com/" ++
     locale ++
     "/events/" ++
     id ++
@@ -397,6 +396,7 @@ let toLocalTime = date => {
 }
 let sortByDate = (
   intl,
+  filterByDate: option<Js.Date.t>,
   dates: dates,
   event: EventsListFragment_graphql.Types.fragment_events_edges_node,
 ): dates => {
@@ -412,9 +412,25 @@ let sortByDate = (
         ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ()),
       )
 
-    switch dates->Js.Dict.get(startDateString) {
-    | None => dates->Js.Dict.set(startDateString, [event])
-    | Some(events) => dates->Js.Dict.set(startDateString, [event, ...events])
+    filterByDate
+    ->Option.map(filterDate => {
+      switch startDate->Js.Date.getTime > filterDate->Js.Date.getTime {
+      | true =>
+        switch dates->Js.Dict.get(startDateString) {
+        | None => dates->Js.Dict.set(startDateString, [event])
+        | Some(events) => dates->Js.Dict.set(startDateString, [event, ...events])
+        }
+      | false => ()
+      }
+    })
+    ->ignore
+    switch filterByDate {
+    | None =>
+      switch dates->Js.Dict.get(startDateString) {
+      | None => dates->Js.Dict.set(startDateString, [event])
+      | Some(events) => dates->Js.Dict.set(startDateString, [event, ...events])
+      }
+    | _ => ()
     }
   })
   ->ignore
@@ -433,13 +449,25 @@ let make = (~events) => {
   let (highlightedLocation, setHighlightedLocation) = React.useState(() => "")
   let (shareOpen, setShareOpen) = React.useState(() => false)
 
+  let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
+  let filterByDate =
+    searchParams
+    ->Router.SearchParams.get("selectedDate")
+    ->Option.map(date => Js.Date.fromString(date))
+  let clearFilterByDate = () => {
+    setSearchParams(prevParams => {
+      prevParams->Router.SearchParams.delete("selectedDate")
+      prevParams
+    })
+  }
+
   // let onLoadMore = _ =>
   //   startTransition(() => {
   //     loadNext(~count=1)->ignore
   //   })
   //
   let intl = ReactIntl.useIntl()
-  let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, ...))
+  let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, filterByDate, ...))
 
   React.useEffect(() => {
     %raw("window.location.hash = '#highlighted'")->ignore
@@ -470,6 +498,15 @@ let make = (~events) => {
     // <Layout.Container>
     <div className="mx-auto w-full grow lg:flex">
       <div className="w-full lg:w-1/2 xl:w-1/3">
+        <Calendar events=eventsFragment />
+        {filterByDate
+        ->Option.map(_ =>
+          <InfoAlert
+            cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>
+            {<> {t`filtering by date`} </>}
+          </InfoAlert>
+        )
+        ->Option.getOr(React.null)}
         <ul role="list" className="">
           {eventsByDate
           ->Js.Dict.entries

@@ -5,6 +5,7 @@ import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as Lingui from "../../locales/Lingui.re.mjs";
+import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
@@ -136,15 +137,21 @@ function loadMessages(lang) {
 async function loader(param) {
   var params = param.params;
   var url = new URL(param.request.url);
-  var after = url.searchParams.get("after");
-  var before = url.searchParams.get("before");
+  var after = Router.SearchParams.get(url.searchParams, "after");
+  var before = Router.SearchParams.get(url.searchParams, "before");
+  var afterDate = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
+              console.log("After date");
+              console.log(d);
+              return Util.Datetime.fromDate(new Date(d));
+            })), Util.Datetime.fromDate(new Date()));
+  console.log(afterDate);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   return {
           data: EventsQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                 after: after,
-                afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
+                afterDate: Caml_option.some(afterDate),
                 before: before
               }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
@@ -154,6 +161,10 @@ async function loader(param) {
 var HydrateFallbackElement = JsxRuntime.jsx("div", {
       children: "Loading fallback..."
     });
+
+function useFragmentRefs() {
+  return ReactRouterDom.useOutletContext();
+}
 
 var make = Events;
 
@@ -170,5 +181,6 @@ export {
   loadMessages ,
   loader ,
   HydrateFallbackElement ,
+  useFragmentRefs ,
 }
 /*  Not a pure module */

@@ -827,6 +827,14 @@ msgstr "読み込み中"
 msgid "predicted winner"
 msgstr "予測される勝者"
 
+#: src/components/organisms/EventsList.re.mjs:559
+msgid "clear filter"
+msgstr "フィルターをクリア"
+
+#: src/components/organisms/EventsList.re.mjs:557
+msgid "filtering by date"
+msgstr "日付でフィルタリング"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

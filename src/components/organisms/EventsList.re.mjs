@@ -4,8 +4,11 @@ import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as PinMap from "./PinMap.re.mjs";
+import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as Calendar from "./Calendar.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
+import * as InfoAlert from "../molecules/InfoAlert.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -16,6 +19,7 @@ import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as Core$1 from "@linaria/core";
 import * as React$1 from "@lingui/react";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
+import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -438,7 +442,7 @@ function toLocalTime$1(date) {
   return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
 }
 
-function sortByDate(intl, dates, $$event) {
+function sortByDate(intl, filterByDate, dates, $$event) {
   Core__Option.map($$event.startDate, (function (startDate) {
           var startDate$1 = Util.Datetime.toDate(startDate);
           var startDateString = intl.formatDate(startDate$1, {
@@ -446,6 +450,23 @@ function sortByDate(intl, dates, $$event) {
                 month: "short",
                 day: "numeric"
               });
+          Core__Option.map(filterByDate, (function (filterDate) {
+                  if (startDate$1.getTime() <= filterDate.getTime()) {
+                    return ;
+                  }
+                  var events = Js_dict.get(dates, startDateString);
+                  if (events !== undefined) {
+                    dates[startDateString] = Belt_Array.concatMany([
+                          [$$event],
+                          events
+                        ]);
+                  } else {
+                    dates[startDateString] = [$$event];
+                  }
+                }));
+          if (filterByDate !== undefined) {
+            return ;
+          }
           var events = Js_dict.get(dates, startDateString);
           if (events !== undefined) {
             dates[startDateString] = Belt_Array.concatMany([
@@ -478,9 +499,20 @@ function EventsList(props) {
       });
   var setShareOpen = match$3[1];
   var shareOpen = match$3[0];
+  var match$4 = ReactRouterDom.useSearchParams();
+  var setSearchParams = match$4[1];
+  var filterByDate = Core__Option.map(Router.SearchParams.get(match$4[0], "selectedDate"), (function (date) {
+          return new Date(date);
+        }));
+  var clearFilterByDate = function () {
+    setSearchParams(function (prevParams) {
+          prevParams.delete("selectedDate");
+          return prevParams;
+        });
+  };
   var intl = ReactIntl.useIntl();
   var eventsByDate = Core__Array.reduce(events$1, {}, (function (extra, extra$1) {
-          return sortByDate(intl, extra, extra$1);
+          return sortByDate(intl, filterByDate, extra, extra$1);
         }));
   React.useEffect((function () {
           ((window.location.hash = '#highlighted'));
@@ -516,6 +548,20 @@ function EventsList(props) {
                       children: [
                         JsxRuntime.jsxs("div", {
                               children: [
+                                JsxRuntime.jsx(Calendar.make, {
+                                      events: events
+                                    }),
+                                Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
+                                            return JsxRuntime.jsx(InfoAlert.make, {
+                                                        children: JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                              children: Caml_option.some(t`filtering by date`)
+                                                            }),
+                                                        cta: t`clear filter`,
+                                                        ctaClick: (function () {
+                                                            clearFilterByDate();
+                                                          })
+                                                      });
+                                          })), null),
                                 JsxRuntime.jsx("ul", {
                                       children: Js_dict.entries(eventsByDate).map(function (param) {
                                             var dateString = param[0];

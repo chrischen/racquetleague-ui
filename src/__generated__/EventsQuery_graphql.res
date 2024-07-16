@@ -5,7 +5,7 @@ module Types = {
   @@warning("-30")
 
   type response = {
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventsListFragment]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #CalendarEventsFragment | #EventsListFragment]>,
   }
   @live
   type rawResponse = response
@@ -157,7 +157,11 @@ v6 = {
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
-};
+},
+v7 = [
+  "filters",
+  "afterDate"
+];
 return {
   "fragment": {
     "argumentDefinitions": [
@@ -174,6 +178,11 @@ return {
         "args": (v4/*: any*/),
         "kind": "FragmentSpread",
         "name": "EventsListFragment"
+      },
+      {
+        "args": (v4/*: any*/),
+        "kind": "FragmentSpread",
+        "name": "CalendarEventsFragment"
       }
     ],
     "type": "Query",
@@ -421,24 +430,30 @@ return {
       {
         "alias": null,
         "args": (v4/*: any*/),
-        "filters": [
-          "filters",
-          "afterDate"
-        ],
+        "filters": (v7/*: any*/),
         "handle": "connection",
         "key": "EventsListFragment_events",
+        "kind": "LinkedHandle",
+        "name": "events"
+      },
+      {
+        "alias": null,
+        "args": (v4/*: any*/),
+        "filters": (v7/*: any*/),
+        "handle": "connection",
+        "key": "CalendarEventsFragment_events",
         "kind": "LinkedHandle",
         "name": "events"
       }
     ]
   },
   "params": {
-    "cacheID": "901a30393802d8796f4d7be57254e9b1",
+    "cacheID": "66ae6a95290ec81cb536470ebae7aac0",
     "id": null,
     "metadata": {},
     "name": "EventsQuery",
     "operationKind": "query",
-    "text": "query EventsQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n) {\n  ...EventsListFragment_4ysDAd\n}\n\nfragment EventsListFragment_4ysDAd on Query {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        location {\n          id\n        }\n        ...EventsList_event\n        ...EventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
+    "text": "query EventsQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n) {\n  ...EventsListFragment_4ysDAd\n  ...CalendarEventsFragment_4ysDAd\n}\n\nfragment CalendarEventsFragment_4ysDAd on Query {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EventsListFragment_4ysDAd on Query {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        location {\n          id\n        }\n        ...EventsList_event\n        ...EventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  startDate\n  endDate\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

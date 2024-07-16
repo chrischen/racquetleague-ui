@@ -17,6 +17,8 @@ var CheckIcon = {};
 
 var CalendarIcon = {};
 
+var ExclamationTriangleIcon = {};
+
 export {
   PhotoIcon ,
   Bars3Icon ,
@@ -26,5 +28,6 @@ export {
   CloudArrowUpIcon ,
   CheckIcon ,
   CalendarIcon ,
+  ExclamationTriangleIcon ,
 }
 /* No side effect */

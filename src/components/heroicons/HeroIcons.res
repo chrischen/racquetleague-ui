@@ -31,3 +31,8 @@ module CalendarIcon = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CalendarIcon"
 }
+
+module ExclamationTriangleIcon = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ExclamationTriangleIcon"
+}

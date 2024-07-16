@@ -1,6 +1,6 @@
 module Outlet = {
   @module("react-router-dom") @react.component
-  external make: unit => React.element = "Outlet"
+  external make: (~context: 'a=?) => React.element = "Outlet"
 }
 
 @module("react-router-dom")
@@ -11,9 +11,6 @@ type navigate = (string, option<navOpts>) => unit
 @module("react-router-dom")
 external useNavigate: unit => navigate = "useNavigate"
 
-@module("react-router-dom")
-external useSearchParams: unit => (string, string => unit) = "useSearchParams"
-
 // @TODO: Binding to location type may be wrong
 type location<'a> = {pathname: string, search: string, hash?: string, state?: 'a}
 @module("react-router-dom") external useLocation: unit => location<'a> = "useLocation"
@@ -21,11 +18,22 @@ type location<'a> = {pathname: string, search: string, hash?: string, state?: 'a
 module SearchParams = {
   type t
 
-  @send external get: (t, string) => option<string> = "get"
+  @send external getNull: (t, string) => Js.Null.t<string> = "get"
+  let get: (t, string) => option<string> = (t, key) => getNull(t, key)->Js.Null.toOption
   @send external getAll: (t, string) => option<array<string>> = "getAll"
   @send external entries: t => option<Js.Array2.array_like<array<array<string>>>> = "entries"
   @send external toString: t => string = "toString"
+  @send external set: (t, string, string) => unit = "set"
+  @send external delete: (t, string) => unit = "delete"
+  @send external deleteValue: (t, string, string) => unit = "delete"
 }
+
+@module("react-router-dom")
+external useSearchParams: unit => (SearchParams.t, SearchParams.t => unit) = "useSearchParams"
+
+@module("react-router-dom")
+external useSearchParamsFunc: unit => (SearchParams.t, (SearchParams.t => SearchParams.t) => unit) =
+  "useSearchParams"
 module URL = {
   type t = {searchParams: SearchParams.t}
 
@@ -62,7 +70,7 @@ module Link = {
   ) => React.element = "Link"
 }
 module NavLink = {
-  type linkState = {isActive: bool, isPending: bool, isTransitioning: bool};
+  type linkState = {isActive: bool, isPending: bool, isTransitioning: bool}
   @react.component @module("react-router-dom")
   external make: (
     ~to: string,
@@ -72,8 +80,8 @@ module NavLink = {
     ~onClick: 'a => unit=?,
     ~reloadDocument: bool=?,
     ~unstable_viewTransition: bool=?,
-    // ~ariaCurrent: [> #page | #"false"]=?,
-  ) => React.element = "NavLink"
+  ) => // ~ariaCurrent: [> #page | #"false"]=?,
+  React.element = "NavLink"
 }
 
 @module("react-router-dom")
@@ -94,3 +102,6 @@ module LinkWithOpts = {
     ~unstable_viewTransition: bool=?,
   ) => React.element = "Link"
 }
+
+@module("react-router-dom")
+external useOutletContext: unit => 'a = "useOutletContext"

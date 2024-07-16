@@ -5,6 +5,7 @@ open Lingui.Util
 module EventsQuery = %relay(`
   query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime) {
     ... EventsListFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate)
+    ... CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate)
   }
 `)
 /* module Fragment = %relay(`
@@ -54,6 +55,7 @@ let make = () => {
           </Grid>
         </Layout.Container>
         <React.Suspense fallback={<Layout.Container> {t`loading events...`} </Layout.Container>}>
+          // <Router.Outlet context={fragmentRefs} />
           <EventsList events=fragmentRefs />
         </React.Suspense>
       </>
@@ -103,13 +105,22 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
+  let afterDate =
+    url.searchParams
+    ->Router.SearchParams.get("afterDate")
+    ->Option.map(d => {
+      Js.log("After date");
+      Js.log(d)
+      d->Js.Date.fromString->Util.Datetime.fromDate})
+    ->Option.getOr(Js.Date.make()->Util.Datetime.fromDate)
+    Js.log(afterDate);
 
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
     WaitForMessages.data: EventsQuery_graphql.load(
       ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-      ~variables={?after, ?before, afterDate: Js.Date.make()->Util.Datetime.fromDate},
+      ~variables={?after, ?before, afterDate},
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),
     // i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
@@ -124,3 +135,7 @@ let \"HydrateFallbackElement" =
   <div> {React.string("Loading fallback...")} </div>
 
 // %raw("loade;.hydrate = true")
+let useFragmentRefs = (): RescriptRelay.fragmentRefs<[#EventsListFragment]> => {
+  let data = Router.useOutletContext()
+  data
+}

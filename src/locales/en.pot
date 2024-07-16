@@ -929,3 +929,11 @@ msgstr ""
 #: src/components/organisms/AddLeagueMatch.re.mjs:328
 msgid "predicted winner"
 msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:559
+msgid "clear filter"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:557
+msgid "filtering by date"
+msgstr ""

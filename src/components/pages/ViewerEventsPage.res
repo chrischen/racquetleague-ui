@@ -5,6 +5,7 @@ open Lingui.Util
 module Query = %relay(`
   query ViewerEventsPageQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
     ... EventsListFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate, filters: $filters)
+    ... CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate, filters: $filters)
   }
 `)
 

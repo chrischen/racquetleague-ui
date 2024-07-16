@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Lingui from "../../locales/Lingui.re.mjs";
+import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -24,8 +25,8 @@ function loadMessages(lang) {
 async function loader(param) {
   var params = param.params;
   var url = new URL(param.request.url);
-  var after = url.searchParams.get("after");
-  var before = url.searchParams.get("before");
+  var after = Router.SearchParams.get(url.searchParams, "after");
+  var before = Router.SearchParams.get(url.searchParams, "before");
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

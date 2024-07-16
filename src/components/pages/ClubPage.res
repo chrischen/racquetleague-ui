@@ -7,6 +7,7 @@ module Query = %relay(`
       ...ClubDetails_club
     }
     ...EventsListFragment @arguments(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
+    ...CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
   }
   `)
 type loaderData = ClubPageQuery_graphql.queryRef

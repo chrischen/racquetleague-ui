@@ -7,6 +7,7 @@ module Query = %relay(`
       ...EventLocation_location
     }
     ...EventsListFragment @arguments(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
+    ...CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
   }
   `)
 type loaderData = LocationPageQuery_graphql.queryRef

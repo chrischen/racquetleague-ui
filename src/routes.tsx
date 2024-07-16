@@ -26,10 +26,10 @@ export const routes: RouteObject[] = [
         children: [
           {
             path: "",
-            index: true,
+            // index: true,
             lazy: () => import("./components/pages/Events.gen"),
             handle: "src/components/pages/Events.gen.tsx",
-            HydrateFallbackElement: <>Loading Fallback...</>,
+            HydrateFallbackElement: <>Loading Fallback...</>
           },
           {
             path: "oauth-login",
