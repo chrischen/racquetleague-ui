@@ -1,5 +1,5 @@
 %%raw("import { t } from '@lingui/macro'")
-%%raw("import 'react-calendar/dist/Calendar.css'")
+%%raw("import './Calendar.css'")
 
 module Fragment = %relay(`
   fragment CalendarEventsFragment on Query

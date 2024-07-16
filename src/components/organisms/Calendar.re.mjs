@@ -16,7 +16,7 @@ import * as CalendarEventsRefetchQuery_graphql from "../../__generated__/Calenda
 import { t } from '@lingui/macro'
 ;
 
-import 'react-calendar/dist/Calendar.css'
+import './Calendar.css'
 ;
 
 var getConnectionNodes = CalendarEventsFragment_graphql.Utils.getConnectionNodes;
