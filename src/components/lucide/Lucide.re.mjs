@@ -11,11 +11,26 @@ var CornerDownRight = {};
 
 var Info = {};
 
+var ArrowUpNarrowWide = {};
+
+var ArrowUpWideNarrow = {};
+
+var ArrowDownWideNarrow = {};
+
+var MoveLeft = {};
+
+var MoveRight = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
   MapPin ,
   CornerDownRight ,
   Info ,
+  ArrowUpNarrowWide ,
+  ArrowUpWideNarrow ,
+  ArrowDownWideNarrow ,
+  MoveLeft ,
+  MoveRight ,
 }
 /* No side effect */

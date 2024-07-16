@@ -13,34 +13,34 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:290
+#: src/components/organisms/RatingList.re.mjs:278
 msgid "...load higher rated players"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:206
+#: src/components/organisms/RatingList.re.mjs:202
 msgid "Female"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:307
+#: src/components/organisms/RatingList.re.mjs:295
 msgid "Load more players..."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:82
+#: src/components/pages/LeagueRankingsPage.re.mjs:81
 msgid "Loading rankings..."
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:208
+#: src/components/organisms/RatingList.re.mjs:204
 msgid "Male"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:59
+#: src/components/pages/LeagueRankingsPage.re.mjs:58
 msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:54
+#: src/components/pages/LeagueRankingsPage.re.mjs:53
 msgid "Recreational Doubles"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:64
+#: src/components/pages/LeagueRankingsPage.re.mjs:63
 msgid "To participate, please join the badminton events here:"
 msgstr ""

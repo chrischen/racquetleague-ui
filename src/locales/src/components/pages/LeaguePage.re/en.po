@@ -37,7 +37,7 @@ msgstr ""
 #~ msgid "Hesacore Grip"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:46
+#: src/components/pages/LeaguePage.re.mjs:41
 msgid "japan pickle league"
 msgstr ""
 
@@ -94,6 +94,6 @@ msgstr ""
 #~ msgid "This prize will be awarded to the top male and female players on this day."
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:38
+#: src/components/pages/LeaguePage.re.mjs:33
 msgid "Tokyo Badminton League"
 msgstr ""

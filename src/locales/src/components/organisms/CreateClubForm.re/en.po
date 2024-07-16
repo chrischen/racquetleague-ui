@@ -59,7 +59,7 @@ msgstr ""
 msgid "main activity"
 msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:86
+#: src/components/organisms/CreateClubForm.re.mjs:85
 msgid "main activity is required"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:80
+#: src/components/organisms/CreateClubForm.re.mjs:79
 msgid "name is required"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "tell people about your club"
 msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:83
+#: src/components/organisms/CreateClubForm.re.mjs:82
 msgid "url slug is required"
 msgstr ""
 

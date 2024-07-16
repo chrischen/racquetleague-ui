@@ -13,19 +13,19 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:290
+#: src/components/organisms/RatingList.re.mjs:278
 msgid "...load higher rated players"
 msgstr "... より高い評価のプレイヤーを読み込む"
 
-#: src/components/organisms/RatingList.re.mjs:206
+#: src/components/organisms/RatingList.re.mjs:202
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/RatingList.re.mjs:307
+#: src/components/organisms/RatingList.re.mjs:295
 msgid "Load more players..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/organisms/RatingList.re.mjs:208
+#: src/components/organisms/RatingList.re.mjs:204
 msgid "Male"
 msgstr "男性"
 

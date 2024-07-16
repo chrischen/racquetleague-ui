@@ -17,7 +17,7 @@ msgstr ""
 msgid "about"
 msgstr "約"
 
-#: src/components/organisms/SelectClub.re.mjs:73
+#: src/components/organisms/SelectClub.re.mjs:74
 msgid "add new club"
 msgstr "新しいクラブを追加"
 
@@ -25,7 +25,7 @@ msgstr "新しいクラブを追加"
 msgid "cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SelectClub.re.mjs:50
+#: src/components/organisms/SelectClub.re.mjs:51
 msgid "choose the club where this event will be held."
 msgstr "このイベントが開催されるクラブを選択してください。"
 
@@ -37,7 +37,7 @@ msgstr "クラブ"
 msgid "main activity"
 msgstr "主なアクティビティ"
 
-#: src/components/organisms/CreateClubForm.re.mjs:86
+#: src/components/organisms/CreateClubForm.re.mjs:85
 msgid "main activity is required"
 msgstr "主なアクティビティが必要です"
 
@@ -45,7 +45,7 @@ msgstr "主なアクティビティが必要です"
 msgid "name"
 msgstr "場所名"
 
-#: src/components/organisms/CreateClubForm.re.mjs:80
+#: src/components/organisms/CreateClubForm.re.mjs:79
 msgid "name is required"
 msgstr "場所名は必須"
 
@@ -53,7 +53,7 @@ msgstr "場所名は必須"
 msgid "save"
 msgstr "保存"
 
-#: src/components/organisms/SelectClub.re.mjs:49
+#: src/components/organisms/SelectClub.re.mjs:50
 msgid "select club"
 msgstr "クラブを選択"
 
@@ -65,13 +65,13 @@ msgstr "スラッグ"
 msgid "tell people about your club"
 msgstr "あなたのクラブについて人々に伝える"
 
-#: src/components/organisms/CreateClubForm.re.mjs:83
+#: src/components/organisms/CreateClubForm.re.mjs:82
 msgid "url slug is required"
 msgstr "URLスラッグが必要です"
 
 #: src/components/organisms/CreateClubForm.re.mjs:182
 msgid "yubibado"
-msgstr ""
+msgstr "ゆびバド"
 
 #: src/components/organisms/CreateClubForm.re.mjs:165
 msgid "ゆびバド"

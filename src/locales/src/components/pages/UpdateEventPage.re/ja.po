@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SelectLocation.re.mjs:72
+#: src/components/organisms/SelectLocation.re.mjs:71
 msgid "add new location"
 msgstr "新しい場所を追加"
 
@@ -33,7 +33,7 @@ msgstr "赤羽小学校"
 msgid "cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SelectLocation.re.mjs:49
+#: src/components/organisms/SelectLocation.re.mjs:48
 msgid "choose the location where this event will be held."
 msgstr "このイベントが開催される場所を選択してください。"
 
@@ -41,7 +41,7 @@ msgstr "このイベントが開催される場所を選択してください。
 msgid "details"
 msgstr "詳細"
 
-#: src/components/organisms/SelectLocation.re.mjs:48
+#: src/components/organisms/SelectLocation.re.mjs:47
 msgid "event location"
 msgstr "イベント場所"
 

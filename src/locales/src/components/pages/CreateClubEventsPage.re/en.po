@@ -14,40 +14,40 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:302
+#: src/components/organisms/CreateClubEventsForm.re.mjs:304
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:306
+#: src/components/organisms/CreateClubEventsForm.re.mjs:308
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:310
+#: src/components/organisms/CreateClubEventsForm.re.mjs:312
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:314
+#: src/components/organisms/CreateClubEventsForm.re.mjs:316
 msgid "Futsal"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:318
+#: src/components/organisms/CreateClubEventsForm.re.mjs:320
 msgid "Basketball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:322
+#: src/components/organisms/CreateClubEventsForm.re.mjs:324
 msgid "Volleyball"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:196
+#: src/components/organisms/CreateClubEventsForm.re.mjs:198
 msgid "{0} event details"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:235
+#: src/components/organisms/CreateClubEventsForm.re.mjs:237
 msgid "activity"
 msgstr ""
 
@@ -67,11 +67,11 @@ msgstr ""
 msgid "club doesn't exist."
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:197
+#: src/components/organisms/CreateClubEventsForm.re.mjs:199
 msgid "create multiple events at one time"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+#: src/components/organisms/CreateClubEventsForm.re.mjs:205
 msgid "events"
 msgstr ""
 
@@ -83,11 +83,11 @@ msgstr ""
 msgid "input is required"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:273
+#: src/components/organisms/CreateClubEventsForm.re.mjs:275
 msgid "list publicly"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:214
+#: src/components/organisms/CreateClubEventsForm.re.mjs:216
 msgid "preview events"
 msgstr ""
 
@@ -95,10 +95,10 @@ msgstr ""
 msgid "save"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:278
+#: src/components/organisms/CreateClubEventsForm.re.mjs:280
 msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:206
+#: src/components/organisms/CreateClubEventsForm.re.mjs:208
 msgid "type your events here"
 msgstr ""

@@ -812,11 +812,20 @@ msgstr "URLスラッグが必要です"
 
 #: src/components/organisms/CreateClubForm.re.mjs:182
 msgid "yubibado"
-msgstr ""
+msgstr "ゆびバド"
 
 #: src/components/organisms/EventsList.re.mjs:507
 msgid "share as text"
 msgstr "テキストとして共有"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:700
+msgid "Loading"
+msgstr "読み込み中"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:316
+#: src/components/organisms/AddLeagueMatch.re.mjs:328
+msgid "predicted winner"
+msgstr "予測される勝者"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

@@ -45,7 +45,7 @@ msgstr ""
 #~ msgid "activity is required"
 #~ msgstr ""
 
-#: src/components/organisms/SelectClub.re.mjs:73
+#: src/components/organisms/SelectClub.re.mjs:74
 msgid "add new club"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: src/components/organisms/SelectClub.re.mjs:50
+#: src/components/organisms/SelectClub.re.mjs:51
 msgid "choose the club where this event will be held."
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "main activity"
 msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:86
+#: src/components/organisms/CreateClubForm.re.mjs:85
 msgid "main activity is required"
 msgstr ""
 
@@ -133,7 +133,7 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:80
+#: src/components/organisms/CreateClubForm.re.mjs:79
 msgid "name is required"
 msgstr ""
 
@@ -141,7 +141,7 @@ msgstr ""
 msgid "save"
 msgstr ""
 
-#: src/components/organisms/SelectClub.re.mjs:49
+#: src/components/organisms/SelectClub.re.mjs:50
 msgid "select club"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 #~ msgid "type your events here"
 #~ msgstr ""
 
-#: src/components/organisms/CreateClubForm.re.mjs:83
+#: src/components/organisms/CreateClubForm.re.mjs:82
 msgid "url slug is required"
 msgstr ""
 

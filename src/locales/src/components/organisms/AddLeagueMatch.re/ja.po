@@ -13,30 +13,39 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:213
+#: src/components/organisms/AddLeagueMatch.re.mjs:284
 msgid "load More"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:413
+#: src/components/organisms/AddLeagueMatch.re.mjs:700
+msgid "Loading"
+msgstr "読み込み中"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:672
 msgid "Loser Points"
 msgstr "敗者ポイント"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:206
+#: src/components/organisms/AddLeagueMatch.re.mjs:277
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:175
+#: src/components/organisms/AddLeagueMatch.re.mjs:242
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:400
+#: src/components/organisms/AddLeagueMatch.re.mjs:316
+#: src/components/organisms/AddLeagueMatch.re.mjs:328
+msgid "predicted winner"
+msgstr "予測される勝者"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:656
 msgid "Select Losers"
 msgstr "敗者を選択"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:358
+#: src/components/organisms/AddLeagueMatch.re.mjs:612
 msgid "Select Winners"
 msgstr "勝者を選択"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:371
+#: src/components/organisms/AddLeagueMatch.re.mjs:627
 msgid "Winner Points"
 msgstr "勝者ポイント"

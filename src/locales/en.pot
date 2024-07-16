@@ -920,3 +920,12 @@ msgstr ""
 #: src/components/organisms/EventsList.re.mjs:507
 msgid "share as text"
 msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:700
+msgid "Loading"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:316
+#: src/components/organisms/AddLeagueMatch.re.mjs:328
+msgid "predicted winner"
+msgstr ""

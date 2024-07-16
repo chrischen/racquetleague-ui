@@ -22,3 +22,25 @@ module Info = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Info"
 }
+
+module ArrowUpNarrowWide = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ArrowUpNarrowWide"
+}
+
+module ArrowUpWideNarrow = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ArrowUpWideNarrow"
+}
+module ArrowDownWideNarrow = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ArrowDownWideNarrow"
+}
+module MoveLeft = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?, ~color: string=?) => React.element = "MoveLeft"
+}
+module MoveRight = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?, ~color: string=?) => React.element = "MoveRight"
+}

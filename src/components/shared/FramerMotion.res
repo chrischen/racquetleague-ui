@@ -1,4 +1,13 @@
-type css = {opacity?: float, scale?: float, originX?: float, originY?: float, x?: float, y?: float}
+type css = {
+  width?: string,
+  height?: string,
+  opacity?: float,
+  scale?: float,
+  originX?: float,
+  originY?: float,
+  x?: float,
+  y?: float,
+}
 module Div = {
   @module("framer-motion") @scope("motion") @react.component
   external make: (
@@ -20,6 +29,7 @@ module Li = {
     ~animate: css=?,
     ~initial: css=?,
     ~exit: css=?,
+    ~layout: bool=?,
     ~children: React.element=?,
   ) => React.element = "li"
 }

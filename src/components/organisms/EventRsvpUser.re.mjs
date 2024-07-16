@@ -4,6 +4,7 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as Core from "@linaria/core";
+import * as FramerMotion from "framer-motion";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as EventRsvpUser_user_graphql from "../../__generated__/EventRsvpUser_user_graphql.re.mjs";
@@ -83,10 +84,13 @@ function EventRsvpUser(props) {
                               className: "mt-1 flex text-xs leading-5 text-gray-500"
                             }),
                         JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx(FramerMotion.motion.div, {
                                     className: "h-2 rounded-full bg-red-400",
-                                    style: {
+                                    animate: {
                                       width: Core__Option.getOr(props.ratingPercent, 0).toFixed(3) + "%"
+                                    },
+                                    initial: {
+                                      width: "0%"
                                     }
                                   }),
                               className: "overflow-hidden rounded-full bg-gray-200 mt-1"

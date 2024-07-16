@@ -328,6 +328,16 @@ type PageInfo {
   startCursor: String
 }
 
+input PredictMatchInput {
+  team1RatingIds: [String!]!
+  team2RatingIds: [String!]!
+}
+
+type PredictMatchOutcome {
+  team1: Float
+  team2: Float
+}
+
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
@@ -346,6 +356,7 @@ type Query {
   matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
   node(id: ID!): Node
   parseBulkEvents(input: String!): String!
+  predictMatchOutcome(input: PredictMatchInput!): PredictMatchOutcome
   ratings(activitySlug: String!, after: String, before: String, first: Int, namespace: String!): RatingConnection!
   user(id: ID!): User
   viewer: Viewer

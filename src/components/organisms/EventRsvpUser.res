@@ -82,9 +82,10 @@ let make = (
         <span className="relative truncate hover:underline" />
       </p>
       <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
-        <div
+        <FramerMotion.Div
           className="h-2 rounded-full bg-red-400"
-          style={{width: ratingPercent->Option.getOr(0.)->Float.toFixed(~digits=3) ++ "%"}}
+          initial={width: "0%"}
+          animate={{width: ratingPercent->Option.getOr(0.)->Float.toFixed(~digits=3) ++ "%"}}
         />
       </div>
     </div>

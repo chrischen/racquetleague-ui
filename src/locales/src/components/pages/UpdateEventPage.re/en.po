@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SelectLocation.re.mjs:72
+#: src/components/organisms/SelectLocation.re.mjs:71
 msgid "add new location"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: src/components/organisms/SelectLocation.re.mjs:49
+#: src/components/organisms/SelectLocation.re.mjs:48
 msgid "choose the location where this event will be held."
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "details"
 msgstr ""
 
-#: src/components/organisms/SelectLocation.re.mjs:48
+#: src/components/organisms/SelectLocation.re.mjs:47
 msgid "event location"
 msgstr ""
 

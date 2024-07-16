@@ -183,3 +183,15 @@ and input_LeagueMatchInput_nullable = {
   doublesMatch: input_DoublesMatchInput_nullable,
   namespace: string,
 }
+
+@live
+and input_PredictMatchInput = {
+  team1RatingIds: array<string>,
+  team2RatingIds: array<string>,
+}
+
+@live
+and input_PredictMatchInput_nullable = {
+  team1RatingIds: array<string>,
+  team2RatingIds: array<string>,
+}

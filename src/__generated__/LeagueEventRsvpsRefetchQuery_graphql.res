@@ -165,6 +165,18 @@ v4 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
+},
+v5 = {
+  "kind": "ClientExtension",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "__id",
+      "storageKey": null
+    }
+  ]
 };
 return {
   "fragment": {
@@ -309,6 +321,7 @@ return {
                             "storageKey": null
                           },
                           (v4/*: any*/),
+                          (v5/*: any*/),
                           (v2/*: any*/)
                         ],
                         "storageKey": null
@@ -367,18 +380,7 @@ return {
                 "kind": "LinkedHandle",
                 "name": "rsvps"
               },
-              {
-                "kind": "ClientExtension",
-                "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "__id",
-                    "storageKey": null
-                  }
-                ]
-              }
+              (v5/*: any*/)
             ],
             "type": "Event",
             "abstractKey": null

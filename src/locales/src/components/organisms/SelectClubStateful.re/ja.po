@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-27 18:02+0900\n"
+"POT-Creation-Date: 2024-07-14 23:30+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
 "Language-Team: \n"
@@ -17,9 +17,17 @@ msgstr ""
 msgid "about"
 msgstr "約"
 
+#: src/components/organisms/SelectClubStateful.re.mjs:110
+msgid "add new club"
+msgstr "新しいクラブを追加"
+
 #: src/components/molecules/forms/Form.re.mjs:284
 msgid "cancel"
 msgstr "キャンセル"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:84
+msgid "choose the club where this event will be held."
+msgstr "このイベントが開催されるクラブを選択してください。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
 msgid "club"
@@ -45,6 +53,10 @@ msgstr "場所名は必須"
 msgid "save"
 msgstr "保存"
 
+#: src/components/organisms/SelectClubStateful.re.mjs:83
+msgid "select club"
+msgstr "クラブを選択"
+
 #: src/components/organisms/CreateClubForm.re.mjs:177
 msgid "slug"
 msgstr "スラッグ"
@@ -64,33 +76,3 @@ msgstr "ゆびバド"
 #: src/components/organisms/CreateClubForm.re.mjs:165
 msgid "ゆびバド"
 msgstr "ゆびバド"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:211
-#~ msgid "Badminton"
-#~ msgstr "バドミントン"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:215
-#~ msgid "Table Tennis"
-#~ msgstr "卓球"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:219
-#~ msgid "Pickleball"
-#~ msgstr "ピックルボール"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:223
-#~ msgid "Futsal"
-#~ msgstr "フットサル"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:227
-#~ msgid "Basketball"
-#~ msgstr "バスケットボール"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:231
-#~ msgid "Volleyball"
-#~ msgstr "バレーボール"

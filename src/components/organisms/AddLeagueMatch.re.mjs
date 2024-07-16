@@ -5,16 +5,20 @@ import * as Form from "../molecules/forms/Form.re.mjs";
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LucideReact from "lucide-react";
+import * as Core from "@linaria/core";
 import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as ReactHookForm from "react-hook-form";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
@@ -22,6 +26,7 @@ import * as Zod$1 from "@hookform/resolvers/zod";
 import * as AddLeagueMatch_event_graphql from "../../__generated__/AddLeagueMatch_event_graphql.re.mjs";
 import * as AddLeagueMatchMutation_graphql from "../../__generated__/AddLeagueMatchMutation_graphql.re.mjs";
 import * as LeagueEventRsvpsRefetchQuery_graphql from "../../__generated__/LeagueEventRsvpsRefetchQuery_graphql.re.mjs";
+import * as AddLeagueMatchPredictMatchOutcomeQuery_graphql from "../../__generated__/AddLeagueMatchPredictMatchOutcomeQuery_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -91,9 +96,73 @@ var CreateLeagueMatchMutation = {
   use: use$1
 };
 
+var convertVariables$1 = AddLeagueMatchPredictMatchOutcomeQuery_graphql.Internal.convertVariables;
+
+var convertResponse$1 = AddLeagueMatchPredictMatchOutcomeQuery_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = AddLeagueMatchPredictMatchOutcomeQuery_graphql.Internal.convertWrapRawResponse;
+
+var use$2 = RescriptRelay_Query.useQuery(convertVariables$1, AddLeagueMatchPredictMatchOutcomeQuery_graphql.node, convertResponse$1);
+
+var useLoader = RescriptRelay_Query.useLoader(convertVariables$1, AddLeagueMatchPredictMatchOutcomeQuery_graphql.node, (function (prim) {
+        return prim;
+      }));
+
+var usePreloaded = RescriptRelay_Query.usePreloaded(AddLeagueMatchPredictMatchOutcomeQuery_graphql.node, convertResponse$1, (function (prim) {
+        return prim;
+      }));
+
+var $$fetch = RescriptRelay_Query.$$fetch(AddLeagueMatchPredictMatchOutcomeQuery_graphql.node, convertResponse$1, convertVariables$1);
+
+var fetchPromised = RescriptRelay_Query.fetchPromised(AddLeagueMatchPredictMatchOutcomeQuery_graphql.node, convertResponse$1, convertVariables$1);
+
+var retain = RescriptRelay_Query.retain(AddLeagueMatchPredictMatchOutcomeQuery_graphql.node, convertVariables$1);
+
+var PredictMatchOutcome = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  use: use$2,
+  useLoader: useLoader,
+  usePreloaded: usePreloaded,
+  $$fetch: $$fetch,
+  fetchPromised: fetchPromised,
+  retain: retain
+};
+
+function AddLeagueMatch$SortAction(props) {
+  var setSortDir = props.setSortDir;
+  var tmp;
+  tmp = props.sortDir === "Asc" ? JsxRuntime.jsx(LucideReact.ArrowUpNarrowWide, {}) : JsxRuntime.jsx(LucideReact.ArrowDownWideNarrow, {});
+  return JsxRuntime.jsx("a", {
+              children: tmp,
+              href: "#",
+              onClick: (function (e) {
+                  setSortDir(function (dir) {
+                        if (dir === "Asc") {
+                          return "Desc";
+                        } else {
+                          return "Asc";
+                        }
+                      });
+                })
+            });
+}
+
+var SortAction = {
+  make: AddLeagueMatch$SortAction
+};
+
 function AddLeagueMatch$SelectEventPlayersList(props) {
+  var __maxRating = props.maxRating;
+  var __minRating = props.minRating;
   var onSelectPlayer = props.onSelectPlayer;
+  var disabled = props.disabled;
   var selected = props.selected;
+  var minRating = __minRating !== undefined ? __minRating : 0;
+  var maxRating = __maxRating !== undefined ? __maxRating : 1;
   var match = ReactExperimental.useTransition();
   var startTransition = match[1];
   var match$1 = usePagination(props.event);
@@ -104,118 +173,122 @@ function AddLeagueMatch$SelectEventPlayersList(props) {
           loadNext(1, undefined);
         });
   };
-  var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
-          if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
-                        return r.mu;
-                      })), 0) > acc) {
-            return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
-                              return r.mu;
-                            })), 0);
-          } else {
-            return acc;
-          }
-        }));
-  var minRating = Core__Array.reduce(players, maxRating, (function (acc, next) {
-          if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
-                        return r.mu;
-                      })), maxRating) < acc) {
-            return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
-                              return r.mu;
-                            })), maxRating);
-          } else {
-            return acc;
-          }
-        }));
+  var match$2 = React.useState(function () {
+        return "Desc";
+      });
+  var sortDir = match$2[0];
   return JsxRuntime.jsx("div", {
-              children: JsxRuntime.jsx("div", {
-                    children: JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                          children: [
-                            JsxRuntime.jsx("ul", {
-                                  children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
-                                        children: players.length !== 0 ? players.toSorted(function (a, b) {
-                                                  var userA = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(a.rating, (function (r) {
-                                                                  return r.mu;
-                                                                })), (function (r) {
-                                                              return r;
-                                                            })), 0);
-                                                  var userB = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(b.rating, (function (r) {
-                                                                  return r.mu;
-                                                                })), (function (r) {
-                                                              return r;
-                                                            })), 0);
-                                                  if (userA < userB) {
-                                                    return 1;
-                                                  } else {
-                                                    return -1;
-                                                  }
-                                                }).map(function (edge) {
-                                                return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
-                                                                  return JsxRuntime.jsxs(FramerMotion.motion.li, {
-                                                                              className: "mt-4 flex w-full flex-none gap-x-4 px-6",
-                                                                              style: {
-                                                                                originX: 0.05,
-                                                                                originY: 0.05
-                                                                              },
-                                                                              animate: {
-                                                                                opacity: 1,
-                                                                                scale: 1
-                                                                              },
-                                                                              initial: {
-                                                                                opacity: 0,
-                                                                                scale: 1.15
-                                                                              },
-                                                                              exit: {
-                                                                                opacity: 0,
-                                                                                scale: 1.15
-                                                                              },
-                                                                              children: [
-                                                                                JsxRuntime.jsx("div", {
-                                                                                      children: JsxRuntime.jsx("span", {
-                                                                                            children: t`Player`,
-                                                                                            className: "sr-only"
-                                                                                          }),
-                                                                                      className: "flex-none"
-                                                                                    }),
-                                                                                JsxRuntime.jsx("div", {
-                                                                                      children: JsxRuntime.jsx("a", {
-                                                                                            children: JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                  user: user.fragmentRefs,
-                                                                                                  highlight: selected.findIndex(function (id) {
-                                                                                                        return id === user.id;
-                                                                                                      }) >= 0,
-                                                                                                  ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
-                                                                                                              return Core__Option.map(rating.mu, (function (mu) {
-                                                                                                                            return (mu - minRating) / (maxRating - minRating) * 100;
-                                                                                                                          }));
-                                                                                                            })), 0)
-                                                                                                }),
-                                                                                            href: "#",
-                                                                                            onClick: (function (e) {
-                                                                                                e.preventDefault();
-                                                                                                Core__Option.map(onSelectPlayer, (function (f) {
-                                                                                                        f(user.id);
-                                                                                                      }));
-                                                                                              })
-                                                                                          }),
-                                                                                      className: "text-sm w-full font-medium leading-6 text-gray-900"
-                                                                                    })
-                                                                              ]
-                                                                            }, user.id);
-                                                                })), null);
-                                              }) : t`no players yet`
-                                      }),
-                                  className: "w-full"
-                                }),
-                            JsxRuntime.jsx("em", {
-                                  children: match$1.isLoadingNext ? "..." : (
-                                      match$1.hasNext ? JsxRuntime.jsx("a", {
-                                              children: t`load More`,
-                                              onClick: onLoadMore
-                                            }) : null
-                                    )
-                                })
-                          ]
-                        }),
+              children: JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx(AddLeagueMatch$SortAction, {
+                            sortDir: sortDir,
+                            setSortDir: match$2[1]
+                          }),
+                      JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                            children: [
+                              JsxRuntime.jsx("ul", {
+                                    children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                                          children: players.length !== 0 ? players.toSorted(function (a, b) {
+                                                    var userA = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(a.rating, (function (r) {
+                                                                    return r.mu;
+                                                                  })), (function (r) {
+                                                                return r;
+                                                              })), 0);
+                                                    var userB = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(b.rating, (function (r) {
+                                                                    return r.mu;
+                                                                  })), (function (r) {
+                                                                return r;
+                                                              })), 0);
+                                                    if (userA < userB) {
+                                                      if (sortDir === "Desc") {
+                                                        return 1;
+                                                      } else {
+                                                        return -1;
+                                                      }
+                                                    } else if (sortDir === "Desc") {
+                                                      return -1;
+                                                    } else {
+                                                      return 1;
+                                                    }
+                                                  }).map(function (edge) {
+                                                  return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
+                                                                    var disabled$1 = Core__Option.getOr(Core__Option.map(disabled, (function (disabled) {
+                                                                                return disabled.findIndex(function (player) {
+                                                                                            return player.id === user.id;
+                                                                                          }) >= 0;
+                                                                              })), false);
+                                                                    return JsxRuntime.jsxs(FramerMotion.motion.li, {
+                                                                                className: "mt-4 flex w-full flex-none gap-x-4 px-6",
+                                                                                style: {
+                                                                                  originX: 0.05,
+                                                                                  originY: 0.05
+                                                                                },
+                                                                                animate: {
+                                                                                  opacity: 1,
+                                                                                  scale: 1
+                                                                                },
+                                                                                initial: {
+                                                                                  opacity: 0,
+                                                                                  scale: 1.15
+                                                                                },
+                                                                                exit: {
+                                                                                  opacity: 0,
+                                                                                  scale: 1.15
+                                                                                },
+                                                                                layout: true,
+                                                                                children: [
+                                                                                  JsxRuntime.jsx("div", {
+                                                                                        children: JsxRuntime.jsx("span", {
+                                                                                              children: t`Player`,
+                                                                                              className: "sr-only"
+                                                                                            }),
+                                                                                        className: "flex-none"
+                                                                                      }),
+                                                                                  JsxRuntime.jsx("div", {
+                                                                                        children: JsxRuntime.jsx("a", {
+                                                                                              children: JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                                                    user: user.fragmentRefs,
+                                                                                                    highlight: selected.findIndex(function (player) {
+                                                                                                          return player.id === user.id;
+                                                                                                        }) >= 0,
+                                                                                                    ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
+                                                                                                                return Core__Option.map(rating.mu, (function (mu) {
+                                                                                                                              return (mu - minRating) / (maxRating - minRating) * 100;
+                                                                                                                            }));
+                                                                                                              })), 0)
+                                                                                                  }),
+                                                                                              href: "#",
+                                                                                              onClick: (function (e) {
+                                                                                                  e.preventDefault();
+                                                                                                  if (disabled$1) {
+                                                                                                    
+                                                                                                  } else {
+                                                                                                    Core__Option.map(onSelectPlayer, (function (f) {
+                                                                                                            f(edge);
+                                                                                                          }));
+                                                                                                  }
+                                                                                                })
+                                                                                            }),
+                                                                                        className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", disabled$1 ? "opacity-50" : "")
+                                                                                      })
+                                                                                ]
+                                                                              }, user.id);
+                                                                  })), null);
+                                                }) : t`no players yet`
+                                        }),
+                                    className: "w-full"
+                                  }),
+                              JsxRuntime.jsx("em", {
+                                    children: match$1.isLoadingNext ? "..." : (
+                                        match$1.hasNext ? JsxRuntime.jsx("a", {
+                                                children: t`load More`,
+                                                onClick: onLoadMore
+                                              }) : null
+                                      )
+                                  })
+                            ]
+                          })
+                    ],
                     className: "mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4"
                   }),
               className: "rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5"
@@ -226,6 +299,145 @@ var SelectEventPlayersList = {
   make: AddLeagueMatch$SelectEventPlayersList
 };
 
+function AddLeagueMatch$PredictionBar(props) {
+  var odds = props.odds;
+  var odds$1 = odds[1] - odds[0];
+  var leftOdds = odds$1 < 0 ? Math.abs(odds$1 * 100) : 0;
+  var rightOdds = odds$1 < 0 ? 0 : odds$1 * 100;
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("div", {
+                      children: odds$1 < 0 ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.MoveLeft, {
+                                      className: "inline",
+                                      color: "red"
+                                    }),
+                                t`predicted winner`,
+                                JsxRuntime.jsx(LucideReact.MoveRight, {
+                                      className: "inline",
+                                      color: "#929292"
+                                    })
+                              ]
+                            }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.MoveLeft, {
+                                      className: "inline",
+                                      color: "#929292"
+                                    }),
+                                t`predicted winner`,
+                                JsxRuntime.jsx(LucideReact.MoveRight, {
+                                      className: "inline",
+                                      color: "red"
+                                    })
+                              ]
+                            }),
+                      className: "col-span-2 text-center"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx(FramerMotion.motion.div, {
+                            className: "h-2 rounded-l-full bg-red-400 float-right",
+                            animate: {
+                              width: leftOdds.toFixed(3) + "%"
+                            },
+                            initial: {
+                              width: "0%"
+                            }
+                          }),
+                      className: "overflow-hidden rounded-l-full bg-gray-200 mt-1 place-content-end border-r-4 border-black"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx(FramerMotion.motion.div, {
+                            className: "h-2 rounded-r-full bg-blue-400",
+                            animate: {
+                              width: rightOdds.toFixed(3) + "%"
+                            },
+                            initial: {
+                              width: "0%"
+                            }
+                          }),
+                      className: "overflow-hidden rounded-r-full bg-gray-200 mt-1 border-l-4 border-black border-l-radius"
+                    })
+              ],
+              className: "grid grid-cols-2 gap-0"
+            });
+}
+
+var PredictionBar = {
+  make: AddLeagueMatch$PredictionBar
+};
+
+function AddLeagueMatch$Match(props) {
+  var maxRating = props.maxRating;
+  var minRating = props.minRating;
+  var team2 = props.team2;
+  var team1 = props.team1;
+  var outcome = use$2({
+        input: {
+          team1RatingIds: team1.map(function (node) {
+                return Core__Option.getOr(Core__Option.map(node.rating, (function (rating) {
+                                  return rating.id;
+                                })), "");
+              }),
+          team2RatingIds: team2.map(function (node) {
+                return Core__Option.getOr(Core__Option.map(node.rating, (function (rating) {
+                                  return rating.id;
+                                })), "");
+              })
+        }
+      }, undefined, undefined, undefined).predictMatchOutcome;
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("div", {
+                      children: team1.map(function (playerRsvp) {
+                            return Core__Option.getOr(Core__Option.map(playerRsvp.user, (function (user) {
+                                              return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                          user: user.fragmentRefs,
+                                                          ratingPercent: Core__Option.getOr(Core__Option.flatMap(playerRsvp.rating, (function (rating) {
+                                                                      return Core__Option.map(rating.mu, (function (mu) {
+                                                                                    return (mu - minRating) / (maxRating - minRating) * 100;
+                                                                                  }));
+                                                                    })), 0)
+                                                        });
+                                            })), null);
+                          }),
+                      className: "grid gap-4"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: team2.map(function (playerRsvp) {
+                            return Core__Option.getOr(Core__Option.map(playerRsvp.user, (function (user) {
+                                              return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                          user: user.fragmentRefs,
+                                                          ratingPercent: Core__Option.getOr(Core__Option.flatMap(playerRsvp.rating, (function (rating) {
+                                                                      return Core__Option.map(rating.mu, (function (mu) {
+                                                                                    return (mu - minRating) / (maxRating - minRating) * 100;
+                                                                                  }));
+                                                                    })), 0)
+                                                        });
+                                            })), null);
+                          }),
+                      className: "grid gap-4"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: Core__Option.getOr(Core__Option.map(outcome, (function (outcome) {
+                                  return JsxRuntime.jsx(AddLeagueMatch$PredictionBar, {
+                                              odds: [
+                                                Core__Option.getOr(outcome.team1, 0),
+                                                Core__Option.getOr(outcome.team2, 0)
+                                              ]
+                                            });
+                                })), null),
+                      className: "grid gap-0 col-span-2"
+                    })
+              ],
+              className: "grid grid-cols-2 gap-4 col-span-2"
+            });
+}
+
+var Match = {
+  make: AddLeagueMatch$Match
+};
+
 var sessionContext = AppContext.SessionContext;
 
 var ControllerOfInputsMatch = {};
@@ -234,6 +446,30 @@ var schema = Zod.object({
       scoreWinner: Zod.number({}).gte(0),
       scoreLoser: Zod.number({}).gte(0)
     });
+
+function rot2(players, player) {
+  var len = players.length;
+  if (len >= 3) {
+    return [player];
+  }
+  switch (len) {
+    case 0 :
+        return [player];
+    case 1 :
+        var p1 = players[0];
+        return [
+                p1,
+                player
+              ];
+    case 2 :
+        var p2 = players[1];
+        return [
+                p2,
+                player
+              ];
+    
+  }
+}
 
 function AddLeagueMatch(props) {
   var $$event = props.event;
@@ -257,55 +493,47 @@ function AddLeagueMatch(props) {
       });
   var setLosingPlayers = match$4[1];
   var losingPlayers = match$4[0];
-  var onSelectWinningPlayer = function (playerId) {
-    setWinningPlayers(function (players) {
-          var len = players.length;
-          if (len >= 3) {
-            return [playerId];
-          }
-          switch (len) {
-            case 0 :
-                return [playerId];
-            case 1 :
-                var p1 = players[0];
-                return [
-                        p1,
-                        playerId
-                      ];
-            case 2 :
-                var p2 = players[1];
-                return [
-                        p2,
-                        playerId
-                      ];
-            
-          }
-        });
+  var match$5 = React.useState(function () {
+        return [];
+      });
+  var setWinningNodes = match$5[1];
+  var winningNodes = match$5[0];
+  var match$6 = React.useState(function () {
+        return [];
+      });
+  var setLosingNodes = match$6[1];
+  var losingNodes = match$6[0];
+  var onSelectWinningNode = function (node) {
+    if (winningNodes.findIndex(function (node$p) {
+            return Caml_obj.equal(node$p.__id, node.__id);
+          }) >= 0) {
+      return ;
+    } else {
+      Core__Option.map(node.user, (function (user) {
+              setWinningPlayers(function (players) {
+                    return rot2(players, user);
+                  });
+            }));
+      return setWinningNodes(function (nodes) {
+                  return rot2(nodes, node);
+                });
+    }
   };
-  var onSelectLosingPlayer = function (playerId) {
-    setLosingPlayers(function (players) {
-          var len = players.length;
-          if (len >= 3) {
-            return [playerId];
-          }
-          switch (len) {
-            case 0 :
-                return [playerId];
-            case 1 :
-                var p1 = players[0];
-                return [
-                        p1,
-                        playerId
-                      ];
-            case 2 :
-                var p2 = players[1];
-                return [
-                        p2,
-                        playerId
-                      ];
-            
-          }
-        });
+  var onSelectLosingNode = function (node) {
+    if (losingNodes.findIndex(function (node$p) {
+            return Caml_obj.equal(node$p.__id, node.__id);
+          }) >= 0) {
+      return ;
+    } else {
+      Core__Option.map(node.user, (function (user) {
+              setLosingPlayers(function (players) {
+                    return rot2(players, user);
+                  });
+            }));
+      return setLosingNodes(function (nodes) {
+                  return rot2(nodes, node);
+                });
+    }
   };
   var onSubmit = function (data) {
     Core__Option.flatMap(activity, (function (activity) {
@@ -324,12 +552,16 @@ function AddLeagueMatch(props) {
                                   activitySlug: slug,
                                   doublesMatch: {
                                     createdAt: Util.Datetime.fromDate(new Date()),
-                                    losers: losingPlayers,
+                                    losers: losingPlayers.map(function (p) {
+                                          return p.id;
+                                        }),
                                     score: [
                                       data.scoreWinner,
                                       data.scoreLoser
                                     ],
-                                    winners: winningPlayers
+                                    winners: winningPlayers.map(function (p) {
+                                          return p.id;
+                                        })
                                   },
                                   namespace: "doubles:rec"
                                 }
@@ -339,6 +571,30 @@ function AddLeagueMatch(props) {
                         }));
           }));
   };
+  var match$7 = usePagination($$event);
+  var players = getConnectionNodes(match$7.data.rsvps);
+  var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
+          if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                        return r.mu;
+                      })), 0) > acc) {
+            return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                              return r.mu;
+                            })), 0);
+          } else {
+            return acc;
+          }
+        }));
+  var minRating = Core__Array.reduce(players, maxRating, (function (acc, next) {
+          if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                        return r.mu;
+                      })), maxRating) < acc) {
+            return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
+                              return r.mu;
+                            })), maxRating);
+          } else {
+            return acc;
+          }
+        }));
   return JsxRuntime.jsx(Layout.Container.make, {
               children: JsxRuntime.jsx("form", {
                     children: JsxRuntime.jsxs("div", {
@@ -358,7 +614,9 @@ function AddLeagueMatch(props) {
                                             JsxRuntime.jsx(AddLeagueMatch$SelectEventPlayersList, {
                                                   event: $$event,
                                                   selected: winningPlayers,
-                                                  onSelectPlayer: onSelectWinningPlayer
+                                                  onSelectPlayer: onSelectWinningNode,
+                                                  minRating: minRating,
+                                                  maxRating: maxRating
                                                 })
                                           ],
                                           "aria-labelledby": "section-1-title",
@@ -369,7 +627,7 @@ function AddLeagueMatch(props) {
                                                 label: t`Winner Points`,
                                                 className: "w-11 sm:w-24 md:w-32  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6",
                                                 id: "scoreWinner",
-                                                type_: "number",
+                                                type_: "text",
                                                 register: register("scoreWinner", {
                                                       setValueAs: (function (v) {
                                                           if (v === "") {
@@ -383,7 +641,7 @@ function AddLeagueMatch(props) {
                                           className: "mx-auto col-span-2"
                                         })
                                   ],
-                                  className: "grid grid-cols-1 gap-4 lg:col-span-2"
+                                  className: "grid grid-cols-1 gap-4"
                                 }),
                             JsxRuntime.jsxs("div", {
                                   children: [
@@ -400,7 +658,10 @@ function AddLeagueMatch(props) {
                                             JsxRuntime.jsx(AddLeagueMatch$SelectEventPlayersList, {
                                                   event: $$event,
                                                   selected: losingPlayers,
-                                                  onSelectPlayer: onSelectLosingPlayer
+                                                  disabled: winningPlayers,
+                                                  onSelectPlayer: onSelectLosingNode,
+                                                  minRating: minRating,
+                                                  maxRating: maxRating
                                                 })
                                           ],
                                           "aria-labelledby": "section-2-title",
@@ -411,7 +672,7 @@ function AddLeagueMatch(props) {
                                                 label: t`Loser Points`,
                                                 className: "w-11 sm:w-24 md:w-32 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6",
                                                 id: "scoreLoser",
-                                                type_: "number",
+                                                type_: "text",
                                                 register: register("scoreLoser", {
                                                       setValueAs: (function (v) {
                                                           if (v === "") {
@@ -425,7 +686,21 @@ function AddLeagueMatch(props) {
                                           className: "mx-auto col-span-2"
                                         })
                                   ],
-                                  className: "grid grid-cols-2 lg:col-span-2 gap-4"
+                                  className: "grid grid-cols-1 gap-4"
+                                }),
+                            JsxRuntime.jsx("div", {
+                                  children: JsxRuntime.jsx(React.Suspense, {
+                                        children: Caml_option.some(JsxRuntime.jsx(AddLeagueMatch$Match, {
+                                                  team1: winningNodes,
+                                                  team2: losingNodes,
+                                                  minRating: minRating,
+                                                  maxRating: maxRating
+                                                })),
+                                        fallback: Caml_option.some(JsxRuntime.jsx("div", {
+                                                  children: t`Loading`
+                                                }))
+                                      }),
+                                  className: "grid grid-cols-2 gap-4 md:col-span-2"
                                 }),
                             JsxRuntime.jsx("div", {
                                   children: JsxRuntime.jsx("input", {
@@ -433,10 +708,10 @@ function AddLeagueMatch(props) {
                                         type: "submit",
                                         value: "Submit"
                                       }),
-                                  className: "lg:col-span-4 gap-4"
+                                  className: "md:col-span-2 gap-4"
                                 })
                           ],
-                          className: "grid grid-cols-1 items-start gap-4 lg:grid-cols-4 lg:gap-8"
+                          className: "grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8"
                         }),
                     onSubmit: match$1.handleSubmit(onSubmit)
                   })
@@ -450,10 +725,15 @@ var $$default = AddLeagueMatch;
 export {
   Fragment ,
   CreateLeagueMatchMutation ,
+  PredictMatchOutcome ,
+  SortAction ,
   SelectEventPlayersList ,
+  PredictionBar ,
+  Match ,
   sessionContext ,
   ControllerOfInputsMatch ,
   schema ,
+  rot2 ,
   make ,
   $$default as default,
 }

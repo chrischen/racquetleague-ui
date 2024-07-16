@@ -56,6 +56,18 @@ v1 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
+},
+v2 = {
+  "kind": "ClientExtension",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "__id",
+      "storageKey": null
+    }
+  ]
 };
 return {
   "argumentDefinitions": [
@@ -192,6 +204,7 @@ return {
                   ],
                   "storageKey": null
                 },
+                (v2/*: any*/),
                 {
                   "alias": null,
                   "args": null,
@@ -248,18 +261,7 @@ return {
       "storageKey": null
     },
     (v1/*: any*/),
-    {
-      "kind": "ClientExtension",
-      "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "__id",
-          "storageKey": null
-        }
-      ]
-    }
+    (v2/*: any*/)
   ],
   "type": "Event",
   "abstractKey": null

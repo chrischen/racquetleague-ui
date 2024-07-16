@@ -70,6 +70,7 @@
     "lucide-react": "^0.295.0",
     "meros": "^1.3.0",
     "react": "18.3.0-canary-e373190fa-20240325",
+    "react-calendar": "^5.0.0",
     "react-dom": "18.3.0-canary-e373190fa-20240325",
     "react-helmet-async": "^1.3.0",
     "react-hook-form": "^7.51.5",

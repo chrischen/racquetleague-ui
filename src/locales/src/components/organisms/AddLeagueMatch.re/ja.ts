@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"X/qsY6\":\"もっと読み込む\",\"Zv81lg\":\"敗者ポイント\",\"827u5r\":\"まだプレイヤーはいません\",\"vRayGs\":\"プレイヤー\",\"/5sKgB\":\"敗者を選択\",\"hN/Ko1\":\"勝者を選択\",\"hmkH4p\":\"勝者ポイント\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"X/qsY6\":\"もっと読み込む\",\"yQE2r9\":\"読み込み中\",\"Zv81lg\":\"敗者ポイント\",\"827u5r\":\"まだプレイヤーはいません\",\"vRayGs\":\"プレイヤー\",\"oqJvMR\":\"予測される勝者\",\"/5sKgB\":\"敗者を選択\",\"hN/Ko1\":\"勝者を選択\",\"hmkH4p\":\"勝者ポイント\"}");
