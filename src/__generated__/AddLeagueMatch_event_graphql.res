@@ -12,9 +12,11 @@ module Types = {
     @live id: string,
     mu: option<float>,
     ordinal: option<float>,
+    sigma: option<float>,
   }
   and fragment_rsvps_edges_node_user = {
     @live id: string,
+    lineUsername: option<string>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvpUser_user]>,
   }
   and fragment_rsvps_edges_node = {
@@ -231,6 +233,13 @@ return {
                   "selections": [
                     (v1/*: any*/),
                     {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "lineUsername",
+                      "storageKey": null
+                    },
+                    {
                       "args": null,
                       "kind": "FragmentSpread",
                       "name": "EventRsvpUser_user"
@@ -252,6 +261,13 @@ return {
                       "args": null,
                       "kind": "ScalarField",
                       "name": "mu",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "sigma",
                       "storageKey": null
                     },
                     {

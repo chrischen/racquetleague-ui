@@ -11,6 +11,8 @@ import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
 
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
 
+import type {Types_eventFilters as EventsQuery_graphql_Types_eventFilters} from '../../../src/__generated__/EventsQuery_graphql.gen';
+
 import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen';
 
 import type {data as WaitForMessages_data} from '../../../src/components/shared/i18n/WaitForMessages.gen';
@@ -23,6 +25,7 @@ export type params = {
   readonly after?: string; 
   readonly afterDate?: Util_Datetime_t; 
   readonly before?: string; 
+  readonly filters?: EventsQuery_graphql_Types_eventFilters; 
   readonly first?: number; 
   readonly lang: (undefined | string)
 };

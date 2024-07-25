@@ -24,11 +24,13 @@ module Fragment = %relay(`
           __id
           user {
             id
+            lineUsername
             ...EventRsvpUser_user
           }
           rating {
             id
             mu
+            sigma
             ordinal
           }
         }
@@ -83,12 +85,12 @@ module SortAction = {
   type sortDir = Asc | Desc
   @react.component
   let make = (~sortDir, ~setSortDir) => {
-    <a href="#" onClick={e => {setSortDir(dir => dir == Asc ? Desc : Asc)}}>
+    <UiAction onClick={() => {setSortDir(dir => dir == Asc ? Desc : Asc)}}>
       {switch sortDir {
       | Asc => <Lucide.ArrowUpNarrowWide />
       | Desc => <Lucide.ArrowDownWideNarrow />
       }}
-    </a>
+    </UiAction>
   }
 }
 
@@ -97,7 +99,7 @@ module SelectEventPlayersList = {
   let make = (
     ~event,
     ~selected: array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node_user>,
-    ~disabled: array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node_user>=?,
+    ~disabled: option<array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node_user>>=?,
     ~onSelectPlayer: option<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node => unit>=?,
     ~minRating=0.,
     ~maxRating=1.,
@@ -351,6 +353,21 @@ let rot2 = (players, player) =>
   | [] => [player]
   | _ => [player]
   }
+
+let rsvpToPlayer = (rsvp: AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node) => {
+  switch (rsvp.user->Option.map(u => u.id), rsvp.rating) {
+  | (Some(userId), Some(rating)) =>
+    {
+      ManagedSession.Player.id: userId,
+      name: rsvp.user->Option.flatMap(u => u.lineUsername)->Option.getOr(""),
+      rating: switch (rating.mu, rating.sigma) {
+      | (Some(mu), Some(sigma)) => ManagedSession.Rating.make(mu, sigma)
+      | _ => ManagedSession.Rating.makeDefault()
+      },
+    }->Some
+  | _ => None
+  }
+}
 @genType @react.component
 let make = (~event) => {
   open Form
@@ -363,10 +380,11 @@ let make = (~event) => {
   )
   let (commitMutationCreateLeagueMatch, _isMutationInFlight) = CreateLeagueMatchMutation.use()
 
-  let (winningPlayers, setWinningPlayers) = React.useState(() => [])
-  let (losingPlayers, setLosingPlayers) = React.useState(() => [])
+  // let (winningPlayers, setWinningPlayers) = React.useState(() => [])
+  // let (losingPlayers, setLosingPlayers) = React.useState(() => [])
   let (winningNodes, setWinningNodes) = React.useState(() => [])
   let (losingNodes, setLosingNodes) = React.useState(() => [])
+  // let (selectedMatch: option<ManagedSession.Match.t>, setSelectedMatch) = React.useState(() => None)
 
   // let onCreateMatch = _ => {
   //   let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -400,13 +418,13 @@ let make = (~event) => {
     ) => node'.__id == node.__id) >= 0 {
     | true => ()
     | false =>
-      node.user
-      ->Option.map(user => {
-        setWinningPlayers(players => {
-          players->rot2(user)
-        })->ignore
-      })
-      ->ignore
+      // node.user
+      // ->Option.map(user => {
+      //   setWinningPlayers(players => {
+      //     players->rot2(user)
+      //   })->ignore
+      // })
+      // ->ignore
       setWinningNodes(nodes => {
         nodes->rot2(node)
       })
@@ -419,13 +437,13 @@ let make = (~event) => {
     ) => node'.__id == node.__id) >= 0 {
     | true => ()
     | false =>
-      node.user
-      ->Option.map(user => {
-        setLosingPlayers(players => {
-          players->rot2(user)
-        })->ignore
-      })
-      ->ignore
+      // node.user
+      // ->Option.map(user => {
+      //   setLosingPlayers(players => {
+      //     players->rot2(user)
+      //   })->ignore
+      // })
+      // ->ignore
       setLosingNodes(nodes => {
         nodes->rot2(node)
       })
@@ -455,8 +473,8 @@ let make = (~event) => {
               activitySlug: slug,
               namespace: "doubles:rec",
               doublesMatch: {
-                winners: winningPlayers->Array.map(p => p.id),
-                losers: losingPlayers->Array.map(p => p.id),
+                winners: winningNodes->Array.filterMap(n => n.user)->Array.map(p => p.id),
+                losers: losingNodes->Array.filterMap(n => n.user)->Array.map(p => p.id),
                 score: [data.scoreWinner, data.scoreLoser],
                 createdAt: Js.Date.make()->Util.Datetime.fromDate,
               },
@@ -489,6 +507,43 @@ let make = (~event) => {
     )
 
   <Layout.Container>
+    <ManagedSession
+      players={players->Array.filterMap(rsvpToPlayer)}
+      onSelectMatch={(((p1', p2'), (p3', p4'))) => {
+        setWinningNodes(prevNodes => {
+          switch prevNodes {
+          | [p1, _] =>
+            p1.user->Option.map(u => u.id == p1'.id || u.id == p2'.id)->Option.getOr(false)
+              ? players->Array.filterMap(p =>
+                  p.user->Option.flatMap(u => u.id == p3'.id || u.id == p4'.id ? Some(p): None)
+                )
+              : players->Array.filterMap(p =>
+                  p.user->Option.flatMap(u => u.id == p1'.id || u.id == p2'.id ? Some(p): None)
+                )
+          | _ =>
+            players->Array.filterMap(p =>
+              p.user->Option.flatMap(u => u.id == p1'.id || u.id == p2'.id ? Some(p): None)
+            )
+          }
+        })
+        setLosingNodes(prevNodes => {
+          switch prevNodes {
+          | [p1, _] =>
+            p1.user->Option.map(u => u.id == p3'.id || u.id == p4'.id)->Option.getOr(false)
+              ? players->Array.filterMap(p =>
+                  p.user->Option.flatMap(u => u.id == p1'.id || u.id == p2'.id ? Some(p): None)
+                )
+              : players->Array.filterMap(p =>
+                  p.user->Option.flatMap(u => u.id == p3'.id || u.id == p4'.id ? Some(p): None)
+                )
+          | _ =>
+            players->Array.filterMap(p =>
+              p.user->Option.flatMap(u => u.id == p3'.id || u.id == p4'.id ? Some(p): None)
+            )
+          }
+        })
+      }}
+    />
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8">
         <div className="grid grid-cols-1 gap-4">
@@ -497,7 +552,7 @@ let make = (~event) => {
             <h2> {t`Select Winners`} </h2>
             <SelectEventPlayersList
               event={event}
-              selected={winningPlayers}
+              selected={winningNodes->Array.filterMap(n => n.user)}
               onSelectPlayer=onSelectWinningNode
               minRating
               maxRating
@@ -526,8 +581,8 @@ let make = (~event) => {
             <h2> {t`Select Losers`} </h2>
             <SelectEventPlayersList
               event={event}
-              selected={losingPlayers}
-              disabled={winningPlayers}
+              selected={losingNodes->Array.filterMap(n => n.user)}
+              disabled={winningNodes->Array.filterMap(n => n.user)}
               onSelectPlayer=onSelectLosingNode
               minRating
               maxRating

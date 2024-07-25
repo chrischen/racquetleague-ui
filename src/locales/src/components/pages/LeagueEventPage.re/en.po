@@ -33,6 +33,10 @@ msgstr ""
 #~ msgid "confirmed"
 #~ msgstr ""
 
+#: src/components/organisms/ManagedSession.re.mjs:238
+msgid "court {0}"
+msgstr ""
+
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:30
 #: src/components/organisms/EventRsvps.re.mjs:214
 #: src/components/organisms/EventRsvps.re.mjs:236
@@ -50,7 +54,7 @@ msgstr ""
 #~ msgid "leave event"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:284
+#: src/components/organisms/AddLeagueMatch.re.mjs:285
 msgid "load More"
 msgstr ""
 
@@ -58,7 +62,7 @@ msgstr ""
 msgid "Load more matches..."
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:700
+#: src/components/organisms/AddLeagueMatch.re.mjs:793
 msgid "Loading"
 msgstr ""
 
@@ -74,7 +78,7 @@ msgstr ""
 #~ msgid "login with Line"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:672
+#: src/components/organisms/AddLeagueMatch.re.mjs:765
 msgid "Loser Points"
 msgstr ""
 
@@ -82,16 +86,16 @@ msgstr ""
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:277
+#: src/components/organisms/AddLeagueMatch.re.mjs:278
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:242
+#: src/components/organisms/AddLeagueMatch.re.mjs:243
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:316
-#: src/components/organisms/AddLeagueMatch.re.mjs:328
+#: src/components/organisms/AddLeagueMatch.re.mjs:317
+#: src/components/organisms/AddLeagueMatch.re.mjs:329
 msgid "predicted winner"
 msgstr ""
 
@@ -99,11 +103,15 @@ msgstr ""
 msgid "Score:"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:656
+#: src/components/organisms/ManagedSession.re.mjs:212
+msgid "select all"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:745
 msgid "Select Losers"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:612
+#: src/components/organisms/AddLeagueMatch.re.mjs:699
 msgid "Select Winners"
 msgstr ""
 
@@ -111,6 +119,6 @@ msgstr ""
 #~ msgid "waitlist"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:627
+#: src/components/organisms/AddLeagueMatch.re.mjs:716
 msgid "Winner Points"
 msgstr ""

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"zlcdvL\":[\"コート \",[\"0\"]],\"MddtWw\":\"すべて選択\"}");

@@ -281,14 +281,14 @@ return {
                                 "alias": null,
                                 "args": null,
                                 "kind": "ScalarField",
-                                "name": "picture",
+                                "name": "lineUsername",
                                 "storageKey": null
                               },
                               {
                                 "alias": null,
                                 "args": null,
                                 "kind": "ScalarField",
-                                "name": "lineUsername",
+                                "name": "picture",
                                 "storageKey": null
                               }
                             ],
@@ -308,6 +308,13 @@ return {
                                 "args": null,
                                 "kind": "ScalarField",
                                 "name": "mu",
+                                "storageKey": null
+                              },
+                              {
+                                "alias": null,
+                                "args": null,
+                                "kind": "ScalarField",
+                                "name": "sigma",
                                 "storageKey": null
                               },
                               {
@@ -391,12 +398,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "6801040cf1bb39191567097c033fe449",
+    "cacheID": "6c927fb7a940c6d424728760c831a4d7",
     "id": null,
     "metadata": {},
     "name": "LeagueEventRsvpsRefetchQuery",
     "operationKind": "query",
-    "text": "query LeagueEventRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 50\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...AddLeagueMatch_event_4uAqg1\n    id\n  }\n}\n\nfragment AddLeagueMatch_event_4uAqg1 on Event {\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n"
+    "text": "query LeagueEventRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 50\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...AddLeagueMatch_event_4uAqg1\n    id\n  }\n}\n\nfragment AddLeagueMatch_event_4uAqg1 on Event {\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n"
   }
 };
 })() `)

@@ -835,6 +835,26 @@ msgstr "フィルターをクリア"
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 
+#: src/components/organisms/ManagedSession.re.mjs:238
+msgid "court {0}"
+msgstr "コート {0}"
+
+#: src/components/organisms/ManagedSession.re.mjs:212
+msgid "select all"
+msgstr "すべて選択"
+
+#: src/components/pages/Events.re.mjs:83
+msgid "all"
+msgstr "すべて"
+
+#: src/components/pages/Events.re.mjs:123
+msgid "badminton"
+msgstr "バドミントン"
+
+#: src/components/pages/Events.re.mjs:103
+msgid "pickleball"
+msgstr "ピクルボール"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

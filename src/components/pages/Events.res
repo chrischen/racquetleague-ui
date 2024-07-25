@@ -3,9 +3,9 @@
 open Lingui.Util
 
 module EventsQuery = %relay(`
-  query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime) {
-    ... EventsListFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate)
-    ... CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate)
+  query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
+    ... EventsListFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate, filters: $filters)
+    ... CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate, filters: $filters)
   }
 `)
 /* module Fragment = %relay(`
@@ -40,7 +40,35 @@ let make = () => {
           <Grid>
             <PageTitle> {t`all events`} </PageTitle>
             <div>
-              <Link to={"/"}> {t`public events`} </Link>
+              <Link to={"/"}> {t`all`} </Link>
+              {" "->React.string}
+              <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
+                <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
+              </svg>
+              {" "->React.string}
+              <LinkWithOpts
+                to={
+                  pathname: "",
+                  search: Router.createSearchParams({
+                    "activity": "pickleball",
+                  })->Router.SearchParams.toString,
+                }>
+                {t`pickleball`}
+              </LinkWithOpts>
+              {" "->React.string}
+              <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
+                <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
+              </svg>
+              {" "->React.string}
+              <LinkWithOpts
+                to={
+                  pathname: "",
+                  search: Router.createSearchParams({
+                    "activity": "badminton",
+                  })->Router.SearchParams.toString,
+                }>
+                {t`badminton`}
+              </LinkWithOpts>
               {viewer.user
               ->Option.map(_ => <>
                 {" "->React.string}
@@ -105,22 +133,27 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
+  let activity = url.searchParams->Router.SearchParams.get("activity")
   let afterDate =
     url.searchParams
     ->Router.SearchParams.get("afterDate")
     ->Option.map(d => {
-      Js.log("After date");
-      Js.log(d)
-      d->Js.Date.fromString->Util.Datetime.fromDate})
+      d->Js.Date.fromString->Util.Datetime.fromDate
+    })
     ->Option.getOr(Js.Date.make()->Util.Datetime.fromDate)
-    Js.log(afterDate);
 
-  // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
     WaitForMessages.data: EventsQuery_graphql.load(
       ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-      ~variables={?after, ?before, afterDate},
+      ~variables={
+        ?after,
+        ?before,
+        afterDate,
+        filters: {
+          activitySlug: ?activity,
+        },
+      },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),
     // i18nLoaders: Localized.loadMessages(params.lang, loadMessages),

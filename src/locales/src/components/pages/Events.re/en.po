@@ -94,8 +94,16 @@ msgstr ""
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
+#: src/components/pages/Events.re.mjs:83
+msgid "all"
+msgstr ""
+
 #: src/components/pages/Events.re.mjs:77
 msgid "all events"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:123
+msgid "badminton"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:559
@@ -122,12 +130,16 @@ msgstr ""
 #~ msgid "load previous"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:117
+#: src/components/pages/Events.re.mjs:157
 msgid "loading events..."
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:101
+#: src/components/pages/Events.re.mjs:141
 msgid "my events"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:103
+msgid "pickleball"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:415
@@ -135,8 +147,8 @@ msgid "players"
 msgstr ""
 
 #: src/components/pages/Events.re.mjs:83
-msgid "public events"
-msgstr ""
+#~ msgid "public events"
+#~ msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:538
 msgid "share as text"

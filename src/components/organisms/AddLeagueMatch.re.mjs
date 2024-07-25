@@ -6,6 +6,7 @@ import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
@@ -15,6 +16,7 @@ import * as Core from "@linaria/core";
 import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
+import * as ManagedSession from "./ManagedSession.re.mjs";
 import * as ReactHookForm from "react-hook-form";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -136,10 +138,8 @@ function AddLeagueMatch$SortAction(props) {
   var setSortDir = props.setSortDir;
   var tmp;
   tmp = props.sortDir === "Asc" ? JsxRuntime.jsx(LucideReact.ArrowUpNarrowWide, {}) : JsxRuntime.jsx(LucideReact.ArrowDownWideNarrow, {});
-  return JsxRuntime.jsx("a", {
-              children: tmp,
-              href: "#",
-              onClick: (function (e) {
+  return JsxRuntime.jsx(UiAction.make, {
+              onClick: (function () {
                   setSortDir(function (dir) {
                         if (dir === "Asc") {
                           return "Desc";
@@ -147,7 +147,8 @@ function AddLeagueMatch$SortAction(props) {
                           return "Asc";
                         }
                       });
-                })
+                }),
+              children: tmp
             });
 }
 
@@ -471,6 +472,28 @@ function rot2(players, player) {
   }
 }
 
+function rsvpToPlayer(rsvp) {
+  var match = Core__Option.map(rsvp.user, (function (u) {
+          return u.id;
+        }));
+  var match$1 = rsvp.rating;
+  if (match === undefined) {
+    return ;
+  }
+  if (match$1 === undefined) {
+    return ;
+  }
+  var match$2 = match$1.mu;
+  var match$3 = match$1.sigma;
+  return {
+          id: match,
+          name: Core__Option.getOr(Core__Option.flatMap(rsvp.user, (function (u) {
+                      return u.lineUsername;
+                    })), ""),
+          rating: match$2 !== undefined && match$3 !== undefined ? ManagedSession.Rating.make(match$2, match$3) : ManagedSession.Rating.makeDefault()
+        };
+}
+
 function AddLeagueMatch(props) {
   var $$event = props.event;
   var match = use($$event);
@@ -486,34 +509,19 @@ function AddLeagueMatch(props) {
   var match$3 = React.useState(function () {
         return [];
       });
-  var setWinningPlayers = match$3[1];
-  var winningPlayers = match$3[0];
+  var setWinningNodes = match$3[1];
+  var winningNodes = match$3[0];
   var match$4 = React.useState(function () {
         return [];
       });
-  var setLosingPlayers = match$4[1];
-  var losingPlayers = match$4[0];
-  var match$5 = React.useState(function () {
-        return [];
-      });
-  var setWinningNodes = match$5[1];
-  var winningNodes = match$5[0];
-  var match$6 = React.useState(function () {
-        return [];
-      });
-  var setLosingNodes = match$6[1];
-  var losingNodes = match$6[0];
+  var setLosingNodes = match$4[1];
+  var losingNodes = match$4[0];
   var onSelectWinningNode = function (node) {
     if (winningNodes.findIndex(function (node$p) {
             return Caml_obj.equal(node$p.__id, node.__id);
           }) >= 0) {
       return ;
     } else {
-      Core__Option.map(node.user, (function (user) {
-              setWinningPlayers(function (players) {
-                    return rot2(players, user);
-                  });
-            }));
       return setWinningNodes(function (nodes) {
                   return rot2(nodes, node);
                 });
@@ -525,11 +533,6 @@ function AddLeagueMatch(props) {
           }) >= 0) {
       return ;
     } else {
-      Core__Option.map(node.user, (function (user) {
-              setLosingPlayers(function (players) {
-                    return rot2(players, user);
-                  });
-            }));
       return setLosingNodes(function (nodes) {
                   return rot2(nodes, node);
                 });
@@ -552,14 +555,18 @@ function AddLeagueMatch(props) {
                                   activitySlug: slug,
                                   doublesMatch: {
                                     createdAt: Util.Datetime.fromDate(new Date()),
-                                    losers: losingPlayers.map(function (p) {
+                                    losers: Core__Array.filterMap(losingNodes, (function (n) {
+                                              return n.user;
+                                            })).map(function (p) {
                                           return p.id;
                                         }),
                                     score: [
                                       data.scoreWinner,
                                       data.scoreLoser
                                     ],
-                                    winners: winningPlayers.map(function (p) {
+                                    winners: Core__Array.filterMap(winningNodes, (function (n) {
+                                              return n.user;
+                                            })).map(function (p) {
                                           return p.id;
                                         })
                                   },
@@ -571,8 +578,8 @@ function AddLeagueMatch(props) {
                         }));
           }));
   };
-  var match$7 = usePagination($$event);
-  var players = getConnectionNodes(match$7.data.rsvps);
+  var match$5 = usePagination($$event);
+  var players = getConnectionNodes(match$5.data.rsvps);
   var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
           if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
                         return r.mu;
@@ -595,126 +602,213 @@ function AddLeagueMatch(props) {
             return acc;
           }
         }));
-  return JsxRuntime.jsx(Layout.Container.make, {
-              children: JsxRuntime.jsx("form", {
-                    children: JsxRuntime.jsxs("div", {
-                          children: [
-                            JsxRuntime.jsxs("div", {
-                                  children: [
-                                    JsxRuntime.jsxs("section", {
-                                          children: [
-                                            JsxRuntime.jsx("h2", {
-                                                  children: "Winners",
-                                                  className: "sr-only",
-                                                  id: "section-1-title"
+  return JsxRuntime.jsxs(Layout.Container.make, {
+              children: [
+                JsxRuntime.jsx(ManagedSession.make, {
+                      players: Core__Array.filterMap(players, rsvpToPlayer),
+                      onSelectMatch: (function (param) {
+                          var match = param[1];
+                          var p4$p = match[1];
+                          var p3$p = match[0];
+                          var match$1 = param[0];
+                          var p2$p = match$1[1];
+                          var p1$p = match$1[0];
+                          setWinningNodes(function (prevNodes) {
+                                if (prevNodes.length !== 2) {
+                                  return Core__Array.filterMap(players, (function (p) {
+                                                return Core__Option.flatMap(p.user, (function (u) {
+                                                              if (u.id === p1$p.id || u.id === p2$p.id) {
+                                                                return p;
+                                                              }
+                                                              
+                                                            }));
+                                              }));
+                                }
+                                var p1 = prevNodes[0];
+                                if (Core__Option.getOr(Core__Option.map(p1.user, (function (u) {
+                                              return u.id === p1$p.id ? true : u.id === p2$p.id;
+                                            })), false)) {
+                                  return Core__Array.filterMap(players, (function (p) {
+                                                return Core__Option.flatMap(p.user, (function (u) {
+                                                              if (u.id === p3$p.id || u.id === p4$p.id) {
+                                                                return p;
+                                                              }
+                                                              
+                                                            }));
+                                              }));
+                                } else {
+                                  return Core__Array.filterMap(players, (function (p) {
+                                                return Core__Option.flatMap(p.user, (function (u) {
+                                                              if (u.id === p1$p.id || u.id === p2$p.id) {
+                                                                return p;
+                                                              }
+                                                              
+                                                            }));
+                                              }));
+                                }
+                              });
+                          setLosingNodes(function (prevNodes) {
+                                if (prevNodes.length !== 2) {
+                                  return Core__Array.filterMap(players, (function (p) {
+                                                return Core__Option.flatMap(p.user, (function (u) {
+                                                              if (u.id === p3$p.id || u.id === p4$p.id) {
+                                                                return p;
+                                                              }
+                                                              
+                                                            }));
+                                              }));
+                                }
+                                var p1 = prevNodes[0];
+                                if (Core__Option.getOr(Core__Option.map(p1.user, (function (u) {
+                                              return u.id === p3$p.id ? true : u.id === p4$p.id;
+                                            })), false)) {
+                                  return Core__Array.filterMap(players, (function (p) {
+                                                return Core__Option.flatMap(p.user, (function (u) {
+                                                              if (u.id === p1$p.id || u.id === p2$p.id) {
+                                                                return p;
+                                                              }
+                                                              
+                                                            }));
+                                              }));
+                                } else {
+                                  return Core__Array.filterMap(players, (function (p) {
+                                                return Core__Option.flatMap(p.user, (function (u) {
+                                                              if (u.id === p3$p.id || u.id === p4$p.id) {
+                                                                return p;
+                                                              }
+                                                              
+                                                            }));
+                                              }));
+                                }
+                              });
+                        })
+                    }),
+                JsxRuntime.jsx("form", {
+                      children: JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("section", {
+                                            children: [
+                                              JsxRuntime.jsx("h2", {
+                                                    children: "Winners",
+                                                    className: "sr-only",
+                                                    id: "section-1-title"
+                                                  }),
+                                              JsxRuntime.jsx("h2", {
+                                                    children: t`Select Winners`
+                                                  }),
+                                              JsxRuntime.jsx(AddLeagueMatch$SelectEventPlayersList, {
+                                                    event: $$event,
+                                                    selected: Core__Array.filterMap(winningNodes, (function (n) {
+                                                            return n.user;
+                                                          })),
+                                                    onSelectPlayer: onSelectWinningNode,
+                                                    minRating: minRating,
+                                                    maxRating: maxRating
+                                                  })
+                                            ],
+                                            "aria-labelledby": "section-1-title",
+                                            className: "col-span-2"
+                                          }),
+                                      JsxRuntime.jsx("div", {
+                                            children: JsxRuntime.jsx(Form.Input.make, {
+                                                  label: t`Winner Points`,
+                                                  className: "w-11 sm:w-24 md:w-32  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6",
+                                                  id: "scoreWinner",
+                                                  type_: "text",
+                                                  register: register("scoreWinner", {
+                                                        setValueAs: (function (v) {
+                                                            if (v === "") {
+                                                              return 0;
+                                                            } else {
+                                                              return Core__Option.getOr(Core__Float.fromString(v), 1);
+                                                            }
+                                                          })
+                                                      })
                                                 }),
-                                            JsxRuntime.jsx("h2", {
-                                                  children: t`Select Winners`
+                                            className: "mx-auto col-span-2"
+                                          })
+                                    ],
+                                    className: "grid grid-cols-1 gap-4"
+                                  }),
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("section", {
+                                            children: [
+                                              JsxRuntime.jsx("h2", {
+                                                    children: "Losers",
+                                                    className: "sr-only",
+                                                    id: "section-2-title"
+                                                  }),
+                                              JsxRuntime.jsx("h2", {
+                                                    children: t`Select Losers`
+                                                  }),
+                                              JsxRuntime.jsx(AddLeagueMatch$SelectEventPlayersList, {
+                                                    event: $$event,
+                                                    selected: Core__Array.filterMap(losingNodes, (function (n) {
+                                                            return n.user;
+                                                          })),
+                                                    disabled: Core__Array.filterMap(winningNodes, (function (n) {
+                                                            return n.user;
+                                                          })),
+                                                    onSelectPlayer: onSelectLosingNode,
+                                                    minRating: minRating,
+                                                    maxRating: maxRating
+                                                  })
+                                            ],
+                                            "aria-labelledby": "section-2-title",
+                                            className: "col-span-2"
+                                          }),
+                                      JsxRuntime.jsx("div", {
+                                            children: JsxRuntime.jsx(Form.Input.make, {
+                                                  label: t`Loser Points`,
+                                                  className: "w-11 sm:w-24 md:w-32 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6",
+                                                  id: "scoreLoser",
+                                                  type_: "text",
+                                                  register: register("scoreLoser", {
+                                                        setValueAs: (function (v) {
+                                                            if (v === "") {
+                                                              return 0;
+                                                            } else {
+                                                              return Core__Option.getOr(Core__Float.fromString(v), 1);
+                                                            }
+                                                          })
+                                                      })
                                                 }),
-                                            JsxRuntime.jsx(AddLeagueMatch$SelectEventPlayersList, {
-                                                  event: $$event,
-                                                  selected: winningPlayers,
-                                                  onSelectPlayer: onSelectWinningNode,
-                                                  minRating: minRating,
-                                                  maxRating: maxRating
-                                                })
-                                          ],
-                                          "aria-labelledby": "section-1-title",
-                                          className: "col-span-2"
+                                            className: "mx-auto col-span-2"
+                                          })
+                                    ],
+                                    className: "grid grid-cols-1 gap-4"
+                                  }),
+                              JsxRuntime.jsx("div", {
+                                    children: JsxRuntime.jsx(React.Suspense, {
+                                          children: Caml_option.some(JsxRuntime.jsx(AddLeagueMatch$Match, {
+                                                    team1: winningNodes,
+                                                    team2: losingNodes,
+                                                    minRating: minRating,
+                                                    maxRating: maxRating
+                                                  })),
+                                          fallback: Caml_option.some(JsxRuntime.jsx("div", {
+                                                    children: t`Loading`
+                                                  }))
                                         }),
-                                    JsxRuntime.jsx("div", {
-                                          children: JsxRuntime.jsx(Form.Input.make, {
-                                                label: t`Winner Points`,
-                                                className: "w-11 sm:w-24 md:w-32  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6",
-                                                id: "scoreWinner",
-                                                type_: "text",
-                                                register: register("scoreWinner", {
-                                                      setValueAs: (function (v) {
-                                                          if (v === "") {
-                                                            return 0;
-                                                          } else {
-                                                            return Core__Option.getOr(Core__Float.fromString(v), 1);
-                                                          }
-                                                        })
-                                                    })
-                                              }),
-                                          className: "mx-auto col-span-2"
-                                        })
-                                  ],
-                                  className: "grid grid-cols-1 gap-4"
-                                }),
-                            JsxRuntime.jsxs("div", {
-                                  children: [
-                                    JsxRuntime.jsxs("section", {
-                                          children: [
-                                            JsxRuntime.jsx("h2", {
-                                                  children: "Losers",
-                                                  className: "sr-only",
-                                                  id: "section-2-title"
-                                                }),
-                                            JsxRuntime.jsx("h2", {
-                                                  children: t`Select Losers`
-                                                }),
-                                            JsxRuntime.jsx(AddLeagueMatch$SelectEventPlayersList, {
-                                                  event: $$event,
-                                                  selected: losingPlayers,
-                                                  disabled: winningPlayers,
-                                                  onSelectPlayer: onSelectLosingNode,
-                                                  minRating: minRating,
-                                                  maxRating: maxRating
-                                                })
-                                          ],
-                                          "aria-labelledby": "section-2-title",
-                                          className: "col-span-2"
+                                    className: "grid grid-cols-2 gap-4 md:col-span-2"
+                                  }),
+                              JsxRuntime.jsx("div", {
+                                    children: JsxRuntime.jsx("input", {
+                                          className: "mx-auto block text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
+                                          type: "submit",
+                                          value: "Submit"
                                         }),
-                                    JsxRuntime.jsx("div", {
-                                          children: JsxRuntime.jsx(Form.Input.make, {
-                                                label: t`Loser Points`,
-                                                className: "w-11 sm:w-24 md:w-32 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6",
-                                                id: "scoreLoser",
-                                                type_: "text",
-                                                register: register("scoreLoser", {
-                                                      setValueAs: (function (v) {
-                                                          if (v === "") {
-                                                            return 0;
-                                                          } else {
-                                                            return Core__Option.getOr(Core__Float.fromString(v), 1);
-                                                          }
-                                                        })
-                                                    })
-                                              }),
-                                          className: "mx-auto col-span-2"
-                                        })
-                                  ],
-                                  className: "grid grid-cols-1 gap-4"
-                                }),
-                            JsxRuntime.jsx("div", {
-                                  children: JsxRuntime.jsx(React.Suspense, {
-                                        children: Caml_option.some(JsxRuntime.jsx(AddLeagueMatch$Match, {
-                                                  team1: winningNodes,
-                                                  team2: losingNodes,
-                                                  minRating: minRating,
-                                                  maxRating: maxRating
-                                                })),
-                                        fallback: Caml_option.some(JsxRuntime.jsx("div", {
-                                                  children: t`Loading`
-                                                }))
-                                      }),
-                                  className: "grid grid-cols-2 gap-4 md:col-span-2"
-                                }),
-                            JsxRuntime.jsx("div", {
-                                  children: JsxRuntime.jsx("input", {
-                                        className: "mx-auto block text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
-                                        type: "submit",
-                                        value: "Submit"
-                                      }),
-                                  className: "md:col-span-2 gap-4"
-                                })
-                          ],
-                          className: "grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8"
-                        }),
-                    onSubmit: match$1.handleSubmit(onSubmit)
-                  })
+                                    className: "md:col-span-2 gap-4"
+                                  })
+                            ],
+                            className: "grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8"
+                          }),
+                      onSubmit: match$1.handleSubmit(onSubmit)
+                    })
+              ]
             });
 }
 
@@ -734,6 +828,7 @@ export {
   ControllerOfInputsMatch ,
   schema ,
   rot2 ,
+  rsvpToPlayer ,
   make ,
   $$default as default,
 }

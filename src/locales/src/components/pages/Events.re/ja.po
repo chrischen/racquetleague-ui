@@ -66,9 +66,17 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
+#: src/components/pages/Events.re.mjs:83
+msgid "all"
+msgstr "すべて"
+
 #: src/components/pages/Events.re.mjs:77
 msgid "all events"
 msgstr "すべてのイベント"
+
+#: src/components/pages/Events.re.mjs:123
+msgid "badminton"
+msgstr "バドミントン"
 
 #: src/components/organisms/EventsList.re.mjs:559
 msgid "clear filter"
@@ -86,21 +94,21 @@ msgstr "参加"
 msgid "load more"
 msgstr "もっと読み込む"
 
-#: src/components/pages/Events.re.mjs:117
+#: src/components/pages/Events.re.mjs:157
 msgid "loading events..."
 msgstr "イベントを読み込んでいます..."
 
-#: src/components/pages/Events.re.mjs:101
+#: src/components/pages/Events.re.mjs:141
 msgid "my events"
 msgstr "私のイベント"
+
+#: src/components/pages/Events.re.mjs:103
+msgid "pickleball"
+msgstr "ピクルボール"
 
 #: src/components/organisms/EventsList.re.mjs:415
 msgid "players"
 msgstr "プレイヤー"
-
-#: src/components/pages/Events.re.mjs:83
-msgid "public events"
-msgstr "公開イベント"
 
 #: src/components/organisms/EventsList.re.mjs:538
 msgid "share as text"
@@ -133,3 +141,7 @@ msgstr "ウェイトリスト"
 #: src/components/organisms/EventsList.re.mjs:194
 #~ msgid "Joined"
 #~ msgstr "参加"
+
+#: src/components/pages/Events.re.mjs:83
+#~ msgid "public events"
+#~ msgstr "公開イベント"

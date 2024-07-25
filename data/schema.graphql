@@ -175,6 +175,7 @@ type EventEdge {
 }
 
 input EventFilters {
+  activitySlug: String
   clubSlug: String
   locationId: ID
   userId: ID

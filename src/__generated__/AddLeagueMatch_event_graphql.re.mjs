@@ -171,6 +171,13 @@ return {
                   "selections": [
                     (v1/*: any*/),
                     {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "lineUsername",
+                      "storageKey": null
+                    },
+                    {
                       "args": null,
                       "kind": "FragmentSpread",
                       "name": "EventRsvpUser_user"
@@ -192,6 +199,13 @@ return {
                       "args": null,
                       "kind": "ScalarField",
                       "name": "mu",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "sigma",
                       "storageKey": null
                     },
                     {

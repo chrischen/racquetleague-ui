@@ -156,6 +156,7 @@ and input_DoublesMatchInput_nullable = {
 
 @live
 and input_EventFilters = {
+  activitySlug?: string,
   clubSlug?: string,
   locationId?: string,
   userId?: string,
@@ -164,6 +165,7 @@ and input_EventFilters = {
 
 @live
 and input_EventFilters_nullable = {
+  activitySlug?: Js.Null.t<string>,
   clubSlug?: Js.Null.t<string>,
   locationId?: Js.Null.t<string>,
   userId?: Js.Null.t<string>,

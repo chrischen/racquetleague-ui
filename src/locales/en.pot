@@ -937,3 +937,23 @@ msgstr ""
 #: src/components/organisms/EventsList.re.mjs:557
 msgid "filtering by date"
 msgstr ""
+
+#: src/components/organisms/ManagedSession.re.mjs:238
+msgid "court {0}"
+msgstr ""
+
+#: src/components/organisms/ManagedSession.re.mjs:212
+msgid "select all"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:83
+msgid "all"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:123
+msgid "badminton"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:103
+msgid "pickleball"
+msgstr ""

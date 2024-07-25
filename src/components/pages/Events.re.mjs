@@ -80,7 +80,47 @@ function Events(props) {
                                                     children: [
                                                       JsxRuntime.jsx(ReactRouterDom.Link, {
                                                             to: "/",
-                                                            children: t`public events`
+                                                            children: t`all`
+                                                          }),
+                                                      " ",
+                                                      JsxRuntime.jsx("svg", {
+                                                            children: JsxRuntime.jsx("circle", {
+                                                                  cx: (1).toString(undefined),
+                                                                  cy: (1).toString(undefined),
+                                                                  r: (1).toString(undefined)
+                                                                }),
+                                                            className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                            viewBox: "0 0 2 2"
+                                                          }),
+                                                      " ",
+                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                            to: {
+                                                              pathname: "",
+                                                              search: ReactRouterDom.createSearchParams({
+                                                                      activity: "pickleball"
+                                                                    }).toString()
+                                                            },
+                                                            children: t`pickleball`
+                                                          }),
+                                                      " ",
+                                                      JsxRuntime.jsx("svg", {
+                                                            children: JsxRuntime.jsx("circle", {
+                                                                  cx: (1).toString(undefined),
+                                                                  cy: (1).toString(undefined),
+                                                                  r: (1).toString(undefined)
+                                                                }),
+                                                            className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                            viewBox: "0 0 2 2"
+                                                          }),
+                                                      " ",
+                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                            to: {
+                                                              pathname: "",
+                                                              search: ReactRouterDom.createSearchParams({
+                                                                      activity: "badminton"
+                                                                    }).toString()
+                                                            },
+                                                            children: t`badminton`
                                                           }),
                                                       Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
                                                                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -139,12 +179,10 @@ async function loader(param) {
   var url = new URL(param.request.url);
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
+  var activity = Router.SearchParams.get(url.searchParams, "activity");
   var afterDate = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
-              console.log("After date");
-              console.log(d);
               return Util.Datetime.fromDate(new Date(d));
             })), Util.Datetime.fromDate(new Date()));
-  console.log(afterDate);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
@@ -152,7 +190,10 @@ async function loader(param) {
           data: EventsQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                 after: after,
                 afterDate: Caml_option.some(afterDate),
-                before: before
+                before: before,
+                filters: {
+                  activitySlug: activity
+                }
               }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
         };
