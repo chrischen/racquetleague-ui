@@ -155,6 +155,32 @@ v3 = [
           {
             "alias": null,
             "args": null,
+            "concreteType": "Club",
+            "kind": "LinkedField",
+            "name": "club",
+            "plural": false,
+            "selections": [
+              (v1/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "slug",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "kind": "ScalarField",
             "name": "startDate",
             "storageKey": null
@@ -198,12 +224,12 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "2ba2eb70946c76a93172b407bc323599",
+    "cacheID": "ff8c4419cc4c3d3a1405dd18f70136bd",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormUpdateMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
   }
 };
 })());

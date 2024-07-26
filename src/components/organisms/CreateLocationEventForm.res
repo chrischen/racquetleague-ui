@@ -38,6 +38,9 @@ module EventFragment = %relay(`
       name
       slug
     }
+    club {
+      id
+    }
     startDate
     endDate
     listed
@@ -60,6 +63,11 @@ module UpdateMutation = %relay(`
         }
         location {
           id
+        }
+        club {
+          id
+          name
+          slug
         }
         startDate
         endDate
@@ -193,7 +201,9 @@ let make = (~event=?, ~location, ~query) => {
     )
     ->Option.getOr(false)
   let (selectedClub, setSelectedClub) = React.useState(() =>
-    clubs->Array.get(0)->Option.map(c => c.id)
+    event
+    ->Option.map(e => e.club->Option.map(c => c.id))
+    ->Option.getOr(clubs->Array.get(0)->Option.map(c => c.id))
   )
 
   React.useEffect(() => {

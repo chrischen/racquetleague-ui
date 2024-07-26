@@ -117,7 +117,9 @@ function Nav(props) {
                                                                                       "Hasby Riduan",
                                                                                       "hasbyriduan9",
                                                                                       "notchrischen",
-                                                                                      "Matthew"
+                                                                                      "Matthew",
+                                                                                      "David Vo",
+                                                                                      "Kai"
                                                                                     ], Core__Option.getOr(user.lineUsername, ""));
                                                                         }));
                                                           })), (function (param) {

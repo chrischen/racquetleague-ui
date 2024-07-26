@@ -9,8 +9,12 @@ module Types = {
     name: option<string>,
     slug: option<string>,
   }
+  and fragment_club = {
+    @live id: string,
+  }
   type fragment = {
     activity: option<fragment_activity>,
+    club: option<fragment_club>,
     details: option<string>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
@@ -113,6 +117,18 @@ return {
           "name": "slug",
           "storageKey": null
         }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Club",
+      "kind": "LinkedField",
+      "name": "club",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/)
       ],
       "storageKey": null
     },

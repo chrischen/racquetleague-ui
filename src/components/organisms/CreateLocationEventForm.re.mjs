@@ -152,9 +152,13 @@ function CreateLocationEventForm(props) {
               }
             })), false);
   var match$3 = React.useState(function () {
-        return Core__Option.map(clubs[0], (function (c) {
-                      return c.id;
-                    }));
+        return Core__Option.getOr(Core__Option.map($$event, (function (e) {
+                          return Core__Option.map(e.club, (function (c) {
+                                        return c.id;
+                                      }));
+                        })), Core__Option.map(clubs[0], (function (c) {
+                          return c.id;
+                        })));
       });
   var setSelectedClub = match$3[1];
   var selectedClub = match$3[0];

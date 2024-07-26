@@ -221,6 +221,18 @@ return {
           {
             "alias": null,
             "args": null,
+            "concreteType": "Club",
+            "kind": "LinkedField",
+            "name": "club",
+            "plural": false,
+            "selections": [
+              (v3/*: any*/)
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "kind": "ScalarField",
             "name": "startDate",
             "storageKey": null
@@ -361,12 +373,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d0022dca200c1ad0616fbabbc4891025",
+    "cacheID": "a15f6105839ce8987f3d087e688e7551",
     "id": null,
     "metadata": {},
     "name": "UpdateLocationEventPageQuery",
     "operationKind": "query",
-    "text": "query UpdateLocationEventPageQuery(\n  $eventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $eventId) {\n    ...CreateLocationEventForm_event\n    id\n  }\n  ...CreateLocationEventForm_query\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  activity {\n    id\n    name\n    slug\n  }\n  startDate\n  endDate\n  listed\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment CreateLocationEventForm_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...SelectClubStateful_query_1nITBn\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 20) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment SelectClubStateful_query_1nITBn on Query {\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 20) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n"
+    "text": "query UpdateLocationEventPageQuery(\n  $eventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $eventId) {\n    ...CreateLocationEventForm_event\n    id\n  }\n  ...CreateLocationEventForm_query\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment CreateLocationEventForm_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...SelectClubStateful_query_1nITBn\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 20) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment SelectClubStateful_query_1nITBn on Query {\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 20) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n"
   }
 };
 })());
