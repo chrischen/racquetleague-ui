@@ -481,7 +481,9 @@ let make = (~events) => {
       {!isLoadingPrevious && hasPrevious
         ? pageInfo.startCursor
           ->Option.map(startCursor =>
-            <Link to={"./" ++ "?before=" ++ startCursor}> {t`...load past events`} </Link>
+            <Link to={"./" ++ "?before=" ++ startCursor->encodeURIComponent}>
+              {t`...load past events`}
+            </Link>
           )
           ->Option.getOr(React.null)
         : React.null}
@@ -501,8 +503,7 @@ let make = (~events) => {
         <Calendar events=eventsFragment />
         {filterByDate
         ->Option.map(_ =>
-          <InfoAlert
-            cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>
+          <InfoAlert cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>
             {<> {t`filtering by date`} </>}
           </InfoAlert>
         )
@@ -554,7 +555,9 @@ let make = (~events) => {
           ? <Layout.Container>
               {pageInfo.endCursor
               ->Option.map(endCursor =>
-                <Link to={"./" ++ "?after=" ++ endCursor}> {t`load more`} </Link>
+                <Link to={"./" ++ "?after=" ++ encodeURIComponent(endCursor)}>
+                  {t`load more`}
+                </Link>
               )
               ->Option.getOr(React.null)}
             </Layout.Container>

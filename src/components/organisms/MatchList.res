@@ -274,7 +274,7 @@ let make = (~matches, ~user=?) => {
     {!isLoadingPrevious && hasPrevious
       ? pageInfo.startCursor
         ->Option.map(startCursor =>
-          <Link to={"./" ++ "?before=" ++ startCursor} className="mt-5">
+          <Link to={"./" ++ "?before=" ++ startCursor->encodeURIComponent} className="mt-5">
             {t`...load previous matches`}
           </Link>
         )
@@ -294,7 +294,7 @@ let make = (~matches, ~user=?) => {
         ? {
             pageInfo.endCursor
             ->Option.map(endCursor =>
-              <Link to={"./" ++ "?after=" ++ endCursor}> {t`Load more matches...`} </Link>
+              <Link to={"./" ++ "?after=" ++ endCursor->encodeURIComponent}> {t`Load more matches...`} </Link>
             )
             ->Option.getOr(React.null)
           }

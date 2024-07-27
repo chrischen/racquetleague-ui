@@ -366,7 +366,7 @@ function MatchList(props) {
                     }),
                 !match.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
                               return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                          to: "./?before=" + startCursor,
+                                          to: "./?before=" + encodeURIComponent(startCursor),
                                           children: t`...load previous matches`,
                                           className: "mt-5"
                                         });
@@ -389,7 +389,7 @@ function MatchList(props) {
                 JsxRuntime.jsx("div", {
                       children: match.hasNext && !match.isLoadingNext ? Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
                                     return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                to: "./?after=" + endCursor,
+                                                to: "./?after=" + encodeURIComponent(endCursor),
                                                 children: t`Load more matches...`
                                               });
                                   })), null) : null,

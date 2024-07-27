@@ -523,7 +523,7 @@ function EventsList(props) {
                       children: [
                         !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
                                       return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                  to: "./?before=" + startCursor,
+                                                  to: "./?before=" + encodeURIComponent(startCursor),
                                                   children: t`...load past events`
                                                 });
                                     })), null) : null,
@@ -596,7 +596,7 @@ function EventsList(props) {
                                 match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
                                         children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
                                                     return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                to: "./?after=" + endCursor,
+                                                                to: "./?after=" + encodeURIComponent(endCursor),
                                                                 children: t`load more`
                                                               });
                                                   })), null)

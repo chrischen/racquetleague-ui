@@ -157,8 +157,12 @@ let make = (~ratings) => {
   <Layout.Container className="mt-4">
     {!isLoadingPrevious && hasPrevious
       ? pageInfo.startCursor
-        ->Option.map(startCursor =>
-          <Link to={"./" ++ "?before=" ++ startCursor}> {t`...load higher rated players`} </Link>
+        ->Option.map(startCursor => {
+            Js.log("End cursor");
+            Js.log(startCursor);
+
+          <Link to={"./" ++ "?before=" ++ encodeURIComponent(startCursor)}> {t`...load higher rated players`} </Link>
+        }
         )
         ->Option.getOr(React.null)
       : React.null}
@@ -170,8 +174,11 @@ let make = (~ratings) => {
     {hasNext && !isLoadingNext
       ? {
           pageInfo.endCursor
-          ->Option.map(endCursor =>
-            <Link to={"./" ++ "?after=" ++ endCursor}> {t`Load more players...`} </Link>
+          ->Option.map(endCursor => {
+            Js.log("End cursor");
+            Js.log(endCursor);
+            <Link to={"./" ++ "?after=" ++ encodeURIComponent(endCursor)}> {t`Load more players...`} </Link>
+          }
           )
           ->Option.getOr(React.null)
         }
