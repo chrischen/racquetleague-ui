@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-07-29 16:21+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/organisms/SelectMatch.re.mjs:345
+msgid "left team players"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:215
+msgid "load More"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:208
+msgid "no players yet"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:173
+msgid "Player"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:376
+msgid "right team players"
+msgstr ""

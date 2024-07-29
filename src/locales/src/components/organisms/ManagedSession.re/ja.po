@@ -13,10 +13,10 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ManagedSession.re.mjs:238
+#: src/components/organisms/ManagedSession.re.mjs:243
 msgid "court {0}"
 msgstr "コート {0}"
 
-#: src/components/organisms/ManagedSession.re.mjs:212
+#: src/components/organisms/ManagedSession.re.mjs:217
 msgid "select all"
 msgstr "すべて選択"

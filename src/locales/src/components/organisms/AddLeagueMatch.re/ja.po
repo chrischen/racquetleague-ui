@@ -13,47 +13,73 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ManagedSession.re.mjs:238
+#: src/components/organisms/ManagedSession.re.mjs:243
 msgid "court {0}"
 msgstr "コート {0}"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:285
+#: src/components/organisms/Match.re.mjs:241
+msgid "delete"
+msgstr "削除"
+
+#: src/components/organisms/SelectMatch.re.mjs:345
+msgid "left team players"
+msgstr "左チームのプレイヤー"
+
+#: src/components/organisms/SelectMatch.re.mjs:215
 msgid "load More"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:793
+#: src/components/organisms/AddLeagueMatch.re.mjs:204
+#: src/components/organisms/AddLeagueMatch.re.mjs:231
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:765
-msgid "Loser Points"
-msgstr "敗者ポイント"
+#: src/components/organisms/AddLeagueMatch.re.mjs:179
+msgid "manual team"
+msgstr "手動チーム"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:278
+#: src/components/organisms/SelectMatch.re.mjs:208
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:243
+#: src/components/organisms/SelectMatch.re.mjs:173
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:317
-#: src/components/organisms/AddLeagueMatch.re.mjs:329
+#: src/components/organisms/Match.re.mjs:292
+#: src/components/organisms/Match.re.mjs:313
+msgid "points"
+msgstr "何点"
+
+#: src/components/organisms/Match.re.mjs:99
+#: src/components/organisms/Match.re.mjs:111
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/ManagedSession.re.mjs:212
+#: src/components/organisms/AddLeagueMatch.re.mjs:211
+msgid "queued matches"
+msgstr "キューされた試合"
+
+#: src/components/organisms/SelectMatch.re.mjs:376
+msgid "right team players"
+msgstr "右チームのプレイヤー"
+
+#: src/components/organisms/ManagedSession.re.mjs:217
 msgid "select all"
 msgstr "すべて選択"
 
+#: src/components/organisms/AddLeagueMatch.re.mjs:765
+#~ msgid "Loser Points"
+#~ msgstr "敗者ポイント"
+
 #: src/components/organisms/AddLeagueMatch.re.mjs:745
-msgid "Select Losers"
-msgstr "敗者を選択"
+#~ msgid "Select Losers"
+#~ msgstr "敗者を選択"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:699
-msgid "Select Winners"
-msgstr "勝者を選択"
+#~ msgid "Select Winners"
+#~ msgstr "勝者を選択"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:716
-msgid "Winner Points"
-msgstr "勝者ポイント"
+#~ msgid "Winner Points"
+#~ msgstr "勝者ポイント"

@@ -7,6 +7,7 @@ module Query = %relay(`
       __id
       title
       ...AddLeagueMatch_event @arguments(after: $after, first: 20, before: $before)
+      ...SelectMatch_event @arguments(after: $after, first: 20, before: $before)
     }
     ...MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace)
   }

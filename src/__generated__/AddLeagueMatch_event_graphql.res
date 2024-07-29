@@ -41,6 +41,7 @@ module Types = {
     activity: option<fragment_activity>,
     @live id: string,
     rsvps: option<fragment_rsvps>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #SelectMatch_event]>,
   }
 }
 
@@ -49,7 +50,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"rsvps_edges_node_user":{"f":""}}}`
+    json`{"__root":{"rsvps_edges_node_user":{"f":""},"":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = ()
@@ -68,11 +69,11 @@ external getFragmentRef:
 
 @live
 @inline
-let connectionKey = "LeagueEventRsvps_event_rsvps"
+let connectionKey = "SelectMatchRsvps_event_rsvps"
 
 %%private(
   @live @module("relay-runtime") @scope("ConnectionHandler")
-  external internal_makeConnectionId: (RescriptRelay.dataId, @as("LeagueEventRsvps_event_rsvps") _, 'arguments) => RescriptRelay.dataId = "getConnectionID"
+  external internal_makeConnectionId: (RescriptRelay.dataId, @as("SelectMatchRsvps_event_rsvps") _, 'arguments) => RescriptRelay.dataId = "getConnectionID"
 )
 
 @live
@@ -106,8 +107,8 @@ type relayOperationNode
 type operationType = RescriptRelay.fragmentNode<relayOperationNode>
 
 
-%%private(let makeNode = (rescript_graphql_node_LeagueEventRsvpsRefetchQuery): operationType => {
-  ignore(rescript_graphql_node_LeagueEventRsvpsRefetchQuery)
+%%private(let makeNode = (rescript_graphql_node_AddLeagueMatchRsvpsRefetchQuery): operationType => {
+  ignore(rescript_graphql_node_AddLeagueMatchRsvpsRefetchQuery)
   %raw(json`(function(){
 var v0 = [
   "rsvps"
@@ -171,7 +172,7 @@ return {
       "fragmentPathInResult": [
         "node"
       ],
-      "operation": rescript_graphql_node_LeagueEventRsvpsRefetchQuery,
+      "operation": rescript_graphql_node_AddLeagueMatchRsvpsRefetchQuery,
       "identifierInfo": {
         "identifierField": "id",
         "identifierQueryVariableName": "id"
@@ -204,7 +205,7 @@ return {
       "args": null,
       "concreteType": "EventRsvpConnection",
       "kind": "LinkedField",
-      "name": "__LeagueEventRsvps_event_rsvps_connection",
+      "name": "__SelectMatchRsvps_event_rsvps_connection",
       "plural": false,
       "selections": [
         {
@@ -336,6 +337,27 @@ return {
       ],
       "storageKey": null
     },
+    {
+      "args": [
+        {
+          "kind": "Variable",
+          "name": "after",
+          "variableName": "after"
+        },
+        {
+          "kind": "Variable",
+          "name": "before",
+          "variableName": "before"
+        },
+        {
+          "kind": "Variable",
+          "name": "first",
+          "variableName": "first"
+        }
+      ],
+      "kind": "FragmentSpread",
+      "name": "SelectMatch_event"
+    },
     (v1/*: any*/),
     (v2/*: any*/)
   ],
@@ -344,5 +366,5 @@ return {
 };
 })()`)
 })
-let node: operationType = makeNode(LeagueEventRsvpsRefetchQuery_graphql.node)
+let node: operationType = makeNode(AddLeagueMatchRsvpsRefetchQuery_graphql.node)
 

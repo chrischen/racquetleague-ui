@@ -33,14 +33,15 @@ module Rating: {
 }
 
 module Player = {
-  type t = {
+  type t<'a> = {
+    data: 'a,
     id: string,
     name: string,
     rating: Rating.t,
   }
 
   @react.component
-  let make = (~player: t) => {
+  let make = (~player: t<'a>) => {
     <span className="mr-2">
       {player.name->React.string}
       {"("->React.string}
@@ -51,15 +52,21 @@ module Player = {
 }
 
 module Match = {
-  type t = (((Player.t, Player.t), (Player.t, Player.t)))
+  type t<'a> = ((Player.t<'a>, Player.t<'a>), (Player.t<'a>, Player.t<'a>))
   @react.component
-  let make = (~match: t, ~onSelect: option<t => unit>=?) => {
+  let make = (~match: t<'a>, ~onSelect: option<t<'a> => unit>=?) => {
     let ((p1, p2), (p3, p4)) = match
     <UiAction className="p-4" onClick={() => onSelect->Option.map(f => f(match))->Option.getOr()}>
       <div className="mb-2">
-        <span><Player player=p1 /> <Player player=p2 /> </span>
+        <span>
+          <Player player=p1 />
+          <Player player=p2 />
+        </span>
         {" VS "->React.string}
-        <span><Player player=p3 /> <Player player=p4 /> </span>
+        <span>
+          <Player player=p3 />
+          <Player player=p4 />
+        </span>
       </div>
     </UiAction>
   }
@@ -99,13 +106,17 @@ let array_split_by_4 = (arr: array<'a>) => {
   }
   loop(0, [])
 }
-let match_make_naive = (players: array<Player.t>): array<Match.t> => {
+let match_make_naive = (players: array<Player.t<'a>>): array<Match.t<'a>> => {
   players->array_split_by_4->Array.map(((p1, p2, p3, p4)) => ((p1, p4), (p2, p3)))
 }
 
 module SelectPlayersList = {
   @react.component
-  let make = (~players: array<Player.t>, ~selected: array<string>, ~onClick: Player.t => unit) => {
+  let make = (
+    ~players: array<Player.t<'a>>,
+    ~selected: array<string>,
+    ~onClick: Player.t<'a> => unit,
+  ) => {
     <ul className="w-full mb-4">
       {players
       ->Array.map(player => {
@@ -116,7 +127,9 @@ module SelectPlayersList = {
             "inline",
             "mr-2",
           ])}>
-          <UiAction className="p-4" onClick={() => onClick(player)}> {player.name->React.string} </UiAction>
+          <UiAction className="p-4" onClick={() => onClick(player)}>
+            {player.name->React.string}
+          </UiAction>
         </li>
       })
       ->React.array}
@@ -124,24 +137,34 @@ module SelectPlayersList = {
   }
 }
 @react.component
-let make = (~players: array<Player.t>, ~onSelectMatch: option<Match.t => unit>=?) => {
-  let (activePlayers: array<Player.t>, setActivePlayers) = React.useState(_ => [])
-  let activePlayers = activePlayers
-  // ->Array.filter(p => activePlayers->Array.indexOf(p.id) > -1)
-  ->Array.toSorted((a, b) => {
-    let userA = a.rating.mu
-    let userB = b.rating.mu
-    userA < userB ? 1. : -1.
-  })
+let make = (
+  ~players: array<Player.t<'a>>,
+  ~consumedPlayers: array<Player.t<'a>>,
+  ~onSelectMatch: option<Match.t<'a> => unit>=?,
+) => {
+  let (activePlayers: array<Player.t<'a>>, setActivePlayers) = React.useState(_ => [])
+  let activePlayers =
+    activePlayers
+    ->Array.filter(p => consumedPlayers->Array.findIndex(p' => p.id == p'.id) == -1)
+    // ->Array.filter(p => activePlayers->Array.indexOf(p.id) > -1)
+    ->Array.toSorted((a, b) => {
+      let userA = a.rating.mu
+      let userB = b.rating.mu
+      userA < userB ? 1. : -1.
+    })
   let matches = activePlayers->match_make_naive
   <>
-    <UiAction onClick={() => setActivePlayers(_ => {
-			Js.log(players);
-			players
-		})}> {t`select all`} </UiAction>
+    <UiAction
+      onClick={() =>
+        setActivePlayers(_ => {
+          Js.log(players)
+          players
+        })}>
+      {t`select all`}
+    </UiAction>
     <SelectPlayersList
       players={players}
-      selected={activePlayers->Array.map((p: Player.t) => p.id)}
+      selected={activePlayers->Array.map((p: Player.t<'a>) => p.id)}
       onClick={player =>
         setActivePlayers(ps =>
           switch ps->Array.findIndexOpt(p => p.id == player.id) {
@@ -150,10 +173,13 @@ let make = (~players: array<Player.t>, ~onSelectMatch: option<Match.t => unit>=?
           }
         )}
     />
-    {matches->Array.mapWithIndex((match, i) => 
-			<>
-			{mod(i, 4) == 0 ? <div className="mb-4">{t`court ${((i / 4) + 1)->Int.toString}`}</div> : React.null}
-			<Match key={i->Int.toString} onSelect=?onSelectMatch match /></>
-		)->React.array}
+    {matches
+    ->Array.mapWithIndex((match, i) => <>
+      {mod(i, 4) == 0
+        ? <div className="mb-4"> {t`court ${(i / 4 + 1)->Int.toString}`} </div>
+        : React.null}
+      <Match key={i->Int.toString} onSelect=?onSelectMatch match />
+    </>)
+    ->React.array}
   </>
 }

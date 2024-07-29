@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:280
 msgid "...load higher rated players"
 msgstr ""
 
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:295
+#: src/components/organisms/RatingList.re.mjs:299
 msgid "Load more players..."
 msgstr ""
 

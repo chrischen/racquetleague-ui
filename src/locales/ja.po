@@ -855,6 +855,31 @@ msgstr "バドミントン"
 msgid "pickleball"
 msgstr "ピクルボール"
 
+#: src/components/organisms/Match.re.mjs:241
+msgid "delete"
+msgstr "削除"
+
+#: src/components/organisms/SelectMatch.re.mjs:345
+msgid "left team players"
+msgstr "左チームのプレイヤー"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:179
+msgid "manual team"
+msgstr "手動チーム"
+
+#: src/components/organisms/Match.re.mjs:292
+#: src/components/organisms/Match.re.mjs:313
+msgid "points"
+msgstr "何点"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:211
+msgid "queued matches"
+msgstr "キューされた試合"
+
+#: src/components/organisms/SelectMatch.re.mjs:376
+msgid "right team players"
+msgstr "右チームのプレイヤー"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

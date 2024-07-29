@@ -14,36 +14,36 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:432
+#: src/components/organisms/CreateLocationEventForm.re.mjs:436
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:436
+#: src/components/organisms/CreateLocationEventForm.re.mjs:440
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:440
+#: src/components/organisms/CreateLocationEventForm.re.mjs:444
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:444
+#: src/components/organisms/CreateLocationEventForm.re.mjs:448
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:448
+#: src/components/organisms/CreateLocationEventForm.re.mjs:452
 msgid "Basketball"
 msgstr "バスケットボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:452
+#: src/components/organisms/CreateLocationEventForm.re.mjs:456
 msgid "Volleyball"
 msgstr "バレーボール"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:280
+#: src/components/organisms/CreateLocationEventForm.re.mjs:284
 msgid "{0} event details"
 msgstr "{0} イベント詳細"
 
@@ -51,7 +51,7 @@ msgstr "{0} イベント詳細"
 msgid "about"
 msgstr "約"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:302
+#: src/components/organisms/CreateLocationEventForm.re.mjs:306
 msgid "activity"
 msgstr "アクティビティ"
 
@@ -63,11 +63,11 @@ msgstr "アクティビティが必要です"
 msgid "add new club"
 msgstr "新しいクラブを追加"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:290
+#: src/components/organisms/CreateLocationEventForm.re.mjs:294
 msgid "All Level"
 msgstr "すべてのレベル"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:376
+#: src/components/organisms/CreateLocationEventForm.re.mjs:380
 msgid ""
 "any details from the location will already be included. Mention any "
 "additional event-specific instructions, rules, or details."
@@ -87,19 +87,19 @@ msgstr "このイベントが開催されるクラブを選択してください
 msgid "club"
 msgstr "クラブ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:321
+#: src/components/organisms/CreateLocationEventForm.re.mjs:325
 msgid "date and start time"
 msgstr "日付と開始時刻"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:281
+#: src/components/organisms/CreateLocationEventForm.re.mjs:285
 msgid "details specific to this event on the specified date and time."
 msgstr "指定された日時のこのイベントに特有の詳細。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:364
+#: src/components/organisms/CreateLocationEventForm.re.mjs:368
 msgid "edit the location to edit the details for this location."
 msgstr "この場所の詳細を編集するには、場所を編集します。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:331
+#: src/components/organisms/CreateLocationEventForm.re.mjs:335
 msgid "end time"
 msgstr "終了時刻"
 
@@ -111,7 +111,7 @@ msgstr "終了時刻が必要です"
 msgid "event date is required"
 msgstr "イベント日付が必要です"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:373
+#: src/components/organisms/CreateLocationEventForm.re.mjs:377
 msgid "event details"
 msgstr "イベント詳細"
 
@@ -119,11 +119,11 @@ msgstr "イベント詳細"
 msgid "Event or Location doesn't exist."
 msgstr "イベントまたは場所が存在しません。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:402
+#: src/components/organisms/CreateLocationEventForm.re.mjs:406
 msgid "list publicly"
 msgstr "一般公開リスト"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:359
+#: src/components/organisms/CreateLocationEventForm.re.mjs:363
 msgid "location details"
 msgstr "場所の詳細"
 
@@ -135,7 +135,7 @@ msgstr "主なアクティビティ"
 msgid "main activity is required"
 msgstr "主なアクティビティが必要です"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:341
+#: src/components/organisms/CreateLocationEventForm.re.mjs:345
 msgid "max participants"
 msgstr "最大参加者数"
 
@@ -155,7 +155,7 @@ msgstr "保存"
 msgid "select club"
 msgstr "クラブを選択"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:407
+#: src/components/organisms/CreateLocationEventForm.re.mjs:411
 msgid ""
 "show your event publicly on our home page. Otherwise, only people with a "
 "link to your event will be able to find it."
@@ -171,7 +171,7 @@ msgstr "スラッグ"
 msgid "tell people about your club"
 msgstr "あなたのクラブについて人々に伝える"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:287
+#: src/components/organisms/CreateLocationEventForm.re.mjs:291
 msgid "title"
 msgstr "タイトル"
 

@@ -185,12 +185,17 @@ var SelectPlayersList = {
 
 function ManagedSession(props) {
   var onSelectMatch = props.onSelectMatch;
+  var consumedPlayers = props.consumedPlayers;
   var players = props.players;
   var match = React.useState(function () {
         return [];
       });
   var setActivePlayers = match[1];
-  var activePlayers = match[0].toSorted(function (a, b) {
+  var activePlayers = match[0].filter(function (p) {
+          return consumedPlayers.findIndex(function (p$p) {
+                      return p.id === p$p.id;
+                    }) === -1;
+        }).toSorted(function (a, b) {
         var userA = a.rating.mu;
         var userB = b.rating.mu;
         if (userA < userB) {

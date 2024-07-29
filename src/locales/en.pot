@@ -957,3 +957,28 @@ msgstr ""
 #: src/components/pages/Events.re.mjs:103
 msgid "pickleball"
 msgstr ""
+
+#: src/components/organisms/Match.re.mjs:241
+msgid "delete"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:345
+msgid "left team players"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:179
+msgid "manual team"
+msgstr ""
+
+#: src/components/organisms/Match.re.mjs:292
+#: src/components/organisms/Match.re.mjs:313
+msgid "points"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:211
+msgid "queued matches"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:376
+msgid "right team players"
+msgstr ""

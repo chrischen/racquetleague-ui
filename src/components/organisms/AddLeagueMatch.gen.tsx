@@ -9,8 +9,12 @@ import type {fragmentRefs as RescriptRelay_fragmentRefs} from 'rescript-relay/sr
 
 export type props<event> = { readonly event: event };
 
-export const make: React.ComponentType<{ readonly event: RescriptRelay_fragmentRefs<"AddLeagueMatch_event"> }> = AddLeagueMatchJS.make as any;
+export const make: React.ComponentType<{ readonly event: RescriptRelay_fragmentRefs<
+    "AddLeagueMatch_event"
+  | "SelectMatch_event"> }> = AddLeagueMatchJS.make as any;
 
-export const $$default: React.ComponentType<{ readonly event: RescriptRelay_fragmentRefs<"AddLeagueMatch_event"> }> = AddLeagueMatchJS.default as any;
+export const $$default: React.ComponentType<{ readonly event: RescriptRelay_fragmentRefs<
+    "AddLeagueMatch_event"
+  | "SelectMatch_event"> }> = AddLeagueMatchJS.default as any;
 
 export default $$default;

@@ -33,8 +33,12 @@ msgstr ""
 #~ msgid "confirmed"
 #~ msgstr ""
 
-#: src/components/organisms/ManagedSession.re.mjs:238
+#: src/components/organisms/ManagedSession.re.mjs:243
 msgid "court {0}"
+msgstr ""
+
+#: src/components/organisms/Match.re.mjs:241
+msgid "delete"
 msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:30
@@ -54,7 +58,11 @@ msgstr ""
 #~ msgid "leave event"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:285
+#: src/components/organisms/SelectMatch.re.mjs:345
+msgid "left team players"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:215
 msgid "load More"
 msgstr ""
 
@@ -62,7 +70,8 @@ msgstr ""
 msgid "Load more matches..."
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:793
+#: src/components/organisms/AddLeagueMatch.re.mjs:204
+#: src/components/organisms/AddLeagueMatch.re.mjs:231
 msgid "Loading"
 msgstr ""
 
@@ -79,46 +88,63 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:765
-msgid "Loser Points"
+#~ msgid "Loser Points"
+#~ msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:179
+msgid "manual team"
 msgstr ""
 
 #: src/components/organisms/MatchList.re.mjs:364
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:278
+#: src/components/organisms/SelectMatch.re.mjs:208
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:243
+#: src/components/organisms/SelectMatch.re.mjs:173
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:317
-#: src/components/organisms/AddLeagueMatch.re.mjs:329
+#: src/components/organisms/Match.re.mjs:292
+#: src/components/organisms/Match.re.mjs:313
+msgid "points"
+msgstr ""
+
+#: src/components/organisms/Match.re.mjs:99
+#: src/components/organisms/Match.re.mjs:111
 msgid "predicted winner"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:211
+msgid "queued matches"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:376
+msgid "right team players"
 msgstr ""
 
 #: src/components/organisms/MatchList.re.mjs:286
 msgid "Score:"
 msgstr ""
 
-#: src/components/organisms/ManagedSession.re.mjs:212
+#: src/components/organisms/ManagedSession.re.mjs:217
 msgid "select all"
 msgstr ""
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:745
-msgid "Select Losers"
-msgstr ""
+#~ msgid "Select Losers"
+#~ msgstr ""
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:699
-msgid "Select Winners"
-msgstr ""
+#~ msgid "Select Winners"
+#~ msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:339
 #~ msgid "waitlist"
 #~ msgstr ""
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:716
-msgid "Winner Points"
-msgstr ""
+#~ msgid "Winner Points"
+#~ msgstr ""

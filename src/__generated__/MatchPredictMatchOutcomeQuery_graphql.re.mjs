@@ -95,7 +95,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "AddLeagueMatchPredictMatchOutcomeQuery",
+    "name": "MatchPredictMatchOutcomeQuery",
     "selections": (v1/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -104,16 +104,16 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "AddLeagueMatchPredictMatchOutcomeQuery",
+    "name": "MatchPredictMatchOutcomeQuery",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "8db6ecec1b62540dfeece56201afec8d",
+    "cacheID": "b58c18bfe8e91e989c714e588151323d",
     "id": null,
     "metadata": {},
-    "name": "AddLeagueMatchPredictMatchOutcomeQuery",
+    "name": "MatchPredictMatchOutcomeQuery",
     "operationKind": "query",
-    "text": "query AddLeagueMatchPredictMatchOutcomeQuery(\n  $input: PredictMatchInput!\n) {\n  predictMatchOutcome(input: $input) {\n    team1\n    team2\n  }\n}\n"
+    "text": "query MatchPredictMatchOutcomeQuery(\n  $input: PredictMatchInput!\n) {\n  predictMatchOutcome(input: $input) {\n    team1\n    team2\n  }\n}\n"
   }
 };
 })());

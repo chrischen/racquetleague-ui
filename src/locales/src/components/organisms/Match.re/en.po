@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-07-29 16:21+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/organisms/Match.re.mjs:241
+msgid "delete"
+msgstr ""
+
+#: src/components/organisms/Match.re.mjs:292
+#: src/components/organisms/Match.re.mjs:313
+msgid "points"
+msgstr ""
+
+#: src/components/organisms/Match.re.mjs:99
+#: src/components/organisms/Match.re.mjs:111
+msgid "predicted winner"
+msgstr ""

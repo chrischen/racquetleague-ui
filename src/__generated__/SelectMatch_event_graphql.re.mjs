@@ -4,11 +4,11 @@
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as RelayRuntime from "relay-runtime";
-import * as AddLeagueMatchRsvpsRefetchQuery_graphql from "./AddLeagueMatchRsvpsRefetchQuery_graphql.re.mjs";
+import * as SelectMatchRsvpsRefetchQuery_graphql from "./SelectMatchRsvpsRefetchQuery_graphql.re.mjs";
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"rsvps_edges_node_user":{"f":""},"":{"f":""}}};
+var fragmentConverter = {"__root":{"rsvps_edges_node_user":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -45,7 +45,7 @@ var Utils = {
   getConnectionNodes: getConnectionNodes
 };
 
-function makeNode(rescript_graphql_node_AddLeagueMatchRsvpsRefetchQuery) {
+function makeNode(rescript_graphql_node_SelectMatchRsvpsRefetchQuery) {
   return ((function(){
 var v0 = [
   "rsvps"
@@ -109,34 +109,15 @@ return {
       "fragmentPathInResult": [
         "node"
       ],
-      "operation": rescript_graphql_node_AddLeagueMatchRsvpsRefetchQuery,
+      "operation": rescript_graphql_node_SelectMatchRsvpsRefetchQuery,
       "identifierInfo": {
         "identifierField": "id",
         "identifierQueryVariableName": "id"
       }
     }
   },
-  "name": "AddLeagueMatch_event",
+  "name": "SelectMatch_event",
   "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "Activity",
-      "kind": "LinkedField",
-      "name": "activity",
-      "plural": false,
-      "selections": [
-        (v1/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "slug",
-          "storageKey": null
-        }
-      ],
-      "storageKey": null
-    },
     {
       "alias": "rsvps",
       "args": null,
@@ -274,27 +255,6 @@ return {
       ],
       "storageKey": null
     },
-    {
-      "args": [
-        {
-          "kind": "Variable",
-          "name": "after",
-          "variableName": "after"
-        },
-        {
-          "kind": "Variable",
-          "name": "before",
-          "variableName": "before"
-        },
-        {
-          "kind": "Variable",
-          "name": "first",
-          "variableName": "first"
-        }
-      ],
-      "kind": "FragmentSpread",
-      "name": "SelectMatch_event"
-    },
     (v1/*: any*/),
     (v2/*: any*/)
   ],
@@ -304,7 +264,7 @@ return {
 })());
 }
 
-var node = makeNode(AddLeagueMatchRsvpsRefetchQuery_graphql.node);
+var node = makeNode(SelectMatchRsvpsRefetchQuery_graphql.node);
 
 export {
   Types ,
