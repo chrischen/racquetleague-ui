@@ -143,11 +143,13 @@ function AddLeagueMatch(props) {
                       players: Core__Array.filterMap(players, (function (x) {
                               return rsvpToPlayer(x);
                             })),
-                      consumedPlayers: matches.flatMap(function (match) {
-                            return Core__Array.filterMap(match[0].concat(match[1]), (function (r) {
-                                          return rsvpToPlayer(r);
-                                        }));
-                          }),
+                      consumedPlayers: new Set(matches.flatMap(function (match) {
+                                return Core__Array.filterMap(match[0].concat(match[1]), (function (r) {
+                                                return rsvpToPlayer(r);
+                                              })).map(function (p) {
+                                            return p.id;
+                                          });
+                              })),
                       onSelectMatch: (function (param) {
                           var match = param[1];
                           var match$1 = param[0];

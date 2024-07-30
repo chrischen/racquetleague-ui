@@ -131,9 +131,13 @@ let make = (~event) => {
   <Layout.Container>
     <ManagedSession
       players={players->Array.filterMap(x => rsvpToPlayer(x))}
-      consumedPlayers={matches->Array.flatMap(match =>
-        Array.concat(match->fst, match->snd)->Array.filterMap(r => rsvpToPlayer(r))
-      )}
+      consumedPlayers={matches
+      ->Array.flatMap(match =>
+        Array.concat(match->fst, match->snd)
+        ->Array.filterMap(r => rsvpToPlayer(r))
+        ->Array.map(p => p.id)
+      )
+      ->Set.fromArray}
       onSelectMatch={(((p1', p2'), (p3', p4'))) => {
         // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
         queueMatch(([p1'.data, p2'.data], [p3'.data, p4'.data]))

@@ -31,11 +31,11 @@ function makeDefault() {
 }
 
 function Rating_predictDraw(prim) {
-  return predictDraw(prim);
+  return Openskill.predictDraw(prim);
 }
 
 function Rating_ordinal(prim) {
-  return ordinal(prim);
+  return Openskill.ordinal(prim);
 }
 
 var Rating = {
@@ -52,7 +52,7 @@ function ManagedSession$Player(props) {
               children: [
                 player.name,
                 "(",
-                player.rating.sigma.toFixed(2),
+                player.rating.mu.toFixed(2),
                 ")"
               ],
               className: "mr-2"
@@ -183,6 +183,61 @@ var SelectPlayersList = {
   make: ManagedSession$SelectPlayersList
 };
 
+function contains_player(param, player) {
+  if (param[0].id === player.id) {
+    return true;
+  } else {
+    return param[1].id === player.id;
+  }
+}
+
+var Team = {
+  contains_player: contains_player
+};
+
+function array_combos(arr) {
+  return arr.flatMap(function (v, i) {
+              return arr.slice(i + 1 | 0, arr.length).map(function (v2) {
+                          return [
+                                  v,
+                                  v2
+                                ];
+                        });
+            });
+}
+
+function combos(arr1, arr2) {
+  return arr1.flatMap(function (d) {
+              return arr2.map(function (v) {
+                          return [
+                                  d,
+                                  v
+                                ];
+                        });
+            });
+}
+
+function match_quality(param) {
+  var match = param[1];
+  var match$1 = param[0];
+  var team1 = [
+    match$1[0],
+    match$1[1]
+  ];
+  var team2 = [
+    match[0],
+    match[1]
+  ];
+  return Rating_predictDraw([
+              team1.map(function (p) {
+                    return p.rating;
+                  }),
+              team2.map(function (p) {
+                    return p.rating;
+                  })
+            ]);
+}
+
 function ManagedSession(props) {
   var onSelectMatch = props.onSelectMatch;
   var consumedPlayers = props.consumedPlayers;
@@ -192,9 +247,7 @@ function ManagedSession(props) {
       });
   var setActivePlayers = match[1];
   var activePlayers = match[0].filter(function (p) {
-          return consumedPlayers.findIndex(function (p$p) {
-                      return p.id === p$p.id;
-                    }) === -1;
+          return !consumedPlayers.has(p.id);
         }).toSorted(function (a, b) {
         var userA = a.rating.mu;
         var userB = b.rating.mu;
@@ -204,13 +257,32 @@ function ManagedSession(props) {
           return -1;
         }
       });
-  var matches = match_make_naive(activePlayers);
+  var teams = array_combos(activePlayers);
+  var matches = Core__Array.reduce(teams, [], (function (acc, team) {
+          var players$p = activePlayers.filter(function (p) {
+                return !contains_player(team, p);
+              });
+          var teams$p = array_combos(players$p);
+          return acc.concat(combos([team], teams$p));
+        }));
+  var matches$1 = matches.map(function (match) {
+            var quality = match_quality(match);
+            return [
+                    match,
+                    quality
+                  ];
+          }).toSorted(function (a, b) {
+          if (a[1] < b[1]) {
+            return 1;
+          } else {
+            return -1;
+          }
+        }).slice(0, 15);
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsx(UiAction.make, {
                       onClick: (function () {
                           setActivePlayers(function (param) {
-                                console.log(players);
                                 return players;
                               });
                         }),
@@ -236,17 +308,15 @@ function ManagedSession(props) {
                               });
                         })
                     }),
-                matches.map(function (match, i) {
+                matches$1.map(function (param, i) {
                       return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                   children: [
-                                    i % 4 === 0 ? JsxRuntime.jsx("div", {
-                                            children: t`court ${((i / 4 | 0) + 1 | 0).toString(undefined)}`,
-                                            className: "mb-4"
-                                          }) : null,
                                     JsxRuntime.jsx(ManagedSession$Match, {
-                                          match: match,
+                                          match: param[0],
                                           onSelect: onSelectMatch
-                                        }, i.toString(undefined))
+                                        }, i.toString(undefined)),
+                                    " - ",
+                                    param[1].toString(undefined)
                                   ]
                                 });
                     })
@@ -264,6 +334,10 @@ export {
   array_split_by_4 ,
   match_make_naive ,
   SelectPlayersList ,
+  Team ,
+  array_combos ,
+  combos ,
+  match_quality ,
   make$1 as make,
 }
 /*  Not a pure module */

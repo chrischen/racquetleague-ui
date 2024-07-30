@@ -183,10 +183,10 @@ let make = (~event, ~onMatchSelected) => {
   let {data} = Fragment.usePagination(event)
   let players = data.rsvps->Fragment.getConnectionNodes
 
-  let matchSelected = (match) => {
+  let matchSelected = match => {
     switch match {
-      | ([_, _], [_, _]) as match => onMatchSelected(match)
-      | _ => ()
+    | ([_, _], [_, _]) as match => onMatchSelected(match)
+    | _ => ()
     }
   }
   let maxRating =

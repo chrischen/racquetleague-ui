@@ -19,8 +19,9 @@ module Rating: {
     sigma: float,
   }
   @module("openskill") external rating: option<t> => t = "rating"
-  @mel.module("openskill") external ordinal: t => float = "ordinal"
-  @mel.module("openskill")
+  @module("openskill") external ordinal: t => float = "ordinal"
+
+  @module("openskill")
   external predictDraw: array<array<t>> => float = "predictDraw"
   let get_rating = t => t.mu
   let make: (float, float) => t = (mu, sigma) => {
@@ -45,7 +46,7 @@ module Player = {
     <span className="mr-2">
       {player.name->React.string}
       {"("->React.string}
-      {player.rating.sigma->Float.toFixed(~digits=2)->React.string}
+      {player.rating.mu->Float.toFixed(~digits=2)->React.string}
       {")"->React.string}
     </span>
   }
@@ -136,28 +137,69 @@ module SelectPlayersList = {
     </ul>
   }
 }
+type team<'a> = (Player.t<'a>, Player.t<'a>);
+
+module Team = {
+  type team<'a> = (Player.t<'a>, Player.t<'a>);
+  let contains_player = (((p1, p2)): team<'a>, player: Player.t<'a>) =>
+    p1.id == player.id || p2.id == player.id
+    // []->Array.findIndex(p' => player.id == p'.id) == -1
+}
+type match<'a> = (team<'a>, team<'a>);
+
+let array_combos: array<'a> => array<('a, 'a)> = arr => {
+  arr->Array.flatMapWithIndex((v, i) =>
+    arr->Array.slice(~start=i + 1, ~end=Array.length(arr))->Array.map(v2 => (v, v2))
+  )
+}
+let combos = (arr1: array<'a>, arr2: array<'a>): array<('a, 'a)> => {
+  arr1->Array.flatMap(d => arr2->Array.map(v => (d, v)))
+}
+let match_quality: match<'a> => float = (((p1, p2), (p3, p4))) => {
+  let team1 = [p1, p2]
+  let team2 = [p3, p4]
+  Rating.predictDraw([team1->Array.map(p => p.rating), team2->Array.map(p => p.rating)])
+}
+type scored_match<'a> = (match<'a>, float);
+
 @react.component
 let make = (
   ~players: array<Player.t<'a>>,
-  ~consumedPlayers: array<Player.t<'a>>,
+  ~consumedPlayers: Js.Set.t<string>,
   ~onSelectMatch: option<Match.t<'a> => unit>=?,
 ) => {
   let (activePlayers: array<Player.t<'a>>, setActivePlayers) = React.useState(_ => [])
   let activePlayers =
     activePlayers
-    ->Array.filter(p => consumedPlayers->Array.findIndex(p' => p.id == p'.id) == -1)
+    ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
     // ->Array.filter(p => activePlayers->Array.indexOf(p.id) > -1)
     ->Array.toSorted((a, b) => {
       let userA = a.rating.mu
       let userB = b.rating.mu
       userA < userB ? 1. : -1.
     })
-  let matches = activePlayers->match_make_naive
+  // let matches = activePlayers->match_make_naive
+
+  let teams = activePlayers->array_combos
+  let matches = teams->Array.reduce([], (acc, team)=> {
+    let players' = activePlayers
+    ->Array.filter(p => !(team->Team.contains_player(p)))
+    // Teams of remaining players
+    let teams' = players'->array_combos
+    acc->Array.concat([team]->combos(teams'))
+  })
+  let matches = matches->Array.map(match => {
+    let quality = match->match_quality
+    (match, quality)
+  })->Array.toSorted((a, b) => {
+    let (_, qualityA) = a
+    let (_, qualityB) = b
+    qualityA < qualityB ? 1. : -1.
+  })->Array.slice(~start=0, ~end=15)
   <>
     <UiAction
       onClick={() =>
         setActivePlayers(_ => {
-          Js.log(players)
           players
         })}>
       {t`select all`}
@@ -174,11 +216,8 @@ let make = (
         )}
     />
     {matches
-    ->Array.mapWithIndex((match, i) => <>
-      {mod(i, 4) == 0
-        ? <div className="mb-4"> {t`court ${(i / 4 + 1)->Int.toString}`} </div>
-        : React.null}
-      <Match key={i->Int.toString} onSelect=?onSelectMatch match />
+    ->Array.mapWithIndex(((match, quality), i) => <>
+      <Match key={i->Int.toString} onSelect=?onSelectMatch match />{" - "->React.string}{quality->Float.toString->React.string}
     </>)
     ->React.array}
   </>
