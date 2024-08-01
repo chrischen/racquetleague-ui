@@ -6,23 +6,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/components/organisms/SelectMatch.re.mjs:345
+#: src/components/organisms/SelectMatch.re.mjs:302
 msgid "left team players"
 msgstr ""
 
 #: src/components/organisms/SelectMatch.re.mjs:215
-msgid "load More"
-msgstr ""
+#~ msgid "load More"
+#~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:208
+#: src/components/organisms/SelectMatch.re.mjs:184
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:173
+#: src/components/organisms/SelectMatch.re.mjs:153
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:376
+#: src/components/organisms/SelectMatch.re.mjs:331
 msgid "right team players"
 msgstr ""

@@ -83,23 +83,25 @@ function EventRsvpUser(props) {
                                   }),
                               className: "mt-1 flex text-xs leading-5 text-gray-500"
                             }),
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsx(FramerMotion.motion.div, {
-                                    className: "h-2 rounded-full bg-red-400",
-                                    animate: {
-                                      width: Core__Option.getOr(props.ratingPercent, 0).toFixed(3) + "%"
-                                    },
-                                    initial: {
-                                      width: "0%"
-                                    }
-                                  }),
-                              className: "overflow-hidden rounded-full bg-gray-200 mt-1"
-                            })
+                        Core__Option.getOr(Core__Option.map(props.ratingPercent, (function (ratingPercent) {
+                                    return JsxRuntime.jsx("div", {
+                                                children: JsxRuntime.jsx(FramerMotion.motion.div, {
+                                                      className: "h-2 rounded-full bg-red-400",
+                                                      animate: {
+                                                        width: ratingPercent.toFixed(3) + "%"
+                                                      },
+                                                      initial: {
+                                                        width: "0%"
+                                                      }
+                                                    }),
+                                                className: "overflow-hidden rounded-full bg-gray-200 mt-1"
+                                              });
+                                  })), null)
                       ],
                       className: "min-w-0 flex-auto"
                     })
               ],
-              className: Core.cx("relative flex min-w-0 gap-x-4", highlight ? "py-3 mx-0" : "mx-4")
+              className: Core.cx("relative flex min-w-0 gap-x-4", highlight ? "py-2 mx-0" : "mx-2")
             });
 }
 

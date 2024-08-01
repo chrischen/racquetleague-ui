@@ -59,26 +59,27 @@ function LeagueEventPage(props) {
   var match = usePreloaded(query.data);
   var queryRefs = match.fragmentRefs;
   var $$event = match.event;
-  return JsxRuntime.jsx(WaitForMessages.make, {
-              children: (function () {
-                  return Core__Option.getOr(Core__Option.map($$event, (function ($$event) {
-                                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                children: [
-                                                  JsxRuntime.jsx(React.Suspense, {
-                                                        children: Caml_option.some(JsxRuntime.jsx(MatchList.make, {
-                                                                  matches: queryRefs
-                                                                })),
-                                                        fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                                                  children: t`Loading rankings...`
-                                                                }))
-                                                      }),
-                                                  JsxRuntime.jsx(AddLeagueMatch.make, {
-                                                        event: $$event.fragmentRefs
-                                                      })
-                                                ]
-                                              });
-                                  })), null);
-                })
+  return JsxRuntime.jsx(Layout.Container.make, {
+              children: JsxRuntime.jsx(WaitForMessages.make, {
+                    children: (function () {
+                        return Core__Option.getOr(Core__Option.map($$event, (function ($$event) {
+                                          return JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                      children: Caml_option.some(JsxRuntime.jsx(AddLeagueMatch.make, {
+                                                                event: $$event.fragmentRefs,
+                                                                children: JsxRuntime.jsx(React.Suspense, {
+                                                                      children: Caml_option.some(JsxRuntime.jsx(MatchList.make, {
+                                                                                matches: queryRefs
+                                                                              })),
+                                                                      fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
+                                                                                children: t`Loading matches...`
+                                                                              }))
+                                                                    })
+                                                              }))
+                                                    });
+                                        })), null);
+                      })
+                  }),
+              className: "mt-4"
             });
 }
 

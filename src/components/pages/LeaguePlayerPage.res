@@ -85,6 +85,7 @@ let make = () => {
                   <h2 className="sr-only" id="section-1-title"> {t`Match History`} </h2>
                   <div className="overflow-hidden rounded-lg bg-white shadow">
                     <div className="p-6">
+                      <h2 className="text-2xl font-semibold text-gray-900"> {t`Match History`} </h2>
                       <React.Suspense
                         fallback={<Layout.Container> {t`Loading rankings...`} </Layout.Container>}>
                         <MatchList matches=fragmentRefs user=?userRefs />
@@ -98,15 +99,13 @@ let make = () => {
                   <h2 className="sr-only" id="section-2-title"> {t`Rating`} </h2>
                   <div className="overflow-hidden rounded-lg bg-white shadow">
                     <div className="p-6">
-                        <dt className="truncate text-sm font-medium text-gray-500">
-                          {t`Rating`}
-                        </dt>
-                        <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-                          {user.rating
-                          ->Option.flatMap(r => r.ordinal->Option.map(Float.toFixed(_, ~digits=2)))
-                          ->Option.getOr("Unrated")
-                          ->React.string}
-                        </dd>
+                      <dt className="truncate text-sm font-medium text-gray-500"> {t`Rating`} </dt>
+                      <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
+                        {user.rating
+                        ->Option.flatMap(r => r.ordinal->Option.map(Float.toFixed(_, ~digits=2)))
+                        ->Option.getOr("Unrated")
+                        ->React.string}
+                      </dd>
                     </div>
                   </div>
                 </section>

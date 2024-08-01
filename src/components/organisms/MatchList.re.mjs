@@ -2,7 +2,6 @@
 
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
-import * as Layout from "../shared/Layout.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
@@ -358,12 +357,8 @@ function MatchList(props) {
   var matches = getConnectionNodes(data.matches);
   var pageInfo = data.matches.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
-  return JsxRuntime.jsxs(Layout.Container.make, {
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                JsxRuntime.jsx("h2", {
-                      children: t`Match History`,
-                      className: "text-2xl font-semibold text-gray-900"
-                    }),
                 !match.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
                               return JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                           to: "./?before=" + encodeURIComponent(startCursor),
@@ -395,8 +390,7 @@ function MatchList(props) {
                                   })), null) : null,
                       className: ""
                     })
-              ],
-              className: "mt-4 max-w-screen-md"
+              ]
             });
 }
 

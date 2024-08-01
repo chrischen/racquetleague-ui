@@ -13,60 +13,98 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ManagedSession.re.mjs:243
-msgid "court {0}"
-msgstr "コート {0}"
+#: src/components/organisms/SubmitMatch.re.mjs:341
+msgid "Cancel"
+msgstr "キャンセル"
 
-#: src/components/organisms/Match.re.mjs:241
-msgid "delete"
-msgstr "削除"
+#: src/components/organisms/SubmitMatch.re.mjs:348
+msgid "Completed"
+msgstr "試合終了"
 
-#: src/components/organisms/SelectMatch.re.mjs:345
+#: src/components/organisms/SelectMatch.re.mjs:302
 msgid "left team players"
 msgstr "左チームのプレイヤー"
 
-#: src/components/organisms/SelectMatch.re.mjs:215
-msgid "load More"
-msgstr "もっと読み込む"
-
-#: src/components/organisms/AddLeagueMatch.re.mjs:204
-#: src/components/organisms/AddLeagueMatch.re.mjs:231
+#: src/components/organisms/AddLeagueMatch.re.mjs:511
+#: src/components/organisms/AddLeagueMatch.re.mjs:550
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:179
+#: src/components/organisms/AddLeagueMatch.re.mjs:486
 msgid "manual team"
 msgstr "手動チーム"
 
-#: src/components/organisms/SelectMatch.re.mjs:208
+#: src/components/organisms/AddLeagueMatch.re.mjs:223
+msgid "Match Count"
+msgstr "試合数"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:519
+msgid "Match History"
+msgstr "対戦履歴"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:459
+msgid "Matchmaking"
+msgstr "マッチメイキング"
+
+#: src/components/organisms/SelectMatch.re.mjs:184
+#: src/components/organisms/AddLeagueMatch.re.mjs:296
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/SelectMatch.re.mjs:173
+#: src/components/organisms/SelectMatch.re.mjs:153
+#: src/components/organisms/AddLeagueMatch.re.mjs:202
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/Match.re.mjs:292
-#: src/components/organisms/Match.re.mjs:313
+#: src/components/organisms/AddLeagueMatch.re.mjs:418
+msgid "Players"
+msgstr " プレイヤー"
+
+#: src/components/organisms/SubmitMatch.re.mjs:311
+#: src/components/organisms/SubmitMatch.re.mjs:324
 msgid "points"
 msgstr "何点"
 
-#: src/components/organisms/Match.re.mjs:99
-#: src/components/organisms/Match.re.mjs:111
+#: src/components/organisms/SubmitMatch.re.mjs:99
+#: src/components/organisms/SubmitMatch.re.mjs:111
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:211
+#: src/components/organisms/CompMatch.re.mjs:206
+msgid "Quality"
+msgstr "競争力で"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:527
 msgid "queued matches"
 msgstr "キューされた試合"
 
-#: src/components/organisms/SelectMatch.re.mjs:376
+#: src/components/organisms/CompMatch.re.mjs:210
+msgid "Random"
+msgstr "ランダムで"
+
+#: src/components/organisms/SelectMatch.re.mjs:331
 msgid "right team players"
 msgstr "右チームのプレイヤー"
 
-#: src/components/organisms/ManagedSession.re.mjs:217
+#: src/components/organisms/CompMatch.re.mjs:286
+msgid "Select a tab"
+msgstr "タブを選択"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:429
 msgid "select all"
 msgstr "すべて選択"
+
+#: src/components/organisms/ManagedSession.re.mjs:243
+#~ msgid "court {0}"
+#~ msgstr "コート {0}"
+
+#: src/components/organisms/Match.re.mjs:241
+#~ msgid "delete"
+#~ msgstr "削除"
+
+#: src/components/organisms/SelectMatch.re.mjs:215
+#~ msgid "load More"
+#~ msgstr "もっと読み込む"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:765
 #~ msgid "Loser Points"

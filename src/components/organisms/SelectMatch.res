@@ -1,6 +1,7 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
+open Rating
 module Fragment = %relay(`
   fragment SelectMatch_event on Event
   @argumentDefinitions (
@@ -53,20 +54,18 @@ module SortAction = {
 module SelectEventPlayersList = {
   @react.component
   let make = (
-    ~event,
-    ~selected: array<SelectMatch_event_graphql.Types.fragment_rsvps_edges_node_user>,
-    ~disabled: option<array<SelectMatch_event_graphql.Types.fragment_rsvps_edges_node_user>>=?,
-    ~onSelectPlayer: option<SelectMatch_event_graphql.Types.fragment_rsvps_edges_node => unit>=?,
+    // ~event,
+    ~players: array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
+    ~selected: array<Player.t<'a>>,
+    ~disabled: option<array<Player.t<'a>>>=?,
+    ~onSelectPlayer: option<Player.t<'a> => unit>=?,
     ~minRating=0.,
     ~maxRating=1.,
   ) => {
-    let (_isPending, startTransition) = ReactExperimental.useTransition()
-    let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
-    let players = data.rsvps->Fragment.getConnectionNodes
-    let onLoadMore = _ =>
-      startTransition(() => {
-        loadNext(~count=1)->ignore
-      })
+    // let (_isPending, startTransition) = ReactExperimental.useTransition()
+    // let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
+    // let players = data.rsvps->Fragment.getConnectionNodes
+
     // let viewer = GlobalQuery.useViewer()
 
     let (sortDir, setSortDir) = React.useState(_ => SortAction.Desc)
@@ -82,14 +81,12 @@ module SelectEventPlayersList = {
               | players =>
                 players
                 ->Array.toSorted((a, b) => {
-                  let userA =
-                    a.rating->Option.flatMap(r => r.mu)->Option.map(r => r)->Option.getOr(0.)
-                  let userB =
-                    b.rating->Option.flatMap(r => r.mu)->Option.map(r => r)->Option.getOr(0.)
+                  let userA = a.rating.mu
+                  let userB = b.rating.mu
                   userA < userB ? sortDir == Desc ? 1. : -1. : sortDir == Desc ? -1. : 1.
                 })
-                ->Array.map(edge => {
-                  edge.user
+                ->Array.map(player => {
+                  player.data.user
                   ->Option.map(user => {
                     let disabled =
                       disabled
@@ -122,7 +119,7 @@ module SelectEventPlayersList = {
                             if disabled {
                               ()
                             } else {
-                              onSelectPlayer->Option.map(f => f(edge))->ignore
+                              onSelectPlayer->Option.map(f => f(player))->ignore
                             }
                             ()
                           }}>
@@ -131,14 +128,8 @@ module SelectEventPlayersList = {
                             highlight={selected->Array.findIndex(
                               player => player.id == user.id,
                             ) >= 0}
-                            ratingPercent={edge.rating
-                            ->Option.flatMap(
-                              rating =>
-                                rating.mu->Option.map(
-                                  mu => (mu -. minRating) /. (maxRating -. minRating) *. 100.,
-                                ),
-                            )
-                            ->Option.getOr(0.)}
+                            ratingPercent={(player.rating.mu -. minRating) /.
+                            (maxRating -. minRating) *. 100.}
                           />
                         </a>
                       </div>
@@ -150,13 +141,6 @@ module SelectEventPlayersList = {
               }}
             </FramerMotion.AnimatePresence>
           </ul>
-          <em>
-            {isLoadingNext
-              ? React.string("...")
-              : hasNext
-              ? <a onClick={onLoadMore}> {t`load More`} </a>
-              : React.null}
-          </em>
         </>}
       </div>
     </div>
@@ -171,17 +155,14 @@ let rot2 = (players, player) =>
   }
 
 @react.component
-let make = (~event, ~onMatchSelected) => {
-  let (
-    leftNodes: array<SelectMatch_event_graphql.Types.fragment_rsvps_edges_node>,
-    setLeftNodes,
-  ) = React.useState(() => [])
-  let (
-    rightNodes: array<SelectMatch_event_graphql.Types.fragment_rsvps_edges_node>,
-    setRightNodes,
-  ) = React.useState(() => [])
-  let {data} = Fragment.usePagination(event)
-  let players = data.rsvps->Fragment.getConnectionNodes
+let make = (
+  ~players: array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
+  ~onMatchSelected,
+) => {
+  let (leftNodes: array<Player.t<'a>>, setLeftNodes) = React.useState(() => [])
+  let (rightNodes: array<Player.t<'a>>, setRightNodes) = React.useState(() => [])
+  // let {data} = Fragment.usePagination(event)
+  // let players = data.rsvps->Fragment.getConnectionNodes
 
   let matchSelected = match => {
     switch match {
@@ -190,25 +171,15 @@ let make = (~event, ~onMatchSelected) => {
     }
   }
   let maxRating =
-    players->Array.reduce(0., (acc, next) =>
-      next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.) > acc
-        ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.)
-        : acc
-    )
+    players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
   let minRating =
-    players->Array.reduce(maxRating, (acc, next) =>
-      next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating) < acc
-        ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating)
-        : acc
-    )
-  let onSelectLeftNode = (node: SelectMatch_event_graphql.Types.fragment_rsvps_edges_node) => {
-    switch leftNodes->Array.findIndex((
-      node': SelectMatch_event_graphql.Types.fragment_rsvps_edges_node,
-    ) => node'.__id == node.__id) >= 0 {
+    players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+  let onSelectLeftNode = (node: Player.t<'a>) => {
+    switch leftNodes->Array.findIndex((node': Player.t<'a>) => node'.id == node.id) >= 0 {
     | true => ()
     | false =>
       setLeftNodes(nodes => {
-        let nodes = nodes->rot2((node :> SelectMatch_event_graphql.Types.fragment_rsvps_edges_node))
+        let nodes = nodes->rot2((node :> Player.t<'a>))
         // onSelectLeftNodes(nodes)->ignore
         matchSelected((nodes, rightNodes))
         nodes
@@ -216,14 +187,12 @@ let make = (~event, ~onMatchSelected) => {
     }
   }
 
-  let onSelectRightNode = (node: SelectMatch_event_graphql.Types.fragment_rsvps_edges_node) => {
-    switch rightNodes->Array.findIndex((
-      node': SelectMatch_event_graphql.Types.fragment_rsvps_edges_node,
-    ) => node'.__id == node.__id) >= 0 {
+  let onSelectRightNode = (node: Player.t<'a>) => {
+    switch rightNodes->Array.findIndex((node': Player.t<'a>) => node'.id == node.id) >= 0 {
     | true => ()
     | false =>
       setRightNodes(nodes => {
-        let nodes = nodes->rot2((node :> SelectMatch_event_graphql.Types.fragment_rsvps_edges_node))
+        let nodes = nodes->rot2((node :> Player.t<'a>))
         // onSelectRightNodes(nodes)->ignore
         matchSelected((leftNodes, nodes))
         nodes
@@ -236,8 +205,9 @@ let make = (~event, ~onMatchSelected) => {
         <h2 className="sr-only" id="section-1-title"> {"Winners"->React.string} </h2>
         <h2> {t`left team players`} </h2>
         <SelectEventPlayersList
-          event={event}
-          selected={leftNodes->Array.filterMap(n => n.user)}
+          // event={event}
+          players
+          selected={leftNodes}
           onSelectPlayer=onSelectLeftNode
           minRating
           maxRating
@@ -250,9 +220,9 @@ let make = (~event, ~onMatchSelected) => {
         <h2 className="sr-only" id="section-2-title"> {"Losers"->React.string} </h2>
         <h2> {t`right team players`} </h2>
         <SelectEventPlayersList
-          event={event}
-          selected={rightNodes->Array.filterMap(n => n.user)}
-          disabled={leftNodes->Array.filterMap(n => n.user)}
+          players
+          selected={rightNodes}
+          disabled={leftNodes}
           onSelectPlayer=onSelectRightNode
           minRating
           maxRating

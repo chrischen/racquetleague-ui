@@ -16,7 +16,7 @@ open Lingui.Util
 //   }
 // `)
 module PredictMatchOutcome = %relay(`
-query MatchPredictMatchOutcomeQuery(
+query SubmitMatchPredictMatchOutcomeQuery(
   $input: PredictMatchInput!
 ) {
   predictMatchOutcome(input: $input) {
@@ -26,7 +26,7 @@ query MatchPredictMatchOutcomeQuery(
 }
 `)
 module CreateLeagueMatchMutation = %relay(`
- mutation MatchMutation(
+ mutation SubmitMatchMutation(
     $connections: [ID!]!
     $matchInput: LeagueMatchInput!
   ) {
@@ -104,37 +104,47 @@ type inputsMatch = {
 let schema = Zod.z->Zod.object(
   (
     {
-      scoreLeft: Zod.z->Zod.number({})->Zod.Number.gte(0.),
-      scoreRight: Zod.z->Zod.number({})->Zod.Number.gte(0.),
+      scoreLeft: Zod.z->Zod.preprocess(
+        a => Float.fromString(a),
+        Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(0.),
+      ),
+      scoreRight: Zod.z->Zod.preprocess(
+        a => Float.fromString(a),
+        Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(0.),
+      ),
     }: inputsMatch
   ),
 )
 
-type team = array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>
-type match = (team, team)
+// type team = array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>
+// type match = (team, team)
+external alert: string => unit = "alert"
 
+open Rating
 type winners = Left | Right
 @react.component
 let make = (
-  ~match: match,
+  ~match: Match.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>,
   ~activity: AddLeagueMatch_event_graphql.Types.fragment_activity,
   ~minRating,
   ~maxRating,
   ~onDelete: option<unit => unit>=?,
+  ~onComplete: option<unit => unit>=?,
+  ~onSubmitted: option<unit => unit>=?,
 ) => {
   open Form
   let (commitMutationCreateLeagueMatch, _isMutationInFlight) = CreateLeagueMatchMutation.use()
 
-  let team1 = match->fst;
-  let team2 = match->snd;
+  let team1 = match->fst
+  let team2 = match->snd
   let outcome = PredictMatchOutcome.use(
     ~variables={
       input: {
         team1RatingIds: team1->Array.map(node =>
-          node.rating->Option.map(rating => rating.id)->Option.getOr("")
+          node.data.rating->Option.map(rating => rating.id)->Option.getOr("")
         ),
         team2RatingIds: team2->Array.map(node =>
-          node.rating->Option.map(rating => rating.id)->Option.getOr("")
+          node.data.rating->Option.map(rating => rating.id)->Option.getOr("")
         ),
       },
     },
@@ -145,74 +155,79 @@ let make = (
       defaultValues: {},
     },
   )
+  let (submitting, setSubmitting) = React.useState(() => false)
 
   let onSubmit = (data: inputsMatch) => {
-    let winningSide = switch data.scoreLeft > data.scoreRight {
-    | true => Left
-    | false => Right
-    }
-    let winners =
-      (winningSide == Left ? team1 : team2)->Array.filterMap(n => n.user)->Array.map(p => p.id)
-    let losers =
-      (winningSide == Left ? team2 : team1)->Array.filterMap(n => n.user)->Array.map(p => p.id)
-    let score =
-      winningSide == Left ? [data.scoreLeft, data.scoreRight] : [data.scoreRight, data.scoreLeft]
-    activity.slug
-    ->Option.map(slug => {
-      let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-        // __id,
-        "root"->RescriptRelay.makeDataId,
-        "MatchListFragment_matches",
-        {
-          LeagueEventPageQuery_graphql.Types.activitySlug: Some(slug),
-          namespace: Some("doubles:rec"),
-          after: None,
-          before: None,
-          eventId: None,
-          first: None,
-        },
-      )
-      commitMutationCreateLeagueMatch(
-        ~variables={
-          matchInput: {
-            activitySlug: slug,
-            namespace: "doubles:rec",
-            doublesMatch: {
-              winners,
-              losers,
-              score,
-              createdAt: Js.Date.make()->Util.Datetime.fromDate,
-            },
+    setSubmitting(_ => true)
+    switch data.scoreLeft == data.scoreRight {
+    | true => alert("No ties allowed")
+    | _ =>
+      let winningSide = switch data.scoreLeft > data.scoreRight {
+      | true => Left
+      | false => Right
+      }
+      let winners = (winningSide == Left ? team1 : team2)->Array.map(p => p.id)
+      let losers = (winningSide == Left ? team2 : team1)->Array.map(p => p.id)
+      let score =
+        winningSide == Left ? [data.scoreLeft, data.scoreRight] : [data.scoreRight, data.scoreLeft]
+      activity.slug
+      ->Option.map(slug => {
+        let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+          // __id,
+          "root"->RescriptRelay.makeDataId,
+          "MatchListFragment_matches",
+          {
+            LeagueEventPageQuery_graphql.Types.activitySlug: Some(slug),
+            namespace: Some("doubles:rec"),
+            after: None,
+            before: None,
+            eventId: None,
+            first: None,
           },
-          connections: [connectionId],
-        },
-      )->RescriptRelay.Disposable.ignore
-      setValue(ScoreLeft, Value(0.))
-      setValue(ScoreRight, Value(0.))
-      ()
-    })
-    ->ignore
-    ()
+        )
+        commitMutationCreateLeagueMatch(
+          ~variables={
+            matchInput: {
+              activitySlug: slug,
+              namespace: "doubles:rec",
+              doublesMatch: {
+                winners,
+                losers,
+                score,
+                createdAt: Js.Date.make()->Util.Datetime.fromDate,
+              },
+            },
+            connections: [connectionId],
+          },
+          ~onCompleted=(_, errs) => {
+            switch errs {
+            | Some(errs) => Js.log(errs)
+            | None => onSubmitted->Option.map(f => f())->Option.getOr()
+            }
+            setSubmitting(_ => false)
+            ()
+          },
+          ~onError=_ => {
+            setSubmitting(_ => false)
+          },
+        )->RescriptRelay.Disposable.ignore
+        setValue(ScoreLeft, Value(0.))
+        setValue(ScoreRight, Value(0.))
+        ()
+      })
+      ->ignore
+    }
   }
   <form onSubmit={handleSubmit(onSubmit)}>
     <div className="grid grid-cols-2 gap-4 col-span-2">
-    <div className="col-span-2">{onDelete->Option.map(onDelete => <UiAction onClick=onDelete>{t`delete`}</UiAction>)->Option.getOr(React.null)}
-    </div>
       <div className="grid gap-4">
         {team1
-        ->Array.map(playerRsvp =>
-          playerRsvp.user
+        ->Array.map(player =>
+          player.data.user
           ->Option.map(user => {
             <EventRsvpUser
               user={user.fragmentRefs}
-              ratingPercent={playerRsvp.rating
-              ->Option.flatMap(
-                rating =>
-                  rating.mu->Option.map(
-                    mu => (mu -. minRating) /. (maxRating -. minRating) *. 100.,
-                  ),
-              )
-              ->Option.getOr(0.)}
+              ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
             />
           })
           ->Option.getOr(React.null)
@@ -221,19 +236,12 @@ let make = (
       </div>
       <div className="grid gap-4">
         {team2
-        ->Array.map(playerRsvp =>
-          playerRsvp.user
+        ->Array.map(player =>
+          player.data.user
           ->Option.map(user => {
             <EventRsvpUser
               user={user.fragmentRefs}
-              ratingPercent={playerRsvp.rating
-              ->Option.flatMap(
-                rating =>
-                  rating.mu->Option.map(
-                    mu => (mu -. minRating) /. (maxRating -. minRating) *. 100.,
-                  ),
-              )
-              ->Option.getOr(0.)}
+              ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
             />
           })
           ->Option.getOr(React.null)
@@ -259,11 +267,11 @@ let make = (
               id="scoreLeft"
               register={register(
                 ScoreLeft,
-                ~options={
-                  setValueAs: v => {
-                    v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
-                  },
-                },
+                // ~options={
+                //   setValueAs: v => {
+                //     v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
+                //   },
+                // },
               )}
             />
           </div>
@@ -277,19 +285,36 @@ let make = (
               id="scoreRight"
               register={register(
                 ScoreRight,
-                ~options={
-                  setValueAs: v => v == "" ? 0. : Float.fromString(v)->Option.getOr(1.),
-                },
+                // ~options={
+                //   setValueAs: v => v == "" ? 0. : Float.fromString(v)->Option.getOr(1.),
+                // },
               )}
             />
           </div>
         </div>
         <div className="col-span-2 md:col-span-2 gap-4">
-          <input
-            type_="submit"
-            className="mx-auto block text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-            value="Submit"
-          />
+          <div className="mt-3 flex md:top-3 md:mt-0 justify-center">
+            {onDelete
+            ->Option.map(onDelete =>
+              <UiAction className="inline-flex items-center" onClick=onDelete>
+                {t`Cancel`}
+              </UiAction>
+            )
+            ->Option.getOr(React.null)}
+            {onComplete
+            ->Option.map(onComplete =>
+              <UiAction className="ml-3 inline-flex items-center" onClick=onComplete>
+                {t`Completed`}
+              </UiAction>
+            )
+            ->Option.getOr(React.null)}
+            <input
+              type_="submit"
+              disabled={submitting}
+              className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+              value="Submit"
+            />
+          </div>
         </div>
       </div>
     </div>

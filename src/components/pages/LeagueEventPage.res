@@ -22,18 +22,23 @@ let make = () => {
   open Lingui.Util
   let query = useLoaderData()
   let {event, fragmentRefs: queryRefs} = Query.usePreloaded(~queryRef=query.data)
-  <WaitForMessages>
-    {() => {
-      event->Option.map(event => {
-        let {__id, _, fragmentRefs} = event
-        <>
-          <React.Suspense
-            fallback={<Layout.Container> {t`Loading rankings...`} </Layout.Container>}>
-            <MatchList matches=queryRefs />
-          </React.Suspense>
-          <AddLeagueMatch event=fragmentRefs />
-        </>
-      })->Option.getOr(React.null)
-    }}
-  </WaitForMessages>
+  <Layout.Container className="mt-4">
+    <WaitForMessages>
+      {() => {
+        event
+        ->Option.map(event => {
+          let {__id, fragmentRefs} = event
+          <>
+            <AddLeagueMatch event=fragmentRefs>
+              <React.Suspense
+                fallback={<Layout.Container> {t`Loading matches...`} </Layout.Container>}>
+                <MatchList matches=queryRefs />
+              </React.Suspense>
+            </AddLeagueMatch>
+          </>
+        })
+        ->Option.getOr(React.null)
+      }}
+    </WaitForMessages>
+  </Layout.Container>
 }

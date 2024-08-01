@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-08-01 17:23+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/organisms/CompMatch.re.mjs:206
+msgid "Quality"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:210
+msgid "Random"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:286
+msgid "Select a tab"
+msgstr ""

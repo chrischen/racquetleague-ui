@@ -1,4 +1,4 @@
-/* @sourceLoc Match.res */
+/* @sourceLoc SubmitMatch.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -138,7 +138,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "MatchPredictMatchOutcomeQuery",
+    "name": "SubmitMatchPredictMatchOutcomeQuery",
     "selections": (v1/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -147,16 +147,16 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "MatchPredictMatchOutcomeQuery",
+    "name": "SubmitMatchPredictMatchOutcomeQuery",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "b58c18bfe8e91e989c714e588151323d",
+    "cacheID": "c06091741868bc251ec04fa3da59cf31",
     "id": null,
     "metadata": {},
-    "name": "MatchPredictMatchOutcomeQuery",
+    "name": "SubmitMatchPredictMatchOutcomeQuery",
     "operationKind": "query",
-    "text": "query MatchPredictMatchOutcomeQuery(\n  $input: PredictMatchInput!\n) {\n  predictMatchOutcome(input: $input) {\n    team1\n    team2\n  }\n}\n"
+    "text": "query SubmitMatchPredictMatchOutcomeQuery(\n  $input: PredictMatchInput!\n) {\n  predictMatchOutcome(input: $input) {\n    team1\n    team2\n  }\n}\n"
   }
 };
 })() `)

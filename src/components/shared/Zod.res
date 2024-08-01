@@ -1,7 +1,7 @@
 type t
 
 @module("zod")
-external z: t = "default"
+external z: t = "z"
 
 type string_ = string
 type number = float
@@ -10,6 +10,7 @@ type optional<'value> = option<'value>
 type array<'value> = array<'value>
 type params = {required_error?: string, invalid_type_error?: string}
 
+type zodEffect;
 @send
 external string: (t, params) => string_ = "string"
 
@@ -54,7 +55,7 @@ external boolean: (t, params) => bool = "boolean"
 @send
 external nan: t => number = "nan"
 
-@send
+@get
 external coerce: t => t = "coerce"
 
 @send
@@ -65,6 +66,9 @@ external optional: 'z => optional<'z> = "optional"
 
 @send
 external array: 'z => array<'z> = "array"
+
+@send
+external preprocess: (t, 'a => option<'b>, 'b) => 'b = "preprocess"
 
 type issue = {
   code: int,

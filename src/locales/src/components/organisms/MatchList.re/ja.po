@@ -13,19 +13,15 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:370
+#: src/components/organisms/MatchList.re.mjs:365
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
-#: src/components/organisms/MatchList.re.mjs:393
+#: src/components/organisms/MatchList.re.mjs:388
 msgid "Load more matches..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/organisms/MatchList.re.mjs:364
-msgid "Match History"
-msgstr "対戦履歴"
-
-#: src/components/organisms/MatchList.re.mjs:286
+#: src/components/organisms/MatchList.re.mjs:285
 msgid "Score:"
 msgstr "スコア:"
 
@@ -44,3 +40,7 @@ msgstr "スコア:"
 #: src/components/organisms/MatchList.re.mjs:206
 #~ msgid "Male"
 #~ msgstr "男性"
+
+#: src/components/organisms/MatchList.re.mjs:364
+#~ msgid "Match History"
+#~ msgstr "対戦履歴"

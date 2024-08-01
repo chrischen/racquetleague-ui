@@ -50,48 +50,193 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 //@genType
 //let default = make
 
-let rsvpToPlayer = (rsvp: AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node) => {
+open Rating
+let rsvpToPlayer = (rsvp: AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node): option<
+  Player.t<'a>,
+> => {
   switch (rsvp.user->Option.map(u => u.id), rsvp.rating) {
   | (Some(userId), rating) =>
+    let rating = switch rating {
+    | Some({mu: Some(mu), sigma: Some(sigma)}) => Rating.make(mu, sigma)
+    | _ => Rating.makeDefault()
+    }
     {
       data: rsvp,
-      ManagedSession.Player.id: userId,
+      Player.id: userId,
       name: rsvp.user->Option.flatMap(u => u.lineUsername)->Option.getOr(""),
-      rating: switch rating {
-      | Some({mu: Some(mu), sigma: Some(sigma)}) => ManagedSession.Rating.make(mu, sigma)
-      | _ => ManagedSession.Rating.makeDefault()
-      },
+      ratingOrdinal: rating->Rating.ordinal,
+      rating,
     }->Some
   | _ => None
   }
 }
+module PlayerState = {
+  type t = {count: int}
+  let make = () => {count: 0}
+}
+module Session = {
+  type t = Js.Dict.t<PlayerState.t>
+  let make = () => Js.Dict.empty()
+  let get = (session: t, id: string) => session->Js.Dict.get(id)->Option.getOr(PlayerState.make())
+  let update = (session: t, id: string, f: PlayerState.t => PlayerState.t) => {
+    let session = Js.Dict.fromArray(session->Js.Dict.entries)
+    switch session->Js.Dict.get(id)->Option.map(state => session->Js.Dict.set(id, f(state))) {
+    | Some(_) => ()
+    | None => session->Js.Dict.set(id, f(PlayerState.make()))
+    }
+    session
+  }
+}
 
-type team = array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>
+type rsvpNode = AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node
+type player = Player.t<rsvpNode>
+type team = array<player>
 type match = (team, team)
 
 type matches = array<match>
 
+module SelectPlayersList = {
+  type sort = Rating | MatchCount
+  @react.component
+  let make = (
+    ~players: array<Player.t<rsvpNode>>,
+    ~selected: array<string>,
+    ~playing: Set.t<string>,
+    ~session: Session.t,
+    ~onClick: Player.t<'a> => unit,
+  ) => {
+    let (sort, setSort) = React.useState(() => Rating)
+
+    let players = players->Array.toSorted((a, b) =>
+      switch sort {
+      | MatchCount =>
+        (session->Session.get(a.id)).count < (session->Session.get(b.id)).count ? -1. : 1.
+      | Rating => a.ratingOrdinal < b.ratingOrdinal ? 1. : -1.
+      }
+    )
+    <div className="bg-gray-100">
+      <table className="mt-6 w-full whitespace-nowrap text-left">
+        <colgroup>
+          <col className="w-full sm:w-4/12" />
+          <col className="lg:w-4/12" />
+          <col className="lg:w-2/12" />
+          <col className="lg:w-1/12" />
+          <col className="lg:w-1/12" />
+        </colgroup>
+        <thead className="border-b border-black/10 text-sm leading-6 text-black">
+          <tr>
+            <th scope="col" className="py-2 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8">
+              <UiAction className="group inline-flex" onClick={() => setSort(_ => Rating)}>
+                {t`Player`}
+                {sort == Rating
+                  ? <span
+                      className="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+                      <HeroIcons.ChevronDownIcon className="w-5 h-5" />
+                    </span>
+                  : React.null}
+              </UiAction>
+            </th>
+            <th
+              scope="col"
+              className="py-2 pl-0 pr-4 text-right font-semibold table-cell sm:pr-6 lg:pr-8">
+              <UiAction className="group inline-flex" onClick={() => setSort(_ => MatchCount)}>
+                {t`Match Count`}
+                {sort == MatchCount
+                  ? <span
+                      className="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+                      <HeroIcons.ChevronUpIcon className="w-5 h-5" />
+                    </span>
+                  : React.null}
+              </UiAction>
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-black/5">
+          {switch players {
+          | [] => t`no players yet`
+          | players =>
+            players
+            ->Array.map(player => {
+              player.data.user
+              ->Option.map(user => {
+                <FramerMotion.Tr
+                  layout=true
+                  // className="mt-2 relative flex justify-between"
+                  style={originX: 0.05, originY: 0.05}
+                  key={user.id}
+                  initial={opacity: 0., scale: 1.15}
+                  animate={opacity: 1., scale: 1.}
+                  exit={opacity: 0., scale: 1.15}>
+                  <td className="py-2 pl-0 pr-8">
+                    <div className="flex items-center gap-x-4">
+                      <div
+                        className={Util.cx([
+                          "text-sm w-full font-medium leading-6 text-gray-900",
+                          selected->Array.indexOf(player.id) == -1 ? "opacity-50" : "",
+                        ])}>
+                        <UiAction onClick={() => onClick(player)}>
+                          <EventRsvpUser user={user.fragmentRefs} />
+                        </UiAction>
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    className="py-2 pl-0 pr-4 text-right text-sm leading-6 text-gray-400 table-cell sm:pr-6 lg:pr-8">
+                    <div className="flex items-center justify-end gap-x-2">
+                      <div
+                        className={Util.cx([
+                          playing->Set.has(player.id) ? "text-green-400 bg-green-400/10" : "hidden",
+                          "flex-none rounded-full p-1",
+                        ])}>
+                        <div className="h-1.5 w-1.5 rounded-full bg-current" />
+                      </div>
+                      {Session.get(session, player.id).count->Int.toString->React.string}
+                    </div>
+                  </td>
+                </FramerMotion.Tr>
+              })
+              ->Option.getOr(React.null)
+            })
+            ->React.array
+          }}
+        </tbody>
+      </table>
+    </div>
+  }
+}
+
 @genType @react.component
-let make = (~event) => {
+let make = (~event, ~children) => {
   let {__id, activity} = Fragment.use(event)
   let (selectedMatch: option<match>, setSelectedMatch) = React.useState(() => None)
-  let (matches, setMatches) = React.useState(() => [])
+  let (matches: array<match>, setMatches) = React.useState(() => [])
   let (manualTeamOpen, setManualTeamOpen) = React.useState(() => false)
+  // let (activePlayers: array<Player.t<rsvpNode>>, setActivePlayers) = React.useState(_ => [])
+  let (activePlayers2: Js.Set.t<string>, setActivePlayers2) = React.useState(_ => Set.make())
+  let (sessionState, setSessionState) = React.useState(() => Session.make())
 
   let {data} = Fragment.usePagination(event)
-  let players = data.rsvps->Fragment.getConnectionNodes
+  let players = data.rsvps->Fragment.getConnectionNodes->Array.filterMap(rsvpToPlayer)
+  let activePlayers = players->Array.filter(p => activePlayers2->Set.has(p.id))
+
+  // let (players: array<Player.t<rsvpNode>>, setPlayers) = React.useState(_ => players')
+
   let maxRating =
-    players->Array.reduce(0., (acc, next) =>
-      next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.) > acc
-        ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.)
-        : acc
-    )
+    players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
   let minRating =
-    players->Array.reduce(maxRating, (acc, next) =>
-      next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating) < acc
-        ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating)
-        : acc
-    )
+    players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+  let maxCount = players->Array.reduce(0, (acc, next) => {
+    let count = (sessionState->Session.get(next.id)).count
+    count > acc ? count : acc
+  })
+  let minCount = players->Array.reduce(0, (acc, next) => {
+    let count = (sessionState->Session.get(next.id)).count
+    count < acc ? count : acc
+  })
+  let priorityPlayers = players->Array.reduce([], (acc, next) => {
+    let count = (sessionState->Session.get(next.id)).count
+    minCount != maxCount && count == minCount ? acc->Array.concat([next]) : acc
+  })
 
   let queueMatch = match => {
     let matches = matches->Array.concat([match])
@@ -102,71 +247,90 @@ let make = (~event) => {
     let matches = matches->Array.filterWithIndex((_, i) => i != index)
     setMatches(_ => matches)
   }
-  // let (selectedMatch: option<ManagedSession.Match.t>, setSelectedMatch) = React.useState(() => None)
+  let consumedPlayers =
+    matches
+    ->Array.flatMap(match => Array.concat(match->fst, match->snd)->Array.map(p => p.id))
+    ->Set.fromArray
 
-  // let onCreateMatch = _ => {
-  //   let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-  //     __id,
-  //     "LeagueEventMatches_matches",
-  //     (),
-  //   )
-  //   commitMutationCreateLeagueMatch(
-  //     ~variables={
-  //       matchInput: {
-  //         activitySlug: "pickleball",
-  //         namespace: "doubles:rec",
-  //         doublesMatch: {
-  //           winners: [],
-  //           losers: [],
-  //           score: [],
-  //           createdAt: Js.Date.make()->Util.Datetime.fromDate,
-  //         },
-  //       },
-  //       // id: __id->RescriptRelay.dataIdToString,
-  //       connections: [connectionId],
-  //     },
-  //   )->RescriptRelay.Disposable.ignore
-  // }
-
-  <Layout.Container>
-    <ManagedSession
-      players={players->Array.filterMap(x => rsvpToPlayer(x))}
-      consumedPlayers={matches
-      ->Array.flatMap(match =>
-        Array.concat(match->fst, match->snd)
-        ->Array.filterMap(r => rsvpToPlayer(r))
-        ->Array.map(p => p.id)
+  let updatePlayCounts = (match: match) =>
+    setSessionState(prevState => {
+      [match->fst, match->snd]
+      ->Array.flatMap(x => x)
+      ->Array.reduce(prevState, (state, p) =>
+        state->Session.update(p.id, prev => {count: prev.count + 1})
       )
-      ->Set.fromArray}
-      onSelectMatch={(((p1', p2'), (p3', p4'))) => {
-        // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
-        queueMatch(([p1'.data, p2'.data], [p3'.data, p4'.data]))
-      }}
-    />
+    })
+
+  <>
     <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-1 md:gap-8">
+      <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8">
+        <div className="">
+          <h2 className="text-2xl font-semibold text-gray-900"> {t`Players`} </h2>
+          <UiAction
+            onClick={() =>
+              setActivePlayers2(_ => {
+                players->Array.map(p => p.id)->Set.fromArray
+              })}>
+            {t`select all`}
+          </UiAction>
+          <SelectPlayersList
+            players={players}
+            selected={activePlayers->Array.map((p: player) => p.id)}
+            session={sessionState}
+            playing={consumedPlayers}
+            onClick={player =>
+              setActivePlayers2(ps => {
+                let newSet = Set.make()
+                ps->Set.forEach(id => newSet->Set.add(id))
+                switch ps->Set.has(player.id) {
+                | true => newSet->Set.delete(player.id)->ignore
+                | false => newSet->Set.add(player.id)->ignore
+                }
+
+                newSet
+              })}
+
+            // switch ps->Array.findIndexOpt(p => p.id == player.id) {
+            // | Some(_) => ps->Array.filter(v => v.id != player.id)
+            // | None => ps->Array.concat([player])
+            // }
+          />
+        </div>
+        <div className="">
+          <h2 className="text-2xl font-semibold text-gray-900"> {t`Matchmaking`} </h2>
+          <CompMatch
+            players={(activePlayers :> array<Player.t<'a>>)}
+            consumedPlayers={consumedPlayers}
+            priorityPlayers
+            onSelectMatch={match => {
+              // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
+              queueMatch(match)
+            }}
+          />
+        </div>
+      </div>
       <div className="col-span-1">
         <UiAction onClick={() => setManualTeamOpen(prev => !prev)}> {t`manual team`} </UiAction>
       </div>
       {manualTeamOpen
         ? <SelectMatch
-            event
+            players={activePlayers}
             onMatchSelected={match =>
-              setSelectedMatch(_ => Some(
-                (match :> (
-                  array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>,
-                  array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>,
-                )),
-              ))}
+              setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))}
           />
         : React.null}
       <div className="grid grid-cols-1 gap-4">
         <React.Suspense fallback={<div> {t`Loading`} </div>}>
           {activity
           ->Option.flatMap(activity =>
-            selectedMatch->Option.map(match => <Match match minRating maxRating activity />)
+            selectedMatch->Option.map(match => <SubmitMatch match minRating maxRating activity />)
           )
           ->Option.getOr(React.null)}
         </React.Suspense>
+      </div>
+      <div>
+        <h2 className="text-2xl font-semibold text-gray-900"> {t`Match History`} </h2>
+        {children}
       </div>
       <div className="grid grid-cols-1 gap-4">
         {t`queued matches`}
@@ -176,7 +340,21 @@ let make = (~event) => {
             matches
             ->Array.mapWithIndex((match, i) =>
               <React.Suspense fallback={<div> {t`Loading`} </div>}>
-                <Match match minRating maxRating activity onDelete={() => dequeueMatch(i)} />
+                <SubmitMatch
+                  match
+                  minRating
+                  maxRating
+                  activity
+                  onSubmitted={() => {
+                    updatePlayCounts(match)
+                    dequeueMatch(i)
+                  }}
+                  onDelete={() => dequeueMatch(i)}
+                  onComplete={() => {
+                    updatePlayCounts(match)
+                    dequeueMatch(i)
+                  }}
+                />
               </React.Suspense>
             )
             ->React.array
@@ -185,7 +363,7 @@ let make = (~event) => {
         </div>
       </div>
     </div>
-  </Layout.Container>
+  </>
 }
 
 // let loadMessages = lang => {

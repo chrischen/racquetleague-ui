@@ -269,8 +269,8 @@ let make = (~matches, ~user=?) => {
   //   })
   //
 
-  <Layout.Container className="mt-4 max-w-screen-md">
-    <h2 className="text-2xl font-semibold text-gray-900"> {t`Match History`} </h2>
+  // <Layout.Container className="mt-4 max-w-screen-md">
+  <>
     {!isLoadingPrevious && hasPrevious
       ? pageInfo.startCursor
         ->Option.map(startCursor =>
@@ -300,7 +300,8 @@ let make = (~matches, ~user=?) => {
           }
         : React.null}
     </div>
-  </Layout.Container>
+    </>
+  // </Layout.Container>
 }
 
 @genType

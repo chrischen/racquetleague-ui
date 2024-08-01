@@ -33,6 +33,20 @@ module Li = {
     ~children: React.element=?,
   ) => React.element = "li"
 }
+module Tr = {
+  @module("framer-motion") @scope("motion") @react.component
+  external make: (
+    ~className: string=?,
+    ~style: css=?,
+    ~key: string=?,
+    ~animate: css=?,
+    ~initial: css=?,
+    ~exit: css=?,
+    ~layout: bool=?,
+    ~children: React.element=?,
+  ) => React.element = "tr"
+}
+
 
 module Main = {
   @module("framer-motion") @scope("motion") @react.component

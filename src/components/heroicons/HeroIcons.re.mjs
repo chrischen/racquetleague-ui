@@ -11,6 +11,10 @@ var XMarkIcon = {};
 
 var ChevronRightIcon = {};
 
+var ChevronDownIcon = {};
+
+var ChevronUpIcon = {};
+
 var CloudArrowUpIcon = {};
 
 var CheckIcon = {};
@@ -25,6 +29,8 @@ export {
   BellIcon ,
   XMarkIcon ,
   ChevronRightIcon ,
+  ChevronDownIcon ,
+  ChevronUpIcon ,
   CloudArrowUpIcon ,
   CheckIcon ,
   CalendarIcon ,

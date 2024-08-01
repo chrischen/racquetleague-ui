@@ -880,6 +880,42 @@ msgstr "キューされた試合"
 msgid "right team players"
 msgstr "右チームのプレイヤー"
 
+#: src/components/organisms/SubmitMatch.re.mjs:341
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/components/organisms/SubmitMatch.re.mjs:348
+msgid "Completed"
+msgstr "試合終了"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:223
+msgid "Match Count"
+msgstr "試合数"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:459
+msgid "Matchmaking"
+msgstr "マッチメイキング"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:418
+msgid "Players"
+msgstr " プレイヤー"
+
+#: src/components/organisms/CompMatch.re.mjs:206
+msgid "Quality"
+msgstr "競争力で"
+
+#: src/components/organisms/CompMatch.re.mjs:210
+msgid "Random"
+msgstr "ランダムで"
+
+#: src/components/organisms/CompMatch.re.mjs:286
+msgid "Select a tab"
+msgstr "タブを選択"
+
+#: src/components/pages/LeagueEventPage.re.mjs:74
+msgid "Loading matches..."
+msgstr "試合を読み込んでいます..."
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

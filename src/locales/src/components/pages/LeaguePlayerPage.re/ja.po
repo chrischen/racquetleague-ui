@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:370
+#: src/components/organisms/MatchList.re.mjs:365
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
@@ -21,11 +21,11 @@ msgstr "前のものを読み込む"
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/MatchList.re.mjs:393
+#: src/components/organisms/MatchList.re.mjs:388
 msgid "Load more matches..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:158
+#: src/components/pages/LeaguePlayerPage.re.mjs:163
 msgid "Loading rankings..."
 msgstr "ランキングを読み込んでいます..."
 
@@ -33,8 +33,8 @@ msgstr "ランキングを読み込んでいます..."
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/MatchList.re.mjs:364
 #: src/components/pages/LeaguePlayerPage.re.mjs:146
+#: src/components/pages/LeaguePlayerPage.re.mjs:154
 msgid "Match History"
 msgstr "対戦履歴"
 
@@ -43,12 +43,12 @@ msgstr "対戦履歴"
 msgid "Player Profile Page"
 msgstr "プレイヤープロフィールページ"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:174
-#: src/components/pages/LeaguePlayerPage.re.mjs:182
+#: src/components/pages/LeaguePlayerPage.re.mjs:180
+#: src/components/pages/LeaguePlayerPage.re.mjs:188
 msgid "Rating"
 msgstr "評価"
 
-#: src/components/organisms/MatchList.re.mjs:286
+#: src/components/organisms/MatchList.re.mjs:285
 msgid "Score:"
 msgstr "スコア:"
 

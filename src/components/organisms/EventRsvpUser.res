@@ -43,7 +43,7 @@ let make = (
   //   leave="transition duration-300"
   //   leaveFrom="scale-100 opacity-100"
   //   leaveTo="scale-125 opacity-0">
-  <div className={Util.cx(["relative flex min-w-0 gap-x-4", highlight ? "py-3 mx-0" : "mx-4"])}>
+  <div className={Util.cx(["relative flex min-w-0 gap-x-4", highlight ? "py-2 mx-0" : "mx-2"])}>
     {user.picture
     ->Option.map(picture =>
       <img
@@ -81,13 +81,17 @@ let make = (
       <p className="mt-1 flex text-xs leading-5 text-gray-500">
         <span className="relative truncate hover:underline" />
       </p>
-      <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
-        <FramerMotion.Div
-          className="h-2 rounded-full bg-red-400"
-          initial={width: "0%"}
-          animate={{width: ratingPercent->Option.getOr(0.)->Float.toFixed(~digits=3) ++ "%"}}
-        />
-      </div>
+      {ratingPercent
+      ->Option.map(ratingPercent =>
+        <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
+          <FramerMotion.Div
+            className="h-2 rounded-full bg-red-400"
+            initial={width: "0%"}
+            animate={{width: ratingPercent->Float.toFixed(~digits=3) ++ "%"}}
+          />
+        </div>
+      )
+      ->Option.getOr(React.null)}
     </div>
   </div>
 

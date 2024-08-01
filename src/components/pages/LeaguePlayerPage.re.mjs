@@ -148,16 +148,22 @@ function LeaguePlayerPage(props) {
                                                                                   id: "section-1-title"
                                                                                 }),
                                                                             JsxRuntime.jsx("div", {
-                                                                                  children: JsxRuntime.jsx("div", {
-                                                                                        children: JsxRuntime.jsx(React.Suspense, {
-                                                                                              children: Caml_option.some(JsxRuntime.jsx(MatchList.make, {
-                                                                                                        matches: fragmentRefs,
-                                                                                                        user: userRefs
-                                                                                                      })),
-                                                                                              fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                                                                                        children: t`Loading rankings...`
-                                                                                                      }))
-                                                                                            }),
+                                                                                  children: JsxRuntime.jsxs("div", {
+                                                                                        children: [
+                                                                                          JsxRuntime.jsx("h2", {
+                                                                                                children: t`Match History`,
+                                                                                                className: "text-2xl font-semibold text-gray-900"
+                                                                                              }),
+                                                                                          JsxRuntime.jsx(React.Suspense, {
+                                                                                                children: Caml_option.some(JsxRuntime.jsx(MatchList.make, {
+                                                                                                          matches: fragmentRefs,
+                                                                                                          user: userRefs
+                                                                                                        })),
+                                                                                                fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
+                                                                                                          children: t`Loading rankings...`
+                                                                                                        }))
+                                                                                              })
+                                                                                        ],
                                                                                         className: "p-6"
                                                                                       }),
                                                                                   className: "overflow-hidden rounded-lg bg-white shadow"

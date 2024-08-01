@@ -5,6 +5,8 @@ var Div = {};
 
 var Li = {};
 
+var Tr = {};
+
 var Main = {};
 
 var AnimatePresence = {};
@@ -12,6 +14,7 @@ var AnimatePresence = {};
 export {
   Div ,
   Li ,
+  Tr ,
   Main ,
   AnimatePresence ,
 }

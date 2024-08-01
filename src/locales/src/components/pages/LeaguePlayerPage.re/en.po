@@ -17,7 +17,7 @@ msgstr ""
 #~ msgid "...load higher rated players"
 #~ msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:370
+#: src/components/organisms/MatchList.re.mjs:365
 msgid "...load previous matches"
 msgstr ""
 
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:393
+#: src/components/organisms/MatchList.re.mjs:388
 msgid "Load more matches..."
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 #~ msgid "Load more players..."
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:158
+#: src/components/pages/LeaguePlayerPage.re.mjs:163
 msgid "Loading rankings..."
 msgstr ""
 
@@ -45,8 +45,8 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:364
 #: src/components/pages/LeaguePlayerPage.re.mjs:146
+#: src/components/pages/LeaguePlayerPage.re.mjs:154
 msgid "Match History"
 msgstr ""
 
@@ -59,8 +59,8 @@ msgstr ""
 msgid "Player Profile Page"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:174
-#: src/components/pages/LeaguePlayerPage.re.mjs:182
+#: src/components/pages/LeaguePlayerPage.re.mjs:180
+#: src/components/pages/LeaguePlayerPage.re.mjs:188
 msgid "Rating"
 msgstr ""
 
@@ -68,6 +68,6 @@ msgstr ""
 #~ msgid "Recreational Doubles"
 #~ msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:286
+#: src/components/organisms/MatchList.re.mjs:285
 msgid "Score:"
 msgstr ""
