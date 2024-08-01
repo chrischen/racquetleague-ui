@@ -110,7 +110,6 @@ type strategy = Quality | RoundRobin | Random
 type stratButton = {name: string, strategy: strategy}
 
 let ts = Lingui.UtilString.t
-let strats = [{name: ts`Quality`, strategy: Quality}, {name: ts`Random`, strategy: Random}]
 @react.component
 let make = (
   ~players: array<Player.t<'a>>,
@@ -149,6 +148,7 @@ let make = (
       ? matches
       : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
 
+  let strats = [{name: ts`Quality`, strategy: Quality}, {name: ts`Random`, strategy: Random}]
   let matches = switch strategy {
   | Quality => strategy_by_quality(matches)->Array.slice(~start=0, ~end=15)
   | RoundRobin => strategy_by_round_robin(matches)->Array.slice(~start=0, ~end=15)
