@@ -916,6 +916,38 @@ msgstr "タブを選択"
 msgid "Loading matches..."
 msgstr "試合を読み込んでいます..."
 
+#: src/components/organisms/CompMatch.re.mjs:456
+msgid "Analyzed {0} matches."
+msgstr "{0}試合を分析しました。"
+
+#: src/components/organisms/CompMatch.re.mjs:344
+msgid "Competitive"
+msgstr "競争力"
+
+#: src/components/organisms/CompMatch.re.mjs:339
+msgid "Competitive Plus"
+msgstr "競争力プラス"
+
+#: src/components/organisms/CompMatch.re.mjs:341
+msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
+msgstr "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
+
+#: src/components/organisms/CompMatch.re.mjs:346
+msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
+msgstr "マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
+
+#: src/components/organisms/CompMatch.re.mjs:351
+msgid "Matches are arranged by skill while mixing strong and weak players."
+msgstr "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されます。"
+
+#: src/components/organisms/CompMatch.re.mjs:349
+msgid "Mixed"
+msgstr "混合"
+
+#: src/components/organisms/CompMatch.re.mjs:356
+msgid "Totally random teams."
+msgstr "完全にランダムなチーム。"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

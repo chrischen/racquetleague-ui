@@ -1,3 +1,5 @@
+@send
+external intersection: (Js.Set.t<'a>, Js.Set.t<'a>) => Js.Set.t<'a> = "intersection";
 module Rating: {
   type t = private {
     mu: float,
@@ -48,9 +50,21 @@ module Team = {
     // players->Array.findIndex(p' => player.id == p'.id) > -1
 
   }
+
+  let is_equal_to = (t1: t<'a>, t2: t<'a>) => {
+    let t1 = t1->Array.map(p => p.id)->Set.fromArray
+    let t2 = t2->Array.map(p => p.id)->Set.fromArray
+    t1->intersection(t2)->Set.size == t1->Set.size
+  }
 }
-@send
-external intersection: (Js.Set.t<'a>, Js.Set.t<'a>) => Js.Set.t<'a> = "intersection";
+
+module TeamSet = {
+  type t = Set.t<string>;
+  let is_equal_to = (t1: t, t2: t) => {
+    t1->intersection(t2)->Set.size == t1->Set.size
+    // t1->Set.values->Array.fromIterator->Array.every(p => t2->Set.has(p))
+  }
+}
 
 module Match = {
   type t<'a> = (Team.t<'a>, Team.t<'a>)

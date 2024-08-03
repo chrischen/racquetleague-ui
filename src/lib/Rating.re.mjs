@@ -42,8 +42,27 @@ function contains_player(players, player) {
   return players$1.has(player.id);
 }
 
+function is_equal_to(t1, t2) {
+  var t1$1 = new Set(t1.map(function (p) {
+            return p.id;
+          }));
+  var t2$1 = new Set(t2.map(function (p) {
+            return p.id;
+          }));
+  return t1$1.intersection(t2$1).size === t1$1.size;
+}
+
 var Team = {
-  contains_player: contains_player
+  contains_player: contains_player,
+  is_equal_to: is_equal_to
+};
+
+function is_equal_to$1(t1, t2) {
+  return t1.intersection(t2).size === t1.size;
+}
+
+var TeamSet = {
+  is_equal_to: is_equal_to$1
 };
 
 function contains_player$1(param, player) {
@@ -80,6 +99,7 @@ export {
   Rating ,
   Player ,
   Team ,
+  TeamSet ,
   Match ,
 }
 /* openskill Not a pure module */

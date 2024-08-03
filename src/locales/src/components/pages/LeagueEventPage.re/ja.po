@@ -17,9 +17,21 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
+#: src/components/organisms/CompMatch.re.mjs:456
+msgid "Analyzed {0} matches."
+msgstr "{0}試合を分析しました。"
+
 #: src/components/organisms/SubmitMatch.re.mjs:341
 msgid "Cancel"
 msgstr "キャンセル"
+
+#: src/components/organisms/CompMatch.re.mjs:344
+msgid "Competitive"
+msgstr "競争力"
+
+#: src/components/organisms/CompMatch.re.mjs:339
+msgid "Competitive Plus"
+msgstr "競争力プラス"
 
 #: src/components/organisms/SubmitMatch.re.mjs:348
 msgid "Completed"
@@ -33,8 +45,8 @@ msgstr "左チームのプレイヤー"
 msgid "Load more matches..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:511
-#: src/components/organisms/AddLeagueMatch.re.mjs:550
+#: src/components/organisms/AddLeagueMatch.re.mjs:523
+#: src/components/organisms/AddLeagueMatch.re.mjs:562
 msgid "Loading"
 msgstr "読み込み中"
 
@@ -50,13 +62,33 @@ msgstr "手動チーム"
 msgid "Match Count"
 msgstr "試合数"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:519
+#: src/components/organisms/AddLeagueMatch.re.mjs:531
 msgid "Match History"
 msgstr "対戦履歴"
+
+#: src/components/organisms/CompMatch.re.mjs:341
+msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
+msgstr ""
+"マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
+
+#: src/components/organisms/CompMatch.re.mjs:346
+msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
+msgstr ""
+"マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
+
+#: src/components/organisms/CompMatch.re.mjs:351
+msgid "Matches are arranged by skill while mixing strong and weak players."
+msgstr ""
+"マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
+"す。"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:459
 msgid "Matchmaking"
 msgstr "マッチメイキング"
+
+#: src/components/organisms/CompMatch.re.mjs:349
+msgid "Mixed"
+msgstr "混合"
 
 #: src/components/organisms/SelectMatch.re.mjs:184
 #: src/components/organisms/AddLeagueMatch.re.mjs:296
@@ -82,15 +114,11 @@ msgstr "何点"
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/CompMatch.re.mjs:206
-msgid "Quality"
-msgstr "競争力で"
-
-#: src/components/organisms/AddLeagueMatch.re.mjs:527
+#: src/components/organisms/AddLeagueMatch.re.mjs:539
 msgid "queued matches"
 msgstr "キューされた試合"
 
-#: src/components/organisms/CompMatch.re.mjs:210
+#: src/components/organisms/CompMatch.re.mjs:354
 msgid "Random"
 msgstr "ランダムで"
 
@@ -102,13 +130,17 @@ msgstr "右チームのプレイヤー"
 msgid "Score:"
 msgstr "スコア:"
 
-#: src/components/organisms/CompMatch.re.mjs:286
+#: src/components/organisms/CompMatch.re.mjs:404
 msgid "Select a tab"
 msgstr "タブを選択"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:429
 msgid "select all"
 msgstr "すべて選択"
+
+#: src/components/organisms/CompMatch.re.mjs:356
+msgid "Totally random teams."
+msgstr "完全にランダムなチーム。"
 
 #: src/components/organisms/EventRsvps.re.mjs:190
 #~ msgid "{0, plural, one {player} other {players}}"
@@ -170,6 +202,10 @@ msgstr "すべて選択"
 #: src/components/organisms/AddLeagueMatch.re.mjs:765
 #~ msgid "Loser Points"
 #~ msgstr "敗者ポイント"
+
+#: src/components/organisms/CompMatch.re.mjs:206
+#~ msgid "Quality"
+#~ msgstr "競争力で"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:745
 #~ msgid "Select Losers"

@@ -370,7 +370,7 @@ function AddLeagueMatch(props) {
             return acc;
           }
         }));
-  var priorityPlayers = Core__Array.reduce(players, [], (function (acc, next) {
+  var priorityPlayers = Core__Array.reduce(activePlayers, [], (function (acc, next) {
           var count = get(sessionState, next.id).count;
           if (minCount !== maxCount && count === minCount) {
             return acc.concat([next]);
@@ -503,7 +503,19 @@ function AddLeagueMatch(props) {
                                                                                 match: match,
                                                                                 activity: activity,
                                                                                 minRating: minRating,
-                                                                                maxRating: maxRating
+                                                                                maxRating: maxRating,
+                                                                                onComplete: (function () {
+                                                                                    updatePlayCounts(match);
+                                                                                    setSelectedMatch(function (param) {
+                                                                                          
+                                                                                        });
+                                                                                  }),
+                                                                                onSubmitted: (function () {
+                                                                                    updatePlayCounts(match);
+                                                                                    setSelectedMatch(function (param) {
+                                                                                          
+                                                                                        });
+                                                                                  })
                                                                               });
                                                                   }));
                                                     })), null)),

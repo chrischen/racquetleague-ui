@@ -233,7 +233,7 @@ let make = (~event, ~children) => {
     let count = (sessionState->Session.get(next.id)).count
     count < acc ? count : acc
   })
-  let priorityPlayers = players->Array.reduce([], (acc, next) => {
+  let priorityPlayers = activePlayers->Array.reduce([], (acc, next) => {
     let count = (sessionState->Session.get(next.id)).count
     minCount != maxCount && count == minCount ? acc->Array.concat([next]) : acc
   })
@@ -323,7 +323,22 @@ let make = (~event, ~children) => {
         <React.Suspense fallback={<div> {t`Loading`} </div>}>
           {activity
           ->Option.flatMap(activity =>
-            selectedMatch->Option.map(match => <SubmitMatch match minRating maxRating activity />)
+            selectedMatch->Option.map(match =>
+              <SubmitMatch
+                match
+                minRating
+                maxRating
+                activity
+                onSubmitted={() => {
+                  updatePlayCounts(match)
+                  setSelectedMatch(_ => None);
+                }}
+                onComplete={() => {
+                  updatePlayCounts(match)
+                  setSelectedMatch(_ => None);
+                }}
+              />
+            )
           )
           ->Option.getOr(React.null)}
         </React.Suspense>

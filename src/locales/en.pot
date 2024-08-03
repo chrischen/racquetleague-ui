@@ -1014,3 +1014,35 @@ msgstr ""
 #: src/components/pages/LeagueEventPage.re.mjs:74
 msgid "Loading matches..."
 msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:456
+msgid "Analyzed {0} matches."
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:344
+msgid "Competitive"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:339
+msgid "Competitive Plus"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:341
+msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:346
+msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:351
+msgid "Matches are arranged by skill while mixing strong and weak players."
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:349
+msgid "Mixed"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:356
+msgid "Totally random teams."
+msgstr ""

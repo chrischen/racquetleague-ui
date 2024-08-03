@@ -4,21 +4,17 @@ open Lingui.Util
 
 open Rating
 module PlayerMini = {
-  // type t<'a> = {
-  //   data: 'a,
-  //   id: string,
-  //   name: string,
-  //   rating: Rating.Rating.t,
-  // }
-
   @react.component
   let make = (~player: Player.t<'a>) => {
-    <span className="mr-2">
-      {player.name->React.string}
-      {"("->React.string}
-      {player.rating.mu->Float.toFixed(~digits=2)->React.string}
-      {")"->React.string}
-    </span>
+    <>
+      <span className="mr-2">
+        {player.name->React.string}
+        {"("->React.string}
+        {player.rating.mu->Float.toFixed(~digits=2)->React.string}
+        {")"->React.string}
+      </span>
+      <br />
+    </>
   }
 }
 
@@ -26,43 +22,41 @@ module MatchMini = {
   @react.component
   let make = (~match: Match.t<'a>, ~onSelect: option<Match.t<'a> => unit>=?) => {
     let (team1, team2) = match
-    <UiAction className="p-4" onClick={() => onSelect->Option.map(f => f(match))->Option.getOr()}>
-      <div className="mb-2">
-        <span> {team1->Array.map(p => <PlayerMini player=p />)->React.array} </span>
-        {" VS "->React.string}
-        <span> {team2->Array.map(p => <PlayerMini player=p />)->React.array} </span>
+    <UiAction
+      className="p-4 mb-2" onClick={() => onSelect->Option.map(f => f(match))->Option.getOr()}>
+      <div className="grid grid-cols-7 items-center place-content-center">
+        <div className="col-span-3">
+          <span> {team1->Array.map(p => <PlayerMini player=p />)->React.array} </span>
+        </div>
+        <div className="col-span-1 text-center text-2xl text-gray-800 font-bold">
+          {" VS "->React.string}
+        </div>
+        <div className="col-span-3 justify-right text-right">
+          <span> {team2->Array.map(p => <PlayerMini player=p />)->React.array} </span>
+        </div>
       </div>
     </UiAction>
   }
 }
 
-// let array_get_2_from = (from: int, arr: array<'a>): option<('a, 'a, 'a, 'a)> =>
-//   // let arr = Js.Array.slice(~start=from, ~end_=from + 4, arr);
-//   if from < Array.length(arr) - 1 {
-//     let arr = Array.slice(arr, ~start=from, ~end=from + 2)
-//     switch (arr[0], arr[1]) {
-//     | (Some(a), Some(b)) => Some((a, b))
-//     | _ => None
-//     }
-//     // Some((arr->Array.getUnsafe(0), arr->Array.getUnsafe(1), arr->Array.getUnsafe(2), arr->Array.getUnsafe(3)))
-//   } else {
-//     None
-//   }
-let array_get_4_from = (from: int, arr: array<'a>): option<('a, 'a, 'a, 'a)> =>
-  // let arr = Js.Array.slice(~start=from, ~end_=from + 4, arr);
-  if from < Array.length(arr) - 3 {
-    let arr = Array.slice(arr, ~start=from, ~end=from + 4)
-    switch (arr[0], arr[1], arr[2], arr[3]) {
-    | (Some(a), Some(b), Some(c), Some(d)) => Some((a, b, c, d))
-    | _ => None
+// Gets n from array array from a starting index, or returns the the array if
+// it's less than n and minimum of 4
+let array_get_n_from = (from: int, n: int, arr: array<'a>): option<array<'a>> =>
+  if arr->Array.length > 3 && arr->Array.length < n {
+    Some(arr)
+  } else if from < Array.length(arr) - (n - 1) {
+    let arr = Array.slice(arr, ~start=from, ~end=from + n)
+    if n == arr->Array.length {
+      Some(arr)
+    } else {
+      None
     }
-    // Some((arr->Array.getUnsafe(0), arr->Array.getUnsafe(1), arr->Array.getUnsafe(2), arr->Array.getUnsafe(3)))
   } else {
     None
   }
-let array_split_by_4 = (arr: array<'a>) => {
-  let rec loop = (from: int, acc: array<('a, 'a, 'a, 'a)>) => {
-    let next = array_get_4_from(from, arr)
+let array_split_by_n = (arr: array<'a>, n) => {
+  let rec loop = (from: int, acc: array<array<'a>>) => {
+    let next = array_get_n_from(from, n, arr)
     switch next {
     | Some(next) => loop(from + 1, acc->Array.concat([next]))
     | None => acc
@@ -71,7 +65,28 @@ let array_split_by_4 = (arr: array<'a>) => {
   loop(0, [])
 }
 let match_make_naive = (players: array<Player.t<'a>>): array<Match.t<'a>> => {
-  players->array_split_by_4->Array.map(((p1, p2, p3, p4)) => ([p1, p4], [p2, p3]))
+  players
+  ->array_split_by_n(4)
+  ->Array.map(p => (
+    [p->Array.getUnsafe(0), p->Array.getUnsafe(3)],
+    [p->Array.getUnsafe(1), p->Array.getUnsafe(2)],
+  ))
+}
+let team_to_players_set = (team: array<Player.t<'a>>): Set.t<string> =>
+  team->Array.map(p => p.id)->Set.fromArray
+
+let match_to_players_set = ((team1, team2): Match.t<'a>): Set.t<string> =>
+  team1->Array.concat(team2)->Array.map(p => p.id)->Set.fromArray
+
+let matches_contains_match = (matches: array<Match.t<'a>>, match: Set.t<string>): bool => {
+  matches
+  ->Array.map(_, match_to_players_set)
+  ->Array.findIndex(m => m->intersection(match)->Set.size == 4) > -1
+}
+let contains_match = (matches: array<(Match.t<'a>, float)>, match: Set.t<string>): bool => {
+  matches
+  ->Array.map(((match, _)) => match->match_to_players_set)
+  ->Array.findIndex(m => m->intersection(match)->Set.size == 4) > -1
 }
 
 let array_combos: array<'a> => array<('a, 'a)> = arr => {
@@ -95,19 +110,108 @@ let shuffle = arr =>
   ->Array.toSorted((a, b) => a.sort -. b.sort)
   ->Array.map(({value}) => value)
 
-let strategy_by_quality = matches =>
-  matches->Array.toSorted((a, b) => {
+type matchmakingResult<'a> = {
+  seenTeams: array<Set.t<string>>,
+  // seenTeams: array<Team.t<'a>>,
+  matches: array<Match.t<'a>>,
+}
+let find_all_match_combos = (availablePlayers, priorityPlayers) => {
+  let teams = availablePlayers->array_combos->Array.map(tuple2array)
+  let result = teams->Array.reduce({seenTeams: [], matches: []}, ({seenTeams, matches}, team) => {
+    let players' = availablePlayers->Array.filter(p => !(team->Team.contains_player(p)))
+    // Teams of remaining players
+    let teams' = players'->array_combos->Array.map(tuple2array)
+    let teams' = teams'->Array.filter(t => {
+      seenTeams->Array.findIndex(t' => t'->TeamSet.is_equal_to(t->team_to_players_set)) == -1
+    })
+
+    {
+      seenTeams: seenTeams->Array.concat([team->team_to_players_set]),
+      matches: matches->Array.concat([team]->combos(teams')),
+    }
+  })
+  let {matches} = result
+  let matches = matches->Array.map(match => {
+    let quality = match->match_quality
+    (match, quality)
+  })
+  priorityPlayers->Array.length == 0 ||
+    priorityPlayers->Array.length == availablePlayers->Array.length
+    ? matches
+    : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
+}
+
+let strategy_by_competitive = (
+  players: array<Player.t<'a>>,
+  consumedPlayers,
+  priorityPlayers: array<Player.t<'a>>,
+) => {
+    players
+    ->Array.toSorted((a, b) => {
+      let userA = a.rating.mu
+      let userB = b.rating.mu
+      userA < userB ? 1. : -1.
+    })
+    ->array_split_by_n(8)
+    ->Array.reduce([], (acc, playerSet) => {
+      let matches =
+        playerSet
+        ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+        ->find_all_match_combos(priorityPlayers)
+        ->Array.toSorted((a, b) => {
+          let (_, qualityA) = a
+          let (_, qualityB) = b
+          qualityA < qualityB ? 1. : -1.
+        })
+      acc->Array.concat(matches)
+    })
+}
+let strategy_by_competitive_plus = (
+  players: array<Player.t<'a>>,
+  consumedPlayers,
+  priorityPlayers: array<Player.t<'a>>,
+) => {
+    players
+    ->Array.toSorted((a, b) => {
+      let userA = a.rating.mu
+      let userB = b.rating.mu
+      userA < userB ? 1. : -1.
+    })
+    ->array_split_by_n(6)
+    ->Array.reduce([], (acc, playerSet) => {
+      let matches =
+        playerSet
+        ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+        ->find_all_match_combos(priorityPlayers)
+        ->Array.toSorted((a, b) => {
+          let (_, qualityA) = a
+          let (_, qualityB) = b
+          qualityA < qualityB ? 1. : -1.
+        })
+      acc->Array.concat(matches)
+    })
+}
+
+let strategy_by_mixed = (availablePlayers, priorityPlayers) => {
+  find_all_match_combos(availablePlayers, priorityPlayers)->Array.toSorted((a, b) => {
     let (_, qualityA) = a
     let (_, qualityB) = b
     qualityA < qualityB ? 1. : -1.
   })
+}
 
-let strategy_by_round_robin = matches => matches
+let strategy_by_round_robin = (availablePlayers, priorityPlayers) => {
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers)
+  matches
+}
 
-let strategy_by_random = matches => matches->shuffle
+let strategy_by_random = (availablePlayers, priorityPlayers) => {
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers)
+  matches->shuffle
+}
 
-type strategy = Quality | RoundRobin | Random
-type stratButton = {name: string, strategy: strategy}
+type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random
+type stratButton = {name: string, strategy: strategy, details: string}
 
 let ts = Lingui.UtilString.t
 @react.component
@@ -117,60 +221,57 @@ let make = (
   ~consumedPlayers: Js.Set.t<string>,
   ~onSelectMatch: option<Match.t<'a> => unit>=?,
 ) => {
-  let (strategy, setStrategy) = React.useState(() => Quality)
-  let activePlayers =
-    players
-    ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
-    // ->Array.filter(p => activePlayers->Array.indexOf(p.id) > -1)
-    ->Array.toSorted((a, b) => {
-      let userA = a.rating.mu
-      let userB = b.rating.mu
-      userA < userB ? 1. : -1.
-    })
+  let (strategy, setStrategy) = React.useState(() => CompetitivePlus)
+  let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+  let intl = ReactIntl.useIntl()
+  // ->Array.filter(p => availablePlayers->Array.indexOf(p.id) > -1)
 
-  let teams = activePlayers->array_combos->Array.map(tuple2array)
-  let matches =
-    teams
-    ->Array.reduce([], (acc, team) => {
-      let players' = activePlayers->Array.filter(p => !(team->Team.contains_player(p)))
-      // Teams of remaining players
-      let teams' = players'->array_combos->Array.map(tuple2array)
-      acc->Array.concat([team]->combos(teams'))
-    })
-    ->Array.map(match => {
-      let quality = match->match_quality
-      (match, quality)
-    })
-
-  let matches =
-    priorityPlayers->Array.length == 0 ||
-      priorityPlayers->Array.length == activePlayers->Array.length
-      ? matches
-      : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
-
-  let strats = [{name: ts`Quality`, strategy: Quality}, {name: ts`Random`, strategy: Random}]
+  let strats = [
+    {
+      name: ts`Competitive Plus`,
+      strategy: CompetitivePlus,
+      details: ts`Matches are arranged by a maximum skill-spread of +- 1 players.`,
+    },
+    {
+      name: ts`Competitive`,
+      strategy: Competitive,
+      details: ts`Matches are arranged by a maximum skill-spread of +- 2 players.`,
+    },
+    {
+      name: ts`Mixed`,
+      strategy: Mixed,
+      details: ts`Matches are arranged by skill while mixing strong and weak players.`,
+    },
+    {name: ts`Random`, strategy: Random, details: ts`Totally random teams.`},
+  ]
   let matches = switch strategy {
-  | Quality => strategy_by_quality(matches)->Array.slice(~start=0, ~end=15)
-  | RoundRobin => strategy_by_round_robin(matches)->Array.slice(~start=0, ~end=15)
-  | Random => strategy_by_random(matches)->Array.slice(~start=0, ~end=15)
+  | Mixed => strategy_by_mixed(availablePlayers, priorityPlayers)
+  | RoundRobin => strategy_by_round_robin(availablePlayers, priorityPlayers)
+  | Random => strategy_by_random(availablePlayers, priorityPlayers)
+  | Competitive => strategy_by_competitive(players, consumedPlayers, priorityPlayers)
+  | CompetitivePlus => strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers)
   }
+  let matchesCount = matches->Array.length
+  let matches = matches->Array.slice(~start=0, ~end=15)
 
   let maxQuality = matches->Array.reduce(0., (acc, (_, quality)) => quality > acc ? quality : acc)
   let minQuality =
     matches->Array.reduce(maxQuality, (acc, (_, quality)) => quality < acc ? quality : acc)
+  let tab = strats->Array.find(tab => tab.strategy == strategy)
   <>
     <div className="sm:hidden">
       <label htmlFor="tabs" className="sr-only"> {t`Select a tab`} </label>
       <select
         id="tabs"
         name="tabs"
-        onChange={e =>
+        onChange={e => {
           setStrategy(_ =>
             strats
-            ->Array.find(tab => tab.name == (e->ReactEvent.Form.currentTarget)["value"])
+            ->Array.find(tab => tab.name == (e->ReactEvent.Form.target)["value"])
             ->Option.map(s => s.strategy)
-            ->Option.getOr(Quality)
-          )}
+            ->Option.getOr(Competitive)
+          )
+        }}
         defaultValue={strats
         ->Array.find(tab => tab.strategy == strategy)
         ->Option.map(s => s.name)
@@ -203,9 +304,15 @@ let make = (
         ->React.array}
       </nav>
     </div>
+    <p className="mt-2 text-base leading-7 text-gray-600">
+      {t`Analyzed ${intl->ReactIntl.Intl.formatNumber(matchesCount->Int.toFloat)} matches.`}
+      {" "->React.string}
+      {tab->Option.map(tab => tab.details->React.string)->Option.getOr(React.null)}
+    </p>
     {matches
     ->Array.mapWithIndex(((match, quality), i) => <>
       <MatchMini key={i->Int.toString} onSelect=?onSelectMatch match />
+      {quality->Float.toFixed(~digits=3)->React.string}
       <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
         <FramerMotion.Div
           className="h-2 rounded-full bg-red-400"

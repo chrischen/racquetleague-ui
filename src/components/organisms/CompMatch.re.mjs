@@ -2,9 +2,8 @@
 
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
-import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
-import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as ReactIntl from "react-intl";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
@@ -20,14 +19,19 @@ import { t, plural } from '@lingui/macro'
 
 function CompMatch$PlayerMini(props) {
   var player = props.player;
-  return JsxRuntime.jsxs("span", {
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                player.name,
-                "(",
-                player.rating.mu.toFixed(2),
-                ")"
-              ],
-              className: "mr-2"
+                JsxRuntime.jsxs("span", {
+                      children: [
+                        player.name,
+                        "(",
+                        player.rating.mu.toFixed(2),
+                        ")"
+                      ],
+                      className: "mr-2"
+                    }),
+                JsxRuntime.jsx("br", {})
+              ]
             });
 }
 
@@ -44,26 +48,35 @@ function CompMatch$MatchMini(props) {
                               f(match);
                             })), undefined);
                 }),
-              className: "p-4",
+              className: "p-4 mb-2",
               children: JsxRuntime.jsxs("div", {
                     children: [
-                      JsxRuntime.jsx("span", {
-                            children: match[0].map(function (p) {
-                                  return JsxRuntime.jsx(CompMatch$PlayerMini, {
-                                              player: p
-                                            });
-                                })
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx("span", {
+                                  children: match[0].map(function (p) {
+                                        return JsxRuntime.jsx(CompMatch$PlayerMini, {
+                                                    player: p
+                                                  });
+                                      })
+                                }),
+                            className: "col-span-3"
                           }),
-                      " VS ",
-                      JsxRuntime.jsx("span", {
-                            children: match[1].map(function (p) {
-                                  return JsxRuntime.jsx(CompMatch$PlayerMini, {
-                                              player: p
-                                            });
-                                })
+                      JsxRuntime.jsx("div", {
+                            children: " VS ",
+                            className: "col-span-1 text-center text-2xl text-gray-800 font-bold"
+                          }),
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx("span", {
+                                  children: match[1].map(function (p) {
+                                        return JsxRuntime.jsx(CompMatch$PlayerMini, {
+                                                    player: p
+                                                  });
+                                      })
+                                }),
+                            className: "col-span-3 justify-right text-right"
                           })
                     ],
-                    className: "mb-2"
+                    className: "grid grid-cols-7 items-center place-content-center"
                   })
             });
 }
@@ -72,33 +85,27 @@ var MatchMini = {
   make: CompMatch$MatchMini
 };
 
-function array_get_4_from(from, arr) {
-  if (from >= (arr.length - 3 | 0)) {
+function array_get_n_from(from, n, arr) {
+  if (arr.length > 3 && arr.length < n) {
+    return arr;
+  }
+  if (from >= (arr.length - (n - 1 | 0) | 0)) {
     return ;
   }
-  var arr$1 = arr.slice(from, from + 4 | 0);
-  var match = arr$1[0];
-  var match$1 = arr$1[1];
-  var match$2 = arr$1[2];
-  var match$3 = arr$1[3];
-  if (match !== undefined && match$1 !== undefined && match$2 !== undefined && match$3 !== undefined) {
-    return [
-            Caml_option.valFromOption(match),
-            Caml_option.valFromOption(match$1),
-            Caml_option.valFromOption(match$2),
-            Caml_option.valFromOption(match$3)
-          ];
+  var arr$1 = arr.slice(from, from + n | 0);
+  if (n === arr$1.length) {
+    return arr$1;
   }
   
 }
 
-function array_split_by_4(arr) {
+function array_split_by_n(arr, n) {
   var _from = 0;
   var _acc = [];
   while(true) {
     var acc = _acc;
     var from = _from;
-    var next = array_get_4_from(from, arr);
+    var next = array_get_n_from(from, n, arr);
     if (next === undefined) {
       return acc;
     }
@@ -109,18 +116,46 @@ function array_split_by_4(arr) {
 }
 
 function match_make_naive(players) {
-  return array_split_by_4(players).map(function (param) {
+  return array_split_by_n(players, 4).map(function (p) {
               return [
                       [
-                        param[0],
-                        param[3]
+                        p[0],
+                        p[3]
                       ],
                       [
-                        param[1],
-                        param[2]
+                        p[1],
+                        p[2]
                       ]
                     ];
             });
+}
+
+function team_to_players_set(team) {
+  return new Set(team.map(function (p) {
+                  return p.id;
+                }));
+}
+
+function match_to_players_set(param) {
+  return new Set(param[0].concat(param[1]).map(function (p) {
+                  return p.id;
+                }));
+}
+
+function matches_contains_match(matches, match) {
+  return (function (__x) {
+                return __x.map(match_to_players_set);
+              })(matches).findIndex(function (m) {
+              return m.intersection(match).size === 4;
+            }) > -1;
+}
+
+function contains_match(matches, match) {
+  return matches.map(function (param) {
+                return match_to_players_set(param[0]);
+              }).findIndex(function (m) {
+              return m.intersection(match).size === 4;
+            }) > -1;
 }
 
 function array_combos(arr) {
@@ -176,9 +211,92 @@ function shuffle(arr) {
             });
 }
 
-function strategy_by_quality(matches) {
-  return matches.toSorted(function (a, b) {
-              if (Caml_obj.lessthan(a[1], b[1])) {
+function find_all_match_combos(availablePlayers, priorityPlayers) {
+  var teams = array_combos(availablePlayers).map(tuple2array);
+  var result = Core__Array.reduce(teams, {
+        seenTeams: [],
+        matches: []
+      }, (function (param, team) {
+          var seenTeams = param.seenTeams;
+          var players$p = availablePlayers.filter(function (p) {
+                return !Rating.Team.contains_player(team, p);
+              });
+          var teams$p = array_combos(players$p).map(tuple2array);
+          var teams$p$1 = teams$p.filter(function (t) {
+                return seenTeams.findIndex(function (t$p) {
+                            return Rating.TeamSet.is_equal_to(t$p, team_to_players_set(t));
+                          }) === -1;
+              });
+          return {
+                  seenTeams: seenTeams.concat([team_to_players_set(team)]),
+                  matches: param.matches.concat(combos([team], teams$p$1))
+                };
+        }));
+  var matches = result.matches.map(function (match) {
+        var quality = match_quality(match);
+        return [
+                match,
+                quality
+              ];
+      });
+  if (priorityPlayers.length === 0 || priorityPlayers.length === availablePlayers.length) {
+    return matches;
+  } else {
+    return matches.filter(function (param) {
+                return Rating.Match.contains_any_players(param[0], priorityPlayers);
+              });
+  }
+}
+
+function strategy_by_competitive(players, consumedPlayers, priorityPlayers) {
+  return Core__Array.reduce(array_split_by_n(players.toSorted(function (a, b) {
+                      var userA = a.rating.mu;
+                      var userB = b.rating.mu;
+                      if (userA < userB) {
+                        return 1;
+                      } else {
+                        return -1;
+                      }
+                    }), 8), [], (function (acc, playerSet) {
+                var matches = find_all_match_combos(playerSet.filter(function (p) {
+                            return !consumedPlayers.has(p.id);
+                          }), priorityPlayers).toSorted(function (a, b) {
+                      if (a[1] < b[1]) {
+                        return 1;
+                      } else {
+                        return -1;
+                      }
+                    });
+                return acc.concat(matches);
+              }));
+}
+
+function strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers) {
+  return Core__Array.reduce(array_split_by_n(players.toSorted(function (a, b) {
+                      var userA = a.rating.mu;
+                      var userB = b.rating.mu;
+                      if (userA < userB) {
+                        return 1;
+                      } else {
+                        return -1;
+                      }
+                    }), 6), [], (function (acc, playerSet) {
+                var matches = find_all_match_combos(playerSet.filter(function (p) {
+                            return !consumedPlayers.has(p.id);
+                          }), priorityPlayers).toSorted(function (a, b) {
+                      if (a[1] < b[1]) {
+                        return 1;
+                      } else {
+                        return -1;
+                      }
+                    });
+                return acc.concat(matches);
+              }));
+}
+
+function strategy_by_mixed(availablePlayers, priorityPlayers) {
+  return find_all_match_combos(availablePlayers, priorityPlayers).toSorted(function (a, b) {
+              if (a[1] < b[1]) {
                 return 1;
               } else {
                 return -1;
@@ -186,11 +304,12 @@ function strategy_by_quality(matches) {
             });
 }
 
-function strategy_by_round_robin(matches) {
-  return matches;
+function strategy_by_round_robin(availablePlayers, priorityPlayers) {
+  return find_all_match_combos(availablePlayers, priorityPlayers);
 }
 
-function strategy_by_random(matches) {
+function strategy_by_random(availablePlayers, priorityPlayers) {
+  var matches = find_all_match_combos(availablePlayers, priorityPlayers);
   return shuffle(matches);
 }
 
@@ -201,68 +320,64 @@ function ts(prim0, prim1) {
             ]);
 }
 
-var strats = [
-  {
-    name: t`Quality`,
-    strategy: "Quality"
-  },
-  {
-    name: t`Random`,
-    strategy: "Random"
-  }
-];
-
 function CompMatch(props) {
   var onSelectMatch = props.onSelectMatch;
   var consumedPlayers = props.consumedPlayers;
   var priorityPlayers = props.priorityPlayers;
+  var players = props.players;
   var match = React.useState(function () {
-        return "Quality";
+        return "CompetitivePlus";
       });
   var setStrategy = match[1];
   var strategy = match[0];
-  var activePlayers = props.players.filter(function (p) {
-          return !consumedPlayers.has(p.id);
-        }).toSorted(function (a, b) {
-        var userA = a.rating.mu;
-        var userB = b.rating.mu;
-        if (userA < userB) {
-          return 1;
-        } else {
-          return -1;
-        }
+  var availablePlayers = players.filter(function (p) {
+        return !consumedPlayers.has(p.id);
       });
-  var teams = array_combos(activePlayers).map(tuple2array);
-  var matches = Core__Array.reduce(teams, [], (function (acc, team) {
-            var players$p = activePlayers.filter(function (p) {
-                  return !Rating.Team.contains_player(team, p);
-                });
-            var teams$p = array_combos(players$p).map(tuple2array);
-            return acc.concat(combos([team], teams$p));
-          })).map(function (match) {
-        var quality = match_quality(match);
-        return [
-                match,
-                quality
-              ];
-      });
-  var matches$1 = priorityPlayers.length === 0 || priorityPlayers.length === activePlayers.length ? matches : matches.filter(function (param) {
-          return Rating.Match.contains_any_players(param[0], priorityPlayers);
-        });
-  var matches$2;
+  var intl = ReactIntl.useIntl();
+  var strats = [
+    {
+      name: t`Competitive Plus`,
+      strategy: "CompetitivePlus",
+      details: t`Matches are arranged by a maximum skill-spread of +- 1 players.`
+    },
+    {
+      name: t`Competitive`,
+      strategy: "Competitive",
+      details: t`Matches are arranged by a maximum skill-spread of +- 2 players.`
+    },
+    {
+      name: t`Mixed`,
+      strategy: "Mixed",
+      details: t`Matches are arranged by skill while mixing strong and weak players.`
+    },
+    {
+      name: t`Random`,
+      strategy: "Random",
+      details: t`Totally random teams.`
+    }
+  ];
+  var matches;
   switch (strategy) {
-    case "Quality" :
-        matches$2 = strategy_by_quality(matches$1).slice(0, 15);
+    case "CompetitivePlus" :
+        matches = strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers);
+        break;
+    case "Competitive" :
+        matches = strategy_by_competitive(players, consumedPlayers, priorityPlayers);
+        break;
+    case "Mixed" :
+        matches = strategy_by_mixed(availablePlayers, priorityPlayers);
         break;
     case "RoundRobin" :
-        matches$2 = matches$1.slice(0, 15);
+        matches = find_all_match_combos(availablePlayers, priorityPlayers);
         break;
     case "Random" :
-        matches$2 = shuffle(matches$1).slice(0, 15);
+        matches = strategy_by_random(availablePlayers, priorityPlayers);
         break;
     
   }
-  var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
+  var matchesCount = matches.length;
+  var matches$1 = matches.slice(0, 15);
+  var maxQuality = Core__Array.reduce(matches$1, 0, (function (acc, param) {
           var quality = param[1];
           if (quality > acc) {
             return quality;
@@ -270,7 +385,7 @@ function CompMatch(props) {
             return acc;
           }
         }));
-  var minQuality = Core__Array.reduce(matches$2, maxQuality, (function (acc, param) {
+  var minQuality = Core__Array.reduce(matches$1, maxQuality, (function (acc, param) {
           var quality = param[1];
           if (quality < acc) {
             return quality;
@@ -278,6 +393,9 @@ function CompMatch(props) {
             return acc;
           }
         }));
+  var tab = strats.find(function (tab) {
+        return tab.strategy === strategy;
+      });
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -305,10 +423,10 @@ function CompMatch(props) {
                               onChange: (function (e) {
                                   setStrategy(function (param) {
                                         return Core__Option.getOr(Core__Option.map(strats.find(function (tab) {
-                                                            return tab.name === e.currentTarget.value;
+                                                            return tab.name === e.target.value;
                                                           }), (function (s) {
                                                           return s.strategy;
-                                                        })), "Quality");
+                                                        })), "Competitive");
                                       });
                                 })
                             })
@@ -333,18 +451,30 @@ function CompMatch(props) {
                           }),
                       className: "hidden sm:block"
                     }),
-                matches$2.map(function (param, i) {
+                JsxRuntime.jsxs("p", {
+                      children: [
+                        t`Analyzed ${intl.formatNumber(matchesCount)} matches.`,
+                        " ",
+                        Core__Option.getOr(Core__Option.map(tab, (function (tab) {
+                                    return tab.details;
+                                  })), null)
+                      ],
+                      className: "mt-2 text-base leading-7 text-gray-600"
+                    }),
+                matches$1.map(function (param, i) {
+                      var quality = param[1];
                       return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                   children: [
                                     JsxRuntime.jsx(CompMatch$MatchMini, {
                                           match: param[0],
                                           onSelect: onSelectMatch
                                         }, i.toString(undefined)),
+                                    quality.toFixed(3),
                                     JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(FramerMotion.motion.div, {
                                                 className: "h-2 rounded-full bg-red-400",
                                                 animate: {
-                                                  width: ((param[1] - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%"
+                                                  width: ((quality - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%"
                                                 },
                                                 initial: {
                                                   width: "0%"
@@ -364,19 +494,25 @@ var make = CompMatch;
 export {
   PlayerMini ,
   MatchMini ,
-  array_get_4_from ,
-  array_split_by_4 ,
+  array_get_n_from ,
+  array_split_by_n ,
   match_make_naive ,
+  team_to_players_set ,
+  match_to_players_set ,
+  matches_contains_match ,
+  contains_match ,
   array_combos ,
   combos ,
   tuple2array ,
   match_quality ,
   shuffle ,
-  strategy_by_quality ,
+  find_all_match_combos ,
+  strategy_by_competitive ,
+  strategy_by_competitive_plus ,
+  strategy_by_mixed ,
   strategy_by_round_robin ,
   strategy_by_random ,
   ts ,
-  strats ,
   make ,
 }
 /*  Not a pure module */
