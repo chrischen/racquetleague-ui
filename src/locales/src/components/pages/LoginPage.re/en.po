@@ -13,7 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/LoginPage.re.mjs:57
+#: src/components/pages/LoginPage.re.mjs:89
+msgid "cancel login"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:64
 msgid "display name"
 msgstr ""
 
@@ -21,7 +25,7 @@ msgstr ""
 #~ msgid "Display Name"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:37
+#: src/components/pages/LoginPage.re.mjs:44
 msgid "email address"
 msgstr ""
 
@@ -29,7 +33,7 @@ msgstr ""
 #~ msgid "Email Address"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:48
+#: src/components/pages/LoginPage.re.mjs:55
 msgid "event organizers and other users cannot view your email"
 msgstr ""
 
@@ -45,8 +49,8 @@ msgstr ""
 #~ msgid "Login"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:21
-#: src/components/pages/LoginPage.re.mjs:76
+#: src/components/pages/LoginPage.re.mjs:28
+#: src/components/pages/LoginPage.re.mjs:83
 msgid "login with Line"
 msgstr ""
 
@@ -58,7 +62,7 @@ msgstr ""
 #~ msgid "not"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:44
+#: src/components/pages/LoginPage.re.mjs:51
 msgid "notification of updates or cancellations to events (you can opt out)"
 msgstr ""
 
@@ -66,7 +70,7 @@ msgstr ""
 #~ msgid "Notification of updates or cancellations to events (you can opt out)"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:25
+#: src/components/pages/LoginPage.re.mjs:32
 msgid "privacy disclosure"
 msgstr ""
 
@@ -78,7 +82,7 @@ msgstr ""
 #~ msgid "Privacy Disclosure"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:65
+#: src/components/pages/LoginPage.re.mjs:72
 msgid "profile picture"
 msgstr ""
 
@@ -86,8 +90,8 @@ msgstr ""
 #~ msgid "Profile Picture"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:61
-#: src/components/pages/LoginPage.re.mjs:69
+#: src/components/pages/LoginPage.re.mjs:68
+#: src/components/pages/LoginPage.re.mjs:76
 msgid "publicly displayed on event attendance lists"
 msgstr ""
 
@@ -100,7 +104,7 @@ msgstr ""
 #~ msgid "Publicy displayed on event attendance lists"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:31
+#: src/components/pages/LoginPage.re.mjs:38
 msgid "we will collect the following information from your Line account"
 msgstr ""
 

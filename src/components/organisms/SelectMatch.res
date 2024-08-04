@@ -86,56 +86,59 @@ module SelectEventPlayersList = {
                   userA < userB ? sortDir == Desc ? 1. : -1. : sortDir == Desc ? -1. : 1.
                 })
                 ->Array.map(player => {
-                  player.data.user
-                  ->Option.map(user => {
-                    let disabled =
-                      disabled
-                      ->Option.map(
-                        disabled => disabled->Array.findIndex(player => player.id == user.id) >= 0,
-                      )
-                      ->Option.getOr(false)
-                    <FramerMotion.Li
-                      layout=true
-                      className="mt-4 flex w-full flex-none gap-x-4 px-6"
-                      style={originX: 0.05, originY: 0.05}
-                      key={user.id}
-                      initial={opacity: 0., scale: 1.15}
-                      animate={opacity: 1., scale: 1.}
-                      exit={opacity: 0., scale: 1.15}>
-                      <div className="flex-none">
-                        <span className="sr-only"> {t`Player`} </span>
-                        // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
-                      </div>
-                      <div
-                        className={Util.cx([
-                          "text-sm w-full font-medium leading-6 text-gray-900",
-                          disabled ? "opacity-50" : "",
-                        ])}>
-                        <a
-                          href="#"
-                          onClick={e => {
-                            e->JsxEventU.Mouse.preventDefault
+                  let disabled =
+                    disabled
+                    ->Option.map(disabled => disabled->Array.findIndex(p => player.id == p.id) >= 0)
+                    ->Option.getOr(false)
 
-                            if disabled {
-                              ()
-                            } else {
-                              onSelectPlayer->Option.map(f => f(player))->ignore
-                            }
+                  <FramerMotion.Li
+                    layout=true
+                    className="mt-4 flex w-full flex-none gap-x-4 px-6"
+                    style={originX: 0.05, originY: 0.05}
+                    key={player.id}
+                    initial={opacity: 0., scale: 1.15}
+                    animate={opacity: 1., scale: 1.}
+                    exit={opacity: 0., scale: 1.15}>
+                    <div className="flex-none">
+                      <span className="sr-only"> {t`Player`} </span>
+                      // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
+                    </div>
+                    <div
+                      className={Util.cx([
+                        "text-sm w-full font-medium leading-6 text-gray-900",
+                        disabled ? "opacity-50" : "",
+                      ])}>
+                      <a
+                        href="#"
+                        onClick={e => {
+                          e->JsxEventU.Mouse.preventDefault
+
+                          if disabled {
                             ()
-                          }}>
-                          <EventRsvpUser
-                            user={user.fragmentRefs}
-                            highlight={selected->Array.findIndex(
-                              player => player.id == user.id,
-                            ) >= 0}
-                            ratingPercent={(player.rating.mu -. minRating) /.
-                            (maxRating -. minRating) *. 100.}
-                          />
-                        </a>
-                      </div>
-                    </FramerMotion.Li>
-                  })
-                  ->Option.getOr(React.null)
+                          } else {
+                            onSelectPlayer->Option.map(f => f(player))->ignore
+                          }
+                          ()
+                        }}>
+                        {player.data
+                        ->Option.flatMap(data =>
+                          data.user->Option.map(
+                            user => {
+                              <EventRsvpUser
+                                user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                                highlight={selected->Array.findIndex(
+                                  player => player.id == user.id,
+                                ) >= 0}
+                                ratingPercent={(player.rating.mu -. minRating) /.
+                                (maxRating -. minRating) *. 100.}
+                              />
+                            },
+                          )
+                        )
+                        ->Option.getOr(React.null)}
+                      </a>
+                    </div>
+                  </FramerMotion.Li>
                 })
                 ->React.array
               }}

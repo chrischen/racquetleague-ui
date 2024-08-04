@@ -12,6 +12,7 @@ module Fragment = %relay(`
   @refetchable(queryName: "AddLeagueMatchRsvpsRefetchQuery")
   {
     __id
+    id
     activity {
       id
       slug
@@ -61,7 +62,7 @@ let rsvpToPlayer = (rsvp: AddLeagueMatch_event_graphql.Types.fragment_rsvps_edge
     | _ => Rating.makeDefault()
     }
     {
-      data: rsvp,
+      data: Some(rsvp),
       Player.id: userId,
       name: rsvp.user->Option.flatMap(u => u.lineUsername)->Option.getOr(""),
       ratingOrdinal: rating->Rating.ordinal,
@@ -104,6 +105,7 @@ module SelectPlayersList = {
     ~playing: Set.t<string>,
     ~session: Session.t,
     ~onClick: Player.t<'a> => unit,
+    ~onRemove: Player.t<'a> => unit,
   ) => {
     let (sort, setSort) = React.useState(() => Rating)
 
@@ -114,12 +116,13 @@ module SelectPlayersList = {
       | Rating => a.ratingOrdinal < b.ratingOrdinal ? 1. : -1.
       }
     )
-    <div className="bg-gray-100">
+    <FramerMotion.Div className="bg-gray-100">
       <table className="mt-6 w-full whitespace-nowrap text-left">
         <colgroup>
           <col className="w-full sm:w-4/12" />
           <col className="lg:w-4/12" />
           <col className="lg:w-2/12" />
+          <col className="lg:w-1/12" />
           <col className="lg:w-1/12" />
           <col className="lg:w-1/12" />
         </colgroup>
@@ -136,6 +139,10 @@ module SelectPlayersList = {
                   : React.null}
               </UiAction>
             </th>
+            <th
+              scope="col"
+              className="py-2 pl-0 pr-4 text-right font-semibold table-cell sm:pr-6 lg:pr-8"
+            />
             <th
               scope="col"
               className="py-2 pl-0 pr-4 text-right font-semibold table-cell sm:pr-6 lg:pr-8">
@@ -157,66 +164,109 @@ module SelectPlayersList = {
           | players =>
             players
             ->Array.map(player => {
-              player.data.user
-              ->Option.map(user => {
-                <FramerMotion.Tr
-                  layout=true
-                  // className="mt-2 relative flex justify-between"
-                  style={originX: 0.05, originY: 0.05}
-                  key={user.id}
-                  initial={opacity: 0., scale: 1.15}
-                  animate={opacity: 1., scale: 1.}
-                  exit={opacity: 0., scale: 1.15}>
-                  <td className="py-2 pl-0 pr-8">
-                    <div className="flex items-center gap-x-4">
-                      <div
-                        className={Util.cx([
-                          "text-sm w-full font-medium leading-6 text-gray-900",
-                          selected->Array.indexOf(player.id) == -1 ? "opacity-50" : "",
-                        ])}>
-                        <UiAction onClick={() => onClick(player)}>
-                          <EventRsvpUser user={user.fragmentRefs} />
-                        </UiAction>
-                      </div>
+              let isGuest = player.data->Option.isNone
+              let selected = selected->Array.indexOf(player.id) > -1
+              <FramerMotion.Tr
+                layout=true
+                // className="mt-2 relative flex justify-between"
+                style={originX: 0.05, originY: 0.05}
+                key={player.id}
+                initial={opacity: 0., scale: 1.15}
+                animate={opacity: 1., scale: 1.}
+                exit={opacity: 0., scale: 1.15}>
+                <td className="py-2 pl-0 pr-8">
+                  <div className="flex items-center gap-x-4">
+                    <div
+                      className={Util.cx([
+                        "text-sm w-full font-medium leading-6 text-gray-900",
+                        !selected ? "opacity-50" : "",
+                      ])}>
+                      <UiAction onClick={() => onClick(player)}>
+                        {player.data
+                        ->Option.flatMap(data =>
+                          data.user->Option.map(
+                            user => {
+                              <EventRsvpUser
+                                user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                              />
+                            },
+                          )
+                        )
+                        ->Option.getOr(<>
+                          {<EventRsvpUser user={name: player.name, picture: None, data: Guest} />}
+                        </>)}
+                      </UiAction>
                     </div>
-                  </td>
-                  <td
-                    className="py-2 pl-0 pr-4 text-right text-sm leading-6 text-gray-400 table-cell sm:pr-6 lg:pr-8">
-                    <div className="flex items-center justify-end gap-x-2">
-                      <div
-                        className={Util.cx([
-                          playing->Set.has(player.id) ? "text-green-400 bg-green-400/10" : "hidden",
-                          "flex-none rounded-full p-1",
-                        ])}>
-                        <div className="h-1.5 w-1.5 rounded-full bg-current" />
-                      </div>
-                      {Session.get(session, player.id).count->Int.toString->React.string}
+                  </div>
+                </td>
+                <td>
+                  {isGuest && !selected
+                    ? <UiAction onClick={() => onRemove(player)}>
+                        {"Remove"->React.string}
+                      </UiAction>
+                    : React.null}
+                </td>
+                <td
+                  className="py-2 pl-0 pr-4 text-right text-sm leading-6 text-gray-400 table-cell sm:pr-6 lg:pr-8">
+                  <div className="flex items-center justify-end gap-x-2">
+                    <div
+                      className={Util.cx([
+                        playing->Set.has(player.id) ? "text-green-400 bg-green-400/10" : "hidden",
+                        "flex-none rounded-full p-1",
+                      ])}>
+                      <div className="h-1.5 w-1.5 rounded-full bg-current" />
                     </div>
-                  </td>
-                </FramerMotion.Tr>
-              })
-              ->Option.getOr(React.null)
+                    {Session.get(session, player.id).count->Int.toString->React.string}
+                  </div>
+                </td>
+              </FramerMotion.Tr>
             })
             ->React.array
           }}
         </tbody>
       </table>
-    </div>
+    </FramerMotion.Div>
   }
+}
+
+module SessionPlayer = {
+  type t<'a> =
+    | Registered(Player.t<'a>)
+    | Guest({id: string, name: string, rating: Rating.t, ratingOrdinal: float})
+  // let fromRsvpPlayer = player => {
+  //   data: None,
+  //   id: player.name,
+  //   name: player.name,
+  //   rating: Rating.makeDefault(),
+  //   ratingOrdinal: 0.0,
+  // }
+}
+
+let addGuestPlayer = (guestPlayers, player) => {
+  guestPlayers->Array.concat([player])
+}
+let removeGuestPlayer = (guestPlayers: array<Player.t<'a>>, player: Player.t<'a>) => {
+  guestPlayers->Array.filter(p => p.id != player.id)
 }
 
 @genType @react.component
 let make = (~event, ~children) => {
-  let {__id, activity} = Fragment.use(event)
+  let {__id, id: eventId, activity} = Fragment.use(event)
   let (selectedMatch: option<match>, setSelectedMatch) = React.useState(() => None)
   let (matches: array<match>, setMatches) = React.useState(() => [])
   let (manualTeamOpen, setManualTeamOpen) = React.useState(() => false)
+  let (addPlayerOpen, setAddPlayerOpen) = React.useState(() => false)
   // let (activePlayers: array<Player.t<rsvpNode>>, setActivePlayers) = React.useState(_ => [])
   let (activePlayers2: Js.Set.t<string>, setActivePlayers2) = React.useState(_ => Set.make())
   let (sessionState, setSessionState) = React.useState(() => Session.make())
+  let (guestPlayers: array<Player.t<'a>>, setGuestPlayers) = React.useState(() => [])
 
   let {data} = Fragment.usePagination(event)
-  let players = data.rsvps->Fragment.getConnectionNodes->Array.filterMap(rsvpToPlayer)
+  let players =
+    data.rsvps
+    ->Fragment.getConnectionNodes
+    ->Array.filterMap(rsvpToPlayer)
+    ->Array.concat(guestPlayers)
   let activePlayers = players->Array.filter(p => activePlayers2->Set.has(p.id))
 
   // let (players: array<Player.t<rsvpNode>>, setPlayers) = React.useState(_ => players')
@@ -273,6 +323,21 @@ let make = (~event, ~children) => {
               })}>
             {t`select all`}
           </UiAction>
+          <UiAction className="float-right" onClick={() => setAddPlayerOpen(prev => !prev)}>
+            {t`Add Player`}
+          </UiAction>
+          {addPlayerOpen
+            ? <SessionAddPlayer
+                eventId
+                onPlayerAdd={player => {
+                  setGuestPlayers(guests => {
+                    guests->addGuestPlayer(player->SessionAddPlayer.toRatingPlayer)
+                  })
+                  setAddPlayerOpen(_ => false)
+                }}
+                onCancel={_ => setAddPlayerOpen(_ => false)}
+              />
+            : React.null}
           <SelectPlayersList
             players={players}
             selected={activePlayers->Array.map((p: player) => p.id)}
@@ -289,6 +354,7 @@ let make = (~event, ~children) => {
 
                 newSet
               })}
+            onRemove={player => setGuestPlayers(guests => guests->removeGuestPlayer(player))}
 
             // switch ps->Array.findIndexOpt(p => p.id == player.id) {
             // | Some(_) => ps->Array.filter(v => v.id != player.id)
@@ -331,11 +397,11 @@ let make = (~event, ~children) => {
                 activity
                 onSubmitted={() => {
                   updatePlayCounts(match)
-                  setSelectedMatch(_ => None);
+                  setSelectedMatch(_ => None)
                 }}
                 onComplete={() => {
                   updatePlayCounts(match)
-                  setSelectedMatch(_ => None);
+                  setSelectedMatch(_ => None)
                 }}
               />
             )

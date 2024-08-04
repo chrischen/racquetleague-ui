@@ -119,7 +119,8 @@ function Nav(props) {
                                                                                       "notchrischen",
                                                                                       "Matthew",
                                                                                       "David Vo",
-                                                                                      "Kai"
+                                                                                      "Kai",
+                                                                                      "Alex Ng"
                                                                                     ], Core__Option.getOr(user.lineUsername, ""));
                                                                         }));
                                                           })), (function (param) {

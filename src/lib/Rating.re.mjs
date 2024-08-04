@@ -95,11 +95,65 @@ var Match = {
   contains_any_players: contains_any_players
 };
 
+function fromTeam(team) {
+  if (team.length !== 2) {
+    return {
+            TAG: "Error",
+            _0: "TwoPlayersRequired"
+          };
+  }
+  var p1 = team[0];
+  var p2 = team[1];
+  return {
+          TAG: "Ok",
+          _0: [
+            p1,
+            p2
+          ]
+        };
+}
+
+var DoublesTeam = {
+  fromTeam: fromTeam
+};
+
+function fromMatch(param) {
+  var t1 = fromTeam(param[0]);
+  var t2 = fromTeam(param[1]);
+  if (t1.TAG === "Ok") {
+    if (t2.TAG === "Ok") {
+      return {
+              TAG: "Ok",
+              _0: [
+                t1._0,
+                t2._0
+              ]
+            };
+    } else {
+      return {
+              TAG: "Error",
+              _0: t2._0
+            };
+    }
+  } else {
+    return {
+            TAG: "Error",
+            _0: t1._0
+          };
+  }
+}
+
+var DoublesMatch = {
+  fromMatch: fromMatch
+};
+
 export {
   Rating ,
   Player ,
   Team ,
   TeamSet ,
   Match ,
+  DoublesTeam ,
+  DoublesMatch ,
 }
 /* openskill Not a pure module */

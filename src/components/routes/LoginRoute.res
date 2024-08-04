@@ -1,3 +1,5 @@
+%%raw("import '../../global/static.css'")
+
 @genType
 let \"Component" = LoginPage.make
 

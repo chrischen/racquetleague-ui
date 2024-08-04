@@ -1,5 +1,5 @@
 @send
-external intersection: (Js.Set.t<'a>, Js.Set.t<'a>) => Js.Set.t<'a> = "intersection";
+external intersection: (Js.Set.t<'a>, Js.Set.t<'a>) => Js.Set.t<'a> = "intersection"
 module Rating: {
   type t = private {
     mu: float,
@@ -33,7 +33,7 @@ module Rating: {
 }
 module Player = {
   type t<'a> = {
-    data: 'a,
+    data: option<'a>,
     id: string,
     name: string,
     rating: Rating.t,
@@ -48,7 +48,6 @@ module Team = {
     let players = players->Array.map(p => p.id)->Set.fromArray
     players->Set.has(player.id)
     // players->Array.findIndex(p' => player.id == p'.id) > -1
-
   }
 
   let is_equal_to = (t1: t<'a>, t2: t<'a>) => {
@@ -59,7 +58,7 @@ module Team = {
 }
 
 module TeamSet = {
-  type t = Set.t<string>;
+  type t = Set.t<string>
   let is_equal_to = (t1: t, t2: t) => {
     t1->intersection(t2)->Set.size == t1->Set.size
     // t1->Set.values->Array.fromIterator->Array.every(p => t2->Set.has(p))
@@ -73,8 +72,35 @@ module Match = {
 
   let contains_any_players = ((t1, t2): t<'a>, players: array<Player.t<'a>>) => {
     let players = players->Array.map(p => p.id)->Set.fromArray
-    let match_players = [t1, t2]->Array.map(t => t->Array.map(p => p.id))->Array.flatMap(x => x)->Set.fromArray
+    let match_players =
+      [t1, t2]->Array.map(t => t->Array.map(p => p.id))->Array.flatMap(x => x)->Set.fromArray
 
-     match_players->intersection(players)->Set.size > 0
+    match_players->intersection(players)->Set.size > 0
+  }
+}
+
+module DoublesTeam = {
+  type t<'a> = (Player.t<'a>, Player.t<'a>)
+  type errs = TwoPlayersRequired
+  let fromTeam = (team: Team.t<'a>): result<t<'a>, errs> => {
+    switch team {
+    | [p1, p2] => Ok((p1, p2))
+    | _ => Error(TwoPlayersRequired)
+    }
+  }
+}
+
+module DoublesMatch = {
+  type t<'a> = (DoublesTeam.t<'a>, DoublesTeam.t<'a>)
+  type errs = DoublesTeam.errs
+  let fromMatch = ((t1, t2): Match.t<'a>): result<t<'a>, errs> => {
+    let t1 = t1->DoublesTeam.fromTeam
+    let t2 = t2->DoublesTeam.fromTeam
+    switch (t1, t2) {
+    | (Ok(t1), Ok(t2)) => Ok((t1, t2))
+    | (Error(e), _)
+    | (_, Error(e)) =>
+      Error(e)
+    }
   }
 }

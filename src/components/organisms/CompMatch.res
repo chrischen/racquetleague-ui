@@ -41,19 +41,30 @@ module MatchMini = {
 
 // Gets n from array array from a starting index, or returns the the array if
 // it's less than n and minimum of 4
-let array_get_n_from = (from: int, n: int, arr: array<'a>): option<array<'a>> =>
-  if arr->Array.length > 3 && arr->Array.length < n {
-    Some(arr)
-  } else if from < Array.length(arr) - (n - 1) {
+let array_get_n_from = (from: int, n: int, arr: array<'a>): option<array<'a>> => {
+  let n = if arr->Array.length > 3 && arr->Array.length < n {
+   arr->Array.length 
+  } else {
+    n
+  }
+
+  // if arr->Array.length > 3 && arr->Array.length < n {
+  //   Some(arr)
+  // } else
+  if from < Array.length(arr) - (n - 1) {
     let arr = Array.slice(arr, ~start=from, ~end=from + n)
     if n == arr->Array.length {
       Some(arr)
     } else {
       None
     }
+    // } else {
+    //   None
+    // }
   } else {
     None
   }
+}
 let array_split_by_n = (arr: array<'a>, n) => {
   let rec loop = (from: int, acc: array<array<'a>>) => {
     let next = array_get_n_from(from, n, arr)
@@ -146,50 +157,50 @@ let strategy_by_competitive = (
   consumedPlayers,
   priorityPlayers: array<Player.t<'a>>,
 ) => {
-    players
-    ->Array.toSorted((a, b) => {
-      let userA = a.rating.mu
-      let userB = b.rating.mu
-      userA < userB ? 1. : -1.
-    })
-    ->array_split_by_n(8)
-    ->Array.reduce([], (acc, playerSet) => {
-      let matches =
-        playerSet
-        ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
-        ->find_all_match_combos(priorityPlayers)
-        ->Array.toSorted((a, b) => {
-          let (_, qualityA) = a
-          let (_, qualityB) = b
-          qualityA < qualityB ? 1. : -1.
-        })
-      acc->Array.concat(matches)
-    })
+  players
+  ->Array.toSorted((a, b) => {
+    let userA = a.rating.mu
+    let userB = b.rating.mu
+    userA < userB ? 1. : -1.
+  })
+  ->array_split_by_n(8)
+  ->Array.reduce([], (acc, playerSet) => {
+    let matches =
+      playerSet
+      ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+      ->find_all_match_combos(priorityPlayers)
+      ->Array.toSorted((a, b) => {
+        let (_, qualityA) = a
+        let (_, qualityB) = b
+        qualityA < qualityB ? 1. : -1.
+      })
+    acc->Array.concat(matches)
+  })
 }
 let strategy_by_competitive_plus = (
   players: array<Player.t<'a>>,
   consumedPlayers,
   priorityPlayers: array<Player.t<'a>>,
 ) => {
-    players
-    ->Array.toSorted((a, b) => {
-      let userA = a.rating.mu
-      let userB = b.rating.mu
-      userA < userB ? 1. : -1.
-    })
-    ->array_split_by_n(6)
-    ->Array.reduce([], (acc, playerSet) => {
-      let matches =
-        playerSet
-        ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
-        ->find_all_match_combos(priorityPlayers)
-        ->Array.toSorted((a, b) => {
-          let (_, qualityA) = a
-          let (_, qualityB) = b
-          qualityA < qualityB ? 1. : -1.
-        })
-      acc->Array.concat(matches)
-    })
+  players
+  ->Array.toSorted((a, b) => {
+    let userA = a.rating.mu
+    let userB = b.rating.mu
+    userA < userB ? 1. : -1.
+  })
+  ->array_split_by_n(6)
+  ->Array.reduce([], (acc, playerSet) => {
+    let matches =
+      playerSet
+      ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+      ->find_all_match_combos(priorityPlayers)
+      ->Array.toSorted((a, b) => {
+        let (_, qualityA) = a
+        let (_, qualityB) = b
+        qualityA < qualityB ? 1. : -1.
+      })
+    acc->Array.concat(matches)
+  })
 }
 
 let strategy_by_mixed = (availablePlayers, priorityPlayers) => {

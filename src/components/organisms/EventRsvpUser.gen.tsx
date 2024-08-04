@@ -7,7 +7,17 @@ import * as EventRsvpUserJS from './EventRsvpUser.re.mjs';
 
 import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
 
-import type {fragmentRefs as RescriptRelay_fragmentRefs} from 'rescript-relay/src/RescriptRelay.gen';
+import type {Types_fragment as EventRsvpUser_user_graphql_Types_fragment} from '../../../src/__generated__/EventRsvpUser_user_graphql.gen';
+
+export type userData = 
+    "Guest"
+  | { TAG: "Registered"; _0: EventRsvpUser_user_graphql_Types_fragment };
+
+export type user = {
+  readonly name: string; 
+  readonly picture: (undefined | string); 
+  readonly data: userData
+};
 
 export type props<user,highlight,link,rating,ratingPercent> = {
   readonly user: user; 
@@ -17,8 +27,8 @@ export type props<user,highlight,link,rating,ratingPercent> = {
   readonly ratingPercent?: ratingPercent
 };
 
-export const make: (_1:props<RescriptRelay_fragmentRefs<"EventRsvpUser_user">,boolean,string,number,number>) => PervasivesU_Jsx_element = EventRsvpUserJS.make as any;
+export const make: (_1:props<user,boolean,string,number,number>) => PervasivesU_Jsx_element = EventRsvpUserJS.make as any;
 
-export const $$default: (_1:props<RescriptRelay_fragmentRefs<"EventRsvpUser_user">,boolean,string,number,number>) => PervasivesU_Jsx_element = EventRsvpUserJS.default as any;
+export const $$default: (_1:props<user,boolean,string,number,number>) => PervasivesU_Jsx_element = EventRsvpUserJS.default as any;
 
 export default $$default;

@@ -4,10 +4,12 @@ import * as Zod from "zod";
 import * as Form from "../molecules/forms/Form.re.mjs";
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
+import * as Rating from "../../lib/Rating.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as Core__Result from "@rescript/core/src/Core__Result.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
@@ -175,16 +177,23 @@ function SubmitMatch(props) {
   var commitMutationCreateLeagueMatch = match$1[0];
   var team1 = match[0];
   var team2 = match[1];
+  var doublesMatch = Rating.DoublesMatch.fromMatch(match);
+  console.log(team1);
+  console.log(team2);
   var outcome = use({
         input: {
           team1RatingIds: team1.map(function (node) {
-                return Core__Option.getOr(Core__Option.map(node.data.rating, (function (rating) {
-                                  return rating.id;
+                return Core__Option.getOr(Core__Option.flatMap(node.data, (function (node) {
+                                  return Core__Option.map(node.rating, (function (rating) {
+                                                return rating.id;
+                                              }));
                                 })), "");
               }),
           team2RatingIds: team2.map(function (node) {
-                return Core__Option.getOr(Core__Option.map(node.data.rating, (function (rating) {
-                                  return rating.id;
+                return Core__Option.getOr(Core__Option.flatMap(node.data, (function (node) {
+                                  return Core__Option.map(node.rating, (function (rating) {
+                                                return rating.id;
+                                              }));
                                 })), "");
               })
         }
@@ -199,12 +208,12 @@ function SubmitMatch(props) {
         return false;
       });
   var setSubmitting = match$3[1];
+  var submitting = match$3[0];
   var onSubmit = function (data) {
     setSubmitting(function (param) {
           return true;
         });
-    var match = data.scoreLeft === data.scoreRight;
-    if (match) {
+    if (data.scoreLeft === data.scoreRight) {
       alert("No ties allowed");
       return ;
     }
@@ -272,23 +281,36 @@ function SubmitMatch(props) {
                     children: [
                       JsxRuntime.jsx("div", {
                             children: team1.map(function (player) {
-                                  return Core__Option.getOr(Core__Option.map(player.data.user, (function (user) {
-                                                    return JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                user: user.fragmentRefs,
-                                                                ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
-                                                              });
-                                                  })), null);
+                                  var data = player.data;
+                                  if (data !== undefined) {
+                                    return Core__Option.getOr(Core__Option.map(data.user, (function (user) {
+                                                      return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                  user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
+                                                                  ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                                                });
+                                                    })), null);
+                                  } else {
+                                    return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                user: EventRsvpUser.makeGuest(player.name),
+                                                ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                              });
+                                  }
                                 }),
                             className: "grid gap-4"
                           }),
                       JsxRuntime.jsx("div", {
                             children: team2.map(function (player) {
-                                  return Core__Option.getOr(Core__Option.map(player.data.user, (function (user) {
-                                                    return JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                user: user.fragmentRefs,
-                                                                ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
-                                                              });
-                                                  })), null);
+                                  var data = player.data;
+                                  if (data !== undefined) {
+                                    return Core__Option.getOr(Core__Option.map(data.user, (function (user) {
+                                                      return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                  user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
+                                                                  ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                                                });
+                                                    })), null);
+                                  } else {
+                                    return null;
+                                  }
                                 }),
                             className: "grid gap-4"
                           }),
@@ -348,12 +370,30 @@ function SubmitMatch(props) {
                                                                     children: t`Completed`
                                                                   });
                                                       })), null),
-                                            JsxRuntime.jsx("input", {
-                                                  className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
-                                                  disabled: match$3[0],
-                                                  type: "submit",
-                                                  value: "Submit"
-                                                })
+                                            Core__Result.getOr(Core__Result.flatMap(doublesMatch, (function (param) {
+                                                        var match = param[1];
+                                                        var match$1 = param[0];
+                                                        var match$2 = match$1[0].data;
+                                                        var match$3 = match$1[1].data;
+                                                        var match$4 = match[0].data;
+                                                        var match$5 = match[1].data;
+                                                        if (match$2 !== undefined && match$3 !== undefined && match$4 !== undefined && match$5 !== undefined) {
+                                                          return {
+                                                                  TAG: "Ok",
+                                                                  _0: JsxRuntime.jsx("input", {
+                                                                        className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
+                                                                        disabled: submitting,
+                                                                        type: "submit",
+                                                                        value: t`Submit Rated`
+                                                                      })
+                                                                };
+                                                        } else {
+                                                          return {
+                                                                  TAG: "Error",
+                                                                  _0: "TwoPlayersRequired"
+                                                                };
+                                                        }
+                                                      })), null)
                                           ],
                                           className: "mt-3 flex md:top-3 md:mt-0 justify-center"
                                         }),

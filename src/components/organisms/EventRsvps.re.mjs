@@ -335,7 +335,7 @@ function EventRsvps(props) {
                                                                                                   }),
                                                                                               JsxRuntime.jsx("div", {
                                                                                                     children: JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                          user: user.fragmentRefs,
+                                                                                                          user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
                                                                                                           highlight: Core__Option.getOr(Core__Option.map(viewer.user, (function (viewer) {
                                                                                                                       return viewer.id === user.id;
                                                                                                                     })), false),
@@ -454,7 +454,7 @@ function EventRsvps(props) {
                                                                                                 }),
                                                                                             JsxRuntime.jsx("div", {
                                                                                                   children: JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                        user: user.fragmentRefs,
+                                                                                                        user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
                                                                                                         highlight: Core__Option.getOr(Core__Option.map(viewer.user, (function (viewer) {
                                                                                                                     return viewer.id === user.id;
                                                                                                                   })), false),

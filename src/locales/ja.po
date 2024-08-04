@@ -930,15 +930,19 @@ msgstr "競争力プラス"
 
 #: src/components/organisms/CompMatch.re.mjs:341
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-msgstr "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
+msgstr ""
+"マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:346
 msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
-msgstr "マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
+msgstr ""
+"マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:351
 msgid "Matches are arranged by skill while mixing strong and weak players."
-msgstr "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されます。"
+msgstr ""
+"マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
+"す。"
 
 #: src/components/organisms/CompMatch.re.mjs:349
 msgid "Mixed"
@@ -947,6 +951,22 @@ msgstr "混合"
 #: src/components/organisms/CompMatch.re.mjs:356
 msgid "Totally random teams."
 msgstr "完全にランダムなチーム。"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:487
+msgid "Add Player"
+msgstr "プレイヤーを追加"
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:59
+msgid "Player Name"
+msgstr "プレイヤー名"
+
+#: src/components/organisms/SubmitMatch.re.mjs:387
+msgid "Submit Rated"
+msgstr "評価を提出"
+
+#: src/components/pages/LoginPage.re.mjs:89
+msgid "cancel login"
+msgstr "ログインをキャンセル"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

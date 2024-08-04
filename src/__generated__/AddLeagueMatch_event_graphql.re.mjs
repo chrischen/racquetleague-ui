@@ -118,6 +118,7 @@ return {
   },
   "name": "AddLeagueMatch_event",
   "selections": [
+    (v1/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -295,7 +296,6 @@ return {
       "kind": "FragmentSpread",
       "name": "SelectMatch_event"
     },
-    (v1/*: any*/),
     (v2/*: any*/)
   ],
   "type": "Event",

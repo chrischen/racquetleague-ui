@@ -7,6 +7,9 @@ import * as LoginPage from "../pages/LoginPage.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRouterDom from "react-router-dom";
 
+import '../../global/static.css'
+;
+
 var LoaderArgs = {};
 
 function loadMessages(lang) {
@@ -36,4 +39,4 @@ export {
   loadMessages ,
   loader ,
 }
-/* react Not a pure module */
+/*  Not a pure module */

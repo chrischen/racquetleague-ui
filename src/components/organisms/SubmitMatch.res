@@ -132,19 +132,28 @@ let make = (
   ~onComplete: option<unit => unit>=?,
   ~onSubmitted: option<unit => unit>=?,
 ) => {
+  let ts = Lingui.UtilString.t
   open Form
   let (commitMutationCreateLeagueMatch, _isMutationInFlight) = CreateLeagueMatchMutation.use()
 
   let team1 = match->fst
   let team2 = match->snd
+  let doublesMatch = match->DoublesMatch.fromMatch
+  Js.log(team1)
+  Js.log(team2)
+
   let outcome = PredictMatchOutcome.use(
     ~variables={
       input: {
         team1RatingIds: team1->Array.map(node =>
-          node.data.rating->Option.map(rating => rating.id)->Option.getOr("")
+          node.data
+          ->Option.flatMap(node => node.rating->Option.map(rating => rating.id))
+          ->Option.getOr("")
         ),
         team2RatingIds: team2->Array.map(node =>
-          node.data.rating->Option.map(rating => rating.id)->Option.getOr("")
+          node.data
+          ->Option.flatMap(node => node.rating->Option.map(rating => rating.id))
+          ->Option.getOr("")
         ),
       },
     },
@@ -161,7 +170,7 @@ let make = (
     setSubmitting(_ => true)
     switch data.scoreLeft == data.scoreRight {
     | true => alert("No ties allowed")
-    | _ =>
+    | false =>
       let winningSide = switch data.scoreLeft > data.scoreRight {
       | true => Left
       | false => Right
@@ -223,28 +232,40 @@ let make = (
       <div className="grid gap-4">
         {team1
         ->Array.map(player =>
-          player.data.user
-          ->Option.map(user => {
+          switch player.data {
+          | Some(data) =>
+            data.user
+            ->Option.map(user => {
+              <EventRsvpUser
+                user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+              />
+            })
+            ->Option.getOr(React.null)
+          | None =>
             <EventRsvpUser
-              user={user.fragmentRefs}
+              user={EventRsvpUser.makeGuest(player.name)}
               ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
             />
-          })
-          ->Option.getOr(React.null)
+          }
         )
         ->React.array}
       </div>
       <div className="grid gap-4">
         {team2
         ->Array.map(player =>
-          player.data.user
-          ->Option.map(user => {
-            <EventRsvpUser
-              user={user.fragmentRefs}
-              ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
-            />
-          })
-          ->Option.getOr(React.null)
+          switch player.data {
+          | Some(data) =>
+            data.user
+            ->Option.map(user => {
+              <EventRsvpUser
+                user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+              />
+            })
+            ->Option.getOr(React.null)
+          | None => React.null
+          }
         )
         ->React.array}
       </div>
@@ -308,12 +329,22 @@ let make = (
               </UiAction>
             )
             ->Option.getOr(React.null)}
-            <input
-              type_="submit"
-              disabled={submitting}
-              className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-              value="Submit"
-            />
+            {doublesMatch
+            ->Result.flatMap((((p1, p2), (p3, p4))) =>
+              switch (p1.data, p2.data, p3.data, p4.data) {
+              | (Some(_), Some(_), Some(_), Some(_)) =>
+                Ok(
+                  <input
+                    type_="submit"
+                    disabled={submitting}
+                    className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                    value={ts`Submit Rated`}
+                  />,
+                )
+              | _ => Error(TwoPlayersRequired)
+              }
+            )
+            ->Result.getOr(React.null)}
           </div>
         </div>
       </div>

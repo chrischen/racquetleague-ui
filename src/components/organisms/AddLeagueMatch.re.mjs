@@ -13,6 +13,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
 import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
+import * as SessionAddPlayer from "./SessionAddPlayer.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -143,6 +144,7 @@ var Session = {
 };
 
 function AddLeagueMatch$SelectPlayersList(props) {
+  var onRemove = props.onRemove;
   var onClick = props.onClick;
   var session = props.session;
   var playing = props.playing;
@@ -165,147 +167,186 @@ function AddLeagueMatch$SelectPlayersList(props) {
           return 1;
         }
       });
-  return JsxRuntime.jsx("div", {
-              children: JsxRuntime.jsxs("table", {
-                    children: [
-                      JsxRuntime.jsxs("colgroup", {
-                            children: [
-                              JsxRuntime.jsx("col", {
-                                    className: "w-full sm:w-4/12"
-                                  }),
-                              JsxRuntime.jsx("col", {
-                                    className: "lg:w-4/12"
-                                  }),
-                              JsxRuntime.jsx("col", {
-                                    className: "lg:w-2/12"
-                                  }),
-                              JsxRuntime.jsx("col", {
-                                    className: "lg:w-1/12"
-                                  }),
-                              JsxRuntime.jsx("col", {
-                                    className: "lg:w-1/12"
-                                  })
-                            ]
-                          }),
-                      JsxRuntime.jsx("thead", {
-                            children: JsxRuntime.jsxs("tr", {
-                                  children: [
-                                    JsxRuntime.jsx("th", {
-                                          children: JsxRuntime.jsxs(UiAction.make, {
-                                                onClick: (function () {
-                                                    setSort(function (param) {
-                                                          return "Rating";
-                                                        });
+  return JsxRuntime.jsx(FramerMotion.motion.div, {
+              className: "bg-gray-100",
+              children: Caml_option.some(JsxRuntime.jsxs("table", {
+                        children: [
+                          JsxRuntime.jsxs("colgroup", {
+                                children: [
+                                  JsxRuntime.jsx("col", {
+                                        className: "w-full sm:w-4/12"
+                                      }),
+                                  JsxRuntime.jsx("col", {
+                                        className: "lg:w-4/12"
+                                      }),
+                                  JsxRuntime.jsx("col", {
+                                        className: "lg:w-2/12"
+                                      }),
+                                  JsxRuntime.jsx("col", {
+                                        className: "lg:w-1/12"
+                                      }),
+                                  JsxRuntime.jsx("col", {
+                                        className: "lg:w-1/12"
+                                      }),
+                                  JsxRuntime.jsx("col", {
+                                        className: "lg:w-1/12"
+                                      })
+                                ]
+                              }),
+                          JsxRuntime.jsx("thead", {
+                                children: JsxRuntime.jsxs("tr", {
+                                      children: [
+                                        JsxRuntime.jsx("th", {
+                                              children: JsxRuntime.jsxs(UiAction.make, {
+                                                    onClick: (function () {
+                                                        setSort(function (param) {
+                                                              return "Rating";
+                                                            });
+                                                      }),
+                                                    className: "group inline-flex",
+                                                    children: [
+                                                      t`Player`,
+                                                      sort === "Rating" ? JsxRuntime.jsx("span", {
+                                                              children: JsxRuntime.jsx(Solid.ChevronDownIcon, {
+                                                                    className: "w-5 h-5"
+                                                                  }),
+                                                              className: "ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200"
+                                                            }) : null
+                                                    ]
                                                   }),
-                                                className: "group inline-flex",
-                                                children: [
-                                                  t`Player`,
-                                                  sort === "Rating" ? JsxRuntime.jsx("span", {
-                                                          children: JsxRuntime.jsx(Solid.ChevronDownIcon, {
-                                                                className: "w-5 h-5"
-                                                              }),
-                                                          className: "ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200"
-                                                        }) : null
-                                                ]
-                                              }),
-                                          className: "py-2 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8",
-                                          scope: "col"
-                                        }),
-                                    JsxRuntime.jsx("th", {
-                                          children: JsxRuntime.jsxs(UiAction.make, {
-                                                onClick: (function () {
-                                                    setSort(function (param) {
-                                                          return "MatchCount";
-                                                        });
+                                              className: "py-2 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8",
+                                              scope: "col"
+                                            }),
+                                        JsxRuntime.jsx("th", {
+                                              className: "py-2 pl-0 pr-4 text-right font-semibold table-cell sm:pr-6 lg:pr-8",
+                                              scope: "col"
+                                            }),
+                                        JsxRuntime.jsx("th", {
+                                              children: JsxRuntime.jsxs(UiAction.make, {
+                                                    onClick: (function () {
+                                                        setSort(function (param) {
+                                                              return "MatchCount";
+                                                            });
+                                                      }),
+                                                    className: "group inline-flex",
+                                                    children: [
+                                                      t`Match Count`,
+                                                      sort === "MatchCount" ? JsxRuntime.jsx("span", {
+                                                              children: JsxRuntime.jsx(Solid.ChevronUpIcon, {
+                                                                    className: "w-5 h-5"
+                                                                  }),
+                                                              className: "ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200"
+                                                            }) : null
+                                                    ]
                                                   }),
-                                                className: "group inline-flex",
-                                                children: [
-                                                  t`Match Count`,
-                                                  sort === "MatchCount" ? JsxRuntime.jsx("span", {
-                                                          children: JsxRuntime.jsx(Solid.ChevronUpIcon, {
-                                                                className: "w-5 h-5"
-                                                              }),
-                                                          className: "ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200"
-                                                        }) : null
-                                                ]
-                                              }),
-                                          className: "py-2 pl-0 pr-4 text-right font-semibold table-cell sm:pr-6 lg:pr-8",
-                                          scope: "col"
-                                        })
-                                  ]
-                                }),
-                            className: "border-b border-black/10 text-sm leading-6 text-black"
-                          }),
-                      JsxRuntime.jsx("tbody", {
-                            children: players.length !== 0 ? players.map(function (player) {
-                                    return Core__Option.getOr(Core__Option.map(player.data.user, (function (user) {
-                                                      return JsxRuntime.jsxs(FramerMotion.motion.tr, {
-                                                                  style: {
-                                                                    originX: 0.05,
-                                                                    originY: 0.05
-                                                                  },
-                                                                  animate: {
-                                                                    opacity: 1,
-                                                                    scale: 1
-                                                                  },
-                                                                  initial: {
-                                                                    opacity: 0,
-                                                                    scale: 1.15
-                                                                  },
-                                                                  exit: {
-                                                                    opacity: 0,
-                                                                    scale: 1.15
-                                                                  },
-                                                                  layout: true,
+                                              className: "py-2 pl-0 pr-4 text-right font-semibold table-cell sm:pr-6 lg:pr-8",
+                                              scope: "col"
+                                            })
+                                      ]
+                                    }),
+                                className: "border-b border-black/10 text-sm leading-6 text-black"
+                              }),
+                          JsxRuntime.jsx("tbody", {
+                                children: players.length !== 0 ? players.map(function (player) {
+                                        var isGuest = Core__Option.isNone(player.data);
+                                        var selected$1 = selected.indexOf(player.id) > -1;
+                                        return JsxRuntime.jsxs(FramerMotion.motion.tr, {
+                                                    style: {
+                                                      originX: 0.05,
+                                                      originY: 0.05
+                                                    },
+                                                    animate: {
+                                                      opacity: 1,
+                                                      scale: 1
+                                                    },
+                                                    initial: {
+                                                      opacity: 0,
+                                                      scale: 1.15
+                                                    },
+                                                    exit: {
+                                                      opacity: 0,
+                                                      scale: 1.15
+                                                    },
+                                                    layout: true,
+                                                    children: [
+                                                      JsxRuntime.jsx("td", {
+                                                            children: JsxRuntime.jsx("div", {
+                                                                  children: JsxRuntime.jsx("div", {
+                                                                        children: JsxRuntime.jsx(UiAction.make, {
+                                                                              onClick: (function () {
+                                                                                  onClick(player);
+                                                                                }),
+                                                                              children: Core__Option.getOr(Core__Option.flatMap(player.data, (function (data) {
+                                                                                          return Core__Option.map(data.user, (function (user) {
+                                                                                                        return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                                                                    user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs)
+                                                                                                                  });
+                                                                                                      }));
+                                                                                        })), JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                                                        children: Caml_option.some(JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                                                  user: {
+                                                                                                    name: player.name,
+                                                                                                    picture: undefined,
+                                                                                                    data: "Guest"
+                                                                                                  }
+                                                                                                }))
+                                                                                      }))
+                                                                            }),
+                                                                        className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", selected$1 ? "" : "opacity-50")
+                                                                      }),
+                                                                  className: "flex items-center gap-x-4"
+                                                                }),
+                                                            className: "py-2 pl-0 pr-8"
+                                                          }),
+                                                      JsxRuntime.jsx("td", {
+                                                            children: isGuest && !selected$1 ? JsxRuntime.jsx(UiAction.make, {
+                                                                    onClick: (function () {
+                                                                        onRemove(player);
+                                                                      }),
+                                                                    children: "Remove"
+                                                                  }) : null
+                                                          }),
+                                                      JsxRuntime.jsx("td", {
+                                                            children: JsxRuntime.jsxs("div", {
                                                                   children: [
-                                                                    JsxRuntime.jsx("td", {
+                                                                    JsxRuntime.jsx("div", {
                                                                           children: JsxRuntime.jsx("div", {
-                                                                                children: JsxRuntime.jsx("div", {
-                                                                                      children: JsxRuntime.jsx(UiAction.make, {
-                                                                                            onClick: (function () {
-                                                                                                onClick(player);
-                                                                                              }),
-                                                                                            children: JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                  user: user.fragmentRefs
-                                                                                                })
-                                                                                          }),
-                                                                                      className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", selected.indexOf(player.id) === -1 ? "opacity-50" : "")
-                                                                                    }),
-                                                                                className: "flex items-center gap-x-4"
+                                                                                className: "h-1.5 w-1.5 rounded-full bg-current"
                                                                               }),
-                                                                          className: "py-2 pl-0 pr-8"
+                                                                          className: Core.cx(playing.has(player.id) ? "text-green-400 bg-green-400/10" : "hidden", "flex-none rounded-full p-1")
                                                                         }),
-                                                                    JsxRuntime.jsx("td", {
-                                                                          children: JsxRuntime.jsxs("div", {
-                                                                                children: [
-                                                                                  JsxRuntime.jsx("div", {
-                                                                                        children: JsxRuntime.jsx("div", {
-                                                                                              className: "h-1.5 w-1.5 rounded-full bg-current"
-                                                                                            }),
-                                                                                        className: Core.cx(playing.has(player.id) ? "text-green-400 bg-green-400/10" : "hidden", "flex-none rounded-full p-1")
-                                                                                      }),
-                                                                                  get(session, player.id).count.toString(undefined)
-                                                                                ],
-                                                                                className: "flex items-center justify-end gap-x-2"
-                                                                              }),
-                                                                          className: "py-2 pl-0 pr-4 text-right text-sm leading-6 text-gray-400 table-cell sm:pr-6 lg:pr-8"
-                                                                        })
-                                                                  ]
-                                                                }, user.id);
-                                                    })), null);
-                                  }) : t`no players yet`,
-                            className: "divide-y divide-black/5"
-                          })
-                    ],
-                    className: "mt-6 w-full whitespace-nowrap text-left"
-                  }),
-              className: "bg-gray-100"
+                                                                    get(session, player.id).count.toString(undefined)
+                                                                  ],
+                                                                  className: "flex items-center justify-end gap-x-2"
+                                                                }),
+                                                            className: "py-2 pl-0 pr-4 text-right text-sm leading-6 text-gray-400 table-cell sm:pr-6 lg:pr-8"
+                                                          })
+                                                    ]
+                                                  }, player.id);
+                                      }) : t`no players yet`,
+                                className: "divide-y divide-black/5"
+                              })
+                        ],
+                        className: "mt-6 w-full whitespace-nowrap text-left"
+                      }))
             });
 }
 
 var SelectPlayersList = {
   make: AddLeagueMatch$SelectPlayersList
 };
+
+var SessionPlayer = {};
+
+function addGuestPlayer(guestPlayers, player) {
+  return guestPlayers.concat([player]);
+}
+
+function removeGuestPlayer(guestPlayers, player) {
+  return guestPlayers.filter(function (p) {
+              return p.id !== player.id;
+            });
+}
 
 function AddLeagueMatch(props) {
   var $$event = props.event;
@@ -326,17 +367,25 @@ function AddLeagueMatch(props) {
       });
   var setManualTeamOpen = match$3[1];
   var match$4 = React.useState(function () {
+        return false;
+      });
+  var setAddPlayerOpen = match$4[1];
+  var match$5 = React.useState(function () {
         return new Set();
       });
-  var setActivePlayers2 = match$4[1];
-  var activePlayers2 = match$4[0];
-  var match$5 = React.useState(function () {
+  var setActivePlayers2 = match$5[1];
+  var activePlayers2 = match$5[0];
+  var match$6 = React.useState(function () {
         return {};
       });
-  var setSessionState = match$5[1];
-  var sessionState = match$5[0];
-  var match$6 = usePagination($$event);
-  var players = Core__Array.filterMap(getConnectionNodes(match$6.data.rsvps), rsvpToPlayer);
+  var setSessionState = match$6[1];
+  var sessionState = match$6[0];
+  var match$7 = React.useState(function () {
+        return [];
+      });
+  var setGuestPlayers = match$7[1];
+  var match$8 = usePagination($$event);
+  var players = Core__Array.filterMap(getConnectionNodes(match$8.data.rsvps), rsvpToPlayer).concat(match$7[0]);
   var activePlayers = players.filter(function (p) {
         return activePlayers2.has(p.id);
       });
@@ -428,6 +477,32 @@ function AddLeagueMatch(props) {
                                                   }),
                                                 children: t`select all`
                                               }),
+                                          JsxRuntime.jsx(UiAction.make, {
+                                                onClick: (function () {
+                                                    setAddPlayerOpen(function (prev) {
+                                                          return !prev;
+                                                        });
+                                                  }),
+                                                className: "float-right",
+                                                children: t`Add Player`
+                                              }),
+                                          match$4[0] ? JsxRuntime.jsx(SessionAddPlayer.make, {
+                                                  eventId: match.id,
+                                                  onPlayerAdd: (function (player) {
+                                                      setGuestPlayers(function (guests) {
+                                                            var player$1 = SessionAddPlayer.toRatingPlayer(player);
+                                                            return guests.concat([player$1]);
+                                                          });
+                                                      setAddPlayerOpen(function (param) {
+                                                            return false;
+                                                          });
+                                                    }),
+                                                  onCancel: (function (param) {
+                                                      setAddPlayerOpen(function (param) {
+                                                            return false;
+                                                          });
+                                                    })
+                                                }) : null,
                                           JsxRuntime.jsx(AddLeagueMatch$SelectPlayersList, {
                                                 players: players,
                                                 selected: activePlayers.map(function (p) {
@@ -447,6 +522,11 @@ function AddLeagueMatch(props) {
                                                             newSet.add(player.id);
                                                           }
                                                           return newSet;
+                                                        });
+                                                  }),
+                                                onRemove: (function (player) {
+                                                    setGuestPlayers(function (guests) {
+                                                          return removeGuestPlayer(guests, player);
                                                         });
                                                   })
                                               })
@@ -586,6 +666,9 @@ export {
   PlayerState ,
   Session ,
   SelectPlayersList ,
+  SessionPlayer ,
+  addGuestPlayer ,
+  removeGuestPlayer ,
   make$2 as make,
   $$default as default,
 }

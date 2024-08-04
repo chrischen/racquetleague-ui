@@ -122,65 +122,67 @@ function SelectMatch$SelectEventPlayersList(props) {
                                                         return 1;
                                                       }
                                                     }).map(function (player) {
-                                                    return Core__Option.getOr(Core__Option.map(player.data.user, (function (user) {
-                                                                      var disabled$1 = Core__Option.getOr(Core__Option.map(disabled, (function (disabled) {
-                                                                                  return disabled.findIndex(function (player) {
-                                                                                              return player.id === user.id;
-                                                                                            }) >= 0;
-                                                                                })), false);
-                                                                      return JsxRuntime.jsxs(FramerMotion.motion.li, {
-                                                                                  className: "mt-4 flex w-full flex-none gap-x-4 px-6",
-                                                                                  style: {
-                                                                                    originX: 0.05,
-                                                                                    originY: 0.05
-                                                                                  },
-                                                                                  animate: {
-                                                                                    opacity: 1,
-                                                                                    scale: 1
-                                                                                  },
-                                                                                  initial: {
-                                                                                    opacity: 0,
-                                                                                    scale: 1.15
-                                                                                  },
-                                                                                  exit: {
-                                                                                    opacity: 0,
-                                                                                    scale: 1.15
-                                                                                  },
-                                                                                  layout: true,
-                                                                                  children: [
-                                                                                    JsxRuntime.jsx("div", {
-                                                                                          children: JsxRuntime.jsx("span", {
-                                                                                                children: t`Player`,
-                                                                                                className: "sr-only"
-                                                                                              }),
-                                                                                          className: "flex-none"
-                                                                                        }),
-                                                                                    JsxRuntime.jsx("div", {
-                                                                                          children: JsxRuntime.jsx("a", {
-                                                                                                children: JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                      user: user.fragmentRefs,
-                                                                                                      highlight: selected.findIndex(function (player) {
-                                                                                                            return player.id === user.id;
-                                                                                                          }) >= 0,
-                                                                                                      ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
-                                                                                                    }),
-                                                                                                href: "#",
-                                                                                                onClick: (function (e) {
-                                                                                                    e.preventDefault();
-                                                                                                    if (disabled$1) {
-                                                                                                      
-                                                                                                    } else {
-                                                                                                      Core__Option.map(onSelectPlayer, (function (f) {
-                                                                                                              f(player);
-                                                                                                            }));
-                                                                                                    }
-                                                                                                  })
-                                                                                              }),
-                                                                                          className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", disabled$1 ? "opacity-50" : "")
-                                                                                        })
-                                                                                  ]
-                                                                                }, user.id);
-                                                                    })), null);
+                                                    var disabled$1 = Core__Option.getOr(Core__Option.map(disabled, (function (disabled) {
+                                                                return disabled.findIndex(function (p) {
+                                                                            return player.id === p.id;
+                                                                          }) >= 0;
+                                                              })), false);
+                                                    return JsxRuntime.jsxs(FramerMotion.motion.li, {
+                                                                className: "mt-4 flex w-full flex-none gap-x-4 px-6",
+                                                                style: {
+                                                                  originX: 0.05,
+                                                                  originY: 0.05
+                                                                },
+                                                                animate: {
+                                                                  opacity: 1,
+                                                                  scale: 1
+                                                                },
+                                                                initial: {
+                                                                  opacity: 0,
+                                                                  scale: 1.15
+                                                                },
+                                                                exit: {
+                                                                  opacity: 0,
+                                                                  scale: 1.15
+                                                                },
+                                                                layout: true,
+                                                                children: [
+                                                                  JsxRuntime.jsx("div", {
+                                                                        children: JsxRuntime.jsx("span", {
+                                                                              children: t`Player`,
+                                                                              className: "sr-only"
+                                                                            }),
+                                                                        className: "flex-none"
+                                                                      }),
+                                                                  JsxRuntime.jsx("div", {
+                                                                        children: JsxRuntime.jsx("a", {
+                                                                              children: Core__Option.getOr(Core__Option.flatMap(player.data, (function (data) {
+                                                                                          return Core__Option.map(data.user, (function (user) {
+                                                                                                        return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                                                                    user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
+                                                                                                                    highlight: selected.findIndex(function (player) {
+                                                                                                                          return player.id === user.id;
+                                                                                                                        }) >= 0,
+                                                                                                                    ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                                                                                                  });
+                                                                                                      }));
+                                                                                        })), null),
+                                                                              href: "#",
+                                                                              onClick: (function (e) {
+                                                                                  e.preventDefault();
+                                                                                  if (disabled$1) {
+                                                                                    
+                                                                                  } else {
+                                                                                    Core__Option.map(onSelectPlayer, (function (f) {
+                                                                                            f(player);
+                                                                                          }));
+                                                                                  }
+                                                                                })
+                                                                            }),
+                                                                        className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", disabled$1 ? "opacity-50" : "")
+                                                                      })
+                                                                ]
+                                                              }, player.id);
                                                   }) : t`no players yet`
                                           }),
                                       className: "w-full"

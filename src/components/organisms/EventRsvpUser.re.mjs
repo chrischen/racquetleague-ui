@@ -33,12 +33,31 @@ var Fragment = {
   useOpt: useOpt
 };
 
+function fromRegisteredUser(user) {
+  var user$1 = use(user);
+  return {
+          name: Core__Option.getOr(user$1.lineUsername, "[Line username missing]"),
+          picture: user$1.picture,
+          data: {
+            TAG: "Registered",
+            _0: user$1
+          }
+        };
+}
+
+function makeGuest(name) {
+  return {
+          name: name,
+          picture: undefined,
+          data: "Guest"
+        };
+}
+
 function EventRsvpUser(props) {
   var link = props.link;
   var __highlight = props.highlight;
+  var user = props.user;
   var highlight = __highlight !== undefined ? __highlight : false;
-  var user = use(props.user);
-  var display = Core__Option.getOr(user.lineUsername, "[Line username missing]");
   return JsxRuntime.jsxs("div", {
               children: [
                 Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
@@ -60,9 +79,9 @@ function EventRsvpUser(props) {
                                               className: "absolute inset-x-0 -top-px bottom-0"
                                             }),
                                         highlight ? JsxRuntime.jsx("strong", {
-                                                children: display,
+                                                children: user.name,
                                                 className: "text-lg"
-                                              }) : display
+                                              }) : user.name
                                       ]
                                     }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                       children: [
@@ -70,9 +89,9 @@ function EventRsvpUser(props) {
                                               className: "absolute inset-x-0 -top-px bottom-0"
                                             }),
                                         highlight ? JsxRuntime.jsx("strong", {
-                                                children: display,
+                                                children: user.name,
                                                 className: "text-lg"
-                                              }) : display
+                                              }) : user.name
                                       ]
                                     }),
                               className: "text-sm font-semibold leading-6 text-gray-900"
@@ -111,6 +130,8 @@ var $$default = EventRsvpUser;
 
 export {
   Fragment ,
+  fromRegisteredUser ,
+  makeGuest ,
   make ,
   $$default as default,
 }

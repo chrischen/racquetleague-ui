@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-08-04 14:44+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/molecules/forms/Form.re.mjs:284
+msgid "cancel"
+msgstr ""
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:59
+msgid "Player Name"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:291
+msgid "save"
+msgstr ""

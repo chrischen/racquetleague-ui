@@ -86,14 +86,12 @@ var MatchMini = {
 };
 
 function array_get_n_from(from, n, arr) {
-  if (arr.length > 3 && arr.length < n) {
-    return arr;
-  }
-  if (from >= (arr.length - (n - 1 | 0) | 0)) {
+  var n$1 = arr.length > 3 && arr.length < n ? arr.length : n;
+  if (from >= (arr.length - (n$1 - 1 | 0) | 0)) {
     return ;
   }
-  var arr$1 = arr.slice(from, from + n | 0);
-  if (n === arr$1.length) {
+  var arr$1 = arr.slice(from, from + n$1 | 0);
+  if (n$1 === arr$1.length) {
     return arr$1;
   }
   

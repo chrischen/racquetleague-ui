@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"キャンセル\",\"qqWcBV\":\"試合終了\",\"mtjKfB\":\"何点\",\"oqJvMR\":\"予測される勝者\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"キャンセル\",\"qqWcBV\":\"試合終了\",\"mtjKfB\":\"何点\",\"oqJvMR\":\"予測される勝者\",\"DzbT9G\":\"評価を提出\"}");

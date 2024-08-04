@@ -13,23 +13,31 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CompMatch.re.mjs:456
+#: src/components/organisms/AddLeagueMatch.re.mjs:487
+msgid "Add Player"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:454
 msgid "Analyzed {0} matches."
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:341
+#: src/components/molecules/forms/Form.re.mjs:284
+msgid "cancel"
+msgstr ""
+
+#: src/components/organisms/SubmitMatch.re.mjs:363
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:344
+#: src/components/organisms/CompMatch.re.mjs:342
 msgid "Competitive"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:339
+#: src/components/organisms/CompMatch.re.mjs:337
 msgid "Competitive Plus"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:348
+#: src/components/organisms/SubmitMatch.re.mjs:370
 msgid "Completed"
 msgstr ""
 
@@ -41,7 +49,7 @@ msgstr ""
 #~ msgid "delete"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:302
+#: src/components/organisms/SelectMatch.re.mjs:304
 msgid "left team players"
 msgstr ""
 
@@ -49,8 +57,8 @@ msgstr ""
 #~ msgid "load More"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:523
-#: src/components/organisms/AddLeagueMatch.re.mjs:562
+#: src/components/organisms/AddLeagueMatch.re.mjs:603
+#: src/components/organisms/AddLeagueMatch.re.mjs:642
 msgid "Loading"
 msgstr ""
 
@@ -58,59 +66,63 @@ msgstr ""
 #~ msgid "Loser Points"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:486
+#: src/components/organisms/AddLeagueMatch.re.mjs:566
 msgid "manual team"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:223
+#: src/components/organisms/AddLeagueMatch.re.mjs:233
 msgid "Match Count"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:531
+#: src/components/organisms/AddLeagueMatch.re.mjs:611
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:341
+#: src/components/organisms/CompMatch.re.mjs:339
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:346
+#: src/components/organisms/CompMatch.re.mjs:344
 msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:351
+#: src/components/organisms/CompMatch.re.mjs:349
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:459
+#: src/components/organisms/AddLeagueMatch.re.mjs:539
 msgid "Matchmaking"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:349
+#: src/components/organisms/CompMatch.re.mjs:347
 msgid "Mixed"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:184
-#: src/components/organisms/AddLeagueMatch.re.mjs:296
+#: src/components/organisms/SelectMatch.re.mjs:186
+#: src/components/organisms/AddLeagueMatch.re.mjs:326
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:153
-#: src/components/organisms/AddLeagueMatch.re.mjs:202
+#: src/components/organisms/SelectMatch.re.mjs:152
+#: src/components/organisms/AddLeagueMatch.re.mjs:208
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:418
+#: src/components/organisms/SessionAddPlayer.re.mjs:59
+msgid "Player Name"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:467
 msgid "Players"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:311
-#: src/components/organisms/SubmitMatch.re.mjs:324
+#: src/components/organisms/SubmitMatch.re.mjs:333
+#: src/components/organisms/SubmitMatch.re.mjs:346
 msgid "points"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:99
-#: src/components/organisms/SubmitMatch.re.mjs:111
+#: src/components/organisms/SubmitMatch.re.mjs:101
+#: src/components/organisms/SubmitMatch.re.mjs:113
 msgid "predicted winner"
 msgstr ""
 
@@ -118,23 +130,27 @@ msgstr ""
 #~ msgid "Quality"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:539
+#: src/components/organisms/AddLeagueMatch.re.mjs:619
 msgid "queued matches"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:354
+#: src/components/organisms/CompMatch.re.mjs:352
 msgid "Random"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:331
+#: src/components/organisms/SelectMatch.re.mjs:333
 msgid "right team players"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:404
+#: src/components/molecules/forms/Form.re.mjs:291
+msgid "save"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:402
 msgid "Select a tab"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:429
+#: src/components/organisms/AddLeagueMatch.re.mjs:478
 msgid "select all"
 msgstr ""
 
@@ -146,7 +162,11 @@ msgstr ""
 #~ msgid "Select Winners"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:356
+#: src/components/organisms/SubmitMatch.re.mjs:387
+msgid "Submit Rated"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:354
 msgid "Totally random teams."
 msgstr ""
 

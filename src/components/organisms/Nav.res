@@ -73,7 +73,7 @@ let make = (~query) => {
             {query.viewer
             ->Option.flatMap(viewer =>
               viewer.user->Option.flatMap(user =>
-                ["Hasby Riduan", "hasbyriduan9", "notchrischen", "Matthew", "David Vo", "Kai"]->Array.indexOfOpt(
+                ["Hasby Riduan", "hasbyriduan9", "notchrischen", "Matthew", "David Vo", "Kai", "Alex Ng"]->Array.indexOfOpt(
                   user.lineUsername->Option.getOr(""),
                 )
               )

@@ -10,9 +10,42 @@ module Fragment = %relay(`
   }
 `)
 
+type userData = Registered(EventRsvpUser_user_graphql.Types.fragment) | Guest
+type user = {
+  name: string,
+  picture: option<string>,
+  data: userData,
+}
+
+let fromRegisteredUser = (user: RescriptRelay.fragmentRefs<[> #EventRsvpUser_user]>) => {
+  let user = Fragment.use(user)
+  {
+    name: user.lineUsername->Option.getOr("[Line username missing]"),
+    picture: user.picture,
+    data: Registered(user),
+  }
+}
+let makeGuest = (name: string) => {
+  {
+    name,
+    picture: None,
+    data: Guest,
+  }
+}
+// let toRatingPlayer = (player: user): Rating.Player.t<'a> => {
+//   let rating = Rating.Rating.makeDefault()
+//   {
+//     data: None,
+//     id: player.name,
+//     name: player.name,
+//     rating,
+//     ratingOrdinal: rating->Rating.Rating.ordinal,
+//   }
+// }
+
 @genType @react.component
 let make = (
-  ~user,
+  ~user: user,
   ~highlight: bool=false,
   ~link: option<string>=?,
   ~rating: option<float>=?,
@@ -20,19 +53,9 @@ let make = (
 ) => {
   open LangProvider.Router
   // open Lingui.Util;
-  let user = Fragment.use(user)
+  // let user = Fragment.use(user)
 
-  /* switch user.lineUsername {
-  | Some(username) =>
-    (username ++ " ... " ++ user.rating->Option.map(string_of_int)->Option.getWithDefault(""))
-      ->React.string
-  | None => React.string("")
-  }*/
-  // let display =
-  //   (user.lineUsername->Option.getOr("[Line username missing]") ++
-  //   " ... " ++
-  //   user.rating->Option.getOr(0)->string_of_int)->React.string
-  let display = user.lineUsername->Option.getOr("[Line username missing]")->React.string
+  // let display = user.lineUsername->Option.getOr("[Line username missing]")->React.string
 
   // <Transition
   //   show={true}
@@ -64,16 +87,16 @@ let make = (
           <Link to={link}>
             <span className="absolute inset-x-0 -top-px bottom-0" />
             {switch highlight {
-            | true => <strong className="text-lg"> {display} </strong>
-            | false => display
+            | true => <strong className="text-lg"> {user.name->React.string} </strong>
+            | false => user.name->React.string
             }}
           </Link>
         | None =>
           <>
             <span className="absolute inset-x-0 -top-px bottom-0" />
             {switch highlight {
-            | true => <strong className="text-lg"> {display} </strong>
-            | false => display
+            | true => <strong className="text-lg"> {user.name->React.string} </strong>
+            | false => user.name->React.string
             }}
           </>
         }}

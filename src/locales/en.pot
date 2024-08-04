@@ -1046,3 +1046,19 @@ msgstr ""
 #: src/components/organisms/CompMatch.re.mjs:356
 msgid "Totally random teams."
 msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:487
+msgid "Add Player"
+msgstr ""
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:59
+msgid "Player Name"
+msgstr ""
+
+#: src/components/organisms/SubmitMatch.re.mjs:387
+msgid "Submit Rated"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:89
+msgid "cancel login"
+msgstr ""
