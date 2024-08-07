@@ -207,7 +207,9 @@ let make = () => {
                         name =>
                           <div className="mt-2 text-base leading-6 text-gray-500">
                             <span className="text-gray-700">
-                              <Link to={"/clubs/" ++ club.slug->Option.getOr("")}> {t`hosted by ${name}`} </Link>
+                              <Link to={"/clubs/" ++ club.slug->Option.getOr("")}>
+                                {t`hosted by ${name}`}
+                              </Link>
                             </span>
                           </div>,
                       )
@@ -415,18 +417,9 @@ let make = () => {
                                 <h2 className="text-base font-semibold leading-6 text-gray-900">
                                   {t`league`}
                                 </h2>
-                                {switch slug {
-                                | "pickleball" =>
-                                  <Link
-                                    to={"https://www.japanpickleleague.com/events/" ++ event.id}>
-                                    {t`submit matches`}
-                                  </Link>
-
-                                | _ =>
-                                  <Link to={"/league/events/" ++ event.id}>
-                                    {t`submit matches`}
-                                  </Link>
-                                }}
+                                <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
+                                  {t`submit matches`}
+                                </Link>
                               </div>
                             | _ => React.null
                             },

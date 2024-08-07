@@ -5,8 +5,6 @@
 
 import * as PageTitleJS from './PageTitle.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 export type props<children> = { readonly children: children };
 
-export const make: (_1:props<JSX.Element>) => PervasivesU_Jsx_element = PageTitleJS.make as any;
+export const make: React.ComponentType<{ readonly children: React.ReactNode }> = PageTitleJS.make as any;

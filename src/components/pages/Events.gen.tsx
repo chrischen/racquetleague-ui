@@ -7,8 +7,6 @@ import * as EventsJS from './Events.re.mjs';
 
 import type {Datetime_t as Util_Datetime_t} from '../../../src/components/shared/Util.gen';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
 
 import type {Types_eventFilters as EventsQuery_graphql_Types_eventFilters} from '../../../src/__generated__/EventsQuery_graphql.gen';
@@ -46,4 +44,4 @@ export const Component: React.ComponentType<{}> = EventsJS.Component as any;
 
 export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<EventsQuery_graphql_queryRef>> = EventsJS.loader as any;
 
-export const HydrateFallbackElement: PervasivesU_Jsx_element = EventsJS.HydrateFallbackElement as any;
+export const HydrateFallbackElement: JSX.Element = EventsJS.HydrateFallbackElement as any;

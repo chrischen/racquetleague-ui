@@ -269,7 +269,7 @@ let make = (~event) => {
                             activitySlug->Option.getOr("badminton") ++
                             "/p/" ++
                             user.id}
-                            user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                            user={user.fragmentRefs}
                             rating=?(edge.rating->Option.flatMap(r => r.ordinal))
                             ratingPercent={edge.rating
                             ->Option.flatMap(
@@ -348,7 +348,7 @@ let make = (~event) => {
                             activitySlug->Option.getOr("badminton") ++
                             "/p/" ++
                             user.id}
-                            user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                            user={user.fragmentRefs}
                             rating=?(edge.rating->Option.flatMap(r => r.ordinal))
                             ratingPercent={edge.rating
                             ->Option.flatMap(

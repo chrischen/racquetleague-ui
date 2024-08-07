@@ -5,8 +5,6 @@
 
 import * as LeagueRankingsRouteJS from './LeagueRankingsRoute.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
 
 import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen';
@@ -36,4 +34,4 @@ export const Component: React.ComponentType<{}> = LeagueRankingsRouteJS.Componen
 
 export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<LeagueRankingsPage_loaderData>> = LeagueRankingsRouteJS.loader as any;
 
-export const HydrateFallbackElement: PervasivesU_Jsx_element = LeagueRankingsRouteJS.HydrateFallbackElement as any;
+export const HydrateFallbackElement: JSX.Element = LeagueRankingsRouteJS.HydrateFallbackElement as any;

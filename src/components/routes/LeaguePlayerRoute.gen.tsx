@@ -5,8 +5,6 @@
 
 import * as LeaguePlayerRouteJS from './LeaguePlayerRoute.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
 
 import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen';
@@ -37,4 +35,4 @@ export const Component: (_1:LeaguePlayerPage_props) => (undefined | JSX.Element)
 
 export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<LeaguePlayerPageQuery_graphql_queryRef>> = LeaguePlayerRouteJS.loader as any;
 
-export const HydrateFallbackElement: PervasivesU_Jsx_element = LeaguePlayerRouteJS.HydrateFallbackElement as any;
+export const HydrateFallbackElement: JSX.Element = LeaguePlayerRouteJS.HydrateFallbackElement as any;

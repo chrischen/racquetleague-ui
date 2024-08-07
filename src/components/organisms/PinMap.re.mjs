@@ -58,7 +58,7 @@ function PinMap(props) {
                                                                           onClick: (function (param) {
                                                                               onLocationClick($$location);
                                                                             })
-                                                                        }, coords.lat.toString(undefined) + "|" + coords.lng.toString(undefined) + i.toString(undefined));
+                                                                        }, coords.lat.toString() + "|" + coords.lng.toString() + i.toString());
                                                             }));
                                               })), null);
                             }))

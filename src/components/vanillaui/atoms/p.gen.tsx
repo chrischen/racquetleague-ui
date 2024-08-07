@@ -5,8 +5,6 @@
 
 import * as pJS from './p.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 export type props<children> = { readonly children: children };
 
-export const make: (_1:props<JSX.Element>) => PervasivesU_Jsx_element = pJS.make as any;
+export const make: React.ComponentType<{ readonly children: React.ReactNode }> = pJS.make as any;

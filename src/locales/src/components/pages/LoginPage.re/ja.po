@@ -13,45 +13,45 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LoginPage.re.mjs:89
+#: src/components/pages/LoginPage.re.mjs:88
 msgid "cancel login"
 msgstr "ログインをキャンセル"
 
-#: src/components/pages/LoginPage.re.mjs:64
+#: src/components/pages/LoginPage.re.mjs:63
 msgid "display name"
 msgstr "表示名"
 
-#: src/components/pages/LoginPage.re.mjs:44
+#: src/components/pages/LoginPage.re.mjs:43
 msgid "email address"
 msgstr "メールアドレス"
 
-#: src/components/pages/LoginPage.re.mjs:55
+#: src/components/pages/LoginPage.re.mjs:54
 msgid "event organizers and other users cannot view your email"
 msgstr ""
 "イベント主催者や他のユーザーはあなたのメールアドレスを見ることはできません"
 
-#: src/components/pages/LoginPage.re.mjs:28
-#: src/components/pages/LoginPage.re.mjs:83
+#: src/components/pages/LoginPage.re.mjs:27
+#: src/components/pages/LoginPage.re.mjs:82
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/LoginPage.re.mjs:51
+#: src/components/pages/LoginPage.re.mjs:50
 msgid "notification of updates or cancellations to events (you can opt out)"
 msgstr "イベントの更新やキャンセルの通知（オプトアウト可能）"
 
-#: src/components/pages/LoginPage.re.mjs:32
+#: src/components/pages/LoginPage.re.mjs:31
 msgid "privacy disclosure"
 msgstr "プライバシー開示"
 
-#: src/components/pages/LoginPage.re.mjs:72
+#: src/components/pages/LoginPage.re.mjs:71
 msgid "profile picture"
 msgstr "プロフィール写真"
 
-#: src/components/pages/LoginPage.re.mjs:68
-#: src/components/pages/LoginPage.re.mjs:76
+#: src/components/pages/LoginPage.re.mjs:67
+#: src/components/pages/LoginPage.re.mjs:75
 msgid "publicly displayed on event attendance lists"
 msgstr "イベント出席リストに公開されます"
 
-#: src/components/pages/LoginPage.re.mjs:38
+#: src/components/pages/LoginPage.re.mjs:37
 msgid "we will collect the following information from your Line account"
 msgstr "Lineアカウントから以下の情報を収集します"

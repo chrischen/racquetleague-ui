@@ -7,8 +7,6 @@ import * as ViewerEventsRouteJS from './ViewerEventsRoute.re.mjs';
 
 import type {Datetime_t as Util_Datetime_t} from '../../../src/components/shared/Util.gen';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
 
 import type {Types_eventFilters as ViewerEventsPageQuery_graphql_Types_eventFilters} from '../../../src/__generated__/ViewerEventsPageQuery_graphql.gen';
@@ -40,4 +38,4 @@ export const Component: React.ComponentType<{}> = ViewerEventsRouteJS.Component 
 
 export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<ViewerEventsPageQuery_graphql_queryRef>> = ViewerEventsRouteJS.loader as any;
 
-export const HydrateFallbackElement: PervasivesU_Jsx_element = ViewerEventsRouteJS.HydrateFallbackElement as any;
+export const HydrateFallbackElement: JSX.Element = ViewerEventsRouteJS.HydrateFallbackElement as any;

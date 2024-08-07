@@ -97,9 +97,9 @@ function $$Event(props) {
                             var hours = Math.floor(duration / 60);
                             var minutes = (duration | 0) % 60;
                             if (minutes === 0) {
-                              return t`${hours.toString(undefined)} hours`;
+                              return t`${hours.toString()} hours`;
                             } else {
-                              return t`${hours.toString(undefined)} hours and ${minutes.toString(undefined)} minutes`;
+                              return t`${hours.toString()} hours and ${minutes.toString()} minutes`;
                             }
                           }));
                     var activityName = Core__Option.getOr(Core__Option.flatMap(activity, (function (activity) {
@@ -379,20 +379,16 @@ function $$Event(props) {
                                                                                                                                     default:
                                                                                                                                       return null;
                                                                                                                                   }
-                                                                                                                                  var tmp = slug === "pickleball" ? JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                                                          to: "https://www.japanpickleleague.com/events/" + $$event.id,
-                                                                                                                                          children: t`submit matches`
-                                                                                                                                        }) : JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                                                          to: "/league/events/" + $$event.id,
-                                                                                                                                          children: t`submit matches`
-                                                                                                                                        });
                                                                                                                                   return JsxRuntime.jsxs("div", {
                                                                                                                                               children: [
                                                                                                                                                 JsxRuntime.jsx("h2", {
                                                                                                                                                       children: t`league`,
                                                                                                                                                       className: "text-base font-semibold leading-6 text-gray-900"
                                                                                                                                                     }),
-                                                                                                                                                tmp
+                                                                                                                                                JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                                                      to: "/league/events/" + $$event.id + "/" + slug,
+                                                                                                                                                      children: t`submit matches`
+                                                                                                                                                    })
                                                                                                                                               ],
                                                                                                                                               className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
                                                                                                                                             });

@@ -129,7 +129,9 @@ let make = (
   ~minRating,
   ~maxRating,
   ~onDelete: option<unit => unit>=?,
-  ~onComplete: option<unit => unit>=?,
+  ~onComplete: option<
+    Match.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node> => unit,
+  >=?,
   ~onSubmitted: option<unit => unit>=?,
 ) => {
   let ts = Lingui.UtilString.t
@@ -139,8 +141,6 @@ let make = (
   let team1 = match->fst
   let team2 = match->snd
   let doublesMatch = match->DoublesMatch.fromMatch
-  Js.log(team1)
-  Js.log(team2)
 
   let outcome = PredictMatchOutcome.use(
     ~variables={
@@ -179,6 +179,12 @@ let make = (
       let losers = (winningSide == Left ? team2 : team1)->Array.map(p => p.id)
       let score =
         winningSide == Left ? [data.scoreLeft, data.scoreRight] : [data.scoreRight, data.scoreLeft]
+
+      onComplete->Option.map(f => {
+        let match = ((winningSide == Left ? team1 : team2), (winningSide == Left ? team2 : team1))
+        f(match)
+      })->ignore
+
       activity.slug
       ->Option.map(slug => {
         let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -237,14 +243,14 @@ let make = (
             data.user
             ->Option.map(user => {
               <EventRsvpUser
-                user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                user={user.fragmentRefs}
                 ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
               />
             })
             ->Option.getOr(React.null)
           | None =>
-            <EventRsvpUser
-              user={EventRsvpUser.makeGuest(player.name)}
+            <RsvpUser
+              user={RsvpUser.makeGuest(player.name)}
               ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
             />
           }
@@ -259,7 +265,7 @@ let make = (
             data.user
             ->Option.map(user => {
               <EventRsvpUser
-                user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                user={user.fragmentRefs}
                 ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
               />
             })
@@ -324,7 +330,7 @@ let make = (
             ->Option.getOr(React.null)}
             {onComplete
             ->Option.map(onComplete =>
-              <UiAction className="ml-3 inline-flex items-center" onClick=onComplete>
+              <UiAction className="ml-3 inline-flex items-center" onClick={_ => onComplete(match)}>
                 {t`Completed`}
               </UiAction>
             )

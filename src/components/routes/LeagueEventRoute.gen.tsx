@@ -5,8 +5,6 @@
 
 import * as LeagueEventRouteJS from './LeagueEventRoute.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
 
 import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen';
@@ -22,6 +20,7 @@ export type params = {
   readonly before?: string; 
   readonly eventId: string; 
   readonly first?: number; 
+  readonly activitySlug: string; 
   readonly lang: (undefined | string)
 };
 
@@ -35,4 +34,4 @@ export const Component: React.ComponentType<{}> = LeagueEventRouteJS.Component a
 
 export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<LeagueEventPageQuery_graphql_queryRef>)> = LeagueEventRouteJS.loader as any;
 
-export const HydrateFallbackElement: PervasivesU_Jsx_element = LeagueEventRouteJS.HydrateFallbackElement as any;
+export const HydrateFallbackElement: JSX.Element = LeagueEventRouteJS.HydrateFallbackElement as any;

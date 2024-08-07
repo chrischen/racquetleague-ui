@@ -62,12 +62,6 @@ module SelectEventPlayersList = {
     ~minRating=0.,
     ~maxRating=1.,
   ) => {
-    // let (_isPending, startTransition) = ReactExperimental.useTransition()
-    // let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
-    // let players = data.rsvps->Fragment.getConnectionNodes
-
-    // let viewer = GlobalQuery.useViewer()
-
     let (sortDir, setSortDir) = React.useState(_ => SortAction.Desc)
 
     <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
@@ -125,7 +119,7 @@ module SelectEventPlayersList = {
                           data.user->Option.map(
                             user => {
                               <EventRsvpUser
-                                user={user.fragmentRefs->EventRsvpUser.fromRegisteredUser}
+                                user={user.fragmentRefs}
                                 highlight={selected->Array.findIndex(
                                   player => player.id == user.id,
                                 ) >= 0}
@@ -135,7 +129,14 @@ module SelectEventPlayersList = {
                             },
                           )
                         )
-                        ->Option.getOr(React.null)}
+                        ->Option.getOr(
+                          <RsvpUser
+                            user={RsvpUser.makeGuest(player.name)}
+                            highlight={selected->Array.findIndex(p => p.id == player.id) >= 0}
+                            ratingPercent={(player.rating.mu -. minRating) /.
+                            (maxRating -. minRating) *. 100.}
+                          />,
+                        )}
                       </a>
                     </div>
                   </FramerMotion.Li>
@@ -160,16 +161,21 @@ let rot2 = (players, player) =>
 @react.component
 let make = (
   ~players: array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
-  ~onMatchSelected,
+  ~activity: option<AddLeagueMatch_event_graphql.Types.fragment_activity>,
+  ~onMatchQueued,
+  ~onMatchCompleted,
 ) => {
   let (leftNodes: array<Player.t<'a>>, setLeftNodes) = React.useState(() => [])
   let (rightNodes: array<Player.t<'a>>, setRightNodes) = React.useState(() => [])
+  let (selectedMatch: option<match>, setSelectedMatch) = React.useState(() => None)
   // let {data} = Fragment.usePagination(event)
   // let players = data.rsvps->Fragment.getConnectionNodes
 
   let matchSelected = match => {
     switch match {
-    | ([_, _], [_, _]) as match => onMatchSelected(match)
+    | ([_, _], [_, _]) as match =>
+      // onMatchSelected(match)
+      setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))
     | _ => ()
     }
   }
@@ -216,7 +222,6 @@ let make = (
           maxRating
         />
       </section>
-      <div className="mx-auto col-span-2" />
     </div>
     <div className="grid grid-cols-1 gap-4">
       <section ariaLabelledby="section-2-title" className="col-span-2">
@@ -231,7 +236,35 @@ let make = (
           maxRating
         />
       </section>
-      <div className="mx-auto col-span-2" />
+    </div>
+    <div className="grid grid-cols-1 md:col-span-2">
+      {selectedMatch
+      ->Option.map(match => <>
+        <div className="text-center md:col-span-2">
+          <UiAction onClick={() => onMatchQueued(match)}> {t`Queue Match`} </UiAction>
+        </div>
+        <React.Suspense fallback={<div> {t`Loading`} </div>}>
+          {activity
+          ->Option.map(activity =>
+            <SubmitMatch
+              match
+              minRating
+              maxRating
+              activity
+              // onSubmitted={() => {
+              //   onMatchCompleted(match)
+              //   setSelectedMatch(_ => None)
+              // }}
+              onComplete={match => {
+                onMatchCompleted(match)
+                setSelectedMatch(_ => None)
+              }}
+            />
+          )
+          ->Option.getOr(React.null)}
+        </React.Suspense>
+      </>)
+      ->Option.getOr(React.null)}
     </div>
   </div>
 }

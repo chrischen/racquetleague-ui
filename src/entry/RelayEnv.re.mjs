@@ -7,7 +7,7 @@ import * as RelayRuntime from "relay-runtime";
 var network = RelayRuntime.Network.create(NetworkUtils.makeFetchQuery());
 
 function makeEnvironmentWithNetwork(network, missingFieldHandlers) {
-  return RescriptRelay.Environment.make(network, RescriptRelay.Store.make(new RelayRuntime.RecordSource(undefined), 50, 21600000), undefined, undefined, missingFieldHandlers, undefined, undefined);
+  return RescriptRelay.Environment.make(network, RescriptRelay.Store.make(new RelayRuntime.RecordSource(), 50, 21600000), undefined, undefined, missingFieldHandlers, undefined, undefined);
 }
 
 var environment = makeEnvironmentWithNetwork(network, undefined);

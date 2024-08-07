@@ -24,6 +24,8 @@ var MenuItem = {};
 
 var MenuItems = {};
 
+var Field = {};
+
 export {
   Switch ,
   Disclosure ,
@@ -33,5 +35,6 @@ export {
   MenuButton ,
   MenuItem ,
   MenuItems ,
+  Field ,
 }
 /* No side effect */

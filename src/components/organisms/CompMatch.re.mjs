@@ -466,7 +466,7 @@ function CompMatch(props) {
                                     JsxRuntime.jsx(CompMatch$MatchMini, {
                                           match: param[0],
                                           onSelect: onSelectMatch
-                                        }, i.toString(undefined)),
+                                        }, i.toString()),
                                     quality.toFixed(3),
                                     JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(FramerMotion.motion.div, {

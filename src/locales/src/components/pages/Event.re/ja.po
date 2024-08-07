@@ -15,25 +15,25 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:452
+#: src/components/pages/Event.re.mjs:448
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:455
+#: src/components/pages/Event.re.mjs:451
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:458
+#: src/components/pages/Event.re.mjs:454
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:461
+#: src/components/pages/Event.re.mjs:457
 msgid "Futsal"
 msgstr "フットサル"
 
@@ -77,7 +77,7 @@ msgstr "イベントを編集"
 msgid "event @"
 msgstr "イベント @"
 
-#: src/components/pages/Event.re.mjs:417
+#: src/components/pages/Event.re.mjs:413
 msgid "event doesn't exist"
 msgstr "イベントが存在しません"
 
@@ -95,7 +95,7 @@ msgstr "{name}主催"
 msgid "join event"
 msgstr "参加する"
 
-#: src/components/pages/Event.re.mjs:392
+#: src/components/pages/Event.re.mjs:385
 msgid "league"
 msgstr "ラケットリーグ"
 
@@ -146,7 +146,7 @@ msgstr "プレイヤー"
 msgid "spots available"
 msgstr "利用可能なスポット"
 
-#: src/components/pages/Event.re.mjs:384 src/components/pages/Event.re.mjs:387
+#: src/components/pages/Event.re.mjs:390
 msgid "submit matches"
 msgstr "試合を提出"
 

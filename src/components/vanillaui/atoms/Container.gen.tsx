@@ -5,8 +5,6 @@
 
 import * as ContainerJS from './Container.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 export type props<className,children> = { readonly className?: className; readonly children: children };
 
-export const make: (_1:props<string,JSX.Element>) => PervasivesU_Jsx_element = ContainerJS.make as any;
+export const make: React.ComponentType<{ readonly className?: string; readonly children: React.ReactNode }> = ContainerJS.make as any;

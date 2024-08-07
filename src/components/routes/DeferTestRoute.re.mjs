@@ -90,7 +90,7 @@ function DeferTestRoute$CurrentTime(props) {
               children: [
                 "Current time: ",
                 Core__Option.getOr(Core__Option.map(query.currentTime, (function (__x) {
-                            return __x.toString(undefined);
+                            return __x.toString();
                           })), "0")
               ]
             });
@@ -106,7 +106,7 @@ function DeferTestRoute$CurrentTime2(props) {
               children: [
                 "Current time2: ",
                 Core__Option.getOr(Core__Option.map(query.currentTime2, (function (__x) {
-                            return __x.toString(undefined);
+                            return __x.toString();
                           })), "0")
               ]
             });

@@ -5,6 +5,7 @@ import * as Form from "../molecules/forms/Form.re.mjs";
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
+import * as RsvpUser from "./RsvpUser.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
@@ -169,6 +170,7 @@ var schema = Zod.z.object({
 
 function SubmitMatch(props) {
   var onSubmitted = props.onSubmitted;
+  var onComplete = props.onComplete;
   var maxRating = props.maxRating;
   var minRating = props.minRating;
   var activity = props.activity;
@@ -178,8 +180,6 @@ function SubmitMatch(props) {
   var team1 = match[0];
   var team2 = match[1];
   var doublesMatch = Rating.DoublesMatch.fromMatch(match);
-  console.log(team1);
-  console.log(team2);
   var outcome = use({
         input: {
           team1RatingIds: team1.map(function (node) {
@@ -235,6 +235,15 @@ function SubmitMatch(props) {
         data.scoreRight,
         data.scoreLeft
       ];
+    Core__Option.map(onComplete, (function (f) {
+            var match_0 = winningSide === "Left" ? team1 : team2;
+            var match_1 = winningSide === "Left" ? team2 : team1;
+            var match = [
+              match_0,
+              match_1
+            ];
+            f(match);
+          }));
     Core__Option.map(activity.slug, (function (slug) {
             var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
                   activitySlug: slug,
@@ -285,13 +294,13 @@ function SubmitMatch(props) {
                                   if (data !== undefined) {
                                     return Core__Option.getOr(Core__Option.map(data.user, (function (user) {
                                                       return JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                  user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
+                                                                  user: user.fragmentRefs,
                                                                   ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
                                                                 });
                                                     })), null);
                                   } else {
-                                    return JsxRuntime.jsx(EventRsvpUser.make, {
-                                                user: EventRsvpUser.makeGuest(player.name),
+                                    return JsxRuntime.jsx(RsvpUser.make, {
+                                                user: RsvpUser.makeGuest(player.name),
                                                 ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
                                               });
                                   }
@@ -304,7 +313,7 @@ function SubmitMatch(props) {
                                   if (data !== undefined) {
                                     return Core__Option.getOr(Core__Option.map(data.user, (function (user) {
                                                       return JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                  user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
+                                                                  user: user.fragmentRefs,
                                                                   ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
                                                                 });
                                                     })), null);
@@ -363,9 +372,11 @@ function SubmitMatch(props) {
                                                                     children: t`Cancel`
                                                                   });
                                                       })), null),
-                                            Core__Option.getOr(Core__Option.map(props.onComplete, (function (onComplete) {
+                                            Core__Option.getOr(Core__Option.map(onComplete, (function (onComplete) {
                                                         return JsxRuntime.jsx(UiAction.make, {
-                                                                    onClick: onComplete,
+                                                                    onClick: (function () {
+                                                                        onComplete(match);
+                                                                      }),
                                                                     className: "ml-3 inline-flex items-center",
                                                                     children: t`Completed`
                                                                   });

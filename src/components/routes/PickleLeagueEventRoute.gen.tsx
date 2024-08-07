@@ -5,8 +5,6 @@
 
 import * as PickleLeagueEventRouteJS from './PickleLeagueEventRoute.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
 
 import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen';
@@ -35,4 +33,4 @@ export const Component: React.ComponentType<{}> = PickleLeagueEventRouteJS.Compo
 
 export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<LeagueEventPageQuery_graphql_queryRef>)> = PickleLeagueEventRouteJS.loader as any;
 
-export const HydrateFallbackElement: PervasivesU_Jsx_element = PickleLeagueEventRouteJS.HydrateFallbackElement as any;
+export const HydrateFallbackElement: JSX.Element = PickleLeagueEventRouteJS.HydrateFallbackElement as any;

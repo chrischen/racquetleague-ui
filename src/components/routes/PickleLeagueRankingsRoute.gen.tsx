@@ -5,8 +5,6 @@
 
 import * as PickleLeagueRankingsRouteJS from './PickleLeagueRankingsRoute.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
 
 import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen';
@@ -36,4 +34,4 @@ export const Component: React.ComponentType<{}> = PickleLeagueRankingsRouteJS.Co
 
 export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<LeagueRankingsPage_loaderData>> = PickleLeagueRankingsRouteJS.loader as any;
 
-export const HydrateFallbackElement: PervasivesU_Jsx_element = PickleLeagueRankingsRouteJS.HydrateFallbackElement as any;
+export const HydrateFallbackElement: JSX.Element = PickleLeagueRankingsRouteJS.HydrateFallbackElement as any;

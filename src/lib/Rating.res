@@ -1,10 +1,22 @@
 @send
 external intersection: (Js.Set.t<'a>, Js.Set.t<'a>) => Js.Set.t<'a> = "intersection"
+
+module RatingModel = {
+  type t = string
+  // @module("openskill/dist/models/index.js")
+  // external bradleyTerryFull: t = "bradleyTerryFull"
+  // @module("openskill/dist/models/index.js")
+  // external bradleyTerryPart: t = "bradleyTerryPart"
+  @module("../lib/rating/models/plackettLuce.ts")
+  external plackettLuce: t = "plackettLuce"
+}
 module Rating: {
-  type t = private {
+  type t = {
     mu: float,
     sigma: float,
   }
+  type matchRatings = array<array<t>>
+  type opts = {model: option<RatingModel.t>}
 
   let get_rating: t => float
   let make: (float, float) => t
@@ -12,13 +24,20 @@ module Rating: {
   let predictDraw: array<array<t>> => float
   // let predictWin: array(array(t)) => array(float);
   let ordinal: t => float
+  let rate: (~ratings: matchRatings, ~opts: option<opts>=?) => matchRatings
 } = {
   type t = {
     mu: float,
     sigma: float,
   }
+
+  type matchRatings = array<array<t>>
+  type opts = {model: option<RatingModel.t>}
+
   @module("openskill") external rating: option<t> => t = "rating"
   @module("openskill") external ordinal: t => float = "ordinal"
+  @module("openskill")
+  external rate: (~ratings: matchRatings, ~opts: option<opts>=?) => matchRatings = "rate"
 
   @module("openskill")
   external predictDraw: array<array<t>> => float = "predictDraw"
@@ -77,6 +96,18 @@ module Match = {
 
     match_players->intersection(players)->Set.size > 0
   }
+  let rate = ((winners, losers)) => {
+    Rating.rate(
+      ~ratings=[winners, losers]->Array.map(Array.map(_, (player: Player.t<'a>) => player.rating)),
+      ~opts=Some({model: Some(RatingModel.plackettLuce)}),
+    )
+    ->Belt.Array.zipBy([winners, losers], (new_ratings, old_teams) => {
+        new_ratings->Belt.Array.zipBy(old_teams, (new_rating, old_player) => {
+          {...old_player, Player.rating: new_rating}
+        })
+      });
+  };
+  
 }
 
 module DoublesTeam = {
@@ -104,3 +135,7 @@ module DoublesMatch = {
     }
   }
 }
+type rsvpNode = AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node
+type player = Player.t<rsvpNode>
+type team = array<player>
+type match = (team, team)

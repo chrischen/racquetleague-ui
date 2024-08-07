@@ -17,7 +17,6 @@ function LoginPage(props) {
   var returnUrl = Core__Option.map(Router.SearchParams.get(match$1[0], "return"), (function (l) {
           return l;
         }));
-  console.log(returnUrl);
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsxs(Layout.Container.make, {

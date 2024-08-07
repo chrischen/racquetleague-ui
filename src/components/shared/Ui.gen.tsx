@@ -5,8 +5,6 @@
 
 import * as UiJS from './Ui.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 export type ImgixParams_t = {
   auto: (undefined | string); 
   fit: (undefined | string); 
@@ -178,9 +176,13 @@ export const DImg_make: React.ComponentType<{
 
 export const ExclamationIcon_make: React.ComponentType<{ readonly ariaHidden: string }> = UiJS.ExclamationIcon.make as any;
 
-export const Alert_make: (_1:Alert_props<string,string>) => PervasivesU_Jsx_element = UiJS.Alert.make as any;
+export const Alert_make: React.ComponentType<{ readonly title: string; readonly message: string }> = UiJS.Alert.make as any;
 
-export const PageHeading_make: (_1:PageHeading_props<string,JSX.Element,JSX.Element>) => PervasivesU_Jsx_element = UiJS.PageHeading.make as any;
+export const PageHeading_make: React.ComponentType<{
+  readonly title: string; 
+  readonly action: JSX.Element; 
+  readonly description: JSX.Element
+}> = UiJS.PageHeading.make as any;
 
 export const Press_make: React.ComponentType<{}> = UiJS.Press.make as any;
 
@@ -193,13 +195,33 @@ export const Hero_make: React.ComponentType<{
   readonly image: JSX.Element
 }> = UiJS.Hero.make as any;
 
-export const Hero2_make: (_1:Hero2_props<string,string,JSX.Element,JSX.Element,JSX.Element,JSX.Element>) => PervasivesU_Jsx_element = UiJS.Hero2.make as any;
+export const Hero2_make: React.ComponentType<{
+  readonly title: string; 
+  readonly title2: string; 
+  readonly description: JSX.Element; 
+  readonly action1: JSX.Element; 
+  readonly action2: JSX.Element; 
+  readonly image: JSX.Element
+}> = UiJS.Hero2.make as any;
 
-export const HeroSlider_make: (_1:HeroSlider_props<string,string,string,JSX.Element,JSX.Element,Image_t,Image_t>) => PervasivesU_Jsx_element = UiJS.HeroSlider.make as any;
+export const HeroSlider_make: React.ComponentType<{
+  readonly title: string; 
+  readonly subtitle?: string; 
+  readonly title2: string; 
+  readonly description: JSX.Element; 
+  readonly action1: JSX.Element; 
+  readonly image1: Image_t; 
+  readonly image2: Image_t
+}> = UiJS.HeroSlider.make as any;
 
-export const HalfBg_make: (_1:HalfBg_props<JSX.Element,JSX.Element>) => PervasivesU_Jsx_element = UiJS.HalfBg.make as any;
+export const HalfBg_make: React.ComponentType<{ readonly children: React.ReactNode; readonly callToAction?: JSX.Element }> = UiJS.HalfBg.make as any;
 
-export const CardCarousel_make: (_1:CardCarousel_props<Domain_CarouselCard_t[],string,string,string>) => PervasivesU_Jsx_element = UiJS.CardCarousel.make as any;
+export const CardCarousel_make: React.ComponentType<{
+  readonly cards: Domain_CarouselCard_t[]; 
+  readonly title: string; 
+  readonly moreText: string; 
+  readonly moreLink: string
+}> = UiJS.CardCarousel.make as any;
 
 export const Hero: { make: React.ComponentType<{
   readonly title: string; 
@@ -210,7 +232,7 @@ export const Hero: { make: React.ComponentType<{
   readonly image: JSX.Element
 }> } = UiJS.Hero as any;
 
-export const HalfBg: { make: (_1:HalfBg_props<JSX.Element,JSX.Element>) => PervasivesU_Jsx_element } = UiJS.HalfBg as any;
+export const HalfBg: { make: React.ComponentType<{ readonly children: React.ReactNode; readonly callToAction?: JSX.Element }> } = UiJS.HalfBg as any;
 
 export const Img: { make: React.ComponentType<{
   readonly src: any; 
@@ -221,15 +243,31 @@ export const Img: { make: React.ComponentType<{
   readonly lazyLoad?: boolean
 }> } = UiJS.Img as any;
 
-export const PageHeading: { make: (_1:PageHeading_props<string,JSX.Element,JSX.Element>) => PervasivesU_Jsx_element } = UiJS.PageHeading as any;
+export const PageHeading: { make: React.ComponentType<{
+  readonly title: string; 
+  readonly action: JSX.Element; 
+  readonly description: JSX.Element
+}> } = UiJS.PageHeading as any;
 
 export const Press: { make: React.ComponentType<{}> } = UiJS.Press as any;
 
-export const Hero2: { make: (_1:Hero2_props<string,string,JSX.Element,JSX.Element,JSX.Element,JSX.Element>) => PervasivesU_Jsx_element } = UiJS.Hero2 as any;
+export const Hero2: { make: React.ComponentType<{
+  readonly title: string; 
+  readonly title2: string; 
+  readonly description: JSX.Element; 
+  readonly action1: JSX.Element; 
+  readonly action2: JSX.Element; 
+  readonly image: JSX.Element
+}> } = UiJS.Hero2 as any;
 
-export const CardCarousel: { make: (_1:CardCarousel_props<Domain_CarouselCard_t[],string,string,string>) => PervasivesU_Jsx_element } = UiJS.CardCarousel as any;
+export const CardCarousel: { make: React.ComponentType<{
+  readonly cards: Domain_CarouselCard_t[]; 
+  readonly title: string; 
+  readonly moreText: string; 
+  readonly moreLink: string
+}> } = UiJS.CardCarousel as any;
 
-export const Alert: { make: (_1:Alert_props<string,string>) => PervasivesU_Jsx_element } = UiJS.Alert as any;
+export const Alert: { make: React.ComponentType<{ readonly title: string; readonly message: string }> } = UiJS.Alert as any;
 
 export const Picture: { make: React.ComponentType<{
   readonly src: string; 
@@ -246,7 +284,15 @@ export const Picture: { make: React.ComponentType<{
 
 export const ExclamationIcon: { make: React.ComponentType<{ readonly ariaHidden: string }> } = UiJS.ExclamationIcon as any;
 
-export const HeroSlider: { make: (_1:HeroSlider_props<string,string,string,JSX.Element,JSX.Element,Image_t,Image_t>) => PervasivesU_Jsx_element } = UiJS.HeroSlider as any;
+export const HeroSlider: { make: React.ComponentType<{
+  readonly title: string; 
+  readonly subtitle?: string; 
+  readonly title2: string; 
+  readonly description: JSX.Element; 
+  readonly action1: JSX.Element; 
+  readonly image1: Image_t; 
+  readonly image2: Image_t
+}> } = UiJS.HeroSlider as any;
 
 export const DImg: { make: React.ComponentType<{
   readonly src: string; 

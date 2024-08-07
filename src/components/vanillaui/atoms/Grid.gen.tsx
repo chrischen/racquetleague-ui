@@ -5,8 +5,6 @@
 
 import * as GridJS from './Grid.re.mjs';
 
-import type {Jsx_element as PervasivesU_Jsx_element} from './PervasivesU.gen';
-
 export type props<cols,rows,className,children> = {
   readonly cols?: cols; 
   readonly rows?: rows; 
@@ -14,4 +12,9 @@ export type props<cols,rows,className,children> = {
   readonly children: children
 };
 
-export const make: (_1:props<number,number,string,JSX.Element>) => PervasivesU_Jsx_element = GridJS.make as any;
+export const make: React.ComponentType<{
+  readonly cols?: number; 
+  readonly rows?: number; 
+  readonly className?: string; 
+  readonly children: React.ReactNode
+}> = GridJS.make as any;

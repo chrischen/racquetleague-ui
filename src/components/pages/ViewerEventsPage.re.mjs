@@ -68,9 +68,9 @@ function ViewerEventsPage(props) {
                                                                                 " ",
                                                                                 JsxRuntime.jsx("svg", {
                                                                                       children: JsxRuntime.jsx("circle", {
-                                                                                            cx: (1).toString(undefined),
-                                                                                            cy: (1).toString(undefined),
-                                                                                            r: (1).toString(undefined)
+                                                                                            cx: (1).toString(),
+                                                                                            cy: (1).toString(),
+                                                                                            r: (1).toString()
                                                                                           }),
                                                                                       className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
                                                                                       viewBox: "0 0 2 2"

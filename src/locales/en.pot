@@ -1062,3 +1062,12 @@ msgstr ""
 #: src/components/pages/LoginPage.re.mjs:89
 msgid "cancel login"
 msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:368
+msgid "Queue Match"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:274
+#: src/components/organisms/AddLeagueMatch.re.mjs:297
+msgid "Tournament Mode"
+msgstr ""

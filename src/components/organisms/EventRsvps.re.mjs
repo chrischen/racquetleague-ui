@@ -238,7 +238,7 @@ function EventRsvps(props) {
                                 JsxRuntime.jsx("dd", {
                                       children: maxRsvps !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                               children: [
-                                                Math.min(rsvps.length, maxRsvps).toString(undefined) + " / " + maxRsvps.toString(undefined) + " ",
+                                                Math.min(rsvps.length, maxRsvps).toString() + " / " + maxRsvps.toString() + " ",
                                                 plural(maxRsvps, {
                                                       one: "player",
                                                       other: "players"
@@ -246,7 +246,7 @@ function EventRsvps(props) {
                                               ]
                                             }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                               children: [
-                                                rsvps.length.toString(undefined) + " ",
+                                                rsvps.length.toString() + " ",
                                                 plural(rsvps.length, {
                                                       one: "player",
                                                       other: "players"
@@ -335,7 +335,7 @@ function EventRsvps(props) {
                                                                                                   }),
                                                                                               JsxRuntime.jsx("div", {
                                                                                                     children: JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                          user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
+                                                                                                          user: user.fragmentRefs,
                                                                                                           highlight: Core__Option.getOr(Core__Option.map(viewer.user, (function (viewer) {
                                                                                                                       return viewer.id === user.id;
                                                                                                                     })), false),
@@ -405,7 +405,7 @@ function EventRsvps(props) {
                                           }),
                                       JsxRuntime.jsxs("dd", {
                                             children: [
-                                              waitlistCount.toString(undefined) + " ",
+                                              waitlistCount.toString() + " ",
                                               plural(waitlistCount, {
                                                     one: "player",
                                                     other: "players"
@@ -454,7 +454,7 @@ function EventRsvps(props) {
                                                                                                 }),
                                                                                             JsxRuntime.jsx("div", {
                                                                                                   children: JsxRuntime.jsx(EventRsvpUser.make, {
-                                                                                                        user: EventRsvpUser.fromRegisteredUser(user.fragmentRefs),
+                                                                                                        user: user.fragmentRefs,
                                                                                                         highlight: Core__Option.getOr(Core__Option.map(viewer.user, (function (viewer) {
                                                                                                                     return viewer.id === user.id;
                                                                                                                   })), false),

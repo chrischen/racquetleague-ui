@@ -193,16 +193,16 @@ function make$1($$event) {
           var minutes = (duration | 0) % 60;
           if (minutes === 0) {
             return plural(hours | 0, {
-                        one: t`${hours.toString(undefined)} hour`,
-                        other: t`${hours.toString(undefined)} hours`
+                        one: t`${hours.toString()} hour`,
+                        other: t`${hours.toString()} hours`
                       });
           } else {
             return plural(hours | 0, {
-                        one: t`${hours.toString(undefined)} hour`,
-                        other: t`${hours.toString(undefined)} hours`
+                        one: t`${hours.toString()} hour`,
+                        other: t`${hours.toString()} hours`
                       }) + " " + plural(minutes, {
-                        one: t`${minutes.toString(undefined)} minute`,
-                        other: t`${minutes.toString(undefined)} minutes`
+                        one: t`${minutes.toString()} minute`,
+                        other: t`${minutes.toString()} minutes`
                       });
           }
         }));
@@ -293,20 +293,20 @@ function EventsList$EventItem(props) {
           var minutes = (duration | 0) % 60;
           if (minutes === 0) {
             return plural(hours | 0, {
-                        one: t`${hours.toString(undefined)} hour`,
-                        other: t`${hours.toString(undefined)} hours`
+                        one: t`${hours.toString()} hour`,
+                        other: t`${hours.toString()} hours`
                       });
           } else {
             return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                         children: [
                           plural(hours | 0, {
-                                one: t`${hours.toString(undefined)} hour`,
-                                other: t`${hours.toString(undefined)} hours`
+                                one: t`${hours.toString()} hour`,
+                                other: t`${hours.toString()} hours`
                               }),
                           " ",
                           plural(minutes, {
-                                one: t`${minutes.toString(undefined)} minute`,
-                                other: t`${minutes.toString(undefined)} minutes`
+                                one: t`${minutes.toString()} minute`,
+                                other: t`${minutes.toString()} minutes`
                               })
                         ]
                       });
@@ -412,10 +412,10 @@ function EventsList$EventItem(props) {
                       tmp,
                       JsxRuntime.jsx("div", {
                             children: Core__Option.getOr(Core__Option.map(match.maxRsvps, (function (maxRsvps) {
-                                        return playersCount.toString(undefined) + "/" + maxRsvps.toString(undefined) + " " + t`players`;
+                                        return playersCount.toString() + "/" + maxRsvps.toString() + " " + t`players`;
                                       })), JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                       children: [
-                                        playersCount.toString(undefined) + " ",
+                                        playersCount.toString() + " ",
                                         plural(playersCount, {
                                               one: "player",
                                               other: "players"

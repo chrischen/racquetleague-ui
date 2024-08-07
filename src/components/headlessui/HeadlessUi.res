@@ -4,7 +4,7 @@ module Switch = {
     ~className: string=?,
     ~children: 'children,
     ~checked: bool=?,
-    ~onChange: JsxEventU.Form.t => unit=?,
+    ~onChange: bool => unit=?,
   ) => React.element = "Switch"
 
   // @module("@headlessui/react")
@@ -70,4 +70,14 @@ module MenuItem = {
 module MenuItems = {
   @module("@headlessui/react") @react.component
   external make: (~className: string=?, ~children: 'children) => React.element = "MenuItems"
+}
+// module Label = {
+//   @module("@headlessui/react") @react.component
+//   external make: (~\"as": 'asType=?, ~className: string=?, ~children: 'children) => React.element =
+//     "Label"
+// }
+module Field = {
+  @module("@headlessui/react") @react.component
+  external make: (~\"as": 'asType=?, ~className: string=?, ~children: 'children) => React.element =
+    "Field"
 }
