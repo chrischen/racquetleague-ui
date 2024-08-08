@@ -285,11 +285,10 @@ function AddLeagueMatch(props) {
                                                                 return v;
                                                               });
                                                           if (v === true) {
-                                                            initializeSessionMode();
+                                                            return initializeSessionMode();
                                                           } else {
-                                                            uninitializeSessionMode();
+                                                            return uninitializeSessionMode();
                                                           }
-                                                          console.log(v);
                                                         })
                                                     }),
                                                 JsxRuntime.jsx(React$1.Switch.Label, {
@@ -450,8 +449,6 @@ function AddLeagueMatch(props) {
                                                                                                                   return p.id === p$p.id;
                                                                                                                 });
                                                                                                             if (player !== undefined) {
-                                                                                                              console.log("Rating updated");
-                                                                                                              console.log(player);
                                                                                                               return player;
                                                                                                             } else {
                                                                                                               return p;

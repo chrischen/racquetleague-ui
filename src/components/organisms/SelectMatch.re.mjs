@@ -129,6 +129,8 @@ function SelectMatch$SelectEventPlayersList(props) {
                                                                             return player.id === p.id;
                                                                           }) >= 0;
                                                               })), false);
+                                                    var match = maxRating - minRating;
+                                                    var percent = match !== 0 ? (player.rating.mu - minRating) / (maxRating - minRating) * 100 : 0;
                                                     return JsxRuntime.jsxs(FramerMotion.motion.li, {
                                                                 className: "mt-4 flex w-full flex-none gap-x-4 px-6",
                                                                 style: {
@@ -165,7 +167,7 @@ function SelectMatch$SelectEventPlayersList(props) {
                                                                                                                     highlight: selected.findIndex(function (player) {
                                                                                                                           return player.id === user.id;
                                                                                                                         }) >= 0,
-                                                                                                                    ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                                                                                                    ratingPercent: percent
                                                                                                                   });
                                                                                                       }));
                                                                                         })), JsxRuntime.jsx(RsvpUser.make, {
@@ -173,7 +175,7 @@ function SelectMatch$SelectEventPlayersList(props) {
                                                                                         highlight: selected.findIndex(function (p) {
                                                                                               return p.id === player.id;
                                                                                             }) >= 0,
-                                                                                        ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                                                                        ratingPercent: percent
                                                                                       })),
                                                                               href: "#",
                                                                               onClick: (function (e) {
@@ -259,6 +261,17 @@ function SelectMatch(props) {
                 });
     }
   };
+  React.useEffect((function () {
+          setLeftNodes(function (param) {
+                return [];
+              });
+          setRightNodes(function (param) {
+                return [];
+              });
+          setSelectedMatch(function (param) {
+                
+              });
+        }), [players]);
   var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
           if (next.rating.mu > acc) {
             return next.rating.mu;

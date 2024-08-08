@@ -120,6 +120,7 @@ let schema = Zod.z->Zod.object(
 // type match = (team, team)
 external alert: string => unit = "alert"
 
+let nullFormEvent: JsxEvent.Form.t = %raw("null")
 open Rating
 type winners = Left | Right
 @react.component
@@ -166,7 +167,7 @@ let make = (
   )
   let (submitting, setSubmitting) = React.useState(() => false)
 
-  let onSubmit = (data: inputsMatch) => {
+  let onSubmit = (rated: bool, data: inputsMatch) => {
     setSubmitting(_ => true)
     switch data.scoreLeft == data.scoreRight {
     | true => alert("No ties allowed")
@@ -180,60 +181,64 @@ let make = (
       let score =
         winningSide == Left ? [data.scoreLeft, data.scoreRight] : [data.scoreRight, data.scoreLeft]
 
-      onComplete->Option.map(f => {
-        let match = ((winningSide == Left ? team1 : team2), (winningSide == Left ? team2 : team1))
+      onComplete
+      ->Option.map(f => {
+        let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
         f(match)
-      })->ignore
-
-      activity.slug
-      ->Option.map(slug => {
-        let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-          // __id,
-          "root"->RescriptRelay.makeDataId,
-          "MatchListFragment_matches",
-          {
-            LeagueEventPageQuery_graphql.Types.activitySlug: Some(slug),
-            namespace: Some("doubles:rec"),
-            after: None,
-            before: None,
-            eventId: None,
-            first: None,
-          },
-        )
-        commitMutationCreateLeagueMatch(
-          ~variables={
-            matchInput: {
-              activitySlug: slug,
-              namespace: "doubles:rec",
-              doublesMatch: {
-                winners,
-                losers,
-                score,
-                createdAt: Js.Date.make()->Util.Datetime.fromDate,
-              },
-            },
-            connections: [connectionId],
-          },
-          ~onCompleted=(_, errs) => {
-            switch errs {
-            | Some(errs) => Js.log(errs)
-            | None => onSubmitted->Option.map(f => f())->Option.getOr()
-            }
-            setSubmitting(_ => false)
-            ()
-          },
-          ~onError=_ => {
-            setSubmitting(_ => false)
-          },
-        )->RescriptRelay.Disposable.ignore
-        setValue(ScoreLeft, Value(0.))
-        setValue(ScoreRight, Value(0.))
-        ()
       })
       ->ignore
+
+      rated
+        ? activity.slug
+          ->Option.map(slug => {
+            let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+              // __id,
+              "root"->RescriptRelay.makeDataId,
+              "MatchListFragment_matches",
+              {
+                LeagueEventPageQuery_graphql.Types.activitySlug: Some(slug),
+                namespace: Some("doubles:rec"),
+                after: None,
+                before: None,
+                eventId: None,
+                first: None,
+              },
+            )
+            commitMutationCreateLeagueMatch(
+              ~variables={
+                matchInput: {
+                  activitySlug: slug,
+                  namespace: "doubles:rec",
+                  doublesMatch: {
+                    winners,
+                    losers,
+                    score,
+                    createdAt: Js.Date.make()->Util.Datetime.fromDate,
+                  },
+                },
+                connections: [connectionId],
+              },
+              ~onCompleted=(_, errs) => {
+                switch errs {
+                | Some(errs) => Js.log(errs)
+                | None => onSubmitted->Option.map(f => f())->Option.getOr()
+                }
+                setSubmitting(_ => false)
+                ()
+              },
+              ~onError=_ => {
+                setSubmitting(_ => false)
+              },
+            )->RescriptRelay.Disposable.ignore
+            setValue(ScoreLeft, Value(0.))
+            setValue(ScoreRight, Value(0.))
+            ()
+          })
+          ->ignore
+        : ()
     }
   }
-  <form onSubmit={handleSubmit(onSubmit)}>
+  <form onSubmit={handleSubmit(onSubmit(true, ...))}>
     <div className="grid grid-cols-2 gap-4 col-span-2">
       <div className="grid gap-4">
         {team1
@@ -330,7 +335,9 @@ let make = (
             ->Option.getOr(React.null)}
             {onComplete
             ->Option.map(onComplete =>
-              <UiAction className="ml-3 inline-flex items-center" onClick={_ => onComplete(match)}>
+              <UiAction
+                className="ml-3 inline-flex items-center"
+                onClick={_ => handleSubmit(onSubmit(false, ...))(nullFormEvent)}>
                 {t`Completed`}
               </UiAction>
             )

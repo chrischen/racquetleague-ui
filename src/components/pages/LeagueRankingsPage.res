@@ -33,7 +33,7 @@ let make = () => {
               {t`Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players.`}
             </p>
             <p>
-              {t`To participate, please join the badminton events here:`}
+              {t`To participate, please join the events here:`}
               {" "->React.string}
               <a className="text-gray-200" href="https://www.racquetleague.com">
                 {"> Racquet League <"->React.string}

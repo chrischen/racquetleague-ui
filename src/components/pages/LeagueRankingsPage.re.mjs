@@ -60,7 +60,7 @@ function LeagueRankingsPage(props) {
                                                   }),
                                               JsxRuntime.jsxs("p", {
                                                     children: [
-                                                      t`To participate, please join the badminton events here:`,
+                                                      t`To participate, please join the events here:`,
                                                       " ",
                                                       JsxRuntime.jsx("a", {
                                                             children: "> Racquet League <",

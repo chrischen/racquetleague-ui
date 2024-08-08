@@ -328,10 +328,10 @@ function CompMatch(props) {
       });
   var setStrategy = match[1];
   var strategy = match[0];
+  var intl = ReactIntl.useIntl();
   var availablePlayers = players.filter(function (p) {
         return !consumedPlayers.has(p.id);
       });
-  var intl = ReactIntl.useIntl();
   var strats = [
     {
       name: t`Competitive Plus`,
@@ -461,6 +461,7 @@ function CompMatch(props) {
                     }),
                 matches$1.map(function (param, i) {
                       var quality = param[1];
+                      var match = maxQuality - minQuality;
                       return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                   children: [
                                     JsxRuntime.jsx(CompMatch$MatchMini, {
@@ -472,7 +473,7 @@ function CompMatch(props) {
                                           children: JsxRuntime.jsx(FramerMotion.motion.div, {
                                                 className: "h-2 rounded-full bg-red-400",
                                                 animate: {
-                                                  width: ((quality - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%"
+                                                  width: match !== 0 ? ((quality - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
                                                 },
                                                 initial: {
                                                   width: "0%"

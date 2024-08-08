@@ -43,7 +43,7 @@ module MatchMini = {
 // it's less than n and minimum of 4
 let array_get_n_from = (from: int, n: int, arr: array<'a>): option<array<'a>> => {
   let n = if arr->Array.length > 3 && arr->Array.length < n {
-   arr->Array.length 
+    arr->Array.length
   } else {
     n
   }
@@ -91,7 +91,7 @@ let match_to_players_set = ((team1, team2): Match.t<'a>): Set.t<string> =>
 
 let matches_contains_match = (matches: array<Match.t<'a>>, match: Set.t<string>): bool => {
   matches
-  ->Array.map(_, match_to_players_set)
+  ->(Array.map(_, match_to_players_set))
   ->Array.findIndex(m => m->intersection(match)->Set.size == 4) > -1
 }
 let contains_match = (matches: array<(Match.t<'a>, float)>, match: Set.t<string>): bool => {
@@ -233,8 +233,8 @@ let make = (
   ~onSelectMatch: option<Match.t<'a> => unit>=?,
 ) => {
   let (strategy, setStrategy) = React.useState(() => CompetitivePlus)
-  let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
   let intl = ReactIntl.useIntl()
+  let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
   // ->Array.filter(p => availablePlayers->Array.indexOf(p.id) > -1)
 
   let strats = [
@@ -321,20 +321,28 @@ let make = (
       {tab->Option.map(tab => tab.details->React.string)->Option.getOr(React.null)}
     </p>
     {matches
-    ->Array.mapWithIndex(((match, quality), i) => <>
-      <MatchMini key={i->Int.toString} onSelect=?onSelectMatch match />
-      {quality->Float.toFixed(~digits=3)->React.string}
-      <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
-        <FramerMotion.Div
-          className="h-2 rounded-full bg-red-400"
-          initial={width: "0%"}
-          animate={{
-            width: ((quality -. minQuality) /. (maxQuality -. minQuality) *. 100.)
-              ->Float.toFixed(~digits=3) ++ "%",
-          }}
-        />
-      </div>
-    </>)
+    ->Array.mapWithIndex(((match, quality), i) => {
+      <>
+        <MatchMini key={i->Int.toString} onSelect=?onSelectMatch match />
+        {quality->Float.toFixed(~digits=3)->React.string}
+        <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
+          <FramerMotion.Div
+            className="h-2 rounded-full bg-red-400"
+            initial={width: "0%"}
+            animate={{
+              width: {
+                switch maxQuality -. minQuality {
+                | 0. => "0%"
+                | _ =>
+                  ((quality -. minQuality) /. (maxQuality -. minQuality) *. 100.)
+                    ->Float.toFixed(~digits=3) ++ "%"
+                }
+              },
+            }}
+          />
+        </div>
+      </>
+    })
     ->React.array}
   </>
 }

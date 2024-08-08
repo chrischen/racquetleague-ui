@@ -168,6 +168,8 @@ var schema = Zod.z.object({
                 }).gte(0))
     });
 
+var nullFormEvent = null;
+
 function SubmitMatch(props) {
   var onSubmitted = props.onSubmitted;
   var onComplete = props.onComplete;
@@ -203,13 +205,14 @@ function SubmitMatch(props) {
         defaultValues: {}
       });
   var setValue = match$2.setValue;
+  var handleSubmit = match$2.handleSubmit;
   var register = match$2.register;
   var match$3 = React.useState(function () {
         return false;
       });
   var setSubmitting = match$3[1];
   var submitting = match$3[0];
-  var onSubmit = function (data) {
+  var onSubmit = function (rated, data) {
     setSubmitting(function (param) {
           return true;
         });
@@ -244,46 +247,50 @@ function SubmitMatch(props) {
             ];
             f(match);
           }));
-    Core__Option.map(activity.slug, (function (slug) {
-            var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
-                  activitySlug: slug,
-                  after: undefined,
-                  before: undefined,
-                  eventId: undefined,
-                  first: undefined,
-                  namespace: "doubles:rec"
-                });
-            commitMutationCreateLeagueMatch({
-                  connections: [connectionId],
-                  matchInput: {
+    if (rated) {
+      Core__Option.map(activity.slug, (function (slug) {
+              var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
                     activitySlug: slug,
-                    doublesMatch: {
-                      createdAt: Util.Datetime.fromDate(new Date()),
-                      losers: losers,
-                      score: score,
-                      winners: winners
-                    },
+                    after: undefined,
+                    before: undefined,
+                    eventId: undefined,
+                    first: undefined,
                     namespace: "doubles:rec"
-                  }
-                }, undefined, undefined, undefined, (function (param, errs) {
-                    if (errs !== undefined) {
-                      console.log(errs);
-                    } else {
-                      Core__Option.getOr(Core__Option.map(onSubmitted, (function (f) {
-                                  f();
-                                })), undefined);
+                  });
+              commitMutationCreateLeagueMatch({
+                    connections: [connectionId],
+                    matchInput: {
+                      activitySlug: slug,
+                      doublesMatch: {
+                        createdAt: Util.Datetime.fromDate(new Date()),
+                        losers: losers,
+                        score: score,
+                        winners: winners
+                      },
+                      namespace: "doubles:rec"
                     }
-                    setSubmitting(function (param) {
-                          return false;
-                        });
-                  }), (function (param) {
-                    setSubmitting(function (param) {
-                          return false;
-                        });
-                  }), undefined);
-            setValue("scoreLeft", 0, undefined);
-            setValue("scoreRight", 0, undefined);
-          }));
+                  }, undefined, undefined, undefined, (function (param, errs) {
+                      if (errs !== undefined) {
+                        console.log(errs);
+                      } else {
+                        Core__Option.getOr(Core__Option.map(onSubmitted, (function (f) {
+                                    f();
+                                  })), undefined);
+                      }
+                      setSubmitting(function (param) {
+                            return false;
+                          });
+                    }), (function (param) {
+                      setSubmitting(function (param) {
+                            return false;
+                          });
+                    }), undefined);
+              setValue("scoreLeft", 0, undefined);
+              setValue("scoreRight", 0, undefined);
+            }));
+      return ;
+    }
+    
   };
   return JsxRuntime.jsx("form", {
               children: JsxRuntime.jsxs("div", {
@@ -375,7 +382,9 @@ function SubmitMatch(props) {
                                             Core__Option.getOr(Core__Option.map(onComplete, (function (onComplete) {
                                                         return JsxRuntime.jsx(UiAction.make, {
                                                                     onClick: (function () {
-                                                                        onComplete(match);
+                                                                        handleSubmit(function (extra) {
+                                                                                return onSubmit(false, extra);
+                                                                              })(nullFormEvent);
                                                                       }),
                                                                     className: "ml-3 inline-flex items-center",
                                                                     children: t`Completed`
@@ -416,7 +425,9 @@ function SubmitMatch(props) {
                     ],
                     className: "grid grid-cols-2 gap-4 col-span-2"
                   }),
-              onSubmit: match$2.handleSubmit(onSubmit)
+              onSubmit: handleSubmit(function (extra) {
+                    return onSubmit(true, extra);
+                  })
             });
 }
 
@@ -428,6 +439,7 @@ export {
   PredictionBar ,
   ControllerOfInputsMatch ,
   schema ,
+  nullFormEvent ,
   make ,
 }
 /*  Not a pure module */

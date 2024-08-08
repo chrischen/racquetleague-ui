@@ -85,6 +85,11 @@ module SelectEventPlayersList = {
                     ->Option.map(disabled => disabled->Array.findIndex(p => player.id == p.id) >= 0)
                     ->Option.getOr(false)
 
+                  let percent = switch maxRating -. minRating {
+                  | 0. => 0.
+                  | _ => (player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.
+                  }
+
                   <FramerMotion.Li
                     layout=true
                     className="mt-4 flex w-full flex-none gap-x-4 px-6"
@@ -115,7 +120,7 @@ module SelectEventPlayersList = {
                           ()
                         }}>
                         {player.data
-                        ->Option.flatMap(data =>
+                        ->Option.flatMap(data => {
                           data.user->Option.map(
                             user => {
                               <EventRsvpUser
@@ -123,18 +128,16 @@ module SelectEventPlayersList = {
                                 highlight={selected->Array.findIndex(
                                   player => player.id == user.id,
                                 ) >= 0}
-                                ratingPercent={(player.rating.mu -. minRating) /.
-                                (maxRating -. minRating) *. 100.}
+                                ratingPercent=percent
                               />
                             },
                           )
-                        )
+                        })
                         ->Option.getOr(
                           <RsvpUser
                             user={RsvpUser.makeGuest(player.name)}
                             highlight={selected->Array.findIndex(p => p.id == player.id) >= 0}
-                            ratingPercent={(player.rating.mu -. minRating) /.
-                            (maxRating -. minRating) *. 100.}
+                            ratingPercent=percent
                           />,
                         )}
                       </a>
@@ -160,7 +163,7 @@ let rot2 = (players, player) =>
 
 @react.component
 let make = (
-  ~players: array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
+  ~players: array<player>,
   ~activity: option<AddLeagueMatch_event_graphql.Types.fragment_activity>,
   ~onMatchQueued,
   ~onMatchCompleted,
@@ -172,13 +175,30 @@ let make = (
   // let players = data.rsvps->Fragment.getConnectionNodes
 
   let matchSelected = match => {
-    switch match {
-    | ([_, _], [_, _]) as match =>
+    switch (
+      match: (
+        array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
+        array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
+      )
+    ) {
+    | ([p1, p2], [p3, p4]) as match =>
       // onMatchSelected(match)
+      // let match = (
+      //   [players->Array.find(p => p.id == p1.id)->Option.getExn, players->Array.find(p => p.id == p2.id)->Option.getExn],
+      //   [players->Array.find(p => p.id == p3.id)->Option.getExn, players->Array.find(p => p.id == p4.id)->Option.getExn],
+      // )
       setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))
     | _ => ()
     }
   }
+  React.useEffect(() => {
+    // Reset all selected values when players change, as the state of this
+    // component will be outdated
+    setLeftNodes(_ => [])
+    setRightNodes(_ => [])
+    setSelectedMatch(_ => None)
+    None
+  }, [players])
   let maxRating =
     players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
   let minRating =
