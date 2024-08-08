@@ -42,5 +42,9 @@ msgid "Recreational Doubles"
 msgstr ""
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:63
-msgid "To participate, please join the badminton events here:"
+#~ msgid "To participate, please join the badminton events here:"
+#~ msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:63
+msgid "To participate, please join the events here:"
 msgstr ""

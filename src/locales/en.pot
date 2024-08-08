@@ -1071,3 +1071,11 @@ msgstr ""
 #: src/components/organisms/AddLeagueMatch.re.mjs:297
 msgid "Tournament Mode"
 msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:445
+msgid "Queued Matches"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:63
+msgid "To participate, please join the events here:"
+msgstr ""

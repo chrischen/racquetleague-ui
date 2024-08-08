@@ -177,9 +177,7 @@ let make = (~event, ~children) => {
       players->Array.map(p => {
         let player = updatedPlayers->Array.find(p' => p.id == p'.id)
         switch player {
-        | Some(player) => {
-          player
-        }
+        | Some(player) => player
         | None => p
         }
       })
@@ -278,6 +276,8 @@ let make = (~event, ~children) => {
             activity
             onMatchCompleted={match => {
               updatePlayCounts(match)
+              let match = match->Match.rate
+              updateSessionPlayerRatings(match->Array.flatMap(x => x))
             }}
             onMatchQueued={match => queueMatch(match)}
             //   setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))}
@@ -288,7 +288,7 @@ let make = (~event, ~children) => {
         {children}
       </div>
       <div className="grid grid-cols-1 gap-4">
-        {t`queued matches`}
+        <h2 className="text-2xl font-semibold text-gray-900"> {t`Queued Matches`} </h2>
         <div className="grid grid-cols-1 gap-4">
           {activity
           ->Option.map(activity =>

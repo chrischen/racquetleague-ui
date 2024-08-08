@@ -46,5 +46,9 @@ msgid "Recreational Doubles"
 msgstr "レクリエーショナルダブルス"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:63
-msgid "To participate, please join the badminton events here:"
-msgstr "参加するには、こちらのバドミントンイベントに参加してください:"
+msgid "To participate, please join the events here:"
+msgstr "参加するには、こちらのイベントに参加してください:"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:63
+#~ msgid "To participate, please join the badminton events here:"
+#~ msgstr "参加するには、こちらのバドミントンイベントに参加してください:"

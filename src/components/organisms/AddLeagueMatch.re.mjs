@@ -258,6 +258,20 @@ function AddLeagueMatch(props) {
                     });
         });
   };
+  var updateSessionPlayerRatings = function (updatedPlayers) {
+    setSessionPlayers(function (players) {
+          return players.map(function (p) {
+                      var player = updatedPlayers.find(function (p$p) {
+                            return p.id === p$p.id;
+                          });
+                      if (player !== undefined) {
+                        return player;
+                      } else {
+                        return p;
+                      }
+                    });
+        });
+  };
   return JsxRuntime.jsx(JsxRuntime.Fragment, {
               children: Caml_option.some(JsxRuntime.jsxs("div", {
                         children: [
@@ -410,6 +424,10 @@ function AddLeagueMatch(props) {
                                     }),
                                   onMatchCompleted: (function (match) {
                                       updatePlayCounts(match);
+                                      var match$1 = Rating.Match.rate(match);
+                                      updateSessionPlayerRatings(match$1.flatMap(function (x) {
+                                                return x;
+                                              }));
                                     })
                                 }) : null,
                           JsxRuntime.jsxs("div", {
@@ -423,7 +441,10 @@ function AddLeagueMatch(props) {
                               }),
                           JsxRuntime.jsxs("div", {
                                 children: [
-                                  t`queued matches`,
+                                  JsxRuntime.jsx("h2", {
+                                        children: t`Queued Matches`,
+                                        className: "text-2xl font-semibold text-gray-900"
+                                      }),
                                   JsxRuntime.jsx("div", {
                                         children: Core__Option.getOr(Core__Option.map(activity, (function (activity) {
                                                     return matches.map(function (match, i) {
@@ -440,21 +461,9 @@ function AddLeagueMatch(props) {
                                                                                           updatePlayCounts(match);
                                                                                           dequeueMatch(i);
                                                                                           var match$1 = Rating.Match.rate(match);
-                                                                                          var updatedPlayers = match$1.flatMap(function (x) {
-                                                                                                return x;
-                                                                                              });
-                                                                                          setSessionPlayers(function (players) {
-                                                                                                return players.map(function (p) {
-                                                                                                            var player = updatedPlayers.find(function (p$p) {
-                                                                                                                  return p.id === p$p.id;
-                                                                                                                });
-                                                                                                            if (player !== undefined) {
-                                                                                                              return player;
-                                                                                                            } else {
-                                                                                                              return p;
-                                                                                                            }
-                                                                                                          });
-                                                                                              });
+                                                                                          updateSessionPlayerRatings(match$1.flatMap(function (x) {
+                                                                                                    return x;
+                                                                                                  }));
                                                                                         })
                                                                                     })),
                                                                             fallback: Caml_option.some(JsxRuntime.jsx("div", {

@@ -158,7 +158,9 @@ let make = (
         ),
       },
     },
+    ~fetchPolicy=NetworkOnly
   ).predictMatchOutcome
+
   let {register, handleSubmit, setValue} = useFormOfInputsMatch(
     ~options={
       resolver: Resolver.zodResolver(schema),

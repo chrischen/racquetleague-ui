@@ -199,7 +199,7 @@ function SubmitMatch(props) {
                                 })), "");
               })
         }
-      }, undefined, undefined, undefined).predictMatchOutcome;
+      }, "network-only", undefined, undefined).predictMatchOutcome;
   var match$2 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: {}
