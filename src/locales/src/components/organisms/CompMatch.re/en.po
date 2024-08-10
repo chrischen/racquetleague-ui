@@ -13,31 +13,31 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CompMatch.re.mjs:454
+#: src/components/organisms/CompMatch.re.mjs:444
 msgid "Analyzed {0} matches."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:342
+#: src/components/organisms/CompMatch.re.mjs:331
 msgid "Competitive"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:337
+#: src/components/organisms/CompMatch.re.mjs:326
 msgid "Competitive Plus"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:339
+#: src/components/organisms/CompMatch.re.mjs:328
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:344
+#: src/components/organisms/CompMatch.re.mjs:333
 msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:349
+#: src/components/organisms/CompMatch.re.mjs:338
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:347
+#: src/components/organisms/CompMatch.re.mjs:336
 msgid "Mixed"
 msgstr ""
 
@@ -45,14 +45,14 @@ msgstr ""
 #~ msgid "Quality"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:352
+#: src/components/organisms/CompMatch.re.mjs:341
 msgid "Random"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:402
+#: src/components/organisms/CompMatch.re.mjs:392
 msgid "Select a tab"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:354
+#: src/components/organisms/CompMatch.re.mjs:343
 msgid "Totally random teams."
 msgstr ""

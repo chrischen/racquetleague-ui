@@ -13,47 +13,47 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CompMatch.re.mjs:454
+#: src/components/organisms/CompMatch.re.mjs:444
 msgid "Analyzed {0} matches."
 msgstr "{0}試合を分析しました。"
 
-#: src/components/organisms/CompMatch.re.mjs:342
+#: src/components/organisms/CompMatch.re.mjs:331
 msgid "Competitive"
 msgstr "競争力"
 
-#: src/components/organisms/CompMatch.re.mjs:337
+#: src/components/organisms/CompMatch.re.mjs:326
 msgid "Competitive Plus"
 msgstr "競争力プラス"
 
-#: src/components/organisms/CompMatch.re.mjs:339
+#: src/components/organisms/CompMatch.re.mjs:328
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
-#: src/components/organisms/CompMatch.re.mjs:344
+#: src/components/organisms/CompMatch.re.mjs:333
 msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 msgstr ""
 "マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
 
-#: src/components/organisms/CompMatch.re.mjs:349
+#: src/components/organisms/CompMatch.re.mjs:338
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
 "す。"
 
-#: src/components/organisms/CompMatch.re.mjs:347
+#: src/components/organisms/CompMatch.re.mjs:336
 msgid "Mixed"
 msgstr "混合"
 
-#: src/components/organisms/CompMatch.re.mjs:352
+#: src/components/organisms/CompMatch.re.mjs:341
 msgid "Random"
 msgstr "ランダムで"
 
-#: src/components/organisms/CompMatch.re.mjs:402
+#: src/components/organisms/CompMatch.re.mjs:392
 msgid "Select a tab"
 msgstr "タブを選択"
 
-#: src/components/organisms/CompMatch.re.mjs:354
+#: src/components/organisms/CompMatch.re.mjs:343
 msgid "Totally random teams."
 msgstr "完全にランダムなチーム。"
 

@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-10 19:08+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/forms/Form.re.mjs:284
+msgid "cancel"
+msgstr "キャンセル"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:38
+msgid "How many players should rest? (currently {0} players are resting)"
+msgstr ""
+"何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
+
+#: src/components/molecules/forms/Form.re.mjs:291
+msgid "save"
+msgstr "保存"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:53
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にしま"
+"す。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部"
+"のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"

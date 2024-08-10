@@ -985,6 +985,22 @@ msgstr "キューされた試合"
 msgid "To participate, please join the events here:"
 msgstr "参加するには、こちらのイベントに参加してください:"
 
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:38
+msgid "How many players should rest? (currently {0} players are resting)"
+msgstr "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:53
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr "これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にします。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
+
+#: src/components/organisms/SubmitMatch.re.mjs:292
+#: src/components/organisms/SubmitMatch.re.mjs:305
+msgid "Winner"
+msgstr "勝者"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

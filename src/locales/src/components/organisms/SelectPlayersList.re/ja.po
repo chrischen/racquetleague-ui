@@ -13,14 +13,14 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SelectPlayersList.re.mjs:105
+#: src/components/organisms/SelectPlayersList.re.mjs:96
 msgid "Match Count"
 msgstr "試合数"
 
-#: src/components/organisms/SelectPlayersList.re.mjs:197
+#: src/components/organisms/SelectPlayersList.re.mjs:188
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/SelectPlayersList.re.mjs:80
+#: src/components/organisms/SelectPlayersList.re.mjs:71
 msgid "Player"
 msgstr "プレイヤー"

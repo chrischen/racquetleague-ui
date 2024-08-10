@@ -261,7 +261,10 @@ function SubmitMatch(props) {
                                                                 }, user.id);
                                                     })), null);
                                   } else {
-                                    return null;
+                                    return JsxRuntime.jsx(RsvpUser.make, {
+                                                user: RsvpUser.makeGuest(player.name),
+                                                ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                              }, player.id);
                                   }
                                 }),
                             className: "grid gap-4"

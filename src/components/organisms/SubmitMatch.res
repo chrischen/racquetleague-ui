@@ -301,7 +301,12 @@ let make = (
               />
             })
             ->Option.getOr(React.null)
-          | None => React.null
+          | None =>
+            <RsvpUser
+              key={player.id}
+              user={RsvpUser.makeGuest(player.name)}
+              ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+            />
           }
         })
         ->React.array}

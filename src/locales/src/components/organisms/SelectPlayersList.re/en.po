@@ -13,14 +13,14 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SelectPlayersList.re.mjs:105
+#: src/components/organisms/SelectPlayersList.re.mjs:96
 msgid "Match Count"
 msgstr ""
 
-#: src/components/organisms/SelectPlayersList.re.mjs:197
+#: src/components/organisms/SelectPlayersList.re.mjs:188
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/SelectPlayersList.re.mjs:80
+#: src/components/organisms/SelectPlayersList.re.mjs:71
 msgid "Player"
 msgstr ""

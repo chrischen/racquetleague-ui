@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"Cancel\",\"qqWcBV\":\"Completed\",\"mtjKfB\":\"points\",\"oqJvMR\":\"predicted winner\",\"DzbT9G\":\"Submit Rated\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"Cancel\",\"qqWcBV\":\"Completed\",\"yQE2r9\":\"Loading\",\"mtjKfB\":\"points\",\"oqJvMR\":\"predicted winner\",\"DzbT9G\":\"Submit Rated\",\"2ZSUoj\":\"Winner\"}");

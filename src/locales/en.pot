@@ -1079,3 +1079,19 @@ msgstr ""
 #: src/components/pages/LeagueRankingsPage.re.mjs:63
 msgid "To participate, please join the events here:"
 msgstr ""
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:38
+msgid "How many players should rest? (currently {0} players are resting)"
+msgstr ""
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:53
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+
+#: src/components/organisms/SubmitMatch.re.mjs:292
+#: src/components/organisms/SubmitMatch.re.mjs:305
+msgid "Winner"
+msgstr ""
