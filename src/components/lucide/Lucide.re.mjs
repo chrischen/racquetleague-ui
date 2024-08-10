@@ -21,6 +21,10 @@ var MoveLeft = {};
 
 var MoveRight = {};
 
+var Settings = {};
+
+var UserPlus = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -32,5 +36,7 @@ export {
   ArrowDownWideNarrow ,
   MoveLeft ,
   MoveRight ,
+  Settings ,
+  UserPlus ,
 }
 /* No side effect */

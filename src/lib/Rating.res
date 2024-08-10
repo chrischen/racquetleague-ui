@@ -100,14 +100,12 @@ module Match = {
     Rating.rate(
       ~ratings=[winners, losers]->Array.map(Array.map(_, (player: Player.t<'a>) => player.rating)),
       ~opts=Some({model: Some(RatingModel.plackettLuce)}),
-    )
-    ->Belt.Array.zipBy([winners, losers], (new_ratings, old_teams) => {
-        new_ratings->Belt.Array.zipBy(old_teams, (new_rating, old_player) => {
-          {...old_player, Player.rating: new_rating}
-        })
-      });
-  };
-  
+    )->Belt.Array.zipBy([winners, losers], (new_ratings, old_teams) => {
+      new_ratings->Belt.Array.zipBy(old_teams, (new_rating, old_player) => {
+        {...old_player, Player.rating: new_rating}
+      })
+    })
+  }
 }
 
 module DoublesTeam = {
@@ -139,3 +137,30 @@ type rsvpNode = AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node
 type player = Player.t<rsvpNode>
 type team = array<player>
 type match = (team, team)
+
+module Players = {
+  type t = array<player>
+  let sortByRatingDesc = (t: t) =>
+    t->Array.toSorted((a, b) => {
+      let userA = a.rating.mu
+      let userB = b.rating.mu
+      userA < userB ? 1. : -1.
+    })
+
+  let sortByPlayCountAsc = (t: t, session: Session.t) => {
+    t->Array.toSorted((a, b) =>
+      (session->Session.get(a.id)).count < (session->Session.get(b.id)).count ? -1. : 1.
+    )
+  }
+  let sortByPlayCountDesc = (t: t, session: Session.t) => {
+    t->Array.toSorted((a, b) =>
+      (session->Session.get(a.id)).count < (session->Session.get(b.id)).count ? 1. : -1.
+    )
+  }
+
+  let sortByOrdinalDesc = (t: t) =>
+    t->Array.toSorted((a, b) => a.ratingOrdinal < b.ratingOrdinal ? 1. : -1.)
+
+  let filterOut = (players: t, unavailable: TeamSet.t) =>
+    players->Array.filter(p => !(unavailable->Set.has(p.id)))
+}

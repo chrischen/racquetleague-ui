@@ -14,8 +14,11 @@ import * as SessionAddPlayer from "./SessionAddPlayer.re.mjs";
 import * as React$1 from "@headlessui/react";
 import * as SelectPlayersList from "./SelectPlayersList.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as SessionEvenPlayMode from "./SessionEvenPlayMode.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
+import * as Solid from "@heroicons/react/24/solid";
+import * as Outline from "@heroicons/react/24/outline";
 import * as AddLeagueMatch_event_graphql from "../../__generated__/AddLeagueMatch_event_graphql.re.mjs";
 import * as AddLeagueMatchRsvpsRefetchQuery_graphql from "../../__generated__/AddLeagueMatchRsvpsRefetchQuery_graphql.re.mjs";
 
@@ -68,6 +71,38 @@ var Fragment = {
 };
 
 var sessionContext = AppContext.SessionContext;
+
+function getPriorityPlayers(players, session, $$break) {
+  var maxCount = Core__Array.reduce(players, 0, (function (acc, next) {
+          var count = Session.get(session, next.id).count;
+          if (count > acc) {
+            return count;
+          } else {
+            return acc;
+          }
+        }));
+  var minCount = Core__Array.reduce(players, maxCount, (function (acc, next) {
+          var count = Session.get(session, next.id).count;
+          if (count < acc) {
+            return count;
+          } else {
+            return acc;
+          }
+        }));
+  return {
+          prioritized: Core__Array.reduce(players, [], (function (acc, next) {
+                  var count = Session.get(session, next.id).count;
+                  if (minCount !== maxCount && count === minCount) {
+                    return acc.concat([next]);
+                  } else {
+                    return acc;
+                  }
+                })),
+          deprioritized: new Set(Rating.Players.sortByPlayCountDesc(players, session).slice(0, $$break).map(function (p) {
+                    return p.id;
+                  }))
+        };
+}
 
 function rsvpToPlayer(rsvp) {
   var match = Core__Option.map(rsvp.user, (function (u) {
@@ -146,31 +181,56 @@ function AddLeagueMatch(props) {
         return false;
       });
   var setAddPlayerOpen = match$3[1];
+  var addPlayerOpen = match$3[0];
   var match$4 = React.useState(function () {
-        return new Set();
-      });
-  var setActivePlayers2 = match$4[1];
-  var activePlayers2 = match$4[0];
-  var match$5 = React.useState(function () {
-        return Session.make();
-      });
-  var setSessionState = match$5[1];
-  var sessionState = match$5[0];
-  var match$6 = React.useState(function () {
-        return [];
-      });
-  var setSessionPlayers = match$6[1];
-  var sessionPlayers = match$6[0];
-  var match$7 = React.useState(function () {
         return false;
       });
-  var setSessionMode = match$7[1];
-  var sessionMode = match$7[0];
-  var match$8 = usePagination($$event);
-  var data = match$8.data;
+  var setSettingsOpen = match$4[1];
+  var settingsOpen = match$4[0];
+  var match$5 = React.useState(function () {
+        return new Set();
+      });
+  var setActivePlayers2 = match$5[1];
+  var activePlayers2 = match$5[0];
+  var match$6 = React.useState(function () {
+        return Session.make();
+      });
+  var setSessionState = match$6[1];
+  var sessionState = match$6[0];
+  var match$7 = React.useState(function () {
+        return [];
+      });
+  var setSessionPlayers = match$7[1];
+  var sessionPlayers = match$7[0];
+  var match$8 = React.useState(function () {
+        return false;
+      });
+  var setSessionMode = match$8[1];
+  var sessionMode = match$8[0];
+  var match$9 = React.useState(function () {
+        return 0;
+      });
+  var setBreakCount = match$9[1];
+  var breakCount = match$9[0];
+  var match$10 = usePagination($$event);
+  var data = match$10.data;
   var players = sessionMode ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
   var activePlayers = players.filter(function (p) {
         return activePlayers2.has(p.id);
+      });
+  var consumedPlayers = new Set(matches.flatMap(function (match) {
+            return match[0].concat(match[1]).map(function (p) {
+                        return p.id;
+                      });
+          }));
+  var availablePlayers = activePlayers.filter(function (p) {
+        return !consumedPlayers.has(p.id);
+      });
+  var match$11 = getPriorityPlayers(availablePlayers, sessionState, breakCount);
+  var deprioritized = match$11.deprioritized;
+  var breakPlayersCount = availablePlayers.length;
+  availablePlayers.filter(function (p) {
+        return !deprioritized.has(p.id);
       });
   var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
           if (next.rating.mu > acc) {
@@ -182,30 +242,6 @@ function AddLeagueMatch(props) {
   var minRating = Core__Array.reduce(players, maxRating, (function (acc, next) {
           if (next.rating.mu < acc) {
             return next.rating.mu;
-          } else {
-            return acc;
-          }
-        }));
-  var maxCount = Core__Array.reduce(players, 0, (function (acc, next) {
-          var count = Session.get(sessionState, next.id).count;
-          if (count > acc) {
-            return count;
-          } else {
-            return acc;
-          }
-        }));
-  var minCount = Core__Array.reduce(players, 0, (function (acc, next) {
-          var count = Session.get(sessionState, next.id).count;
-          if (count < acc) {
-            return count;
-          } else {
-            return acc;
-          }
-        }));
-  var priorityPlayers = Core__Array.reduce(activePlayers, [], (function (acc, next) {
-          var count = Session.get(sessionState, next.id).count;
-          if (minCount !== maxCount && count === minCount) {
-            return acc.concat([next]);
           } else {
             return acc;
           }
@@ -224,11 +260,6 @@ function AddLeagueMatch(props) {
           return matches$1;
         });
   };
-  var consumedPlayers = new Set(matches.flatMap(function (match) {
-            return match[0].concat(match[1]).map(function (p) {
-                        return p.id;
-                      });
-          }));
   var updatePlayCounts = function (match) {
     setSessionState(function (prevState) {
           return Core__Array.reduce([
@@ -319,26 +350,48 @@ function AddLeagueMatch(props) {
                                                 children: t`Players`,
                                                 className: "text-2xl font-semibold text-gray-900"
                                               }),
-                                          JsxRuntime.jsx(UiAction.make, {
-                                                onClick: (function () {
-                                                    setActivePlayers2(function (param) {
-                                                          return new Set(players.map(function (p) {
-                                                                          return p.id;
-                                                                        }));
-                                                        });
-                                                  }),
-                                                children: t`select all`
+                                          JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsx(UiAction.make, {
+                                                        onClick: (function () {
+                                                            setActivePlayers2(function (param) {
+                                                                  return new Set(players.map(function (p) {
+                                                                                  return p.id;
+                                                                                }));
+                                                                });
+                                                          }),
+                                                        children: t`select all`
+                                                      }),
+                                                  JsxRuntime.jsx(UiAction.make, {
+                                                        onClick: (function () {
+                                                            setAddPlayerOpen(function (prev) {
+                                                                  return !prev;
+                                                                });
+                                                          }),
+                                                        className: "ml-auto",
+                                                        children: addPlayerOpen ? JsxRuntime.jsx(Solid.UserPlusIcon, {
+                                                                className: "h-8 w-8"
+                                                              }) : JsxRuntime.jsx(Outline.UserPlusIcon, {
+                                                                className: "h-8 w-8"
+                                                              })
+                                                      }),
+                                                  JsxRuntime.jsx(UiAction.make, {
+                                                        onClick: (function () {
+                                                            setSettingsOpen(function (prev) {
+                                                                  return !prev;
+                                                                });
+                                                          }),
+                                                        className: "mr-2",
+                                                        children: settingsOpen ? JsxRuntime.jsx(Solid.Cog6ToothIcon, {
+                                                                className: "h-8 w-8"
+                                                              }) : JsxRuntime.jsx(Outline.Cog6ToothIcon, {
+                                                                className: "h-8 w-8"
+                                                              })
+                                                      })
+                                                ],
+                                                className: "flex text-right"
                                               }),
-                                          JsxRuntime.jsx(UiAction.make, {
-                                                onClick: (function () {
-                                                    setAddPlayerOpen(function (prev) {
-                                                          return !prev;
-                                                        });
-                                                  }),
-                                                className: "float-right",
-                                                children: t`Add Player`
-                                              }),
-                                          match$3[0] ? JsxRuntime.jsx(SessionAddPlayer.make, {
+                                          addPlayerOpen ? JsxRuntime.jsx(SessionAddPlayer.make, {
                                                   eventId: match.id,
                                                   onPlayerAdd: (function (player) {
                                                       setSessionPlayers(function (guests) {
@@ -348,9 +401,16 @@ function AddLeagueMatch(props) {
                                                       setAddPlayerOpen(function (param) {
                                                             return false;
                                                           });
-                                                    }),
-                                                  onCancel: (function (param) {
-                                                      setAddPlayerOpen(function (param) {
+                                                    })
+                                                }) : null,
+                                          settingsOpen ? JsxRuntime.jsx(SessionEvenPlayMode.make, {
+                                                  breakCount: breakCount,
+                                                  breakPlayersCount: breakPlayersCount,
+                                                  onChangeBreakCount: (function (numberOnBreak) {
+                                                      setBreakCount(function (param) {
+                                                            return numberOnBreak;
+                                                          });
+                                                      setSettingsOpen(function (param) {
                                                             return false;
                                                           });
                                                     })
@@ -393,8 +453,8 @@ function AddLeagueMatch(props) {
                                               }),
                                           JsxRuntime.jsx(CompMatch.make, {
                                                 players: activePlayers,
-                                                priorityPlayers: priorityPlayers,
-                                                consumedPlayers: consumedPlayers,
+                                                consumedPlayers: new Set(Array.from(consumedPlayers.values()).concat(Array.from(deprioritized.values()))),
+                                                priorityPlayers: match$11.prioritized,
                                                 onSelectMatch: (function (match) {
                                                     queueMatch(match);
                                                   })
@@ -448,28 +508,23 @@ function AddLeagueMatch(props) {
                                   JsxRuntime.jsx("div", {
                                         children: Core__Option.getOr(Core__Option.map(activity, (function (activity) {
                                                     return matches.map(function (match, i) {
-                                                                return JsxRuntime.jsx(React.Suspense, {
-                                                                            children: Caml_option.some(JsxRuntime.jsx(SubmitMatch.make, {
-                                                                                      match: match,
-                                                                                      activity: activity,
-                                                                                      minRating: minRating,
-                                                                                      maxRating: maxRating,
-                                                                                      onDelete: (function () {
-                                                                                          dequeueMatch(i);
-                                                                                        }),
-                                                                                      onComplete: (function (match) {
-                                                                                          updatePlayCounts(match);
-                                                                                          dequeueMatch(i);
-                                                                                          var match$1 = Rating.Match.rate(match);
-                                                                                          updateSessionPlayerRatings(match$1.flatMap(function (x) {
-                                                                                                    return x;
-                                                                                                  }));
-                                                                                        })
-                                                                                    })),
-                                                                            fallback: Caml_option.some(JsxRuntime.jsx("div", {
-                                                                                      children: t`Loading`
-                                                                                    }))
-                                                                          });
+                                                                return JsxRuntime.jsx(SubmitMatch.make, {
+                                                                            match: match,
+                                                                            activity: activity,
+                                                                            minRating: minRating,
+                                                                            maxRating: maxRating,
+                                                                            onDelete: (function () {
+                                                                                dequeueMatch(i);
+                                                                              }),
+                                                                            onComplete: (function (match) {
+                                                                                updatePlayCounts(match);
+                                                                                dequeueMatch(i);
+                                                                                var match$1 = Rating.Match.rate(match);
+                                                                                updateSessionPlayerRatings(match$1.flatMap(function (x) {
+                                                                                          return x;
+                                                                                        }));
+                                                                              })
+                                                                          }, i.toString());
                                                               });
                                                   })), null),
                                         className: "grid grid-cols-1 gap-4"
@@ -490,6 +545,7 @@ var $$default = AddLeagueMatch;
 export {
   Fragment ,
   sessionContext ,
+  getPriorityPlayers ,
   rsvpToPlayer ,
   rsvpToPlayerDefault ,
   addGuestPlayer ,

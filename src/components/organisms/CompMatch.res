@@ -146,28 +146,23 @@ let find_all_match_combos = (availablePlayers, priorityPlayers) => {
     let quality = match->match_quality
     (match, quality)
   })
-  priorityPlayers->Array.length == 0 ||
-    priorityPlayers->Array.length == availablePlayers->Array.length
+  priorityPlayers->Array.length == 0
     ? matches
     : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
 }
 
 let strategy_by_competitive = (
   players: array<Player.t<'a>>,
-  consumedPlayers,
+  consumedPlayers: Set.t<string>,
   priorityPlayers: array<Player.t<'a>>,
 ) => {
   players
-  ->Array.toSorted((a, b) => {
-    let userA = a.rating.mu
-    let userB = b.rating.mu
-    userA < userB ? 1. : -1.
-  })
+  ->Players.sortByRatingDesc
   ->array_split_by_n(8)
   ->Array.reduce([], (acc, playerSet) => {
     let matches =
       playerSet
-      ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+      ->Players.filterOut(consumedPlayers)
       ->find_all_match_combos(priorityPlayers)
       ->Array.toSorted((a, b) => {
         let (_, qualityA) = a
@@ -179,7 +174,7 @@ let strategy_by_competitive = (
 }
 let strategy_by_competitive_plus = (
   players: array<Player.t<'a>>,
-  consumedPlayers,
+  consumedPlayers: Set.t<string>,
   priorityPlayers: array<Player.t<'a>>,
 ) => {
   players
@@ -192,7 +187,7 @@ let strategy_by_competitive_plus = (
   ->Array.reduce([], (acc, playerSet) => {
     let matches =
       playerSet
-      ->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+      ->Players.filterOut(consumedPlayers)
       ->find_all_match_combos(priorityPlayers)
       ->Array.toSorted((a, b) => {
         let (_, qualityA) = a
@@ -228,14 +223,12 @@ let ts = Lingui.UtilString.t
 @react.component
 let make = (
   ~players: array<Player.t<'a>>,
+  ~consumedPlayers: Set.t<string>,
   ~priorityPlayers: array<Player.t<'a>>,
-  ~consumedPlayers: Js.Set.t<string>,
   ~onSelectMatch: option<Match.t<'a> => unit>=?,
 ) => {
   let (strategy, setStrategy) = React.useState(() => CompetitivePlus)
   let intl = ReactIntl.useIntl()
-  let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
-  // ->Array.filter(p => availablePlayers->Array.indexOf(p.id) > -1)
 
   let strats = [
     {
@@ -255,6 +248,7 @@ let make = (
     },
     {name: ts`Random`, strategy: Random, details: ts`Totally random teams.`},
   ]
+  let availablePlayers = players->Players.filterOut(consumedPlayers)
   let matches = switch strategy {
   | Mixed => strategy_by_mixed(availablePlayers, priorityPlayers)
   | RoundRobin => strategy_by_round_robin(availablePlayers, priorityPlayers)

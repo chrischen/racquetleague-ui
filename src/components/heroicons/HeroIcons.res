@@ -44,3 +44,19 @@ module ExclamationTriangleIcon = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ExclamationTriangleIcon"
 }
+module UserPlus = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "UserPlusIcon"
+}
+module UserPlusOutline = {
+  @module("@heroicons/react/24/outline") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "UserPlusIcon"
+}
+module Cog6Tooth = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Cog6ToothIcon"
+}
+module Cog6ToothOutline = {
+  @module("@heroicons/react/24/outline") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Cog6ToothIcon"
+}

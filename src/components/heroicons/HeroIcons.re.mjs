@@ -23,6 +23,14 @@ var CalendarIcon = {};
 
 var ExclamationTriangleIcon = {};
 
+var UserPlus = {};
+
+var UserPlusOutline = {};
+
+var Cog6Tooth = {};
+
+var Cog6ToothOutline = {};
+
 export {
   PhotoIcon ,
   Bars3Icon ,
@@ -35,5 +43,9 @@ export {
   CheckIcon ,
   CalendarIcon ,
   ExclamationTriangleIcon ,
+  UserPlus ,
+  UserPlusOutline ,
+  Cog6Tooth ,
+  Cog6ToothOutline ,
 }
 /* No side effect */

@@ -24,7 +24,7 @@ let toRatingPlayer = (data: inputsUser) => {
   }
 }
 @react.component
-let make = (~eventId: string, ~onPlayerAdd: inputsUser => unit, ~onCancel) => {
+let make = (~eventId: string, ~onPlayerAdd: inputsUser => unit) => {
   open Form
   let {register, handleSubmit, setValue} = useFormOfInputsUser(
     ~options={
@@ -37,7 +37,7 @@ let make = (~eventId: string, ~onPlayerAdd: inputsUser => unit, ~onCancel) => {
     setValue(Name, Value(""))
   }
 
-  <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8">
+  <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8 mb-2">
 
     <QRCode value={"https://www.racquetleague.com/events/" ++ eventId} />
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -55,7 +55,7 @@ let make = (~eventId: string, ~onPlayerAdd: inputsUser => unit, ~onCancel) => {
           // },
         )}
       />
-      <Form.Footer onCancel />
+      <Form.Footer />
     </form>
   </div>
 }

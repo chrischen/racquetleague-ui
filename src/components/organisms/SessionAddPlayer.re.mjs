@@ -62,14 +62,12 @@ function SessionAddPlayer(props) {
                               type_: "text",
                               register: match.register("name", undefined)
                             }),
-                        JsxRuntime.jsx(Form.Footer.make, {
-                              onCancel: props.onCancel
-                            })
+                        JsxRuntime.jsx(Form.Footer.make, {})
                       ],
                       onSubmit: match.handleSubmit(onSubmit)
                     })
               ],
-              className: "grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8"
+              className: "grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8 mb-2"
             });
 }
 

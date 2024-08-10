@@ -51,48 +51,77 @@ module CreateLeagueMatchMutation = %relay(`
     }
   }
 `)
+open Rating
 module PredictionBar = {
   @react.component
-  let make = (~odds: (float, float)) => {
-    let (leftOdds, rightOdds) = odds
-    let odds = rightOdds -. leftOdds
-    let leftOdds = odds < 0. ? Js.Math.abs_float(odds *. 100.) : 0.
-    let rightOdds = odds < 0. ? 0. : odds *. 100.
+  let make = (
+    ~match: Match.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>,
+  ) => {
+    let team1 = match->fst
+    let team2 = match->snd
+    let outcome = PredictMatchOutcome.use(
+      ~variables={
+        input: {
+          team1RatingIds: team1->Array.map(node =>
+            node.data
+            ->Option.flatMap(node => node.rating->Option.map(rating => rating.id))
+            ->Option.getOr("")
+          ),
+          team2RatingIds: team2->Array.map(node =>
+            node.data
+            ->Option.flatMap(node => node.rating->Option.map(rating => rating.id))
+            ->Option.getOr("")
+          ),
+        },
+      },
+      ~fetchPolicy=NetworkOnly,
+    ).predictMatchOutcome
 
-    <div className="grid grid-cols-2 gap-0">
-      <div className="col-span-2 text-center">
-        {switch odds < 0. {
-        | true =>
-          <>
-            <Lucide.MoveLeft color="red" className="inline" />
-            {t`predicted winner`}
-            <Lucide.MoveRight color="#929292" className="inline" />
-          </>
-        | false =>
-          <>
-            <Lucide.MoveLeft color="#929292" className="inline" />
-            {t`predicted winner`}
-            <Lucide.MoveRight color="red" className="inline" />
-          </>
-        }}
-      </div>
-      <div
-        className="overflow-hidden rounded-l-full bg-gray-200 mt-1 place-content-end border-r-4 border-black">
-        <FramerMotion.Div
-          className="h-2 rounded-l-full bg-red-400 float-right"
-          initial={width: "0%"}
-          animate={{width: leftOdds->Float.toFixed(~digits=3) ++ "%"}}
-        />
-      </div>
-      <div
-        className="overflow-hidden rounded-r-full bg-gray-200 mt-1 border-l-4 border-black border-l-radius">
-        <FramerMotion.Div
-          className="h-2 rounded-r-full bg-blue-400"
-          initial={width: "0%"}
-          animate={{width: rightOdds->Float.toFixed(~digits=3) ++ "%"}}
-        />
-      </div>
-    </div>
+    {
+      outcome
+      ->Option.map(outcome => {
+        let odds = (outcome.team1->Option.getOr(0.), outcome.team2->Option.getOr(0.))
+        let (leftOdds, rightOdds) = odds
+        let odds = rightOdds -. leftOdds
+        let leftOdds = odds < 0. ? Js.Math.abs_float(odds *. 100.) : 0.
+        let rightOdds = odds < 0. ? 0. : odds *. 100.
+        <div className="grid grid-cols-2 gap-0">
+          <div className="col-span-2 text-center">
+            {switch odds < 0. {
+            | true =>
+              <>
+                <Lucide.MoveLeft color="red" className="inline" />
+                {t`predicted winner`}
+                <Lucide.MoveRight color="#929292" className="inline" />
+              </>
+            | false =>
+              <>
+                <Lucide.MoveLeft color="#929292" className="inline" />
+                {t`predicted winner`}
+                <Lucide.MoveRight color="red" className="inline" />
+              </>
+            }}
+          </div>
+          <div
+            className="overflow-hidden rounded-l-full bg-gray-200 mt-1 place-content-end border-r-4 border-black">
+            <FramerMotion.Div
+              className="h-2 rounded-l-full bg-red-400 float-right"
+              initial={width: "0%"}
+              animate={{width: leftOdds->Float.toFixed(~digits=3) ++ "%"}}
+            />
+          </div>
+          <div
+            className="overflow-hidden rounded-r-full bg-gray-200 mt-1 border-l-4 border-black border-l-radius">
+            <FramerMotion.Div
+              className="h-2 rounded-r-full bg-blue-400"
+              initial={width: "0%"}
+              animate={{width: rightOdds->Float.toFixed(~digits=3) ++ "%"}}
+            />
+          </div>
+        </div>
+      })
+      ->Option.getOr(React.null)
+    }
   }
 }
 @rhf
@@ -121,7 +150,6 @@ let schema = Zod.z->Zod.object(
 external alert: string => unit = "alert"
 
 let nullFormEvent: JsxEvent.Form.t = %raw("null")
-open Rating
 type winners = Left | Right
 @react.component
 let make = (
@@ -142,24 +170,6 @@ let make = (
   let team1 = match->fst
   let team2 = match->snd
   let doublesMatch = match->DoublesMatch.fromMatch
-
-  let outcome = PredictMatchOutcome.use(
-    ~variables={
-      input: {
-        team1RatingIds: team1->Array.map(node =>
-          node.data
-          ->Option.flatMap(node => node.rating->Option.map(rating => rating.id))
-          ->Option.getOr("")
-        ),
-        team2RatingIds: team2->Array.map(node =>
-          node.data
-          ->Option.flatMap(node => node.rating->Option.map(rating => rating.id))
-          ->Option.getOr("")
-        ),
-      },
-    },
-    ~fetchPolicy=NetworkOnly
-  ).predictMatchOutcome
 
   let {register, handleSubmit, setValue} = useFormOfInputsMatch(
     ~options={
@@ -244,12 +254,13 @@ let make = (
     <div className="grid grid-cols-2 gap-4 col-span-2">
       <div className="grid gap-4">
         {team1
-        ->Array.map(player =>
+        ->Array.map(player => {
           switch player.data {
           | Some(data) =>
             data.user
             ->Option.map(user => {
               <EventRsvpUser
+                key={player.id}
                 user={user.fragmentRefs}
                 ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
               />
@@ -257,21 +268,23 @@ let make = (
             ->Option.getOr(React.null)
           | None =>
             <RsvpUser
+              key={player.id}
               user={RsvpUser.makeGuest(player.name)}
               ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
             />
           }
-        )
+        })
         ->React.array}
       </div>
       <div className="grid gap-4">
         {team2
-        ->Array.map(player =>
+        ->Array.map(player => {
           switch player.data {
           | Some(data) =>
             data.user
             ->Option.map(user => {
               <EventRsvpUser
+                key={user.id}
                 user={user.fragmentRefs}
                 ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
               />
@@ -279,17 +292,13 @@ let make = (
             ->Option.getOr(React.null)
           | None => React.null
           }
-        )
+        })
         ->React.array}
       </div>
       <div className="grid gap-0 col-span-2">
-        {outcome
-        ->Option.map(outcome =>
-          <PredictionBar
-            odds={(outcome.team1->Option.getOr(0.), outcome.team2->Option.getOr(0.))}
-          />
-        )
-        ->Option.getOr(React.null)}
+        <React.Suspense fallback={<div> {t`Loading`} </div>}>
+          <PredictionBar match />
+        </React.Suspense>
       </div>
       <div className="grid grid-cols-2 col-span-2 items-start gap-4 md:grid-cols-2 md:gap-8">
         <div className="grid grid-cols-1 gap-4">

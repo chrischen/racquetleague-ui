@@ -237,7 +237,7 @@ function find_all_match_combos(availablePlayers, priorityPlayers) {
                 quality
               ];
       });
-  if (priorityPlayers.length === 0 || priorityPlayers.length === availablePlayers.length) {
+  if (priorityPlayers.length === 0) {
     return matches;
   } else {
     return matches.filter(function (param) {
@@ -247,18 +247,8 @@ function find_all_match_combos(availablePlayers, priorityPlayers) {
 }
 
 function strategy_by_competitive(players, consumedPlayers, priorityPlayers) {
-  return Core__Array.reduce(array_split_by_n(players.toSorted(function (a, b) {
-                      var userA = a.rating.mu;
-                      var userB = b.rating.mu;
-                      if (userA < userB) {
-                        return 1;
-                      } else {
-                        return -1;
-                      }
-                    }), 8), [], (function (acc, playerSet) {
-                var matches = find_all_match_combos(playerSet.filter(function (p) {
-                            return !consumedPlayers.has(p.id);
-                          }), priorityPlayers).toSorted(function (a, b) {
+  return Core__Array.reduce(array_split_by_n(Rating.Players.sortByRatingDesc(players), 8), [], (function (acc, playerSet) {
+                var matches = find_all_match_combos(Rating.Players.filterOut(playerSet, consumedPlayers), priorityPlayers).toSorted(function (a, b) {
                       if (a[1] < b[1]) {
                         return 1;
                       } else {
@@ -279,9 +269,7 @@ function strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers)
                         return -1;
                       }
                     }), 6), [], (function (acc, playerSet) {
-                var matches = find_all_match_combos(playerSet.filter(function (p) {
-                            return !consumedPlayers.has(p.id);
-                          }), priorityPlayers).toSorted(function (a, b) {
+                var matches = find_all_match_combos(Rating.Players.filterOut(playerSet, consumedPlayers), priorityPlayers).toSorted(function (a, b) {
                       if (a[1] < b[1]) {
                         return 1;
                       } else {
@@ -320,8 +308,8 @@ function ts(prim0, prim1) {
 
 function CompMatch(props) {
   var onSelectMatch = props.onSelectMatch;
-  var consumedPlayers = props.consumedPlayers;
   var priorityPlayers = props.priorityPlayers;
+  var consumedPlayers = props.consumedPlayers;
   var players = props.players;
   var match = React.useState(function () {
         return "CompetitivePlus";
@@ -329,9 +317,6 @@ function CompMatch(props) {
   var setStrategy = match[1];
   var strategy = match[0];
   var intl = ReactIntl.useIntl();
-  var availablePlayers = players.filter(function (p) {
-        return !consumedPlayers.has(p.id);
-      });
   var strats = [
     {
       name: t`Competitive Plus`,
@@ -354,6 +339,7 @@ function CompMatch(props) {
       details: t`Totally random teams.`
     }
   ];
+  var availablePlayers = Rating.Players.filterOut(players, consumedPlayers);
   var matches;
   switch (strategy) {
     case "CompetitivePlus" :

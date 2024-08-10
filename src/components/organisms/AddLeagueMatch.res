@@ -52,6 +52,32 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 //let default = make
 
 open Rating
+type priority<'a> = {
+  prioritized: array<Player.t<'a>>,
+  deprioritized: Set.t<string>,
+}
+let getPriorityPlayers = (players: array<Player.t<'a>>, session: Session.t, break: int) => {
+  let maxCount = players->Array.reduce(0, (acc, next) => {
+    let count = (session->Session.get(next.id)).count
+    count > acc ? count : acc
+  })
+  let minCount = players->Array.reduce(maxCount, (acc, next) => {
+    let count = (session->Session.get(next.id)).count
+    count < acc ? count : acc
+  })
+
+  {
+    prioritized: players->Array.reduce([], (acc, next) => {
+      let count = (session->Session.get(next.id)).count
+      minCount != maxCount && count == minCount ? acc->Array.concat([next]) : acc
+    }),
+    deprioritized: players
+    ->Players.sortByPlayCountDesc(session)
+    ->Array.slice(~start=0, ~end=break)
+    ->Array.map(p => p.id)
+    ->Set.fromArray,
+  }
+}
 let rsvpToPlayer = (rsvp: AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node): option<
   Player.t<'a>,
 > => {
@@ -101,11 +127,13 @@ let make = (~event, ~children) => {
   let (matches: array<match>, setMatches) = React.useState(() => [])
   let (manualTeamOpen, setManualTeamOpen) = React.useState(() => false)
   let (addPlayerOpen, setAddPlayerOpen) = React.useState(() => false)
+  let (settingsOpen, setSettingsOpen) = React.useState(() => false)
   // let (activePlayers: array<Player.t<rsvpNode>>, setActivePlayers) = React.useState(_ => [])
   let (activePlayers2: Js.Set.t<string>, setActivePlayers2) = React.useState(_ => Set.make())
   let (sessionState, setSessionState) = React.useState(() => Session.make())
   let (sessionPlayers: array<Player.t<'a>>, setSessionPlayers) = React.useState(() => [])
   let (sessionMode, setSessionMode) = React.useState(() => false)
+  let (breakCount: int, setBreakCount) = React.useState(() => 0)
 
   let {data} = Fragment.usePagination(event)
   let players = switch sessionMode {
@@ -118,24 +146,28 @@ let make = (~event, ~children) => {
   }
   let activePlayers = players->Array.filter(p => activePlayers2->Set.has(p.id))
 
+  // @TODO: @HERE: consumedPlayers and deprioritized should be merged and passed
+  // to CompMatch
+  let consumedPlayers =
+    matches
+    ->Array.flatMap(match => Array.concat(match->fst, match->snd)->Array.map(p => p.id))
+    ->Set.fromArray
+
+  let availablePlayers = activePlayers->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+
+  let {prioritized: priorityPlayers, deprioritized} = getPriorityPlayers(
+    availablePlayers,
+    sessionState,
+    breakCount,
+  )
+  let breakPlayersCount = availablePlayers->Array.length
+  let availablePlayers = availablePlayers->Array.filter(p => !(deprioritized->Set.has(p.id)))
   // let (players: array<Player.t<rsvpNode>>, setPlayers) = React.useState(_ => players')
 
   let maxRating =
     players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
   let minRating =
     players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
-  let maxCount = players->Array.reduce(0, (acc, next) => {
-    let count = (sessionState->Session.get(next.id)).count
-    count > acc ? count : acc
-  })
-  let minCount = players->Array.reduce(0, (acc, next) => {
-    let count = (sessionState->Session.get(next.id)).count
-    count < acc ? count : acc
-  })
-  let priorityPlayers = activePlayers->Array.reduce([], (acc, next) => {
-    let count = (sessionState->Session.get(next.id)).count
-    minCount != maxCount && count == minCount ? acc->Array.concat([next]) : acc
-  })
 
   let queueMatch = match => {
     let matches = matches->Array.concat([match])
@@ -146,11 +178,6 @@ let make = (~event, ~children) => {
     let matches = matches->Array.filterWithIndex((_, i) => i != index)
     setMatches(_ => matches)
   }
-  let consumedPlayers =
-    matches
-    ->Array.flatMap(match => Array.concat(match->fst, match->snd)->Array.map(p => p.id))
-    ->Set.fromArray
-
   let updatePlayCounts = (match: match) =>
     setSessionState(prevState => {
       [match->fst, match->snd]
@@ -168,6 +195,7 @@ let make = (~event, ~children) => {
       ->Array.concat(sessionPlayers)
     setSessionPlayers(_ => players)
   }
+
   let uninitializeSessionMode = () => {
     setSessionPlayers(_ => players->Array.filter(p => p.data->Option.isNone))
   }
@@ -208,16 +236,25 @@ let make = (~event, ~children) => {
         </div>
         <div className="">
           <h2 className="text-2xl font-semibold text-gray-900"> {t`Players`} </h2>
-          <UiAction
-            onClick={() =>
-              setActivePlayers2(_ => {
-                players->Array.map(p => p.id)->Set.fromArray
-              })}>
-            {t`select all`}
-          </UiAction>
-          <UiAction className="float-right" onClick={() => setAddPlayerOpen(prev => !prev)}>
-            {t`Add Player`}
-          </UiAction>
+          <div className="flex text-right">
+            <UiAction
+              onClick={() =>
+                setActivePlayers2(_ => {
+                  players->Array.map(p => p.id)->Set.fromArray
+                })}>
+              {t`select all`}
+            </UiAction>
+            <UiAction className="ml-auto" onClick={() => setAddPlayerOpen(prev => !prev)}>
+              {addPlayerOpen
+                ? <HeroIcons.UserPlus className="h-8 w-8" />
+                : <HeroIcons.UserPlusOutline className="h-8 w-8" />}
+            </UiAction>
+            <UiAction className="mr-2" onClick={() => setSettingsOpen(prev => !prev)}>
+              {settingsOpen
+                ? <HeroIcons.Cog6Tooth className="h-8 w-8" />
+                : <HeroIcons.Cog6ToothOutline className="h-8 w-8" />}
+            </UiAction>
+          </div>
           {addPlayerOpen
             ? <SessionAddPlayer
                 eventId
@@ -227,7 +264,16 @@ let make = (~event, ~children) => {
                   })
                   setAddPlayerOpen(_ => false)
                 }}
-                onCancel={_ => setAddPlayerOpen(_ => false)}
+              />
+            : React.null}
+          {settingsOpen
+            ? <SessionEvenPlayMode
+                breakCount
+                breakPlayersCount
+                onChangeBreakCount={numberOnBreak => {
+                  setBreakCount(_ => numberOnBreak)
+                  setSettingsOpen(_ => false)
+                }}
               />
             : React.null}
           <SelectPlayersList
@@ -258,7 +304,11 @@ let make = (~event, ~children) => {
           <h2 className="text-2xl font-semibold text-gray-900"> {t`Matchmaking`} </h2>
           <CompMatch
             players={(activePlayers :> array<Player.t<'a>>)}
-            consumedPlayers={consumedPlayers}
+            consumedPlayers={consumedPlayers
+            ->Set.values
+            ->Array.fromIterator
+            ->Array.concat(deprioritized->Set.values->Array.fromIterator)
+            ->Set.fromArray}
             priorityPlayers
             onSelectMatch={match => {
               // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
@@ -294,8 +344,8 @@ let make = (~event, ~children) => {
           ->Option.map(activity =>
             matches
             ->Array.mapWithIndex((match, i) =>
-              <React.Suspense fallback={<div> {t`Loading`} </div>}>
                 <SubmitMatch
+                  key={i->Int.toString}
                   match
                   minRating
                   maxRating
@@ -313,7 +363,6 @@ let make = (~event, ~children) => {
                     updateSessionPlayerRatings(match->Array.flatMap(x => x))
                   }}
                 />
-              </React.Suspense>
             )
             ->React.array
           )

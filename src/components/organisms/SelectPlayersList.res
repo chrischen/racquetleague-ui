@@ -14,13 +14,10 @@ let make = (
 ) => {
   let (sort, setSort) = React.useState(() => Rating)
 
-  let players = players->Array.toSorted((a, b) =>
-    switch sort {
-    | MatchCount =>
-      (session->Session.get(a.id)).count < (session->Session.get(b.id)).count ? -1. : 1.
-    | Rating => a.ratingOrdinal < b.ratingOrdinal ? 1. : -1.
-    }
-  )
+  let players = switch sort {
+  | MatchCount => players->Players.sortByPlayCountAsc(session)
+  | Rating => players->Players.sortByOrdinalDesc
+  }
   <FramerMotion.Div className="bg-gray-100">
     <table className="mt-6 w-full whitespace-nowrap text-left">
       <colgroup>
@@ -91,9 +88,7 @@ let make = (
                       ->Option.flatMap(data =>
                         data.user->Option.map(
                           user => {
-                            <EventRsvpUser
-                              user={user.fragmentRefs}
-                            />
+                            <EventRsvpUser user={user.fragmentRefs} />
                           },
                         )
                       )
