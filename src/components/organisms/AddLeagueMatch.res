@@ -160,9 +160,19 @@ let make = (~event, ~children) => {
     sessionState,
     breakCount,
   )
+
+    
   let breakPlayersCount = availablePlayers->Array.length
   let availablePlayers = availablePlayers->Array.filter(p => !(deprioritized->Set.has(p.id)))
   // let (players: array<Player.t<rsvpNode>>, setPlayers) = React.useState(_ => players')
+
+  // These players should be avoided in the same match
+  let incompatiblePlayers = [
+      "User_7e5631a2-53a9-11ef-b5a9-2b281b5a76b0",
+      "User_55448d42-0843-11ef-8202-7b71b4052443",
+    ]->Set.fromArray
+  let avoidAllPlayers =
+    availablePlayers->Array.filter(p => incompatiblePlayers->Set.has(p.id))
 
   let maxRating =
     players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
@@ -310,6 +320,7 @@ let make = (~event, ~children) => {
             ->Array.concat(deprioritized->Set.values->Array.fromIterator)
             ->Set.fromArray}
             priorityPlayers
+            avoidAllPlayers
             onSelectMatch={match => {
               // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
               queueMatch(match)
@@ -344,25 +355,25 @@ let make = (~event, ~children) => {
           ->Option.map(activity =>
             matches
             ->Array.mapWithIndex((match, i) =>
-                <SubmitMatch
-                  key={i->Int.toString}
-                  match
-                  minRating
-                  maxRating
-                  activity
-                  // onSubmitted={() => {
-                  // updatePlayCounts(match)
-                  // dequeueMatch(i)
-                  // }}
-                  onDelete={() => dequeueMatch(i)}
-                  onComplete={match => {
-                    updatePlayCounts(match)
-                    dequeueMatch(i)
+              <SubmitMatch
+                key={i->Int.toString}
+                match
+                minRating
+                maxRating
+                activity
+                // onSubmitted={() => {
+                // updatePlayCounts(match)
+                // dequeueMatch(i)
+                // }}
+                onDelete={() => dequeueMatch(i)}
+                onComplete={match => {
+                  updatePlayCounts(match)
+                  dequeueMatch(i)
 
-                    let match = match->Match.rate
-                    updateSessionPlayerRatings(match->Array.flatMap(x => x))
-                  }}
-                />
+                  let match = match->Match.rate
+                  updateSessionPlayerRatings(match->Array.flatMap(x => x))
+                }}
+              />
             )
             ->React.array
           )

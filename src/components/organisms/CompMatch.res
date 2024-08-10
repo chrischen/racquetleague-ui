@@ -126,7 +126,7 @@ type matchmakingResult<'a> = {
   // seenTeams: array<Team.t<'a>>,
   matches: array<Match.t<'a>>,
 }
-let find_all_match_combos = (availablePlayers, priorityPlayers) => {
+let find_all_match_combos = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
   let teams = availablePlayers->array_combos->Array.map(tuple2array)
   let result = teams->Array.reduce({seenTeams: [], matches: []}, ({seenTeams, matches}, team) => {
     let players' = availablePlayers->Array.filter(p => !(team->Team.contains_player(p)))
@@ -146,15 +146,21 @@ let find_all_match_combos = (availablePlayers, priorityPlayers) => {
     let quality = match->match_quality
     (match, quality)
   })
-  priorityPlayers->Array.length == 0
-    ? matches
-    : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
+  let results =
+    priorityPlayers->Array.length == 0
+      ? matches
+      : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
+
+  avoidAllPlayers->Array.length < 2
+    ? results
+    : matches->Array.filter(((match, _)) => !(match->Match.contains_all_players(avoidAllPlayers)))
 }
 
 let strategy_by_competitive = (
   players: array<Player.t<'a>>,
   consumedPlayers: Set.t<string>,
   priorityPlayers: array<Player.t<'a>>,
+  avoidAllPlayers: array<Player.t<'a>>,
 ) => {
   players
   ->Players.sortByRatingDesc
@@ -163,7 +169,7 @@ let strategy_by_competitive = (
     let matches =
       playerSet
       ->Players.filterOut(consumedPlayers)
-      ->find_all_match_combos(priorityPlayers)
+      ->find_all_match_combos(priorityPlayers, avoidAllPlayers)
       ->Array.toSorted((a, b) => {
         let (_, qualityA) = a
         let (_, qualityB) = b
@@ -176,6 +182,7 @@ let strategy_by_competitive_plus = (
   players: array<Player.t<'a>>,
   consumedPlayers: Set.t<string>,
   priorityPlayers: array<Player.t<'a>>,
+  avoidAllPlayers: array<Player.t<'a>>,
 ) => {
   players
   ->Array.toSorted((a, b) => {
@@ -188,7 +195,7 @@ let strategy_by_competitive_plus = (
     let matches =
       playerSet
       ->Players.filterOut(consumedPlayers)
-      ->find_all_match_combos(priorityPlayers)
+      ->find_all_match_combos(priorityPlayers, avoidAllPlayers)
       ->Array.toSorted((a, b) => {
         let (_, qualityA) = a
         let (_, qualityB) = b
@@ -198,21 +205,24 @@ let strategy_by_competitive_plus = (
   })
 }
 
-let strategy_by_mixed = (availablePlayers, priorityPlayers) => {
-  find_all_match_combos(availablePlayers, priorityPlayers)->Array.toSorted((a, b) => {
+let strategy_by_mixed = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
+  find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers)->Array.toSorted((
+    a,
+    b,
+  ) => {
     let (_, qualityA) = a
     let (_, qualityB) = b
     qualityA < qualityB ? 1. : -1.
   })
 }
 
-let strategy_by_round_robin = (availablePlayers, priorityPlayers) => {
-  let matches = find_all_match_combos(availablePlayers, priorityPlayers)
+let strategy_by_round_robin = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers)
   matches
 }
 
-let strategy_by_random = (availablePlayers, priorityPlayers) => {
-  let matches = find_all_match_combos(availablePlayers, priorityPlayers)
+let strategy_by_random = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers)
   matches->shuffle
 }
 
@@ -225,6 +235,7 @@ let make = (
   ~players: array<Player.t<'a>>,
   ~consumedPlayers: Set.t<string>,
   ~priorityPlayers: array<Player.t<'a>>,
+  ~avoidAllPlayers: array<Player.t<'a>>,
   ~onSelectMatch: option<Match.t<'a> => unit>=?,
 ) => {
   let (strategy, setStrategy) = React.useState(() => CompetitivePlus)
@@ -250,11 +261,13 @@ let make = (
   ]
   let availablePlayers = players->Players.filterOut(consumedPlayers)
   let matches = switch strategy {
-  | Mixed => strategy_by_mixed(availablePlayers, priorityPlayers)
-  | RoundRobin => strategy_by_round_robin(availablePlayers, priorityPlayers)
-  | Random => strategy_by_random(availablePlayers, priorityPlayers)
-  | Competitive => strategy_by_competitive(players, consumedPlayers, priorityPlayers)
-  | CompetitivePlus => strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers)
+  | Mixed => strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers)
+  | RoundRobin => strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers)
+  | Random => strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers)
+  | Competitive =>
+    strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers)
+  | CompetitivePlus =>
+    strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers)
   }
   let matchesCount = matches->Array.length
   let matches = matches->Array.slice(~start=0, ~end=15)

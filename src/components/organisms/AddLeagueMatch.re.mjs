@@ -229,8 +229,15 @@ function AddLeagueMatch(props) {
   var match$11 = getPriorityPlayers(availablePlayers, sessionState, breakCount);
   var deprioritized = match$11.deprioritized;
   var breakPlayersCount = availablePlayers.length;
-  availablePlayers.filter(function (p) {
+  var availablePlayers$1 = availablePlayers.filter(function (p) {
         return !deprioritized.has(p.id);
+      });
+  var incompatiblePlayers = new Set([
+        "User_7e5631a2-53a9-11ef-b5a9-2b281b5a76b0",
+        "User_55448d42-0843-11ef-8202-7b71b4052443"
+      ]);
+  var avoidAllPlayers = availablePlayers$1.filter(function (p) {
+        return incompatiblePlayers.has(p.id);
       });
   var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
           if (next.rating.mu > acc) {
@@ -455,6 +462,7 @@ function AddLeagueMatch(props) {
                                                 players: activePlayers,
                                                 consumedPlayers: new Set(Array.from(consumedPlayers.values()).concat(Array.from(deprioritized.values()))),
                                                 priorityPlayers: match$11.prioritized,
+                                                avoidAllPlayers: avoidAllPlayers,
                                                 onSelectMatch: (function (match) {
                                                     queueMatch(match);
                                                   })

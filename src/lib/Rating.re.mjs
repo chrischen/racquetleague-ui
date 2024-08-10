@@ -105,6 +105,23 @@ function contains_any_players(param, players) {
   return match_players.intersection(players$1).size > 0;
 }
 
+function contains_all_players(param, players) {
+  var players$1 = new Set(players.map(function (p) {
+            return p.id;
+          }));
+  var match_players = new Set([
+            param[0],
+            param[1]
+          ].map(function (t) {
+              return t.map(function (p) {
+                          return p.id;
+                        });
+            }).flatMap(function (x) {
+            return x;
+          }));
+  return players$1.intersection(match_players).size === players$1.size;
+}
+
 function rate(param) {
   var losers = param[1];
   var winners = param[0];
@@ -136,6 +153,7 @@ function rate(param) {
 var Match = {
   contains_player: contains_player$1,
   contains_any_players: contains_any_players,
+  contains_all_players: contains_all_players,
   rate: rate
 };
 

@@ -96,6 +96,15 @@ module Match = {
 
     match_players->intersection(players)->Set.size > 0
   }
+
+  let contains_all_players = ((t1, t2): t<'a>, players: array<Player.t<'a>>) => {
+    let players = players->Array.map(p => p.id)->Set.fromArray
+    let match_players =
+      [t1, t2]->Array.map(t => t->Array.map(p => p.id))->Array.flatMap(x => x)->Set.fromArray
+
+    players->intersection(match_players)->Set.size == players->Set.size
+  }
+
   let rate = ((winners, losers)) => {
     Rating.rate(
       ~ratings=[winners, losers]->Array.map(Array.map(_, (player: Player.t<'a>) => player.rating)),
