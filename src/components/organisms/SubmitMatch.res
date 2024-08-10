@@ -54,9 +54,7 @@ module CreateLeagueMatchMutation = %relay(`
 open Rating
 module PredictionBar = {
   @react.component
-  let make = (
-    ~match: Match.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>,
-  ) => {
+  let make = (~match: Match.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>) => {
     let team1 = match->fst
     let team2 = match->snd
     let outcome = PredictMatchOutcome.use(
@@ -179,6 +177,15 @@ let make = (
   )
   let (submitting, setSubmitting) = React.useState(() => false)
 
+  let handleWinner = (winningSide: winners) => {
+    onComplete
+    ->Option.map(f => {
+      let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
+      f(match)
+    })
+    ->ignore
+  }
+
   let onSubmit = (rated: bool, data: inputsMatch) => {
     setSubmitting(_ => true)
     switch data.scoreLeft == data.scoreRight {
@@ -247,7 +254,11 @@ let make = (
             ()
           })
           ->ignore
-        : ()
+        : {
+            setValue(ScoreLeft, Value(0.))
+            setValue(ScoreRight, Value(0.))
+            setSubmitting(_ => false)
+          }
     }
   }
   <form onSubmit={handleSubmit(onSubmit(true, ...))}>
@@ -303,6 +314,24 @@ let make = (
       <div className="grid grid-cols-2 col-span-2 items-start gap-4 md:grid-cols-2 md:gap-8">
         <div className="grid grid-cols-1 gap-4">
           <div className="mx-auto col-span-1">
+            <UiAction
+              onClick={() => handleWinner(Left)}
+              className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+              {t`Winner`}
+            </UiAction>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-4">
+          <div className="mx-auto col-span-1">
+            <UiAction
+              onClick={() => handleWinner(Right)}
+              className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+              {t`Winner`}
+            </UiAction>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-4">
+          <div className="mx-auto col-span-1">
             <Input
               className="w-24 sm:w-32 md:w-48  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
               label={t`points`}
@@ -337,22 +366,6 @@ let make = (
         </div>
         <div className="col-span-2 md:col-span-2 gap-4">
           <div className="mt-3 flex md:top-3 md:mt-0 justify-center">
-            {onDelete
-            ->Option.map(onDelete =>
-              <UiAction className="inline-flex items-center" onClick=onDelete>
-                {t`Cancel`}
-              </UiAction>
-            )
-            ->Option.getOr(React.null)}
-            {onComplete
-            ->Option.map(onComplete =>
-              <UiAction
-                className="ml-3 inline-flex items-center"
-                onClick={_ => handleSubmit(onSubmit(false, ...))(nullFormEvent)}>
-                {t`Completed`}
-              </UiAction>
-            )
-            ->Option.getOr(React.null)}
             {doublesMatch
             ->Result.flatMap((((p1, p2), (p3, p4))) =>
               switch (p1.data, p2.data, p3.data, p4.data) {
@@ -369,6 +382,15 @@ let make = (
               }
             )
             ->Result.getOr(React.null)}
+            {onDelete
+            ->Option.map(onDelete =>
+              <UiAction
+                className="ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
+                onClick=onDelete>
+                {t`Cancel`}
+              </UiAction>
+            )
+            ->Option.getOr(React.null)}
           </div>
         </div>
       </div>

@@ -211,39 +211,13 @@ function SubmitMatch(props) {
         defaultValues: {}
       });
   var setValue = match$2.setValue;
-  var handleSubmit = match$2.handleSubmit;
   var register = match$2.register;
   var match$3 = React.useState(function () {
         return false;
       });
   var setSubmitting = match$3[1];
   var submitting = match$3[0];
-  var onSubmit = function (rated, data) {
-    setSubmitting(function (param) {
-          return true;
-        });
-    if (data.scoreLeft === data.scoreRight) {
-      alert("No ties allowed");
-      return ;
-    }
-    var winningSide = data.scoreLeft > data.scoreRight ? "Left" : "Right";
-    var winners = (
-        winningSide === "Left" ? team1 : team2
-      ).map(function (p) {
-          return p.id;
-        });
-    var losers = (
-        winningSide === "Left" ? team2 : team1
-      ).map(function (p) {
-          return p.id;
-        });
-    var score = winningSide === "Left" ? [
-        data.scoreLeft,
-        data.scoreRight
-      ] : [
-        data.scoreRight,
-        data.scoreLeft
-      ];
+  var handleWinner = function (winningSide) {
     Core__Option.map(onComplete, (function (f) {
             var match_0 = winningSide === "Left" ? team1 : team2;
             var match_1 = winningSide === "Left" ? team2 : team1;
@@ -253,50 +227,6 @@ function SubmitMatch(props) {
             ];
             f(match);
           }));
-    if (rated) {
-      Core__Option.map(activity.slug, (function (slug) {
-              var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
-                    activitySlug: slug,
-                    after: undefined,
-                    before: undefined,
-                    eventId: undefined,
-                    first: undefined,
-                    namespace: "doubles:rec"
-                  });
-              commitMutationCreateLeagueMatch({
-                    connections: [connectionId],
-                    matchInput: {
-                      activitySlug: slug,
-                      doublesMatch: {
-                        createdAt: Util.Datetime.fromDate(new Date()),
-                        losers: losers,
-                        score: score,
-                        winners: winners
-                      },
-                      namespace: "doubles:rec"
-                    }
-                  }, undefined, undefined, undefined, (function (param, errs) {
-                      if (errs !== undefined) {
-                        console.log(errs);
-                      } else {
-                        Core__Option.getOr(Core__Option.map(onSubmitted, (function (f) {
-                                    f();
-                                  })), undefined);
-                      }
-                      setSubmitting(function (param) {
-                            return false;
-                          });
-                    }), (function (param) {
-                      setSubmitting(function (param) {
-                            return false;
-                          });
-                    }), undefined);
-              setValue("scoreLeft", 0, undefined);
-              setValue("scoreRight", 0, undefined);
-            }));
-      return ;
-    }
-    
   };
   return JsxRuntime.jsx("form", {
               children: JsxRuntime.jsxs("div", {
@@ -351,6 +281,32 @@ function SubmitMatch(props) {
                             children: [
                               JsxRuntime.jsx("div", {
                                     children: JsxRuntime.jsx("div", {
+                                          children: JsxRuntime.jsx(UiAction.make, {
+                                                onClick: (function () {
+                                                    handleWinner("Left");
+                                                  }),
+                                                className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
+                                                children: t`Winner`
+                                              }),
+                                          className: "mx-auto col-span-1"
+                                        }),
+                                    className: "grid grid-cols-1 gap-4"
+                                  }),
+                              JsxRuntime.jsx("div", {
+                                    children: JsxRuntime.jsx("div", {
+                                          children: JsxRuntime.jsx(UiAction.make, {
+                                                onClick: (function () {
+                                                    handleWinner("Right");
+                                                  }),
+                                                className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
+                                                children: t`Winner`
+                                              }),
+                                          className: "mx-auto col-span-1"
+                                        }),
+                                    className: "grid grid-cols-1 gap-4"
+                                  }),
+                              JsxRuntime.jsx("div", {
+                                    children: JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(Form.Input.make, {
                                                 label: t`points`,
                                                 className: "w-24 sm:w-32 md:w-48  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6",
@@ -378,24 +334,6 @@ function SubmitMatch(props) {
                               JsxRuntime.jsx("div", {
                                     children: JsxRuntime.jsxs("div", {
                                           children: [
-                                            Core__Option.getOr(Core__Option.map(props.onDelete, (function (onDelete) {
-                                                        return JsxRuntime.jsx(UiAction.make, {
-                                                                    onClick: onDelete,
-                                                                    className: "inline-flex items-center",
-                                                                    children: t`Cancel`
-                                                                  });
-                                                      })), null),
-                                            Core__Option.getOr(Core__Option.map(onComplete, (function (onComplete) {
-                                                        return JsxRuntime.jsx(UiAction.make, {
-                                                                    onClick: (function () {
-                                                                        handleSubmit(function (extra) {
-                                                                                return onSubmit(false, extra);
-                                                                              })(nullFormEvent);
-                                                                      }),
-                                                                    className: "ml-3 inline-flex items-center",
-                                                                    children: t`Completed`
-                                                                  });
-                                                      })), null),
                                             Core__Result.getOr(Core__Result.flatMap(doublesMatch, (function (param) {
                                                         var match = param[1];
                                                         var match$1 = param[0];
@@ -419,6 +357,13 @@ function SubmitMatch(props) {
                                                                   _0: "TwoPlayersRequired"
                                                                 };
                                                         }
+                                                      })), null),
+                                            Core__Option.getOr(Core__Option.map(props.onDelete, (function (onDelete) {
+                                                        return JsxRuntime.jsx(UiAction.make, {
+                                                                    onClick: onDelete,
+                                                                    className: "ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
+                                                                    children: t`Cancel`
+                                                                  });
                                                       })), null)
                                           ],
                                           className: "mt-3 flex md:top-3 md:mt-0 justify-center"
@@ -431,8 +376,91 @@ function SubmitMatch(props) {
                     ],
                     className: "grid grid-cols-2 gap-4 col-span-2"
                   }),
-              onSubmit: handleSubmit(function (extra) {
-                    return onSubmit(true, extra);
+              onSubmit: match$2.handleSubmit(function (extra) {
+                    var rated = true;
+                    setSubmitting(function (param) {
+                          return true;
+                        });
+                    if (extra.scoreLeft === extra.scoreRight) {
+                      alert("No ties allowed");
+                      return ;
+                    }
+                    var winningSide = extra.scoreLeft > extra.scoreRight ? "Left" : "Right";
+                    var winners = (
+                        winningSide === "Left" ? team1 : team2
+                      ).map(function (p) {
+                          return p.id;
+                        });
+                    var losers = (
+                        winningSide === "Left" ? team2 : team1
+                      ).map(function (p) {
+                          return p.id;
+                        });
+                    var score = winningSide === "Left" ? [
+                        extra.scoreLeft,
+                        extra.scoreRight
+                      ] : [
+                        extra.scoreRight,
+                        extra.scoreLeft
+                      ];
+                    Core__Option.map(onComplete, (function (f) {
+                            var match_0 = winningSide === "Left" ? team1 : team2;
+                            var match_1 = winningSide === "Left" ? team2 : team1;
+                            var match = [
+                              match_0,
+                              match_1
+                            ];
+                            f(match);
+                          }));
+                    if (rated) {
+                      Core__Option.map(activity.slug, (function (slug) {
+                              var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
+                                    activitySlug: slug,
+                                    after: undefined,
+                                    before: undefined,
+                                    eventId: undefined,
+                                    first: undefined,
+                                    namespace: "doubles:rec"
+                                  });
+                              commitMutationCreateLeagueMatch({
+                                    connections: [connectionId],
+                                    matchInput: {
+                                      activitySlug: slug,
+                                      doublesMatch: {
+                                        createdAt: Util.Datetime.fromDate(new Date()),
+                                        losers: losers,
+                                        score: score,
+                                        winners: winners
+                                      },
+                                      namespace: "doubles:rec"
+                                    }
+                                  }, undefined, undefined, undefined, (function (param, errs) {
+                                      if (errs !== undefined) {
+                                        console.log(errs);
+                                      } else {
+                                        Core__Option.getOr(Core__Option.map(onSubmitted, (function (f) {
+                                                    f();
+                                                  })), undefined);
+                                      }
+                                      setSubmitting(function (param) {
+                                            return false;
+                                          });
+                                    }), (function (param) {
+                                      setSubmitting(function (param) {
+                                            return false;
+                                          });
+                                    }), undefined);
+                              setValue("scoreLeft", 0, undefined);
+                              setValue("scoreRight", 0, undefined);
+                            }));
+                      return ;
+                    } else {
+                      setValue("scoreLeft", 0, undefined);
+                      setValue("scoreRight", 0, undefined);
+                      return setSubmitting(function (param) {
+                                  return false;
+                                });
+                    }
                   })
             });
 }
