@@ -132,7 +132,7 @@ function SelectMatch$SelectEventPlayersList(props) {
                                                     var match = maxRating - minRating;
                                                     var percent = match !== 0 ? (player.rating.mu - minRating) / (maxRating - minRating) * 100 : 0;
                                                     return JsxRuntime.jsxs(FramerMotion.motion.li, {
-                                                                className: "mt-4 flex w-full flex-none gap-x-4 px-6",
+                                                                className: "mt-4 flex w-full flex-none gap-x-4",
                                                                 style: {
                                                                   originX: 0.05,
                                                                   originY: 0.05
@@ -199,7 +199,7 @@ function SelectMatch$SelectEventPlayersList(props) {
                                     }))
                           })
                     ],
-                    className: "mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4"
+                    className: "mt-4 gap-x-4 border-t border-gray-900/5 px-6 py-4"
                   }),
               className: "rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5"
             });

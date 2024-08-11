@@ -56,6 +56,78 @@ type priority<'a> = {
   prioritized: array<Player.t<'a>>,
   deprioritized: Set.t<string>,
 }
+open Util
+module TeamListItem = {
+  @react.component
+  let make = (~id: int, ~team: array<Player.t<'a>>, ~onDelete: int => unit) => {
+    <>
+      <div className="text-xl">
+        <UiAction onClick={_ => onDelete(id)}>
+          <HeroIcons.XMarkIcon className="h-8 w-8 inline" />
+        </UiAction>
+        {t`Team ${id->Int.toString}`}
+      </div>
+      {team
+      ->Array.map(player => <CompMatch.PlayerMini player />)
+      ->React.array}
+    </>
+  }
+}
+module TeamsList = {
+  @react.component
+  let make = (~teams: NonEmptyArray.t<array<Player.t<'a>>>, ~onDelete: int => unit) => {
+    <ul>
+      {teams
+      ->NonEmptyArray.mapWithIndex((team, i) => {
+        <li key={i->Int.toString}>
+          <TeamListItem id={i + 1} team onDelete={_ => onDelete(i)} />
+        </li>
+      })
+      ->NonEmptyArray.toArray
+      ->React.array}
+    </ul>
+  }
+}
+module TeamSelector = {
+  @react.component
+  let make = (~players: array<Player.t<'a>>, ~onTeamCreate, ~teamPlayers) => {
+    let maxRating =
+      players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
+    let minRating =
+      players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+
+    let (members: array<Player.t<'a>>, setMembers) = React.useState(() => [])
+    let onSelectPlayer = (player: Player.t<'a>) => {
+      setMembers(_ => {
+        let removed = members->Array.filter(p => p.id != player.id)
+        switch removed->Array.length < members->Array.length {
+        | true => removed
+        | false => members->Array.concat([player])
+        }
+      })
+    }
+    <>
+      <SelectMatch.SelectEventPlayersList
+        players selected=members maxRating minRating onSelectPlayer disabled={teamPlayers}
+      />
+      <div className="mt-6 flex items-center justify-end gap-x-6">
+        <UiAction
+          onClick={() => {
+            switch members->Array.length {
+            | 1
+            | 0 => ()
+            | _ =>
+              onTeamCreate(members)
+              setMembers(_ => [])
+            }
+          }}
+          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          {t`Create Team`}
+        </UiAction>
+      </div>
+    </>
+  }
+}
 let getPriorityPlayers = (players: array<Player.t<'a>>, session: Session.t, break: int) => {
   let maxCount = players->Array.reduce(0, (acc, next) => {
     let count = (session->Session.get(next.id)).count
@@ -66,14 +138,39 @@ let getPriorityPlayers = (players: array<Player.t<'a>>, session: Session.t, brea
     count < acc ? count : acc
   })
 
+  // We find the n most played players, and extend to all players who have the
+  // same play count as the least played of this group
+  // let (breakPlayers, breakPool, _) =
+  //   players
+  //   ->Players.sortByPlayCountDesc(session)
+  //   ->Array.reduce(([], [], maxCount), ((breakPlayers, breakPool, maxCount), next) => {
+  //     let count = (session->Session.get(next.id)).count
+  //     let (breakPlayers, breakPool) = switch breakPlayers->Array.concat(breakPool)->Array.length <
+  //       break {
+  //     | true => (breakPlayers->Array.concat([next]), breakPool)
+  //     | false => count == maxCount ? (breakPlayers->Array.concat([next]), breakPool) : (breakPlayers, breakPool)
+  //     }
+  //
+  //     (breakPlayers, breakPool, count < maxCount ? count : maxCount)
+  //   })
+
+  let breakPlayers =
+    players
+    ->Array.filter(p => {
+      let count = (session->Session.get(p.id)).count
+      count == maxCount && count != minCount
+    })
+    ->Players.sortByPlayCountDesc(session)
+    ->Array.slice(~start=0, ~end=break)
+
+  // let lowestBreakPlayerCount =
+  // breakPlayers->Array.last->Option.map(p => (session->Session.get(p.id)).count)->Option.getOr(0)
   {
     prioritized: players->Array.reduce([], (acc, next) => {
       let count = (session->Session.get(next.id)).count
       minCount != maxCount && count == minCount ? acc->Array.concat([next]) : acc
     }),
-    deprioritized: players
-    ->Players.sortByPlayCountDesc(session)
-    ->Array.slice(~start=0, ~end=break)
+    deprioritized: breakPlayers
     ->Array.map(p => p.id)
     ->Set.fromArray,
   }
@@ -121,13 +218,16 @@ let removeGuestPlayer = (sessionPlayers: array<Player.t<'a>>, player: Player.t<'
   sessionPlayers->Array.filter(p => p.id != player.id)
 }
 
+type playerSettings = TeamBuilder | AddPlayer | Settings
 @genType @react.component
 let make = (~event, ~children) => {
   let {__id, id: eventId, activity} = Fragment.use(event)
   let (matches: array<match>, setMatches) = React.useState(() => [])
   let (manualTeamOpen, setManualTeamOpen) = React.useState(() => false)
-  let (addPlayerOpen, setAddPlayerOpen) = React.useState(() => false)
-  let (settingsOpen, setSettingsOpen) = React.useState(() => false)
+  let (teams: NonEmptyArray.t<array<Player.t<'a>>>, setTeams) = React.useState(() =>
+    NonEmptyArray.empty
+  )
+  let (settingsPane: option<playerSettings>, setSettingsPane) = React.useState(() => None)
   // let (activePlayers: array<Player.t<rsvpNode>>, setActivePlayers) = React.useState(_ => [])
   let (activePlayers2: Js.Set.t<string>, setActivePlayers2) = React.useState(_ => Set.make())
   let (sessionState, setSessionState) = React.useState(() => Session.make())
@@ -161,18 +261,17 @@ let make = (~event, ~children) => {
     breakCount,
   )
 
-    
-  let breakPlayersCount = availablePlayers->Array.length
+  let breakPlayersCount = consumedPlayers->Set.size > 0 ? availablePlayers->Array.length : 0
   let availablePlayers = availablePlayers->Array.filter(p => !(deprioritized->Set.has(p.id)))
   // let (players: array<Player.t<rsvpNode>>, setPlayers) = React.useState(_ => players')
 
   // These players should be avoided in the same match
-  let incompatiblePlayers = [
+  let incompatiblePlayers =
+    [
       "User_7e5631a2-53a9-11ef-b5a9-2b281b5a76b0",
       "User_55448d42-0843-11ef-8202-7b71b4052443",
     ]->Set.fromArray
-  let avoidAllPlayers =
-    availablePlayers->Array.filter(p => incompatiblePlayers->Set.has(p.id))
+  let avoidAllPlayers = availablePlayers->Array.filter(p => incompatiblePlayers->Set.has(p.id))
 
   let maxRating =
     players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
@@ -221,6 +320,19 @@ let make = (~event, ~children) => {
       })
     })
   }
+  let breakPlayersDesc = Lingui.UtilString.plural(
+    breakPlayersCount,
+    {one: "player", other: "players"},
+  )
+
+  let createTeam = (team: array<Player.t<'a>>) => {
+    setTeams(teams => {
+      teams->NonEmptyArray.concat(NonEmptyArray.pure(team))
+    })
+  }
+  let onDeleteTeam = (i: int) => {
+    setTeams(teams => teams->NonEmptyArray.filterWithIndex((_, i') => i' != i))
+  }
   <>
     <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-1 md:gap-8">
       <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8">
@@ -254,38 +366,68 @@ let make = (~event, ~children) => {
                 })}>
               {t`select all`}
             </UiAction>
-            <UiAction className="ml-auto" onClick={() => setAddPlayerOpen(prev => !prev)}>
-              {addPlayerOpen
+            <UiAction
+              className="ml-auto"
+              onClick={() =>
+                setSettingsPane(prev => prev == Some(TeamBuilder) ? None : Some(TeamBuilder))}>
+              {settingsPane == Some(TeamBuilder)
+                ? <HeroIcons.Users className="h-8 w-8" />
+                : <HeroIcons.UsersOutline className="h-8 w-8" />}
+            </UiAction>
+            <UiAction
+              className="ml-2"
+              onClick={() =>
+                setSettingsPane(prev => prev == Some(AddPlayer) ? None : Some(AddPlayer))}>
+              {settingsPane == Some(AddPlayer)
                 ? <HeroIcons.UserPlus className="h-8 w-8" />
                 : <HeroIcons.UserPlusOutline className="h-8 w-8" />}
             </UiAction>
-            <UiAction className="mr-2" onClick={() => setSettingsOpen(prev => !prev)}>
-              {settingsOpen
+            <UiAction
+              className="ml-2"
+              onClick={() =>
+                setSettingsPane(prev => prev == Some(Settings) ? None : Some(Settings))}>
+              {settingsPane == Some(Settings)
                 ? <HeroIcons.Cog6Tooth className="h-8 w-8" />
                 : <HeroIcons.Cog6ToothOutline className="h-8 w-8" />}
             </UiAction>
           </div>
-          {addPlayerOpen
-            ? <SessionAddPlayer
-                eventId
-                onPlayerAdd={player => {
-                  setSessionPlayers(guests => {
-                    guests->addGuestPlayer(player->SessionAddPlayer.toRatingPlayer)
-                  })
-                  setAddPlayerOpen(_ => false)
-                }}
+          {switch settingsPane {
+          | Some(TeamBuilder) =>
+            <>
+              <p className="mt-2 text-base leading-7 text-gray-600">
+                {t`Players in teams will always be placed in a match together on the same side.`}
+              </p>
+              <TeamsList teams onDelete=onDeleteTeam />
+              <TeamSelector
+                players=activePlayers
+                onTeamCreate=createTeam
+                teamPlayers={teams
+                ->NonEmptyArray.toArray
+                ->Array.flatMap(x => x)}
               />
-            : React.null}
-          {settingsOpen
-            ? <SessionEvenPlayMode
-                breakCount
-                breakPlayersCount
-                onChangeBreakCount={numberOnBreak => {
-                  setBreakCount(_ => numberOnBreak)
-                  setSettingsOpen(_ => false)
-                }}
-              />
-            : React.null}
+            </>
+          | Some(AddPlayer) =>
+            <SessionAddPlayer
+              eventId
+              onPlayerAdd={player => {
+                setSessionPlayers(guests => {
+                  guests->addGuestPlayer(player->SessionAddPlayer.toRatingPlayer)
+                })
+                setSettingsPane(_ => None)
+              }}
+            />
+          | Some(Settings) =>
+            <SessionEvenPlayMode
+              breakCount
+              breakPlayersCount
+              onChangeBreakCount={numberOnBreak => {
+                setBreakCount(_ => numberOnBreak)
+                setSettingsPane(_ => None)
+              }}
+            />
+          | _ => React.null
+          }}
+          <div> {t`${breakPlayersCount->Int.toString} ${breakPlayersDesc} are not playing`} </div>
           <SelectPlayersList
             players={players}
             selected={activePlayers->Array.map((p: player) => p.id)}
@@ -312,8 +454,10 @@ let make = (~event, ~children) => {
         </div>
         <div className="">
           <h2 className="text-2xl font-semibold text-gray-900"> {t`Matchmaking`} </h2>
+          <div className="flex text-right" />
           <CompMatch
             players={(activePlayers :> array<Player.t<'a>>)}
+            teams
             consumedPlayers={consumedPlayers
             ->Set.values
             ->Array.fromIterator

@@ -1,7 +1,7 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
-
+open Util
 open Rating
 module PlayerMini = {
   @react.component
@@ -126,8 +126,27 @@ type matchmakingResult<'a> = {
   // seenTeams: array<Team.t<'a>>,
   matches: array<Match.t<'a>>,
 }
-let find_all_match_combos = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
+let find_all_match_combos = (
+  availablePlayers: array<Player.t<'a>>,
+  priorityPlayers,
+  avoidAllPlayers,
+  teamConstraints: NonEmptyArray.t<Set.t<string>>,
+) => {
   let teams = availablePlayers->array_combos->Array.map(tuple2array)
+
+  // Implicitly the unassigned players form a team
+  let teamConstraintsSet =
+    teamConstraints
+    ->NonEmptyArray.toArray
+    ->Array.map(a => a->Set.values->Array.fromIterator)
+    ->Array.flatMap(x => x)
+    ->Set.fromArray
+  let implicitTeam: Set.t<string> =
+    availablePlayers
+    ->Array.filter(p => !(teamConstraintsSet->Set.has(p.id)))
+    ->Array.map(p => p.id)
+    ->Set.fromArray
+
   let result = teams->Array.reduce({seenTeams: [], matches: []}, ({seenTeams, matches}, team) => {
     let players' = availablePlayers->Array.filter(p => !(team->Team.contains_player(p)))
     // Teams of remaining players
@@ -146,14 +165,42 @@ let find_all_match_combos = (availablePlayers, priorityPlayers, avoidAllPlayers)
     let quality = match->match_quality
     (match, quality)
   })
+
+  // Constraints
   let results =
     priorityPlayers->Array.length == 0
       ? matches
       : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
 
-  avoidAllPlayers->Array.length < 2
-    ? results
-    : matches->Array.filter(((match, _)) => !(match->Match.contains_all_players(avoidAllPlayers)))
+  let results =
+    avoidAllPlayers->Array.length < 2
+      ? results
+      : results->Array.filter(((match, _)) => !(match->Match.contains_all_players(avoidAllPlayers)))
+
+  teamConstraints
+  ->Option.map(teamConstraints => {
+    let teamConstraints = teamConstraints->Array.concat([implicitTeam])
+    results->Array.filter(((match, _)) => {
+      let (team1, team2) = match
+      let team1 = team1->Team.toSet
+      let team2 = team2->Team.toSet
+      // Include match if it contains any of the teams
+      let constr1 =
+        teamConstraints->Array.findIndex(
+          teamConstraint => {
+            teamConstraint->TeamSet.containsAllOf(team1)
+          },
+        ) > -1
+      let constr2 =
+        teamConstraints->Array.findIndex(
+          teamConstraint => {
+            teamConstraint->TeamSet.containsAllOf(team2)
+          },
+        ) > -1
+      constr1 && constr2
+    })
+  })
+  ->Option.getOr(results)
 }
 
 let strategy_by_competitive = (
@@ -161,6 +208,7 @@ let strategy_by_competitive = (
   consumedPlayers: Set.t<string>,
   priorityPlayers: array<Player.t<'a>>,
   avoidAllPlayers: array<Player.t<'a>>,
+  teams: NonEmptyArray.t<Set.t<string>>,
 ) => {
   players
   ->Players.sortByRatingDesc
@@ -169,7 +217,7 @@ let strategy_by_competitive = (
     let matches =
       playerSet
       ->Players.filterOut(consumedPlayers)
-      ->find_all_match_combos(priorityPlayers, avoidAllPlayers)
+      ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams)
       ->Array.toSorted((a, b) => {
         let (_, qualityA) = a
         let (_, qualityB) = b
@@ -183,6 +231,7 @@ let strategy_by_competitive_plus = (
   consumedPlayers: Set.t<string>,
   priorityPlayers: array<Player.t<'a>>,
   avoidAllPlayers: array<Player.t<'a>>,
+  teams: NonEmptyArray.t<Set.t<string>>,
 ) => {
   players
   ->Array.toSorted((a, b) => {
@@ -195,7 +244,7 @@ let strategy_by_competitive_plus = (
     let matches =
       playerSet
       ->Players.filterOut(consumedPlayers)
-      ->find_all_match_combos(priorityPlayers, avoidAllPlayers)
+      ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams)
       ->Array.toSorted((a, b) => {
         let (_, qualityA) = a
         let (_, qualityB) = b
@@ -205,34 +254,68 @@ let strategy_by_competitive_plus = (
   })
 }
 
-let strategy_by_mixed = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
-  find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers)->Array.toSorted((
-    a,
-    b,
-  ) => {
+let strategy_by_mixed = (
+  availablePlayers,
+  priorityPlayers,
+  avoidAllPlayers,
+  teams: NonEmptyArray.t<Set.t<string>>,
+) => {
+  find_all_match_combos(
+    availablePlayers,
+    priorityPlayers,
+    avoidAllPlayers,
+    teams,
+  )->Array.toSorted((a, b) => {
     let (_, qualityA) = a
     let (_, qualityB) = b
     qualityA < qualityB ? 1. : -1.
   })
 }
 
-let strategy_by_round_robin = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
-  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers)
+let strategy_by_round_robin = (
+  availablePlayers,
+  priorityPlayers,
+  avoidAllPlayers,
+  teams: NonEmptyArray.t<Set.t<string>>,
+) => {
+  let matches = find_all_match_combos(
+    availablePlayers,
+    priorityPlayers,
+    avoidAllPlayers,
+    teams
+  )
   matches
 }
 
-let strategy_by_random = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
-  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers)
+let strategy_by_random = (
+  availablePlayers,
+  priorityPlayers,
+  avoidAllPlayers,
+  teams: NonEmptyArray.t<Set.t<string>>,
+) => {
+  let matches = find_all_match_combos(
+    availablePlayers,
+    priorityPlayers,
+    avoidAllPlayers,
+    teams
+  )
   matches->shuffle
 }
 
 type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random
 type stratButton = {name: string, strategy: strategy, details: string}
 
+module Settings = {
+  @react.component
+  let make = () => {
+    React.null
+  }
+}
 let ts = Lingui.UtilString.t
 @react.component
 let make = (
   ~players: array<Player.t<'a>>,
+  ~teams: NonEmptyArray.t<Team.t<'a>>,
   ~consumedPlayers: Set.t<string>,
   ~priorityPlayers: array<Player.t<'a>>,
   ~avoidAllPlayers: array<Player.t<'a>>,
@@ -260,14 +343,29 @@ let make = (
     {name: ts`Random`, strategy: Random, details: ts`Totally random teams.`},
   ]
   let availablePlayers = players->Players.filterOut(consumedPlayers)
+  let teamConstraints = teams->NonEmptyArray.map(Team.toSet)
   let matches = switch strategy {
-  | Mixed => strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers)
-  | RoundRobin => strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers)
-  | Random => strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers)
+  | Mixed => strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
+  | RoundRobin =>
+    strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
+  | Random =>
+    strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
   | Competitive =>
-    strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers)
+    strategy_by_competitive(
+      players,
+      consumedPlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teamConstraints,
+    )
   | CompetitivePlus =>
-    strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers)
+    strategy_by_competitive_plus(
+      players,
+      consumedPlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teamConstraints,
+    )
   }
   let matchesCount = matches->Array.length
   let matches = matches->Array.slice(~start=0, ~end=15)
@@ -275,7 +373,10 @@ let make = (
   let maxQuality = matches->Array.reduce(0., (acc, (_, quality)) => quality > acc ? quality : acc)
   let minQuality =
     matches->Array.reduce(maxQuality, (acc, (_, quality)) => quality < acc ? quality : acc)
+
   let tab = strats->Array.find(tab => tab.strategy == strategy)
+
+
   <>
     <div className="sm:hidden">
       <label htmlFor="tabs" className="sr-only"> {t`Select a tab`} </label>

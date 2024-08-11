@@ -273,8 +273,6 @@ function RatingList(props) {
   return JsxRuntime.jsxs(Layout.Container.make, {
               children: [
                 !match.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
-                              console.log("End cursor");
-                              console.log(startCursor);
                               return JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                           to: "./?before=" + encodeURIComponent(startCursor),
                                           children: t`...load higher rated players`
@@ -292,8 +290,6 @@ function RatingList(props) {
                       role: "list"
                     }),
                 match.hasNext && !match.isLoadingNext ? Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
-                              console.log("End cursor");
-                              console.log(endCursor);
                               return JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                           to: "./?after=" + encodeURIComponent(endCursor),
                                           children: t`Load more players...`

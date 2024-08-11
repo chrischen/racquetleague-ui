@@ -31,6 +31,10 @@ var Cog6Tooth = {};
 
 var Cog6ToothOutline = {};
 
+var UsersOutline = {};
+
+var Users = {};
+
 export {
   PhotoIcon ,
   Bars3Icon ,
@@ -47,5 +51,7 @@ export {
   UserPlusOutline ,
   Cog6Tooth ,
   Cog6ToothOutline ,
+  UsersOutline ,
+  Users ,
 }
 /* No side effect */

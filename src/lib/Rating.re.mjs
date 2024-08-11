@@ -57,6 +57,12 @@ function contains_player(players, player) {
   return players$1.has(player.id);
 }
 
+function toSet(team) {
+  return new Set(team.map(function (p) {
+                  return p.id;
+                }));
+}
+
 function is_equal_to(t1, t2) {
   var t1$1 = new Set(t1.map(function (p) {
             return p.id;
@@ -69,6 +75,7 @@ function is_equal_to(t1, t2) {
 
 var Team = {
   contains_player: contains_player,
+  toSet: toSet,
   is_equal_to: is_equal_to
 };
 
@@ -76,8 +83,13 @@ function is_equal_to$1(t1, t2) {
   return t1.intersection(t2).size === t1.size;
 }
 
+function containsAllOf(t1, t2) {
+  return t2.intersection(t1).size === t2.size;
+}
+
 var TeamSet = {
-  is_equal_to: is_equal_to$1
+  is_equal_to: is_equal_to$1,
+  containsAllOf: containsAllOf
 };
 
 function contains_player$1(param, player) {

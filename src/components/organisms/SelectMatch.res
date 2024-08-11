@@ -65,7 +65,7 @@ module SelectEventPlayersList = {
     let (sortDir, setSortDir) = React.useState(_ => SortAction.Desc)
 
     <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
-      <div className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4">
+      <div className="mt-4 gap-x-4 border-t border-gray-900/5 px-6 py-4">
         <SortAction sortDir setSortDir />
         {<>
           <ul className="w-full">
@@ -92,7 +92,7 @@ module SelectEventPlayersList = {
 
                   <FramerMotion.Li
                     layout=true
-                    className="mt-4 flex w-full flex-none gap-x-4 px-6"
+                    className="mt-4 flex w-full flex-none gap-x-4"
                     style={originX: 0.05, originY: 0.05}
                     key={player.id}
                     initial={opacity: 0., scale: 1.15}

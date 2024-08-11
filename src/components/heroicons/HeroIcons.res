@@ -60,3 +60,11 @@ module Cog6ToothOutline = {
   @module("@heroicons/react/24/outline") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Cog6ToothIcon"
 }
+module UsersOutline = {
+  @module("@heroicons/react/24/outline") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "UsersIcon"
+}
+module Users = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "UsersIcon"
+}

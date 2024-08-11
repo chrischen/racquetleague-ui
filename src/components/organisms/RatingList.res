@@ -158,9 +158,6 @@ let make = (~ratings) => {
     {!isLoadingPrevious && hasPrevious
       ? pageInfo.startCursor
         ->Option.map(startCursor => {
-            Js.log("End cursor");
-            Js.log(startCursor);
-
           <Link to={"./" ++ "?before=" ++ encodeURIComponent(startCursor)}> {t`...load higher rated players`} </Link>
         }
         )
@@ -175,8 +172,6 @@ let make = (~ratings) => {
       ? {
           pageInfo.endCursor
           ->Option.map(endCursor => {
-            Js.log("End cursor");
-            Js.log(endCursor);
             <Link to={"./" ++ "?after=" ++ encodeURIComponent(endCursor)}> {t`Load more players...`} </Link>
           }
           )
