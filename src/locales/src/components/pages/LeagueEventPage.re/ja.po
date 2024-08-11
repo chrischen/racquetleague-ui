@@ -17,7 +17,15 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
-#: src/components/organisms/CompMatch.re.mjs:444
+#: src/components/organisms/AddLeagueMatch.re.mjs:633
+msgid "{0} {breakPlayersDesc} are not playing"
+msgstr "{0} {breakPlayersDesc} はプレイしていません"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:445
+msgid "{breakPlayersCount, plural, one {player} other {players}}"
+msgstr "{breakPlayersCount, plural, one {プレイヤー} other {プレイヤー}}"
+
+#: src/components/organisms/CompMatch.re.mjs:479
 msgid "Analyzed {0} matches."
 msgstr "{0}試合を分析しました。"
 
@@ -29,13 +37,17 @@ msgstr "キャンセル"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/CompMatch.re.mjs:331
+#: src/components/organisms/CompMatch.re.mjs:365
 msgid "Competitive"
 msgstr "競争力"
 
-#: src/components/organisms/CompMatch.re.mjs:326
+#: src/components/organisms/CompMatch.re.mjs:360
 msgid "Competitive Plus"
 msgstr "競争力プラス"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:187
+msgid "Create Team"
+msgstr "チームを作成"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:38
 msgid "How many players should rest? (currently {0} players are resting)"
@@ -59,7 +71,7 @@ msgstr "読み込み中"
 msgid "Loading matches..."
 msgstr "試合を読み込んでいます..."
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:483
+#: src/components/organisms/AddLeagueMatch.re.mjs:697
 msgid "manual team"
 msgstr "手動チーム"
 
@@ -67,31 +79,31 @@ msgstr "手動チーム"
 msgid "Match Count"
 msgstr "試合数"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:504
+#: src/components/organisms/AddLeagueMatch.re.mjs:718
 msgid "Match History"
 msgstr "対戦履歴"
 
-#: src/components/organisms/CompMatch.re.mjs:328
+#: src/components/organisms/CompMatch.re.mjs:362
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
-#: src/components/organisms/CompMatch.re.mjs:333
+#: src/components/organisms/CompMatch.re.mjs:367
 msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 msgstr ""
 "マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
 
-#: src/components/organisms/CompMatch.re.mjs:338
+#: src/components/organisms/CompMatch.re.mjs:372
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
 "す。"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:458
+#: src/components/organisms/AddLeagueMatch.re.mjs:668
 msgid "Matchmaking"
 msgstr "マッチメイキング"
 
-#: src/components/organisms/CompMatch.re.mjs:336
+#: src/components/organisms/CompMatch.re.mjs:370
 msgid "Mixed"
 msgstr "混合"
 
@@ -109,9 +121,14 @@ msgstr "プレイヤー"
 msgid "Player Name"
 msgstr "プレイヤー名"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:357
+#: src/components/organisms/AddLeagueMatch.re.mjs:562
 msgid "Players"
 msgstr " プレイヤー"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:468
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
+msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/organisms/SubmitMatch.re.mjs:314
 #: src/components/organisms/SubmitMatch.re.mjs:327
@@ -127,11 +144,11 @@ msgstr "予測される勝者"
 msgid "Queue Match"
 msgstr "試合をキューに入れる"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:513
+#: src/components/organisms/AddLeagueMatch.re.mjs:727
 msgid "Queued Matches"
 msgstr "キューされた試合"
 
-#: src/components/organisms/CompMatch.re.mjs:341
+#: src/components/organisms/CompMatch.re.mjs:375
 msgid "Random"
 msgstr "ランダムで"
 
@@ -147,11 +164,11 @@ msgstr "保存"
 msgid "Score:"
 msgstr "スコア:"
 
-#: src/components/organisms/CompMatch.re.mjs:392
+#: src/components/organisms/CompMatch.re.mjs:427
 msgid "Select a tab"
 msgstr "タブを選択"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:370
+#: src/components/organisms/AddLeagueMatch.re.mjs:575
 msgid "select all"
 msgstr "すべて選択"
 
@@ -169,12 +186,16 @@ msgstr ""
 msgid "Submit Rated"
 msgstr "評価を提出"
 
-#: src/components/organisms/CompMatch.re.mjs:343
+#: src/components/organisms/AddLeagueMatch.re.mjs:92
+msgid "Team {0}"
+msgstr "チーム {0}"
+
+#: src/components/organisms/CompMatch.re.mjs:377
 msgid "Totally random teams."
 msgstr "完全にランダムなチーム。"
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:326
-#: src/components/organisms/AddLeagueMatch.re.mjs:348
+#: src/components/organisms/AddLeagueMatch.re.mjs:531
+#: src/components/organisms/AddLeagueMatch.re.mjs:553
 msgid "Tournament Mode"
 msgstr "トーナメントモード"
 

@@ -21,6 +21,14 @@ msgstr ""
 #~ msgid "{0, plural, one {player} other {players}}"
 #~ msgstr ""
 
+#: src/components/organisms/AddLeagueMatch.re.mjs:633
+msgid "{0} {breakPlayersDesc} are not playing"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:445
+msgid "{breakPlayersCount, plural, one {player} other {players}}"
+msgstr ""
+
 #: src/components/organisms/EventRsvps.re.mjs:182
 #~ msgid "{maxRsvps, plural, one {player} other {players}}"
 #~ msgstr ""
@@ -33,7 +41,7 @@ msgstr ""
 #~ msgid "Add Player"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:444
+#: src/components/organisms/CompMatch.re.mjs:479
 msgid "Analyzed {0} matches."
 msgstr ""
 
@@ -45,11 +53,11 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:331
+#: src/components/organisms/CompMatch.re.mjs:365
 msgid "Competitive"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:326
+#: src/components/organisms/CompMatch.re.mjs:360
 msgid "Competitive Plus"
 msgstr ""
 
@@ -64,6 +72,10 @@ msgstr ""
 #: src/components/organisms/ManagedSession.re.mjs:243
 #~ msgid "court {0}"
 #~ msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:187
+msgid "Create Team"
+msgstr ""
 
 #: src/components/organisms/Match.re.mjs:241
 #~ msgid "delete"
@@ -127,7 +139,7 @@ msgstr ""
 #~ msgid "Loser Points"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:483
+#: src/components/organisms/AddLeagueMatch.re.mjs:697
 msgid "manual team"
 msgstr ""
 
@@ -135,27 +147,27 @@ msgstr ""
 msgid "Match Count"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:504
+#: src/components/organisms/AddLeagueMatch.re.mjs:718
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:328
+#: src/components/organisms/CompMatch.re.mjs:362
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:333
+#: src/components/organisms/CompMatch.re.mjs:367
 msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:338
+#: src/components/organisms/CompMatch.re.mjs:372
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:458
+#: src/components/organisms/AddLeagueMatch.re.mjs:668
 msgid "Matchmaking"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:336
+#: src/components/organisms/CompMatch.re.mjs:370
 msgid "Mixed"
 msgstr ""
 
@@ -173,8 +185,12 @@ msgstr ""
 msgid "Player Name"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:357
+#: src/components/organisms/AddLeagueMatch.re.mjs:562
 msgid "Players"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:468
+msgid "Players in teams will always be placed in a match together on the same side."
 msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:314
@@ -199,11 +215,11 @@ msgstr ""
 #~ msgid "queued matches"
 #~ msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:513
+#: src/components/organisms/AddLeagueMatch.re.mjs:727
 msgid "Queued Matches"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:341
+#: src/components/organisms/CompMatch.re.mjs:375
 msgid "Random"
 msgstr ""
 
@@ -219,11 +235,11 @@ msgstr ""
 msgid "Score:"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:392
+#: src/components/organisms/CompMatch.re.mjs:427
 msgid "Select a tab"
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:370
+#: src/components/organisms/AddLeagueMatch.re.mjs:575
 msgid "select all"
 msgstr ""
 
@@ -243,12 +259,16 @@ msgstr ""
 msgid "Submit Rated"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:343
+#: src/components/organisms/AddLeagueMatch.re.mjs:92
+msgid "Team {0}"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:377
 msgid "Totally random teams."
 msgstr ""
 
-#: src/components/organisms/AddLeagueMatch.re.mjs:326
-#: src/components/organisms/AddLeagueMatch.re.mjs:348
+#: src/components/organisms/AddLeagueMatch.re.mjs:531
+#: src/components/organisms/AddLeagueMatch.re.mjs:553
 msgid "Tournament Mode"
 msgstr ""
 

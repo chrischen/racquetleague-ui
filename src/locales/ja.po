@@ -987,19 +987,44 @@ msgstr "参加するには、こちらのイベントに参加してください
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:38
 msgid "How many players should rest? (currently {0} players are resting)"
-msgstr "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
+msgstr ""
+"何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
 msgid ""
 "Set this to the number of players currently resting to enable even leveling "
 "of match counts. Set to 0 to disable and optimize match quality instead, but "
 "this may result in some players playing more matches than others."
-msgstr "これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にします。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
+msgstr ""
+"これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にしま"
+"す。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部"
+"のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
 
 #: src/components/organisms/SubmitMatch.re.mjs:292
 #: src/components/organisms/SubmitMatch.re.mjs:305
 msgid "Winner"
 msgstr "勝者"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:633
+msgid "{0} {breakPlayersDesc} are not playing"
+msgstr "{0} {breakPlayersDesc} はプレイしていません"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:445
+msgid "{breakPlayersCount, plural, one {player} other {players}}"
+msgstr "{breakPlayersCount, plural, one {プレイヤー} other {プレイヤー}}"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:187
+msgid "Create Team"
+msgstr "チームを作成"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:468
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
+msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:92
+msgid "Team {0}"
+msgstr "チーム {0}"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

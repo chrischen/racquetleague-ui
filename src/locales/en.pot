@@ -1095,3 +1095,24 @@ msgstr ""
 #: src/components/organisms/SubmitMatch.re.mjs:305
 msgid "Winner"
 msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:633
+msgid "{0} {breakPlayersDesc} are not playing"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:445
+msgid "{breakPlayersCount, plural, one {player} other {players}}"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:187
+msgid "Create Team"
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:468
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
+msgstr ""
+
+#: src/components/organisms/AddLeagueMatch.re.mjs:92
+msgid "Team {0}"
+msgstr ""
