@@ -1,16 +1,17 @@
 %%raw("import { t, plural } from '@lingui/macro'")
 open Rating
-type rsvpNode = AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node
 open Lingui.Util
 type sort = Rating | MatchCount
 @react.component
 let make = (
   ~players: array<Player.t<rsvpNode>>,
-  ~selected: array<string>,
+  ~selected: Set.t<string>,
   ~playing: Set.t<string>,
+  ~disabled: Set.t<string>,
   ~session: Session.t,
   ~onClick: Player.t<'a> => unit,
   ~onRemove: Player.t<'a> => unit,
+  ~onEnable: Player.t<'a> => unit,
 ) => {
   let (sort, setSort) = React.useState(() => Rating)
 
@@ -66,8 +67,8 @@ let make = (
         | players =>
           players
           ->Array.map(player => {
-            let isGuest = player.data->Option.isNone
-            let selected = selected->Array.indexOf(player.id) > -1
+            let selected = selected->Set.has(player.id)
+            let disabled = disabled->Set.has(player.id)
             <FramerMotion.Tr
               layout=true
               // className="mt-2 relative flex justify-between"
@@ -82,6 +83,7 @@ let make = (
                     className={Util.cx([
                       "text-sm w-full font-medium leading-6 text-gray-900",
                       !selected ? "opacity-50" : "",
+                      disabled ? "line-through" : "",
                     ])}>
                     <UiAction onClick={() => onClick(player)}>
                       {player.data
@@ -100,8 +102,14 @@ let make = (
                 </div>
               </td>
               <td>
-                {isGuest && !selected
-                  ? <UiAction onClick={() => onRemove(player)}> {"Remove"->React.string} </UiAction>
+                {!selected
+                  ? disabled
+                      ? <UiAction onClick={() => onEnable(player)}>
+                          {"Enable"->React.string}
+                        </UiAction>
+                      : <UiAction onClick={() => onRemove(player)}>
+                          {"Remove"->React.string}
+                        </UiAction>
                   : React.null}
               </td>
               <td

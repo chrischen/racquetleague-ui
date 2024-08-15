@@ -1,4 +1,4 @@
-/* TypeScript file generated from Events.res by genType. */
+/* TypeScript file generated from Events.resi by genType. */
 
 /* eslint-disable */
 /* tslint:disable */
@@ -36,12 +36,6 @@ export type LoaderArgs_t = {
 
 export const make: React.ComponentType<{}> = EventsJS.make as any;
 
-export const $$default: React.ComponentType<{}> = EventsJS.default as any;
-
-export default $$default;
-
 export const Component: React.ComponentType<{}> = EventsJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<WaitForMessages_data<EventsQuery_graphql_queryRef>> = EventsJS.loader as any;
-
-export const HydrateFallbackElement: JSX.Element = EventsJS.HydrateFallbackElement as any;
+export const loader: (_1:LoaderArgs_t) => Promise<WaitForMessages_data<EventsQuery_graphql_queryRef>> = EventsJS.loader as any;

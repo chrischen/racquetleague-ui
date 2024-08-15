@@ -18,6 +18,7 @@ import * as EventRsvps_event_graphql from "../../__generated__/EventRsvps_event_
 import * as EventRsvpsJoinMutation_graphql from "../../__generated__/EventRsvpsJoinMutation_graphql.re.mjs";
 import * as EventRsvpsRefetchQuery_graphql from "../../__generated__/EventRsvpsRefetchQuery_graphql.re.mjs";
 import * as EventRsvpsLeaveMutation_graphql from "../../__generated__/EventRsvpsLeaveMutation_graphql.re.mjs";
+import * as EventRsvpsCreateRatingMutation_graphql from "../../__generated__/EventRsvpsCreateRatingMutation_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -87,17 +88,17 @@ var EventRsvpsJoinMutation = {
   use: use$1
 };
 
-var convertVariables$1 = EventRsvpsLeaveMutation_graphql.Internal.convertVariables;
+var convertVariables$1 = EventRsvpsCreateRatingMutation_graphql.Internal.convertVariables;
 
-var convertResponse$1 = EventRsvpsLeaveMutation_graphql.Internal.convertResponse;
+var convertResponse$1 = EventRsvpsCreateRatingMutation_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse$1 = EventRsvpsLeaveMutation_graphql.Internal.convertWrapRawResponse;
+var convertWrapRawResponse$1 = EventRsvpsCreateRatingMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, EventRsvpsLeaveMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, EventRsvpsCreateRatingMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
 
-var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, EventRsvpsLeaveMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, EventRsvpsCreateRatingMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
 
-var EventRsvpsLeaveMutation = {
+var EventRsvpsCreateRatingMutation = {
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$1,
@@ -105,6 +106,26 @@ var EventRsvpsLeaveMutation = {
   convertWrapRawResponse: convertWrapRawResponse$1,
   commitMutation: commitMutation$1,
   use: use$2
+};
+
+var convertVariables$2 = EventRsvpsLeaveMutation_graphql.Internal.convertVariables;
+
+var convertResponse$2 = EventRsvpsLeaveMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$2 = EventRsvpsLeaveMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2, EventRsvpsLeaveMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, EventRsvpsLeaveMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var EventRsvpsLeaveMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$2,
+  convertResponse: convertResponse$2,
+  convertWrapRawResponse: convertWrapRawResponse$2,
+  commitMutation: commitMutation$2,
+  use: use$3
 };
 
 var sessionContext = AppContext.SessionContext;
@@ -126,10 +147,12 @@ function EventRsvps(props) {
   var match$2 = use($$event);
   var maxRsvps = match$2.maxRsvps;
   var __id = match$2.__id;
-  var match$3 = use$2();
+  var match$3 = use$3();
   var commitMutationLeave = match$3[0];
   var match$4 = use$1();
   var commitMutationJoin = match$4[0];
+  var match$5 = use$2();
+  var commitMutationCreateRating = match$5[0];
   var viewer = GlobalQuery.useViewer();
   var viewerHasRsvp = Core__Option.getOr(Core__Option.flatMap(viewer.user, (function (viewer) {
               return Core__Option.map(rsvps.find(function (edge) {
@@ -142,6 +165,7 @@ function EventRsvps(props) {
             })), false);
   var onJoin = function (param) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "EventRsvps_event_rsvps", undefined);
+    commitMutationCreateRating(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
     commitMutationJoin({
           connections: [connectionId],
           id: __id
@@ -193,8 +217,8 @@ function EventRsvps(props) {
             return acc;
           }
         }));
-  var match$5 = viewer.user;
-  var joinButton = match$5 !== undefined ? JsxRuntime.jsx("button", {
+  var match$6 = viewer.user;
+  var joinButton = match$6 !== undefined ? JsxRuntime.jsx("button", {
           children: t`join event`,
           className: "inline-flex w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600",
           onClick: onJoin
@@ -507,6 +531,7 @@ var $$default = EventRsvps;
 export {
   Fragment ,
   EventRsvpsJoinMutation ,
+  EventRsvpsCreateRatingMutation ,
   EventRsvpsLeaveMutation ,
   sessionContext ,
   make ,

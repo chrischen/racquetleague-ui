@@ -2,43 +2,6 @@
 %%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
 open Rating
-module Fragment = %relay(`
-  fragment SelectMatch_event on Event
-  @argumentDefinitions (
-    after: { type: "String" }
-    before: { type: "String" }
-    first: { type: "Int", defaultValue: 50 }
-  )
-  @refetchable(queryName: "SelectMatchRsvpsRefetchQuery")
-  {
-    __id
-    rsvps(after: $after, first: $first, before: $before)
-    @connection(key: "SelectMatchRsvps_event_rsvps")
-    {
-      edges {
-        node {
-          __id
-          user {
-            id
-            lineUsername
-            ...EventRsvpUser_user
-          }
-          rating {
-            id
-            mu
-            sigma
-            ordinal
-          }
-        }
-      }
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        endCursor
-      }
-		}
-  }
-`)
 module SortAction = {
   type sortDir = Asc | Desc
   @react.component
@@ -55,7 +18,7 @@ module SelectEventPlayersList = {
   @react.component
   let make = (
     // ~event,
-    ~players: array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
+    ~players: array<player>,
     ~selected: array<Player.t<'a>>,
     ~disabled: option<array<Player.t<'a>>>=?,
     ~onSelectPlayer: option<Player.t<'a> => unit>=?,
@@ -135,7 +98,7 @@ module SelectEventPlayersList = {
                         })
                         ->Option.getOr(
                           <RsvpUser
-                            user={RsvpUser.makeGuest(player.name)}
+                            user={makeGuest(player.name)}
                             highlight={selected->Array.findIndex(p => p.id == player.id) >= 0}
                             ratingPercent=percent
                           />,
@@ -164,7 +127,7 @@ let rot2 = (players, player) =>
 @react.component
 let make = (
   ~players: array<player>,
-  ~activity: option<AddLeagueMatch_event_graphql.Types.fragment_activity>,
+  ~activity: option<AiTetsu_event_graphql.Types.fragment_activity>,
   ~onMatchQueued,
   ~onMatchCompleted,
 ) => {
@@ -177,11 +140,11 @@ let make = (
   let matchSelected = match => {
     switch (
       match: (
-        array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
-        array<Player.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>>,
+        array<player>,
+        array<player>,
       )
     ) {
-    | ([p1, p2], [p3, p4]) as match =>
+    | ([_, _], [_, _]) as match =>
       // onMatchSelected(match)
       // let match = (
       //   [players->Array.find(p => p.id == p1.id)->Option.getExn, players->Array.find(p => p.id == p2.id)->Option.getExn],

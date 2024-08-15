@@ -120,6 +120,11 @@ type CreateMatchResponse implements HasErrors {
   ratings: [Rating!]
 }
 
+type CreateRatingResponse implements HasErrors {
+  errors: [Error!]
+  rating: Rating
+}
+
 """A date."""
 scalar Datetime
 
@@ -220,6 +225,12 @@ input LeagueMatchInput {
   namespace: String!
 }
 
+input LeagueRatingInput {
+  activitySlug: String!
+  namespace: String!
+  userId: String
+}
+
 type LeaveEventResult implements HasErrors {
   errors: [Error!]
   eventIds: [ID!]
@@ -292,6 +303,7 @@ type Mutation {
   createClub(input: CreateClubInput!): CreateClubResult!
   createEvent(input: CreateEventInput!): MutationResult2!
   createEvents(input: CreateEventsInput!): CreateEventsResult!
+  createLeagueRating(input: LeagueRatingInput!): CreateRatingResponse
   createLocation(input: CreateLocationInput!): MutationResult!
   createMatch(match: LeagueMatchInput!): CreateMatchResponse!
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!

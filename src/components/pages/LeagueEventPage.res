@@ -6,7 +6,7 @@ module Query = %relay(`
     event(id: $eventId) {
       __id
       title
-      ...AddLeagueMatch_event @arguments(after: $after, first: 20, before: $before)
+      ...AiTetsu_event @arguments(after: $after, first: 20, before: $before)
       ...SelectMatch_event @arguments(after: $after, first: 20, before: $before)
     }
     ...MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace)
@@ -29,12 +29,12 @@ let make = () => {
         ->Option.map(event => {
           let {__id, fragmentRefs} = event
           <>
-            <AddLeagueMatch event=fragmentRefs>
+            <AiTetsu event=fragmentRefs>
               <React.Suspense
                 fallback={<Layout.Container> {t`Loading matches...`} </Layout.Container>}>
                 <MatchList matches=queryRefs />
               </React.Suspense>
-            </AddLeagueMatch>
+            </AiTetsu>
           </>
         })
         ->Option.getOr(React.null)

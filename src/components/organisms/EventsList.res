@@ -1,7 +1,7 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t, plural } from '@lingui/macro'")
 
-open Util
+// open Util
 open LangProvider.Router
 module Fragment = %relay(`
   fragment EventsListFragment on Query
@@ -87,31 +87,6 @@ module TextItemFragment = %relay(`
     endDate
   }
 `)
-module NodeId: {
-  type t
-  let toId: t => string
-  let make: (string, string) => t
-} = {
-  type t = (string, string)
-  let make = (key, id) => {
-    (key, id)
-  }
-  let toId = ((_, id): t) => {
-    id
-  }
-}
-module NodeIdDto: {
-  type t = string
-  let toDomain: t => result<NodeId.t, [> #InvalidNode]>
-} = {
-  type t = string
-  let toDomain = (t: t) => {
-    switch t->String.split(":") {
-    | [key, id] => Ok(NodeId.make(key, id))
-    | _ => Error(#InvalidNode)
-    }
-  }
-}
 
 module TextEventItem = {
   open Lingui.UtilString
@@ -388,12 +363,12 @@ module EventItem = {
   }
 }
 
-type dateEntry = (string, array<EventsListFragment_graphql.Types.fragment_events_edges_node>)
+// type dateEntry = (string, array<EventsListFragment_graphql.Types.fragment_events_edges_node>)
 type dates = dict<array<EventsListFragment_graphql.Types.fragment_events_edges_node>>
 // type dates = array<dateEntry>;
-let toLocalTime = date => {
-  Js.Date.fromFloat(date->Js.Date.getTime -. date->Js.Date.getTimezoneOffset *. 60. *. 1000.)
-}
+// let toLocalTime = date => {
+//   Js.Date.fromFloat(date->Js.Date.getTime -. date->Js.Date.getTimezoneOffset *. 60. *. 1000.)
+// }
 let sortByDate = (
   intl,
   filterByDate: option<Js.Date.t>,
@@ -402,6 +377,7 @@ let sortByDate = (
 ): dates => {
   event.startDate
   ->Option.map(startDate => {
+    open Util;
     // startDate in UTC
     let startDate = startDate->Datetime.toDate
 
@@ -577,8 +553,8 @@ let make = (~events) => {
   </>
 }
 
-@genType
-let default = make
+// @genType
+// let default = make
 
 // @NOTE Force lingui to include the potential dynamic values here
 let __unused = () => {

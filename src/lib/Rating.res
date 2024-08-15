@@ -10,6 +10,18 @@ module RatingModel = {
   @module("../lib/rating/models/plackettLuce.ts")
   external plackettLuce: t = "plackettLuce"
 }
+type user = {
+  name: string,
+  picture: option<string>,
+  // data: 'a,
+}
+let makeGuest = (name: string) => {
+  {
+    name,
+    picture: None,
+  }
+}
+
 module Rating: {
   type t = {
     mu: float,
@@ -57,6 +69,16 @@ module Player = {
     name: string,
     rating: Rating.t,
     ratingOrdinal: float,
+  }
+  let makeDefaultRatingPlayer = (name: string) => {
+    let rating = Rating.makeDefault()
+    {
+      data: None,
+      id: "guest-" ++ name,
+      name: name,
+      rating,
+      ratingOrdinal: rating->Rating.ordinal,
+    }
   }
 }
 module Team = {
@@ -147,7 +169,7 @@ module DoublesMatch = {
     }
   }
 }
-type rsvpNode = AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node
+type rsvpNode = AiTetsu_event_graphql.Types.fragment_rsvps_edges_node
 type player = Player.t<rsvpNode>
 type team = array<player>
 type match = (team, team)

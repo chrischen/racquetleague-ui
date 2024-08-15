@@ -98,3 +98,10 @@ module NonEmptyArray = {
     | None => None
     }
 }
+
+module JsSet = {
+  type t<'a> = Set.t<'a>;
+
+  @send
+  external difference: (t<'a>, t<'a>) => t<'a> = "difference"
+}

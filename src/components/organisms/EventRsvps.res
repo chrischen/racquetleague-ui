@@ -56,6 +56,17 @@ module EventRsvpsJoinMutation = %relay(`
     }
   }
 `)
+
+module EventRsvpsCreateRatingMutation = %relay(`
+ mutation EventRsvpsCreateRatingMutation
+  {
+    createLeagueRating(input: {activitySlug: "pickleball", namespace: "doubles:rec"}) {
+      rating {
+        id
+      }
+    }
+  }
+`)
 module EventRsvpsLeaveMutation = %relay(`
  mutation EventRsvpsLeaveMutation(
     $connections: [ID!]!
@@ -90,6 +101,7 @@ let make = (~event) => {
   let {__id, maxRsvps, activity} = Fragment.use(event)
   let (commitMutationLeave, _isMutationInFlight) = EventRsvpsLeaveMutation.use()
   let (commitMutationJoin, _isMutationInFlight) = EventRsvpsJoinMutation.use()
+  let (commitMutationCreateRating, _) = EventRsvpsCreateRatingMutation.use()
 
   let viewer = GlobalQuery.useViewer()
 
@@ -108,6 +120,9 @@ let make = (~event) => {
       "EventRsvps_event_rsvps",
       (),
     )
+    commitMutationCreateRating(
+      ~variables=(),
+    )->RescriptRelay.Disposable.ignore
     commitMutationJoin(
       ~variables={
         id: __id->RescriptRelay.dataIdToString,
@@ -270,11 +285,15 @@ let make = (~event) => {
                             "/p/" ++
                             user.id}
                             user={user.fragmentRefs}
-                            rating=?(edge.rating->Option.flatMap(r => r.ordinal))
+                            rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
                             ratingPercent={edge.rating
                             ->Option.flatMap(
-                              rating => rating.ordinal->Option.map(ordinal => (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
-                            ))
+                              rating =>
+                                rating.ordinal->Option.map(
+                                  ordinal =>
+                                    (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
+                                ),
+                            )
                             ->Option.getOr(0.)}
                             highlight={viewer.user
                             ->Option.map(viewer => viewer.id == user.id)
@@ -349,11 +368,15 @@ let make = (~event) => {
                             "/p/" ++
                             user.id}
                             user={user.fragmentRefs}
-                            rating=?(edge.rating->Option.flatMap(r => r.ordinal))
+                            rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
                             ratingPercent={edge.rating
                             ->Option.flatMap(
-                              rating => rating.ordinal->Option.map(ordinal => (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
-                            ))
+                              rating =>
+                                rating.ordinal->Option.map(
+                                  ordinal =>
+                                    (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
+                                ),
+                            )
                             ->Option.getOr(0.)}
                             highlight={viewer.user
                             ->Option.map(viewer => viewer.id == user.id)

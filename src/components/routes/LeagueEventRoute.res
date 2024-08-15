@@ -45,8 +45,8 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   })
 }
 
-@genType
-let \"HydrateFallbackElement" =
-  <div> {React.string("Loading fallback...")} </div>
+// @genType
+// let \"HydrateFallbackElement" =
+//   <div> {React.string("Loading fallback...")} </div>
 
 // %raw("loade;.hydrate = true")

@@ -17,9 +17,11 @@ import { t, plural } from '@lingui/macro'
 ;
 
 function SelectPlayersList(props) {
+  var onEnable = props.onEnable;
   var onRemove = props.onRemove;
   var onClick = props.onClick;
   var session = props.session;
+  var disabled = props.disabled;
   var playing = props.playing;
   var selected = props.selected;
   var players = props.players;
@@ -111,8 +113,8 @@ function SelectPlayersList(props) {
                               }),
                           JsxRuntime.jsx("tbody", {
                                 children: players$1.length !== 0 ? players$1.map(function (player) {
-                                        var isGuest = Core__Option.isNone(player.data);
-                                        var selected$1 = selected.indexOf(player.id) > -1;
+                                        var selected$1 = selected.has(player.id);
+                                        var disabled$1 = disabled.has(player.id);
                                         return JsxRuntime.jsxs(FramerMotion.motion.tr, {
                                                     style: {
                                                       originX: 0.05,
@@ -154,19 +156,26 @@ function SelectPlayersList(props) {
                                                                                                 }))
                                                                                       }))
                                                                             }),
-                                                                        className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", selected$1 ? "" : "opacity-50")
+                                                                        className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", selected$1 ? "" : "opacity-50", disabled$1 ? "line-through" : "")
                                                                       }),
                                                                   className: "flex items-center gap-x-4"
                                                                 }),
                                                             className: "py-2 pl-0 pr-8"
                                                           }),
                                                       JsxRuntime.jsx("td", {
-                                                            children: isGuest && !selected$1 ? JsxRuntime.jsx(UiAction.make, {
-                                                                    onClick: (function () {
-                                                                        onRemove(player);
-                                                                      }),
-                                                                    children: "Remove"
-                                                                  }) : null
+                                                            children: selected$1 ? null : (
+                                                                disabled$1 ? JsxRuntime.jsx(UiAction.make, {
+                                                                        onClick: (function () {
+                                                                            onEnable(player);
+                                                                          }),
+                                                                        children: "Enable"
+                                                                      }) : JsxRuntime.jsx(UiAction.make, {
+                                                                        onClick: (function () {
+                                                                            onRemove(player);
+                                                                          }),
+                                                                        children: "Remove"
+                                                                      })
+                                                              )
                                                           }),
                                                       JsxRuntime.jsx("td", {
                                                             children: JsxRuntime.jsxs("div", {

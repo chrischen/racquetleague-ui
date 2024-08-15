@@ -24,12 +24,12 @@ module Fragment = %relay(`
   }
 `)
 
-let isSameDay = (date1, date2) => {
-  open Js.Date
-  date1->getDate == date2->getDate &&
-  date1->getMonth == date2->getMonth &&
-  date1->getFullYear == date2->getFullYear
-}
+// let isSameDay = (date1, date2) => {
+//   open Js.Date
+//   date1->getDate == date2->getDate &&
+//   date1->getMonth == date2->getMonth &&
+//   date1->getFullYear == date2->getFullYear
+// }
 let intlIsSameDay = (intl, date1, date2) => {
   // Date string in local time
   let date1String =
@@ -49,11 +49,11 @@ let inDates = (dates, intl, date) => {
 }
 @react.component
 let make = (~events) => {
-  let {events: eventsQuery} = Fragment.use(events)
+  let {events: _} = Fragment.use(events)
   let {data} = Fragment.usePagination(events)
   let events = data.events->Fragment.getConnectionNodes
 
-  let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
+  let (_, setSearchParams) = Router.useSearchParamsFunc()
   let locale = React.useContext(LangProvider.LocaleContext.context)
   let intl = ReactIntl.useIntl()
 
@@ -67,6 +67,7 @@ let make = (~events) => {
   // let dates = [Js.Date.fromString("2024-07-21"), Js.Date.fromString("2024-07-18")]
   <ReactCalendar
     className="w-full"
+    calendarType="gregory"
     locale=locale.lang
     value={Js.Date.make()}
     onClickDay={(date, _) => {

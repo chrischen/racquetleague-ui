@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
+import * as AiTetsu from "../organisms/AiTetsu.re.mjs";
 import * as MatchList from "../organisms/MatchList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as AddLeagueMatch from "../organisms/AddLeagueMatch.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -64,7 +64,7 @@ function LeagueEventPage(props) {
                     children: (function () {
                         return Core__Option.getOr(Core__Option.map($$event, (function ($$event) {
                                           return JsxRuntime.jsx(JsxRuntime.Fragment, {
-                                                      children: Caml_option.some(JsxRuntime.jsx(AddLeagueMatch.make, {
+                                                      children: Caml_option.some(JsxRuntime.jsx(AiTetsu.make, {
                                                                 event: $$event.fragmentRefs,
                                                                 children: JsxRuntime.jsx(React.Suspense, {
                                                                       children: Caml_option.some(JsxRuntime.jsx(MatchList.make, {

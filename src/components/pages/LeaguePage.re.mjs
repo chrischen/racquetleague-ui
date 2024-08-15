@@ -2,7 +2,6 @@
 
 import * as Layout from "../shared/Layout.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
-import PrizeJpg from "./prize.jpg";
 import JplLogoPng from "./jpl-logo.png";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";

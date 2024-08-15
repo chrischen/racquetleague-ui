@@ -5,6 +5,11 @@
 
 // type userData = Registered(EventRsvpUser_user_graphql.Types.fragment) | Guest
 // type userData<'a> = Registered(RescriptRelay.fragmentRefs<[> #EventRsvpUser_user] as 'a>) | Guest
+// type user = {
+//   name: string,
+//   picture: option<string>,
+//   // data: 'a,
+// }
 
 // let fromRegisteredUser = (user: RescriptRelay.fragmentRefs<[> #EventRsvpUser_user]>) => {
 //   let user = Fragment.use(user)
@@ -31,7 +36,7 @@ let make = (
   ~highlight: bool=false,
   ~link: option<string>=?,
   ~rating as _: option<float>=?,
-  ~ratingPercent: option<float>=?,
+  ~ratingPercent as _: option<float>=?,
 ) => {
   open LangProvider.Router
   // open Lingui.Util;
@@ -63,7 +68,7 @@ let make = (
     )
     ->Option.getOr(<div className="h-12 w-12 flex-none rounded-full bg-gray-50" />)}
     <div className="min-w-0 flex-auto">
-      <p className="text-sm font-semibold leading-6 text-gray-900">
+      <p className="text-2xl font-semibold leading-6 text-gray-900">
         {switch link {
         | Some(link) =>
           <Link to={link}>
@@ -86,19 +91,9 @@ let make = (
       <p className="mt-1 flex text-xs leading-5 text-gray-500">
         <span className="relative truncate hover:underline" />
       </p>
-      {ratingPercent
-      ->Option.map(ratingPercent =>
-        <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
-          <FramerMotion.Div
-            className="h-2 rounded-full bg-red-400"
-            initial={width: "0%"}
-            animate={{width: ratingPercent->Float.toFixed(~digits=3) ++ "%"}}
-          />
-        </div>
-      )
-      ->Option.getOr(React.null)}
     </div>
   </div>
 
   // </Transition>
 }
+

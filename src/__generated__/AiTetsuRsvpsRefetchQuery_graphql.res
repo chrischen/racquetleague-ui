@@ -1,4 +1,4 @@
-/* @sourceLoc AddLeagueMatch.res */
+/* @sourceLoc AiTetsu.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -7,7 +7,7 @@ module Types = {
   @live
   type rec response_node = {
     @live __typename: string,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #AddLeagueMatch_event]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #AiTetsu_event]>,
   }
   @live
   type response = {
@@ -183,7 +183,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "AddLeagueMatchRsvpsRefetchQuery",
+    "name": "AiTetsuRsvpsRefetchQuery",
     "selections": [
       {
         "alias": null,
@@ -197,7 +197,7 @@ return {
           {
             "args": (v3/*: any*/),
             "kind": "FragmentSpread",
-            "name": "AddLeagueMatch_event"
+            "name": "AiTetsu_event"
           }
         ],
         "storageKey": null
@@ -210,7 +210,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "AddLeagueMatchRsvpsRefetchQuery",
+    "name": "AiTetsuRsvpsRefetchQuery",
     "selections": [
       {
         "alias": null,
@@ -398,12 +398,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1c03771f5863d1f73ced2511397d0626",
+    "cacheID": "bbb5b4a37e61af11cbcd9e506ffeedfe",
     "id": null,
     "metadata": {},
-    "name": "AddLeagueMatchRsvpsRefetchQuery",
+    "name": "AiTetsuRsvpsRefetchQuery",
     "operationKind": "query",
-    "text": "query AddLeagueMatchRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 50\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...AddLeagueMatch_event_4uAqg1\n    id\n  }\n}\n\nfragment AddLeagueMatch_event_4uAqg1 on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  ...SelectMatch_event_4uAqg1\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment SelectMatch_event_4uAqg1 on Event {\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
+    "text": "query AiTetsuRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 50\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...AiTetsu_event_4uAqg1\n    id\n  }\n}\n\nfragment AiTetsu_event_4uAqg1 on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  ...SelectMatch_event_4uAqg1\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment SelectMatch_event_4uAqg1 on Event {\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
   }
 };
 })() `)

@@ -8,7 +8,6 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as LeagueEventPage from "../pages/LeagueEventPage.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
-import * as JsxRuntime from "react/jsx-runtime";
 import * as LeagueEventPageQuery_graphql from "../../__generated__/LeagueEventPageQuery_graphql.re.mjs";
 
 var LoaderArgs = {};
@@ -43,10 +42,6 @@ async function loader(param) {
             });
 }
 
-var HydrateFallbackElement = JsxRuntime.jsx("div", {
-      children: "Loading fallback..."
-    });
-
 var Component = LeagueEventPage.make;
 
 export {
@@ -54,6 +49,5 @@ export {
   LoaderArgs ,
   loadMessages ,
   loader ,
-  HydrateFallbackElement ,
 }
-/* HydrateFallbackElement Not a pure module */
+/* react Not a pure module */

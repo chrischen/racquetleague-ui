@@ -12,6 +12,13 @@ var RatingModel = {
   plackettLuce: plackettLuce
 };
 
+function makeGuest(name) {
+  return {
+          name: name,
+          picture: undefined
+        };
+}
+
 function get_rating(t) {
   return t.mu;
 }
@@ -48,7 +55,20 @@ var Rating = {
   rate: Rating_rate
 };
 
-var Player = {};
+function makeDefaultRatingPlayer(name) {
+  var rating = Openskill.rating(undefined);
+  return {
+          data: undefined,
+          id: "guest-" + name,
+          name: name,
+          rating: rating,
+          ratingOrdinal: Rating_ordinal(rating)
+        };
+}
+
+var Player = {
+  makeDefaultRatingPlayer: makeDefaultRatingPlayer
+};
 
 function contains_player(players, player) {
   var players$1 = new Set(players.map(function (p) {
@@ -279,6 +299,7 @@ var Players = {
 
 export {
   RatingModel ,
+  makeGuest ,
   Rating ,
   Player ,
   Team ,

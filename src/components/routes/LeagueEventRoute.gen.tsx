@@ -33,5 +33,3 @@ export type LoaderArgs_t = {
 export const Component: React.ComponentType<{}> = LeagueEventRouteJS.Component as any;
 
 export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<LeagueEventPageQuery_graphql_queryRef>)> = LeagueEventRouteJS.loader as any;
-
-export const HydrateFallbackElement: JSX.Element = LeagueEventRouteJS.HydrateFallbackElement as any;

@@ -12,17 +12,6 @@ let schema = Zod.z->Zod.object(
     }: inputsUser
   ),
 )
-let toEventRsvpUser = (data: inputsUser) => EventRsvpUser.makeGuest(data.name)
-let toRatingPlayer = (data: inputsUser) => {
-  let rating = Rating.Rating.makeDefault()
-  {
-    Rating.Player.data: None,
-    id: "guest-" ++ data.name,
-    name: data.name,
-    rating,
-    ratingOrdinal: rating->Rating.Rating.ordinal,
-  }
-}
 @react.component
 let make = (~eventId: string, ~onPlayerAdd: inputsUser => unit) => {
   open Form

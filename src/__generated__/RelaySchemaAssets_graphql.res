@@ -187,6 +187,20 @@ and input_LeagueMatchInput_nullable = {
 }
 
 @live
+and input_LeagueRatingInput = {
+  activitySlug: string,
+  namespace: string,
+  userId?: string,
+}
+
+@live
+and input_LeagueRatingInput_nullable = {
+  activitySlug: string,
+  namespace: string,
+  userId?: Js.Null.t<string>,
+}
+
+@live
 and input_PredictMatchInput = {
   team1RatingIds: array<string>,
   team2RatingIds: array<string>,

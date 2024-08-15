@@ -1,5 +1,5 @@
 ARG PUBLIC_PATH=//www.racquetleague.com/
-FROM node:20-alpine3.17 AS builder
+FROM node:22-alpine AS builder
 ARG PUBLIC_PATH
 
 ARG API_ENDPOINT=http://rl:4555/graphql

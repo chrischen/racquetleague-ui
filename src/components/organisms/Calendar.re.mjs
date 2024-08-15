@@ -27,65 +27,25 @@ function use(fRef) {
   return RescriptRelay_Fragment.useFragment(CalendarEventsFragment_graphql.node, convertFragment, fRef);
 }
 
-function useOpt(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, CalendarEventsFragment_graphql.node, convertFragment);
-}
-
-var makeRefetchVariables = CalendarEventsRefetchQuery_graphql.Types.makeRefetchVariables;
-
 var convertRefetchVariables = CalendarEventsRefetchQuery_graphql.Internal.convertVariables;
-
-function useRefetchable(fRef) {
-  return RescriptRelay_Fragment.useRefetchableFragment(CalendarEventsFragment_graphql.node, convertFragment, convertRefetchVariables, fRef);
-}
 
 function usePagination(fRef) {
   return RescriptRelay_Fragment.usePaginationFragment(CalendarEventsFragment_graphql.node, fRef, convertFragment, convertRefetchVariables);
 }
 
-function useBlockingPagination(fRef) {
-  return RescriptRelay_Fragment.useBlockingPaginationFragment(CalendarEventsFragment_graphql.node, fRef, convertFragment, convertRefetchVariables);
-}
-
-var Fragment = {
-  getConnectionNodes: getConnectionNodes,
-  Types: undefined,
-  Operation: undefined,
-  convertFragment: convertFragment,
-  use: use,
-  useOpt: useOpt,
-  makeRefetchVariables: makeRefetchVariables,
-  convertRefetchVariables: convertRefetchVariables,
-  useRefetchable: useRefetchable,
-  usePagination: usePagination,
-  useBlockingPagination: useBlockingPagination
-};
-
-function isSameDay(date1, date2) {
-  if (date1.getDate() === date2.getDate() && date1.getMonth() === date2.getMonth()) {
-    return date1.getFullYear() === date2.getFullYear();
-  } else {
-    return false;
-  }
-}
-
-function intlIsSameDay(intl, date1, date2) {
-  var date1String = intl.formatDate(date1, {
-        weekday: "long",
-        month: "short",
-        day: "numeric"
-      });
-  var date2String = intl.formatDate(date2, {
-        weekday: "long",
-        month: "short",
-        day: "numeric"
-      });
-  return date1String === date2String;
-}
-
 function inDates(dates, intl, date) {
   return dates.findIndex(function (d) {
-              return intlIsSameDay(intl, d, date);
+              var date1String = intl.formatDate(d, {
+                    weekday: "long",
+                    month: "short",
+                    day: "numeric"
+                  });
+              var date2String = intl.formatDate(date, {
+                    weekday: "long",
+                    month: "short",
+                    day: "numeric"
+                  });
+              return date1String === date2String;
             }) !== -1;
 }
 
@@ -110,6 +70,7 @@ function Calendar(props) {
               value: new Date(),
               locale: locale.lang,
               className: "w-full",
+              calendarType: "gregory",
               onClickDay: (function (date, param) {
                   setSearchParams(function (prevParams) {
                         prevParams.set("selectedDate", date.toISOString());
@@ -159,10 +120,6 @@ function Calendar(props) {
 var make = Calendar;
 
 export {
-  Fragment ,
-  isSameDay ,
-  intlIsSameDay ,
-  inDates ,
   make ,
 }
 /*  Not a pure module */

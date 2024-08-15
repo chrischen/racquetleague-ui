@@ -4,6 +4,7 @@ external make: (
   ~value: Js.Date.t,
 	~locale: string=?,
   ~className: string=?,
+  ~calendarType: string=?,
   ~onChange: (Js.Date.t, 'event) => unit=?,
   ~onClickDay: (Js.Date.t, 'event) => unit=?,
   ~tileContent: tileCb => React.element=?,

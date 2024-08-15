@@ -25,7 +25,7 @@ type loaderData = EventsQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
-@genType @react.component
+@react.component
 let make = () => {
   open Router
   //let { fragmentRefs } = Fragment.use(events)
@@ -91,10 +91,6 @@ let make = () => {
   </WaitForMessages>
 }
 
-@genType
-let default = make
-
-@genType
 let \"Component" = make
 
 type params = {...EventsQuery_graphql.Types.variables, lang: option<string>}
@@ -128,7 +124,6 @@ let loadMessages = lang => {
   // )
   [messages]
 }
-@genType
 let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
@@ -163,12 +158,13 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
     ),
   }
 }
-@genType
-let \"HydrateFallbackElement" =
-  <div> {React.string("Loading fallback...")} </div>
+
+// @genType
+// let \"HydrateFallbackElement" =
+//   <div> {React.string("Loading fallback...")} </div>
 
 // %raw("loade;.hydrate = true")
-let useFragmentRefs = (): RescriptRelay.fragmentRefs<[#EventsListFragment]> => {
-  let data = Router.useOutletContext()
-  data
-}
+// let useFragmentRefs = (): RescriptRelay.fragmentRefs<[#EventsListFragment]> => {
+//   let data = Router.useOutletContext()
+//   data
+// }

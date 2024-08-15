@@ -54,7 +54,7 @@ module CreateLeagueMatchMutation = %relay(`
 open Rating
 module PredictionBar = {
   @react.component
-  let make = (~match: Match.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>) => {
+  let make = (~match: Match.t<rsvpNode>) => {
     let team1 = match->fst
     let team2 = match->snd
     let outcome = PredictMatchOutcome.use(
@@ -149,16 +149,40 @@ external alert: string => unit = "alert"
 
 let nullFormEvent: JsxEvent.Form.t = %raw("null")
 type winners = Left | Right
+
+module UnratedInput = {
+  @react.component
+  let make = (~handleWinner) => {
+    <>
+      <div className="grid grid-cols-1 gap-4">
+        <div className="mx-auto col-span-1">
+          <UiAction
+            onClick={() => handleWinner(Left)}
+            className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            {t`Winner`}
+          </UiAction>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 gap-4">
+        <div className="mx-auto col-span-1">
+          <UiAction
+            onClick={() => handleWinner(Right)}
+            className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            {t`Winner`}
+          </UiAction>
+        </div>
+      </div>
+    </>
+  }
+}
 @react.component
 let make = (
-  ~match: Match.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>,
-  ~activity: AddLeagueMatch_event_graphql.Types.fragment_activity,
+  ~match: Match.t<rsvpNode>,
+  ~activity: AiTetsu_event_graphql.Types.fragment_activity,
   ~minRating,
   ~maxRating,
   ~onDelete: option<unit => unit>=?,
-  ~onComplete: option<
-    Match.t<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node> => unit,
-  >=?,
+  ~onComplete: option<Match.t<rsvpNode> => unit>=?,
   ~onSubmitted: option<unit => unit>=?,
 ) => {
   let ts = Lingui.UtilString.t
@@ -270,7 +294,7 @@ let make = (
           | Some(data) =>
             data.user
             ->Option.map(user => {
-              <EventRsvpUser
+              <EventRsvpUser.Match
                 key={player.id}
                 user={user.fragmentRefs}
                 ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
@@ -278,9 +302,9 @@ let make = (
             })
             ->Option.getOr(React.null)
           | None =>
-            <RsvpUser
+            <MatchRsvpUser
               key={player.id}
-              user={RsvpUser.makeGuest(player.name)}
+              user={makeGuest(player.name)}
               ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
             />
           }
@@ -294,7 +318,7 @@ let make = (
           | Some(data) =>
             data.user
             ->Option.map(user => {
-              <EventRsvpUser
+              <EventRsvpUser.Match
                 key={user.id}
                 user={user.fragmentRefs}
                 ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
@@ -302,9 +326,9 @@ let make = (
             })
             ->Option.getOr(React.null)
           | None =>
-            <RsvpUser
+            <MatchRsvpUser
               key={player.id}
-              user={RsvpUser.makeGuest(player.name)}
+              user={makeGuest(player.name)}
               ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
             />
           }
@@ -316,87 +340,61 @@ let make = (
           <PredictionBar match />
         </React.Suspense>
       </div>
-      <div className="grid grid-cols-2 col-span-2 items-start gap-4 md:grid-cols-2 md:gap-8">
-        <div className="grid grid-cols-1 gap-4">
-          <div className="mx-auto col-span-1">
+      <div className="grid col-span-2 items-start gap-4  md:gap-8">
+        {doublesMatch
+        ->Result.flatMap((((p1, p2), (p3, p4))) =>
+          switch (p1.data, p2.data, p3.data, p4.data) {
+          | (Some(_), Some(_), Some(_), Some(_)) =>
+            Ok(<>
+              <div className="grid grid-cols-1 gap-4">
+                <Input
+                  className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
+                  label={t`points`}
+                  type_="text"
+                  id="scoreLeft"
+                  register={register(
+                    ScoreLeft,
+                    // ~options={
+                    //   setValueAs: v => {
+                    //     v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
+                    //   },
+                    // },
+                  )}
+                />
+                <Input
+                  className="w-24 sm:w-32 md:w-48 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
+                  label={t`points`}
+                  type_="text"
+                  id="scoreRight"
+                  register={register(
+                    ScoreRight,
+                    // ~options={
+                    //   setValueAs: v => v == "" ? 0. : Float.fromString(v)->Option.getOr(1.),
+                    // },
+                  )}
+                />
+                <input
+                  type_="submit"
+                  disabled={submitting}
+                  className="ml-3 inline-flex items-center text-2xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                  value={ts`Submit Rated`}
+                />
+              </div>
+            </>)
+          | _ => Error(TwoPlayersRequired)
+          }
+        )
+        ->Result.getOr(<UnratedInput handleWinner />)}
+        <div className="mt-3 flex md:top-3 md:mt-0 justify-center">
+          {onDelete
+          ->Option.map(onDelete =>
             <UiAction
-              onClick={() => handleWinner(Left)}
-              className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-              {t`Winner`}
+              className="ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
+              onClick=onDelete>
+              {t`Cancel`}
             </UiAction>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="mx-auto col-span-1">
-            <UiAction
-              onClick={() => handleWinner(Right)}
-              className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-              {t`Winner`}
-            </UiAction>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="mx-auto col-span-1">
-            <Input
-              className="w-24 sm:w-32 md:w-48  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
-              label={t`points`}
-              type_="text"
-              id="scoreLeft"
-              register={register(
-                ScoreLeft,
-                // ~options={
-                //   setValueAs: v => {
-                //     v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
-                //   },
-                // },
-              )}
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="mx-auto col-span-1">
-            <Input
-              className="w-24 sm:w-32 md:w-48 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
-              label={t`points`}
-              type_="text"
-              id="scoreRight"
-              register={register(
-                ScoreRight,
-                // ~options={
-                //   setValueAs: v => v == "" ? 0. : Float.fromString(v)->Option.getOr(1.),
-                // },
-              )}
-            />
-          </div>
-        </div>
-        <div className="col-span-2 md:col-span-2 gap-4">
-          <div className="mt-3 flex md:top-3 md:mt-0 justify-center">
-            {doublesMatch
-            ->Result.flatMap((((p1, p2), (p3, p4))) =>
-              switch (p1.data, p2.data, p3.data, p4.data) {
-              | (Some(_), Some(_), Some(_), Some(_)) =>
-                Ok(
-                  <input
-                    type_="submit"
-                    disabled={submitting}
-                    className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                    value={ts`Submit Rated`}
-                  />,
-                )
-              | _ => Error(TwoPlayersRequired)
-              }
-            )
-            ->Result.getOr(React.null)}
-            {onDelete
-            ->Option.map(onDelete =>
-              <UiAction
-                className="ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
-                onClick=onDelete>
-                {t`Cancel`}
-              </UiAction>
-            )
-            ->Option.getOr(React.null)}
-          </div>
+          )
+          ->Option.getOr(React.null)}
         </div>
       </div>
     </div>

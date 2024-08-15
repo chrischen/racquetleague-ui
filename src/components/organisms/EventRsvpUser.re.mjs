@@ -4,6 +4,7 @@ import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as RsvpUser from "./RsvpUser.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as MatchRsvpUser from "../molecules/MatchRsvpUser.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as EventRsvpUser_user_graphql from "../../__generated__/EventRsvpUser_user_graphql.re.mjs";
@@ -47,6 +48,19 @@ function make(props) {
   return JsxRuntime.jsx(RsvpUser.make, (newrecord.user = user, newrecord));
 }
 
+function make$1(props) {
+  var user = use(props.user);
+  var newrecord = Caml_obj.obj_dup(props);
+  return JsxRuntime.jsx(MatchRsvpUser.make, (newrecord.user = {
+                name: Core__Option.getOr(user.lineUsername, "[Line username missing]"),
+                picture: user.picture
+              }, newrecord));
+}
+
+var Match = {
+  make: make$1
+};
+
 var $$default = make;
 
 export {
@@ -54,6 +68,7 @@ export {
   fromRegisteredUser ,
   makeGuest ,
   make ,
+  Match ,
   $$default as default,
 }
 /* RsvpUser Not a pure module */

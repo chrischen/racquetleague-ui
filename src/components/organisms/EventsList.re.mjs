@@ -43,39 +43,11 @@ function use(fRef) {
   return RescriptRelay_Fragment.useFragment(EventsListFragment_graphql.node, convertFragment, fRef);
 }
 
-function useOpt(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, EventsListFragment_graphql.node, convertFragment);
-}
-
-var makeRefetchVariables = EventsListRefetchQuery_graphql.Types.makeRefetchVariables;
-
 var convertRefetchVariables = EventsListRefetchQuery_graphql.Internal.convertVariables;
-
-function useRefetchable(fRef) {
-  return RescriptRelay_Fragment.useRefetchableFragment(EventsListFragment_graphql.node, convertFragment, convertRefetchVariables, fRef);
-}
 
 function usePagination(fRef) {
   return RescriptRelay_Fragment.usePaginationFragment(EventsListFragment_graphql.node, fRef, convertFragment, convertRefetchVariables);
 }
-
-function useBlockingPagination(fRef) {
-  return RescriptRelay_Fragment.useBlockingPaginationFragment(EventsListFragment_graphql.node, fRef, convertFragment, convertRefetchVariables);
-}
-
-var Fragment = {
-  getConnectionNodes: getConnectionNodes,
-  Types: undefined,
-  Operation: undefined,
-  convertFragment: convertFragment,
-  use: use,
-  useOpt: useOpt,
-  makeRefetchVariables: makeRefetchVariables,
-  convertRefetchVariables: convertRefetchVariables,
-  useRefetchable: useRefetchable,
-  usePagination: usePagination,
-  useBlockingPagination: useBlockingPagination
-};
 
 var convertFragment$1 = EventsList_event_graphql.Internal.convertFragment;
 
@@ -83,80 +55,11 @@ function use$1(fRef) {
   return RescriptRelay_Fragment.useFragment(EventsList_event_graphql.node, convertFragment$1, fRef);
 }
 
-function useOpt$1(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, EventsList_event_graphql.node, convertFragment$1);
-}
-
-var ItemFragment_rsvpStatus_decode = EventsList_event_graphql.Utils.rsvpStatus_decode;
-
-var ItemFragment_rsvpStatus_fromString = EventsList_event_graphql.Utils.rsvpStatus_fromString;
-
-var ItemFragment = {
-  rsvpStatus_decode: ItemFragment_rsvpStatus_decode,
-  rsvpStatus_fromString: ItemFragment_rsvpStatus_fromString,
-  Types: undefined,
-  Operation: undefined,
-  convertFragment: convertFragment$1,
-  use: use$1,
-  useOpt: useOpt$1
-};
-
 var convertFragment$2 = EventsListText_event_graphql.Internal.convertFragment;
 
 function use$2(fRef) {
   return RescriptRelay_Fragment.useFragment(EventsListText_event_graphql.node, convertFragment$2, fRef);
 }
-
-function useOpt$2(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, EventsListText_event_graphql.node, convertFragment$2);
-}
-
-var TextItemFragment = {
-  Types: undefined,
-  Operation: undefined,
-  convertFragment: convertFragment$2,
-  use: use$2,
-  useOpt: useOpt$2
-};
-
-function make(key, id) {
-  return [
-          key,
-          id
-        ];
-}
-
-function toId(param) {
-  return param[1];
-}
-
-var NodeId = {
-  toId: toId,
-  make: make
-};
-
-function toDomain(t) {
-  var match = t.split(":");
-  if (match.length !== 2) {
-    return {
-            TAG: "Error",
-            _0: "InvalidNode"
-          };
-  }
-  var key = match[0];
-  var id = match[1];
-  return {
-          TAG: "Ok",
-          _0: [
-            key,
-            id
-          ]
-        };
-}
-
-var NodeIdDto = {
-  toDomain: toDomain
-};
 
 function td(prim) {
   return Core.i18n._(prim);
@@ -169,7 +72,7 @@ function ts(prim0, prim1) {
             ]);
 }
 
-function make$1($$event) {
+function make($$event) {
   var match = use$2($$event);
   var startDate = match.startDate;
   var maxRsvps = match.maxRsvps;
@@ -233,7 +136,7 @@ function make$1($$event) {
 var TextEventItem = {
   td: td,
   ts: ts,
-  make: make$1
+  make: make
 };
 
 function toLocalTime(date) {
@@ -245,7 +148,7 @@ function EventsList$TextEventsList(props) {
   var match = usePagination(props.events);
   var events = getConnectionNodes(match.data.events);
   var str = events.map(function (edge) {
-          return make$1(edge.fragmentRefs);
+          return make(edge.fragmentRefs);
         }).join("\n\n");
   return JsxRuntime.jsx("textarea", {
               className: "w-full",
@@ -438,48 +341,6 @@ var EventItem = {
   make: EventsList$EventItem
 };
 
-function toLocalTime$1(date) {
-  return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
-}
-
-function sortByDate(intl, filterByDate, dates, $$event) {
-  Core__Option.map($$event.startDate, (function (startDate) {
-          var startDate$1 = Util.Datetime.toDate(startDate);
-          var startDateString = intl.formatDate(startDate$1, {
-                weekday: "long",
-                month: "short",
-                day: "numeric"
-              });
-          Core__Option.map(filterByDate, (function (filterDate) {
-                  if (startDate$1.getTime() <= filterDate.getTime()) {
-                    return ;
-                  }
-                  var events = Js_dict.get(dates, startDateString);
-                  if (events !== undefined) {
-                    dates[startDateString] = Belt_Array.concatMany([
-                          [$$event],
-                          events
-                        ]);
-                  } else {
-                    dates[startDateString] = [$$event];
-                  }
-                }));
-          if (filterByDate !== undefined) {
-            return ;
-          }
-          var events = Js_dict.get(dates, startDateString);
-          if (events !== undefined) {
-            dates[startDateString] = Belt_Array.concatMany([
-                  [$$event],
-                  events
-                ]);
-          } else {
-            dates[startDateString] = [$$event];
-          }
-        }));
-  return dates;
-}
-
 function EventsList(props) {
   var events = props.events;
   ReactExperimental.useTransition();
@@ -512,7 +373,41 @@ function EventsList(props) {
   };
   var intl = ReactIntl.useIntl();
   var eventsByDate = Core__Array.reduce(events$1, {}, (function (extra, extra$1) {
-          return sortByDate(intl, filterByDate, extra, extra$1);
+          Core__Option.map(extra$1.startDate, (function (startDate) {
+                  var startDate$1 = Util.Datetime.toDate(startDate);
+                  var startDateString = intl.formatDate(startDate$1, {
+                        weekday: "long",
+                        month: "short",
+                        day: "numeric"
+                      });
+                  Core__Option.map(filterByDate, (function (filterDate) {
+                          if (startDate$1.getTime() <= filterDate.getTime()) {
+                            return ;
+                          }
+                          var events = Js_dict.get(extra, startDateString);
+                          if (events !== undefined) {
+                            extra[startDateString] = Belt_Array.concatMany([
+                                  [extra$1],
+                                  events
+                                ]);
+                          } else {
+                            extra[startDateString] = [extra$1];
+                          }
+                        }));
+                  if (filterByDate !== undefined) {
+                    return ;
+                  }
+                  var events = Js_dict.get(extra, startDateString);
+                  if (events !== undefined) {
+                    extra[startDateString] = Belt_Array.concatMany([
+                          [extra$1],
+                          events
+                        ]);
+                  } else {
+                    extra[startDateString] = [extra$1];
+                  }
+                }));
+          return extra;
         }));
   React.useEffect((function () {
           ((window.location.hash = '#highlighted'));
@@ -625,38 +520,12 @@ function EventsList(props) {
             });
 }
 
-function __unused() {
-  t({
-        id: "Badminton"
-      });
-  t({
-        id: "Table Tennis"
-      });
-  t({
-        id: "Pickleball"
-      });
-  t({
-        id: "Futsal"
-      });
-}
-
-var make$2 = EventsList;
-
-var $$default = EventsList;
+var make$1 = EventsList;
 
 export {
-  Fragment ,
-  ItemFragment ,
-  TextItemFragment ,
-  NodeId ,
-  NodeIdDto ,
   TextEventItem ,
   TextEventsList ,
   EventItem ,
-  toLocalTime$1 as toLocalTime,
-  sortByDate ,
-  make$2 as make,
-  $$default as default,
-  __unused ,
+  make$1 as make,
 }
 /*  Not a pure module */

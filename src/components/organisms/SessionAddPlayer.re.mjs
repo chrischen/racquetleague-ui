@@ -2,9 +2,7 @@
 
 import * as Zod from "zod";
 import * as Form from "../molecules/forms/Form.re.mjs";
-import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import ReactQrCode from "react-qr-code";
 import * as ReactHookForm from "react-hook-form";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -21,21 +19,6 @@ var ControllerOfInputsUser = {};
 var schema = Zod.z.object({
       name: Zod.z.string({}).min(1)
     });
-
-function toEventRsvpUser(data) {
-  return EventRsvpUser.makeGuest(data.name);
-}
-
-function toRatingPlayer(data) {
-  var rating = Rating.Rating.makeDefault();
-  return {
-          data: undefined,
-          id: "guest-" + data.name,
-          name: data.name,
-          rating: rating,
-          ratingOrdinal: Rating.Rating.ordinal(rating)
-        };
-}
 
 function SessionAddPlayer(props) {
   var onPlayerAdd = props.onPlayerAdd;
@@ -75,9 +58,6 @@ var make = SessionAddPlayer;
 
 export {
   ControllerOfInputsUser ,
-  schema ,
-  toEventRsvpUser ,
-  toRatingPlayer ,
   make ,
 }
 /*  Not a pure module */

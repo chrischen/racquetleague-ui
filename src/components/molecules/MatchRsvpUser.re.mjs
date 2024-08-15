@@ -3,7 +3,6 @@
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as Core from "@linaria/core";
-import * as FramerMotion from "framer-motion";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { css, cx } from '@linaria/core'
@@ -12,7 +11,7 @@ import { css, cx } from '@linaria/core'
 import { t, plural } from '@lingui/macro'
 ;
 
-function RsvpUser(props) {
+function MatchRsvpUser(props) {
   var link = props.link;
   var __highlight = props.highlight;
   var user = props.user;
@@ -53,28 +52,14 @@ function RsvpUser(props) {
                                               }) : user.name
                                       ]
                                     }),
-                              className: "text-sm font-semibold leading-6 text-gray-900"
+                              className: "text-2xl font-semibold leading-6 text-gray-900"
                             }),
                         JsxRuntime.jsx("p", {
                               children: JsxRuntime.jsx("span", {
                                     className: "relative truncate hover:underline"
                                   }),
                               className: "mt-1 flex text-xs leading-5 text-gray-500"
-                            }),
-                        Core__Option.getOr(Core__Option.map(props.ratingPercent, (function (ratingPercent) {
-                                    return JsxRuntime.jsx("div", {
-                                                children: JsxRuntime.jsx(FramerMotion.motion.div, {
-                                                      className: "h-2 rounded-full bg-red-400",
-                                                      animate: {
-                                                        width: ratingPercent.toFixed(3) + "%"
-                                                      },
-                                                      initial: {
-                                                        width: "0%"
-                                                      }
-                                                    }),
-                                                className: "overflow-hidden rounded-full bg-gray-200 mt-1"
-                                              });
-                                  })), null)
+                            })
                       ],
                       className: "min-w-0 flex-auto"
                     })
@@ -83,7 +68,7 @@ function RsvpUser(props) {
             });
 }
 
-var make = RsvpUser;
+var make = MatchRsvpUser;
 
 export {
   make ,

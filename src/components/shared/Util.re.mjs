@@ -130,9 +130,12 @@ var NonEmptyArray = {
   filterWithIndex: filterWithIndex
 };
 
+var JsSet = {};
+
 export {
   Helmet ,
   Datetime ,
   NonEmptyArray ,
+  JsSet ,
 }
 /* No side effect */

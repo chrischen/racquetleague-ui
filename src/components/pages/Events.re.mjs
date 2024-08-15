@@ -29,11 +29,9 @@ var convertVariables = EventsQuery_graphql.Internal.convertVariables;
 
 var convertResponse = EventsQuery_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse = EventsQuery_graphql.Internal.convertWrapRawResponse;
+RescriptRelay_Query.useQuery(convertVariables, EventsQuery_graphql.node, convertResponse);
 
-var use = RescriptRelay_Query.useQuery(convertVariables, EventsQuery_graphql.node, convertResponse);
-
-var useLoader = RescriptRelay_Query.useLoader(convertVariables, EventsQuery_graphql.node, (function (prim) {
+RescriptRelay_Query.useLoader(convertVariables, EventsQuery_graphql.node, (function (prim) {
         return prim;
       }));
 
@@ -41,25 +39,11 @@ var usePreloaded = RescriptRelay_Query.usePreloaded(EventsQuery_graphql.node, co
         return prim;
       }));
 
-var $$fetch = RescriptRelay_Query.$$fetch(EventsQuery_graphql.node, convertResponse, convertVariables);
+RescriptRelay_Query.$$fetch(EventsQuery_graphql.node, convertResponse, convertVariables);
 
-var fetchPromised = RescriptRelay_Query.fetchPromised(EventsQuery_graphql.node, convertResponse, convertVariables);
+RescriptRelay_Query.fetchPromised(EventsQuery_graphql.node, convertResponse, convertVariables);
 
-var retain = RescriptRelay_Query.retain(EventsQuery_graphql.node, convertVariables);
-
-var EventsQuery = {
-  Operation: undefined,
-  Types: undefined,
-  convertVariables: convertVariables,
-  convertResponse: convertResponse,
-  convertWrapRawResponse: convertWrapRawResponse,
-  use: use,
-  useLoader: useLoader,
-  usePreloaded: usePreloaded,
-  $$fetch: $$fetch,
-  fetchPromised: fetchPromised,
-  retain: retain
-};
+RescriptRelay_Query.retain(EventsQuery_graphql.node, convertVariables);
 
 function Events(props) {
   var query = ReactRouterDom.useLoaderData();
@@ -199,29 +183,14 @@ async function loader(param) {
         };
 }
 
-var HydrateFallbackElement = JsxRuntime.jsx("div", {
-      children: "Loading fallback..."
-    });
-
-function useFragmentRefs() {
-  return ReactRouterDom.useOutletContext();
-}
-
 var make = Events;
-
-var $$default = Events;
 
 var Component = Events;
 
 export {
-  EventsQuery ,
   make ,
-  $$default as default,
   Component ,
   LoaderArgs ,
-  loadMessages ,
   loader ,
-  HydrateFallbackElement ,
-  useFragmentRefs ,
 }
 /*  Not a pure module */
