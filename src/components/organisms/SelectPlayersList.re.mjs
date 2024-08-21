@@ -63,7 +63,7 @@ function SelectPlayersList(props) {
                                       children: [
                                         JsxRuntime.jsx("th", {
                                               children: JsxRuntime.jsxs(UiAction.make, {
-                                                    onClick: (function () {
+                                                    onClick: (function (param) {
                                                         setSort(function (param) {
                                                               return "Rating";
                                                             });
@@ -88,7 +88,7 @@ function SelectPlayersList(props) {
                                             }),
                                         JsxRuntime.jsx("th", {
                                               children: JsxRuntime.jsxs(UiAction.make, {
-                                                    onClick: (function () {
+                                                    onClick: (function (param) {
                                                         setSort(function (param) {
                                                               return "MatchCount";
                                                             });
@@ -138,7 +138,7 @@ function SelectPlayersList(props) {
                                                             children: JsxRuntime.jsx("div", {
                                                                   children: JsxRuntime.jsx("div", {
                                                                         children: JsxRuntime.jsx(UiAction.make, {
-                                                                              onClick: (function () {
+                                                                              onClick: (function (param) {
                                                                                   onClick(player);
                                                                                 }),
                                                                               children: Core__Option.getOr(Core__Option.flatMap(player.data, (function (data) {
@@ -165,12 +165,12 @@ function SelectPlayersList(props) {
                                                       JsxRuntime.jsx("td", {
                                                             children: selected$1 ? null : (
                                                                 disabled$1 ? JsxRuntime.jsx(UiAction.make, {
-                                                                        onClick: (function () {
+                                                                        onClick: (function (param) {
                                                                             onEnable(player);
                                                                           }),
                                                                         children: "Enable"
                                                                       }) : JsxRuntime.jsx(UiAction.make, {
-                                                                        onClick: (function () {
+                                                                        onClick: (function (param) {
                                                                             onRemove(player);
                                                                           }),
                                                                         children: "Remove"

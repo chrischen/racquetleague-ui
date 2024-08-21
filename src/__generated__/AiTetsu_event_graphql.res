@@ -17,7 +17,7 @@ module Types = {
   and fragment_rsvps_edges_node_user = {
     @live id: string,
     lineUsername: option<string>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvpUser_user]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventMatchRsvpUser_user | #EventRsvpUser_user]>,
   }
   and fragment_rsvps_edges_node = {
     @live __id: RescriptRelay.dataId,
@@ -41,7 +41,6 @@ module Types = {
     activity: option<fragment_activity>,
     @live id: string,
     rsvps: option<fragment_rsvps>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #SelectMatch_event]>,
   }
 }
 
@@ -50,7 +49,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"rsvps_edges_node_user":{"f":""},"":{"f":""}}}`
+    json`{"__root":{"rsvps_edges_node_user":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = ()
@@ -245,6 +244,11 @@ return {
                       "args": null,
                       "kind": "FragmentSpread",
                       "name": "EventRsvpUser_user"
+                    },
+                    {
+                      "args": null,
+                      "kind": "FragmentSpread",
+                      "name": "EventMatchRsvpUser_user"
                     }
                   ],
                   "storageKey": null
@@ -337,27 +341,6 @@ return {
         }
       ],
       "storageKey": null
-    },
-    {
-      "args": [
-        {
-          "kind": "Variable",
-          "name": "after",
-          "variableName": "after"
-        },
-        {
-          "kind": "Variable",
-          "name": "before",
-          "variableName": "before"
-        },
-        {
-          "kind": "Variable",
-          "name": "first",
-          "variableName": "first"
-        }
-      ],
-      "kind": "FragmentSpread",
-      "name": "SelectMatch_event"
     },
     (v2/*: any*/)
   ],

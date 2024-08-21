@@ -26,6 +26,14 @@ var MenuItems = {};
 
 var Field = {};
 
+var Dialog = {};
+
+var DialogBackdrop = {};
+
+var DialogPanel = {};
+
+var DialogTitle = {};
+
 export {
   Switch ,
   Disclosure ,
@@ -36,5 +44,9 @@ export {
   MenuItem ,
   MenuItems ,
   Field ,
+  Dialog ,
+  DialogBackdrop ,
+  DialogPanel ,
+  DialogTitle ,
 }
 /* No side effect */

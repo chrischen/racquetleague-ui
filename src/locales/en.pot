@@ -1116,3 +1116,66 @@ msgstr ""
 #: src/components/organisms/AddLeagueMatch.re.mjs:92
 msgid "Team {0}"
 msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:165
+#: src/components/organisms/MatchesView.re.mjs:168
+#: src/components/organisms/AiTetsu.re.mjs:835
+#: src/components/organisms/AiTetsu.re.mjs:838
+msgid "and"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:169
+#: src/components/organisms/AiTetsu.re.mjs:839
+msgid "Court {0}: {team1} versus {team2}"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:579
+msgid "Current Matches"
+msgstr ""
+
+#: src/components/organisms/SubmitMatch.re.mjs:401
+#: src/components/organisms/MatchesView.re.mjs:127
+msgid "Go Back"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:556
+msgid "Initialize Ratings"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:157
+msgid "Matches"
+msgstr ""
+
+#: src/components/organisms/SubmitMatch.re.mjs:328
+#: src/components/organisms/SubmitMatch.re.mjs:374
+msgid "Points"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:142
+msgid "Queue"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:281
+msgid "Choose Match"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:138
+msgid "CHOOSE MATCH"
+msgstr ""
+
+#: src/components/ui/ModalDrawer.re.mjs:43
+msgid "Close panel"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:628
+msgid "Easy Mode"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:130
+msgid "Players on Break"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:110
+#: src/components/organisms/AiTetsu.re.mjs:678
+msgid "Toggle All"
+msgstr ""

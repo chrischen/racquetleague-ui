@@ -195,7 +195,7 @@ module TextEventsList = {
   let toLocalTime = date => {
     Js.Date.fromFloat(date->Js.Date.getTime -. date->Js.Date.getTimezoneOffset *. 60. *. 1000.)
   }
-  @genType @react.component
+  @react.component
   let make = (~events) => {
     let (_isPending, _) = ReactExperimental.useTransition()
     let {data} = Fragment.usePagination(events)
@@ -412,7 +412,7 @@ let sortByDate = (
   ->ignore
   dates
 }
-@genType @react.component
+@react.component
 let make = (~events) => {
   open Lingui.Util
   let (_isPending, _) = ReactExperimental.useTransition()
@@ -464,7 +464,7 @@ let make = (~events) => {
           ->Option.getOr(React.null)
         : React.null}
       {" • "->React.string}
-      <UiAction onClick={() => setShareOpen(v => !v)} active={shareOpen}>
+      <UiAction onClick={_ => setShareOpen(v => !v)} active={shareOpen}>
         {t`share as text`}
       </UiAction>
     </Layout.Container>

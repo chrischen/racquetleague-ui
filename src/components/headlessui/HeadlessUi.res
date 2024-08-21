@@ -81,3 +81,30 @@ module Field = {
   external make: (~\"as": 'asType=?, ~className: string=?, ~children: 'children) => React.element =
     "Field"
 }
+
+module Dialog = {
+  @module("@headlessui/react") @react.component
+  external make: (
+    ~\"open": bool,
+    ~onClose: (bool => bool) => unit,
+    ~transition: option<bool>=?,
+    ~className: string=?,
+    ~children: 'children,
+  ) => React.element = "Dialog"
+}
+module DialogBackdrop = {
+  @module("@headlessui/react") @react.component
+  external make: (~transition: bool, ~className: string=?) => React.element = "DialogBackdrop"
+}
+module DialogPanel = {
+  @module("@headlessui/react") @react.component
+  external make: (
+    ~transition: bool,
+    ~className: string=?,
+    ~children: React.element,
+  ) => React.element = "DialogPanel"
+}
+module DialogTitle = {
+  @module("@headlessui/react") @react.component
+  external make: (~className: string=?, ~children: React.element) => React.element = "DialogTitle"
+}

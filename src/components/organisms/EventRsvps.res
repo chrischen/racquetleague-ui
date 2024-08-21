@@ -85,7 +85,7 @@ module EventRsvpsLeaveMutation = %relay(`
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
 //@genType
 //let default = make
-@genType @react.component
+@react.component
 let make = (~event) => {
   let (_isPending, startTransition) = ReactExperimental.useTransition()
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
@@ -414,6 +414,3 @@ let make = (~event) => {
 //
 //   [messages]->Array.concat(ViewerRsvpStatus.loadMessages(lang))
 // }
-
-@genType
-let default = make

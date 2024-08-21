@@ -23,7 +23,7 @@ module MatchMini = {
   let make = (~match: Match.t<'a>, ~onSelect: option<Match.t<'a> => unit>=?) => {
     let (team1, team2) = match
     <UiAction
-      className="p-4 mb-2" onClick={() => onSelect->Option.map(f => f(match))->Option.getOr()}>
+      className="p-4 mb-2" onClick={_ => onSelect->Option.map(f => f(match))->Option.getOr()}>
       <div className="grid grid-cols-7 items-center place-content-center">
         <div className="col-span-3">
           <span> {team1->Array.map(p => <PlayerMini player=p />)->React.array} </span>
@@ -410,7 +410,7 @@ let make = (
           <UiAction
             key={tab.name}
             // \"aria-current"={tab.current ? 'page' : undefined}
-            onClick={() => setStrategy(_ => tab.strategy)}
+            onClick={_ => setStrategy(_ => tab.strategy)}
             className={Util.cx([
               strategy == tab.strategy
                 ? "bg-indigo-100 text-indigo-700"

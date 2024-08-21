@@ -1,4 +1,4 @@
-/* TypeScript file generated from EventRsvps.res by genType. */
+/* TypeScript file generated from EventRsvps.resi by genType. */
 
 /* eslint-disable */
 /* tslint:disable */
@@ -10,7 +10,3 @@ import type {fragmentRefs as RescriptRelay_fragmentRefs} from 'rescript-relay/sr
 export type props<event> = { readonly event: event };
 
 export const make: React.ComponentType<{ readonly event: RescriptRelay_fragmentRefs<"EventRsvps_event"> }> = EventRsvpsJS.make as any;
-
-export const $$default: React.ComponentType<{ readonly event: RescriptRelay_fragmentRefs<"EventRsvps_event"> }> = EventRsvpsJS.default as any;
-
-export default $$default;

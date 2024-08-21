@@ -141,7 +141,7 @@ function CreateLocationForm(props) {
                                                     JsxRuntime.jsxs("div", {
                                                           children: [
                                                             JsxRuntime.jsx(Form.Input.make, {
-                                                                  label: t`name`,
+                                                                  label: Caml_option.some(t`name`),
                                                                   name: "name",
                                                                   id: "name",
                                                                   placeholder: t`Akabane Elementary School`,
@@ -155,7 +155,7 @@ function CreateLocationForm(props) {
                                                         }),
                                                     JsxRuntime.jsx("div", {
                                                           children: JsxRuntime.jsx(Form.Input.make, {
-                                                                label: t`address`,
+                                                                label: Caml_option.some(t`address`),
                                                                 name: "address",
                                                                 id: "address",
                                                                 register: register("address", undefined)
@@ -164,7 +164,7 @@ function CreateLocationForm(props) {
                                                         }),
                                                     JsxRuntime.jsx("div", {
                                                           children: JsxRuntime.jsx(Form.Input.make, {
-                                                                label: t`maps link`,
+                                                                label: Caml_option.some(t`maps link`),
                                                                 name: "links",
                                                                 id: "links",
                                                                 placeholder: "https://maps.app.goo.gl/77FBSgrFRFAQrPrM8",

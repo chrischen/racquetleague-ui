@@ -34,39 +34,11 @@ function use(fRef) {
   return RescriptRelay_Fragment.useFragment(EventRsvps_event_graphql.node, convertFragment, fRef);
 }
 
-function useOpt(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, EventRsvps_event_graphql.node, convertFragment);
-}
-
-var makeRefetchVariables = EventRsvpsRefetchQuery_graphql.Types.makeRefetchVariables;
-
 var convertRefetchVariables = EventRsvpsRefetchQuery_graphql.Internal.convertVariables;
-
-function useRefetchable(fRef) {
-  return RescriptRelay_Fragment.useRefetchableFragment(EventRsvps_event_graphql.node, convertFragment, convertRefetchVariables, fRef);
-}
 
 function usePagination(fRef) {
   return RescriptRelay_Fragment.usePaginationFragment(EventRsvps_event_graphql.node, fRef, convertFragment, convertRefetchVariables);
 }
-
-function useBlockingPagination(fRef) {
-  return RescriptRelay_Fragment.useBlockingPaginationFragment(EventRsvps_event_graphql.node, fRef, convertFragment, convertRefetchVariables);
-}
-
-var Fragment = {
-  getConnectionNodes: getConnectionNodes,
-  Types: undefined,
-  Operation: undefined,
-  convertFragment: convertFragment,
-  use: use,
-  useOpt: useOpt,
-  makeRefetchVariables: makeRefetchVariables,
-  convertRefetchVariables: convertRefetchVariables,
-  useRefetchable: useRefetchable,
-  usePagination: usePagination,
-  useBlockingPagination: useBlockingPagination
-};
 
 var convertVariables = EventRsvpsJoinMutation_graphql.Internal.convertVariables;
 
@@ -74,19 +46,9 @@ var convertResponse = EventRsvpsJoinMutation_graphql.Internal.convertResponse;
 
 var convertWrapRawResponse = EventRsvpsJoinMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, EventRsvpsJoinMutation_graphql.node, convertResponse, convertWrapRawResponse);
+RescriptRelay_Mutation.commitMutation(convertVariables, EventRsvpsJoinMutation_graphql.node, convertResponse, convertWrapRawResponse);
 
 var use$1 = RescriptRelay_Mutation.useMutation(convertVariables, EventRsvpsJoinMutation_graphql.node, convertResponse, convertWrapRawResponse);
-
-var EventRsvpsJoinMutation = {
-  Operation: undefined,
-  Types: undefined,
-  convertVariables: convertVariables,
-  convertResponse: convertResponse,
-  convertWrapRawResponse: convertWrapRawResponse,
-  commitMutation: commitMutation,
-  use: use$1
-};
 
 var convertVariables$1 = EventRsvpsCreateRatingMutation_graphql.Internal.convertVariables;
 
@@ -94,19 +56,9 @@ var convertResponse$1 = EventRsvpsCreateRatingMutation_graphql.Internal.convertR
 
 var convertWrapRawResponse$1 = EventRsvpsCreateRatingMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, EventRsvpsCreateRatingMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+RescriptRelay_Mutation.commitMutation(convertVariables$1, EventRsvpsCreateRatingMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
 
 var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, EventRsvpsCreateRatingMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
-
-var EventRsvpsCreateRatingMutation = {
-  Operation: undefined,
-  Types: undefined,
-  convertVariables: convertVariables$1,
-  convertResponse: convertResponse$1,
-  convertWrapRawResponse: convertWrapRawResponse$1,
-  commitMutation: commitMutation$1,
-  use: use$2
-};
 
 var convertVariables$2 = EventRsvpsLeaveMutation_graphql.Internal.convertVariables;
 
@@ -114,21 +66,9 @@ var convertResponse$2 = EventRsvpsLeaveMutation_graphql.Internal.convertResponse
 
 var convertWrapRawResponse$2 = EventRsvpsLeaveMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2, EventRsvpsLeaveMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+RescriptRelay_Mutation.commitMutation(convertVariables$2, EventRsvpsLeaveMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
 
 var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, EventRsvpsLeaveMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
-
-var EventRsvpsLeaveMutation = {
-  Operation: undefined,
-  Types: undefined,
-  convertVariables: convertVariables$2,
-  convertResponse: convertResponse$2,
-  convertWrapRawResponse: convertWrapRawResponse$2,
-  commitMutation: commitMutation$2,
-  use: use$3
-};
-
-var sessionContext = AppContext.SessionContext;
 
 function EventRsvps(props) {
   var $$event = props.event;
@@ -526,15 +466,7 @@ function EventRsvps(props) {
 
 var make = EventRsvps;
 
-var $$default = EventRsvps;
-
 export {
-  Fragment ,
-  EventRsvpsJoinMutation ,
-  EventRsvpsCreateRatingMutation ,
-  EventRsvpsLeaveMutation ,
-  sessionContext ,
   make ,
-  $$default as default,
 }
 /*  Not a pure module */

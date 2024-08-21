@@ -288,7 +288,7 @@ function CreateLocationEventForm(props) {
                                                                           JsxRuntime.jsxs("div", {
                                                                                 children: [
                                                                                   JsxRuntime.jsx(Form.Input.make, {
-                                                                                        label: t`title`,
+                                                                                        label: Caml_option.some(t`title`),
                                                                                         name: "title",
                                                                                         id: "title",
                                                                                         placeholder: t`All Level`,
@@ -322,7 +322,7 @@ function CreateLocationEventForm(props) {
                                                                               }),
                                                                           JsxRuntime.jsx("div", {
                                                                                 children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                      label: t`date and start time`,
+                                                                                      label: Caml_option.some(t`date and start time`),
                                                                                       name: "startDate",
                                                                                       id: "startDate",
                                                                                       type_: "datetime-local",
@@ -332,7 +332,7 @@ function CreateLocationEventForm(props) {
                                                                               }),
                                                                           JsxRuntime.jsx("div", {
                                                                                 children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                      label: t`end time`,
+                                                                                      label: Caml_option.some(t`end time`),
                                                                                       name: "endTime",
                                                                                       id: "endTime",
                                                                                       type_: "time",
@@ -342,7 +342,7 @@ function CreateLocationEventForm(props) {
                                                                               }),
                                                                           JsxRuntime.jsx("div", {
                                                                                 children: JsxRuntime.jsx(Form.Input.make, {
-                                                                                      label: t`max participants`,
+                                                                                      label: Caml_option.some(t`max participants`),
                                                                                       name: "maxRsvps",
                                                                                       id: "maxRsvps",
                                                                                       type_: "number",

@@ -44,7 +44,7 @@ function CompMatch$MatchMini(props) {
   var match = props.match;
   var onSelect = props.onSelect;
   return JsxRuntime.jsx(UiAction.make, {
-              onClick: (function () {
+              onClick: (function (param) {
                   Core__Option.getOr(Core__Option.map(onSelect, (function (f) {
                               f(match);
                             })), undefined);
@@ -460,7 +460,7 @@ function CompMatch(props) {
                       children: JsxRuntime.jsx("nav", {
                             children: strats.map(function (tab) {
                                   return JsxRuntime.jsx(UiAction.make, {
-                                              onClick: (function () {
+                                              onClick: (function (param) {
                                                   setStrategy(function (param) {
                                                         return tab.strategy;
                                                       });

@@ -8,7 +8,7 @@ import * as AiTetsuRsvpsRefetchQuery_graphql from "./AiTetsuRsvpsRefetchQuery_gr
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"rsvps_edges_node_user":{"f":""},"":{"f":""}}};
+var fragmentConverter = {"__root":{"rsvps_edges_node_user":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -182,6 +182,11 @@ return {
                       "args": null,
                       "kind": "FragmentSpread",
                       "name": "EventRsvpUser_user"
+                    },
+                    {
+                      "args": null,
+                      "kind": "FragmentSpread",
+                      "name": "EventMatchRsvpUser_user"
                     }
                   ],
                   "storageKey": null
@@ -274,27 +279,6 @@ return {
         }
       ],
       "storageKey": null
-    },
-    {
-      "args": [
-        {
-          "kind": "Variable",
-          "name": "after",
-          "variableName": "after"
-        },
-        {
-          "kind": "Variable",
-          "name": "before",
-          "variableName": "before"
-        },
-        {
-          "kind": "Variable",
-          "name": "first",
-          "variableName": "first"
-        }
-      ],
-      "kind": "FragmentSpread",
-      "name": "SelectMatch_event"
     },
     (v2/*: any*/)
   ],

@@ -25,7 +25,7 @@ function SelectMatch$SortAction(props) {
   var tmp;
   tmp = props.sortDir === "Asc" ? JsxRuntime.jsx(LucideReact.ArrowUpNarrowWide, {}) : JsxRuntime.jsx(LucideReact.ArrowDownWideNarrow, {});
   return JsxRuntime.jsx(UiAction.make, {
-              onClick: (function () {
+              onClick: (function (param) {
                   setSortDir(function (dir) {
                         if (dir === "Asc") {
                           return "Desc";
@@ -327,7 +327,7 @@ function SelectMatch(props) {
                                               children: [
                                                 JsxRuntime.jsx("div", {
                                                       children: JsxRuntime.jsx(UiAction.make, {
-                                                            onClick: (function () {
+                                                            onClick: (function (param) {
                                                                 onMatchQueued(match);
                                                               }),
                                                             children: t`Queue Match`

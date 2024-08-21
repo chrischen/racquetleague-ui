@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SubmitMatch.re.mjs:368
+#: src/components/organisms/SubmitMatch.re.mjs:259
 msgid "Cancel"
 msgstr ""
 
@@ -21,7 +21,11 @@ msgstr ""
 #~ msgid "Completed"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:332
+#: src/components/organisms/SubmitMatch.re.mjs:392
+msgid "Go Back"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:284
 msgid "left team players"
 msgstr ""
 
@@ -29,42 +33,47 @@ msgstr ""
 #~ msgid "load More"
 #~ msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:278
-#: src/components/organisms/SelectMatch.re.mjs:401
+#: src/components/organisms/SubmitMatch.re.mjs:411
+#: src/components/organisms/SelectMatch.re.mjs:353
 msgid "Loading"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:196
+#: src/components/organisms/SelectMatch.re.mjs:148
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:156
+#: src/components/organisms/SelectMatch.re.mjs:108
 msgid "Player"
 msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:314
 #: src/components/organisms/SubmitMatch.re.mjs:327
-msgid "points"
+#~ msgid "points"
+#~ msgstr ""
+
+#: src/components/organisms/SubmitMatch.re.mjs:319
+#: src/components/organisms/SubmitMatch.re.mjs:365
+msgid "Points"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:125
-#: src/components/organisms/SubmitMatch.re.mjs:137
+#: src/components/organisms/SubmitMatch.re.mjs:99
+#: src/components/organisms/SubmitMatch.re.mjs:111
 msgid "predicted winner"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:381
+#: src/components/organisms/SelectMatch.re.mjs:333
 msgid "Queue Match"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:356
+#: src/components/organisms/SelectMatch.re.mjs:308
 msgid "right team players"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:354
+#: src/components/organisms/SubmitMatch.re.mjs:399
 msgid "Submit Rated"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:292
-#: src/components/organisms/SubmitMatch.re.mjs:305
+#: src/components/organisms/SubmitMatch.re.mjs:329
+#: src/components/organisms/SubmitMatch.re.mjs:375
 msgid "Winner"
 msgstr ""

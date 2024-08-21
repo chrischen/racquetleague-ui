@@ -424,7 +424,7 @@ function EventsList(props) {
                                     })), null) : null,
                         " • ",
                         JsxRuntime.jsx(UiAction.make, {
-                              onClick: (function () {
+                              onClick: (function (param) {
                                   setShareOpen(function (v) {
                                         return !v;
                                       });

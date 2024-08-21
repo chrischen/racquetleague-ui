@@ -245,11 +245,6 @@ return {
             "kind": "FragmentSpread",
             "name": "AiTetsu_event"
           },
-          {
-            "args": (v10/*: any*/),
-            "kind": "FragmentSpread",
-            "name": "SelectMatch_event"
-          },
           (v11/*: any*/)
         ],
         "storageKey": null
@@ -525,12 +520,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "f0bf245639c0ad48fb7ed18c6f0de7dc",
+    "cacheID": "2edb91ca12d57ddb911227f0ec871e8a",
     "id": null,
     "metadata": {},
     "name": "LeagueEventPageQuery",
     "operationKind": "query",
-    "text": "query LeagueEventPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  event(id: $eventId) {\n    title\n    ...AiTetsu_event_1eHtN5\n    ...SelectMatch_event_1eHtN5\n    id\n  }\n  ...MatchListFragment_2Xn26q\n}\n\nfragment AiTetsu_event_1eHtN5 on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 20, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  ...SelectMatch_event_1eHtN5\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchListFragment_2Xn26q on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n\nfragment SelectMatch_event_1eHtN5 on Event {\n  rsvps(after: $after, first: 20, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n"
+    "text": "query LeagueEventPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  event(id: $eventId) {\n    title\n    ...AiTetsu_event_1eHtN5\n    id\n  }\n  ...MatchListFragment_2Xn26q\n}\n\nfragment AiTetsu_event_1eHtN5 on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 20, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchListFragment_2Xn26q on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
   }
 };
 })());

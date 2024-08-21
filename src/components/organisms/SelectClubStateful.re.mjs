@@ -88,7 +88,7 @@ function SelectClubStateful(props) {
                                                     children: clubs.map(function (node) {
                                                           return JsxRuntime.jsx("li", {
                                                                       children: JsxRuntime.jsx(UiAction.make, {
-                                                                            onClick: (function () {
+                                                                            onClick: (function (param) {
                                                                                 onSelected(node.id);
                                                                               }),
                                                                             className: Core__Option.getOr(Core__Option.map(value, (function (s) {
@@ -100,7 +100,7 @@ function SelectClubStateful(props) {
                                                         })
                                                   }),
                                               JsxRuntime.jsxs(UiAction.make, {
-                                                    onClick: (function () {
+                                                    onClick: (function (param) {
                                                         setShowCreateclub(function (prev) {
                                                               return !prev;
                                                             });

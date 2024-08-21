@@ -1026,6 +1026,69 @@ msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置
 msgid "Team {0}"
 msgstr "チーム {0}"
 
+#: src/components/organisms/MatchesView.re.mjs:165
+#: src/components/organisms/MatchesView.re.mjs:168
+#: src/components/organisms/AiTetsu.re.mjs:835
+#: src/components/organisms/AiTetsu.re.mjs:838
+msgid "and"
+msgstr "と"
+
+#: src/components/organisms/MatchesView.re.mjs:169
+#: src/components/organisms/AiTetsu.re.mjs:839
+msgid "Court {0}: {team1} versus {team2}"
+msgstr "コート {0}: {team1} 対 {team2}"
+
+#: src/components/organisms/AiTetsu.re.mjs:579
+msgid "Current Matches"
+msgstr "現在の試合"
+
+#: src/components/organisms/SubmitMatch.re.mjs:401
+#: src/components/organisms/MatchesView.re.mjs:127
+msgid "Go Back"
+msgstr "戻る"
+
+#: src/components/organisms/AiTetsu.re.mjs:556
+msgid "Initialize Ratings"
+msgstr "評価を初期化"
+
+#: src/components/organisms/MatchesView.re.mjs:157
+msgid "Matches"
+msgstr "試合"
+
+#: src/components/organisms/SubmitMatch.re.mjs:328
+#: src/components/organisms/SubmitMatch.re.mjs:374
+msgid "Points"
+msgstr "何点"
+
+#: src/components/organisms/MatchesView.re.mjs:142
+msgid "Queue"
+msgstr "キュー"
+
+#: src/components/organisms/MatchesView.re.mjs:281
+msgid "Choose Match"
+msgstr "試合を選択"
+
+#: src/components/organisms/MatchesView.re.mjs:138
+msgid "CHOOSE MATCH"
+msgstr "試合を選択"
+
+#: src/components/ui/ModalDrawer.re.mjs:43
+msgid "Close panel"
+msgstr "パネルを閉じる"
+
+#: src/components/organisms/AiTetsu.re.mjs:628
+msgid "Easy Mode"
+msgstr "イージーモード"
+
+#: src/components/organisms/MatchesView.re.mjs:130
+msgid "Players on Break"
+msgstr "休憩中のプレイヤー"
+
+#: src/components/organisms/MatchesView.re.mjs:110
+#: src/components/organisms/AiTetsu.re.mjs:678
+msgid "Toggle All"
+msgstr "すべてを切り替える"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

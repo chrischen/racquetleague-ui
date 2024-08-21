@@ -38,7 +38,7 @@ RUN yarn build:server
 
 ########################
 
-FROM node:20-alpine3.17
+FROM node:22-alpine
 ARG PUBLIC_PATH
 
 WORKDIR /app
@@ -50,5 +50,6 @@ EXPOSE 3000
 
 ENV PUBLIC_PATH=$PUBLIC_PATH
 # by default, run in production mode
+RUN corepack enable
 CMD yarn production
 

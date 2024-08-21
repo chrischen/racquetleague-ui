@@ -11,7 +11,7 @@ let make = (~children: React.element, ~cta: React.element, ~ctaClick: unit => un
         <p className="text-sm text-yellow-700">
           {children}
           {" "->React.string}
-          <UiAction className="font-medium text-yellow-700 underline hover:text-yellow-600" onClick=ctaClick> {cta} </UiAction>
+          <UiAction className="font-medium text-yellow-700 underline hover:text-yellow-600" onClick={_ => ctaClick()}> {cta} </UiAction>
         </p>
       </div>
     </div>

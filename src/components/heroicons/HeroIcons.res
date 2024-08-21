@@ -18,6 +18,10 @@ module ChevronRightIcon = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ChevronRightIcon"
 }
+module ChevronLeftIcon = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ChevronLeftIcon"
+}
 module ChevronDownIcon = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ChevronDownIcon"
@@ -67,4 +71,12 @@ module UsersOutline = {
 module Users = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "UsersIcon"
+}
+module QueueList = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "QueueListIcon"
+}
+module TableCells = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "TableCellsIcon"
 }

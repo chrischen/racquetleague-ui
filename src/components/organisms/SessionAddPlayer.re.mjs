@@ -39,7 +39,7 @@ function SessionAddPlayer(props) {
                 JsxRuntime.jsxs("form", {
                       children: [
                         JsxRuntime.jsx(Form.Input.make, {
-                              label: t`Player Name`,
+                              label: Caml_option.some(t`Player Name`),
                               className: "w-24 sm:w-32 md:w-48  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6",
                               id: "name",
                               type_: "text",

@@ -5,6 +5,7 @@ import * as JsxRuntime from "react/jsx-runtime";
 import * as Solid from "@heroicons/react/24/solid";
 
 function InfoAlert(props) {
+  var ctaClick = props.ctaClick;
   return JsxRuntime.jsx("div", {
               children: JsxRuntime.jsxs("div", {
                     children: [
@@ -21,7 +22,9 @@ function InfoAlert(props) {
                                     props.children,
                                     " ",
                                     JsxRuntime.jsx(UiAction.make, {
-                                          onClick: props.ctaClick,
+                                          onClick: (function (param) {
+                                              ctaClick();
+                                            }),
                                           className: "font-medium text-yellow-700 underline hover:text-yellow-600",
                                           children: props.cta
                                         })

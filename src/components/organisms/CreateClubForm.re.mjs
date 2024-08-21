@@ -159,7 +159,7 @@ function CreateClubForm(props) {
                                                     JsxRuntime.jsxs("div", {
                                                           children: [
                                                             JsxRuntime.jsx(Form.Input.make, {
-                                                                  label: t`name`,
+                                                                  label: Caml_option.some(t`name`),
                                                                   name: "name",
                                                                   id: "name",
                                                                   placeholder: t`ゆびバド`,

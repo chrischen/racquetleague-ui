@@ -21,7 +21,7 @@ msgstr "約"
 msgid "add new club"
 msgstr "新しいクラブを追加"
 
-#: src/components/molecules/forms/Form.re.mjs:284
+#: src/components/molecules/forms/Form.re.mjs:288
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -49,7 +49,7 @@ msgstr "場所名"
 msgid "name is required"
 msgstr "場所名は必須"
 
-#: src/components/molecules/forms/Form.re.mjs:291
+#: src/components/molecules/forms/Form.re.mjs:295
 msgid "save"
 msgstr "保存"
 

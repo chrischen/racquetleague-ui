@@ -81,8 +81,8 @@ module PredictionBar = {
         let odds = (outcome.team1->Option.getOr(0.), outcome.team2->Option.getOr(0.))
         let (leftOdds, rightOdds) = odds
         let odds = rightOdds -. leftOdds
-        let leftOdds = odds < 0. ? Js.Math.abs_float(odds *. 100.) : 0.
-        let rightOdds = odds < 0. ? 0. : odds *. 100.
+        let leftOdds = odds < 0. ? Js.Math.abs_float(odds *. 1000.) : 0.
+        let rightOdds = odds < 0. ? 0. : odds *. 1000.
         <div className="grid grid-cols-2 gap-0">
           <div className="col-span-2 text-center">
             {switch odds < 0. {
@@ -147,33 +147,33 @@ let schema = Zod.z->Zod.object(
 // type match = (team, team)
 external alert: string => unit = "alert"
 
-let nullFormEvent: JsxEvent.Form.t = %raw("null")
+// let nullFormEvent: JsxEvent.Form.t = %raw("null")
 type winners = Left | Right
+type view = Default | SubmitMatch
 
-module UnratedInput = {
+module PlayerView = {
   @react.component
-  let make = (~handleWinner) => {
-    <>
-      <div className="grid grid-cols-1 gap-4">
-        <div className="mx-auto col-span-1">
-          <UiAction
-            onClick={() => handleWinner(Left)}
-            className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-            {t`Winner`}
-          </UiAction>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 gap-4">
-        <div className="mx-auto col-span-1">
-          <UiAction
-            onClick={() => handleWinner(Right)}
-            className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-            {t`Winner`}
-          </UiAction>
-        </div>
-      </div>
-    </>
-  }
+  let make = (~player: player, ~minRating, ~maxRating) =>
+    switch player.data {
+    | Some(data) =>
+      data.user
+      ->Option.map(user => {
+        <EventMatchRsvpUser
+          compact=true
+          key={user.id}
+          user={user.fragmentRefs}
+          ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+        />
+      })
+      ->Option.getOr(React.null)
+    | None =>
+      <MatchRsvpUser
+        compact=true
+        key={player.id}
+        user={makeGuest(player.name)}
+        ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+      />
+    }
 }
 @react.component
 let make = (
@@ -188,6 +188,7 @@ let make = (
   let ts = Lingui.UtilString.t
   open Form
   let (commitMutationCreateLeagueMatch, _isMutationInFlight) = CreateLeagueMatchMutation.use()
+  let (view, setView) = React.useState(() => Default)
 
   let team1 = match->fst
   let team2 = match->snd
@@ -224,13 +225,17 @@ let make = (
       let score =
         winningSide == Left ? [data.scoreLeft, data.scoreRight] : [data.scoreRight, data.scoreLeft]
 
+    let submitted = () => {
+      setValue(ScoreLeft, Value(0.))
+      setValue(ScoreRight, Value(0.))
+      setSubmitting(_ => false)
       onComplete
       ->Option.map(f => {
         let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
         f(match)
       })
       ->ignore
-
+    }
       rated
         ? activity.slug
           ->Option.map(slug => {
@@ -266,137 +271,180 @@ let make = (
                 | Some(errs) => Js.log(errs)
                 | None => onSubmitted->Option.map(f => f())->Option.getOr()
                 }
-                setSubmitting(_ => false)
-                ()
+                submitted()
               },
               ~onError=_ => {
                 setSubmitting(_ => false)
               },
             )->RescriptRelay.Disposable.ignore
-            setValue(ScoreLeft, Value(0.))
-            setValue(ScoreRight, Value(0.))
-            ()
           })
           ->ignore
         : {
-            setValue(ScoreLeft, Value(0.))
-            setValue(ScoreRight, Value(0.))
-            setSubmitting(_ => false)
+            submitted()
           }
     }
   }
-  <form onSubmit={handleSubmit(onSubmit(true, ...))}>
-    <div className="grid grid-cols-2 gap-4 col-span-2">
-      <div className="grid gap-4">
-        {team1
-        ->Array.map(player => {
-          switch player.data {
-          | Some(data) =>
-            data.user
-            ->Option.map(user => {
-              <EventRsvpUser.Match
-                key={player.id}
-                user={user.fragmentRefs}
-                ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
-              />
-            })
-            ->Option.getOr(React.null)
-          | None =>
-            <MatchRsvpUser
-              key={player.id}
-              user={makeGuest(player.name)}
-              ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
-            />
-          }
-        })
-        ->React.array}
-      </div>
-      <div className="grid gap-4">
-        {team2
-        ->Array.map(player => {
-          switch player.data {
-          | Some(data) =>
-            data.user
-            ->Option.map(user => {
-              <EventRsvpUser.Match
-                key={user.id}
-                user={user.fragmentRefs}
-                ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
-              />
-            })
-            ->Option.getOr(React.null)
-          | None =>
-            <MatchRsvpUser
-              key={player.id}
-              user={makeGuest(player.name)}
-              ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
-            />
-          }
-        })
-        ->React.array}
-      </div>
-      <div className="grid gap-0 col-span-2">
-        <React.Suspense fallback={<div> {t`Loading`} </div>}>
-          <PredictionBar match />
-        </React.Suspense>
-      </div>
-      <div className="grid col-span-2 items-start gap-4  md:gap-8">
-        {doublesMatch
-        ->Result.flatMap((((p1, p2), (p3, p4))) =>
-          switch (p1.data, p2.data, p3.data, p4.data) {
-          | (Some(_), Some(_), Some(_), Some(_)) =>
-            Ok(<>
-              <div className="grid grid-cols-1 gap-4">
-                <Input
-                  className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
-                  label={t`points`}
-                  type_="text"
-                  id="scoreLeft"
-                  register={register(
-                    ScoreLeft,
-                    // ~options={
-                    //   setValueAs: v => {
-                    //     v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
-                    //   },
-                    // },
-                  )}
-                />
-                <Input
-                  className="w-24 sm:w-32 md:w-48 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
-                  label={t`points`}
-                  type_="text"
-                  id="scoreRight"
-                  register={register(
-                    ScoreRight,
-                    // ~options={
-                    //   setValueAs: v => v == "" ? 0. : Float.fromString(v)->Option.getOr(1.),
-                    // },
-                  )}
-                />
-                <input
-                  type_="submit"
-                  disabled={submitting}
-                  className="ml-3 inline-flex items-center text-2xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                  value={ts`Submit Rated`}
-                />
-              </div>
-            </>)
-          | _ => Error(TwoPlayersRequired)
-          }
-        )
-        ->Result.getOr(<UnratedInput handleWinner />)}
-        <div className="mt-3 flex md:top-3 md:mt-0 justify-center">
+
+  let defaultView =
+    <UiAction onClick={_ => setView(_ => SubmitMatch)}>
+      <div
+        className="grid grid-cols-1 gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm">
+        <div
+          className="grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate">
+          {team1
+          ->Array.map(player => <PlayerView player minRating maxRating />)
+          ->React.array}
+        </div>
+        <div className="grid grid-cols-1 gap-0 p-0 bg-white shadow truncate">
+          {team2
+          ->Array.map(player => <PlayerView player minRating maxRating />)
+          ->React.array}
+        </div>
+        <div className="flex md:top-3 md:mt-0 justify-center">
           {onDelete
           ->Option.map(onDelete =>
             <UiAction
               className="ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
-              onClick=onDelete>
+              onClick={e => {
+                e->JsxEventU.Mouse.stopPropagation
+                onDelete()
+              }}>
               {t`Cancel`}
             </UiAction>
           )
           ->Option.getOr(React.null)}
         </div>
       </div>
+    </UiAction>
+
+  let unratedMatch = doublesMatch->Result.flatMap((((p1, p2), (p3, p4))) =>
+    switch (p1.data, p2.data, p3.data, p4.data) {
+    | (Some(_), Some(_), Some(_), Some(_)) => Ok()
+    | _ => Error(TwoPlayersRequired)
+    }
+  )
+  let submitMatch =
+    <div className="grid col-span-1 items-start gap-2 md:gap-4">
+      {<>
+        <div
+          className="grid col-span-1 items-start gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm">
+          <UiAction onClick={_ => setView(_ => Default)}>
+            <div
+              className="flex relative p-0 justify-between rounded-tl-lg rounded-tr-lg bg-white shadow truncate">
+              <div className="grid grid-cols-1 gap-0">
+                {team1
+                ->Array.map(player => <PlayerView player minRating maxRating />)
+                ->React.array}
+              </div>
+              <div className="flex bg-white z-10">
+                {unratedMatch
+                ->Result.map(_ =>
+                  <Input
+                    className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6"
+                    placeholder={ts`Points`}
+                    onClick={e => {
+                      e->JsxEventU.Mouse.stopPropagation
+                      e->JsxEventU.Mouse.preventDefault
+                    }}
+                    type_="text"
+                    id="scoreLeft"
+                    register={register(
+                      ScoreLeft,
+                      // ~options={
+                      //   setValueAs: v => {
+                      //     v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
+                      //   },
+                      // },
+                    )}
+                  />
+                )
+                ->Result.getOr(
+                  <UiAction
+                    onClick={e => {
+                      e->JsxEventU.Mouse.stopPropagation
+                      e->JsxEventU.Mouse.preventDefault
+                      handleWinner(Left)
+                    }}
+                    className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                    {t`Winner`}
+                  </UiAction>,
+                )}
+              </div>
+            </div>
+          </UiAction>
+          <UiAction onClick={_ => setView(_ => Default)}>
+            <div className="flex relative p-0 justify-between bg-white shadow truncate">
+              <div className="grid grid-cols-1 gap-0 truncate">
+                {team2
+                ->Array.map(player => <PlayerView player minRating maxRating />)
+                ->React.array}
+              </div>
+              <div className="flex bg-white z-10">
+                {unratedMatch
+                ->Result.map(_ =>
+                  <Input
+                    className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6"
+                    placeholder={ts`Points`}
+                    onClick={e => {
+                      e->JsxEventU.Mouse.stopPropagation
+                      e->JsxEventU.Mouse.preventDefault
+                    }}
+                    type_="text"
+                    id="scoreRight"
+                    register={register(
+                      ScoreRight,
+                      // ~options={
+                      //   setValueAs: v => v == "" ? 0. : Float.fromString(v)->Option.getOr(1.),
+                      // },
+                    )}
+                  />
+                )
+                ->Result.getOr(
+                  <UiAction
+                    onClick={e => {
+                      e->JsxEventU.Mouse.stopPropagation
+                      e->JsxEventU.Mouse.preventDefault
+                      handleWinner(Right)
+                    }}
+                    className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                    {t`Winner`}
+                  </UiAction>,
+                )}
+              </div>
+            </div>
+          </UiAction>
+          <div className="mt-3 flex md:top-3 md:mt-0 justify-center">
+            <UiAction
+              className="inline-flex items-center text-2xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
+              onClick={_ => setView(_ => Default)}>
+              {t`Go Back`}
+            </UiAction>
+            {unratedMatch
+            ->Result.map(_ =>
+              <input
+                type_="submit"
+                disabled={submitting}
+                className="ml-3 inline-flex items-center text-2xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                value={ts`Submit Rated`}
+              />
+            )
+            ->Result.getOr(React.null)}
+          </div>
+          <div className="grid gap-0 col-span-1">
+            <React.Suspense fallback={<div> {t`Loading`} </div>}>
+              <PredictionBar match />
+            </React.Suspense>
+          </div>
+        </div>
+      </>}
+    </div>
+
+  <form onSubmit={handleSubmit(onSubmit(true, ...))}>
+    <div className="grid grid-cols-1">
+      {switch view {
+      | Default => defaultView
+      | SubmitMatch => submitMatch
+      }}
     </div>
   </form>
 }

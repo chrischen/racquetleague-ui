@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-17 16:00+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/MatchesView.re.mjs:249
+#: src/components/organisms/MatchesView.re.mjs:252
+msgid "and"
+msgstr "と"
+
+#: src/components/organisms/SubmitMatch.re.mjs:259
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/components/organisms/MatchesView.re.mjs:281
+msgid "Choose Match"
+msgstr "試合を選択"
+
+#: src/components/organisms/MatchesView.re.mjs:138
+msgid "CHOOSE MATCH"
+msgstr "試合を選択"
+
+#: src/components/ui/ModalDrawer.re.mjs:43
+msgid "Close panel"
+msgstr "パネルを閉じる"
+
+#: src/components/organisms/MatchesView.re.mjs:253
+msgid "Court {0}: {team1} versus {team2}"
+msgstr "コート {0}: {team1} 対 {team2}"
+
+#: src/components/organisms/SubmitMatch.re.mjs:392
+#: src/components/organisms/MatchesView.re.mjs:211
+msgid "Go Back"
+msgstr "戻る"
+
+#: src/components/organisms/SubmitMatch.re.mjs:411
+msgid "Loading"
+msgstr "読み込み中"
+
+#: src/components/organisms/MatchesView.re.mjs:241
+msgid "Matches"
+msgstr "試合"
+
+#: src/components/organisms/MatchesView.re.mjs:130
+msgid "Players on Break"
+msgstr "休憩中のプレイヤー"
+
+#: src/components/organisms/SubmitMatch.re.mjs:319
+#: src/components/organisms/SubmitMatch.re.mjs:365
+msgid "Points"
+msgstr "何点"
+
+#: src/components/organisms/SubmitMatch.re.mjs:99
+#: src/components/organisms/SubmitMatch.re.mjs:111
+msgid "predicted winner"
+msgstr "予測される勝者"
+
+#: src/components/organisms/MatchesView.re.mjs:226
+msgid "Queue"
+msgstr "キュー"
+
+#: src/components/organisms/SubmitMatch.re.mjs:399
+msgid "Submit Rated"
+msgstr "評価を提出"
+
+#: src/components/organisms/MatchesView.re.mjs:110
+msgid "Toggle All"
+msgstr "すべてを切り替える"
+
+#: src/components/organisms/SubmitMatch.re.mjs:329
+#: src/components/organisms/SubmitMatch.re.mjs:375
+msgid "Winner"
+msgstr "勝者"

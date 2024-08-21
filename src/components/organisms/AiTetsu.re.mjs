@@ -65,7 +65,7 @@ function AiTetsu$TeamListItem(props) {
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx(UiAction.make, {
-                              onClick: (function () {
+                              onClick: (function (param) {
                                   onDelete(id);
                                 }),
                               children: JsxRuntime.jsx(Outline.XMarkIcon, {
@@ -148,7 +148,7 @@ function AiTetsu$TeamSelector(props) {
                     }),
                 JsxRuntime.jsx("div", {
                       children: JsxRuntime.jsx(UiAction.make, {
-                            onClick: (function () {
+                            onClick: (function (param) {
                                 var match = members.length;
                                 if (!(match === 0 || match === 1)) {
                                   onTeamCreate(members);
@@ -331,6 +331,19 @@ function AiTetsu(props) {
     newSet.delete(player.id);
     return newSet;
   };
+  var toggleQueuePlayer = function (player) {
+    setQueue(function (queue) {
+          var newSet = new Set();
+          queue.forEach(function (id) {
+                newSet.add(id);
+              });
+          if (queue.has(player.id)) {
+            return removeFromQueue(newSet, player);
+          } else {
+            return addToQueue(newSet, player);
+          }
+        });
+  };
   var match$13 = usePagination($$event);
   var data = match$13.data;
   var allPlayers = sessionMode ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
@@ -353,12 +366,21 @@ function AiTetsu(props) {
                         return p.id;
                       });
           }));
+  var availablePlayers = players.filter(function (p) {
+        return !consumedPlayers.has(p.id);
+      });
   var match$14 = getPriorityPlayers(players, sessionState, breakCount);
+  var deprioritized = match$14.deprioritized;
   var queue = match$7[0].difference(disabled);
   var breakPlayersCount = queue.size;
-  var queue$1 = queue.difference(match$14.deprioritized);
+  var queue$1 = queue.difference(deprioritized);
   var queuedPlayers = players.filter(function (p) {
         return queue$1.has(p.id);
+      });
+  var match$15 = getPriorityPlayers(queuedPlayers, sessionState, breakCount);
+  var priorityPlayers = match$15.prioritized;
+  var availablePlayers$1 = availablePlayers.filter(function (p) {
+        return !deprioritized.has(p.id);
       });
   var incompatiblePlayers = new Set([
         "User_7e5631a2-53a9-11ef-b5a9-2b281b5a76b0",
@@ -398,18 +420,6 @@ function AiTetsu(props) {
         });
   };
   var dequeueMatch = function (index) {
-    Core__Option.map(matches[index], (function (match) {
-            return [
-                        match[0],
-                        match[1]
-                      ].flatMap(function (x) {
-                          return x;
-                        }).map(function (p) {
-                        setQueue(function (queue) {
-                              return addToQueue(queue, p);
-                            });
-                      });
-          }));
     var matches$1 = matches.filter(function (param, i) {
           return i !== index;
         });
@@ -476,16 +486,61 @@ function AiTetsu(props) {
                       }));
         });
   };
+  var selectAllPlayers = function () {
+    console.log(queue$1.size);
+    console.log(availablePlayers$1.length);
+    if (queue$1.size === availablePlayers$1.length) {
+      return setQueue(function (param) {
+                  return new Set();
+                });
+    } else {
+      return setQueue(function (param) {
+                  return new Set(availablePlayers$1.map(function (p) {
+                                  return p.id;
+                                }));
+                });
+    }
+  };
   if (match$4[0] !== "Advanced") {
     return Core__Option.getOr(Core__Option.map(activity, (function (activity) {
                       return JsxRuntime.jsx(MatchesView.make, {
+                                  players: players,
+                                  queue: queue$1,
+                                  breakPlayers: deprioritized,
+                                  consumedPlayers: consumedPlayers,
+                                  togglePlayer: toggleQueuePlayer,
                                   matches: matches,
                                   activity: activity,
                                   minRating: minRating,
                                   maxRating: maxRating,
                                   dequeueMatch: dequeueMatch,
                                   updatePlayCounts: updatePlayCounts,
-                                  updateSessionPlayerRatings: updateSessionPlayerRatings
+                                  updateSessionPlayerRatings: updateSessionPlayerRatings,
+                                  onClose: (function (param) {
+                                      setScreen(function (param) {
+                                            return "Advanced";
+                                          });
+                                    }),
+                                  selectAll: selectAllPlayers,
+                                  breakCount: breakCount,
+                                  onChangeBreakCount: (function (numberOnBreak) {
+                                      setBreakCount(function (param) {
+                                            return Math.max(0, numberOnBreak);
+                                          });
+                                      setSettingsPane(function (param) {
+                                            
+                                          });
+                                    }),
+                                  matchSelector: JsxRuntime.jsx(CompMatch.make, {
+                                        players: queuedPlayers,
+                                        teams: teams,
+                                        consumedPlayers: new Set(),
+                                        priorityPlayers: priorityPlayers,
+                                        avoidAllPlayers: avoidAllPlayers,
+                                        onSelectMatch: (function (match) {
+                                            queueMatch(match);
+                                          })
+                                      })
                                 });
                     })), null);
   }
@@ -518,7 +573,7 @@ function AiTetsu(props) {
                 eventId: match.id,
                 onPlayerAdd: (function (player) {
                     setSessionPlayers(function (guests) {
-                          var player$1 = Rating.Player.makeDefaultRatingPlayer("guest-" + player.name);
+                          var player$1 = Rating.Player.makeDefaultRatingPlayer(player.name);
                           return guests.concat([player$1]);
                         });
                     setSettingsPane(function (param) {
@@ -535,7 +590,7 @@ function AiTetsu(props) {
                         breakPlayersCount: breakPlayersCount,
                         onChangeBreakCount: (function (numberOnBreak) {
                             setBreakCount(function (param) {
-                                  return numberOnBreak;
+                                  return Math.max(0, numberOnBreak);
                                 });
                             setSettingsPane(function (param) {
                                   
@@ -543,7 +598,7 @@ function AiTetsu(props) {
                           })
                       }),
                   JsxRuntime.jsx(UiAction.make, {
-                        onClick: (function () {
+                        onClick: (function (param) {
                             initializeRatings();
                           }),
                         children: t`Initialize Ratings`
@@ -564,15 +619,16 @@ function AiTetsu(props) {
                                   JsxRuntime.jsxs("div", {
                                         children: [
                                           JsxRuntime.jsx(UiAction.make, {
-                                                onClick: (function () {
+                                                onClick: (function (param) {
                                                     setScreen(function (param) {
                                                           return "Matches";
                                                         });
                                                   }),
-                                                children: t`Current Matches`
+                                                className: "rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                                children: t`Easy Mode`
                                               }),
                                           JsxRuntime.jsxs(React$1.Field, {
-                                                className: "flex items-center",
+                                                className: "flex items-center ml-2",
                                                 children: [
                                                   JsxRuntime.jsxs(React$1.Switch, {
                                                         className: "group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 data-[checked]:bg-indigo-600",
@@ -605,7 +661,7 @@ function AiTetsu(props) {
                                                 ]
                                               })
                                         ],
-                                        className: "md:col-span-2"
+                                        className: "md:col-span-2 flex"
                                       }),
                                   JsxRuntime.jsxs("div", {
                                         children: [
@@ -616,17 +672,13 @@ function AiTetsu(props) {
                                           JsxRuntime.jsxs("div", {
                                                 children: [
                                                   JsxRuntime.jsx(UiAction.make, {
-                                                        onClick: (function () {
-                                                            setQueue(function (param) {
-                                                                  return new Set(players.map(function (p) {
-                                                                                  return p.id;
-                                                                                }));
-                                                                });
+                                                        onClick: (function (param) {
+                                                            selectAllPlayers();
                                                           }),
-                                                        children: t`select all`
+                                                        children: t`Toggle All`
                                                       }),
                                                   JsxRuntime.jsx(UiAction.make, {
-                                                        onClick: (function () {
+                                                        onClick: (function (param) {
                                                             setSettingsPane(function (prev) {
                                                                   if (Caml_obj.equal(prev, "TeamBuilder")) {
                                                                     return ;
@@ -643,7 +695,7 @@ function AiTetsu(props) {
                                                               })
                                                       }),
                                                   JsxRuntime.jsx(UiAction.make, {
-                                                        onClick: (function () {
+                                                        onClick: (function (param) {
                                                             setSettingsPane(function (prev) {
                                                                   if (Caml_obj.equal(prev, "AddPlayer")) {
                                                                     return ;
@@ -660,7 +712,7 @@ function AiTetsu(props) {
                                                               })
                                                       }),
                                                   JsxRuntime.jsx(UiAction.make, {
-                                                        onClick: (function () {
+                                                        onClick: (function (param) {
                                                             setSettingsPane(function (prev) {
                                                                   if (Caml_obj.equal(prev, "Settings")) {
                                                                     return ;
@@ -689,19 +741,7 @@ function AiTetsu(props) {
                                                 playing: consumedPlayers,
                                                 disabled: disabled,
                                                 session: sessionState,
-                                                onClick: (function (player) {
-                                                    setQueue(function (queue) {
-                                                          var newSet = new Set();
-                                                          queue.forEach(function (id) {
-                                                                newSet.add(id);
-                                                              });
-                                                          if (queue.has(player.id)) {
-                                                            return removeFromQueue(newSet, player);
-                                                          } else {
-                                                            return addToQueue(newSet, player);
-                                                          }
-                                                        });
-                                                  }),
+                                                onClick: toggleQueuePlayer,
                                                 onRemove: (function (player) {
                                                     var match = player.data;
                                                     if (match !== undefined) {
@@ -742,7 +782,7 @@ function AiTetsu(props) {
                                                 players: queuedPlayers,
                                                 teams: teams,
                                                 consumedPlayers: new Set(),
-                                                priorityPlayers: match$14.prioritized,
+                                                priorityPlayers: priorityPlayers,
                                                 avoidAllPlayers: avoidAllPlayers,
                                                 onSelectMatch: (function (match) {
                                                     queueMatch(match);
@@ -756,7 +796,7 @@ function AiTetsu(props) {
                               }),
                           JsxRuntime.jsx("div", {
                                 children: JsxRuntime.jsx(UiAction.make, {
-                                      onClick: (function () {
+                                      onClick: (function (param) {
                                           setManualTeamOpen(function (prev) {
                                                 return !prev;
                                               });
@@ -794,28 +834,53 @@ function AiTetsu(props) {
                                         children: t`Queued Matches`,
                                         className: "text-2xl font-semibold text-gray-900"
                                       }),
-                                  JsxRuntime.jsx("div", {
-                                        children: Core__Option.getOr(Core__Option.map(activity, (function (activity) {
-                                                    return matches.map(function (match, i) {
-                                                                return JsxRuntime.jsx(SubmitMatch.make, {
-                                                                            match: match,
-                                                                            activity: activity,
-                                                                            minRating: minRating,
-                                                                            maxRating: maxRating,
-                                                                            onDelete: (function () {
-                                                                                dequeueMatch(i);
-                                                                              }),
-                                                                            onComplete: (function (match) {
-                                                                                dequeueMatch(i);
-                                                                                updatePlayCounts(match);
-                                                                                var match$1 = Rating.Match.rate(match);
-                                                                                updateSessionPlayerRatings(match$1.flatMap(function (x) {
-                                                                                          return x;
+                                  JsxRuntime.jsxs("div", {
+                                        children: [
+                                          Core__Option.getOr(Core__Option.map(activity, (function (activity) {
+                                                      return matches.map(function (match, i) {
+                                                                  return JsxRuntime.jsx(SubmitMatch.make, {
+                                                                              match: match,
+                                                                              activity: activity,
+                                                                              minRating: minRating,
+                                                                              maxRating: maxRating,
+                                                                              onDelete: (function () {
+                                                                                  Core__Option.map(matches[i], (function (match) {
+                                                                                          return [
+                                                                                                      match[0],
+                                                                                                      match[1]
+                                                                                                    ].flatMap(function (x) {
+                                                                                                        return x;
+                                                                                                      }).map(function (p) {
+                                                                                                      setQueue(function (queue) {
+                                                                                                            return addToQueue(queue, p);
+                                                                                                          });
+                                                                                                    });
                                                                                         }));
-                                                                              })
-                                                                          }, i.toString());
-                                                              });
-                                                  })), null),
+                                                                                  dequeueMatch(i);
+                                                                                }),
+                                                                              onComplete: (function (match) {
+                                                                                  dequeueMatch(i);
+                                                                                  updatePlayCounts(match);
+                                                                                  var match$1 = Rating.Match.rate(match);
+                                                                                  updateSessionPlayerRatings(match$1.flatMap(function (x) {
+                                                                                            return x;
+                                                                                          }));
+                                                                                })
+                                                                            }, i.toString());
+                                                                });
+                                                    })), null),
+                                          JsxRuntime.jsx("input", {
+                                                value: matches.map(function (param, i) {
+                                                        var team1 = param[0].map(function (p) {
+                                                                return p.name;
+                                                              }).join(" " + t`and` + " ");
+                                                        var team2 = param[1].map(function (p) {
+                                                                return p.name;
+                                                              }).join(" " + t`and` + " ");
+                                                        return t`Court ${(i + 1 | 0).toString()}: ${team1} versus ${team2}`;
+                                                      }).join(", ")
+                                              })
+                                        ],
                                         className: "grid grid-cols-1 gap-4"
                                       })
                                 ],

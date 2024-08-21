@@ -69,8 +69,9 @@ module PrefixedInput = {
 module Input = {
   @react.component
   let make = (
-    ~label: React.element,
+    ~label: option<React.element>=?,
     ~onChange: option<'a => unit>=?,
+    ~onClick: option<JsxEventU.Mouse.t => unit>=?,
     ~className: option<string>=?,
     ~name: option<string>=?,
     ~id: string,
@@ -83,9 +84,13 @@ module Input = {
     ~defaultValue: option<string>=?,
   ) => {
     <>
-      <label htmlFor=?name className="block text-sm font-medium leading-6 text-gray-900">
-        {label}
-      </label>
+      {label
+      ->Option.map(label =>
+        <label htmlFor=?name className="block text-sm font-medium leading-6 text-gray-900">
+          {label}
+        </label>
+      )
+      ->Option.getOr(React.null)}
       <div className="mt-2">
         <div
           className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
@@ -106,6 +111,7 @@ module Input = {
               ?onBlur
               ?value
               ?defaultValue
+              ?onClick
             />
           | None =>
             <input
@@ -121,12 +127,16 @@ module Input = {
               ?onBlur
               ?value
               ?defaultValue
+              ?onClick
             />
           }}
         </div>
       </div>
     </>
   }
+
+  @send
+  external select: 'a => unit = "select"
 }
 
 module Select = {

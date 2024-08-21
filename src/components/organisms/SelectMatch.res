@@ -6,7 +6,7 @@ module SortAction = {
   type sortDir = Asc | Desc
   @react.component
   let make = (~sortDir, ~setSortDir) => {
-    <UiAction onClick={() => {setSortDir(dir => dir == Asc ? Desc : Asc)}}>
+    <UiAction onClick={_ => {setSortDir(dir => dir == Asc ? Desc : Asc)}}>
       {switch sortDir {
       | Asc => <Lucide.ArrowUpNarrowWide />
       | Desc => <Lucide.ArrowDownWideNarrow />
@@ -224,7 +224,7 @@ let make = (
       {selectedMatch
       ->Option.map(match => <>
         <div className="text-center md:col-span-2">
-          <UiAction onClick={() => onMatchQueued(match)}> {t`Queue Match`} </UiAction>
+          <UiAction onClick={_ => onMatchQueued(match)}> {t`Queue Match`} </UiAction>
         </div>
         <React.Suspense fallback={<div> {t`Loading`} </div>}>
           {activity

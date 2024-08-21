@@ -14,44 +14,67 @@ import { t, plural } from '@lingui/macro'
 function MatchRsvpUser(props) {
   var link = props.link;
   var __highlight = props.highlight;
+  var __compact = props.compact;
   var user = props.user;
-  var highlight = __highlight !== undefined ? __highlight : false;
+  var compact = __compact !== undefined ? __compact : false;
+  var highlight = __highlight !== undefined ? __highlight : "Available";
+  var tmp;
+  if (link !== undefined) {
+    var tmp$1;
+    tmp$1 = highlight === "Queued" ? JsxRuntime.jsx("strong", {
+            children: user.name,
+            className: "text-lg"
+          }) : user.name;
+    tmp = JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+          to: link,
+          children: [
+            JsxRuntime.jsx("span", {
+                  className: "absolute inset-x-0 -top-px bottom-0"
+                }),
+            tmp$1
+          ]
+        });
+  } else {
+    tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+          children: [
+            JsxRuntime.jsx("span", {
+                  className: "absolute inset-x-0 -top-px bottom-0"
+                }),
+            user.name
+          ]
+        });
+  }
+  var tmp$2;
+  switch (highlight) {
+    case "Break" :
+        tmp$2 = "bg-yellow-300";
+        break;
+    case "Available" :
+        tmp$2 = "bg-white";
+        break;
+    case "Queued" :
+        tmp$2 = "bg-green-300";
+        break;
+    case "Playing" :
+        tmp$2 = "bg-white opacity-50 blur-sm";
+        break;
+    
+  }
   return JsxRuntime.jsxs("div", {
               children: [
                 Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
                             return JsxRuntime.jsx("img", {
-                                        className: Core.cx(highlight ? "h-14 w-14" : "h-12 w-12", "flex-none rounded-full bg-gray-50", highlight ? "drop-shadow-lg" : ""),
+                                        className: Core.cx(compact ? "h-8 w-8" : "h-16 w-16", "flex-none rounded-full bg-gray-50", "drop-shadow-lg"),
                                         alt: "",
                                         src: picture
                                       });
                           })), JsxRuntime.jsx("div", {
-                          className: "h-12 w-12 flex-none rounded-full bg-gray-50"
+                          className: Core.cx(compact ? "h-8 w-8" : "h-16 w-16", "flex-none rounded-full bg-gray-50")
                         })),
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("p", {
-                              children: link !== undefined ? JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                                      to: link,
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              className: "absolute inset-x-0 -top-px bottom-0"
-                                            }),
-                                        highlight ? JsxRuntime.jsx("strong", {
-                                                children: user.name,
-                                                className: "text-lg"
-                                              }) : user.name
-                                      ]
-                                    }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              className: "absolute inset-x-0 -top-px bottom-0"
-                                            }),
-                                        highlight ? JsxRuntime.jsx("strong", {
-                                                children: user.name,
-                                                className: "text-lg"
-                                              }) : user.name
-                                      ]
-                                    }),
+                              children: tmp,
                               className: "text-2xl font-semibold leading-6 text-gray-900"
                             }),
                         JsxRuntime.jsx("p", {
@@ -64,7 +87,7 @@ function MatchRsvpUser(props) {
                       className: "min-w-0 flex-auto"
                     })
               ],
-              className: Core.cx("relative flex min-w-0 gap-x-4", highlight ? "py-2 mx-0" : "mx-2")
+              className: Core.cx("relative flex min-w-0 gap-x-4", "rounded-lg shadow", compact ? "p-2" : "p-4", tmp$2)
             });
 }
 

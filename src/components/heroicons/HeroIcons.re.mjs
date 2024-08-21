@@ -11,6 +11,8 @@ var XMarkIcon = {};
 
 var ChevronRightIcon = {};
 
+var ChevronLeftIcon = {};
+
 var ChevronDownIcon = {};
 
 var ChevronUpIcon = {};
@@ -35,12 +37,17 @@ var UsersOutline = {};
 
 var Users = {};
 
+var QueueList = {};
+
+var TableCells = {};
+
 export {
   PhotoIcon ,
   Bars3Icon ,
   BellIcon ,
   XMarkIcon ,
   ChevronRightIcon ,
+  ChevronLeftIcon ,
   ChevronDownIcon ,
   ChevronUpIcon ,
   CloudArrowUpIcon ,
@@ -53,5 +60,7 @@ export {
   Cog6ToothOutline ,
   UsersOutline ,
   Users ,
+  QueueList ,
+  TableCells ,
 }
 /* No side effect */

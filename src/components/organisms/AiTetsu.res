@@ -59,6 +59,7 @@ module Fragment = %relay(`
             id
             lineUsername
             ...EventRsvpUser_user
+            ...EventMatchRsvpUser_user
           }
           rating {
             id
@@ -74,7 +75,6 @@ module Fragment = %relay(`
         endCursor
       }
 		}
-    ...SelectMatch_event @arguments(after: $after, first: $first, before: $before)
   }
 `)
 
@@ -144,7 +144,7 @@ module TeamSelector = {
       />
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <UiAction
-          onClick={() => {
+          onClick={_ => {
             switch members->Array.length {
             | 1
             | 0 => ()
@@ -254,6 +254,7 @@ type playerSettings = TeamBuilder | AddPlayer | Settings
 type screen = Advanced | Matches
 @react.component
 let make = (~event, ~children) => {
+  let ts = Lingui.UtilString.t
   let {__id, id: eventId, activity} = Fragment.use(event)
   let (commitMutationCreateRating, _) = AiTetsuCreateRatingMutation.use()
   let (matches: array<match>, setMatches) = React.useState(() => [])
@@ -306,6 +307,9 @@ let make = (~event, ~children) => {
     | false => newSet->addToQueue(player)
     }
   }
+  let toggleQueuePlayer = player => {
+    setQueue(queue => queue->togglePlayer(player))
+  }
 
   let {data} = Fragment.usePagination(event)
   let allPlayers = (switch sessionMode {
@@ -333,12 +337,9 @@ let make = (~event, ~children) => {
     matches
     ->Array.flatMap(match => Array.concat(match->fst, match->snd)->Array.map(p => p.id))
     ->Set.fromArray
+  let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
 
-  let {prioritized: priorityPlayers, deprioritized} = getPriorityPlayers(
-    players,
-    sessionState,
-    breakCount,
-  )
+  let {prioritized: _, deprioritized} = getPriorityPlayers(players, sessionState, breakCount)
 
   let queue = queue->JsSet.difference(disabled)
   let breakPlayersCount = queue->Set.size
@@ -346,6 +347,13 @@ let make = (~event, ~children) => {
   let queuedPlayers: array<player> = (players->Array.filter(p => queue->Set.has(p.id)) :> array<
     player,
   >)
+
+  let {prioritized: priorityPlayers, deprioritized: _} = getPriorityPlayers(
+    queuedPlayers,
+    sessionState,
+    breakCount,
+  )
+  let availablePlayers = availablePlayers->Array.filter(p => !(deprioritized->Set.has(p.id)))
 
   // These players should be avoided in the same match
   let incompatiblePlayers =
@@ -370,14 +378,6 @@ let make = (~event, ~children) => {
   }
 
   let dequeueMatch = index => {
-    matches
-    ->Array.get(index)
-    ->Option.map(match => {
-      [match->fst, match->snd]
-      ->Array.flatMap(x => x)
-      ->Array.map(p => setQueue(queue => queue->addToQueue(p)))
-    })
-    ->ignore
     let matches = matches->Array.filterWithIndex((_, i) => i != index)
 
     setMatches(_ => matches)
@@ -431,14 +431,29 @@ let make = (~event, ~children) => {
     setTeams(teams => teams->NonEmptyArray.filterWithIndex((_, i') => i' != i))
   }
 
+  let selectAllPlayers = () => {
+    Js.log(queue->Set.size)
+    Js.log(availablePlayers->Array.length)
+    switch queue->Set.size == availablePlayers->Array.length {
+    | true =>
+      setQueue(_ => {
+        Set.make()
+      })
+    | false =>
+      setQueue(_ => {
+        availablePlayers->Array.map(p => p.id)->Set.fromArray
+      })
+    }
+  }
+
   switch screen {
   | Advanced =>
     <>
       <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-1 md:gap-8">
         <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8">
-          <div className="md:col-span-2">
-            <UiAction onClick={() => setScreen(_ => Matches)}> {t`Current Matches`} </UiAction>
-            <HeadlessUi.Field className="flex items-center">
+          <div className="md:col-span-2 flex">
+            <UiAction className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={_ => setScreen(_ => Matches)}> {t`Easy Mode`} </UiAction>
+            <HeadlessUi.Field className="flex items-center ml-2">
               <HeadlessUi.Switch
                 checked={sessionMode}
                 onChange={v => {
@@ -460,16 +475,10 @@ let make = (~event, ~children) => {
           <div className="">
             <h2 className="text-2xl font-semibold text-gray-900"> {t`Players`} </h2>
             <div className="flex text-right">
-              <UiAction
-                onClick={() =>
-                  setQueue(_ => {
-                    players->Array.map(p => p.id)->Set.fromArray
-                  })}>
-                {t`select all`}
-              </UiAction>
+              <UiAction onClick={_ => selectAllPlayers()}> {t`Toggle All`} </UiAction>
               <UiAction
                 className="ml-auto"
-                onClick={() =>
+                onClick={_ =>
                   setSettingsPane(prev => prev == Some(TeamBuilder) ? None : Some(TeamBuilder))}>
                 {settingsPane == Some(TeamBuilder)
                   ? <HeroIcons.Users className="h-8 w-8" />
@@ -477,7 +486,7 @@ let make = (~event, ~children) => {
               </UiAction>
               <UiAction
                 className="ml-2"
-                onClick={() =>
+                onClick={_ =>
                   setSettingsPane(prev => prev == Some(AddPlayer) ? None : Some(AddPlayer))}>
                 {settingsPane == Some(AddPlayer)
                   ? <HeroIcons.UserPlus className="h-8 w-8" />
@@ -485,7 +494,7 @@ let make = (~event, ~children) => {
               </UiAction>
               <UiAction
                 className="ml-2"
-                onClick={() =>
+                onClick={_ =>
                   setSettingsPane(prev => prev == Some(Settings) ? None : Some(Settings))}>
                 {settingsPane == Some(Settings)
                   ? <HeroIcons.Cog6Tooth className="h-8 w-8" />
@@ -512,9 +521,7 @@ let make = (~event, ~children) => {
                 eventId
                 onPlayerAdd={player => {
                   setSessionPlayers(guests => {
-                    guests->addGuestPlayer(
-                      ("guest-" ++ player.name)->Player.makeDefaultRatingPlayer,
-                    )
+                    guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer)
                   })
                   setSettingsPane(_ => None)
                 }}
@@ -525,7 +532,7 @@ let make = (~event, ~children) => {
                   breakCount
                   breakPlayersCount
                   onChangeBreakCount={numberOnBreak => {
-                    setBreakCount(_ => numberOnBreak)
+                    setBreakCount(_ => Js.Math.max_int(0, numberOnBreak))
                     setSettingsPane(_ => None)
                   }}
                 />
@@ -542,9 +549,7 @@ let make = (~event, ~children) => {
               disabled={disabled}
               session={sessionState}
               playing={consumedPlayers}
-              onClick={player => {
-                setQueue(queue => queue->togglePlayer(player))
-              }}
+              onClick={toggleQueuePlayer}
               onRemove={player => {
                 switch player.data {
                 | Some(_) => setDisabled(disabled => disabled->addToQueue(player))
@@ -571,6 +576,7 @@ let make = (~event, ~children) => {
               // ->Array.fromIterator
               // // ->Array.concat(deprioritized->Set.values->Array.fromIterator)
               // ->Set.fromArray}
+              // priorityPlayers={[]}
               priorityPlayers
               avoidAllPlayers
               onSelectMatch={match => {
@@ -581,7 +587,7 @@ let make = (~event, ~children) => {
           </div>
         </div>
         <div className="col-span-1">
-          <UiAction onClick={() => setManualTeamOpen(prev => !prev)}> {t`manual team`} </UiAction>
+          <UiAction onClick={_ => setManualTeamOpen(prev => !prev)}> {t`manual team`} </UiAction>
         </div>
         {manualTeamOpen
           ? <SelectMatch
@@ -617,7 +623,19 @@ let make = (~event, ~children) => {
                   // updatePlayCounts(match)
                   // dequeueMatch(i)
                   // }}
-                  onDelete={() => dequeueMatch(i)}
+                  onDelete={() => {
+                    matches
+                    ->Array.get(i)
+                    ->Option.map(
+                      match => {
+                        [match->fst, match->snd]
+                        ->Array.flatMap(x => x)
+                        ->Array.map(p => setQueue(queue => queue->addToQueue(p)))
+                      },
+                    )
+                    ->ignore
+                    dequeueMatch(i)
+                  }}
                   onComplete={match => {
                     dequeueMatch(i)
                     updatePlayCounts(match)
@@ -630,6 +648,22 @@ let make = (~event, ~children) => {
               ->React.array
             )
             ->Option.getOr(React.null)}
+            <input
+              value={matches
+              ->Array.mapWithIndex(((team1, team2), i) => {
+                let team1 =
+                  team1
+                  ->Array.map(p => p.name)
+                  ->Array.join(" " ++ ts([`and`], []) ++ " ")
+                let team2 =
+                  team2
+                  ->Array.map(p => p.name)
+                  ->Array.join(" " ++ ts([`and`], []) ++ " ")
+
+                ts`Court ${(i + 1)->Int.toString}: ${team1} versus ${team2}`
+              })
+              ->Array.join(", ")}
+            />
           </div>
         </div>
       </div>
@@ -638,6 +672,9 @@ let make = (~event, ~children) => {
     activity
     ->Option.map(activity =>
       <MatchesView
+        players={players}
+        queue
+        togglePlayer={toggleQueuePlayer}
         matches
         activity
         minRating
@@ -645,6 +682,33 @@ let make = (~event, ~children) => {
         dequeueMatch
         updatePlayCounts
         updateSessionPlayerRatings
+        onClose={_ => setScreen(_ => Advanced)}
+        selectAll={selectAllPlayers}
+        breakCount
+        breakPlayers={deprioritized}
+        consumedPlayers
+        onChangeBreakCount={numberOnBreak => {
+          setBreakCount(_ => Js.Math.max_int(0, numberOnBreak))
+          setSettingsPane(_ => None)
+        }}
+        matchSelector={<CompMatch
+              players={(queuedPlayers :> array<Player.t<'a>>)}
+              teams
+              consumedPlayers={Set.make()}
+              // consumedPlayers={consumedPlayers
+              // ->Set.values
+              // ->Array.fromIterator
+              // // ->Array.concat(deprioritized->Set.values->Array.fromIterator)
+              // ->Set.fromArray}
+              // priorityPlayers={[]}
+              priorityPlayers
+              avoidAllPlayers
+              onSelectMatch={match => {
+                // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
+                queueMatch(match)
+              }}
+            />
+}
       />
     )
     ->Option.getOr(React.null)

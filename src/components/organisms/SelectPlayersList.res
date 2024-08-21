@@ -32,7 +32,7 @@ let make = (
       <thead className="border-b border-black/10 text-sm leading-6 text-black">
         <tr>
           <th scope="col" className="py-2 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8">
-            <UiAction className="group inline-flex" onClick={() => setSort(_ => Rating)}>
+            <UiAction className="group inline-flex" onClick={_ => setSort(_ => Rating)}>
               {t`Player`}
               {sort == Rating
                 ? <span
@@ -49,7 +49,7 @@ let make = (
           <th
             scope="col"
             className="py-2 pl-0 pr-4 text-right font-semibold table-cell sm:pr-6 lg:pr-8">
-            <UiAction className="group inline-flex" onClick={() => setSort(_ => MatchCount)}>
+            <UiAction className="group inline-flex" onClick={_ => setSort(_ => MatchCount)}>
               {t`Match Count`}
               {sort == MatchCount
                 ? <span
@@ -85,7 +85,7 @@ let make = (
                       !selected ? "opacity-50" : "",
                       disabled ? "line-through" : "",
                     ])}>
-                    <UiAction onClick={() => onClick(player)}>
+                    <UiAction onClick={_ => onClick(player)}>
                       {player.data
                       ->Option.flatMap(data =>
                         data.user->Option.map(
@@ -104,10 +104,10 @@ let make = (
               <td>
                 {!selected
                   ? disabled
-                      ? <UiAction onClick={() => onEnable(player)}>
+                      ? <UiAction onClick={_ => onEnable(player)}>
                           {"Enable"->React.string}
                         </UiAction>
-                      : <UiAction onClick={() => onRemove(player)}>
+                      : <UiAction onClick={_ => onRemove(player)}>
                           {"Remove"->React.string}
                         </UiAction>
                   : React.null}

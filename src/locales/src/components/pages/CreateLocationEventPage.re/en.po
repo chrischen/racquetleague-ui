@@ -91,7 +91,7 @@ msgstr ""
 #~ msgid "Any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
 #~ msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:284
+#: src/components/molecules/forms/Form.re.mjs:288
 msgid "cancel"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "name is required"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:291
+#: src/components/molecules/forms/Form.re.mjs:295
 msgid "save"
 msgstr ""
 

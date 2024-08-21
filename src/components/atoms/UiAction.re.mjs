@@ -20,8 +20,14 @@ function UiAction(props) {
               href: "#",
               onClick: (function (e) {
                   e.preventDefault();
-                  onClick();
-                })
+                  onClick(e);
+                }),
+              onTouchStart: Core__Option.map(props.onTouchStart, (function (f) {
+                      return function (e) {
+                        e.preventDefault();
+                        f(e);
+                      };
+                    }))
             });
 }
 
