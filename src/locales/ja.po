@@ -1093,6 +1093,16 @@ msgstr "すべてを切り替える"
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
 msgstr "セッションをクリア（評価、試合数、ゲストプレイヤー）"
 
+#: src/components/pages/Event.re.mjs:369
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first."
+msgstr "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+
+#: src/components/pages/Event.re.mjs:370
+msgid "view events"
+msgstr "イベントを見る"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

@@ -33,12 +33,12 @@ msgstr ""
 #~ msgid "Futsal"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:422
+#: src/components/organisms/EventsList.re.mjs:437
 msgid "...load past events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:127
-#: src/components/organisms/EventsList.re.mjs:305
+#: src/components/organisms/EventsList.re.mjs:128
+#: src/components/organisms/EventsList.re.mjs:330
 msgid "[location missing]"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 #~ msgid "[Location Missing]"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:254
+#: src/components/organisms/EventsList.re.mjs:279
 msgid "[missing title]"
 msgstr ""
 
@@ -54,55 +54,55 @@ msgstr ""
 #~ msgid "[Missing Title]"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:98
-#: src/components/organisms/EventsList.re.mjs:103
-#: src/components/organisms/EventsList.re.mjs:198
-#: src/components/organisms/EventsList.re.mjs:205
-msgid "{0, plural, one {{1}} other {{2}}}"
-msgstr ""
-
 #: src/components/organisms/EventsList.re.mjs:99
 #: src/components/organisms/EventsList.re.mjs:104
-#: src/components/organisms/EventsList.re.mjs:199
-#: src/components/organisms/EventsList.re.mjs:206
-msgid "{0} hour"
+#: src/components/organisms/EventsList.re.mjs:200
+#: src/components/organisms/EventsList.re.mjs:207
+msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:100
 #: src/components/organisms/EventsList.re.mjs:105
-#: src/components/organisms/EventsList.re.mjs:200
-#: src/components/organisms/EventsList.re.mjs:207
+#: src/components/organisms/EventsList.re.mjs:201
+#: src/components/organisms/EventsList.re.mjs:208
+msgid "{0} hour"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:101
+#: src/components/organisms/EventsList.re.mjs:106
+#: src/components/organisms/EventsList.re.mjs:202
+#: src/components/organisms/EventsList.re.mjs:209
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:107
-#: src/components/organisms/EventsList.re.mjs:211
+#: src/components/organisms/EventsList.re.mjs:108
+#: src/components/organisms/EventsList.re.mjs:213
 msgid "{0} minute"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:108
-#: src/components/organisms/EventsList.re.mjs:212
+#: src/components/organisms/EventsList.re.mjs:109
+#: src/components/organisms/EventsList.re.mjs:214
 msgid "{0} minutes"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:106
-#: src/components/organisms/EventsList.re.mjs:210
+#: src/components/organisms/EventsList.re.mjs:107
+#: src/components/organisms/EventsList.re.mjs:212
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:322
+#: src/components/organisms/EventsList.re.mjs:247
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:454
+#: src/components/organisms/EventsList.re.mjs:469
 msgid "clear filter"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:452
+#: src/components/organisms/EventsList.re.mjs:467
 msgid "filtering by date"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:222
+#: src/components/organisms/EventsList.re.mjs:224
 msgid "joined"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 #~ msgid "Joined"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:495
+#: src/components/organisms/EventsList.re.mjs:510
 msgid "load more"
 msgstr ""
 
@@ -134,7 +134,7 @@ msgstr ""
 #~ msgid "Page not found"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:318
+#: src/components/organisms/EventsList.re.mjs:243
 msgid "players"
 msgstr ""
 
@@ -142,10 +142,10 @@ msgstr ""
 #~ msgid "public events"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:433
+#: src/components/organisms/EventsList.re.mjs:448
 msgid "share as text"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:225
+#: src/components/organisms/EventsList.re.mjs:227
 msgid "waitlist"
 msgstr ""

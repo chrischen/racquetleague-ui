@@ -15,25 +15,25 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:448
+#: src/components/pages/Event.re.mjs:457
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:451
+#: src/components/pages/Event.re.mjs:460
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:454
+#: src/components/pages/Event.re.mjs:463
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:457
+#: src/components/pages/Event.re.mjs:466
 msgid "Futsal"
 msgstr ""
 
@@ -41,11 +41,11 @@ msgstr ""
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:100
+#: src/components/pages/Event.re.mjs:103
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:102
+#: src/components/pages/Event.re.mjs:105
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 #~ msgid "Confirmed"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:268
+#: src/components/pages/Event.re.mjs:271
 msgid "details"
 msgstr ""
 
@@ -89,15 +89,15 @@ msgstr ""
 #~ msgid "Details"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:231
+#: src/components/pages/Event.re.mjs:234
 msgid "edit event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:154
+#: src/components/pages/Event.re.mjs:157
 msgid "event @"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:413
+#: src/components/pages/Event.re.mjs:422
 msgid "event doesn't exist"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 #~ msgid "event:"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:317
+#: src/components/pages/Event.re.mjs:320
 msgid "good luck, have fun"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 #~ msgid "hosted by"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:198
+#: src/components/pages/Event.re.mjs:201
 msgid "hosted by {name}"
 msgstr ""
 
@@ -139,7 +139,7 @@ msgstr ""
 #~ msgid "Join Waitlist"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:385
+#: src/components/pages/Event.re.mjs:394
 msgid "league"
 msgstr ""
 
@@ -162,7 +162,7 @@ msgstr ""
 msgid "login to join the event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:252
+#: src/components/pages/Event.re.mjs:255
 msgid "login to subscribe to {activityName} events"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:347
+#: src/components/pages/Event.re.mjs:350
 msgid "media"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr ""
 msgid "no players yet"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:326
+#: src/components/pages/Event.re.mjs:329
 msgid "notes"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr ""
 #~ msgid "Spots Available"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:390
+#: src/components/pages/Event.re.mjs:399
 msgid "submit matches"
 msgstr ""
 
@@ -210,8 +210,16 @@ msgstr ""
 msgid "sync calendar"
 msgstr ""
 
+#: src/components/pages/Event.re.mjs:369
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first."
+msgstr ""
+
 #: src/components/molecules/SubscribeActivity.re.mjs:91
 msgid "unsubscribe from {activityName} events"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:370
+msgid "view events"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:239
