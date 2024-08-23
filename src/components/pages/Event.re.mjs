@@ -8,6 +8,7 @@ import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as $$MediaList from "../organisms/MediaList.re.mjs";
+import * as ErrorAlert from "../molecules/ErrorAlert.re.mjs";
 import * as EventRsvps from "../organisms/EventRsvps.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -79,9 +80,11 @@ function $$Event(props) {
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
   var viewer = GlobalQuery.useViewer();
+  var navigate = ReactRouterDom.useNavigate();
   return Core__Option.getOr(Core__Option.map(match.event, (function ($$event) {
                     var fragmentRefs = $$event.fragmentRefs;
                     var title = $$event.title;
+                    var shadow = $$event.shadow;
                     var $$location = $$event.location;
                     var details = $$event.details;
                     var activity = $$event.activity;
@@ -362,9 +365,15 @@ function $$Event(props) {
                                                                 JsxRuntime.jsx("div", {
                                                                       children: JsxRuntime.jsxs("div", {
                                                                             children: [
-                                                                              JsxRuntime.jsx(EventRsvps.make, {
-                                                                                    event: fragmentRefs
-                                                                                  }),
+                                                                              shadow !== undefined && shadow ? JsxRuntime.jsx(ErrorAlert.make, {
+                                                                                      children: t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`,
+                                                                                      cta: Caml_option.some(t`view events`),
+                                                                                      ctaClick: (function () {
+                                                                                          navigate("/clubs/japanpickle", undefined);
+                                                                                        })
+                                                                                    }) : JsxRuntime.jsx(EventRsvps.make, {
+                                                                                      event: fragmentRefs
+                                                                                    }),
                                                                               Core__Option.getOr((function (__x) {
                                                                                         return Core__Option.flatMap(__x, (function (viewerHasRsvp) {
                                                                                                       return Core__Option.flatMap($$event.activity, (function (activity) {

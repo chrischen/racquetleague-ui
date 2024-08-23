@@ -27,6 +27,7 @@ module Types = {
     location: option<fragment_location>,
     maxRsvps: option<int>,
     rsvps: option<fragment_rsvps>,
+    shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     title: option<string>,
     viewerRsvpStatus: option<RelaySchemaAssets_graphql.enum_RsvpStatus>,
@@ -195,6 +196,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "endDate",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "shadow",
       "storageKey": null
     }
   ],

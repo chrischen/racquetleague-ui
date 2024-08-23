@@ -41,6 +41,10 @@ var QueueList = {};
 
 var TableCells = {};
 
+var LockClosed = {};
+
+var LockClosedOutline = {};
+
 export {
   PhotoIcon ,
   Bars3Icon ,
@@ -62,5 +66,7 @@ export {
   Users ,
   QueueList ,
   TableCells ,
+  LockClosed ,
+  LockClosedOutline ,
 }
 /* No side effect */

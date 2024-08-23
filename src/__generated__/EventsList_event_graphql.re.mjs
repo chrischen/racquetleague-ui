@@ -153,6 +153,13 @@ return {
       "kind": "ScalarField",
       "name": "endDate",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "shadow",
+      "storageKey": null
     }
   ],
   "type": "Event",

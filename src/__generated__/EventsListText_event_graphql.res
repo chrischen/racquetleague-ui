@@ -28,6 +28,7 @@ module Types = {
     location: option<fragment_location>,
     maxRsvps: option<int>,
     rsvps: option<fragment_rsvps>,
+    shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     title: option<string>,
   }
@@ -186,6 +187,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "endDate",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "shadow",
       "storageKey": null
     }
   ],

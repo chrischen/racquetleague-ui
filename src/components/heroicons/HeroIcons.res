@@ -80,3 +80,12 @@ module TableCells = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "TableCellsIcon"
 }
+
+module LockClosed = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "LockClosedIcon"
+}
+module LockClosedOutline = {
+  @module("@heroicons/react/24/outline") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "LockClosedIcon"
+}

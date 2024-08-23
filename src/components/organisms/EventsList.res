@@ -60,6 +60,7 @@ module ItemFragment = %relay(`
     }
     startDate
     endDate
+    shadow
   }
 `)
 
@@ -85,6 +86,7 @@ module TextItemFragment = %relay(`
     maxRsvps
     startDate
     endDate
+    shadow
   }
 `)
 
@@ -94,7 +96,9 @@ module TextEventItem = {
   let ts = Lingui.UtilString.t
 
   let make = (~event) => {
-    let {id, location, details, rsvps, startDate, maxRsvps, endDate} = TextItemFragment.use(event)
+    let {id, location, details, rsvps, startDate, maxRsvps, endDate, shadow} = TextItemFragment.use(
+      event,
+    )
     let {i18n: {locale}} = Lingui.useLingui()
     let intl = ReactIntl.useIntl()
 
@@ -226,6 +230,7 @@ module EventItem = {
       maxRsvps,
       endDate,
       viewerRsvpStatus,
+      shadow,
     } = ItemFragment.use(event)
     let playersCount =
       rsvps
@@ -346,15 +351,20 @@ module EventItem = {
             "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
             "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
           ])}>
-          {maxRsvps
-          ->Option.map(maxRsvps =>
-            (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ (ts`players`))
-              ->React.string
-          )
-          ->Option.getOr(<>
-            {(playersCount->Int.toString ++ " ")->React.string}
-            {plural(playersCount, {one: "player", other: "players"})}
-          </>)}
+          {switch shadow {
+          | None
+          | Some(false) =>
+            maxRsvps
+            ->Option.map(maxRsvps =>
+              (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ (ts`players`))
+                ->React.string
+            )
+            ->Option.getOr(<>
+              {(playersCount->Int.toString ++ " ")->React.string}
+              {plural(playersCount, {one: "player", other: "players"})}
+            </>)
+          | _ => <HeroIcons.LockClosed \"aria-hidden"="true" className="-ml-0.5 h-3 w-3" />
+          }}
         </div>
         // <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" ariaHidden="true" />
       </Layout.Container>
@@ -377,7 +387,7 @@ let sortByDate = (
 ): dates => {
   event.startDate
   ->Option.map(startDate => {
-    open Util;
+    open Util
     // startDate in UTC
     let startDate = startDate->Datetime.toDate
 

@@ -24,6 +24,7 @@ import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs"
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as EventsList_event_graphql from "../../__generated__/EventsList_event_graphql.re.mjs";
+import * as Solid from "@heroicons/react/24/solid";
 import * as EventsListFragment_graphql from "../../__generated__/EventsListFragment_graphql.re.mjs";
 import * as EventsListText_event_graphql from "../../__generated__/EventsListText_event_graphql.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
@@ -180,6 +181,7 @@ function EventsList$EventItem(props) {
   var match = use$1(props.event);
   var viewerRsvpStatus = match.viewerRsvpStatus;
   var startDate = match.startDate;
+  var shadow = match.shadow;
   var endDate = match.endDate;
   var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
               return Core__Option.map(rsvps.edges, (function (edges) {
@@ -226,6 +228,29 @@ function EventsList$EventItem(props) {
               className: Core$1.cx("text-yellow-600 bg-yellow-400/10 ring-yellow-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
             })
     ) : null;
+  var tmp$1;
+  var exit = 0;
+  if (shadow !== undefined && shadow) {
+    tmp$1 = JsxRuntime.jsx(Solid.LockClosedIcon, {
+          className: "-ml-0.5 h-3 w-3",
+          "aria-hidden": "true"
+        });
+  } else {
+    exit = 1;
+  }
+  if (exit === 1) {
+    tmp$1 = Core__Option.getOr(Core__Option.map(match.maxRsvps, (function (maxRsvps) {
+                return playersCount.toString() + "/" + maxRsvps.toString() + " " + t`players`;
+              })), JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                playersCount.toString() + " ",
+                plural(playersCount, {
+                      one: "player",
+                      other: "players"
+                    })
+              ]
+            }));
+  }
   return JsxRuntime.jsx("li", {
               children: JsxRuntime.jsxs(Layout.Container.make, {
                     children: [
@@ -314,17 +339,7 @@ function EventsList$EventItem(props) {
                           }),
                       tmp,
                       JsxRuntime.jsx("div", {
-                            children: Core__Option.getOr(Core__Option.map(match.maxRsvps, (function (maxRsvps) {
-                                        return playersCount.toString() + "/" + maxRsvps.toString() + " " + t`players`;
-                                      })), JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                      children: [
-                                        playersCount.toString() + " ",
-                                        plural(playersCount, {
-                                              one: "player",
-                                              other: "players"
-                                            })
-                                      ]
-                                    })),
+                            children: tmp$1,
                             className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
                           })
                     ],

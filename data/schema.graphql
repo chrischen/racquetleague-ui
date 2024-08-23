@@ -154,6 +154,7 @@ type Event implements Node {
   maxRsvps: Int
   owner: User
   rsvps(after: String, before: String, first: Int): EventRsvpConnection
+  shadow: Boolean
   startDate: Datetime
   title: String
   viewerHasRsvp: Boolean

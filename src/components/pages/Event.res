@@ -19,6 +19,7 @@ module EventQuery = %relay(`
       viewerHasRsvp
       startDate
       endDate
+      shadow
       location {
         id
         name
@@ -87,10 +88,11 @@ let make = () => {
   let query = useLoaderData()
   let {event} = EventQuery.usePreloaded(~queryRef=query.data)
   let viewer = GlobalQuery.useViewer()
+  let navigate = Router.useNavigate()
 
   event
   ->Option.map(event => {
-    let {__id, title, activity, details, location, fragmentRefs} = event
+    let {__id, title, activity, details, location, shadow, fragmentRefs} = event
 
     // let startDate =
     //   event.startDate->Option.getOr(
@@ -402,9 +404,18 @@ let make = () => {
               <div className="lg:col-start-3 lg:row-end-1">
                 <div
                   className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
-                  <EventRsvps event=fragmentRefs />
+                  {switch shadow {
+                  | None
+                  | Some(false) =>
+                    <EventRsvps event=fragmentRefs />
+                  | Some(true) =>
+                    <ErrorAlert
+                      cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
+                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
+                    </ErrorAlert>
+                  }}
                   {event.viewerHasRsvp
-                  ->Option.flatMap(_, viewerHasRsvp =>
+                  ->(Option.flatMap(_, viewerHasRsvp =>
                     event.activity->Option.flatMap(
                       activity =>
                         activity.slug->Option.map(
@@ -425,7 +436,7 @@ let make = () => {
                             },
                         ),
                     )
-                  )
+                  ))
                   ->Option.getOr(React.null)}
                 </div>
               </div>
