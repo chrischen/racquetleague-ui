@@ -21,7 +21,7 @@ let make = () => {
   open Lingui.Util
   let query = useLoaderData()
   let {event, fragmentRefs: queryRefs} = Query.usePreloaded(~queryRef=query.data)
-  <Layout.Container className="mt-4">
+  // <Layout.Container className="mt-4">
     <WaitForMessages>
       {() => {
         event
@@ -39,5 +39,5 @@ let make = () => {
         ->Option.getOr(React.null)
       }}
     </WaitForMessages>
-  </Layout.Container>
+  // </Layout.Container>
 }

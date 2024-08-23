@@ -38,10 +38,25 @@ function update(session, id, f) {
   return session$1;
 }
 
+function saveState(t) {
+  localStorage.setItem("sessionState", Core__Option.getOr(JSON.stringify(t), ""));
+}
+
+function loadState() {
+  var state = localStorage.getItem("sessionState");
+  if (state !== null) {
+    return JSON.parse(state);
+  } else {
+    return {};
+  }
+}
+
 export {
   PlayerState ,
   make$1 as make,
   get ,
   update ,
+  saveState ,
+  loadState ,
 }
 /* No side effect */

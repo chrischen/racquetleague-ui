@@ -315,10 +315,14 @@ let make = (~event, ~children) => {
   let allPlayers = (switch sessionMode {
   | true => sessionPlayers
   | false =>
-    data.rsvps
-    ->Fragment.getConnectionNodes
-    ->Array.filterMap(rsvpToPlayer)
-    ->Array.concat(sessionPlayers)
+    switch sessionPlayers->Array.length >= data.rsvps->Fragment.getConnectionNodes->Array.length {
+    | true => sessionPlayers
+    | false =>
+      data.rsvps
+      ->Fragment.getConnectionNodes
+      ->Array.filterMap(rsvpToPlayer)
+      ->Array.concat(sessionPlayers)
+    }
   } :> array<player>)
   let players = allPlayers->Array.filter(p => !(disabled->Set.has(p.id)))
 
@@ -327,9 +331,19 @@ let make = (~event, ~children) => {
       commitMutationCreateRating(~variables={userId: p.id})->RescriptRelay.Disposable.ignore
     })
   }
+  let clearSession = () => {
+    Session.make()->Session.saveState
+    []->Players.savePlayers
+  }
   React.useEffect0(() => {
     Js.log("Initializing player ratings")
     initializeRatings()->ignore
+
+    Js.log("Loading state")
+    let state = Session.loadState()
+    let players = Players.loadPlayers()
+    setSessionState(_ => state)
+    setSessionPlayers(_ => players)
     None
   })
 
@@ -385,21 +399,29 @@ let make = (~event, ~children) => {
   // @TODO: When play counts are updated, we can update deprioritized players
   let updatePlayCounts = (match: match) => {
     setSessionState(prevState => {
-      [match->fst, match->snd]
-      ->Array.flatMap(x => x)
-      ->Array.reduce(prevState, (state, p) =>
-        state->Session.update(p.id, prev => {count: prev.count + 1})
-      )
+      let nextState =
+        [match->fst, match->snd]
+        ->Array.flatMap(x => x)
+        ->Array.reduce(prevState, (state, p) =>
+          state->Session.update(p.id, prev => {count: prev.count + 1})
+        )
+
+      nextState->Session.saveState
+      nextState
     })
   }
 
   let initializeSessionMode = () => {
-    let players =
-      data.rsvps
-      ->Fragment.getConnectionNodes
-      ->Array.filterMap(rsvpToPlayerDefault)
-      ->Array.concat(sessionPlayers)
-    setSessionPlayers(_ => players)
+    switch sessionPlayers->Array.length >= data.rsvps->Fragment.getConnectionNodes->Array.length {
+    | true => ()
+    | false =>
+      let players =
+        data.rsvps
+        ->Fragment.getConnectionNodes
+        ->Array.filterMap(rsvpToPlayerDefault)
+        ->Array.concat(sessionPlayers)
+      setSessionPlayers(_ => players)
+    }
   }
 
   let uninitializeSessionMode = () => {
@@ -408,13 +430,15 @@ let make = (~event, ~children) => {
 
   let updateSessionPlayerRatings = (updatedPlayers: array<Player.t<'a>>) => {
     setSessionPlayers(players => {
-      players->Array.map(p => {
+      let newState = players->Array.map(p => {
         let player = updatedPlayers->Array.find(p' => p.id == p'.id)
         switch player {
         | Some(player) => player
         | None => p
         }
       })
+      newState->Players.savePlayers
+      newState
     })
   }
   let breakPlayersDesc = Lingui.UtilString.plural(
@@ -432,8 +456,6 @@ let make = (~event, ~children) => {
   }
 
   let selectAllPlayers = () => {
-    Js.log(queue->Set.size)
-    Js.log(availablePlayers->Array.length)
     switch queue->Set.size == availablePlayers->Array.length {
     | true =>
       setQueue(_ => {
@@ -448,11 +470,18 @@ let make = (~event, ~children) => {
 
   switch screen {
   | Advanced =>
-    <>
+    <Layout.Container className="mt-4">
+      <Util.Helmet>
+        <meta name="viewport" content="width=device-width" />
+      </Util.Helmet>
       <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-1 md:gap-8">
         <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8">
           <div className="md:col-span-2 flex">
-            <UiAction className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={_ => setScreen(_ => Matches)}> {t`Easy Mode`} </UiAction>
+            <UiAction
+              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              onClick={_ => setScreen(_ => Matches)}>
+              {t`Easy Mode`}
+            </UiAction>
             <HeadlessUi.Field className="flex items-center ml-2">
               <HeadlessUi.Switch
                 checked={sessionMode}
@@ -521,13 +550,16 @@ let make = (~event, ~children) => {
                 eventId
                 onPlayerAdd={player => {
                   setSessionPlayers(guests => {
-                    guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer)
+                    let newState =
+                      guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer)
+                    newState->Players.savePlayers
+                    newState
                   })
                   setSettingsPane(_ => None)
                 }}
               />
             | Some(Settings) =>
-              <>
+              <div className="grid grid-cols-1">
                 <SessionEvenPlayMode
                   breakCount
                   breakPlayersCount
@@ -539,7 +571,10 @@ let make = (~event, ~children) => {
                 <UiAction onClick={_ => initializeRatings()->ignore}>
                   {t`Initialize Ratings`}
                 </UiAction>
-              </>
+                <UiAction onClick={_ => clearSession()->ignore}>
+                  {t`Clear Session (Ratings, Match Counts, and Guest Players)`}
+                </UiAction>
+              </div>
             | _ => React.null
             }}
             <div> {t`${breakPlayersCount->Int.toString} ${breakPlayersDesc} are not playing`} </div>
@@ -667,7 +702,7 @@ let make = (~event, ~children) => {
           </div>
         </div>
       </div>
-    </>
+    </Layout.Container>
   | Matches =>
     activity
     ->Option.map(activity =>
@@ -692,23 +727,22 @@ let make = (~event, ~children) => {
           setSettingsPane(_ => None)
         }}
         matchSelector={<CompMatch
-              players={(queuedPlayers :> array<Player.t<'a>>)}
-              teams
-              consumedPlayers={Set.make()}
-              // consumedPlayers={consumedPlayers
-              // ->Set.values
-              // ->Array.fromIterator
-              // // ->Array.concat(deprioritized->Set.values->Array.fromIterator)
-              // ->Set.fromArray}
-              // priorityPlayers={[]}
-              priorityPlayers
-              avoidAllPlayers
-              onSelectMatch={match => {
-                // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
-                queueMatch(match)
-              }}
-            />
-}
+          players={(queuedPlayers :> array<Player.t<'a>>)}
+          teams
+          consumedPlayers={Set.make()}
+          // consumedPlayers={consumedPlayers
+          // ->Set.values
+          // ->Array.fromIterator
+          // // ->Array.concat(deprioritized->Set.values->Array.fromIterator)
+          // ->Set.fromArray}
+          // priorityPlayers={[]}
+          priorityPlayers
+          avoidAllPlayers
+          onSelectMatch={match => {
+            // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
+            queueMatch(match)
+          }}
+        />}
       />
     )
     ->Option.getOr(React.null)

@@ -13,3 +13,19 @@ let update = (session: t, id: string, f: PlayerState.t => PlayerState.t) => {
   }
   session
 }
+
+let saveState = (t: t) =>
+  Dom.Storage2.localStorage->Dom.Storage2.setItem(
+    "sessionState",
+    t->Js.Json.stringifyAny->Option.getOr(""),
+  )
+
+external parse: string => t = "JSON.parse";
+
+let loadState = (): t => {
+  switch Dom.Storage2.localStorage->Dom.Storage2.getItem("sessionState") {
+  | Some(state) => state->parse
+  | None => Js.Dict.empty()
+  }
+}
+

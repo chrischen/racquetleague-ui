@@ -1089,6 +1089,10 @@ msgstr "休憩中のプレイヤー"
 msgid "Toggle All"
 msgstr "すべてを切り替える"
 
+#: src/components/organisms/AiTetsu.re.mjs:627
+msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
+msgstr "セッションをクリア（評価、試合数、ゲストプレイヤー）"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

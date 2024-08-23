@@ -77,9 +77,6 @@ function MatchesView$Queue(props) {
                                 onClick: (function (param) {
                                     togglePlayer(player);
                                   }),
-                                onTouchStart: (function (param) {
-                                    togglePlayer(player);
-                                  }),
                                 children: JsxRuntime.jsx(MatchesView$PlayerView, {
                                       player: player,
                                       minRating: minRating,
@@ -88,7 +85,7 @@ function MatchesView$Queue(props) {
                                     }, player.id)
                               });
                   }),
-              className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-3"
+              className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
             });
 }
 
@@ -139,7 +136,7 @@ function MatchesView$ActionBar(props) {
                       ]
                     })
               ],
-              className: "absolute bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center"
+              className: "fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center"
             });
 }
 
@@ -155,6 +152,8 @@ function MatchesView(props) {
   var minRating = props.minRating;
   var activity = props.activity;
   var matches = props.matches;
+  var togglePlayer = props.togglePlayer;
+  var consumedPlayers = props.consumedPlayers;
   var match = React.useState(function () {
         return "Matches";
       });
@@ -188,13 +187,21 @@ function MatchesView(props) {
                             className: "flex flex-col rounded shadow"
                           });
               }),
-          className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-3"
+          className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
         }) : JsxRuntime.jsx(MatchesView$Queue, {
           players: props.players,
           breakPlayers: props.breakPlayers,
-          consumedPlayers: props.consumedPlayers,
+          consumedPlayers: consumedPlayers,
           queue: props.queue,
-          togglePlayer: props.togglePlayer
+          togglePlayer: (function (player) {
+              if (consumedPlayers.has(player.id)) {
+                return setView(function (param) {
+                            return "Matches";
+                          });
+              } else {
+                return togglePlayer(player);
+              }
+            })
         });
   return JsxRuntime.jsxs("div", {
               children: [
@@ -265,7 +272,7 @@ function MatchesView(props) {
                             className: "w-full h-full",
                             role: "main"
                           }),
-                      className: "w-full h-[calc(100vh-34px-70px)]"
+                      className: "w-full h-[calc(100vh-56px-68px)] fixed top-[56px] left-0 overflow-scroll pb-32 px-3"
                     }),
                 JsxRuntime.jsx(MatchesView$ActionBar, {
                       selectAll: props.selectAll,
@@ -284,7 +291,7 @@ function MatchesView(props) {
                       setOpen: setShowMatchSelector
                     })
               ],
-              className: "w-full h-full absolute top-0 left-0 bg-black p-3"
+              className: "w-full h-full fixed top-0 left-0 bg-black p-3"
             });
 }
 

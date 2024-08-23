@@ -75,7 +75,7 @@ module Player = {
     {
       data: None,
       id: "guest-" ++ name,
-      name: name,
+      name,
       rating,
       ratingOrdinal: rating->Rating.ordinal,
     }
@@ -174,6 +174,7 @@ type player = Player.t<rsvpNode>
 type team = array<player>
 type match = (team, team)
 
+external parsePlayers: string => array<Player.t<rsvpNode>> = "JSON.parse"
 module Players = {
   type t = array<player>
   let sortByRatingDesc = (t: t) =>
@@ -199,4 +200,16 @@ module Players = {
 
   let filterOut = (players: t, unavailable: TeamSet.t) =>
     players->Array.filter(p => !(unavailable->Set.has(p.id)))
+  let savePlayers = (t: t) => {
+    Dom.Storage2.localStorage->Dom.Storage2.setItem(
+      "playersState",
+      t->Js.Json.stringifyAny->Option.getOr(""),
+    )
+  }
+  let loadPlayers = (): array<Player.t<rsvpNode>> => {
+    switch Dom.Storage2.localStorage->Dom.Storage2.getItem("playersState") {
+    | Some(state) => state->parsePlayers
+    | None => []
+    }
+  }
 }

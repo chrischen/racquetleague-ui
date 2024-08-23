@@ -1179,3 +1179,7 @@ msgstr ""
 #: src/components/organisms/AiTetsu.re.mjs:678
 msgid "Toggle All"
 msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:627
+msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
+msgstr ""

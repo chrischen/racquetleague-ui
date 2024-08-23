@@ -41,7 +41,7 @@ module Queue = {
       players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
     let minRating =
       players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       {players
       ->Array.map(player => {
         let status = switch (
@@ -54,7 +54,10 @@ module Queue = {
         | (true, _, _) => Queued
         | _ => Available
         }
-        <UiAction onClick={_ => togglePlayer(player)} onTouchStart={_ => togglePlayer(player)}>
+        <UiAction
+          onClick={_ => {
+            togglePlayer(player)
+          }}>
           <PlayerView status={status} key={player.id} player minRating maxRating />
         </UiAction>
       })
@@ -72,7 +75,7 @@ module ActionBar = {
     ~onChooseMatch,
   ) => {
     <div
-      className="absolute bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center">
+      className="fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center">
       <UiAction
         onClick={_ => selectAll()}
         className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -126,7 +129,7 @@ let make = (
   let ts = Lingui.UtilString.t
   let (view, setView) = React.useState(() => Matches)
   let (showMatchSelector, setShowMatchSelector) = React.useState(() => false)
-  <div className="w-full h-full absolute top-0 left-0 bg-black p-3">
+  <div className="w-full h-full fixed top-0 left-0 bg-black p-3">
     <div className="flex h-[34px] justify-between items-center">
       <UiAction
         className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -175,12 +178,24 @@ let make = (
         ->Array.join(", ")}
       />
     </div>
-    <div className="w-full h-[calc(100vh-34px-70px)]">
+    <div className="w-full h-[calc(100vh-56px-68px)] fixed top-[56px] left-0 overflow-scroll pb-32 px-3">
       <main role="main" className="w-full h-full">
         {switch view {
-        | Queue => <Queue players breakPlayers consumedPlayers queue togglePlayer />
+        | Queue =>
+          <Queue
+            players
+            breakPlayers
+            consumedPlayers
+            queue
+            togglePlayer={player => {
+              switch consumedPlayers->Set.has(player.id) {
+              | true => setView(_ => Matches)
+              | false => togglePlayer(player)
+              }
+            }}
+          />
         | Matches =>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {matches
             ->Array.mapWithIndex((match, i) =>
               <div className="flex flex-col rounded shadow">

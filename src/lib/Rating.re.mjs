@@ -4,6 +4,7 @@ import * as Session from "./Session.re.mjs";
 import * as Openskill from "openskill";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as PlackettLuceTs from "../lib/rating/models/plackettLuce.ts";
 
 var plackettLuce = PlackettLuceTs.plackettLuce;
@@ -289,12 +290,27 @@ function filterOut(players, unavailable) {
             });
 }
 
+function savePlayers(t) {
+  localStorage.setItem("playersState", Core__Option.getOr(JSON.stringify(t), ""));
+}
+
+function loadPlayers() {
+  var state = localStorage.getItem("playersState");
+  if (state !== null) {
+    return JSON.parse(state);
+  } else {
+    return [];
+  }
+}
+
 var Players = {
   sortByRatingDesc: sortByRatingDesc,
   sortByPlayCountAsc: sortByPlayCountAsc,
   sortByPlayCountDesc: sortByPlayCountDesc,
   sortByOrdinalDesc: sortByOrdinalDesc,
-  filterOut: filterOut
+  filterOut: filterOut,
+  savePlayers: savePlayers,
+  loadPlayers: loadPlayers
 };
 
 export {
