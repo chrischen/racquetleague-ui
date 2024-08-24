@@ -261,6 +261,7 @@ function rsvpToPlayerDefault(rsvp) {
 function AiTetsu(props) {
   var $$event = props.event;
   var match = use$1($$event);
+  var eventId = match.id;
   var activity = match.activity;
   var match$1 = use();
   var commitMutationCreateRating = match$1[0];
@@ -359,15 +360,15 @@ function AiTetsu(props) {
               });
   };
   var clearSession = function () {
-    Session.saveState(Session.make());
-    Rating.Players.savePlayers([]);
+    Session.saveState(Session.make(), eventId);
+    Rating.Players.savePlayers([], eventId);
   };
   React.useEffect((function () {
           console.log("Initializing player ratings");
           initializeRatings();
           console.log("Loading state");
-          var state = Session.loadState();
-          var players = Rating.Players.loadPlayers();
+          var state = Session.loadState(eventId);
+          var players = Rating.Players.loadPlayers(eventId);
           setSessionState(function (param) {
                 return state;
               });
@@ -455,7 +456,7 @@ function AiTetsu(props) {
                                       };
                               }));
                 }));
-          Session.saveState(nextState);
+          Session.saveState(nextState, eventId);
           return nextState;
         });
   };
@@ -487,7 +488,7 @@ function AiTetsu(props) {
                   return p;
                 }
               });
-          Rating.Players.savePlayers(newState);
+          Rating.Players.savePlayers(newState, eventId);
           return newState;
         });
   };
@@ -589,12 +590,12 @@ function AiTetsu(props) {
           break;
       case "AddPlayer" :
           tmp = JsxRuntime.jsx(SessionAddPlayer.make, {
-                eventId: match.id,
+                eventId: eventId,
                 onPlayerAdd: (function (player) {
                     setSessionPlayers(function (guests) {
                           var player$1 = Rating.Player.makeDefaultRatingPlayer(player.name);
                           var newState = guests.concat([player$1]);
-                          Rating.Players.savePlayers(newState);
+                          Rating.Players.savePlayers(newState, eventId);
                           return newState;
                         });
                     setSettingsPane(function (param) {

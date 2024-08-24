@@ -26,7 +26,7 @@ let make = (~connection: RescriptRelay.fragmentRefs<[#PinMap_eventConnection]>, 
     ->Array.map(Option.flatMap(_, edge => edge.node->Option.flatMap(event => event.location->Option.map(location => (event.id, location)))))
 
   <GoogleMap.APIProvider apiKey="AIzaSyBFLsnHmBaptaYoFhkXI6uL6peX579N5UY">
-    <GoogleMap.Map mapId="eventsListMap" defaultZoom=12 defaultCenter={lat: 35.6895, lng: 139.6917}>
+    <GoogleMap.Map mapId="eventsListMap" defaultZoom=12 defaultCenter={lat: 35.6495, lng: 139.7417}>
       {locations
       ->Array.mapWithIndex((location, i) => {
         location

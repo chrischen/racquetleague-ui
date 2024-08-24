@@ -551,7 +551,7 @@ let make = (~events) => {
       </div>
       <div
         className="shrink-0 border-t border-gray-200 lg:w-1/2 xl:w-2/3 lg:border-l lg:border-t-0">
-        <div className="w-full lg:h-full lg:min-h-96 h-96">
+        <div className="w-full lg:w-1/2 lg:min-h-96 h-96 lg:h-auto lg:fixed lg:top-[52px] lg:bottom-0">
           <PinMap
             connection={eventsQuery.fragmentRefs}
             onLocationClick={location => setHighlightedLocation(_ => location.id)}

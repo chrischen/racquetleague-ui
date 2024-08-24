@@ -88,6 +88,9 @@ function $$Event(props) {
                     var $$location = $$event.location;
                     var details = $$event.details;
                     var activity = $$event.activity;
+                    var viewerIsAdmin = Core__Option.getOr($$event.viewerIsAdmin, false);
+                    var viewerHasRsvp = Core__Option.getOr($$event.viewerHasRsvp, false);
+                    var canOpenAiTetsu = viewerHasRsvp || viewerIsAdmin ? true : false;
                     var until = Core__Option.map($$event.startDate, (function (startDate) {
                             return DifferenceInMinutes.differenceInMinutes(Util.Datetime.toDate(startDate), new Date());
                           }));
@@ -221,28 +224,21 @@ function $$Event(props) {
                                                         ],
                                                         className: "relative isolate pt-4"
                                                       }),
-                                                  Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
-                                                              var match = $$event.viewerIsAdmin;
-                                                              if (match !== undefined && match) {
-                                                                return JsxRuntime.jsx(Layout.Container.make, {
-                                                                            children: JsxRuntime.jsx("div", {
-                                                                                  children: JsxRuntime.jsx("div", {
-                                                                                        children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                              to: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
-                                                                                                          return l.id;
-                                                                                                        })), ""),
-                                                                                              children: t`edit event`
-                                                                                            }),
-                                                                                        className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
-                                                                                      }),
-                                                                                  className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-                                                                                }),
-                                                                            className: "py-4"
-                                                                          });
-                                                              } else {
-                                                                return null;
-                                                              }
-                                                            })), null),
+                                                  viewerIsAdmin ? JsxRuntime.jsx(Layout.Container.make, {
+                                                          children: JsxRuntime.jsx("div", {
+                                                                children: JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                            to: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
+                                                                                        return l.id;
+                                                                                      })), ""),
+                                                                            children: t`edit event`
+                                                                          }),
+                                                                      className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
+                                                                    }),
+                                                                className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+                                                              }),
+                                                          className: "py-4"
+                                                        }) : null,
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsx("div", {
                                                               children: JsxRuntime.jsx("div", {
@@ -374,37 +370,33 @@ function $$Event(props) {
                                                                                     }) : JsxRuntime.jsx(EventRsvps.make, {
                                                                                       event: fragmentRefs
                                                                                     }),
-                                                                              Core__Option.getOr((function (__x) {
-                                                                                        return Core__Option.flatMap(__x, (function (viewerHasRsvp) {
-                                                                                                      return Core__Option.flatMap($$event.activity, (function (activity) {
-                                                                                                                    return Core__Option.map(activity.slug, (function (slug) {
-                                                                                                                                  if (!viewerHasRsvp) {
-                                                                                                                                    return null;
-                                                                                                                                  }
-                                                                                                                                  switch (slug) {
-                                                                                                                                    case "badminton" :
-                                                                                                                                    case "pickleball" :
-                                                                                                                                        break;
-                                                                                                                                    default:
-                                                                                                                                      return null;
-                                                                                                                                  }
-                                                                                                                                  return JsxRuntime.jsxs("div", {
-                                                                                                                                              children: [
-                                                                                                                                                JsxRuntime.jsx("h2", {
-                                                                                                                                                      children: t`league`,
-                                                                                                                                                      className: "text-base font-semibold leading-6 text-gray-900"
-                                                                                                                                                    }),
-                                                                                                                                                JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                                                                      to: "/league/events/" + $$event.id + "/" + slug,
-                                                                                                                                                      children: t`submit matches`
-                                                                                                                                                    })
-                                                                                                                                              ],
-                                                                                                                                              className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
-                                                                                                                                            });
-                                                                                                                                }));
-                                                                                                                  }));
-                                                                                                    }));
-                                                                                      })($$event.viewerHasRsvp), null)
+                                                                              Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (activity) {
+                                                                                          return Core__Option.map(activity.slug, (function (slug) {
+                                                                                                        if (!canOpenAiTetsu) {
+                                                                                                          return null;
+                                                                                                        }
+                                                                                                        switch (slug) {
+                                                                                                          case "badminton" :
+                                                                                                          case "pickleball" :
+                                                                                                              break;
+                                                                                                          default:
+                                                                                                            return null;
+                                                                                                        }
+                                                                                                        return JsxRuntime.jsxs("div", {
+                                                                                                                    children: [
+                                                                                                                      JsxRuntime.jsx("h2", {
+                                                                                                                            children: t`league`,
+                                                                                                                            className: "text-base font-semibold leading-6 text-gray-900"
+                                                                                                                          }),
+                                                                                                                      JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                            to: "/league/events/" + $$event.id + "/" + slug,
+                                                                                                                            children: t`submit matches`
+                                                                                                                          })
+                                                                                                                    ],
+                                                                                                                    className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
+                                                                                                                  });
+                                                                                                      }));
+                                                                                        })), null)
                                                                             ],
                                                                             className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
                                                                           }),

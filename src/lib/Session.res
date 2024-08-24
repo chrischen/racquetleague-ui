@@ -14,18 +14,17 @@ let update = (session: t, id: string, f: PlayerState.t => PlayerState.t) => {
   session
 }
 
-let saveState = (t: t) =>
+let saveState = (t: t, namespace: string) =>
   Dom.Storage2.localStorage->Dom.Storage2.setItem(
-    "sessionState",
+    namespace ++ "-sessionState",
     t->Js.Json.stringifyAny->Option.getOr(""),
   )
 
-external parse: string => t = "JSON.parse";
+external parse: string => t = "JSON.parse"
 
-let loadState = (): t => {
-  switch Dom.Storage2.localStorage->Dom.Storage2.getItem("sessionState") {
+let loadState = (namespace: string): t => {
+  switch Dom.Storage2.localStorage->Dom.Storage2.getItem(namespace ++ "-sessionState") {
   | Some(state) => state->parse
   | None => Js.Dict.empty()
   }
 }
-

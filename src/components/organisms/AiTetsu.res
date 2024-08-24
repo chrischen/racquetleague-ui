@@ -332,16 +332,16 @@ let make = (~event, ~children) => {
     })
   }
   let clearSession = () => {
-    Session.make()->Session.saveState
-    []->Players.savePlayers
+    Session.make()->Session.saveState(eventId)
+    []->Players.savePlayers(eventId)
   }
   React.useEffect0(() => {
     Js.log("Initializing player ratings")
     initializeRatings()->ignore
 
     Js.log("Loading state")
-    let state = Session.loadState()
-    let players = Players.loadPlayers()
+    let state = Session.loadState(eventId)
+    let players = Players.loadPlayers(eventId)
     setSessionState(_ => state)
     setSessionPlayers(_ => players)
     None
@@ -406,7 +406,7 @@ let make = (~event, ~children) => {
           state->Session.update(p.id, prev => {count: prev.count + 1})
         )
 
-      nextState->Session.saveState
+      nextState->Session.saveState(eventId)
       nextState
     })
   }
@@ -437,7 +437,7 @@ let make = (~event, ~children) => {
         | None => p
         }
       })
-      newState->Players.savePlayers
+      newState->Players.savePlayers(eventId)
       newState
     })
   }
@@ -552,7 +552,7 @@ let make = (~event, ~children) => {
                   setSessionPlayers(guests => {
                     let newState =
                       guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer)
-                    newState->Players.savePlayers
+                    newState->Players.savePlayers(eventId)
                     newState
                   })
                   setSettingsPane(_ => None)

@@ -38,12 +38,12 @@ function update(session, id, f) {
   return session$1;
 }
 
-function saveState(t) {
-  localStorage.setItem("sessionState", Core__Option.getOr(JSON.stringify(t), ""));
+function saveState(t, namespace) {
+  localStorage.setItem(namespace + "-sessionState", Core__Option.getOr(JSON.stringify(t), ""));
 }
 
-function loadState() {
-  var state = localStorage.getItem("sessionState");
+function loadState(namespace) {
+  var state = localStorage.getItem(namespace + "-sessionState");
   if (state !== null) {
     return JSON.parse(state);
   } else {

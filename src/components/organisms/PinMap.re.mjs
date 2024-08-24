@@ -46,8 +46,8 @@ function PinMap(props) {
                     mapId: "eventsListMap",
                     defaultZoom: 12,
                     defaultCenter: {
-                      lat: 35.6895,
-                      lng: 139.6917
+                      lat: 35.6495,
+                      lng: 139.7417
                     },
                     children: Caml_option.some(locations.map(function ($$location, i) {
                               return Core__Option.getOr(Core__Option.flatMap($$location, (function (param) {

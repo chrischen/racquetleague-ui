@@ -290,12 +290,12 @@ function filterOut(players, unavailable) {
             });
 }
 
-function savePlayers(t) {
-  localStorage.setItem("playersState", Core__Option.getOr(JSON.stringify(t), ""));
+function savePlayers(t, namespace) {
+  localStorage.setItem(namespace + "-playersState", Core__Option.getOr(JSON.stringify(t), ""));
 }
 
-function loadPlayers() {
-  var state = localStorage.getItem("playersState");
+function loadPlayers(namespace) {
+  var state = localStorage.getItem(namespace + "-playersState");
   if (state !== null) {
     return JSON.parse(state);
   } else {

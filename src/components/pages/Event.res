@@ -93,6 +93,13 @@ let make = () => {
   event
   ->Option.map(event => {
     let {__id, title, activity, details, location, shadow, fragmentRefs} = event
+    // Permissions
+    let viewerIsAdmin = event.viewerIsAdmin->Option.getOr(false)
+    let viewerHasRsvp = event.viewerHasRsvp->Option.getOr(false)
+    let canOpenAiTetsu = switch (viewerHasRsvp, viewerIsAdmin) {
+    | (false, false) => false
+    | _ => true
+    }
 
     // let startDate =
     //   event.startDate->Option.getOr(
@@ -284,29 +291,25 @@ let make = () => {
               </div>
             </Layout.Container>
           </header>
-          {viewer.user
-          ->Option.map(_ =>
-            switch event.viewerIsAdmin {
-            | Some(true) =>
-              <Layout.Container className="py-4">
+          {switch viewerIsAdmin {
+          | true =>
+            <Layout.Container className="py-4">
+              <div
+                className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 <div
-                  className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                  <div
-                    className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
-                    <Link
-                      to={"/events/update/" ++
-                      event.id ++
-                      "/" ++
-                      event.location->Option.map(l => l.id)->Option.getOr("")}>
-                      {t`edit event`}
-                    </Link>
-                  </div>
+                  className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
+                  <Link
+                    to={"/events/update/" ++
+                    event.id ++
+                    "/" ++
+                    event.location->Option.map(l => l.id)->Option.getOr("")}>
+                    {t`edit event`}
+                  </Link>
                 </div>
-              </Layout.Container>
-            | _ => React.null
-            }
-          )
-          ->Option.getOr(React.null)}
+              </div>
+            </Layout.Container>
+          | _ => React.null
+          }}
           <Layout.Container className="py-4">
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -414,29 +417,26 @@ let make = () => {
                       {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
                     </ErrorAlert>
                   }}
-                  {event.viewerHasRsvp
-                  ->(Option.flatMap(_, viewerHasRsvp =>
-                    event.activity->Option.flatMap(
-                      activity =>
-                        activity.slug->Option.map(
-                          slug =>
-                            switch (viewerHasRsvp, slug) {
-                            | (true, "pickleball" as slug)
-                            | (true, "badminton" as slug) =>
-                              <div
-                                className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
-                                <h2 className="text-base font-semibold leading-6 text-gray-900">
-                                  {t`league`}
-                                </h2>
-                                <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
-                                  {t`submit matches`}
-                                </Link>
-                              </div>
-                            | _ => React.null
-                            },
-                        ),
+                  {event.activity
+                  ->Option.flatMap(activity =>
+                    activity.slug->Option.map(
+                      slug =>
+                        switch (canOpenAiTetsu, slug) {
+                        | (true, "pickleball" as slug)
+                        | (true, "badminton" as slug) =>
+                          <div
+                            className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
+                            <h2 className="text-base font-semibold leading-6 text-gray-900">
+                              {t`league`}
+                            </h2>
+                            <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
+                              {t`submit matches`}
+                            </Link>
+                          </div>
+                        | _ => React.null
+                        },
                     )
-                  ))
+                  )
                   ->Option.getOr(React.null)}
                 </div>
               </div>

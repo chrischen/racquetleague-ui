@@ -200,14 +200,14 @@ module Players = {
 
   let filterOut = (players: t, unavailable: TeamSet.t) =>
     players->Array.filter(p => !(unavailable->Set.has(p.id)))
-  let savePlayers = (t: t) => {
+  let savePlayers = (t: t, namespace: string) => {
     Dom.Storage2.localStorage->Dom.Storage2.setItem(
-      "playersState",
+      namespace ++ "-playersState",
       t->Js.Json.stringifyAny->Option.getOr(""),
     )
   }
-  let loadPlayers = (): array<Player.t<rsvpNode>> => {
-    switch Dom.Storage2.localStorage->Dom.Storage2.getItem("playersState") {
+  let loadPlayers = (namespace: string): array<Player.t<rsvpNode>> => {
+    switch Dom.Storage2.localStorage->Dom.Storage2.getItem(namespace ++ "-playersState") {
     | Some(state) => state->parsePlayers
     | None => []
     }
