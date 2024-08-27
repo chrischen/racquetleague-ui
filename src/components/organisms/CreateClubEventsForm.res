@@ -87,6 +87,7 @@ module ParseEventsPreview = {
   }
 }
 
+external alert: string => unit = "alert"
 @react.component
 let make = (~query, ~club) => {
   open Lingui.Util
@@ -147,11 +148,12 @@ let make = (~query, ~club) => {
         connections: [connectionId],
       },
       ~onCompleted=(response, _errors) => {
-        response.createEvents.events
-        ->Option.map(_ =>
-          navigate(club.slug->Option.map(slug => "/clubs/" ++ slug)->Option.getOr("/"), None)
-        )
-        ->ignore
+        let count = response.createEvents.events->Option.getOr([])->Array.length
+        alert(ts`${count->Int.toString} events created!`)
+        // ->Option.map(_ =>
+        //   navigate(club.slug->Option.map(slug => "/clubs/" ++ slug)->Option.getOr("/"), None)
+        // )
+        // ->ignore
       },
     )->RescriptRelay.Disposable.ignore
   }
@@ -195,7 +197,11 @@ let make = (~query, ~club) => {
                     {t`preview events`}
                   </button>
                   {queryPreview
-                  ->Option.map(preview => <ParseEventsPreview.make input=preview />)
+                  ->Option.map(preview =>
+                    <React.Suspense fallback={t`loading...`}>
+                      <ParseEventsPreview.make input=preview />
+                    </React.Suspense>
+                  )
                   ->Option.getOr(React.null)}
                 </div>
                 <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg">

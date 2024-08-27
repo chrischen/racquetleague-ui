@@ -107,7 +107,7 @@ function CreateClubEventsForm(props) {
   var club = use$1(props.club);
   var match$1 = use();
   var commitMutationCreate = match$1[0];
-  var navigate = ReactRouterDom.useNavigate();
+  ReactRouterDom.useNavigate();
   var match$2 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: {
@@ -144,11 +144,8 @@ function CreateClubEventsForm(props) {
             listed: data.listed
           }
         }, undefined, undefined, undefined, (function (response, _errors) {
-            Core__Option.map(response.createEvents.events, (function (param) {
-                    navigate(Core__Option.getOr(Core__Option.map(club.slug, (function (slug) {
-                                    return "/clubs/" + slug;
-                                  })), "/"), undefined);
-                  }));
+            var count = Core__Option.getOr(response.createEvents.events, []).length;
+            alert(t`${count.toString()} events created!`);
           }), undefined, undefined);
   };
   return JsxRuntime.jsx(FramerMotion.motion.div, {
@@ -224,8 +221,11 @@ function CreateClubEventsForm(props) {
                                                                                         })
                                                                                     }),
                                                                                 Core__Option.getOr(Core__Option.map(queryPreview, (function (preview) {
-                                                                                            return JsxRuntime.jsx(CreateClubEventsForm$ParseEventsPreview, {
-                                                                                                        input: preview
+                                                                                            return JsxRuntime.jsx(React.Suspense, {
+                                                                                                        children: Caml_option.some(JsxRuntime.jsx(CreateClubEventsForm$ParseEventsPreview, {
+                                                                                                                  input: preview
+                                                                                                                })),
+                                                                                                        fallback: Caml_option.some(t`loading...`)
                                                                                                       });
                                                                                           })), null)
                                                                               ],
