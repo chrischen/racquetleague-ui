@@ -170,7 +170,7 @@ let make = () => {
               <div className="absolute inset-x-0 bottom-0 h-px bg-gray-900/5" />
             </div>
             // <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-            <Layout.Container className="py-10">
+            <Layout.Container className="py-0">
               <div
                 className="mx-auto flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none">
                 <div className="flex items-center gap-x-6">
@@ -329,6 +329,42 @@ let make = () => {
             // <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              <div className="lg:col-start-3 lg:row-end-1">
+                <div
+                  className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
+                  {switch shadow {
+                  | None
+                  | Some(false) =>
+                    <EventRsvps event=fragmentRefs />
+                  | Some(true) =>
+                    <ErrorAlert
+                      cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
+                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
+                    </ErrorAlert>
+                  }}
+                  {event.activity
+                  ->Option.flatMap(activity =>
+                    activity.slug->Option.map(
+                      slug =>
+                        switch (canOpenAiTetsu, slug) {
+                        | (true, "pickleball" as slug)
+                        | (true, "badminton" as slug) =>
+                          <div
+                            className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
+                            <h2 className="text-base font-semibold leading-6 text-gray-900">
+                              {t`league`}
+                            </h2>
+                            <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
+                              {t`submit matches`}
+                            </Link>
+                          </div>
+                        | _ => React.null
+                        },
+                    )
+                  )
+                  ->Option.getOr(React.null)}
+                </div>
+              </div>
               <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
                 <div
                   className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
@@ -400,42 +436,6 @@ let make = () => {
                       </h2>
                       <MediaList media=location.fragmentRefs />
                     </div>
-                  )
-                  ->Option.getOr(React.null)}
-                </div>
-              </div>
-              <div className="lg:col-start-3 lg:row-end-1">
-                <div
-                  className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
-                  {switch shadow {
-                  | None
-                  | Some(false) =>
-                    <EventRsvps event=fragmentRefs />
-                  | Some(true) =>
-                    <ErrorAlert
-                      cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
-                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
-                    </ErrorAlert>
-                  }}
-                  {event.activity
-                  ->Option.flatMap(activity =>
-                    activity.slug->Option.map(
-                      slug =>
-                        switch (canOpenAiTetsu, slug) {
-                        | (true, "pickleball" as slug)
-                        | (true, "badminton" as slug) =>
-                          <div
-                            className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
-                            <h2 className="text-base font-semibold leading-6 text-gray-900">
-                              {t`league`}
-                            </h2>
-                            <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
-                              {t`submit matches`}
-                            </Link>
-                          </div>
-                        | _ => React.null
-                        },
-                    )
                   )
                   ->Option.getOr(React.null)}
                 </div>

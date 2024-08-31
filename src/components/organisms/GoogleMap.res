@@ -51,6 +51,7 @@ module Pin = {
     ~background: string=?,
     ~glyphColor: string=?,
     ~borderColor: string=?,
+    ~scale: float=?,
 
   ) => React.element = "Pin"
 }

@@ -23,16 +23,18 @@ let make = () => {
     {_ => {
       query.club
       ->Option.map(club => <>
-        <Layout.Container>
-          <h1>
-            <div className="text-base leading-6 text-gray-500"> {t`club`} </div>
-            <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900">
-              {club.name->Option.getOr("?")->React.string}
-            </div>
-          </h1>
-          <ClubDetails club={club.fragmentRefs} />
-        </Layout.Container>
-        <EventsList events={query.fragmentRefs} />
+        <EventsList
+          events={query.fragmentRefs}
+          header={<Layout.Container>
+            <h1>
+              <div className="text-base leading-6 text-gray-500"> {t`club`} </div>
+              <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900">
+                {club.name->Option.getOr("?")->React.string}
+              </div>
+            </h1>
+            <ClubDetails club={club.fragmentRefs} />
+          </Layout.Container>}
+        />
       </>)
       ->Option.getOr(<Layout.Container> {t`club not found`} </Layout.Container>)
     }}

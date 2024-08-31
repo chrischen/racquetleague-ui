@@ -7,7 +7,6 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as ReactCalendar from "react-calendar";
-import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as CalendarEventsFragment_graphql from "../../__generated__/CalendarEventsFragment_graphql.re.mjs";
@@ -50,12 +49,11 @@ function inDates(dates, intl, date) {
 }
 
 function Calendar(props) {
+  var onDateSelected = props.onDateSelected;
   var events = props.events;
   use(events);
   var match = usePagination(events);
   var events$1 = getConnectionNodes(match.data.events);
-  var match$1 = ReactRouterDom.useSearchParams();
-  var setSearchParams = match$1[1];
   var locale = React.useContext(LangProvider.LocaleContext.context);
   var intl = ReactIntl.useIntl();
   var dates = Core__Array.reduce(events$1, [], (function (acc, $$event) {
@@ -72,10 +70,7 @@ function Calendar(props) {
               className: "w-full",
               calendarType: "gregory",
               onClickDay: (function (date, param) {
-                  setSearchParams(function (prevParams) {
-                        prevParams.set("selectedDate", date.toISOString());
-                        return prevParams;
-                      });
+                  onDateSelected(date);
                 }),
               tileContent: (function (param) {
                   if (param.view === "month") {

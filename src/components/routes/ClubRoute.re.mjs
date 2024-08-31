@@ -3,10 +3,12 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Lingui from "../../locales/Lingui.re.mjs";
+import * as Router from "../shared/Router.re.mjs";
 import * as ClubPage from "../pages/ClubPage.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as ClubPageQuery_graphql from "../../__generated__/ClubPageQuery_graphql.re.mjs";
 
@@ -23,8 +25,16 @@ function loadMessages(lang) {
 
 async function loader(param) {
   var params = param.params;
+  var url = new URL(param.request.url);
+  var after = Router.SearchParams.get(url.searchParams, "after");
+  var before = Router.SearchParams.get(url.searchParams, "before");
+  var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
+          return Util.Datetime.fromDate(new Date(d));
+        }));
   var query = ClubPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
-        afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
+        after: after,
+        afterDate: afterDate,
+        before: before,
         filters: {
           clubSlug: params.slug
         },

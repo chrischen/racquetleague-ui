@@ -51,6 +51,13 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
+  let afterDate =
+    url.searchParams
+    ->Router.SearchParams.get("afterDate")
+    ->Option.map(d => {
+      d->Js.Date.fromString->Util.Datetime.fromDate
+    })
+
 
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
@@ -60,7 +67,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
       ~variables={
         ?after,
         ?before,
-        afterDate: Js.Date.make()->Util.Datetime.fromDate,
+        ?afterDate,
         filters: {viewer: true},
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,

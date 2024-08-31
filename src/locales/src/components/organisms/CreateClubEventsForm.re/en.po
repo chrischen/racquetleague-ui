@@ -43,8 +43,12 @@ msgstr ""
 msgid "Volleyball"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:198
+#: src/components/organisms/CreateClubEventsForm.re.mjs:195
 msgid "{0} event details"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:148
+msgid "{0} events created!"
 msgstr ""
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:237
@@ -63,11 +67,11 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:199
+#: src/components/organisms/CreateClubEventsForm.re.mjs:196
 msgid "create multiple events at one time"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:205
+#: src/components/organisms/CreateClubEventsForm.re.mjs:202
 msgid "events"
 msgstr ""
 
@@ -83,7 +87,11 @@ msgstr ""
 msgid "list publicly"
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:216
+#: src/components/organisms/CreateClubEventsForm.re.mjs:228
+msgid "loading..."
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:213
 msgid "preview events"
 msgstr ""
 
@@ -95,6 +103,6 @@ msgstr ""
 msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
 msgstr ""
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:208
+#: src/components/organisms/CreateClubEventsForm.re.mjs:205
 msgid "type your events here"
 msgstr ""

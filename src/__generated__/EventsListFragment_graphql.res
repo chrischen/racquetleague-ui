@@ -10,6 +10,7 @@ module Types = {
   and fragment_events_edges_node = {
     @live id: string,
     location: option<fragment_events_edges_node_location>,
+    shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventsListText_event | #EventsList_event]>,
   }
@@ -212,6 +213,13 @@ return {
                   "selections": [
                     (v1/*: any*/)
                   ],
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "shadow",
                   "storageKey": null
                 },
                 {

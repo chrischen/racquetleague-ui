@@ -31,60 +31,84 @@ let make = () => {
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
   let {fragmentRefs} = EventsQuery.usePreloaded(~queryRef=query.data)
+  let (searchParams, _) = Router.useSearchParamsFunc()
+  let activityFilter = searchParams->Router.SearchParams.get("activity")
   let viewer = GlobalQuery.useViewer()
 
   <WaitForMessages>
     {() => {
       <>
-        <Layout.Container>
-          <Grid>
-            <PageTitle> {t`all events`} </PageTitle>
-            <div>
-              <Link to={"/"}> {t`all`} </Link>
-              {" "->React.string}
-              <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
-                <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-              </svg>
-              {" "->React.string}
-              <LinkWithOpts
-                to={
-                  pathname: "",
-                  search: Router.createSearchParams({
-                    "activity": "pickleball",
-                  })->Router.SearchParams.toString,
-                }>
-                {t`pickleball`}
-              </LinkWithOpts>
-              {" "->React.string}
-              <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
-                <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-              </svg>
-              {" "->React.string}
-              <LinkWithOpts
-                to={
-                  pathname: "",
-                  search: Router.createSearchParams({
-                    "activity": "badminton",
-                  })->Router.SearchParams.toString,
-                }>
-                {t`badminton`}
-              </LinkWithOpts>
-              {viewer.user
-              ->Option.map(_ => <>
-                {" "->React.string}
-                <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
-                  <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-                </svg>
-                {" "->React.string}
-                <Link to={"/events"} relative="path"> {t`my events`} </Link>
-              </>)
-              ->Option.getOr(React.null)}
-            </div>
-          </Grid>
-        </Layout.Container>
         <React.Suspense fallback={<Layout.Container> {t`loading events...`} </Layout.Container>}>
+          <EventsList
+            events=fragmentRefs
+            header={<Layout.Container>
+              <Grid>
+                <PageTitle>
+                  {t`all events`}
+                  {viewer.user
+                  ->Option.flatMap(user =>
+                    [
+                      "Hasby Riduan",
+                      "hasbyriduan9",
+                      "notchrischen",
+                      "Matthew",
+                      "David Vo",
+                      "Kai",
+                      "Alex Ng",
+                    ]->Array.indexOfOpt(user.lineUsername->Option.getOr(""))
+                  )
+                  ->Option.map(_ => <>
+                    {" "->React.string}
+                    <Link to="/events/create"> {"+"->React.string} </Link>
+                  </>)
+                  ->Option.getOr(React.null)}
+                </PageTitle>
+                <div>
+                  <Link to={"/"}> {t`all`} </Link>
+                  {" "->React.string}
+                  <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
+                    <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
+                  </svg>
+                  {" "->React.string}
+                  <LinkWithOpts
+                    to={
+                      pathname: "",
+                      search: Router.createSearchParams({
+                        "activity": "pickleball",
+                      })->Router.SearchParams.toString,
+                    }>
+                    {t`pickleball`}
+                  </LinkWithOpts>
+                  {" "->React.string}
+                  <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
+                    <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
+                  </svg>
+                  {" "->React.string}
+                  <LinkWithOpts
+                    to={
+                      pathname: "",
+                      search: Router.createSearchParams({
+                        "activity": "badminton",
+                      })->Router.SearchParams.toString,
+                    }>
+                    {t`badminton`}
+                  </LinkWithOpts>
+                  {viewer.user
+                  ->Option.map(_ => <>
+                    {" "->React.string}
+                    <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
+                      <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
+                    </svg>
+                    {" "->React.string}
+                    <Link to={"/events"} relative="path"> {t`my events`} </Link>
+                  </>)
+                  ->Option.getOr(React.null)}
+                </div>
+              </Grid>
+            </Layout.Container>}
+          />
+
           // <Router.Outlet context={fragmentRefs} />
-          <EventsList events=fragmentRefs />
         </React.Suspense>
       </>
     }}
@@ -135,7 +159,8 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
     ->Option.map(d => {
       d->Js.Date.fromString->Util.Datetime.fromDate
     })
-    ->Option.getOr(Js.Date.make()->Util.Datetime.fromDate)
+    // @TODO: Server Date will mismatch with client date potentially
+    // ->Option.getOr(Js.Date.make()->Util.Datetime.fromDate)
 
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
@@ -144,7 +169,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
       ~variables={
         ?after,
         ?before,
-        afterDate,
+        ?afterDate,
         filters: {
           activitySlug: ?activity,
         },

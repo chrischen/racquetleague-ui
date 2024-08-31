@@ -18,6 +18,8 @@ type location<'a> = {pathname: string, search: string, hash?: string, state?: 'a
 module SearchParams = {
   type t
 
+  @new
+  external make: string => t = "URLSearchParams"
   @send external getNull: (t, string) => Js.Null.t<string> = "get"
   let get: (t, string) => option<string> = (t, key) => getNull(t, key)->Js.Null.toOption
   @send external getAll: (t, string) => option<array<string>> = "getAll"
@@ -26,6 +28,29 @@ module SearchParams = {
   @send external set: (t, string, string) => unit = "set"
   @send external delete: (t, string) => unit = "delete"
   @send external deleteValue: (t, string, string) => unit = "delete"
+
+  @new
+  external fromEntries: option<Js.Array2.array_like<array<array<string>>>> => t = "URLSearchParams"
+}
+module ImmSearchParams = {
+  type t
+
+  @module("immurl") @new
+  external make: string => t = "ImmutableURLSearchParams"
+
+  @send external getNull: (t, string) => Js.Null.t<string> = "get"
+  let get: (t, string) => option<string> = (t, key) => getNull(t, key)->Js.Null.toOption
+  @send external getAll: (t, string) => option<array<string>> = "getAll"
+  @send external entries: t => option<Js.Array2.array_like<array<array<string>>>> = "entries"
+  @send external toString: t => string = "toString"
+  @send external set: (t, string, string) => t = "set"
+  @send external delete: (t, string) => t = "delete"
+  @send external deleteValue: (t, string, string) => t = "delete"
+
+  let fromSearchParams: SearchParams.t => t = searchParams =>
+    make(SearchParams.toString(searchParams))
+
+  let toSearchParams: t => SearchParams.t = t => t->entries->SearchParams.fromEntries
 }
 
 @module("react-router-dom")

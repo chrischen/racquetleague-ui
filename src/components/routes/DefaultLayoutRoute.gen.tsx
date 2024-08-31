@@ -11,9 +11,9 @@ import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen'
 
 import type {data as WaitForMessages_data} from '../../../src/components/shared/i18n/WaitForMessages.gen';
 
-import type {props as DefaultLayout_props} from '../../../src/components/pages/DefaultLayout.gen';
+import type {props as DefaultLayoutMap_props} from '../../../src/components/pages/DefaultLayoutMap.gen';
 
-import type {queryRef as DefaultLayoutQuery_graphql_queryRef} from '../../../src/__generated__/DefaultLayoutQuery_graphql.gen';
+import type {queryRef as DefaultLayoutMapQuery_graphql_queryRef} from '../../../src/__generated__/DefaultLayoutMapQuery_graphql.gen';
 
 export type params = { readonly lang: (undefined | string) };
 
@@ -25,6 +25,6 @@ export type LoaderArgs_t = {
 
 export const Component: React.ComponentType<{}> = DefaultLayoutRouteJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<DefaultLayoutQuery_graphql_queryRef>)> = DefaultLayoutRouteJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<DefaultLayoutMapQuery_graphql_queryRef>)> = DefaultLayoutRouteJS.loader as any;
 
 export const HydrateFallbackElement: JSX.Element = DefaultLayoutRouteJS.HydrateFallbackElement as any;

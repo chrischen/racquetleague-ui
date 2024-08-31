@@ -10016,6 +10016,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"immurl@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "immurl@npm:1.2.0"
+  checksum: 8482ecc19ba6e36d4eb11718819ab562f32ac03312e5d6c6360aa3872d4418d876ca6c4924811eb6a30ea87cef1bec723c6cf13d3d5a12b9db2c6f575719e9b1
+  languageName: node
+  linkType: hard
+
 "import-fresh@npm:^2.0.0":
   version: 2.0.0
   resolution: "import-fresh@npm:2.0.0"
@@ -12754,6 +12761,7 @@ __metadata:
     graphql: "npm:alpha"
     graphql-tag: "npm:^2.12.6"
     html-react-parser: "npm:^3.0.16"
+    immurl: "npm:^1.2.0"
     isbot: "npm:^3.6.10"
     jsdom: "npm:^22.1.0"
     lucide-react: "npm:^0.295.0"

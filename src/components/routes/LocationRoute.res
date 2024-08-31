@@ -22,13 +22,24 @@ let loadMessages = lang => {
 }
 
 @genType
-let loader = async ({context, params}: LoaderArgs.t) => {
+let loader = async ({context, params, request}: LoaderArgs.t) => {
+  let url = request.url->Router.URL.make
+  let after = url.searchParams->Router.SearchParams.get("after")
+  let before = url.searchParams->Router.SearchParams.get("before")
+  let afterDate =
+    url.searchParams
+    ->Router.SearchParams.get("afterDate")
+    ->Option.map(d => {
+      d->Js.Date.fromString->Util.Datetime.fromDate
+    })
   let query = LocationPageQuery_graphql.load(
     ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
     ~variables={
       id: params.locationId,
       filters: {locationId: params.locationId},
-      afterDate: Js.Date.make()->Util.Datetime.fromDate,
+      ?after,
+      ?before,
+      ?afterDate,
     },
     ~fetchPolicy=RescriptRelay.StoreOrNetwork,
   )

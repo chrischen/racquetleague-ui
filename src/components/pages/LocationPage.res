@@ -23,18 +23,20 @@ let make = () => {
     {_ => {
       query.location
       ->Option.map(location => <>
-        <Layout.Container>
-          <h1>
-            <div className="text-base leading-6 text-gray-500"> {t`location`} </div>
-            <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900">
-              {location.name->Option.getOr("?")->React.string}
-            </div>
-          </h1>
-          <EventLocation location={location.fragmentRefs} />
-        </Layout.Container>
-        <EventsList events={query.fragmentRefs} />
+        <EventsList
+          events={query.fragmentRefs}
+          header={<Layout.Container>
+            <h1>
+              <div className="text-base leading-6 text-gray-500"> {t`location`} </div>
+              <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900">
+                {location.name->Option.getOr("?")->React.string}
+              </div>
+            </h1>
+            <EventLocation location={location.fragmentRefs} />
+          </Layout.Container>}
+        />
       </>)
-      ->Option.getOr(<Layout.Container>{t`page not found`}</Layout.Container>)
+      ->Option.getOr(<Layout.Container> {t`page not found`} </Layout.Container>)
     }}
   </WaitForMessages>
 }

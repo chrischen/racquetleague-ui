@@ -7,6 +7,7 @@ import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as ViewerEventsPage from "../pages/ViewerEventsPage.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as ViewerEventsPageQuery_graphql from "../../__generated__/ViewerEventsPageQuery_graphql.re.mjs";
@@ -27,13 +28,16 @@ async function loader(param) {
   var url = new URL(param.request.url);
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
+  var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
+          return Util.Datetime.fromDate(new Date(d));
+        }));
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   return {
           data: ViewerEventsPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                 after: after,
-                afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
+                afterDate: afterDate,
                 before: before,
                 filters: {
                   viewer: true

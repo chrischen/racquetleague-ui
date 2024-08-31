@@ -219,7 +219,7 @@ function $$Event(props) {
                                                                       ],
                                                                       className: "mx-auto flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none"
                                                                     }),
-                                                                className: "py-10"
+                                                                className: "py-0"
                                                               })
                                                         ],
                                                         className: "relative isolate pt-4"
@@ -258,6 +258,50 @@ function $$Event(props) {
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsxs("div", {
                                                               children: [
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsxs("div", {
+                                                                            children: [
+                                                                              shadow !== undefined && shadow ? JsxRuntime.jsx(ErrorAlert.make, {
+                                                                                      children: t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`,
+                                                                                      cta: Caml_option.some(t`view events`),
+                                                                                      ctaClick: (function () {
+                                                                                          navigate("/clubs/japanpickle", undefined);
+                                                                                        })
+                                                                                    }) : JsxRuntime.jsx(EventRsvps.make, {
+                                                                                      event: fragmentRefs
+                                                                                    }),
+                                                                              Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (activity) {
+                                                                                          return Core__Option.map(activity.slug, (function (slug) {
+                                                                                                        if (!canOpenAiTetsu) {
+                                                                                                          return null;
+                                                                                                        }
+                                                                                                        switch (slug) {
+                                                                                                          case "badminton" :
+                                                                                                          case "pickleball" :
+                                                                                                              break;
+                                                                                                          default:
+                                                                                                            return null;
+                                                                                                        }
+                                                                                                        return JsxRuntime.jsxs("div", {
+                                                                                                                    children: [
+                                                                                                                      JsxRuntime.jsx("h2", {
+                                                                                                                            children: t`league`,
+                                                                                                                            className: "text-base font-semibold leading-6 text-gray-900"
+                                                                                                                          }),
+                                                                                                                      JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                            to: "/league/events/" + $$event.id + "/" + slug,
+                                                                                                                            children: t`submit matches`
+                                                                                                                          })
+                                                                                                                    ],
+                                                                                                                    className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
+                                                                                                                  });
+                                                                                                      }));
+                                                                                        })), null)
+                                                                            ],
+                                                                            className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
+                                                                          }),
+                                                                      className: "lg:col-start-3 lg:row-end-1"
+                                                                    }),
                                                                 JsxRuntime.jsx("div", {
                                                                       children: JsxRuntime.jsxs("div", {
                                                                             children: [
@@ -357,50 +401,6 @@ function $$Event(props) {
                                                                             className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
                                                                           }),
                                                                       className: "lg:col-span-2 lg:row-span-2 lg:row-end-2"
-                                                                    }),
-                                                                JsxRuntime.jsx("div", {
-                                                                      children: JsxRuntime.jsxs("div", {
-                                                                            children: [
-                                                                              shadow !== undefined && shadow ? JsxRuntime.jsx(ErrorAlert.make, {
-                                                                                      children: t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`,
-                                                                                      cta: Caml_option.some(t`view events`),
-                                                                                      ctaClick: (function () {
-                                                                                          navigate("/clubs/japanpickle", undefined);
-                                                                                        })
-                                                                                    }) : JsxRuntime.jsx(EventRsvps.make, {
-                                                                                      event: fragmentRefs
-                                                                                    }),
-                                                                              Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (activity) {
-                                                                                          return Core__Option.map(activity.slug, (function (slug) {
-                                                                                                        if (!canOpenAiTetsu) {
-                                                                                                          return null;
-                                                                                                        }
-                                                                                                        switch (slug) {
-                                                                                                          case "badminton" :
-                                                                                                          case "pickleball" :
-                                                                                                              break;
-                                                                                                          default:
-                                                                                                            return null;
-                                                                                                        }
-                                                                                                        return JsxRuntime.jsxs("div", {
-                                                                                                                    children: [
-                                                                                                                      JsxRuntime.jsx("h2", {
-                                                                                                                            children: t`league`,
-                                                                                                                            className: "text-base font-semibold leading-6 text-gray-900"
-                                                                                                                          }),
-                                                                                                                      JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                                            to: "/league/events/" + $$event.id + "/" + slug,
-                                                                                                                            children: t`submit matches`
-                                                                                                                          })
-                                                                                                                    ],
-                                                                                                                    className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
-                                                                                                                  });
-                                                                                                      }));
-                                                                                        })), null)
-                                                                            ],
-                                                                            className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
-                                                                          }),
-                                                                      className: "lg:col-start-3 lg:row-end-1"
                                                                     })
                                                               ],
                                                               className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"

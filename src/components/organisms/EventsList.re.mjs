@@ -217,7 +217,6 @@ function EventsList$EventItem(props) {
                       });
           }
         }));
-  var highlighted = highlightedLocation ? "bg-yellow-100/35" : "";
   var tmp;
   tmp = viewerRsvpStatus !== undefined && (viewerRsvpStatus === "Joined" || viewerRsvpStatus === "Waitlist") ? (
       viewerRsvpStatus === "Joined" ? JsxRuntime.jsx("div", {
@@ -251,22 +250,22 @@ function EventsList$EventItem(props) {
               ]
             }));
   }
-  return JsxRuntime.jsx("li", {
-              children: JsxRuntime.jsxs(Layout.Container.make, {
-                    children: [
-                      JsxRuntime.jsxs("div", {
-                            children: [
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("div", {
-                                            children: JsxRuntime.jsx("div", {
-                                                  className: "h-2 w-2 rounded-full bg-current"
-                                                }),
-                                            className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
+  return JsxRuntime.jsxs(Layout.Container.make, {
+              children: [
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("div", {
+                                      children: JsxRuntime.jsx("div", {
+                                            className: "h-2 w-2 rounded-full bg-current"
                                           }),
-                                      JsxRuntime.jsx("h2", {
-                                            children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                                                  to: "/events/" + match.id,
+                                      className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
+                                    }),
+                                JsxRuntime.jsx("h2", {
+                                      children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                            to: "/events/" + match.id,
+                                            children: JsxRuntime.jsxs("div", {
                                                   children: [
                                                     JsxRuntime.jsxs("span", {
                                                           children: [
@@ -284,69 +283,68 @@ function EventsList$EventItem(props) {
                                                           className: "absolute inset-0"
                                                         })
                                                   ],
-                                                  className: "flex gap-x-2",
-                                                  relative: "path"
+                                                  className: "flex gap-x-2"
                                                 }),
-                                            className: "min-w-0 text-sm font-semibold leading-6 text-white"
-                                          })
+                                            className: "",
+                                            relative: "path"
+                                          }),
+                                      className: "min-w-0 text-sm font-semibold leading-6 text-black w-full"
+                                    })
+                              ],
+                              className: "flex items-center gap-x-3"
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsxs("p", {
+                                    children: [
+                                      Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
+                                                  return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                              value: Util.Datetime.toDate(startDate)
+                                                            });
+                                                })), null),
+                                      " -> ",
+                                      Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
+                                                  return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                              value: Util.Datetime.toDate(endDate)
+                                                            });
+                                                })), null),
+                                      Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
+                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                              children: [
+                                                                " (",
+                                                                duration,
+                                                                ") "
+                                                              ]
+                                                            });
+                                                })), null)
                                     ],
-                                    className: "flex items-center gap-x-3"
+                                    className: "whitespace-nowrap"
                                   }),
-                              JsxRuntime.jsx("div", {
-                                    children: JsxRuntime.jsxs("p", {
-                                          children: [
-                                            Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                                                        return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                    value: Util.Datetime.toDate(startDate)
-                                                                  });
-                                                      })), null),
-                                            " -> ",
-                                            Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
-                                                        return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                    value: Util.Datetime.toDate(endDate)
-                                                                  });
-                                                      })), null),
-                                            Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
-                                                        return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                    children: [
-                                                                      " (",
-                                                                      duration,
-                                                                      ") "
-                                                                    ]
-                                                                  });
-                                                      })), null)
-                                          ],
-                                          className: "whitespace-nowrap"
+                              className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx("span", {
+                                    children: JsxRuntime.jsx("p", {
+                                          children: Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
+                                                      return Core__Option.map(l.name, (function (name) {
+                                                                    return name;
+                                                                  }));
+                                                    })), t`[location missing]`),
+                                          className: Core$1.cx("truncate", highlightedLocation ? "font-bold" : "")
                                         }),
-                                    className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
+                                    className: "whitespace-nowrap"
                                   }),
-                              JsxRuntime.jsx("div", {
-                                    children: JsxRuntime.jsx("span", {
-                                          children: JsxRuntime.jsx("p", {
-                                                children: Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
-                                                            return Core__Option.map(l.name, (function (name) {
-                                                                          return name;
-                                                                        }));
-                                                          })), t`[location missing]`),
-                                                className: Core$1.cx("truncate", highlightedLocation ? "font-bold" : "")
-                                              }),
-                                          className: "whitespace-nowrap"
-                                        }),
-                                    className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
-                                  })
-                            ],
-                            className: "min-w-0 flex-auto"
-                          }),
-                      tmp,
-                      JsxRuntime.jsx("div", {
-                            children: tmp$1,
-                            className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-                          })
-                    ],
-                    className: "relative flex items-center space-x-4 py-4"
-                  }),
-              className: highlighted,
-              id: highlightedLocation ? "highlighted" : ""
+                              className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
+                            })
+                      ],
+                      className: "min-w-0 flex-auto"
+                    }),
+                tmp,
+                JsxRuntime.jsx("div", {
+                      children: tmp$1,
+                      className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
+                    })
+              ],
+              className: "relative flex items-center space-x-4 py-4"
             });
 }
 
@@ -355,6 +353,75 @@ var EventItem = {
   ts: ts$1,
   make: EventsList$EventItem
 };
+
+function updateParams(filter, params) {
+  switch (filter.TAG) {
+    case "ByDate" :
+        return params.set("selectedDate", filter._0.toISOString());
+    case "ByAfter" :
+        return params.set("after", filter._0).delete("before");
+    case "ByBefore" :
+        return params.set("before", filter._0).delete("after");
+    case "ByAfterDate" :
+        return params.set("afterDate", filter._0.toISOString());
+    
+  }
+}
+
+function EventsList$Day(props) {
+  var highlightedLocation = props.highlightedLocation;
+  var events = props.events;
+  var match = React.useState(function () {
+        return false;
+      });
+  var setShowShadow = match[1];
+  var showShadow = match[0];
+  var shadowCount = events.filter(function (edge) {
+        return Core__Option.getOr(edge.shadow, false);
+      }).length;
+  var shadowCountDesc = plural(shadowCount, {
+        one: "event",
+        other: "events"
+      });
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                events.map(function (edge) {
+                      var highlighted = Core__Option.getOr(Core__Option.map(edge.location, (function ($$location) {
+                                  return highlightedLocation === $$location.id;
+                                })), false);
+                      var highlightedClass = highlighted ? "bg-yellow-100/35" : "";
+                      if (Core__Option.getOr(edge.shadow, false) && !showShadow) {
+                        return null;
+                      } else {
+                        return JsxRuntime.jsx("li", {
+                                    children: JsxRuntime.jsx(EventsList$EventItem, {
+                                          event: edge.fragmentRefs
+                                        }, edge.id),
+                                    className: highlightedClass,
+                                    id: highlighted ? "highlighted" : ""
+                                  }, edge.id);
+                      }
+                    }),
+                shadowCount > 0 && !showShadow ? JsxRuntime.jsx("li", {
+                        children: JsxRuntime.jsxs("p", {
+                              children: [
+                                t`${shadowCount.toString()} private ${shadowCountDesc} hidden`,
+                                " ",
+                                JsxRuntime.jsx(UiAction.make, {
+                                      onClick: (function (param) {
+                                          setShowShadow(function (param) {
+                                                return true;
+                                              });
+                                        }),
+                                      children: t`show`
+                                    })
+                              ],
+                              className: "text-gray-700 p-3 italic ml-6"
+                            })
+                      }) : null
+              ]
+            });
+}
 
 function EventsList(props) {
   var events = props.events;
@@ -368,16 +435,23 @@ function EventsList(props) {
   var match$2 = React.useState(function () {
         return "";
       });
-  var setHighlightedLocation = match$2[1];
   var highlightedLocation = match$2[0];
   var match$3 = React.useState(function () {
         return false;
       });
   var setShareOpen = match$3[1];
   var shareOpen = match$3[0];
-  var match$4 = ReactRouterDom.useSearchParams();
-  var setSearchParams = match$4[1];
-  var filterByDate = Core__Option.map(Router.SearchParams.get(match$4[0], "selectedDate"), (function (date) {
+  React.useState(function () {
+        return false;
+      });
+  var match$4 = React.useState(function () {
+        
+      });
+  var navigate = ReactRouterDom.useNavigate();
+  var match$5 = ReactRouterDom.useSearchParams();
+  var setSearchParams = match$5[1];
+  var searchParams = Router.ImmSearchParams.fromSearchParams(match$5[0]);
+  var filterByDate = Core__Option.map(Router.ImmSearchParams.get(searchParams, "selectedDate"), (function (date) {
           return new Date(date);
         }));
   var clearFilterByDate = function () {
@@ -424,112 +498,146 @@ function EventsList(props) {
                 }));
           return extra;
         }));
-  React.useEffect((function () {
-          ((window.location.hash = '#highlighted'));
-        }), [highlightedLocation]);
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                JsxRuntime.jsxs(Layout.Container.make, {
-                      children: [
-                        !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
-                                      return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                  to: "./?before=" + encodeURIComponent(startCursor),
-                                                  children: t`...load past events`
-                                                });
-                                    })), null) : null,
-                        " • ",
-                        JsxRuntime.jsx(UiAction.make, {
-                              onClick: (function (param) {
-                                  setShareOpen(function (v) {
-                                        return !v;
-                                      });
-                                }),
-                              active: shareOpen,
-                              children: t`share as text`
-                            })
-                      ]
-                    }),
-                shareOpen ? JsxRuntime.jsx(Layout.Container.make, {
-                        children: JsxRuntime.jsx(EventsList$TextEventsList, {
-                              events: events
-                            })
-                      }) : null,
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx(Calendar.make, {
-                                      events: events
-                                    }),
-                                Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
-                                            return JsxRuntime.jsx(InfoAlert.make, {
-                                                        children: JsxRuntime.jsx(JsxRuntime.Fragment, {
-                                                              children: Caml_option.some(t`filtering by date`)
-                                                            }),
-                                                        cta: t`clear filter`,
-                                                        ctaClick: (function () {
-                                                            clearFilterByDate();
-                                                          })
-                                                      });
-                                          })), null),
-                                JsxRuntime.jsx("ul", {
-                                      children: Js_dict.entries(eventsByDate).map(function (param) {
-                                            var dateString = param[0];
-                                            return JsxRuntime.jsxs("li", {
-                                                        children: [
-                                                          JsxRuntime.jsx("div", {
-                                                                children: JsxRuntime.jsx(Layout.Container.make, {
-                                                                      children: JsxRuntime.jsx("h3", {
-                                                                            children: dateString
-                                                                          })
-                                                                    }),
-                                                                className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"
-                                                              }),
-                                                          JsxRuntime.jsx("ul", {
-                                                                children: param[1].map(function (edge) {
-                                                                      return JsxRuntime.jsx(EventsList$EventItem, {
-                                                                                  event: edge.fragmentRefs,
-                                                                                  highlightedLocation: Core__Option.getOr(Core__Option.map(edge.location, (function ($$location) {
-                                                                                              return highlightedLocation === $$location.id;
-                                                                                            })), false)
-                                                                                }, edge.id);
-                                                                    }),
-                                                                className: "divide-y divide-gray-200",
-                                                                role: "list"
-                                                              })
-                                                        ]
-                                                      }, dateString);
-                                          }),
-                                      className: "",
-                                      role: "list"
-                                    }),
-                                match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
-                                        children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
-                                                    return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                to: "./?after=" + encodeURIComponent(endCursor),
-                                                                children: t`load more`
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsxs("div", {
+                            children: [
+                              props.header,
+                              JsxRuntime.jsxs(Layout.Container.make, {
+                                    children: [
+                                      !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
+                                                    return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
+                                                                to: {
+                                                                  pathname: "./",
+                                                                  search: updateParams({
+                                                                          TAG: "ByBefore",
+                                                                          _0: startCursor
+                                                                        }, searchParams).toString()
+                                                                },
+                                                                children: t`...load past events`
                                                               });
-                                                  })), null)
-                                      }) : null
-                              ],
-                              className: "w-full lg:w-1/2 xl:w-1/3"
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsx("div", {
-                                    children: JsxRuntime.jsx(PinMap.make, {
-                                          connection: match.events.fragmentRefs,
-                                          onLocationClick: (function ($$location) {
-                                              setHighlightedLocation(function (param) {
-                                                    return $$location.id;
-                                                  });
-                                            })
-                                        }),
-                                    className: "w-full lg:w-1/2 lg:min-h-96 h-96 lg:h-auto lg:fixed lg:top-[52px] lg:bottom-0"
+                                                  })), JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
+                                                  to: {
+                                                    pathname: "./",
+                                                    search: updateParams({
+                                                            TAG: "ByAfterDate",
+                                                            _0: new Date("2020-01-01")
+                                                          }, searchParams).toString()
+                                                  },
+                                                  children: t`...load past events`
+                                                })) : null,
+                                      " • ",
+                                      JsxRuntime.jsx(UiAction.make, {
+                                            onClick: (function (param) {
+                                                setShareOpen(function (v) {
+                                                      return !v;
+                                                    });
+                                              }),
+                                            active: shareOpen,
+                                            children: t`share as text`
+                                          })
+                                    ]
                                   }),
-                              className: "shrink-0 border-t border-gray-200 lg:w-1/2 xl:w-2/3 lg:border-l lg:border-t-0"
-                            })
-                      ],
-                      className: "mx-auto w-full grow lg:flex"
+                              shareOpen ? JsxRuntime.jsx(Layout.Container.make, {
+                                      children: JsxRuntime.jsx(EventsList$TextEventsList, {
+                                            events: events
+                                          })
+                                    }) : null,
+                              JsxRuntime.jsx("div", {
+                                    children: JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx(Calendar.make, {
+                                                  events: events,
+                                                  onDateSelected: (function (date) {
+                                                      setSearchParams(function (prevParams) {
+                                                            return Router.ImmSearchParams.toSearchParams(updateParams({
+                                                                            TAG: "ByDate",
+                                                                            _0: date
+                                                                          }, Router.ImmSearchParams.fromSearchParams(prevParams)));
+                                                          });
+                                                    })
+                                                }),
+                                            Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
+                                                        return JsxRuntime.jsx(InfoAlert.make, {
+                                                                    children: JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                                          children: Caml_option.some(t`filtering by date`)
+                                                                        }),
+                                                                    cta: t`clear filter`,
+                                                                    ctaClick: (function () {
+                                                                        clearFilterByDate();
+                                                                      })
+                                                                  });
+                                                      })), null),
+                                            JsxRuntime.jsx("ul", {
+                                                  children: Js_dict.entries(eventsByDate).map(function (param) {
+                                                        var dateString = param[0];
+                                                        return JsxRuntime.jsxs("li", {
+                                                                    children: [
+                                                                      JsxRuntime.jsx("div", {
+                                                                            children: JsxRuntime.jsx(Layout.Container.make, {
+                                                                                  children: JsxRuntime.jsx("h3", {
+                                                                                        children: dateString
+                                                                                      })
+                                                                                }),
+                                                                            className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"
+                                                                          }),
+                                                                      JsxRuntime.jsx("ul", {
+                                                                            children: JsxRuntime.jsx(EventsList$Day, {
+                                                                                  events: param[1],
+                                                                                  highlightedLocation: highlightedLocation
+                                                                                }),
+                                                                            className: "divide-y divide-gray-200",
+                                                                            role: "list"
+                                                                          })
+                                                                    ]
+                                                                  }, dateString);
+                                                      }),
+                                                  className: "",
+                                                  role: "list"
+                                                }),
+                                            match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
+                                                    children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
+                                                                return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
+                                                                            to: {
+                                                                              pathname: "./",
+                                                                              search: updateParams({
+                                                                                      TAG: "ByAfter",
+                                                                                      _0: endCursor
+                                                                                    }, searchParams).toString()
+                                                                            },
+                                                                            children: t`load more`
+                                                                          });
+                                                              })), null)
+                                                  }) : null
+                                          ],
+                                          className: "w-full lg:overflow-x-hidden"
+                                        }),
+                                    className: "mx-auto w-full grow lg:flex"
+                                  })
+                            ],
+                            className: "mx-auto max-w-7xl"
+                          }),
+                      className: "grow p-0 z-10 lg:w-1/2 lg:h-[calc(100vh-50px)] lg:overflow-scroll lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx("div", {
+                                  children: JsxRuntime.jsx("div", {
+                                        children: JsxRuntime.jsx(PinMap.make, {
+                                              connection: match.events.fragmentRefs,
+                                              onLocationClick: (function ($$location) {
+                                                  navigate("/locations/" + $$location.id, undefined);
+                                                }),
+                                              selected: match$4[0]
+                                            }),
+                                        className: "w-full lg:min-h-96 h-96 lg:h-[calc(100vh-50px)] lg:max-h-screen"
+                                      }),
+                                  className: "shrink-0 border-t border-gray-200 lg:border-l lg:border-t-0"
+                                }),
+                            className: "mx-auto"
+                          }),
+                      className: "grow p-0 lg:w-1/2 lg:-ml-1 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10"
                     })
               ]
             });

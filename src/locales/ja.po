@@ -1097,11 +1097,49 @@ msgstr "セッションをクリア（評価、試合数、ゲストプレイヤ
 msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first."
-msgstr "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+msgstr ""
+"これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
+"加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/pages/Event.re.mjs:370
 msgid "view events"
 msgstr "イベントを見る"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:148
+msgid "{0} events created!"
+msgstr "{0} イベントが作成されました！"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:228
+msgid "loading..."
+msgstr "読み込み中..."
+
+#: src/components/pages/DefaultLayout2.re.mjs:76
+msgid "Events"
+msgstr "イベント"
+
+#: src/components/pages/DefaultLayout2.re.mjs:181
+msgid "Racquet League"
+msgstr "ラケットリーグ"
+
+#: src/components/organisms/EventRsvps.re.mjs:284
+msgid "you're going :)"
+msgstr "あなたは行く :)"
+
+#: src/components/organisms/EventRsvps.re.mjs:305
+msgid "you're waitlisted :("
+msgstr "あなたはウェイトリストに入っています :("
+
+#: src/components/organisms/EventsList.re.mjs:406
+msgid "{0} private {shadowCountDesc} hidden"
+msgstr "{0} プライベート {shadowCountDesc} 隠された"
+
+#: src/components/organisms/EventsList.re.mjs:380
+msgid "{shadowCount, plural, one {event} other {events}}"
+msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/organisms/EventsList.re.mjs:414
+msgid "show"
+msgstr "表示"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
@@ -1116,3 +1154,8 @@ msgstr "イベントを見る"
 #, fuzzy
 #~ msgid "hosted by"
 #~ msgstr "{name}主催"
+
+#: src/components/pages/DefaultLayout2.re.mjs:144
+#, fuzzy
+#~ msgid "My Profile"
+#~ msgstr "あなたのプロフィール"

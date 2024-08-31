@@ -48,12 +48,11 @@ let inDates = (dates, intl, date) => {
   dates->Array.findIndex(d => intlIsSameDay(intl, d, date)) != -1
 }
 @react.component
-let make = (~events) => {
+let make = (~events, ~onDateSelected: Js.Date.t => unit) => {
   let {events: _} = Fragment.use(events)
   let {data} = Fragment.usePagination(events)
   let events = data.events->Fragment.getConnectionNodes
 
-  let (_, setSearchParams) = Router.useSearchParamsFunc()
   let locale = React.useContext(LangProvider.LocaleContext.context)
   let intl = ReactIntl.useIntl()
 
@@ -71,10 +70,7 @@ let make = (~events) => {
     locale=locale.lang
     value={Js.Date.make()}
     onClickDay={(date, _) => {
-      setSearchParams(prevParams => {
-        prevParams->Router.SearchParams.set("selectedDate", date->Js.Date.toISOString)
-        prevParams;
-      })
+      onDateSelected(date)
     }}
     tileContent={({date, view}) => {
       switch view {

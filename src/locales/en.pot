@@ -1193,3 +1193,39 @@ msgstr ""
 #: src/components/pages/Event.re.mjs:370
 msgid "view events"
 msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:148
+msgid "{0} events created!"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:228
+msgid "loading..."
+msgstr ""
+
+#: src/components/pages/DefaultLayout2.re.mjs:76
+msgid "Events"
+msgstr ""
+
+#: src/components/pages/DefaultLayout2.re.mjs:181
+msgid "Racquet League"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:284
+msgid "you're going :)"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:305
+msgid "you're waitlisted :("
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:406
+msgid "{0} private {shadowCountDesc} hidden"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:380
+msgid "{shadowCount, plural, one {event} other {events}}"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:414
+msgid "show"
+msgstr ""

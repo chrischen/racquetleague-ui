@@ -23,6 +23,7 @@ module Fragment = %relay(`
           location {
             id
           }
+          shadow
           ...EventsList_event
           ...EventsListText_event
         }
@@ -272,17 +273,16 @@ module EventItem = {
         </>
       }
     })
-    let highlighted = highlightedLocation ? "bg-yellow-100/35" : ""
-    <li className=highlighted id={highlightedLocation ? "highlighted" : ""}>
-      <Layout.Container className="relative flex items-center space-x-4 py-4">
-        <div className="min-w-0 flex-auto">
-          <div className="flex items-center gap-x-3">
-            <div
-              className={Util.cx(["text-green-400 bg-green-400/10", "flex-none rounded-full p-1"])}>
-              <div className="h-2 w-2 rounded-full bg-current" />
-            </div>
-            <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
-              <Link to={"/events/" ++ id} relative="path" className="flex gap-x-2">
+    <Layout.Container className="relative flex items-center space-x-4 py-4">
+      <div className="min-w-0 flex-auto">
+        <div className="flex items-center gap-x-3">
+          <div
+            className={Util.cx(["text-green-400 bg-green-400/10", "flex-none rounded-full p-1"])}>
+            <div className="h-2 w-2 rounded-full bg-current" />
+          </div>
+          <h2 className="min-w-0 text-sm font-semibold leading-6 text-black w-full">
+            <Link to={"/events/" ++ id} relative="path" className="">
+              <div className="flex gap-x-2">
                 <span className="truncate">
                   {activity
                   ->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))
@@ -291,84 +291,84 @@ module EventItem = {
                   {title->Option.getOr(ts`[missing title]`)->React.string}
                 </span>
                 <span className="absolute inset-0" />
-              </Link>
-            </h2>
-          </div>
-          <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
-            <p className="whitespace-nowrap">
-              {startDate
-              ->Option.map(startDate =>
-                <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
-              )
-              ->Option.getOr(React.null)}
-              {" -> "->React.string}
-              {endDate
-              ->Option.map(endDate =>
-                <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />
-              )
-              ->Option.getOr(React.null)}
-              {duration
-              ->Option.map(duration => <>
-                {" ("->React.string}
-                {duration}
-                {") "->React.string}
-              </>)
-              ->Option.getOr(React.null)}
-            </p>
-          </div>
-          <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
-            <span className="whitespace-nowrap">
-              <p className={Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])}>
-                {location
-                ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-                ->Option.getOr(t`[location missing]`)}
-              </p>
-            </span>
-          </div>
+              </div>
+            </Link>
+          </h2>
         </div>
-        {switch viewerRsvpStatus {
-        | Some(Joined) =>
-          <div
-            className={Util.cx([
-              "text-green-600 bg-green-400/10 ring-green-400/30",
-              "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-            ])}>
-            {t`joined`}
-          </div>
-        | Some(Waitlist) =>
-          <div
-            className={Util.cx([
-              "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30",
-              "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-            ])}>
-            {t`waitlist`}
-          </div>
-        | Some(FutureAddedValue(_)) => React.null
-        | None => React.null
-        }}
+        <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
+          <p className="whitespace-nowrap">
+            {startDate
+            ->Option.map(startDate =>
+              <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
+            )
+            ->Option.getOr(React.null)}
+            {" -> "->React.string}
+            {endDate
+            ->Option.map(endDate =>
+              <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />
+            )
+            ->Option.getOr(React.null)}
+            {duration
+            ->Option.map(duration => <>
+              {" ("->React.string}
+              {duration}
+              {") "->React.string}
+            </>)
+            ->Option.getOr(React.null)}
+          </p>
+        </div>
+        <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
+          <span className="whitespace-nowrap">
+            <p className={Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])}>
+              {location
+              ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
+              ->Option.getOr(t`[location missing]`)}
+            </p>
+          </span>
+        </div>
+      </div>
+      {switch viewerRsvpStatus {
+      | Some(Joined) =>
         <div
           className={Util.cx([
-            "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
+            "text-green-600 bg-green-400/10 ring-green-400/30",
             "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
           ])}>
-          {switch shadow {
-          | None
-          | Some(false) =>
-            maxRsvps
-            ->Option.map(maxRsvps =>
-              (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ (ts`players`))
-                ->React.string
-            )
-            ->Option.getOr(<>
-              {(playersCount->Int.toString ++ " ")->React.string}
-              {plural(playersCount, {one: "player", other: "players"})}
-            </>)
-          | _ => <HeroIcons.LockClosed \"aria-hidden"="true" className="-ml-0.5 h-3 w-3" />
-          }}
+          {t`joined`}
         </div>
-        // <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" ariaHidden="true" />
-      </Layout.Container>
-    </li>
+      | Some(Waitlist) =>
+        <div
+          className={Util.cx([
+            "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30",
+            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+          ])}>
+          {t`waitlist`}
+        </div>
+      | Some(FutureAddedValue(_)) => React.null
+      | None => React.null
+      }}
+      <div
+        className={Util.cx([
+          "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
+          "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+        ])}>
+        {switch shadow {
+        | None
+        | Some(false) =>
+          maxRsvps
+          ->Option.map(maxRsvps =>
+            (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ (ts`players`))
+              ->React.string
+          )
+          ->Option.getOr(<>
+            {(playersCount->Int.toString ++ " ")->React.string}
+            {plural(playersCount, {one: "player", other: "players"})}
+          </>)
+        | _ => <HeroIcons.LockClosed \"aria-hidden"="true" className="-ml-0.5 h-3 w-3" />
+        }}
+      </div>
+      // <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" ariaHidden="true" />
+    </Layout.Container>
     // )->Result.getOr(React.null)
   }
 }
@@ -422,8 +422,78 @@ let sortByDate = (
   ->ignore
   dates
 }
+
+module Filter = {
+  type t = ByDate(Js.Date.t) | ByAfter(string) | ByBefore(string) | ByAfterDate(Js.Date.t)
+  // let make = (filterByDate, afterCursor, beforeCursor) =>
+  //   switch (filterByDate, afterCursor, beforeCursor) {
+  //   | (Some(date), _, _) => Some(ByDate(date))
+  //   | (None, Some(c), _) => Some(ByAfter(c))
+  //   | (None, _, Some(c)) => Some(ByBefore(c))
+  //   | _ => None
+  //   }
+  let updateParams = (filter, params) => {
+    switch filter {
+    | ByAfter(cursor) =>
+      params->Router.ImmSearchParams.set("after", cursor)->Router.ImmSearchParams.delete("before")
+    | ByDate(date) => params->Router.ImmSearchParams.set("selectedDate", date->Js.Date.toISOString)
+    | ByAfterDate(date) => params->Router.ImmSearchParams.set("afterDate", date->Js.Date.toISOString)
+    | ByBefore(cursor) =>
+      params->Router.ImmSearchParams.set("before", cursor)->Router.ImmSearchParams.delete("after")
+    }
+  }
+}
+
+module Day = {
+  open Lingui.Util
+  @react.component
+  let make = (
+    ~events: array<EventsListFragment_graphql.Types.fragment_events_edges_node>,
+    ~highlightedLocation,
+  ) => {
+    let (showShadow, setShowShadow) = React.useState(() => false)
+    let shadowCount = events->Array.filter(edge => edge.shadow->Option.getOr(false))->Array.length
+    let shadowCountDesc = Lingui.UtilString.plural(shadowCount, {one: "event", other: "events"})
+    <>
+      {events
+      ->Array.map(edge => {
+        let highlighted =
+          edge.location
+          ->Option.map(location => highlightedLocation == location.id)
+          ->Option.getOr(false)
+
+        let highlightedClass = highlighted ? "bg-yellow-100/35" : ""
+
+        {
+          edge.shadow->Option.getOr(false) && !showShadow
+            ? React.null
+            : <li key=edge.id className=highlightedClass id={highlighted ? "highlighted" : ""}>
+                // <UiAction
+                //   onClick={_ => {
+                //     setShowMap(_ => true)
+                //     setSelectedEvent(_ => edge.location->Option.map(l => l.id))
+                //   }}
+                //   key={edge.id}>
+                <EventItem key={edge.id} event=edge.fragmentRefs />
+                // </UiAction>
+              </li>
+        }
+      })
+      ->React.array}
+      {shadowCount > 0 && !showShadow
+        ? <li>
+            <p className="text-gray-700 p-3 italic ml-6">
+              {t`${shadowCount->Int.toString} private ${shadowCountDesc} hidden`}
+              {" "->React.string}
+              <UiAction onClick={_ => setShowShadow(_ => true)}> {t`show`} </UiAction>
+            </p>
+          </li>
+        : React.null}
+    </>
+  }
+}
 @react.component
-let make = (~events) => {
+let make = (~events, ~header: React.element) => {
   open Lingui.Util
   let (_isPending, _) = ReactExperimental.useTransition()
   let eventsFragment = events
@@ -434,12 +504,24 @@ let make = (~events) => {
   let hasPrevious = pageInfo.hasPreviousPage
   let (highlightedLocation, setHighlightedLocation) = React.useState(() => "")
   let (shareOpen, setShareOpen) = React.useState(() => false)
+  let (showMap, setShowMap) = React.useState(() => false)
+  let (selectedEvent: option<string>, setSelectedEvent) = React.useState(() => None)
+  let navigate = Router.useNavigate()
 
   let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
+  let searchParams = searchParams->Router.ImmSearchParams.fromSearchParams
+
+  // let afterCursor = searchParams->Router.ImmSearchParams.get("after")
+  // let beforeCursor = searchParams->Router.ImmSearchParams.get("before")
   let filterByDate =
     searchParams
-    ->Router.SearchParams.get("selectedDate")
+    ->Router.ImmSearchParams.get("selectedDate")
     ->Option.map(date => Js.Date.fromString(date))
+
+  // let filterParams = Filter.make(filterByDate, afterCursor, beforeCursor)->Option.map(Filter.updateParams(_, searchParams))
+
+  // let filter = filter->Option.map(filterToParam)->Option.flatMap(activityFilter)
+
   let clearFilterByDate = () => {
     setSearchParams(prevParams => {
       prevParams->Router.SearchParams.delete("selectedDate")
@@ -447,119 +529,147 @@ let make = (~events) => {
     })
   }
 
-  // let onLoadMore = _ =>
-  //   startTransition(() => {
-  //     loadNext(~count=1)->ignore
-  //   })
-  //
   let intl = ReactIntl.useIntl()
   let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, filterByDate, ...))
 
-  React.useEffect(() => {
-    %raw("window.location.hash = '#highlighted'")->ignore
-
-    // navigate("./#highlighted", None);
-    // setHighlightedLocations(_ => "asdf"])
-    None
-  }, [highlightedLocation])
   <>
-    <Layout.Container>
-      {!isLoadingPrevious && hasPrevious
-        ? pageInfo.startCursor
-          ->Option.map(startCursor =>
-            <Link to={"./" ++ "?before=" ++ startCursor->encodeURIComponent}>
-              {t`...load past events`}
-            </Link>
-          )
-          ->Option.getOr(React.null)
-        : React.null}
-      {" • "->React.string}
-      <UiAction onClick={_ => setShareOpen(v => !v)} active={shareOpen}>
-        {t`share as text`}
-      </UiAction>
-    </Layout.Container>
-    {shareOpen
-      ? <Layout.Container>
-          <TextEventsList events=eventsFragment />
-        </Layout.Container>
-      : React.null}
-    // <Layout.Container>
-    <div className="mx-auto w-full grow lg:flex">
-      <div className="w-full lg:w-1/2 xl:w-1/3">
-        <Calendar events=eventsFragment />
-        {filterByDate
-        ->Option.map(_ =>
-          <InfoAlert cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>
-            {<> {t`filtering by date`} </>}
-          </InfoAlert>
-        )
-        ->Option.getOr(React.null)}
-        <ul role="list" className="">
-          {eventsByDate
-          ->Js.Dict.entries
-          ->Array.map(((dateString, events)) => {
-            // This date is in local time
-            // @NOTE: Potential bug as dateString possibly needs to be converted
-            // back to UTC
-            // Js.log(dateString);
-            let date = dateString
-
-            // Local time difference in minutes
-            // let until = date->DateFns.differenceInMinutes(Js.Date.make())
-            <li key={dateString}>
-              <div
-                className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
-                <Layout.Container>
-                  <h3>
-                    {date->React.string}
-                    // <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
-                    // {" "->React.string}
-                    // <ReactIntl.FormattedRelativeTime
-                    //   value={until} unit=#minute updateIntervalInSeconds=1.
-                    // />
-                  </h3>
-                </Layout.Container>
-              </div>
-              <ul role="list" className="divide-y divide-gray-200">
-                {events
-                ->Array.map(edge =>
-                  <EventItem
-                    highlightedLocation={edge.location
-                    ->Option.map(location => highlightedLocation == location.id)
-                    ->Option.getOr(false)}
-                    key={edge.id}
-                    event=edge.fragmentRefs
-                  />
-                )
-                ->React.array}
-              </ul>
-            </li>
-          })
-          ->React.array}
-        </ul>
-        {hasNext && !isLoadingNext
-          ? <Layout.Container>
-              {pageInfo.endCursor
-              ->Option.map(endCursor =>
-                <Link to={"./" ++ "?after=" ++ encodeURIComponent(endCursor)}>
-                  {t`load more`}
-                </Link>
+    <div
+      className="grow p-0 z-10 lg:w-1/2 lg:h-[calc(100vh-50px)] lg:overflow-scroll lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+      <div className="mx-auto max-w-7xl">
+        {header}
+        <Layout.Container>
+          {!isLoadingPrevious && hasPrevious
+            ? pageInfo.startCursor
+              ->Option.map(startCursor =>
+                <LinkWithOpts
+                  to={
+                    pathname: "./",
+                    search: Filter.ByBefore(startCursor)
+                    ->Filter.updateParams(searchParams)
+                    // searchParams
+                    // ->Router.ImmSearchParams.set("before", encodeURIComponent(startCursor))
+                    ->Router.ImmSearchParams.toString,
+                  }>
+                  {t`...load past events`}
+                </LinkWithOpts>
               )
-              ->Option.getOr(React.null)}
+              ->Option.getOr(<LinkWithOpts
+                  to={
+                    pathname: "./",
+                    search: Filter.ByAfterDate(Js.Date.fromString("2020-01-01"))
+                    ->Filter.updateParams(searchParams)
+                    // searchParams
+                    // ->Router.ImmSearchParams.set("before", encodeURIComponent(startCursor))
+                    ->Router.ImmSearchParams.toString,
+                  }>
+                  {t`...load past events`}
+                </LinkWithOpts>)
+            : React.null}
+          {" • "->React.string}
+          <UiAction onClick={_ => setShareOpen(v => !v)} active={shareOpen}>
+            {t`share as text`}
+          </UiAction>
+        </Layout.Container>
+        {shareOpen
+          ? <Layout.Container>
+              <TextEventsList events=eventsFragment />
             </Layout.Container>
           : React.null}
+        // <Layout.Container>
+        <div className="mx-auto w-full grow lg:flex">
+          <div className="w-full lg:overflow-x-hidden">
+            <Calendar
+              events=eventsFragment
+              onDateSelected={date => {
+                setSearchParams(prevParams => {
+                  Filter.ByDate(date)
+                  ->Filter.updateParams(prevParams->Router.ImmSearchParams.fromSearchParams)
+                  ->Router.ImmSearchParams.toSearchParams
+                })
+              }}
+            />
+            {filterByDate
+            ->Option.map(_ =>
+              <InfoAlert cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>
+                {<> {t`filtering by date`} </>}
+              </InfoAlert>
+            )
+            ->Option.getOr(React.null)}
+            <ul role="list" className="">
+              {eventsByDate
+              ->Js.Dict.entries
+              ->Array.map(((dateString, events)) => {
+                // This date is in local time
+                // @NOTE: Potential bug as dateString possibly needs to be converted
+                // back to UTC
+                // Js.log(dateString);
+                let date = dateString
+
+                // Local time difference in minutes
+                // let until = date->DateFns.differenceInMinutes(Js.Date.make())
+                <li key={dateString}>
+                  <div
+                    className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900">
+                    <Layout.Container>
+                      <h3>
+                        {date->React.string}
+                        // <ReactIntl.FormattedDate weekday=#long day={#numeric} month={#short} value={date} />
+                        // {" "->React.string}
+                        // <ReactIntl.FormattedRelativeTime
+                        //   value={until} unit=#minute updateIntervalInSeconds=1.
+                        // />
+                      </h3>
+                    </Layout.Container>
+                  </div>
+                  <ul role="list" className="divide-y divide-gray-200">
+                    <Day events highlightedLocation />
+                  </ul>
+                </li>
+              })
+              ->React.array}
+            </ul>
+            {hasNext && !isLoadingNext
+              ? <Layout.Container>
+                  {pageInfo.endCursor
+                  ->Option.map(endCursor =>
+                    <LinkWithOpts
+                      to={
+                        pathname: "./",
+                        search: Filter.ByAfter(endCursor)
+                        ->Filter.updateParams(searchParams)
+                        ->Router.ImmSearchParams.toString,
+                      }>
+                      {t`load more`}
+                    </LinkWithOpts>
+                  )
+                  ->Option.getOr(React.null)}
+                </Layout.Container>
+              : React.null}
+          </div>
+        </div>
+        // </Layout.Container>
       </div>
-      <div
-        className="shrink-0 border-t border-gray-200 lg:w-1/2 xl:w-2/3 lg:border-l lg:border-t-0">
-        <div className="w-full lg:w-1/2 lg:min-h-96 h-96 lg:h-auto lg:fixed lg:top-[52px] lg:bottom-0">
-          <PinMap
-            connection={eventsQuery.fragmentRefs}
-            onLocationClick={location => setHighlightedLocation(_ => location.id)}
-          />
+    </div>
+    <div
+      className="grow p-0 lg:w-1/2 lg:-ml-1 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+      <div className="mx-auto">
+        <div className="shrink-0 border-t border-gray-200 lg:border-l lg:border-t-0">
+          <div className="w-full lg:min-h-96 h-96 lg:h-[calc(100vh-50px)] lg:max-h-screen">
+            // <ModalDrawer title={"Choose Match"} open_=showMap setOpen={setShowMap}>
+            <PinMap
+              connection={eventsQuery.fragmentRefs}
+              onLocationClick={location => navigate("/locations/" ++ location.id, None)}
+              selected=?selectedEvent
+            />
+            // {selectedEvent
+            // ->Option.flatMap(e => e.location)
+            // ->Option.map(location => <GMap location=location.fragmentRefs />)
+            // ->Option.getOr(React.null)}
+            // </ModalDrawer>
+          </div>
         </div>
       </div>
     </div>
-    // </Layout.Container>
   </>
 }
 

@@ -250,6 +250,19 @@ let removeGuestPlayer = (sessionPlayers: array<Player.t<'a>>, player: Player.t<'
   sessionPlayers->Array.filter(p => p.id != player.id)
 }
 
+let addToQueue = (queue, player: player) => {
+  let newSet = Set.make()
+  queue->Set.forEach(id => newSet->Set.add(id))
+  newSet->Set.add(player.id)->ignore
+  newSet
+}
+let removeFromQueue = (queue, player: player) => {
+  let newSet = Set.make()
+  queue->Set.forEach(id => newSet->Set.add(id))
+  newSet->Set.delete(player.id)->ignore
+  newSet
+}
+
 type playerSettings = TeamBuilder | AddPlayer | Settings
 type screen = Advanced | Matches
 @react.component
@@ -276,6 +289,8 @@ let make = (~event, ~children) => {
   // How many players to remove from the queue for a break
   let (breakCount: int, setBreakCount) = React.useState(() => 0)
 
+  let (matchHistory: array<match>, setMatchHistory) = React.useState(() => [])
+
   // let pushPlayer = player => {
   //   setQueue(queue => FIFOQueue.push(queue, player))
   // }
@@ -287,18 +302,6 @@ let make = (~event, ~children) => {
   //   setQueue(queue => FIFOQueue.pull(queue, p => p.id != player.id))
   // }
   //
-  let addToQueue = (queue, player: player) => {
-    let newSet = Set.make()
-    queue->Set.forEach(id => newSet->Set.add(id))
-    newSet->Set.add(player.id)->ignore
-    newSet
-  }
-  let removeFromQueue = (queue, player: player) => {
-    let newSet = Set.make()
-    queue->Set.forEach(id => newSet->Set.add(id))
-    newSet->Set.delete(player.id)->ignore
-    newSet
-  }
   let togglePlayer = (queue, player: player) => {
     let newSet = Set.make()
     queue->Set.forEach(id => newSet->Set.add(id))
@@ -674,6 +677,10 @@ let make = (~event, ~children) => {
                   onComplete={match => {
                     dequeueMatch(i)
                     updatePlayCounts(match)
+                    setMatchHistory(
+                      matches =>
+                        matches->Array.concat([match]),
+                    )
 
                     let match = match->Match.rate
                     updateSessionPlayerRatings(match->Array.flatMap(x => x))

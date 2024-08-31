@@ -48,59 +48,55 @@ function ViewerEventsPage(props) {
   var fragmentRefs = match.fragmentRefs;
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
-                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                              children: [
-                                JsxRuntime.jsx(Layout.Container.make, {
-                                      children: JsxRuntime.jsxs(Grid.make, {
-                                            children: [
-                                              JsxRuntime.jsx(PageTitle.make, {
-                                                    children: t`my events`
-                                                  }),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                            to: "/",
-                                                            children: t`public events`
-                                                          }),
-                                                      Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
-                                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                              children: [
-                                                                                " ",
-                                                                                JsxRuntime.jsx("svg", {
-                                                                                      children: JsxRuntime.jsx("circle", {
-                                                                                            cx: (1).toString(),
-                                                                                            cy: (1).toString(),
-                                                                                            r: (1).toString()
-                                                                                          }),
-                                                                                      className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
-                                                                                      viewBox: "0 0 2 2"
-                                                                                    }),
-                                                                                " ",
-                                                                                JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                                      to: "/events",
-                                                                                      children: t`my events`,
-                                                                                      relative: "path"
-                                                                                    })
-                                                                              ]
-                                                                            });
-                                                                })), null)
-                                                    ]
-                                                  })
-                                            ]
-                                          })
-                                    }),
-                                JsxRuntime.jsx(Layout.Container.make, {
-                                      children: JsxRuntime.jsx(AddToCalendar.make, {})
-                                    }),
-                                JsxRuntime.jsx(React.Suspense, {
-                                      children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
-                                                events: fragmentRefs
-                                              })),
-                                      fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                                children: "Loading events..."
-                                              }))
-                                    })
-                              ]
+                  return JsxRuntime.jsx(React.Suspense, {
+                              children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
+                                        events: fragmentRefs,
+                                        header: JsxRuntime.jsxs(Layout.Container.make, {
+                                              children: [
+                                                JsxRuntime.jsxs(Grid.make, {
+                                                      children: [
+                                                        JsxRuntime.jsx(PageTitle.make, {
+                                                              children: t`my events`
+                                                            }),
+                                                        JsxRuntime.jsxs("div", {
+                                                              children: [
+                                                                JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                      to: "/",
+                                                                      children: t`public events`
+                                                                    }),
+                                                                Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
+                                                                            return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                        children: [
+                                                                                          " ",
+                                                                                          JsxRuntime.jsx("svg", {
+                                                                                                children: JsxRuntime.jsx("circle", {
+                                                                                                      cx: (1).toString(),
+                                                                                                      cy: (1).toString(),
+                                                                                                      r: (1).toString()
+                                                                                                    }),
+                                                                                                className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                                                                viewBox: "0 0 2 2"
+                                                                                              }),
+                                                                                          " ",
+                                                                                          JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                                                to: "/events",
+                                                                                                children: t`my events`,
+                                                                                                relative: "path"
+                                                                                              })
+                                                                                        ]
+                                                                                      });
+                                                                          })), null)
+                                                              ]
+                                                            })
+                                                      ]
+                                                    }),
+                                                JsxRuntime.jsx(AddToCalendar.make, {})
+                                              ]
+                                            })
+                                      })),
+                              fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
+                                        children: "Loading events..."
+                                      }))
                             });
                 })
             });

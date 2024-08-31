@@ -9,4 +9,4 @@ import type {fragmentRefs as RescriptRelay_fragmentRefs} from 'rescript-relay/sr
 
 import type {props as Calendar_props} from '../../../src/components/organisms/Calendar.gen';
 
-export const Component: React.ComponentType<{ readonly events: RescriptRelay_fragmentRefs<"CalendarEventsFragment"> }> = CalendarRouteJS.Component as any;
+export const Component: React.ComponentType<{ readonly events: RescriptRelay_fragmentRefs<"CalendarEventsFragment">; readonly onDateSelected: (_1:Date) => void }> = CalendarRouteJS.Component as any;

@@ -17,7 +17,7 @@ msgstr ""
 msgid "join event"
 msgstr ""
 
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:22
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:21
 msgid "leave event"
 msgstr ""
 

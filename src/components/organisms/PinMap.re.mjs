@@ -26,6 +26,7 @@ var Fragment = {
 };
 
 function PinMap(props) {
+  var selected = props.selected;
   var onLocationClick = props.onLocationClick;
   var connection = use(props.connection);
   var locations = Core__Option.getOr(connection.edges, []).map(function (__x) {
@@ -55,6 +56,14 @@ function PinMap(props) {
                                                 return Core__Option.map($$location.coords, (function (coords) {
                                                               return JsxRuntime.jsx(ReactGoogleMaps.AdvancedMarker, {
                                                                           position: coords,
+                                                                          children: Caml_option.some(Core__Option.getOr(Core__Option.map(selected, (function (s) {
+                                                                                          return s === $$location.id;
+                                                                                        })), false) ? JsxRuntime.jsx(ReactGoogleMaps.Pin, {
+                                                                                      background: "#0f9d58",
+                                                                                      glyphColor: "#60d98f",
+                                                                                      borderColor: "#006425",
+                                                                                      scale: 1.5
+                                                                                    }) : JsxRuntime.jsx(ReactGoogleMaps.Pin, {})),
                                                                           onClick: (function (param) {
                                                                               onLocationClick($$location);
                                                                             })

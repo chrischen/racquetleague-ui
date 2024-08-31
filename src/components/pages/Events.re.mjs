@@ -11,6 +11,7 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
 import * as EventsList from "../organisms/EventsList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -49,99 +50,122 @@ function Events(props) {
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
   var fragmentRefs = match.fragmentRefs;
+  var match$1 = ReactRouterDom.useSearchParams();
+  Router.SearchParams.get(match$1[0], "activity");
   var viewer = GlobalQuery.useViewer();
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
-                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                              children: [
-                                JsxRuntime.jsx(Layout.Container.make, {
-                                      children: JsxRuntime.jsxs(Grid.make, {
-                                            children: [
-                                              JsxRuntime.jsx(PageTitle.make, {
-                                                    children: t`all events`
-                                                  }),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                            to: "/",
-                                                            children: t`all`
-                                                          }),
-                                                      " ",
-                                                      JsxRuntime.jsx("svg", {
-                                                            children: JsxRuntime.jsx("circle", {
-                                                                  cx: (1).toString(),
-                                                                  cy: (1).toString(),
-                                                                  r: (1).toString()
-                                                                }),
-                                                            className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
-                                                            viewBox: "0 0 2 2"
-                                                          }),
-                                                      " ",
-                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                            to: {
-                                                              pathname: "",
-                                                              search: ReactRouterDom.createSearchParams({
-                                                                      activity: "pickleball"
-                                                                    }).toString()
-                                                            },
-                                                            children: t`pickleball`
-                                                          }),
-                                                      " ",
-                                                      JsxRuntime.jsx("svg", {
-                                                            children: JsxRuntime.jsx("circle", {
-                                                                  cx: (1).toString(),
-                                                                  cy: (1).toString(),
-                                                                  r: (1).toString()
-                                                                }),
-                                                            className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
-                                                            viewBox: "0 0 2 2"
-                                                          }),
-                                                      " ",
-                                                      JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                            to: {
-                                                              pathname: "",
-                                                              search: ReactRouterDom.createSearchParams({
-                                                                      activity: "badminton"
-                                                                    }).toString()
-                                                            },
-                                                            children: t`badminton`
-                                                          }),
-                                                      Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
-                                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                              children: [
-                                                                                " ",
-                                                                                JsxRuntime.jsx("svg", {
-                                                                                      children: JsxRuntime.jsx("circle", {
-                                                                                            cx: (1).toString(),
-                                                                                            cy: (1).toString(),
-                                                                                            r: (1).toString()
-                                                                                          }),
-                                                                                      className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
-                                                                                      viewBox: "0 0 2 2"
-                                                                                    }),
-                                                                                " ",
-                                                                                JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                                      to: "/events",
-                                                                                      children: t`my events`,
-                                                                                      relative: "path"
-                                                                                    })
-                                                                              ]
-                                                                            });
-                                                                })), null)
-                                                    ]
-                                                  })
-                                            ]
-                                          })
-                                    }),
-                                JsxRuntime.jsx(React.Suspense, {
-                                      children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
-                                                events: fragmentRefs
-                                              })),
-                                      fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                                children: t`loading events...`
-                                              }))
-                                    })
-                              ]
+                  return JsxRuntime.jsx(JsxRuntime.Fragment, {
+                              children: Caml_option.some(JsxRuntime.jsx(React.Suspense, {
+                                        children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
+                                                  events: fragmentRefs,
+                                                  header: JsxRuntime.jsx(Layout.Container.make, {
+                                                        children: JsxRuntime.jsxs(Grid.make, {
+                                                              children: [
+                                                                JsxRuntime.jsxs(PageTitle.make, {
+                                                                      children: [
+                                                                        t`all events`,
+                                                                        Core__Option.getOr(Core__Option.map(Core__Option.flatMap(viewer.user, (function (user) {
+                                                                                        return Core__Array.indexOfOpt([
+                                                                                                    "Hasby Riduan",
+                                                                                                    "hasbyriduan9",
+                                                                                                    "notchrischen",
+                                                                                                    "Matthew",
+                                                                                                    "David Vo",
+                                                                                                    "Kai",
+                                                                                                    "Alex Ng"
+                                                                                                  ], Core__Option.getOr(user.lineUsername, ""));
+                                                                                      })), (function (param) {
+                                                                                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                children: [
+                                                                                                  " ",
+                                                                                                  JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                                                        to: "/events/create",
+                                                                                                        children: "+"
+                                                                                                      })
+                                                                                                ]
+                                                                                              });
+                                                                                  })), null)
+                                                                      ]
+                                                                    }),
+                                                                JsxRuntime.jsxs("div", {
+                                                                      children: [
+                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                              to: "/",
+                                                                              children: t`all`
+                                                                            }),
+                                                                        " ",
+                                                                        JsxRuntime.jsx("svg", {
+                                                                              children: JsxRuntime.jsx("circle", {
+                                                                                    cx: (1).toString(),
+                                                                                    cy: (1).toString(),
+                                                                                    r: (1).toString()
+                                                                                  }),
+                                                                              className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                                              viewBox: "0 0 2 2"
+                                                                            }),
+                                                                        " ",
+                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                              to: {
+                                                                                pathname: "",
+                                                                                search: ReactRouterDom.createSearchParams({
+                                                                                        activity: "pickleball"
+                                                                                      }).toString()
+                                                                              },
+                                                                              children: t`pickleball`
+                                                                            }),
+                                                                        " ",
+                                                                        JsxRuntime.jsx("svg", {
+                                                                              children: JsxRuntime.jsx("circle", {
+                                                                                    cx: (1).toString(),
+                                                                                    cy: (1).toString(),
+                                                                                    r: (1).toString()
+                                                                                  }),
+                                                                              className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                                              viewBox: "0 0 2 2"
+                                                                            }),
+                                                                        " ",
+                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                              to: {
+                                                                                pathname: "",
+                                                                                search: ReactRouterDom.createSearchParams({
+                                                                                        activity: "badminton"
+                                                                                      }).toString()
+                                                                              },
+                                                                              children: t`badminton`
+                                                                            }),
+                                                                        Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
+                                                                                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                children: [
+                                                                                                  " ",
+                                                                                                  JsxRuntime.jsx("svg", {
+                                                                                                        children: JsxRuntime.jsx("circle", {
+                                                                                                              cx: (1).toString(),
+                                                                                                              cy: (1).toString(),
+                                                                                                              r: (1).toString()
+                                                                                                            }),
+                                                                                                        className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
+                                                                                                        viewBox: "0 0 2 2"
+                                                                                                      }),
+                                                                                                  " ",
+                                                                                                  JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                                                        to: "/events",
+                                                                                                        children: t`my events`,
+                                                                                                        relative: "path"
+                                                                                                      })
+                                                                                                ]
+                                                                                              });
+                                                                                  })), null)
+                                                                      ]
+                                                                    })
+                                                              ]
+                                                            })
+                                                      })
+                                                })),
+                                        fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
+                                                  children: t`loading events...`
+                                                }))
+                                      }))
                             });
                 })
             });
@@ -164,16 +188,16 @@ async function loader(param) {
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
   var activity = Router.SearchParams.get(url.searchParams, "activity");
-  var afterDate = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
-              return Util.Datetime.fromDate(new Date(d));
-            })), Util.Datetime.fromDate(new Date()));
+  var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
+          return Util.Datetime.fromDate(new Date(d));
+        }));
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   return {
           data: EventsQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                 after: after,
-                afterDate: Caml_option.some(afterDate),
+                afterDate: afterDate,
                 before: before,
                 filters: {
                   activitySlug: activity

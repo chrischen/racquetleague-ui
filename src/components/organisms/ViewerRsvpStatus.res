@@ -8,7 +8,8 @@ let make = (~onJoin, ~onLeave, ~joined: bool) => {
   switch viewer.user {
   | Some(_) =>
     joined
-      ? <>
+      ? <div className="flex flex-col">
+          
           <a
             href="#"
             onClick={e => {
@@ -18,7 +19,7 @@ let make = (~onJoin, ~onLeave, ~joined: bool) => {
             {"⭠"->React.string}
             {t`leave event`}
           </a>
-        </>
+        </div>
       : <a
           href="#"
           onClick={e => {

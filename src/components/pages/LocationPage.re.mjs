@@ -2,6 +2,7 @@
 
 import * as Layout from "../shared/Layout.re.mjs";
 import * as EventsList from "../organisms/EventsList.re.mjs";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventLocation from "../organisms/EventLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -39,31 +40,29 @@ function LocationPage(props) {
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map(query.location, (function ($$location) {
-                                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                children: [
-                                                  JsxRuntime.jsxs(Layout.Container.make, {
-                                                        children: [
-                                                          JsxRuntime.jsxs("h1", {
+                                    return JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
+                                                          events: query.fragmentRefs,
+                                                          header: JsxRuntime.jsxs(Layout.Container.make, {
                                                                 children: [
-                                                                  JsxRuntime.jsx("div", {
-                                                                        children: t`location`,
-                                                                        className: "text-base leading-6 text-gray-500"
+                                                                  JsxRuntime.jsxs("h1", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: t`location`,
+                                                                                className: "text-base leading-6 text-gray-500"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: Core__Option.getOr($$location.name, "?"),
+                                                                                className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
+                                                                              })
+                                                                        ]
                                                                       }),
-                                                                  JsxRuntime.jsx("div", {
-                                                                        children: Core__Option.getOr($$location.name, "?"),
-                                                                        className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
+                                                                  JsxRuntime.jsx(EventLocation.make, {
+                                                                        location: $$location.fragmentRefs
                                                                       })
                                                                 ]
-                                                              }),
-                                                          JsxRuntime.jsx(EventLocation.make, {
-                                                                location: $$location.fragmentRefs
                                                               })
-                                                        ]
-                                                      }),
-                                                  JsxRuntime.jsx(EventsList.make, {
-                                                        events: query.fragmentRefs
-                                                      })
-                                                ]
+                                                        }))
                                               });
                                   })), JsxRuntime.jsx(Layout.Container.make, {
                                   children: t`page not found`

@@ -1,0 +1,8 @@
+@module("./avatar.tsx") @react.component
+external make: (
+  ~className: string=?,
+  ~src: string=?,
+  ~alt: string=?,
+  ~square: bool=?,
+  ~initials: string=?,
+) => React.element = "Avatar"

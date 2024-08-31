@@ -258,6 +258,24 @@ function rsvpToPlayerDefault(rsvp) {
         };
 }
 
+function addToQueue(queue, player) {
+  var newSet = new Set();
+  queue.forEach(function (id) {
+        newSet.add(id);
+      });
+  newSet.add(player.id);
+  return newSet;
+}
+
+function removeFromQueue(queue, player) {
+  var newSet = new Set();
+  queue.forEach(function (id) {
+        newSet.add(id);
+      });
+  newSet.delete(player.id);
+  return newSet;
+}
+
 function AiTetsu(props) {
   var $$event = props.event;
   var match = use$1($$event);
@@ -317,22 +335,10 @@ function AiTetsu(props) {
       });
   var setBreakCount = match$12[1];
   var breakCount = match$12[0];
-  var addToQueue = function (queue, player) {
-    var newSet = new Set();
-    queue.forEach(function (id) {
-          newSet.add(id);
-        });
-    newSet.add(player.id);
-    return newSet;
-  };
-  var removeFromQueue = function (queue, player) {
-    var newSet = new Set();
-    queue.forEach(function (id) {
-          newSet.add(id);
-        });
-    newSet.delete(player.id);
-    return newSet;
-  };
+  var match$13 = React.useState(function () {
+        return [];
+      });
+  var setMatchHistory = match$13[1];
   var toggleQueuePlayer = function (player) {
     setQueue(function (queue) {
           var newSet = new Set();
@@ -346,8 +352,8 @@ function AiTetsu(props) {
           }
         });
   };
-  var match$13 = usePagination($$event);
-  var data = match$13.data;
+  var match$14 = usePagination($$event);
+  var data = match$14.data;
   var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
   var players = allPlayers.filter(function (p) {
         return !disabled.has(p.id);
@@ -384,16 +390,16 @@ function AiTetsu(props) {
   var availablePlayers = players.filter(function (p) {
         return !consumedPlayers.has(p.id);
       });
-  var match$14 = getPriorityPlayers(players, sessionState, breakCount);
-  var deprioritized = match$14.deprioritized;
+  var match$15 = getPriorityPlayers(players, sessionState, breakCount);
+  var deprioritized = match$15.deprioritized;
   var queue = match$7[0].difference(disabled);
   var breakPlayersCount = queue.size;
   var queue$1 = queue.difference(deprioritized);
   var queuedPlayers = players.filter(function (p) {
         return queue$1.has(p.id);
       });
-  var match$15 = getPriorityPlayers(queuedPlayers, sessionState, breakCount);
-  var priorityPlayers = match$15.prioritized;
+  var match$16 = getPriorityPlayers(queuedPlayers, sessionState, breakCount);
+  var priorityPlayers = match$16.prioritized;
   var availablePlayers$1 = availablePlayers.filter(function (p) {
         return !deprioritized.has(p.id);
       });
@@ -897,6 +903,9 @@ function AiTetsu(props) {
                                                                             onComplete: (function (match) {
                                                                                 dequeueMatch(i);
                                                                                 updatePlayCounts(match);
+                                                                                setMatchHistory(function (matches) {
+                                                                                      return matches.concat([match]);
+                                                                                    });
                                                                                 var match$1 = Rating.Match.rate(match);
                                                                                 updateSessionPlayerRatings(match$1.flatMap(function (x) {
                                                                                           return x;

@@ -2,6 +2,7 @@
 
 import * as Layout from "../shared/Layout.re.mjs";
 import * as EventsList from "../organisms/EventsList.re.mjs";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ClubDetails from "../organisms/ClubDetails.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -39,31 +40,29 @@ function ClubPage(props) {
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map(query.club, (function (club) {
-                                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                children: [
-                                                  JsxRuntime.jsxs(Layout.Container.make, {
-                                                        children: [
-                                                          JsxRuntime.jsxs("h1", {
+                                    return JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
+                                                          events: query.fragmentRefs,
+                                                          header: JsxRuntime.jsxs(Layout.Container.make, {
                                                                 children: [
-                                                                  JsxRuntime.jsx("div", {
-                                                                        children: t`club`,
-                                                                        className: "text-base leading-6 text-gray-500"
+                                                                  JsxRuntime.jsxs("h1", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: t`club`,
+                                                                                className: "text-base leading-6 text-gray-500"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: Core__Option.getOr(club.name, "?"),
+                                                                                className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
+                                                                              })
+                                                                        ]
                                                                       }),
-                                                                  JsxRuntime.jsx("div", {
-                                                                        children: Core__Option.getOr(club.name, "?"),
-                                                                        className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
+                                                                  JsxRuntime.jsx(ClubDetails.make, {
+                                                                        club: club.fragmentRefs
                                                                       })
                                                                 ]
-                                                              }),
-                                                          JsxRuntime.jsx(ClubDetails.make, {
-                                                                club: club.fragmentRefs
                                                               })
-                                                        ]
-                                                      }),
-                                                  JsxRuntime.jsx(EventsList.make, {
-                                                        events: query.fragmentRefs
-                                                      })
-                                                ]
+                                                        }))
                                               });
                                   })), JsxRuntime.jsx(Layout.Container.make, {
                                   children: t`club not found`

@@ -43,9 +43,13 @@ msgstr "バスケットボール"
 msgid "Volleyball"
 msgstr "バレーボール"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:198
+#: src/components/organisms/CreateClubEventsForm.re.mjs:195
 msgid "{0} event details"
 msgstr "{0} イベント詳細"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:148
+msgid "{0} events created!"
+msgstr "{0} イベントが作成されました！"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:237
 msgid "activity"
@@ -63,11 +67,11 @@ msgstr "キャンセル"
 msgid "club doesn't exist."
 msgstr "クラブが存在しません。"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:199
+#: src/components/organisms/CreateClubEventsForm.re.mjs:196
 msgid "create multiple events at one time"
 msgstr "一度に複数のイベントを作成"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:205
+#: src/components/organisms/CreateClubEventsForm.re.mjs:202
 msgid "events"
 msgstr "私のイベント"
 
@@ -83,7 +87,11 @@ msgstr "タイトルが必要です"
 msgid "list publicly"
 msgstr "一般公開リスト"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:216
+#: src/components/organisms/CreateClubEventsForm.re.mjs:228
+msgid "loading..."
+msgstr "読み込み中..."
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:213
 msgid "preview events"
 msgstr "イベントをプレビュー"
 
@@ -99,7 +107,7 @@ msgstr ""
 "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
 "持っている人だけがイベントを見つけることができます。"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:208
+#: src/components/organisms/CreateClubEventsForm.re.mjs:205
 msgid "type your events here"
 msgstr "ここにイベントを入力してください"
 
