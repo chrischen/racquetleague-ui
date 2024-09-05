@@ -136,7 +136,7 @@ export const routes: RouteObject[] = [
                 path: ":eventId",
                 lazy: () => import("./components/pages/Event.gen"),
                 handle: "src/components/pages/Event.gen.tsx",
-
+                HydrateFallbackElement: <>Loading Fallback...</>
               },
             ]
           },

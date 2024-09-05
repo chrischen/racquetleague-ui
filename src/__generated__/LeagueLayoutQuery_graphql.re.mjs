@@ -71,6 +71,11 @@ var node = {
             "args": null,
             "kind": "FragmentSpread",
             "name": "GlobalQueryProvider_viewer"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "NavViewer_viewer"
           }
         ],
         "storageKey": null
@@ -131,12 +136,12 @@ var node = {
     ]
   },
   "params": {
-    "cacheID": "7b8abe0ad49368648be4083a5d26d9d2",
+    "cacheID": "bf6a803dfb815a0909315969b2615d81",
     "id": null,
     "metadata": {},
     "name": "LeagueLayoutQuery",
     "operationKind": "query",
-    "text": "query LeagueLayoutQuery {\n  ...LeagueNav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment LeagueNav_query on Query {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n    ...LeagueNav_viewer\n  }\n}\n\nfragment LeagueNav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n"
+    "text": "query LeagueLayoutQuery {\n  ...LeagueNav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment LeagueNav_query on Query {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n    ...LeagueNav_viewer\n  }\n}\n\nfragment LeagueNav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
 };
 

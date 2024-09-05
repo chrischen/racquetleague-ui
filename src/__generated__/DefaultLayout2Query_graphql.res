@@ -10,11 +10,10 @@ module Types = {
   }
   and response_viewer = {
     user: option<response_viewer_user>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GlobalQueryProvider_viewer]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GlobalQueryProvider_viewer | #NavViewer_viewer]>,
   }
   type response = {
     viewer: option<response_viewer>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #Nav_query]>,
   }
   @live
   type rawResponse = response
@@ -45,7 +44,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer":{"f":""},"":{"f":""}}}`
+    json`{"__root":{"viewer":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = ()
@@ -59,7 +58,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer":{"f":""},"":{"f":""}}}`
+    json`{"__root":{"viewer":{"f":""}}}`
   )
   @live
   let responseConverterMap = ()
@@ -110,11 +109,6 @@ return {
     "name": "DefaultLayout2Query",
     "selections": [
       {
-        "args": null,
-        "kind": "FragmentSpread",
-        "name": "Nav_query"
-      },
-      {
         "alias": null,
         "args": null,
         "concreteType": "Viewer",
@@ -126,6 +120,11 @@ return {
             "args": null,
             "kind": "FragmentSpread",
             "name": "GlobalQueryProvider_viewer"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "NavViewer_viewer"
           },
           {
             "alias": null,
@@ -169,7 +168,6 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              (v0/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -177,6 +175,7 @@ return {
                 "name": "id",
                 "storageKey": null
               },
+              (v0/*: any*/),
               (v1/*: any*/)
             ],
             "storageKey": null
@@ -187,12 +186,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "51bf5c3db835c428a49c9824b87eaa51",
+    "cacheID": "a61bcd18a03f7b943084f035bce23cd9",
     "id": null,
     "metadata": {},
     "name": "DefaultLayout2Query",
     "operationKind": "query",
-    "text": "query DefaultLayout2Query {\n  ...Nav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    user {\n      lineUsername\n      picture\n      id\n    }\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment Nav_query on Query {\n  viewer {\n    user {\n      lineUsername\n      id\n    }\n    ...Nav_viewer\n  }\n}\n\nfragment Nav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n"
+    "text": "query DefaultLayout2Query {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    user {\n      lineUsername\n      picture\n      id\n    }\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
 };
 })() `)

@@ -19,13 +19,13 @@ function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
 }
 
-var wrapResponseConverter = {"__root":{"viewer":{"f":""},"":{"f":""}}};
+var wrapResponseConverter = {"__root":{"viewer":{"f":""}}};
 
 function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, undefined, null);
 }
 
-var responseConverter = {"__root":{"viewer":{"f":""},"":{"f":""}}};
+var responseConverter = {"__root":{"viewer":{"f":""}}};
 
 function convertResponse(v) {
   return RescriptRelay.convertObj(v, responseConverter, undefined, undefined);
@@ -47,33 +47,13 @@ var Internal = {
 
 var Utils = {};
 
-var node = ((function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "lineUsername",
-  "storageKey": null
-},
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "picture",
-  "storageKey": null
-};
-return {
+var node = {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
     "name": "DefaultLayoutMapQuery",
     "selections": [
-      {
-        "args": null,
-        "kind": "FragmentSpread",
-        "name": "Nav_query"
-      },
       {
         "alias": null,
         "args": null,
@@ -88,17 +68,9 @@ return {
             "name": "GlobalQueryProvider_viewer"
           },
           {
-            "alias": null,
             "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
-            "name": "user",
-            "plural": false,
-            "selections": [
-              (v0/*: any*/),
-              (v1/*: any*/)
-            ],
-            "storageKey": null
+            "kind": "FragmentSpread",
+            "name": "NavViewer_viewer"
           }
         ],
         "storageKey": null
@@ -129,7 +101,6 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              (v0/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -137,7 +108,20 @@ return {
                 "name": "id",
                 "storageKey": null
               },
-              (v1/*: any*/)
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "lineUsername",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "picture",
+                "storageKey": null
+              }
             ],
             "storageKey": null
           }
@@ -147,15 +131,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a78bf6381e978fe428a9ae3328ddfa5e",
+    "cacheID": "df2dbb87519e58ba8a85a04d63e69266",
     "id": null,
     "metadata": {},
     "name": "DefaultLayoutMapQuery",
     "operationKind": "query",
-    "text": "query DefaultLayoutMapQuery {\n  ...Nav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    user {\n      lineUsername\n      picture\n      id\n    }\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment Nav_query on Query {\n  viewer {\n    user {\n      lineUsername\n      id\n    }\n    ...Nav_viewer\n  }\n}\n\nfragment Nav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n"
+    "text": "query DefaultLayoutMapQuery {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
 };
-})());
 
 function load(environment, variables, fetchPolicy, fetchKey, networkCacheConfig) {
   return ReactRelay.loadQuery(environment, node, convertVariables(variables), {
@@ -200,4 +183,4 @@ export {
   queryRefToObservable ,
   queryRefToPromise ,
 }
-/* node Not a pure module */
+/* react-relay Not a pure module */

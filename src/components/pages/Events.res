@@ -32,12 +32,12 @@ module ActivityDropdownMenu = {
   let ts = Lingui.UtilString.t
   @react.component
   let make = () => {
+    open Dropdown
     let activities = [
       {label: ts`All`, url: "/"},
       {label: ts`Pickleball`, url: "/?activity=pickleball", initials: "P"},
       {label: ts`Badminton`, url: "/?activity=badminton", initials: "B"},
     ]
-    open Dropdown
     <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
       {activities
       ->Array.map(a =>
@@ -85,7 +85,6 @@ let make = () => {
   <WaitForMessages>
     {() => {
       <>
-        <React.Suspense fallback={<Layout.Container> {t`loading events...`} </Layout.Container>}>
           <EventsList
             events=fragmentRefs
             header={<Layout.Container>
@@ -160,7 +159,6 @@ let make = () => {
           />
 
           // <Router.Outlet context={fragmentRefs} />
-        </React.Suspense>
       </>
     }}
   </WaitForMessages>

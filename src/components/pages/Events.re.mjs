@@ -128,89 +128,84 @@ function Events(props) {
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsx(JsxRuntime.Fragment, {
-                              children: Caml_option.some(JsxRuntime.jsx(React.Suspense, {
-                                        children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
-                                                  events: fragmentRefs,
-                                                  header: JsxRuntime.jsx(Layout.Container.make, {
-                                                        children: JsxRuntime.jsxs(Grid.make, {
-                                                              children: [
-                                                                JsxRuntime.jsxs(PageTitle.make, {
-                                                                      children: [
-                                                                        title,
-                                                                        JsxRuntime.jsxs(React$1.Menu, {
-                                                                              children: [
-                                                                                JsxRuntime.jsx(Dropdown.DropdownButton.make, {
-                                                                                      as: Navbar.NavbarItem.make,
-                                                                                      children: JsxRuntime.jsx(Solid.ChevronDownIcon, {})
-                                                                                    }),
-                                                                                JsxRuntime.jsx(Events$ActivityDropdownMenu, {})
-                                                                              ]
-                                                                            }),
-                                                                        Core__Option.getOr(Core__Option.map(Core__Option.flatMap(viewer.user, (function (user) {
-                                                                                        return Core__Array.indexOfOpt([
-                                                                                                    "Hasby Riduan",
-                                                                                                    "hasbyriduan9",
-                                                                                                    "notchrischen",
-                                                                                                    "Matthew",
-                                                                                                    "David Vo",
-                                                                                                    "Kai",
-                                                                                                    "Alex Ng"
-                                                                                                  ], Core__Option.getOr(user.lineUsername, ""));
-                                                                                      })), (function (param) {
-                                                                                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                                                children: [
-                                                                                                  " ",
-                                                                                                  JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                                                        to: "/events/create",
-                                                                                                        children: "+"
-                                                                                                      })
-                                                                                                ]
-                                                                                              });
-                                                                                  })), null)
-                                                                      ]
-                                                                    }),
-                                                                JsxRuntime.jsx("div", {
-                                                                      children: JsxRuntime.jsxs(React$1.Switch.Group, {
-                                                                            as: "div",
-                                                                            className: "flex items-center",
-                                                                            children: [
-                                                                              JsxRuntime.jsx(React$1.Switch, {
-                                                                                    className: Core.cx(shadowFilter ? "bg-indigo-600" : "bg-gray-200", "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"),
-                                                                                    children: JsxRuntime.jsx("span", {
-                                                                                          "aria-hidden": true,
-                                                                                          className: Core.cx(shadowFilter ? "translate-x-5" : "translate-x-0", "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out")
-                                                                                        }),
-                                                                                    checked: shadowFilter,
-                                                                                    onChange: (function (v) {
-                                                                                        if (v) {
-                                                                                          navigate("./?" + searchParams$1.set("shadow", "true").toString(), undefined);
-                                                                                          return ;
-                                                                                        } else {
-                                                                                          return navigate("./?" + searchParams$1.delete("shadow").toString(), undefined);
-                                                                                        }
-                                                                                      })
-                                                                                  }),
-                                                                              JsxRuntime.jsxs(React$1.Switch.Label, {
-                                                                                    as: "span",
-                                                                                    className: "ml-3 text-sm",
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx("span", {
-                                                                                            children: t`include private`,
-                                                                                            className: "font-medium text-gray-900"
-                                                                                          }),
-                                                                                      " "
-                                                                                    ]
-                                                                                  })
-                                                                            ]
-                                                                          })
-                                                                    })
-                                                              ]
-                                                            })
-                                                      })
-                                                })),
-                                        fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                                  children: t`loading events...`
-                                                }))
+                              children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
+                                        events: fragmentRefs,
+                                        header: JsxRuntime.jsx(Layout.Container.make, {
+                                              children: JsxRuntime.jsxs(Grid.make, {
+                                                    children: [
+                                                      JsxRuntime.jsxs(PageTitle.make, {
+                                                            children: [
+                                                              title,
+                                                              JsxRuntime.jsxs(React$1.Menu, {
+                                                                    children: [
+                                                                      JsxRuntime.jsx(Dropdown.DropdownButton.make, {
+                                                                            as: Navbar.NavbarItem.make,
+                                                                            children: JsxRuntime.jsx(Solid.ChevronDownIcon, {})
+                                                                          }),
+                                                                      JsxRuntime.jsx(Events$ActivityDropdownMenu, {})
+                                                                    ]
+                                                                  }),
+                                                              Core__Option.getOr(Core__Option.map(Core__Option.flatMap(viewer.user, (function (user) {
+                                                                              return Core__Array.indexOfOpt([
+                                                                                          "Hasby Riduan",
+                                                                                          "hasbyriduan9",
+                                                                                          "notchrischen",
+                                                                                          "Matthew",
+                                                                                          "David Vo",
+                                                                                          "Kai",
+                                                                                          "Alex Ng"
+                                                                                        ], Core__Option.getOr(user.lineUsername, ""));
+                                                                            })), (function (param) {
+                                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                      children: [
+                                                                                        " ",
+                                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                                              to: "/events/create",
+                                                                                              children: "+"
+                                                                                            })
+                                                                                      ]
+                                                                                    });
+                                                                        })), null)
+                                                            ]
+                                                          }),
+                                                      JsxRuntime.jsx("div", {
+                                                            children: JsxRuntime.jsxs(React$1.Switch.Group, {
+                                                                  as: "div",
+                                                                  className: "flex items-center",
+                                                                  children: [
+                                                                    JsxRuntime.jsx(React$1.Switch, {
+                                                                          className: Core.cx(shadowFilter ? "bg-indigo-600" : "bg-gray-200", "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"),
+                                                                          children: JsxRuntime.jsx("span", {
+                                                                                "aria-hidden": true,
+                                                                                className: Core.cx(shadowFilter ? "translate-x-5" : "translate-x-0", "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out")
+                                                                              }),
+                                                                          checked: shadowFilter,
+                                                                          onChange: (function (v) {
+                                                                              if (v) {
+                                                                                navigate("./?" + searchParams$1.set("shadow", "true").toString(), undefined);
+                                                                                return ;
+                                                                              } else {
+                                                                                return navigate("./?" + searchParams$1.delete("shadow").toString(), undefined);
+                                                                              }
+                                                                            })
+                                                                        }),
+                                                                    JsxRuntime.jsxs(React$1.Switch.Label, {
+                                                                          as: "span",
+                                                                          className: "ml-3 text-sm",
+                                                                          children: [
+                                                                            JsxRuntime.jsx("span", {
+                                                                                  children: t`include private`,
+                                                                                  className: "font-medium text-gray-900"
+                                                                                }),
+                                                                            " "
+                                                                          ]
+                                                                        })
+                                                                  ]
+                                                                })
+                                                          })
+                                                    ]
+                                                  })
+                                            })
                                       }))
                             });
                 })

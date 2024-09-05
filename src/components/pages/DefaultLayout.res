@@ -7,6 +7,7 @@ module Query = %relay(`
     ...Nav_query
     viewer { 
       ... GlobalQueryProvider_viewer
+      ...NavViewer_viewer
     }
   }
 `)

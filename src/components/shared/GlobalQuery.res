@@ -12,7 +12,7 @@ module Fragment = %relay(`
   }
 `)
 
-type query = option<RescriptRelay.fragmentRefs<[#GlobalQueryProvider_viewer]>>
+type query = option<RescriptRelay.fragmentRefs<[#GlobalQueryProvider_viewer | #NavViewer_viewer]>>
 let context: React.Context.t<query> = React.createContext(None)
 module Provider = {
   let make = React.Context.provider(context)

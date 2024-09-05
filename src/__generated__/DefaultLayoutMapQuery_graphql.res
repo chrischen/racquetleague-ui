@@ -4,17 +4,11 @@
 module Types = {
   @@warning("-30")
 
-  type rec response_viewer_user = {
-    lineUsername: option<string>,
-    picture: option<string>,
-  }
-  and response_viewer = {
-    user: option<response_viewer_user>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GlobalQueryProvider_viewer]>,
+  type rec response_viewer = {
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GlobalQueryProvider_viewer | #NavViewer_viewer]>,
   }
   type response = {
     viewer: option<response_viewer>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #Nav_query]>,
   }
   @live
   type rawResponse = response
@@ -45,7 +39,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer":{"f":""},"":{"f":""}}}`
+    json`{"__root":{"viewer":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = ()
@@ -59,7 +53,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer":{"f":""},"":{"f":""}}}`
+    json`{"__root":{"viewer":{"f":""}}}`
   )
   @live
   let responseConverterMap = ()
@@ -87,33 +81,13 @@ type relayOperationNode
 type operationType = RescriptRelay.queryNode<relayOperationNode>
 
 
-let node: operationType = %raw(json` (function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "lineUsername",
-  "storageKey": null
-},
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "picture",
-  "storageKey": null
-};
-return {
+let node: operationType = %raw(json` {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
     "name": "DefaultLayoutMapQuery",
     "selections": [
-      {
-        "args": null,
-        "kind": "FragmentSpread",
-        "name": "Nav_query"
-      },
       {
         "alias": null,
         "args": null,
@@ -128,17 +102,9 @@ return {
             "name": "GlobalQueryProvider_viewer"
           },
           {
-            "alias": null,
             "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
-            "name": "user",
-            "plural": false,
-            "selections": [
-              (v0/*: any*/),
-              (v1/*: any*/)
-            ],
-            "storageKey": null
+            "kind": "FragmentSpread",
+            "name": "NavViewer_viewer"
           }
         ],
         "storageKey": null
@@ -169,7 +135,6 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              (v0/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -177,7 +142,20 @@ return {
                 "name": "id",
                 "storageKey": null
               },
-              (v1/*: any*/)
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "lineUsername",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "picture",
+                "storageKey": null
+              }
             ],
             "storageKey": null
           }
@@ -187,15 +165,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a78bf6381e978fe428a9ae3328ddfa5e",
+    "cacheID": "df2dbb87519e58ba8a85a04d63e69266",
     "id": null,
     "metadata": {},
     "name": "DefaultLayoutMapQuery",
     "operationKind": "query",
-    "text": "query DefaultLayoutMapQuery {\n  ...Nav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    user {\n      lineUsername\n      picture\n      id\n    }\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment Nav_query on Query {\n  viewer {\n    user {\n      lineUsername\n      id\n    }\n    ...Nav_viewer\n  }\n}\n\nfragment Nav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n"
+    "text": "query DefaultLayoutMapQuery {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
-};
-})() `)
+} `)
 
 let load: (
   ~environment: RescriptRelay.Environment.t,

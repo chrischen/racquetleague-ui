@@ -4,9 +4,9 @@
 
 module Query = %relay(`
   query DefaultLayout2Query {
-    ...Nav_query
     viewer { 
       ... GlobalQueryProvider_viewer
+      ...NavViewer_viewer
       user {
         lineUsername
         picture

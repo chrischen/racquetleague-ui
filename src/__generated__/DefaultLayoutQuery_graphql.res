@@ -5,11 +5,10 @@ module Types = {
   @@warning("-30")
 
   type rec response_viewer = {
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GlobalQueryProvider_viewer]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GlobalQueryProvider_viewer | #NavViewer_viewer]>,
   }
   type response = {
     viewer: option<response_viewer>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #Nav_query]>,
   }
   @live
   type rawResponse = response
@@ -40,7 +39,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer":{"f":""},"":{"f":""}}}`
+    json`{"__root":{"viewer":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = ()
@@ -54,7 +53,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer":{"f":""},"":{"f":""}}}`
+    json`{"__root":{"viewer":{"f":""}}}`
   )
   @live
   let responseConverterMap = ()
@@ -90,11 +89,6 @@ let node: operationType = %raw(json` {
     "name": "DefaultLayoutQuery",
     "selections": [
       {
-        "args": null,
-        "kind": "FragmentSpread",
-        "name": "Nav_query"
-      },
-      {
         "alias": null,
         "args": null,
         "concreteType": "Viewer",
@@ -106,6 +100,11 @@ let node: operationType = %raw(json` {
             "args": null,
             "kind": "FragmentSpread",
             "name": "GlobalQueryProvider_viewer"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "NavViewer_viewer"
           }
         ],
         "storageKey": null
@@ -140,6 +139,13 @@ let node: operationType = %raw(json` {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "lineUsername",
                 "storageKey": null
               },
@@ -147,7 +153,7 @@ let node: operationType = %raw(json` {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "id",
+                "name": "picture",
                 "storageKey": null
               }
             ],
@@ -159,12 +165,12 @@ let node: operationType = %raw(json` {
     ]
   },
   "params": {
-    "cacheID": "b2de738650868a8609d9d986a36a8bfd",
+    "cacheID": "0f723f8204f74b3bdb82e778e3a3e92f",
     "id": null,
     "metadata": {},
     "name": "DefaultLayoutQuery",
     "operationKind": "query",
-    "text": "query DefaultLayoutQuery {\n  ...Nav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment Nav_query on Query {\n  viewer {\n    user {\n      lineUsername\n      id\n    }\n    ...Nav_viewer\n  }\n}\n\nfragment Nav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n"
+    "text": "query DefaultLayoutQuery {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
 } `)
 

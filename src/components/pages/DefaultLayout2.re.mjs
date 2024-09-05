@@ -7,6 +7,7 @@ import * as Dropdown from "../catalyst/Dropdown.re.mjs";
 import * as LoginLink from "../molecules/LoginLink.re.mjs";
 import * as LangSwitch from "../molecules/LangSwitch.re.mjs";
 import * as LogoutLink from "../molecules/LogoutLink.re.mjs";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
@@ -90,116 +91,116 @@ function DefaultLayout2$Layout(props) {
   return JsxRuntime.jsx(GlobalQuery.Provider.make, {
               value: gviewer,
               children: JsxRuntime.jsx(StackedLayout.make, {
-                    navbar: JsxRuntime.jsxs(Navbar.make, {
-                          children: [
-                            JsxRuntime.jsx(React.Menu, {
-                                  children: JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
-                                        className: "max-lg:hidden",
-                                        as: Navbar.NavbarItem.make,
-                                        children: [
-                                          JsxRuntime.jsx(Navbar.NavbarLabel.make, {
-                                                children: "Racquet League"
-                                              }),
-                                          JsxRuntime.jsx(Solid.ChevronDownIcon, {})
-                                        ]
-                                      })
-                                }),
-                            JsxRuntime.jsx(Navbar.NavbarDivider.make, {
-                                  className: "max-lg:hidden"
-                                }),
-                            JsxRuntime.jsx(Navbar.NavbarSection.make, {
-                                  className: "max-lg:hidden",
-                                  children: navItems.map(function (param) {
-                                        var label = param.label;
-                                        return JsxRuntime.jsx(Navbar.NavbarItem.make, {
-                                                    children: JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
-                                                          to: param.url,
-                                                          children: label
-                                                        })
-                                                  }, label);
-                                      })
-                                }),
-                            JsxRuntime.jsx(Navbar.NavbarSpacer.make, {}),
-                            JsxRuntime.jsx(Navbar.NavbarSection.make, {
-                                  className: "max-lg:hidden",
-                                  children: JsxRuntime.jsx(LangSwitch.make, {})
-                                }),
-                            JsxRuntime.jsx(Navbar.NavbarSpacer.make, {}),
-                            JsxRuntime.jsxs(Navbar.NavbarSection.make, {
-                                  children: [
-                                    JsxRuntime.jsx(Navbar.NavbarItem.make, {
-                                          href: "/search",
-                                          "aria-label": "Search",
-                                          children: ""
-                                        }),
-                                    JsxRuntime.jsx(Navbar.NavbarItem.make, {
-                                          href: "/inbox",
-                                          "aria-label": "Inbox",
-                                          children: ""
-                                        }),
-                                    Core__Option.getOr(Core__Option.flatMap(viewer, (function (v) {
-                                                return Core__Option.map(v.user, (function (user) {
-                                                              return JsxRuntime.jsxs(React.Menu, {
-                                                                          children: [
-                                                                            JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
-                                                                                  as: Navbar.NavbarItem.make,
-                                                                                  children: [
-                                                                                    Core__Option.getOr(user.lineUsername, ""),
-                                                                                    JsxRuntime.jsx(Avatar.make, {
-                                                                                          src: user.picture,
-                                                                                          square: true
-                                                                                        })
-                                                                                  ]
-                                                                                }),
-                                                                            JsxRuntime.jsx(Dropdown.DropdownMenu.make, {
-                                                                                  className: "min-w-64",
-                                                                                  anchor: "bottom end",
-                                                                                  children: JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-                                                                                        href: "/logout",
-                                                                                        children: JsxRuntime.jsx(Dropdown.DropdownLabel.make, {
-                                                                                              children: JsxRuntime.jsx(LogoutLink.make, {})
+                    navbar: Caml_option.some(JsxRuntime.jsxs(Navbar.make, {
+                              children: [
+                                JsxRuntime.jsx(React.Menu, {
+                                      children: JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
+                                            className: "max-lg:hidden",
+                                            as: Navbar.NavbarItem.make,
+                                            children: [
+                                              JsxRuntime.jsx(Navbar.NavbarLabel.make, {
+                                                    children: "Racquet League"
+                                                  }),
+                                              JsxRuntime.jsx(Solid.ChevronDownIcon, {})
+                                            ]
+                                          })
+                                    }),
+                                JsxRuntime.jsx(Navbar.NavbarDivider.make, {
+                                      className: "max-lg:hidden"
+                                    }),
+                                JsxRuntime.jsx(Navbar.NavbarSection.make, {
+                                      className: "max-lg:hidden",
+                                      children: navItems.map(function (param) {
+                                            var label = param.label;
+                                            return JsxRuntime.jsx(Navbar.NavbarItem.make, {
+                                                        children: JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
+                                                              to: param.url,
+                                                              children: label
+                                                            })
+                                                      }, label);
+                                          })
+                                    }),
+                                JsxRuntime.jsx(Navbar.NavbarSpacer.make, {}),
+                                JsxRuntime.jsx(Navbar.NavbarSection.make, {
+                                      className: "max-lg:hidden",
+                                      children: JsxRuntime.jsx(LangSwitch.make, {})
+                                    }),
+                                JsxRuntime.jsx(Navbar.NavbarSpacer.make, {}),
+                                JsxRuntime.jsxs(Navbar.NavbarSection.make, {
+                                      children: [
+                                        JsxRuntime.jsx(Navbar.NavbarItem.make, {
+                                              href: "/search",
+                                              "aria-label": "Search",
+                                              children: ""
+                                            }),
+                                        JsxRuntime.jsx(Navbar.NavbarItem.make, {
+                                              href: "/inbox",
+                                              "aria-label": "Inbox",
+                                              children: ""
+                                            }),
+                                        Core__Option.getOr(Core__Option.flatMap(viewer, (function (v) {
+                                                    return Core__Option.map(v.user, (function (user) {
+                                                                  return JsxRuntime.jsxs(React.Menu, {
+                                                                              children: [
+                                                                                JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
+                                                                                      as: Navbar.NavbarItem.make,
+                                                                                      children: [
+                                                                                        Core__Option.getOr(user.lineUsername, ""),
+                                                                                        JsxRuntime.jsx(Avatar.make, {
+                                                                                              src: user.picture,
+                                                                                              square: true
                                                                                             })
-                                                                                      })
-                                                                                })
-                                                                          ]
-                                                                        });
-                                                            }));
-                                              })), JsxRuntime.jsx(LoginLink.make, {}))
-                                  ]
-                                })
-                          ]
-                        }),
-                    sidebar: JsxRuntime.jsxs(Sidebar.Sidebar.make, {
-                          children: [
-                            JsxRuntime.jsx(Sidebar.SidebarHeader.make, {
-                                  children: JsxRuntime.jsx(React.Menu, {
-                                        children: JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
-                                              className: "lg:mb-2.5",
-                                              as: Sidebar.SidebarItem.make,
-                                              children: [
-                                                JsxRuntime.jsx(Sidebar.SidebarLabel.make, {
-                                                      children: t`Racquet League`
-                                                    }),
-                                                JsxRuntime.jsx(Solid.ChevronDownIcon, {})
-                                              ]
-                                            })
-                                      })
-                                }),
-                            JsxRuntime.jsx(Sidebar.SidebarBody.make, {
-                                  children: JsxRuntime.jsx(Sidebar.SidebarSection.make, {
-                                        children: navItems.map(function (param) {
-                                              var label = param.label;
-                                              return JsxRuntime.jsx(Sidebar.SidebarItem.make, {
-                                                          children: JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
-                                                                to: param.url,
-                                                                children: label
-                                                              })
-                                                        }, label);
-                                            })
-                                      })
-                                })
-                          ]
-                        }),
+                                                                                      ]
+                                                                                    }),
+                                                                                JsxRuntime.jsx(Dropdown.DropdownMenu.make, {
+                                                                                      className: "min-w-64",
+                                                                                      anchor: "bottom end",
+                                                                                      children: JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                                                                                            href: "/logout",
+                                                                                            children: JsxRuntime.jsx(Dropdown.DropdownLabel.make, {
+                                                                                                  children: JsxRuntime.jsx(LogoutLink.make, {})
+                                                                                                })
+                                                                                          })
+                                                                                    })
+                                                                              ]
+                                                                            });
+                                                                }));
+                                                  })), JsxRuntime.jsx(LoginLink.make, {}))
+                                      ]
+                                    })
+                              ]
+                            })),
+                    sidebar: Caml_option.some(JsxRuntime.jsxs(Sidebar.Sidebar.make, {
+                              children: [
+                                JsxRuntime.jsx(Sidebar.SidebarHeader.make, {
+                                      children: JsxRuntime.jsx(React.Menu, {
+                                            children: JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
+                                                  className: "lg:mb-2.5",
+                                                  as: Sidebar.SidebarItem.make,
+                                                  children: [
+                                                    JsxRuntime.jsx(Sidebar.SidebarLabel.make, {
+                                                          children: t`Racquet League`
+                                                        }),
+                                                    JsxRuntime.jsx(Solid.ChevronDownIcon, {})
+                                                  ]
+                                                })
+                                          })
+                                    }),
+                                JsxRuntime.jsx(Sidebar.SidebarBody.make, {
+                                      children: JsxRuntime.jsx(Sidebar.SidebarSection.make, {
+                                            children: navItems.map(function (param) {
+                                                  var label = param.label;
+                                                  return JsxRuntime.jsx(Sidebar.SidebarItem.make, {
+                                                              children: JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
+                                                                    to: param.url,
+                                                                    children: label
+                                                                  })
+                                                            }, label);
+                                                })
+                                          })
+                                    })
+                              ]
+                            })),
                     children: props.children
                   })
             });

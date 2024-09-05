@@ -10,6 +10,7 @@ module Query = %relay(`
     ...LeagueNav_query
     viewer { 
       ... GlobalQueryProvider_viewer
+      ...NavViewer_viewer
     }
   }
 `)
