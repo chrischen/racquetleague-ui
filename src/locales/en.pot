@@ -1229,3 +1229,39 @@ msgstr ""
 #: src/components/organisms/EventsList.re.mjs:414
 msgid "show"
 msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:91
+msgid "All"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:283
+msgid "My Events"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:62
+msgid "badminton events"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:140
+msgid "include private"
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:65
+msgid "pickleball events"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:114
+msgid "🚫 CANCELED"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:210
+msgid "cancel event"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:302
+msgid "CANCELED"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:199
+msgid "uncancel event"
+msgstr ""

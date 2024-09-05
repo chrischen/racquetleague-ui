@@ -13,7 +13,6 @@ import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
-import * as ReactRouterDom from "react-router-dom";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
@@ -107,7 +106,6 @@ function CreateClubEventsForm(props) {
   var club = use$1(props.club);
   var match$1 = use();
   var commitMutationCreate = match$1[0];
-  ReactRouterDom.useNavigate();
   var match$2 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: {

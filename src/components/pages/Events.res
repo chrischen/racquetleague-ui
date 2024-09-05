@@ -4,7 +4,13 @@ open Lingui.Util
 
 module EventsQuery = %relay(`
   query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
-    ... EventsListFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate, filters: $filters)
+    ... EventsListFragment @arguments(
+      after: $after,
+      first: $first,
+      before: $before,
+      afterDate: $afterDate,
+      filters: $filters
+    )
     ... CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate, filters: $filters)
   }
 `)
@@ -21,6 +27,36 @@ module EventsQuery = %relay(`
 		}
   }
 `)*/
+module ActivityDropdownMenu = {
+  type navItem = {label: string, url: string, initials?: string}
+  let ts = Lingui.UtilString.t
+  @react.component
+  let make = () => {
+    let activities = [
+      {label: ts`All`, url: "/"},
+      {label: ts`Pickleball`, url: "/?activity=pickleball", initials: "P"},
+      {label: ts`Badminton`, url: "/?activity=badminton", initials: "B"},
+    ]
+    open Dropdown
+    <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
+      {activities
+      ->Array.map(a =>
+        <React.Fragment key={a.label}>
+          <DropdownItem href=a.url>
+            {a.initials
+            ->Option.map(initials =>
+              <Avatar slot="icon" initials className="bg-purple-500 text-white" />
+            )
+            ->Option.getOr(React.null)}
+            <DropdownLabel> {a.label->React.string} </DropdownLabel>
+          </DropdownItem>
+          <DropdownDivider />
+        </React.Fragment>
+      )
+      ->React.array}
+    </DropdownMenu>
+  }
+}
 type loaderData = EventsQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
@@ -28,12 +64,23 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 @react.component
 let make = () => {
   open Router
+  open Dropdown
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
   let {fragmentRefs} = EventsQuery.usePreloaded(~queryRef=query.data)
   let (searchParams, _) = Router.useSearchParamsFunc()
   let activityFilter = searchParams->Router.SearchParams.get("activity")
+  let title = switch activityFilter {
+  | Some("pickleball") => t`pickleball events`
+  | Some("badminton") => t`badminton events`
+  | _ => t`all events`
+  }
+  let shadowFilter =
+    searchParams->Router.SearchParams.get("shadow")->Option.map(_ => true)->Option.getOr(false)
   let viewer = GlobalQuery.useViewer()
+  let navigate = Router.useNavigate()
+
+  let searchParams = searchParams->Router.ImmSearchParams.fromSearchParams
 
   <WaitForMessages>
     {() => {
@@ -44,7 +91,13 @@ let make = () => {
             header={<Layout.Container>
               <Grid>
                 <PageTitle>
-                  {t`all events`}
+                  {title}
+                  <Dropdown>
+                    <DropdownButton \"as"={Navbar.NavbarItem.make}>
+                      <HeroIcons.ChevronDownIcon />
+                    </DropdownButton>
+                    <ActivityDropdownMenu />
+                  </Dropdown>
                   {viewer.user
                   ->Option.flatMap(user =>
                     [
@@ -64,45 +117,43 @@ let make = () => {
                   ->Option.getOr(React.null)}
                 </PageTitle>
                 <div>
-                  <Link to={"/"}> {t`all`} </Link>
-                  {" "->React.string}
-                  <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
-                    <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-                  </svg>
-                  {" "->React.string}
-                  <LinkWithOpts
-                    to={
-                      pathname: "",
-                      search: Router.createSearchParams({
-                        "activity": "pickleball",
-                      })->Router.SearchParams.toString,
-                    }>
-                    {t`pickleball`}
-                  </LinkWithOpts>
-                  {" "->React.string}
-                  <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
-                    <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-                  </svg>
-                  {" "->React.string}
-                  <LinkWithOpts
-                    to={
-                      pathname: "",
-                      search: Router.createSearchParams({
-                        "activity": "badminton",
-                      })->Router.SearchParams.toString,
-                    }>
-                    {t`badminton`}
-                  </LinkWithOpts>
-                  {viewer.user
-                  ->Option.map(_ => <>
-                    {" "->React.string}
-                    <svg viewBox="0 0 2 2" className="h-1.5 w-1.5 inline flex-none fill-gray-600">
-                      <circle cx={1->Int.toString} cy={1->Int.toString} r={1->Int.toString} />
-                    </svg>
-                    {" "->React.string}
-                    <Link to={"/events"} relative="path"> {t`my events`} </Link>
-                  </>)
-                  ->Option.getOr(React.null)}
+                  <HeadlessUi.Switch.Group \"as"="div" className="flex items-center">
+                    <HeadlessUi.Switch
+                      checked={shadowFilter}
+                      onChange={v => {
+                        v
+                          ? navigate(
+                              "./?" ++
+                              searchParams
+                              ->Router.ImmSearchParams.set("shadow", "true")
+                              ->Router.ImmSearchParams.toString,
+                              None,
+                            )->ignore
+                          : navigate(
+                              "./?" ++
+                              searchParams
+                              ->Router.ImmSearchParams.delete("shadow")
+                              ->Router.ImmSearchParams.toString,
+                              None,
+                            )
+                      }}
+                      className={Util.cx([
+                        shadowFilter ? "bg-indigo-600" : "bg-gray-200",
+                        "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2",
+                      ])}>
+                      <span
+                        ariaHidden=true
+                        className={Util.cx([
+                          shadowFilter ? "translate-x-5" : "translate-x-0",
+                          "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out",
+                        ])}
+                      />
+                    </HeadlessUi.Switch>
+                    <HeadlessUi.Switch.Label \"as"="span" className="ml-3 text-sm">
+                      <span className="font-medium text-gray-900"> {t`include private`} </span>
+                      {" "->React.string}
+                    </HeadlessUi.Switch.Label>
+                  </HeadlessUi.Switch.Group>
                 </div>
               </Grid>
             </Layout.Container>}
@@ -153,14 +204,15 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
   let activity = url.searchParams->Router.SearchParams.get("activity")
+  let shadow = url.searchParams->Router.SearchParams.get("shadow")->Option.map(_ => true)
   let afterDate =
     url.searchParams
     ->Router.SearchParams.get("afterDate")
     ->Option.map(d => {
       d->Js.Date.fromString->Util.Datetime.fromDate
     })
-    // @TODO: Server Date will mismatch with client date potentially
-    // ->Option.getOr(Js.Date.make()->Util.Datetime.fromDate)
+  // @TODO: Server Date will mismatch with client date potentially
+  // ->Option.getOr(Js.Date.make()->Util.Datetime.fromDate)
 
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
@@ -172,6 +224,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         ?afterDate,
         filters: {
           activitySlug: ?activity,
+          ?shadow,
         },
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,

@@ -98,7 +98,6 @@ let make = (~query, ~club) => {
   let club = Fragment.use(club)
 
   let (commitMutationCreate, _) = Mutation.use()
-  let navigate = Router.useNavigate()
 
   let {register, handleSubmit, formState, setValue, watch} = useFormOfInputs(
     ~options={

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(サインアウト)\",\"tst44n\":\"イベント\",\"GCkpYm\":\"Lineでログイン\",\"d4VXx5\":\"ラケットリーグ\",\"W8fQRI\":\"ランキング\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(サインアウト)\",\"N40H+G\":\"すべて\",\"EC9NiX\":\"バドミントン\",\"tst44n\":\"イベント\",\"GCkpYm\":\"Lineでログイン\",\"dNSt+v\":\"私のイベント\",\"9yWp42\":\"ピックルボール\",\"d4VXx5\":\"ラケットリーグ\",\"W8fQRI\":\"ランキング\"}");

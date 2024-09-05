@@ -3,6 +3,7 @@
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import type React from 'react'
+import { Fragment, forwardRef } from 'react'
 import { Button } from './button'
 import { Link } from './link'
 
@@ -50,13 +51,15 @@ export function DropdownMenu({
   )
 }
 
-export function DropdownItem({
+export const DropdownItem = forwardRef(function DropdownItem({
   className,
   ...props
 }: { className?: string } & (
   | Omit<React.ComponentPropsWithoutRef<'button'>, 'as' | 'className'>
   | Omit<React.ComponentPropsWithoutRef<typeof Link>, 'className'>
-)) {
+),
+  ref: React.ForwardedRef<HTMLAnchorElement | HTMLButtonElement>
+) {
   let classes = clsx(
     className,
     // Base styles
@@ -81,13 +84,15 @@ export function DropdownItem({
   return (
     <Headless.MenuItem>
       {'href' in props ? (
-        <Link {...props} className={classes} />
+        <Headless.CloseButton as={Fragment} ref={ref}>
+          <Link {...props} className={classes} />
+        </Headless.CloseButton>
       ) : (
         <button type="button" {...props} className={classes} />
       )}
     </Headless.MenuItem>
   )
-}
+})
 
 export function DropdownHeader({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   return <div {...props} className={clsx(className, 'col-span-5 px-3.5 pb-1 pt-2.5 sm:px-3')} />

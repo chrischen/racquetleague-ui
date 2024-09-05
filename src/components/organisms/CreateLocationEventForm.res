@@ -179,7 +179,7 @@ let make = (~event=?, ~location, ~query) => {
         activity: event.activity->Option.map(a => a.id)->Option.getOr(""),
         maxRsvps: event.maxRsvps->Option.map(Int.toFloat),
         startDate: event.startDate
-        ->Option.map(d => d->Util.Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:00"))
+        ->Option.map(d => d->Util.Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:mm"))
         ->Option.getOr(""),
         endTime: event.endDate
         ->Option.map(d => d->Util.Datetime.toDate->DateFns.formatWithPattern("HH:mm"))

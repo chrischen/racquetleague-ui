@@ -34,6 +34,9 @@
   },
   "dependencies": {
     "@dck/rescript-date-fns": "^1.0.0",
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/sortable": "^8.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@glennsl/rescript-json-combinators": "^1.4.0",
     "@greenlabs/rescript-react-hook-form": "^7.31.0",
     "@headlessui/react": "^2.1.2",
@@ -56,6 +59,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "@vis.gl/react-google-maps": "^1.0.0",
     "class-variance-authority": "^0.7.0",
+    "classnames": "^2.5.1",
     "clsx": "^2.0.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",

@@ -11,7 +11,7 @@ module Fragment = %relay(`
 @react.component
 let make = (~location) => {
   // let navigate = Router.useNavigate()
-  let {id, coords, address} = Fragment.use(location)
+  let {coords} = Fragment.use(location)
   <GoogleMap.APIProvider apiKey="AIzaSyBFLsnHmBaptaYoFhkXI6uL6peX579N5UY">
     {coords
     ->Option.map(coords => {

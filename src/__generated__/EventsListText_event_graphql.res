@@ -22,6 +22,7 @@ module Types = {
   }
   type fragment = {
     activity: option<fragment_activity>,
+    deleted: option<Util.Datetime.t>,
     details: option<string>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
@@ -39,7 +40,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"startDate":{"c":"Util.Datetime"},"endDate":{"c":"Util.Datetime"}}}`
+    json`{"__root":{"startDate":{"c":"Util.Datetime"},"endDate":{"c":"Util.Datetime"},"deleted":{"c":"Util.Datetime"}}}`
   )
   @live
   let fragmentConverterMap = {
@@ -194,6 +195,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "shadow",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "deleted",
       "storageKey": null
     }
   ],

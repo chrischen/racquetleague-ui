@@ -17,6 +17,7 @@ function UiAction(props) {
               className: Core__Option.getOr(Core__Option.map(props.className, (function (c) {
                           return Core.cx(c, baseClass);
                         })), baseClass),
+              alt: props.alt,
               href: "#",
               onClick: (function (e) {
                   e.preventDefault();

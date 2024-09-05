@@ -6,6 +6,7 @@ import * as Layout from "../shared/Layout.re.mjs";
 import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
+import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as $$MediaList from "../organisms/MediaList.re.mjs";
 import * as ErrorAlert from "../molecules/ErrorAlert.re.mjs";
@@ -17,6 +18,7 @@ import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as Core$1 from "@linaria/core";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as EventLocation from "../organisms/EventLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -27,7 +29,10 @@ import * as EventQuery_graphql from "../../__generated__/EventQuery_graphql.re.m
 import * as ReactHelmetAsync from "react-helmet-async";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as AppContext from "../layouts/appContext";
+import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as EventCancelMutation_graphql from "../../__generated__/EventCancelMutation_graphql.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
+import * as EventUncancelMutation_graphql from "../../__generated__/EventUncancelMutation_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -71,6 +76,46 @@ var EventQuery = {
   retain: retain
 };
 
+var convertVariables$1 = EventCancelMutation_graphql.Internal.convertVariables;
+
+var convertResponse$1 = EventCancelMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = EventCancelMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables$1, EventCancelMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, EventCancelMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var EventCancelMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  commitMutation: commitMutation,
+  use: use$1
+};
+
+var convertVariables$2 = EventUncancelMutation_graphql.Internal.convertVariables;
+
+var convertResponse$2 = EventUncancelMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$2 = EventUncancelMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$2, EventUncancelMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$2, EventUncancelMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var EventUncancelMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$2,
+  convertResponse: convertResponse$2,
+  convertWrapRawResponse: convertWrapRawResponse$2,
+  commitMutation: commitMutation$1,
+  use: use$2
+};
+
 var sessionContext = AppContext.SessionContext;
 
 function $$Event(props) {
@@ -81,6 +126,12 @@ function $$Event(props) {
   var match = usePreloaded(query.data);
   var viewer = GlobalQuery.useViewer();
   var navigate = ReactRouterDom.useNavigate();
+  var match$1 = use$1();
+  var canceling = match$1[1];
+  var cancelEvent = match$1[0];
+  var match$2 = use$2();
+  var uncanceling = match$2[1];
+  var uncancelEvent = match$2[0];
   return Core__Option.getOr(Core__Option.map(match.event, (function ($$event) {
                     var fragmentRefs = $$event.fragmentRefs;
                     var title = $$event.title;
@@ -122,6 +173,52 @@ function $$Event(props) {
                               })), "?");
                     return JsxRuntime.jsx(WaitForMessages.make, {
                                 children: (function () {
+                                    var tmp;
+                                    if (viewerIsAdmin) {
+                                      var match = $$event.deleted;
+                                      tmp = JsxRuntime.jsx(Layout.Container.make, {
+                                            children: JsxRuntime.jsx("div", {
+                                                  children: JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                to: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
+                                                                            return l.id;
+                                                                          })), ""),
+                                                                children: t`edit event`
+                                                              }),
+                                                          match !== undefined ? JsxRuntime.jsx(UiAction.make, {
+                                                                  onClick: (function (param) {
+                                                                      if (!uncanceling) {
+                                                                        uncancelEvent({
+                                                                              eventId: $$event.id
+                                                                            }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                                                        return ;
+                                                                      }
+                                                                      
+                                                                    }),
+                                                                  children: t`uncancel event`
+                                                                }) : JsxRuntime.jsx(UiAction.make, {
+                                                                  onClick: (function (param) {
+                                                                      if (!canceling) {
+                                                                        cancelEvent({
+                                                                              eventId: $$event.id
+                                                                            }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                                                        return ;
+                                                                      }
+                                                                      
+                                                                    }),
+                                                                  children: t`cancel event`
+                                                                })
+                                                        ],
+                                                        className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2 flex flex-row gap-2"
+                                                      }),
+                                                  className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+                                                }),
+                                            className: "py-4"
+                                          });
+                                    } else {
+                                      tmp = null;
+                                    }
                                     return JsxRuntime.jsxs("main", {
                                                 children: [
                                                   JsxRuntime.jsxs(ReactHelmetAsync.Helmet, {
@@ -175,25 +272,39 @@ function $$Event(props) {
                                                                                           }),
                                                                                       JsxRuntime.jsxs("div", {
                                                                                             children: [
-                                                                                              Core__Option.getOr(Core__Option.flatMap(activity, (function (a) {
-                                                                                                          return Core__Option.map(a.name, (function (name) {
-                                                                                                                        return Core.i18n._(name);
-                                                                                                                      }));
-                                                                                                        })), null),
-                                                                                              " / ",
-                                                                                              Core__Option.getOr(Core__Option.map(title, (function (prim) {
-                                                                                                          return prim;
-                                                                                                        })), null),
-                                                                                              Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
-                                                                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                                                                      children: [
-                                                                                                                        " / ",
-                                                                                                                        duration
-                                                                                                                      ]
+                                                                                              JsxRuntime.jsxs("span", {
+                                                                                                    children: [
+                                                                                                      Core__Option.getOr(Core__Option.flatMap(activity, (function (a) {
+                                                                                                                  return Core__Option.map(a.name, (function (name) {
+                                                                                                                                return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                                            to: "/?activity=" + Core__Option.getOr(a.slug, ""),
+                                                                                                                                            children: Core.i18n._(name)
+                                                                                                                                          });
+                                                                                                                              }));
+                                                                                                                })), null),
+                                                                                                      " / ",
+                                                                                                      Core__Option.getOr(Core__Option.map(title, (function (prim) {
+                                                                                                                  return prim;
+                                                                                                                })), null),
+                                                                                                      Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
+                                                                                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                                              children: [
+                                                                                                                                " / ",
+                                                                                                                                duration
+                                                                                                                              ]
+                                                                                                                            });
+                                                                                                                })), null)
+                                                                                                    ],
+                                                                                                    className: Core$1.cx(Core__Option.isSome($$event.deleted) ? "line-through" : "")
+                                                                                                  }),
+                                                                                              Core__Option.getOr(Core__Option.map($$event.deleted, (function (param) {
+                                                                                                          return JsxRuntime.jsx("span", {
+                                                                                                                      children: t`CANCELED`,
+                                                                                                                      className: "ml-2"
                                                                                                                     });
                                                                                                         })), null)
                                                                                             ],
-                                                                                            className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
+                                                                                            className: Core$1.cx("mt-1 text-2xl font-semibold leading-6 text-gray-900")
                                                                                           }),
                                                                                       Core__Option.getOr(Core__Option.flatMap($$event.club, (function (club) {
                                                                                                   return Core__Option.map(club.name, (function (name) {
@@ -224,21 +335,7 @@ function $$Event(props) {
                                                         ],
                                                         className: "relative isolate pt-4"
                                                       }),
-                                                  viewerIsAdmin ? JsxRuntime.jsx(Layout.Container.make, {
-                                                          children: JsxRuntime.jsx("div", {
-                                                                children: JsxRuntime.jsx("div", {
-                                                                      children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                            to: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
-                                                                                        return l.id;
-                                                                                      })), ""),
-                                                                            children: t`edit event`
-                                                                          }),
-                                                                      className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2"
-                                                                    }),
-                                                                className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-                                                              }),
-                                                          className: "py-4"
-                                                        }) : null,
+                                                  tmp,
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsx("div", {
                                                               children: JsxRuntime.jsx("div", {
@@ -322,7 +419,11 @@ function $$Event(props) {
                                                                                                                         return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                                                                                                     children: [
                                                                                                                                       JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                                                                                                            value: Util.Datetime.toDate(startDate)
+                                                                                                                                            value: Util.Datetime.toDate(startDate),
+                                                                                                                                            weekday: "long",
+                                                                                                                                            year: "2-digit",
+                                                                                                                                            month: "numeric",
+                                                                                                                                            day: "2-digit"
                                                                                                                                           }),
                                                                                                                                       " ",
                                                                                                                                       JsxRuntime.jsx(ReactIntl.FormattedTime, {
@@ -468,6 +569,8 @@ var Component = $$Event;
 
 export {
   EventQuery ,
+  EventCancelMutation ,
+  EventUncancelMutation ,
   sessionContext ,
   make ,
   $$default as default,

@@ -62,7 +62,7 @@ module MenuButton = {
   external make: (~className: string=?, ~children: React.element) => React.element = "MenuButton"
 }
 module MenuItem = {
-  type event = {focus: bool}
+  type event = {active: bool, focus: bool}
   type cb = event => React.element
   @module("@headlessui/react") @react.component
   external make: (~key: string=?, ~className: string=?, ~children: cb) => React.element = "MenuItem"

@@ -8,7 +8,8 @@
 
 import * as Headless from '@headlessui/react'
 import React, { forwardRef } from 'react'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
+import { Router_NavLink_make as NavLink } from '../shared/LangProvider.gen'
 
 export const Link = forwardRef(function Link(
   props: { href: string } & React.ComponentPropsWithoutRef<'a'>,

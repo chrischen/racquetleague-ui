@@ -128,7 +128,7 @@ function CreateLocationEventForm(props) {
                                         return prim;
                                       }))),
                             startDate: Core__Option.getOr(Core__Option.map($$event.startDate, (function (d) {
-                                        return DateFns.format(Util.Datetime.toDate(d), "yyyy-MM-dd'T'HH:00");
+                                        return DateFns.format(Util.Datetime.toDate(d), "yyyy-MM-dd'T'HH:mm");
                                       })), ""),
                             endTime: Core__Option.getOr(Core__Option.map($$event.endDate, (function (d) {
                                         return DateFns.format(Util.Datetime.toDate(d), "HH:mm");

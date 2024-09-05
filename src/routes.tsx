@@ -17,6 +17,7 @@ export const routes: RouteObject[] = [
     HydrateFallbackElement: <>Loading Fallback...</>,
     children: [
       {
+        // path: ":activitySlug",
         path: "",
         // Declaring handle allows the server to pull the scripts needed based on
         // the entrypoint to avoid waterfall loading of dependencies
@@ -31,11 +32,11 @@ export const routes: RouteObject[] = [
             handle: "src/components/pages/Events.gen.tsx",
             HydrateFallbackElement: <>Loading Fallback...</>
           },
-              {
-                path: "events",
-                lazy: () => import("./components/routes/ViewerEventsRoute.gen"),
-                handle: "src/components/routes/ViewerEventsRoute.gen.tsx",
-              },
+          {
+            path: "events",
+            lazy: () => import("./components/routes/ViewerEventsRoute.gen"),
+            handle: "src/components/routes/ViewerEventsRoute.gen.tsx",
+          },
           {
             path: "locations/:locationId",
             lazy: () => import("./components/routes/LocationRoute.gen"),

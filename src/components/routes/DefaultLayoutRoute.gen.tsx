@@ -15,7 +15,7 @@ import type {props as DefaultLayoutMap_props} from '../../../src/components/page
 
 import type {queryRef as DefaultLayoutMapQuery_graphql_queryRef} from '../../../src/__generated__/DefaultLayoutMapQuery_graphql.gen';
 
-export type params = { readonly lang: (undefined | string) };
+export type params = { readonly activitySlug: string; readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
   readonly context: RelayEnv_context; 

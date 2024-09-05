@@ -225,17 +225,17 @@ let make = (
       let score =
         winningSide == Left ? [data.scoreLeft, data.scoreRight] : [data.scoreRight, data.scoreLeft]
 
-    let submitted = () => {
-      setValue(ScoreLeft, Value(0.))
-      setValue(ScoreRight, Value(0.))
-      setSubmitting(_ => false)
-      onComplete
-      ->Option.map(f => {
-        let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
-        f(match)
-      })
-      ->ignore
-    }
+      let submitted = () => {
+        setValue(ScoreLeft, Value(0.))
+        setValue(ScoreRight, Value(0.))
+        setSubmitting(_ => false)
+        onComplete
+        ->Option.map(f => {
+          let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
+          f(match)
+        })
+        ->ignore
+      }
       rated
         ? activity.slug
           ->Option.map(slug => {
@@ -323,6 +323,7 @@ let make = (
     | _ => Error(TwoPlayersRequired)
     }
   )
+
   let submitMatch =
     <div className="grid col-span-1 items-start gap-2 md:gap-4">
       {<>

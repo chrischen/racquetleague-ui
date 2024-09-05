@@ -17,7 +17,17 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:92
+#: src/components/pages/DefaultLayoutMap.re.mjs:91
+msgid "All"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:100
+#: src/components/pages/DefaultLayoutMap.re.mjs:153
+msgid "Badminton"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:231
+#: src/components/pages/DefaultLayoutMap.re.mjs:337
 msgid "Events"
 msgstr ""
 
@@ -26,11 +36,21 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:116
-#: src/components/pages/DefaultLayoutMap.re.mjs:190
+#: src/components/pages/DefaultLayoutMap.re.mjs:292
+msgid "My Events"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:95
+#: src/components/pages/DefaultLayoutMap.re.mjs:148
+msgid "Pickleball"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:209
+#: src/components/pages/DefaultLayoutMap.re.mjs:319
 msgid "Racquet League"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:96
+#: src/components/pages/DefaultLayoutMap.re.mjs:250
+#: src/components/pages/DefaultLayoutMap.re.mjs:356
 msgid "Rankings"
 msgstr ""

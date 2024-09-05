@@ -33,13 +33,13 @@ let navItems = [
 ]
 module Layout = {
   @react.component
-  let make = (~children: React.element, ~query, ~viewer: option<Query.Types.response_viewer>) => {
+  let make = (~children: React.element, ~viewer: option<Query.Types.response_viewer>) => {
     open Lingui.Util
 
     open LangProvider.Router
     open Dropdown
     open Sidebar
-    open Navbar
+    open! Navbar
     // let query = useLoaderData()
     // <UserProvider query={fragmentRefs}>
     let gviewer = viewer->Option.map(v => v.fragmentRefs)
@@ -174,10 +174,10 @@ let make = () => {
   // let paramsJs = useParams()
 
   // let lang = paramsJs->RouteParams.parse->Belt.Result.mapWithDefault(None, ({lang}) => lang)
-  let {viewer, fragmentRefs} = Query.usePreloaded(~queryRef=query.data)
+  let {viewer} = Query.usePreloaded(~queryRef=query.data)
 
   // <Router.Await2 resolve=query.i18nLoaders errorElement={"Error"->React.string}>
-  <Layout viewer={viewer} query={fragmentRefs}>
+  <Layout viewer={viewer}>
     <Router.Outlet />
   </Layout>
   // </Router.Await2>

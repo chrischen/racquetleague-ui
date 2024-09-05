@@ -11,6 +11,7 @@ module EventQuery = %relay(`
       title
       details
       activity {
+        id
         name
         slug
         ...SubscribeActivity_activity
@@ -31,29 +32,38 @@ module EventQuery = %relay(`
         name
         slug
       }
+      deleted
       ...EventRsvps_event @arguments(after: $after, first: $first, before: $before)
     }
   }
 `)
 
-// module EventJoinMutation = %relay(`
-//  mutation EventJoinMutation(
-//     $connections: [ID!]!
-//     $id: ID!
-//   ) {
-//     joinEvent(eventId: $id) {
-//       edge @appendEdge(connections: $connections) {
-//         node {
-//           id
-//           user {
-//             id
-//             lineUsername
-//           }
-//         }
-//       }
-//     }
-//   }
-// `)
+module EventCancelMutation = %relay(`
+ mutation EventCancelMutation(
+    $eventId: ID!
+  ) {
+    cancelEvent(eventId: $eventId) {
+      event {
+        id
+        listed
+        deleted
+      }
+    }
+  }
+`)
+module EventUncancelMutation = %relay(`
+ mutation EventUncancelMutation(
+    $eventId: ID!
+  ) {
+    uncancelEvent(eventId: $eventId) {
+      event {
+        id
+        listed
+        deleted
+      }
+    }
+  }
+`)
 // module EventLeaveMutation = %relay(`
 //  mutation EventLeaveMutation(
 //     $connections: [ID!]!
@@ -89,6 +99,9 @@ let make = () => {
   let {event} = EventQuery.usePreloaded(~queryRef=query.data)
   let viewer = GlobalQuery.useViewer()
   let navigate = Router.useNavigate()
+
+  let (cancelEvent, canceling) = EventCancelMutation.use()
+  let (uncancelEvent, uncanceling) = EventUncancelMutation.use()
 
   event
   ->Option.map(event => {
@@ -194,18 +207,29 @@ let make = () => {
                         ->Option.getOr(React.null)}
                       </span>
                     </div>
-                    <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900">
+                    <div
+                      className={Util.cx(["mt-1 text-2xl font-semibold leading-6 text-gray-900"])}>
                       // <PageTitle>
-                      {activity
-                      ->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))
-                      ->Option.getOr(React.null)}
-                      {" / "->React.string}
-                      {title->Option.map(React.string)->Option.getOr(React.null)}
-                      {duration
-                      ->Option.map(duration => <>
+                      <span
+                        className={Util.cx([event.deleted->Option.isSome ? "line-through" : ""])}>
+                        {activity
+                        ->Option.flatMap(a =>
+                          a.name->Option.map(
+                            name => <Link to={"/?activity=" ++ a.slug->Option.getOr("")}> {td(name)->React.string} </Link>,
+                          )
+                        )
+                        ->Option.getOr(React.null)}
                         {" / "->React.string}
-                        {duration->React.string}
-                      </>)
+                        {title->Option.map(React.string)->Option.getOr(React.null)}
+                        {duration
+                        ->Option.map(duration => <>
+                          {" / "->React.string}
+                          {duration->React.string}
+                        </>)
+                        ->Option.getOr(React.null)}
+                      </span>
+                      {event.deleted
+                      ->Option.map(_ => <span className="ml-2"> {t`CANCELED`} </span>)
                       ->Option.getOr(React.null)}
 
                       // </PageTitle>
@@ -242,51 +266,47 @@ let make = () => {
                   //   className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   //   {"Send"->React.string}
                   // </a>
-                  // <Menu as="div" className="relative sm:hidden">
-                  //   <Menu.Button className="-m-3 block p-3">
-                  //     <span className="sr-only">More</span>
-                  //     <EllipsisVerticalIcon className="h-5 w-5 text-gray-500" aria-hidden="true" />
-                  //   </Menu.Button>
-                  //
+                  // <HeadlessUi.Menu \"as"="div" className="relative sm:hidden">
+                  //   <HeadlessUi.MenuButton className="-m-3 block p-3">
+                  //     <span className="sr-only"> {t`More`} </span>
+                  //     //   // <EllipsisVerticalIcon className="h-5 w-5 text-gray-500" aria-hidden="true" />
+                  //     {"asdf"->React.string}
+                  //   </HeadlessUi.MenuButton>
                   //   <Transition
-                  //     as={Fragment}
+                  //     \"as"={React.Fragment.make}
                   //     enter="transition ease-out duration-100"
                   //     enterFrom="transform opacity-0 scale-95"
                   //     enterTo="transform opacity-100 scale-100"
                   //     leave="transition ease-in duration-75"
                   //     leaveFrom="transform opacity-100 scale-100"
-                  //     leaveTo="transform opacity-0 scale-95"
-                  //   >
-                  //     <Menu.Items className="absolute right-0 z-10 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
-                  //       <Menu.Item>
-                  //         {({ active }) => (
+                  //     leaveTo="transform opacity-0 scale-95">
+                  //     <HeadlessUi.MenuItems
+                  //       className="absolute right-0 z-10 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                  //       <HeadlessUi.MenuItem>
+                  //         {({active}) =>
                   //           <button
                   //             type_="button"
-                  //             className={classNames(
-                  //               active ? 'bg-gray-50' : '',
-                  //               'block w-full px-3 py-1 text-left text-sm leading-6 text-gray-900'
-                  //             )}
-                  //           >
-                  //             Copy URL
-                  //           </button>
-                  //         )}
-                  //       </Menu.Item>
-                  //       <Menu.Item>
-                  //         {({ active }) => (
+                  //             className={Util.cx([
+                  //               active ? "bg-gray-50" : "",
+                  //               "block w-full px-3 py-1 text-left text-sm leading-6 text-gray-900",
+                  //             ])}>
+                  //             {t`Copy URL`}
+                  //           </button>}
+                  //       </HeadlessUi.MenuItem>
+                  //       <HeadlessUi.MenuItem>
+                  //         {({active}) =>
                   //           <a
                   //             href="#"
-                  //             className={classNames(
-                  //               active ? 'bg-gray-50' : '',
-                  //               'block px-3 py-1 text-sm leading-6 text-gray-900'
-                  //             )}
-                  //           >
-                  //             Edit
-                  //           </a>
-                  //         )}
-                  //       </Menu.Item>
-                  //     </Menu.Items>
+                  //             className={Util.cx([
+                  //               active ? "bg-gray-50" : "",
+                  //               "block px-3 py-1 text-sm leading-6 text-gray-900",
+                  //             ])}>
+                  //             {t`Edit`}
+                  //           </a>}
+                  //       </HeadlessUi.MenuItem>
+                  //     </HeadlessUi.MenuItems>
                   //   </Transition>
-                  // </Menu>
+                  // </HeadlessUi.Menu>
                 </div>
               </div>
             </Layout.Container>
@@ -297,7 +317,7 @@ let make = () => {
               <div
                 className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 <div
-                  className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
+                  className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2 flex flex-row gap-2">
                   <Link
                     to={"/events/update/" ++
                     event.id ++
@@ -305,6 +325,20 @@ let make = () => {
                     event.location->Option.map(l => l.id)->Option.getOr("")}>
                     {t`edit event`}
                   </Link>
+                  {switch event.deleted {
+                  | Some(_) =>
+                    <UiAction
+                      onClick={_ =>
+                        !uncanceling ? uncancelEvent(~variables={eventId: event.id})->ignore : ()}>
+                      {t`uncancel event`}
+                    </UiAction>
+                  | None =>
+                    <UiAction
+                      onClick={_ =>
+                        !canceling ? cancelEvent(~variables={eventId: event.id})->ignore : ()}>
+                      {t`cancel event`}
+                    </UiAction>
+                  }}
                 </div>
               </div>
             </Layout.Container>
@@ -382,7 +416,13 @@ let make = () => {
                       ->Option.flatMap(startDate =>
                         event.endDate->Option.map(
                           endDate => <>
-                            <ReactIntl.FormattedDate value={startDate->Util.Datetime.toDate} />
+                            <ReactIntl.FormattedDate
+                              day=#"2-digit"
+                              month=#numeric
+                              year={#"2-digit"}
+                              weekday=#long
+                              value={startDate->Util.Datetime.toDate}
+                            />
                             {" "->React.string}
                             <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
                             {" -> "->React.string}

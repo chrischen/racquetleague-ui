@@ -146,6 +146,7 @@ type Error {
 type Event implements Node {
   activity: Activity
   club: Club
+  deleted: Datetime
   details: String
   endDate: Datetime
   id: ID!
@@ -184,6 +185,7 @@ input EventFilters {
   activitySlug: String
   clubSlug: String
   locationId: ID
+  shadow: Boolean
   userId: ID
   viewer: Boolean
 }
@@ -300,6 +302,7 @@ type Media {
 }
 
 type Mutation {
+  cancelEvent(eventId: ID!): MutationResult2!
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   createClub(input: CreateClubInput!): CreateClubResult!
   createEvent(input: CreateEventInput!): MutationResult2!
@@ -310,6 +313,7 @@ type Mutation {
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
+  uncancelEvent(eventId: ID!): MutationResult2!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
 }
 

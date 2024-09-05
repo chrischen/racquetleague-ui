@@ -16,23 +16,28 @@ module XMarkIcon = {
 }
 module ChevronRightIcon = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ChevronRightIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ChevronRightIcon"
 }
 module ChevronLeftIcon = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ChevronLeftIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ChevronLeftIcon"
 }
 module ChevronDownIcon = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ChevronDownIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ChevronDownIcon"
 }
 module ChevronUpIcon = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ChevronUpIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ChevronUpIcon"
 }
 module CloudArrowUpIcon = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CloudArrowUpIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "CloudArrowUpIcon"
 }
 
 module CheckIcon = {
@@ -46,7 +51,8 @@ module CalendarIcon = {
 
 module ExclamationTriangleIcon = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ExclamationTriangleIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ExclamationTriangleIcon"
 }
 module UserPlus = {
   @module("@heroicons/react/24/solid") @react.component
@@ -58,11 +64,13 @@ module UserPlusOutline = {
 }
 module Cog6Tooth = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Cog6ToothIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Cog6ToothIcon"
 }
 module Cog6ToothOutline = {
   @module("@heroicons/react/24/outline") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Cog6ToothIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Cog6ToothIcon"
 }
 module UsersOutline = {
   @module("@heroicons/react/24/outline") @react.component
@@ -74,18 +82,32 @@ module Users = {
 }
 module QueueList = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "QueueListIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "QueueListIcon"
 }
 module TableCells = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "TableCellsIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "TableCellsIcon"
 }
 
 module LockClosed = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "LockClosedIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "LockClosedIcon"
 }
 module LockClosedOutline = {
   @module("@heroicons/react/24/outline") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "LockClosedIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "LockClosedIcon"
+}
+module DocumentText = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "DocumentTextIcon"
+}
+module DocumentTextOutline = {
+  @module("@heroicons/react/24/outline") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "DocumentTextIcon"
 }

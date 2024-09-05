@@ -7,12 +7,12 @@ module NavbarDivider = {
 }
 module NavbarSection = {
   @module("./navbar.tsx") @react.component
-  external make: (~className: string=?, ~children: React.element) => React.element =
-    "NavbarSection"
+  external make: (~className: string=?, ~children: React.element) => React.element = "NavbarSection"
 }
 module NavbarItem = {
   @module("./navbar.tsx") @react.component
   external make: (
+    ~className: string=?,
     ~href: string=?,
     ~\"aria-label": string=?,
     ~children: React.element,
@@ -21,12 +21,10 @@ module NavbarItem = {
 
 module NavbarLabel = {
   @module("./navbar.tsx") @react.component
-  external make: (~className: string=?, ~children: React.element) => React.element =
-    "NavbarLabel"
+  external make: (~className: string=?, ~children: React.element) => React.element = "NavbarLabel"
 }
 
 module NavbarSpacer = {
   @module("./navbar.tsx") @react.component
-  external make: (~className: string=?) => React.element =
-    "NavbarSpacer"
+  external make: (~className: string=?) => React.element = "NavbarSpacer"
 }

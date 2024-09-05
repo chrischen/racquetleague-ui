@@ -5,6 +5,7 @@ module Types = {
   @@warning("-30")
 
   type rec response_event_activity = {
+    @live id: string,
     name: option<string>,
     slug: option<string>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #SubscribeActivity_activity]>,
@@ -23,6 +24,7 @@ module Types = {
     @live __id: RescriptRelay.dataId,
     activity: option<response_event_activity>,
     club: option<response_event_club>,
+    deleted: option<Util.Datetime.t>,
     details: option<string>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
@@ -87,7 +89,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"event_startDate":{"c":"Util.Datetime"},"event_location":{"f":""},"event_endDate":{"c":"Util.Datetime"},"event_activity":{"f":""},"event":{"f":""}}}`
+    json`{"__root":{"event_startDate":{"c":"Util.Datetime"},"event_location":{"f":""},"event_endDate":{"c":"Util.Datetime"},"event_deleted":{"c":"Util.Datetime"},"event_activity":{"f":""},"event":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = {
@@ -103,7 +105,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"event_startDate":{"c":"Util.Datetime"},"event_location":{"f":""},"event_endDate":{"c":"Util.Datetime"},"event_activity":{"f":""},"event":{"f":""}}}`
+    json`{"__root":{"event_startDate":{"c":"Util.Datetime"},"event_location":{"f":""},"event_endDate":{"c":"Util.Datetime"},"event_deleted":{"c":"Util.Datetime"},"event_activity":{"f":""},"event":{"f":""}}}`
   )
   @live
   let responseConverterMap = {
@@ -231,7 +233,14 @@ v14 = {
   "name": "shadow",
   "storageKey": null
 },
-v15 = [
+v15 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "deleted",
+  "storageKey": null
+},
+v16 = [
   {
     "kind": "Variable",
     "name": "after",
@@ -248,7 +257,7 @@ v15 = [
     "variableName": "first"
   }
 ],
-v16 = {
+v17 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -291,6 +300,7 @@ return {
             "name": "activity",
             "plural": false,
             "selections": [
+              (v5/*: any*/),
               (v8/*: any*/),
               (v9/*: any*/),
               {
@@ -343,12 +353,13 @@ return {
             ],
             "storageKey": null
           },
+          (v15/*: any*/),
           {
-            "args": (v15/*: any*/),
+            "args": (v16/*: any*/),
             "kind": "FragmentSpread",
             "name": "EventRsvps_event"
           },
-          (v16/*: any*/)
+          (v17/*: any*/)
         ],
         "storageKey": null
       }
@@ -386,9 +397,9 @@ return {
             "name": "activity",
             "plural": false,
             "selections": [
+              (v5/*: any*/),
               (v8/*: any*/),
               (v9/*: any*/),
-              (v5/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -471,6 +482,7 @@ return {
             ],
             "storageKey": null
           },
+          (v15/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -480,7 +492,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v15/*: any*/),
+            "args": (v16/*: any*/),
             "concreteType": "EventRsvpConnection",
             "kind": "LinkedField",
             "name": "rsvps",
@@ -605,26 +617,26 @@ return {
           },
           {
             "alias": null,
-            "args": (v15/*: any*/),
+            "args": (v16/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "EventRsvps_event_rsvps",
             "kind": "LinkedHandle",
             "name": "rsvps"
           },
-          (v16/*: any*/)
+          (v17/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "e74ce1387323377554d8a16aee9908f7",
+    "cacheID": "6778ed7b2afe8327f01f10be347ddc18",
     "id": null,
     "metadata": {},
     "name": "EventQuery",
     "operationKind": "query",
-    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    id\n    title\n    details\n    activity {\n      name\n      slug\n      ...SubscribeActivity_activity\n      id\n    }\n    viewerIsAdmin\n    viewerHasRsvp\n    startDate\n    endDate\n    shadow\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    club {\n      name\n      slug\n      id\n    }\n    ...EventRsvps_event_4uAqg1\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating {\n          ordinal\n          id\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    id\n    title\n    url\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
+    "text": "query EventQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: $eventId) {\n    id\n    title\n    details\n    activity {\n      id\n      name\n      slug\n      ...SubscribeActivity_activity\n    }\n    viewerIsAdmin\n    viewerHasRsvp\n    startDate\n    endDate\n    shadow\n    location {\n      id\n      name\n      details\n      ...MediaList_location\n      ...EventLocation_location\n    }\n    club {\n      name\n      slug\n      id\n    }\n    deleted\n    ...EventRsvps_event_4uAqg1\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          ...EventRsvpUser_user\n        }\n        rating {\n          ordinal\n          id\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment MediaList_location on Location {\n  media {\n    id\n    title\n    url\n  }\n}\n\nfragment SubscribeActivity_activity on Activity {\n  id\n  name\n  sub {\n    id\n  }\n}\n"
   }
 };
 })() `)

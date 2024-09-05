@@ -114,12 +114,12 @@ let make = (
   ~consumedPlayers: Set.t<string>,
   ~togglePlayer: Rating.player => unit,
   ~matches: array<Rating.match>,
+  // ~setMatches: (array<Rating.match> => array<Rating.match>) => unit,
   ~activity,
   ~minRating,
   ~maxRating,
-  ~dequeueMatch,
-  ~updatePlayCounts,
-  ~updateSessionPlayerRatings,
+  ~handleMatchCanceled,
+  ~handleMatchComplete,
   ~onClose,
   ~selectAll: unit => unit,
   ~breakCount: int,
@@ -129,6 +129,7 @@ let make = (
   let ts = Lingui.UtilString.t
   let (view, setView) = React.useState(() => Matches)
   let (showMatchSelector, setShowMatchSelector) = React.useState(() => false)
+
   <div className="w-full h-full fixed top-0 left-0 bg-black p-3">
     <div className="flex h-[34px] justify-between items-center">
       <UiAction
@@ -178,7 +179,8 @@ let make = (
         ->Array.join(", ")}
       />
     </div>
-    <div className="w-full h-[calc(100vh-56px-68px)] fixed top-[56px] left-0 overflow-scroll pb-32 px-3">
+    <div
+      className="w-full h-[calc(100vh-56px-68px)] fixed top-[56px] left-0 overflow-scroll pb-32 px-3">
       <main role="main" className="w-full h-full">
         {switch view {
         | Queue =>
@@ -197,7 +199,7 @@ let make = (
         | Matches =>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {matches
-            ->Array.mapWithIndex((match, i) =>
+            ->Array.mapWithIndex((match, i) => {
               <div className="flex flex-col rounded shadow">
                 <SubmitMatch
                   key={i->Int.toString}
@@ -209,17 +211,11 @@ let make = (
                   // updatePlayCounts(match)
                   // dequeueMatch(i)
                   // }}
-                  onDelete={() => dequeueMatch(i)}
-                  onComplete={match => {
-                    dequeueMatch(i)
-                    updatePlayCounts(match)
-
-                    let match = match->Rating.Match.rate
-                    updateSessionPlayerRatings(match->Array.flatMap(x => x))
-                  }}
+                  onDelete={() => handleMatchCanceled(i)}
+                  onComplete={match => match->handleMatchComplete(i)}
                 />
               </div>
-            )
+            })
             ->React.array}
           </div>
         }}

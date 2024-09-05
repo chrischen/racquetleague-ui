@@ -1141,6 +1141,42 @@ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 msgid "show"
 msgstr "表示"
 
+#: src/components/pages/DefaultLayoutMap.re.mjs:91
+msgid "All"
+msgstr "すべて"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:283
+msgid "My Events"
+msgstr "私のイベント"
+
+#: src/components/pages/Events.re.mjs:62
+msgid "badminton events"
+msgstr "バドミントンイベント"
+
+#: src/components/pages/Events.re.mjs:140
+msgid "include private"
+msgstr "プライベートを含める"
+
+#: src/components/pages/Events.re.mjs:65
+msgid "pickleball events"
+msgstr "ピクルボールイベント"
+
+#: src/components/organisms/EventsList.re.mjs:114
+msgid "🚫 CANCELED"
+msgstr "🚫 キャンセル"
+
+#: src/components/pages/Event.re.mjs:210
+msgid "cancel event"
+msgstr "イベントをキャンセル"
+
+#: src/components/pages/Event.re.mjs:302
+msgid "CANCELED"
+msgstr "キャンセル"
+
+#: src/components/pages/Event.re.mjs:199
+msgid "uncancel event"
+msgstr "イベントをキャンセル解除"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

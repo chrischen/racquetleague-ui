@@ -62,6 +62,7 @@ module ItemFragment = %relay(`
     startDate
     endDate
     shadow
+    deleted
   }
 `)
 
@@ -88,6 +89,7 @@ module TextItemFragment = %relay(`
     startDate
     endDate
     shadow
+    deleted
   }
 `)
 
@@ -97,9 +99,16 @@ module TextEventItem = {
   let ts = Lingui.UtilString.t
 
   let make = (~event) => {
-    let {id, location, details, rsvps, startDate, maxRsvps, endDate, shadow} = TextItemFragment.use(
-      event,
-    )
+    let {
+      id,
+      location,
+      details,
+      rsvps,
+      startDate,
+      maxRsvps,
+      endDate,
+      deleted,
+    } = TextItemFragment.use(event)
     let {i18n: {locale}} = Lingui.useLingui()
     let intl = ReactIntl.useIntl()
 
@@ -143,6 +152,7 @@ module TextEventItem = {
         )
       }
     })
+    let canceled = deleted->Option.isSome ? " " ++ ts`🚫 CANCELED` : "NOT CANCELED"
 
     // Date string in local time
 
@@ -166,6 +176,7 @@ module TextEventItem = {
     ->Option.map(duration => " (" ++ duration ++ ") ")
     ->Option.getOr("") ++
     spaceAvailable ++
+    canceled ++
     "\n" ++
     "📍 " ++
     location
@@ -232,6 +243,7 @@ module EventItem = {
       endDate,
       viewerRsvpStatus,
       shadow,
+      deleted,
     } = ItemFragment.use(event)
     let playersCount =
       rsvps
@@ -283,7 +295,8 @@ module EventItem = {
           <h2 className="min-w-0 text-sm font-semibold leading-6 text-black w-full">
             <Link to={"/events/" ++ id} relative="path" className="">
               <div className="flex gap-x-2">
-                <span className="truncate">
+                <span
+                  className={Util.cx(["truncate", deleted->Option.isSome ? "line-through" : ""])}>
                   {activity
                   ->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))
                   ->Option.getOr(React.null)}
@@ -437,7 +450,8 @@ module Filter = {
     | ByAfter(cursor) =>
       params->Router.ImmSearchParams.set("after", cursor)->Router.ImmSearchParams.delete("before")
     | ByDate(date) => params->Router.ImmSearchParams.set("selectedDate", date->Js.Date.toISOString)
-    | ByAfterDate(date) => params->Router.ImmSearchParams.set("afterDate", date->Js.Date.toISOString)
+    | ByAfterDate(date) =>
+      params->Router.ImmSearchParams.set("afterDate", date->Js.Date.toISOString)
     | ByBefore(cursor) =>
       params->Router.ImmSearchParams.set("before", cursor)->Router.ImmSearchParams.delete("after")
     }
@@ -502,10 +516,10 @@ let make = (~events, ~header: React.element) => {
   let events = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
-  let (highlightedLocation, setHighlightedLocation) = React.useState(() => "")
+  // let (highlightedLocation, _) = React.useState(() => "")
   let (shareOpen, setShareOpen) = React.useState(() => false)
-  let (showMap, setShowMap) = React.useState(() => false)
-  let (selectedEvent: option<string>, setSelectedEvent) = React.useState(() => None)
+  // let (showMap, setShowMap) = React.useState(() => false)
+  let (selectedEvent: option<string>, _) = React.useState(() => None)
   let navigate = Router.useNavigate()
 
   let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
@@ -537,45 +551,16 @@ let make = (~events, ~header: React.element) => {
       className="grow p-0 z-10 lg:w-1/2 lg:h-[calc(100vh-50px)] lg:overflow-scroll lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
       <div className="mx-auto max-w-7xl">
         {header}
-        <Layout.Container>
-          {!isLoadingPrevious && hasPrevious
-            ? pageInfo.startCursor
-              ->Option.map(startCursor =>
-                <LinkWithOpts
-                  to={
-                    pathname: "./",
-                    search: Filter.ByBefore(startCursor)
-                    ->Filter.updateParams(searchParams)
-                    // searchParams
-                    // ->Router.ImmSearchParams.set("before", encodeURIComponent(startCursor))
-                    ->Router.ImmSearchParams.toString,
-                  }>
-                  {t`...load past events`}
-                </LinkWithOpts>
-              )
-              ->Option.getOr(<LinkWithOpts
-                  to={
-                    pathname: "./",
-                    search: Filter.ByAfterDate(Js.Date.fromString("2020-01-01"))
-                    ->Filter.updateParams(searchParams)
-                    // searchParams
-                    // ->Router.ImmSearchParams.set("before", encodeURIComponent(startCursor))
-                    ->Router.ImmSearchParams.toString,
-                  }>
-                  {t`...load past events`}
-                </LinkWithOpts>)
-            : React.null}
-          {" • "->React.string}
-          <UiAction onClick={_ => setShareOpen(v => !v)} active={shareOpen}>
-            {t`share as text`}
-          </UiAction>
-        </Layout.Container>
-        {shareOpen
-          ? <Layout.Container>
-              <TextEventsList events=eventsFragment />
-            </Layout.Container>
-          : React.null}
         // <Layout.Container>
+        <Layout.Container className="p-2 flex-row flex gap-2">
+          <UiAction
+            alt={Lingui.UtilString.t`share as text`}
+            onClick={_ => setShareOpen(v => !v)}
+            active={shareOpen}>
+            <HeroIcons.DocumentTextOutline className="inline w-6 h-6" />
+          </UiAction>
+          {shareOpen ? <TextEventsList events=eventsFragment /> : React.null}
+        </Layout.Container>
         <div className="mx-auto w-full grow lg:flex">
           <div className="w-full lg:overflow-x-hidden">
             <Calendar
@@ -595,6 +580,36 @@ let make = (~events, ~header: React.element) => {
               </InfoAlert>
             )
             ->Option.getOr(React.null)}
+            {!isLoadingPrevious && hasPrevious
+              ? pageInfo.startCursor
+                ->Option.map(startCursor =>
+                  <LinkWithOpts
+                    className="hover:bg-gray-100 p-3 w-full text-center block"
+                    to={
+                      pathname: "./",
+                      search: Filter.ByBefore(startCursor)
+                      ->Filter.updateParams(searchParams)
+                      // searchParams
+                      // ->Router.ImmSearchParams.set("before", encodeURIComponent(startCursor))
+                      ->Router.ImmSearchParams.toString,
+                    }>
+                    <HeroIcons.ChevronUpIcon className="inline w-7 h-7" />
+                  </LinkWithOpts>
+                )
+                ->Option.getOr(
+                  <LinkWithOpts
+                    to={
+                      pathname: "./",
+                      search: Filter.ByAfterDate(Js.Date.fromString("2020-01-01"))
+                      ->Filter.updateParams(searchParams)
+                      // searchParams
+                      // ->Router.ImmSearchParams.set("before", encodeURIComponent(startCursor))
+                      ->Router.ImmSearchParams.toString,
+                    }>
+                    {t`...load past events`}
+                  </LinkWithOpts>,
+                )
+              : React.null}
             <ul role="list" className="">
               {eventsByDate
               ->Js.Dict.entries
@@ -622,7 +637,7 @@ let make = (~events, ~header: React.element) => {
                     </Layout.Container>
                   </div>
                   <ul role="list" className="divide-y divide-gray-200">
-                    <Day events highlightedLocation />
+                    <Day events highlightedLocation="" />
                   </ul>
                 </li>
               })
@@ -633,13 +648,14 @@ let make = (~events, ~header: React.element) => {
                   {pageInfo.endCursor
                   ->Option.map(endCursor =>
                     <LinkWithOpts
+                      className="hover:bg-gray-100 p-3 w-full text-center block"
                       to={
                         pathname: "./",
                         search: Filter.ByAfter(endCursor)
                         ->Filter.updateParams(searchParams)
                         ->Router.ImmSearchParams.toString,
                       }>
-                      {t`load more`}
+                      <HeroIcons.ChevronDownIcon className="inline w-7 h-7" />
                     </LinkWithOpts>
                   )
                   ->Option.getOr(React.null)}

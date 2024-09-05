@@ -24,9 +24,6 @@ external useLoaderData: unit => WaitForMessages.data<DefaultLayoutMapQuery_graph
 //   external make: unit => React.element = "MenuInstance"
 // }
 
-type navItem = {label: string, url: string}
-let ts = Lingui.UtilString.t
-
 module Content = {
   @react.component
   let make = (~children) => {
@@ -36,44 +33,115 @@ module Content = {
     </div>
   }
 }
+
+module ActivityDropdownMenu = {
+  type navItem = {label: string, url: string, initials?: string}
+  let ts = Lingui.UtilString.t
+  @react.component
+  let make = () => {
+    let activities = [
+      {label: ts`All`, url: "/"},
+      {label: ts`Pickleball`, url: "/?activity=pickleball", initials: "P"},
+      {label: ts`Badminton`, url: "/?activity=badminton", initials: "B"},
+    ]
+    open Dropdown
+    <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
+      {activities
+      ->Array.map(a => <React.Fragment key={a.label}>
+        <DropdownItem href=a.url>
+          {a.initials
+          ->Option.map(initials =>
+            <Avatar slot="icon" initials className="bg-purple-500 text-white" />
+          )
+          ->Option.getOr(React.null)}
+          <DropdownLabel> {a.label->React.string} </DropdownLabel>
+        </DropdownItem>
+        <DropdownDivider />
+      </React.Fragment>)
+      ->React.array}
+    </DropdownMenu>
+  }
+}
+module ActivityLeagueDropdownMenu = {
+  type navItem = {label: string, url: string, initials?: string}
+  let ts = Lingui.UtilString.t
+  @react.component
+  let make = () => {
+    let activities = [
+      {label: ts`Pickleball`, url: "/league/pickleball", initials: "P"},
+      {label: ts`Badminton`, url: "/league/badminton", initials: "B"},
+    ]
+    open Dropdown
+    <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
+      {activities
+      ->Array.map(a => <React.Fragment key={a.label} >
+        <DropdownItem href=a.url>
+          {a.initials
+          ->Option.map(initials =>
+            <Avatar slot="icon" initials className="bg-purple-500 text-white" />
+          )
+          ->Option.getOr(React.null)}
+          <DropdownLabel> {a.label->React.string} </DropdownLabel>
+        </DropdownItem>
+        <DropdownDivider />
+      </React.Fragment>)
+      ->React.array}
+    </DropdownMenu>
+  }
+}
+
+type params = {activitySlug: string, lang: option<string>}
 module Layout = {
   @react.component
-  let make = (~children: React.element, ~query, ~viewer: option<Query.Types.response_viewer>) => {
+  let make = (~viewer: option<Query.Types.response_viewer>, ~children: React.element) => {
     open Lingui.Util
-    let navItems = [
-      // {label: "Home", url: "/"},
-      {label: ts`Events`, url: "/"},
-      {label: ts`Rankings`, url: "/league/badminton"},
-    ]
+    // let params: params = Router.useParams()
+    // let (searchParams, _) = Router.useSearchParamsFunc()
+    // let activity = params.activitySlug
+    // let activity = searchParams->Router.SearchParams.get("activity")
+    // let activitySearchParam = activity->Option.map(a => "?activity=" ++ a)->Option.getOr("")
+    // let navItems = [
+    //   // {label: "Home", url: "/"},
+    //   {ActivityDropdownMenu.label: ts`Events`, url: "/" ++ activity},
+    //   {label: ts`Rankings`, url: "/league/" ++ activity},
+    // ]
 
     open Dropdown
     open Sidebar
-    open Navbar
+    open! Navbar
     // let query = useLoaderData()
     // <UserProvider query={fragmentRefs}>
     let gviewer = viewer->Option.map(v => v.fragmentRefs)
     <GlobalQuery.Provider value={gviewer}>
       <StackedLayout
         navbar={<Navbar>
-          <Dropdown>
-            <DropdownButton \"as"={Navbar.NavbarItem.make} className="max-lg:hidden">
-              // <Avatar src="/tailwind-logo.svg" />
-              <WaitForMessages>
-                {() => <Navbar.NavbarLabel> {t`Racquet League`} </Navbar.NavbarLabel>}
-              </WaitForMessages>
-              <HeroIcons.ChevronDownIcon />
-            </DropdownButton>
-            // <TeamDropdownMenu />
-          </Dropdown>
+          <NavbarItem href="/" className="max-lg:hidden">
+            <WaitForMessages>
+              {() => <Navbar.NavbarLabel> {t`Racquet League`} </Navbar.NavbarLabel>}
+            </WaitForMessages>
+          </NavbarItem>
           <NavbarDivider className="max-lg:hidden" />
           <WaitForMessages>
             {() =>
               <NavbarSection className="max-lg:hidden">
-                {navItems
-                ->Array.map(({label, url}) =>
-                  <NavbarItem key={label} href=url> {label->React.string} </NavbarItem>
-                )
-                ->React.array}
+                <Dropdown>
+                  <DropdownButton \"as"={Navbar.NavbarItem.make} className="max-lg:hidden">
+                    <WaitForMessages>
+                      {() => <Navbar.NavbarLabel> {t`Events`} </Navbar.NavbarLabel>}
+                    </WaitForMessages>
+                    <HeroIcons.ChevronDownIcon />
+                  </DropdownButton>
+                  <ActivityDropdownMenu />
+                </Dropdown>
+                <Dropdown>
+                  <DropdownButton \"as"={Navbar.NavbarItem.make} className="max-lg:hidden">
+                    <WaitForMessages>
+                      {() => <Navbar.NavbarLabel> {t`Rankings`} </Navbar.NavbarLabel>}
+                    </WaitForMessages>
+                    <HeroIcons.ChevronDownIcon />
+                  </DropdownButton>
+                  <ActivityLeagueDropdownMenu />
+                </Dropdown>
               </NavbarSection>}
           </WaitForMessages>
           <NavbarSpacer />
@@ -99,15 +167,15 @@ module Layout = {
                     <Avatar src=?user.picture square=true />
                   </DropdownButton>
                   <DropdownMenu className="min-w-64" anchor="bottom end">
-                    // <DropdownItem href="/my-profile">
-                    //   // <HeroIcons.UserIcon />
-                    //   <DropdownLabel> {t`My Profile`} </DropdownLabel>
-                    // </DropdownItem>
+                    <DropdownItem href="/events">
+                      // <HeroIcons.UserIcon />
+                      <DropdownLabel> {t`My Events`} </DropdownLabel>
+                    </DropdownItem>
                     // <DropdownItem href="/settings">
                     //   <HeroIcons.Cog6Tooth />
                     //   <DropdownLabel> {t`Settings`} </DropdownLabel>
                     // </DropdownItem>
-                    // <DropdownDivider />
+                    <DropdownDivider />
                     // <DropdownItem href="/privacy-policy">
                     //   // <ShieldCheckIcon />
                     //   <DropdownLabel> {t`Privacy Policy`} </DropdownLabel>
@@ -117,7 +185,7 @@ module Layout = {
                     //   <DropdownLabel> {t`Share Feedback`} </DropdownLabel>
                     // </DropdownItem>
                     // <DropdownDivider />
-                    <DropdownItem href="/logout">
+                    <DropdownItem>
                       // <ArrowRightStartOnRectangleIcon />
                       <DropdownLabel>
                         <LogoutLink />
@@ -132,28 +200,35 @@ module Layout = {
         </Navbar>}
         sidebar={<Sidebar>
           <SidebarHeader>
-            <Dropdown>
-              <DropdownButton \"as"={SidebarItem.make} className="lg:mb-2.5">
-                // <Avatar src="/tailwind-logo.svg" />
-                <WaitForMessages>
-                  {() => <SidebarLabel> {t`Racquet League`} </SidebarLabel>}
-                </WaitForMessages>
-                <HeroIcons.ChevronDownIcon />
-              </DropdownButton>
-              // <TeamDropdownMenu />
-            </Dropdown>
+            <SidebarItem href="/">
+              <WaitForMessages>
+                {() => <SidebarLabel> {t`Racquet League`} </SidebarLabel>}
+              </WaitForMessages>
+            </SidebarItem>
           </SidebarHeader>
           <SidebarBody>
             <SidebarSection>
-              <WaitForMessages>
-                {() =>
-                  navItems
-                  ->Array.map(({label, url}) =>
-                    <SidebarItem key={label} href=url> {label->React.string} </SidebarItem>
-                  )
-                  ->React.array}
-              </WaitForMessages>
-              <LangSwitch />
+              <Dropdown>
+                <DropdownButton \"as"={SidebarItem.make} className="lg:mb-2.5">
+                  <WaitForMessages>
+                    {() => <SidebarLabel> {t`Events`} </SidebarLabel>}
+                  </WaitForMessages>
+                  <HeroIcons.ChevronDownIcon />
+                </DropdownButton>
+                <ActivityDropdownMenu />
+              </Dropdown>
+              <Dropdown>
+                <DropdownButton \"as"={SidebarItem.make} className="lg:mb-2.5">
+                  <WaitForMessages>
+                    {() => <SidebarLabel> {t`Rankings`} </SidebarLabel>}
+                  </WaitForMessages>
+                  <HeroIcons.ChevronDownIcon />
+                </DropdownButton>
+                <ActivityLeagueDropdownMenu />
+              </Dropdown>
+              <div className="ml-2 mt-2">
+                <LangSwitch />
+              </div>
             </SidebarSection>
           </SidebarBody>
         </Sidebar>}>
@@ -190,10 +265,10 @@ let make = () => {
   // let paramsJs = useParams()
 
   // let lang = paramsJs->RouteParams.parse->Belt.Result.mapWithDefault(None, ({lang}) => lang)
-  let {viewer, fragmentRefs} = Query.usePreloaded(~queryRef=query.data)
+  let {viewer, _} = Query.usePreloaded(~queryRef=query.data)
 
   // <Router.Await2 resolve=query.i18nLoaders errorElement={"Error"->React.string}>
-  <Layout viewer={viewer} query={fragmentRefs}>
+  <Layout viewer={viewer}>
     <Router.Outlet />
   </Layout>
   // </Router.Await2>

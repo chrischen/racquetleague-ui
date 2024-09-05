@@ -444,6 +444,15 @@ let make = (~event, ~children) => {
       newState
     })
   }
+
+  let handleMatchComplete = (match: Match.t<'a>, matchId: int) => {
+    dequeueMatch(matchId)
+    updatePlayCounts(match)
+
+    let match = match->Match.rate
+    updateSessionPlayerRatings(match->Array.flatMap(x => x))
+  }
+
   let breakPlayersDesc = Lingui.UtilString.plural(
     breakPlayersCount,
     {one: "player", other: "players"},
@@ -674,17 +683,7 @@ let make = (~event, ~children) => {
                     ->ignore
                     dequeueMatch(i)
                   }}
-                  onComplete={match => {
-                    dequeueMatch(i)
-                    updatePlayCounts(match)
-                    setMatchHistory(
-                      matches =>
-                        matches->Array.concat([match]),
-                    )
-
-                    let match = match->Match.rate
-                    updateSessionPlayerRatings(match->Array.flatMap(x => x))
-                  }}
+                  onComplete={handleMatchComplete(_, i)}
                 />
               )
               ->React.array
@@ -718,12 +717,12 @@ let make = (~event, ~children) => {
         queue
         togglePlayer={toggleQueuePlayer}
         matches
+        // setMatches={setMatches}
         activity
         minRating
         maxRating
-        dequeueMatch
-        updatePlayCounts
-        updateSessionPlayerRatings
+        handleMatchComplete
+        handleMatchCanceled={dequeueMatch}
         onClose={_ => setScreen(_ => Advanced)}
         selectAll={selectAllPlayers}
         breakCount

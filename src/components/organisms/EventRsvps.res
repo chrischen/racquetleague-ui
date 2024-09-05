@@ -212,8 +212,45 @@ let make = (~event) => {
     </button>
   <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5 flex flex-col">
     <h2 className="sr-only"> {t`attendees`} </h2>
+    <div className="flex-auto p-6 pt-4">
+      {viewerHasRsvp
+        ? viewerIsInEvent
+            ? <div className="border-l-4 border-green-400 bg-green-50 p-4 mb-2">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <HeroIcons.ExclamationTriangleIcon
+                      \"aria-hidden"="true" className="h-5 w-5 text-green-400"
+                    />
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm text-green-700"> {t`you're going :)`} </p>
+                  </div>
+                </div>
+              </div>
+            : <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4 mb-2">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <HeroIcons.ExclamationTriangleIcon
+                      \"aria-hidden"="true" className="h-5 w-5 text-yellow-400"
+                    />
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm text-yellow-700"> {t`you're waitlisted :(`} </p>
+                  </div>
+                </div>
+              </div>
+        : React.null}
+      {spotsAvailable
+      ->Option.map(count => {
+        switch count {
+        | 0 => viewerHasRsvp ? leaveButton : joinButton
+        | _ => viewerHasRsvp ? leaveButton : joinButton
+        }
+      })
+      ->Option.getOr({viewerHasRsvp ? leaveButton : joinButton})}
+    </div>
     <dl className="flex flex-wrap">
-      <div className="flex-auto pl-6 pt-4">
+      <div className="flex-auto pl-6">
         <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`confirmed`} </dt>
         <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
           {switch maxRsvps {
@@ -257,107 +294,70 @@ let make = (~event) => {
         )}
       </div>
       <div className="mt-4 w-full flex flex-col gap-x-4 border-t border-gray-900/5 px-6 pt-4">
-        {viewerHasRsvp
-          ? viewerIsInEvent
-              ? <div className="border-l-4 border-green-400 bg-green-50 p-4 mb-2">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <HeroIcons.ExclamationTriangleIcon
-                        \"aria-hidden"="true" className="h-5 w-5 text-green-400"
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-green-700"> {t`you're going :)`} </p>
-                    </div>
-                  </div>
-                </div>
-              : <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4 mb-2">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <HeroIcons.ExclamationTriangleIcon
-                        \"aria-hidden"="true" className="h-5 w-5 text-yellow-400"
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-yellow-700"> {t`you're waitlisted :(`} </p>
-                    </div>
-                  </div>
-                </div>
-          : React.null}
         {<>
-          {spotsAvailable
-          ->Option.map(count => {
-            switch count {
-            | 0 => viewerHasRsvp ? leaveButton : joinButton
-            | _ => viewerHasRsvp ? leaveButton : joinButton
-            }
-          })
-          ->Option.getOr({viewerHasRsvp ? leaveButton : joinButton})}
-          {expanded
-            ? <ul className="">
-                <FramerMotion.AnimatePresence>
-                  {switch rsvps {
-                  | [] => t`no players yet`
-                  | rsvps =>
-                    rsvps
-                    ->Array.mapWithIndex((edge, i) => {
-                      edge.user
-                      ->Option.map(user => {
-                        switch isWaitlist(i) {
-                        | false =>
-                          <FramerMotion.Li
-                            className="mt-4 flex w-full flex-none"
-                            style={originX: 0.05, originY: 0.05}
-                            key={user.id}
-                            initial={opacity: 0., scale: 1.15}
-                            animate={opacity: 1., scale: 1.}
-                            exit={opacity: 0., scale: 1.15}>
-                            <div className="flex-none">
-                              <span className="sr-only"> {t`Player`} </span>
-                              // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
-                            </div>
-                            <div className="w-full text-sm font-medium leading-6 text-gray-900">
-                              <EventRsvpUser
-                                link={"/league/" ++
-                                activitySlug->Option.getOr("badminton") ++
-                                "/p/" ++
-                                user.id}
-                                user={user.fragmentRefs}
-                                rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
-                                ratingPercent={edge.rating
-                                ->Option.flatMap(
-                                  rating =>
-                                    rating.ordinal->Option.map(
-                                      ordinal =>
-                                        (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
-                                    ),
-                                )
-                                ->Option.getOr(0.)}
-                                highlight={viewer.user
-                                ->Option.map(viewer => viewer.id == user.id)
-                                ->Option.getOr(false)}
-                              />
-                            </div>
-                          </FramerMotion.Li>
-                        | true => React.null
-                        }
-                      })
-                      ->Option.getOr(React.null)
-                    })
-                    ->React.array
-                  }}
-                </FramerMotion.AnimatePresence>
-                <FramerMotion.Li
-                  className="mt-4 flex w-full flex-none gap-x-4 px-6"
-                  style={originX: 0.05, originY: 0.05}
-                  key="viewer"
-                  initial={opacity: 0., scale: 1.15}
-                  animate={opacity: 1., scale: 1.}
-                  exit={opacity: 0., scale: 1.15}>
-                  <ViewerRsvpStatus onJoin onLeave joined={viewerHasRsvp} />
-                </FramerMotion.Li>
-              </ul>
-            : React.null}
+          <ul className={Util.cx([expanded ? "" : "hidden sm:block"])}>
+            <FramerMotion.AnimatePresence>
+              {switch rsvps {
+              | [] => t`no players yet`
+              | rsvps =>
+                rsvps
+                ->Array.mapWithIndex((edge, i) => {
+                  edge.user
+                  ->Option.map(user => {
+                    switch isWaitlist(i) {
+                    | false =>
+                      <FramerMotion.Li
+                        className="mt-4 flex w-full flex-none"
+                        style={originX: 0.05, originY: 0.05}
+                        key={user.id}
+                        initial={opacity: 0., scale: 1.15}
+                        animate={opacity: 1., scale: 1.}
+                        exit={opacity: 0., scale: 1.15}>
+                        <div className="flex-none">
+                          <span className="sr-only"> {t`Player`} </span>
+                          // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
+                        </div>
+                        <div className="w-full text-sm font-medium leading-6 text-gray-900">
+                          <EventRsvpUser
+                            link={"/league/" ++
+                            activitySlug->Option.getOr("badminton") ++
+                            "/p/" ++
+                            user.id}
+                            user={user.fragmentRefs}
+                            rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
+                            ratingPercent={edge.rating
+                            ->Option.flatMap(
+                              rating =>
+                                rating.ordinal->Option.map(
+                                  ordinal =>
+                                    (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
+                                ),
+                            )
+                            ->Option.getOr(0.)}
+                            highlight={viewer.user
+                            ->Option.map(viewer => viewer.id == user.id)
+                            ->Option.getOr(false)}
+                          />
+                        </div>
+                      </FramerMotion.Li>
+                    | true => React.null
+                    }
+                  })
+                  ->Option.getOr(React.null)
+                })
+                ->React.array
+              }}
+            </FramerMotion.AnimatePresence>
+            <FramerMotion.Li
+              className="mt-4 flex w-full flex-none gap-x-4 px-6"
+              style={originX: 0.05, originY: 0.05}
+              key="viewer"
+              initial={opacity: 0., scale: 1.15}
+              animate={opacity: 1., scale: 1.}
+              exit={opacity: 0., scale: 1.15}>
+              <ViewerRsvpStatus onJoin onLeave joined={viewerHasRsvp} />
+            </FramerMotion.Li>
+          </ul>
           <em>
             {isLoadingNext
               ? React.string("...")
@@ -367,90 +367,87 @@ let make = (~event) => {
           </em>
         </>}
       </div>
-      {expanded
-        ? <>
-            <div className="mt-4 border-t border-gray-900/5 pl-6 pt-4">
-              <div className="flex-auto">
-                <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`waitlist`} </dt>
-                <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
-                  {(waitlistCount->Int.toString ++ " ")->React.string}
-                  {plural(waitlistCount, {one: "player", other: "players"})}
-                </dd>
-              </div>
-            </div>
-            <div
-              className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4">
-              {<>
-                <ul className="">
-                  <FramerMotion.AnimatePresence>
-                    {switch rsvps {
-                    | [] => t`no players yet`
-                    | rsvps =>
-                      rsvps
-                      ->Array.mapWithIndex((edge, i) => {
-                        edge.user
-                        ->Option.map(user => {
-                          switch isWaitlist(i) {
-                          | true =>
-                            <FramerMotion.Li
-                              className="mt-4 flex w-full flex-none"
-                              style={originX: 0.05, originY: 0.05}
-                              key={user.id}
-                              initial={opacity: 0., scale: 1.15}
-                              animate={opacity: 1., scale: 1.}
-                              exit={opacity: 0., scale: 1.15}>
-                              <div className="flex-none">
-                                <span className="sr-only"> {t`Player`} </span>
-                                // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
-                              </div>
-                              <div className="w-full text-sm font-medium leading-6 text-gray-900">
-                                <EventRsvpUser
-                                  link={"/league/" ++
-                                  activitySlug->Option.getOr("badminton") ++
-                                  "/p/" ++
-                                  user.id}
-                                  user={user.fragmentRefs}
-                                  rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
-                                  ratingPercent={edge.rating
-                                  ->Option.flatMap(
-                                    rating =>
-                                      rating.ordinal->Option.map(
-                                        ordinal =>
-                                          (ordinal -. minRating) /.
-                                          (maxRating -. minRating) *. 100.,
-                                      ),
-                                  )
-                                  ->Option.getOr(0.)}
-                                  highlight={viewer.user
-                                  ->Option.map(viewer => viewer.id == user.id)
-                                  ->Option.getOr(false)}
-                                />
-                              </div>
-                            </FramerMotion.Li>
-                          | false => React.null
-                          }
-                        })
-                        ->Option.getOr(React.null)
-                      })
-                      ->React.array
-                    }}
-                  </FramerMotion.AnimatePresence>
-                </ul>
-                <em>
-                  {isLoadingNext
-                    ? React.string("...")
-                    : hasNext
-                    ? <a onClick={onLoadMore}> {t`load More`} </a>
-                    : React.null}
-                </em>
-              </>}
-            </div>
-          </>
-        : React.null}
+      <div className={Util.cx([expanded ? "" : "hidden sm:block"])}>
+        <div className="mt-4 border-t border-gray-900/5 pl-6 pt-4">
+          <div className="flex-auto">
+            <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`waitlist`} </dt>
+            <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
+              {(waitlistCount->Int.toString ++ " ")->React.string}
+              {plural(waitlistCount, {one: "player", other: "players"})}
+            </dd>
+          </div>
+        </div>
+        <div className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4">
+          {<>
+            <ul className="">
+              <FramerMotion.AnimatePresence>
+                {switch rsvps {
+                | [] => t`no players yet`
+                | rsvps =>
+                  rsvps
+                  ->Array.mapWithIndex((edge, i) => {
+                    edge.user
+                    ->Option.map(user => {
+                      switch isWaitlist(i) {
+                      | true =>
+                        <FramerMotion.Li
+                          className="mt-4 flex w-full flex-none"
+                          style={originX: 0.05, originY: 0.05}
+                          key={user.id}
+                          initial={opacity: 0., scale: 1.15}
+                          animate={opacity: 1., scale: 1.}
+                          exit={opacity: 0., scale: 1.15}>
+                          <div className="flex-none">
+                            <span className="sr-only"> {t`Player`} </span>
+                            // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
+                          </div>
+                          <div className="w-full text-sm font-medium leading-6 text-gray-900">
+                            <EventRsvpUser
+                              link={"/league/" ++
+                              activitySlug->Option.getOr("badminton") ++
+                              "/p/" ++
+                              user.id}
+                              user={user.fragmentRefs}
+                              rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
+                              ratingPercent={edge.rating
+                              ->Option.flatMap(
+                                rating =>
+                                  rating.ordinal->Option.map(
+                                    ordinal =>
+                                      (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
+                                  ),
+                              )
+                              ->Option.getOr(0.)}
+                              highlight={viewer.user
+                              ->Option.map(viewer => viewer.id == user.id)
+                              ->Option.getOr(false)}
+                            />
+                          </div>
+                        </FramerMotion.Li>
+                      | false => React.null
+                      }
+                    })
+                    ->Option.getOr(React.null)
+                  })
+                  ->React.array
+                }}
+              </FramerMotion.AnimatePresence>
+            </ul>
+            <em>
+              {isLoadingNext
+                ? React.string("...")
+                : hasNext
+                ? <a onClick={onLoadMore}> {t`load More`} </a>
+                : React.null}
+            </em>
+          </>}
+        </div>
+      </div>
     </dl>
     <UiAction
-      className="p-3 w-full text-center hover:bg-gray-100"
+      className="sm:hidden p-3 w-full flex flex-col items-center hover:bg-gray-100"
       onClick={_ => setExpanded(expanded => !expanded)}>
+      {expanded ? React.null : <HeroIcons.Users className="inline w-5 h-5" />}
       {expanded
         ? <HeroIcons.ChevronUpIcon className="inline w-5 h-5" />
         : <HeroIcons.ChevronDownIcon className="inline w-5 h-5" />}

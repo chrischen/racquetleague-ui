@@ -45,6 +45,10 @@ var LockClosed = {};
 
 var LockClosedOutline = {};
 
+var DocumentText = {};
+
+var DocumentTextOutline = {};
+
 export {
   PhotoIcon ,
   Bars3Icon ,
@@ -68,5 +72,7 @@ export {
   TableCells ,
   LockClosed ,
   LockClosedOutline ,
+  DocumentText ,
+  DocumentTextOutline ,
 }
 /* No side effect */

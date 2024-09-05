@@ -159,6 +159,7 @@ and input_EventFilters = {
   activitySlug?: string,
   clubSlug?: string,
   locationId?: string,
+  shadow?: bool,
   userId?: string,
   viewer?: bool,
 }
@@ -168,6 +169,7 @@ and input_EventFilters_nullable = {
   activitySlug?: Js.Null.t<string>,
   clubSlug?: Js.Null.t<string>,
   locationId?: Js.Null.t<string>,
+  shadow?: Js.Null.t<bool>,
   userId?: Js.Null.t<string>,
   viewer?: Js.Null.t<bool>,
 }

@@ -3,9 +3,12 @@
 import * as Grid from "../vanillaui/atoms/Grid.re.mjs";
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
+import * as Avatar from "../catalyst/Avatar.re.mjs";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as Lingui from "../../locales/Lingui.re.mjs";
+import * as Navbar from "../catalyst/Navbar.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
+import * as Dropdown from "../catalyst/Dropdown.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
@@ -14,11 +17,14 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as Core from "@linaria/core";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
+import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventsQuery_graphql from "../../__generated__/EventsQuery_graphql.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as Solid from "@heroicons/react/24/solid";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -46,13 +52,79 @@ RescriptRelay_Query.fetchPromised(EventsQuery_graphql.node, convertResponse, con
 
 RescriptRelay_Query.retain(EventsQuery_graphql.node, convertVariables);
 
+function Events$ActivityDropdownMenu(props) {
+  var activities = [
+    {
+      label: t`All`,
+      url: "/"
+    },
+    {
+      label: t`Pickleball`,
+      url: "/?activity=pickleball",
+      initials: "P"
+    },
+    {
+      label: t`Badminton`,
+      url: "/?activity=badminton",
+      initials: "B"
+    }
+  ];
+  return JsxRuntime.jsx(Dropdown.DropdownMenu.make, {
+              className: "min-w-80 lg:min-w-64",
+              anchor: "bottom start",
+              children: activities.map(function (a) {
+                    return JsxRuntime.jsxs(React.Fragment, {
+                                children: [
+                                  JsxRuntime.jsxs(Dropdown.DropdownItem.make, {
+                                        href: a.url,
+                                        children: [
+                                          Core__Option.getOr(Core__Option.map(a.initials, (function (initials) {
+                                                      return JsxRuntime.jsx(Avatar.make, {
+                                                                  className: "bg-purple-500 text-white",
+                                                                  slot: "icon",
+                                                                  initials: initials
+                                                                });
+                                                    })), null),
+                                          JsxRuntime.jsx(Dropdown.DropdownLabel.make, {
+                                                children: a.label
+                                              })
+                                        ]
+                                      }),
+                                  JsxRuntime.jsx(Dropdown.DropdownDivider.make, {})
+                                ]
+                              }, a.label);
+                  })
+            });
+}
+
 function Events(props) {
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
   var fragmentRefs = match.fragmentRefs;
   var match$1 = ReactRouterDom.useSearchParams();
-  Router.SearchParams.get(match$1[0], "activity");
+  var searchParams = match$1[0];
+  var activityFilter = Router.SearchParams.get(searchParams, "activity");
+  var title;
+  if (activityFilter !== undefined) {
+    switch (activityFilter) {
+      case "badminton" :
+          title = t`badminton events`;
+          break;
+      case "pickleball" :
+          title = t`pickleball events`;
+          break;
+      default:
+        title = t`all events`;
+    }
+  } else {
+    title = t`all events`;
+  }
+  var shadowFilter = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(searchParams, "shadow"), (function (param) {
+              return true;
+            })), false);
   var viewer = GlobalQuery.useViewer();
+  var navigate = ReactRouterDom.useNavigate();
+  var searchParams$1 = Router.ImmSearchParams.fromSearchParams(searchParams);
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsx(JsxRuntime.Fragment, {
@@ -64,7 +136,16 @@ function Events(props) {
                                                               children: [
                                                                 JsxRuntime.jsxs(PageTitle.make, {
                                                                       children: [
-                                                                        t`all events`,
+                                                                        title,
+                                                                        JsxRuntime.jsxs(React$1.Menu, {
+                                                                              children: [
+                                                                                JsxRuntime.jsx(Dropdown.DropdownButton.make, {
+                                                                                      as: Navbar.NavbarItem.make,
+                                                                                      children: JsxRuntime.jsx(Solid.ChevronDownIcon, {})
+                                                                                    }),
+                                                                                JsxRuntime.jsx(Events$ActivityDropdownMenu, {})
+                                                                              ]
+                                                                            }),
                                                                         Core__Option.getOr(Core__Option.map(Core__Option.flatMap(viewer.user, (function (user) {
                                                                                         return Core__Array.indexOfOpt([
                                                                                                     "Hasby Riduan",
@@ -88,75 +169,40 @@ function Events(props) {
                                                                                   })), null)
                                                                       ]
                                                                     }),
-                                                                JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                              to: "/",
-                                                                              children: t`all`
-                                                                            }),
-                                                                        " ",
-                                                                        JsxRuntime.jsx("svg", {
-                                                                              children: JsxRuntime.jsx("circle", {
-                                                                                    cx: (1).toString(),
-                                                                                    cy: (1).toString(),
-                                                                                    r: (1).toString()
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsxs(React$1.Switch.Group, {
+                                                                            as: "div",
+                                                                            className: "flex items-center",
+                                                                            children: [
+                                                                              JsxRuntime.jsx(React$1.Switch, {
+                                                                                    className: Core.cx(shadowFilter ? "bg-indigo-600" : "bg-gray-200", "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"),
+                                                                                    children: JsxRuntime.jsx("span", {
+                                                                                          "aria-hidden": true,
+                                                                                          className: Core.cx(shadowFilter ? "translate-x-5" : "translate-x-0", "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out")
+                                                                                        }),
+                                                                                    checked: shadowFilter,
+                                                                                    onChange: (function (v) {
+                                                                                        if (v) {
+                                                                                          navigate("./?" + searchParams$1.set("shadow", "true").toString(), undefined);
+                                                                                          return ;
+                                                                                        } else {
+                                                                                          return navigate("./?" + searchParams$1.delete("shadow").toString(), undefined);
+                                                                                        }
+                                                                                      })
                                                                                   }),
-                                                                              className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
-                                                                              viewBox: "0 0 2 2"
-                                                                            }),
-                                                                        " ",
-                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                              to: {
-                                                                                pathname: "",
-                                                                                search: ReactRouterDom.createSearchParams({
-                                                                                        activity: "pickleball"
-                                                                                      }).toString()
-                                                                              },
-                                                                              children: t`pickleball`
-                                                                            }),
-                                                                        " ",
-                                                                        JsxRuntime.jsx("svg", {
-                                                                              children: JsxRuntime.jsx("circle", {
-                                                                                    cx: (1).toString(),
-                                                                                    cy: (1).toString(),
-                                                                                    r: (1).toString()
-                                                                                  }),
-                                                                              className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
-                                                                              viewBox: "0 0 2 2"
-                                                                            }),
-                                                                        " ",
-                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                              to: {
-                                                                                pathname: "",
-                                                                                search: ReactRouterDom.createSearchParams({
-                                                                                        activity: "badminton"
-                                                                                      }).toString()
-                                                                              },
-                                                                              children: t`badminton`
-                                                                            }),
-                                                                        Core__Option.getOr(Core__Option.map(viewer.user, (function (param) {
-                                                                                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                                                children: [
-                                                                                                  " ",
-                                                                                                  JsxRuntime.jsx("svg", {
-                                                                                                        children: JsxRuntime.jsx("circle", {
-                                                                                                              cx: (1).toString(),
-                                                                                                              cy: (1).toString(),
-                                                                                                              r: (1).toString()
-                                                                                                            }),
-                                                                                                        className: "h-1.5 w-1.5 inline flex-none fill-gray-600",
-                                                                                                        viewBox: "0 0 2 2"
-                                                                                                      }),
-                                                                                                  " ",
-                                                                                                  JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                                                        to: "/events",
-                                                                                                        children: t`my events`,
-                                                                                                        relative: "path"
-                                                                                                      })
-                                                                                                ]
-                                                                                              });
-                                                                                  })), null)
-                                                                      ]
+                                                                              JsxRuntime.jsxs(React$1.Switch.Label, {
+                                                                                    as: "span",
+                                                                                    className: "ml-3 text-sm",
+                                                                                    children: [
+                                                                                      JsxRuntime.jsx("span", {
+                                                                                            children: t`include private`,
+                                                                                            className: "font-medium text-gray-900"
+                                                                                          }),
+                                                                                      " "
+                                                                                    ]
+                                                                                  })
+                                                                            ]
+                                                                          })
                                                                     })
                                                               ]
                                                             })
@@ -188,6 +234,9 @@ async function loader(param) {
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
   var activity = Router.SearchParams.get(url.searchParams, "activity");
+  var shadow = Core__Option.map(Router.SearchParams.get(url.searchParams, "shadow"), (function (param) {
+          return true;
+        }));
   var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
           return Util.Datetime.fromDate(new Date(d));
         }));
@@ -200,7 +249,8 @@ async function loader(param) {
                 afterDate: afterDate,
                 before: before,
                 filters: {
-                  activitySlug: activity
+                  activitySlug: activity,
+                  shadow: shadow
                 }
               }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))

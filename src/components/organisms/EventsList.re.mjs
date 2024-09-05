@@ -26,6 +26,7 @@ import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragme
 import * as EventsList_event_graphql from "../../__generated__/EventsList_event_graphql.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
 import * as EventsListFragment_graphql from "../../__generated__/EventsListFragment_graphql.re.mjs";
+import * as Outline from "@heroicons/react/24/outline";
 import * as EventsListText_event_graphql from "../../__generated__/EventsListText_event_graphql.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 import * as EventsListRefetchQuery_graphql from "../../__generated__/EventsListRefetchQuery_graphql.re.mjs";
@@ -110,6 +111,7 @@ function make($$event) {
                       });
           }
         }));
+  var canceled = Core__Option.isSome(match.deleted) ? " " + t`🚫 CANCELED` : "NOT CANCELED";
   return "🗓 " + Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
                     var startDate$1 = Util.Datetime.toDate(startDate);
                     return intl.formatDate(startDate$1, {
@@ -121,7 +123,7 @@ function make($$event) {
                     return intl.formatTime(Util.Datetime.toDate(endDate));
                   })), "") + Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
                     return " (" + duration + ") ";
-                  })), "") + spaceAvailable + "\n📍 " + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                  })), "") + spaceAvailable + canceled + "\n📍 " + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
                     return Core__Option.map(l.name, (function (name) {
                                   return name;
                                 }));
@@ -277,7 +279,7 @@ function EventsList$EventItem(props) {
                                                             " / ",
                                                             Core__Option.getOr(match.title, t`[missing title]`)
                                                           ],
-                                                          className: "truncate"
+                                                          className: Core$1.cx("truncate", Core__Option.isSome(match.deleted) ? "line-through" : "")
                                                         }),
                                                     JsxRuntime.jsx("span", {
                                                           className: "absolute inset-0"
@@ -433,24 +435,17 @@ function EventsList(props) {
   var pageInfo = data.events.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
   var match$2 = React.useState(function () {
-        return "";
+        return false;
       });
-  var highlightedLocation = match$2[0];
+  var setShareOpen = match$2[1];
+  var shareOpen = match$2[0];
   var match$3 = React.useState(function () {
-        return false;
-      });
-  var setShareOpen = match$3[1];
-  var shareOpen = match$3[0];
-  React.useState(function () {
-        return false;
-      });
-  var match$4 = React.useState(function () {
         
       });
   var navigate = ReactRouterDom.useNavigate();
-  var match$5 = ReactRouterDom.useSearchParams();
-  var setSearchParams = match$5[1];
-  var searchParams = Router.ImmSearchParams.fromSearchParams(match$5[0]);
+  var match$4 = ReactRouterDom.useSearchParams();
+  var setSearchParams = match$4[1];
+  var searchParams = Router.ImmSearchParams.fromSearchParams(match$4[0]);
   var filterByDate = Core__Option.map(Router.ImmSearchParams.get(searchParams, "selectedDate"), (function (date) {
           return new Date(date);
         }));
@@ -506,28 +501,6 @@ function EventsList(props) {
                               props.header,
                               JsxRuntime.jsxs(Layout.Container.make, {
                                     children: [
-                                      !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
-                                                    return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
-                                                                to: {
-                                                                  pathname: "./",
-                                                                  search: updateParams({
-                                                                          TAG: "ByBefore",
-                                                                          _0: startCursor
-                                                                        }, searchParams).toString()
-                                                                },
-                                                                children: t`...load past events`
-                                                              });
-                                                  })), JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
-                                                  to: {
-                                                    pathname: "./",
-                                                    search: updateParams({
-                                                            TAG: "ByAfterDate",
-                                                            _0: new Date("2020-01-01")
-                                                          }, searchParams).toString()
-                                                  },
-                                                  children: t`...load past events`
-                                                })) : null,
-                                      " • ",
                                       JsxRuntime.jsx(UiAction.make, {
                                             onClick: (function (param) {
                                                 setShareOpen(function (v) {
@@ -535,15 +508,17 @@ function EventsList(props) {
                                                     });
                                               }),
                                             active: shareOpen,
-                                            children: t`share as text`
-                                          })
-                                    ]
+                                            alt: t`share as text`,
+                                            children: JsxRuntime.jsx(Outline.DocumentTextIcon, {
+                                                  className: "inline w-6 h-6"
+                                                })
+                                          }),
+                                      shareOpen ? JsxRuntime.jsx(EventsList$TextEventsList, {
+                                              events: events
+                                            }) : null
+                                    ],
+                                    className: "p-2 flex-row flex gap-2"
                                   }),
-                              shareOpen ? JsxRuntime.jsx(Layout.Container.make, {
-                                      children: JsxRuntime.jsx(EventsList$TextEventsList, {
-                                            events: events
-                                          })
-                                    }) : null,
                               JsxRuntime.jsx("div", {
                                     children: JsxRuntime.jsxs("div", {
                                           children: [
@@ -569,6 +544,30 @@ function EventsList(props) {
                                                                       })
                                                                   });
                                                       })), null),
+                                            !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
+                                                          return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
+                                                                      to: {
+                                                                        pathname: "./",
+                                                                        search: updateParams({
+                                                                                TAG: "ByBefore",
+                                                                                _0: startCursor
+                                                                              }, searchParams).toString()
+                                                                      },
+                                                                      children: JsxRuntime.jsx(Solid.ChevronUpIcon, {
+                                                                            className: "inline w-7 h-7"
+                                                                          }),
+                                                                      className: "hover:bg-gray-100 p-3 w-full text-center block"
+                                                                    });
+                                                        })), JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
+                                                        to: {
+                                                          pathname: "./",
+                                                          search: updateParams({
+                                                                  TAG: "ByAfterDate",
+                                                                  _0: new Date("2020-01-01")
+                                                                }, searchParams).toString()
+                                                        },
+                                                        children: t`...load past events`
+                                                      })) : null,
                                             JsxRuntime.jsx("ul", {
                                                   children: Js_dict.entries(eventsByDate).map(function (param) {
                                                         var dateString = param[0];
@@ -585,7 +584,7 @@ function EventsList(props) {
                                                                       JsxRuntime.jsx("ul", {
                                                                             children: JsxRuntime.jsx(EventsList$Day, {
                                                                                   events: param[1],
-                                                                                  highlightedLocation: highlightedLocation
+                                                                                  highlightedLocation: ""
                                                                                 }),
                                                                             className: "divide-y divide-gray-200",
                                                                             role: "list"
@@ -606,7 +605,10 @@ function EventsList(props) {
                                                                                       _0: endCursor
                                                                                     }, searchParams).toString()
                                                                             },
-                                                                            children: t`load more`
+                                                                            children: JsxRuntime.jsx(Solid.ChevronDownIcon, {
+                                                                                  className: "inline w-7 h-7"
+                                                                                }),
+                                                                            className: "hover:bg-gray-100 p-3 w-full text-center block"
                                                                           });
                                                               })), null)
                                                   }) : null
@@ -629,7 +631,7 @@ function EventsList(props) {
                                               onLocationClick: (function ($$location) {
                                                   navigate("/locations/" + $$location.id, undefined);
                                                 }),
-                                              selected: match$4[0]
+                                              selected: match$3[0]
                                             }),
                                         className: "w-full lg:min-h-96 h-96 lg:h-[calc(100vh-50px)] lg:max-h-screen"
                                       }),

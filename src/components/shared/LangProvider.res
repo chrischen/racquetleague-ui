@@ -64,6 +64,7 @@ module Router = {
     }
   }
   module NavLink = {
+    @genType
     let make = (
       props: Router.NavLink.props<
         string,

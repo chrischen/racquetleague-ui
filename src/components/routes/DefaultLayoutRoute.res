@@ -15,7 +15,7 @@ let loadMessages = lang => {
   // }->Promise.thenResolve(messages => Lingui.i18n.loadAndActivate({locale: lang, messages: messages["messages"]}))
   [messages]
 }
-type params = {lang: option<string>}
+type params = {activitySlug: string, lang: option<string>}
 module LoaderArgs = {
   type t = {
     context: RelayEnv.context,

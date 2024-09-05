@@ -1,6 +1,7 @@
 @module("@headlessui/react") @react.component
   external make: (
     ~_as: 'asType=?,
+    ~\"as": 'asType=?,
     ~show: bool=?,
     ~appear: bool=?,
     ~unmount: bool=?,

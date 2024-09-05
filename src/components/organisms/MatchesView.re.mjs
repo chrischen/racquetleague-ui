@@ -145,9 +145,8 @@ var ActionBar = {
 };
 
 function MatchesView(props) {
-  var updateSessionPlayerRatings = props.updateSessionPlayerRatings;
-  var updatePlayCounts = props.updatePlayCounts;
-  var dequeueMatch = props.dequeueMatch;
+  var handleMatchComplete = props.handleMatchComplete;
+  var handleMatchCanceled = props.handleMatchCanceled;
   var maxRating = props.maxRating;
   var minRating = props.minRating;
   var activity = props.activity;
@@ -173,15 +172,10 @@ function MatchesView(props) {
                                   minRating: minRating,
                                   maxRating: maxRating,
                                   onDelete: (function () {
-                                      dequeueMatch(i);
+                                      handleMatchCanceled(i);
                                     }),
                                   onComplete: (function (match) {
-                                      dequeueMatch(i);
-                                      updatePlayCounts(match);
-                                      var match$1 = Rating.Match.rate(match);
-                                      updateSessionPlayerRatings(match$1.flatMap(function (x) {
-                                                return x;
-                                              }));
+                                      handleMatchComplete(match, i);
                                     })
                                 }, i.toString()),
                             className: "flex flex-col rounded shadow"

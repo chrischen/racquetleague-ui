@@ -13,44 +13,44 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventRsvps.re.mjs:233
+#: src/components/organisms/EventRsvps.re.mjs:297
 msgid "{0, plural, one {player} other {players}}"
 msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventRsvps.re.mjs:225
+#: src/components/organisms/EventRsvps.re.mjs:289
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventRsvps.re.mjs:441
+#: src/components/organisms/EventRsvps.re.mjs:445
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventRsvps.re.mjs:210
+#: src/components/organisms/EventRsvps.re.mjs:211
 msgid "attendees"
 msgstr "参加者"
 
-#: src/components/organisms/EventRsvps.re.mjs:218
+#: src/components/organisms/EventRsvps.re.mjs:282
 msgid "confirmed"
 msgstr "確認済み"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
-#: src/components/organisms/EventRsvps.re.mjs:181
-#: src/components/organisms/EventRsvps.re.mjs:195
+#: src/components/organisms/EventRsvps.re.mjs:182
+#: src/components/organisms/EventRsvps.re.mjs:196
 msgid "join event"
 msgstr "参加する"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
-#: src/components/organisms/EventRsvps.re.mjs:203
+#: src/components/organisms/EventRsvps.re.mjs:204
 msgid "leave event"
 msgstr "離れる"
 
-#: src/components/organisms/EventRsvps.re.mjs:419
-#: src/components/organisms/EventRsvps.re.mjs:518
+#: src/components/organisms/EventRsvps.re.mjs:424
+#: src/components/organisms/EventRsvps.re.mjs:522
 msgid "load More"
 msgstr "もっと読み込む"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
-#: src/components/organisms/EventRsvps.re.mjs:188
+#: src/components/organisms/EventRsvps.re.mjs:189
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
@@ -59,31 +59,31 @@ msgstr "イベントに参加するにはログインしてください"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/organisms/EventRsvps.re.mjs:387
-#: src/components/organisms/EventRsvps.re.mjs:511
+#: src/components/organisms/EventRsvps.re.mjs:392
+#: src/components/organisms/EventRsvps.re.mjs:515
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/EventRsvps.re.mjs:360
-#: src/components/organisms/EventRsvps.re.mjs:482
+#: src/components/organisms/EventRsvps.re.mjs:365
+#: src/components/organisms/EventRsvps.re.mjs:486
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventRsvps.re.mjs:253
-#: src/components/organisms/EventRsvps.re.mjs:263
+#: src/components/organisms/EventRsvps.re.mjs:317
+#: src/components/organisms/EventRsvps.re.mjs:327
 msgid "spots available"
 msgstr "利用可能なスポット"
 
-#: src/components/organisms/EventRsvps.re.mjs:258
-#: src/components/organisms/EventRsvps.re.mjs:435
+#: src/components/organisms/EventRsvps.re.mjs:322
+#: src/components/organisms/EventRsvps.re.mjs:439
 msgid "waitlist"
 msgstr "ウェイトリスト"
 
-#: src/components/organisms/EventRsvps.re.mjs:284
+#: src/components/organisms/EventRsvps.re.mjs:229
 msgid "you're going :)"
 msgstr "あなたは行く :)"
 
-#: src/components/organisms/EventRsvps.re.mjs:305
+#: src/components/organisms/EventRsvps.re.mjs:250
 msgid "you're waitlisted :("
 msgstr "あなたはウェイトリストに入っています :("
 

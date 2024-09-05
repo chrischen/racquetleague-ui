@@ -214,7 +214,6 @@ function DefaultLayout2(props) {
   var match = usePreloaded(query.data);
   return JsxRuntime.jsx(DefaultLayout2$Layout, {
               children: JsxRuntime.jsx(ReactRouterDom.Outlet, {}),
-              query: match.fragmentRefs,
               viewer: match.viewer
             });
 }

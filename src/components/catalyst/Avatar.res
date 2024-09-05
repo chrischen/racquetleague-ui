@@ -2,6 +2,7 @@
 external make: (
   ~className: string=?,
   ~src: string=?,
+  ~slot: string=?,
   ~alt: string=?,
   ~square: bool=?,
   ~initials: string=?,
