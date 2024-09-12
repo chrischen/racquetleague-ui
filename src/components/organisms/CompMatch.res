@@ -19,20 +19,45 @@ module PlayerMini = {
 }
 
 module MatchMini = {
+  type highlight = Left | Right | Both | Left2 | Right2 | Both2
   @react.component
-  let make = (~match: Match.t<'a>, ~onSelect: option<Match.t<'a> => unit>=?) => {
+  let make = (
+    ~match: Match.t<'a>,
+    ~highlight: option<highlight>=?,
+    ~onSelect: option<Match.t<'a> => unit>=?,
+  ) => {
     let (team1, team2) = match
     <UiAction
       className="p-4 mb-2" onClick={_ => onSelect->Option.map(f => f(match))->Option.getOr()}>
       <div className="grid grid-cols-7 items-center place-content-center">
-        <div className="col-span-3">
-          <span> {team1->Array.map(p => <PlayerMini player=p />)->React.array} </span>
+        <div
+          className={Util.cx([
+            "col-span-3 px-2 py-1",
+            highlight
+            ->Option.map(h => switch h {
+              | Left | Both => "bg-yellow-100"
+              | Left2 | Both2 => "bg-red-200"
+              | _ => ""
+            })
+            ->Option.getOr(""),
+          ])}>
+          <span> {team1->Array.map(p => <PlayerMini key={p.id} player=p />)->React.array} </span>
         </div>
         <div className="col-span-1 text-center text-2xl text-gray-800 font-bold">
           {" VS "->React.string}
         </div>
-        <div className="col-span-3 justify-right text-right">
-          <span> {team2->Array.map(p => <PlayerMini player=p />)->React.array} </span>
+        <div
+          className={Util.cx([
+            "col-span-3 justify-right text-right",
+            highlight
+            ->Option.map(h => switch h {
+              | Right | Both => "bg-yellow-100"
+              | Right2 | Both2 => "bg-red-200"
+              | _ => ""
+            })
+            ->Option.getOr(""),
+          ])}>
+          <span> {team2->Array.map(p => <PlayerMini key={p.id} player=p />)->React.array} </span>
         </div>
       </div>
     </UiAction>
@@ -278,12 +303,7 @@ let strategy_by_round_robin = (
   avoidAllPlayers,
   teams: NonEmptyArray.t<Set.t<string>>,
 ) => {
-  let matches = find_all_match_combos(
-    availablePlayers,
-    priorityPlayers,
-    avoidAllPlayers,
-    teams
-  )
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
   matches
 }
 
@@ -293,12 +313,7 @@ let strategy_by_random = (
   avoidAllPlayers,
   teams: NonEmptyArray.t<Set.t<string>>,
 ) => {
-  let matches = find_all_match_combos(
-    availablePlayers,
-    priorityPlayers,
-    avoidAllPlayers,
-    teams
-  )
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
   matches->shuffle
 }
 
@@ -317,6 +332,8 @@ let make = (
   ~players: array<Player.t<'a>>,
   ~teams: NonEmptyArray.t<Team.t<'a>>,
   ~consumedPlayers: Set.t<string>,
+  ~seenTeams: Set.t<string>,
+  ~lastRoundSeenTeams: Set.t<string>,
   ~priorityPlayers: array<Player.t<'a>>,
   ~avoidAllPlayers: array<Player.t<'a>>,
   ~onSelectMatch: option<Match.t<'a> => unit>=?,
@@ -376,7 +393,6 @@ let make = (
 
   let tab = strats->Array.find(tab => tab.strategy == strategy)
 
-
   <>
     <div className="sm:hidden">
       <label htmlFor="tabs" className="sr-only"> {t`Select a tab`} </label>
@@ -428,10 +444,43 @@ let make = (
       {" "->React.string}
       {tab->Option.map(tab => tab.details->React.string)->Option.getOr(React.null)}
     </p>
+    <p className="mt-2 text-base leading-7 text-gray-600">
+      <span className="px-2 py-1 bg-yellow-100"> {"..."->React.string} </span>
+      {" = "->React.string}
+      {t`This team has played before`}
+      <span className="ml-2 px-2 py-1 bg-red-100"> {"..."->React.string} </span>
+      {" = "->React.string}
+      {t`Played last round`}
+    </p>
     {matches
     ->Array.mapWithIndex(((match, quality), i) => {
-      <>
-        <MatchMini key={i->Int.toString} onSelect=?onSelectMatch match />
+      let (team1, team2) = match
+      let highlight2 = switch (
+        lastRoundSeenTeams->Set.has(team1->Team.toStableId),
+        lastRoundSeenTeams->Set.has(team2->Team.toStableId),
+      ) {
+      | (true, true) => Some(MatchMini.Both2)
+      | (true, false) => Some(MatchMini.Left2)
+      | (false, true) => Some(MatchMini.Right2)
+      | (false, false) => None
+      }
+      let highlight = switch (
+        highlight2,
+        seenTeams->Set.has(team1->Team.toStableId),
+        seenTeams->Set.has(team2->Team.toStableId),
+      ) {
+      | (Some(Both2), true, true) => Some(MatchMini.Both2)
+      | (_, true, true) => Some(MatchMini.Both)
+      | (Some(Left2), true, false) => Some(Left2)
+      | (_, true, false) => Some(MatchMini.Left)
+      | (Some(Right2), false, true) => Some(Right2)
+      | (_, false, true) => Some(MatchMini.Right)
+      | (None, false, false) => None
+      | (Some(h), false, false) => Some(h)
+      }
+
+      <React.Fragment key={i->Int.toString}>
+        <MatchMini onSelect=?onSelectMatch match ?highlight />
         {quality->Float.toFixed(~digits=3)->React.string}
         <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
           <FramerMotion.Div
@@ -449,7 +498,7 @@ let make = (
             }}
           />
         </div>
-      </>
+      </React.Fragment>
     })
     ->React.array}
   </>

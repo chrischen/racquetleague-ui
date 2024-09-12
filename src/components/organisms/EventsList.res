@@ -152,7 +152,7 @@ module TextEventItem = {
         )
       }
     })
-    let canceled = deleted->Option.isSome ? " " ++ ts`🚫 CANCELED` : "NOT CANCELED"
+    let canceled = deleted->Option.isSome ? " " ++ ts`🚫 CANCELED` : ""
 
     // Date string in local time
 

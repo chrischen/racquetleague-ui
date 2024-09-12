@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:576
+#: src/components/organisms/EventsList.re.mjs:569
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
@@ -95,25 +95,21 @@ msgstr "バドミントン"
 msgid "badminton events"
 msgstr "バドミントンイベント"
 
-#: src/components/organisms/EventsList.re.mjs:548
+#: src/components/organisms/EventsList.re.mjs:541
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
-#: src/components/organisms/EventsList.re.mjs:546
+#: src/components/organisms/EventsList.re.mjs:539
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 
-#: src/components/pages/Events.re.mjs:198
+#: src/components/pages/Events.re.mjs:197
 msgid "include private"
 msgstr "プライベートを含める"
 
 #: src/components/organisms/EventsList.re.mjs:225
 msgid "joined"
 msgstr "参加"
-
-#: src/components/pages/Events.re.mjs:212
-msgid "loading events..."
-msgstr "イベントを読み込んでいます..."
 
 #: src/components/pages/Events.re.mjs:62
 msgid "Pickleball"
@@ -127,7 +123,7 @@ msgstr "ピクルボールイベント"
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventsList.re.mjs:518
+#: src/components/organisms/EventsList.re.mjs:511
 msgid "share as text"
 msgstr "テキストとして共有"
 
@@ -154,6 +150,10 @@ msgstr "ウェイトリスト"
 #: src/components/organisms/EventsList.re.mjs:598
 #~ msgid "load more"
 #~ msgstr "もっと読み込む"
+
+#: src/components/pages/Events.re.mjs:212
+#~ msgid "loading events..."
+#~ msgstr "イベントを読み込んでいます..."
 
 #: src/components/pages/Events.re.mjs:153
 #~ msgid "my events"

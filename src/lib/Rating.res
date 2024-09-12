@@ -69,6 +69,7 @@ module Player = {
     name: string,
     rating: Rating.t,
     ratingOrdinal: float,
+    paid: bool,
   }
   let makeDefaultRatingPlayer = (name: string) => {
     let rating = Rating.makeDefault()
@@ -78,6 +79,7 @@ module Player = {
       name,
       rating,
       ratingOrdinal: rating->Rating.ordinal,
+      paid: false,
     }
   }
 }
@@ -97,6 +99,10 @@ module Team = {
     let t1 = t1->Array.map(p => p.id)->Set.fromArray
     let t2 = t2->Array.map(p => p.id)->Set.fromArray
     t1->intersection(t2)->Set.size == t1->Set.size
+  }
+
+  let toStableId = (t: t<'a>) => {
+    t->Array.map(p => p.id)->Array.toSorted(String.compare)->Array.join("-")
   }
 }
 
@@ -143,6 +149,106 @@ module Match = {
     })
   }
 
+  let toStableId = ((t1, t2): t<'a>) => {
+    t1->Array.concat(t2)->Team.toStableId
+  }
+}
+
+module CompletedMatch = {
+  type t<'a> = (Match.t<'a>, option<(float, float)>)
+
+  let submit = (
+    (match, score): t<'a>,
+    activitySlug: string,
+    submitMatch: (Match.t<'a>, (float, float), string) => Js.Promise.t<unit>,
+  ) => {
+    switch score {
+    | Some((scoreWinner, scoreLoser)) => submitMatch(match, (scoreWinner, scoreLoser), activitySlug)
+    | None => Js.Promise.resolve()
+    }
+  }
+}
+type rsvpNode = AiTetsu_event_graphql.Types.fragment_rsvps_edges_node
+module CompletedMatches = {
+  type t<'a> = array<CompletedMatch.t<'a>>
+
+  let getLastPlayedPlayers = (matches: t<'a>, restCount: int, availablePlayers: int): array<
+    Player.t<'a>,
+  > => {
+    let playersCount = availablePlayers - restCount
+
+    let teams =
+      matches
+      ->Array.toReversed
+      ->Array.flatMap(((match, _)) => [match->fst, match->snd])
+    teams
+    ->Array.flatMap(p => p)
+    ->Array.slice(~start=0, ~end=playersCount)
+  }
+
+  let getlastRoundMatches = (matches: t<'a>, restCount: int, availablePlayers: int, playersPerMatch: int): t<'a> => {
+    let lastPlayedCount = getLastPlayedPlayers(matches, restCount, availablePlayers)->Array.length
+    let matchesPlayed = lastPlayedCount / playersPerMatch
+    matches->Array.toReversed->Array.slice(~start=0, ~end=matchesPlayed)
+  }
+
+  external parseMatches: string => array<((array<string>, array<string>), option<(float, float)>)> =
+    "JSON.parse"
+  let saveMatches = (t: t<'a>, namespace: string) => {
+    let t = t->Array.map((((team1, team2), score)) => {
+      ((team1->Array.map(p => p.id), team2->Array.map(p => p.id)), score)
+    })
+    Dom.Storage2.localStorage->Dom.Storage2.setItem(
+      namespace ++ "-matchesState",
+      t->Js.Json.stringifyAny->Option.getOr(""),
+    )
+  }
+  let loadMatches = (namespace: string, players: array<Player.t<rsvpNode>>): t<'a> => {
+    let players = players->Array.reduce(Js.Dict.empty(), (acc, player) => {
+      acc->Js.Dict.set(player.id, player)
+      acc
+    })
+
+    switch Dom.Storage2.localStorage->Dom.Storage2.getItem(namespace ++ "-matchesState") {
+    | Some(state) => state->parseMatches
+    | None => []
+    }
+    ->Array.map((((team1, team2), score)) => {
+      (
+        (
+          team1
+          ->Array.map(p => players->Js.Dict.get(p))
+          ->Array.reduce(Some([]), (acc, player) =>
+            acc->Option.flatMap(
+              acc =>
+                switch player {
+                | Some(p) => Some(acc->Array.concat([p]))
+                | None => None
+                },
+            )
+          ),
+          team2
+          ->Array.map(p => players->Js.Dict.get(p))
+          ->Array.reduce(Some([]), (acc, player) =>
+            acc->Option.flatMap(
+              acc =>
+                switch player {
+                | Some(p) => Some(acc->Array.concat([p]))
+                | None => None
+                },
+            )
+          ),
+        ),
+        score,
+      )
+    })
+    ->Array.filterMap((((team1, team2), score)) =>
+      switch (team1, team2) {
+      | (Some(t1), Some(t2)) => Some(((t1, t2), score))
+      | _ => None
+      }
+    )
+  }
 }
 
 module DoublesTeam = {
@@ -170,12 +276,11 @@ module DoublesMatch = {
     }
   }
 }
-type rsvpNode = AiTetsu_event_graphql.Types.fragment_rsvps_edges_node
 type player = Player.t<rsvpNode>
 type team = array<player>
 type match = (team, team)
 
-external parsePlayers: string => array<Player.t<rsvpNode>> = "JSON.parse"
+external parsePlayers: string => Js.Dict.t<Player.t<rsvpNode>> = "JSON.parse"
 module Players = {
   type t = array<player>
   let sortByRatingDesc = (t: t) =>
@@ -201,16 +306,37 @@ module Players = {
 
   let filterOut = (players: t, unavailable: TeamSet.t) =>
     players->Array.filter(p => !(unavailable->Set.has(p.id)))
+
+  let addBreakPlayersFrom = (breakPlayers: t, players: t, breakCount: int): t => {
+    players
+    ->filterOut(breakPlayers->Array.map(p => p.id)->Set.fromArray)
+    ->Array.slice(~start=0, ~end=breakCount - breakPlayers->Array.length)
+    // ->Array.map(p => p.id)
+    ->Array.concat(breakPlayers)
+  }
   let savePlayers = (t: t, namespace: string) => {
+    let t = t->Array.map(p => {...p, data: None})
+    let t = t->Array.reduce(Js.Dict.empty(), (acc, player) => {
+      acc->Js.Dict.set(player.id, player)
+      acc
+    })
+
     Dom.Storage2.localStorage->Dom.Storage2.setItem(
       namespace ++ "-playersState",
       t->Js.Json.stringifyAny->Option.getOr(""),
     )
   }
-  let loadPlayers = (namespace: string): array<Player.t<rsvpNode>> => {
-    switch Dom.Storage2.localStorage->Dom.Storage2.getItem(namespace ++ "-playersState") {
+  let loadPlayers = (players: array<Player.t<rsvpNode>>, namespace: string): array<
+    Player.t<rsvpNode>,
+  > => {
+    let storage = switch Dom.Storage2.localStorage->Dom.Storage2.getItem(
+      namespace ++ "-playersState",
+    ) {
     | Some(state) => state->parsePlayers
-    | None => []
+    | None => Js.Dict.empty()
     }
+    players->Array.map(p => {
+      storage->Js.Dict.get(p.id)->Option.map(store => {...store, data: p.data})->Option.getOr(p)
+    })
   }
 }

@@ -96,7 +96,7 @@ let bootOnClient = (~target: Dom.node, ~render) => {
     })
 
     Js.log("[debug] Booting because stream said so...")
-    target->hydrateRoot(render())
+    Util.startTransition(() => target->hydrateRoot(render()))
     // target->createRoot->renderNode(render())
   }
 
@@ -209,28 +209,28 @@ let makeServerFetchFunction = (
     /* let _ = observable->RescriptRelay.Observable.subscribe( */
     let observable = observable->Observable2.do(
       RescriptRelay.Observable.makeObserver(~next=payload => {
-          onQuery(
-            ~id=queryId,
-            ~response=Some(payload),
-            // TODO: This should also account for is_final, which is what Relay
-            // is actually using for checking whether chunks are final or not.
-            // The reason both exists is because hasNext is what's proposed in
-            // the spec, so that's what most server implementations uses, but
-            // Relay is using is_final and haven't adapted to the spec yet
-            // because it's not quite finalized.
-            ~final=switch payload->Js.Json.decodeObject {
-            | Some(obj) =>
-              switch obj->Js.Dict.get("hasNext") {
-              | None => true
-              | Some(hasNext) =>
-                switch hasNext->Js.Json.decodeBoolean {
-                | Some(true) => false
-                | _ => true
-                }
-              }
+        onQuery(
+          ~id=queryId,
+          ~response=Some(payload),
+          // TODO: This should also account for is_final, which is what Relay
+          // is actually using for checking whether chunks are final or not.
+          // The reason both exists is because hasNext is what's proposed in
+          // the spec, so that's what most server implementations uses, but
+          // Relay is using is_final and haven't adapted to the spec yet
+          // because it's not quite finalized.
+          ~final=switch payload->Js.Json.decodeObject {
+          | Some(obj) =>
+            switch obj->Js.Dict.get("hasNext") {
             | None => true
-            }->Some,
-          )
+            | Some(hasNext) =>
+              switch hasNext->Js.Json.decodeBoolean {
+              | Some(true) => false
+              | _ => true
+              }
+            }
+          | None => true
+          }->Some,
+        )
       }),
     )
 

@@ -25,32 +25,6 @@ query SubmitMatchPredictMatchOutcomeQuery(
   }
 }
 `)
-module CreateLeagueMatchMutation = %relay(`
- mutation SubmitMatchMutation(
-    $connections: [ID!]!
-    $matchInput: LeagueMatchInput!
-  ) {
-    createMatch(match: $matchInput) {
-      match @prependNode(connections: $connections, edgeTypeName: "MatchEdge") {
-        id
-        winners {
-          lineUsername
-        }
-        losers {
-          lineUsername
-        }
-        score
-        createdAt
-      }
-      ratings {
-        id
-        mu
-        sigma
-        ordinal
-      }
-    }
-  }
-`)
 open Rating
 module PredictionBar = {
   @react.component
@@ -178,35 +152,48 @@ module PlayerView = {
 @react.component
 let make = (
   ~match: Match.t<rsvpNode>,
-  ~activity: AiTetsu_event_graphql.Types.fragment_activity,
+  ~score: option<(float, float)>=?,
+  // ~activity: AiTetsu_event_graphql.Types.fragment_activity,
   ~minRating,
   ~maxRating,
   ~onDelete: option<unit => unit>=?,
-  ~onComplete: option<Match.t<rsvpNode> => unit>=?,
-  ~onSubmitted: option<unit => unit>=?,
+  ~onComplete: option<CompletedMatch.t<rsvpNode> => Js.Promise.t<unit>>=?,
 ) => {
+  // ~onSubmitted: option<unit => unit>=?,
+  // ~onSubmit: option<CompletedMatch.t<rsvpNode> => unit>=?,
+
   let ts = Lingui.UtilString.t
   open Form
-  let (commitMutationCreateLeagueMatch, _isMutationInFlight) = CreateLeagueMatchMutation.use()
   let (view, setView) = React.useState(() => Default)
+  let {register, handleSubmit, setValue, watch} = useFormOfInputsMatch(
+    ~options={
+      resolver: Resolver.zodResolver(schema),
+      defaultValues: {
+        scoreLeft: score->Option.map(fst)->Option.getOr(0.),
+        scoreRight: score->Option.map(snd)->Option.getOr(0.),
+      },
+    },
+  )
 
   let team1 = match->fst
   let team2 = match->snd
   let doublesMatch = match->DoublesMatch.fromMatch
 
-  let {register, handleSubmit, setValue} = useFormOfInputsMatch(
-    ~options={
-      resolver: Resolver.zodResolver(schema),
-      defaultValues: {},
-    },
-  )
   let (submitting, setSubmitting) = React.useState(() => false)
+  React.useEffect2(() => {
+    // Set the value to the provided score if it exists
+    score->Option.map(score => {
+      setValue(ScoreLeft, Value(score->fst))
+      setValue(ScoreRight, Value(score->snd))
+    })->ignore
+    None
+  }, (view, match))
 
   let handleWinner = (winningSide: winners) => {
     onComplete
     ->Option.map(f => {
       let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
-      f(match)
+      f((match, None))
     })
     ->ignore
   }
@@ -216,72 +203,25 @@ let make = (
     switch data.scoreLeft == data.scoreRight {
     | true => alert("No ties allowed")
     | false =>
-      let winningSide = switch data.scoreLeft > data.scoreRight {
-      | true => Left
-      | false => Right
-      }
-      let winners = (winningSide == Left ? team1 : team2)->Array.map(p => p.id)
-      let losers = (winningSide == Left ? team2 : team1)->Array.map(p => p.id)
-      let score =
-        winningSide == Left ? [data.scoreLeft, data.scoreRight] : [data.scoreRight, data.scoreLeft]
-
-      let submitted = () => {
-        setValue(ScoreLeft, Value(0.))
-        setValue(ScoreRight, Value(0.))
-        setSubmitting(_ => false)
-        onComplete
-        ->Option.map(f => {
-          let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
-          f(match)
+      onComplete
+      ->Option.map(f => {
+        let winningSide = switch data.scoreLeft > data.scoreRight {
+        | true => Left
+        | false => Right
+        }
+        let score =
+          winningSide == Left
+            ? (data.scoreLeft, data.scoreRight)
+            : (data.scoreRight, data.scoreLeft)
+        let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
+        let x = f((match, Some(score)))
+        x->Promise.then(_ => {
+          setValue(ScoreLeft, Value(0.))
+          setValue(ScoreRight, Value(0.))
+          Promise.resolve(setSubmitting(_ => false))
         })
-        ->ignore
-      }
-      rated
-        ? activity.slug
-          ->Option.map(slug => {
-            let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-              // __id,
-              "root"->RescriptRelay.makeDataId,
-              "MatchListFragment_matches",
-              {
-                LeagueEventPageQuery_graphql.Types.activitySlug: Some(slug),
-                namespace: Some("doubles:rec"),
-                after: None,
-                before: None,
-                eventId: None,
-                first: None,
-              },
-            )
-            commitMutationCreateLeagueMatch(
-              ~variables={
-                matchInput: {
-                  activitySlug: slug,
-                  namespace: "doubles:rec",
-                  doublesMatch: {
-                    winners,
-                    losers,
-                    score,
-                    createdAt: Js.Date.make()->Util.Datetime.fromDate,
-                  },
-                },
-                connections: [connectionId],
-              },
-              ~onCompleted=(_, errs) => {
-                switch errs {
-                | Some(errs) => Js.log(errs)
-                | None => onSubmitted->Option.map(f => f())->Option.getOr()
-                }
-                submitted()
-              },
-              ~onError=_ => {
-                setSubmitting(_ => false)
-              },
-            )->RescriptRelay.Disposable.ignore
-          })
-          ->ignore
-        : {
-            submitted()
-          }
+      })
+      ->ignore
     }
   }
 

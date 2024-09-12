@@ -13,16 +13,20 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchesView.re.mjs:256
-#: src/components/organisms/MatchesView.re.mjs:259
+#: src/components/organisms/MatchesView.re.mjs:275
+#: src/components/organisms/MatchesView.re.mjs:278
 msgid "and"
 msgstr "と"
 
-#: src/components/organisms/SubmitMatch.re.mjs:259
+#: src/components/organisms/SubmitMatch.re.mjs:254
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/MatchesView.re.mjs:288
+#: src/components/organisms/MatchesView.re.mjs:236
+msgid "Checkin"
+msgstr "チェックイン"
+
+#: src/components/organisms/MatchesView.re.mjs:307
 msgid "Choose Match"
 msgstr "試合を選択"
 
@@ -34,20 +38,20 @@ msgstr "試合を選択"
 msgid "Close panel"
 msgstr "パネルを閉じる"
 
-#: src/components/organisms/MatchesView.re.mjs:260
+#: src/components/organisms/MatchesView.re.mjs:279
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "コート {0}: {team1} 対 {team2}"
 
-#: src/components/organisms/SubmitMatch.re.mjs:392
-#: src/components/organisms/MatchesView.re.mjs:218
+#: src/components/organisms/SubmitMatch.re.mjs:387
+#: src/components/organisms/MatchesView.re.mjs:221
 msgid "Go Back"
 msgstr "戻る"
 
-#: src/components/organisms/SubmitMatch.re.mjs:411
+#: src/components/organisms/SubmitMatch.re.mjs:406
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/components/organisms/MatchesView.re.mjs:248
+#: src/components/organisms/MatchesView.re.mjs:266
 msgid "Matches"
 msgstr "試合"
 
@@ -55,21 +59,21 @@ msgstr "試合"
 msgid "Players on Break"
 msgstr "休憩中のプレイヤー"
 
-#: src/components/organisms/SubmitMatch.re.mjs:319
-#: src/components/organisms/SubmitMatch.re.mjs:365
+#: src/components/organisms/SubmitMatch.re.mjs:314
+#: src/components/organisms/SubmitMatch.re.mjs:360
 msgid "Points"
 msgstr "何点"
 
-#: src/components/organisms/SubmitMatch.re.mjs:99
-#: src/components/organisms/SubmitMatch.re.mjs:111
+#: src/components/organisms/SubmitMatch.re.mjs:85
+#: src/components/organisms/SubmitMatch.re.mjs:97
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/MatchesView.re.mjs:233
+#: src/components/organisms/MatchesView.re.mjs:251
 msgid "Queue"
 msgstr "キュー"
 
-#: src/components/organisms/SubmitMatch.re.mjs:399
+#: src/components/organisms/SubmitMatch.re.mjs:394
 msgid "Submit Rated"
 msgstr "評価を提出"
 
@@ -77,7 +81,7 @@ msgstr "評価を提出"
 msgid "Toggle All"
 msgstr "すべてを切り替える"
 
-#: src/components/organisms/SubmitMatch.re.mjs:329
-#: src/components/organisms/SubmitMatch.re.mjs:375
+#: src/components/organisms/SubmitMatch.re.mjs:324
+#: src/components/organisms/SubmitMatch.re.mjs:370
 msgid "Winner"
 msgstr "勝者"

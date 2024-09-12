@@ -13,67 +13,67 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SubmitMatch.re.mjs:259
-msgid "Cancel"
-msgstr "キャンセル"
-
-#: src/components/organisms/SubmitMatch.re.mjs:392
-msgid "Go Back"
-msgstr "戻る"
-
-#: src/components/organisms/SelectMatch.re.mjs:284
+#: src/components/organisms/SelectMatch.re.mjs:282
 msgid "left team players"
 msgstr "左チームのプレイヤー"
 
-#: src/components/organisms/SubmitMatch.re.mjs:411
-#: src/components/organisms/SelectMatch.re.mjs:353
-msgid "Loading"
-msgstr "読み込み中"
-
-#: src/components/organisms/SelectMatch.re.mjs:148
+#: src/components/organisms/SelectMatch.re.mjs:147
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/SelectMatch.re.mjs:108
+#: src/components/organisms/SelectMatch.re.mjs:107
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/SubmitMatch.re.mjs:319
-#: src/components/organisms/SubmitMatch.re.mjs:365
-msgid "Points"
-msgstr "何点"
-
-#: src/components/organisms/SubmitMatch.re.mjs:99
-#: src/components/organisms/SubmitMatch.re.mjs:111
-msgid "predicted winner"
-msgstr "予測される勝者"
-
-#: src/components/organisms/SelectMatch.re.mjs:333
+#: src/components/organisms/SelectMatch.re.mjs:331
 msgid "Queue Match"
 msgstr "試合をキューに入れる"
 
-#: src/components/organisms/SelectMatch.re.mjs:308
+#: src/components/organisms/SelectMatch.re.mjs:306
 msgid "right team players"
 msgstr "右チームのプレイヤー"
 
-#: src/components/organisms/SubmitMatch.re.mjs:399
-msgid "Submit Rated"
-msgstr "評価を提出"
-
-#: src/components/organisms/SubmitMatch.re.mjs:329
-#: src/components/organisms/SubmitMatch.re.mjs:375
-msgid "Winner"
-msgstr "勝者"
+#: src/components/organisms/SubmitMatch.re.mjs:259
+#~ msgid "Cancel"
+#~ msgstr "キャンセル"
 
 #: src/components/organisms/SubmitMatch.re.mjs:390
 #~ msgid "Completed"
 #~ msgstr "試合終了"
 
+#: src/components/organisms/SubmitMatch.re.mjs:392
+#~ msgid "Go Back"
+#~ msgstr "戻る"
+
 #: src/components/organisms/SelectMatch.re.mjs:215
 #~ msgid "load More"
 #~ msgstr "もっと読み込む"
+
+#: src/components/organisms/SubmitMatch.re.mjs:411
+#: src/components/organisms/SelectMatch.re.mjs:353
+#~ msgid "Loading"
+#~ msgstr "読み込み中"
 
 #: src/components/organisms/SubmitMatch.re.mjs:314
 #: src/components/organisms/SubmitMatch.re.mjs:327
 #~ msgid "points"
 #~ msgstr "何点"
+
+#: src/components/organisms/SubmitMatch.re.mjs:319
+#: src/components/organisms/SubmitMatch.re.mjs:365
+#~ msgid "Points"
+#~ msgstr "何点"
+
+#: src/components/organisms/SubmitMatch.re.mjs:99
+#: src/components/organisms/SubmitMatch.re.mjs:111
+#~ msgid "predicted winner"
+#~ msgstr "予測される勝者"
+
+#: src/components/organisms/SubmitMatch.re.mjs:399
+#~ msgid "Submit Rated"
+#~ msgstr "評価を提出"
+
+#: src/components/organisms/SubmitMatch.re.mjs:329
+#: src/components/organisms/SubmitMatch.re.mjs:375
+#~ msgid "Winner"
+#~ msgstr "勝者"

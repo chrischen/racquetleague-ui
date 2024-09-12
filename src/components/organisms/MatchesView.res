@@ -28,6 +28,8 @@ module PlayerView = {
   }
   // </div>
 }
+
+
 module Queue = {
   @react.component
   let make = (
@@ -105,10 +107,11 @@ module ActionBar = {
     </div>
   }
 }
-type view = Matches | Queue
+type view = Checkin | Matches | Queue
 @react.component
 let make = (
   ~players: array<Rating.player>,
+  ~checkin: React.element,
   ~queue: Set.t<string>,
   ~breakPlayers: Set.t<string>,
   ~consumedPlayers: Set.t<string>,
@@ -141,6 +144,17 @@ let make = (
       <UiAction
         className={Util.cx([
           "ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+          view == Checkin
+            ? "bg-black border-solid border-white border-2"
+            : "bg-indigo-600 hover:bg-indigo-500",
+        ])}
+        onClick={_ => setView(_ => Checkin)}>
+        <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5" />
+        {t`Checkin`}
+      </UiAction>
+      <UiAction
+        className={Util.cx([
+          "ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
           view == Queue
             ? "bg-black border-solid border-white border-2"
             : "bg-indigo-600 hover:bg-indigo-500",
@@ -163,6 +177,7 @@ let make = (
       <input
         className="w-10"
         onClick={e => e->JsxEventU.Mouse.target->Form.Input.select}
+        readOnly=true
         value={matches
         ->Array.mapWithIndex(((team1, team2), i) => {
           let team1 =
@@ -183,6 +198,7 @@ let make = (
       className="w-full h-[calc(100vh-56px-68px)] fixed top-[56px] left-0 overflow-scroll pb-32 px-3">
       <main role="main" className="w-full h-full">
         {switch view {
+        | Checkin => checkin
         | Queue =>
           <Queue
             players
@@ -206,13 +222,12 @@ let make = (
                   match
                   minRating
                   maxRating
-                  activity
                   // onSubmitted={() => {
                   // updatePlayCounts(match)
                   // dequeueMatch(i)
                   // }}
                   onDelete={() => handleMatchCanceled(i)}
-                  onComplete={match => match->handleMatchComplete(i)}
+                  onComplete={(match) => match->handleMatchComplete(i)}
                 />
               </div>
             })

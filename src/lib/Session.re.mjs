@@ -5,7 +5,8 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 
 function make() {
   return {
-          count: 0
+          count: 0,
+          paid: false
         };
 }
 
@@ -19,7 +20,8 @@ function make$1() {
 
 function get(session, id) {
   return Core__Option.getOr(Js_dict.get(session, id), {
-              count: 0
+              count: 0,
+              paid: false
             });
 }
 
@@ -32,7 +34,8 @@ function update(session, id, f) {
     
   } else {
     session$1[id] = f({
-          count: 0
+          count: 0,
+          paid: false
         });
   }
   return session$1;

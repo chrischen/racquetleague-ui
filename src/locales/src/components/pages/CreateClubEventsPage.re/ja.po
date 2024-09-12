@@ -14,48 +14,48 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:304
+#: src/components/organisms/CreateClubEventsForm.re.mjs:302
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:308
+#: src/components/organisms/CreateClubEventsForm.re.mjs:306
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:312
+#: src/components/organisms/CreateClubEventsForm.re.mjs:310
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:316
+#: src/components/organisms/CreateClubEventsForm.re.mjs:314
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:320
+#: src/components/organisms/CreateClubEventsForm.re.mjs:318
 msgid "Basketball"
 msgstr "バスケットボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:324
+#: src/components/organisms/CreateClubEventsForm.re.mjs:322
 msgid "Volleyball"
 msgstr "バレーボール"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:195
+#: src/components/organisms/CreateClubEventsForm.re.mjs:193
 msgid "{0} event details"
 msgstr "{0} イベント詳細"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:148
+#: src/components/organisms/CreateClubEventsForm.re.mjs:146
 msgid "{0} events created!"
 msgstr "{0} イベントが作成されました！"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:237
+#: src/components/organisms/CreateClubEventsForm.re.mjs:235
 msgid "activity"
 msgstr "アクティビティ"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:62
+#: src/components/organisms/CreateClubEventsForm.re.mjs:61
 msgid "activity is required"
 msgstr "アクティビティが必要です"
 
@@ -67,31 +67,31 @@ msgstr "キャンセル"
 msgid "club doesn't exist."
 msgstr "クラブが存在しません。"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:196
+#: src/components/organisms/CreateClubEventsForm.re.mjs:194
 msgid "create multiple events at one time"
 msgstr "一度に複数のイベントを作成"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:202
+#: src/components/organisms/CreateClubEventsForm.re.mjs:200
 msgid "events"
 msgstr "私のイベント"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:92
+#: src/components/organisms/CreateClubEventsForm.re.mjs:91
 msgid "events preview"
 msgstr "イベントプレビュー"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:59
+#: src/components/organisms/CreateClubEventsForm.re.mjs:58
 msgid "input is required"
 msgstr "タイトルが必要です"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:275
+#: src/components/organisms/CreateClubEventsForm.re.mjs:273
 msgid "list publicly"
 msgstr "一般公開リスト"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:228
+#: src/components/organisms/CreateClubEventsForm.re.mjs:226
 msgid "loading..."
 msgstr "読み込み中..."
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:213
+#: src/components/organisms/CreateClubEventsForm.re.mjs:211
 msgid "preview events"
 msgstr "イベントをプレビュー"
 
@@ -99,7 +99,7 @@ msgstr "イベントをプレビュー"
 msgid "save"
 msgstr "保存"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:280
+#: src/components/organisms/CreateClubEventsForm.re.mjs:278
 msgid ""
 "show your event publicly on our home page. Otherwise, only people with a "
 "link to your event will be able to find it."
@@ -107,7 +107,7 @@ msgstr ""
 "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
 "持っている人だけがイベントを見つけることができます。"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:205
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
 msgid "type your events here"
 msgstr "ここにイベントを入力してください"
 

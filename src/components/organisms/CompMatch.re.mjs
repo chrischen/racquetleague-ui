@@ -43,6 +43,7 @@ var PlayerMini = {
 function CompMatch$MatchMini(props) {
   var match = props.match;
   var onSelect = props.onSelect;
+  var highlight = props.highlight;
   return JsxRuntime.jsx(UiAction.make, {
               onClick: (function (param) {
                   Core__Option.getOr(Core__Option.map(onSelect, (function (f) {
@@ -57,10 +58,23 @@ function CompMatch$MatchMini(props) {
                                   children: match[0].map(function (p) {
                                         return JsxRuntime.jsx(CompMatch$PlayerMini, {
                                                     player: p
-                                                  });
+                                                  }, p.id);
                                       })
                                 }),
-                            className: "col-span-3"
+                            className: Core.cx("col-span-3 px-2 py-1", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
+                                            switch (h) {
+                                              case "Left" :
+                                              case "Both" :
+                                                  return "bg-yellow-100";
+                                              case "Right" :
+                                              case "Right2" :
+                                                  return "";
+                                              case "Left2" :
+                                              case "Both2" :
+                                                  return "bg-red-200";
+                                              
+                                            }
+                                          })), ""))
                           }),
                       JsxRuntime.jsx("div", {
                             children: " VS ",
@@ -71,10 +85,23 @@ function CompMatch$MatchMini(props) {
                                   children: match[1].map(function (p) {
                                         return JsxRuntime.jsx(CompMatch$PlayerMini, {
                                                     player: p
-                                                  });
+                                                  }, p.id);
                                       })
                                 }),
-                            className: "col-span-3 justify-right text-right"
+                            className: Core.cx("col-span-3 justify-right text-right", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
+                                            switch (h) {
+                                              case "Right" :
+                                              case "Both" :
+                                                  return "bg-yellow-100";
+                                              case "Left" :
+                                              case "Left2" :
+                                                  return "";
+                                              case "Right2" :
+                                              case "Both2" :
+                                                  return "bg-red-200";
+                                              
+                                            }
+                                          })), ""))
                           })
                     ],
                     className: "grid grid-cols-7 items-center place-content-center"
@@ -347,6 +374,8 @@ function CompMatch(props) {
   var onSelectMatch = props.onSelectMatch;
   var avoidAllPlayers = props.avoidAllPlayers;
   var priorityPlayers = props.priorityPlayers;
+  var lastRoundSeenTeams = props.lastRoundSeenTeams;
+  var seenTeams = props.seenTeams;
   var consumedPlayers = props.consumedPlayers;
   var players = props.players;
   var match = React.useState(function () {
@@ -484,21 +513,108 @@ function CompMatch(props) {
                       ],
                       className: "mt-2 text-base leading-7 text-gray-600"
                     }),
+                JsxRuntime.jsxs("p", {
+                      children: [
+                        JsxRuntime.jsx("span", {
+                              children: "...",
+                              className: "px-2 py-1 bg-yellow-100"
+                            }),
+                        " = ",
+                        t`This team has played before`,
+                        JsxRuntime.jsx("span", {
+                              children: "...",
+                              className: "ml-2 px-2 py-1 bg-red-100"
+                            }),
+                        " = ",
+                        t`Played last round`
+                      ],
+                      className: "mt-2 text-base leading-7 text-gray-600"
+                    }),
                 matches$1.map(function (param, i) {
+                      var match = param[0];
+                      var team2 = match[1];
+                      var team1 = match[0];
                       var quality = param[1];
-                      var match = maxQuality - minQuality;
-                      return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                      var match$1 = lastRoundSeenTeams.has(Rating.Team.toStableId(team1));
+                      var match$2 = lastRoundSeenTeams.has(Rating.Team.toStableId(team2));
+                      var highlight2 = match$1 ? (
+                          match$2 ? "Both2" : "Left2"
+                        ) : (
+                          match$2 ? "Right2" : undefined
+                        );
+                      var match$3 = seenTeams.has(Rating.Team.toStableId(team1));
+                      var match$4 = seenTeams.has(Rating.Team.toStableId(team2));
+                      var highlight;
+                      var exit = 0;
+                      if (highlight2 !== undefined) {
+                        var exit$1 = 0;
+                        switch (highlight2) {
+                          case "Left2" :
+                              if (match$3) {
+                                if (match$4) {
+                                  exit = 1;
+                                } else {
+                                  highlight = "Left2";
+                                }
+                              } else {
+                                exit$1 = 2;
+                              }
+                              break;
+                          case "Right2" :
+                              if (match$3) {
+                                exit = 1;
+                              } else if (match$4) {
+                                highlight = "Right2";
+                              } else {
+                                exit$1 = 2;
+                              }
+                              break;
+                          case "Both2" :
+                              if (match$3) {
+                                if (match$4) {
+                                  highlight = "Both2";
+                                } else {
+                                  exit = 1;
+                                }
+                              } else {
+                                exit$1 = 2;
+                              }
+                              break;
+                          default:
+                            exit$1 = 2;
+                        }
+                        if (exit$1 === 2) {
+                          if (match$3 || match$4) {
+                            exit = 1;
+                          } else {
+                            highlight = highlight2;
+                          }
+                        }
+                        
+                      } else if (match$3 || match$4) {
+                        exit = 1;
+                      } else {
+                        highlight = undefined;
+                      }
+                      if (exit === 1) {
+                        highlight = match$3 ? (
+                            match$4 ? "Both" : "Left"
+                          ) : "Right";
+                      }
+                      var match$5 = maxQuality - minQuality;
+                      return JsxRuntime.jsxs(React.Fragment, {
                                   children: [
                                     JsxRuntime.jsx(CompMatch$MatchMini, {
-                                          match: param[0],
+                                          match: match,
+                                          highlight: highlight,
                                           onSelect: onSelectMatch
-                                        }, i.toString()),
+                                        }),
                                     quality.toFixed(3),
                                     JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(FramerMotion.motion.div, {
                                                 className: "h-2 rounded-full bg-red-400",
                                                 animate: {
-                                                  width: match !== 0 ? ((quality - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
+                                                  width: match$5 !== 0 ? ((quality - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
                                                 },
                                                 initial: {
                                                   width: "0%"
@@ -507,7 +623,7 @@ function CompMatch(props) {
                                           className: "overflow-hidden rounded-full bg-gray-200 mt-1"
                                         })
                                   ]
-                                });
+                                }, i.toString());
                     })
               ]
             });

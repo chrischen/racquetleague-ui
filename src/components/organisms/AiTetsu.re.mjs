@@ -8,11 +8,13 @@ import * as Session from "../../lib/Session.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as CompMatch from "./CompMatch.re.mjs";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as MatchesView from "./MatchesView.re.mjs";
 import * as SelectMatch from "./SelectMatch.re.mjs";
 import * as SubmitMatch from "./SubmitMatch.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as RelayRuntime from "relay-runtime";
 import * as SessionAddPlayer from "./SessionAddPlayer.re.mjs";
 import * as React$1 from "@headlessui/react";
 import * as SelectPlayersList from "./SelectPlayersList.re.mjs";
@@ -26,6 +28,7 @@ import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutati
 import * as Solid from "@heroicons/react/24/solid";
 import * as Outline from "@heroicons/react/24/outline";
 import * as AiTetsuRsvpsRefetchQuery_graphql from "../../__generated__/AiTetsuRsvpsRefetchQuery_graphql.re.mjs";
+import * as AiTetsuSubmitMatchMutation_graphql from "../../__generated__/AiTetsuSubmitMatchMutation_graphql.re.mjs";
 import * as AiTetsuCreateRatingMutation_graphql from "../../__generated__/AiTetsuCreateRatingMutation_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
@@ -44,11 +47,21 @@ RescriptRelay_Mutation.commitMutation(convertVariables, AiTetsuCreateRatingMutat
 
 var use = RescriptRelay_Mutation.useMutation(convertVariables, AiTetsuCreateRatingMutation_graphql.node, convertResponse, convertWrapRawResponse);
 
+var convertVariables$1 = AiTetsuSubmitMatchMutation_graphql.Internal.convertVariables;
+
+var convertResponse$1 = AiTetsuSubmitMatchMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = AiTetsuSubmitMatchMutation_graphql.Internal.convertWrapRawResponse;
+
+RescriptRelay_Mutation.commitMutation(convertVariables$1, AiTetsuSubmitMatchMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, AiTetsuSubmitMatchMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
 var getConnectionNodes = AiTetsu_event_graphql.Utils.getConnectionNodes;
 
 var convertFragment = AiTetsu_event_graphql.Internal.convertFragment;
 
-function use$1(fRef) {
+function use$2(fRef) {
   return RescriptRelay_Fragment.useFragment(AiTetsu_event_graphql.node, convertFragment, fRef);
 }
 
@@ -168,7 +181,49 @@ function AiTetsu$TeamSelector(props) {
             });
 }
 
-function getPriorityPlayers(players, session, $$break) {
+function AiTetsu$Checkin(props) {
+  var onToggleCheckin = props.onToggleCheckin;
+  var disabled = props.disabled;
+  var players = props.players;
+  var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
+          if (next.rating.mu > acc) {
+            return next.rating.mu;
+          } else {
+            return acc;
+          }
+        }));
+  var minRating = Core__Array.reduce(players, maxRating, (function (acc, next) {
+          if (next.rating.mu < acc) {
+            return next.rating.mu;
+          } else {
+            return acc;
+          }
+        }));
+  return JsxRuntime.jsx("div", {
+              children: players.map(function (player) {
+                    var match = disabled.has(player.id);
+                    var match$1 = player.paid;
+                    var status = match ? "Available" : (
+                        match$1 ? "Queued" : "Break"
+                      );
+                    return JsxRuntime.jsx(UiAction.make, {
+                                onClick: (function (param) {
+                                    onToggleCheckin(player, disabled.has(player.id));
+                                  }),
+                                children: JsxRuntime.jsx(MatchesView.PlayerView.make, {
+                                      player: player,
+                                      minRating: minRating,
+                                      maxRating: maxRating,
+                                      status: status
+                                    }, player.id)
+                              });
+                  }),
+              className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+            });
+}
+
+function getDeprioritizedPlayers(history, players, session, $$break) {
+  var lastPlayed = Rating.CompletedMatches.getLastPlayedPlayers(history, $$break, players.length);
   var maxCount = Core__Array.reduce(players, 0, (function (acc, next) {
           var count = Session.get(session, next.id).count;
           if (count > acc) {
@@ -193,6 +248,54 @@ function getPriorityPlayers(players, session, $$break) {
                 return false;
               }
             }), session).slice(0, $$break);
+  if (breakPlayers.length >= $$break) {
+    return new Set(breakPlayers.map(function (p) {
+                    return p.id;
+                  }));
+  }
+  var breakAndLastPlayed = Rating.Players.addBreakPlayersFrom(breakPlayers, lastPlayed, $$break);
+  if (breakAndLastPlayed.length < $$break) {
+    return new Set(Rating.Players.addBreakPlayersFrom(breakAndLastPlayed, players, $$break).map(function (p) {
+                    return p.id;
+                  }));
+  } else {
+    return new Set(breakAndLastPlayed.map(function (p) {
+                    return p.id;
+                  }));
+  }
+}
+
+function getPriorityPlayers(history, players, session, $$break) {
+  var lastPlayed = Rating.CompletedMatches.getLastPlayedPlayers(history, $$break, players.length);
+  var maxCount = Core__Array.reduce(players, 0, (function (acc, next) {
+          var count = Session.get(session, next.id).count;
+          if (count > acc) {
+            return count;
+          } else {
+            return acc;
+          }
+        }));
+  var minCount = Core__Array.reduce(players, maxCount, (function (acc, next) {
+          var count = Session.get(session, next.id).count;
+          if (count < acc) {
+            return count;
+          } else {
+            return acc;
+          }
+        }));
+  var breakPlayers = Rating.Players.sortByPlayCountDesc(players.filter(function (p) {
+                var count = Session.get(session, p.id).count;
+                if (count === maxCount) {
+                  return count !== minCount;
+                } else {
+                  return false;
+                }
+              }), session).slice(0, $$break).map(function (p) {
+        return p.id;
+      });
+  var deprioritized = breakPlayers.length < $$break ? new Set(Rating.Players.filterOut(lastPlayed, new Set(breakPlayers)).slice(0, $$break - breakPlayers.length | 0).map(function (p) {
+                return p.id;
+              }).concat(breakPlayers)) : new Set(breakPlayers);
   return {
           prioritized: Core__Array.reduce(players, [], (function (acc, next) {
                   var count = Session.get(session, next.id).count;
@@ -202,9 +305,7 @@ function getPriorityPlayers(players, session, $$break) {
                     return acc;
                   }
                 })),
-          deprioritized: new Set(breakPlayers.map(function (p) {
-                    return p.id;
-                  }))
+          deprioritized: deprioritized
         };
 }
 
@@ -235,26 +336,8 @@ function rsvpToPlayer(rsvp) {
                       return u.lineUsername;
                     })), ""),
           rating: rating,
-          ratingOrdinal: Rating.Rating.ordinal(rating)
-        };
-}
-
-function rsvpToPlayerDefault(rsvp) {
-  var match = Core__Option.map(rsvp.user, (function (u) {
-          return u.id;
-        }));
-  if (match === undefined) {
-    return ;
-  }
-  var rating = Rating.Rating.makeDefault();
-  return {
-          data: rsvp,
-          id: match,
-          name: Core__Option.getOr(Core__Option.flatMap(rsvp.user, (function (u) {
-                      return u.lineUsername;
-                    })), ""),
-          rating: rating,
-          ratingOrdinal: Rating.Rating.ordinal(rating)
+          ratingOrdinal: Rating.Rating.ordinal(rating),
+          paid: false
         };
 }
 
@@ -278,66 +361,70 @@ function removeFromQueue(queue, player) {
 
 function AiTetsu(props) {
   var $$event = props.event;
-  var match = use$1($$event);
+  var match = use$2($$event);
   var eventId = match.id;
   var activity = match.activity;
   var match$1 = use();
   var commitMutationCreateRating = match$1[0];
-  var match$2 = React.useState(function () {
+  var match$2 = use$1();
+  var commitMutationCreateLeagueMatch = match$2[0];
+  var match$3 = React.useState(function () {
         return [];
       });
-  var setMatches = match$2[1];
-  var matches = match$2[0];
-  var match$3 = React.useState(function () {
+  var setMatches = match$3[1];
+  var matches = match$3[0];
+  var match$4 = React.useState(function () {
         return false;
       });
-  var setManualTeamOpen = match$3[1];
-  var match$4 = React.useState(function () {
+  var setManualTeamOpen = match$4[1];
+  var match$5 = React.useState(function () {
         return "Advanced";
       });
-  var setScreen = match$4[1];
-  var match$5 = React.useState(function () {
+  var setScreen = match$5[1];
+  var match$6 = React.useState(function () {
         return Util.NonEmptyArray.empty;
       });
-  var setTeams = match$5[1];
-  var teams = match$5[0];
-  var match$6 = React.useState(function () {
+  var setTeams = match$6[1];
+  var teams = match$6[0];
+  var match$7 = React.useState(function () {
         
       });
-  var setSettingsPane = match$6[1];
-  var settingsPane = match$6[0];
-  var match$7 = React.useState(function () {
-        return new Set();
-      });
-  var setQueue = match$7[1];
+  var setSettingsPane = match$7[1];
+  var settingsPane = match$7[0];
   var match$8 = React.useState(function () {
         return new Set();
       });
-  var setDisabled = match$8[1];
-  var disabled = match$8[0];
+  var setQueue = match$8[1];
   var match$9 = React.useState(function () {
+        return new Set();
+      });
+  var setDisabled = match$9[1];
+  var disabled = match$9[0];
+  var match$10 = React.useState(function () {
         return Session.make();
       });
-  var setSessionState = match$9[1];
-  var sessionState = match$9[0];
-  var match$10 = React.useState(function () {
+  var setSessionState = match$10[1];
+  var sessionState = match$10[0];
+  var match$11 = React.useState(function () {
         return [];
       });
-  var setSessionPlayers = match$10[1];
-  var sessionPlayers = match$10[0];
-  var match$11 = React.useState(function () {
+  var setSessionPlayers = match$11[1];
+  var sessionPlayers = match$11[0];
+  var match$12 = React.useState(function () {
         return false;
       });
-  var setSessionMode = match$11[1];
-  var sessionMode = match$11[0];
-  var match$12 = React.useState(function () {
+  var setSessionMode = match$12[1];
+  var sessionMode = match$12[0];
+  var match$13 = React.useState(function () {
         return 0;
       });
-  var setBreakCount = match$12[1];
-  var breakCount = match$12[0];
-  React.useState(function () {
+  var setBreakCount = match$13[1];
+  var breakCount = match$13[0];
+  var match$14 = React.useState(function () {
         return [];
       });
+  var setMatchHistory = match$14[1];
+  var matchHistory = match$14[0];
   var toggleQueuePlayer = function (player) {
     setQueue(function (queue) {
           var newSet = new Set();
@@ -351,12 +438,30 @@ function AiTetsu(props) {
           }
         });
   };
-  var match$13 = usePagination($$event);
-  var data = match$13.data;
+  var match$15 = usePagination($$event);
+  var data = match$15.data;
   var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
   var players = allPlayers.filter(function (p) {
         return !disabled.has(p.id);
       });
+  var seenTeams = new Set(matchHistory.flatMap(function (param) {
+              var match = param[0];
+              return [
+                      match[0],
+                      match[1]
+                    ];
+            }).map(function (t) {
+            return Rating.Team.toStableId(t);
+          }));
+  var lastRoundSeenTeams = new Set(Rating.CompletedMatches.getlastRoundMatches(matchHistory, breakCount, players.length, 4).flatMap(function (param) {
+              var match = param[0];
+              return [
+                      match[0],
+                      match[1]
+                    ];
+            }).map(function (t) {
+            return Rating.Team.toStableId(t);
+          }));
   var initializeRatings = function () {
     return allPlayers.map(function (p) {
                 commitMutationCreateRating({
@@ -367,20 +472,37 @@ function AiTetsu(props) {
   var clearSession = function () {
     Session.saveState(Session.make(), eventId);
     Rating.Players.savePlayers([], eventId);
+    Rating.CompletedMatches.saveMatches([], eventId);
   };
   React.useEffect((function () {
           console.log("Initializing player ratings");
           initializeRatings();
           console.log("Loading state");
           var state = Session.loadState(eventId);
-          var players = Rating.Players.loadPlayers(eventId);
+          var players = Rating.Players.loadPlayers(allPlayers, eventId);
+          var history = Rating.CompletedMatches.loadMatches(eventId, allPlayers);
           setSessionState(function (param) {
                 return state;
               });
           setSessionPlayers(function (param) {
                 return players;
               });
+          setMatchHistory(function (param) {
+                return history;
+              });
+          console.log("Disabling players by default");
+          setDisabled(function (param) {
+                return new Set(allPlayers.map(function (p) {
+                                return p.id;
+                              }));
+              });
         }), []);
+  React.useEffect((function () {
+          var history = Rating.CompletedMatches.loadMatches(eventId, allPlayers);
+          setMatchHistory(function (param) {
+                return history;
+              });
+        }), [sessionPlayers]);
   var consumedPlayers = new Set(matches.flatMap(function (match) {
             return match[0].concat(match[1]).map(function (p) {
                         return p.id;
@@ -389,16 +511,15 @@ function AiTetsu(props) {
   var availablePlayers = players.filter(function (p) {
         return !consumedPlayers.has(p.id);
       });
-  var match$14 = getPriorityPlayers(players, sessionState, breakCount);
-  var deprioritized = match$14.deprioritized;
-  var queue = match$7[0].difference(disabled);
+  var deprioritized = getDeprioritizedPlayers(matchHistory, players, sessionState, breakCount);
+  var queue = match$8[0].difference(disabled);
   var breakPlayersCount = queue.size;
   var queue$1 = queue.difference(deprioritized);
   var queuedPlayers = players.filter(function (p) {
         return queue$1.has(p.id);
       });
-  var match$15 = getPriorityPlayers(queuedPlayers, sessionState, breakCount);
-  var priorityPlayers = match$15.prioritized;
+  var match$16 = getPriorityPlayers(matchHistory, queuedPlayers, sessionState, breakCount);
+  var priorityPlayers = match$16.prioritized;
   var availablePlayers$1 = availablePlayers.filter(function (p) {
         return !deprioritized.has(p.id);
       });
@@ -457,7 +578,8 @@ function AiTetsu(props) {
                   }), prevState, (function (state, p) {
                   return Session.update(state, p.id, (function (prev) {
                                 return {
-                                        count: prev.count + 1 | 0
+                                        count: prev.count + 1 | 0,
+                                        paid: prev.paid
                                       };
                               }));
                 }));
@@ -469,7 +591,7 @@ function AiTetsu(props) {
     if (sessionPlayers.length >= getConnectionNodes(data.rsvps).length) {
       return ;
     }
-    var players = Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayerDefault).concat(sessionPlayers);
+    var players = Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
     setSessionPlayers(function (param) {
           return players;
         });
@@ -497,13 +619,75 @@ function AiTetsu(props) {
           return newState;
         });
   };
-  var handleMatchComplete = function (match, matchId) {
-    dequeueMatch(matchId);
+  var submitMatch = function (match, score, activitySlug) {
+    var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
+          activitySlug: activitySlug,
+          after: undefined,
+          before: undefined,
+          eventId: undefined,
+          first: undefined,
+          namespace: "doubles:rec"
+        });
+    return new Promise((function (resolve, reject) {
+                  commitMutationCreateLeagueMatch({
+                        connections: [connectionId],
+                        matchInput: {
+                          activitySlug: activitySlug,
+                          doublesMatch: {
+                            createdAt: Util.Datetime.fromDate(new Date()),
+                            losers: match[1].map(function (p) {
+                                  return p.id;
+                                }),
+                            score: [
+                              score[0],
+                              score[1]
+                            ],
+                            winners: match[0].map(function (p) {
+                                  return p.id;
+                                })
+                          },
+                          namespace: "doubles:rec"
+                        }
+                      }, undefined, undefined, undefined, (function (param, errs) {
+                          if (errs !== undefined) {
+                            console.log(errs);
+                            return ;
+                          } else {
+                            return resolve();
+                          }
+                        }), (function (e) {
+                          reject(e);
+                        }), undefined);
+                }));
+  };
+  var handleMatchComplete = function (completedMatch, matchId) {
+    var score = completedMatch[1];
+    var match = completedMatch[0];
+    if (matchId > -1) {
+      dequeueMatch(matchId);
+    }
     updatePlayCounts(match);
-    var match$1 = Rating.Match.rate(match);
-    updateSessionPlayerRatings(match$1.flatMap(function (x) {
+    var rated_match = Rating.Match.rate(match);
+    updateSessionPlayerRatings(rated_match.flatMap(function (x) {
               return x;
             }));
+    setMatchHistory(function (matches) {
+          var matches$1 = matches.concat([completedMatch]);
+          Rating.CompletedMatches.saveMatches(matches$1, eventId);
+          return matches$1;
+        });
+    if (sessionMode) {
+      return Promise.resolve();
+    } else {
+      return Core__Option.getOr(Core__Option.flatMap(activity, (function (activity) {
+                        return Core__Option.map(activity.slug, (function (slug) {
+                                      return Rating.CompletedMatch.submit([
+                                                  match,
+                                                  score
+                                                ], slug, submitMatch);
+                                    }));
+                      })), Promise.resolve());
+    }
   };
   var breakPlayersDesc = plural(breakPlayersCount, {
         one: "player",
@@ -534,10 +718,38 @@ function AiTetsu(props) {
                 });
     }
   };
-  if (match$4[0] !== "Advanced") {
+  if (match$5[0] !== "Advanced") {
     return Core__Option.getOr(Core__Option.map(activity, (function (activity) {
                       return JsxRuntime.jsx(MatchesView.make, {
                                   players: players,
+                                  checkin: JsxRuntime.jsx(AiTetsu$Checkin, {
+                                        players: allPlayers,
+                                        disabled: disabled,
+                                        onToggleCheckin: (function (player, status) {
+                                            if (status) {
+                                              return setDisabled(function (disabled) {
+                                                          return removeFromQueue(disabled, player);
+                                                        });
+                                            } else {
+                                              return setDisabled(function (disabled) {
+                                                          return addToQueue(disabled, player);
+                                                        });
+                                            }
+                                          }),
+                                        onUpdatePlayer: (function (p, paid) {
+                                            var playerId = p.id;
+                                            setSessionState(function (prevState) {
+                                                  var nextState = Session.update(prevState, playerId, (function (prev) {
+                                                          return {
+                                                                  count: prev.count,
+                                                                  paid: paid
+                                                                };
+                                                        }));
+                                                  Session.saveState(nextState, eventId);
+                                                  return nextState;
+                                                });
+                                          })
+                                      }),
                                   queue: queue$1,
                                   breakPlayers: deprioritized,
                                   consumedPlayers: consumedPlayers,
@@ -567,6 +779,8 @@ function AiTetsu(props) {
                                         players: queuedPlayers,
                                         teams: teams,
                                         consumedPlayers: new Set(),
+                                        seenTeams: seenTeams,
+                                        lastRoundSeenTeams: lastRoundSeenTeams,
                                         priorityPlayers: priorityPlayers,
                                         avoidAllPlayers: avoidAllPlayers,
                                         onSelectMatch: (function (match) {
@@ -830,6 +1044,8 @@ function AiTetsu(props) {
                                               players: queuedPlayers,
                                               teams: teams,
                                               consumedPlayers: new Set(),
+                                              seenTeams: seenTeams,
+                                              lastRoundSeenTeams: lastRoundSeenTeams,
                                               priorityPlayers: priorityPlayers,
                                               avoidAllPlayers: avoidAllPlayers,
                                               onSelectMatch: (function (match) {
@@ -853,27 +1069,75 @@ function AiTetsu(props) {
                                   }),
                               className: "col-span-1"
                             }),
-                        match$3[0] ? JsxRuntime.jsx(SelectMatch.make, {
+                        match$4[0] ? JsxRuntime.jsx(SelectMatch.make, {
                                 players: queuedPlayers,
                                 activity: activity,
                                 onMatchQueued: (function (match) {
                                     queueMatch(match);
                                   }),
-                                onMatchCompleted: (function (match) {
-                                    updatePlayCounts(match);
-                                    var match$1 = Rating.Match.rate(match);
-                                    updateSessionPlayerRatings(match$1.flatMap(function (x) {
-                                              return x;
-                                            }));
+                                children: (function (match) {
+                                    return Core__Option.getOr(Core__Option.map(activity, (function (activity) {
+                                                      return JsxRuntime.jsx(React.Suspense, {
+                                                                  children: Caml_option.some(JsxRuntime.jsx(SubmitMatch.make, {
+                                                                            match: match,
+                                                                            minRating: minRating,
+                                                                            maxRating: maxRating,
+                                                                            onComplete: (function (__x) {
+                                                                                return handleMatchComplete(__x, -1);
+                                                                              })
+                                                                          })),
+                                                                  fallback: Caml_option.some(JsxRuntime.jsx("div", {
+                                                                            children: t`Loading`
+                                                                          }))
+                                                                });
+                                                    })), null);
                                   })
                               }) : null,
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("h2", {
+                                      children: t`Submitted Matches`,
+                                      className: "text-2xl font-semibold text-gray-900"
+                                    }),
+                                props.children
+                              ]
+                            }),
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("h2", {
                                       children: t`Match History`,
                                       className: "text-2xl font-semibold text-gray-900"
                                     }),
-                                props.children
+                                Core__Option.getOr(Core__Option.map(activity, (function (activity) {
+                                            return matchHistory.map(function (param, i) {
+                                                        console.log("Rendering history");
+                                                        return JsxRuntime.jsx(SubmitMatch.make, {
+                                                                    match: param[0],
+                                                                    score: param[1],
+                                                                    minRating: minRating,
+                                                                    maxRating: maxRating,
+                                                                    onDelete: (function () {
+                                                                        setMatchHistory(function (mh) {
+                                                                              var mh$1 = mh.filter(function (param, i$p) {
+                                                                                    return i !== i$p;
+                                                                                  });
+                                                                              Rating.CompletedMatches.saveMatches(mh$1, eventId);
+                                                                              return mh$1;
+                                                                            });
+                                                                      }),
+                                                                    onComplete: (function (param) {
+                                                                        var score = param[1];
+                                                                        var match = param[0];
+                                                                        return Core__Option.getOr(Core__Option.map(activity.slug, (function (slug) {
+                                                                                          return Rating.CompletedMatch.submit([
+                                                                                                      match,
+                                                                                                      score
+                                                                                                    ], slug, submitMatch);
+                                                                                        })), Promise.resolve());
+                                                                      })
+                                                                  }, i.toString());
+                                                      });
+                                          })), null)
                               ]
                             }),
                         JsxRuntime.jsxs("div", {
@@ -888,7 +1152,6 @@ function AiTetsu(props) {
                                                     return matches.map(function (match, i) {
                                                                 return JsxRuntime.jsx(SubmitMatch.make, {
                                                                             match: match,
-                                                                            activity: activity,
                                                                             minRating: minRating,
                                                                             maxRating: maxRating,
                                                                             onDelete: (function () {
@@ -906,13 +1169,14 @@ function AiTetsu(props) {
                                                                                       }));
                                                                                 dequeueMatch(i);
                                                                               }),
-                                                                            onComplete: (function (__x) {
-                                                                                handleMatchComplete(__x, i);
+                                                                            onComplete: (function (match) {
+                                                                                return handleMatchComplete(match, i);
                                                                               })
                                                                           }, i.toString());
                                                               });
                                                   })), null),
                                         JsxRuntime.jsx("input", {
+                                              readOnly: true,
                                               value: matches.map(function (param, i) {
                                                       var team1 = param[0].map(function (p) {
                                                               return p.name;

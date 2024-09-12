@@ -1265,3 +1265,19 @@ msgstr ""
 #: src/components/pages/Event.re.mjs:199
 msgid "uncancel event"
 msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:238
+msgid "Checkin"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:529
+msgid "Played last round"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:523
+msgid "This team has played before"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1099
+msgid "Submitted Matches"
+msgstr ""

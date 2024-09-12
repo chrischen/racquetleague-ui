@@ -34,6 +34,32 @@ module AiTetsuCreateRatingMutation = %relay(`
     }
   }
 `)
+module CreateLeagueMatchMutation = %relay(`
+ mutation AiTetsuSubmitMatchMutation(
+    $connections: [ID!]!
+    $matchInput: LeagueMatchInput!
+  ) {
+    createMatch(match: $matchInput) {
+      match @prependNode(connections: $connections, edgeTypeName: "MatchEdge") {
+        id
+        winners {
+          lineUsername
+        }
+        losers {
+          lineUsername
+        }
+        score
+        createdAt
+      }
+      ratings {
+        id
+        mu
+        sigma
+        ordinal
+      }
+    }
+  }
+`)
 module Fragment = %relay(`
   fragment AiTetsu_event on Event
   @argumentDefinitions (
@@ -160,7 +186,92 @@ module TeamSelector = {
     </>
   }
 }
-let getPriorityPlayers = (players: array<Player.t<'a>>, session: Session.t, break: int) => {
+module Checkin = {
+  @react.component
+  let make = (
+    ~players: array<player>,
+    ~disabled: Set.t<string>,
+    ~onToggleCheckin: (player, bool) => unit,
+    ~onUpdatePlayer: (player, bool) => unit,
+  ) => {
+    let maxRating =
+      players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
+    let minRating =
+      players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+      {players
+      ->Array.map(player => {
+        let status = switch (disabled->Set.has(player.id), player.paid) {
+        | (false, true) => MatchRsvpUser.Queued
+        | (false, false) => MatchRsvpUser.Break
+        | _ => Available
+        }
+        <UiAction
+          onClick={_ => {
+            onToggleCheckin(player, disabled->Set.has(player.id))
+            ()
+          }}>
+          <MatchesView.PlayerView status={status} key={player.id} player minRating maxRating />
+        </UiAction>
+      })
+      ->React.array}
+    </div>
+  }
+}
+let getDeprioritizedPlayers = (
+  history: CompletedMatches.t<'a>,
+  players: array<Player.t<'a>>,
+  session: Session.t,
+  break: int,
+) => {
+  let lastPlayed = history->CompletedMatches.getLastPlayedPlayers(break, players->Array.length)
+
+  let maxCount = players->Array.reduce(0, (acc, next) => {
+    let count = (session->Session.get(next.id)).count
+    count > acc ? count : acc
+  })
+  let minCount = players->Array.reduce(maxCount, (acc, next) => {
+    let count = (session->Session.get(next.id)).count
+    count < acc ? count : acc
+  })
+
+  let breakPlayers =
+    players
+    ->Array.filter(p => {
+      let count = (session->Session.get(p.id)).count
+      count == maxCount && count != minCount
+    })
+    ->Players.sortByPlayCountDesc(session)
+    ->Array.slice(~start=0, ~end=break)
+
+  let deprioritized = switch breakPlayers->Array.length < break {
+  // Choose break players from players that rested previously + designated break
+  // players
+  | true =>
+    let breakAndLastPlayed = breakPlayers->Players.addBreakPlayersFrom(lastPlayed, break)
+    switch breakAndLastPlayed->Array.length < break {
+    | true =>
+      breakAndLastPlayed
+      ->Players.addBreakPlayersFrom(players, break)
+      ->Array.map(p => p.id)
+      ->Set.fromArray
+    | false => breakAndLastPlayed->Array.map(p => p.id)->Set.fromArray
+    }
+  | false => breakPlayers->Array.map(p => p.id)->Set.fromArray
+  }
+
+  // let lowestBreakPlayerCount =
+  // breakPlayers->Array.last->Option.map(p => (session->Session.get(p.id)).count)->Option.getOr(0)
+  deprioritized
+}
+let getPriorityPlayers = (
+  history: CompletedMatches.t<'a>,
+  players: array<Player.t<'a>>,
+  session: Session.t,
+  break: int,
+) => {
+  let lastPlayed = history->CompletedMatches.getLastPlayedPlayers(break, players->Array.length)
+
   let maxCount = players->Array.reduce(0, (acc, next) => {
     let count = (session->Session.get(next.id)).count
     count > acc ? count : acc
@@ -194,6 +305,20 @@ let getPriorityPlayers = (players: array<Player.t<'a>>, session: Session.t, brea
     })
     ->Players.sortByPlayCountDesc(session)
     ->Array.slice(~start=0, ~end=break)
+    ->Array.map(p => p.id)
+
+  let deprioritized = switch breakPlayers->Array.length < break {
+  // Choose break players from players that rested previously + designated break
+  // players
+  | true =>
+    lastPlayed
+    ->Players.filterOut(breakPlayers->Set.fromArray)
+    ->Array.slice(~start=0, ~end=break - breakPlayers->Array.length)
+    ->Array.map(p => p.id)
+    ->Array.concat(breakPlayers)
+    ->Set.fromArray
+  | false => breakPlayers->Set.fromArray
+  }
 
   // let lowestBreakPlayerCount =
   // breakPlayers->Array.last->Option.map(p => (session->Session.get(p.id)).count)->Option.getOr(0)
@@ -202,9 +327,7 @@ let getPriorityPlayers = (players: array<Player.t<'a>>, session: Session.t, brea
       let count = (session->Session.get(next.id)).count
       minCount != maxCount && count == minCount ? acc->Array.concat([next]) : acc
     }),
-    deprioritized: breakPlayers
-    ->Array.map(p => p.id)
-    ->Set.fromArray,
+    deprioritized,
   }
 }
 let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node): option<
@@ -222,6 +345,7 @@ let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node)
       name: rsvp.user->Option.flatMap(u => u.lineUsername)->Option.getOr(""),
       ratingOrdinal: rating->Rating.ordinal,
       rating,
+      paid: false,
     }->Some
   | _ => None
   }
@@ -238,6 +362,7 @@ let rsvpToPlayerDefault = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edge
       name: rsvp.user->Option.flatMap(u => u.lineUsername)->Option.getOr(""),
       ratingOrdinal: rating->Rating.ordinal,
       rating,
+      paid: false,
     }->Some
   | _ => None
   }
@@ -270,6 +395,8 @@ let make = (~event, ~children) => {
   let ts = Lingui.UtilString.t
   let {__id, id: eventId, activity} = Fragment.use(event)
   let (commitMutationCreateRating, _) = AiTetsuCreateRatingMutation.use()
+  let (commitMutationCreateLeagueMatch, _isMutationInFlight) = CreateLeagueMatchMutation.use()
+
   let (matches: array<match>, setMatches) = React.useState(() => [])
   let (manualTeamOpen, setManualTeamOpen) = React.useState(() => false)
   let (screen, setScreen) = React.useState(() => Advanced)
@@ -289,7 +416,7 @@ let make = (~event, ~children) => {
   // How many players to remove from the queue for a break
   let (breakCount: int, setBreakCount) = React.useState(() => 0)
 
-  let (matchHistory: array<match>, setMatchHistory) = React.useState(() => [])
+  let (matchHistory: array<CompletedMatch.t<rsvpNode>>, setMatchHistory) = React.useState(() => [])
 
   // let pushPlayer = player => {
   //   setQueue(queue => FIFOQueue.push(queue, player))
@@ -329,6 +456,19 @@ let make = (~event, ~children) => {
   } :> array<player>)
   let players = allPlayers->Array.filter(p => !(disabled->Set.has(p.id)))
 
+  let seenTeams: RescriptCore.Set.t<string> =
+    matchHistory
+    ->Array.flatMap(((match, _)) => [match->fst, match->snd])
+    ->Array.map(t => t->Team.toStableId)
+    ->Set.fromArray
+
+  let lastRoundSeenTeams: RescriptCore.Set.t<string> =
+    matchHistory
+    ->CompletedMatches.getlastRoundMatches(breakCount, players->Array.length, 4)
+    ->Array.flatMap(((match, _)) => [match->fst, match->snd])
+    ->Array.map(t => t->Team.toStableId)
+    ->Set.fromArray
+
   let initializeRatings = () => {
     allPlayers->Array.map(p => {
       commitMutationCreateRating(~variables={userId: p.id})->RescriptRelay.Disposable.ignore
@@ -337,6 +477,7 @@ let make = (~event, ~children) => {
   let clearSession = () => {
     Session.make()->Session.saveState(eventId)
     []->Players.savePlayers(eventId)
+    []->CompletedMatches.saveMatches(eventId)
   }
   React.useEffect0(() => {
     Js.log("Initializing player ratings")
@@ -344,11 +485,22 @@ let make = (~event, ~children) => {
 
     Js.log("Loading state")
     let state = Session.loadState(eventId)
-    let players = Players.loadPlayers(eventId)
+    let players = allPlayers->Players.loadPlayers(eventId)
+    let history = CompletedMatches.loadMatches(eventId, allPlayers)
     setSessionState(_ => state)
     setSessionPlayers(_ => players)
+    setMatchHistory(_ => history)
+
+    Js.log("Disabling players by default")
+
+    setDisabled(_ => Set.fromArray(allPlayers->Array.map(p => p.id)))
     None
   })
+  React.useEffect(() => {
+    let history = CompletedMatches.loadMatches(eventId, allPlayers)
+    setMatchHistory(_ => history)
+    None
+  }, [sessionPlayers])
 
   let consumedPlayers =
     matches
@@ -356,7 +508,7 @@ let make = (~event, ~children) => {
     ->Set.fromArray
   let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
 
-  let {prioritized: _, deprioritized} = getPriorityPlayers(players, sessionState, breakCount)
+  let deprioritized = getDeprioritizedPlayers(matchHistory, players, sessionState, breakCount)
 
   let queue = queue->JsSet.difference(disabled)
   let breakPlayersCount = queue->Set.size
@@ -366,6 +518,7 @@ let make = (~event, ~children) => {
   >)
 
   let {prioritized: priorityPlayers, deprioritized: _} = getPriorityPlayers(
+    matchHistory,
     queuedPlayers,
     sessionState,
     breakCount,
@@ -406,8 +559,16 @@ let make = (~event, ~children) => {
         [match->fst, match->snd]
         ->Array.flatMap(x => x)
         ->Array.reduce(prevState, (state, p) =>
-          state->Session.update(p.id, prev => {count: prev.count + 1})
+          state->Session.update(p.id, prev => {count: prev.count + 1, paid: prev.paid})
         )
+
+      nextState->Session.saveState(eventId)
+      nextState
+    })
+  }
+  let updatePaidStatus = (playerId: string, paid: bool) => {
+    setSessionState(prevState => {
+      let nextState = prevState->Session.update(playerId, prev => {count: prev.count, paid})
 
       nextState->Session.saveState(eventId)
       nextState
@@ -421,13 +582,15 @@ let make = (~event, ~children) => {
       let players =
         data.rsvps
         ->Fragment.getConnectionNodes
-        ->Array.filterMap(rsvpToPlayerDefault)
+        // ->Array.filterMap(rsvpToPlayerDefault)
+        ->Array.filterMap(rsvpToPlayer)
         ->Array.concat(sessionPlayers)
       setSessionPlayers(_ => players)
     }
   }
 
   let uninitializeSessionMode = () => {
+    // Removes Registered players from the Session Mode
     setSessionPlayers(_ => players->Array.filter(p => p.data->Option.isNone))
   }
 
@@ -445,12 +608,76 @@ let make = (~event, ~children) => {
     })
   }
 
-  let handleMatchComplete = (match: Match.t<'a>, matchId: int) => {
-    dequeueMatch(matchId)
+  let submitMatch = (match: Match.t<'a>, score, activitySlug): Js.Promise.t<unit> => {
+    let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+      // __id,
+      "root"->RescriptRelay.makeDataId,
+      "MatchListFragment_matches",
+      {
+        LeagueEventPageQuery_graphql.Types.activitySlug: Some(activitySlug),
+        namespace: Some("doubles:rec"),
+        after: None,
+        before: None,
+        eventId: None,
+        first: None,
+      },
+    )
+
+    Promise.make((resolve, reject) => {
+      commitMutationCreateLeagueMatch(
+        ~variables={
+          matchInput: {
+            activitySlug,
+            namespace: "doubles:rec",
+            doublesMatch: {
+              winners: match->fst->Array.map(p => p.id),
+              losers: match->snd->Array.map(p => p.id),
+              score: [score->fst, score->snd],
+              createdAt: Js.Date.make()->Util.Datetime.fromDate,
+            },
+          },
+          connections: [connectionId],
+        },
+        ~onCompleted=(_, errs) => {
+          switch errs {
+          | Some(errs) => Js.log(errs)
+          | None => resolve()
+          }
+        },
+        ~onError=e => {
+          reject(e)
+        },
+      )->RescriptRelay.Disposable.ignore
+    })
+  }
+  let handleMatchComplete = (
+    (match, score) as completedMatch: CompletedMatch.t<rsvpNode>,
+    matchId: int,
+  ) => {
+    matchId > -1 ? dequeueMatch(matchId) : ()
     updatePlayCounts(match)
 
-    let match = match->Match.rate
-    updateSessionPlayerRatings(match->Array.flatMap(x => x))
+    let rated_match = match->Match.rate
+    updateSessionPlayerRatings(rated_match->Array.flatMap(x => x))
+
+    setMatchHistory(matches => {
+      let matches = matches->Array.concat([completedMatch])
+      // Save to persisted state
+      matches->CompletedMatches.saveMatches(eventId)
+      matches
+    })
+
+    switch sessionMode {
+    | true => Promise.resolve()
+    | false =>
+      activity
+      ->Option.flatMap(activity =>
+        activity.slug->Option.map(slug => {
+          (match, score)->CompletedMatch.submit(slug, submitMatch)
+        })
+      )
+      ->Option.getOr(Js.Promise.resolve())
+    }
   }
 
   let breakPlayersDesc = Lingui.UtilString.plural(
@@ -618,6 +845,8 @@ let make = (~event, ~children) => {
               players={(queuedPlayers :> array<Player.t<'a>>)}
               teams
               consumedPlayers={Set.make()}
+              seenTeams
+              lastRoundSeenTeams
               // consumedPlayers={consumedPlayers
               // ->Set.values
               // ->Array.fromIterator
@@ -640,18 +869,63 @@ let make = (~event, ~children) => {
           ? <SelectMatch
               players={queuedPlayers}
               activity
-              onMatchCompleted={match => {
-                updatePlayCounts(match)
-                let match = match->Match.rate
-                updateSessionPlayerRatings(match->Array.flatMap(x => x))
-              }}
               onMatchQueued={match => queueMatch(match)}
               //   setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))}
-            />
+            >
+              {match =>
+                activity
+                ->Option.map(activity =>
+                  <React.Suspense fallback={<div> {t`Loading`} </div>}>
+                    <SubmitMatch
+                      match minRating maxRating onComplete={handleMatchComplete(_, -1)}
+                    />
+                  </React.Suspense>
+                )
+                ->Option.getOr(React.null)}
+            </SelectMatch>
           : React.null}
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900"> {t`Match History`} </h2>
+          <h2 className="text-2xl font-semibold text-gray-900"> {t`Submitted Matches`} </h2>
           {children}
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-900"> {t`Match History`} </h2>
+          {activity
+          ->Option.map(activity =>
+            matchHistory
+            ->Array.mapWithIndex(((match, score), i) => {
+              Js.log("Rendering history")
+              <SubmitMatch
+                key={i->Int.toString}
+                match
+                ?score
+                minRating
+                maxRating
+                onDelete={() => {
+                  setMatchHistory(
+                    mh => {
+                      let mh = mh->Array.filterWithIndex(
+                        (_, i') => {
+                          i == i' ? false : true
+                        },
+                      )
+                      mh->CompletedMatches.saveMatches(eventId)
+                      mh
+                    },
+                  )
+                }}
+                onComplete={((match, score)) => {
+                  activity.slug->Option.map(
+                    slug => {
+                      (match, score)->CompletedMatch.submit(slug, submitMatch)
+                    },
+                  )->Option.getOr(Promise.resolve())
+                }}
+              />
+            })
+            ->React.array
+          )
+          ->Option.getOr(React.null)}
         </div>
         <div className="grid grid-cols-1 gap-4">
           <h2 className="text-2xl font-semibold text-gray-900"> {t`Queued Matches`} </h2>
@@ -665,7 +939,6 @@ let make = (~event, ~children) => {
                   match
                   minRating
                   maxRating
-                  activity
                   // onSubmitted={() => {
                   // updatePlayCounts(match)
                   // dequeueMatch(i)
@@ -683,13 +956,14 @@ let make = (~event, ~children) => {
                     ->ignore
                     dequeueMatch(i)
                   }}
-                  onComplete={handleMatchComplete(_, i)}
+                  onComplete={match => match->(handleMatchComplete(_, i))}
                 />
               )
               ->React.array
             )
             ->Option.getOr(React.null)}
             <input
+              readOnly=true
               value={matches
               ->Array.mapWithIndex(((team1, team2), i) => {
                 let team1 =
@@ -715,6 +989,17 @@ let make = (~event, ~children) => {
       <MatchesView
         players={players}
         queue
+        checkin={<Checkin
+          players=allPlayers
+          disabled
+          onToggleCheckin={(player, status) => {
+            switch status {
+            | true => setDisabled(disabled => disabled->removeFromQueue(player))
+            | false => setDisabled(disabled => disabled->addToQueue(player))
+            }
+          }}
+          onUpdatePlayer={(p, paid) => updatePaidStatus(p.id, paid)}
+        />}
         togglePlayer={toggleQueuePlayer}
         matches
         // setMatches={setMatches}
@@ -736,6 +1021,8 @@ let make = (~event, ~children) => {
           players={(queuedPlayers :> array<Player.t<'a>>)}
           teams
           consumedPlayers={Set.make()}
+          seenTeams
+          lastRoundSeenTeams
           // consumedPlayers={consumedPlayers
           // ->Set.values
           // ->Array.fromIterator

@@ -1177,6 +1177,22 @@ msgstr "キャンセル"
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
+#: src/components/organisms/MatchesView.re.mjs:238
+msgid "Checkin"
+msgstr "チェックイン"
+
+#: src/components/organisms/CompMatch.re.mjs:529
+msgid "Played last round"
+msgstr "前回プレイした"
+
+#: src/components/organisms/CompMatch.re.mjs:523
+msgid "This team has played before"
+msgstr "このチームは以前にプレイしました"
+
+#: src/components/organisms/AiTetsu.re.mjs:1099
+msgid "Submitted Matches"
+msgstr "提出された試合"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

@@ -2,7 +2,6 @@
 
 import * as Zod from "zod";
 import * as Form from "../molecules/forms/Form.re.mjs";
-import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
@@ -13,14 +12,11 @@ import * as Core__Result from "@rescript/core/src/Core__Result.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as MatchRsvpUser from "../molecules/MatchRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
-import * as RelayRuntime from "relay-runtime";
 import * as ReactHookForm from "react-hook-form";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventMatchRsvpUser from "./EventMatchRsvpUser.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
-import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
-import * as SubmitMatchMutation_graphql from "../../__generated__/SubmitMatchMutation_graphql.re.mjs";
 import * as SubmitMatchPredictMatchOutcomeQuery_graphql from "../../__generated__/SubmitMatchPredictMatchOutcomeQuery_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
@@ -48,16 +44,6 @@ RescriptRelay_Query.$$fetch(SubmitMatchPredictMatchOutcomeQuery_graphql.node, co
 RescriptRelay_Query.fetchPromised(SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
 
 RescriptRelay_Query.retain(SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertVariables);
-
-var convertVariables$1 = SubmitMatchMutation_graphql.Internal.convertVariables;
-
-var convertResponse$1 = SubmitMatchMutation_graphql.Internal.convertResponse;
-
-var convertWrapRawResponse = SubmitMatchMutation_graphql.Internal.convertWrapRawResponse;
-
-RescriptRelay_Mutation.commitMutation(convertVariables$1, SubmitMatchMutation_graphql.node, convertResponse$1, convertWrapRawResponse);
-
-var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, SubmitMatchMutation_graphql.node, convertResponse$1, convertWrapRawResponse);
 
 function SubmitMatch$PredictionBar(props) {
   var match = props.match;
@@ -183,32 +169,46 @@ function SubmitMatch$PlayerView(props) {
 }
 
 function SubmitMatch(props) {
-  var onSubmitted = props.onSubmitted;
   var onComplete = props.onComplete;
   var maxRating = props.maxRating;
   var minRating = props.minRating;
-  var activity = props.activity;
+  var score = props.score;
   var match = props.match;
-  var match$1 = use$1();
-  var commitMutationCreateLeagueMatch = match$1[0];
-  var match$2 = React.useState(function () {
+  var match$1 = React.useState(function () {
         return "Default";
       });
-  var setView = match$2[1];
+  var setView = match$1[1];
+  var view = match$1[0];
+  var match$2 = ReactHookForm.useForm({
+        resolver: Caml_option.some(Zod$1.zodResolver(schema)),
+        defaultValues: {
+          scoreLeft: Core__Option.getOr(Core__Option.map(score, (function (prim) {
+                      return prim[0];
+                    })), 0),
+          scoreRight: Core__Option.getOr(Core__Option.map(score, (function (prim) {
+                      return prim[1];
+                    })), 0)
+        }
+      });
+  var setValue = match$2.setValue;
+  var register = match$2.register;
   var team1 = match[0];
   var team2 = match[1];
   var doublesMatch = Rating.DoublesMatch.fromMatch(match);
-  var match$3 = ReactHookForm.useForm({
-        resolver: Caml_option.some(Zod$1.zodResolver(schema)),
-        defaultValues: {}
-      });
-  var setValue = match$3.setValue;
-  var register = match$3.register;
-  var match$4 = React.useState(function () {
+  var match$3 = React.useState(function () {
         return false;
       });
-  var setSubmitting = match$4[1];
-  var submitting = match$4[0];
+  var setSubmitting = match$3[1];
+  var submitting = match$3[0];
+  React.useEffect((function () {
+          Core__Option.map(score, (function (score) {
+                  setValue("scoreLeft", score[0], undefined);
+                  setValue("scoreRight", score[1], undefined);
+                }));
+        }), [
+        view,
+        match
+      ]);
   var handleWinner = function (winningSide) {
     Core__Option.map(onComplete, (function (f) {
             var match_0 = winningSide === "Left" ? team1 : team2;
@@ -217,7 +217,10 @@ function SubmitMatch(props) {
               match_0,
               match_1
             ];
-            f(match);
+            return f([
+                        match,
+                        undefined
+                      ]);
           }));
   };
   var defaultView = JsxRuntime.jsx(UiAction.make, {
@@ -420,95 +423,46 @@ function SubmitMatch(props) {
         className: "grid col-span-1 items-start gap-2 md:gap-4"
       });
   var tmp;
-  tmp = match$2[0] === "Default" ? defaultView : submitMatch;
+  tmp = view === "Default" ? defaultView : submitMatch;
   return JsxRuntime.jsx("form", {
               children: JsxRuntime.jsx("div", {
                     children: tmp,
                     className: "grid grid-cols-1"
                   }),
-              onSubmit: match$3.handleSubmit(function (extra) {
-                    var rated = true;
+              onSubmit: match$2.handleSubmit(function (extra) {
                     setSubmitting(function (param) {
                           return true;
                         });
                     if (extra.scoreLeft === extra.scoreRight) {
                       alert("No ties allowed");
-                      return ;
-                    }
-                    var winningSide = extra.scoreLeft > extra.scoreRight ? "Left" : "Right";
-                    var winners = (
-                        winningSide === "Left" ? team1 : team2
-                      ).map(function (p) {
-                          return p.id;
-                        });
-                    var losers = (
-                        winningSide === "Left" ? team2 : team1
-                      ).map(function (p) {
-                          return p.id;
-                        });
-                    var score = winningSide === "Left" ? [
-                        extra.scoreLeft,
-                        extra.scoreRight
-                      ] : [
-                        extra.scoreRight,
-                        extra.scoreLeft
-                      ];
-                    var submitted = function () {
-                      setValue("scoreLeft", 0, undefined);
-                      setValue("scoreRight", 0, undefined);
-                      setSubmitting(function (param) {
-                            return false;
-                          });
+                    } else {
                       Core__Option.map(onComplete, (function (f) {
+                              var winningSide = extra.scoreLeft > extra.scoreRight ? "Left" : "Right";
+                              var score = winningSide === "Left" ? [
+                                  extra.scoreLeft,
+                                  extra.scoreRight
+                                ] : [
+                                  extra.scoreRight,
+                                  extra.scoreLeft
+                                ];
                               var match_0 = winningSide === "Left" ? team1 : team2;
                               var match_1 = winningSide === "Left" ? team2 : team1;
                               var match = [
                                 match_0,
                                 match_1
                               ];
-                              f(match);
+                              var x = f([
+                                    match,
+                                    score
+                                  ]);
+                              return x.then(function () {
+                                          setValue("scoreLeft", 0, undefined);
+                                          setValue("scoreRight", 0, undefined);
+                                          return Promise.resolve(setSubmitting(function (param) {
+                                                          return false;
+                                                        }));
+                                        });
                             }));
-                    };
-                    if (rated) {
-                      Core__Option.map(activity.slug, (function (slug) {
-                              var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
-                                    activitySlug: slug,
-                                    after: undefined,
-                                    before: undefined,
-                                    eventId: undefined,
-                                    first: undefined,
-                                    namespace: "doubles:rec"
-                                  });
-                              commitMutationCreateLeagueMatch({
-                                    connections: [connectionId],
-                                    matchInput: {
-                                      activitySlug: slug,
-                                      doublesMatch: {
-                                        createdAt: Util.Datetime.fromDate(new Date()),
-                                        losers: losers,
-                                        score: score,
-                                        winners: winners
-                                      },
-                                      namespace: "doubles:rec"
-                                    }
-                                  }, undefined, undefined, undefined, (function (param, errs) {
-                                      if (errs !== undefined) {
-                                        console.log(errs);
-                                      } else {
-                                        Core__Option.getOr(Core__Option.map(onSubmitted, (function (f) {
-                                                    f();
-                                                  })), undefined);
-                                      }
-                                      submitted();
-                                    }), (function (param) {
-                                      setSubmitting(function (param) {
-                                            return false;
-                                          });
-                                    }), undefined);
-                            }));
-                      return ;
-                    } else {
-                      return submitted();
                     }
                   })
             });

@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/pages/DefaultLayout2.re.mjs:76
+#: src/components/pages/DefaultLayout2.re.mjs:77
 msgid "Events"
 msgstr ""
 
@@ -38,11 +38,11 @@ msgstr ""
 #~ msgid "Privacy Policy"
 #~ msgstr ""
 
-#: src/components/pages/DefaultLayout2.re.mjs:181
+#: src/components/pages/DefaultLayout2.re.mjs:182
 msgid "Racquet League"
 msgstr ""
 
-#: src/components/pages/DefaultLayout2.re.mjs:80
+#: src/components/pages/DefaultLayout2.re.mjs:81
 msgid "Rankings"
 msgstr ""
 

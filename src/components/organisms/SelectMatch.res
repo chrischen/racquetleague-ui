@@ -129,7 +129,8 @@ let make = (
   ~players: array<player>,
   ~activity: option<AiTetsu_event_graphql.Types.fragment_activity>,
   ~onMatchQueued,
-  ~onMatchCompleted,
+  // ~onMatchCompleted,
+  ~children
 ) => {
   let (leftNodes: array<Player.t<'a>>, setLeftNodes) = React.useState(() => [])
   let (rightNodes: array<Player.t<'a>>, setRightNodes) = React.useState(() => [])
@@ -226,26 +227,7 @@ let make = (
         <div className="text-center md:col-span-2">
           <UiAction onClick={_ => onMatchQueued(match)}> {t`Queue Match`} </UiAction>
         </div>
-        <React.Suspense fallback={<div> {t`Loading`} </div>}>
-          {activity
-          ->Option.map(activity =>
-            <SubmitMatch
-              match
-              minRating
-              maxRating
-              activity
-              // onSubmitted={() => {
-              //   onMatchCompleted(match)
-              //   setSelectedMatch(_ => None)
-              // }}
-              onComplete={match => {
-                onMatchCompleted(match)
-                setSelectedMatch(_ => None)
-              }}
-            />
-          )
-          ->Option.getOr(React.null)}
-        </React.Suspense>
+        {children(match)}
       </>)
       ->Option.getOr(React.null)}
     </div>

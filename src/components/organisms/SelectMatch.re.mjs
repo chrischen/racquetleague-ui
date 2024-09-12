@@ -6,7 +6,6 @@ import * as RsvpUser from "./RsvpUser.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
-import * as SubmitMatch from "./SubmitMatch.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
@@ -186,9 +185,8 @@ function rot2(players, player) {
 }
 
 function SelectMatch(props) {
-  var onMatchCompleted = props.onMatchCompleted;
+  var children = props.children;
   var onMatchQueued = props.onMatchQueued;
-  var activity = props.activity;
   var players = props.players;
   var match = React.useState(function () {
         return [];
@@ -334,25 +332,7 @@ function SelectMatch(props) {
                                                           }),
                                                       className: "text-center md:col-span-2"
                                                     }),
-                                                JsxRuntime.jsx(React.Suspense, {
-                                                      children: Caml_option.some(Core__Option.getOr(Core__Option.map(activity, (function (activity) {
-                                                                      return JsxRuntime.jsx(SubmitMatch.make, {
-                                                                                  match: match,
-                                                                                  activity: activity,
-                                                                                  minRating: minRating,
-                                                                                  maxRating: maxRating,
-                                                                                  onComplete: (function (match) {
-                                                                                      onMatchCompleted(match);
-                                                                                      setSelectedMatch(function (param) {
-                                                                                            
-                                                                                          });
-                                                                                    })
-                                                                                });
-                                                                    })), null)),
-                                                      fallback: Caml_option.some(JsxRuntime.jsx("div", {
-                                                                children: t`Loading`
-                                                              }))
-                                                    })
+                                                children(match)
                                               ]
                                             });
                                 })), null),

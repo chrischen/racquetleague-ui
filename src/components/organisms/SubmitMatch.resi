@@ -1,10 +1,10 @@
 @react.component
 let make: (
   ~match: Rating.Match.t<Rating.rsvpNode>,
-  ~activity: AiTetsu_event_graphql.Types.fragment_activity,
+  ~score: (float, float)=?,
   ~minRating: float,
   ~maxRating: float,
   ~onDelete: unit => unit=?,
-  ~onComplete: Rating.Match.t<Rating.rsvpNode> => unit=?,
-  ~onSubmitted: unit => unit=?,
+  ~onComplete: (Rating.CompletedMatch.t<Rating.rsvpNode>) => Js.Promise.t<unit>=?,
+  // ~onSubmitted: unit => unit=?,
 ) => React.element;

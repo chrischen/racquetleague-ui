@@ -19,13 +19,13 @@ function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
 }
 
-var wrapResponseConverter = {"__root":{"viewer":{"f":""}}};
+var wrapResponseConverter = {"__root":{"viewer":{"f":""},"":{"f":""}}};
 
 function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, undefined, null);
 }
 
-var responseConverter = {"__root":{"viewer":{"f":""}}};
+var responseConverter = {"__root":{"viewer":{"f":""},"":{"f":""}}};
 
 function convertResponse(v) {
   return RescriptRelay.convertObj(v, responseConverter, undefined, undefined);
@@ -54,6 +54,11 @@ var node = {
     "metadata": null,
     "name": "DefaultLayoutQuery",
     "selections": [
+      {
+        "args": null,
+        "kind": "FragmentSpread",
+        "name": "Nav_query"
+      },
       {
         "alias": null,
         "args": null,
@@ -105,14 +110,14 @@ var node = {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "id",
+                "name": "lineUsername",
                 "storageKey": null
               },
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "lineUsername",
+                "name": "id",
                 "storageKey": null
               },
               {
@@ -131,12 +136,12 @@ var node = {
     ]
   },
   "params": {
-    "cacheID": "0f723f8204f74b3bdb82e778e3a3e92f",
+    "cacheID": "51f37d3aeca271a2aba4316b7ce6150a",
     "id": null,
     "metadata": {},
     "name": "DefaultLayoutQuery",
     "operationKind": "query",
-    "text": "query DefaultLayoutQuery {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query DefaultLayoutQuery {\n  ...Nav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment Nav_query on Query {\n  viewer {\n    user {\n      lineUsername\n      id\n    }\n    ...Nav_viewer\n  }\n}\n\nfragment Nav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n"
   }
 };
 

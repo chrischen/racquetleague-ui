@@ -13,16 +13,20 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchesView.re.mjs:256
-#: src/components/organisms/MatchesView.re.mjs:259
+#: src/components/organisms/MatchesView.re.mjs:275
+#: src/components/organisms/MatchesView.re.mjs:278
 msgid "and"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:259
+#: src/components/organisms/SubmitMatch.re.mjs:254
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:288
+#: src/components/organisms/MatchesView.re.mjs:236
+msgid "Checkin"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:307
 msgid "Choose Match"
 msgstr ""
 
@@ -34,20 +38,20 @@ msgstr ""
 msgid "Close panel"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:260
+#: src/components/organisms/MatchesView.re.mjs:279
 msgid "Court {0}: {team1} versus {team2}"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:392
-#: src/components/organisms/MatchesView.re.mjs:218
+#: src/components/organisms/SubmitMatch.re.mjs:387
+#: src/components/organisms/MatchesView.re.mjs:221
 msgid "Go Back"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:411
+#: src/components/organisms/SubmitMatch.re.mjs:406
 msgid "Loading"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:248
+#: src/components/organisms/MatchesView.re.mjs:266
 msgid "Matches"
 msgstr ""
 
@@ -55,21 +59,21 @@ msgstr ""
 msgid "Players on Break"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:319
-#: src/components/organisms/SubmitMatch.re.mjs:365
+#: src/components/organisms/SubmitMatch.re.mjs:314
+#: src/components/organisms/SubmitMatch.re.mjs:360
 msgid "Points"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:99
-#: src/components/organisms/SubmitMatch.re.mjs:111
+#: src/components/organisms/SubmitMatch.re.mjs:85
+#: src/components/organisms/SubmitMatch.re.mjs:97
 msgid "predicted winner"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:233
+#: src/components/organisms/MatchesView.re.mjs:251
 msgid "Queue"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:399
+#: src/components/organisms/SubmitMatch.re.mjs:394
 msgid "Submit Rated"
 msgstr ""
 
@@ -77,7 +81,7 @@ msgstr ""
 msgid "Toggle All"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:329
-#: src/components/organisms/SubmitMatch.re.mjs:375
+#: src/components/organisms/SubmitMatch.re.mjs:324
+#: src/components/organisms/SubmitMatch.re.mjs:370
 msgid "Winner"
 msgstr ""

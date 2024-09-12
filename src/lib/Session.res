@@ -1,6 +1,6 @@
 module PlayerState = {
-  type t = {count: int}
-  let make = () => {count: 0}
+  type t = {count: int, paid: bool}
+  let make = () => {count: 0, paid: false}
 }
 type t = Js.Dict.t<PlayerState.t>
 let make = () => Js.Dict.empty()

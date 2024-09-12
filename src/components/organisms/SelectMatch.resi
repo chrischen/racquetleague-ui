@@ -29,5 +29,6 @@ let make: (
   ~players: array<Rating.player>,
   ~activity: option<AiTetsu_event_graphql.Types.fragment_activity>,
   ~onMatchQueued: Rating.match => unit,
-  ~onMatchCompleted: Rating.Match.t<Rating.rsvpNode> => unit,
+  // ~onMatchCompleted: Rating.CompletedMatch.t<Rating.rsvpNode> => unit,
+  ~children: Rating.match => React.element,
 ) => React.element

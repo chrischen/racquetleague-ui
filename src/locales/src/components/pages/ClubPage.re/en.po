@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventsList.re.mjs:576
+#: src/components/organisms/EventsList.re.mjs:569
 msgid "...load past events"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "🚫 CANCELED"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:548
+#: src/components/organisms/EventsList.re.mjs:541
 msgid "clear filter"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "club not found"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:546
+#: src/components/organisms/EventsList.re.mjs:539
 msgid "filtering by date"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "players"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:518
+#: src/components/organisms/EventsList.re.mjs:511
 msgid "share as text"
 msgstr ""
 

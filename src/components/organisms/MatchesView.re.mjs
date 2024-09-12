@@ -149,7 +149,6 @@ function MatchesView(props) {
   var handleMatchCanceled = props.handleMatchCanceled;
   var maxRating = props.maxRating;
   var minRating = props.minRating;
-  var activity = props.activity;
   var matches = props.matches;
   var togglePlayer = props.togglePlayer;
   var consumedPlayers = props.consumedPlayers;
@@ -163,40 +162,50 @@ function MatchesView(props) {
       });
   var setShowMatchSelector = match$1[1];
   var tmp;
-  tmp = view === "Matches" ? JsxRuntime.jsx("div", {
-          children: matches.map(function (match, i) {
-                return JsxRuntime.jsx("div", {
-                            children: JsxRuntime.jsx(SubmitMatch.make, {
-                                  match: match,
-                                  activity: activity,
-                                  minRating: minRating,
-                                  maxRating: maxRating,
-                                  onDelete: (function () {
-                                      handleMatchCanceled(i);
-                                    }),
-                                  onComplete: (function (match) {
-                                      handleMatchComplete(match, i);
-                                    })
-                                }, i.toString()),
-                            className: "flex flex-col rounded shadow"
-                          });
-              }),
-          className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
-        }) : JsxRuntime.jsx(MatchesView$Queue, {
-          players: props.players,
-          breakPlayers: props.breakPlayers,
-          consumedPlayers: consumedPlayers,
-          queue: props.queue,
-          togglePlayer: (function (player) {
-              if (consumedPlayers.has(player.id)) {
-                return setView(function (param) {
-                            return "Matches";
-                          });
-              } else {
-                return togglePlayer(player);
-              }
-            })
-        });
+  switch (view) {
+    case "Checkin" :
+        tmp = props.checkin;
+        break;
+    case "Matches" :
+        tmp = JsxRuntime.jsx("div", {
+              children: matches.map(function (match, i) {
+                    return JsxRuntime.jsx("div", {
+                                children: JsxRuntime.jsx(SubmitMatch.make, {
+                                      match: match,
+                                      minRating: minRating,
+                                      maxRating: maxRating,
+                                      onDelete: (function () {
+                                          handleMatchCanceled(i);
+                                        }),
+                                      onComplete: (function (match) {
+                                          return handleMatchComplete(match, i);
+                                        })
+                                    }, i.toString()),
+                                className: "flex flex-col rounded shadow"
+                              });
+                  }),
+              className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+            });
+        break;
+    case "Queue" :
+        tmp = JsxRuntime.jsx(MatchesView$Queue, {
+              players: props.players,
+              breakPlayers: props.breakPlayers,
+              consumedPlayers: consumedPlayers,
+              queue: props.queue,
+              togglePlayer: (function (player) {
+                  if (consumedPlayers.has(player.id)) {
+                    return setView(function (param) {
+                                return "Matches";
+                              });
+                  } else {
+                    return togglePlayer(player);
+                  }
+                })
+            });
+        break;
+    
+  }
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -210,6 +219,21 @@ function MatchesView(props) {
                                       "aria-hidden": "true"
                                     }),
                                 t`Go Back`
+                              ]
+                            }),
+                        JsxRuntime.jsxs(UiAction.make, {
+                              onClick: (function (param) {
+                                  setView(function (param) {
+                                        return "Checkin";
+                                      });
+                                }),
+                              className: Core.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Checkin" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
+                              children: [
+                                JsxRuntime.jsx(Solid.UsersIcon, {
+                                      className: "-ml-0.5 h-5 w-5",
+                                      "aria-hidden": "true"
+                                    }),
+                                t`Checkin`
                               ]
                             }),
                         JsxRuntime.jsxs(UiAction.make, {
@@ -244,6 +268,7 @@ function MatchesView(props) {
                             }),
                         JsxRuntime.jsx("input", {
                               className: "w-10",
+                              readOnly: true,
                               value: matches.map(function (param, i) {
                                       var team1 = param[0].map(function (p) {
                                               return p.name;

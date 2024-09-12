@@ -111,7 +111,7 @@ function make($$event) {
                       });
           }
         }));
-  var canceled = Core__Option.isSome(match.deleted) ? " " + t`🚫 CANCELED` : "NOT CANCELED";
+  var canceled = Core__Option.isSome(match.deleted) ? " " + t`🚫 CANCELED` : "";
   return "🗓 " + Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
                     var startDate$1 = Util.Datetime.toDate(startDate);
                     return intl.formatDate(startDate$1, {
