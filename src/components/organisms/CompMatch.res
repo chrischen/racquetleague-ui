@@ -343,15 +343,15 @@ let make = (
 
   let strats = [
     {
-      name: ts`Competitive Plus`,
+      name: ts`Competitive`,
       strategy: CompetitivePlus,
       details: ts`Matches are arranged by a maximum skill-spread of +- 1 players.`,
     },
-    {
-      name: ts`Competitive`,
-      strategy: Competitive,
-      details: ts`Matches are arranged by a maximum skill-spread of +- 2 players.`,
-    },
+    // {
+    //   name: ts`Competitive`,
+    //   strategy: Competitive,
+    //   details: ts`Matches are arranged by a maximum skill-spread of +- 2 players.`,
+    // },
     {
       name: ts`Mixed`,
       strategy: Mixed,

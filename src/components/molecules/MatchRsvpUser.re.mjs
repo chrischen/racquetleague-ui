@@ -87,7 +87,7 @@ function MatchRsvpUser(props) {
                       className: "min-w-0 flex-auto"
                     })
               ],
-              className: Core.cx("relative flex min-w-0 gap-x-4", "rounded-lg shadow", compact ? "p-2" : "p-4", tmp$2)
+              className: Core.cx("relative flex min-w-0 gap-x-4", "w-full", "rounded-lg shadow", compact ? "p-2" : "p-4", tmp$2)
             });
 }
 

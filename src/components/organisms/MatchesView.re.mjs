@@ -3,14 +3,18 @@
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
+import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as ModalDrawer from "../ui/ModalDrawer.re.mjs";
 import * as SubmitMatch from "./SubmitMatch.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as Core from "@linaria/core";
+import * as Core from "@dnd-kit/core";
+import * as Core$1 from "@linaria/core";
 import * as MatchRsvpUser from "../molecules/MatchRsvpUser.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventMatchRsvpUser from "./EventMatchRsvpUser.re.mjs";
+import * as MultipleContainers from "../dndkit/MultipleContainers.re.mjs";
+import * as SortableSubmitMatch from "./SortableSubmitMatch.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
 
 import { t, plural } from '@lingui/macro'
@@ -83,7 +87,7 @@ function MatchesView$Queue(props) {
                                       maxRating: maxRating,
                                       status: status
                                     }, player.id)
-                              });
+                              }, player.id);
                   }),
               className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
             });
@@ -149,9 +153,11 @@ function MatchesView(props) {
   var handleMatchCanceled = props.handleMatchCanceled;
   var maxRating = props.maxRating;
   var minRating = props.minRating;
+  var setMatches = props.setMatches;
   var matches = props.matches;
   var togglePlayer = props.togglePlayer;
   var consumedPlayers = props.consumedPlayers;
+  var playersCache = props.playersCache;
   var match = React.useState(function () {
         return "Matches";
       });
@@ -167,24 +173,55 @@ function MatchesView(props) {
         tmp = props.checkin;
         break;
     case "Matches" :
-        tmp = JsxRuntime.jsx("div", {
-              children: matches.map(function (match, i) {
-                    return JsxRuntime.jsx("div", {
-                                children: JsxRuntime.jsx(SubmitMatch.make, {
-                                      match: match,
-                                      minRating: minRating,
-                                      maxRating: maxRating,
-                                      onDelete: (function () {
+        tmp = JsxRuntime.jsx(Core.DndContext, {
+              children: JsxRuntime.jsx("div", {
+                    children: JsxRuntime.jsx(MultipleContainers.make, {
+                          items: Rating.Matches.toDndItems(matches),
+                          minimal: true,
+                          setItems: (function (updateFn) {
+                              setMatches(function (matches) {
+                                    var items = Rating.Matches.toDndItems(matches);
+                                    return Rating.Matches.fromDndItems(updateFn(items), playersCache);
+                                  });
+                            }),
+                          deleteContainer: (function (i) {
+                              Core__Option.getOr(Core__Option.map(Core__Int.fromString(i, undefined), (function (i) {
                                           handleMatchCanceled(i);
-                                        }),
-                                      onComplete: (function (match) {
-                                          return handleMatchComplete(match, i);
-                                        })
-                                    }, i.toString()),
-                                className: "flex flex-col rounded shadow"
-                              });
+                                        })), undefined);
+                            }),
+                          renderContainer: (function (children, matchId) {
+                              var match = matches[matchId];
+                              return Core__Option.getOr(Core__Option.map(match, (function (match) {
+                                                return JsxRuntime.jsx(SortableSubmitMatch.make, {
+                                                            children: children,
+                                                            match: match,
+                                                            minRating: minRating,
+                                                            maxRating: maxRating,
+                                                            onDelete: (function () {
+                                                                handleMatchCanceled(matchId);
+                                                              }),
+                                                            onComplete: (function (match) {
+                                                                return handleMatchComplete(match, matchId);
+                                                              })
+                                                          }, matchId.toString());
+                                              })), null);
+                            }),
+                          renderValue: (function (value) {
+                              var player = Rating.PlayersCache.get(playersCache, value);
+                              return Core__Option.getOr(Core__Option.map(player, (function (player) {
+                                                return JsxRuntime.jsx(SubmitMatch.PlayerView.make, {
+                                                            player: player,
+                                                            minRating: minRating,
+                                                            maxRating: maxRating
+                                                          });
+                                              })), null);
+                            })
+                        }),
+                    className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
                   }),
-              className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+              onDragEnd: (function (param) {
+                  
+                })
             });
         break;
     case "Queue" :
@@ -227,7 +264,7 @@ function MatchesView(props) {
                                         return "Checkin";
                                       });
                                 }),
-                              className: Core.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Checkin" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
+                              className: Core$1.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Checkin" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
                               children: [
                                 JsxRuntime.jsx(Solid.UsersIcon, {
                                       className: "-ml-0.5 h-5 w-5",
@@ -242,7 +279,7 @@ function MatchesView(props) {
                                         return "Queue";
                                       });
                                 }),
-                              className: Core.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Queue" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
+                              className: Core$1.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Queue" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
                               children: [
                                 JsxRuntime.jsx(Solid.UsersIcon, {
                                       className: "-ml-0.5 h-5 w-5",
@@ -257,7 +294,7 @@ function MatchesView(props) {
                                         return "Matches";
                                       });
                                 }),
-                              className: Core.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Matches" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
+                              className: Core$1.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Matches" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
                               children: [
                                 JsxRuntime.jsx(Solid.TableCellsIcon, {
                                       className: "-ml-0.5 h-5 w-5",

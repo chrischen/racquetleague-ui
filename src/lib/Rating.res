@@ -83,6 +83,7 @@ module Player = {
     }
   }
 }
+
 module Team = {
   type t<'a> = array<Player.t<'a>>
   // let contains_player = ((p1, p2): t<'a>, player: Player.t<'a>) =>
@@ -152,6 +153,10 @@ module Match = {
   let toStableId = ((t1, t2): t<'a>) => {
     t1->Array.concat(t2)->Team.toStableId
   }
+
+  let players = ((t1, t2)) => [t1, t2]->Array.flatMap(x => x)
+
+  // let toDndItem = (t: t<'a>): MultipleContainers.Items.t
 }
 
 module CompletedMatch = {
@@ -186,13 +191,18 @@ module CompletedMatches = {
     ->Array.slice(~start=0, ~end=playersCount)
   }
 
-  let getlastRoundMatches = (matches: t<'a>, restCount: int, availablePlayers: int, playersPerMatch: int): t<'a> => {
+  let getlastRoundMatches = (
+    matches: t<'a>,
+    restCount: int,
+    availablePlayers: int,
+    playersPerMatch: int,
+  ): t<'a> => {
     let lastPlayedCount = getLastPlayedPlayers(matches, restCount, availablePlayers)->Array.length
     let matchesPlayed = lastPlayedCount / playersPerMatch
     matches->Array.toReversed->Array.slice(~start=0, ~end=matchesPlayed)
   }
 
-  external parseMatches: string => array<((array<string>, array<string>), option<(float, float)>)> =
+  external parseMatches: string => array<((array<string>, array<string>), Js.Null_undefined.t<(float, float)>)> =
     "JSON.parse"
   let saveMatches = (t: t<'a>, namespace: string) => {
     let t = t->Array.map((((team1, team2), score)) => {
@@ -214,6 +224,7 @@ module CompletedMatches = {
     | None => []
     }
     ->Array.map((((team1, team2), score)) => {
+      let score = Js.Null_undefined.toOption(score)
       (
         (
           team1
@@ -338,5 +349,55 @@ module Players = {
     players->Array.map(p => {
       storage->Js.Dict.get(p.id)->Option.map(store => {...store, data: p.data})->Option.getOr(p)
     })
+  }
+}
+module PlayersCache = {
+  type t = Js.Dict.t<player>
+
+  let fromPlayers: Players.t => t = players => {
+    players->Array.map(p => (p.id, p))->Js.Dict.fromArray
+  }
+
+  let get: (t, string) => option<player> = (cache, pid) => cache->Js.Dict.get(pid)
+}
+module Matches = {
+  type t<'a> = array<Match.t<'a>>
+  let toDndItems: t<'a> => MultipleContainers.Items.t = t => {
+    t
+    ->Array.map(((t1, t2)) => {
+      [t1, t2]
+    })
+    ->Array.flatMap(x => x)
+    ->Array.mapWithIndex((team, i) => {
+      (i->Int.toString, team->Array.map(p => p.id))
+    })
+    ->Js.Dict.fromArray
+  }
+
+  let fromDndItems: (MultipleContainers.Items.t, PlayersCache.t) => t<'a> = (
+    items,
+    playersCache,
+  ) => {
+    let (matches, _) =
+      items
+      ->Js.Dict.entries
+      ->Array.map(((_, players)) => {
+        let players = players->Array.map(p => playersCache->PlayersCache.get(p))
+        // switch players {
+        // | [Some(p1), Some(p2), Some(p3), Some(p4)] => Some(([p1, p2], ([p3, p4])))
+        // | _ => None
+        // }
+        players->Array.filterMap(x => x)
+      })
+      ->Array.reduce(([], (None, None)), ((matches, buildingMatch), team) => {
+        switch buildingMatch {
+        | (Some(t1), None) => (matches->Array.concat([(t1, team)]), (None, None))
+        | (None, Some(t2)) => (matches->Array.concat([(team, t2)]), (None, None))
+        | (None, None) => (matches, (Some(team), None))
+        | (Some(t1), Some(t2)) => (matches->Array.concat([(t1, t2)]), (Some(team), None))
+        }
+        // matches->Array.concat([x])
+      })
+    matches
   }
 }

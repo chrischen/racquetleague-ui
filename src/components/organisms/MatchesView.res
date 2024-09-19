@@ -29,7 +29,6 @@ module PlayerView = {
   // </div>
 }
 
-
 module Queue = {
   @react.component
   let make = (
@@ -57,6 +56,7 @@ module Queue = {
         | _ => Available
         }
         <UiAction
+          key=player.id
           onClick={_ => {
             togglePlayer(player)
           }}>
@@ -111,13 +111,14 @@ type view = Checkin | Matches | Queue
 @react.component
 let make = (
   ~players: array<Rating.player>,
+  ~playersCache: Rating.PlayersCache.t,
   ~checkin: React.element,
   ~queue: Set.t<string>,
   ~breakPlayers: Set.t<string>,
   ~consumedPlayers: Set.t<string>,
   ~togglePlayer: Rating.player => unit,
   ~matches: array<Rating.match>,
-  // ~setMatches: (array<Rating.match> => array<Rating.match>) => unit,
+  ~setMatches: (array<Rating.match> => array<Rating.match>) => unit,
   ~activity,
   ~minRating,
   ~maxRating,
@@ -213,26 +214,49 @@ let make = (
             }}
           />
         | Matches =>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {matches
-            ->Array.mapWithIndex((match, i) => {
-              <div className="flex flex-col rounded shadow">
-                <SubmitMatch
-                  key={i->Int.toString}
-                  match
-                  minRating
-                  maxRating
-                  // onSubmitted={() => {
-                  // updatePlayCounts(match)
-                  // dequeueMatch(i)
-                  // }}
-                  onDelete={() => handleMatchCanceled(i)}
-                  onComplete={(match) => match->handleMatchComplete(i)}
-                />
-              </div>
-            })
-            ->React.array}
-          </div>
+          <DndKit.DndContext onDragEnd={_ => ()}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              <MultipleContainers
+                minimal=true
+                renderContainer={(children, matchId) => {
+                  // let team1 = children->Array.get(0)->Option.getOr(React.null)
+                  // let team2 = children->Array.get(1)->Option.getOr(React.null)
+                  let match = matches->Array.get(matchId)
+
+                  {
+                    match
+                    ->Option.map(match =>
+                      <SortableSubmitMatch
+                        key={matchId->Int.toString}
+                        match
+                        minRating
+                        maxRating
+                        onDelete={() => handleMatchCanceled(matchId)}
+                        onComplete={match => match->handleMatchComplete(matchId)}>
+                        {children}
+                      </SortableSubmitMatch>
+                    )
+                    ->Option.getOr(React.null)
+                  }
+                }}
+                items={matches->Rating.Matches.toDndItems}
+                setItems={updateFn => {
+                  setMatches(matches => {
+                    let items = matches->Rating.Matches.toDndItems
+                    updateFn(items)->Rating.Matches.fromDndItems(playersCache)
+                  })
+                }}
+                deleteContainer={i =>
+                  i->Int.fromString->Option.map(i => handleMatchCanceled(i))->Option.getOr()}
+                renderValue={value => {
+                  let player = playersCache->Rating.PlayersCache.get(value)
+                  player
+                  ->Option.map(player => <SubmitMatch.PlayerView player minRating maxRating />)
+                  ->Option.getOr(React.null)
+                }}
+              />
+            </div>
+          </DndKit.DndContext>
         }}
       </main>
     </div>

@@ -207,6 +207,7 @@ module Checkin = {
         | _ => Available
         }
         <UiAction
+        key={player.id}
           onClick={_ => {
             onToggleCheckin(player, disabled->Set.has(player.id))
             ()
@@ -368,8 +369,12 @@ let rsvpToPlayerDefault = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edge
   }
 }
 
-let addGuestPlayer = (sessionPlayers, player) => {
-  sessionPlayers->Array.concat([player])
+let addGuestPlayer = (sessionPlayers, player: player) => {
+  let existingPlayer = sessionPlayers->Array.find((p: player) => p.id == player.id)
+  switch existingPlayer {
+  | Some(_) => sessionPlayers
+  | None => sessionPlayers->Array.concat([player])
+  }
 }
 let removeGuestPlayer = (sessionPlayers: array<Player.t<'a>>, player: Player.t<'a>) => {
   sessionPlayers->Array.filter(p => p.id != player.id)
@@ -455,6 +460,7 @@ let make = (~event, ~children) => {
     }
   } :> array<player>)
   let players = allPlayers->Array.filter(p => !(disabled->Set.has(p.id)))
+  let playersCache = allPlayers->PlayersCache.fromPlayers
 
   let seenTeams: RescriptCore.Set.t<string> =
     matchHistory
@@ -492,7 +498,6 @@ let make = (~event, ~children) => {
     setMatchHistory(_ => history)
 
     Js.log("Disabling players by default")
-
     setDisabled(_ => Set.fromArray(allPlayers->Array.map(p => p.id)))
     None
   })
@@ -827,7 +832,12 @@ let make = (~event, ~children) => {
               onRemove={player => {
                 switch player.data {
                 | Some(_) => setDisabled(disabled => disabled->addToQueue(player))
-                | None => setSessionPlayers(guests => guests->removeGuestPlayer(player))
+                | None =>
+                  setSessionPlayers(guests => {
+                    let guests = guests->removeGuestPlayer(player)
+                    guests->Players.savePlayers(eventId)
+                    guests
+                  })
                 }
               }}
               onEnable={player => {
@@ -894,7 +904,6 @@ let make = (~event, ~children) => {
           ->Option.map(activity =>
             matchHistory
             ->Array.mapWithIndex(((match, score), i) => {
-              Js.log("Rendering history")
               <SubmitMatch
                 key={i->Int.toString}
                 match
@@ -915,11 +924,13 @@ let make = (~event, ~children) => {
                   )
                 }}
                 onComplete={((match, score)) => {
-                  activity.slug->Option.map(
+                  activity.slug
+                  ->Option.map(
                     slug => {
                       (match, score)->CompletedMatch.submit(slug, submitMatch)
                     },
-                  )->Option.getOr(Promise.resolve())
+                  )
+                  ->Option.getOr(Promise.resolve())
                 }}
               />
             })
@@ -988,6 +999,7 @@ let make = (~event, ~children) => {
     ->Option.map(activity =>
       <MatchesView
         players={players}
+        playersCache
         queue
         checkin={<Checkin
           players=allPlayers
@@ -1002,7 +1014,7 @@ let make = (~event, ~children) => {
         />}
         togglePlayer={toggleQueuePlayer}
         matches
-        // setMatches={setMatches}
+        setMatches={setMatches}
         activity
         minRating
         maxRating

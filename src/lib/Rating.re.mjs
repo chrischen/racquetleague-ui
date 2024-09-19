@@ -200,12 +200,22 @@ function toStableId$1(param) {
   return toStableId(param[0].concat(param[1]));
 }
 
+function players(param) {
+  return [
+            param[0],
+            param[1]
+          ].flatMap(function (x) {
+              return x;
+            });
+}
+
 var Match = {
   contains_player: contains_player$1,
   contains_any_players: contains_any_players,
   contains_all_players: contains_all_players,
   rate: rate,
-  toStableId: toStableId$1
+  toStableId: toStableId$1,
+  players: players
 };
 
 function submit(param, activitySlug, submitMatch) {
@@ -272,6 +282,7 @@ function loadMatches(namespace, players) {
                 state !== null ? JSON.parse(state) : []
               ).map(function (param) {
                   var match = param[0];
+                  var score = Caml_option.nullable_to_opt(param[1]);
                   return [
                           [
                             Core__Array.reduce(match[0].map(function (p) {
@@ -295,7 +306,7 @@ function loadMatches(namespace, players) {
                                                 }));
                                   }))
                           ],
-                          param[1]
+                          score
                         ];
                 }), (function (param) {
                 var match = param[0];
@@ -473,6 +484,113 @@ var Players = {
   loadPlayers: loadPlayers
 };
 
+function fromPlayers(players) {
+  return Js_dict.fromArray(players.map(function (p) {
+                  return [
+                          p.id,
+                          p
+                        ];
+                }));
+}
+
+var get = Js_dict.get;
+
+var PlayersCache = {
+  fromPlayers: fromPlayers,
+  get: get
+};
+
+function toDndItems(t) {
+  return Js_dict.fromArray(t.map(function (param) {
+                      return [
+                              param[0],
+                              param[1]
+                            ];
+                    }).flatMap(function (x) {
+                    return x;
+                  }).map(function (team, i) {
+                  return [
+                          i.toString(),
+                          team.map(function (p) {
+                                return p.id;
+                              })
+                        ];
+                }));
+}
+
+function fromDndItems(items, playersCache) {
+  return Core__Array.reduce(Js_dict.entries(items).map(function (param) {
+                    var players = param[1].map(function (p) {
+                          return Js_dict.get(playersCache, p);
+                        });
+                    return Core__Array.filterMap(players, (function (x) {
+                                  return x;
+                                }));
+                  }), [
+                [],
+                [
+                  undefined,
+                  undefined
+                ]
+              ], (function (param, team) {
+                  var buildingMatch = param[1];
+                  var t1 = buildingMatch[0];
+                  var matches = param[0];
+                  if (t1 !== undefined) {
+                    var t2 = buildingMatch[1];
+                    if (t2 !== undefined) {
+                      return [
+                              matches.concat([[
+                                      t1,
+                                      t2
+                                    ]]),
+                              [
+                                team,
+                                undefined
+                              ]
+                            ];
+                    } else {
+                      return [
+                              matches.concat([[
+                                      t1,
+                                      team
+                                    ]]),
+                              [
+                                undefined,
+                                undefined
+                              ]
+                            ];
+                    }
+                  }
+                  var t2$1 = buildingMatch[1];
+                  if (t2$1 !== undefined) {
+                    return [
+                            matches.concat([[
+                                    team,
+                                    t2$1
+                                  ]]),
+                            [
+                              undefined,
+                              undefined
+                            ]
+                          ];
+                  } else {
+                    return [
+                            matches,
+                            [
+                              team,
+                              undefined
+                            ]
+                          ];
+                  }
+                }))[0];
+}
+
+var Matches = {
+  toDndItems: toDndItems,
+  fromDndItems: fromDndItems
+};
+
 export {
   RatingModel ,
   makeGuest ,
@@ -486,5 +604,7 @@ export {
   DoublesTeam ,
   DoublesMatch ,
   Players ,
+  PlayersCache ,
+  Matches ,
 }
 /* plackettLuce Not a pure module */

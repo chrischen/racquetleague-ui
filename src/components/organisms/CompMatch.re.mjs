@@ -386,14 +386,9 @@ function CompMatch(props) {
   var intl = ReactIntl.useIntl();
   var strats = [
     {
-      name: t`Competitive Plus`,
+      name: t`Competitive`,
       strategy: "CompetitivePlus",
       details: t`Matches are arranged by a maximum skill-spread of +- 1 players.`
-    },
-    {
-      name: t`Competitive`,
-      strategy: "Competitive",
-      details: t`Matches are arranged by a maximum skill-spread of +- 2 players.`
     },
     {
       name: t`Mixed`,

@@ -168,27 +168,26 @@ function SubmitMatch$PlayerView(props) {
   }
 }
 
+var PlayerView = {
+  make: SubmitMatch$PlayerView
+};
+
 function SubmitMatch(props) {
   var onComplete = props.onComplete;
   var maxRating = props.maxRating;
   var minRating = props.minRating;
   var score = props.score;
   var match = props.match;
+  var __defaultView = props.defaultView;
+  var defaultView = __defaultView !== undefined ? __defaultView : "Default";
   var match$1 = React.useState(function () {
-        return "Default";
+        return defaultView;
       });
   var setView = match$1[1];
   var view = match$1[0];
   var match$2 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
-        defaultValues: {
-          scoreLeft: Core__Option.getOr(Core__Option.map(score, (function (prim) {
-                      return prim[0];
-                    })), 0),
-          scoreRight: Core__Option.getOr(Core__Option.map(score, (function (prim) {
-                      return prim[1];
-                    })), 0)
-        }
+        defaultValues: {}
       });
   var setValue = match$2.setValue;
   var register = match$2.register;
@@ -223,50 +222,48 @@ function SubmitMatch(props) {
                       ]);
           }));
   };
-  var defaultView = JsxRuntime.jsx(UiAction.make, {
+  var defaultView$1 = JsxRuntime.jsxs("div", {
+        children: [
+          JsxRuntime.jsx("div", {
+                children: team1.map(function (player) {
+                      return JsxRuntime.jsx(SubmitMatch$PlayerView, {
+                                  player: player,
+                                  minRating: minRating,
+                                  maxRating: maxRating
+                                }, player.id);
+                    }),
+                className: "grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate"
+              }),
+          JsxRuntime.jsx("div", {
+                children: team2.map(function (player) {
+                      return JsxRuntime.jsx(SubmitMatch$PlayerView, {
+                                  player: player,
+                                  minRating: minRating,
+                                  maxRating: maxRating
+                                }, player.id);
+                    }),
+                className: "grid grid-cols-1 gap-0 p-0 bg-white shadow truncate"
+              }),
+          JsxRuntime.jsx("div", {
+                children: Core__Option.getOr(Core__Option.map(props.onDelete, (function (onDelete) {
+                            return JsxRuntime.jsx(UiAction.make, {
+                                        onClick: (function (e) {
+                                            e.stopPropagation();
+                                            onDelete();
+                                          }),
+                                        className: "ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
+                                        children: t`Cancel`
+                                      });
+                          })), null),
+                className: "flex md:top-3 md:mt-0 justify-center"
+              })
+        ],
+        className: "grid grid-cols-1 gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm",
         onClick: (function (param) {
             setView(function (param) {
                   return "SubmitMatch";
                 });
-          }),
-        children: JsxRuntime.jsxs("div", {
-              children: [
-                JsxRuntime.jsx("div", {
-                      children: team1.map(function (player) {
-                            return JsxRuntime.jsx(SubmitMatch$PlayerView, {
-                                        player: player,
-                                        minRating: minRating,
-                                        maxRating: maxRating
-                                      });
-                          }),
-                      className: "grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate"
-                    }),
-                JsxRuntime.jsx("div", {
-                      children: team2.map(function (player) {
-                            return JsxRuntime.jsx(SubmitMatch$PlayerView, {
-                                        player: player,
-                                        minRating: minRating,
-                                        maxRating: maxRating
-                                      });
-                          }),
-                      className: "grid grid-cols-1 gap-0 p-0 bg-white shadow truncate"
-                    }),
-                JsxRuntime.jsx("div", {
-                      children: Core__Option.getOr(Core__Option.map(props.onDelete, (function (onDelete) {
-                                  return JsxRuntime.jsx(UiAction.make, {
-                                              onClick: (function (e) {
-                                                  e.stopPropagation();
-                                                  onDelete();
-                                                }),
-                                              className: "ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
-                                              children: t`Cancel`
-                                            });
-                                })), null),
-                      className: "flex md:top-3 md:mt-0 justify-center"
-                    })
-              ],
-              className: "grid grid-cols-1 gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm"
-            })
+          })
       });
   var unratedMatch = Core__Result.flatMap(doublesMatch, (function (param) {
           var match = param[1];
@@ -291,97 +288,93 @@ function SubmitMatch(props) {
         children: JsxRuntime.jsx(JsxRuntime.Fragment, {
               children: Caml_option.some(JsxRuntime.jsxs("div", {
                         children: [
-                          JsxRuntime.jsx(UiAction.make, {
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("div", {
+                                        children: team1.map(function (player) {
+                                              return JsxRuntime.jsx(SubmitMatch$PlayerView, {
+                                                          player: player,
+                                                          minRating: minRating,
+                                                          maxRating: maxRating
+                                                        }, player.id);
+                                            }),
+                                        className: "grid grid-cols-1 gap-0"
+                                      }),
+                                  JsxRuntime.jsx("div", {
+                                        children: Core__Result.getOr(Core__Result.map(unratedMatch, (function () {
+                                                    return JsxRuntime.jsx(Form.Input.make, {
+                                                                onClick: (function (e) {
+                                                                    e.stopPropagation();
+                                                                    e.preventDefault();
+                                                                  }),
+                                                                className: "w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6",
+                                                                id: "scoreLeft",
+                                                                type_: "text",
+                                                                placeholder: t`Points`,
+                                                                register: register("scoreLeft", undefined)
+                                                              });
+                                                  })), JsxRuntime.jsx(UiAction.make, {
+                                                  onClick: (function (e) {
+                                                      e.stopPropagation();
+                                                      e.preventDefault();
+                                                      handleWinner("Left");
+                                                    }),
+                                                  className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
+                                                  children: t`Winner`
+                                                })),
+                                        className: "flex bg-white z-10"
+                                      })
+                                ],
+                                className: "flex relative p-0 justify-between rounded-tl-lg rounded-tr-lg bg-white shadow truncate",
                                 onClick: (function (param) {
                                     setView(function (param) {
                                           return "Default";
                                         });
-                                  }),
-                                children: JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("div", {
-                                              children: team1.map(function (player) {
-                                                    return JsxRuntime.jsx(SubmitMatch$PlayerView, {
-                                                                player: player,
-                                                                minRating: minRating,
-                                                                maxRating: maxRating
-                                                              });
-                                                  }),
-                                              className: "grid grid-cols-1 gap-0"
-                                            }),
-                                        JsxRuntime.jsx("div", {
-                                              children: Core__Result.getOr(Core__Result.map(unratedMatch, (function () {
-                                                          return JsxRuntime.jsx(Form.Input.make, {
-                                                                      onClick: (function (e) {
-                                                                          e.stopPropagation();
-                                                                          e.preventDefault();
-                                                                        }),
-                                                                      className: "w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6",
-                                                                      id: "scoreLeft",
-                                                                      type_: "text",
-                                                                      placeholder: t`Points`,
-                                                                      register: register("scoreLeft", undefined)
-                                                                    });
-                                                        })), JsxRuntime.jsx(UiAction.make, {
-                                                        onClick: (function (e) {
-                                                            e.stopPropagation();
-                                                            e.preventDefault();
-                                                            handleWinner("Left");
-                                                          }),
-                                                        className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
-                                                        children: t`Winner`
-                                                      })),
-                                              className: "flex bg-white z-10"
-                                            })
-                                      ],
-                                      className: "flex relative p-0 justify-between rounded-tl-lg rounded-tr-lg bg-white shadow truncate"
-                                    })
+                                  })
                               }),
-                          JsxRuntime.jsx(UiAction.make, {
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("div", {
+                                        children: team2.map(function (player) {
+                                              return JsxRuntime.jsx(SubmitMatch$PlayerView, {
+                                                          player: player,
+                                                          minRating: minRating,
+                                                          maxRating: maxRating
+                                                        }, player.id);
+                                            }),
+                                        className: "grid grid-cols-1 gap-0 truncate"
+                                      }),
+                                  JsxRuntime.jsx("div", {
+                                        children: Core__Result.getOr(Core__Result.map(unratedMatch, (function () {
+                                                    return JsxRuntime.jsx(Form.Input.make, {
+                                                                onClick: (function (e) {
+                                                                    e.stopPropagation();
+                                                                    e.preventDefault();
+                                                                  }),
+                                                                className: "w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6",
+                                                                id: "scoreRight",
+                                                                type_: "text",
+                                                                placeholder: t`Points`,
+                                                                register: register("scoreRight", undefined)
+                                                              });
+                                                  })), JsxRuntime.jsx(UiAction.make, {
+                                                  onClick: (function (e) {
+                                                      e.stopPropagation();
+                                                      e.preventDefault();
+                                                      handleWinner("Right");
+                                                    }),
+                                                  className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
+                                                  children: t`Winner`
+                                                })),
+                                        className: "flex bg-white z-10"
+                                      })
+                                ],
+                                className: "flex relative p-0 justify-between bg-white shadow truncate",
                                 onClick: (function (param) {
                                     setView(function (param) {
                                           return "Default";
                                         });
-                                  }),
-                                children: JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("div", {
-                                              children: team2.map(function (player) {
-                                                    return JsxRuntime.jsx(SubmitMatch$PlayerView, {
-                                                                player: player,
-                                                                minRating: minRating,
-                                                                maxRating: maxRating
-                                                              });
-                                                  }),
-                                              className: "grid grid-cols-1 gap-0 truncate"
-                                            }),
-                                        JsxRuntime.jsx("div", {
-                                              children: Core__Result.getOr(Core__Result.map(unratedMatch, (function () {
-                                                          return JsxRuntime.jsx(Form.Input.make, {
-                                                                      onClick: (function (e) {
-                                                                          e.stopPropagation();
-                                                                          e.preventDefault();
-                                                                        }),
-                                                                      className: "w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6",
-                                                                      id: "scoreRight",
-                                                                      type_: "text",
-                                                                      placeholder: t`Points`,
-                                                                      register: register("scoreRight", undefined)
-                                                                    });
-                                                        })), JsxRuntime.jsx(UiAction.make, {
-                                                        onClick: (function (e) {
-                                                            e.stopPropagation();
-                                                            e.preventDefault();
-                                                            handleWinner("Right");
-                                                          }),
-                                                        className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
-                                                        children: t`Winner`
-                                                      })),
-                                              className: "flex bg-white z-10"
-                                            })
-                                      ],
-                                      className: "flex relative p-0 justify-between bg-white shadow truncate"
-                                    })
+                                  })
                               }),
                           JsxRuntime.jsxs("div", {
                                 children: [
@@ -423,7 +416,7 @@ function SubmitMatch(props) {
         className: "grid col-span-1 items-start gap-2 md:gap-4"
       });
   var tmp;
-  tmp = view === "Default" ? defaultView : submitMatch;
+  tmp = view === "Default" ? defaultView$1 : submitMatch;
   return JsxRuntime.jsx("form", {
               children: JsxRuntime.jsx("div", {
                     children: tmp,
@@ -471,6 +464,7 @@ function SubmitMatch(props) {
 var make = SubmitMatch;
 
 export {
+  PlayerView ,
   make ,
 }
 /*  Not a pure module */

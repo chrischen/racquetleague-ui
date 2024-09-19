@@ -149,8 +149,10 @@ module PlayerView = {
       />
     }
 }
+
 @react.component
 let make = (
+  ~defaultView: view=Default,
   ~match: Match.t<rsvpNode>,
   ~score: option<(float, float)>=?,
   // ~activity: AiTetsu_event_graphql.Types.fragment_activity,
@@ -164,13 +166,13 @@ let make = (
 
   let ts = Lingui.UtilString.t
   open Form
-  let (view, setView) = React.useState(() => Default)
+  let (view, setView) = React.useState(() => defaultView)
   let {register, handleSubmit, setValue, watch} = useFormOfInputsMatch(
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {
-        scoreLeft: score->Option.map(fst)->Option.getOr(0.),
-        scoreRight: score->Option.map(snd)->Option.getOr(0.),
+        // scoreLeft: score->Option.map(fst)->Option.getOr(0.),
+        // scoreRight: score->Option.map(snd)->Option.getOr(0.),
       },
     },
   )
@@ -226,36 +228,35 @@ let make = (
   }
 
   let defaultView =
-    <UiAction onClick={_ => setView(_ => SubmitMatch)}>
+    <div
+      onClick={_ => setView(_ => SubmitMatch)}
+      className="grid grid-cols-1 gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm">
       <div
-        className="grid grid-cols-1 gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm">
-        <div
-          className="grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate">
-          {team1
-          ->Array.map(player => <PlayerView player minRating maxRating />)
-          ->React.array}
-        </div>
-        <div className="grid grid-cols-1 gap-0 p-0 bg-white shadow truncate">
-          {team2
-          ->Array.map(player => <PlayerView player minRating maxRating />)
-          ->React.array}
-        </div>
-        <div className="flex md:top-3 md:mt-0 justify-center">
-          {onDelete
-          ->Option.map(onDelete =>
-            <UiAction
-              className="ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
-              onClick={e => {
-                e->JsxEventU.Mouse.stopPropagation
-                onDelete()
-              }}>
-              {t`Cancel`}
-            </UiAction>
-          )
-          ->Option.getOr(React.null)}
-        </div>
+        className="grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate">
+        {team1
+        ->Array.map(player => <PlayerView key=player.id player minRating maxRating />)
+        ->React.array}
       </div>
-    </UiAction>
+      <div className="grid grid-cols-1 gap-0 p-0 bg-white shadow truncate">
+        {team2
+        ->Array.map(player => <PlayerView key=player.id player minRating maxRating />)
+        ->React.array}
+      </div>
+      <div className="flex md:top-3 md:mt-0 justify-center">
+        {onDelete
+        ->Option.map(onDelete =>
+          <UiAction
+            className="ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
+            onClick={e => {
+              e->JsxEventU.Mouse.stopPropagation
+              onDelete()
+            }}>
+            {t`Cancel`}
+          </UiAction>
+        )
+        ->Option.getOr(React.null)}
+      </div>
+    </div>
 
   let unratedMatch = doublesMatch->Result.flatMap((((p1, p2), (p3, p4))) =>
     switch (p1.data, p2.data, p3.data, p4.data) {
@@ -269,91 +270,90 @@ let make = (
       {<>
         <div
           className="grid col-span-1 items-start gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm">
-          <UiAction onClick={_ => setView(_ => Default)}>
-            <div
-              className="flex relative p-0 justify-between rounded-tl-lg rounded-tr-lg bg-white shadow truncate">
-              <div className="grid grid-cols-1 gap-0">
-                {team1
-                ->Array.map(player => <PlayerView player minRating maxRating />)
-                ->React.array}
-              </div>
-              <div className="flex bg-white z-10">
-                {unratedMatch
-                ->Result.map(_ =>
-                  <Input
-                    className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6"
-                    placeholder={ts`Points`}
-                    onClick={e => {
-                      e->JsxEventU.Mouse.stopPropagation
-                      e->JsxEventU.Mouse.preventDefault
-                    }}
-                    type_="text"
-                    id="scoreLeft"
-                    register={register(
-                      ScoreLeft,
-                      // ~options={
-                      //   setValueAs: v => {
-                      //     v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
-                      //   },
-                      // },
-                    )}
-                  />
-                )
-                ->Result.getOr(
-                  <UiAction
-                    onClick={e => {
-                      e->JsxEventU.Mouse.stopPropagation
-                      e->JsxEventU.Mouse.preventDefault
-                      handleWinner(Left)
-                    }}
-                    className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                    {t`Winner`}
-                  </UiAction>,
-                )}
-              </div>
+          <div
+            onClick={_ => setView(_ => Default)}
+            className="flex relative p-0 justify-between rounded-tl-lg rounded-tr-lg bg-white shadow truncate">
+            <div className="grid grid-cols-1 gap-0">
+              {team1
+              ->Array.map(player => <PlayerView key=player.id player minRating maxRating />)
+              ->React.array}
             </div>
-          </UiAction>
-          <UiAction onClick={_ => setView(_ => Default)}>
-            <div className="flex relative p-0 justify-between bg-white shadow truncate">
-              <div className="grid grid-cols-1 gap-0 truncate">
-                {team2
-                ->Array.map(player => <PlayerView player minRating maxRating />)
-                ->React.array}
-              </div>
-              <div className="flex bg-white z-10">
-                {unratedMatch
-                ->Result.map(_ =>
-                  <Input
-                    className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6"
-                    placeholder={ts`Points`}
-                    onClick={e => {
-                      e->JsxEventU.Mouse.stopPropagation
-                      e->JsxEventU.Mouse.preventDefault
-                    }}
-                    type_="text"
-                    id="scoreRight"
-                    register={register(
-                      ScoreRight,
-                      // ~options={
-                      //   setValueAs: v => v == "" ? 0. : Float.fromString(v)->Option.getOr(1.),
-                      // },
-                    )}
-                  />
-                )
-                ->Result.getOr(
-                  <UiAction
-                    onClick={e => {
-                      e->JsxEventU.Mouse.stopPropagation
-                      e->JsxEventU.Mouse.preventDefault
-                      handleWinner(Right)
-                    }}
-                    className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                    {t`Winner`}
-                  </UiAction>,
-                )}
-              </div>
+            <div className="flex bg-white z-10">
+              {unratedMatch
+              ->Result.map(_ =>
+                <Input
+                  className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6"
+                  placeholder={ts`Points`}
+                  onClick={e => {
+                    e->JsxEventU.Mouse.stopPropagation
+                    e->JsxEventU.Mouse.preventDefault
+                  }}
+                  type_="text"
+                  id="scoreLeft"
+                  register={register(
+                    ScoreLeft,
+                    // ~options={
+                    //   setValueAs: v => {
+                    //     v == "" ? 0. : Float.fromString(v)->Option.getOr(1.)
+                    //   },
+                    // },
+                  )}
+                />
+              )
+              ->Result.getOr(
+                <UiAction
+                  onClick={e => {
+                    e->JsxEventU.Mouse.stopPropagation
+                    e->JsxEventU.Mouse.preventDefault
+                    handleWinner(Left)
+                  }}
+                  className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                  {t`Winner`}
+                </UiAction>,
+              )}
             </div>
-          </UiAction>
+          </div>
+          <div
+            onClick={_ => setView(_ => Default)}
+            className="flex relative p-0 justify-between bg-white shadow truncate">
+            <div className="grid grid-cols-1 gap-0 truncate">
+              {team2
+              ->Array.map(player => <PlayerView key=player.id player minRating maxRating />)
+              ->React.array}
+            </div>
+            <div className="flex bg-white z-10">
+              {unratedMatch
+              ->Result.map(_ =>
+                <Input
+                  className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6"
+                  placeholder={ts`Points`}
+                  onClick={e => {
+                    e->JsxEventU.Mouse.stopPropagation
+                    e->JsxEventU.Mouse.preventDefault
+                  }}
+                  type_="text"
+                  id="scoreRight"
+                  register={register(
+                    ScoreRight,
+                    // ~options={
+                    //   setValueAs: v => v == "" ? 0. : Float.fromString(v)->Option.getOr(1.),
+                    // },
+                  )}
+                />
+              )
+              ->Result.getOr(
+                <UiAction
+                  onClick={e => {
+                    e->JsxEventU.Mouse.stopPropagation
+                    e->JsxEventU.Mouse.preventDefault
+                    handleWinner(Right)
+                  }}
+                  className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                  {t`Winner`}
+                </UiAction>,
+              )}
+            </div>
+          </div>
           <div className="mt-3 flex md:top-3 md:mt-0 justify-center">
             <UiAction
               className="inline-flex items-center text-2xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"

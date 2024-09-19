@@ -216,7 +216,7 @@ function AiTetsu$Checkin(props) {
                                       maxRating: maxRating,
                                       status: status
                                     }, player.id)
-                              });
+                              }, player.id);
                   }),
               className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
             });
@@ -341,6 +341,23 @@ function rsvpToPlayer(rsvp) {
         };
 }
 
+function addGuestPlayer(sessionPlayers, player) {
+  var existingPlayer = sessionPlayers.find(function (p) {
+        return p.id === player.id;
+      });
+  if (existingPlayer !== undefined) {
+    return sessionPlayers;
+  } else {
+    return sessionPlayers.concat([player]);
+  }
+}
+
+function removeGuestPlayer(sessionPlayers, player) {
+  return sessionPlayers.filter(function (p) {
+              return p.id !== player.id;
+            });
+}
+
 function addToQueue(queue, player) {
   var newSet = new Set();
   queue.forEach(function (id) {
@@ -444,6 +461,7 @@ function AiTetsu(props) {
   var players = allPlayers.filter(function (p) {
         return !disabled.has(p.id);
       });
+  var playersCache = Rating.PlayersCache.fromPlayers(allPlayers);
   var seenTeams = new Set(matchHistory.flatMap(function (param) {
               var match = param[0];
               return [
@@ -722,6 +740,7 @@ function AiTetsu(props) {
     return Core__Option.getOr(Core__Option.map(activity, (function (activity) {
                       return JsxRuntime.jsx(MatchesView.make, {
                                   players: players,
+                                  playersCache: playersCache,
                                   checkin: JsxRuntime.jsx(AiTetsu$Checkin, {
                                         players: allPlayers,
                                         disabled: disabled,
@@ -755,6 +774,7 @@ function AiTetsu(props) {
                                   consumedPlayers: consumedPlayers,
                                   togglePlayer: toggleQueuePlayer,
                                   matches: matches,
+                                  setMatches: setMatches,
                                   activity: activity,
                                   minRating: minRating,
                                   maxRating: maxRating,
@@ -819,8 +839,7 @@ function AiTetsu(props) {
                 eventId: eventId,
                 onPlayerAdd: (function (player) {
                     setSessionPlayers(function (guests) {
-                          var player$1 = Rating.Player.makeDefaultRatingPlayer(player.name);
-                          var newState = guests.concat([player$1]);
+                          var newState = addGuestPlayer(guests, Rating.Player.makeDefaultRatingPlayer(player.name));
                           Rating.Players.savePlayers(newState, eventId);
                           return newState;
                         });
@@ -1012,9 +1031,9 @@ function AiTetsu(props) {
                                                               });
                                                   } else {
                                                     return setSessionPlayers(function (guests) {
-                                                                return guests.filter(function (p) {
-                                                                            return p.id !== player.id;
-                                                                          });
+                                                                var guests$1 = removeGuestPlayer(guests, player);
+                                                                Rating.Players.savePlayers(guests$1, eventId);
+                                                                return guests$1;
                                                               });
                                                   }
                                                 }),
@@ -1110,7 +1129,6 @@ function AiTetsu(props) {
                                     }),
                                 Core__Option.getOr(Core__Option.map(activity, (function (activity) {
                                             return matchHistory.map(function (param, i) {
-                                                        console.log("Rendering history");
                                                         return JsxRuntime.jsx(SubmitMatch.make, {
                                                                     match: param[0],
                                                                     score: param[1],

@@ -1193,6 +1193,10 @@ msgstr "このチームは以前にプレイしました"
 msgid "Submitted Matches"
 msgstr "提出された試合"
 
+#: src/components/organisms/SortableSubmitMatch.re.mjs:269
+msgid "Finished"
+msgstr "終了"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

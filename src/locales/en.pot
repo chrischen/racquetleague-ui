@@ -1281,3 +1281,7 @@ msgstr ""
 #: src/components/organisms/AiTetsu.re.mjs:1099
 msgid "Submitted Matches"
 msgstr ""
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:269
+msgid "Finished"
+msgstr ""

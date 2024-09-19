@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-19 01:37+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:269
+msgid "Finished"
+msgstr "終了"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:397
+msgid "Go Back"
+msgstr "戻る"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:416
+msgid "Loading"
+msgstr "読み込み中"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:322
+#: src/components/organisms/SortableSubmitMatch.re.mjs:366
+msgid "Points"
+msgstr "何点"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:101
+#: src/components/organisms/SortableSubmitMatch.re.mjs:113
+msgid "predicted winner"
+msgstr "予測される勝者"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:404
+msgid "Submit Rated"
+msgstr "評価を提出"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:332
+#: src/components/organisms/SortableSubmitMatch.re.mjs:376
+msgid "Winner"
+msgstr "勝者"

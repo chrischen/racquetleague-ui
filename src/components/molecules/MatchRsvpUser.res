@@ -58,6 +58,7 @@ let make = (
   <div
     className={Util.cx([
       "relative flex min-w-0 gap-x-4",
+      "w-full",
       "rounded-lg shadow",
       compact ? "p-2" : "p-4",
       switch highlight {
@@ -71,7 +72,10 @@ let make = (
     ->Option.map(picture =>
       <img
         className={Util.cx([
-          compact ? "h-8 w-8" : "h-16 w-16", "flex-none rounded-full bg-gray-50", "drop-shadow-lg"])}
+          compact ? "h-8 w-8" : "h-16 w-16",
+          "flex-none rounded-full bg-gray-50",
+          "drop-shadow-lg",
+        ])}
         src={picture}
         alt=""
       />
