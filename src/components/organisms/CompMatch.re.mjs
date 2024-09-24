@@ -44,68 +44,77 @@ function CompMatch$MatchMini(props) {
   var match = props.match;
   var onSelect = props.onSelect;
   var highlight = props.highlight;
-  return JsxRuntime.jsx(UiAction.make, {
-              onClick: (function (param) {
-                  Core__Option.getOr(Core__Option.map(onSelect, (function (f) {
-                              f(match);
-                            })), undefined);
-                }),
-              className: "p-4 mb-2",
-              children: JsxRuntime.jsxs("div", {
-                    children: [
-                      JsxRuntime.jsx("div", {
-                            children: JsxRuntime.jsx("span", {
-                                  children: match[0].map(function (p) {
-                                        return JsxRuntime.jsx(CompMatch$PlayerMini, {
-                                                    player: p
-                                                  }, p.id);
-                                      })
-                                }),
-                            className: Core.cx("col-span-3 px-2 py-1", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
-                                            switch (h) {
-                                              case "Left" :
-                                              case "Both" :
-                                                  return "bg-yellow-100";
-                                              case "Right" :
-                                              case "Right2" :
-                                                  return "";
-                                              case "Left2" :
-                                              case "Both2" :
-                                                  return "bg-red-200";
-                                              
-                                            }
-                                          })), ""))
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx("span", {
+                                    children: match[0].map(function (p) {
+                                          return JsxRuntime.jsx(CompMatch$PlayerMini, {
+                                                      player: p
+                                                    }, p.id);
+                                        })
+                                  }),
+                              className: Core.cx("col-span-3 px-2 py-1", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
+                                              switch (h) {
+                                                case "Left" :
+                                                case "Both" :
+                                                    return "bg-yellow-100";
+                                                case "Right" :
+                                                case "Right2" :
+                                                    return "";
+                                                case "Left2" :
+                                                case "Both2" :
+                                                    return "bg-red-200";
+                                                
+                                              }
+                                            })), ""))
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: " VS ",
+                              className: "col-span-1 text-center text-2xl text-gray-800 font-bold"
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx("span", {
+                                    children: match[1].map(function (p) {
+                                          return JsxRuntime.jsx(CompMatch$PlayerMini, {
+                                                      player: p
+                                                    }, p.id);
+                                        })
+                                  }),
+                              className: Core.cx("col-span-3 justify-right text-right", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
+                                              switch (h) {
+                                                case "Right" :
+                                                case "Both" :
+                                                    return "bg-yellow-100";
+                                                case "Left" :
+                                                case "Left2" :
+                                                    return "";
+                                                case "Right2" :
+                                                case "Both2" :
+                                                    return "bg-red-200";
+                                                
+                                              }
+                                            })), ""))
+                            })
+                      ],
+                      className: "flex-1 grid grid-cols-7 items-center place-content-center"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx(UiAction.make, {
+                            onClick: (function (param) {
+                                Core__Option.getOr(Core__Option.map(onSelect, (function (f) {
+                                            f(match);
+                                          })), undefined);
+                              }),
+                            className: "ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                            children: t`Select`
                           }),
-                      JsxRuntime.jsx("div", {
-                            children: " VS ",
-                            className: "col-span-1 text-center text-2xl text-gray-800 font-bold"
-                          }),
-                      JsxRuntime.jsx("div", {
-                            children: JsxRuntime.jsx("span", {
-                                  children: match[1].map(function (p) {
-                                        return JsxRuntime.jsx(CompMatch$PlayerMini, {
-                                                    player: p
-                                                  }, p.id);
-                                      })
-                                }),
-                            className: Core.cx("col-span-3 justify-right text-right", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
-                                            switch (h) {
-                                              case "Right" :
-                                              case "Both" :
-                                                  return "bg-yellow-100";
-                                              case "Left" :
-                                              case "Left2" :
-                                                  return "";
-                                              case "Right2" :
-                                              case "Both2" :
-                                                  return "bg-red-200";
-                                              
-                                            }
-                                          })), ""))
-                          })
-                    ],
-                    className: "grid grid-cols-7 items-center place-content-center"
-                  })
+                      className: "self-center p-3"
+                    })
+              ],
+              className: "flex pt-4 pl-4 pr-4"
             });
 }
 
@@ -374,12 +383,14 @@ function CompMatch(props) {
   var onSelectMatch = props.onSelectMatch;
   var avoidAllPlayers = props.avoidAllPlayers;
   var priorityPlayers = props.priorityPlayers;
+  var setDefaultStrategy = props.setDefaultStrategy;
+  var defaultStrategy = props.defaultStrategy;
   var lastRoundSeenTeams = props.lastRoundSeenTeams;
   var seenTeams = props.seenTeams;
   var consumedPlayers = props.consumedPlayers;
   var players = props.players;
   var match = React.useState(function () {
-        return "CompetitivePlus";
+        return defaultStrategy;
       });
   var setStrategy = match[1];
   var strategy = match[0];
@@ -443,6 +454,14 @@ function CompMatch(props) {
   var tab = strats.find(function (tab) {
         return tab.strategy === strategy;
       });
+  var updateStrategy = function (strategy) {
+    setStrategy(function (param) {
+          return strategy;
+        });
+    setDefaultStrategy(function (param) {
+          return strategy;
+        });
+  };
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -468,13 +487,11 @@ function CompMatch(props) {
                               id: "tabs",
                               name: "tabs",
                               onChange: (function (e) {
-                                  setStrategy(function (param) {
-                                        return Core__Option.getOr(Core__Option.map(strats.find(function (tab) {
-                                                            return tab.name === e.target.value;
-                                                          }), (function (s) {
-                                                          return s.strategy;
-                                                        })), "Competitive");
-                                      });
+                                  updateStrategy(Core__Option.getOr(Core__Option.map(strats.find(function (tab) {
+                                                    return tab.name === e.target.value;
+                                                  }), (function (s) {
+                                                  return s.strategy;
+                                                })), "Competitive"));
                                 })
                             })
                       ],
@@ -485,9 +502,7 @@ function CompMatch(props) {
                             children: strats.map(function (tab) {
                                   return JsxRuntime.jsx(UiAction.make, {
                                               onClick: (function (param) {
-                                                  setStrategy(function (param) {
-                                                        return tab.strategy;
-                                                      });
+                                                  updateStrategy(tab.strategy);
                                                 }),
                                               className: Core.cx(strategy === tab.strategy ? "bg-indigo-100 text-indigo-700" : "text-gray-500 hover:text-gray-700", "rounded-md px-3 py-2 text-sm font-medium"),
                                               children: tab.name
@@ -523,13 +538,12 @@ function CompMatch(props) {
                         " = ",
                         t`Played last round`
                       ],
-                      className: "mt-2 text-base leading-7 text-gray-600"
+                      className: "mt-2 text-base leading-7 text-gray-600 mb-2"
                     }),
                 matches$1.map(function (param, i) {
                       var match = param[0];
                       var team2 = match[1];
                       var team1 = match[0];
-                      var quality = param[1];
                       var match$1 = lastRoundSeenTeams.has(Rating.Team.toStableId(team1));
                       var match$2 = lastRoundSeenTeams.has(Rating.Team.toStableId(team2));
                       var highlight2 = match$1 ? (
@@ -597,19 +611,18 @@ function CompMatch(props) {
                           ) : "Right";
                       }
                       var match$5 = maxQuality - minQuality;
-                      return JsxRuntime.jsxs(React.Fragment, {
+                      return JsxRuntime.jsxs("div", {
                                   children: [
                                     JsxRuntime.jsx(CompMatch$MatchMini, {
                                           match: match,
                                           highlight: highlight,
                                           onSelect: onSelectMatch
                                         }),
-                                    quality.toFixed(3),
                                     JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(FramerMotion.motion.div, {
                                                 className: "h-2 rounded-full bg-red-400",
                                                 animate: {
-                                                  width: match$5 !== 0 ? ((quality - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
+                                                  width: match$5 !== 0 ? ((param[1] - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
                                                 },
                                                 initial: {
                                                   width: "0%"
@@ -617,7 +630,8 @@ function CompMatch(props) {
                                               }),
                                           className: "overflow-hidden rounded-full bg-gray-200 mt-1"
                                         })
-                                  ]
+                                  ],
+                                  className: "border-zinc-600 rounded ring-1 mb-2"
                                 }, i.toString());
                     })
               ]

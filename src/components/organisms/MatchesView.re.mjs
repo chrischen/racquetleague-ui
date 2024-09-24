@@ -328,7 +328,7 @@ function MatchesView(props) {
                             className: "w-full h-full",
                             role: "main"
                           }),
-                      className: "w-full h-[calc(100vh-56px-68px)] fixed top-[56px] left-0 overflow-scroll pb-32 px-3"
+                      className: "w-full h-[calc(100vh-(56px+152px))] sm:h-[calc(100vh-(56px+92px))] fixed top-[56px] left-0 overflow-scroll px-3"
                     }),
                 JsxRuntime.jsx(MatchesView$ActionBar, {
                       selectAll: props.selectAll,

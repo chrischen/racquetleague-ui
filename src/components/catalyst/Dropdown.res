@@ -8,6 +8,7 @@ module DropdownButton = {
     ~className: string=?,
     ~\"as": React.component<'a>=?,
     ~children: React.element,
+    ~outline: bool=?,
   ) => React.element = "DropdownButton"
 
 }
@@ -31,6 +32,7 @@ module DropdownItem = {
     ~className: string=?,
     ~\"aria-label": string=?,
     ~children: React.element,
+    ~onClick: JsxEventU.Mouse.t => unit=?,
   ) => React.element = "DropdownItem"
 }
 

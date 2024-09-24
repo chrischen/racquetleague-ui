@@ -155,7 +155,7 @@ let make = (
   ~defaultView: view=Default,
   ~children: array<React.element>,
   ~match: Match.t<rsvpNode>,
-  ~score: option<(float, float)>=?,
+  // ~score: option<(float, float)>=?,
   // ~activity: AiTetsu_event_graphql.Types.fragment_activity,
   ~minRating,
   ~maxRating,
@@ -168,7 +168,7 @@ let make = (
   let ts = Lingui.UtilString.t
   open Form
   let (view, setView) = React.useState(() => defaultView)
-  let {register, handleSubmit, setValue, watch} = useFormOfInputsMatch(
+  let {register, handleSubmit, setValue, _} = useFormOfInputsMatch(
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {
@@ -201,7 +201,7 @@ let make = (
     ->ignore
   }
 
-  let onSubmit = (rated: bool, data: inputsMatch) => {
+  let onSubmit = (_rated: bool, data: inputsMatch) => {
     setSubmitting(_ => true)
     switch data.scoreLeft == data.scoreRight {
     | true =>
@@ -232,6 +232,7 @@ let make = (
 
   let team1El = children->Array.get(0)->Option.getOr(React.null)
   let team2El = children->Array.get(1)->Option.getOr(React.null)
+  open Dropdown;
   let defaultView =
     <div
       className="grid grid-cols-1 gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm">
@@ -241,18 +242,22 @@ let make = (
       </div>
       <div className="grid grid-cols-1 gap-0 p-0 bg-white shadow truncate"> {team2El} </div>
       <div className="flex md:top-3 md:mt-0 justify-center">
+      <Dropdown>
+      <DropdownButton outline=true>
+      {"..."->React.string}
+        <HeroIcons.ChevronDownIcon />
+      </DropdownButton>
+      <DropdownMenu>
         {onDelete
         ->Option.map(onDelete =>
-          <UiAction
-            className="ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
-            onClick={e => {
+        <DropdownItem onClick={e => {
               e->JsxEventU.Mouse.stopPropagation
               onDelete()
-            }}>
-            {"X"->React.string}
-          </UiAction>
+            }}>{t`Cancel`}</DropdownItem>
         )
         ->Option.getOr(React.null)}
+      </DropdownMenu>
+    </Dropdown>
         <UiAction
           className="ml-3 flex-grow text-center mr-3 items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
           onClick={e => {

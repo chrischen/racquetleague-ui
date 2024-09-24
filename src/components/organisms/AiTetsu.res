@@ -192,8 +192,9 @@ module Checkin = {
     ~players: array<player>,
     ~disabled: Set.t<string>,
     ~onToggleCheckin: (player, bool) => unit,
-    ~onUpdatePlayer: (player, bool) => unit,
   ) => {
+    // ~onUpdatePlayer: (player, bool) => unit,
+
     let maxRating =
       players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
     let minRating =
@@ -207,7 +208,7 @@ module Checkin = {
         | _ => Available
         }
         <UiAction
-        key={player.id}
+          key={player.id}
           onClick={_ => {
             onToggleCheckin(player, disabled->Set.has(player.id))
             ()
@@ -351,23 +352,23 @@ let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node)
   | _ => None
   }
 }
-let rsvpToPlayerDefault = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node): option<
-  Player.t<'a>,
-> => {
-  switch (rsvp.user->Option.map(u => u.id), rsvp.rating) {
-  | (Some(userId), _) =>
-    let rating = Rating.makeDefault()
-    {
-      data: Some(rsvp),
-      Player.id: userId,
-      name: rsvp.user->Option.flatMap(u => u.lineUsername)->Option.getOr(""),
-      ratingOrdinal: rating->Rating.ordinal,
-      rating,
-      paid: false,
-    }->Some
-  | _ => None
-  }
-}
+// let rsvpToPlayerDefault = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node): option<
+//   Player.t<'a>,
+// > => {
+//   switch (rsvp.user->Option.map(u => u.id), rsvp.rating) {
+//   | (Some(userId), _) =>
+//     let rating = Rating.makeDefault()
+//     {
+//       data: Some(rsvp),
+//       Player.id: userId,
+//       name: rsvp.user->Option.flatMap(u => u.lineUsername)->Option.getOr(""),
+//       ratingOrdinal: rating->Rating.ordinal,
+//       rating,
+//       paid: false,
+//     }->Some
+//   | _ => None
+//   }
+// }
 
 let addGuestPlayer = (sessionPlayers, player: player) => {
   let existingPlayer = sessionPlayers->Array.find((p: player) => p.id == player.id)
@@ -420,6 +421,11 @@ let make = (~event, ~children) => {
 
   // How many players to remove from the queue for a break
   let (breakCount: int, setBreakCount) = React.useState(() => 0)
+
+  // Matchmaking strategy
+  let (matchmakingStrategy: CompMatch.strategy, setMatchmakingStrategy) = React.useState(() =>
+    CompMatch.CompetitivePlus
+  )
 
   let (matchHistory: array<CompletedMatch.t<rsvpNode>>, setMatchHistory) = React.useState(() => [])
 
@@ -571,14 +577,14 @@ let make = (~event, ~children) => {
       nextState
     })
   }
-  let updatePaidStatus = (playerId: string, paid: bool) => {
-    setSessionState(prevState => {
-      let nextState = prevState->Session.update(playerId, prev => {count: prev.count, paid})
-
-      nextState->Session.saveState(eventId)
-      nextState
-    })
-  }
+  // let updatePaidStatus = (playerId: string, paid: bool) => {
+  //   setSessionState(prevState => {
+  //     let nextState = prevState->Session.update(playerId, prev => {count: prev.count, paid})
+  //
+  //     nextState->Session.saveState(eventId)
+  //     nextState
+  //   })
+  // }
 
   let initializeSessionMode = () => {
     switch sessionPlayers->Array.length >= data.rsvps->Fragment.getConnectionNodes->Array.length {
@@ -857,6 +863,8 @@ let make = (~event, ~children) => {
               consumedPlayers={Set.make()}
               seenTeams
               lastRoundSeenTeams
+              defaultStrategy={matchmakingStrategy}
+              setDefaultStrategy={setMatchmakingStrategy}
               // consumedPlayers={consumedPlayers
               // ->Set.values
               // ->Array.fromIterator
@@ -883,15 +891,9 @@ let make = (~event, ~children) => {
               //   setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))}
             >
               {match =>
-                activity
-                ->Option.map(activity =>
-                  <React.Suspense fallback={<div> {t`Loading`} </div>}>
-                    <SubmitMatch
-                      match minRating maxRating onComplete={handleMatchComplete(_, -1)}
-                    />
-                  </React.Suspense>
-                )
-                ->Option.getOr(React.null)}
+                <React.Suspense fallback={<div> {t`Loading`} </div>}>
+                  <SubmitMatch match minRating maxRating onComplete={handleMatchComplete(_, -1)} />
+                </React.Suspense>}
             </SelectMatch>
           : React.null}
         <div>
@@ -941,38 +943,32 @@ let make = (~event, ~children) => {
         <div className="grid grid-cols-1 gap-4">
           <h2 className="text-2xl font-semibold text-gray-900"> {t`Queued Matches`} </h2>
           <div className="grid grid-cols-1 gap-4">
-            {activity
-            ->Option.map(activity =>
-              matches
-              ->Array.mapWithIndex((match, i) =>
-                <SubmitMatch
-                  key={i->Int.toString}
-                  match
-                  minRating
-                  maxRating
-                  // onSubmitted={() => {
-                  // updatePlayCounts(match)
-                  // dequeueMatch(i)
-                  // }}
-                  onDelete={() => {
-                    matches
-                    ->Array.get(i)
-                    ->Option.map(
-                      match => {
-                        [match->fst, match->snd]
-                        ->Array.flatMap(x => x)
-                        ->Array.map(p => setQueue(queue => queue->addToQueue(p)))
-                      },
-                    )
-                    ->ignore
-                    dequeueMatch(i)
-                  }}
-                  onComplete={match => match->(handleMatchComplete(_, i))}
-                />
-              )
-              ->React.array
+            {matches
+            ->Array.mapWithIndex((match, i) =>
+              <SubmitMatch
+                key={i->Int.toString}
+                match
+                minRating
+                maxRating
+                // onSubmitted={() => {
+                // updatePlayCounts(match)
+                // dequeueMatch(i)
+                // }}
+                onDelete={() => {
+                  matches
+                  ->Array.get(i)
+                  ->Option.map(match => {
+                    [match->fst, match->snd]
+                    ->Array.flatMap(x => x)
+                    ->Array.map(p => setQueue(queue => queue->addToQueue(p)))
+                  })
+                  ->ignore
+                  dequeueMatch(i)
+                }}
+                onComplete={match => match->(handleMatchComplete(_, i))}
+              />
             )
-            ->Option.getOr(React.null)}
+            ->React.array}
             <input
               readOnly=true
               value={matches
@@ -995,62 +991,60 @@ let make = (~event, ~children) => {
       </div>
     </Layout.Container>
   | Matches =>
-    activity
-    ->Option.map(activity =>
-      <MatchesView
-        players={players}
-        playersCache
-        queue
-        checkin={<Checkin
-          players=allPlayers
-          disabled
-          onToggleCheckin={(player, status) => {
-            switch status {
-            | true => setDisabled(disabled => disabled->removeFromQueue(player))
-            | false => setDisabled(disabled => disabled->addToQueue(player))
-            }
-          }}
-          onUpdatePlayer={(p, paid) => updatePaidStatus(p.id, paid)}
-        />}
-        togglePlayer={toggleQueuePlayer}
-        matches
-        setMatches={setMatches}
-        activity
-        minRating
-        maxRating
-        handleMatchComplete
-        handleMatchCanceled={dequeueMatch}
-        onClose={_ => setScreen(_ => Advanced)}
-        selectAll={selectAllPlayers}
-        breakCount
-        breakPlayers={deprioritized}
-        consumedPlayers
-        onChangeBreakCount={numberOnBreak => {
-          setBreakCount(_ => Js.Math.max_int(0, numberOnBreak))
-          setSettingsPane(_ => None)
+    <MatchesView
+      players={players}
+      playersCache
+      queue
+      checkin={<Checkin
+        players=allPlayers
+        disabled
+        onToggleCheckin={(player, status) => {
+          switch status {
+          | true => setDisabled(disabled => disabled->removeFromQueue(player))
+          | false => setDisabled(disabled => disabled->addToQueue(player))
+          }
         }}
-        matchSelector={<CompMatch
-          players={(queuedPlayers :> array<Player.t<'a>>)}
-          teams
-          consumedPlayers={Set.make()}
-          seenTeams
-          lastRoundSeenTeams
-          // consumedPlayers={consumedPlayers
-          // ->Set.values
-          // ->Array.fromIterator
-          // // ->Array.concat(deprioritized->Set.values->Array.fromIterator)
-          // ->Set.fromArray}
-          // priorityPlayers={[]}
-          priorityPlayers
-          avoidAllPlayers
-          onSelectMatch={match => {
-            // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
-            queueMatch(match)
-          }}
-        />}
-      />
-    )
-    ->Option.getOr(React.null)
+        // onUpdatePlayer={(p, paid) => updatePaidStatus(p.id, paid)}
+      />}
+      togglePlayer={toggleQueuePlayer}
+      matches
+      setMatches={setMatches}
+      // activity
+      minRating
+      maxRating
+      handleMatchComplete
+      handleMatchCanceled={dequeueMatch}
+      onClose={_ => setScreen(_ => Advanced)}
+      selectAll={selectAllPlayers}
+      breakCount
+      breakPlayers={deprioritized}
+      consumedPlayers
+      onChangeBreakCount={numberOnBreak => {
+        setBreakCount(_ => Js.Math.max_int(0, numberOnBreak))
+        setSettingsPane(_ => None)
+      }}
+      matchSelector={<CompMatch
+        players={(queuedPlayers :> array<Player.t<'a>>)}
+        teams
+        consumedPlayers={Set.make()}
+        seenTeams
+        lastRoundSeenTeams
+        defaultStrategy={matchmakingStrategy}
+        setDefaultStrategy={setMatchmakingStrategy}
+        // consumedPlayers={consumedPlayers
+        // ->Set.values
+        // ->Array.fromIterator
+        // // ->Array.concat(deprioritized->Set.values->Array.fromIterator)
+        // ->Set.fromArray}
+        // priorityPlayers={[]}
+        priorityPlayers
+        avoidAllPlayers
+        onSelectMatch={match => {
+          // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
+          queueMatch(match)
+        }}
+      />}
+    />
   }
 }
 

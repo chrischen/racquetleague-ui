@@ -4,6 +4,7 @@ import * as Zod from "zod";
 import * as Form from "../molecules/forms/Form.re.mjs";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
+import * as Dropdown from "../catalyst/Dropdown.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
@@ -13,10 +14,12 @@ import * as LucideReact from "lucide-react";
 import * as MatchRsvpUser from "../molecules/MatchRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as ReactHookForm from "react-hook-form";
+import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventMatchRsvpUser from "./EventMatchRsvpUser.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
+import * as Solid from "@heroicons/react/24/solid";
 import * as SortableSubmitMatchPredictMatchOutcomeQuery_graphql from "../../__generated__/SortableSubmitMatchPredictMatchOutcomeQuery_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
@@ -29,37 +32,21 @@ var convertVariables = SortableSubmitMatchPredictMatchOutcomeQuery_graphql.Inter
 
 var convertResponse = SortableSubmitMatchPredictMatchOutcomeQuery_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse = SortableSubmitMatchPredictMatchOutcomeQuery_graphql.Internal.convertWrapRawResponse;
-
 var use = RescriptRelay_Query.useQuery(convertVariables, SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse);
 
-var useLoader = RescriptRelay_Query.useLoader(convertVariables, SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, (function (prim) {
+RescriptRelay_Query.useLoader(convertVariables, SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, (function (prim) {
         return prim;
       }));
 
-var usePreloaded = RescriptRelay_Query.usePreloaded(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, (function (prim) {
+RescriptRelay_Query.usePreloaded(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, (function (prim) {
         return prim;
       }));
 
-var $$fetch = RescriptRelay_Query.$$fetch(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
+RescriptRelay_Query.$$fetch(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
 
-var fetchPromised = RescriptRelay_Query.fetchPromised(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
+RescriptRelay_Query.fetchPromised(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
 
-var retain = RescriptRelay_Query.retain(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertVariables);
-
-var PredictMatchOutcome = {
-  Operation: undefined,
-  Types: undefined,
-  convertVariables: convertVariables,
-  convertResponse: convertResponse,
-  convertWrapRawResponse: convertWrapRawResponse,
-  use: use,
-  useLoader: useLoader,
-  usePreloaded: usePreloaded,
-  $$fetch: $$fetch,
-  fetchPromised: fetchPromised,
-  retain: retain
-};
+RescriptRelay_Query.retain(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertVariables);
 
 function SortableSubmitMatch$PredictionBar(props) {
   var match = props.match;
@@ -148,12 +135,6 @@ function SortableSubmitMatch$PredictionBar(props) {
                               });
                   })), null);
 }
-
-var PredictionBar = {
-  make: SortableSubmitMatch$PredictionBar
-};
-
-var ControllerOfInputsMatch = {};
 
 var schema = Zod.z.object({
       scoreLeft: Zod.z.preprocess((function (a) {
@@ -248,16 +229,28 @@ function SortableSubmitMatch(props) {
               }),
           JsxRuntime.jsxs("div", {
                 children: [
-                  Core__Option.getOr(Core__Option.map(props.onDelete, (function (onDelete) {
-                              return JsxRuntime.jsx(UiAction.make, {
-                                          onClick: (function (e) {
-                                              e.stopPropagation();
-                                              onDelete();
-                                            }),
-                                          className: "ml-3 inline-flex items-center text-3xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
-                                          children: "X"
-                                        });
-                            })), null),
+                  JsxRuntime.jsxs(React$1.Menu, {
+                        children: [
+                          JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
+                                children: [
+                                  "...",
+                                  JsxRuntime.jsx(Solid.ChevronDownIcon, {})
+                                ],
+                                outline: true
+                              }),
+                          JsxRuntime.jsx(Dropdown.DropdownMenu.make, {
+                                children: Core__Option.getOr(Core__Option.map(props.onDelete, (function (onDelete) {
+                                            return JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                                                        children: t`Cancel`,
+                                                        onClick: (function (e) {
+                                                            e.stopPropagation();
+                                                            onDelete();
+                                                          })
+                                                      });
+                                          })), null)
+                              })
+                        ]
+                      }),
                   JsxRuntime.jsx(UiAction.make, {
                         onClick: (function (e) {
                             e.stopPropagation();
@@ -477,10 +470,6 @@ function SortableSubmitMatch(props) {
 var make = SortableSubmitMatch;
 
 export {
-  PredictMatchOutcome ,
-  PredictionBar ,
-  ControllerOfInputsMatch ,
-  schema ,
   PlayerView ,
   make ,
 }

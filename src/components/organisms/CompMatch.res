@@ -27,18 +27,19 @@ module MatchMini = {
     ~onSelect: option<Match.t<'a> => unit>=?,
   ) => {
     let (team1, team2) = match
-    <UiAction
-      className="p-4 mb-2" onClick={_ => onSelect->Option.map(f => f(match))->Option.getOr()}>
-      <div className="grid grid-cols-7 items-center place-content-center">
+    <div className="flex pt-4 pl-4 pr-4">
+      <div className="flex-1 grid grid-cols-7 items-center place-content-center">
         <div
           className={Util.cx([
             "col-span-3 px-2 py-1",
             highlight
-            ->Option.map(h => switch h {
+            ->Option.map(h =>
+              switch h {
               | Left | Both => "bg-yellow-100"
               | Left2 | Both2 => "bg-red-200"
               | _ => ""
-            })
+              }
+            )
             ->Option.getOr(""),
           ])}>
           <span> {team1->Array.map(p => <PlayerMini key={p.id} player=p />)->React.array} </span>
@@ -50,17 +51,26 @@ module MatchMini = {
           className={Util.cx([
             "col-span-3 justify-right text-right",
             highlight
-            ->Option.map(h => switch h {
+            ->Option.map(h =>
+              switch h {
               | Right | Both => "bg-yellow-100"
               | Right2 | Both2 => "bg-red-200"
               | _ => ""
-            })
+              }
+            )
             ->Option.getOr(""),
           ])}>
           <span> {team2->Array.map(p => <PlayerMini key={p.id} player=p />)->React.array} </span>
         </div>
       </div>
-    </UiAction>
+      <div className="self-center p-3">
+        <UiAction
+          className="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          onClick={_ => onSelect->Option.map(f => f(match))->Option.getOr()}>
+          {t`Select`}
+        </UiAction>
+      </div>
+    </div>
   }
 }
 
@@ -334,11 +344,13 @@ let make = (
   ~consumedPlayers: Set.t<string>,
   ~seenTeams: Set.t<string>,
   ~lastRoundSeenTeams: Set.t<string>,
+  ~defaultStrategy: strategy,
+  ~setDefaultStrategy: (strategy => strategy) => unit,
   ~priorityPlayers: array<Player.t<'a>>,
   ~avoidAllPlayers: array<Player.t<'a>>,
   ~onSelectMatch: option<Match.t<'a> => unit>=?,
 ) => {
-  let (strategy, setStrategy) = React.useState(() => CompetitivePlus)
+  let (strategy, setStrategy) = React.useState(() => defaultStrategy)
   let intl = ReactIntl.useIntl()
 
   let strats = [
@@ -393,6 +405,11 @@ let make = (
 
   let tab = strats->Array.find(tab => tab.strategy == strategy)
 
+  let updateStrategy = (strategy: strategy) => {
+    setStrategy(_ => strategy)
+    setDefaultStrategy(_ => strategy)
+  }
+
   <>
     <div className="sm:hidden">
       <label htmlFor="tabs" className="sr-only"> {t`Select a tab`} </label>
@@ -400,11 +417,11 @@ let make = (
         id="tabs"
         name="tabs"
         onChange={e => {
-          setStrategy(_ =>
+          updateStrategy(
             strats
             ->Array.find(tab => tab.name == (e->ReactEvent.Form.target)["value"])
             ->Option.map(s => s.strategy)
-            ->Option.getOr(Competitive)
+            ->Option.getOr(Competitive),
           )
         }}
         defaultValue={strats
@@ -426,7 +443,7 @@ let make = (
           <UiAction
             key={tab.name}
             // \"aria-current"={tab.current ? 'page' : undefined}
-            onClick={_ => setStrategy(_ => tab.strategy)}
+            onClick={_ => updateStrategy(tab.strategy)}
             className={Util.cx([
               strategy == tab.strategy
                 ? "bg-indigo-100 text-indigo-700"
@@ -444,7 +461,7 @@ let make = (
       {" "->React.string}
       {tab->Option.map(tab => tab.details->React.string)->Option.getOr(React.null)}
     </p>
-    <p className="mt-2 text-base leading-7 text-gray-600">
+    <p className="mt-2 text-base leading-7 text-gray-600 mb-2">
       <span className="px-2 py-1 bg-yellow-100"> {"..."->React.string} </span>
       {" = "->React.string}
       {t`This team has played before`}
@@ -479,9 +496,9 @@ let make = (
       | (Some(h), false, false) => Some(h)
       }
 
-      <React.Fragment key={i->Int.toString}>
+      <div className="border-zinc-600 rounded ring-1 mb-2" key={i->Int.toString}>
         <MatchMini onSelect=?onSelectMatch match ?highlight />
-        {quality->Float.toFixed(~digits=3)->React.string}
+        // {quality->Float.toFixed(~digits=3)->React.string}
         <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
           <FramerMotion.Div
             className="h-2 rounded-full bg-red-400"
@@ -498,7 +515,7 @@ let make = (
             }}
           />
         </div>
-      </React.Fragment>
+      </div>
     })
     ->React.array}
   </>

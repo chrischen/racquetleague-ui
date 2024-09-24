@@ -119,7 +119,7 @@ let make = (
   ~togglePlayer: Rating.player => unit,
   ~matches: array<Rating.match>,
   ~setMatches: (array<Rating.match> => array<Rating.match>) => unit,
-  ~activity,
+  // ~activity,
   ~minRating,
   ~maxRating,
   ~handleMatchCanceled,
@@ -196,7 +196,7 @@ let make = (
       />
     </div>
     <div
-      className="w-full h-[calc(100vh-56px-68px)] fixed top-[56px] left-0 overflow-scroll pb-32 px-3">
+      className="w-full h-[calc(100vh-(56px+152px))] sm:h-[calc(100vh-(56px+92px))] fixed top-[56px] left-0 overflow-scroll px-3">
       <main role="main" className="w-full h-full">
         {switch view {
         | Checkin => checkin
