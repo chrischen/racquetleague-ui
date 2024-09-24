@@ -114,7 +114,7 @@ function CompMatch$MatchMini(props) {
                       className: "self-center p-3"
                     })
               ],
-              className: "flex pt-4 pl-4 pr-4"
+              className: "flex pt-2 pl-2 pr-2"
             });
 }
 
@@ -364,6 +364,18 @@ function strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, 
   return shuffle(matches);
 }
 
+function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers) {
+  var teams = Util.NonEmptyArray.fromArray(array_split_by_n(Rating.Players.sortByRatingDesc(availablePlayers), 3).map(function (__x) {
+              return __x.map(function (p) {
+                          return p.id;
+                        });
+            }).map(function (prim) {
+            return new Set(prim);
+          }));
+  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
+  return shuffle(matches);
+}
+
 function CompMatch$Settings(props) {
   return null;
 }
@@ -410,6 +422,11 @@ function CompMatch(props) {
       name: t`Random`,
       strategy: "Random",
       details: t`Totally random teams.`
+    },
+    {
+      name: t`DUPR`,
+      strategy: "DUPR",
+      details: t`Optimized for DUPR. Teams created with similar skill level players.`
     }
   ];
   var availablePlayers = Rating.Players.filterOut(players, consumedPlayers);
@@ -430,6 +447,9 @@ function CompMatch(props) {
         break;
     case "Random" :
         matches = strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
+        break;
+    case "DUPR" :
+        matches = strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers);
         break;
     
   }
@@ -661,6 +681,7 @@ export {
   strategy_by_mixed ,
   strategy_by_round_robin ,
   strategy_by_random ,
+  strategy_by_dupr ,
   Settings ,
   ts ,
   make ,

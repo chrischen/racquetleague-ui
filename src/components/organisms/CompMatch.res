@@ -27,7 +27,7 @@ module MatchMini = {
     ~onSelect: option<Match.t<'a> => unit>=?,
   ) => {
     let (team1, team2) = match
-    <div className="flex pt-4 pl-4 pr-4">
+    <div className="flex pt-2 pl-2 pr-2">
       <div className="flex-1 grid grid-cols-7 items-center place-content-center">
         <div
           className={Util.cx([
@@ -327,7 +327,20 @@ let strategy_by_random = (
   matches->shuffle
 }
 
-type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random
+let strategy_by_dupr = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
+  let teams =
+    availablePlayers
+    ->Players.sortByRatingDesc
+    ->array_split_by_n(3)
+    ->Array.map(Array.map(_, p => p.id))
+    ->Array.map(Set.fromArray)
+    ->NonEmptyArray.fromArray
+
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+  matches->shuffle
+}
+
+type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR
 type stratButton = {name: string, strategy: strategy, details: string}
 
 module Settings = {
@@ -370,6 +383,11 @@ let make = (
       details: ts`Matches are arranged by skill while mixing strong and weak players.`,
     },
     {name: ts`Random`, strategy: Random, details: ts`Totally random teams.`},
+    {
+      name: ts`DUPR`,
+      strategy: DUPR,
+      details: ts`Optimized for DUPR. Teams created with similar skill level players.`,
+    },
   ]
   let availablePlayers = players->Players.filterOut(consumedPlayers)
   let teamConstraints = teams->NonEmptyArray.map(Team.toSet)
@@ -379,6 +397,7 @@ let make = (
     strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
   | Random =>
     strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
+  | DUPR => strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers)
   | Competitive =>
     strategy_by_competitive(
       players,
