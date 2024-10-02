@@ -151,7 +151,7 @@ module Match = {
   }
 
   let toStableId = ((t1, t2): t<'a>) => {
-    t1->Array.concat(t2)->Team.toStableId
+    [t1->Team.toStableId, t2->Team.toStableId]->Array.toSorted(String.compare)->Array.join("-")
   }
 
   let players = ((t1, t2)) => [t1, t2]->Array.flatMap(x => x)
@@ -172,6 +172,7 @@ module CompletedMatch = {
     | None => Js.Promise.resolve()
     }
   }
+  let toStableId: t<'a> => string = ((t, _)) => t->Match.toStableId
 }
 type rsvpNode = AiTetsu_event_graphql.Types.fragment_rsvps_edges_node
 module CompletedMatches = {
@@ -202,8 +203,10 @@ module CompletedMatches = {
     matches->Array.toReversed->Array.slice(~start=0, ~end=matchesPlayed)
   }
 
-  external parseMatches: string => array<((array<string>, array<string>), Js.Null_undefined.t<(float, float)>)> =
-    "JSON.parse"
+  external parseMatches: string => array<(
+    (array<string>, array<string>),
+    Js.Null_undefined.t<(float, float)>,
+  )> = "JSON.parse"
   let saveMatches = (t: t<'a>, namespace: string) => {
     let t = t->Array.map((((team1, team2), score)) => {
       ((team1->Array.map(p => p.id), team2->Array.map(p => p.id)), score)

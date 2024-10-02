@@ -197,7 +197,10 @@ function rate(param) {
 }
 
 function toStableId$1(param) {
-  return toStableId(param[0].concat(param[1]));
+  return [
+              toStableId(param[0]),
+              toStableId(param[1])
+            ].toSorted(Core__String.compare).join("-");
 }
 
 function players(param) {
@@ -230,8 +233,13 @@ function submit(param, activitySlug, submitMatch) {
   }
 }
 
+function toStableId$2(param) {
+  return toStableId$1(param[0]);
+}
+
 var CompletedMatch = {
-  submit: submit
+  submit: submit,
+  toStableId: toStableId$2
 };
 
 function getLastPlayedPlayers(matches, restCount, availablePlayers) {

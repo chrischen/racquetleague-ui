@@ -72,17 +72,13 @@ module ActionBar = {
   @react.component
   let make = (
     ~selectAll: unit => unit,
+    ~selectedAll: bool,
     ~breakCount: int,
     ~onChangeBreakCount: int => unit,
     ~onChooseMatch,
   ) => {
     <div
       className="fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center">
-      <UiAction
-        onClick={_ => selectAll()}
-        className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-        {t`Toggle All`}
-      </UiAction>
       <div>
         <UiAction
           onClick={_ => onChangeBreakCount(breakCount - 1)}
@@ -98,12 +94,23 @@ module ActionBar = {
         {" "->React.string}
         {t`Players on Break`}
       </div>
-      <UiAction
-        onClick={onChooseMatch}
-        className="-mr-3 bg-indigo-600 px-3.5 py-5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-        {">>>>>>>>>>> "->React.string}
-        {t`CHOOSE MATCH`}
-      </UiAction>
+      <div className="-my-3 py-3 align-middle items-center inline-flex">
+        <UiAction
+          onClick={_ => selectAll()}
+          className={Util.cx([
+            "inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300",
+            selectedAll ? "bg-green-300" : "",
+          ])}>
+          <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5 mr-0.5" />
+          {selectedAll ? t`Deselect All` : t`Select All`}
+        </UiAction>
+        <UiAction
+          onClick={onChooseMatch}
+          className="inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          {">>>>>>>>>>> "->React.string}
+          {t`CHOOSE MATCH`}
+        </UiAction>
+      </div>
     </div>
   }
 }
@@ -111,6 +118,7 @@ type view = Checkin | Matches | Queue
 @react.component
 let make = (
   ~players: array<Rating.player>,
+  ~availablePlayers: array<Rating.player>,
   ~playersCache: Rating.PlayersCache.t,
   ~checkin: React.element,
   ~queue: Set.t<string>,
@@ -139,12 +147,11 @@ let make = (
       <UiAction
         className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         onClick=onClose>
-        <HeroIcons.ChevronLeftIcon \"aria-hidden"="true" className="-ml-0.5 h-5 w-5" />
-        {t`Go Back`}
+        <HeroIcons.Cog6Tooth className="-ml-0.5 h-5 w-5" />
       </UiAction>
       <UiAction
         className={Util.cx([
-          "ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+          "ml-3 inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
           view == Checkin
             ? "bg-black border-solid border-white border-2"
             : "bg-indigo-600 hover:bg-indigo-500",
@@ -261,7 +268,11 @@ let make = (
       </main>
     </div>
     <ActionBar
-      selectAll breakCount onChangeBreakCount onChooseMatch={_ => setShowMatchSelector(s => !s)}
+      selectedAll={queue->Set.size == availablePlayers->Array.length}
+      selectAll
+      breakCount
+      onChangeBreakCount
+      onChooseMatch={_ => setShowMatchSelector(s => !s)}
     />
     <ModalDrawer title={ts`Choose Match`} open_=showMatchSelector setOpen={setShowMatchSelector}>
       {matchSelector}

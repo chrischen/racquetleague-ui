@@ -474,11 +474,20 @@ let make = (~event, ~children) => {
     ->Array.map(t => t->Team.toStableId)
     ->Set.fromArray
 
+  let seenMatches: RescriptCore.Set.t<string> =
+    matchHistory->Array.map(m => m->CompletedMatch.toStableId)->Set.fromArray
+
   let lastRoundSeenTeams: RescriptCore.Set.t<string> =
     matchHistory
     ->CompletedMatches.getlastRoundMatches(breakCount, players->Array.length, 4)
     ->Array.flatMap(((match, _)) => [match->fst, match->snd])
     ->Array.map(t => t->Team.toStableId)
+    ->Set.fromArray
+
+  let lastRoundSeenMatches: RescriptCore.Set.t<string> =
+    matchHistory
+    ->CompletedMatches.getlastRoundMatches(breakCount, players->Array.length, 4)
+    ->Array.map(m => m->CompletedMatch.toStableId)
     ->Set.fromArray
 
   let initializeRatings = () => {
@@ -728,9 +737,9 @@ let make = (~event, ~children) => {
         <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8">
           <div className="md:col-span-2 flex">
             <UiAction
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-md bg-indigo-600 px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 text-2xl"
               onClick={_ => setScreen(_ => Matches)}>
-              {t`Easy Mode`}
+              {t`Start Session`}
             </UiAction>
             <HeadlessUi.Field className="flex items-center ml-2">
               <HeadlessUi.Switch
@@ -740,14 +749,14 @@ let make = (~event, ~children) => {
                   v == true ? initializeSessionMode() : uninitializeSessionMode()
                 }}
                 className="group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 data-[checked]:bg-indigo-600">
-                <span className="sr-only"> {t`Tournament Mode`} </span>
+                <span className="sr-only"> {t`Offline Mode`} </span>
                 <span
                   ariaHidden=true
                   className="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out group-data-[checked]:translate-x-5"
                 />
               </HeadlessUi.Switch>
               <HeadlessUi.Switch.Label className="ml-3 text-sm">
-                {t`Tournament Mode`}
+                {t`Offline Mode`}
               </HeadlessUi.Switch.Label>
             </HeadlessUi.Field>
           </div>
@@ -863,18 +872,13 @@ let make = (~event, ~children) => {
               consumedPlayers={Set.make()}
               seenTeams
               lastRoundSeenTeams
+              seenMatches
+              lastRoundSeenMatches
               defaultStrategy={matchmakingStrategy}
               setDefaultStrategy={setMatchmakingStrategy}
-              // consumedPlayers={consumedPlayers
-              // ->Set.values
-              // ->Array.fromIterator
-              // // ->Array.concat(deprioritized->Set.values->Array.fromIterator)
-              // ->Set.fromArray}
-              // priorityPlayers={[]}
               priorityPlayers
               avoidAllPlayers
               onSelectMatch={match => {
-                // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
                 queueMatch(match)
               }}
             />
@@ -992,7 +996,8 @@ let make = (~event, ~children) => {
     </Layout.Container>
   | Matches =>
     <MatchesView
-      players={players}
+      players
+      availablePlayers
       playersCache
       queue
       checkin={<Checkin
@@ -1029,6 +1034,8 @@ let make = (~event, ~children) => {
         consumedPlayers={Set.make()}
         seenTeams
         lastRoundSeenTeams
+        seenMatches
+        lastRoundSeenMatches
         defaultStrategy={matchmakingStrategy}
         setDefaultStrategy={setMatchmakingStrategy}
         // consumedPlayers={consumedPlayers

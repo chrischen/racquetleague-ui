@@ -56,7 +56,7 @@ function CompMatch$MatchMini(props) {
                                                     }, p.id);
                                         })
                                   }),
-                              className: Core.cx("col-span-3 px-2 py-1", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
+                              className: Core.cx("col-span-3 px-2 my-1 ml-1", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
                                               switch (h) {
                                                 case "Left" :
                                                 case "Both" :
@@ -83,7 +83,7 @@ function CompMatch$MatchMini(props) {
                                                     }, p.id);
                                         })
                                   }),
-                              className: Core.cx("col-span-3 justify-right text-right", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
+                              className: Core.cx("col-span-3 justify-right text-right my-1 mr-1", Core__Option.getOr(Core__Option.map(highlight, (function (h) {
                                               switch (h) {
                                                 case "Right" :
                                                 case "Both" :
@@ -99,7 +99,13 @@ function CompMatch$MatchMini(props) {
                                             })), ""))
                             })
                       ],
-                      className: "flex-1 grid grid-cols-7 items-center place-content-center"
+                      className: Core.cx("flex-1 grid grid-cols-7 items-center place-content-center", Core__Option.getOr(Core__Option.map(props.border, (function (h) {
+                                      if (h === "Red") {
+                                        return "border-red-200 border-4";
+                                      } else {
+                                        return "border-yellow-100 border-4";
+                                      }
+                                    })), ""))
                     }),
                 JsxRuntime.jsx("div", {
                       children: JsxRuntime.jsx(UiAction.make, {
@@ -397,7 +403,9 @@ function CompMatch(props) {
   var priorityPlayers = props.priorityPlayers;
   var setDefaultStrategy = props.setDefaultStrategy;
   var defaultStrategy = props.defaultStrategy;
+  var lastRoundSeenMatches = props.lastRoundSeenMatches;
   var lastRoundSeenTeams = props.lastRoundSeenTeams;
+  var seenMatches = props.seenMatches;
   var seenTeams = props.seenTeams;
   var consumedPlayers = props.consumedPlayers;
   var players = props.players;
@@ -424,7 +432,7 @@ function CompMatch(props) {
       details: t`Totally random teams.`
     },
     {
-      name: t`DUPR`,
+      name: "DUPR",
       strategy: "DUPR",
       details: t`Optimized for DUPR. Teams created with similar skill level players.`
     }
@@ -630,19 +638,25 @@ function CompMatch(props) {
                             match$4 ? "Both" : "Left"
                           ) : "Right";
                       }
-                      var match$5 = maxQuality - minQuality;
+                      var match$5 = lastRoundSeenMatches.has(Rating.Match.toStableId(match));
+                      var match$6 = seenMatches.has(Rating.Match.toStableId(match));
+                      var border = match$5 ? "Red" : (
+                          match$6 ? "Yellow" : undefined
+                        );
+                      var match$7 = maxQuality - minQuality;
                       return JsxRuntime.jsxs("div", {
                                   children: [
                                     JsxRuntime.jsx(CompMatch$MatchMini, {
                                           match: match,
                                           highlight: highlight,
+                                          border: border,
                                           onSelect: onSelectMatch
                                         }),
                                     JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(FramerMotion.motion.div, {
                                                 className: "h-2 rounded-full bg-red-400",
                                                 animate: {
-                                                  width: match$5 !== 0 ? ((param[1] - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
+                                                  width: match$7 !== 0 ? ((param[1] - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
                                                 },
                                                 initial: {
                                                   width: "0%"

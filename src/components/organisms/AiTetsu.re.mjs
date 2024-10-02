@@ -476,6 +476,9 @@ function AiTetsu(props) {
             }).map(function (t) {
             return Rating.Team.toStableId(t);
           }));
+  var seenMatches = new Set(matchHistory.map(function (m) {
+            return Rating.CompletedMatch.toStableId(m);
+          }));
   var lastRoundSeenTeams = new Set(Rating.CompletedMatches.getlastRoundMatches(matchHistory, breakCount, players.length, 4).flatMap(function (param) {
               var match = param[0];
               return [
@@ -484,6 +487,9 @@ function AiTetsu(props) {
                     ];
             }).map(function (t) {
             return Rating.Team.toStableId(t);
+          }));
+  var lastRoundSeenMatches = new Set(Rating.CompletedMatches.getlastRoundMatches(matchHistory, breakCount, players.length, 4).map(function (m) {
+            return Rating.CompletedMatch.toStableId(m);
           }));
   var initializeRatings = function () {
     return allPlayers.map(function (p) {
@@ -744,6 +750,7 @@ function AiTetsu(props) {
   if (match$5[0] !== "Advanced") {
     return JsxRuntime.jsx(MatchesView.make, {
                 players: players,
+                availablePlayers: availablePlayers$1,
                 playersCache: playersCache,
                 checkin: JsxRuntime.jsx(AiTetsu$Checkin, {
                       players: allPlayers,
@@ -790,7 +797,9 @@ function AiTetsu(props) {
                       teams: teams,
                       consumedPlayers: new Set(),
                       seenTeams: seenTeams,
+                      seenMatches: seenMatches,
                       lastRoundSeenTeams: lastRoundSeenTeams,
+                      lastRoundSeenMatches: lastRoundSeenMatches,
                       defaultStrategy: matchmakingStrategy,
                       setDefaultStrategy: setMatchmakingStrategy,
                       priorityPlayers: priorityPlayers,
@@ -896,8 +905,8 @@ function AiTetsu(props) {
                                                         return "Matches";
                                                       });
                                                 }),
-                                              className: "rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                                              children: t`Easy Mode`
+                                              className: "rounded-md bg-indigo-600 px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 text-2xl",
+                                              children: t`Start Session`
                                             }),
                                         JsxRuntime.jsxs(React$1.Field, {
                                               className: "flex items-center ml-2",
@@ -906,7 +915,7 @@ function AiTetsu(props) {
                                                       className: "group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 data-[checked]:bg-indigo-600",
                                                       children: [
                                                         JsxRuntime.jsx("span", {
-                                                              children: t`Tournament Mode`,
+                                                              children: t`Offline Mode`,
                                                               className: "sr-only"
                                                             }),
                                                         JsxRuntime.jsx("span", {
@@ -928,7 +937,7 @@ function AiTetsu(props) {
                                                     }),
                                                 JsxRuntime.jsx(React$1.Switch.Label, {
                                                       className: "ml-3 text-sm",
-                                                      children: t`Tournament Mode`
+                                                      children: t`Offline Mode`
                                                     })
                                               ]
                                             })
@@ -1055,7 +1064,9 @@ function AiTetsu(props) {
                                               teams: teams,
                                               consumedPlayers: new Set(),
                                               seenTeams: seenTeams,
+                                              seenMatches: seenMatches,
                                               lastRoundSeenTeams: lastRoundSeenTeams,
+                                              lastRoundSeenMatches: lastRoundSeenMatches,
                                               defaultStrategy: matchmakingStrategy,
                                               setDefaultStrategy: setMatchmakingStrategy,
                                               priorityPlayers: priorityPlayers,

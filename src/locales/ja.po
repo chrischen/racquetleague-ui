@@ -1197,6 +1197,32 @@ msgstr "提出された試合"
 msgid "Finished"
 msgstr "終了"
 
+#: src/components/organisms/CompMatch.re.mjs:437
+msgid "Optimized for DUPR. Teams created with similar skill level players."
+msgstr ""
+"DUPRに最適化されました。同じスキルレベルのプレイヤーでチームを作成します。"
+
+#: src/components/organisms/CompMatch.re.mjs:118
+msgid "Select"
+msgstr "選択"
+
+#: src/components/organisms/MatchesView.re.mjs:140
+msgid "Deselect All"
+msgstr "すべて選択解除"
+
+#: src/components/organisms/AiTetsu.re.mjs:918
+#: src/components/organisms/AiTetsu.re.mjs:940
+msgid "Offline Mode"
+msgstr "オフラインモード"
+
+#: src/components/organisms/MatchesView.re.mjs:140
+msgid "Select All"
+msgstr "すべて選択"
+
+#: src/components/organisms/AiTetsu.re.mjs:909
+msgid "Start Session"
+msgstr "セッションを開始"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

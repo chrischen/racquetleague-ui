@@ -100,16 +100,10 @@ var Queue = {
 function MatchesView$ActionBar(props) {
   var onChangeBreakCount = props.onChangeBreakCount;
   var breakCount = props.breakCount;
+  var selectedAll = props.selectedAll;
   var selectAll = props.selectAll;
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsx(UiAction.make, {
-                      onClick: (function (param) {
-                          selectAll();
-                        }),
-                      className: "rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50",
-                      children: t`Toggle All`
-                    }),
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx(UiAction.make, {
@@ -131,13 +125,31 @@ function MatchesView$ActionBar(props) {
                         t`Players on Break`
                       ]
                     }),
-                JsxRuntime.jsxs(UiAction.make, {
-                      onClick: props.onChooseMatch,
-                      className: "-mr-3 bg-indigo-600 px-3.5 py-5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                JsxRuntime.jsxs("div", {
                       children: [
-                        ">>>>>>>>>>> ",
-                        t`CHOOSE MATCH`
-                      ]
+                        JsxRuntime.jsxs(UiAction.make, {
+                              onClick: (function (param) {
+                                  selectAll();
+                                }),
+                              className: Core$1.cx("inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300", selectedAll ? "bg-green-300" : ""),
+                              children: [
+                                JsxRuntime.jsx(Solid.UsersIcon, {
+                                      className: "-ml-0.5 h-5 w-5 mr-0.5",
+                                      "aria-hidden": "true"
+                                    }),
+                                selectedAll ? t`Deselect All` : t`Select All`
+                              ]
+                            }),
+                        JsxRuntime.jsxs(UiAction.make, {
+                              onClick: props.onChooseMatch,
+                              className: "inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                              children: [
+                                ">>>>>>>>>>> ",
+                                t`CHOOSE MATCH`
+                              ]
+                            })
+                      ],
+                      className: "-my-3 py-3 align-middle items-center inline-flex"
                     })
               ],
               className: "fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center"
@@ -157,6 +169,7 @@ function MatchesView(props) {
   var matches = props.matches;
   var togglePlayer = props.togglePlayer;
   var consumedPlayers = props.consumedPlayers;
+  var queue = props.queue;
   var playersCache = props.playersCache;
   var match = React.useState(function () {
         return "Matches";
@@ -229,7 +242,7 @@ function MatchesView(props) {
               players: props.players,
               breakPlayers: props.breakPlayers,
               consumedPlayers: consumedPlayers,
-              queue: props.queue,
+              queue: queue,
               togglePlayer: (function (player) {
                   if (consumedPlayers.has(player.id)) {
                     return setView(function (param) {
@@ -247,16 +260,12 @@ function MatchesView(props) {
               children: [
                 JsxRuntime.jsxs("div", {
                       children: [
-                        JsxRuntime.jsxs(UiAction.make, {
+                        JsxRuntime.jsx(UiAction.make, {
                               onClick: props.onClose,
                               className: "inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                              children: [
-                                JsxRuntime.jsx(Solid.ChevronLeftIcon, {
-                                      className: "-ml-0.5 h-5 w-5",
-                                      "aria-hidden": "true"
-                                    }),
-                                t`Go Back`
-                              ]
+                              children: JsxRuntime.jsx(Solid.Cog6ToothIcon, {
+                                    className: "-ml-0.5 h-5 w-5"
+                                  })
                             }),
                         JsxRuntime.jsxs(UiAction.make, {
                               onClick: (function (param) {
@@ -264,7 +273,7 @@ function MatchesView(props) {
                                         return "Checkin";
                                       });
                                 }),
-                              className: Core$1.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Checkin" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
+                              className: Core$1.cx("ml-3 inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Checkin" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
                               children: [
                                 JsxRuntime.jsx(Solid.UsersIcon, {
                                       className: "-ml-0.5 h-5 w-5",
@@ -332,6 +341,7 @@ function MatchesView(props) {
                     }),
                 JsxRuntime.jsx(MatchesView$ActionBar, {
                       selectAll: props.selectAll,
+                      selectedAll: queue.size === props.availablePlayers.length,
                       breakCount: props.breakCount,
                       onChangeBreakCount: props.onChangeBreakCount,
                       onChooseMatch: (function (param) {

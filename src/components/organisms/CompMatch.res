@@ -20,18 +20,29 @@ module PlayerMini = {
 
 module MatchMini = {
   type highlight = Left | Right | Both | Left2 | Right2 | Both2
+  type border = Red | Yellow
   @react.component
   let make = (
     ~match: Match.t<'a>,
     ~highlight: option<highlight>=?,
+    ~border: option<border>=?,
     ~onSelect: option<Match.t<'a> => unit>=?,
   ) => {
     let (team1, team2) = match
     <div className="flex pt-2 pl-2 pr-2">
-      <div className="flex-1 grid grid-cols-7 items-center place-content-center">
+      <div
+        className={Util.cx([
+          "flex-1 grid grid-cols-7 items-center place-content-center",
+          border->Option.map(h =>
+            switch h {
+            | Yellow => "border-yellow-100 border-4"
+            | Red => "border-red-200 border-4"
+            }
+          )->Option.getOr(""),
+        ])}>
         <div
           className={Util.cx([
-            "col-span-3 px-2 py-1",
+            "col-span-3 px-2 my-1 ml-1",
             highlight
             ->Option.map(h =>
               switch h {
@@ -49,7 +60,7 @@ module MatchMini = {
         </div>
         <div
           className={Util.cx([
-            "col-span-3 justify-right text-right",
+            "col-span-3 justify-right text-right my-1 mr-1",
             highlight
             ->Option.map(h =>
               switch h {
@@ -356,7 +367,9 @@ let make = (
   ~teams: NonEmptyArray.t<Team.t<'a>>,
   ~consumedPlayers: Set.t<string>,
   ~seenTeams: Set.t<string>,
+  ~seenMatches: Set.t<string>,
   ~lastRoundSeenTeams: Set.t<string>,
+  ~lastRoundSeenMatches: Set.t<string>,
   ~defaultStrategy: strategy,
   ~setDefaultStrategy: (strategy => strategy) => unit,
   ~priorityPlayers: array<Player.t<'a>>,
@@ -384,7 +397,7 @@ let make = (
     },
     {name: ts`Random`, strategy: Random, details: ts`Totally random teams.`},
     {
-      name: ts`DUPR`,
+      name: "DUPR",
       strategy: DUPR,
       details: ts`Optimized for DUPR. Teams created with similar skill level players.`,
     },
@@ -514,9 +527,17 @@ let make = (
       | (None, false, false) => None
       | (Some(h), false, false) => Some(h)
       }
+      let border = switch(
+        lastRoundSeenMatches->Set.has(match->Match.toStableId),
+        seenMatches->Set.has(match->Match.toStableId),
+      ) {
+      | (true, _) => Some(MatchMini.Red)
+      | (_, true) => Some(MatchMini.Yellow)
+      | (false, false) => None
+      }
 
       <div className="border-zinc-600 rounded ring-1 mb-2" key={i->Int.toString}>
-        <MatchMini onSelect=?onSelectMatch match ?highlight />
+        <MatchMini onSelect=?onSelectMatch match ?highlight ?border />
         // {quality->Float.toFixed(~digits=3)->React.string}
         <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
           <FramerMotion.Div

@@ -6,34 +6,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:269
+#: src/components/organisms/SortableSubmitMatch.re.mjs:244
+msgid "Cancel"
+msgstr ""
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:262
 msgid "Finished"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:397
+#: src/components/organisms/SortableSubmitMatch.re.mjs:390
 msgid "Go Back"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:416
+#: src/components/organisms/SortableSubmitMatch.re.mjs:409
 msgid "Loading"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:322
-#: src/components/organisms/SortableSubmitMatch.re.mjs:366
+#: src/components/organisms/SortableSubmitMatch.re.mjs:315
+#: src/components/organisms/SortableSubmitMatch.re.mjs:359
 msgid "Points"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:101
-#: src/components/organisms/SortableSubmitMatch.re.mjs:113
+#: src/components/organisms/SortableSubmitMatch.re.mjs:88
+#: src/components/organisms/SortableSubmitMatch.re.mjs:100
 msgid "predicted winner"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:404
+#: src/components/organisms/SortableSubmitMatch.re.mjs:397
 msgid "Submit Rated"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:332
-#: src/components/organisms/SortableSubmitMatch.re.mjs:376
+#: src/components/organisms/SortableSubmitMatch.re.mjs:325
+#: src/components/organisms/SortableSubmitMatch.re.mjs:369
 msgid "Winner"
 msgstr ""

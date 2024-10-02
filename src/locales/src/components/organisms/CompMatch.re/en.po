@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CompMatch.re.mjs:503
+#: src/components/organisms/CompMatch.re.mjs:546
 msgid "Analyzed {0} matches."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:389
+#: src/components/organisms/CompMatch.re.mjs:420
 msgid "Competitive"
 msgstr ""
 
@@ -25,7 +25,11 @@ msgstr ""
 #~ msgid "Competitive Plus"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:391
+#: src/components/organisms/CompMatch.re.mjs:435
+#~ msgid "DUPR"
+#~ msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:422
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 
@@ -33,15 +37,19 @@ msgstr ""
 #~ msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:396
+#: src/components/organisms/CompMatch.re.mjs:427
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:394
+#: src/components/organisms/CompMatch.re.mjs:425
 msgid "Mixed"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:524
+#: src/components/organisms/CompMatch.re.mjs:437
+msgid "Optimized for DUPR. Teams created with similar skill level players."
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:567
 msgid "Played last round"
 msgstr ""
 
@@ -49,18 +57,22 @@ msgstr ""
 #~ msgid "Quality"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:399
+#: src/components/organisms/CompMatch.re.mjs:430
 msgid "Random"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:451
+#: src/components/organisms/CompMatch.re.mjs:118
+msgid "Select"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:498
 msgid "Select a tab"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:518
+#: src/components/organisms/CompMatch.re.mjs:561
 msgid "This team has played before"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:401
+#: src/components/organisms/CompMatch.re.mjs:432
 msgid "Totally random teams."
 msgstr ""

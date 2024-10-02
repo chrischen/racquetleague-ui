@@ -1285,3 +1285,32 @@ msgstr ""
 #: src/components/organisms/SortableSubmitMatch.re.mjs:269
 msgid "Finished"
 msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:435
+msgid "DUPR"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:437
+msgid "Optimized for DUPR. Teams created with similar skill level players."
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:118
+msgid "Select"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:140
+msgid "Deselect All"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:918
+#: src/components/organisms/AiTetsu.re.mjs:940
+msgid "Offline Mode"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:140
+msgid "Select All"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:909
+msgid "Start Session"
+msgstr ""
