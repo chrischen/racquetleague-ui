@@ -33,12 +33,14 @@ module MatchMini = {
       <div
         className={Util.cx([
           "flex-1 grid grid-cols-7 items-center place-content-center",
-          border->Option.map(h =>
+          border
+          ->Option.map(h =>
             switch h {
             | Yellow => "border-yellow-100 border-4"
             | Red => "border-red-200 border-4"
             }
-          )->Option.getOr(""),
+          )
+          ->Option.getOr(""),
         ])}>
         <div
           className={Util.cx([
@@ -348,7 +350,11 @@ let strategy_by_dupr = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
     ->NonEmptyArray.fromArray
 
   let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
-  matches->shuffle
+  matches->Array.toSorted((a, b) => {
+    let (_, qualityA) = a
+    let (_, qualityB) = b
+    qualityA < qualityB ? 1. : -1.
+  })
 }
 
 type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR
@@ -527,7 +533,7 @@ let make = (
       | (None, false, false) => None
       | (Some(h), false, false) => Some(h)
       }
-      let border = switch(
+      let border = switch (
         lastRoundSeenMatches->Set.has(match->Match.toStableId),
         seenMatches->Set.has(match->Match.toStableId),
       ) {

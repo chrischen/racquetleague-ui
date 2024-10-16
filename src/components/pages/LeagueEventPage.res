@@ -6,7 +6,7 @@ module Query = %relay(`
     event(id: $eventId) {
       __id
       title
-      ...AiTetsu_event @arguments(after: $after, first: 20, before: $before)
+      ...AiTetsu_event @arguments(after: $after, first: 50, before: $before)
     }
     ...MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace)
   }

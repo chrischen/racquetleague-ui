@@ -379,7 +379,13 @@ function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers) {
             return new Set(prim);
           }));
   var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
-  return shuffle(matches);
+  return matches.toSorted(function (a, b) {
+              if (a[1] < b[1]) {
+                return 1;
+              } else {
+                return -1;
+              }
+            });
 }
 
 function CompMatch$Settings(props) {
