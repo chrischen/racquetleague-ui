@@ -4,6 +4,7 @@ import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as Rating from "../../lib/Rating.re.mjs";
+import * as Js_math from "rescript/lib/es6/js_math.js";
 import * as Session from "../../lib/Session.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
@@ -479,7 +480,7 @@ function AiTetsu(props) {
   var seenMatches = new Set(matchHistory.map(function (m) {
             return Rating.CompletedMatch.toStableId(m);
           }));
-  var lastRoundSeenTeams = new Set(Rating.CompletedMatches.getlastRoundMatches(matchHistory, breakCount, players.length, 4).flatMap(function (param) {
+  var lastRoundSeenTeams = new Set(Rating.CompletedMatches.getLastRoundMatches(matchHistory, breakCount, players.length, 4).flatMap(function (param) {
               var match = param[0];
               return [
                       match[0],
@@ -488,7 +489,7 @@ function AiTetsu(props) {
             }).map(function (t) {
             return Rating.Team.toStableId(t);
           }));
-  var lastRoundSeenMatches = new Set(Rating.CompletedMatches.getlastRoundMatches(matchHistory, breakCount, players.length, 4).map(function (m) {
+  var lastRoundSeenMatches = new Set(Rating.CompletedMatches.getLastRoundMatches(matchHistory, breakCount, players.length, 4).map(function (m) {
             return Rating.CompletedMatch.toStableId(m);
           }));
   var initializeRatings = function () {
@@ -574,13 +575,16 @@ function AiTetsu(props) {
           }
         }));
   var queueMatch = function (match) {
-    var matches$1 = matches.concat([match]);
-    [
-          match[0],
-          match[1]
-        ].flatMap(function (x) {
-            return x;
-          }).map(function (p) {
+    var match$1 = Js_math.random_int(0, 2);
+    var match$2 = match$1 !== 0 ? [
+        match[1],
+        match[0]
+      ] : [
+        match[0],
+        match[1]
+      ];
+    var matches$1 = matches.concat([match$2]);
+    Rating.Match.players(match$2).map(function (p) {
           setQueue(function (queue) {
                 return removeFromQueue(queue, p);
               });
@@ -747,6 +751,7 @@ function AiTetsu(props) {
                 });
     }
   };
+  var roundsCount = Rating.CompletedMatches.getNumberOfRounds(matchHistory, breakCount, players.length, 4);
   if (match$5[0] !== "Advanced") {
     return JsxRuntime.jsx(MatchesView.make, {
                 players: players,
@@ -806,7 +811,8 @@ function AiTetsu(props) {
                       avoidAllPlayers: avoidAllPlayers,
                       onSelectMatch: (function (match) {
                           queueMatch(match);
-                        })
+                        }),
+                      roundsCount: roundsCount
                     })
               });
   }
@@ -1073,7 +1079,8 @@ function AiTetsu(props) {
                                               avoidAllPlayers: avoidAllPlayers,
                                               onSelectMatch: (function (match) {
                                                   queueMatch(match);
-                                                })
+                                                }),
+                                              roundsCount: roundsCount
                                             })
                                       ],
                                       className: ""

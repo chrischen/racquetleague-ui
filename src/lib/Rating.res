@@ -192,7 +192,7 @@ module CompletedMatches = {
     ->Array.slice(~start=0, ~end=playersCount)
   }
 
-  let getlastRoundMatches = (
+  let getLastRoundMatches = (
     matches: t<'a>,
     restCount: int,
     availablePlayers: int,
@@ -201,6 +201,21 @@ module CompletedMatches = {
     let lastPlayedCount = getLastPlayedPlayers(matches, restCount, availablePlayers)->Array.length
     let matchesPlayed = lastPlayedCount / playersPerMatch
     matches->Array.toReversed->Array.slice(~start=0, ~end=matchesPlayed)
+  }
+
+  let getNumberOfRounds = (
+    matches: t<'a>,
+    restCount: int,
+    availablePlayers: int,
+    playersPerMatch: int,
+  ): int => {
+    let lastPlayedCount = getLastPlayedPlayers(matches, restCount, availablePlayers)->Array.length
+    let matchesLastPlayed = lastPlayedCount / playersPerMatch
+    let rounds = switch matchesLastPlayed {
+    | 0 => 0
+    | n => matches->Array.length / n
+    }
+    rounds
   }
 
   external parseMatches: string => array<(
@@ -290,6 +305,7 @@ module DoublesMatch = {
     }
   }
 }
+
 type player = Player.t<rsvpNode>
 type team = array<player>
 type match = (team, team)
@@ -353,6 +369,288 @@ module Players = {
       storage->Js.Dict.get(p.id)->Option.map(store => {...store, data: p.data})->Option.getOr(p)
     })
   }
+}
+open Util
+type matchmakingResult<'a> = {
+  seenTeams: array<Set.t<string>>,
+  // seenTeams: array<Team.t<'a>>,
+  matches: array<Match.t<'a>>,
+}
+// Gets n from array array from a starting index, or returns the the array if
+// it's less than n and minimum of 4
+let array_get_n_from = (from: int, n: int, arr: array<'a>): option<array<'a>> => {
+  let n = if arr->Array.length > 3 && arr->Array.length < n {
+    arr->Array.length
+  } else {
+    n
+  }
+
+  // if arr->Array.length > 3 && arr->Array.length < n {
+  //   Some(arr)
+  // } else
+  if from < Array.length(arr) - (n - 1) {
+    let arr = Array.slice(arr, ~start=from, ~end=from + n)
+    if n == arr->Array.length {
+      Some(arr)
+    } else {
+      None
+    }
+    // } else {
+    //   None
+    // }
+  } else {
+    None
+  }
+}
+let array_split_by_n = (arr: array<'a>, n) => {
+  let rec loop = (from: int, acc: array<array<'a>>) => {
+    let next = array_get_n_from(from, n, arr)
+    switch next {
+    | Some(next) => loop(from + 1, acc->Array.concat([next]))
+    | None => acc
+    }
+  }
+  loop(0, [])
+}
+let array_combos: array<'a> => array<('a, 'a)> = arr => {
+  arr->Array.flatMapWithIndex((v, i) =>
+    arr->Array.slice(~start=i + 1, ~end=Array.length(arr))->Array.map(v2 => (v, v2))
+  )
+}
+let combos = (arr1: array<'a>, arr2: array<'a>): array<('a, 'a)> => {
+  arr1->Array.flatMap(d => arr2->Array.map(v => (d, v)))
+}
+let match_quality: Match.t<'a> => float = ((team1, team2)) => {
+  Rating.predictDraw([team1->Array.map(p => p.rating), team2->Array.map(p => p.rating)])
+}
+type sortedArray<'a> = {value: 'a, sort: float}
+let shuffle = arr =>
+  arr
+  ->Array.map(value => {value, sort: Math.random()})
+  ->Array.toSorted((a, b) => a.sort -. b.sort)
+  ->Array.map(({value}) => value)
+
+let tuple2array = ((a, b)) => [a, b]
+let team_to_players_set = (team: array<Player.t<'a>>): Set.t<string> =>
+  team->Array.map(p => p.id)->Set.fromArray
+
+let find_all_match_combos = (
+  availablePlayers: array<Player.t<'a>>,
+  priorityPlayers,
+  avoidAllPlayers,
+  teamConstraints: NonEmptyArray.t<Set.t<string>>,
+) => {
+  let teams = availablePlayers->array_combos->Array.map(tuple2array)
+
+  // Implicitly the unassigned players form a team
+  let teamConstraintsSet =
+    teamConstraints
+    ->NonEmptyArray.toArray
+    ->Array.map(a => a->Set.values->Array.fromIterator)
+    ->Array.flatMap(x => x)
+    ->Set.fromArray
+  let implicitTeam: Set.t<string> =
+    availablePlayers
+    ->Array.filter(p => !(teamConstraintsSet->Set.has(p.id)))
+    ->Array.map(p => p.id)
+    ->Set.fromArray
+
+  let result = teams->Array.reduce({seenTeams: [], matches: []}, ({seenTeams, matches}, team) => {
+    let players' = availablePlayers->Array.filter(p => !(team->Team.contains_player(p)))
+    // Teams of remaining players
+    let teams' = players'->array_combos->Array.map(tuple2array)
+    let teams' = teams'->Array.filter(t => {
+      seenTeams->Array.findIndex(t' => t'->TeamSet.is_equal_to(t->team_to_players_set)) == -1
+    })
+
+    {
+      seenTeams: seenTeams->Array.concat([team->team_to_players_set]),
+      matches: matches->Array.concat([team]->combos(teams')),
+    }
+  })
+  let {matches} = result
+  let matches = matches->Array.map(match => {
+    let quality = match->match_quality
+    (match, quality)
+  })
+
+  // Constraints
+  let results =
+    priorityPlayers->Array.length == 0
+      ? matches
+      : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
+
+  let results =
+    avoidAllPlayers->Array.length < 2
+      ? results
+      : results->Array.filter(((match, _)) => !(match->Match.contains_all_players(avoidAllPlayers)))
+
+  teamConstraints
+  ->Option.map(teamConstraints => {
+    let teamConstraints = teamConstraints->Array.concat([implicitTeam])
+    results->Array.filter(((match, _)) => {
+      let (team1, team2) = match
+      let team1 = team1->Team.toSet
+      let team2 = team2->Team.toSet
+      // Include match if it contains any of the teams
+      let constr1 =
+        teamConstraints->Array.findIndex(
+          teamConstraint => {
+            teamConstraint->TeamSet.containsAllOf(team1)
+          },
+        ) > -1
+      let constr2 =
+        teamConstraints->Array.findIndex(
+          teamConstraint => {
+            teamConstraint->TeamSet.containsAllOf(team2)
+          },
+        ) > -1
+      constr1 && constr2
+    })
+  })
+  ->Option.getOr(results)
+}
+let strategy_by_competitive = (
+  players: array<Player.t<'a>>,
+  consumedPlayers: Set.t<string>,
+  priorityPlayers: array<Player.t<'a>>,
+  avoidAllPlayers: array<Player.t<'a>>,
+  teams: NonEmptyArray.t<Set.t<string>>,
+) => {
+  players
+  ->Players.sortByRatingDesc
+  ->array_split_by_n(8)
+  ->Array.reduce([], (acc, playerSet) => {
+    let matches =
+      playerSet
+      ->Players.filterOut(consumedPlayers)
+      ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams)
+      ->Array.toSorted((a, b) => {
+        let (_, qualityA) = a
+        let (_, qualityB) = b
+        qualityA < qualityB ? 1. : -1.
+      })
+    acc->Array.concat(matches)
+  })
+}
+let strategy_by_competitive_plus = (
+  players: array<Player.t<'a>>,
+  consumedPlayers: Set.t<string>,
+  priorityPlayers: array<Player.t<'a>>,
+  avoidAllPlayers: array<Player.t<'a>>,
+  teams: NonEmptyArray.t<Set.t<string>>,
+) => {
+  players
+  ->Array.toSorted((a, b) => {
+    let userA = a.rating.mu
+    let userB = b.rating.mu
+    userA < userB ? 1. : -1.
+  })
+  ->array_split_by_n(6)
+  ->Array.reduce([], (acc, playerSet) => {
+    let matches =
+      playerSet
+      ->Players.filterOut(consumedPlayers)
+      ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams)
+      ->Array.toSorted((a, b) => {
+        let (_, qualityA) = a
+        let (_, qualityB) = b
+        qualityA < qualityB ? 1. : -1.
+      })
+    acc->Array.concat(matches)
+  })
+}
+
+let strategy_by_mixed = (
+  availablePlayers,
+  priorityPlayers,
+  avoidAllPlayers,
+  teams: NonEmptyArray.t<Set.t<string>>,
+) => {
+  find_all_match_combos(
+    availablePlayers,
+    priorityPlayers,
+    avoidAllPlayers,
+    teams,
+  )->Array.toSorted((a, b) => {
+    let (_, qualityA) = a
+    let (_, qualityB) = b
+    qualityA < qualityB ? 1. : -1.
+  })
+}
+
+let strategy_by_round_robin = (
+  availablePlayers,
+  priorityPlayers,
+  avoidAllPlayers,
+  teams: NonEmptyArray.t<Set.t<string>>,
+) => {
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+  matches
+}
+
+let strategy_by_random = (
+  availablePlayers,
+  priorityPlayers,
+  avoidAllPlayers,
+  teams: NonEmptyArray.t<Set.t<string>>,
+) => {
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+  matches->shuffle
+}
+
+let strategy_by_dupr = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
+  let teams =
+    availablePlayers
+    ->Players.sortByRatingDesc
+    ->array_split_by_n(3)
+    ->Array.map(Array.map(_, p => p.id))
+    ->Array.map(Set.fromArray)
+    ->NonEmptyArray.fromArray
+
+  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+  matches->Array.toSorted((a, b) => {
+    let (_, qualityA) = a
+    let (_, qualityB) = b
+    qualityA < qualityB ? 1. : -1.
+  })
+}
+
+type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR
+let rec getMatches = (
+  players: Players.t,
+  consumedPlayers,
+  strategy,
+  priorityPlayers,
+  avoidAllPlayers,
+  teamConstraints,
+) => {
+  let availablePlayers = players->Players.filterOut(consumedPlayers)
+  let matches = switch strategy {
+  | Mixed => strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
+  | RoundRobin =>
+    strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
+  | Random =>
+    strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
+  | DUPR => strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers)
+  | Competitive =>
+    strategy_by_competitive(
+      players,
+      consumedPlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teamConstraints,
+    )
+  | CompetitivePlus =>
+    strategy_by_competitive_plus(
+      players,
+      consumedPlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teamConstraints,
+    )
+  }
+  matches
 }
 module PlayersCache = {
   type t = Js.Dict.t<player>

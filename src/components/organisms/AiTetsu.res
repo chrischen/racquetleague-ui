@@ -423,8 +423,8 @@ let make = (~event, ~children) => {
   let (breakCount: int, setBreakCount) = React.useState(() => 0)
 
   // Matchmaking strategy
-  let (matchmakingStrategy: CompMatch.strategy, setMatchmakingStrategy) = React.useState(() =>
-    CompMatch.CompetitivePlus
+  let (matchmakingStrategy: strategy, setMatchmakingStrategy) = React.useState(() =>
+    CompetitivePlus
   )
 
   let (matchHistory: array<CompletedMatch.t<rsvpNode>>, setMatchHistory) = React.useState(() => [])
@@ -479,14 +479,14 @@ let make = (~event, ~children) => {
 
   let lastRoundSeenTeams: RescriptCore.Set.t<string> =
     matchHistory
-    ->CompletedMatches.getlastRoundMatches(breakCount, players->Array.length, 4)
+    ->CompletedMatches.getLastRoundMatches(breakCount, players->Array.length, 4)
     ->Array.flatMap(((match, _)) => [match->fst, match->snd])
     ->Array.map(t => t->Team.toStableId)
     ->Set.fromArray
 
   let lastRoundSeenMatches: RescriptCore.Set.t<string> =
     matchHistory
-    ->CompletedMatches.getlastRoundMatches(breakCount, players->Array.length, 4)
+    ->CompletedMatches.getLastRoundMatches(breakCount, players->Array.length, 4)
     ->Array.map(m => m->CompletedMatch.toStableId)
     ->Set.fromArray
 
@@ -559,9 +559,14 @@ let make = (~event, ~children) => {
     players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
 
   let queueMatch = match => {
+    // Randomize the team order displayed
+    // Can be used to decide who starts the serve
+    let match = switch Js.Math.random_int(0, 2) {
+    | 0 => (match->fst, match->snd)
+    | _ => (match->snd, match->fst)
+    }
     let matches = matches->Array.concat([match])
-    [match->fst, match->snd]
-    ->Array.flatMap(x => x)
+    match->Match.players
     ->Array.map(p => setQueue(queue => queue->removeFromQueue(p)))
     ->ignore
     setMatches(_ => matches)
@@ -727,6 +732,9 @@ let make = (~event, ~children) => {
     }
   }
 
+  let roundsCount =
+    matchHistory->CompletedMatches.getNumberOfRounds(breakCount, players->Array.length, 4)
+
   switch screen {
   | Advanced =>
     <Layout.Container className="mt-4">
@@ -867,6 +875,7 @@ let make = (~event, ~children) => {
             <h2 className="text-2xl font-semibold text-gray-900"> {t`Matchmaking`} </h2>
             <div className="flex text-right" />
             <CompMatch
+              roundsCount={roundsCount}
               players={(queuedPlayers :> array<Player.t<'a>>)}
               teams
               consumedPlayers={Set.make()}
@@ -1029,6 +1038,7 @@ let make = (~event, ~children) => {
         setSettingsPane(_ => None)
       }}
       matchSelector={<CompMatch
+        roundsCount
         players={(queuedPlayers :> array<Player.t<'a>>)}
         teams
         consumedPlayers={Set.make()}

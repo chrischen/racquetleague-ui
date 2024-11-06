@@ -128,36 +128,8 @@ var MatchMini = {
   make: CompMatch$MatchMini
 };
 
-function array_get_n_from(from, n, arr) {
-  var n$1 = arr.length > 3 && arr.length < n ? arr.length : n;
-  if (from >= (arr.length - (n$1 - 1 | 0) | 0)) {
-    return ;
-  }
-  var arr$1 = arr.slice(from, from + n$1 | 0);
-  if (n$1 === arr$1.length) {
-    return arr$1;
-  }
-  
-}
-
-function array_split_by_n(arr, n) {
-  var _from = 0;
-  var _acc = [];
-  while(true) {
-    var acc = _acc;
-    var from = _from;
-    var next = array_get_n_from(from, n, arr);
-    if (next === undefined) {
-      return acc;
-    }
-    _acc = acc.concat([next]);
-    _from = from + 1 | 0;
-    continue ;
-  };
-}
-
 function match_make_naive(players) {
-  return array_split_by_n(players, 4).map(function (p) {
+  return Rating.array_split_by_n(players, 4).map(function (p) {
               return [
                       [
                         p[0],
@@ -197,195 +169,6 @@ function contains_match(matches, match) {
               }).findIndex(function (m) {
               return m.intersection(match).size === 4;
             }) > -1;
-}
-
-function array_combos(arr) {
-  return arr.flatMap(function (v, i) {
-              return arr.slice(i + 1 | 0, arr.length).map(function (v2) {
-                          return [
-                                  v,
-                                  v2
-                                ];
-                        });
-            });
-}
-
-function combos(arr1, arr2) {
-  return arr1.flatMap(function (d) {
-              return arr2.map(function (v) {
-                          return [
-                                  d,
-                                  v
-                                ];
-                        });
-            });
-}
-
-function tuple2array(param) {
-  return [
-          param[0],
-          param[1]
-        ];
-}
-
-function match_quality(param) {
-  return Rating.Rating.predictDraw([
-              param[0].map(function (p) {
-                    return p.rating;
-                  }),
-              param[1].map(function (p) {
-                    return p.rating;
-                  })
-            ]);
-}
-
-function shuffle(arr) {
-  return arr.map(function (value) {
-                  return {
-                          value: value,
-                          sort: Math.random()
-                        };
-                }).toSorted(function (a, b) {
-                return a.sort - b.sort;
-              }).map(function (param) {
-              return param.value;
-            });
-}
-
-function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints) {
-  var teams = array_combos(availablePlayers).map(tuple2array);
-  var teamConstraintsSet = new Set(Util.NonEmptyArray.toArray(teamConstraints).map(function (a) {
-              return Array.from(a.values());
-            }).flatMap(function (x) {
-            return x;
-          }));
-  var implicitTeam = new Set(availablePlayers.filter(function (p) {
-              return !teamConstraintsSet.has(p.id);
-            }).map(function (p) {
-            return p.id;
-          }));
-  var result = Core__Array.reduce(teams, {
-        seenTeams: [],
-        matches: []
-      }, (function (param, team) {
-          var seenTeams = param.seenTeams;
-          var players$p = availablePlayers.filter(function (p) {
-                return !Rating.Team.contains_player(team, p);
-              });
-          var teams$p = array_combos(players$p).map(tuple2array);
-          var teams$p$1 = teams$p.filter(function (t) {
-                return seenTeams.findIndex(function (t$p) {
-                            return Rating.TeamSet.is_equal_to(t$p, team_to_players_set(t));
-                          }) === -1;
-              });
-          return {
-                  seenTeams: seenTeams.concat([team_to_players_set(team)]),
-                  matches: param.matches.concat(combos([team], teams$p$1))
-                };
-        }));
-  var matches = result.matches.map(function (match) {
-        var quality = match_quality(match);
-        return [
-                match,
-                quality
-              ];
-      });
-  var results = priorityPlayers.length === 0 ? matches : matches.filter(function (param) {
-          return Rating.Match.contains_any_players(param[0], priorityPlayers);
-        });
-  var results$1 = avoidAllPlayers.length < 2 ? results : results.filter(function (param) {
-          return !Rating.Match.contains_all_players(param[0], avoidAllPlayers);
-        });
-  return Core__Option.getOr(Core__Option.map(teamConstraints, (function (teamConstraints) {
-                    var teamConstraints$1 = teamConstraints.concat([implicitTeam]);
-                    return results$1.filter(function (param) {
-                                var match = param[0];
-                                var team1 = Rating.Team.toSet(match[0]);
-                                var team2 = Rating.Team.toSet(match[1]);
-                                var constr1 = teamConstraints$1.findIndex(function (teamConstraint) {
-                                      return Rating.TeamSet.containsAllOf(teamConstraint, team1);
-                                    }) > -1;
-                                var constr2 = teamConstraints$1.findIndex(function (teamConstraint) {
-                                      return Rating.TeamSet.containsAllOf(teamConstraint, team2);
-                                    }) > -1;
-                                if (constr1) {
-                                  return constr2;
-                                } else {
-                                  return false;
-                                }
-                              });
-                  })), results$1);
-}
-
-function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teams) {
-  return Core__Array.reduce(array_split_by_n(Rating.Players.sortByRatingDesc(players), 8), [], (function (acc, playerSet) {
-                var matches = find_all_match_combos(Rating.Players.filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams).toSorted(function (a, b) {
-                      if (a[1] < b[1]) {
-                        return 1;
-                      } else {
-                        return -1;
-                      }
-                    });
-                return acc.concat(matches);
-              }));
-}
-
-function strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teams) {
-  return Core__Array.reduce(array_split_by_n(players.toSorted(function (a, b) {
-                      var userA = a.rating.mu;
-                      var userB = b.rating.mu;
-                      if (userA < userB) {
-                        return 1;
-                      } else {
-                        return -1;
-                      }
-                    }), 6), [], (function (acc, playerSet) {
-                var matches = find_all_match_combos(Rating.Players.filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams).toSorted(function (a, b) {
-                      if (a[1] < b[1]) {
-                        return 1;
-                      } else {
-                        return -1;
-                      }
-                    });
-                return acc.concat(matches);
-              }));
-}
-
-function strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teams) {
-  return find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams).toSorted(function (a, b) {
-              if (a[1] < b[1]) {
-                return 1;
-              } else {
-                return -1;
-              }
-            });
-}
-
-function strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teams) {
-  return find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
-}
-
-function strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teams) {
-  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
-  return shuffle(matches);
-}
-
-function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers) {
-  var teams = Util.NonEmptyArray.fromArray(array_split_by_n(Rating.Players.sortByRatingDesc(availablePlayers), 3).map(function (__x) {
-              return __x.map(function (p) {
-                          return p.id;
-                        });
-            }).map(function (prim) {
-            return new Set(prim);
-          }));
-  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
-  return matches.toSorted(function (a, b) {
-              if (a[1] < b[1]) {
-                return 1;
-              } else {
-                return -1;
-              }
-            });
 }
 
 function CompMatch$Settings(props) {
@@ -443,33 +226,13 @@ function CompMatch(props) {
       details: t`Optimized for DUPR. Teams created with similar skill level players.`
     }
   ];
-  var availablePlayers = Rating.Players.filterOut(players, consumedPlayers);
+  Rating.Players.filterOut(players, consumedPlayers);
   var teamConstraints = Util.NonEmptyArray.map(props.teams, Rating.Team.toSet);
-  var matches;
-  switch (strategy) {
-    case "CompetitivePlus" :
-        matches = strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
-        break;
-    case "Competitive" :
-        matches = strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
-        break;
-    case "Mixed" :
-        matches = strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
-        break;
-    case "RoundRobin" :
-        matches = strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
-        break;
-    case "Random" :
-        matches = strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
-        break;
-    case "DUPR" :
-        matches = strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers);
-        break;
-    
-  }
+  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints);
   var matchesCount = matches.length;
-  var matches$1 = matches.slice(0, 15);
-  var maxQuality = Core__Array.reduce(matches$1, 0, (function (acc, param) {
+  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, undefined);
+  var matches$2 = matches$1.slice(0, 15);
+  var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
           var quality = param[1];
           if (quality > acc) {
             return quality;
@@ -477,7 +240,7 @@ function CompMatch(props) {
             return acc;
           }
         }));
-  var minQuality = Core__Array.reduce(matches$1, maxQuality, (function (acc, param) {
+  var minQuality = Core__Array.reduce(matches$2, maxQuality, (function (acc, param) {
           var quality = param[1];
           if (quality < acc) {
             return quality;
@@ -574,7 +337,7 @@ function CompMatch(props) {
                       ],
                       className: "mt-2 text-base leading-7 text-gray-600 mb-2"
                     }),
-                matches$1.map(function (param, i) {
+                matches$2.map(function (param, i) {
                       var match = param[0];
                       var team2 = match[1];
                       var team1 = match[0];
@@ -683,25 +446,11 @@ var make = CompMatch;
 export {
   PlayerMini ,
   MatchMini ,
-  array_get_n_from ,
-  array_split_by_n ,
   match_make_naive ,
   team_to_players_set ,
   match_to_players_set ,
   matches_contains_match ,
   contains_match ,
-  array_combos ,
-  combos ,
-  tuple2array ,
-  match_quality ,
-  shuffle ,
-  find_all_match_combos ,
-  strategy_by_competitive ,
-  strategy_by_competitive_plus ,
-  strategy_by_mixed ,
-  strategy_by_round_robin ,
-  strategy_by_random ,
-  strategy_by_dupr ,
   Settings ,
   ts ,
   make ,
