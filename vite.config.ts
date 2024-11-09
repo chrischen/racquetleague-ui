@@ -26,7 +26,7 @@ export default defineConfig({
   base: process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : "/",
   ssr: {
     target: "node",
-    noExternal: process.env.NODE_ENV === "production" ? ["react-relay", "react-imgix"] : [], // @NOTE: This option breaks SSR dev server
+    noExternal: process.env.NODE_ENV === "production" ? ["react-relay", "react-imgix", "react-google-autocomplete"] : [], // @NOTE: This option breaks SSR dev server
   },
   build: {
     sourcemap: true,
