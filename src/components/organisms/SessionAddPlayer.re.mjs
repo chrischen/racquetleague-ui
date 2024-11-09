@@ -34,7 +34,7 @@ function SessionAddPlayer(props) {
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx(ReactQrCode, {
-                      value: "https://www.racquetleague.com/events/" + props.eventId
+                      value: "https://www.pkuru.com/events/" + props.eventId
                     }),
                 JsxRuntime.jsxs("form", {
                       children: [

@@ -199,7 +199,7 @@ module TextEventItem = {
     ->Option.getOr("") ++
     "\n" ++
     "👉 " ++
-    "https://www.racquetleague.com/" ++
+    "https://www.pkuru.com/" ++
     locale ++
     "/events/" ++
     id ++

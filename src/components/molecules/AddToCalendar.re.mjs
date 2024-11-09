@@ -22,7 +22,7 @@ function AddToCalendar(props) {
                                                       }),
                                                   JsxRuntime.jsx("a", {
                                                         children: t`sync calendar`,
-                                                        href: "webcal://www.racquetleague.com/cal-feed/" + user.id
+                                                        href: "webcal://www.pkuru.com/cal-feed/" + user.id
                                                       })
                                                 ],
                                                 className: "flex items-center lg:text-sm"

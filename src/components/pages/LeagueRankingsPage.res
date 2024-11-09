@@ -35,8 +35,8 @@ let make = () => {
             <p>
               {t`To participate, please join the events here:`}
               {" "->React.string}
-              <a className="text-gray-200" href="https://www.racquetleague.com">
-                {"> Racquet League <"->React.string}
+              <a className="text-gray-200" href="https://www.pkuru.com">
+                {"> P*kuru <"->React.string}
               </a>
             </p>
           </Layout.Container>

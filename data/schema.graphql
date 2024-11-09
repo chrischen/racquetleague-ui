@@ -35,6 +35,15 @@ type ActivitySubscriptionMutationResult implements HasErrors {
   errors: [Error!]
 }
 
+input AutocompleteLocationInput {
+  formattedAddress: String!
+  lat: Float!
+  lng: Float!
+  mapsId: String!
+  name: String!
+  plusCode: String
+}
+
 type Club {
   defaultActivity: Activity
   description: String
@@ -302,6 +311,7 @@ type Media {
 }
 
 type Mutation {
+  autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
   cancelEvent(eventId: ID!): MutationResult2!
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   createClub(input: CreateClubInput!): CreateClubResult!

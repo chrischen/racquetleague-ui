@@ -134,7 +134,7 @@ let make = (~connectionId=?, ~query, ~onCancel, ~onCreated, ~inline: bool=false)
               </div>
               <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg">
                 <PrefixedInput
-                  prefix="www.racquetleague.com/clubs/"
+                  prefix="www.pkuru.com/clubs/"
                   label={t`slug`}
                   id="slug"
                   name="slug"

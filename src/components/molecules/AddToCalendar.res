@@ -12,7 +12,7 @@ let make = () => {
           <Lucide.CalendarPlus
             className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
           />
-          <a href={"webcal://www.racquetleague.com/cal-feed/" ++ user.id}> {t`sync calendar`} </a>
+          <a href={"webcal://www.pkuru.com/cal-feed/" ++ user.id}> {t`sync calendar`} </a>
         </div>
       )
       ->Option.getOr(React.null)}

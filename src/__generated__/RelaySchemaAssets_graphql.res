@@ -43,7 +43,27 @@ type enum_RequiredFieldAction_input =
 
 
 @live
-type rec input_CreateActivitySubscriptionInput = {
+type rec input_AutocompleteLocationInput = {
+  formattedAddress: string,
+  lat: float,
+  lng: float,
+  mapsId: string,
+  name: string,
+  plusCode?: string,
+}
+
+@live
+and input_AutocompleteLocationInput_nullable = {
+  formattedAddress: string,
+  lat: float,
+  lng: float,
+  mapsId: string,
+  name: string,
+  plusCode?: Js.Null.t<string>,
+}
+
+@live
+and input_CreateActivitySubscriptionInput = {
   activityId: string,
 }
 

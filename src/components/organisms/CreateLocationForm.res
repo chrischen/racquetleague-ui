@@ -112,7 +112,6 @@ let make = (~onCancel, ~onClose) => {
       },
     )->RescriptRelay.Disposable.ignore
   }
-  // let onSubmit = data => Js.log(data)
 
   <WaitForMessages>
     {() =>

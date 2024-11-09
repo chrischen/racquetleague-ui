@@ -11,5 +11,5 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 let make = () => {
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
-  <SelectLocation locations={query.fragmentRefs} />
+  <AutocompleteLocation locations={query.fragmentRefs} />
 }

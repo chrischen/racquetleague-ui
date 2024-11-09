@@ -63,9 +63,9 @@ function LeagueRankingsPage(props) {
                                                       t`To participate, please join the events here:`,
                                                       " ",
                                                       JsxRuntime.jsx("a", {
-                                                            children: "> Racquet League <",
+                                                            children: "> P*kuru <",
                                                             className: "text-gray-200",
-                                                            href: "https://www.racquetleague.com"
+                                                            href: "https://www.pkuru.com"
                                                           })
                                                     ]
                                                   })

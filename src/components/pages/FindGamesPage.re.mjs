@@ -32,7 +32,7 @@ function FindGamesPage(props) {
                                                         JsxRuntime.jsx("a", {
                                                               children: t`Find League Games`,
                                                               className: "text-gray-200 border-red-200 rounded p-5 border-2 inline-block mt-5",
-                                                              href: "https://www.racquetleague.com"
+                                                              href: "https://www.pkuru.com"
                                                             })
                                                       ]
                                                     })

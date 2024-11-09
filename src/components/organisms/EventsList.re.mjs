@@ -133,7 +133,7 @@ function make($$event) {
                                                 return "\n🧭 " + mapLink;
                                               }));
                                 }));
-                  })), "") + "\n👉 https://www.racquetleague.com/" + match$1.i18n.locale + "/events/" + match.id + "\n\n-----------------------------";
+                  })), "") + "\n👉 https://www.pkuru.com/" + match$1.i18n.locale + "/events/" + match.id + "\n\n-----------------------------";
 }
 
 var TextEventItem = {

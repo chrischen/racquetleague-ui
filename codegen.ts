@@ -11,7 +11,7 @@ dotenv.config({
 });
 
 const config: CodegenConfig = {
-  schema: process.env.VITE_API_ENDPOINT ?? "https://www.racquetleague.com/graphql",
+  schema: process.env.VITE_API_ENDPOINT ?? "https://www.pkuru.com/graphql",
   // documents: ['src/**/*.tsx'],
   generates: {
     "./data/schema.graphql": {
