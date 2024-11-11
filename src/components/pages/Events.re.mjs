@@ -14,7 +14,6 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
 import * as EventsList from "../organisms/EventsList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
@@ -122,7 +121,7 @@ function Events(props) {
   var shadowFilter = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(searchParams, "shadow"), (function (param) {
               return true;
             })), false);
-  var viewer = GlobalQuery.useViewer();
+  GlobalQuery.useViewer();
   var navigate = ReactRouterDom.useNavigate();
   var searchParams$1 = Router.ImmSearchParams.fromSearchParams(searchParams);
   return JsxRuntime.jsx(WaitForMessages.make, {
@@ -145,27 +144,11 @@ function Events(props) {
                                                                       JsxRuntime.jsx(Events$ActivityDropdownMenu, {})
                                                                     ]
                                                                   }),
-                                                              Core__Option.getOr(Core__Option.map(Core__Option.flatMap(viewer.user, (function (user) {
-                                                                              return Core__Array.indexOfOpt([
-                                                                                          "Hasby Riduan",
-                                                                                          "hasbyriduan9",
-                                                                                          "notchrischen",
-                                                                                          "Matthew",
-                                                                                          "David Vo",
-                                                                                          "Kai",
-                                                                                          "Alex Ng"
-                                                                                        ], Core__Option.getOr(user.lineUsername, ""));
-                                                                            })), (function (param) {
-                                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                                      children: [
-                                                                                        " ",
-                                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                                              to: "/events/create",
-                                                                                              children: "+"
-                                                                                            })
-                                                                                      ]
-                                                                                    });
-                                                                        })), null)
+                                                              " ",
+                                                              JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                    to: "/events/create",
+                                                                    children: "+"
+                                                                  })
                                                             ]
                                                           }),
                                                       JsxRuntime.jsx("div", {

@@ -42,7 +42,11 @@ function PinMap(props) {
                     }));
       });
   return JsxRuntime.jsx(ReactGoogleMaps.APIProvider, {
-              apiKey: "AIzaSyBFLsnHmBaptaYoFhkXI6uL6peX579N5UY",
+              apiKey: "AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk",
+              libraries: [
+                "maps",
+                "places"
+              ],
               children: JsxRuntime.jsx(ReactGoogleMaps.Map, {
                     mapId: "eventsListMap",
                     defaultZoom: 12,

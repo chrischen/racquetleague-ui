@@ -11,5 +11,9 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 let make = () => {
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
-  <AutocompleteLocation locations={query.fragmentRefs} />
+  open LangProvider.Router
+  <Layout.Container>
+    <Link to={"/events/create-bulk"}> {React.string("Create Bulk Events")} </Link>
+    <AutocompleteLocation locations={query.fragmentRefs} />
+  </Layout.Container>
 }

@@ -35,7 +35,8 @@ let make = (
       ),
     )
 
-  <GoogleMap.APIProvider apiKey="AIzaSyBFLsnHmBaptaYoFhkXI6uL6peX579N5UY">
+  <GoogleMap.APIProvider
+    apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk" libraries=["maps", "places"]>
     <GoogleMap.Map mapId="eventsListMap" defaultZoom=12 defaultCenter={lat: 35.6495, lng: 139.7417}>
       {locations
       ->Array.mapWithIndex((location, i) => {
@@ -53,8 +54,11 @@ let make = (
                   onLocationClick(location)
                   // navigate("/events/" ++ id, None)
                 }}>
-                {selected->Option.map(s => s == location.id)->Option.getOr(false) ? <GoogleMap.Pin scale=1.5 background="#0f9d58" borderColor="#006425" glyphColor="#60d98f" /> : 
-                <GoogleMap.Pin /> }
+                {selected->Option.map(s => s == location.id)->Option.getOr(false)
+                  ? <GoogleMap.Pin
+                      scale=1.5 background="#0f9d58" borderColor="#006425" glyphColor="#60d98f"
+                    />
+                  : <GoogleMap.Pin />}
               </GoogleMap.AdvancedMarker>
             },
           )

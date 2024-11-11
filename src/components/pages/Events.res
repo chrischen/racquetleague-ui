@@ -85,80 +85,65 @@ let make = () => {
   <WaitForMessages>
     {() => {
       <>
-          <EventsList
-            events=fragmentRefs
-            header={<Layout.Container>
-              <Grid>
-                <PageTitle>
-                  {title}
-                  <Dropdown>
-                    <DropdownButton \"as"={Navbar.NavbarItem.make}>
-                      <HeroIcons.ChevronDownIcon />
-                    </DropdownButton>
-                    <ActivityDropdownMenu />
-                  </Dropdown>
-                  {viewer.user
-                  ->Option.flatMap(user =>
-                    [
-                      "Hasby Riduan",
-                      "hasbyriduan9",
-                      "notchrischen",
-                      "Matthew",
-                      "David Vo",
-                      "Kai",
-                      "Alex Ng",
-                    ]->Array.indexOfOpt(user.lineUsername->Option.getOr(""))
-                  )
-                  ->Option.map(_ => <>
-                    {" "->React.string}
-                    <Link to="/events/create"> {"+"->React.string} </Link>
-                  </>)
-                  ->Option.getOr(React.null)}
-                </PageTitle>
-                <div>
-                  <HeadlessUi.Switch.Group \"as"="div" className="flex items-center">
-                    <HeadlessUi.Switch
-                      checked={shadowFilter}
-                      onChange={v => {
-                        v
-                          ? navigate(
-                              "./?" ++
-                              searchParams
-                              ->Router.ImmSearchParams.set("shadow", "true")
-                              ->Router.ImmSearchParams.toString,
-                              None,
-                            )->ignore
-                          : navigate(
-                              "./?" ++
-                              searchParams
-                              ->Router.ImmSearchParams.delete("shadow")
-                              ->Router.ImmSearchParams.toString,
-                              None,
-                            )
-                      }}
+        <EventsList
+          events=fragmentRefs
+          header={<Layout.Container>
+            <Grid>
+              <PageTitle>
+                {title}
+                <Dropdown>
+                  <DropdownButton \"as"={Navbar.NavbarItem.make}>
+                    <HeroIcons.ChevronDownIcon />
+                  </DropdownButton>
+                  <ActivityDropdownMenu />
+                </Dropdown>
+                {" "->React.string}
+                <Link to="/events/create"> {"+"->React.string} </Link>
+              </PageTitle>
+              <div>
+                <HeadlessUi.Switch.Group \"as"="div" className="flex items-center">
+                  <HeadlessUi.Switch
+                    checked={shadowFilter}
+                    onChange={v => {
+                      v
+                        ? navigate(
+                            "./?" ++
+                            searchParams
+                            ->Router.ImmSearchParams.set("shadow", "true")
+                            ->Router.ImmSearchParams.toString,
+                            None,
+                          )->ignore
+                        : navigate(
+                            "./?" ++
+                            searchParams
+                            ->Router.ImmSearchParams.delete("shadow")
+                            ->Router.ImmSearchParams.toString,
+                            None,
+                          )
+                    }}
+                    className={Util.cx([
+                      shadowFilter ? "bg-indigo-600" : "bg-gray-200",
+                      "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2",
+                    ])}>
+                    <span
+                      ariaHidden=true
                       className={Util.cx([
-                        shadowFilter ? "bg-indigo-600" : "bg-gray-200",
-                        "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2",
-                      ])}>
-                      <span
-                        ariaHidden=true
-                        className={Util.cx([
-                          shadowFilter ? "translate-x-5" : "translate-x-0",
-                          "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out",
-                        ])}
-                      />
-                    </HeadlessUi.Switch>
-                    <HeadlessUi.Switch.Label \"as"="span" className="ml-3 text-sm">
-                      <span className="font-medium text-gray-900"> {t`include private`} </span>
-                      {" "->React.string}
-                    </HeadlessUi.Switch.Label>
-                  </HeadlessUi.Switch.Group>
-                </div>
-              </Grid>
-            </Layout.Container>}
-          />
+                        shadowFilter ? "translate-x-5" : "translate-x-0",
+                        "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out",
+                      ])}
+                    />
+                  </HeadlessUi.Switch>
+                  <HeadlessUi.Switch.Label \"as"="span" className="ml-3 text-sm">
+                    <span className="font-medium text-gray-900"> {t`include private`} </span>
+                    {" "->React.string}
+                  </HeadlessUi.Switch.Label>
+                </HeadlessUi.Switch.Group>
+              </div>
+            </Grid>
+          </Layout.Container>}
+        />
 
-          // <Router.Outlet context={fragmentRefs} />
+        // <Router.Outlet context={fragmentRefs} />
       </>
     }}
   </WaitForMessages>

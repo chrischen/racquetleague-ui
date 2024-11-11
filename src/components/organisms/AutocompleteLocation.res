@@ -59,32 +59,24 @@ let make = (~locations) => {
   }
   <WaitForMessages>
     {() =>
-      <Layout.Container>
-        <Grid>
-          <FormSection
-            title={t`event location`}
-            description={t`choose the location where this event will be held.`}>
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
-              <GoogleMapsAutocomplete
-                apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk"
-                onPlaceSelected=onSelect
-                options={{
-                  types: ["establishment"],
-                  fields: [
-                    "place_id",
-                    "geometry.location",
-                    "name",
-                    "formatted_address",
-                    "plus_code",
-                  ],
-                }}
-              />
-            </div>
-          </FormSection>
-          <FramerMotion.AnimatePresence mode="wait">
-            <Router.Outlet />
-          </FramerMotion.AnimatePresence>
-        </Grid>
-      </Layout.Container>}
+      <Grid>
+        <FormSection
+          title={t`event location`}
+          description={t`choose the location where this event will be held.`}>
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
+            <GoogleMapsAutocomplete
+              apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk"
+              onPlaceSelected=onSelect
+              options={{
+                types: ["establishment"],
+                fields: ["place_id", "geometry.location", "name", "formatted_address", "plus_code"],
+              }}
+            />
+          </div>
+        </FormSection>
+        <FramerMotion.AnimatePresence mode="wait">
+          <Router.Outlet />
+        </FramerMotion.AnimatePresence>
+      </Grid>}
   </WaitForMessages>
 }

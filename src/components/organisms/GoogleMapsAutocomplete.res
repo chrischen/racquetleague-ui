@@ -24,7 +24,7 @@ type place = {
 }
 @react.component @module("react-google-autocomplete")
 external make: (
-  ~apiKey: string,
+  ~apiKey: string=?,
   ~onPlaceSelected: place => unit,
   ~options: options=?,
 ) => React.element = "default"

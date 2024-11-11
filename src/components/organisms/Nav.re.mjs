@@ -6,7 +6,6 @@ import * as LoginLink from "../molecules/LoginLink.re.mjs";
 import * as LangSwitch from "../molecules/LangSwitch.re.mjs";
 import * as LogoutLink from "../molecules/LogoutLink.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -111,24 +110,10 @@ function Nav(props) {
                                             " - ",
                                             JsxRuntime.jsx(LangSwitch.make, {}),
                                             " - ",
-                                            Core__Option.getOr(Core__Option.map(Core__Option.flatMap(query.viewer, (function (viewer) {
-                                                            return Core__Option.flatMap(viewer.user, (function (user) {
-                                                                          return Core__Array.indexOfOpt([
-                                                                                      "Hasby Riduan",
-                                                                                      "hasbyriduan9",
-                                                                                      "notchrischen",
-                                                                                      "Matthew",
-                                                                                      "David Vo",
-                                                                                      "Kai",
-                                                                                      "Alex Ng"
-                                                                                    ], Core__Option.getOr(user.lineUsername, ""));
-                                                                        }));
-                                                          })), (function (param) {
-                                                        return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                    to: "/events/create",
-                                                                    children: "Add Event"
-                                                                  });
-                                                      })), null)
+                                            JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                  to: "/events/create",
+                                                  children: "Add Event"
+                                                })
                                           ]
                                         })
                                   }),

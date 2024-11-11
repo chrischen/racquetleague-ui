@@ -1,6 +1,6 @@
 module APIProvider = {
   @react.component @module("@vis.gl/react-google-maps")
-  external make: (~apiKey: string, ~children: React.element) => React.element = "APIProvider"
+  external make: (~apiKey: string, ~libraries: array<string>=?, ~children: React.element) => React.element = "APIProvider"
 }
 module Map = {
   type coords = {

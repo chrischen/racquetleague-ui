@@ -1,7 +1,7 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
 open Lingui.Util
-open LangProvider.Router;
+open LangProvider.Router
 
 module Fragment = %relay(`
   fragment Nav_query on Query {
@@ -70,18 +70,7 @@ let make = (~query) => {
             {React.string(" - ")}
             <LangSwitch />
             {React.string(" - ")}
-            {query.viewer
-            ->Option.flatMap(viewer =>
-              viewer.user->Option.flatMap(user =>
-                ["Hasby Riduan", "hasbyriduan9", "notchrischen", "Matthew", "David Vo", "Kai", "Alex Ng"]->Array.indexOfOpt(
-                  user.lineUsername->Option.getOr(""),
-                )
-              )
-            )
-            ->Option.map(_ =>
-              <Link to="/events/create"> {"Add Event"->React.string} </Link>
-            )
-            ->Option.getOr(React.null)}
+            <Link to="/events/create"> {"Add Event"->React.string} </Link>
           </nav>
         </header>
       </Layout.Container>}
