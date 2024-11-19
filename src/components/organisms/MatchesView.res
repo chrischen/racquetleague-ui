@@ -256,7 +256,12 @@ let make = (
                 deleteContainer={i =>
                   i->Int.fromString->Option.map(i => handleMatchCanceled(i))->Option.getOr()}
                 renderValue={value => {
-                  let player = playersCache->Rating.PlayersCache.get(value)
+                  let value = switch value->String.split(":") {
+                  | [_, id] => Some(id)
+                  | _ => None
+                  }
+                  let player =
+                    value->Option.flatMap(value => playersCache->Rating.PlayersCache.get(value))
                   player
                   ->Option.map(player => <SubmitMatch.PlayerView player minRating maxRating />)
                   ->Option.getOr(React.null)

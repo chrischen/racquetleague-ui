@@ -30,6 +30,6 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/organisms/Nav.re.mjs:99
+#: src/components/organisms/Nav.re.mjs:98
 msgid "racquet league"
 msgstr ""

@@ -13,11 +13,11 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CompMatch.re.mjs:546
+#: src/components/organisms/CompMatch.re.mjs:320
 msgid "Analyzed {0} matches."
 msgstr "{0}試合を分析しました。"
 
-#: src/components/organisms/CompMatch.re.mjs:420
+#: src/components/organisms/CompMatch.re.mjs:209
 msgid "Competitive"
 msgstr "競争力"
 
@@ -25,49 +25,57 @@ msgstr "競争力"
 msgid "DUPR"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:422
+#: src/components/organisms/CompMatch.re.mjs:211
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
-#: src/components/organisms/CompMatch.re.mjs:427
+#: src/components/organisms/CompMatch.re.mjs:216
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
 "す。"
 
-#: src/components/organisms/CompMatch.re.mjs:425
+#: src/components/organisms/CompMatch.re.mjs:214
 msgid "Mixed"
 msgstr "混合"
 
-#: src/components/organisms/CompMatch.re.mjs:437
+#: src/components/organisms/CompMatch.re.mjs:226
 msgid "Optimized for DUPR. Teams created with similar skill level players."
 msgstr ""
 "DUPRに最適化されました。同じスキルレベルのプレイヤーでチームを作成します。"
 
-#: src/components/organisms/CompMatch.re.mjs:567
+#: src/components/organisms/CompMatch.re.mjs:341
 msgid "Played last round"
 msgstr "前回プレイした"
 
-#: src/components/organisms/CompMatch.re.mjs:430
+#: src/components/organisms/CompMatch.re.mjs:219
 msgid "Random"
 msgstr "ランダムで"
+
+#: src/components/organisms/CompMatch.re.mjs:229
+msgid "Round Robin"
+msgstr "総当たり戦"
 
 #: src/components/organisms/CompMatch.re.mjs:118
 msgid "Select"
 msgstr "選択"
 
-#: src/components/organisms/CompMatch.re.mjs:498
+#: src/components/organisms/CompMatch.re.mjs:272
 msgid "Select a tab"
 msgstr "タブを選択"
 
-#: src/components/organisms/CompMatch.re.mjs:561
+#: src/components/organisms/CompMatch.re.mjs:335
 msgid "This team has played before"
 msgstr "このチームは以前にプレイしました"
 
-#: src/components/organisms/CompMatch.re.mjs:432
+#: src/components/organisms/CompMatch.re.mjs:221
 msgid "Totally random teams."
 msgstr "完全にランダムなチーム。"
+
+#: src/components/organisms/CompMatch.re.mjs:231
+msgid "Unique combination of matches."
+msgstr "マッチのユニークな組み合わせ。"
 
 #: src/components/organisms/CompMatch.re.mjs:389
 #~ msgid "Competitive Plus"

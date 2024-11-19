@@ -1223,6 +1223,14 @@ msgstr "すべて選択"
 msgid "Start Session"
 msgstr "セッションを開始"
 
+#: src/components/organisms/CompMatch.re.mjs:229
+msgid "Round Robin"
+msgstr "総当たり戦"
+
+#: src/components/organisms/CompMatch.re.mjs:231
+msgid "Unique combination of matches."
+msgstr "マッチのユニークな組み合わせ。"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

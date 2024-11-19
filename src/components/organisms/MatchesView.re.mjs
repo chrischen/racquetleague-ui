@@ -220,7 +220,11 @@ function MatchesView(props) {
                                               })), null);
                             }),
                           renderValue: (function (value) {
-                              var player = Rating.PlayersCache.get(playersCache, value);
+                              var match = value.split(":");
+                              var value$1 = match.length !== 2 ? undefined : match[1];
+                              var player = Core__Option.flatMap(value$1, (function (value) {
+                                      return Rating.PlayersCache.get(playersCache, value);
+                                    }));
                               return Core__Option.getOr(Core__Option.map(player, (function (player) {
                                                 return JsxRuntime.jsx(SubmitMatch.PlayerView.make, {
                                                             player: player,

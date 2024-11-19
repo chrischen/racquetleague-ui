@@ -574,7 +574,8 @@ function AiTetsu(props) {
             return acc;
           }
         }));
-  var queueMatch = function (match) {
+  var queueMatch = function (match, dequeueOpt) {
+    var dequeue = dequeueOpt !== undefined ? dequeueOpt : true;
     var match$1 = Js_math.random_int(0, 2);
     var match$2 = match$1 !== 0 ? [
         match[1],
@@ -584,11 +585,13 @@ function AiTetsu(props) {
         match[1]
       ];
     var matches$1 = matches.concat([match$2]);
-    Rating.Match.players(match$2).map(function (p) {
-          setQueue(function (queue) {
-                return removeFromQueue(queue, p);
-              });
-        });
+    if (dequeue) {
+      Rating.Match.players(match$2).map(function (p) {
+            setQueue(function (queue) {
+                  return removeFromQueue(queue, p);
+                });
+          });
+    }
     setMatches(function (param) {
           return matches$1;
         });
@@ -809,8 +812,8 @@ function AiTetsu(props) {
                       setDefaultStrategy: setMatchmakingStrategy,
                       priorityPlayers: priorityPlayers,
                       avoidAllPlayers: avoidAllPlayers,
-                      onSelectMatch: (function (match) {
-                          queueMatch(match);
+                      onSelectMatch: (function (match, dequeue) {
+                          queueMatch(match, dequeue);
                         }),
                       roundsCount: roundsCount
                     })
@@ -1077,9 +1080,7 @@ function AiTetsu(props) {
                                               setDefaultStrategy: setMatchmakingStrategy,
                                               priorityPlayers: priorityPlayers,
                                               avoidAllPlayers: avoidAllPlayers,
-                                              onSelectMatch: (function (match) {
-                                                  queueMatch(match);
-                                                }),
+                                              onSelectMatch: queueMatch,
                                               roundsCount: roundsCount
                                             })
                                       ],
@@ -1103,7 +1104,7 @@ function AiTetsu(props) {
                                 players: queuedPlayers,
                                 activity: activity,
                                 onMatchQueued: (function (match) {
-                                    queueMatch(match);
+                                    queueMatch(match, undefined);
                                   }),
                                 children: (function (match) {
                                     return JsxRuntime.jsx(React.Suspense, {

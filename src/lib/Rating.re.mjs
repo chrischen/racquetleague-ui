@@ -656,6 +656,28 @@ function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayer
                   })), results$1);
 }
 
+function find_skip(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    return (find_skip(n - 1 | 0) + n | 0) + 1 | 0;
+  }
+}
+
+function pick_every_n_from_array(arr, n, offset) {
+  return arr.filter(function (param, i) {
+              return Caml_int32.mod_(i - offset | 0, n) === 0;
+            });
+}
+
+function uniform_shuffle_array(arr, n, offset) {
+  if (n === offset) {
+    return [];
+  }
+  var picks = pick_every_n_from_array(arr, n, offset);
+  return picks.concat(uniform_shuffle_array(arr, n, offset + 1 | 0));
+}
+
 function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teams) {
   return Core__Array.reduce(array_split_by_n(sortByRatingDesc(players), 8), [], (function (acc, playerSet) {
                 var matches = find_all_match_combos(filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams).toSorted(function (a, b) {
@@ -701,7 +723,10 @@ function strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, t
 }
 
 function strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teams) {
-  return find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
+  var count = Math.max(4, availablePlayers.length);
+  var skip = find_skip(count - 4 | 0);
+  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
+  return uniform_shuffle_array(matches, skip, 0);
 }
 
 function strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teams) {
@@ -763,7 +788,7 @@ var PlayersCache = {
 };
 
 function toDndItems(t) {
-  return Js_dict.fromArray(t.map(function (param) {
+  return Js_dict.fromArray(t.map(function (param, param$1) {
                       return [
                               param[0],
                               param[1]
@@ -774,7 +799,7 @@ function toDndItems(t) {
                   return [
                           i.toString(),
                           team.map(function (p) {
-                                return p.id;
+                                return i.toString() + ":" + p.id;
                               })
                         ];
                 }));
@@ -783,7 +808,11 @@ function toDndItems(t) {
 function fromDndItems(items, playersCache) {
   return Core__Array.reduce(Js_dict.entries(items).map(function (param) {
                     var players = param[1].map(function (p) {
-                          return Js_dict.get(playersCache, p);
+                          var match = p.split(":");
+                          var p$1 = match.length !== 2 ? undefined : match[1];
+                          return Core__Option.flatMap(p$1, (function (p) {
+                                        return Js_dict.get(playersCache, p);
+                                      }));
                         });
                     return Core__Array.filterMap(players, (function (x) {
                                   return x;
@@ -875,6 +904,9 @@ export {
   tuple2array ,
   team_to_players_set ,
   find_all_match_combos ,
+  find_skip ,
+  pick_every_n_from_array ,
+  uniform_shuffle_array ,
   strategy_by_competitive ,
   strategy_by_competitive_plus ,
   strategy_by_mixed ,

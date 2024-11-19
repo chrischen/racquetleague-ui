@@ -1314,3 +1314,11 @@ msgstr ""
 #: src/components/organisms/AiTetsu.re.mjs:909
 msgid "Start Session"
 msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:229
+msgid "Round Robin"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:231
+msgid "Unique combination of matches."
+msgstr ""

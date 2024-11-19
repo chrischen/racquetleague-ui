@@ -224,6 +224,11 @@ function CompMatch(props) {
       name: "DUPR",
       strategy: "DUPR",
       details: t`Optimized for DUPR. Teams created with similar skill level players.`
+    },
+    {
+      name: t`Round Robin`,
+      strategy: "RoundRobin",
+      details: t`Unique combination of matches.`
     }
   ];
   Rating.Players.filterOut(players, consumedPlayers);
@@ -231,7 +236,7 @@ function CompMatch(props) {
   var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints);
   var matchesCount = matches.length;
   var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, undefined);
-  var matches$2 = matches$1.slice(0, 15);
+  var matches$2 = matches$1.slice(0, 115);
   var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
           var quality = param[1];
           if (quality > acc) {
@@ -419,7 +424,13 @@ function CompMatch(props) {
                                           match: match,
                                           highlight: highlight,
                                           border: border,
-                                          onSelect: onSelectMatch
+                                          onSelect: Core__Option.map(onSelectMatch, (function (f) {
+                                                  return function (match) {
+                                                    var tmp;
+                                                    tmp = strategy === "RoundRobin" ? false : true;
+                                                    f(match, tmp);
+                                                  };
+                                                }))
                                         }),
                                     JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(FramerMotion.motion.div, {

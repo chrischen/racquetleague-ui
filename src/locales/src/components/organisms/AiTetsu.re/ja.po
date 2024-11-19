@@ -13,22 +13,22 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AiTetsu.re.mjs:1017
+#: src/components/organisms/AiTetsu.re.mjs:1026
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr "{0} {breakPlayersDesc} はプレイしていません"
 
-#: src/components/organisms/AiTetsu.re.mjs:721
+#: src/components/organisms/AiTetsu.re.mjs:728
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
 msgstr "{breakPlayersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/CompMatch.re.mjs:546
+#: src/components/organisms/CompMatch.re.mjs:320
 msgid "Analyzed {0} matches."
 msgstr "{0}試合を分析しました。"
 
-#: src/components/organisms/MatchesView.re.mjs:321
-#: src/components/organisms/MatchesView.re.mjs:324
-#: src/components/organisms/AiTetsu.re.mjs:1201
-#: src/components/organisms/AiTetsu.re.mjs:1204
+#: src/components/organisms/MatchesView.re.mjs:325
+#: src/components/organisms/MatchesView.re.mjs:328
+#: src/components/organisms/AiTetsu.re.mjs:1209
+#: src/components/organisms/AiTetsu.re.mjs:1212
 msgid "and"
 msgstr "と"
 
@@ -41,11 +41,11 @@ msgstr "キャンセル"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/MatchesView.re.mjs:282
+#: src/components/organisms/MatchesView.re.mjs:286
 msgid "Checkin"
 msgstr "チェックイン"
 
-#: src/components/organisms/MatchesView.re.mjs:354
+#: src/components/organisms/MatchesView.re.mjs:358
 msgid "Choose Match"
 msgstr "試合を選択"
 
@@ -53,7 +53,7 @@ msgstr "試合を選択"
 msgid "CHOOSE MATCH"
 msgstr "試合を選択"
 
-#: src/components/organisms/AiTetsu.re.mjs:877
+#: src/components/organisms/AiTetsu.re.mjs:886
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
 msgstr "セッションをクリア（評価、試合数、ゲストプレイヤー）"
 
@@ -61,16 +61,16 @@ msgstr "セッションをクリア（評価、試合数、ゲストプレイヤ
 msgid "Close panel"
 msgstr "パネルを閉じる"
 
-#: src/components/organisms/CompMatch.re.mjs:420
+#: src/components/organisms/CompMatch.re.mjs:209
 msgid "Competitive"
 msgstr "競争力"
 
-#: src/components/organisms/MatchesView.re.mjs:325
-#: src/components/organisms/AiTetsu.re.mjs:1205
+#: src/components/organisms/MatchesView.re.mjs:329
+#: src/components/organisms/AiTetsu.re.mjs:1213
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "コート {0}: {team1} 対 {team2}"
 
-#: src/components/organisms/AiTetsu.re.mjs:176
+#: src/components/organisms/AiTetsu.re.mjs:177
 msgid "Create Team"
 msgstr "チームを作成"
 
@@ -96,7 +96,7 @@ msgid "How many players should rest? (currently {0} players are resting)"
 msgstr ""
 "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
 
-#: src/components/organisms/AiTetsu.re.mjs:871
+#: src/components/organisms/AiTetsu.re.mjs:880
 msgid "Initialize Ratings"
 msgstr "評価を初期化"
 
@@ -106,11 +106,11 @@ msgstr "左チームのプレイヤー"
 
 #: src/components/organisms/SubmitMatch.re.mjs:407
 #: src/components/organisms/SortableSubmitMatch.re.mjs:409
-#: src/components/organisms/AiTetsu.re.mjs:1112
+#: src/components/organisms/AiTetsu.re.mjs:1120
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/components/organisms/AiTetsu.re.mjs:1091
+#: src/components/organisms/AiTetsu.re.mjs:1099
 msgid "manual team"
 msgstr "手動チーム"
 
@@ -118,30 +118,30 @@ msgstr "手動チーム"
 msgid "Match Count"
 msgstr "試合数"
 
-#: src/components/organisms/AiTetsu.re.mjs:1129
+#: src/components/organisms/AiTetsu.re.mjs:1137
 msgid "Match History"
 msgstr "対戦履歴"
 
-#: src/components/organisms/MatchesView.re.mjs:312
+#: src/components/organisms/MatchesView.re.mjs:316
 msgid "Matches"
 msgstr "試合"
 
-#: src/components/organisms/CompMatch.re.mjs:422
+#: src/components/organisms/CompMatch.re.mjs:211
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
-#: src/components/organisms/CompMatch.re.mjs:427
+#: src/components/organisms/CompMatch.re.mjs:216
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
 "す。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1056
+#: src/components/organisms/AiTetsu.re.mjs:1065
 msgid "Matchmaking"
 msgstr "マッチメイキング"
 
-#: src/components/organisms/CompMatch.re.mjs:425
+#: src/components/organisms/CompMatch.re.mjs:214
 msgid "Mixed"
 msgstr "混合"
 
@@ -150,17 +150,17 @@ msgstr "混合"
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/AiTetsu.re.mjs:918
-#: src/components/organisms/AiTetsu.re.mjs:940
+#: src/components/organisms/AiTetsu.re.mjs:927
+#: src/components/organisms/AiTetsu.re.mjs:949
 msgid "Offline Mode"
 msgstr "オフラインモード"
 
-#: src/components/organisms/CompMatch.re.mjs:437
+#: src/components/organisms/CompMatch.re.mjs:226
 msgid "Optimized for DUPR. Teams created with similar skill level players."
 msgstr ""
 "DUPRに最適化されました。同じスキルレベルのプレイヤーでチームを作成します。"
 
-#: src/components/organisms/CompMatch.re.mjs:567
+#: src/components/organisms/CompMatch.re.mjs:341
 msgid "Played last round"
 msgstr "前回プレイした"
 
@@ -173,11 +173,11 @@ msgstr "プレイヤー"
 msgid "Player Name"
 msgstr "プレイヤー名"
 
-#: src/components/organisms/AiTetsu.re.mjs:950
+#: src/components/organisms/AiTetsu.re.mjs:959
 msgid "Players"
 msgstr " プレイヤー"
 
-#: src/components/organisms/AiTetsu.re.mjs:820
+#: src/components/organisms/AiTetsu.re.mjs:829
 msgid ""
 "Players in teams will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
@@ -200,7 +200,7 @@ msgstr "何点"
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/MatchesView.re.mjs:297
+#: src/components/organisms/MatchesView.re.mjs:301
 msgid "Queue"
 msgstr "キュー"
 
@@ -208,17 +208,21 @@ msgstr "キュー"
 msgid "Queue Match"
 msgstr "試合をキューに入れる"
 
-#: src/components/organisms/AiTetsu.re.mjs:1166
+#: src/components/organisms/AiTetsu.re.mjs:1174
 msgid "Queued Matches"
 msgstr "キューされた試合"
 
-#: src/components/organisms/CompMatch.re.mjs:430
+#: src/components/organisms/CompMatch.re.mjs:219
 msgid "Random"
 msgstr "ランダムで"
 
 #: src/components/organisms/SelectMatch.re.mjs:306
 msgid "right team players"
 msgstr "右チームのプレイヤー"
+
+#: src/components/organisms/CompMatch.re.mjs:229
+msgid "Round Robin"
+msgstr "総当たり戦"
 
 #: src/components/molecules/forms/Form.re.mjs:295
 msgid "save"
@@ -228,7 +232,7 @@ msgstr "保存"
 msgid "Select"
 msgstr "選択"
 
-#: src/components/organisms/CompMatch.re.mjs:498
+#: src/components/organisms/CompMatch.re.mjs:272
 msgid "Select a tab"
 msgstr "タブを選択"
 
@@ -246,7 +250,7 @@ msgstr ""
 "す。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部"
 "のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
 
-#: src/components/organisms/AiTetsu.re.mjs:909
+#: src/components/organisms/AiTetsu.re.mjs:918
 msgid "Start Session"
 msgstr "セッションを開始"
 
@@ -255,25 +259,29 @@ msgstr "セッションを開始"
 msgid "Submit Rated"
 msgstr "評価を提出"
 
-#: src/components/organisms/AiTetsu.re.mjs:1120
+#: src/components/organisms/AiTetsu.re.mjs:1128
 msgid "Submitted Matches"
 msgstr "提出された試合"
 
-#: src/components/organisms/AiTetsu.re.mjs:89
+#: src/components/organisms/AiTetsu.re.mjs:90
 msgid "Team {0}"
 msgstr "チーム {0}"
 
-#: src/components/organisms/CompMatch.re.mjs:561
+#: src/components/organisms/CompMatch.re.mjs:335
 msgid "This team has played before"
 msgstr "このチームは以前にプレイしました"
 
-#: src/components/organisms/AiTetsu.re.mjs:959
+#: src/components/organisms/AiTetsu.re.mjs:968
 msgid "Toggle All"
 msgstr "すべてを切り替える"
 
-#: src/components/organisms/CompMatch.re.mjs:432
+#: src/components/organisms/CompMatch.re.mjs:221
 msgid "Totally random teams."
 msgstr "完全にランダムなチーム。"
+
+#: src/components/organisms/CompMatch.re.mjs:231
+msgid "Unique combination of matches."
+msgstr "マッチのユニークな組み合わせ。"
 
 #: src/components/organisms/SubmitMatch.re.mjs:323
 #: src/components/organisms/SubmitMatch.re.mjs:367

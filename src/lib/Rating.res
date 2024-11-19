@@ -510,6 +510,28 @@ let find_all_match_combos = (
   })
   ->Option.getOr(results)
 }
+
+let rec find_skip = (n: int) => {
+  if n == 0 {
+    1
+  } else {
+    find_skip(n - 1) + n + 1
+  }
+}
+
+let pick_every_n_from_array = (arr: array<'a>, n: int, offset: int) => {
+  arr->Array.filterWithIndex((_, i) => mod(i-offset, n) == 0)
+}
+
+let rec uniform_shuffle_array = (arr: array<'a>, n: int, offset: int) => {
+  if n == offset {
+    []
+  } else {
+    let picks = pick_every_n_from_array(arr, n, offset);
+    Array.concat(picks, uniform_shuffle_array(arr, n, offset + 1))
+  }
+}
+
 let strategy_by_competitive = (
   players: array<Player.t<'a>>,
   consumedPlayers: Set.t<string>,
@@ -585,8 +607,11 @@ let strategy_by_round_robin = (
   avoidAllPlayers,
   teams: NonEmptyArray.t<Set.t<string>>,
 ) => {
+  let count = Math.Int.max(4, availablePlayers->Array.length)
+  let skip = find_skip(count - 4)
   let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
-  matches
+  let results = matches->uniform_shuffle_array(skip, 0)
+  results
 }
 
 let strategy_by_random = (
@@ -617,7 +642,7 @@ let strategy_by_dupr = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
 }
 
 type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR
-let rec getMatches = (
+let getMatches = (
   players: Players.t,
   consumedPlayers,
   strategy,
@@ -665,12 +690,12 @@ module Matches = {
   type t<'a> = array<Match.t<'a>>
   let toDndItems: t<'a> => MultipleContainers.Items.t = t => {
     t
-    ->Array.map(((t1, t2)) => {
+    ->Array.mapWithIndex(((t1, t2), _) => {
       [t1, t2]
     })
     ->Array.flatMap(x => x)
     ->Array.mapWithIndex((team, i) => {
-      (i->Int.toString, team->Array.map(p => p.id))
+      (i->Int.toString, team->Array.map(p => i->Int.toString ++ ":" ++ p.id))
     })
     ->Js.Dict.fromArray
   }
@@ -683,7 +708,13 @@ module Matches = {
       items
       ->Js.Dict.entries
       ->Array.map(((_, players)) => {
-        let players = players->Array.map(p => playersCache->PlayersCache.get(p))
+        let players = players->Array.map(p => {
+          let p = switch p->String.split(":") {
+            | [_, id] => Some(id)
+            | _ => None
+          }
+          p->Option.flatMap(p => playersCache->PlayersCache.get(p))
+        })
         // switch players {
         // | [Some(p1), Some(p2), Some(p3), Some(p4)] => Some(([p1, p2], ([p3, p4])))
         // | _ => None

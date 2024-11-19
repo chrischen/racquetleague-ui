@@ -558,7 +558,7 @@ let make = (~event, ~children) => {
   let minRating =
     players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
 
-  let queueMatch = match => {
+  let queueMatch = (match, ~dequeue=true) => {
     // Randomize the team order displayed
     // Can be used to decide who starts the serve
     let match = switch Js.Math.random_int(0, 2) {
@@ -566,9 +566,12 @@ let make = (~event, ~children) => {
     | _ => (match->snd, match->fst)
     }
     let matches = matches->Array.concat([match])
-    match->Match.players
-    ->Array.map(p => setQueue(queue => queue->removeFromQueue(p)))
-    ->ignore
+    dequeue
+      ? match
+        ->Match.players
+        ->Array.map(p => setQueue(queue => queue->removeFromQueue(p)))
+        ->ignore
+      : ()
     setMatches(_ => matches)
   }
 
@@ -887,9 +890,7 @@ let make = (~event, ~children) => {
               setDefaultStrategy={setMatchmakingStrategy}
               priorityPlayers
               avoidAllPlayers
-              onSelectMatch={match => {
-                queueMatch(match)
-              }}
+              onSelectMatch={queueMatch}
             />
           </div>
         </div>
@@ -1056,9 +1057,9 @@ let make = (~event, ~children) => {
         // priorityPlayers={[]}
         priorityPlayers
         avoidAllPlayers
-        onSelectMatch={match => {
+        onSelectMatch={(match, ~dequeue: option<bool>=?) => {
           // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
-          queueMatch(match)
+          queueMatch(match, ~dequeue=?dequeue)
         }}
       />}
     />

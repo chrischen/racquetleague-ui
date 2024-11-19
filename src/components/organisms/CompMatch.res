@@ -134,7 +134,7 @@ let make = (
   ~setDefaultStrategy: (strategy => strategy) => unit,
   ~priorityPlayers: array<Player.t<'a>>,
   ~avoidAllPlayers: array<Player.t<'a>>,
-  ~onSelectMatch: option<Match.t<'a> => unit>=?,
+  ~onSelectMatch: option<(Match.t<'a>, ~dequeue: bool=?) => unit>=?,
   ~roundsCount: int,
 ) => {
   let (strategy, setStrategy) = React.useState(() => defaultStrategy)
@@ -162,6 +162,7 @@ let make = (
       strategy: DUPR,
       details: ts`Optimized for DUPR. Teams created with similar skill level players.`,
     },
+    {name: ts`Round Robin`, strategy: RoundRobin, details: ts`Unique combination of matches.`},
   ]
   let availablePlayers = players->Players.filterOut(consumedPlayers)
   let teamConstraints = teams->NonEmptyArray.map(Team.toSet)
@@ -180,7 +181,7 @@ let make = (
   | _ => matches
   }
 
-  let matches = matches->Array.slice(~start=0, ~end=15)
+  let matches = matches->Array.slice(~start=0, ~end=115)
 
   let maxQuality = matches->Array.reduce(0., (acc, (_, quality)) => quality > acc ? quality : acc)
   let minQuality =
@@ -288,7 +289,20 @@ let make = (
       }
 
       <div className="border-zinc-600 rounded ring-1 mb-2" key={i->Int.toString}>
-        <MatchMini onSelect=?onSelectMatch match ?highlight ?border />
+        <MatchMini
+          onSelect=?{onSelectMatch->Option.map(f => match => {
+            f(
+              match,
+              ~dequeue=switch strategy {
+              | RoundRobin => false
+              | _ => true
+              },
+            )
+          })}
+          match
+          ?highlight
+          ?border
+        />
         // {quality->Float.toFixed(~digits=3)->React.string}
         <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
           <FramerMotion.Div
