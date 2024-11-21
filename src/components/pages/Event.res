@@ -538,7 +538,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   Router.defer({
     WaitForMessages.data: EventQuery_graphql.load(
       ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-      ~variables={eventId: params.eventId, ?after, ?before, first: 20},
+      ~variables={eventId: params.eventId, ?after, ?before},
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),
     i18nLoaders: Localized.loadMessages(params.lang, loadMessages),

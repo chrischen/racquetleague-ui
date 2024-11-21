@@ -539,8 +539,7 @@ async function loader(param) {
               data: EventQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                     after: after,
                     before: before,
-                    eventId: params.eventId,
-                    first: 20
+                    eventId: params.eventId
                   }, "store-or-network", undefined, undefined),
               i18nLoaders: Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
             });

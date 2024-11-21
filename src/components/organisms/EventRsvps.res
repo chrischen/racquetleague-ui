@@ -7,7 +7,7 @@ module Fragment = %relay(`
   @argumentDefinitions (
     after: { type: "String" }
     before: { type: "String" }
-    first: { type: "Int", defaultValue: 20 }
+    first: { type: "Int", defaultValue: 80 }
   )
   @refetchable(queryName: "EventRsvpsRefetchQuery")
   {
