@@ -23,28 +23,10 @@ module LoaderArgs = {
   }
 }
 
-let loadMessages = lang => {
-  let messages = switch lang {
-  | "ja" => Lingui.import("../../locales/src/components/pages/LeaguePage.re/ja")
-  | _ => Lingui.import("../../locales/src/components/pages/LeaguePage.re/en")
-  }->Promise.thenResolve(messages =>
-    Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  )
-  // Debug code to delay client message bundle loading
-  // ->Promise.then(messages =>
-  //   Promise.make((resolve, _) =>
-  //     setTimeout(
-  //       _ => {
-  //         Js.log("Events Messages Load")
-  //         Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  //         resolve()
-  //       },
-  //       RelaySSRUtils.ssr ? 0 : 3000,
-  //     )->ignore
-  //   )
-  // )
-  [messages]
-}
+let loadMessages = Lingui.loadMessages({
+  ja: Lingui.import("../../locales/src/components/pages/LeaguePage.re/ja"),
+  en: Lingui.import("../../locales/src/components/pages/LeaguePage.re/en"),
+})
 
 type loaderData = LeaguePage.loaderData
 

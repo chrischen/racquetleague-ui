@@ -180,6 +180,21 @@ export const routes: RouteObject[] = [
             ]
           },
           {
+            path: "settings",
+            // Declaring handle allows the server to pull the scripts needed based on
+            // the entrypoint to avoid waterfall loading of dependencies
+            lazy: () => import("./components/routes/DefaultLayoutContentRoute.gen"),
+            handle: "src/components/routes/DefaultLayoutContentRoute.gen.tsx",
+            children: [
+              {
+                path: "profile",
+                lazy: () => import("./components/routes/SettingsProfileRoute.gen"),
+                handle: "src/components/routes/SettingsProfileRoute.gen.tsx",
+
+              },
+            ]
+          },
+          {
             path: "*",
             lazy: () => import("./components/routes/NotFoundRoute.gen"),
             handle: "src/components/routes/NotFoundRoute.gen.tsx",

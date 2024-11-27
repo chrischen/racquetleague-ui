@@ -29,6 +29,10 @@ msgstr "著作権ラケットリーグの寄稿者"
 msgid "Find Games"
 msgstr "ゲームを見つける"
 
+#: src/components/pages/LeagueLayout.re.mjs:91
+#~ msgid "japan pickle league"
+#~ msgstr "日本ピックルリーグ"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
@@ -51,6 +55,10 @@ msgstr "ユーザーメニューを開く"
 msgid "Profile picture"
 msgstr "プロフィール写真"
 
+#: src/components/organisms/Nav.re.mjs:99
+#~ msgid "racquet league"
+#~ msgstr "ラケットリーグ"
+
 #: src/components/organisms/LeagueNav.re.mjs:106
 msgid "Rankings"
 msgstr "ランキング"
@@ -63,11 +71,3 @@ msgstr "通知を表示"
 #: src/components/organisms/LeagueNav.re.mjs:122
 msgid "Your Profile"
 msgstr "あなたのプロフィール"
-
-#: src/components/pages/LeagueLayout.re.mjs:91
-#~ msgid "japan pickle league"
-#~ msgstr "日本ピックルリーグ"
-
-#: src/components/organisms/Nav.re.mjs:99
-#~ msgid "racquet league"
-#~ msgstr "ラケットリーグ"

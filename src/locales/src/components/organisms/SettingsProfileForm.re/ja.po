@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-11-12 15:33+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ja\n"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:59
+msgid "activity is required"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:135
+msgid "biography"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:288
+msgid "cancel"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:130
+msgid "details about yourself"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:56
+msgid "input is required"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:129
+msgid "profile"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:295
+msgid "save"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:138
+msgid "tell us a little about yourself"
+msgstr ""

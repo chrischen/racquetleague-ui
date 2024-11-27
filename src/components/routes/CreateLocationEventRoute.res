@@ -22,18 +22,11 @@ module LoaderArgs = {
     request: Router.RouterRequest.t,
   }
 }
-let loadMessages = lang => {
-  let messages = switch lang {
-  | "ja" => Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/ja")
-  | _ => Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/en")
-  }->Promise.thenResolve(messages =>
-    Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  )
 
-  [messages]
-  // ->Array.concat(EventRsvps.loadMessages(lang))
-  // ->Array.concat(ViewerRsvpStatus.loadMessages(lang))
-}
+let loadMessages = Lingui.loadMessages({
+  ja: Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/ja"),
+  en: Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/en"),
+})
 
 @genType
 let loader = async ({context, params}: LoaderArgs.t) => {

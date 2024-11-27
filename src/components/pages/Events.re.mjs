@@ -197,14 +197,10 @@ function Events(props) {
 
 var LoaderArgs = {};
 
-function loadMessages(lang) {
-  var tmp = lang === "ja" ? import("../../locales/src/components/pages/Events.re/ja") : import("../../locales/src/components/pages/Events.re/en");
-  return [tmp.then(function (messages) {
-                React.startTransition(function () {
-                      Lingui.i18n.load(lang, messages.messages);
-                    });
-              })];
-}
+var loadMessages = Lingui.loadMessages({
+      ja: import("../../locales/src/components/pages/Events.re/ja"),
+      en: import("../../locales/src/components/pages/Events.re/en")
+    });
 
 async function loader(param) {
   var params = param.params;

@@ -233,3 +233,15 @@ and input_PredictMatchInput_nullable = {
   team1RatingIds: array<string>,
   team2RatingIds: array<string>,
 }
+
+@live
+and input_UpdateProfileInput = {
+  biography: string,
+  fullName: string,
+}
+
+@live
+and input_UpdateProfileInput_nullable = {
+  biography: string,
+  fullName: string,
+}

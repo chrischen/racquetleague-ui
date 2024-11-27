@@ -39,6 +39,10 @@ let make = (~viewer) => {
               // <HeroIcons.UserIcon />
               <DropdownLabel> {t`My Events`} </DropdownLabel>
             </DropdownItem>
+            <DropdownItem href="/settings/profile">
+              // <HeroIcons.UserIcon />
+              <DropdownLabel> {t`Settings`} </DropdownLabel>
+            </DropdownItem>
             // <DropdownItem href="/settings">
             //   <HeroIcons.Cog6Tooth />
             //   <DropdownLabel> {t`Settings`} </DropdownLabel>

@@ -26,9 +26,18 @@ msgstr "イベント"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
+#: src/components/pages/DefaultLayout2.re.mjs:173
+#~ msgid "Logout"
+#~ msgstr "ログアウト"
+
+#: src/components/pages/DefaultLayout2.re.mjs:144
+#, fuzzy
+#~ msgid "My Profile"
+#~ msgstr "あなたのプロフィール"
+
 #: src/components/pages/DefaultLayout2.re.mjs:160
-msgid "Privacy Policy"
-msgstr ""
+#~ msgid "Privacy Policy"
+#~ msgstr ""
 
 #: src/components/pages/DefaultLayout2.re.mjs:182
 msgid "Racquet League"
@@ -39,18 +48,9 @@ msgid "Rankings"
 msgstr "ランキング"
 
 #: src/components/pages/DefaultLayout2.re.mjs:152
-msgid "Settings"
-msgstr ""
+#~ msgid "Settings"
+#~ msgstr ""
 
 #: src/components/pages/DefaultLayout2.re.mjs:166
-msgid "Share Feedback"
-msgstr ""
-
-#: src/components/pages/DefaultLayout2.re.mjs:173
-#~ msgid "Logout"
-#~ msgstr "ログアウト"
-
-#: src/components/pages/DefaultLayout2.re.mjs:144
-#, fuzzy
-#~ msgid "My Profile"
-#~ msgstr "あなたのプロフィール"
+#~ msgid "Share Feedback"
+#~ msgstr ""

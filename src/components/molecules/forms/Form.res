@@ -74,6 +74,7 @@ module Input = {
     ~onClick: option<JsxEventU.Mouse.t => unit>=?,
     ~className: option<string>=?,
     ~name: option<string>=?,
+    ~hint: option<React.element>=?,
     ~id: string,
     ~type_: option<string>="text",
     ~autoComplete: option<string>=?,
@@ -132,6 +133,11 @@ module Input = {
           }}
         </div>
       </div>
+      {hint
+      ->Option.map(hint => {
+        <p className="mt-3 text-sm leading-6 text-gray-600"> {hint} </p>
+      })
+      ->Option.getOr(React.null)}
     </>
   }
 

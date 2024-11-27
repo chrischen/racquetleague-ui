@@ -65,6 +65,12 @@ function NavViewer(props) {
                                                                       children: t`My Events`
                                                                     })
                                                               }),
+                                                          JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                                                                href: "/settings/profile",
+                                                                children: JsxRuntime.jsx(Dropdown.DropdownLabel.make, {
+                                                                      children: t`Settings`
+                                                                    })
+                                                              }),
                                                           JsxRuntime.jsx(Dropdown.DropdownDivider.make, {}),
                                                           JsxRuntime.jsx(Dropdown.DropdownItem.make, {
                                                                 children: JsxRuntime.jsx(Dropdown.DropdownLabel.make, {

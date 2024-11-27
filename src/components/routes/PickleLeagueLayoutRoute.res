@@ -5,16 +5,11 @@
 @genType
 let \"Component" = LeagueLayout.make
 
-let loadMessages = lang => {
-  let messages = switch lang {
-  | "ja" => Lingui.import("../../locales/src/components/pages/LeagueLayout.re/ja")
-  | _ => Lingui.import("../../locales/src/components/pages/LeagueLayout.re/en")
-  }->Promise.thenResolve(messages => {
-    Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  })
-  // }->Promise.thenResolve(messages => Lingui.i18n.loadAndActivate({locale: lang, messages: messages["messages"]}))
-  [messages]
-}
+let loadMessages = Lingui.loadMessages({
+  ja: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/ja"),
+  en: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/en"),
+})
+
 type params = {lang: option<string>}
 module LoaderArgs = {
   type t = {

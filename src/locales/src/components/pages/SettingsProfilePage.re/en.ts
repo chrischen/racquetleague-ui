@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"gQJK5m\":\"activity is required\",\"RnXsZz\":\"biography\",\"d8/6/v\":\"cancel\",\"X/pivd\":\"details about yourself\",\"SmOMNN\":\"input is required\",\"bbvfbr\":\"profile\",\"lMpZmf\":\"save\",\"T3WED1\":\"tell us a little about yourself\"}");

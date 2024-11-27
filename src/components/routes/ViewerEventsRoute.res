@@ -24,28 +24,11 @@ module LoaderArgs = {
   }
 }
 
-let loadMessages = lang => {
-  let messages = switch lang {
-  | "ja" => Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/ja")
-  | _ => Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/en")
-  }->Promise.thenResolve(messages =>
-    Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  )
-  // Debug code to delay client message bundle loading
-  // ->Promise.then(messages =>
-  //   Promise.make((resolve, _) =>
-  //     setTimeout(
-  //       _ => {
-  //         Js.log("Events Messages Load")
-  //         Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  //         resolve()
-  //       },
-  //       RelaySSRUtils.ssr ? 0 : 3000,
-  //     )->ignore
-  //   )
-  // )
-  [messages]
-}
+let loadMessages = Lingui.loadMessages({
+  ja: Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/ja"),
+  en: Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/en")
+})
+
 @genType
 let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make

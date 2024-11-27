@@ -118,7 +118,13 @@ function Form$Input(props) {
                             className: "flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600"
                           }),
                       className: "mt-2"
-                    })
+                    }),
+                Core__Option.getOr(Core__Option.map(props.hint, (function (hint) {
+                            return JsxRuntime.jsx("p", {
+                                        children: hint,
+                                        className: "mt-3 text-sm leading-6 text-gray-600"
+                                      });
+                          })), null)
               ]
             });
 }

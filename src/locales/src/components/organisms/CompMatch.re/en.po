@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CompMatch.re.mjs:320
+#: src/components/organisms/CompMatch.re.mjs:315
 msgid "Analyzed {0} matches."
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Optimized for DUPR. Teams created with similar skill level players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:341
+#: src/components/organisms/CompMatch.re.mjs:336
 msgid "Played last round"
 msgstr ""
 
@@ -61,26 +61,18 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:229
-msgid "Round Robin"
-msgstr ""
-
 #: src/components/organisms/CompMatch.re.mjs:118
 msgid "Select"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:272
+#: src/components/organisms/CompMatch.re.mjs:267
 msgid "Select a tab"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:335
+#: src/components/organisms/CompMatch.re.mjs:330
 msgid "This team has played before"
 msgstr ""
 
 #: src/components/organisms/CompMatch.re.mjs:221
 msgid "Totally random teams."
-msgstr ""
-
-#: src/components/organisms/CompMatch.re.mjs:231
-msgid "Unique combination of matches."
 msgstr ""

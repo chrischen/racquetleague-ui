@@ -13,6 +13,26 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#. js-lingui-explicit-id
+#: src/components/organisms/EventsList.re.mjs:629
+#~ msgid "Badminton"
+#~ msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/EventsList.re.mjs:632
+#~ msgid "Table Tennis"
+#~ msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/EventsList.re.mjs:635
+#~ msgid "Pickleball"
+#~ msgstr "ピックルボール"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/EventsList.re.mjs:638
+#~ msgid "Futsal"
+#~ msgstr "フットサル"
+
 #: src/components/organisms/EventsList.re.mjs:569
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
@@ -90,9 +110,21 @@ msgstr "日付でフィルタリング"
 msgid "joined"
 msgstr "参加"
 
+#: src/components/organisms/EventsList.re.mjs:598
+#~ msgid "load more"
+#~ msgstr "もっと読み込む"
+
+#: src/components/organisms/EventsList.re.mjs:365
+#~ msgid "my events"
+#~ msgstr "私のイベント"
+
 #: src/components/organisms/EventsList.re.mjs:244
 msgid "players"
 msgstr "プレイヤー"
+
+#: src/components/organisms/EventsList.re.mjs:347
+#~ msgid "public events"
+#~ msgstr "公開イベント"
 
 #: src/components/organisms/EventsList.re.mjs:511
 msgid "share as text"
@@ -105,35 +137,3 @@ msgstr "表示"
 #: src/components/organisms/EventsList.re.mjs:228
 msgid "waitlist"
 msgstr "ウェイトリスト"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:629
-#~ msgid "Badminton"
-#~ msgstr "バドミントン"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:632
-#~ msgid "Table Tennis"
-#~ msgstr "卓球"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:635
-#~ msgid "Pickleball"
-#~ msgstr "ピックルボール"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/EventsList.re.mjs:638
-#~ msgid "Futsal"
-#~ msgstr "フットサル"
-
-#: src/components/organisms/EventsList.re.mjs:598
-#~ msgid "load more"
-#~ msgstr "もっと読み込む"
-
-#: src/components/organisms/EventsList.re.mjs:365
-#~ msgid "my events"
-#~ msgstr "私のイベント"
-
-#: src/components/organisms/EventsList.re.mjs:347
-#~ msgid "public events"
-#~ msgstr "公開イベント"

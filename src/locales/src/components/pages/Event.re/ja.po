@@ -57,6 +57,15 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
+#: src/components/organisms/EventRsvps.re.mjs:203
+#~ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
+#~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
+
+#: src/components/molecules/AddToCalendar.re.mjs:14
+#, fuzzy
+#~ msgid "add to calendar"
+#~ msgstr "カレンダー同期"
+
 #: src/components/organisms/EventRsvps.re.mjs:211
 msgid "attendees"
 msgstr "参加者"
@@ -89,9 +98,18 @@ msgstr "イベント @"
 msgid "event doesn't exist"
 msgstr "イベントが存在しません"
 
+#: src/components/pages/Event.re.mjs:308
+#~ msgid "event location"
+#~ msgstr "イベント場所"
+
 #: src/components/pages/Event.re.mjs:461
 msgid "good luck, have fun"
 msgstr "がんばってください"
+
+#: src/components/pages/Event.re.mjs:195
+#, fuzzy
+#~ msgid "hosted by"
+#~ msgstr "{name}主催"
 
 #: src/components/pages/Event.re.mjs:315
 msgid "hosted by {name}"
@@ -102,6 +120,10 @@ msgstr "{name}主催"
 #: src/components/organisms/EventRsvps.re.mjs:196
 msgid "join event"
 msgstr "参加する"
+
+#: src/components/organisms/EventRsvps.re.mjs:225
+#~ msgid "join waitlist"
+#~ msgstr "ウェイトリストに参加"
 
 #: src/components/pages/Event.re.mjs:385
 msgid "league"
@@ -167,12 +189,8 @@ msgid "sync calendar"
 msgstr "カレンダー同期"
 
 #: src/components/pages/Event.re.mjs:362
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first."
-msgstr ""
-"これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
-"加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first."
+msgstr "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/pages/Event.re.mjs:199
 msgid "uncancel event"
@@ -202,26 +220,3 @@ msgstr "あなたは行く :)"
 #: src/components/organisms/EventRsvps.re.mjs:250
 msgid "you're waitlisted :("
 msgstr "あなたはウェイトリストに入っています :("
-
-#: src/components/organisms/EventRsvps.re.mjs:203
-#~ msgid ""
-#~ "{waitlistCount, plural, one {spot available} other {spots available}}"
-#~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
-
-#: src/components/molecules/AddToCalendar.re.mjs:14
-#, fuzzy
-#~ msgid "add to calendar"
-#~ msgstr "カレンダー同期"
-
-#: src/components/pages/Event.re.mjs:308
-#~ msgid "event location"
-#~ msgstr "イベント場所"
-
-#: src/components/pages/Event.re.mjs:195
-#, fuzzy
-#~ msgid "hosted by"
-#~ msgstr "{name}主催"
-
-#: src/components/organisms/EventRsvps.re.mjs:225
-#~ msgid "join waitlist"
-#~ msgstr "ウェイトリストに参加"

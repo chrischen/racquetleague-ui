@@ -38,15 +38,5 @@ let make = (~onJoin, ~onLeave, ~joined: bool) => {
   }
 }
 
-// let loadMessages = lang => {
-//   let messages = switch lang {
-//   | "ja" => Lingui.import("../../locales/ja/organisms/ViewerRsvpStatus.mjs")
-//   | _ => Lingui.import("../../locales/en/organisms/ViewerRsvpStatus.mjs")
-//   }->Promise.thenResolve(messages => {
-//     Lingui.i18n.load(lang, messages["messages"])
-//   })
-//   [messages]
-// }
-
 @genType
 let default = make

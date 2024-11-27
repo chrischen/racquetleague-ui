@@ -78,6 +78,10 @@ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
+#: src/components/pages/Events.re.mjs:95
+#~ msgid "all"
+#~ msgstr "すべて"
+
 #: src/components/pages/Events.re.mjs:57
 msgid "All"
 msgstr "すべて"
@@ -86,6 +90,10 @@ msgstr "すべて"
 #: src/components/pages/Events.re.mjs:119
 msgid "all events"
 msgstr "すべてのイベント"
+
+#: src/components/pages/Events.re.mjs:135
+#~ msgid "badminton"
+#~ msgstr "バドミントン"
 
 #: src/components/pages/Events.re.mjs:66
 msgid "Badminton"
@@ -111,38 +119,6 @@ msgstr "プライベートを含める"
 msgid "joined"
 msgstr "参加"
 
-#: src/components/pages/Events.re.mjs:61
-msgid "Pickleball"
-msgstr "ピックルボール"
-
-#: src/components/pages/Events.re.mjs:113
-msgid "pickleball events"
-msgstr "ピクルボールイベント"
-
-#: src/components/organisms/EventsList.re.mjs:244
-msgid "players"
-msgstr "プレイヤー"
-
-#: src/components/organisms/EventsList.re.mjs:511
-msgid "share as text"
-msgstr "テキストとして共有"
-
-#: src/components/organisms/EventsList.re.mjs:418
-msgid "show"
-msgstr "表示"
-
-#: src/components/organisms/EventsList.re.mjs:228
-msgid "waitlist"
-msgstr "ウェイトリスト"
-
-#: src/components/pages/Events.re.mjs:95
-#~ msgid "all"
-#~ msgstr "すべて"
-
-#: src/components/pages/Events.re.mjs:135
-#~ msgid "badminton"
-#~ msgstr "バドミントン"
-
 #: src/components/organisms/EventsList.re.mjs:194
 #~ msgid "Joined"
 #~ msgstr "参加"
@@ -159,6 +135,30 @@ msgstr "ウェイトリスト"
 #~ msgid "my events"
 #~ msgstr "私のイベント"
 
+#: src/components/pages/Events.re.mjs:61
+msgid "Pickleball"
+msgstr "ピックルボール"
+
+#: src/components/pages/Events.re.mjs:113
+msgid "pickleball events"
+msgstr "ピクルボールイベント"
+
+#: src/components/organisms/EventsList.re.mjs:244
+msgid "players"
+msgstr "プレイヤー"
+
 #: src/components/pages/Events.re.mjs:83
 #~ msgid "public events"
 #~ msgstr "公開イベント"
+
+#: src/components/organisms/EventsList.re.mjs:511
+msgid "share as text"
+msgstr "テキストとして共有"
+
+#: src/components/organisms/EventsList.re.mjs:418
+msgid "show"
+msgstr "表示"
+
+#: src/components/organisms/EventsList.re.mjs:228
+msgid "waitlist"
+msgstr "ウェイトリスト"

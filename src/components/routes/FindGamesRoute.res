@@ -24,13 +24,10 @@ module LoaderArgs = {
   }
 }
 
-let loadMessages = lang => {
-  let messages = switch lang {
-  | "ja" => Lingui.import("../../locales/src/components/pages/FindGamesPage.re/ja")
-  | _ => Lingui.import("../../locales/src/components/pages/FindGamesPage.re/en")
-  }->Promise.thenResolve(messages =>
-    Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  )
+let loadMessages = Lingui.loadMessages({
+  ja: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/ja"),
+  en: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/en"),
+})
   // Debug code to delay client message bundle loading
   // ->Promise.then(messages =>
   //   Promise.make((resolve, _) =>
@@ -44,8 +41,6 @@ let loadMessages = lang => {
   //     )->ignore
   //   )
   // )
-  [messages]
-}
 @genType
 let loader = async ({params}: LoaderArgs.t) => {
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)

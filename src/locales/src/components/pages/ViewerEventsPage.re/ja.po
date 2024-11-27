@@ -78,6 +78,10 @@ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
+#: src/components/pages/ViewerEventsPage.re.mjs:53
+#~ msgid "all events"
+#~ msgstr "すべてのイベント"
+
 #: src/components/organisms/EventsList.re.mjs:541
 msgid "clear filter"
 msgstr "フィルターをクリア"
@@ -89,6 +93,14 @@ msgstr "日付でフィルタリング"
 #: src/components/organisms/EventsList.re.mjs:225
 msgid "joined"
 msgstr "参加"
+
+#: src/components/organisms/EventsList.re.mjs:194
+#~ msgid "Joined"
+#~ msgstr "参加"
+
+#: src/components/organisms/EventsList.re.mjs:598
+#~ msgid "load more"
+#~ msgstr "もっと読み込む"
 
 #: src/components/pages/ViewerEventsPage.re.mjs:59
 #: src/components/pages/ViewerEventsPage.re.mjs:83
@@ -118,15 +130,3 @@ msgstr "カレンダー同期"
 #: src/components/organisms/EventsList.re.mjs:228
 msgid "waitlist"
 msgstr "ウェイトリスト"
-
-#: src/components/pages/ViewerEventsPage.re.mjs:53
-#~ msgid "all events"
-#~ msgstr "すべてのイベント"
-
-#: src/components/organisms/EventsList.re.mjs:194
-#~ msgid "Joined"
-#~ msgstr "参加"
-
-#: src/components/organisms/EventsList.re.mjs:598
-#~ msgid "load more"
-#~ msgstr "もっと読み込む"

@@ -325,6 +325,7 @@ type Mutation {
   leaveEvent(eventId: ID!): LeaveEventResult!
   uncancelEvent(eventId: ID!): MutationResult2!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
+  updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
 }
 
 type MutationResult implements HasErrors {
@@ -436,7 +437,19 @@ type Subscription {
   topic: String
 }
 
+input UpdateProfileInput {
+  biography: String!
+  fullName: String!
+}
+
+type UpdateProfileResult implements HasErrors {
+  errors: [Error!]
+  viewer: User
+}
+
 type User implements Node {
+  biography: String
+  fullName: String
   gender: Gender
   id: ID!
   lineUsername: String
@@ -447,6 +460,7 @@ type User implements Node {
 type Viewer {
   adminClubs(after: String, before: String, first: Int): ClubConnection!
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
+  profile: User
   subscriptions: [Subscription!]!
   user: User
 }

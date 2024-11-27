@@ -528,14 +528,6 @@
 //   </>
 // }
 //
-// // let loadMessages = lang => {
-// //   let messages = switch lang {
-// //   | "ja" => Lingui.import("../../locales/ja/organisms/EventRsvps.mjs")
-// //   | _ => Lingui.import("../../locales/en/organisms/EventRsvps.mjs")
-// //   }->Promise.thenResolve(messages => Lingui.i18n.load(lang, messages["messages"]))
-// //
-// //   [messages]->Array.concat(ViewerRsvpStatus.loadMessages(lang))
-// // }
 //
 // @genType
 // let default = make

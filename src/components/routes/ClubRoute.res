@@ -10,16 +10,10 @@ module LoaderArgs = {
   }
 }
 
-let loadMessages = lang => {
-  let messages = switch lang {
-  | "ja" => Lingui.import("../../locales/src/components/pages/ClubPage.re/ja")
-  | _ => Lingui.import("../../locales/src/components/pages/ClubPage.re/en")
-  }->Promise.thenResolve(messages =>
-    Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  )
-
-  [messages]
-}
+let loadMessages = Lingui.loadMessages({
+  ja: Lingui.import("../../locales/src/components/pages/ClubPage.re/ja"),
+  en: Lingui.import("../../locales/src/components/pages/ClubPage.re/en"),
+})
 
 @genType
 let loader = async ({context, params, request}: LoaderArgs.t) => {

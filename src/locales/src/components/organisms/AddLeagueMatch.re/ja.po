@@ -63,8 +63,7 @@ msgstr ""
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:38
 #~ msgid "How many players should rest? (currently {0} players are resting)"
-#~ msgstr ""
-#~ "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
+#~ msgstr "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
 
 #: src/components/organisms/SelectMatch.re.mjs:332
 #~ msgid "left team players"
@@ -97,19 +96,15 @@ msgstr ""
 
 #: src/components/organisms/CompMatch.re.mjs:362
 #~ msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-#~ msgstr ""
-#~ "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
+#~ msgstr "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:367
 #~ msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
-#~ msgstr ""
-#~ "マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
+#~ msgstr "マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:372
 #~ msgid "Matches are arranged by skill while mixing strong and weak players."
-#~ msgstr ""
-#~ "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置され"
-#~ "ます。"
+#~ msgstr "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されます。"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:668
 #~ msgid "Matchmaking"
@@ -138,9 +133,7 @@ msgstr ""
 #~ msgstr " プレイヤー"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:468
-#~ msgid ""
-#~ "Players in teams will always be placed in a match together on the same "
-#~ "side."
+#~ msgid "Players in teams will always be placed in a match together on the same side."
 #~ msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/organisms/SubmitMatch.re.mjs:314
@@ -198,16 +191,8 @@ msgstr ""
 #~ msgstr "勝者を選択"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-#~ msgid ""
-#~ "Set this to the number of players currently resting to enable even "
-#~ "leveling of match counts. Set to 0 to disable and optimize match quality "
-#~ "instead, but this may result in some players playing more matches than "
-#~ "others."
-#~ msgstr ""
-#~ "これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にし"
-#~ "ます。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、"
-#~ "一部のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性がありま"
-#~ "す。"
+#~ msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
+#~ msgstr "これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にします。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
 
 #: src/components/organisms/SubmitMatch.re.mjs:354
 #~ msgid "Submit Rated"

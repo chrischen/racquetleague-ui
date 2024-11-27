@@ -13,14 +13,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:81
-msgid "choose the location where this event will be held."
-msgstr "このイベントが開催される場所を選択してください。"
-
-#: src/components/organisms/AutocompleteLocation.re.mjs:80
-msgid "event location"
-msgstr "イベント場所"
-
 #: src/components/organisms/SelectLocation.re.mjs:71
 #~ msgid "add new location"
 #~ msgstr "新しい場所を追加"
@@ -41,14 +33,20 @@ msgstr "イベント場所"
 #~ msgid "cancel"
 #~ msgstr "キャンセル"
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:81
+msgid "choose the location where this event will be held."
+msgstr "このイベントが開催される場所を選択してください。"
+
 #: src/components/organisms/CreateLocationForm.re.mjs:177
 #~ msgid "details"
 #~ msgstr "詳細"
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:80
+msgid "event location"
+msgstr "イベント場所"
+
 #: src/components/organisms/CreateLocationForm.re.mjs:180
-#~ msgid ""
-#~ "Instructions or information that will apply to all events held at this "
-#~ "location."
+#~ msgid "Instructions or information that will apply to all events held at this location."
 #~ msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:138
