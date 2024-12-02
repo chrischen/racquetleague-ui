@@ -495,131 +495,134 @@ function EventsList(props) {
         }));
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsxs("div", {
-                            children: [
-                              props.header,
-                              JsxRuntime.jsxs(Layout.Container.make, {
-                                    children: [
-                                      JsxRuntime.jsx(UiAction.make, {
-                                            onClick: (function (param) {
-                                                setShareOpen(function (v) {
-                                                      return !v;
-                                                    });
-                                              }),
-                                            active: shareOpen,
-                                            alt: t`share as text`,
-                                            children: JsxRuntime.jsx(Outline.DocumentTextIcon, {
-                                                  className: "inline w-6 h-6"
-                                                })
-                                          }),
-                                      shareOpen ? JsxRuntime.jsx(EventsList$TextEventsList, {
-                                              events: events
-                                            }) : null
-                                    ],
-                                    className: "p-2 flex-row flex gap-2"
-                                  }),
-                              JsxRuntime.jsx("div", {
-                                    children: JsxRuntime.jsxs("div", {
-                                          children: [
-                                            JsxRuntime.jsx(Calendar.make, {
-                                                  events: events,
-                                                  onDateSelected: (function (date) {
-                                                      setSearchParams(function (prevParams) {
-                                                            return Router.ImmSearchParams.toSearchParams(updateParams({
-                                                                            TAG: "ByDate",
-                                                                            _0: date
-                                                                          }, Router.ImmSearchParams.fromSearchParams(prevParams)));
-                                                          });
-                                                    })
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx(LangProvider.DetectedLang.make, {}),
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                props.header,
+                                JsxRuntime.jsxs(Layout.Container.make, {
+                                      children: [
+                                        JsxRuntime.jsx(UiAction.make, {
+                                              onClick: (function (param) {
+                                                  setShareOpen(function (v) {
+                                                        return !v;
+                                                      });
                                                 }),
-                                            Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
-                                                        return JsxRuntime.jsx(WarningAlert.make, {
-                                                                    children: JsxRuntime.jsx(JsxRuntime.Fragment, {
-                                                                          children: Caml_option.some(t`filtering by date`)
-                                                                        }),
-                                                                    cta: t`clear filter`,
-                                                                    ctaClick: (function () {
-                                                                        clearFilterByDate();
-                                                                      })
-                                                                  });
-                                                      })), null),
-                                            !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
-                                                          return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
-                                                                      to: {
-                                                                        pathname: "./",
-                                                                        search: updateParams({
-                                                                                TAG: "ByBefore",
-                                                                                _0: startCursor
-                                                                              }, searchParams).toString()
-                                                                      },
-                                                                      children: JsxRuntime.jsx(Solid.ChevronUpIcon, {
-                                                                            className: "inline w-7 h-7"
+                                              active: shareOpen,
+                                              alt: t`share as text`,
+                                              children: JsxRuntime.jsx(Outline.DocumentTextIcon, {
+                                                    className: "inline w-6 h-6"
+                                                  })
+                                            }),
+                                        shareOpen ? JsxRuntime.jsx(EventsList$TextEventsList, {
+                                                events: events
+                                              }) : null
+                                      ],
+                                      className: "p-2 flex-row flex gap-2"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      children: JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx(Calendar.make, {
+                                                    events: events,
+                                                    onDateSelected: (function (date) {
+                                                        setSearchParams(function (prevParams) {
+                                                              return Router.ImmSearchParams.toSearchParams(updateParams({
+                                                                              TAG: "ByDate",
+                                                                              _0: date
+                                                                            }, Router.ImmSearchParams.fromSearchParams(prevParams)));
+                                                            });
+                                                      })
+                                                  }),
+                                              Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
+                                                          return JsxRuntime.jsx(WarningAlert.make, {
+                                                                      children: JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                                            children: Caml_option.some(t`filtering by date`)
                                                                           }),
-                                                                      className: "hover:bg-gray-100 p-3 w-full text-center block"
+                                                                      cta: t`clear filter`,
+                                                                      ctaClick: (function () {
+                                                                          clearFilterByDate();
+                                                                        })
                                                                     });
-                                                        })), JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
-                                                        to: {
-                                                          pathname: "./",
-                                                          search: updateParams({
-                                                                  TAG: "ByAfterDate",
-                                                                  _0: new Date("2020-01-01")
-                                                                }, searchParams).toString()
-                                                        },
-                                                        children: t`...load past events`
-                                                      })) : null,
-                                            JsxRuntime.jsx("ul", {
-                                                  children: Js_dict.entries(eventsByDate).map(function (param) {
-                                                        var dateString = param[0];
-                                                        return JsxRuntime.jsxs("li", {
-                                                                    children: [
-                                                                      JsxRuntime.jsx("div", {
-                                                                            children: JsxRuntime.jsx(Layout.Container.make, {
-                                                                                  children: JsxRuntime.jsx("h3", {
-                                                                                        children: dateString
-                                                                                      })
-                                                                                }),
-                                                                            className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"
-                                                                          }),
-                                                                      JsxRuntime.jsx("ul", {
-                                                                            children: JsxRuntime.jsx(EventsList$Day, {
-                                                                                  events: param[1],
-                                                                                  highlightedLocation: ""
-                                                                                }),
-                                                                            className: "divide-y divide-gray-200",
-                                                                            role: "list"
-                                                                          })
-                                                                    ]
-                                                                  }, dateString);
-                                                      }),
-                                                  className: "",
-                                                  role: "list"
-                                                }),
-                                            match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
-                                                    children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
-                                                                return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
-                                                                            to: {
-                                                                              pathname: "./",
-                                                                              search: updateParams({
-                                                                                      TAG: "ByAfter",
-                                                                                      _0: endCursor
-                                                                                    }, searchParams).toString()
-                                                                            },
-                                                                            children: JsxRuntime.jsx(Solid.ChevronDownIcon, {
-                                                                                  className: "inline w-7 h-7"
-                                                                                }),
-                                                                            className: "hover:bg-gray-100 p-3 w-full text-center block"
-                                                                          });
-                                                              })), null)
-                                                  }) : null
-                                          ],
-                                          className: "w-full lg:overflow-x-hidden"
-                                        }),
-                                    className: "mx-auto w-full grow lg:flex"
-                                  })
-                            ],
-                            className: "mx-auto max-w-7xl"
-                          }),
+                                                        })), null),
+                                              !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
+                                                            return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
+                                                                        to: {
+                                                                          pathname: "./",
+                                                                          search: updateParams({
+                                                                                  TAG: "ByBefore",
+                                                                                  _0: startCursor
+                                                                                }, searchParams).toString()
+                                                                        },
+                                                                        children: JsxRuntime.jsx(Solid.ChevronUpIcon, {
+                                                                              className: "inline w-7 h-7"
+                                                                            }),
+                                                                        className: "hover:bg-gray-100 p-3 w-full text-center block"
+                                                                      });
+                                                          })), JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
+                                                          to: {
+                                                            pathname: "./",
+                                                            search: updateParams({
+                                                                    TAG: "ByAfterDate",
+                                                                    _0: new Date("2020-01-01")
+                                                                  }, searchParams).toString()
+                                                          },
+                                                          children: t`...load past events`
+                                                        })) : null,
+                                              JsxRuntime.jsx("ul", {
+                                                    children: Js_dict.entries(eventsByDate).map(function (param) {
+                                                          var dateString = param[0];
+                                                          return JsxRuntime.jsxs("li", {
+                                                                      children: [
+                                                                        JsxRuntime.jsx("div", {
+                                                                              children: JsxRuntime.jsx(Layout.Container.make, {
+                                                                                    children: JsxRuntime.jsx("h3", {
+                                                                                          children: dateString
+                                                                                        })
+                                                                                  }),
+                                                                              className: "sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-0 py-1.5 text-sm font-semibold leading-6 text-gray-900"
+                                                                            }),
+                                                                        JsxRuntime.jsx("ul", {
+                                                                              children: JsxRuntime.jsx(EventsList$Day, {
+                                                                                    events: param[1],
+                                                                                    highlightedLocation: ""
+                                                                                  }),
+                                                                              className: "divide-y divide-gray-200",
+                                                                              role: "list"
+                                                                            })
+                                                                      ]
+                                                                    }, dateString);
+                                                        }),
+                                                    className: "",
+                                                    role: "list"
+                                                  }),
+                                              match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
+                                                      children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
+                                                                  return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
+                                                                              to: {
+                                                                                pathname: "./",
+                                                                                search: updateParams({
+                                                                                        TAG: "ByAfter",
+                                                                                        _0: endCursor
+                                                                                      }, searchParams).toString()
+                                                                              },
+                                                                              children: JsxRuntime.jsx(Solid.ChevronDownIcon, {
+                                                                                    className: "inline w-7 h-7"
+                                                                                  }),
+                                                                              className: "hover:bg-gray-100 p-3 w-full text-center block"
+                                                                            });
+                                                                })), null)
+                                                    }) : null
+                                            ],
+                                            className: "w-full lg:overflow-x-hidden"
+                                          }),
+                                      className: "mx-auto w-full grow lg:flex"
+                                    })
+                              ],
+                              className: "mx-auto max-w-7xl"
+                            })
+                      ],
                       className: "grow p-0 z-10 lg:w-1/2 lg:h-[calc(100vh-50px)] lg:overflow-scroll lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10"
                     }),
                 JsxRuntime.jsx("div", {

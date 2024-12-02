@@ -152,7 +152,7 @@ module TextEventItem = {
         )
       }
     })
-    let canceled = deleted->Option.isSome ? " " ++ ts`🚫 CANCELED` : ""
+    let canceled = deleted->Option.isSome ? " " ++ (ts`🚫 CANCELED`) : ""
 
     // Date string in local time
 
@@ -549,6 +549,7 @@ let make = (~events, ~header: React.element) => {
   <>
     <div
       className="grow p-0 z-10 lg:w-1/2 lg:h-[calc(100vh-50px)] lg:overflow-scroll lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+      <LangProvider.DetectedLang />
       <div className="mx-auto max-w-7xl">
         {header}
         // <Layout.Container>

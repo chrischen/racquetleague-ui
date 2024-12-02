@@ -21,7 +21,6 @@ external useLoaderData: unit => WaitForMessages.data<DefaultLayoutMapQuery_graph
 // }
 
 module Content = {
-  open Lingui.Util
   @react.component
   let make = (~children) => {
     <div
