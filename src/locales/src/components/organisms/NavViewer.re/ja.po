@@ -25,3 +25,7 @@ msgstr "Lineでログイン"
 #: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Events"
 msgstr "私のイベント"
+
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "Settings"
+msgstr ""

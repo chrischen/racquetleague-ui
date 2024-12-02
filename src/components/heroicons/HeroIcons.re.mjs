@@ -25,6 +25,8 @@ var CalendarIcon = {};
 
 var ExclamationTriangleIcon = {};
 
+var InformationCircleIcon = {};
+
 var UserPlus = {};
 
 var UserPlusOutline = {};
@@ -62,6 +64,7 @@ export {
   CheckIcon ,
   CalendarIcon ,
   ExclamationTriangleIcon ,
+  InformationCircleIcon ,
   UserPlus ,
   UserPlusOutline ,
   Cog6Tooth ,

@@ -11,7 +11,7 @@ function InfoAlert(props) {
                     children: [
                       JsxRuntime.jsx("div", {
                             children: JsxRuntime.jsx(Solid.ExclamationTriangleIcon, {
-                                  className: "h-5 w-5 text-yellow-400",
+                                  className: "h-5 w-5 text-blue-400",
                                   "aria-hidden": "true"
                                 }),
                             className: "flex-shrink-0"
@@ -25,18 +25,18 @@ function InfoAlert(props) {
                                           onClick: (function (param) {
                                               ctaClick();
                                             }),
-                                          className: "font-medium text-yellow-700 underline hover:text-yellow-600",
+                                          className: "font-medium text-blue-700 underline hover:text-blue-600",
                                           children: props.cta
                                         })
                                   ],
-                                  className: "text-sm text-yellow-700"
+                                  className: "text-sm text-blue-700"
                                 }),
                             className: "ml-3"
                           })
                     ],
                     className: "flex"
                   }),
-              className: "border-l-4 border-yellow-400 bg-yellow-50 p-4"
+              className: "border-l-4 border-blue-400 bg-blue-50 p-4"
             });
 }
 

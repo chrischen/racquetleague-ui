@@ -1231,6 +1231,58 @@ msgstr "総当たり戦"
 msgid "Unique combination of matches."
 msgstr "マッチのユニークな組み合わせ。"
 
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "Settings"
+msgstr ""
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:36
+msgid "seeking a doubles partner"
+msgstr ""
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:41
+msgid ""
+"shows a badge next to your name in RSVP lists to tell people you are looking "
+"for a partner"
+msgstr ""
+"RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
+"す。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:194
+msgid "biography"
+msgstr "バイオグラフィー"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:159
+msgid "details about yourself"
+msgstr "自己紹介"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:171
+msgid "Doe John"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:167
+msgid "full name"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:158
+msgid "profile"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:169
+msgid "Some events require your legal name as shown on an ID card."
+msgstr " "
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:197
+msgid "tell us a little about yourself"
+msgstr "自己紹介をしてください"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:88
+msgid "It looks like you may prefer English. Would you like to switch to English?"
+msgstr "日本語がお好きなようですね。日本語に変更しますか？"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:89
+msgid "Switch to English"
+msgstr "日本語に切り替える"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

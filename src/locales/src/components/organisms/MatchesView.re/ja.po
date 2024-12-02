@@ -88,11 +88,11 @@ msgstr "すべて選択"
 msgid "Submit Rated"
 msgstr "評価を提出"
 
-#: src/components/organisms/MatchesView.re.mjs:111
-#~ msgid "Toggle All"
-#~ msgstr "すべてを切り替える"
-
 #: src/components/organisms/SortableSubmitMatch.re.mjs:325
 #: src/components/organisms/SortableSubmitMatch.re.mjs:369
 msgid "Winner"
 msgstr "勝者"
+
+#: src/components/organisms/MatchesView.re.mjs:111
+#~ msgid "Toggle All"
+#~ msgstr "すべてを切り替える"

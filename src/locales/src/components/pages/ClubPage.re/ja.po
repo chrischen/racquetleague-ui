@@ -98,14 +98,6 @@ msgstr "日付でフィルタリング"
 msgid "joined"
 msgstr "参加"
 
-#: src/components/organisms/EventsList.re.mjs:598
-#~ msgid "load more"
-#~ msgstr "もっと読み込む"
-
-#: src/components/pages/ClubPage.re.mjs:69
-#~ msgid "page not found"
-#~ msgstr "ページが見つかりません"
-
 #: src/components/organisms/EventsList.re.mjs:244
 msgid "players"
 msgstr "プレイヤー"
@@ -121,3 +113,11 @@ msgstr "表示"
 #: src/components/organisms/EventsList.re.mjs:228
 msgid "waitlist"
 msgstr "ウェイトリスト"
+
+#: src/components/organisms/EventsList.re.mjs:598
+#~ msgid "load more"
+#~ msgstr "もっと読み込む"
+
+#: src/components/pages/ClubPage.re.mjs:69
+#~ msgid "page not found"
+#~ msgstr "ページが見つかりません"

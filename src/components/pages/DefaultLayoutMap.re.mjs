@@ -11,6 +11,7 @@ import * as LangSwitch from "../molecules/LangSwitch.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as StackedLayout from "../catalyst/StackedLayout.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
@@ -67,11 +68,14 @@ var Query = {
 };
 
 function DefaultLayoutMap$Content(props) {
-  return JsxRuntime.jsx("div", {
-              children: JsxRuntime.jsx("div", {
-                    children: props.children,
-                    className: "mx-auto max-w-7xl"
-                  }),
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx(LangProvider.DetectedLang.make, {}),
+                JsxRuntime.jsx("div", {
+                      children: props.children,
+                      className: "mx-auto max-w-7xl"
+                    })
+              ],
               className: "grow p-0 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10"
             });
 }

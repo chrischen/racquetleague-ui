@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"キャンセル\",\"qqWcBV\":\"試合終了\",\"sr0UJD\":\"戻る\",\"yQE2r9\":\"読み込み中\",\"mtjKfB\":\"何点\",\"COUcFd\":\"何点\",\"oqJvMR\":\"予測される勝者\",\"DzbT9G\":\"評価を提出\",\"2ZSUoj\":\"勝者\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"キャンセル\",\"sr0UJD\":\"戻る\",\"yQE2r9\":\"読み込み中\",\"COUcFd\":\"何点\",\"oqJvMR\":\"予測される勝者\",\"DzbT9G\":\"評価を提出\",\"2ZSUoj\":\"勝者\",\"qqWcBV\":\"試合終了\",\"mtjKfB\":\"何点\"}");

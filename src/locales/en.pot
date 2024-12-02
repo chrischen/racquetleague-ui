@@ -1322,3 +1322,54 @@ msgstr ""
 #: src/components/organisms/CompMatch.re.mjs:231
 msgid "Unique combination of matches."
 msgstr ""
+
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "Settings"
+msgstr ""
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:36
+msgid "seeking a doubles partner"
+msgstr ""
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:41
+msgid ""
+"shows a badge next to your name in RSVP lists to tell people you are looking "
+"for a partner"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:194
+msgid "biography"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:159
+msgid "details about yourself"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:171
+msgid "Doe John"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:167
+msgid "full name"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:158
+msgid "profile"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:169
+msgid "Some events require your legal name as shown on an ID card."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:197
+msgid "tell us a little about yourself"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:88
+msgid ""
+"It looks like you may prefer English. Would you like to switch to English?"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:89
+msgid "Switch to English"
+msgstr ""

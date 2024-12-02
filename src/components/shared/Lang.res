@@ -31,19 +31,45 @@ module LoaderArgs = {
 
 @val external importLang: 'a => Js.Promise.t<{"messages": Lingui.Messages.t}> = "import"
 
+external window: LocaleDetector.window = "window"
 @genType
-let loader = async ({ params }: LoaderArgs.t) => {
+let loader = async ({params}: LoaderArgs.t) => {
   let lang = params.lang->Option.getOr("en")
   let locale = switch lang {
   | "ja" => "jp"
   | _ => "us"
   }
 
+  let detectedLocale = Some(
+    RelaySSRUtils.ssr
+      ? LocaleDetector.detect([
+          LocaleDetector.fromNavigator({language: lang}),
+          switch lang {
+          | "ja" => LocaleDetector.jaFallback
+          | _ => LocaleDetector.enFallback
+          },
+        ])
+      : {
+          LocaleDetector.detect([
+            LocaleDetector.fromNavigator(window.navigator),
+            switch lang {
+            | "ja" => LocaleDetector.jaFallback
+            | _ => LocaleDetector.enFallback
+            },
+          ])
+        }->String.toLowerCase,
+  )
+
   Lingui.i18n.activate(lang)
+
+  let detectedLang = detectedLocale->(Option.flatMap(_, LangProvider.parseLang))
+
   {
     LangProvider.locale,
+    detectedLocale: ?detectedLocale->(Option.flatMap(_, LangProvider.parseLocale)),
+    ?detectedLang,
     lang,
-    timezone: "jst"
+    timezone: "jst",
   }
 }
 // %raw("loader.hydrate = false")

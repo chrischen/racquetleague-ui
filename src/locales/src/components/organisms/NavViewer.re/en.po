@@ -25,3 +25,7 @@ msgstr ""
 #: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Events"
 msgstr ""
+
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "Settings"
+msgstr ""

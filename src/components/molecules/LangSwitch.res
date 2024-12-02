@@ -1,9 +1,9 @@
 open Router;
 module LocaleButton = {
-  type t = {locale: string, display: string}
+  type t = {lang: string, display: string}
   @genType @react.component
   let make = (~locale: t, ~path, ~active) => {
-    let locPath = locale.locale == "en" ? "" : "/" ++ locale.locale
+    let locPath = I18n.getLangPath(locale.lang)
     switch active {
     | true => <span> {React.string(locale.display)} </span>
     | false =>
@@ -16,23 +16,20 @@ module LocaleButton = {
   }
 }
 let locales = [
-  {LocaleButton.locale: "en", display: "english"},
-  {locale: "ja", display: "日本語"},
+  {LocaleButton.lang: "en", display: "english"},
+  {lang: "ja", display: "日本語"},
 ]
 @genType @react.component
 let make = () => {
   let {i18n: {locale}} = Lingui.useLingui()
   let {pathname} = Router.useLocation()
-  let basePath = switch locale {
-  | "en" => "/" ++ pathname->String.replaceRegExp(Js.Re.fromString("^/(" ++ locale ++ "/?|)"), "")
-  | locale => "/" ++ pathname->String.replaceRegExp(Js.Re.fromString("^/" ++ locale ++ "/?"), "")
-  }
+  let basePath = I18n.getBasePath(locale, pathname)
 
   locales
   ->Belt.Array.mapWithIndex((index, loc) => {
-    <React.Fragment key=loc.locale>
+    <React.Fragment key=loc.lang>
       {index > 0 ? " | "->React.string : React.null}
-      <LocaleButton locale={loc} path={basePath} active={loc.locale == locale} />
+      <LocaleButton locale={loc} path={basePath} active={loc.lang == locale} />
     </React.Fragment>
   })
   ->React.array

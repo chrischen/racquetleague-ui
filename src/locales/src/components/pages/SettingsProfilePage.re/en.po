@@ -6,35 +6,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:59
-msgid "activity is required"
-msgstr ""
+#~ msgid "activity is required"
+#~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:135
+#: src/components/organisms/SettingsProfileForm.re.mjs:194
 msgid "biography"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:288
+#: src/components/molecules/forms/Form.re.mjs:294
 msgid "cancel"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:130
+#: src/components/organisms/SettingsProfileForm.re.mjs:159
 msgid "details about yourself"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:56
-msgid "input is required"
+#: src/components/organisms/SettingsProfileForm.re.mjs:171
+msgid "Doe John"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:129
+#: src/components/organisms/SettingsProfileForm.re.mjs:167
+msgid "full name"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:56
+#~ msgid "input is required"
+#~ msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:158
 msgid "profile"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:295
+#: src/components/molecules/forms/Form.re.mjs:301
 msgid "save"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:138
+#: src/components/organisms/SeekingPartnerInput.re.mjs:36
+msgid "seeking a doubles partner"
+msgstr ""
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:41
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:169
+msgid "Some events require your legal name as shown on an ID card."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:197
 msgid "tell us a little about yourself"
 msgstr ""

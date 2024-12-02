@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"tst44n\":\"Events\",\"W8fQRI\":\"Rankings\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"tst44n\":\"Events\",\"/96Fb+\":\"It looks like you may prefer English. Would you like to switch to English?\",\"W8fQRI\":\"Rankings\",\"8hwlOf\":\"Switch to English\"}");

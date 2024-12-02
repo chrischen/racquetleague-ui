@@ -25,7 +25,7 @@ msgstr "住所が必要です"
 msgid "Akabane Elementary School"
 msgstr "赤羽小学校"
 
-#: src/components/molecules/forms/Form.re.mjs:288
+#: src/components/molecules/forms/Form.re.mjs:294
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -34,7 +34,9 @@ msgid "details"
 msgstr "詳細"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:180
-msgid "Instructions or information that will apply to all events held at this location."
+msgid ""
+"Instructions or information that will apply to all events held at this "
+"location."
 msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:138
@@ -53,6 +55,6 @@ msgstr "場所名"
 msgid "name is required"
 msgstr "場所名は必須"
 
-#: src/components/molecules/forms/Form.re.mjs:295
+#: src/components/molecules/forms/Form.re.mjs:301
 msgid "save"
 msgstr "保存"

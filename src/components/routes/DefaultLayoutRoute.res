@@ -20,6 +20,7 @@ module LoaderArgs = {
 }
 @genType
 let loader = async ({context, params}: LoaderArgs.t) => {
+
   Router.defer({
     WaitForMessages.data: DefaultLayoutMapQuery_graphql.load(
       ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),

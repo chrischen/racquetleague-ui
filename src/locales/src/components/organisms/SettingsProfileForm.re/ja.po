@@ -1,40 +1,70 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-12 15:33+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
-"Language: ja\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:59
-msgid "activity is required"
-msgstr ""
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:135
+#: src/components/organisms/SettingsProfileForm.re.mjs:194
 msgid "biography"
-msgstr ""
+msgstr "バイオグラフィー"
 
-#: src/components/molecules/forms/Form.re.mjs:288
+#: src/components/molecules/forms/Form.re.mjs:294
 msgid "cancel"
-msgstr ""
+msgstr "キャンセル"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:130
+#: src/components/organisms/SettingsProfileForm.re.mjs:159
 msgid "details about yourself"
+msgstr "自己紹介"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:171
+msgid "Doe John"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:56
-msgid "input is required"
+#: src/components/organisms/SettingsProfileForm.re.mjs:167
+msgid "full name"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:129
+#: src/components/organisms/SettingsProfileForm.re.mjs:158
 msgid "profile"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:295
+#: src/components/molecules/forms/Form.re.mjs:301
 msgid "save"
+msgstr "保存"
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:36
+msgid "seeking a doubles partner"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:138
-msgid "tell us a little about yourself"
+#: src/components/organisms/SeekingPartnerInput.re.mjs:41
+msgid ""
+"shows a badge next to your name in RSVP lists to tell people you are looking "
+"for a partner"
 msgstr ""
+"RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
+"す。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:169
+msgid "Some events require your legal name as shown on an ID card."
+msgstr " "
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:197
+msgid "tell us a little about yourself"
+msgstr "自己紹介をしてください"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:59
+#~ msgid "activity is required"
+#~ msgstr "アクティビティが必要です"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:56
+#~ msgid "input is required"
+#~ msgstr "タイトルが必要です"

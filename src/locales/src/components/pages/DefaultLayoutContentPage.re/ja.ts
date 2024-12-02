@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"tst44n\":\"イベント\",\"W8fQRI\":\"ランキング\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"/96Fb+\":\"日本語がお好きなようですね。日本語に変更しますか？\",\"tst44n\":\"イベント\",\"W8fQRI\":\"ランキング\",\"8hwlOf\":\"日本語に切り替える\"}");

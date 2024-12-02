@@ -32,6 +32,26 @@ type core = {i18n: t}
 external i18n: t = "i18n"
 let i18n = i18n
 
+
+@send
+external trans: (t, string) => string = "_"
+
+type transOpts = {
+  message: string,
+  id?: string,
+  comment?: string,
+}
+@send
+external trans2: (t, transOpts) => string = "_"
+
+
+type setupOpts = {
+  locale: string
+}
+@module("@lingui/core")
+external setupI18n: (~opts: option<setupOpts>=?) => t = "setupI18n"
+let detectedI18n = setupI18n()
+
 module I18nProvider = {
   @module("@lingui/react") @react.component
   external // @react.component
@@ -51,6 +71,20 @@ let loadMessages = src => lang => {
   | _ => src.en
   }->Promise.thenResolve(messages => {
     Util.startTransition(() => i18n.load(lang, messages.messages))
+  })
+  // }->Promise.thenResolve(messages => Lingui.i18n.loadAndActivate({locale: lang, messages: messages["messages"]}))
+  [messages]
+}
+
+let loadMessagesForDetected = src => lang => {
+  let messages = switch lang {
+  | "ja" => src.ja
+  | _ => src.en
+  }->Promise.thenResolve(messages => {
+    Js.log("Loading")
+    Js.log(lang);
+    Js.log(messages.messages);
+    Util.startTransition(() => detectedI18n.load(lang, messages.messages))
   })
   // }->Promise.thenResolve(messages => Lingui.i18n.loadAndActivate({locale: lang, messages: messages["messages"]}))
   [messages]

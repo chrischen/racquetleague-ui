@@ -1,8 +1,18 @@
 type locale = {
   locale: string,
+  detectedLocale?: string,
+  detectedLang?: string,
   lang: string,
   timezone: string,
 }
+
+let parseLang = (loc: string) => {
+  loc->String.split("-")->Array.get(0)
+}
+let parseLocale = (loc: string) => {
+  loc->String.split("-")->Array.get(1)
+}
+
 module LocaleContext = {
   module Provider = {
     @react.component @module("../layouts/appContext") @scope("LocaleContext")
@@ -115,6 +125,61 @@ module Router = {
 
       <Router.LinkWithOpts {...props} />
     }
+  }
+  let useNavigate = Router.useNavigate
+  let useLocation = Router.useLocation
+}
+
+module DetectedLang = {
+  @react.component
+  let make = () => {
+    let (langNotice, setLangNotice) = React.useState(() => false)
+    let {pathname} = Router.useLocation()
+    let locale = React.useContext(LocaleContext.context)
+    let navigate = Router.useNavigate()
+    React.useEffect1(() => {
+      Js.log("Effect")
+      locale.detectedLang
+      ->Option.map(detectedLang => {
+        if detectedLang != locale.lang {
+          Localized.loadMessages(
+            Some(detectedLang),
+            Lingui.loadMessagesForDetected({
+              ja: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/ja"),
+              en: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/en"),
+            }),
+          )->Promise.thenResolve(
+            _ => {
+              Lingui.detectedI18n.activate(detectedLang)
+              setLangNotice(_ => true)
+              ()
+            },
+          )
+        } else {
+          setLangNotice(_ => false)
+          Js.Promise.resolve()
+        }
+      })
+      ->ignore
+      None
+    }, [locale.lang])
+    <div className="mx-auto max-w-7xl mb-4">
+      {langNotice
+        ? <InfoAlert
+            cta={Lingui.detectedI18n->Lingui.trans("8hwlOf")->React.string}
+            ctaClick={() => {
+              navigate(
+                I18n.getLangPath(locale.detectedLang->Option.getOr("en")) ++
+                I18n.getBasePath(locale.lang, pathname),
+                None,
+              )
+            }}>
+            {Lingui.detectedI18n
+            ->Lingui.trans("/96Fb+")
+            ->React.string}
+          </InfoAlert>
+        : React.null}
+    </div>
   }
 }
 //

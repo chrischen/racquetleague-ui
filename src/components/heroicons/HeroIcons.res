@@ -54,6 +54,11 @@ module ExclamationTriangleIcon = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "ExclamationTriangleIcon"
 }
+module InformationCircleIcon = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "InformationCircleIcon"
+}
 module UserPlus = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "UserPlusIcon"

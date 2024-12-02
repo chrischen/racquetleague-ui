@@ -5,7 +5,7 @@
 
 import * as LangSwitchJS from './LangSwitch.re.mjs';
 
-export type LocaleButton_t = { readonly locale: string; readonly display: string };
+export type LocaleButton_t = { readonly lang: string; readonly display: string };
 
 export type LocaleButton_props<locale,path,active> = {
   readonly locale: locale; 

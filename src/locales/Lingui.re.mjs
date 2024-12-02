@@ -12,6 +12,8 @@ var Messages = {
 
 var i18n = Core.i18n;
 
+var detectedI18n = Core.setupI18n();
+
 var I18nProvider = {};
 
 function loadMessages(src) {
@@ -25,6 +27,20 @@ function loadMessages(src) {
   };
 }
 
+function loadMessagesForDetected(src) {
+  return function (lang) {
+    var tmp = lang === "ja" ? src.ja : src.en;
+    return [tmp.then(function (messages) {
+                  console.log("Loading");
+                  console.log(lang);
+                  console.log(messages.messages);
+                  React.startTransition(function () {
+                        detectedI18n.load(lang, messages.messages);
+                      });
+                })];
+  };
+}
+
 var Util = {};
 
 var UtilString = {};
@@ -32,8 +48,10 @@ var UtilString = {};
 export {
   Messages ,
   i18n ,
+  detectedI18n ,
   I18nProvider ,
   loadMessages ,
+  loadMessagesForDetected ,
   Util ,
   UtilString ,
 }

@@ -21,10 +21,12 @@ external useLoaderData: unit => WaitForMessages.data<DefaultLayoutMapQuery_graph
 // }
 
 module Content = {
+  open Lingui.Util
   @react.component
   let make = (~children) => {
     <div
       className="grow p-0 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+      <LangProvider.DetectedLang />
       <div className="mx-auto max-w-7xl"> {children} </div>
     </div>
   }
@@ -93,10 +95,7 @@ module ActivityLeagueDropdownMenu = {
 type params = {activitySlug: string, lang: option<string>}
 module Layout = {
   @react.component
-  let make = (
-    ~viewer: option<Query.Types.response_viewer>,
-    ~children: React.element,
-  ) => {
+  let make = (~viewer: option<Query.Types.response_viewer>, ~children: React.element) => {
     open Lingui.Util
     // let params: params = Router.useParams()
     // let (searchParams, _) = Router.useSearchParamsFunc()
@@ -154,11 +153,13 @@ module Layout = {
                 //   // <InboxIcon />
                 //   {""->React.string}
                 // </NavbarItem>
-                {viewer->Option.map(viewer =>
+                {viewer
+                ->Option.map(viewer =>
                   <React.Suspense fallback={<LoginLink />}>
                     <NavViewer viewer=viewer.fragmentRefs />
                   </React.Suspense>
-                )->Option.getOr(<LoginLink />)}
+                )
+                ->Option.getOr(<LoginLink />)}
               </NavbarSection>
             </Navbar>}
             sidebar={<Sidebar>
@@ -223,7 +224,7 @@ let make = () => {
   // let paramsJs = useParams()
 
   // let lang = paramsJs->RouteParams.parse->Belt.Result.mapWithDefault(None, ({lang}) => lang)
-  let {viewer } = Query.usePreloaded(~queryRef=query.data)
+  let {viewer} = Query.usePreloaded(~queryRef=query.data)
   // <Router.Await2 resolve=query.i18nLoaders errorElement={"Error"->React.string}>
   <Layout viewer={viewer}>
     <Router.Outlet />

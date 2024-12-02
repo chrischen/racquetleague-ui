@@ -575,9 +575,9 @@ let make = (~events, ~header: React.element) => {
             />
             {filterByDate
             ->Option.map(_ =>
-              <InfoAlert cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>
+              <WarningAlert cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>
                 {<> {t`filtering by date`} </>}
-              </InfoAlert>
+              </WarningAlert>
             )
             ->Option.getOr(React.null)}
             {!isLoadingPrevious && hasPrevious

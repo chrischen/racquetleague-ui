@@ -8,7 +8,6 @@ import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Calendar from "./Calendar.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
-import * as InfoAlert from "../molecules/InfoAlert.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -16,6 +15,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
 import * as Core$1 from "@linaria/core";
 import * as React$1 from "@lingui/react";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
@@ -534,7 +534,7 @@ function EventsList(props) {
                                                     })
                                                 }),
                                             Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
-                                                        return JsxRuntime.jsx(InfoAlert.make, {
+                                                        return JsxRuntime.jsx(WarningAlert.make, {
                                                                     children: JsxRuntime.jsx(JsxRuntime.Fragment, {
                                                                           children: Caml_option.some(t`filtering by date`)
                                                                         }),

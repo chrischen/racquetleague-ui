@@ -27,7 +27,8 @@ msgstr "メールアドレス"
 
 #: src/components/pages/LoginPage.re.mjs:54
 msgid "event organizers and other users cannot view your email"
-msgstr "イベント主催者や他のユーザーはあなたのメールアドレスを見ることはできません"
+msgstr ""
+"イベント主催者や他のユーザーはあなたのメールアドレスを見ることはできません"
 
 #: src/components/pages/LoginPage.re.mjs:27
 #: src/components/pages/LoginPage.re.mjs:82

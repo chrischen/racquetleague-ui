@@ -47,7 +47,7 @@ msgstr ""
 msgid "about"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:288
+#: src/components/molecules/forms/Form.re.mjs:294
 msgid "cancel"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "name is required"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:295
+#: src/components/molecules/forms/Form.re.mjs:301
 msgid "save"
 msgstr ""
 

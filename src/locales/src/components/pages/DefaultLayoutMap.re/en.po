@@ -17,19 +17,23 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:93
+#: src/components/pages/DefaultLayoutMap.re.mjs:128
 msgid "All"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:102
-#: src/components/pages/DefaultLayoutMap.re.mjs:155
+#: src/components/pages/DefaultLayoutMap.re.mjs:137
+#: src/components/pages/DefaultLayoutMap.re.mjs:190
 msgid "Badminton"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:226
-#: src/components/pages/DefaultLayoutMap.re.mjs:289
+#: src/components/pages/DefaultLayoutMap.re.mjs:261
+#: src/components/pages/DefaultLayoutMap.re.mjs:324
 msgid "Events"
 msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:88
+#~ msgid "It looks like you may prefer English. Would you like to switch to English?"
+#~ msgstr ""
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
@@ -40,17 +44,25 @@ msgstr ""
 msgid "My Events"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:97
-#: src/components/pages/DefaultLayoutMap.re.mjs:150
+#: src/components/pages/DefaultLayoutMap.re.mjs:132
+#: src/components/pages/DefaultLayoutMap.re.mjs:185
 msgid "Pickleball"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:210
-#: src/components/pages/DefaultLayoutMap.re.mjs:275
+#: src/components/pages/DefaultLayoutMap.re.mjs:245
+#: src/components/pages/DefaultLayoutMap.re.mjs:310
 msgid "Racquet League"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:241
-#: src/components/pages/DefaultLayoutMap.re.mjs:304
+#: src/components/pages/DefaultLayoutMap.re.mjs:276
+#: src/components/pages/DefaultLayoutMap.re.mjs:339
 msgid "Rankings"
 msgstr ""
+
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "Settings"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:89
+#~ msgid "Switch to English"
+#~ msgstr ""

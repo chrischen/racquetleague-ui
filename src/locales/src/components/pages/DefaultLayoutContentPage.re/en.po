@@ -17,6 +17,14 @@ msgstr ""
 #~ msgid "Events"
 #~ msgstr ""
 
+#: src/components/pages/DefaultLayoutMap.re.mjs:88
+#~ msgid "It looks like you may prefer English. Would you like to switch to English?"
+#~ msgstr ""
+
 #: src/components/pages/DefaultLayoutMap.re.mjs:80
 #~ msgid "Rankings"
+#~ msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:89
+#~ msgid "Switch to English"
 #~ msgstr ""
