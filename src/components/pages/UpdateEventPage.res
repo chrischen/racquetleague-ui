@@ -1,6 +1,15 @@
+%%raw("import { t } from '@lingui/macro'")
 module Query = %relay(`
-  query UpdateEventPageQuery($after: String, $first: Int, $before: String) {
-    ...SelectLocation_query @arguments(after: $after, first: $first, before: $before)
+  query UpdateEventPageQuery($eventId: ID!, $locationId: ID!) {
+    location(id: $locationId) {
+      ...CreateLocationEventForm_location
+      ...SelectedLocation_location
+    }
+    event(id: $eventId) {
+      id
+      ...CreateLocationEventForm_event
+    }
+    ...CreateLocationEventForm_query
   }
   `)
 type loaderData = UpdateEventPageQuery_graphql.queryRef
@@ -9,7 +18,35 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 
 @react.component
 let make = () => {
+  open Lingui.Util
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
-  <SelectLocation locations={query.fragmentRefs} />
+  let navigate = Router.useNavigate()
+  <Layout.Container>
+    <WaitForMessages>
+      {() =>
+        query.location
+        ->Option.flatMap(location => {
+          Js.log("The location")
+          Js.log(location)
+          query.event->Option.map(event =>
+            <Grid>
+              <SelectedLocation
+                key="selected_location"
+                location={location.fragmentRefs}
+                onNewLocation={location =>
+                  navigate("../update/" ++ event.id ++ "/" ++ location, None)}
+              />
+              <CreateLocationEventForm
+                key="create_location_event_form"
+                event=event.fragmentRefs
+                location=location.fragmentRefs
+                query=query.fragmentRefs
+              />
+            </Grid>
+          )
+        })
+        ->Option.getOr(t`Event or Location doesn't exist.`)}
+    </WaitForMessages>
+  </Layout.Container>
 }

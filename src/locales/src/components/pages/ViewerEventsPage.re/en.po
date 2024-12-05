@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventsList.re.mjs:569
+#: src/components/organisms/EventsList.re.mjs:571
 msgid "...load past events"
 msgstr ""
 
@@ -82,11 +82,11 @@ msgstr ""
 #~ msgid "all events"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:541
+#: src/components/organisms/EventsList.re.mjs:543
 msgid "clear filter"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:539
+#: src/components/organisms/EventsList.re.mjs:541
 msgid "filtering by date"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 msgid "public events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:511
+#: src/components/organisms/EventsList.re.mjs:513
 msgid "share as text"
 msgstr ""
 

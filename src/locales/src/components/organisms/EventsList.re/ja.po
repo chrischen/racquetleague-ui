@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:569
+#: src/components/organisms/EventsList.re.mjs:571
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
@@ -78,11 +78,11 @@ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
-#: src/components/organisms/EventsList.re.mjs:541
+#: src/components/organisms/EventsList.re.mjs:543
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
-#: src/components/organisms/EventsList.re.mjs:539
+#: src/components/organisms/EventsList.re.mjs:541
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 
@@ -94,7 +94,7 @@ msgstr "参加"
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventsList.re.mjs:511
+#: src/components/organisms/EventsList.re.mjs:513
 msgid "share as text"
 msgstr "テキストとして共有"
 

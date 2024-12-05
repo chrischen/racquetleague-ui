@@ -1233,11 +1233,11 @@ msgstr "マッチのユニークな組み合わせ。"
 
 #: src/components/organisms/NavViewer.re.mjs:71
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
-msgstr ""
+msgstr "ダブルスパートナーを探しています"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
@@ -1257,31 +1257,36 @@ msgstr "自己紹介"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:171
 msgid "Doe John"
-msgstr ""
+msgstr "ジョン・ドウ"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:167
 msgid "full name"
-msgstr ""
+msgstr "フルネーム"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:158
 msgid "profile"
-msgstr ""
+msgstr "プロフィール"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:169
 msgid "Some events require your legal name as shown on an ID card."
-msgstr " "
+msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:197
 msgid "tell us a little about yourself"
 msgstr "自己紹介をしてください"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:88
-msgid "It looks like you may prefer English. Would you like to switch to English?"
+msgid ""
+"It looks like you may prefer English. Would you like to switch to English?"
 msgstr "日本語がお好きなようですね。日本語に変更しますか？"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:89
 msgid "Switch to English"
 msgstr "日本語に切り替える"
+
+#: src/components/organisms/SelectedLocation.re.mjs:69
+msgid "change location"
+msgstr "場所を変更"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

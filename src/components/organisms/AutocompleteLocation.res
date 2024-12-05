@@ -20,15 +20,9 @@ module AutocompleteLocationMutation = %relay(`
   }
 `)
 
-type autocompleteLocationInput
-let mapToAutocompleteLocationInput = (resp: GoogleMapsAutocomplete.place): unit => {
-  ()
-}
 @react.component
-let make = (~locations) => {
-  let navigate = Router.useNavigate()
+let make = (~onSelected: string => unit) => {
   let (commitMutationCreate, _) = AutocompleteLocationMutation.use()
-  open Lingui.Util
   // let ts = Lingui.UtilString.t
 
   let onSelect = (place: GoogleMapsAutocomplete.place) => {
@@ -48,7 +42,7 @@ let make = (~locations) => {
         },
         ~onCompleted=(response, _errors) => {
           response.autocompleteLocation.location
-          ->Option.map(location => navigate(location.id, None))
+          ->Option.map(location => onSelected(location.id))
           ->ignore
           // reset()
           // onClose()
@@ -57,26 +51,12 @@ let make = (~locations) => {
     | _ => ()
     }
   }
-  <WaitForMessages>
-    {() =>
-      <Grid>
-        <FormSection
-          title={t`event location`}
-          description={t`choose the location where this event will be held.`}>
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
-            <GoogleMapsAutocomplete
-              apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk"
-              onPlaceSelected=onSelect
-              options={{
-                types: ["establishment"],
-                fields: ["place_id", "geometry.location", "name", "formatted_address", "plus_code"],
-              }}
-            />
-          </div>
-        </FormSection>
-        <FramerMotion.AnimatePresence mode="wait">
-          <Router.Outlet />
-        </FramerMotion.AnimatePresence>
-      </Grid>}
-  </WaitForMessages>
+  <GoogleMapsAutocomplete
+    apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk"
+    onPlaceSelected=onSelect
+    options={{
+      types: ["establishment"],
+      fields: ["place_id", "geometry.location", "name", "formatted_address", "plus_code"],
+    }}
+  />
 }

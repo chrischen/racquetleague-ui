@@ -13,8 +13,6 @@ import type {data as WaitForMessages_data} from '../../../src/components/shared/
 
 import type {props as CreateEventPage_props} from '../../../src/components/pages/CreateEventPage.gen';
 
-import type {queryRef as CreateEventPageQuery_graphql_queryRef} from '../../../src/__generated__/CreateEventPageQuery_graphql.gen';
-
 export type params = { readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
@@ -25,4 +23,4 @@ export type LoaderArgs_t = {
 
 export const Component: React.ComponentType<{}> = CreateEventRouteJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<CreateEventPageQuery_graphql_queryRef>)> = CreateEventRouteJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<void>)> = CreateEventRouteJS.loader as any;

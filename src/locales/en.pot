@@ -1373,3 +1373,7 @@ msgstr ""
 #: src/components/pages/DefaultLayoutMap.re.mjs:89
 msgid "Switch to English"
 msgstr ""
+
+#: src/components/organisms/SelectedLocation.re.mjs:69
+msgid "change location"
+msgstr ""

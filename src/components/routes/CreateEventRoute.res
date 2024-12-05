@@ -29,15 +29,10 @@ let loadMessages = Lingui.loadMessages({
 })
 
 @genType
-let loader = async ({context, params}: LoaderArgs.t) => {
-  let query = CreateEventPageQuery_graphql.load(
-    ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-    ~variables={},
-    ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-  )
+let loader = async ({params}: LoaderArgs.t) => {
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   Router.defer({
-    WaitForMessages.data: query,
+    WaitForMessages.data: (),
     // Localized.i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
     i18nLoaders: ?(
       RelaySSRUtils.ssr ? None : Some(Localized.loadMessages(params.lang, loadMessages))

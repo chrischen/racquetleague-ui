@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
-msgstr ""
+msgstr "ダブルスパートナーを探しています"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""

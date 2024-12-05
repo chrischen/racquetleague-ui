@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"VnQOuZ\":\"場所を変更\",\"Vveohd\":\"このイベントが開催される場所を選択してください。\",\"xl+An2\":\"イベント場所\"}");

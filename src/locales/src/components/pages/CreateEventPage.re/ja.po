@@ -13,11 +13,11 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:81
+#: src/components/pages/CreateEventPage.re.mjs:31
 msgid "choose the location where this event will be held."
 msgstr "このイベントが開催される場所を選択してください。"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:80
+#: src/components/pages/CreateEventPage.re.mjs:30
 msgid "event location"
 msgstr "イベント場所"
 

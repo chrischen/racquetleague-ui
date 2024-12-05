@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"+rZFLM\":\"seeking a doubles partner\",\"hor1p7\":\"RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えます。\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"+rZFLM\":\"ダブルスパートナーを探しています\",\"hor1p7\":\"RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えます。\"}");

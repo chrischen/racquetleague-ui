@@ -98,9 +98,6 @@ let make = (
             </FramerMotion.AnimatePresence>
           </div>
         </FormSection>
-        <FramerMotion.AnimatePresence mode="wait">
-          <Router.Outlet />
-        </FramerMotion.AnimatePresence>
       </Grid>}
   </WaitForMessages>
 }

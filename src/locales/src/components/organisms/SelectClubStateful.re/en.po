@@ -17,7 +17,7 @@ msgstr ""
 msgid "about"
 msgstr ""
 
-#: src/components/organisms/SelectClubStateful.re.mjs:110
+#: src/components/organisms/SelectClubStateful.re.mjs:108
 msgid "add new club"
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: src/components/organisms/SelectClubStateful.re.mjs:84
+#: src/components/organisms/SelectClubStateful.re.mjs:82
 msgid "choose the club where this event will be held."
 msgstr ""
 
@@ -53,7 +53,7 @@ msgstr ""
 msgid "save"
 msgstr ""
 
-#: src/components/organisms/SelectClubStateful.re.mjs:83
+#: src/components/organisms/SelectClubStateful.re.mjs:81
 msgid "select club"
 msgstr ""
 

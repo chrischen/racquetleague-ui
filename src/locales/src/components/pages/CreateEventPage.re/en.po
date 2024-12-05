@@ -49,7 +49,7 @@ msgstr ""
 #~ msgid "Cancel"
 #~ msgstr ""
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:81
+#: src/components/pages/CreateEventPage.re.mjs:31
 msgid "choose the location where this event will be held."
 msgstr ""
 
@@ -65,7 +65,7 @@ msgstr ""
 #~ msgid "Details"
 #~ msgstr ""
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:80
+#: src/components/pages/CreateEventPage.re.mjs:30
 msgid "event location"
 msgstr ""
 

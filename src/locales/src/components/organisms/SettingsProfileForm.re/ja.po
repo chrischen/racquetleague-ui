@@ -27,15 +27,15 @@ msgstr "自己紹介"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:171
 msgid "Doe John"
-msgstr ""
+msgstr "ジョン・ドウ"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:167
 msgid "full name"
-msgstr ""
+msgstr "フルネーム"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:158
 msgid "profile"
-msgstr ""
+msgstr "プロフィール"
 
 #: src/components/molecules/forms/Form.re.mjs:301
 msgid "save"
@@ -43,7 +43,7 @@ msgstr "保存"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
-msgstr ""
+msgstr "ダブルスパートナーを探しています"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
@@ -55,7 +55,7 @@ msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:169
 msgid "Some events require your legal name as shown on an ID card."
-msgstr " "
+msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:197
 msgid "tell us a little about yourself"

@@ -30,7 +30,12 @@ var loadMessages = Lingui.loadMessages({
 
 async function loader(param) {
   var params = param.params;
-  var query = UpdateEventPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {}, "store-or-network", undefined, undefined);
+  var query = UpdateEventPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
+        eventId: params.eventId,
+        locationId: params.locationId
+      }, "store-or-network", undefined, undefined);
+  console.log("Loading ID");
+  console.log(params.locationId);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

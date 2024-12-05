@@ -17,7 +17,7 @@ msgstr ""
 msgid "about"
 msgstr "約"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:110
+#: src/components/organisms/SelectClubStateful.re.mjs:108
 msgid "add new club"
 msgstr "新しいクラブを追加"
 
@@ -25,7 +25,7 @@ msgstr "新しいクラブを追加"
 msgid "cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:84
+#: src/components/organisms/SelectClubStateful.re.mjs:82
 msgid "choose the club where this event will be held."
 msgstr "このイベントが開催されるクラブを選択してください。"
 
@@ -53,7 +53,7 @@ msgstr "場所名は必須"
 msgid "save"
 msgstr "保存"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:83
+#: src/components/organisms/SelectClubStateful.re.mjs:81
 msgid "select club"
 msgstr "クラブを選択"
 

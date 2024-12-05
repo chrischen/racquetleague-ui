@@ -9,7 +9,6 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as CreateClubForm from "./CreateClubForm.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
-import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as SelectClubStateful_query_graphql from "../../__generated__/SelectClubStateful_query_graphql.re.mjs";
@@ -77,89 +76,83 @@ function SelectClubStateful(props) {
   var showCreateclub = match[0];
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
-                  return JsxRuntime.jsxs(Grid.make, {
-                              children: [
-                                JsxRuntime.jsx(FormSection.make, {
-                                      title: t`select club`,
-                                      description: Caml_option.some(t`choose the club where this event will be held.`),
-                                      children: JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx("ul", {
-                                                    children: clubs.map(function (node) {
-                                                          return JsxRuntime.jsx("li", {
-                                                                      children: JsxRuntime.jsx(UiAction.make, {
-                                                                            onClick: (function (param) {
-                                                                                onSelected(node.id);
-                                                                              }),
-                                                                            className: Core__Option.getOr(Core__Option.map(value, (function (s) {
-                                                                                        return s === node.id;
-                                                                                      })), false) ? "font-extrabold" : "",
-                                                                            children: Core__Option.getOr(node.name, "?")
-                                                                          })
-                                                                    }, node.id);
-                                                        })
-                                                  }),
-                                              JsxRuntime.jsxs(UiAction.make, {
-                                                    onClick: (function (param) {
-                                                        setShowCreateclub(function (prev) {
-                                                              return !prev;
-                                                            });
-                                                      }),
-                                                    children: [
-                                                      showCreateclub ? "- " : "+ ",
-                                                      t`add new club`
-                                                    ]
-                                                  }),
-                                              JsxRuntime.jsx(FramerMotion.AnimatePresence, {
-                                                    mode: "sync",
-                                                    children: showCreateclub ? JsxRuntime.jsx(FramerMotion.motion.div, {
-                                                            className: "",
-                                                            style: {
-                                                              opacity: 1,
-                                                              y: 0
-                                                            },
-                                                            animate: {
-                                                              opacity: 1,
-                                                              scale: 1,
-                                                              y: 0.00
-                                                            },
-                                                            initial: {
-                                                              opacity: 0,
-                                                              scale: 1,
-                                                              y: -50
-                                                            },
-                                                            exit: {
-                                                              opacity: 0,
-                                                              scale: 1,
-                                                              y: -50
-                                                            },
-                                                            children: Caml_option.some(JsxRuntime.jsx(CreateClubForm.make, {
-                                                                      connectionId: connectionId,
-                                                                      query: fragments,
-                                                                      onCancel: (function (param) {
-                                                                          setShowCreateclub(function (param) {
-                                                                                return false;
-                                                                              });
-                                                                        }),
-                                                                      onCreated: (function (club) {
-                                                                          setShowCreateclub(function (param) {
-                                                                                return false;
-                                                                              });
-                                                                          onSelected(club.id);
-                                                                        }),
-                                                                      inline: true
-                                                                    }))
-                                                          }) : null
-                                                  })
-                                            ],
-                                            className: "mt-10 grid grid-cols-1 gap-x-6 gap-y-8"
-                                          })
-                                    }),
-                                JsxRuntime.jsx(FramerMotion.AnimatePresence, {
-                                      mode: "wait",
-                                      children: JsxRuntime.jsx(ReactRouterDom.Outlet, {})
-                                    })
-                              ]
+                  return JsxRuntime.jsx(Grid.make, {
+                              children: JsxRuntime.jsx(FormSection.make, {
+                                    title: t`select club`,
+                                    description: Caml_option.some(t`choose the club where this event will be held.`),
+                                    children: JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx("ul", {
+                                                  children: clubs.map(function (node) {
+                                                        return JsxRuntime.jsx("li", {
+                                                                    children: JsxRuntime.jsx(UiAction.make, {
+                                                                          onClick: (function (param) {
+                                                                              onSelected(node.id);
+                                                                            }),
+                                                                          className: Core__Option.getOr(Core__Option.map(value, (function (s) {
+                                                                                      return s === node.id;
+                                                                                    })), false) ? "font-extrabold" : "",
+                                                                          children: Core__Option.getOr(node.name, "?")
+                                                                        })
+                                                                  }, node.id);
+                                                      })
+                                                }),
+                                            JsxRuntime.jsxs(UiAction.make, {
+                                                  onClick: (function (param) {
+                                                      setShowCreateclub(function (prev) {
+                                                            return !prev;
+                                                          });
+                                                    }),
+                                                  children: [
+                                                    showCreateclub ? "- " : "+ ",
+                                                    t`add new club`
+                                                  ]
+                                                }),
+                                            JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                                                  mode: "sync",
+                                                  children: showCreateclub ? JsxRuntime.jsx(FramerMotion.motion.div, {
+                                                          className: "",
+                                                          style: {
+                                                            opacity: 1,
+                                                            y: 0
+                                                          },
+                                                          animate: {
+                                                            opacity: 1,
+                                                            scale: 1,
+                                                            y: 0.00
+                                                          },
+                                                          initial: {
+                                                            opacity: 0,
+                                                            scale: 1,
+                                                            y: -50
+                                                          },
+                                                          exit: {
+                                                            opacity: 0,
+                                                            scale: 1,
+                                                            y: -50
+                                                          },
+                                                          children: Caml_option.some(JsxRuntime.jsx(CreateClubForm.make, {
+                                                                    connectionId: connectionId,
+                                                                    query: fragments,
+                                                                    onCancel: (function (param) {
+                                                                        setShowCreateclub(function (param) {
+                                                                              return false;
+                                                                            });
+                                                                      }),
+                                                                    onCreated: (function (club) {
+                                                                        setShowCreateclub(function (param) {
+                                                                              return false;
+                                                                            });
+                                                                        onSelected(club.id);
+                                                                      }),
+                                                                    inline: true
+                                                                  }))
+                                                        }) : null
+                                                })
+                                          ],
+                                          className: "mt-10 grid grid-cols-1 gap-x-6 gap-y-8"
+                                        })
+                                  })
                             });
                 })
             });

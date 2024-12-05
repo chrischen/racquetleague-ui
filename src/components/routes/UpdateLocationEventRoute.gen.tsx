@@ -13,13 +13,7 @@ import type {data as WaitForMessages_data} from '../../../src/components/shared/
 
 import type {props as UpdateLocationEventPage_props} from '../../../src/components/pages/UpdateLocationEventPage.gen';
 
-import type {queryRef as UpdateLocationEventPageQuery_graphql_queryRef} from '../../../src/__generated__/UpdateLocationEventPageQuery_graphql.gen';
-
-export type params = {
-  readonly eventId: string; 
-  readonly locationId: string; 
-  readonly lang: (undefined | string)
-};
+export type params = { readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
   readonly context: RelayEnv_context; 
@@ -29,4 +23,4 @@ export type LoaderArgs_t = {
 
 export const Component: React.ComponentType<{}> = UpdateLocationEventRouteJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<UpdateLocationEventPageQuery_graphql_queryRef>)> = UpdateLocationEventRouteJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<void>)> = UpdateLocationEventRouteJS.loader as any;

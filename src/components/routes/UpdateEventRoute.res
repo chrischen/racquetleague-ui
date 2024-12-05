@@ -14,7 +14,7 @@ let parseData: 'a => data<'a> = json => {
 @genType
 let \"Component" = UpdateEventPage.make
 
-type params = {lang: option<string>}
+type params = {eventId: string, locationId: string, lang: option<string>}
 module LoaderArgs = {
   type t = {
     context: RelayEnv.context,
@@ -22,6 +22,7 @@ module LoaderArgs = {
     request: Router.RouterRequest.t,
   }
 }
+
 let loadMessages = Lingui.loadMessages({
   ja: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/en"),
@@ -31,9 +32,11 @@ let loadMessages = Lingui.loadMessages({
 let loader = async ({context, params}: LoaderArgs.t) => {
   let query = UpdateEventPageQuery_graphql.load(
     ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-    ~variables={},
+    ~variables={eventId: params.eventId, locationId: params.locationId},
     ~fetchPolicy=RescriptRelay.StoreOrNetwork,
   )
+  Js.log("Loading ID")
+  Js.log(params.locationId);
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   Router.defer({
     WaitForMessages.data: query,
