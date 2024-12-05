@@ -82,12 +82,20 @@ msgstr ""
 #~ msgid "all events"
 #~ msgstr ""
 
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr ""
+
 #: src/components/organisms/EventsList.re.mjs:543
 msgid "clear filter"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:541
 msgid "filtering by date"
+msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:225
@@ -123,7 +131,7 @@ msgstr ""
 msgid "show"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:24
+#: src/components/molecules/AddToCalendar.re.mjs:87
 msgid "sync calendar"
 msgstr ""
 

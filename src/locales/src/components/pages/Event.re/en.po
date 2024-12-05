@@ -65,6 +65,10 @@ msgstr ""
 #~ msgid "add to calendar"
 #~ msgstr ""
 
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr ""
+
 #: src/components/organisms/EventRsvps.re.mjs:211
 msgid "attendees"
 msgstr ""
@@ -123,6 +127,10 @@ msgstr ""
 
 #: src/components/pages/Event.re.mjs:460
 msgid "good luck, have fun"
+msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
 msgstr ""
 
 #: src/components/pages/Event.re.mjs:195
@@ -214,7 +222,7 @@ msgstr ""
 msgid "subscribe to all {activityName} events"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:24
+#: src/components/molecules/AddToCalendar.re.mjs:87
 msgid "sync calendar"
 msgstr ""
 

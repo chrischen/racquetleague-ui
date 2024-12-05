@@ -57,6 +57,10 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
 #: src/components/organisms/EventRsvps.re.mjs:211
 msgid "attendees"
 msgstr "参加者"
@@ -92,6 +96,10 @@ msgstr "イベントが存在しません"
 #: src/components/pages/Event.re.mjs:460
 msgid "good luck, have fun"
 msgstr "がんばってください"
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
+msgstr "Google カレンダー"
 
 #: src/components/pages/Event.re.mjs:314
 msgid "hosted by {name}"
@@ -162,7 +170,7 @@ msgstr "試合を提出"
 msgid "subscribe to all {activityName} events"
 msgstr "{activityName} のすべてのイベントに登録"
 
-#: src/components/molecules/AddToCalendar.re.mjs:24
+#: src/components/molecules/AddToCalendar.re.mjs:87
 msgid "sync calendar"
 msgstr "カレンダー同期"
 

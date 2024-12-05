@@ -1288,6 +1288,14 @@ msgstr "日本語に切り替える"
 msgid "change location"
 msgstr "場所を変更"
 
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
+msgstr "Google カレンダー"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

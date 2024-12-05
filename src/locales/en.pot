@@ -1377,3 +1377,11 @@ msgstr ""
 #: src/components/organisms/SelectedLocation.re.mjs:69
 msgid "change location"
 msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
+msgstr ""

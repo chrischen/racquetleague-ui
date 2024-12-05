@@ -63,7 +63,7 @@ export const DropdownItem = forwardRef(function DropdownItem({
   let classes = clsx(
     className,
     // Base styles
-    'group cursor-default rounded-lg px-3.5 py-2.5 focus:outline-none sm:px-3 sm:py-1.5',
+    'group cursor-pointer rounded-lg px-3.5 py-2.5 focus:outline-none sm:px-3 sm:py-1.5',
     // Text styles
     'text-left text-base/6 text-zinc-950 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]',
     // Focus
