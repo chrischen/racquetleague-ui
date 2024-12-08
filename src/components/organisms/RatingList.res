@@ -172,7 +172,7 @@ let make = (~ratings) => {
       ? {
           pageInfo.endCursor
           ->Option.map(endCursor => {
-            <Link to={"./" ++ "?after=" ++ encodeURIComponent(endCursor)}> {t`Load more players...`} </Link>
+            <Link className="block py-4" to={"./" ++ "?after=" ++ encodeURIComponent(endCursor)}> {t`Load more players...`} </Link>
           }
           )
           ->Option.getOr(React.null)
