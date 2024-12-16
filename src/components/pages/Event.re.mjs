@@ -12,7 +12,6 @@ import * as ErrorAlert from "../molecules/ErrorAlert.re.mjs";
 import * as EventRsvps from "../organisms/EventRsvps.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
@@ -123,7 +122,9 @@ function $$Event(props) {
   };
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
-  var viewer = GlobalQuery.useViewer();
+  var viewer = Core__Option.flatMap(match.viewer, (function (v) {
+          return v.user;
+        }));
   var navigate = ReactRouterDom.useNavigate();
   var match$1 = use$1();
   var canceling = match$1[1];
@@ -138,7 +139,7 @@ function $$Event(props) {
                     var $$location = $$event.location;
                     var details = $$event.details;
                     var activity = $$event.activity;
-                    var viewerIsAdmin = Core__Option.getOr($$event.viewerIsAdmin, false);
+                    var viewerIsAdmin = $$event.viewerIsAdmin;
                     var viewerHasRsvp = Core__Option.getOr($$event.viewerHasRsvp, false);
                     var canOpenAiTetsu = viewerHasRsvp || viewerIsAdmin ? true : false;
                     var until = Core__Option.map($$event.startDate, (function (startDate) {
@@ -217,6 +218,27 @@ function $$Event(props) {
                                           });
                                     } else {
                                       tmp = null;
+                                    }
+                                    var tmp$1;
+                                    var exit = 0;
+                                    if (shadow !== undefined && shadow) {
+                                      tmp$1 = JsxRuntime.jsx(ErrorAlert.make, {
+                                            children: t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`,
+                                            cta: Caml_option.some(t`view events`),
+                                            ctaClick: (function () {
+                                                navigate("/clubs/japanpickle", undefined);
+                                              })
+                                          });
+                                    } else {
+                                      exit = 1;
+                                    }
+                                    if (exit === 1) {
+                                      tmp$1 = JsxRuntime.jsx(EventRsvps.make, {
+                                            event: fragmentRefs,
+                                            user: Core__Option.map(viewer, (function (v) {
+                                                    return v.fragmentRefs;
+                                                  }))
+                                          });
                                     }
                                     return JsxRuntime.jsxs("main", {
                                                 children: [
@@ -338,7 +360,7 @@ function $$Event(props) {
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsx("div", {
                                                               children: JsxRuntime.jsx("div", {
-                                                                    children: Core__Option.getOr(Core__Option.flatMap(viewer.user, (function (param) {
+                                                                    children: Core__Option.getOr(Core__Option.flatMap(viewer, (function (param) {
                                                                                 return Core__Option.map(activity, (function (activity) {
                                                                                               return JsxRuntime.jsx(SubscribeActivity.make, {
                                                                                                           activity: activity.fragmentRefs
@@ -357,15 +379,7 @@ function $$Event(props) {
                                                                 JsxRuntime.jsx("div", {
                                                                       children: JsxRuntime.jsxs("div", {
                                                                             children: [
-                                                                              shadow !== undefined && shadow ? JsxRuntime.jsx(ErrorAlert.make, {
-                                                                                      children: t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`,
-                                                                                      cta: Caml_option.some(t`view events`),
-                                                                                      ctaClick: (function () {
-                                                                                          navigate("/clubs/japanpickle", undefined);
-                                                                                        })
-                                                                                    }) : JsxRuntime.jsx(EventRsvps.make, {
-                                                                                      event: fragmentRefs
-                                                                                    }),
+                                                                              tmp$1,
                                                                               Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (activity) {
                                                                                           return Core__Option.map(activity.slug, (function (slug) {
                                                                                                         if (!canOpenAiTetsu) {

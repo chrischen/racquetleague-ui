@@ -5,6 +5,11 @@ open LangProvider.Router
 
 module EventQuery = %relay(`
   query EventQuery($eventId: ID!, $after: String, $first: Int, $before: String) {
+    viewer {
+      user {
+        ...EventRsvps_user @arguments(eventId: $eventId)
+      }
+    }
     event(id: $eventId) {
       __id
       id
@@ -96,8 +101,9 @@ let make = () => {
   let td = Lingui.UtilString.dynamic
   let ts = Lingui.UtilString.t
   let query = useLoaderData()
-  let {event} = EventQuery.usePreloaded(~queryRef=query.data)
-  let viewer = GlobalQuery.useViewer()
+  let {event, viewer} = EventQuery.usePreloaded(~queryRef=query.data)
+  let viewer = viewer->Option.flatMap(v => v.user)
+  // let viewer = GlobalQuery.useViewer()
   let navigate = Router.useNavigate()
 
   let (cancelEvent, canceling) = EventCancelMutation.use()
@@ -107,7 +113,7 @@ let make = () => {
   ->Option.map(event => {
     let {__id, title, activity, details, location, shadow, fragmentRefs} = event
     // Permissions
-    let viewerIsAdmin = event.viewerIsAdmin->Option.getOr(false)
+    let viewerIsAdmin = event.viewerIsAdmin
     let viewerHasRsvp = event.viewerHasRsvp->Option.getOr(false)
     let canOpenAiTetsu = switch (viewerHasRsvp, viewerIsAdmin) {
     | (false, false) => false
@@ -215,7 +221,10 @@ let make = () => {
                         {activity
                         ->Option.flatMap(a =>
                           a.name->Option.map(
-                            name => <Link to={"/?activity=" ++ a.slug->Option.getOr("")}> {td(name)->React.string} </Link>,
+                            name =>
+                              <Link to={"/?activity=" ++ a.slug->Option.getOr("")}>
+                                {td(name)->React.string}
+                              </Link>,
                           )
                         )
                         ->Option.getOr(React.null)}
@@ -349,7 +358,7 @@ let make = () => {
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div
                 className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2">
-                {viewer.user
+                {viewer
                 ->Option.flatMap(_ =>
                   activity->Option.map(
                     activity => <SubscribeActivity activity=activity.fragmentRefs />,
@@ -369,7 +378,9 @@ let make = () => {
                   {switch shadow {
                   | None
                   | Some(false) =>
-                    <EventRsvps event=fragmentRefs />
+                    <EventRsvps
+                      event=fragmentRefs user=(viewer->Option.map(v => v.fragmentRefs))
+                    />
                   | Some(true) =>
                     <ErrorAlert
                       cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
@@ -514,7 +525,7 @@ module LoaderArgs = {
 
 let loadMessages = Lingui.loadMessages({
   ja: Lingui.import("../../locales/src/components/pages/Event.re/ja"),
-  en: Lingui.import("../../locales/src/components/pages/Event.re/en")
+  en: Lingui.import("../../locales/src/components/pages/Event.re/en"),
 })
 
 @genType

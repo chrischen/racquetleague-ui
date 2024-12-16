@@ -8,7 +8,9 @@ module Types = {
     slug: option<string>,
   }
   and fragment_rsvps_edges_node_rating = {
+    mu: option<float>,
     ordinal: option<float>,
+    sigma: option<float>,
   }
   and fragment_rsvps_edges_node_user = {
     @live id: string,
@@ -35,6 +37,7 @@ module Types = {
     activity: option<fragment_activity>,
     @live id: string,
     maxRsvps: option<int>,
+    minRating: option<float>,
     rsvps: option<fragment_rsvps>,
   }
 }
@@ -173,6 +176,13 @@ return {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "minRating",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Activity",
       "kind": "LinkedField",
       "name": "activity",
@@ -242,6 +252,20 @@ return {
                       "args": null,
                       "kind": "ScalarField",
                       "name": "ordinal",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "mu",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "sigma",
                       "storageKey": null
                     }
                   ],

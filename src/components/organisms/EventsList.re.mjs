@@ -540,7 +540,7 @@ function EventsList(props) {
                                                                       children: JsxRuntime.jsx(JsxRuntime.Fragment, {
                                                                             children: Caml_option.some(t`filtering by date`)
                                                                           }),
-                                                                      cta: t`clear filter`,
+                                                                      cta: Caml_option.some(t`clear filter`),
                                                                       ctaClick: (function () {
                                                                           clearFilterByDate();
                                                                         })

@@ -99,6 +99,7 @@ input CreateEventInput {
   listed: Boolean
   locationId: ID!
   maxRsvps: Int
+  minRating: Float
   startDate: Datetime!
   title: String!
 }
@@ -162,13 +163,14 @@ type Event implements Node {
   listed: Boolean
   location: Location
   maxRsvps: Int
+  minRating: Float
   owner: User
   rsvps(after: String, before: String, first: Int): EventRsvpConnection
   shadow: Boolean
   startDate: Datetime
   title: String
   viewerHasRsvp: Boolean
-  viewerIsAdmin: Boolean
+  viewerIsAdmin: Boolean!
   viewerRsvpStatus: RsvpStatus
 }
 
@@ -449,6 +451,7 @@ type UpdateProfileResult implements HasErrors {
 
 type User implements Node {
   biography: String
+  eventRating(eventId: ID!): Rating
   fullName: String
   gender: Gender
   id: ID!

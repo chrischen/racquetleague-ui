@@ -292,7 +292,8 @@ function RatingList(props) {
                 match.hasNext && !match.isLoadingNext ? Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
                               return JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                           to: "./?after=" + encodeURIComponent(endCursor),
-                                          children: t`Load more players...`
+                                          children: t`Load more players...`,
+                                          className: "block py-4"
                                         });
                             })), null) : null
               ],

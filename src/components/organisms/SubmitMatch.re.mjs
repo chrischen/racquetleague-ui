@@ -135,12 +135,12 @@ function SubmitMatch$PredictionBar(props) {
 
 var schema = Zod.z.object({
       scoreLeft: Zod.z.preprocess((function (a) {
-              return Core__Float.fromString(a);
+              return Core__Option.getOr(Core__Float.fromString(a), 0);
             }), Zod.z.number({
                   invalid_type_error: "Enter a number"
                 }).gte(0)),
       scoreRight: Zod.z.preprocess((function (a) {
-              return Core__Float.fromString(a);
+              return Core__Option.getOr(Core__Float.fromString(a), 0);
             }), Zod.z.number({
                   invalid_type_error: "Enter a number"
                 }).gte(0))

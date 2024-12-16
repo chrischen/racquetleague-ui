@@ -19,6 +19,8 @@ module Types = {
     endDate: option<Util.Datetime.t>,
     @live id: string,
     listed: option<bool>,
+    maxRsvps: option<int>,
+    minRating: option<float>,
     startDate: option<Util.Datetime.t>,
     title: option<string>,
   }
@@ -162,6 +164,20 @@ v3 = {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "maxRsvps",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "minRating",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Activity",
       "kind": "LinkedField",
       "name": "activity",
@@ -274,12 +290,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "f84295df4a8d196f0147cfc8fe538c62",
+    "cacheID": "0dc7be369539b5c1436e0b26b28da9b7",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
   }
 };
 })() `)

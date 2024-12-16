@@ -3,6 +3,7 @@
 import * as Util from "../components/shared/Util.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Session from "./Session.re.mjs";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Openskill from "openskill";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_int32 from "rescript/lib/es6/caml_int32.js";
@@ -771,6 +772,108 @@ function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAl
   }
 }
 
+function addToQueue(queue, player) {
+  var maybePlayer = queue.find(function (p) {
+        return Caml_obj.equal(p, player);
+      });
+  if (maybePlayer !== undefined) {
+    return queue;
+  } else {
+    return queue.concat([player]);
+  }
+}
+
+function removeFromQueue(queue, player) {
+  return queue.filter(function (p) {
+              return Caml_obj.notequal(p, player);
+            });
+}
+
+function toggle(queue, player) {
+  var maybePlayer = queue.find(function (p) {
+        return Caml_obj.equal(p, player);
+      });
+  if (maybePlayer !== undefined) {
+    return removeFromQueue(queue, player);
+  } else {
+    return queue.concat([player]);
+  }
+}
+
+function toSet$1(queue) {
+  return new Set(queue);
+}
+
+function fromSet(set) {
+  return Array.from(set.values());
+}
+
+function filter(queue, players) {
+  return queue.filter(function (p) {
+              return !players.has(p);
+            });
+}
+
+var OrderedQueue = {
+  addToQueue: addToQueue,
+  removeFromQueue: removeFromQueue,
+  toggle: toggle,
+  toSet: toSet$1,
+  fromSet: fromSet,
+  filter: filter
+};
+
+function addToQueue$1(queue, player) {
+  var newSet = new Set();
+  queue.forEach(function (id) {
+        newSet.add(id);
+      });
+  newSet.add(player);
+  return newSet;
+}
+
+function removeFromQueue$1(queue, player) {
+  var newSet = new Set();
+  queue.forEach(function (id) {
+        newSet.add(id);
+      });
+  newSet.delete(player);
+  return newSet;
+}
+
+function togglePlayer(queue, player) {
+  var newSet = new Set();
+  queue.forEach(function (id) {
+        newSet.add(id);
+      });
+  if (queue.has(player)) {
+    return removeFromQueue$1(newSet, player);
+  } else {
+    return addToQueue$1(newSet, player);
+  }
+}
+
+function toOrdered(queue) {
+  return queue.values();
+}
+
+function fromArray(arr) {
+  return new Set(arr);
+}
+
+function filter$1(queue, players) {
+  return queue.difference(players);
+}
+
+var UnorderedQueue = {
+  addToQueue: addToQueue$1,
+  removeFromQueue: removeFromQueue$1,
+  togglePlayer: togglePlayer,
+  toOrdered: toOrdered,
+  fromArray: fromArray,
+  filter: filter$1
+};
+
 function fromPlayers(players) {
   return Js_dict.fromArray(players.map(function (p) {
                   return [
@@ -914,6 +1017,8 @@ export {
   strategy_by_random ,
   strategy_by_dupr ,
   getMatches ,
+  OrderedQueue ,
+  UnorderedQueue ,
   PlayersCache ,
   Matches ,
 }

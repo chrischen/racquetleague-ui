@@ -106,11 +106,11 @@ let schema = Zod.z->Zod.object(
   (
     {
       scoreLeft: Zod.z->Zod.preprocess(
-        a => Float.fromString(a),
+        a => Float.fromString(a)->Option.getOr(0.),
         Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(0.),
       ),
       scoreRight: Zod.z->Zod.preprocess(
-        a => Float.fromString(a),
+        a => Float.fromString(a)->Option.getOr(0.),
         Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(0.),
       ),
     }: inputsMatch

@@ -97,6 +97,7 @@ and input_CreateEventInput = {
   listed?: bool,
   locationId: string,
   maxRsvps?: int,
+  minRating?: float,
   startDate: Util.Datetime.t,
   title: string,
 }
@@ -110,6 +111,7 @@ and input_CreateEventInput_nullable = {
   listed?: Js.Null.t<bool>,
   locationId: string,
   maxRsvps?: Js.Null.t<int>,
+  minRating?: Js.Null.t<float>,
   startDate: Util.Datetime.t,
   title: string,
 }

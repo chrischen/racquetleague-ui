@@ -5,8 +5,8 @@ import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as LoginLink from "../molecules/LoginLink.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
-import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
 import * as Core from "@linaria/core";
 import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
@@ -17,6 +17,7 @@ import * as JsxRuntime from "react/jsx-runtime";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as EventRsvps_user_graphql from "../../__generated__/EventRsvps_user_graphql.re.mjs";
 import * as EventRsvps_event_graphql from "../../__generated__/EventRsvps_event_graphql.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
 import * as EventRsvpsJoinMutation_graphql from "../../__generated__/EventRsvpsJoinMutation_graphql.re.mjs";
@@ -43,6 +44,8 @@ var convertRefetchVariables = EventRsvpsRefetchQuery_graphql.Internal.convertVar
 function usePagination(fRef) {
   return RescriptRelay_Fragment.usePaginationFragment(EventRsvps_event_graphql.node, fRef, convertFragment, convertRefetchVariables);
 }
+
+var convertFragment$1 = EventRsvps_user_graphql.Internal.convertFragment;
 
 var convertVariables = EventRsvpsJoinMutation_graphql.Internal.convertVariables;
 
@@ -89,8 +92,12 @@ function EventRsvps(props) {
         });
   };
   var match$2 = use($$event);
+  var minRating = match$2.minRating;
   var maxRsvps = match$2.maxRsvps;
   var __id = match$2.__id;
+  var viewer = Core__Option.map(props.user, (function (user) {
+          return RescriptRelay_Fragment.useFragment(EventRsvps_user_graphql.node, convertFragment$1, user);
+        }));
   var match$3 = use$3();
   var commitMutationLeave = match$3[0];
   var match$4 = use$1();
@@ -102,8 +109,7 @@ function EventRsvps(props) {
       });
   var setExpanded = match$6[1];
   var expanded = match$6[0];
-  var viewer = GlobalQuery.useViewer();
-  var viewerHasRsvp = Core__Option.getOr(Core__Option.flatMap(viewer.user, (function (viewer) {
+  var viewerHasRsvp = Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
               return Core__Option.map(rsvps.find(function (edge) {
                               return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
                                                 return viewer.id === user.id;
@@ -112,7 +118,7 @@ function EventRsvps(props) {
                             return true;
                           }));
             })), false);
-  var viewerIsInEvent = Core__Option.getOr(Core__Option.flatMap(viewer.user, (function (viewer) {
+  var viewerIsInEvent = Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
               return Core__Option.map(Core__Array.findIndexOpt(rsvps, (function (edge) {
                                 return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
                                                   return viewer.id === user.id;
@@ -123,6 +129,14 @@ function EventRsvps(props) {
                                             })), true);
                           }));
             })), false);
+  var viewerCanJoin = Core__Option.map(minRating, (function (minRating) {
+          var rating = Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
+                      return Core__Option.flatMap(viewer.eventRating, (function (r) {
+                                    return r.ordinal;
+                                  }));
+                    })), 0.0);
+          return rating >= minRating;
+        }));
   var onJoin = function (param) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "EventRsvps_event_rsvps", undefined);
     commitMutationCreateRating(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
@@ -166,7 +180,7 @@ function EventRsvps(props) {
             return acc;
           }
         }));
-  var minRating = Core__Array.reduce(rsvps, maxRating, (function (acc, next) {
+  var minRsvpRating = Core__Array.reduce(rsvps, maxRating, (function (acc, next) {
           if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
                         return r.ordinal;
                       })), maxRating) < acc) {
@@ -177,12 +191,48 @@ function EventRsvps(props) {
             return acc;
           }
         }));
-  var match$7 = viewer.user;
-  var joinButton = match$7 !== undefined ? JsxRuntime.jsx("button", {
-          children: t`join event`,
-          className: "w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600",
-          onClick: onJoin
-        }) : JsxRuntime.jsxs("div", {
+  var joinButton;
+  if (viewer !== undefined) {
+    var exit = 0;
+    if (viewerCanJoin !== undefined && !viewerCanJoin) {
+      joinButton = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsxs(WarningAlert.make, {
+                    children: [
+                      t`required rating: ${Core__Option.getOr(minRating, 0.0).toFixed(2)}`,
+                      JsxRuntime.jsx("br", {}),
+                      t`your rating ${Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
+                                    return Core__Option.flatMap(viewer.eventRating, (function (r) {
+                                                  return r.ordinal;
+                                                }));
+                                  })), 0.0).toFixed(2)} is too low. please join a JPL open event to boost your rating. the fastest way is to play and beat Jai a couple of times`
+                    ],
+                    cta: "",
+                    ctaClick: (function () {
+                        
+                      })
+                  }),
+              JsxRuntime.jsx("button", {
+                    children: t`join event`,
+                    className: "mt-2 w-full items-center justify-center rounded-md bg-red-200 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600",
+                    disabled: true
+                  })
+            ],
+            className: "text-center"
+          });
+    } else {
+      exit = 1;
+    }
+    if (exit === 1) {
+      joinButton = JsxRuntime.jsx("button", {
+            children: t`join event`,
+            className: "w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600",
+            onClick: onJoin
+          });
+    }
+    
+  } else {
+    joinButton = JsxRuntime.jsxs("div", {
           children: [
             JsxRuntime.jsx("p", {
                   children: JsxRuntime.jsx("em", {
@@ -200,11 +250,45 @@ function EventRsvps(props) {
           ],
           className: "text-center"
         });
+  }
   var leaveButton = JsxRuntime.jsx("button", {
         children: t`leave event`,
         className: "inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50",
         onClick: onLeave
       });
+  var tmp;
+  var exit$1 = 0;
+  if (viewerCanJoin !== undefined && !viewerCanJoin) {
+    tmp = null;
+  } else {
+    exit$1 = 1;
+  }
+  if (exit$1 === 1) {
+    tmp = JsxRuntime.jsx(FramerMotion.motion.li, {
+          className: "mt-4 flex w-full flex-none gap-x-4 px-6",
+          style: {
+            originX: 0.05,
+            originY: 0.05
+          },
+          animate: {
+            opacity: 1,
+            scale: 1
+          },
+          initial: {
+            opacity: 0,
+            scale: 1.15
+          },
+          exit: {
+            opacity: 0,
+            scale: 1.15
+          },
+          children: Caml_option.some(JsxRuntime.jsx(ViewerRsvpStatus.make, {
+                    onJoin: onJoin,
+                    onLeave: onLeave,
+                    joined: viewerHasRsvp
+                  }))
+        }, "viewer");
+  }
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx("h2", {
@@ -370,7 +454,7 @@ function EventRsvps(props) {
                                                                                               JsxRuntime.jsx("div", {
                                                                                                     children: JsxRuntime.jsx(EventRsvpUser.make, {
                                                                                                           user: user.fragmentRefs,
-                                                                                                          highlight: Core__Option.getOr(Core__Option.map(viewer.user, (function (viewer) {
+                                                                                                          highlight: Core__Option.getOr(Core__Option.map(viewer, (function (viewer) {
                                                                                                                       return viewer.id === user.id;
                                                                                                                     })), false),
                                                                                                           link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
@@ -379,7 +463,7 @@ function EventRsvps(props) {
                                                                                                                 })),
                                                                                                           ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
                                                                                                                       return Core__Option.map(rating.ordinal, (function (ordinal) {
-                                                                                                                                    return (ordinal - minRating) / (maxRating - minRating) * 100;
+                                                                                                                                    return (ordinal - minRsvpRating) / (maxRating - minRsvpRating) * 100;
                                                                                                                                   }));
                                                                                                                     })), 0)
                                                                                                         }),
@@ -391,30 +475,7 @@ function EventRsvps(props) {
                                                                             })), null);
                                                           }) : t`no players yet`
                                                   }),
-                                              JsxRuntime.jsx(FramerMotion.motion.li, {
-                                                    className: "mt-4 flex w-full flex-none gap-x-4 px-6",
-                                                    style: {
-                                                      originX: 0.05,
-                                                      originY: 0.05
-                                                    },
-                                                    animate: {
-                                                      opacity: 1,
-                                                      scale: 1
-                                                    },
-                                                    initial: {
-                                                      opacity: 0,
-                                                      scale: 1.15
-                                                    },
-                                                    exit: {
-                                                      opacity: 0,
-                                                      scale: 1.15
-                                                    },
-                                                    children: Caml_option.some(JsxRuntime.jsx(ViewerRsvpStatus.make, {
-                                                              onJoin: onJoin,
-                                                              onLeave: onLeave,
-                                                              joined: viewerHasRsvp
-                                                            }))
-                                                  }, "viewer")
+                                              tmp
                                             ],
                                             className: Core.cx(expanded ? "" : "hidden sm:block")
                                           }),
@@ -491,7 +552,7 @@ function EventRsvps(props) {
                                                                                                     JsxRuntime.jsx("div", {
                                                                                                           children: JsxRuntime.jsx(EventRsvpUser.make, {
                                                                                                                 user: user.fragmentRefs,
-                                                                                                                highlight: Core__Option.getOr(Core__Option.map(viewer.user, (function (viewer) {
+                                                                                                                highlight: Core__Option.getOr(Core__Option.map(viewer, (function (viewer) {
                                                                                                                             return viewer.id === user.id;
                                                                                                                           })), false),
                                                                                                                 link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
@@ -500,7 +561,7 @@ function EventRsvps(props) {
                                                                                                                       })),
                                                                                                                 ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
                                                                                                                             return Core__Option.map(rating.ordinal, (function (ordinal) {
-                                                                                                                                          return (ordinal - minRating) / (maxRating - minRating) * 100;
+                                                                                                                                          return (ordinal - minRsvpRating) / (maxRating - minRsvpRating) * 100;
                                                                                                                                         }));
                                                                                                                           })), 0)
                                                                                                               }),

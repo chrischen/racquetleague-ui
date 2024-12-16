@@ -99,7 +99,7 @@
     "@babel/preset-react": "^7.23.3",
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/schema-ast": "^4.0.0",
-    "@greenlabs/ppx-rhf": "^0.0.2",
+    "@greenlabs/ppx-rhf": "^0.0.7",
     "@imchhh/storybook-addon-relay": "^0.0.10",
     "@lingui/cli": "^4.8.0-next.1",
     "@lingui/conf": "^4.8.0-next.1",

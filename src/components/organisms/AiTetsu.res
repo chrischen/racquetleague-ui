@@ -381,19 +381,6 @@ let removeGuestPlayer = (sessionPlayers: array<Player.t<'a>>, player: Player.t<'
   sessionPlayers->Array.filter(p => p.id != player.id)
 }
 
-let addToQueue = (queue, player: player) => {
-  let newSet = Set.make()
-  queue->Set.forEach(id => newSet->Set.add(id))
-  newSet->Set.add(player.id)->ignore
-  newSet
-}
-let removeFromQueue = (queue, player: player) => {
-  let newSet = Set.make()
-  queue->Set.forEach(id => newSet->Set.add(id))
-  newSet->Set.delete(player.id)->ignore
-  newSet
-}
-
 type playerSettings = TeamBuilder | AddPlayer | Settings
 type screen = Advanced | Matches
 @react.component
@@ -410,7 +397,7 @@ let make = (~event, ~children) => {
   let (teams: NonEmptyArray.t<array<player>>, setTeams) = React.useState(() => NonEmptyArray.empty)
   let (settingsPane: option<playerSettings>, setSettingsPane) = React.useState(() => None)
   // let (activePlayers: array<Player.t<rsvpNode>>, setActivePlayers) = React.useState(_ => [])
-  let (queue: Js.Set.t<string>, setQueue) = React.useState(_ => Set.make())
+  let (queue: array<string>, setQueue) = React.useState(_ => [])
   let (disabled: Js.Set.t<string>, setDisabled) = React.useState(_ => Set.make())
 
   let (sessionState, setSessionState) = React.useState(() => Session.make())
@@ -440,16 +427,9 @@ let make = (~event, ~children) => {
   //   setQueue(queue => FIFOQueue.pull(queue, p => p.id != player.id))
   // }
   //
-  let togglePlayer = (queue, player: player) => {
-    let newSet = Set.make()
-    queue->Set.forEach(id => newSet->Set.add(id))
-    switch queue->Set.has(player.id) {
-    | true => newSet->removeFromQueue(player)
-    | false => newSet->addToQueue(player)
-    }
-  }
-  let toggleQueuePlayer = player => {
-    setQueue(queue => queue->togglePlayer(player))
+  let togglePlayer = OrderedQueue.toggle
+  let toggleQueuePlayer = (player: player) => {
+    setQueue(queue => queue->togglePlayer(player.id))
   }
 
   let {data} = Fragment.usePagination(event)
@@ -530,12 +510,12 @@ let make = (~event, ~children) => {
 
   let deprioritized = getDeprioritizedPlayers(matchHistory, players, sessionState, breakCount)
 
-  let queue = queue->JsSet.difference(disabled)
-  let breakPlayersCount = queue->Set.size
-  let queue = queue->JsSet.difference(deprioritized)
-  let queuedPlayers: array<player> = (players->Array.filter(p => queue->Set.has(p.id)) :> array<
-    player,
-  >)
+  let queue = queue->OrderedQueue.filter(disabled)
+  let breakPlayersCount = queue->Array.length
+  let queue = queue->OrderedQueue.filter(deprioritized)
+  let queuedPlayers: array<player> = (players->Array.filter(p =>
+    queue->Set.fromArray->Set.has(p.id)
+  ) :> array<player>)
 
   let {prioritized: priorityPlayers, deprioritized: _} = getPriorityPlayers(
     matchHistory,
@@ -569,7 +549,7 @@ let make = (~event, ~children) => {
     dequeue
       ? match
         ->Match.players
-        ->Array.map(p => setQueue(queue => queue->removeFromQueue(p)))
+        ->Array.map(p => setQueue(queue => queue->OrderedQueue.removeFromQueue(p.id)))
         ->ignore
       : ()
     setMatches(_ => matches)
@@ -723,14 +703,14 @@ let make = (~event, ~children) => {
   }
 
   let selectAllPlayers = () => {
-    switch queue->Set.size == availablePlayers->Array.length {
+    switch queue->Array.length == availablePlayers->Array.length {
     | true =>
       setQueue(_ => {
-        Set.make()
+        []
       })
     | false =>
       setQueue(_ => {
-        availablePlayers->Array.map(p => p.id)->Set.fromArray
+        availablePlayers->Array.map(p => p.id)
       })
     }
   }
@@ -850,14 +830,14 @@ let make = (~event, ~children) => {
             <div> {t`${breakPlayersCount->Int.toString} ${breakPlayersDesc} are not playing`} </div>
             <SelectPlayersList
               players={allPlayers}
-              selected={queue}
+              selected={queue->Set.fromArray}
               disabled={disabled}
               session={sessionState}
               playing={consumedPlayers}
               onClick={toggleQueuePlayer}
               onRemove={player => {
                 switch player.data {
-                | Some(_) => setDisabled(disabled => disabled->addToQueue(player))
+                | Some(_) => setDisabled(disabled => disabled->UnorderedQueue.addToQueue(player.id))
                 | None =>
                   setSessionPlayers(guests => {
                     let guests = guests->removeGuestPlayer(player)
@@ -868,7 +848,8 @@ let make = (~event, ~children) => {
               }}
               onEnable={player => {
                 switch player.data {
-                | Some(_) => setDisabled(disabled => disabled->removeFromQueue(player))
+                | Some(_) =>
+                  setDisabled(disabled => disabled->UnorderedQueue.removeFromQueue(player.id))
                 | None => ()
                 }
               }}
@@ -974,7 +955,7 @@ let make = (~event, ~children) => {
                   ->Option.map(match => {
                     [match->fst, match->snd]
                     ->Array.flatMap(x => x)
-                    ->Array.map(p => setQueue(queue => queue->addToQueue(p)))
+                    ->Array.map(p => setQueue(queue => queue->OrderedQueue.addToQueue(p.id)))
                   })
                   ->ignore
                   dequeueMatch(i)
@@ -1009,14 +990,14 @@ let make = (~event, ~children) => {
       players
       availablePlayers
       playersCache
-      queue
+      queue={queue->Set.fromArray}
       checkin={<Checkin
         players=allPlayers
         disabled
         onToggleCheckin={(player, status) => {
           switch status {
-          | true => setDisabled(disabled => disabled->removeFromQueue(player))
-          | false => setDisabled(disabled => disabled->addToQueue(player))
+          | true => setDisabled(disabled => disabled->UnorderedQueue.removeFromQueue(player.id))
+          | false => setDisabled(disabled => disabled->UnorderedQueue.addToQueue(player.id))
           }
         }}
         // onUpdatePlayer={(p, paid) => updatePaidStatus(p.id, paid)}
@@ -1059,7 +1040,7 @@ let make = (~event, ~children) => {
         avoidAllPlayers
         onSelectMatch={(match, ~dequeue: option<bool>=?) => {
           // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
-          queueMatch(match, ~dequeue=?dequeue)
+          queueMatch(match, ~dequeue?)
         }}
       />}
     />

@@ -359,24 +359,6 @@ function removeGuestPlayer(sessionPlayers, player) {
             });
 }
 
-function addToQueue(queue, player) {
-  var newSet = new Set();
-  queue.forEach(function (id) {
-        newSet.add(id);
-      });
-  newSet.add(player.id);
-  return newSet;
-}
-
-function removeFromQueue(queue, player) {
-  var newSet = new Set();
-  queue.forEach(function (id) {
-        newSet.add(id);
-      });
-  newSet.delete(player.id);
-  return newSet;
-}
-
 function AiTetsu(props) {
   var $$event = props.event;
   var match = use$2($$event);
@@ -410,7 +392,7 @@ function AiTetsu(props) {
   var setSettingsPane = match$7[1];
   var settingsPane = match$7[0];
   var match$8 = React.useState(function () {
-        return new Set();
+        return [];
       });
   var setQueue = match$8[1];
   var match$9 = React.useState(function () {
@@ -448,17 +430,10 @@ function AiTetsu(props) {
       });
   var setMatchHistory = match$15[1];
   var matchHistory = match$15[0];
+  var togglePlayer = Rating.OrderedQueue.toggle;
   var toggleQueuePlayer = function (player) {
     setQueue(function (queue) {
-          var newSet = new Set();
-          queue.forEach(function (id) {
-                newSet.add(id);
-              });
-          if (queue.has(player.id)) {
-            return removeFromQueue(newSet, player);
-          } else {
-            return addToQueue(newSet, player);
-          }
+          return togglePlayer(queue, player.id);
         });
   };
   var match$16 = usePagination($$event);
@@ -542,11 +517,11 @@ function AiTetsu(props) {
         return !consumedPlayers.has(p.id);
       });
   var deprioritized = getDeprioritizedPlayers(matchHistory, players, sessionState, breakCount);
-  var queue = match$8[0].difference(disabled);
-  var breakPlayersCount = queue.size;
-  var queue$1 = queue.difference(deprioritized);
+  var queue = Rating.OrderedQueue.filter(match$8[0], disabled);
+  var breakPlayersCount = queue.length;
+  var queue$1 = Rating.OrderedQueue.filter(queue, deprioritized);
   var queuedPlayers = players.filter(function (p) {
-        return queue$1.has(p.id);
+        return new Set(queue$1).has(p.id);
       });
   var match$17 = getPriorityPlayers(matchHistory, queuedPlayers, sessionState, breakCount);
   var priorityPlayers = match$17.prioritized;
@@ -588,7 +563,7 @@ function AiTetsu(props) {
     if (dequeue) {
       Rating.Match.players(match$2).map(function (p) {
             setQueue(function (queue) {
-                  return removeFromQueue(queue, p);
+                  return Rating.OrderedQueue.removeFromQueue(queue, p.id);
                 });
           });
     }
@@ -742,15 +717,15 @@ function AiTetsu(props) {
         });
   };
   var selectAllPlayers = function () {
-    if (queue$1.size === availablePlayers$1.length) {
+    if (queue$1.length === availablePlayers$1.length) {
       return setQueue(function (param) {
-                  return new Set();
+                  return [];
                 });
     } else {
       return setQueue(function (param) {
-                  return new Set(availablePlayers$1.map(function (p) {
-                                  return p.id;
-                                }));
+                  return availablePlayers$1.map(function (p) {
+                              return p.id;
+                            });
                 });
     }
   };
@@ -766,16 +741,16 @@ function AiTetsu(props) {
                       onToggleCheckin: (function (player, status) {
                           if (status) {
                             return setDisabled(function (disabled) {
-                                        return removeFromQueue(disabled, player);
+                                        return Rating.UnorderedQueue.removeFromQueue(disabled, player.id);
                                       });
                           } else {
                             return setDisabled(function (disabled) {
-                                        return addToQueue(disabled, player);
+                                        return Rating.UnorderedQueue.addToQueue(disabled, player.id);
                                       });
                           }
                         })
                     }),
-                queue: queue$1,
+                queue: new Set(queue$1),
                 breakPlayers: deprioritized,
                 consumedPlayers: consumedPlayers,
                 togglePlayer: toggleQueuePlayer,
@@ -1027,7 +1002,7 @@ function AiTetsu(props) {
                                             }),
                                         JsxRuntime.jsx(SelectPlayersList.make, {
                                               players: allPlayers,
-                                              selected: queue$1,
+                                              selected: new Set(queue$1),
                                               playing: consumedPlayers,
                                               disabled: disabled,
                                               session: sessionState,
@@ -1036,7 +1011,7 @@ function AiTetsu(props) {
                                                   var match = player.data;
                                                   if (match !== undefined) {
                                                     return setDisabled(function (disabled) {
-                                                                return addToQueue(disabled, player);
+                                                                return Rating.UnorderedQueue.addToQueue(disabled, player.id);
                                                               });
                                                   } else {
                                                     return setSessionPlayers(function (guests) {
@@ -1050,7 +1025,7 @@ function AiTetsu(props) {
                                                   var match = player.data;
                                                   if (match !== undefined) {
                                                     return setDisabled(function (disabled) {
-                                                                return removeFromQueue(disabled, player);
+                                                                return Rating.UnorderedQueue.removeFromQueue(disabled, player.id);
                                                               });
                                                   }
                                                   
@@ -1190,7 +1165,7 @@ function AiTetsu(props) {
                                                                                     return x;
                                                                                   }).map(function (p) {
                                                                                   setQueue(function (queue) {
-                                                                                        return addToQueue(queue, p);
+                                                                                        return Rating.OrderedQueue.addToQueue(queue, p.id);
                                                                                       });
                                                                                 });
                                                                     }));

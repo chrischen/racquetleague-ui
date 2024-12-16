@@ -520,14 +520,14 @@ let rec find_skip = (n: int) => {
 }
 
 let pick_every_n_from_array = (arr: array<'a>, n: int, offset: int) => {
-  arr->Array.filterWithIndex((_, i) => mod(i-offset, n) == 0)
+  arr->Array.filterWithIndex((_, i) => mod(i - offset, n) == 0)
 }
 
 let rec uniform_shuffle_array = (arr: array<'a>, n: int, offset: int) => {
   if n == offset {
     []
   } else {
-    let picks = pick_every_n_from_array(arr, n, offset);
+    let picks = pick_every_n_from_array(arr, n, offset)
     Array.concat(picks, uniform_shuffle_array(arr, n, offset + 1))
   }
 }
@@ -677,6 +677,72 @@ let getMatches = (
   }
   matches
 }
+
+module OrderedQueue = {
+  type t<'a> = array<'a>
+  let addToQueue = (queue: t<'a>, player: 'a) => {
+    let maybePlayer = queue->Array.find(p => p == player)
+    switch maybePlayer {
+    | Some(_) => queue
+    | None => queue->Array.concat([player])
+    }
+  }
+  let removeFromQueue = (queue: t<'a>, player: 'a) => {
+    queue->Array.filter(p => p != player)
+  }
+
+  let toggle = (queue: t<'a>, player: 'a) => {
+    let maybePlayer = queue->Array.find(p => p == player)
+    switch maybePlayer {
+    | Some(_) => queue->removeFromQueue(player)
+    | None => queue->Array.concat([player])
+    }
+  }
+
+  let toSet = (queue: t<'a>) => queue->Set.fromArray
+
+  let fromSet = (set: Set.t<string>): t<'a> => {
+    set->Set.values->Array.fromIterator
+  }
+  let filter: (t<'a>, Set.t<string>) => t<'a> = (queue, players) => {
+    queue->Array.filter(p => !(players->Set.has(p)))
+  }
+}
+
+module UnorderedQueue = {
+  type t<'a> = Js.Set.t<'a>
+  let addToQueue: (t<'a>, 'a) => t<'a> = (queue, player: 'a) => {
+    let newSet = Set.make()
+    queue->Set.forEach(id => newSet->Set.add(id))
+    newSet->Set.add(player)->ignore
+    newSet
+  }
+  let removeFromQueue = (queue: t<'a>, player: 'a) => {
+    let newSet = Set.make()
+    queue->Set.forEach(id => newSet->Set.add(id))
+    newSet->Set.delete(player)->ignore
+    newSet
+  }
+
+  let togglePlayer = (queue: t<'a>, player: 'a) => {
+    let newSet = Set.make()
+    queue->Set.forEach(id => newSet->Set.add(id))
+    switch queue->Set.has(player) {
+    | true => newSet->removeFromQueue(player)
+    | false => newSet->addToQueue(player)
+    }
+  }
+
+  let toOrdered = (queue: t<'a>) => queue->Set.values
+
+  let fromArray = (arr): t<'a> => {
+    arr->Set.fromArray
+  }
+  let filter: (t<'a>, Set.t<'a>) => t<'a> = (queue, players) => {
+    queue->JsSet.difference(players)
+  }
+}
+
 module PlayersCache = {
   type t = Js.Dict.t<player>
 
@@ -710,8 +776,8 @@ module Matches = {
       ->Array.map(((_, players)) => {
         let players = players->Array.map(p => {
           let p = switch p->String.split(":") {
-            | [_, id] => Some(id)
-            | _ => None
+          | [_, id] => Some(id)
+          | _ => None
           }
           p->Option.flatMap(p => playersCache->PlayersCache.get(p))
         })

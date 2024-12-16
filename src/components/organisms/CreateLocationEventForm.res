@@ -14,6 +14,8 @@ module Mutation = %relay(`
         id
         title
         details
+        maxRsvps
+        minRating
         activity {
           id
           name
@@ -33,6 +35,7 @@ module EventFragment = %relay(`
     title
     details
     maxRsvps
+    minRating
     activity {
       id
       name
@@ -58,6 +61,7 @@ module UpdateMutation = %relay(`
         title
         details
         maxRsvps
+        minRating
         activity {
           id
         }
@@ -122,7 +126,8 @@ type inputs = {
   title: Zod.string_,
   activity: Zod.string_,
   // clubId: Zod.string_,
-  maxRsvps: Zod.optional<Zod.number>,
+  maxRsvps?: int,
+  minRating?: Zod.number,
   startDate: Zod.string_,
   endTime: Zod.string_,
   details: Zod.optional<Zod.string_>,
@@ -135,7 +140,14 @@ let schema = Zod.z->Zod.object(
       title: Zod.z->Zod.string({required_error: ts`title is required`})->Zod.String.min(1),
       activity: Zod.z->Zod.string({required_error: ts`activity is required`}),
       // clubId: Zod.z->Zod.string({required_error: ts`club is required`}),
-      maxRsvps: Zod.z->Zod.number({})->Zod.Number.gte(1.)->Zod.optional,
+      maxRsvps: ?(Zod.z->Zod.preprocess(
+        v => Int.fromString(v),
+        Zod.z->Zod.numberInt({})->Zod.optional,
+      )),
+      minRating: ?(Zod.z->Zod.preprocess(
+        v => Float.fromString(v),
+        Zod.z->Zod.number({})->Zod.optional,
+      )),
       startDate: Zod.z->Zod.string({required_error: ts`event date is required`})->Zod.String.min(1),
       endTime: Zod.z->Zod.string({required_error: ts`end time is required`})->Zod.String.min(5),
       details: Zod.z->Zod.string({})->Zod.optional,
@@ -177,7 +189,8 @@ let make = (~event=?, ~location, ~query) => {
       ->Option.map((event): defaultValuesOfInputs => {
         title: event.title->Option.getOr(""),
         activity: event.activity->Option.map(a => a.id)->Option.getOr(""),
-        maxRsvps: event.maxRsvps->Option.map(Int.toFloat),
+        maxRsvps: ?event.maxRsvps,
+        minRating: ?event.minRating,
         startDate: event.startDate
         ->Option.map(d => d->Util.Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:mm"))
         ->Option.getOr(""),
@@ -233,6 +246,7 @@ let make = (~event=?, ~location, ~query) => {
   }, [])
 
   let onSubmit = (data: inputs) => {
+    Js.log(data)
     switch action {
     | Create =>
       let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -248,7 +262,8 @@ let make = (~event=?, ~location, ~query) => {
           input: {
             title: data.title,
             activity: data.activity,
-            maxRsvps: ?data.maxRsvps->Option.map(Float.toInt),
+            maxRsvps: ?data.maxRsvps,
+            minRating: ?data.minRating,
             details: data.details->Option.getOr(""),
             locationId: location.id,
             clubId: selectedClub->Option.getOr(""),
@@ -273,7 +288,8 @@ let make = (~event=?, ~location, ~query) => {
             input: {
               title: data.title,
               activity: data.activity,
-              maxRsvps: ?data.maxRsvps->Option.map(Float.toInt),
+              maxRsvps: ?data.maxRsvps,
+              minRating: ?data.minRating,
               details: data.details->Option.getOr(""),
               locationId: location.id,
               clubId: selectedClub->Option.getOr(""),
@@ -365,13 +381,26 @@ let make = (~event=?, ~location, ~query) => {
                 <div className="sm:col-span-2">
                   <Input
                     label={t`max participants`}
-                    type_="number"
+                    type_="text"
                     id="maxRsvps"
                     name="maxRsvps"
                     register={register(
                       MaxRsvps,
-                      ~options={setValueAs: v => v == "" ? None : Some(Int.fromString(v))},
+                      ~options={
+                        required: false,
+                        // setValueAs: v => v == "" ? "" : "",
+                      },
                     )}
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <Input
+                    label={t`minimum rating`}
+                    type_="text"
+                    step=%raw("'any'")
+                    id="minRating"
+                    name="minRating"
+                    register={register(MinRating, ~options={required: false})}
                   />
                 </div>
                 <div className="col-span-full">

@@ -18,12 +18,13 @@ function Form$PrefixedInput(props) {
   var __type_ = props.type_;
   var id = props.id;
   var name = props.name;
+  var step = props.step;
   var className = props.className;
   var type_ = __type_ !== undefined ? __type_ : "text";
   var tmp;
   if (register !== undefined) {
     var newrecord = Caml_obj.obj_dup(register);
-    tmp = JsxRuntime.jsx("input", (newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.placeholder = placeholder, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
+    tmp = JsxRuntime.jsx("input", (newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.step = step, newrecord.placeholder = placeholder, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
   } else {
     tmp = JsxRuntime.jsx("input", {
           defaultValue: defaultValue,
@@ -32,6 +33,7 @@ function Form$PrefixedInput(props) {
           autoComplete: autoComplete,
           name: name,
           placeholder: placeholder,
+          step: step,
           type: type_,
           value: value,
           onBlur: onBlur,
@@ -75,6 +77,7 @@ function Form$Input(props) {
   var autoComplete = props.autoComplete;
   var __type_ = props.type_;
   var id = props.id;
+  var step = props.step;
   var name = props.name;
   var className = props.className;
   var onClick = props.onClick;
@@ -82,7 +85,7 @@ function Form$Input(props) {
   var tmp;
   if (register !== undefined) {
     var newrecord = Caml_obj.obj_dup(register);
-    tmp = JsxRuntime.jsx("input", (newrecord.onClick = onClick, newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.placeholder = placeholder, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
+    tmp = JsxRuntime.jsx("input", (newrecord.onClick = onClick, newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.step = step, newrecord.placeholder = placeholder, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
   } else {
     tmp = JsxRuntime.jsx("input", {
           defaultValue: defaultValue,
@@ -91,6 +94,7 @@ function Form$Input(props) {
           autoComplete: autoComplete,
           name: name,
           placeholder: placeholder,
+          step: step,
           type: type_,
           value: value,
           onBlur: onBlur,

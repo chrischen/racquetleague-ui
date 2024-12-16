@@ -8,6 +8,7 @@ module PrefixedInput = {
     ~prefix: string,
     ~onChange: option<'a => unit>=?,
     ~className: option<string>=?,
+    ~step: option<float>=?,
     ~name: option<string>=?,
     ~id: string,
     ~type_: option<string>="text",
@@ -34,6 +35,7 @@ module PrefixedInput = {
               {...register}
               // ?onChange
               type_
+              ?step
               // name
               id
               ?autoComplete
@@ -48,6 +50,7 @@ module PrefixedInput = {
           | None =>
             <input
               type_
+              ?step
               ?name
               id
               ?onChange
@@ -74,6 +77,7 @@ module Input = {
     ~onClick: option<JsxEventU.Mouse.t => unit>=?,
     ~className: option<string>=?,
     ~name: option<string>=?,
+    ~step: option<float>=?,
     ~hint: option<React.element>=?,
     ~id: string,
     ~type_: option<string>="text",
@@ -102,6 +106,7 @@ module Input = {
               {...register}
               // ?onChange
               type_
+              ?step
               // name
               id
               ?autoComplete
@@ -117,6 +122,7 @@ module Input = {
           | None =>
             <input
               type_
+              ?step
               ?name
               id
               ?onChange

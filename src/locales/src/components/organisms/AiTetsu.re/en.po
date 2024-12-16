@@ -32,7 +32,7 @@ msgstr ""
 msgid "and"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:294
+#: src/components/molecules/forms/Form.re.mjs:298
 msgid "cancel"
 msgstr ""
 
@@ -234,7 +234,7 @@ msgstr ""
 msgid "Round Robin"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:301
+#: src/components/molecules/forms/Form.re.mjs:305
 msgid "save"
 msgstr ""
 

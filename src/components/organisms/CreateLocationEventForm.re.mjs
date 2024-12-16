@@ -8,6 +8,7 @@ import * as React from "react";
 import * as DateFns from "date-fns";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as FormSection from "../molecules/forms/FormSection.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -79,7 +80,12 @@ var schema = Zod.z.object({
       activity: Zod.z.string({
             required_error: t`activity is required`
           }),
-      maxRsvps: Zod.z.number({}).gte(1).optional(),
+      maxRsvps: Zod.z.preprocess((function (v) {
+              return Core__Int.fromString(v, undefined);
+            }), Zod.z.number({}).optional()),
+      minRating: Zod.z.preprocess((function (v) {
+              return Core__Float.fromString(v);
+            }), Zod.z.number({}).optional()),
       startDate: Zod.z.string({
               required_error: t`event date is required`
             }).min(1),
@@ -124,9 +130,8 @@ function CreateLocationEventForm(props) {
                             activity: Core__Option.getOr(Core__Option.map($$event.activity, (function (a) {
                                         return a.id;
                                       })), ""),
-                            maxRsvps: Caml_option.some(Core__Option.map($$event.maxRsvps, (function (prim) {
-                                        return prim;
-                                      }))),
+                            maxRsvps: $$event.maxRsvps,
+                            minRating: $$event.minRating,
                             startDate: Core__Option.getOr(Core__Option.map($$event.startDate, (function (d) {
                                         return DateFns.format(Util.Datetime.toDate(d), "yyyy-MM-dd'T'HH:mm");
                                       })), ""),
@@ -175,6 +180,7 @@ function CreateLocationEventForm(props) {
           
         }), []);
   var onSubmit = function (data) {
+    console.log(data);
     if (typeof action !== "object") {
       var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "EventsListFragment_events", undefined);
       var startDate = DateFns.parseISO(data.startDate);
@@ -188,9 +194,8 @@ function CreateLocationEventForm(props) {
               endDate: Util.Datetime.fromDate(endDate),
               listed: data.listed,
               locationId: $$location.id,
-              maxRsvps: Core__Option.map(data.maxRsvps, (function (prim) {
-                      return prim | 0;
-                    })),
+              maxRsvps: data.maxRsvps,
+              minRating: data.minRating,
               startDate: Util.Datetime.fromDate(startDate),
               title: data.title
             }
@@ -213,9 +218,8 @@ function CreateLocationEventForm(props) {
             endDate: Util.Datetime.fromDate(endDate$1),
             listed: data.listed,
             locationId: $$location.id,
-            maxRsvps: Core__Option.map(data.maxRsvps, (function (prim) {
-                    return prim | 0;
-                  })),
+            maxRsvps: data.maxRsvps,
+            minRating: data.minRating,
             startDate: Util.Datetime.fromDate(startDate$1),
             title: data.title
           }
@@ -345,15 +349,22 @@ function CreateLocationEventForm(props) {
                                                                                       label: Caml_option.some(t`max participants`),
                                                                                       name: "maxRsvps",
                                                                                       id: "maxRsvps",
-                                                                                      type_: "number",
+                                                                                      type_: "text",
                                                                                       register: register("maxRsvps", {
-                                                                                            setValueAs: (function (v) {
-                                                                                                if (v === "") {
-                                                                                                  return ;
-                                                                                                } else {
-                                                                                                  return Caml_option.some(Core__Int.fromString(v, undefined));
-                                                                                                }
-                                                                                              })
+                                                                                            required: false
+                                                                                          })
+                                                                                    }),
+                                                                                className: "sm:col-span-2"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx(Form.Input.make, {
+                                                                                      label: Caml_option.some(t`minimum rating`),
+                                                                                      name: "minRating",
+                                                                                      step: 'any',
+                                                                                      id: "minRating",
+                                                                                      type_: "text",
+                                                                                      register: register("minRating", {
+                                                                                            required: false
                                                                                           })
                                                                                     }),
                                                                                 className: "sm:col-span-2"

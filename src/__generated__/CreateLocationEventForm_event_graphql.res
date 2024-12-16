@@ -20,6 +20,7 @@ module Types = {
     @live id: string,
     listed: option<bool>,
     maxRsvps: option<int>,
+    minRating: option<float>,
     startDate: option<Util.Datetime.t>,
     title: option<string>,
   }
@@ -92,6 +93,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "maxRsvps",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "minRating",
       "storageKey": null
     },
     {

@@ -36,7 +36,7 @@ msgstr "{0}試合を分析しました。"
 msgid "and"
 msgstr "と"
 
-#: src/components/molecules/forms/Form.re.mjs:294
+#: src/components/molecules/forms/Form.re.mjs:298
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -236,7 +236,7 @@ msgstr "右チームのプレイヤー"
 msgid "Round Robin"
 msgstr "総当たり戦"
 
-#: src/components/molecules/forms/Form.re.mjs:301
+#: src/components/molecules/forms/Form.re.mjs:305
 msgid "save"
 msgstr "保存"
 

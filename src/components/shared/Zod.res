@@ -7,6 +7,7 @@ type string_ = string
 type number = float
 type object<'form> = 'form
 type optional<'value> = option<'value>
+type optional2<'value> = Js.Null.t<'value>
 type array<'value> = array<'value>
 type params = {required_error?: string, invalid_type_error?: string}
 
@@ -48,6 +49,8 @@ module Number = {
 }
 @send
 external number: (t, params) => number = "number"
+@send
+external numberInt: (t, params) => int = "number"
 
 @send
 external boolean: (t, params) => bool = "boolean"
@@ -65,10 +68,13 @@ external object: (t, 'schema) => object<'schema> = "object"
 external optional: 'z => optional<'z> = "optional"
 
 @send
+external optional2: 'z => Js.Null.t<'z> = "optional"
+
+@send
 external array: 'z => array<'z> = "array"
 
 @send
-external preprocess: (t, 'a => option<'b>, 'b) => 'b = "preprocess"
+external preprocess: (t, 'a => 'b, 'b) => 'b = "preprocess"
 
 type issue = {
   code: int,

@@ -17,7 +17,7 @@ msgstr ""
 msgid "biography"
 msgstr "バイオグラフィー"
 
-#: src/components/molecules/forms/Form.re.mjs:294
+#: src/components/molecules/forms/Form.re.mjs:298
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -37,7 +37,7 @@ msgstr "フルネーム"
 msgid "profile"
 msgstr "プロフィール"
 
-#: src/components/molecules/forms/Form.re.mjs:301
+#: src/components/molecules/forms/Form.re.mjs:305
 msgid "save"
 msgstr "保存"
 

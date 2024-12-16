@@ -13,6 +13,7 @@ module Fragment = %relay(`
   {
     __id
     maxRsvps
+    minRating
     activity {
       slug
     }
@@ -27,6 +28,8 @@ module Fragment = %relay(`
           }
           rating {
             ordinal
+            mu
+            sigma
           }
         }
       }
@@ -36,6 +39,21 @@ module Fragment = %relay(`
         endCursor
       }
 		}
+  }
+`)
+module UserFragment = %relay(`
+  fragment EventRsvps_user on User
+  @argumentDefinitions (
+    eventId: { type: "ID!" }
+  )
+  {
+    id
+    lineUsername
+    eventRating(eventId: $eventId) {
+      ordinal
+      mu
+      sigma
+    }
   }
 `)
 module EventRsvpsJoinMutation = %relay(`
@@ -86,7 +104,8 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 //@genType
 //let default = make
 @react.component
-let make = (~event) => {
+let make = (~event, ~user) => {
+  let ts = Lingui.UtilString.t
   let (_isPending, startTransition) = ReactExperimental.useTransition()
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
   let rsvps = data.rsvps->Fragment.getConnectionNodes
@@ -98,16 +117,19 @@ let make = (~event) => {
       loadNext(~count=1)->ignore
     })
 
-  let {__id, maxRsvps, activity} = Fragment.use(event)
+  let {__id, maxRsvps, minRating, activity} = Fragment.use(event)
+  let viewer = user->Option.map(user => UserFragment.use(user))
+  // let user = viewer->Option.flatMap(viewer => viewer.user)
   let (commitMutationLeave, _isMutationInFlight) = EventRsvpsLeaveMutation.use()
   let (commitMutationJoin, _isMutationInFlight) = EventRsvpsJoinMutation.use()
   let (commitMutationCreateRating, _) = EventRsvpsCreateRatingMutation.use()
   let (expanded, setExpanded) = React.useState(() => false)
 
-  let viewer = GlobalQuery.useViewer()
+  // let viewer = GlobalQuery.useViewer()
+  // let viewer = viewer->Option.flatMap(viewer => viewer.user)
 
   let viewerHasRsvp =
-    viewer.user
+    viewer
     ->Option.flatMap(viewer =>
       rsvps
       ->Array.find(edge => edge.user->Option.map(user => viewer.id == user.id)->Option.getOr(false))
@@ -116,7 +138,7 @@ let make = (~event) => {
     ->Option.getOr(false)
 
   let viewerIsInEvent =
-    viewer.user
+    viewer
     ->Option.flatMap(viewer =>
       rsvps
       ->Array.findIndexOpt(edge =>
@@ -125,6 +147,18 @@ let make = (~event) => {
       ->Option.map(i => maxRsvps->Option.map(max => i < max)->Option.getOr(true))
     )
     ->Option.getOr(false)
+
+  let viewerCanJoin: option<bool> = minRating->Option.map(minRating => {
+    let rating =
+      viewer
+      ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.ordinal))
+      ->Option.getOr(0.0)
+    if rating < minRating {
+      false
+    } else {
+      true
+    }
+  })
 
   let onJoin = _ => {
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -177,20 +211,41 @@ let make = (~event) => {
         ? next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(0.)
         : acc
     )
-  let minRating =
+  let minRsvpRating =
     rsvps->Array.reduce(maxRating, (acc, next) =>
       next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(maxRating) < acc
         ? next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(maxRating)
         : acc
     )
 
-  let joinButton = switch viewer.user {
+  let joinButton = switch viewer {
   | Some(_) =>
-    <button
-      onClick=onJoin
-      className="w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
-      {t`join event`}
-    </button>
+    switch viewerCanJoin {
+    | Some(true) | None =>
+      <button
+        onClick=onJoin
+        className="w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+        {t`join event`}
+      </button>
+    | _ =>
+      <div className="text-center">
+        <WarningAlert cta={""->React.string} ctaClick={() => ()}>
+          {t`required rating: ${minRating->Option.getOr(0.0)->Float.toFixed(~digits=2)}`}
+          <br />
+          {t`your rating ${viewer
+          ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.ordinal))
+          ->Option.getOr(0.0)
+          ->Float.toFixed(
+            ~digits=2,
+          )} is too low. please join a JPL open event to boost your rating. the fastest way is to play and beat Jai a couple of times`}
+        </WarningAlert>
+        <button
+          disabled=true
+          className="mt-2 w-full items-center justify-center rounded-md bg-red-200 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+          {t`join event`}
+        </button>
+      </div>
+    }
   | None =>
     <div className="text-center">
       <p>
@@ -330,11 +385,12 @@ let make = (~event) => {
                               rating =>
                                 rating.ordinal->Option.map(
                                   ordinal =>
-                                    (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
+                                    (ordinal -. minRsvpRating) /.
+                                    (maxRating -. minRsvpRating) *. 100.,
                                 ),
                             )
                             ->Option.getOr(0.)}
-                            highlight={viewer.user
+                            highlight={viewer
                             ->Option.map(viewer => viewer.id == user.id)
                             ->Option.getOr(false)}
                           />
@@ -348,15 +404,19 @@ let make = (~event) => {
                 ->React.array
               }}
             </FramerMotion.AnimatePresence>
-            <FramerMotion.Li
-              className="mt-4 flex w-full flex-none gap-x-4 px-6"
-              style={originX: 0.05, originY: 0.05}
-              key="viewer"
-              initial={opacity: 0., scale: 1.15}
-              animate={opacity: 1., scale: 1.}
-              exit={opacity: 0., scale: 1.15}>
-              <ViewerRsvpStatus onJoin onLeave joined={viewerHasRsvp} />
-            </FramerMotion.Li>
+            {switch viewerCanJoin {
+            | Some(true) | None =>
+              <FramerMotion.Li
+                className="mt-4 flex w-full flex-none gap-x-4 px-6"
+                style={originX: 0.05, originY: 0.05}
+                key="viewer"
+                initial={opacity: 0., scale: 1.15}
+                animate={opacity: 1., scale: 1.}
+                exit={opacity: 0., scale: 1.15}>
+                <ViewerRsvpStatus onJoin onLeave joined={viewerHasRsvp} />
+              </FramerMotion.Li>
+              | _ => React.null
+            }}
           </ul>
           <em>
             {isLoadingNext
@@ -414,11 +474,12 @@ let make = (~event) => {
                                 rating =>
                                   rating.ordinal->Option.map(
                                     ordinal =>
-                                      (ordinal -. minRating) /. (maxRating -. minRating) *. 100.,
+                                      (ordinal -. minRsvpRating) /.
+                                      (maxRating -. minRsvpRating) *. 100.,
                                   ),
                               )
                               ->Option.getOr(0.)}
-                              highlight={viewer.user
+                              highlight={viewer
                               ->Option.map(viewer => viewer.id == user.id)
                               ->Option.getOr(false)}
                             />
