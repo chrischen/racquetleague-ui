@@ -13,6 +13,7 @@ import { t, plural } from '@lingui/macro'
 ;
 
 function RsvpUser(props) {
+  var sigmaPercent = props.sigmaPercent;
   var link = props.link;
   var __highlight = props.highlight;
   var user = props.user;
@@ -63,23 +64,47 @@ function RsvpUser(props) {
                             }),
                         Core__Option.getOr(Core__Option.map(props.ratingPercent, (function (ratingPercent) {
                                     return JsxRuntime.jsx("div", {
-                                                children: JsxRuntime.jsx(FramerMotion.motion.div, {
-                                                      className: "h-2 rounded-full bg-red-400",
-                                                      animate: {
-                                                        width: ratingPercent.toFixed(3) + "%"
-                                                      },
-                                                      initial: {
-                                                        width: "0%"
-                                                      }
-                                                    }),
-                                                className: "overflow-hidden rounded-full bg-gray-200 mt-1"
+                                                children: Core__Option.getOr(Core__Option.map(sigmaPercent, (function (sigmaPercent) {
+                                                            return JsxRuntime.jsxs("div", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx(FramerMotion.motion.div, {
+                                                                                className: "h-2 rounded-l-full bg-red-400 z-10",
+                                                                                animate: {
+                                                                                  width: ratingPercent.toFixed(3) + "%"
+                                                                                },
+                                                                                initial: {
+                                                                                  width: "0%"
+                                                                                }
+                                                                              }),
+                                                                          JsxRuntime.jsx(FramerMotion.motion.div, {
+                                                                                className: "h-2 rounded-r-full bg-red-300 -ml-2 blur-sm z-0",
+                                                                                animate: {
+                                                                                  width: sigmaPercent.toFixed(3) + "%"
+                                                                                },
+                                                                                initial: {
+                                                                                  width: "0%"
+                                                                                }
+                                                                              })
+                                                                        ],
+                                                                        className: "flex w-full"
+                                                                      });
+                                                          })), JsxRuntime.jsx(FramerMotion.motion.div, {
+                                                          className: "h-2 rounded-full bg-red-400",
+                                                          animate: {
+                                                            width: ratingPercent.toFixed(3) + "%"
+                                                          },
+                                                          initial: {
+                                                            width: "0%"
+                                                          }
+                                                        })),
+                                                className: "overflow-hidden rounded-full bg-gray-200 mt-1 flex"
                                               });
                                   })), null)
                       ],
                       className: "min-w-0 flex-auto"
                     })
               ],
-              className: Core.cx("relative flex min-w-0 gap-x-4", highlight ? "py-2 mx-0" : "mx-2")
+              className: Core.cx("relative flex min-w-0 gap-x-4 w-full", highlight ? "py-2 mx-0" : "mx-2")
             });
 }
 

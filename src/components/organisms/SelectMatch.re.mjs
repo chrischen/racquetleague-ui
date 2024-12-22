@@ -37,7 +37,12 @@ function SelectMatch$SortAction(props) {
             });
 }
 
+var SortAction = {
+  make: SelectMatch$SortAction
+};
+
 function SelectMatch$SelectEventPlayersList(props) {
+  var __playerNumberOffset = props.playerNumberOffset;
   var __maxRating = props.maxRating;
   var __minRating = props.minRating;
   var onSelectPlayer = props.onSelectPlayer;
@@ -46,78 +51,60 @@ function SelectMatch$SelectEventPlayersList(props) {
   var players = props.players;
   var minRating = __minRating !== undefined ? __minRating : 0;
   var maxRating = __maxRating !== undefined ? __maxRating : 1;
-  var match = React.useState(function () {
-        return "Desc";
-      });
-  var sortDir = match[0];
+  var playerNumberOffset = __playerNumberOffset !== undefined ? __playerNumberOffset : 0;
   return JsxRuntime.jsx("div", {
-              children: JsxRuntime.jsxs("div", {
-                    children: [
-                      JsxRuntime.jsx(SelectMatch$SortAction, {
-                            sortDir: sortDir,
-                            setSortDir: match[1]
-                          }),
-                      JsxRuntime.jsx(JsxRuntime.Fragment, {
-                            children: Caml_option.some(JsxRuntime.jsx("ul", {
-                                      children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
-                                            children: players.length !== 0 ? players.toSorted(function (a, b) {
-                                                      var userA = a.rating.mu;
-                                                      var userB = b.rating.mu;
-                                                      if (userA < userB) {
-                                                        if (sortDir === "Desc") {
-                                                          return 1;
-                                                        } else {
-                                                          return -1;
-                                                        }
-                                                      } else if (sortDir === "Desc") {
-                                                        return -1;
-                                                      } else {
-                                                        return 1;
-                                                      }
-                                                    }).map(function (player) {
-                                                    var disabled$1 = Core__Option.getOr(Core__Option.map(disabled, (function (disabled) {
-                                                                return disabled.findIndex(function (p) {
-                                                                            return player.id === p.id;
-                                                                          }) >= 0;
-                                                              })), false);
-                                                    var match = maxRating - minRating;
-                                                    var percent = match !== 0 ? (player.rating.mu - minRating) / (maxRating - minRating) * 100 : 0;
-                                                    return JsxRuntime.jsxs(FramerMotion.motion.li, {
-                                                                className: "mt-4 flex w-full flex-none gap-x-4",
-                                                                style: {
-                                                                  originX: 0.05,
-                                                                  originY: 0.05
-                                                                },
-                                                                animate: {
-                                                                  opacity: 1,
-                                                                  scale: 1
-                                                                },
-                                                                initial: {
-                                                                  opacity: 0,
-                                                                  scale: 1.15
-                                                                },
-                                                                exit: {
-                                                                  opacity: 0,
-                                                                  scale: 1.15
-                                                                },
-                                                                layout: true,
-                                                                children: [
-                                                                  JsxRuntime.jsx("div", {
-                                                                        children: JsxRuntime.jsx("span", {
-                                                                              children: t`Player`,
-                                                                              className: "sr-only"
-                                                                            }),
-                                                                        className: "flex-none"
-                                                                      }),
-                                                                  JsxRuntime.jsx("div", {
-                                                                        children: JsxRuntime.jsx("a", {
-                                                                              children: Core__Option.getOr(Core__Option.flatMap(player.data, (function (data) {
+              children: JsxRuntime.jsx("div", {
+                    children: JsxRuntime.jsx(JsxRuntime.Fragment, {
+                          children: Caml_option.some(JsxRuntime.jsx("ul", {
+                                    children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                                          children: players.length !== 0 ? players.map(function (player, i) {
+                                                  var disabled$1 = Core__Option.getOr(Core__Option.map(disabled, (function (disabled) {
+                                                              return disabled.findIndex(function (p) {
+                                                                          return player.id === p.id;
+                                                                        }) >= 0;
+                                                            })), false);
+                                                  var match = maxRating - minRating;
+                                                  var percent = match !== 0 ? (player.rating.mu - player.rating.sigma * 3) / maxRating * 100 : 0;
+                                                  var sigmaPercent = player.rating.sigma * 3 / maxRating * 100;
+                                                  return JsxRuntime.jsxs(FramerMotion.motion.li, {
+                                                              className: "mt-4 flex w-full flex-none gap-x-4",
+                                                              style: {
+                                                                originX: 0.05,
+                                                                originY: 0.05
+                                                              },
+                                                              animate: {
+                                                                opacity: 1,
+                                                                scale: 1
+                                                              },
+                                                              initial: {
+                                                                opacity: 0,
+                                                                scale: 1.15
+                                                              },
+                                                              exit: {
+                                                                opacity: 0,
+                                                                scale: 1.15
+                                                              },
+                                                              layout: true,
+                                                              children: [
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsx("span", {
+                                                                            children: t`Player`,
+                                                                            className: "sr-only"
+                                                                          }),
+                                                                      className: "flex-none"
+                                                                    }),
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsxs("a", {
+                                                                            children: [
+                                                                              ((i + playerNumberOffset | 0) + 1 | 0).toString(),
+                                                                              Core__Option.getOr(Core__Option.flatMap(player.data, (function (data) {
                                                                                           return Core__Option.map(data.user, (function (user) {
                                                                                                         return JsxRuntime.jsx(EventRsvpUser.make, {
                                                                                                                     user: user.fragmentRefs,
                                                                                                                     highlight: selected.findIndex(function (player) {
                                                                                                                           return player.id === user.id;
                                                                                                                         }) >= 0,
+                                                                                                                    sigmaPercent: sigmaPercent,
                                                                                                                     ratingPercent: percent
                                                                                                                   });
                                                                                                       }));
@@ -127,29 +114,30 @@ function SelectMatch$SelectEventPlayersList(props) {
                                                                                               return p.id === player.id;
                                                                                             }) >= 0,
                                                                                         ratingPercent: percent
-                                                                                      })),
-                                                                              href: "#",
-                                                                              onClick: (function (e) {
-                                                                                  e.preventDefault();
-                                                                                  if (disabled$1) {
-                                                                                    
-                                                                                  } else {
-                                                                                    Core__Option.map(onSelectPlayer, (function (f) {
-                                                                                            f(player);
-                                                                                          }));
-                                                                                  }
-                                                                                })
-                                                                            }),
-                                                                        className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", disabled$1 ? "opacity-50" : "")
-                                                                      })
-                                                                ]
-                                                              }, player.id);
-                                                  }) : t`no players yet`
-                                          }),
-                                      className: "w-full"
-                                    }))
-                          })
-                    ],
+                                                                                      }))
+                                                                            ],
+                                                                            className: "flex",
+                                                                            href: "#",
+                                                                            onClick: (function (e) {
+                                                                                e.preventDefault();
+                                                                                if (disabled$1) {
+                                                                                  
+                                                                                } else {
+                                                                                  Core__Option.map(onSelectPlayer, (function (f) {
+                                                                                          f(player);
+                                                                                        }));
+                                                                                }
+                                                                              })
+                                                                          }),
+                                                                      className: Core.cx("text-sm w-full font-medium leading-6 text-gray-900", disabled$1 ? "opacity-50" : "")
+                                                                    })
+                                                              ]
+                                                            }, player.id);
+                                                }) : t`no players yet`
+                                        }),
+                                    className: "w-full"
+                                  }))
+                        }),
                     className: "mt-4 gap-x-4 border-t border-gray-900/5 px-6 py-4"
                   }),
               className: "rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5"
@@ -236,6 +224,15 @@ function SelectMatch(props) {
             return acc;
           }
         }));
+  var players$1 = players.toSorted(function (a, b) {
+        var userA = a.rating.mu;
+        var userB = b.rating.mu;
+        if (userA < userB) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
   var onSelectLeftNode = function (node) {
     if (leftNodes.findIndex(function (node$p) {
             return node$p.id === node.id;
@@ -282,7 +279,7 @@ function SelectMatch(props) {
                                     children: t`left team players`
                                   }),
                               JsxRuntime.jsx(SelectMatch$SelectEventPlayersList, {
-                                    players: players,
+                                    players: players$1,
                                     selected: leftNodes,
                                     onSelectPlayer: onSelectLeftNode,
                                     minRating: minRating,
@@ -306,7 +303,7 @@ function SelectMatch(props) {
                                     children: t`right team players`
                                   }),
                               JsxRuntime.jsx(SelectMatch$SelectEventPlayersList, {
-                                    players: players,
+                                    players: players$1,
                                     selected: rightNodes,
                                     disabled: leftNodes,
                                     onSelectPlayer: onSelectRightNode,
@@ -346,6 +343,7 @@ function SelectMatch(props) {
 var make = SelectMatch;
 
 export {
+  SortAction ,
   SelectEventPlayersList ,
   make ,
 }

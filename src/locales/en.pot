@@ -1399,3 +1399,15 @@ msgid ""
 "your rating {0} is too low. please join a JPL open event to boost your "
 "rating. the fastest way is to play and beat Jai a couple of times"
 msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1104
+msgid "Enable All"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1054
+msgid "Leaderboard"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1077
+msgid "Loading..."
+msgstr ""

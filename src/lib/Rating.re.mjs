@@ -11,6 +11,7 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core__String from "@rescript/core/src/Core__String.re.mjs";
+import * as LzString from "@immutabl3/lz-string";
 import * as PlackettLuceTs from "../lib/rating/models/plackettLuce.ts";
 
 var plackettLuce = PlackettLuceTs.plackettLuce;
@@ -289,7 +290,7 @@ function saveMatches(t, namespace) {
                 param[1]
               ];
       });
-  localStorage.setItem(namespace + "-matchesState", Core__Option.getOr(JSON.stringify(t$1), ""));
+  localStorage.setItem(namespace + "-matchesState", LzString.compress(Core__Option.getOr(JSON.stringify(t$1), "")));
 }
 
 function loadMatches(namespace, players) {
@@ -298,9 +299,14 @@ function loadMatches(namespace, players) {
           return acc;
         }));
   var state = localStorage.getItem(namespace + "-matchesState");
-  return Core__Array.filterMap((
-                state !== null ? JSON.parse(state) : []
-              ).map(function (param) {
+  var tmp;
+  if (state !== null) {
+    var decompressed = LzString.decompress(state);
+    tmp = decompressed === "" ? [] : JSON.parse(decompressed);
+  } else {
+    tmp = [];
+  }
+  return Core__Array.filterMap(tmp.map(function (param) {
                   var match = param[0];
                   var score = Caml_option.nullable_to_opt(param[1]);
                   return [

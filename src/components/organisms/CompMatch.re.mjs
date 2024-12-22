@@ -231,11 +231,14 @@ function CompMatch(props) {
       details: t`Unique combination of matches.`
     }
   ];
-  Rating.Players.filterOut(players, consumedPlayers);
   var teamConstraints = Util.NonEmptyArray.map(props.teams, Rating.Team.toSet);
-  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints);
+  var matches = Rating.getMatches(players, consumedPlayers, strategy, Core__Option.getOr(Core__Option.map(players[0], (function (p1) {
+                  return [p1].concat(priorityPlayers);
+                })), priorityPlayers), avoidAllPlayers, teamConstraints);
   var matchesCount = matches.length;
-  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, undefined);
+  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, Core__Option.getOr(Core__Option.map(players[0], (function (p1) {
+                    return [p1].concat(priorityPlayers);
+                  })), priorityPlayers), avoidAllPlayers, undefined);
   var matches$2 = matches$1.slice(0, 115);
   var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
           var quality = param[1];

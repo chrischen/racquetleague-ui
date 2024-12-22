@@ -13,23 +13,23 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SelectMatch.re.mjs:282
+#: src/components/organisms/SelectMatch.re.mjs:279
 msgid "left team players"
 msgstr "左チームのプレイヤー"
 
-#: src/components/organisms/SelectMatch.re.mjs:147
+#: src/components/organisms/SelectMatch.re.mjs:136
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/organisms/SelectMatch.re.mjs:107
+#: src/components/organisms/SelectMatch.re.mjs:91
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/SelectMatch.re.mjs:331
+#: src/components/organisms/SelectMatch.re.mjs:328
 msgid "Queue Match"
 msgstr "試合をキューに入れる"
 
-#: src/components/organisms/SelectMatch.re.mjs:306
+#: src/components/organisms/SelectMatch.re.mjs:303
 msgid "right team players"
 msgstr "右チームのプレイヤー"
 

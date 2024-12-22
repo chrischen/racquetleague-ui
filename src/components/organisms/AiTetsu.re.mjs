@@ -9,6 +9,8 @@ import * as Session from "../../lib/Session.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as CompMatch from "./CompMatch.re.mjs";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
+import * as Caml_int32 from "rescript/lib/es6/caml_int32.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as MatchesView from "./MatchesView.re.mjs";
@@ -66,6 +68,8 @@ function use$2(fRef) {
   return RescriptRelay_Fragment.useFragment(AiTetsu_event_graphql.node, convertFragment, fRef);
 }
 
+var makeRefetchVariables = AiTetsuRsvpsRefetchQuery_graphql.Types.makeRefetchVariables;
+
 var convertRefetchVariables = AiTetsuRsvpsRefetchQuery_graphql.Internal.convertVariables;
 
 function usePagination(fRef) {
@@ -120,6 +124,93 @@ function AiTetsu$TeamsList(props) {
 function AiTetsu$TeamSelector(props) {
   var onTeamCreate = props.onTeamCreate;
   var players = props.players;
+  var match = React.useState(function () {
+        return "Desc";
+      });
+  var sortDir = match[0];
+  var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
+          if (next.rating.mu > acc) {
+            return next.rating.mu;
+          } else {
+            return acc;
+          }
+        }));
+  var minRating = Core__Array.reduce(players, maxRating, (function (acc, next) {
+          if (next.rating.mu < acc) {
+            return next.rating.mu;
+          } else {
+            return acc;
+          }
+        }));
+  var players$1 = players.toSorted(function (a, b) {
+        var userA = a.rating.mu;
+        var userB = b.rating.mu;
+        if (userA < userB) {
+          if (sortDir === "Desc") {
+            return 1;
+          } else {
+            return -1;
+          }
+        } else if (sortDir === "Desc") {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+  var match$1 = React.useState(function () {
+        return [];
+      });
+  var setMembers = match$1[1];
+  var members = match$1[0];
+  var onSelectPlayer = function (player) {
+    setMembers(function (param) {
+          var removed = members.filter(function (p) {
+                return p.id !== player.id;
+              });
+          if (removed.length < members.length) {
+            return removed;
+          } else {
+            return members.concat([player]);
+          }
+        });
+  };
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                JsxRuntime.jsx(SelectMatch.SortAction.make, {
+                      sortDir: sortDir,
+                      setSortDir: match[1]
+                    }),
+                JsxRuntime.jsx(SelectMatch.SelectEventPlayersList.make, {
+                      players: players$1,
+                      selected: members,
+                      disabled: props.teamPlayers,
+                      onSelectPlayer: onSelectPlayer,
+                      minRating: minRating,
+                      maxRating: maxRating
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx(UiAction.make, {
+                            onClick: (function (param) {
+                                var match = members.length;
+                                if (!(match === 0 || match === 1)) {
+                                  onTeamCreate(members);
+                                  return setMembers(function (param) {
+                                              return [];
+                                            });
+                                }
+                                
+                              }),
+                            className: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                            children: t`Create Team`
+                          }),
+                      className: "mt-6 flex items-center justify-end gap-x-6"
+                    })
+              ]
+            });
+}
+
+function AiTetsu$Leaderboard(props) {
+  var players = props.players;
   var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
           if (next.rating.mu > acc) {
             return next.rating.mu;
@@ -151,34 +242,36 @@ function AiTetsu$TeamSelector(props) {
           }
         });
   };
-  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+  var players$1 = players.toSorted(function (a, b) {
+        var userA = Rating.Rating.ordinal(a.rating);
+        var userB = Rating.Rating.ordinal(b.rating);
+        if (userA < userB) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+  var players1 = players$1.slice(0, players$1.length / 2 | 0);
+  var players2 = players$1.slice(players$1.length / 2 | 0, players$1.length);
+  return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx(SelectMatch.SelectEventPlayersList.make, {
-                      players: players,
+                      players: players1,
                       selected: members,
-                      disabled: props.teamPlayers,
                       onSelectPlayer: onSelectPlayer,
                       minRating: minRating,
                       maxRating: maxRating
                     }),
-                JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsx(UiAction.make, {
-                            onClick: (function (param) {
-                                var match = members.length;
-                                if (!(match === 0 || match === 1)) {
-                                  onTeamCreate(members);
-                                  return setMembers(function (param) {
-                                              return [];
-                                            });
-                                }
-                                
-                              }),
-                            className: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                            children: t`Create Team`
-                          }),
-                      className: "mt-6 flex items-center justify-end gap-x-6"
+                JsxRuntime.jsx(SelectMatch.SelectEventPlayersList.make, {
+                      players: players2,
+                      selected: members,
+                      onSelectPlayer: onSelectPlayer,
+                      minRating: minRating,
+                      maxRating: maxRating,
+                      playerNumberOffset: players$1.length / 2 | 0
                     })
-              ]
+              ],
+              className: "grid grid-cols-2 gap-4 mt-2"
             });
 }
 
@@ -437,6 +530,7 @@ function AiTetsu(props) {
         });
   };
   var match$16 = usePagination($$event);
+  var refetch = match$16.refetch;
   var data = match$16.data;
   var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
   var players = allPlayers.filter(function (p) {
@@ -520,9 +614,11 @@ function AiTetsu(props) {
   var queue = Rating.OrderedQueue.filter(match$8[0], disabled);
   var breakPlayersCount = queue.length;
   var queue$1 = Rating.OrderedQueue.filter(queue, deprioritized);
-  var queuedPlayers = players.filter(function (p) {
-        return new Set(queue$1).has(p.id);
-      });
+  var queuedPlayers = Core__Array.filterMap(queue$1.map(function (id) {
+            return Rating.PlayersCache.get(playersCache, id);
+          }), (function (x) {
+          return x;
+        }));
   var match$17 = getPriorityPlayers(matchHistory, queuedPlayers, sessionState, breakCount);
   var priorityPlayers = match$17.prioritized;
   var availablePlayers$1 = availablePlayers.filter(function (p) {
@@ -716,6 +812,7 @@ function AiTetsu(props) {
                       }));
         });
   };
+  var roundsCount = Rating.CompletedMatches.getNumberOfRounds(matchHistory, breakCount, players.length, 4);
   var selectAllPlayers = function () {
     if (queue$1.length === availablePlayers$1.length) {
       return setQueue(function (param) {
@@ -723,13 +820,35 @@ function AiTetsu(props) {
                 });
     } else {
       return setQueue(function (param) {
-                  return availablePlayers$1.map(function (p) {
-                              return p.id;
-                            });
+                  var optimizedPlayer = Caml_int32.mod_(roundsCount, availablePlayers$1.length);
+                  return Core__Option.getOr(Core__Option.map(availablePlayers$1[optimizedPlayer], (function (p) {
+                                    return Belt_Array.concatMany([
+                                                [p.id],
+                                                availablePlayers$1.filter(function (p2) {
+                                                        return p.id !== p2.id;
+                                                      }).map(function (p) {
+                                                      return p.id;
+                                                    })
+                                              ]);
+                                  })), availablePlayers$1.map(function (p) {
+                                  return p.id;
+                                }));
                 });
     }
   };
-  var roundsCount = Rating.CompletedMatches.getNumberOfRounds(matchHistory, breakCount, players.length, 4);
+  var enableAllPlayers = function () {
+    if (disabled.size === 0) {
+      return setDisabled(function (param) {
+                  return new Set(allPlayers.map(function (p) {
+                                  return p.id;
+                                }));
+                });
+    } else {
+      return setDisabled(function (param) {
+                  return new Set();
+                });
+    }
+  };
   if (match$5[0] !== "Advanced") {
     return JsxRuntime.jsx(MatchesView.make, {
                 players: players,
@@ -930,17 +1049,62 @@ function AiTetsu(props) {
                                     }),
                                 JsxRuntime.jsxs("div", {
                                       children: [
+                                        JsxRuntime.jsxs("h2", {
+                                              children: [
+                                                t`Leaderboard`,
+                                                JsxRuntime.jsx(UiAction.make, {
+                                                      onClick: (function (param) {
+                                                          React.startTransition(function () {
+                                                                setSessionPlayers(function (param) {
+                                                                      return [];
+                                                                    });
+                                                                refetch(makeRefetchVariables(undefined, undefined, undefined, eventId), "network-only", undefined);
+                                                              });
+                                                        }),
+                                                      className: "ml-2",
+                                                      children: JsxRuntime.jsx(Solid.ArrowPathIcon, {
+                                                            className: "h-8 w-8"
+                                                          })
+                                                    })
+                                              ],
+                                              className: "text-2xl font-semibold text-gray-900 flex"
+                                            }),
+                                        JsxRuntime.jsx(React.Suspense, {
+                                              children: Caml_option.some(JsxRuntime.jsx(AiTetsu$Leaderboard, {
+                                                        players: allPlayers
+                                                      })),
+                                              fallback: Caml_option.some(JsxRuntime.jsx("div", {
+                                                        children: t`Loading...`
+                                                      }))
+                                            })
+                                      ],
+                                      className: "md:col-span-2"
+                                    }),
+                                JsxRuntime.jsxs("div", {
+                                      children: [
                                         JsxRuntime.jsx("h2", {
                                               children: t`Players`,
                                               className: "text-2xl font-semibold text-gray-900"
                                             }),
                                         JsxRuntime.jsxs("div", {
                                               children: [
-                                                JsxRuntime.jsx(UiAction.make, {
-                                                      onClick: (function (param) {
-                                                          selectAllPlayers();
-                                                        }),
-                                                      children: t`Toggle All`
+                                                JsxRuntime.jsxs("div", {
+                                                      children: [
+                                                        JsxRuntime.jsx(UiAction.make, {
+                                                              onClick: (function (param) {
+                                                                  selectAllPlayers();
+                                                                }),
+                                                              children: t`Toggle All`
+                                                            }),
+                                                        JsxRuntime.jsx(UiAction.make, {
+                                                              onClick: (function (param) {
+                                                                  enableAllPlayers();
+                                                                }),
+                                                              className: "ml-2",
+                                                              children: t`Enable All`
+                                                            })
+                                                      ],
+                                                      className: "flex"
                                                     }),
                                                 JsxRuntime.jsx(UiAction.make, {
                                                       onClick: (function (param) {

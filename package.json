@@ -42,6 +42,7 @@
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.1",
     "@hookform/resolvers": "^3.6.0",
+    "@immutabl3/lz-string": "^0.0.1",
     "@linaria/babel-preset": "^4.4.5",
     "@linaria/core": "^6.0.0",
     "@linaria/react": "^6.0.0",

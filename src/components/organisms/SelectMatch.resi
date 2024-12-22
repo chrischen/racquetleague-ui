@@ -1,27 +1,30 @@
-module SelectEventPlayersList: {
-  type props<
-  'players,
-  'selected,
-  'disabled,
-  'onSelectPlayer,
-  'minRating,
-  'maxRating,
-> = {
-  players: 'players,
-  selected: 'selected,
-  disabled?: 'disabled,
-  onSelectPlayer?: 'onSelectPlayer,
-  minRating?: 'minRating,
-  maxRating?: 'maxRating,
+module SortAction: {
+  type sortDir = Asc | Desc
+  type props<'sortDir, 'setSortDir> = {
+    sortDir: 'sortDir,
+    setSortDir: 'setSortDir,
+  }
+  let make: props<sortDir, (sortDir => sortDir) => unit> => React.element
 }
+module SelectEventPlayersList: {
+  type props<'players, 'selected, 'disabled, 'onSelectPlayer, 'minRating, 'maxRating, 'playerNumberOffset> = {
+    players: 'players,
+    selected: 'selected,
+    disabled?: 'disabled,
+    onSelectPlayer?: 'onSelectPlayer,
+    minRating?: 'minRating,
+    maxRating?: 'maxRating,
+    playerNumberOffset?: 'playerNumberOffset
+  }
   let make: props<
-  array<Rating.player>,
-  array<Rating.Player.t<Rating.rsvpNode>>,
-  array<Rating.Player.t<Rating.rsvpNode>>,
-  Rating.Player.t<Rating.rsvpNode> => unit,
-  float,
-  float,
-> => Jsx.element
+    array<Rating.player>,
+    array<Rating.Player.t<Rating.rsvpNode>>,
+    array<Rating.Player.t<Rating.rsvpNode>>,
+    Rating.Player.t<Rating.rsvpNode> => unit,
+    float,
+    float,
+    int
+  > => Jsx.element
 }
 
 @react.component

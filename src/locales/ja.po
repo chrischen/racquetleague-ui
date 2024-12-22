@@ -1308,7 +1308,21 @@ msgstr "必要な評価: {0}"
 msgid ""
 "your rating {0} is too low. please join a JPL open event to boost your "
 "rating. the fastest way is to play and beat Jai a couple of times"
-msgstr "あなたの評価{0}が低すぎます。評価を上げるためにJPLオープンイベントに参加してください。最速の方法は、Jaiと何度かプレイして勝つことです"
+msgstr ""
+"あなたの評価{0}が低すぎます。評価を上げるためにJPLオープンイベントに参加して"
+"ください。最速の方法は、Jaiと何度かプレイして勝つことです"
+
+#: src/components/organisms/AiTetsu.re.mjs:1104
+msgid "Enable All"
+msgstr "すべてを有効にする"
+
+#: src/components/organisms/AiTetsu.re.mjs:1054
+msgid "Leaderboard"
+msgstr "リーダーボード"
+
+#: src/components/organisms/AiTetsu.re.mjs:1077
+msgid "Loading..."
+msgstr "読み込み中..."
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

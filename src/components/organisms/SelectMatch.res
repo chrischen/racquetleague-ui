@@ -24,12 +24,10 @@ module SelectEventPlayersList = {
     ~onSelectPlayer: option<Player.t<'a> => unit>=?,
     ~minRating=0.,
     ~maxRating=1.,
+    ~playerNumberOffset=0,
   ) => {
-    let (sortDir, setSortDir) = React.useState(_ => SortAction.Desc)
-
     <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
       <div className="mt-4 gap-x-4 border-t border-gray-900/5 px-6 py-4">
-        <SortAction sortDir setSortDir />
         {<>
           <ul className="w-full">
             <FramerMotion.AnimatePresence>
@@ -37,12 +35,7 @@ module SelectEventPlayersList = {
               | [] => t`no players yet`
               | players =>
                 players
-                ->Array.toSorted((a, b) => {
-                  let userA = a.rating.mu
-                  let userB = b.rating.mu
-                  userA < userB ? sortDir == Desc ? 1. : -1. : sortDir == Desc ? -1. : 1.
-                })
-                ->Array.map(player => {
+                ->Array.mapWithIndex((player, i) => {
                   let disabled =
                     disabled
                     ->Option.map(disabled => disabled->Array.findIndex(p => player.id == p.id) >= 0)
@@ -50,8 +43,10 @@ module SelectEventPlayersList = {
 
                   let percent = switch maxRating -. minRating {
                   | 0. => 0.
-                  | _ => (player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.
+                  // | _ => (player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.
+                  | _ => (player.rating.mu -. (player.rating.sigma *. 3.)) /. (maxRating) *. 100.
                   }
+                  let sigmaPercent = (player.rating.sigma *. 3.) /. (maxRating) *. 100.
 
                   <FramerMotion.Li
                     layout=true
@@ -71,6 +66,7 @@ module SelectEventPlayersList = {
                         disabled ? "opacity-50" : "",
                       ])}>
                       <a
+                        className="flex"
                         href="#"
                         onClick={e => {
                           e->JsxEventU.Mouse.preventDefault
@@ -82,6 +78,7 @@ module SelectEventPlayersList = {
                           }
                           ()
                         }}>
+                        {(i + playerNumberOffset + 1)->Int.toString->React.string}
                         {player.data
                         ->Option.flatMap(data => {
                           data.user->Option.map(
@@ -92,6 +89,7 @@ module SelectEventPlayersList = {
                                   player => player.id == user.id,
                                 ) >= 0}
                                 ratingPercent=percent
+                                sigmaPercent
                               />
                             },
                           )
@@ -130,7 +128,7 @@ let make = (
   ~activity: option<AiTetsu_event_graphql.Types.fragment_activity>,
   ~onMatchQueued,
   // ~onMatchCompleted,
-  ~children
+  ~children,
 ) => {
   let (leftNodes: array<Player.t<'a>>, setLeftNodes) = React.useState(() => [])
   let (rightNodes: array<Player.t<'a>>, setRightNodes) = React.useState(() => [])
@@ -139,12 +137,7 @@ let make = (
   // let players = data.rsvps->Fragment.getConnectionNodes
 
   let matchSelected = match => {
-    switch (
-      match: (
-        array<player>,
-        array<player>,
-      )
-    ) {
+    switch (match: (array<player>, array<player>)) {
     | ([_, _], [_, _]) as match =>
       // onMatchSelected(match)
       // let match = (
@@ -167,6 +160,11 @@ let make = (
     players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
   let minRating =
     players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+  let players = players->Array.toSorted((a, b) => {
+    let userA = a.rating.mu
+    let userB = b.rating.mu
+    userA < userB ? 1. : -1.
+  })
   let onSelectLeftNode = (node: Player.t<'a>) => {
     switch leftNodes->Array.findIndex((node': Player.t<'a>) => node'.id == node.id) >= 0 {
     | true => ()

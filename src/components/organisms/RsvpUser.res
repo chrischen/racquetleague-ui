@@ -30,7 +30,9 @@ let make = (
   ~user: Rating.user,
   ~highlight: bool=false,
   ~link: option<string>=?,
-  ~rating as _: option<float>=?,
+  ~rating: option<float>=?,
+  ~sigma: option<float>=?,
+  ~sigmaPercent: option<float>=?,
   ~ratingPercent: option<float>=?,
 ) => {
   open LangProvider.Router
@@ -48,7 +50,8 @@ let make = (
   //   leave="transition duration-300"
   //   leaveFrom="scale-100 opacity-100"
   //   leaveTo="scale-125 opacity-0">
-  <div className={Util.cx(["relative flex min-w-0 gap-x-4", highlight ? "py-2 mx-0" : "mx-2"])}>
+  <div
+    className={Util.cx(["relative flex min-w-0 gap-x-4 w-full", highlight ? "py-2 mx-0" : "mx-2"])}>
     {user.picture
     ->Option.map(picture =>
       <img
@@ -88,12 +91,45 @@ let make = (
       </p>
       {ratingPercent
       ->Option.map(ratingPercent =>
-        <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
-          <FramerMotion.Div
-            className="h-2 rounded-full bg-red-400"
-            initial={width: "0%"}
-            animate={{width: ratingPercent->Float.toFixed(~digits=3) ++ "%"}}
-          />
+        <div className="overflow-hidden rounded-full bg-gray-200 mt-1 flex">
+          // {rating
+          // ->Option.map(rating =>
+          //   <span className="absolute inset-y-0 right-0 pr-2 text-xs font-semibold text-gray-900">
+          //     {rating->Float.toFixed(~digits=2)->React.string}
+          //     {" "->React.string}
+          //     {sigma
+          //     ->Option.map(sigma => sigma->Float.toFixed(~digits=2)->React.string)
+          //     ->Option.getOr(""->React.string)}
+          //   </span>
+          // )
+          // ->Option.getOr(React.null)}
+          {sigmaPercent
+          ->Option.map(sigmaPercent => <div className="flex w-full">
+            <FramerMotion.Div
+              className="h-2 rounded-l-full bg-red-400 z-10"
+              initial={width: "0%"}
+              animate={{
+                width: (ratingPercent)->Float.toFixed(~digits=3) ++ "%",
+              }}
+            />
+            <FramerMotion.Div
+              className="h-2 rounded-r-full bg-red-300 -ml-2 blur-sm z-0"
+              initial={width: "0%"}
+              animate={{
+                // width: (sigmaPercent /. 100. *. ratingPercent)->Float.toFixed(~digits=3) ++ "%",
+                width: (sigmaPercent)->Float.toFixed(~digits=3) ++ "%",
+              }}
+            />
+          </div>)
+          ->Option.getOr(
+            <FramerMotion.Div
+              className="h-2 rounded-full bg-red-400"
+              initial={width: "0%"}
+              animate={{
+                width: ratingPercent->Float.toFixed(~digits=3) ++ "%",
+              }}
+            />,
+          )}
         </div>
       )
       ->Option.getOr(React.null)}

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CompMatch.re.mjs:320
+#: src/components/organisms/CompMatch.re.mjs:323
 msgid "Analyzed {0} matches."
 msgstr "{0}試合を分析しました。"
 
@@ -45,7 +45,7 @@ msgid "Optimized for DUPR. Teams created with similar skill level players."
 msgstr ""
 "DUPRに最適化されました。同じスキルレベルのプレイヤーでチームを作成します。"
 
-#: src/components/organisms/CompMatch.re.mjs:341
+#: src/components/organisms/CompMatch.re.mjs:344
 msgid "Played last round"
 msgstr "前回プレイした"
 
@@ -61,11 +61,11 @@ msgstr "総当たり戦"
 msgid "Select"
 msgstr "選択"
 
-#: src/components/organisms/CompMatch.re.mjs:272
+#: src/components/organisms/CompMatch.re.mjs:275
 msgid "Select a tab"
 msgstr "タブを選択"
 
-#: src/components/organisms/CompMatch.re.mjs:335
+#: src/components/organisms/CompMatch.re.mjs:338
 msgid "This team has played before"
 msgstr "このチームは以前にプレイしました"
 

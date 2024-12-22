@@ -207,14 +207,14 @@ let make = (~event, ~user) => {
 
   let maxRating =
     rsvps->Array.reduce(0., (acc, next) =>
-      next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(0.) > acc
-        ? next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(0.)
+      next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.) > acc
+        ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.)
         : acc
     )
   let minRsvpRating =
     rsvps->Array.reduce(maxRating, (acc, next) =>
-      next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(maxRating) < acc
-        ? next.rating->Option.flatMap(r => r.ordinal)->Option.getOr(maxRating)
+      next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating) < acc
+        ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating)
         : acc
     )
 
@@ -379,14 +379,22 @@ let make = (~event, ~user) => {
                             "/p/" ++
                             user.id}
                             user={user.fragmentRefs}
-                            rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
+                            rating=?{edge.rating->Option.flatMap(r => r.mu)}
+                            sigma=?{edge.rating->Option.flatMap(r => r.sigma)}
+                            sigmaPercent={edge.rating
+                            ->Option.flatMap(
+                              rating =>
+                                rating.sigma->Option.map(sigma => 3. *. sigma /. maxRating *. 100.),
+                            )
+                            ->Option.getOr(0.)}
                             ratingPercent={edge.rating
                             ->Option.flatMap(
                               rating =>
-                                rating.ordinal->Option.map(
-                                  ordinal =>
-                                    (ordinal -. minRsvpRating) /.
-                                    (maxRating -. minRsvpRating) *. 100.,
+                                rating.mu->Option.flatMap(
+                                  mu =>
+                                    rating.sigma->Option.map(
+                                      sigma => (mu -. sigma *. 3.0) /. maxRating *. 100.,
+                                    ),
                                 ),
                             )
                             ->Option.getOr(0.)}
@@ -415,7 +423,7 @@ let make = (~event, ~user) => {
                 exit={opacity: 0., scale: 1.15}>
                 <ViewerRsvpStatus onJoin onLeave joined={viewerHasRsvp} />
               </FramerMotion.Li>
-              | _ => React.null
+            | _ => React.null
             }}
           </ul>
           <em>
@@ -469,13 +477,22 @@ let make = (~event, ~user) => {
                               user.id}
                               user={user.fragmentRefs}
                               rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
+                              sigmaPercent={edge.rating
+                              ->Option.flatMap(
+                                rating =>
+                                  rating.sigma->Option.map(
+                                    sigma => 3. *. sigma /. maxRating *. 100.,
+                                  ),
+                              )
+                              ->Option.getOr(0.)}
                               ratingPercent={edge.rating
                               ->Option.flatMap(
                                 rating =>
-                                  rating.ordinal->Option.map(
-                                    ordinal =>
-                                      (ordinal -. minRsvpRating) /.
-                                      (maxRating -. minRsvpRating) *. 100.,
+                                  rating.mu->Option.flatMap(
+                                    mu =>
+                                      rating.sigma->Option.map(
+                                        sigma => (mu -. sigma *. 3.0) /. maxRating *. 100.,
+                                      ),
                                   ),
                               )
                               ->Option.getOr(0.)}

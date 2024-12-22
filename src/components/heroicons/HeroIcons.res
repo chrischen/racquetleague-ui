@@ -1,3 +1,7 @@
+module ArrowPathIcon = {
+  @module("@heroicons/react/24/solid") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ArrowPathIcon"
+}
 module PhotoIcon = {
   @module("@heroicons/react/24/solid") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "PhotoIcon"

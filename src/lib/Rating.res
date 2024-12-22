@@ -228,7 +228,7 @@ module CompletedMatches = {
     })
     Dom.Storage2.localStorage->Dom.Storage2.setItem(
       namespace ++ "-matchesState",
-      t->Js.Json.stringifyAny->Option.getOr(""),
+      t->Js.Json.stringifyAny->Option.getOr("")->LzString.compress,
     )
   }
   let loadMatches = (namespace: string, players: array<Player.t<rsvpNode>>): t<'a> => {
@@ -238,7 +238,13 @@ module CompletedMatches = {
     })
 
     switch Dom.Storage2.localStorage->Dom.Storage2.getItem(namespace ++ "-matchesState") {
-    | Some(state) => state->parseMatches
+    | Some(state) =>
+      switch state->LzString.decompress {
+      | "" => []
+      | decompressed => decompressed->parseMatches
+      }
+    // state->LzString.decompress->parseMatches
+    // state->parseMatches
     | None => []
     }
     ->Array.map((((team1, team2), score)) => {

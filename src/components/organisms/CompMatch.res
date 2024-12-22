@@ -164,20 +164,34 @@ let make = (
     },
     {name: ts`Round Robin`, strategy: RoundRobin, details: ts`Unique combination of matches.`},
   ]
-  let availablePlayers = players->Players.filterOut(consumedPlayers)
+  // let availablePlayers = players->Players.filterOut(consumedPlayers)
   let teamConstraints = teams->NonEmptyArray.map(Team.toSet)
   let matches = getMatches(
     players,
     consumedPlayers,
     strategy,
-    priorityPlayers,
+    players
+    ->Array.get(0)
+    ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
+    ->Option.getOr(priorityPlayers),
     avoidAllPlayers,
     teamConstraints,
   )
   let matchesCount = matches->Array.length
 
   let matches = switch matchesCount {
-  | 0 => getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, None)
+  | 0 =>
+    getMatches(
+      players,
+      consumedPlayers,
+      strategy,
+      players
+      ->Array.get(0)
+      ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
+      ->Option.getOr(priorityPlayers),
+      avoidAllPlayers,
+      None,
+    )
   | _ => matches
   }
 

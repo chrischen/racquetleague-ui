@@ -274,12 +274,22 @@ let make = (
     </div>
     <ActionBar
       selectedAll={queue->Set.size == availablePlayers->Array.length}
-      selectAll
+      selectAll={_ => {
+        setView(_ => Queue)
+        selectAll()
+      }}
       breakCount
       onChangeBreakCount
       onChooseMatch={_ => setShowMatchSelector(s => !s)}
     />
-    <ModalDrawer title={ts`Choose Match`} open_=showMatchSelector setOpen={setShowMatchSelector}>
+    <ModalDrawer
+      title={ts`Choose Match`}
+      open_=showMatchSelector
+      setOpen={v => {
+        // Switch to Matches view after closing match selector
+        setView(_ => Matches)
+        setShowMatchSelector(v)
+      }}>
       {matchSelector}
     </ModalDrawer>
   </div>

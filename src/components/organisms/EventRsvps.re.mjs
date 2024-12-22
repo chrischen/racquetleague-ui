@@ -171,21 +171,21 @@ function EventRsvps(props) {
                 })), rsvps.length), 0) | 0;
   var maxRating = Core__Array.reduce(rsvps, 0, (function (acc, next) {
           if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
-                        return r.ordinal;
+                        return r.mu;
                       })), 0) > acc) {
             return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
-                              return r.ordinal;
+                              return r.mu;
                             })), 0);
           } else {
             return acc;
           }
         }));
-  var minRsvpRating = Core__Array.reduce(rsvps, maxRating, (function (acc, next) {
+  Core__Array.reduce(rsvps, maxRating, (function (acc, next) {
           if (Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
-                        return r.ordinal;
+                        return r.mu;
                       })), maxRating) < acc) {
             return Core__Option.getOr(Core__Option.flatMap(next.rating, (function (r) {
-                              return r.ordinal;
+                              return r.mu;
                             })), maxRating);
           } else {
             return acc;
@@ -459,11 +459,21 @@ function EventRsvps(props) {
                                                                                                                     })), false),
                                                                                                           link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
                                                                                                           rating: Core__Option.flatMap(edge.rating, (function (r) {
-                                                                                                                  return r.ordinal;
+                                                                                                                  return r.mu;
                                                                                                                 })),
+                                                                                                          sigma: Core__Option.flatMap(edge.rating, (function (r) {
+                                                                                                                  return r.sigma;
+                                                                                                                })),
+                                                                                                          sigmaPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
+                                                                                                                      return Core__Option.map(rating.sigma, (function (sigma) {
+                                                                                                                                    return 3 * sigma / maxRating * 100;
+                                                                                                                                  }));
+                                                                                                                    })), 0),
                                                                                                           ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
-                                                                                                                      return Core__Option.map(rating.ordinal, (function (ordinal) {
-                                                                                                                                    return (ordinal - minRsvpRating) / (maxRating - minRsvpRating) * 100;
+                                                                                                                      return Core__Option.flatMap(rating.mu, (function (mu) {
+                                                                                                                                    return Core__Option.map(rating.sigma, (function (sigma) {
+                                                                                                                                                  return (mu - sigma * 3.0) / maxRating * 100;
+                                                                                                                                                }));
                                                                                                                                   }));
                                                                                                                     })), 0)
                                                                                                         }),
@@ -559,9 +569,16 @@ function EventRsvps(props) {
                                                                                                                 rating: Core__Option.flatMap(edge.rating, (function (r) {
                                                                                                                         return r.ordinal;
                                                                                                                       })),
+                                                                                                                sigmaPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
+                                                                                                                            return Core__Option.map(rating.sigma, (function (sigma) {
+                                                                                                                                          return 3 * sigma / maxRating * 100;
+                                                                                                                                        }));
+                                                                                                                          })), 0),
                                                                                                                 ratingPercent: Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
-                                                                                                                            return Core__Option.map(rating.ordinal, (function (ordinal) {
-                                                                                                                                          return (ordinal - minRsvpRating) / (maxRating - minRsvpRating) * 100;
+                                                                                                                            return Core__Option.flatMap(rating.mu, (function (mu) {
+                                                                                                                                          return Core__Option.map(rating.sigma, (function (sigma) {
+                                                                                                                                                        return (mu - sigma * 3.0) / maxRating * 100;
+                                                                                                                                                      }));
                                                                                                                                         }));
                                                                                                                           })), 0)
                                                                                                               }),

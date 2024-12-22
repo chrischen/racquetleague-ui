@@ -161,6 +161,7 @@ var ActionBar = {
 };
 
 function MatchesView(props) {
+  var selectAll = props.selectAll;
   var handleMatchComplete = props.handleMatchComplete;
   var handleMatchCanceled = props.handleMatchCanceled;
   var maxRating = props.maxRating;
@@ -344,7 +345,12 @@ function MatchesView(props) {
                       className: "w-full h-[calc(100vh-(56px+152px))] sm:h-[calc(100vh-(56px+92px))] fixed top-[56px] left-0 overflow-scroll px-3"
                     }),
                 JsxRuntime.jsx(MatchesView$ActionBar, {
-                      selectAll: props.selectAll,
+                      selectAll: (function () {
+                          setView(function (param) {
+                                return "Queue";
+                              });
+                          selectAll();
+                        }),
                       selectedAll: queue.size === props.availablePlayers.length,
                       breakCount: props.breakCount,
                       onChangeBreakCount: props.onChangeBreakCount,
@@ -358,7 +364,12 @@ function MatchesView(props) {
                       title: t`Choose Match`,
                       children: props.matchSelector,
                       open_: match$1[0],
-                      setOpen: setShowMatchSelector
+                      setOpen: (function (v) {
+                          setView(function (param) {
+                                return "Matches";
+                              });
+                          setShowMatchSelector(v);
+                        })
                     })
               ],
               className: "w-full h-full fixed top-0 left-0 bg-black p-3"

@@ -3161,6 +3161,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@immutabl3/lz-string@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@immutabl3/lz-string@npm:0.0.1"
+  dependencies:
+    "@immutabl3/utils": "npm:^1.0.1"
+  checksum: b93f404ae1a19b432aac53e38af54a5c43dd0be4bd6538298a587f62b4a55f49df25b8647ad7ecc6d3284c566aba45e1519d693e9905fcca48b6fbbd67f1f5db
+  languageName: node
+  linkType: hard
+
+"@immutabl3/utils@npm:^1.0.1":
+  version: 1.1.4
+  resolution: "@immutabl3/utils@npm:1.1.4"
+  checksum: aab73e373674740510248d585552f0c0343268deb1989d61d5bbf56447dcd264a74ad5e866a5c816cfdfd8ef58e2c8103221a51e70e39df64728d546c3ef9be5
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -12822,6 +12838,7 @@ __metadata:
     "@heroicons/react": "npm:^2.1.1"
     "@hookform/resolvers": "npm:^3.6.0"
     "@imchhh/storybook-addon-relay": "npm:^0.0.10"
+    "@immutabl3/lz-string": "npm:^0.0.1"
     "@linaria/babel-preset": "npm:^4.4.5"
     "@linaria/core": "npm:^6.0.0"
     "@linaria/react": "npm:^6.0.0"

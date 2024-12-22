@@ -149,10 +149,17 @@ module TeamsList = {
 module TeamSelector = {
   @react.component
   let make = (~players: array<Player.t<'a>>, ~onTeamCreate, ~teamPlayers) => {
+    let (sortDir, setSortDir) = React.useState(_ => SelectMatch.SortAction.Desc)
     let maxRating =
       players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
     let minRating =
       players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+
+    let players = players->Array.toSorted((a, b) => {
+      let userA = a.rating.mu
+      let userB = b.rating.mu
+      userA < userB ? sortDir == Desc ? 1. : -1. : sortDir == Desc ? -1. : 1.
+    })
 
     let (members: array<Player.t<'a>>, setMembers) = React.useState(() => [])
     let onSelectPlayer = (player: Player.t<'a>) => {
@@ -165,6 +172,7 @@ module TeamSelector = {
       })
     }
     <>
+      <SelectMatch.SortAction sortDir setSortDir />
       <SelectMatch.SelectEventPlayersList
         players selected=members maxRating minRating onSelectPlayer disabled={teamPlayers}
       />
@@ -184,6 +192,49 @@ module TeamSelector = {
         </UiAction>
       </div>
     </>
+  }
+}
+module Leaderboard = {
+  type sortDir = Asc | Desc
+  @react.component
+  let make = (~players: array<Player.t<'a>>) => {
+    let maxRating =
+      players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
+    let minRating =
+      players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+
+    let (members: array<Player.t<'a>>, setMembers) = React.useState(() => [])
+    let onSelectPlayer = (player: Player.t<'a>) => {
+      setMembers(_ => {
+        let removed = members->Array.filter(p => p.id != player.id)
+        switch removed->Array.length < members->Array.length {
+        | true => removed
+        | false => members->Array.concat([player])
+        }
+      })
+    }
+    let sortDir = Desc
+    let players = players->Array.toSorted((a, b) => {
+      let userA = a.rating->Rating.ordinal
+      let userB = b.rating->Rating.ordinal
+      userA < userB ? sortDir == Desc ? 1. : -1. : sortDir == Desc ? -1. : 1.
+    })
+    let players1 = players->Array.slice(~start=0, ~end=players->Array.length / 2)
+    let players2 =
+      players->Array.slice(~start=players->Array.length / 2, ~end=players->Array.length)
+    <div className="grid grid-cols-2 gap-4 mt-2">
+      <SelectMatch.SelectEventPlayersList
+        players=players1 selected=members maxRating minRating onSelectPlayer
+      />
+      <SelectMatch.SelectEventPlayersList
+        players=players2
+        selected=members
+        maxRating
+        minRating
+        onSelectPlayer
+        playerNumberOffset={players->Array.length / 2}
+      />
+    </div>
   }
 }
 module Checkin = {
@@ -387,6 +438,7 @@ type screen = Advanced | Matches
 let make = (~event, ~children) => {
   let ts = Lingui.UtilString.t
   let {__id, id: eventId, activity} = Fragment.use(event)
+  // let {__id, id: eventId, activity} = eventData
   let (commitMutationCreateRating, _) = AiTetsuCreateRatingMutation.use()
   let (commitMutationCreateLeagueMatch, _isMutationInFlight) = CreateLeagueMatchMutation.use()
 
@@ -432,7 +484,7 @@ let make = (~event, ~children) => {
     setQueue(queue => queue->togglePlayer(player.id))
   }
 
-  let {data} = Fragment.usePagination(event)
+  let {data, refetch} = Fragment.usePagination(event)
   let allPlayers = (switch sessionMode {
   | true => sessionPlayers
   | false =>
@@ -513,9 +565,11 @@ let make = (~event, ~children) => {
   let queue = queue->OrderedQueue.filter(disabled)
   let breakPlayersCount = queue->Array.length
   let queue = queue->OrderedQueue.filter(deprioritized)
-  let queuedPlayers: array<player> = (players->Array.filter(p =>
-    queue->Set.fromArray->Set.has(p.id)
-  ) :> array<player>)
+  // let queuedPlayers: array<player> = (players->Array.filter(p =>
+  //   queue->Set.fromArray->Set.has(p.id)
+  // ) :> array<player>)
+  let queuedPlayers: array<player> =
+    queue->Array.map(id => playersCache->PlayersCache.get(id))->Array.filterMap(x => x)
 
   let {prioritized: priorityPlayers, deprioritized: _} = getPriorityPlayers(
     matchHistory,
@@ -702,6 +756,9 @@ let make = (~event, ~children) => {
     setTeams(teams => teams->NonEmptyArray.filterWithIndex((_, i') => i' != i))
   }
 
+  let roundsCount =
+    matchHistory->CompletedMatches.getNumberOfRounds(breakCount, players->Array.length, 4)
+
   let selectAllPlayers = () => {
     switch queue->Array.length == availablePlayers->Array.length {
     | true =>
@@ -710,13 +767,30 @@ let make = (~event, ~children) => {
       })
     | false =>
       setQueue(_ => {
-        availablePlayers->Array.map(p => p.id)
+        // Force-Rotate the optimized player between rounds
+        let optimizedPlayer = Int.mod(roundsCount, availablePlayers->Array.length)
+        availablePlayers
+        ->Array.get(optimizedPlayer)
+        ->Option.map(p =>
+          [p.id, ...availablePlayers->Array.filter(p2 => p.id != p2.id)->Array.map(p => p.id)]
+        )
+        ->Option.getOr(availablePlayers->Array.map(p => p.id))
       })
     }
   }
 
-  let roundsCount =
-    matchHistory->CompletedMatches.getNumberOfRounds(breakCount, players->Array.length, 4)
+  let enableAllPlayers = () => {
+    switch disabled->Set.size == 0 {
+    | false =>
+      setDisabled(_ => {
+        Set.make()
+      })
+    | true =>
+      setDisabled(_ => {
+        Set.fromArray(allPlayers->Array.map(p => p.id))
+      })
+    }
+  }
 
   switch screen {
   | Advanced =>
@@ -751,10 +825,35 @@ let make = (~event, ~children) => {
               </HeadlessUi.Switch.Label>
             </HeadlessUi.Field>
           </div>
+          <div className="md:col-span-2">
+            <h2 className="text-2xl font-semibold text-gray-900 flex">
+              {t`Leaderboard`}
+              <UiAction
+                className="ml-2"
+                onClick={_ =>
+                  Util.startTransition(() => {
+                    setSessionPlayers(_ => [])
+                    refetch(
+                      ~variables=Fragment.makeRefetchVariables(~id=eventId),
+                      ~fetchPolicy=NetworkOnly,
+                    )->ignore
+                  })}>
+                {<HeroIcons.ArrowPathIcon className="h-8 w-8" />}
+              </UiAction>
+            </h2>
+            <React.Suspense fallback={<div> {t`Loading...`} </div>}>
+              <Leaderboard players={allPlayers} />
+            </React.Suspense>
+          </div>
           <div className="">
             <h2 className="text-2xl font-semibold text-gray-900"> {t`Players`} </h2>
             <div className="flex text-right">
-              <UiAction onClick={_ => selectAllPlayers()}> {t`Toggle All`} </UiAction>
+              <div className="flex">
+                <UiAction onClick={_ => selectAllPlayers()}> {t`Toggle All`} </UiAction>
+                <UiAction className="ml-2" onClick={_ => enableAllPlayers()}>
+                  {t`Enable All`}
+                </UiAction>
+              </div>
               <UiAction
                 className="ml-auto"
                 onClick={_ =>
