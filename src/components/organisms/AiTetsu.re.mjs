@@ -253,7 +253,7 @@ function AiTetsu$Leaderboard(props) {
       });
   var players1 = players$1.slice(0, players$1.length / 3 | 0);
   var players2 = players$1.slice(players$1.length / 3 | 0, (players$1.length << 1) / 3 | 0);
-  players$1.slice((players$1.length << 1) / 3 | 0, players$1.length);
+  var players3 = players$1.slice((players$1.length << 1) / 3 | 0, players$1.length);
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx(SelectMatch.SelectEventPlayersList.make, {
@@ -269,18 +269,18 @@ function AiTetsu$Leaderboard(props) {
                       onSelectPlayer: onSelectPlayer,
                       minRating: minRating,
                       maxRating: maxRating,
-                      playerNumberOffset: players$1.length / 2 | 0
+                      playerNumberOffset: players$1.length / 3 | 0
                     }),
                 JsxRuntime.jsx(SelectMatch.SelectEventPlayersList.make, {
-                      players: players2,
+                      players: players3,
                       selected: members,
                       onSelectPlayer: onSelectPlayer,
                       minRating: minRating,
                       maxRating: maxRating,
-                      playerNumberOffset: players$1.length / 2 | 0
+                      playerNumberOffset: (players$1.length << 1) / 3 | 0
                     })
               ],
-              className: "grid grid-cols-3 gap-4 mt-2"
+              className: "grid lg:grid-cols-3 gap-4 mt-2"
             });
 }
 

@@ -4,7 +4,6 @@ import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
-import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as ModalDrawer from "../ui/ModalDrawer.re.mjs";
 import * as SubmitMatch from "./SubmitMatch.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -52,23 +51,8 @@ function MatchesView$Queue(props) {
   var queue = props.queue;
   var consumedPlayers = props.consumedPlayers;
   var breakPlayers = props.breakPlayers;
-  var players = props.players;
-  var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
-          if (next.rating.mu > acc) {
-            return next.rating.mu;
-          } else {
-            return acc;
-          }
-        }));
-  var minRating = Core__Array.reduce(players, maxRating, (function (acc, next) {
-          if (next.rating.mu < acc) {
-            return next.rating.mu;
-          } else {
-            return acc;
-          }
-        }));
   return JsxRuntime.jsx("div", {
-              children: players.map(function (player) {
+              children: props.players.map(function (player) {
                     var match = queue.has(player.id);
                     var match$1 = breakPlayers.has(player.id);
                     var match$2 = consumedPlayers.has(player.id);
@@ -83,8 +67,8 @@ function MatchesView$Queue(props) {
                                   }),
                                 children: JsxRuntime.jsx(MatchesView$PlayerView, {
                                       player: player,
-                                      minRating: minRating,
-                                      maxRating: maxRating,
+                                      minRating: 0.0,
+                                      maxRating: 1.0,
                                       status: status
                                     }, player.id)
                               }, player.id);

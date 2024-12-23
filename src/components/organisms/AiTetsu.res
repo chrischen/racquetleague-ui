@@ -224,7 +224,7 @@ module Leaderboard = {
       players->Array.slice(~start=players->Array.length / 3, ~end=players->Array.length * 2 / 3)
     let players3 =
       players->Array.slice(~start=players->Array.length * 2 / 3, ~end=players->Array.length)
-    <div className="grid grid-cols-3 gap-4 mt-2">
+    <div className="grid lg:grid-cols-3 gap-4 mt-2">
       <SelectMatch.SelectEventPlayersList
         players=players1 selected=members maxRating minRating onSelectPlayer
       />
@@ -234,15 +234,15 @@ module Leaderboard = {
         maxRating
         minRating
         onSelectPlayer
-        playerNumberOffset={players->Array.length / 2}
+        playerNumberOffset={players->Array.length / 3}
       />
       <SelectMatch.SelectEventPlayersList
-        players=players2
+        players=players3
         selected=members
         maxRating
         minRating
         onSelectPlayer
-        playerNumberOffset={players->Array.length / 2}
+        playerNumberOffset={players->Array.length * 2 / 3}
       />
     </div>
   }

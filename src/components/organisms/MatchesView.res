@@ -38,10 +38,12 @@ module Queue = {
     ~queue: Set.t<string>,
     ~togglePlayer: Rating.player => unit,
   ) => {
-    let maxRating =
-      players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
-    let minRating =
-      players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+    // let maxRating =
+    //   players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
+    // let minRating =
+    //   players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+    let maxRating = 1.0
+    let minRating = 0.0
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       {players
       ->Array.map(player => {
