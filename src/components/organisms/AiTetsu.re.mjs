@@ -251,8 +251,9 @@ function AiTetsu$Leaderboard(props) {
           return -1;
         }
       });
-  var players1 = players$1.slice(0, players$1.length / 2 | 0);
-  var players2 = players$1.slice(players$1.length / 2 | 0, players$1.length);
+  var players1 = players$1.slice(0, players$1.length / 3 | 0);
+  var players2 = players$1.slice(players$1.length / 3 | 0, (players$1.length << 1) / 3 | 0);
+  players$1.slice((players$1.length << 1) / 3 | 0, players$1.length);
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx(SelectMatch.SelectEventPlayersList.make, {
@@ -269,9 +270,17 @@ function AiTetsu$Leaderboard(props) {
                       minRating: minRating,
                       maxRating: maxRating,
                       playerNumberOffset: players$1.length / 2 | 0
+                    }),
+                JsxRuntime.jsx(SelectMatch.SelectEventPlayersList.make, {
+                      players: players2,
+                      selected: members,
+                      onSelectPlayer: onSelectPlayer,
+                      minRating: minRating,
+                      maxRating: maxRating,
+                      playerNumberOffset: players$1.length / 2 | 0
                     })
               ],
-              className: "grid grid-cols-2 gap-4 mt-2"
+              className: "grid grid-cols-3 gap-4 mt-2"
             });
 }
 
@@ -511,8 +520,8 @@ function AiTetsu(props) {
   var match$13 = React.useState(function () {
         return 0;
       });
-  var setBreakCount = match$13[1];
-  var breakCount = match$13[0];
+  var setCourts = match$13[1];
+  var courts = match$13[0];
   var match$14 = React.useState(function () {
         return "CompetitivePlus";
       });
@@ -537,6 +546,7 @@ function AiTetsu(props) {
         return !disabled.has(p.id);
       });
   var playersCache = Rating.PlayersCache.fromPlayers(allPlayers);
+  var breakCount = courts === 0 ? 0 : players.length - (courts << 2) | 0;
   var seenTeams = new Set(matchHistory.flatMap(function (param) {
               var match = param[0];
               return [
@@ -885,9 +895,9 @@ function AiTetsu(props) {
                         });
                   }),
                 selectAll: selectAllPlayers,
-                breakCount: breakCount,
+                breakCount: courts,
                 onChangeBreakCount: (function (numberOnBreak) {
-                    setBreakCount(function (param) {
+                    setCourts(function (param) {
                           return Math.max(0, numberOnBreak);
                         });
                     setSettingsPane(function (param) {
@@ -956,10 +966,10 @@ function AiTetsu(props) {
           tmp = JsxRuntime.jsxs("div", {
                 children: [
                   JsxRuntime.jsx(SessionEvenPlayMode.make, {
-                        breakCount: breakCount,
+                        breakCount: courts,
                         breakPlayersCount: breakPlayersCount,
                         onChangeBreakCount: (function (numberOnBreak) {
-                            setBreakCount(function (param) {
+                            setCourts(function (param) {
                                   return Math.max(0, numberOnBreak);
                                 });
                             setSettingsPane(function (param) {

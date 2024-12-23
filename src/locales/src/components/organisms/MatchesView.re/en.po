@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/MatchesView.re.mjs:125
+msgid "# of courts"
+msgstr ""
+
 #: src/components/organisms/MatchesView.re.mjs:326
 #: src/components/organisms/MatchesView.re.mjs:329
 msgid "and"
@@ -63,8 +67,8 @@ msgid "Matches"
 msgstr ""
 
 #: src/components/organisms/MatchesView.re.mjs:125
-msgid "Players on Break"
-msgstr ""
+#~ msgid "Players on Break"
+#~ msgstr ""
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:315
 #: src/components/organisms/SortableSubmitMatch.re.mjs:359

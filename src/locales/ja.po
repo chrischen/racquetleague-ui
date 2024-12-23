@@ -1324,6 +1324,18 @@ msgstr "リーダーボード"
 msgid "Loading..."
 msgstr "読み込み中..."
 
+#: src/components/organisms/MatchesView.re.mjs:125
+msgid "# of courts"
+msgstr "コート数"
+
+#: src/components/pages/DefaultLayout2.re.mjs:160
+msgid "Privacy Policy"
+msgstr "プライバシーポリシー"
+
+#: src/components/pages/DefaultLayout2.re.mjs:166
+msgid "Share Feedback"
+msgstr "フィードバックを共有"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

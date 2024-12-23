@@ -1411,3 +1411,7 @@ msgstr ""
 #: src/components/organisms/AiTetsu.re.mjs:1077
 msgid "Loading..."
 msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:125
+msgid "# of courts"
+msgstr ""

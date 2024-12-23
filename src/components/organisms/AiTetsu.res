@@ -219,12 +219,22 @@ module Leaderboard = {
       let userB = b.rating->Rating.ordinal
       userA < userB ? sortDir == Desc ? 1. : -1. : sortDir == Desc ? -1. : 1.
     })
-    let players1 = players->Array.slice(~start=0, ~end=players->Array.length / 2)
+    let players1 = players->Array.slice(~start=0, ~end=players->Array.length / 3)
     let players2 =
-      players->Array.slice(~start=players->Array.length / 2, ~end=players->Array.length)
-    <div className="grid grid-cols-2 gap-4 mt-2">
+      players->Array.slice(~start=players->Array.length / 3, ~end=players->Array.length * 2 / 3)
+    let players3 =
+      players->Array.slice(~start=players->Array.length * 2 / 3, ~end=players->Array.length)
+    <div className="grid grid-cols-3 gap-4 mt-2">
       <SelectMatch.SelectEventPlayersList
         players=players1 selected=members maxRating minRating onSelectPlayer
+      />
+      <SelectMatch.SelectEventPlayersList
+        players=players2
+        selected=members
+        maxRating
+        minRating
+        onSelectPlayer
+        playerNumberOffset={players->Array.length / 2}
       />
       <SelectMatch.SelectEventPlayersList
         players=players2
@@ -459,7 +469,8 @@ let make = (~event, ~children) => {
   let (sessionMode, setSessionMode) = React.useState(() => false)
 
   // How many players to remove from the queue for a break
-  let (breakCount: int, setBreakCount) = React.useState(() => 0)
+  let (courts: int, setCourts) = React.useState(() => 0)
+  // let (breakCount: int, setBreakCount) = React.useState(() => 0)
 
   // Matchmaking strategy
   let (matchmakingStrategy: strategy, setMatchmakingStrategy) = React.useState(() =>
@@ -499,6 +510,7 @@ let make = (~event, ~children) => {
   } :> array<player>)
   let players = allPlayers->Array.filter(p => !(disabled->Set.has(p.id)))
   let playersCache = allPlayers->PlayersCache.fromPlayers
+  let breakCount = courts == 0 ? 0 : players->Array.length - (courts * 4)
 
   let seenTeams: RescriptCore.Set.t<string> =
     matchHistory
@@ -910,10 +922,10 @@ let make = (~event, ~children) => {
             | Some(Settings) =>
               <div className="grid grid-cols-1">
                 <SessionEvenPlayMode
-                  breakCount
+                  breakCount=courts
                   breakPlayersCount
                   onChangeBreakCount={numberOnBreak => {
-                    setBreakCount(_ => Js.Math.max_int(0, numberOnBreak))
+                    setCourts(_ => Js.Math.max_int(0, numberOnBreak))
                     setSettingsPane(_ => None)
                   }}
                 />
@@ -1111,11 +1123,11 @@ let make = (~event, ~children) => {
       handleMatchCanceled={dequeueMatch}
       onClose={_ => setScreen(_ => Advanced)}
       selectAll={selectAllPlayers}
-      breakCount
+      breakCount={courts}
       breakPlayers={deprioritized}
       consumedPlayers
       onChangeBreakCount={numberOnBreak => {
-        setBreakCount(_ => Js.Math.max_int(0, numberOnBreak))
+        setCourts(_ => Js.Math.max_int(0, numberOnBreak))
         setSettingsPane(_ => None)
       }}
       matchSelector={<CompMatch

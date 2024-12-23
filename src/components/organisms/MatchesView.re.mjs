@@ -122,7 +122,7 @@ function MatchesView$ActionBar(props) {
                               children: "+"
                             }),
                         " ",
-                        t`Players on Break`
+                        t`# of courts`
                       ]
                     }),
                 JsxRuntime.jsxs("div", {

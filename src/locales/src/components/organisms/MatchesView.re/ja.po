@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/MatchesView.re.mjs:125
+msgid "# of courts"
+msgstr "コート数"
+
 #: src/components/organisms/MatchesView.re.mjs:326
 #: src/components/organisms/MatchesView.re.mjs:329
 msgid "and"
@@ -62,10 +66,6 @@ msgstr "読み込み中"
 msgid "Matches"
 msgstr "試合"
 
-#: src/components/organisms/MatchesView.re.mjs:125
-msgid "Players on Break"
-msgstr "休憩中のプレイヤー"
-
 #: src/components/organisms/SortableSubmitMatch.re.mjs:315
 #: src/components/organisms/SortableSubmitMatch.re.mjs:359
 msgid "Points"
@@ -92,6 +92,10 @@ msgstr "評価を提出"
 #: src/components/organisms/SortableSubmitMatch.re.mjs:369
 msgid "Winner"
 msgstr "勝者"
+
+#: src/components/organisms/MatchesView.re.mjs:125
+#~ msgid "Players on Break"
+#~ msgstr "休憩中のプレイヤー"
 
 #: src/components/organisms/MatchesView.re.mjs:111
 #~ msgid "Toggle All"

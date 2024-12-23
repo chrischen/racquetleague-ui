@@ -92,7 +92,7 @@ module ActionBar = {
           {"+"->React.string}
         </UiAction>
         {" "->React.string}
-        {t`Players on Break`}
+        {t`# of courts`}
       </div>
       <div className="-my-3 py-3 align-middle items-center inline-flex">
         <UiAction
