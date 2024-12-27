@@ -174,7 +174,7 @@ export function MultipleContainers({
   itemCount = 3,
   cancelDrop,
   columns,
-  handle = false,
+  handle = true,
   items,
   setItems,
   deleteContainer,
