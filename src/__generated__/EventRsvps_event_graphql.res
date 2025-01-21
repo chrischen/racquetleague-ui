@@ -10,15 +10,15 @@ module Types = {
   and fragment_rsvps_edges_node_rating = {
     mu: option<float>,
     ordinal: option<float>,
-    sigma: option<float>,
   }
   and fragment_rsvps_edges_node_user = {
     @live id: string,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvpUser_user]>,
   }
   and fragment_rsvps_edges_node = {
+    listType: option<int>,
     rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvps_rsvp]>,
   }
   and fragment_rsvps_edges = {
     node: option<fragment_rsvps_edges_node>,
@@ -47,7 +47,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"rsvps_edges_node_user":{"f":""}}}`
+    json`{"__root":{"rsvps_edges_node":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = ()
@@ -223,6 +223,11 @@ return {
               "plural": false,
               "selections": [
                 {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "EventRsvps_rsvp"
+                },
+                {
                   "alias": null,
                   "args": null,
                   "concreteType": "User",
@@ -230,12 +235,7 @@ return {
                   "name": "user",
                   "plural": false,
                   "selections": [
-                    (v1/*: any*/),
-                    {
-                      "args": null,
-                      "kind": "FragmentSpread",
-                      "name": "EventRsvpUser_user"
-                    }
+                    (v1/*: any*/)
                   ],
                   "storageKey": null
                 },
@@ -260,15 +260,15 @@ return {
                       "kind": "ScalarField",
                       "name": "mu",
                       "storageKey": null
-                    },
-                    {
-                      "alias": null,
-                      "args": null,
-                      "kind": "ScalarField",
-                      "name": "sigma",
-                      "storageKey": null
                     }
                   ],
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "listType",
                   "storageKey": null
                 },
                 {

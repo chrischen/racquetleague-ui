@@ -5,13 +5,17 @@ open Util
 open Rating
 module PlayerMini = {
   @react.component
-  let make = (~player: Player.t<'a>) => {
+  let make = (~player: Player.t<'a>, ~session: option<Session.t>=?) => {
     <>
       <span className="mr-2">
         {player.name->React.string}
         {"("->React.string}
         {player.rating.mu->Float.toFixed(~digits=2)->React.string}
         {")"->React.string}
+        {session
+        ->Option.map(s => "x" ++ (s->Session.get(player.id)).count->Int.toString)
+        ->Option.map(React.string)
+        ->Option.getOr(React.null)}
       </span>
       <br />
     </>
@@ -24,6 +28,7 @@ module MatchMini = {
   @react.component
   let make = (
     ~match: Match.t<'a>,
+    ~session: Session.t,
     ~highlight: option<highlight>=?,
     ~border: option<border>=?,
     ~onSelect: option<Match.t<'a> => unit>=?,
@@ -55,7 +60,9 @@ module MatchMini = {
             )
             ->Option.getOr(""),
           ])}>
-          <span> {team1->Array.map(p => <PlayerMini key={p.id} player=p />)->React.array} </span>
+          <span>
+            {team1->Array.map(p => <PlayerMini key={p.id} player=p session />)->React.array}
+          </span>
         </div>
         <div className="col-span-1 text-center text-2xl text-gray-800 font-bold">
           {" VS "->React.string}
@@ -73,7 +80,9 @@ module MatchMini = {
             )
             ->Option.getOr(""),
           ])}>
-          <span> {team2->Array.map(p => <PlayerMini key={p.id} player=p />)->React.array} </span>
+          <span>
+            {team2->Array.map(p => <PlayerMini key={p.id} player=p session />)->React.array}
+          </span>
         </div>
       </div>
       <div className="self-center p-3">
@@ -124,6 +133,7 @@ let ts = Lingui.UtilString.t
 @react.component
 let make = (
   ~players: array<Player.t<'a>>,
+  ~session: Session.t,
   ~teams: NonEmptyArray.t<Team.t<'a>>,
   ~consumedPlayers: Set.t<string>,
   ~seenTeams: Set.t<string>,
@@ -314,6 +324,7 @@ let make = (
             )
           })}
           match
+          session
           ?highlight
           ?border
         />

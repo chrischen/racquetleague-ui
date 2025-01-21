@@ -12,6 +12,7 @@ module Types = {
   @live
   and response_joinEvent_edge_node = {
     @live id: string,
+    listType: option<int>,
     user: option<response_joinEvent_edge_node_user>,
   }
   @live
@@ -154,6 +155,13 @@ v3 = {
             }
           ],
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "listType",
+          "storageKey": null
         }
       ],
       "storageKey": null
@@ -221,12 +229,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "249d94b7b5c21fce88364d2c5dea98ea",
+    "cacheID": "5d9e219d95f060187e476d99b7aef833",
     "id": null,
     "metadata": {},
     "name": "EventRsvpsJoinMutation",
     "operationKind": "mutation",
-    "text": "mutation EventRsvpsJoinMutation(\n  $id: ID!\n) {\n  joinEvent(eventId: $id) {\n    edge {\n      node {\n        id\n        user {\n          id\n          lineUsername\n        }\n      }\n    }\n  }\n}\n"
+    "text": "mutation EventRsvpsJoinMutation(\n  $id: ID!\n) {\n  joinEvent(eventId: $id) {\n    edge {\n      node {\n        id\n        user {\n          id\n          lineUsername\n        }\n        listType\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

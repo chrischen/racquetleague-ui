@@ -8,7 +8,7 @@ import * as EventRsvpsRefetchQuery_graphql from "./EventRsvpsRefetchQuery_graphq
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"rsvps_edges_node_user":{"f":""}}};
+var fragmentConverter = {"__root":{"rsvps_edges_node":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -163,6 +163,11 @@ return {
               "plural": false,
               "selections": [
                 {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "EventRsvps_rsvp"
+                },
+                {
                   "alias": null,
                   "args": null,
                   "concreteType": "User",
@@ -170,12 +175,7 @@ return {
                   "name": "user",
                   "plural": false,
                   "selections": [
-                    (v1/*: any*/),
-                    {
-                      "args": null,
-                      "kind": "FragmentSpread",
-                      "name": "EventRsvpUser_user"
-                    }
+                    (v1/*: any*/)
                   ],
                   "storageKey": null
                 },
@@ -200,15 +200,15 @@ return {
                       "kind": "ScalarField",
                       "name": "mu",
                       "storageKey": null
-                    },
-                    {
-                      "alias": null,
-                      "args": null,
-                      "kind": "ScalarField",
-                      "name": "sigma",
-                      "storageKey": null
                     }
                   ],
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "listType",
                   "storageKey": null
                 },
                 {

@@ -425,6 +425,7 @@ type Rsvp implements Node {
   id: ID!
   joinTime: Int
   leaveDate: Datetime
+  listType: Int
   rating(namespace: String): Rating
   user: User
 }

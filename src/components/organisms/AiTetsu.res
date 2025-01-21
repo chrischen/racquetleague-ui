@@ -972,6 +972,7 @@ let make = (~event, ~children) => {
             <CompMatch
               roundsCount={roundsCount}
               players={(queuedPlayers :> array<Player.t<'a>>)}
+              session=sessionState
               teams
               consumedPlayers={Set.make()}
               seenTeams
@@ -1133,6 +1134,7 @@ let make = (~event, ~children) => {
       matchSelector={<CompMatch
         roundsCount
         players={(queuedPlayers :> array<Player.t<'a>>)}
+        session=sessionState
         teams
         consumedPlayers={Set.make()}
         seenTeams

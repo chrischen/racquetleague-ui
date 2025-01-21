@@ -3,6 +3,7 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
+import * as Session from "../../lib/Session.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
@@ -27,7 +28,12 @@ function CompMatch$PlayerMini(props) {
                         player.name,
                         "(",
                         player.rating.mu.toFixed(2),
-                        ")"
+                        ")",
+                        Core__Option.getOr(Core__Option.map(Core__Option.map(props.session, (function (s) {
+                                        return "x" + Session.get(s, player.id).count.toString();
+                                      })), (function (prim) {
+                                    return prim;
+                                  })), null)
                       ],
                       className: "mr-2"
                     }),
@@ -44,6 +50,7 @@ function CompMatch$MatchMini(props) {
   var match = props.match;
   var onSelect = props.onSelect;
   var highlight = props.highlight;
+  var session = props.session;
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -52,7 +59,8 @@ function CompMatch$MatchMini(props) {
                               children: JsxRuntime.jsx("span", {
                                     children: match[0].map(function (p) {
                                           return JsxRuntime.jsx(CompMatch$PlayerMini, {
-                                                      player: p
+                                                      player: p,
+                                                      session: session
                                                     }, p.id);
                                         })
                                   }),
@@ -79,7 +87,8 @@ function CompMatch$MatchMini(props) {
                               children: JsxRuntime.jsx("span", {
                                     children: match[1].map(function (p) {
                                           return JsxRuntime.jsx(CompMatch$PlayerMini, {
-                                                      player: p
+                                                      player: p,
+                                                      session: session
                                                     }, p.id);
                                         })
                                   }),
@@ -197,6 +206,7 @@ function CompMatch(props) {
   var seenMatches = props.seenMatches;
   var seenTeams = props.seenTeams;
   var consumedPlayers = props.consumedPlayers;
+  var session = props.session;
   var players = props.players;
   var match = React.useState(function () {
         return defaultStrategy;
@@ -425,6 +435,7 @@ function CompMatch(props) {
                                   children: [
                                     JsxRuntime.jsx(CompMatch$MatchMini, {
                                           match: match,
+                                          session: session,
                                           highlight: highlight,
                                           border: border,
                                           onSelect: Core__Option.map(onSelectMatch, (function (f) {

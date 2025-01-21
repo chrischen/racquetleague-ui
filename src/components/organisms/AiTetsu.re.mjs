@@ -906,6 +906,7 @@ function AiTetsu(props) {
                   }),
                 matchSelector: JsxRuntime.jsx(CompMatch.make, {
                       players: queuedPlayers,
+                      session: sessionState,
                       teams: teams,
                       consumedPlayers: new Set(),
                       seenTeams: seenTeams,
@@ -1219,6 +1220,7 @@ function AiTetsu(props) {
                                             }),
                                         JsxRuntime.jsx(CompMatch.make, {
                                               players: queuedPlayers,
+                                              session: sessionState,
                                               teams: teams,
                                               consumedPlayers: new Set(),
                                               seenTeams: seenTeams,

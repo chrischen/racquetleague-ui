@@ -22,15 +22,15 @@ module Fragment = %relay(`
     {
       edges {
         node {
+          ...EventRsvps_rsvp
           user {
             id
-            ...EventRsvpUser_user
           }
           rating {
             ordinal
             mu
-            sigma
           }
+          listType
         }
       }
       pageInfo {
@@ -69,6 +69,7 @@ module EventRsvpsJoinMutation = %relay(`
             id
             lineUsername
           }
+          listType
         }
       }
     }
@@ -101,14 +102,45 @@ module EventRsvpsLeaveMutation = %relay(`
 
 @module("../layouts/appContext")
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
+
 //@genType
 //let default = make
 @react.component
 let make = (~event, ~user) => {
-  let ts = Lingui.UtilString.t
   let (_isPending, startTransition) = ReactExperimental.useTransition()
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
+  let {__id, maxRsvps, minRating, activity} = Fragment.use(event)
+  let viewer = user->Option.map(user => UserFragment.use(user))
   let rsvps = data.rsvps->Fragment.getConnectionNodes
+
+  let isWaitlist = count => {
+    maxRsvps->Option.flatMap(max => count >= max ? Some() : None)->Option.isSome
+  }
+  let confirmedRsvps =
+    rsvps
+    ->Array.mapWithIndex((edge, i) => {
+      edge.user->Option.flatMap(_ => {
+        switch (isWaitlist(i), edge.listType) {
+        | (true, _)
+        | (_, Some(1)) => None
+        | (false, _) => Some(edge)
+        }
+      })
+    })
+    ->Array.filterMap(x => x)
+
+  let waitlistRsvps =
+    rsvps
+    ->Array.mapWithIndex((edge, i) => {
+      edge.user->Option.flatMap(_ => {
+        switch (isWaitlist(i), edge.listType) {
+        | (true, _)
+        | (_, Some(1)) => Some(edge)
+        | (false, _) => None
+        }
+      })
+    })
+    ->Array.filterMap(x => x)
 
   // let pageInfo = data.rsvps->Option.map(e => e.pageInfo)
   // let hasPrevious = pageInfo->Option.map(e => e.hasPreviousPage)->Option.getOr(false)
@@ -117,8 +149,6 @@ let make = (~event, ~user) => {
       loadNext(~count=1)->ignore
     })
 
-  let {__id, maxRsvps, minRating, activity} = Fragment.use(event)
-  let viewer = user->Option.map(user => UserFragment.use(user))
   // let user = viewer->Option.flatMap(viewer => viewer.user)
   let (commitMutationLeave, _isMutationInFlight) = EventRsvpsLeaveMutation.use()
   let (commitMutationJoin, _isMutationInFlight) = EventRsvpsJoinMutation.use()
@@ -140,11 +170,11 @@ let make = (~event, ~user) => {
   let viewerIsInEvent =
     viewer
     ->Option.flatMap(viewer =>
-      rsvps
+      confirmedRsvps
       ->Array.findIndexOpt(edge =>
         edge.user->Option.map(user => viewer.id == user.id)->Option.getOr(false)
       )
-      ->Option.map(i => maxRsvps->Option.map(max => i < max)->Option.getOr(true))
+      ->Option.map(_ => true)
     )
     ->Option.getOr(false)
 
@@ -195,10 +225,6 @@ let make = (~event, ~user) => {
       (max->Int.toFloat -. rsvps->Array.length->Int.toFloat)->Math.max(0.)->Float.toInt
     )
 
-  let isWaitlist = count => {
-    maxRsvps->Option.flatMap(max => count >= max ? Some() : None)->Option.isSome
-  }
-
   let waitlistCount =
     (rsvps->Array.length->Int.toFloat -.
       maxRsvps->Option.map(Int.toFloat)->Option.getOr(rsvps->Array.length->Int.toFloat))
@@ -211,12 +237,12 @@ let make = (~event, ~user) => {
         ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(0.)
         : acc
     )
-  let minRsvpRating =
-    rsvps->Array.reduce(maxRating, (acc, next) =>
-      next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating) < acc
-        ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating)
-        : acc
-    )
+  // let minRsvpRating =
+  //   rsvps->Array.reduce(maxRating, (acc, next) =>
+  //     next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating) < acc
+  //       ? next.rating->Option.flatMap(r => r.mu)->Option.getOr(maxRating)
+  //       : acc
+  //   )
 
   let joinButton = switch viewer {
   | Some(_) =>
@@ -230,18 +256,18 @@ let make = (~event, ~user) => {
     | _ =>
       <div className="text-center">
         <WarningAlert cta={""->React.string} ctaClick={() => ()}>
-          {t`required rating: ${minRating->Option.getOr(0.0)->Float.toFixed(~digits=2)}`}
+          {t`Required rating: ${minRating->Option.getOr(0.0)->Float.toFixed(~digits=2)}`}
           <br />
-          {t`your rating ${viewer
+          {t`Your rating ${viewer
           ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.ordinal))
           ->Option.getOr(0.0)
           ->Float.toFixed(
             ~digits=2,
-          )} is too low. please join a JPL open event to boost your rating. the fastest way is to play and beat Jai a couple of times`}
+          )} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating.`}
         </WarningAlert>
         <button
-          disabled=true
-          className="mt-2 w-full items-center justify-center rounded-md bg-red-200 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+        onClick=onJoin
+          className="mt-2 w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
           {t`join event`}
         </button>
       </div>
@@ -352,62 +378,12 @@ let make = (~event, ~user) => {
         {<>
           <ul className={Util.cx([expanded ? "" : "hidden sm:block"])}>
             <FramerMotion.AnimatePresence>
-              {switch rsvps {
+              {switch confirmedRsvps {
               | [] => t`no players yet`
               | rsvps =>
                 rsvps
-                ->Array.mapWithIndex((edge, i) => {
-                  edge.user
-                  ->Option.map(user => {
-                    switch isWaitlist(i) {
-                    | false =>
-                      <FramerMotion.Li
-                        className="mt-4 flex w-full flex-none"
-                        style={originX: 0.05, originY: 0.05}
-                        key={user.id}
-                        initial={opacity: 0., scale: 1.15}
-                        animate={opacity: 1., scale: 1.}
-                        exit={opacity: 0., scale: 1.15}>
-                        <div className="flex-none">
-                          <span className="sr-only"> {t`Player`} </span>
-                          // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
-                        </div>
-                        <div className="w-full text-sm font-medium leading-6 text-gray-900">
-                          <EventRsvpUser
-                            link={"/league/" ++
-                            activitySlug->Option.getOr("badminton") ++
-                            "/p/" ++
-                            user.id}
-                            user={user.fragmentRefs}
-                            rating=?{edge.rating->Option.flatMap(r => r.mu)}
-                            sigma=?{edge.rating->Option.flatMap(r => r.sigma)}
-                            sigmaPercent={edge.rating
-                            ->Option.flatMap(
-                              rating =>
-                                rating.sigma->Option.map(sigma => 3. *. sigma /. maxRating *. 100.),
-                            )
-                            ->Option.getOr(0.)}
-                            ratingPercent={edge.rating
-                            ->Option.flatMap(
-                              rating =>
-                                rating.mu->Option.flatMap(
-                                  mu =>
-                                    rating.sigma->Option.map(
-                                      sigma => (mu -. sigma *. 3.0) /. maxRating *. 100.,
-                                    ),
-                                ),
-                            )
-                            ->Option.getOr(0.)}
-                            highlight={viewer
-                            ->Option.map(viewer => viewer.id == user.id)
-                            ->Option.getOr(false)}
-                          />
-                        </div>
-                      </FramerMotion.Li>
-                    | true => React.null
-                    }
-                  })
-                  ->Option.getOr(React.null)
+                ->Array.map(edge => {
+                  <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
                 })
                 ->React.array
               }}
@@ -449,63 +425,12 @@ let make = (~event, ~user) => {
           {<>
             <ul className="">
               <FramerMotion.AnimatePresence>
-                {switch rsvps {
+                {switch waitlistRsvps {
                 | [] => t`no players yet`
                 | rsvps =>
                   rsvps
-                  ->Array.mapWithIndex((edge, i) => {
-                    edge.user
-                    ->Option.map(user => {
-                      switch isWaitlist(i) {
-                      | true =>
-                        <FramerMotion.Li
-                          className="mt-4 flex w-full flex-none"
-                          style={originX: 0.05, originY: 0.05}
-                          key={user.id}
-                          initial={opacity: 0., scale: 1.15}
-                          animate={opacity: 1., scale: 1.}
-                          exit={opacity: 0., scale: 1.15}>
-                          <div className="flex-none">
-                            <span className="sr-only"> {t`Player`} </span>
-                            // <UserCircleIcon className="h-6 w-5 text-gray-400" aria-hidden="true" />
-                          </div>
-                          <div className="w-full text-sm font-medium leading-6 text-gray-900">
-                            <EventRsvpUser
-                              link={"/league/" ++
-                              activitySlug->Option.getOr("badminton") ++
-                              "/p/" ++
-                              user.id}
-                              user={user.fragmentRefs}
-                              rating=?{edge.rating->Option.flatMap(r => r.ordinal)}
-                              sigmaPercent={edge.rating
-                              ->Option.flatMap(
-                                rating =>
-                                  rating.sigma->Option.map(
-                                    sigma => 3. *. sigma /. maxRating *. 100.,
-                                  ),
-                              )
-                              ->Option.getOr(0.)}
-                              ratingPercent={edge.rating
-                              ->Option.flatMap(
-                                rating =>
-                                  rating.mu->Option.flatMap(
-                                    mu =>
-                                      rating.sigma->Option.map(
-                                        sigma => (mu -. sigma *. 3.0) /. maxRating *. 100.,
-                                      ),
-                                  ),
-                              )
-                              ->Option.getOr(0.)}
-                              highlight={viewer
-                              ->Option.map(viewer => viewer.id == user.id)
-                              ->Option.getOr(false)}
-                            />
-                          </div>
-                        </FramerMotion.Li>
-                      | false => React.null
-                      }
-                    })
-                    ->Option.getOr(React.null)
+                  ->Array.map(edge => {
+                    <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
                   })
                   ->React.array
                 }}
