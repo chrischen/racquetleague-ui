@@ -27,8 +27,6 @@ let make = () => {
       {() =>
         query.location
         ->Option.flatMap(location => {
-          Js.log("The location")
-          Js.log(location)
           query.event->Option.map(event =>
             <Grid>
               <SelectedLocation

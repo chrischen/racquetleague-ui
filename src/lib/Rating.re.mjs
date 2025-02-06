@@ -459,6 +459,12 @@ function filterOut(players, unavailable) {
             });
 }
 
+function mustInclude(players, mustPlayers) {
+  return players.filter(function (p) {
+              return mustPlayers.has(p.id);
+            });
+}
+
 function addBreakPlayersFrom(breakPlayers, players, breakCount) {
   return filterOut(players, new Set(breakPlayers.map(function (p) {
                           return p.id;
@@ -506,6 +512,7 @@ var Players = {
   sortByPlayCountDesc: sortByPlayCountDesc,
   sortByOrdinalDesc: sortByOrdinalDesc,
   filterOut: filterOut,
+  mustInclude: mustInclude,
   addBreakPlayersFrom: addBreakPlayersFrom,
   savePlayers: savePlayers,
   loadPlayers: loadPlayers
@@ -698,7 +705,7 @@ function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoi
               }));
 }
 
-function strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teams) {
+function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers, avoidAllPlayers, teams) {
   return Core__Array.reduce(array_split_by_n(players.toSorted(function (a, b) {
                       var userA = a.rating.mu;
                       var userB = b.rating.mu;
@@ -708,13 +715,19 @@ function strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers,
                         return -1;
                       }
                     }), 6), [], (function (acc, playerSet) {
-                var matches = find_all_match_combos(filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams).toSorted(function (a, b) {
-                      if (a[1] < b[1]) {
-                        return 1;
-                      } else {
-                        return -1;
-                      }
-                    });
+                var players = filterOut(playerSet, consumedPlayers);
+                var matches = Core__Option.getOr(Core__Option.map(players.at(0), (function (topPlayer) {
+                            console.log(topPlayer);
+                            return find_all_match_combos(filterOut(playerSet, consumedPlayers), [], avoidAllPlayers, teams).filter(function (param) {
+                                          return contains_player$1(param[0], topPlayer);
+                                        }).toSorted(function (a, b) {
+                                        if (a[1] < b[1]) {
+                                          return 1;
+                                        } else {
+                                          return -1;
+                                        }
+                                      });
+                          })), []);
                 return acc.concat(matches);
               }));
 }

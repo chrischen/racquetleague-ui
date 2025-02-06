@@ -43,8 +43,6 @@ function UpdateEventPage(props) {
               children: JsxRuntime.jsx(WaitForMessages.make, {
                     children: (function () {
                         return Core__Option.getOr(Core__Option.flatMap(query.location, (function ($$location) {
-                                          console.log("The location");
-                                          console.log($$location);
                                           return Core__Option.map(query.event, (function ($$event) {
                                                         return JsxRuntime.jsxs(Grid.make, {
                                                                     children: [

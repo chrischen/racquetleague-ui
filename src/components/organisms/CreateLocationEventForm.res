@@ -77,6 +77,10 @@ module UpdateMutation = %relay(`
         endDate
         listed
       }
+      rsvps {
+        id
+        listType
+      }
     }
   }
 `)

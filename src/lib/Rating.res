@@ -343,6 +343,10 @@ module Players = {
   let filterOut = (players: t, unavailable: TeamSet.t) =>
     players->Array.filter(p => !(unavailable->Set.has(p.id)))
 
+  let mustInclude = (players: t, mustPlayers: TeamSet.t) => {
+    players->Array.filter(p => mustPlayers->Set.has(p.id))
+  }
+
   let addBreakPlayersFrom = (breakPlayers: t, players: t, breakCount: int): t => {
     players
     ->filterOut(breakPlayers->Array.map(p => p.id)->Set.fromArray)
@@ -564,7 +568,7 @@ let strategy_by_competitive = (
 let strategy_by_competitive_plus = (
   players: array<Player.t<'a>>,
   consumedPlayers: Set.t<string>,
-  priorityPlayers: array<Player.t<'a>>,
+  _priorityPlayers: array<Player.t<'a>>,
   avoidAllPlayers: array<Player.t<'a>>,
   teams: NonEmptyArray.t<Set.t<string>>,
 ) => {
@@ -576,15 +580,25 @@ let strategy_by_competitive_plus = (
   })
   ->array_split_by_n(6)
   ->Array.reduce([], (acc, playerSet) => {
+    let players = playerSet->Players.filterOut(consumedPlayers)
     let matches =
-      playerSet
-      ->Players.filterOut(consumedPlayers)
-      ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams)
-      ->Array.toSorted((a, b) => {
-        let (_, qualityA) = a
-        let (_, qualityB) = b
-        qualityA < qualityB ? 1. : -1.
+      players
+      ->Array.at(0)
+      ->Option.map(topPlayer => {
+        Js.log(topPlayer)
+        playerSet
+        ->Players.filterOut(consumedPlayers)
+        ->find_all_match_combos([], avoidAllPlayers, teams)
+        ->Array.filter(((match, _)) => match->Match.contains_player(topPlayer))
+        ->Array.toSorted(
+          (a, b) => {
+            let (_, qualityA) = a
+            let (_, qualityB) = b
+            qualityA < qualityB ? 1. : -1.
+          },
+        )
       })
+      ->Option.getOr([])
     acc->Array.concat(matches)
   })
 }

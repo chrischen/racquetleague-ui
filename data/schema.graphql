@@ -338,6 +338,7 @@ type MutationResult implements HasErrors {
 type MutationResult2 implements HasErrors {
   errors: [Error!]
   event: Event
+  rsvps: [Rsvp!]
 }
 
 interface Node {
@@ -426,7 +427,7 @@ type Rsvp implements Node {
   joinTime: Int
   leaveDate: Datetime
   listType: Int
-  rating(namespace: String): Rating
+  rating: Rating
   user: User
 }
 

@@ -172,7 +172,7 @@ let make = (
       strategy: DUPR,
       details: ts`Optimized for DUPR. Teams created with similar skill level players.`,
     },
-    {name: ts`Round Robin`, strategy: RoundRobin, details: ts`Unique combination of matches.`},
+    // {name: ts`Round Robin`, strategy: RoundRobin, details: ts`Unique combination of matches.`},
   ]
   // let availablePlayers = players->Players.filterOut(consumedPlayers)
   let teamConstraints = teams->NonEmptyArray.map(Team.toSet)
@@ -180,10 +180,11 @@ let make = (
     players,
     consumedPlayers,
     strategy,
-    players
-    ->Array.get(0)
-    ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
-    ->Option.getOr(priorityPlayers),
+    priorityPlayers,
+    // players
+    // ->Array.get(0)
+    // ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
+    // ->Option.getOr(priorityPlayers),
     avoidAllPlayers,
     teamConstraints,
   )
@@ -195,10 +196,11 @@ let make = (
       players,
       consumedPlayers,
       strategy,
-      players
-      ->Array.get(0)
-      ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
-      ->Option.getOr(priorityPlayers),
+      priorityPlayers,
+      // players
+      // ->Array.get(0)
+      // ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
+      // ->Option.getOr(priorityPlayers),
       avoidAllPlayers,
       None,
     )

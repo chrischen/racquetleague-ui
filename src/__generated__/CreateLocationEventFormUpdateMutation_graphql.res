@@ -35,8 +35,14 @@ module Types = {
     title: option<string>,
   }
   @live
+  and response_updateEvent_rsvps = {
+    @live id: string,
+    listType: option<int>,
+  }
+  @live
   and response_updateEvent = {
     event: option<response_updateEvent_event>,
+    rsvps: option<array<response_updateEvent_rsvps>>,
   }
   @live
   type response = {
@@ -270,6 +276,25 @@ v3 = [
           }
         ],
         "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Rsvp",
+        "kind": "LinkedField",
+        "name": "rsvps",
+        "plural": true,
+        "selections": [
+          (v1/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "listType",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
       }
     ],
     "storageKey": null
@@ -293,12 +318,12 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "3dac8e24568413bef5adeb29ff7c1071",
+    "cacheID": "496c7fd067decdf69895b1983f286e7e",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormUpdateMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n    rsvps {\n      id\n      listType\n    }\n  }\n}\n"
   }
 };
 })() `)
