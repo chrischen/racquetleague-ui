@@ -116,32 +116,13 @@ let make = (~event, ~user) => {
   let isWaitlist = count => {
     maxRsvps->Option.flatMap(max => count >= max ? Some() : None)->Option.isSome
   }
-  let confirmedRsvps =
-    rsvps
-    ->Array.mapWithIndex((edge, i) => {
-      edge.user->Option.flatMap(_ => {
-        switch (isWaitlist(i), edge.listType) {
-        | (true, _)
-        | (_, Some(1)) => None
-        | (false, _) => Some(edge)
-        }
-      })
-    })
-    ->Array.filterMap(x => x)
+  let mainList = rsvps->Array.filter(edge => edge.listType == None || edge.listType == Some(0))
+  let confirmedRsvps = mainList->Array.filterWithIndex((_, i) => !isWaitlist(i))
 
   let waitlistRsvps =
     rsvps
-    ->Array.mapWithIndex((edge, i) => {
-      edge.user->Option.flatMap(_ => {
-        switch (isWaitlist(i), edge.listType) {
-        | (true, _)
-        | (_, Some(1)) => Some(edge)
-        | (false, _) => None
-        }
-      })
-    })
-    ->Array.filterMap(x => x)
-
+    ->Array.filter(edge => edge.listType != Some(0) && edge.listType != None)
+    ->Array.concat(mainList->Array.filterWithIndex((_, i) => isWaitlist(i)))
   // let pageInfo = data.rsvps->Option.map(e => e.pageInfo)
   // let hasPrevious = pageInfo->Option.map(e => e.hasPreviousPage)->Option.getOr(false)
   let onLoadMore = _ =>
@@ -222,14 +203,12 @@ let make = (~event, ~user) => {
 
   let spotsAvailable =
     maxRsvps->Option.map(max =>
-      (max->Int.toFloat -. rsvps->Array.length->Int.toFloat)->Math.max(0.)->Float.toInt
+      (max->Int.toFloat -. confirmedRsvps->Array.length->Int.toFloat)->Math.max(0.)->Float.toInt
     )
 
   let waitlistCount =
-    (rsvps->Array.length->Int.toFloat -.
-      maxRsvps->Option.map(Int.toFloat)->Option.getOr(rsvps->Array.length->Int.toFloat))
-    ->Math.max(0.)
-    ->Float.toInt
+    waitlistRsvps->Array.length
+    
 
   let maxRating =
     rsvps->Array.reduce(0., (acc, next) =>
@@ -266,7 +245,7 @@ let make = (~event, ~user) => {
           )} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating.`}
         </WarningAlert>
         <button
-        onClick=onJoin
+          onClick=onJoin
           className="mt-2 w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
           {t`join event`}
         </button>
@@ -337,15 +316,15 @@ let make = (~event, ~user) => {
           {switch maxRsvps {
           | Some(max) =>
             <>
-              {(Js.Math.min_int(rsvps->Array.length, max)->Int.toString ++
+              {(Js.Math.min_int(confirmedRsvps->Array.length, max)->Int.toString ++
               " / " ++
               max->Int.toString ++ " ")->React.string}
               {plural(max, {one: "player", other: "players"})}
             </>
           | None =>
             <>
-              {(rsvps->Array.length->Int.toString ++ " ")->React.string}
-              {plural(rsvps->Array.length, {one: "player", other: "players"})}
+              {(confirmedRsvps->Array.length->Int.toString ++ " ")->React.string}
+              {plural(confirmedRsvps->Array.length, {one: "player", other: "players"})}
             </>
           }}
         </dd>
