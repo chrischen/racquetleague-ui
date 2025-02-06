@@ -110,7 +110,19 @@ function EventRsvps(props) {
         }
       });
   var confirmedRsvps = mainList.filter(function (param, i) {
-        return !isWaitlist(i);
+          return !isWaitlist(i);
+        }).toSorted(function (a, b) {
+        var userA = Core__Option.getOr(Core__Option.flatMap(a.rating, (function (rating) {
+                    return rating.mu;
+                  })), 0);
+        var userB = Core__Option.getOr(Core__Option.flatMap(b.rating, (function (rating) {
+                    return rating.mu;
+                  })), 0);
+        if (userA < userB) {
+          return 1;
+        } else {
+          return -1;
+        }
       });
   var waitlistRsvps = rsvps.filter(function (edge) {
           if (Caml_obj.notequal(edge.listType, 0)) {

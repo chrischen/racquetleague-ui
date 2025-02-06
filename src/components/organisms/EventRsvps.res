@@ -117,7 +117,14 @@ let make = (~event, ~user) => {
     maxRsvps->Option.flatMap(max => count >= max ? Some() : None)->Option.isSome
   }
   let mainList = rsvps->Array.filter(edge => edge.listType == None || edge.listType == Some(0))
-  let confirmedRsvps = mainList->Array.filterWithIndex((_, i) => !isWaitlist(i))
+  let confirmedRsvps =
+    mainList
+    ->Array.filterWithIndex((_, i) => !isWaitlist(i))
+    ->Array.toSorted((a, b) => {
+      let userA = a.rating->Option.flatMap(rating => rating.mu)->Option.getOr(0.)
+      let userB = b.rating->Option.flatMap(rating => rating.mu)->Option.getOr(0.)
+      userA < userB ? 1. : -1.
+    })
 
   let waitlistRsvps =
     rsvps
@@ -206,9 +213,7 @@ let make = (~event, ~user) => {
       (max->Int.toFloat -. confirmedRsvps->Array.length->Int.toFloat)->Math.max(0.)->Float.toInt
     )
 
-  let waitlistCount =
-    waitlistRsvps->Array.length
-    
+  let waitlistCount = waitlistRsvps->Array.length
 
   let maxRating =
     rsvps->Array.reduce(0., (acc, next) =>
