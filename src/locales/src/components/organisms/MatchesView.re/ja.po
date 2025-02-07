@@ -13,12 +13,12 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchesView.re.mjs:125
+#: src/components/organisms/MatchesView.re.mjs:109
 msgid "# of courts"
 msgstr "コート数"
 
-#: src/components/organisms/MatchesView.re.mjs:326
-#: src/components/organisms/MatchesView.re.mjs:329
+#: src/components/organisms/MatchesView.re.mjs:310
+#: src/components/organisms/MatchesView.re.mjs:313
 msgid "and"
 msgstr "と"
 
@@ -26,15 +26,15 @@ msgstr "と"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/MatchesView.re.mjs:287
+#: src/components/organisms/MatchesView.re.mjs:271
 msgid "Checkin"
 msgstr "チェックイン"
 
-#: src/components/organisms/MatchesView.re.mjs:364
+#: src/components/organisms/MatchesView.re.mjs:348
 msgid "Choose Match"
 msgstr "試合を選択"
 
-#: src/components/organisms/MatchesView.re.mjs:148
+#: src/components/organisms/MatchesView.re.mjs:132
 msgid "CHOOSE MATCH"
 msgstr "試合を選択"
 
@@ -42,11 +42,11 @@ msgstr "試合を選択"
 msgid "Close panel"
 msgstr "パネルを閉じる"
 
-#: src/components/organisms/MatchesView.re.mjs:330
+#: src/components/organisms/MatchesView.re.mjs:314
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "コート {0}: {team1} 対 {team2}"
 
-#: src/components/organisms/MatchesView.re.mjs:140
+#: src/components/organisms/MatchesView.re.mjs:124
 msgid "Deselect All"
 msgstr "すべて選択解除"
 
@@ -62,7 +62,7 @@ msgstr "戻る"
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/components/organisms/MatchesView.re.mjs:317
+#: src/components/organisms/MatchesView.re.mjs:301
 msgid "Matches"
 msgstr "試合"
 
@@ -76,11 +76,11 @@ msgstr "何点"
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/MatchesView.re.mjs:302
+#: src/components/organisms/MatchesView.re.mjs:286
 msgid "Queue"
 msgstr "キュー"
 
-#: src/components/organisms/MatchesView.re.mjs:140
+#: src/components/organisms/MatchesView.re.mjs:124
 msgid "Select All"
 msgstr "すべて選択"
 

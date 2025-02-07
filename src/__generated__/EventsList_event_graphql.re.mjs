@@ -130,7 +130,14 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                (v0/*: any*/)
+                (v0/*: any*/),
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "listType",
+                  "storageKey": null
+                }
               ],
               "storageKey": null
             }

@@ -1415,3 +1415,17 @@ msgstr ""
 #: src/components/organisms/MatchesView.re.mjs:125
 msgid "# of courts"
 msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+msgid "type your events in the format above"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:219
+msgid "Required rating: {0}"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:221
+msgid ""
+"Your rating {0} is too low. You will be placed in the waitlist until the "
+"rating limit is lowered. Please join a JPL open event to boost your rating."
+msgstr ""

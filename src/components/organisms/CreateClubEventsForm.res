@@ -177,7 +177,8 @@ let make = (~query, ~club) => {
                     rows=10
                     id="input"
                     name="input"
-                    hint={t`type your events here`}
+                    defaultValue="3/2 10:00-12:00\n港区立赤羽小学校\nOpen Play\nMax 18 people\n\n3/5 10:00-12:00\n港区立赤羽小学校\nOpen Play\nMax 18 people"
+                    hint={t`type your events in the format above`}
                     register={register(Input)}
                   />
                   <p>

@@ -127,7 +127,7 @@ msgstr "イベント詳細"
 msgid "event location"
 msgstr "イベント場所"
 
-#: src/components/pages/UpdateEventPage.re.mjs:65
+#: src/components/pages/UpdateEventPage.re.mjs:63
 msgid "Event or Location doesn't exist."
 msgstr "イベントまたは場所が存在しません。"
 

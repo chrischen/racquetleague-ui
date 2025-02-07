@@ -39,6 +39,8 @@ external startTransition: (unit => unit) => unit = "startTransition"
 
 @val external encodeURIComponent: string => string = "encodeURIComponent"
 
+@val external encodeURI: string => string = "encodeURI"
+
 module NonEmptyArray = {
   type t<'a> = option<array<'a>>
   let map = (arr: t<'a>, f: 'a => 'b): t<'b> => arr->Option.map(Array.map(_, f))

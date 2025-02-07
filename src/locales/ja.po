@@ -1336,6 +1336,20 @@ msgstr "プライバシーポリシー"
 msgid "Share Feedback"
 msgstr "フィードバックを共有"
 
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+msgid "type your events in the format above"
+msgstr "上記の形式でイベントを入力してください"
+
+#: src/components/organisms/EventRsvps.re.mjs:219
+msgid "Required rating: {0}"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:221
+msgid ""
+"Your rating {0} is too low. You will be placed in the waitlist until the "
+"rating limit is lowered. Please join a JPL open event to boost your rating."
+msgstr ""
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

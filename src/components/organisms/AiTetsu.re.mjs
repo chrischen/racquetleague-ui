@@ -525,8 +525,6 @@ function AiTetsu(props) {
   var match$14 = React.useState(function () {
         return "CompetitivePlus";
       });
-  var setMatchmakingStrategy = match$14[1];
-  var matchmakingStrategy = match$14[0];
   var match$15 = React.useState(function () {
         return [];
       });
@@ -630,7 +628,6 @@ function AiTetsu(props) {
           return x;
         }));
   var match$17 = getPriorityPlayers(matchHistory, queuedPlayers, sessionState, breakCount);
-  var priorityPlayers = match$17.prioritized;
   var availablePlayers$1 = availablePlayers.filter(function (p) {
         return !deprioritized.has(p.id);
       });
@@ -913,9 +910,9 @@ function AiTetsu(props) {
                       seenMatches: seenMatches,
                       lastRoundSeenTeams: lastRoundSeenTeams,
                       lastRoundSeenMatches: lastRoundSeenMatches,
-                      defaultStrategy: matchmakingStrategy,
-                      setDefaultStrategy: setMatchmakingStrategy,
-                      priorityPlayers: priorityPlayers,
+                      defaultStrategy: match$14[0],
+                      setDefaultStrategy: match$14[1],
+                      priorityPlayers: match$17.prioritized,
                       avoidAllPlayers: avoidAllPlayers,
                       onSelectMatch: (function (match, dequeue) {
                           queueMatch(match, dequeue);
@@ -1066,10 +1063,12 @@ function AiTetsu(props) {
                                                 JsxRuntime.jsx(UiAction.make, {
                                                       onClick: (function (param) {
                                                           React.startTransition(function () {
-                                                                setSessionPlayers(function (param) {
-                                                                      return [];
-                                                                    });
-                                                                refetch(makeRefetchVariables(undefined, undefined, undefined, eventId), "network-only", undefined);
+                                                                refetch(makeRefetchVariables(undefined, undefined, undefined, eventId), "network-only", (function (param) {
+                                                                        setSessionMode(function (param) {
+                                                                              return false;
+                                                                            });
+                                                                        uninitializeSessionMode();
+                                                                      }));
                                                               });
                                                         }),
                                                       className: "ml-2",
@@ -1205,34 +1204,6 @@ function AiTetsu(props) {
                                                   }
                                                   
                                                 })
-                                            })
-                                      ],
-                                      className: ""
-                                    }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("h2", {
-                                              children: t`Matchmaking`,
-                                              className: "text-2xl font-semibold text-gray-900"
-                                            }),
-                                        JsxRuntime.jsx("div", {
-                                              className: "flex text-right"
-                                            }),
-                                        JsxRuntime.jsx(CompMatch.make, {
-                                              players: queuedPlayers,
-                                              session: sessionState,
-                                              teams: teams,
-                                              consumedPlayers: new Set(),
-                                              seenTeams: seenTeams,
-                                              seenMatches: seenMatches,
-                                              lastRoundSeenTeams: lastRoundSeenTeams,
-                                              lastRoundSeenMatches: lastRoundSeenMatches,
-                                              defaultStrategy: matchmakingStrategy,
-                                              setDefaultStrategy: setMatchmakingStrategy,
-                                              priorityPlayers: priorityPlayers,
-                                              avoidAllPlayers: avoidAllPlayers,
-                                              onSelectMatch: queueMatch,
-                                              roundsCount: roundsCount
                                             })
                                       ],
                                       className: ""

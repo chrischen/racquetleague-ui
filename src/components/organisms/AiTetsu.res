@@ -510,7 +510,7 @@ let make = (~event, ~children) => {
   } :> array<player>)
   let players = allPlayers->Array.filter(p => !(disabled->Set.has(p.id)))
   let playersCache = allPlayers->PlayersCache.fromPlayers
-  let breakCount = courts == 0 ? 0 : players->Array.length - (courts * 4)
+  let breakCount = courts == 0 ? 0 : players->Array.length - courts * 4
 
   let seenTeams: RescriptCore.Set.t<string> =
     matchHistory
@@ -842,14 +842,25 @@ let make = (~event, ~children) => {
               {t`Leaderboard`}
               <UiAction
                 className="ml-2"
-                onClick={_ =>
+                onClick={_ => {
+                  // setSessionMode(_ => false)
+                  // uninitializeSessionMode()
                   Util.startTransition(() => {
-                    setSessionPlayers(_ => [])
+                    // setSessionPlayers(_ => [])
+                    // initializeSessionMode()
                     refetch(
                       ~variables=Fragment.makeRefetchVariables(~id=eventId),
                       ~fetchPolicy=NetworkOnly,
+                      ~onComplete=_ => {
+                        setSessionMode(_ => false)
+                        uninitializeSessionMode()
+                        // initializeSessionMode()
+                        // refetch(~variables=Fragment.makeRefetchVariables(~id=eventId))
+                        // initializeRatings()->ignore
+                      },
                     )->ignore
-                  })}>
+                  })
+                }}>
                 {<HeroIcons.ArrowPathIcon className="h-8 w-8" />}
               </UiAction>
             </h2>
@@ -964,26 +975,6 @@ let make = (~event, ~children) => {
                 | None => ()
                 }
               }}
-            />
-          </div>
-          <div className="">
-            <h2 className="text-2xl font-semibold text-gray-900"> {t`Matchmaking`} </h2>
-            <div className="flex text-right" />
-            <CompMatch
-              roundsCount={roundsCount}
-              players={(queuedPlayers :> array<Player.t<'a>>)}
-              session=sessionState
-              teams
-              consumedPlayers={Set.make()}
-              seenTeams
-              lastRoundSeenTeams
-              seenMatches
-              lastRoundSeenMatches
-              defaultStrategy={matchmakingStrategy}
-              setDefaultStrategy={setMatchmakingStrategy}
-              priorityPlayers
-              avoidAllPlayers
-              onSelectMatch={queueMatch}
             />
           </div>
         </div>

@@ -13,6 +13,7 @@ module Types = {
   }
   and fragment_rsvps_edges_node = {
     @live id: string,
+    listType: option<int>,
   }
   and fragment_rsvps_edges = {
     node: option<fragment_rsvps_edges_node>,
@@ -159,7 +160,14 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                (v0/*: any*/)
+                (v0/*: any*/),
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "listType",
+                  "storageKey": null
+                }
               ],
               "storageKey": null
             }

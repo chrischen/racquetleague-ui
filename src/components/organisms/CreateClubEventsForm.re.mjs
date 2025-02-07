@@ -200,8 +200,9 @@ function CreateClubEventsForm(props) {
                                                                                       label: t`events`,
                                                                                       name: "input",
                                                                                       id: "input",
-                                                                                      hint: Caml_option.some(t`type your events here`),
+                                                                                      hint: Caml_option.some(t`type your events in the format above`),
                                                                                       rows: 10,
+                                                                                      defaultValue: "3/2 10:00-12:00\n港区立赤羽小学校\nOpen Play\nMax 18 people\n\n3/5 10:00-12:00\n港区立赤羽小学校\nOpen Play\nMax 18 people",
                                                                                       register: register("input", undefined)
                                                                                     }),
                                                                                 JsxRuntime.jsx("p", {

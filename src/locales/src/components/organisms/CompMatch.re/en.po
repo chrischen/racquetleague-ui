@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CompMatch.re.mjs:323
+#: src/components/organisms/CompMatch.re.mjs:324
 msgid "Analyzed {0} matches."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:209
+#: src/components/organisms/CompMatch.re.mjs:219
 msgid "Competitive"
 msgstr ""
 
@@ -29,7 +29,7 @@ msgstr ""
 #~ msgid "DUPR"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:211
+#: src/components/organisms/CompMatch.re.mjs:221
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 
@@ -37,19 +37,19 @@ msgstr ""
 #~ msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:216
+#: src/components/organisms/CompMatch.re.mjs:226
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:214
+#: src/components/organisms/CompMatch.re.mjs:224
 msgid "Mixed"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:226
+#: src/components/organisms/CompMatch.re.mjs:236
 msgid "Optimized for DUPR. Teams created with similar skill level players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:344
+#: src/components/organisms/CompMatch.re.mjs:345
 msgid "Played last round"
 msgstr ""
 
@@ -57,30 +57,30 @@ msgstr ""
 #~ msgid "Quality"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:219
+#: src/components/organisms/CompMatch.re.mjs:229
 msgid "Random"
 msgstr ""
 
 #: src/components/organisms/CompMatch.re.mjs:229
-msgid "Round Robin"
-msgstr ""
+#~ msgid "Round Robin"
+#~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:118
+#: src/components/organisms/CompMatch.re.mjs:127
 msgid "Select"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:275
+#: src/components/organisms/CompMatch.re.mjs:276
 msgid "Select a tab"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:338
+#: src/components/organisms/CompMatch.re.mjs:339
 msgid "This team has played before"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:221
+#: src/components/organisms/CompMatch.re.mjs:231
 msgid "Totally random teams."
 msgstr ""
 
 #: src/components/organisms/CompMatch.re.mjs:231
-msgid "Unique combination of matches."
-msgstr ""
+#~ msgid "Unique combination of matches."
+#~ msgstr ""

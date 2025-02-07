@@ -143,7 +143,7 @@ msgstr ""
 msgid "event location"
 msgstr ""
 
-#: src/components/pages/UpdateEventPage.re.mjs:65
+#: src/components/pages/UpdateEventPage.re.mjs:63
 msgid "Event or Location doesn't exist."
 msgstr ""
 

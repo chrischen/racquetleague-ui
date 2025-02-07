@@ -7,6 +7,7 @@ import * as PinMap from "./PinMap.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Calendar from "./Calendar.re.mjs";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
@@ -84,7 +85,17 @@ function make($$event) {
   var intl = ReactIntl.useIntl();
   var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
               return Core__Option.map(rsvps.edges, (function (edges) {
-                            return edges.length;
+                            return edges.filter(function (edge) {
+                                        return Core__Option.getOr(Core__Option.flatMap(edge, (function (edge) {
+                                                          return Core__Option.map(edge.node, (function (node) {
+                                                                        if (Caml_obj.equal(node.listType, 0)) {
+                                                                          return true;
+                                                                        } else {
+                                                                          return node.listType === undefined;
+                                                                        }
+                                                                      }));
+                                                        })), true);
+                                      }).length;
                           }));
             })), 0);
   var spaceAvailable = maxRsvps !== undefined && (maxRsvps - playersCount | 0) <= 0 ? "🈵" : "🈳";
@@ -127,13 +138,13 @@ function make($$event) {
                     return Core__Option.map(l.name, (function (name) {
                                   return name;
                                 }));
-                  })), t`[location missing]`) + "\n" + Core__Option.getOr(match.details, "") + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                  })), t`[location missing]`) + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
                     return Core__Option.flatMap(l.links, (function (l) {
                                   return Core__Option.map(l[0], (function (mapLink) {
-                                                return "\n🧭 " + mapLink;
+                                                return "\n🧭 " + encodeURI(mapLink);
                                               }));
                                 }));
-                  })), "") + "\n👉 https://www.pkuru.com/" + match$1.i18n.locale + "/events/" + match.id + "\n\n-----------------------------";
+                  })), "") + "\n👉 https://www.pkuru.com/" + match$1.i18n.locale + "/events/" + match.id + "\n-----------------------------";
 }
 
 var TextEventItem = {
@@ -152,7 +163,7 @@ function EventsList$TextEventsList(props) {
   var events = getConnectionNodes(match.data.events);
   var str = events.map(function (edge) {
           return make(edge.fragmentRefs);
-        }).join("\n\n");
+        }).join("\n");
   return JsxRuntime.jsx("textarea", {
               className: "w-full",
               readOnly: true,
@@ -187,7 +198,17 @@ function EventsList$EventItem(props) {
   var endDate = match.endDate;
   var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
               return Core__Option.map(rsvps.edges, (function (edges) {
-                            return edges.length;
+                            return edges.filter(function (edge) {
+                                        return Core__Option.getOr(Core__Option.flatMap(edge, (function (edge) {
+                                                          return Core__Option.map(edge.node, (function (node) {
+                                                                        if (Caml_obj.equal(node.listType, 0)) {
+                                                                          return true;
+                                                                        } else {
+                                                                          return node.listType === undefined;
+                                                                        }
+                                                                      }));
+                                                        })), true);
+                                      }).length;
                           }));
             })), 0);
   var duration = Core__Option.flatMap(startDate, (function (startDate) {

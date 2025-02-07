@@ -56,6 +56,7 @@ module ItemFragment = %relay(`
       edges {
         node {
           id
+          listType
         }
       }
     }
@@ -82,6 +83,7 @@ module TextItemFragment = %relay(`
       edges {
         node {
           id
+          listType
         }
       }
     }
@@ -114,7 +116,22 @@ module TextEventItem = {
 
     let playersCount =
       rsvps
-      ->Option.flatMap(rsvps => rsvps.edges->Option.map(edges => edges->Array.length))
+      ->Option.flatMap(rsvps =>
+        rsvps.edges->Option.map(edges =>
+          edges
+          ->Array.filter(
+            edge => {
+              edge
+              ->Option.flatMap(
+                edge =>
+                  edge.node->Option.map(node => node.listType == Some(0) || node.listType == None),
+              )
+              ->Option.getOr(true)
+            },
+          )
+          ->Array.length
+        )
+      )
       ->Option.getOr(0)
 
     let spaceAvailable = switch maxRsvps {
@@ -182,8 +199,6 @@ module TextEventItem = {
     location
     ->Option.flatMap(l => l.name->Option.map(name => name))
     ->Option.getOr(ts`[location missing]`) ++
-    "\n" ++
-    details->Option.getOr("") ++
     // "\n" ++
     // maxRsvps
     // ->Option.map(maxRsvps =>
@@ -193,7 +208,7 @@ module TextEventItem = {
     location
     ->Option.flatMap(l =>
       l.links->Option.flatMap(l =>
-        l->Array.get(0)->Option.map(mapLink => "\n" ++ "🧭 " ++ mapLink)
+        l->Array.get(0)->Option.map(mapLink => "\n" ++ "🧭 " ++ mapLink->Util.encodeURI)
       )
     )
     ->Option.getOr("") ++
@@ -203,7 +218,7 @@ module TextEventItem = {
     locale ++
     "/events/" ++
     id ++
-    "\n\n" ++ "-----------------------------"
+    "\n" ++ "-----------------------------"
   }
 }
 
@@ -220,7 +235,7 @@ module TextEventsList = {
     let str = {
       events
       ->Array.map(edge => TextEventItem.make(~event=edge.fragmentRefs))
-      ->Array.join("\n\n")
+      ->Array.join("\n")
     }
     <textarea readOnly=true className="w-full" rows=10 value={str} />
   }
@@ -247,7 +262,22 @@ module EventItem = {
     } = ItemFragment.use(event)
     let playersCount =
       rsvps
-      ->Option.flatMap(rsvps => rsvps.edges->Option.map(edges => edges->Array.length))
+      ->Option.flatMap(rsvps =>
+        rsvps.edges->Option.map(edges =>
+          edges
+          ->Array.filter(
+            edge => {
+              edge
+              ->Option.flatMap(
+                edge =>
+                  edge.node->Option.map(node => node.listType == Some(0) || node.listType == None),
+              )
+              ->Option.getOr(true)
+            },
+          )
+          ->Array.length
+        )
+      )
       ->Option.getOr(0)
     // let id = id->NodeIdDto.toDomain->Result.map(NodeId.toId)
 
