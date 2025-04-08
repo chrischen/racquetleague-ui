@@ -71,7 +71,7 @@ msgstr "プレイヤー"
 
 #: src/components/organisms/EventRsvps.re.mjs:219
 msgid "Required rating: {0}"
-msgstr ""
+msgstr "必要な評価: {0}"
 
 #: src/components/organisms/EventRsvps.re.mjs:418
 #: src/components/organisms/EventRsvps.re.mjs:428
@@ -96,6 +96,9 @@ msgid ""
 "Your rating {0} is too low. You will be placed in the waitlist until the "
 "rating limit is lowered. Please join a JPL open event to boost your rating."
 msgstr ""
+"あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイティ"
+"ングリストに登録されます。レーティングを上げるためにJPLのオープンイベントに参"
+"加してください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:203
 #~ msgid ""

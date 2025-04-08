@@ -25,6 +25,8 @@ var Settings = {};
 
 var UserPlus = {};
 
+var Clock = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -38,5 +40,6 @@ export {
   MoveRight ,
   Settings ,
   UserPlus ,
+  Clock ,
 }
 /* No side effect */

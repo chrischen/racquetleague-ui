@@ -1429,3 +1429,7 @@ msgid ""
 "Your rating {0} is too low. You will be placed in the waitlist until the "
 "rating limit is lowered. Please join a JPL open event to boost your rating."
 msgstr ""
+
+#: src/components/organisms/EventFullNames.re.mjs:78
+msgid "guest list"
+msgstr ""

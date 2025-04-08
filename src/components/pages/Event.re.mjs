@@ -19,6 +19,7 @@ import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as EventLocation from "../organisms/EventLocation.re.mjs";
+import * as EventFullNames from "../organisms/EventFullNames.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as SubscribeActivity from "../molecules/SubscribeActivity.re.mjs";
@@ -406,7 +407,10 @@ function $$Event(props) {
                                                                                                                     className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
                                                                                                                   });
                                                                                                       }));
-                                                                                        })), null)
+                                                                                        })), null),
+                                                                              viewerIsAdmin ? JsxRuntime.jsx(EventFullNames.make, {
+                                                                                      event: fragmentRefs
+                                                                                    }) : null
                                                                             ],
                                                                             className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
                                                                           }),

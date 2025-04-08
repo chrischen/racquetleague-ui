@@ -52,9 +52,9 @@ module Queue = {
           breakPlayers->Set.has(player.id),
           consumedPlayers->Set.has(player.id),
         ) {
+        | (true, _, _) => MatchRsvpUser.Queued
         | (_, _, true) => MatchRsvpUser.Playing
         | (_, true, _) => MatchRsvpUser.Break
-        | (true, _, _) => Queued
         | _ => Available
         }
         <UiAction

@@ -2,6 +2,7 @@
 
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as JsxRuntime from "react/jsx-runtime";
 
@@ -40,7 +41,11 @@ function MatchRsvpUser(props) {
             JsxRuntime.jsx("span", {
                   className: "absolute inset-x-0 -top-px bottom-0"
                 }),
-            user.name
+            user.name,
+            highlight === "Break" ? JsxRuntime.jsx(LucideReact.Clock, {
+                    className: "mr-1.5 h-7 w-7 flex-shrink-0 text-gray-500",
+                    "aria-hidden": "true"
+                  }) : null
           ]
         });
   }

@@ -621,8 +621,7 @@ function AiTetsu(props) {
   var deprioritized = getDeprioritizedPlayers(matchHistory, players, sessionState, breakCount);
   var queue = Rating.OrderedQueue.filter(match$8[0], disabled);
   var breakPlayersCount = queue.length;
-  var queue$1 = Rating.OrderedQueue.filter(queue, deprioritized);
-  var queuedPlayers = Core__Array.filterMap(queue$1.map(function (id) {
+  var queuedPlayers = Core__Array.filterMap(queue.map(function (id) {
             return Rating.PlayersCache.get(playersCache, id);
           }), (function (x) {
           return x;
@@ -821,7 +820,7 @@ function AiTetsu(props) {
   };
   var roundsCount = Rating.CompletedMatches.getNumberOfRounds(matchHistory, breakCount, players.length, 4);
   var selectAllPlayers = function () {
-    if (queue$1.length === availablePlayers$1.length) {
+    if (queue.length === availablePlayers$1.length) {
       return setQueue(function (param) {
                   return [];
                 });
@@ -876,7 +875,7 @@ function AiTetsu(props) {
                           }
                         })
                     }),
-                queue: new Set(queue$1),
+                queue: new Set(queue),
                 breakPlayers: deprioritized,
                 consumedPlayers: consumedPlayers,
                 togglePlayer: toggleQueuePlayer,
@@ -1176,7 +1175,7 @@ function AiTetsu(props) {
                                             }),
                                         JsxRuntime.jsx(SelectPlayersList.make, {
                                               players: allPlayers,
-                                              selected: new Set(queue$1),
+                                              selected: new Set(queue),
                                               playing: consumedPlayers,
                                               disabled: disabled,
                                               session: sessionState,

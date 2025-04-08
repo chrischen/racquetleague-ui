@@ -10,6 +10,7 @@ module Mutation = %relay(`
       viewer {
         fullName
         biography
+        lineUsername
       }
       errors {
         message
@@ -25,6 +26,7 @@ module QueryFragment = %relay(`
       profile {
         fullName
         biography
+        lineUsername
       }
     }
   }
@@ -37,6 +39,7 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 type inputs = {
   biography: Zod.string_,
   fullName: Zod.string_,
+  username: Zod.string_,
 }
 
 let schema = Zod.z->Zod.object(
@@ -44,6 +47,7 @@ let schema = Zod.z->Zod.object(
     {
       biography: Zod.z->Zod.string({}),
       fullName: Zod.z->Zod.string({}),
+      username: Zod.z->Zod.string({}),
     }: inputs
   ),
 )
@@ -69,6 +73,9 @@ let make = (~query) => {
         biography: query.viewer
         ->Option.flatMap(viewer => viewer.profile->Option.flatMap(profile => profile.biography))
         ->Option.getOr(""),
+        username: query.viewer
+        ->Option.flatMap(viewer => viewer.profile->Option.flatMap(profile => profile.lineUsername))
+        ->Option.getOr(""),
       },
     },
   )
@@ -79,6 +86,7 @@ let make = (~query) => {
         input: {
           fullName: data.fullName,
           biography: data.biography,
+          username: data.username,
         },
       },
       // ~onCompleted=(response, _errors) => {
@@ -106,24 +114,24 @@ let make = (~query) => {
             <FormSection title={t`profile`} description={t`details about yourself`}>
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-4 md:col-span-3">
-                <div className="">
-                  <Input
-                    label={t`full name`}
-                    id="fullName"
-                    name="fullName"
-                    hint={t`Some events require your legal name as shown on an ID card.`}
-                    placeholder={ts`Doe John`}
-                    register={register(FullName)}
-                  />
-                  <p>
-                    {switch formState.errors.fullName {
-                    | Some({message: ?Some(message)}) => message
-                    | _ => ""
-                    }->React.string}
-                  </p>
+                  <div className="">
+                    <Input
+                      label={t`full name`}
+                      id="fullName"
+                      name="fullName"
+                      hint={t`Some events require your legal name as shown on an ID card.`}
+                      placeholder={ts`Doe John`}
+                      register={register(FullName)}
+                    />
+                    <p>
+                      {switch formState.errors.fullName {
+                      | Some({message: ?Some(message)}) => message
+                      | _ => ""
+                      }->React.string}
+                    </p>
                   </div>
                   <div>
-                  <SeekingPartnerInput seekingPartner={None} onChange={_ => ()} />
+                    <SeekingPartnerInput seekingPartner={None} onChange={_ => ()} />
                   </div>
                 </div>
                 <div className="sm:col-span-4 md:col-span-3">

@@ -576,7 +576,10 @@ let make = (~event, ~children) => {
 
   let queue = queue->OrderedQueue.filter(disabled)
   let breakPlayersCount = queue->Array.length
-  let queue = queue->OrderedQueue.filter(deprioritized)
+
+  // Force break players to be excluded from the queue
+  // let queue = queue->OrderedQueue.filter(deprioritized)
+
   // let queuedPlayers: array<player> = (players->Array.filter(p =>
   //   queue->Set.fromArray->Set.has(p.id)
   // ) :> array<player>)

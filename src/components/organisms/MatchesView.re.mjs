@@ -56,9 +56,9 @@ function MatchesView$Queue(props) {
                     var match = queue.has(player.id);
                     var match$1 = breakPlayers.has(player.id);
                     var match$2 = consumedPlayers.has(player.id);
-                    var status = match$2 ? "Playing" : (
-                        match$1 ? "Break" : (
-                            match ? "Queued" : "Available"
+                    var status = match ? "Queued" : (
+                        match$2 ? "Playing" : (
+                            match$1 ? "Break" : "Available"
                           )
                       );
                     return JsxRuntime.jsx(UiAction.make, {

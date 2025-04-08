@@ -7,6 +7,7 @@ module Types = {
   type rec fragment_viewer_profile = {
     biography: option<string>,
     fullName: option<string>,
+    lineUsername: option<string>,
   }
   and fragment_viewer = {
     profile: option<fragment_viewer_profile>,
@@ -81,6 +82,13 @@ let node: operationType = %raw(json` {
               "args": null,
               "kind": "ScalarField",
               "name": "biography",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "lineUsername",
               "storageKey": null
             }
           ],

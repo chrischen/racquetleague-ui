@@ -240,10 +240,12 @@ and input_PredictMatchInput_nullable = {
 and input_UpdateProfileInput = {
   biography: string,
   fullName: string,
+  username: string,
 }
 
 @live
 and input_UpdateProfileInput_nullable = {
   biography: string,
   fullName: string,
+  username: string,
 }

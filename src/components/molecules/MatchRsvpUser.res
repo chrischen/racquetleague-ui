@@ -105,6 +105,11 @@ let make = (
             // {switch highlight {
             // | true => <strong className="text-lg"> {user.name->React.string} </strong>
             {user.name->React.string}
+            {highlight == Break
+              ? <Lucide.Clock
+                  className="mr-1.5 h-7 w-7 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
+                />
+              : React.null}
             // }}
           </>
         }}

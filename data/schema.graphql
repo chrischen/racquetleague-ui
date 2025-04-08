@@ -313,6 +313,7 @@ type Media {
 }
 
 type Mutation {
+  addRsvpToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
   cancelEvent(eventId: ID!): MutationResult2!
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
@@ -323,6 +324,7 @@ type Mutation {
   createLocation(input: CreateLocationInput!): MutationResult!
   createMatch(match: LeagueMatchInput!): CreateMatchResponse!
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
+  deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
   uncancelEvent(eventId: ID!): MutationResult2!
@@ -444,6 +446,7 @@ type Subscription {
 input UpdateProfileInput {
   biography: String!
   fullName: String!
+  username: String!
 }
 
 type UpdateProfileResult implements HasErrors {

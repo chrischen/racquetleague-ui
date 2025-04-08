@@ -39,6 +39,7 @@ module EventQuery = %relay(`
       }
       deleted
       ...EventRsvps_event @arguments(after: $after, first: $first, before: $before)
+      ...EventFullNames_event @arguments(after: $after, first: $first, before: $before)
     }
   }
 `)
@@ -378,9 +379,7 @@ let make = () => {
                   {switch shadow {
                   | None
                   | Some(false) =>
-                    <EventRsvps
-                      event=fragmentRefs user=(viewer->Option.map(v => v.fragmentRefs))
-                    />
+                    <EventRsvps event=fragmentRefs user={viewer->Option.map(v => v.fragmentRefs)} />
                   | Some(true) =>
                     <ErrorAlert
                       cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
@@ -408,6 +407,7 @@ let make = () => {
                     )
                   )
                   ->Option.getOr(React.null)}
+                  {viewerIsAdmin ? <EventFullNames event=fragmentRefs /> : React.null }
                 </div>
               </div>
               <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">

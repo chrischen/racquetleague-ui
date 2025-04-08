@@ -1342,13 +1342,17 @@ msgstr "上記の形式でイベントを入力してください"
 
 #: src/components/organisms/EventRsvps.re.mjs:219
 msgid "Required rating: {0}"
-msgstr ""
+msgstr "必要な評価: {0}"
 
 #: src/components/organisms/EventRsvps.re.mjs:221
 msgid ""
 "Your rating {0} is too low. You will be placed in the waitlist until the "
 "rating limit is lowered. Please join a JPL open event to boost your rating."
-msgstr ""
+msgstr "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイティングリストに登録されます。レーティングを上げるためにJPLのオープンイベントに参加してください。"
+
+#: src/components/organisms/EventFullNames.re.mjs:78
+msgid "guest list"
+msgstr "ゲストリスト"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

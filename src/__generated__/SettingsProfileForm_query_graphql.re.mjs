@@ -54,6 +54,13 @@ var node = {
               "kind": "ScalarField",
               "name": "biography",
               "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "lineUsername",
+              "storageKey": null
             }
           ],
           "storageKey": null

@@ -77,7 +77,8 @@ var ControllerOfInputs = {};
 
 var schema = Zod.z.object({
       biography: Zod.z.string({}),
-      fullName: Zod.z.string({})
+      fullName: Zod.z.string({}),
+      username: Zod.z.string({})
     });
 
 function SettingsProfileForm(props) {
@@ -97,6 +98,11 @@ function SettingsProfileForm(props) {
                       return Core__Option.flatMap(viewer.profile, (function (profile) {
                                     return profile.fullName;
                                   }));
+                    })), ""),
+          username: Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
+                      return Core__Option.flatMap(viewer.profile, (function (profile) {
+                                    return profile.lineUsername;
+                                  }));
                     })), "")
         }
       });
@@ -107,7 +113,8 @@ function SettingsProfileForm(props) {
     commitMutation({
           input: {
             biography: data.biography,
-            fullName: data.fullName
+            fullName: data.fullName,
+            username: data.username
           }
         }, undefined, undefined, undefined, undefined, undefined, undefined);
     navigate("/", undefined);

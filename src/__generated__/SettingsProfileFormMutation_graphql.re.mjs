@@ -71,6 +71,13 @@ v3 = {
 v4 = {
   "alias": null,
   "args": null,
+  "kind": "ScalarField",
+  "name": "lineUsername",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
   "concreteType": "Error",
   "kind": "LinkedField",
   "name": "errors",
@@ -110,11 +117,12 @@ return {
             "plural": false,
             "selections": [
               (v2/*: any*/),
-              (v3/*: any*/)
+              (v3/*: any*/),
+              (v4/*: any*/)
             ],
             "storageKey": null
           },
-          (v4/*: any*/)
+          (v5/*: any*/)
         ],
         "storageKey": null
       }
@@ -146,6 +154,7 @@ return {
             "selections": [
               (v2/*: any*/),
               (v3/*: any*/),
+              (v4/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -156,19 +165,19 @@ return {
             ],
             "storageKey": null
           },
-          (v4/*: any*/)
+          (v5/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "1524ec79395c3bcc75d6522a8b39e918",
+    "cacheID": "f1bc27c3bc07f96281642c2824618ccc",
     "id": null,
     "metadata": {},
     "name": "SettingsProfileFormMutation",
     "operationKind": "mutation",
-    "text": "mutation SettingsProfileFormMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      fullName\n      biography\n      id\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation SettingsProfileFormMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      fullName\n      biography\n      lineUsername\n      id\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })());
