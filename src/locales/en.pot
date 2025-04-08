@@ -1433,3 +1433,7 @@ msgstr ""
 #: src/components/organisms/EventFullNames.re.mjs:78
 msgid "guest list"
 msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:523
+msgid "restricted by level"
+msgstr ""

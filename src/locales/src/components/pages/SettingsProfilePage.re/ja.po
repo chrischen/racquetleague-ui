@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:194
+#: src/components/organisms/SettingsProfileForm.re.mjs:201
 msgid "biography"
 msgstr "バイオグラフィー"
 
@@ -21,19 +21,19 @@ msgstr "バイオグラフィー"
 msgid "cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:159
+#: src/components/organisms/SettingsProfileForm.re.mjs:166
 msgid "details about yourself"
 msgstr "自己紹介"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:171
+#: src/components/organisms/SettingsProfileForm.re.mjs:178
 msgid "Doe John"
 msgstr "ジョン・ドウ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:167
+#: src/components/organisms/SettingsProfileForm.re.mjs:174
 msgid "full name"
 msgstr "フルネーム"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:158
+#: src/components/organisms/SettingsProfileForm.re.mjs:165
 msgid "profile"
 msgstr "プロフィール"
 
@@ -53,11 +53,11 @@ msgstr ""
 "RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
 "す。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:169
+#: src/components/organisms/SettingsProfileForm.re.mjs:176
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:197
+#: src/components/organisms/SettingsProfileForm.re.mjs:204
 msgid "tell us a little about yourself"
 msgstr "自己紹介をしてください"
 

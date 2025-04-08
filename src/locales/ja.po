@@ -1348,11 +1348,18 @@ msgstr "必要な評価: {0}"
 msgid ""
 "Your rating {0} is too low. You will be placed in the waitlist until the "
 "rating limit is lowered. Please join a JPL open event to boost your rating."
-msgstr "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイティングリストに登録されます。レーティングを上げるためにJPLのオープンイベントに参加してください。"
+msgstr ""
+"あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイティ"
+"ングリストに登録されます。レーティングを上げるためにJPLのオープンイベントに参"
+"加してください。"
 
 #: src/components/organisms/EventFullNames.re.mjs:78
 msgid "guest list"
 msgstr "ゲストリスト"
+
+#: src/components/organisms/EventRsvps.re.mjs:523
+msgid "restricted by level"
+msgstr "レベルによって制限"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

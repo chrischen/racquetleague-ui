@@ -124,15 +124,17 @@ function EventRsvps(props) {
           return -1;
         }
       });
-  var waitlistRsvps = rsvps.filter(function (edge) {
-          if (Caml_obj.notequal(edge.listType, 0)) {
-            return edge.listType !== undefined;
-          } else {
-            return false;
-          }
-        }).concat(mainList.filter(function (param, i) {
-            return isWaitlist(i);
-          }));
+  var waitlistRsvps = mainList.filter(function (param, i) {
+        return isWaitlist(i);
+      });
+  var restrictedRsvps = rsvps.filter(function (edge) {
+        var listType = edge.listType;
+        if (Caml_obj.notequal(listType, 0)) {
+          return listType !== undefined;
+        } else {
+          return false;
+        }
+      });
   var onLoadMore = function (param) {
     startTransition(function () {
           loadNext(1, undefined);
@@ -512,10 +514,60 @@ function EventRsvps(props) {
                                                   })
                                             ]
                                           }),
-                                      className: "mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4"
+                                      className: "mt-4 flex w-full flex-col gap-x-4 border-t border-gray-900/5 px-6 py-4"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      children: JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("dt", {
+                                                    children: t`restricted by level`,
+                                                    className: "text-sm font-semibold leading-6 text-gray-900"
+                                                  }),
+                                              JsxRuntime.jsxs("dd", {
+                                                    children: [
+                                                      restrictedRsvps.length.toString() + " ",
+                                                      plural(restrictedRsvps.length, {
+                                                            one: "player",
+                                                            other: "players"
+                                                          })
+                                                    ],
+                                                    className: "mt-1 text-base font-semibold leading-6 text-gray-900"
+                                                  })
+                                            ],
+                                            className: "flex-auto"
+                                          }),
+                                      className: "mt-4 border-t border-gray-900/5 pl-6 pt-4"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      children: JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                            children: [
+                                              JsxRuntime.jsx("ul", {
+                                                    children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                                                          children: restrictedRsvps.length !== 0 ? restrictedRsvps.map(function (edge) {
+                                                                  return JsxRuntime.jsx(EventRsvp.make, {
+                                                                              rsvp: edge.fragmentRefs,
+                                                                              viewer: viewer,
+                                                                              activitySlug: activitySlug,
+                                                                              maxRating: maxRating
+                                                                            });
+                                                                }) : t`no players yet`
+                                                        }),
+                                                    className: ""
+                                                  }),
+                                              JsxRuntime.jsx("em", {
+                                                    children: isLoadingNext ? "..." : (
+                                                        hasNext ? JsxRuntime.jsx("a", {
+                                                                children: t`load More`,
+                                                                onClick: onLoadMore
+                                                              }) : null
+                                                      )
+                                                  })
+                                            ]
+                                          }),
+                                      className: "mt-4 flex w-full flex-col gap-x-4 border-t border-gray-900/5 px-6 py-4"
                                     })
                               ],
-                              className: Core.cx(expanded ? "" : "hidden sm:block")
+                              className: Core.cx(expanded ? "" : "hidden sm:block", "w-full")
                             })
                       ],
                       className: "flex flex-wrap"

@@ -13,15 +13,16 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventRsvps.re.mjs:398
+#: src/components/organisms/EventRsvps.re.mjs:400
+#: src/components/organisms/EventRsvps.re.mjs:529
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:390
+#: src/components/organisms/EventRsvps.re.mjs:392
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:477
+#: src/components/organisms/EventRsvps.re.mjs:479
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr ""
 
@@ -29,11 +30,11 @@ msgstr ""
 #~ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 #~ msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:312
+#: src/components/organisms/EventRsvps.re.mjs:314
 msgid "attendees"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:383
+#: src/components/organisms/EventRsvps.re.mjs:385
 msgid "confirmed"
 msgstr ""
 
@@ -42,9 +43,9 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
-#: src/components/organisms/EventRsvps.re.mjs:233
-#: src/components/organisms/EventRsvps.re.mjs:245
-#: src/components/organisms/EventRsvps.re.mjs:263
+#: src/components/organisms/EventRsvps.re.mjs:235
+#: src/components/organisms/EventRsvps.re.mjs:247
+#: src/components/organisms/EventRsvps.re.mjs:265
 msgid "join event"
 msgstr ""
 
@@ -57,12 +58,13 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
-#: src/components/organisms/EventRsvps.re.mjs:272
+#: src/components/organisms/EventRsvps.re.mjs:274
 msgid "leave event"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:456
-#: src/components/organisms/EventRsvps.re.mjs:508
+#: src/components/organisms/EventRsvps.re.mjs:458
+#: src/components/organisms/EventRsvps.re.mjs:510
+#: src/components/organisms/EventRsvps.re.mjs:560
 msgid "load More"
 msgstr ""
 
@@ -71,7 +73,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
-#: src/components/organisms/EventRsvps.re.mjs:256
+#: src/components/organisms/EventRsvps.re.mjs:258
 msgid "login to join the event"
 msgstr ""
 
@@ -80,8 +82,9 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:447
-#: src/components/organisms/EventRsvps.re.mjs:501
+#: src/components/organisms/EventRsvps.re.mjs:449
+#: src/components/organisms/EventRsvps.re.mjs:503
+#: src/components/organisms/EventRsvps.re.mjs:553
 msgid "no players yet"
 msgstr ""
 
@@ -93,12 +96,16 @@ msgstr ""
 #~ msgid "required rating: {0}"
 #~ msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:219
+#: src/components/organisms/EventRsvps.re.mjs:221
 msgid "Required rating: {0}"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:418
-#: src/components/organisms/EventRsvps.re.mjs:428
+#: src/components/organisms/EventRsvps.re.mjs:523
+msgid "restricted by level"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:420
+#: src/components/organisms/EventRsvps.re.mjs:430
 msgid "spots available"
 msgstr ""
 
@@ -106,8 +113,8 @@ msgstr ""
 #~ msgid "Spots Available"
 #~ msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:423
-#: src/components/organisms/EventRsvps.re.mjs:471
+#: src/components/organisms/EventRsvps.re.mjs:425
+#: src/components/organisms/EventRsvps.re.mjs:473
 msgid "waitlist"
 msgstr ""
 
@@ -115,11 +122,11 @@ msgstr ""
 #~ msgid "Waitlist"
 #~ msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:330
+#: src/components/organisms/EventRsvps.re.mjs:332
 msgid "you're going :)"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:351
+#: src/components/organisms/EventRsvps.re.mjs:353
 msgid "you're waitlisted :("
 msgstr ""
 
@@ -127,6 +134,6 @@ msgstr ""
 #~ msgid "your rating {0} is too low. please join a JPL open event to boost your rating. the fastest way is to play and beat Jai a couple of times"
 #~ msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:221
+#: src/components/organisms/EventRsvps.re.mjs:223
 msgid "Your rating {0} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating."
 msgstr ""

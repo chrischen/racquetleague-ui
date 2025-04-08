@@ -103,6 +103,7 @@ module EventRsvpsLeaveMutation = %relay(`
 @module("../layouts/appContext")
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
 
+let isRestrictedRsvp = listType => listType != Some(0) && listType != None
 //@genType
 //let default = make
 @react.component
@@ -126,10 +127,8 @@ let make = (~event, ~user) => {
       userA < userB ? 1. : -1.
     })
 
-  let waitlistRsvps =
-    rsvps
-    ->Array.filter(edge => edge.listType != Some(0) && edge.listType != None)
-    ->Array.concat(mainList->Array.filterWithIndex((_, i) => isWaitlist(i)))
+  let waitlistRsvps = mainList->Array.filterWithIndex((_, i) => isWaitlist(i))
+  let restrictedRsvps = rsvps->Array.filter(edge => isRestrictedRsvp(edge.listType))
   // let pageInfo = data.rsvps->Option.map(e => e.pageInfo)
   // let hasPrevious = pageInfo->Option.map(e => e.hasPreviousPage)->Option.getOr(false)
   let onLoadMore = _ =>
@@ -395,7 +394,7 @@ let make = (~event, ~user) => {
           </em>
         </>}
       </div>
-      <div className={Util.cx([expanded ? "" : "hidden sm:block"])}>
+      <div className={Util.cx([expanded ? "" : "hidden sm:block", "w-full"])}>
         <div className="mt-4 border-t border-gray-900/5 pl-6 pt-4">
           <div className="flex-auto">
             <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`waitlist`} </dt>
@@ -405,11 +404,46 @@ let make = (~event, ~user) => {
             </dd>
           </div>
         </div>
-        <div className="mt-4 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 py-4">
+        <div className="mt-4 flex w-full flex-col gap-x-4 border-t border-gray-900/5 px-6 py-4">
           {<>
             <ul className="">
               <FramerMotion.AnimatePresence>
                 {switch waitlistRsvps {
+                | [] => t`no players yet`
+                | rsvps =>
+                  rsvps
+                  ->Array.map(edge => {
+                    <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
+                  })
+                  ->React.array
+                }}
+              </FramerMotion.AnimatePresence>
+            </ul>
+            <em>
+              {isLoadingNext
+                ? React.string("...")
+                : hasNext
+                ? <a onClick={onLoadMore}> {t`load More`} </a>
+                : React.null}
+            </em>
+          </>}
+        </div>
+        <div className="mt-4 border-t border-gray-900/5 pl-6 pt-4">
+          <div className="flex-auto">
+            <dt className="text-sm font-semibold leading-6 text-gray-900">
+              {t`restricted by level`}
+            </dt>
+            <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
+              {(restrictedRsvps->Array.length->Int.toString ++ " ")->React.string}
+              {plural(restrictedRsvps->Array.length, {one: "player", other: "players"})}
+            </dd>
+          </div>
+        </div>
+        <div className="mt-4 flex w-full flex-col gap-x-4 border-t border-gray-900/5 px-6 py-4">
+          {<>
+            <ul className="">
+              <FramerMotion.AnimatePresence>
+                {switch restrictedRsvps {
                 | [] => t`no players yet`
                 | rsvps =>
                   rsvps
