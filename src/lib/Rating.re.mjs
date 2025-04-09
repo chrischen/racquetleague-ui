@@ -46,6 +46,10 @@ function Rating_predictDraw(prim) {
   return Openskill.predictDraw(prim);
 }
 
+function Rating_predictWin(prim) {
+  return Openskill.predictWin(prim);
+}
+
 function Rating_ordinal(prim) {
   return Openskill.ordinal(prim);
 }
@@ -59,6 +63,7 @@ var Rating = {
   make: make,
   makeDefault: makeDefault,
   predictDraw: Rating_predictDraw,
+  predictWin: Rating_predictWin,
   ordinal: Rating_ordinal,
   rate: Rating_rate
 };

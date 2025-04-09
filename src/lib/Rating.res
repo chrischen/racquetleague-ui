@@ -34,7 +34,7 @@ module Rating: {
   let make: (float, float) => t
   let makeDefault: unit => t
   let predictDraw: array<array<t>> => float
-  // let predictWin: array(array(t)) => array(float);
+  let predictWin: array<array<t>> => array<float>;
   let ordinal: t => float
   let rate: (~ratings: matchRatings, ~opts: option<opts>=?) => matchRatings
 } = {
@@ -53,6 +53,8 @@ module Rating: {
 
   @module("openskill")
   external predictDraw: array<array<t>> => float = "predictDraw"
+  @module("openskill")
+  external predictWin: array<array<t>> => array<float> = "predictWin"
   let get_rating = t => t.mu
   let make: (float, float) => t = (mu, sigma) => {
     rating(Some({mu, sigma}))

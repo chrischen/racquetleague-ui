@@ -29,7 +29,7 @@ var convertVariables = SubmitMatchPredictMatchOutcomeQuery_graphql.Internal.conv
 
 var convertResponse = SubmitMatchPredictMatchOutcomeQuery_graphql.Internal.convertResponse;
 
-var use = RescriptRelay_Query.useQuery(convertVariables, SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse);
+RescriptRelay_Query.useQuery(convertVariables, SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse);
 
 RescriptRelay_Query.useLoader(convertVariables, SubmitMatchPredictMatchOutcomeQuery_graphql.node, (function (prim) {
         return prim;
@@ -49,88 +49,76 @@ function SubmitMatch$PredictionBar(props) {
   var match = props.match;
   var team1 = match[0];
   var team2 = match[1];
-  var outcome = use({
-        input: {
-          team1RatingIds: team1.map(function (node) {
-                return Core__Option.getOr(Core__Option.flatMap(node.data, (function (node) {
-                                  return Core__Option.map(node.rating, (function (rating) {
-                                                return rating.id;
-                                              }));
-                                })), "");
-              }),
-          team2RatingIds: team2.map(function (node) {
-                return Core__Option.getOr(Core__Option.flatMap(node.data, (function (node) {
-                                  return Core__Option.map(node.rating, (function (rating) {
-                                                return rating.id;
-                                              }));
-                                })), "");
-              })
-        }
-      }, "network-only", undefined, undefined).predictMatchOutcome;
-  return Core__Option.getOr(Core__Option.map(outcome, (function (outcome) {
-                    var odds_0 = Core__Option.getOr(outcome.team1, 0);
-                    var odds_1 = Core__Option.getOr(outcome.team2, 0);
-                    var odds = odds_1 - odds_0;
-                    var leftOdds = odds < 0 ? Math.abs(odds * 1000) : 0;
-                    var rightOdds = odds < 0 ? 0 : odds * 1000;
-                    return JsxRuntime.jsxs("div", {
-                                children: [
-                                  JsxRuntime.jsx("div", {
-                                        children: odds < 0 ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                children: [
-                                                  JsxRuntime.jsx(LucideReact.MoveLeft, {
-                                                        className: "inline",
-                                                        color: "red"
-                                                      }),
-                                                  t`predicted winner`,
-                                                  JsxRuntime.jsx(LucideReact.MoveRight, {
-                                                        className: "inline",
-                                                        color: "#929292"
-                                                      })
-                                                ]
-                                              }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                children: [
-                                                  JsxRuntime.jsx(LucideReact.MoveLeft, {
-                                                        className: "inline",
-                                                        color: "#929292"
-                                                      }),
-                                                  t`predicted winner`,
-                                                  JsxRuntime.jsx(LucideReact.MoveRight, {
-                                                        className: "inline",
-                                                        color: "red"
-                                                      })
-                                                ]
-                                              }),
-                                        className: "col-span-2 text-center"
-                                      }),
-                                  JsxRuntime.jsx("div", {
-                                        children: JsxRuntime.jsx(FramerMotion.motion.div, {
-                                              className: "h-2 rounded-l-full bg-red-400 float-right",
-                                              animate: {
-                                                width: leftOdds.toFixed(3) + "%"
-                                              },
-                                              initial: {
-                                                width: "0%"
-                                              }
-                                            }),
-                                        className: "overflow-hidden rounded-l-full bg-gray-200 mt-1 place-content-end border-r-4 border-black"
-                                      }),
-                                  JsxRuntime.jsx("div", {
-                                        children: JsxRuntime.jsx(FramerMotion.motion.div, {
-                                              className: "h-2 rounded-r-full bg-blue-400",
-                                              animate: {
-                                                width: rightOdds.toFixed(3) + "%"
-                                              },
-                                              initial: {
-                                                width: "0%"
-                                              }
-                                            }),
-                                        className: "overflow-hidden rounded-r-full bg-gray-200 mt-1 border-l-4 border-black border-l-radius"
-                                      })
-                                ],
-                                className: "grid grid-cols-2 gap-0"
-                              });
-                  })), null);
+  var outcome = Rating.Rating.predictWin([
+        team1.map(function (node) {
+              return node.rating;
+            }),
+        team2.map(function (node) {
+              return node.rating;
+            })
+      ]);
+  var odds_0 = Core__Option.getOr(outcome[0], 0);
+  var odds_1 = Core__Option.getOr(outcome[1], 0);
+  var odds = odds_1 - odds_0;
+  var leftOdds = odds < 0 ? Math.abs(odds * 1000) : 0;
+  var rightOdds = odds < 0 ? 0 : odds * 1000;
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("div", {
+                      children: odds < 0 ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.MoveLeft, {
+                                      className: "inline",
+                                      color: "red"
+                                    }),
+                                t`predicted winner`,
+                                JsxRuntime.jsx(LucideReact.MoveRight, {
+                                      className: "inline",
+                                      color: "#929292"
+                                    })
+                              ]
+                            }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.MoveLeft, {
+                                      className: "inline",
+                                      color: "#929292"
+                                    }),
+                                t`predicted winner`,
+                                JsxRuntime.jsx(LucideReact.MoveRight, {
+                                      className: "inline",
+                                      color: "red"
+                                    })
+                              ]
+                            }),
+                      className: "col-span-2 text-center"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx(FramerMotion.motion.div, {
+                            className: "h-2 rounded-l-full bg-red-400 float-right",
+                            animate: {
+                              width: leftOdds.toFixed(3) + "%"
+                            },
+                            initial: {
+                              width: "0%"
+                            }
+                          }),
+                      className: "overflow-hidden rounded-l-full bg-gray-200 mt-1 place-content-end border-r-4 border-black"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx(FramerMotion.motion.div, {
+                            className: "h-2 rounded-r-full bg-blue-400",
+                            animate: {
+                              width: rightOdds.toFixed(3) + "%"
+                            },
+                            initial: {
+                              width: "0%"
+                            }
+                          }),
+                      className: "overflow-hidden rounded-r-full bg-gray-200 mt-1 border-l-4 border-black border-l-radius"
+                    })
+              ],
+              className: "grid grid-cols-2 gap-0"
+            });
 }
 
 var schema = Zod.z.object({
