@@ -35,8 +35,11 @@ let decodePayload = (payloadString: string): option<payloadType> => {
 }
 
 @react.component
-let make = (~queryRef: RescriptRelay.fragmentRefs<[> #EventMessages_query]>) => {
-  let ts = Lingui.UtilString.t
+let make = (
+  ~queryRef: RescriptRelay.fragmentRefs<[> #EventMessages_query]>,
+  ~eventStartDate: Js.Date.t,
+) => {
+  let t = Lingui.Util.t
   let data = Fragment.use(queryRef)
   let messages = data.messagesByTopic
 
@@ -55,15 +58,41 @@ let make = (~queryRef: RescriptRelay.fragmentRefs<[> #EventMessages_query]>) => 
               ->Option.getOr("Unknown User")
 
             // Default icon for messages
-            let (icon, iconBackground, description) = switch decodedPayload->Option.flatMap(p =>
-              p.activityType
-            ) {
-            | Some("rsvp_deleted") => (
-                <Lucide.X className="size-5 text-white" />, // Red X icon
-                "bg-red-500", // Red background
-                Some(ts`left the event`), // Description text
+            let (
+              icon,
+              iconBackground,
+              description,
+              timeClassName,
+            ) = switch decodedPayload->Option.flatMap(p => p.activityType) {
+            | Some("rsvp_deleted") =>
+              // Calculate time difference and determine color class
+              let timeColorClass = switch message.createdAt
+              ->Js.Json.string
+              ->Util.Datetime.parse
+              ->Util.Datetime.toDate {
+              // Assuming Util.Datetime.toDate works directly
+              | messageCreatedAtDate =>
+                let diffHours = DateFns.differenceInHours(eventStartDate, messageCreatedAtDate)
+                if diffHours < 24 {
+                  "text-red-600 font-medium" // Red for < 24 hours
+                } else if diffHours < 48 {
+                  "text-yellow-600 font-medium" // Yellow for < 48 hours
+                } else {
+                  "text-gray-500" // Default gray otherwise
+                }
+              }
+              (
+                <Lucide.X className="size-5 text-white" />,
+                "bg-red-500",
+                Some(t`left the event`), // Simple description text
+                timeColorClass, // Use calculated color class for time
               )
-            | _ => (<Lucide.User className="size-5 text-white" />, "bg-gray-400", None) // Default User icon // Default gray background // No description by default
+            | _ => (
+                <Lucide.User className="size-5 text-white" />,
+                "bg-gray-400",
+                None,
+                "text-gray-500", // Default time color
+              )
             }
 
             <li key=message.id>
@@ -90,12 +119,11 @@ let make = (~queryRef: RescriptRelay.fragmentRefs<[> #EventMessages_query]>) => 
                         {actorUserName->React.string}
                       </p>
                       {description
-                      ->Option.map(desc =>
-                        <p className="text-sm text-gray-500 italic"> {desc->React.string} </p>
-                      )
+                      ->Option.map(desc => <p className="text-sm text-gray-500 italic"> {desc} </p>)
                       ->Option.getOr(React.null)}
                     </div>
-                    <div className="whitespace-nowrap text-right text-sm text-gray-500">
+                    <div
+                      className={Util.cx(["whitespace-nowrap text-right text-sm", timeClassName])}>
                       <time dateTime={message.createdAt}>
                         <ReactIntl.FormattedRelativeTime
                           value={message.createdAt

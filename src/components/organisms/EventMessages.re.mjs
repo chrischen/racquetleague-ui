@@ -3,6 +3,7 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Js_json from "rescript/lib/es6/js_json.js";
+import * as DateFns from "date-fns";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -56,6 +57,7 @@ function decodePayload(payloadString) {
 }
 
 function EventMessages(props) {
+  var eventStartDate = props.eventStartDate;
   var data = use(props.queryRef);
   var messages = data.messagesByTopic;
   if (messages.length > 0) {
@@ -72,12 +74,18 @@ function EventMessages(props) {
                             var match$1;
                             var exit = 0;
                             if (match === "rsvp_deleted") {
+                              var messageCreatedAtDate = Util.Datetime.toDate(Util.Datetime.parse(message.createdAt));
+                              var diffHours = DateFns.differenceInHours(eventStartDate, messageCreatedAtDate);
+                              var timeColorClass = diffHours < 24 ? "text-red-600 font-medium" : (
+                                  diffHours < 48 ? "text-yellow-600 font-medium" : "text-gray-500"
+                                );
                               match$1 = [
                                 JsxRuntime.jsx(LucideReact.X, {
                                       className: "size-5 text-white"
                                     }),
                                 "bg-red-500",
-                                t`left the event`
+                                Caml_option.some(t`left the event`),
+                                timeColorClass
                               ];
                             } else {
                               exit = 1;
@@ -88,7 +96,8 @@ function EventMessages(props) {
                                       className: "size-5 text-white"
                                     }),
                                 "bg-gray-400",
-                                undefined
+                                undefined,
+                                "text-gray-500"
                               ];
                             }
                             return JsxRuntime.jsx("li", {
@@ -132,7 +141,7 @@ function EventMessages(props) {
                                                                                 }),
                                                                             dateTime: message.createdAt
                                                                           }),
-                                                                      className: "whitespace-nowrap text-right text-sm text-gray-500"
+                                                                      className: Core.cx("whitespace-nowrap text-right text-sm", match$1[3])
                                                                     })
                                                               ],
                                                               className: "flex min-w-0 flex-1 justify-between space-x-4 pt-1.5"

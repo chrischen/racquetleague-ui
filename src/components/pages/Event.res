@@ -492,7 +492,12 @@ let make = () => {
                       {t`activity`}
                     </div>
                     <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
-                      <EventMessages queryRef=queryFragmentRefs />
+                      <EventMessages
+                        queryRef=queryFragmentRefs
+                        eventStartDate={event.startDate
+                        ->Option.map(Util.Datetime.toDate)
+                        ->Option.getOr(Js.Date.make())}
+                      />
                     </div>
                   </div>
                   {event.location

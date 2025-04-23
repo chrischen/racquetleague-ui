@@ -512,7 +512,8 @@ function $$Event(props) {
                                                                                           }),
                                                                                       JsxRuntime.jsx("div", {
                                                                                             children: JsxRuntime.jsx(EventMessages.make, {
-                                                                                                  queryRef: queryFragmentRefs
+                                                                                                  queryRef: queryFragmentRefs,
+                                                                                                  eventStartDate: Core__Option.getOr(Core__Option.map($$event.startDate, Util.Datetime.toDate), new Date())
                                                                                                 }),
                                                                                             className: "ml-3 border-gray-200 border-l-4 pl-5 mt-4"
                                                                                           })

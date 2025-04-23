@@ -6,7 +6,7 @@ let make = (
   ~onTouchStart: option<JsxEventU.Touch.t => unit>=?,
   ~className=?,
   ~active=false,
-  ~alt: string=?,
+  ~alt: option<string>=?,
   ~children: React.element,
 ) => {
   open Util

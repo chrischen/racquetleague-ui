@@ -1,5 +1,5 @@
 ARG PUBLIC_PATH=//www.pkuru.com/
-FROM node:22-alpine AS builder
+FROM node:22-bullseye-slim AS builder
 ARG PUBLIC_PATH
 
 ARG API_ENDPOINT=http://rl:4555/graphql
@@ -8,7 +8,8 @@ ARG API_ENDPOINT=http://rl:4555/graphql
 ENV NPM_CONFIG_LOGLEVEL=notice
 
 # OS packages for compilation
-RUN apk add --no-cache make g++ git perl
+RUN apt update
+RUN apt install -y make g++ git
 # RUN apt-get update && apt-get install -y wget make g++ zlib1g-dev
 # RUN wget https://www.python.org/ftp/python/3.6.9/Python-3.6.9.tgz && tar xvf Python-3.6.9.tgz && cd Python-3.6.9 && ./configure --enable-optimizations --enable-shared && make -j8 && make altinstall
 # RUN corepack enable && yarn init -2 && yarn set version stable
@@ -30,7 +31,7 @@ ENV NODE_ENV=production
 ENV VITE_API_ENDPOINT=$API_ENDPOINT
 
 # build
-RUN yarn rescript
+RUN yarn rescript build
 RUN yarn dev:vite:server-fix # This fixes the imports in node_modules
 RUN yarn rescript-relay-compiler
 RUN yarn build:client
@@ -38,7 +39,7 @@ RUN yarn build:server
 
 ########################
 
-FROM node:22-alpine
+FROM node:22-bullseye-slim
 ARG PUBLIC_PATH
 
 WORKDIR /app
