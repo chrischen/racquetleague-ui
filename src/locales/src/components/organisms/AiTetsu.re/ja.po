@@ -40,8 +40,8 @@ msgstr "と"
 msgid "cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SubmitMatch.re.mjs:255
-#: src/components/organisms/SortableSubmitMatch.re.mjs:244
+#: src/components/organisms/SubmitMatch.re.mjs:243
+#: src/components/organisms/SortableSubmitMatch.re.mjs:232
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -90,12 +90,12 @@ msgstr ""
 msgid "Enable All"
 msgstr "すべてを有効にする"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:262
+#: src/components/organisms/SortableSubmitMatch.re.mjs:250
 msgid "Finished"
 msgstr "終了"
 
-#: src/components/organisms/SubmitMatch.re.mjs:388
-#: src/components/organisms/SortableSubmitMatch.re.mjs:390
+#: src/components/organisms/SubmitMatch.re.mjs:376
+#: src/components/organisms/SortableSubmitMatch.re.mjs:378
 msgid "Go Back"
 msgstr "戻る"
 
@@ -116,8 +116,8 @@ msgstr "リーダーボード"
 msgid "left team players"
 msgstr "左チームのプレイヤー"
 
-#: src/components/organisms/SubmitMatch.re.mjs:407
-#: src/components/organisms/SortableSubmitMatch.re.mjs:409
+#: src/components/organisms/SubmitMatch.re.mjs:395
+#: src/components/organisms/SortableSubmitMatch.re.mjs:397
 #: src/components/organisms/AiTetsu.re.mjs:1241
 msgid "Loading"
 msgstr "読み込み中"
@@ -194,17 +194,17 @@ msgid ""
 "Players in teams will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
-#: src/components/organisms/SubmitMatch.re.mjs:313
-#: src/components/organisms/SubmitMatch.re.mjs:357
-#: src/components/organisms/SortableSubmitMatch.re.mjs:315
-#: src/components/organisms/SortableSubmitMatch.re.mjs:359
+#: src/components/organisms/SubmitMatch.re.mjs:301
+#: src/components/organisms/SubmitMatch.re.mjs:345
+#: src/components/organisms/SortableSubmitMatch.re.mjs:303
+#: src/components/organisms/SortableSubmitMatch.re.mjs:347
 msgid "Points"
 msgstr "何点"
 
-#: src/components/organisms/SubmitMatch.re.mjs:85
-#: src/components/organisms/SubmitMatch.re.mjs:97
-#: src/components/organisms/SortableSubmitMatch.re.mjs:88
-#: src/components/organisms/SortableSubmitMatch.re.mjs:100
+#: src/components/organisms/SubmitMatch.re.mjs:74
+#: src/components/organisms/SubmitMatch.re.mjs:86
+#: src/components/organisms/SortableSubmitMatch.re.mjs:77
+#: src/components/organisms/SortableSubmitMatch.re.mjs:89
 msgid "predicted winner"
 msgstr "予測される勝者"
 
@@ -258,8 +258,8 @@ msgstr ""
 msgid "Start Session"
 msgstr "セッションを開始"
 
-#: src/components/organisms/SubmitMatch.re.mjs:395
-#: src/components/organisms/SortableSubmitMatch.re.mjs:397
+#: src/components/organisms/SubmitMatch.re.mjs:383
+#: src/components/organisms/SortableSubmitMatch.re.mjs:385
 msgid "Submit Rated"
 msgstr "評価を提出"
 
@@ -283,10 +283,10 @@ msgstr "すべてを切り替える"
 msgid "Totally random teams."
 msgstr "完全にランダムなチーム。"
 
-#: src/components/organisms/SubmitMatch.re.mjs:323
-#: src/components/organisms/SubmitMatch.re.mjs:367
-#: src/components/organisms/SortableSubmitMatch.re.mjs:325
-#: src/components/organisms/SortableSubmitMatch.re.mjs:369
+#: src/components/organisms/SubmitMatch.re.mjs:311
+#: src/components/organisms/SubmitMatch.re.mjs:355
+#: src/components/organisms/SortableSubmitMatch.re.mjs:313
+#: src/components/organisms/SortableSubmitMatch.re.mjs:357
 msgid "Winner"
 msgstr "勝者"
 

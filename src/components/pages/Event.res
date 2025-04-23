@@ -4,7 +4,13 @@ open Lingui.Util
 open LangProvider.Router
 
 module EventQuery = %relay(`
-  query EventQuery($eventId: ID!, $after: String, $first: Int, $before: String) {
+  query EventQuery(
+    $eventId: ID!
+    $topic: String!
+    $after: String
+    $first: Int
+    $before: String
+  ) {
     viewer {
       user {
         ...EventRsvps_user @arguments(eventId: $eventId)
@@ -38,37 +44,36 @@ module EventQuery = %relay(`
         slug
       }
       deleted
-      ...EventRsvps_event @arguments(after: $after, first: $first, before: $before)
-      ...EventFullNames_event @arguments(after: $after, first: $first, before: $before)
+      ...EventRsvps_event
+        @arguments(after: $after, first: $first, before: $before)
+      ...EventFullNames_event
+        @arguments(after: $after, first: $first, before: $before)
     }
+    ...EventMessages_query @arguments(topic: $topic)
   }
 `)
 
 module EventCancelMutation = %relay(`
- mutation EventCancelMutation(
-    $eventId: ID!
-  ) {
-    cancelEvent(eventId: $eventId) {
-      event {
-        id
-        listed
-        deleted
-      }
-    }
-  }
+ mutation EventCancelMutation($eventId: ID!) {
+   cancelEvent(eventId: $eventId) {
+     event {
+       id
+       listed
+       deleted
+     }
+   }
+ }
 `)
 module EventUncancelMutation = %relay(`
- mutation EventUncancelMutation(
-    $eventId: ID!
-  ) {
-    uncancelEvent(eventId: $eventId) {
-      event {
-        id
-        listed
-        deleted
-      }
-    }
-  }
+ mutation EventUncancelMutation($eventId: ID!) {
+   uncancelEvent(eventId: $eventId) {
+     event {
+       id
+       listed
+       deleted
+     }
+   }
+ }
 `)
 // module EventLeaveMutation = %relay(`
 //  mutation EventLeaveMutation(
@@ -102,7 +107,9 @@ let make = () => {
   let td = Lingui.UtilString.dynamic
   let ts = Lingui.UtilString.t
   let query = useLoaderData()
-  let {event, viewer} = EventQuery.usePreloaded(~queryRef=query.data)
+  let {event, viewer, fragmentRefs: queryFragmentRefs} = EventQuery.usePreloaded(
+    ~queryRef=query.data,
+  )
   let viewer = viewer->Option.flatMap(v => v.user)
   // let viewer = GlobalQuery.useViewer()
   let navigate = Router.useNavigate()
@@ -407,7 +414,7 @@ let make = () => {
                     )
                   )
                   ->Option.getOr(React.null)}
-                  {viewerIsAdmin ? <EventFullNames event=fragmentRefs /> : React.null }
+                  {viewerIsAdmin ? <EventFullNames event=fragmentRefs /> : React.null}
                 </div>
               </div>
               <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
@@ -477,6 +484,16 @@ let make = () => {
                       </div>
                     </>)
                     ->Option.getOr(React.null)}
+                    <div
+                      className="font-bold flex items-center mt-4 lg:text-xl leading-8 text-gray-700">
+                      <Lucide.List
+                        className="mr-2 h-7 w-7 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
+                      />
+                      {t`activity`}
+                    </div>
+                    <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
+                      <EventMessages queryRef=queryFragmentRefs />
+                    </div>
                   </div>
                   {event.location
                   ->Option.map(location =>
@@ -542,7 +559,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   Router.defer({
     WaitForMessages.data: EventQuery_graphql.load(
       ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-      ~variables={eventId: params.eventId, ?after, ?before},
+      ~variables={eventId: params.eventId, topic: params.eventId ++ ".updated", ?after, ?before},
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),
     i18nLoaders: Localized.loadMessages(params.lang, loadMessages),

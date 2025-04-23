@@ -20,6 +20,7 @@ export type params = {
   readonly before?: string; 
   readonly eventId: string; 
   readonly first?: number; 
+  readonly topic: string; 
   readonly lang: (undefined | string)
 };
 

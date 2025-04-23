@@ -19,6 +19,7 @@ import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as EventLocation from "../organisms/EventLocation.re.mjs";
+import * as EventMessages from "../organisms/EventMessages.re.mjs";
 import * as EventFullNames from "../organisms/EventFullNames.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -123,6 +124,7 @@ function $$Event(props) {
   };
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
+  var queryFragmentRefs = match.fragmentRefs;
   var viewer = Core__Option.flatMap(match.viewer, (function (v) {
           return v.user;
         }));
@@ -497,7 +499,23 @@ function $$Event(props) {
                                                                                                                     })
                                                                                                               ]
                                                                                                             });
-                                                                                                })), null)
+                                                                                                })), null),
+                                                                                      JsxRuntime.jsxs("div", {
+                                                                                            children: [
+                                                                                              JsxRuntime.jsx(LucideReact.List, {
+                                                                                                    className: "mr-2 h-7 w-7 flex-shrink-0 text-gray-500",
+                                                                                                    "aria-hidden": "true"
+                                                                                                  }),
+                                                                                              t`activity`
+                                                                                            ],
+                                                                                            className: "font-bold flex items-center mt-4 lg:text-xl leading-8 text-gray-700"
+                                                                                          }),
+                                                                                      JsxRuntime.jsx("div", {
+                                                                                            children: JsxRuntime.jsx(EventMessages.make, {
+                                                                                                  queryRef: queryFragmentRefs
+                                                                                                }),
+                                                                                            className: "ml-3 border-gray-200 border-l-4 pl-5 mt-4"
+                                                                                          })
                                                                                     ],
                                                                                     className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:py-6 xl:px-12 xl:py-8"
                                                                                   }),
@@ -552,7 +570,8 @@ async function loader(param) {
               data: EventQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                     after: after,
                     before: before,
-                    eventId: params.eventId
+                    eventId: params.eventId,
+                    topic: params.eventId + ".updated"
                   }, "store-or-network", undefined, undefined),
               i18nLoaders: Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
             });

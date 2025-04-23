@@ -21,11 +21,17 @@ var MoveLeft = {};
 
 var MoveRight = {};
 
+var X = {};
+
 var Settings = {};
 
 var UserPlus = {};
 
 var Clock = {};
+
+var User = {};
+
+var List = {};
 
 export {
   CalendarClock ,
@@ -38,8 +44,11 @@ export {
   ArrowDownWideNarrow ,
   MoveLeft ,
   MoveRight ,
+  X ,
   Settings ,
   UserPlus ,
   Clock ,
+  User ,
+  List ,
 }
 /* No side effect */

@@ -312,6 +312,13 @@ type Media {
   url: String
 }
 
+type Message {
+  createdAt: String!
+  id: ID!
+  payload: String
+  topic: String!
+}
+
 type Mutation {
   addRsvpToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
@@ -388,6 +395,7 @@ type Query {
   location(id: ID!): Location
   locations(after: String, before: String, first: Int): LocationConnection!
   matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
+  messagesByTopic(topic: String!): [Message!]!
   node(id: ID!): Node
   parseBulkEvents(input: String!): String!
   predictMatchOutcome(input: PredictMatchInput!): PredictMatchOutcome

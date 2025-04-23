@@ -13,34 +13,34 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SubmitMatch.re.mjs:255
+#: src/components/organisms/SubmitMatch.re.mjs:243
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SubmitMatch.re.mjs:388
+#: src/components/organisms/SubmitMatch.re.mjs:376
 msgid "Go Back"
 msgstr "戻る"
 
-#: src/components/organisms/SubmitMatch.re.mjs:407
+#: src/components/organisms/SubmitMatch.re.mjs:395
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/components/organisms/SubmitMatch.re.mjs:313
-#: src/components/organisms/SubmitMatch.re.mjs:357
+#: src/components/organisms/SubmitMatch.re.mjs:301
+#: src/components/organisms/SubmitMatch.re.mjs:345
 msgid "Points"
 msgstr "何点"
 
-#: src/components/organisms/SubmitMatch.re.mjs:85
-#: src/components/organisms/SubmitMatch.re.mjs:97
+#: src/components/organisms/SubmitMatch.re.mjs:74
+#: src/components/organisms/SubmitMatch.re.mjs:86
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/SubmitMatch.re.mjs:395
+#: src/components/organisms/SubmitMatch.re.mjs:383
 msgid "Submit Rated"
 msgstr "評価を提出"
 
-#: src/components/organisms/SubmitMatch.re.mjs:323
-#: src/components/organisms/SubmitMatch.re.mjs:367
+#: src/components/organisms/SubmitMatch.re.mjs:311
+#: src/components/organisms/SubmitMatch.re.mjs:355
 msgid "Winner"
 msgstr "勝者"
 

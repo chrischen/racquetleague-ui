@@ -34,7 +34,7 @@ module Rating: {
   let make: (float, float) => t
   let makeDefault: unit => t
   let predictDraw: array<array<t>> => float
-  let predictWin: array<array<t>> => array<float>;
+  let predictWin: array<array<t>> => array<float>
   let ordinal: t => float
   let rate: (~ratings: matchRatings, ~opts: option<opts>=?) => matchRatings
 } = {

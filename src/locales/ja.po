@@ -1361,6 +1361,10 @@ msgstr "ゲストリスト"
 msgid "restricted by level"
 msgstr "レベルによって制限"
 
+#: src/components/organisms/EventMessages.re.mjs:80
+msgid "left the event"
+msgstr "イベントを離れました"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

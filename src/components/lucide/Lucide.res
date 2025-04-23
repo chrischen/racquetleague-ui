@@ -1,6 +1,7 @@
 module CalendarClock = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CalendarClock"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "CalendarClock"
 }
 
 module CalendarPlus = {
@@ -15,7 +16,8 @@ module MapPin = {
 
 module CornerDownRight = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CornerDownRight"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "CornerDownRight"
 }
 
 module Info = {
@@ -25,34 +27,73 @@ module Info = {
 
 module ArrowUpNarrowWide = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ArrowUpNarrowWide"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ArrowUpNarrowWide"
 }
 
 module ArrowUpWideNarrow = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ArrowUpWideNarrow"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ArrowUpWideNarrow"
 }
 module ArrowDownWideNarrow = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ArrowDownWideNarrow"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ArrowDownWideNarrow"
 }
 module MoveLeft = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?, ~color: string=?) => React.element = "MoveLeft"
+  external make: (
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+    ~color: string=?,
+  ) => React.element = "MoveLeft"
 }
 module MoveRight = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?, ~color: string=?) => React.element = "MoveRight"
+  external make: (
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+    ~color: string=?,
+  ) => React.element = "MoveRight"
 }
+
+module X = {
+  // Add binding for X icon
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "X"
+}
+
 module Settings = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?, ~color: string=?) => React.element = "Settings"
+  external make: (
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+    ~color: string=?,
+  ) => React.element = "Settings"
 }
 module UserPlus = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?, ~color: string=?) => React.element = "UserPlus"
+  external make: (
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+    ~color: string=?,
+  ) => React.element = "UserPlus"
 }
 module Clock = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?, ~color: string=?) => React.element = "Clock"
+  external make: (
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+    ~color: string=?,
+  ) => React.element = "Clock"
+}
+module User = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "User"
+}
+module List = {
+  // Add binding for List icon
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "List"
 }

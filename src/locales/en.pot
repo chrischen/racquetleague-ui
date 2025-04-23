@@ -1437,3 +1437,7 @@ msgstr ""
 #: src/components/organisms/EventRsvps.re.mjs:523
 msgid "restricted by level"
 msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:80
+msgid "left the event"
+msgstr ""

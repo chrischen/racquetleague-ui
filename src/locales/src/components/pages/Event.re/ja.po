@@ -15,25 +15,25 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:562
+#: src/components/pages/Event.re.mjs:581
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:565
+#: src/components/pages/Event.re.mjs:584
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:568
+#: src/components/pages/Event.re.mjs:587
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:571
+#: src/components/pages/Event.re.mjs:590
 msgid "Futsal"
 msgstr "フットサル"
 
@@ -42,11 +42,11 @@ msgstr "フットサル"
 msgid "{0, plural, one {player} other {players}}"
 msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/Event.re.mjs:158
+#: src/components/pages/Event.re.mjs:160
 msgid "{0} hours"
 msgstr "{0}時間"
 
-#: src/components/pages/Event.re.mjs:160
+#: src/components/pages/Event.re.mjs:162
 msgid "{0} hours and {1} minutes"
 msgstr "{0}時間{1}分"
 
@@ -58,6 +58,10 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
+#: src/components/pages/Event.re.mjs:509
+msgid "activity"
+msgstr "アクティビティ"
+
 #: src/components/molecules/AddToCalendar.re.mjs:29
 msgid "Apple iCal"
 msgstr "Apple iCal"
@@ -66,11 +70,11 @@ msgstr "Apple iCal"
 msgid "attendees"
 msgstr "参加者"
 
-#: src/components/pages/Event.re.mjs:211
+#: src/components/pages/Event.re.mjs:213
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
-#: src/components/pages/Event.re.mjs:324
+#: src/components/pages/Event.re.mjs:326
 msgid "CANCELED"
 msgstr "キャンセル"
 
@@ -78,23 +82,23 @@ msgstr "キャンセル"
 msgid "confirmed"
 msgstr "確認済み"
 
-#: src/components/pages/Event.re.mjs:425
+#: src/components/pages/Event.re.mjs:427
 msgid "details"
 msgstr "詳細"
 
-#: src/components/pages/Event.re.mjs:188
+#: src/components/pages/Event.re.mjs:190
 msgid "edit event"
 msgstr "イベントを編集"
 
-#: src/components/pages/Event.re.mjs:279
+#: src/components/pages/Event.re.mjs:281
 msgid "event @"
 msgstr "イベント @"
 
-#: src/components/pages/Event.re.mjs:532
+#: src/components/pages/Event.re.mjs:550
 msgid "event doesn't exist"
 msgstr "イベントが存在しません"
 
-#: src/components/pages/Event.re.mjs:478
+#: src/components/pages/Event.re.mjs:480
 msgid "good luck, have fun"
 msgstr "がんばってください"
 
@@ -106,7 +110,7 @@ msgstr "Google カレンダー"
 msgid "guest list"
 msgstr "ゲストリスト"
 
-#: src/components/pages/Event.re.mjs:337
+#: src/components/pages/Event.re.mjs:339
 msgid "hosted by {name}"
 msgstr "{name}主催"
 
@@ -117,7 +121,7 @@ msgstr "{name}主催"
 msgid "join event"
 msgstr "参加する"
 
-#: src/components/pages/Event.re.mjs:399
+#: src/components/pages/Event.re.mjs:401
 msgid "league"
 msgstr "ラケットリーグ"
 
@@ -125,6 +129,10 @@ msgstr "ラケットリーグ"
 #: src/components/organisms/EventRsvps.re.mjs:274
 msgid "leave event"
 msgstr "離れる"
+
+#: src/components/organisms/EventMessages.re.mjs:80
+msgid "left the event"
+msgstr "イベントを離れました"
 
 #: src/components/organisms/EventRsvps.re.mjs:458
 #: src/components/organisms/EventRsvps.re.mjs:510
@@ -137,7 +145,7 @@ msgstr "もっと読み込む"
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
-#: src/components/pages/Event.re.mjs:370
+#: src/components/pages/Event.re.mjs:372
 msgid "login to subscribe to {activityName} events"
 msgstr "ログインして{activityName}のイベントに登録"
 
@@ -146,7 +154,7 @@ msgstr "ログインして{activityName}のイベントに登録"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/Event.re.mjs:508
+#: src/components/pages/Event.re.mjs:526
 msgid "media"
 msgstr "メディア"
 
@@ -157,7 +165,7 @@ msgstr "メディア"
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/pages/Event.re.mjs:487
+#: src/components/pages/Event.re.mjs:489
 msgid "notes"
 msgstr "メモ"
 
@@ -178,7 +186,7 @@ msgstr "レベルによって制限"
 msgid "spots available"
 msgstr "利用可能なスポット"
 
-#: src/components/pages/Event.re.mjs:404
+#: src/components/pages/Event.re.mjs:406
 msgid "submit matches"
 msgstr "試合を提出"
 
@@ -190,7 +198,7 @@ msgstr "{activityName} のすべてのイベントに登録"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/pages/Event.re.mjs:227
+#: src/components/pages/Event.re.mjs:229
 msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first."
@@ -198,7 +206,7 @@ msgstr ""
 "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
 "加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
-#: src/components/pages/Event.re.mjs:200
+#: src/components/pages/Event.re.mjs:202
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -206,7 +214,7 @@ msgstr "イベントをキャンセル解除"
 msgid "unsubscribe from {activityName} events"
 msgstr "{activityName} のイベントから登録解除"
 
-#: src/components/pages/Event.re.mjs:228
+#: src/components/pages/Event.re.mjs:230
 msgid "view events"
 msgstr "イベントを見る"
 
