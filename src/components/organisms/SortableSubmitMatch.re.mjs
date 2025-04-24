@@ -17,36 +17,14 @@ import * as ReactHookForm from "react-hook-form";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventMatchRsvpUser from "./EventMatchRsvpUser.re.mjs";
-import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
 import * as Solid from "@heroicons/react/24/solid";
-import * as SortableSubmitMatchPredictMatchOutcomeQuery_graphql from "../../__generated__/SortableSubmitMatchPredictMatchOutcomeQuery_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
 
 import { t, plural } from '@lingui/macro'
 ;
-
-var convertVariables = SortableSubmitMatchPredictMatchOutcomeQuery_graphql.Internal.convertVariables;
-
-var convertResponse = SortableSubmitMatchPredictMatchOutcomeQuery_graphql.Internal.convertResponse;
-
-RescriptRelay_Query.useQuery(convertVariables, SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse);
-
-RescriptRelay_Query.useLoader(convertVariables, SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, (function (prim) {
-        return prim;
-      }));
-
-RescriptRelay_Query.usePreloaded(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, (function (prim) {
-        return prim;
-      }));
-
-RescriptRelay_Query.$$fetch(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
-
-RescriptRelay_Query.fetchPromised(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
-
-RescriptRelay_Query.retain(SortableSubmitMatchPredictMatchOutcomeQuery_graphql.node, convertVariables);
 
 function SortableSubmitMatch$PredictionBar(props) {
   var match = props.match;

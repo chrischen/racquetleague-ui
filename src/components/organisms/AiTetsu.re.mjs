@@ -915,8 +915,7 @@ function AiTetsu(props) {
                       avoidAllPlayers: avoidAllPlayers,
                       onSelectMatch: (function (match, dequeue) {
                           queueMatch(match, dequeue);
-                        }),
-                      roundsCount: roundsCount
+                        })
                     })
               });
   }
@@ -1223,7 +1222,6 @@ function AiTetsu(props) {
                             }),
                         match$4[0] ? JsxRuntime.jsx(SelectMatch.make, {
                                 players: queuedPlayers,
-                                activity: activity,
                                 onMatchQueued: (function (match) {
                                     queueMatch(match, undefined);
                                   }),

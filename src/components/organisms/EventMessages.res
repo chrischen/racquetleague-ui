@@ -12,6 +12,10 @@ module Fragment = %relay(`
   }
 `)
 
+// Temporarily patch this binding as it's not in the nodejs package
+@module("date-fns")
+external differenceInHours: (Js.Date.t, Js.Date.t) => int = "differenceInHours"
+
 type payloadType = {
   actorUserName: option<string>,
   activityType: option<string>,
@@ -72,7 +76,7 @@ let make = (
               ->Util.Datetime.toDate {
               // Assuming Util.Datetime.toDate works directly
               | messageCreatedAtDate =>
-                let diffHours = DateFns.differenceInHours(eventStartDate, messageCreatedAtDate)
+                let diffHours = differenceInHours(eventStartDate, messageCreatedAtDate)
                 if diffHours < 24 {
                   "text-red-600 font-medium" // Red for < 24 hours
                 } else if diffHours < 48 {

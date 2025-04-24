@@ -15,35 +15,13 @@ import * as FramerMotion from "framer-motion";
 import * as ReactHookForm from "react-hook-form";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventMatchRsvpUser from "./EventMatchRsvpUser.re.mjs";
-import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
-import * as SubmitMatchPredictMatchOutcomeQuery_graphql from "../../__generated__/SubmitMatchPredictMatchOutcomeQuery_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
 
 import { t, plural } from '@lingui/macro'
 ;
-
-var convertVariables = SubmitMatchPredictMatchOutcomeQuery_graphql.Internal.convertVariables;
-
-var convertResponse = SubmitMatchPredictMatchOutcomeQuery_graphql.Internal.convertResponse;
-
-RescriptRelay_Query.useQuery(convertVariables, SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse);
-
-RescriptRelay_Query.useLoader(convertVariables, SubmitMatchPredictMatchOutcomeQuery_graphql.node, (function (prim) {
-        return prim;
-      }));
-
-RescriptRelay_Query.usePreloaded(SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, (function (prim) {
-        return prim;
-      }));
-
-RescriptRelay_Query.$$fetch(SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
-
-RescriptRelay_Query.fetchPromised(SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertResponse, convertVariables);
-
-RescriptRelay_Query.retain(SubmitMatchPredictMatchOutcomeQuery_graphql.node, convertVariables);
 
 function SubmitMatch$PredictionBar(props) {
   var match = props.match;
@@ -209,6 +187,42 @@ function SubmitMatch(props) {
                         undefined
                       ]);
           }));
+  };
+  var onSubmit = function (data) {
+    setSubmitting(function (param) {
+          return true;
+        });
+    if (data.scoreLeft === data.scoreRight) {
+      alert("No ties allowed");
+    } else {
+      Core__Option.map(onComplete, (function (f) {
+              var winningSide = data.scoreLeft > data.scoreRight ? "Left" : "Right";
+              var score = winningSide === "Left" ? [
+                  data.scoreLeft,
+                  data.scoreRight
+                ] : [
+                  data.scoreRight,
+                  data.scoreLeft
+                ];
+              var match_0 = winningSide === "Left" ? team1 : team2;
+              var match_1 = winningSide === "Left" ? team2 : team1;
+              var match = [
+                match_0,
+                match_1
+              ];
+              var x = f([
+                    match,
+                    score
+                  ]);
+              return x.then(function () {
+                          setValue("scoreLeft", 0, undefined);
+                          setValue("scoreRight", 0, undefined);
+                          return Promise.resolve(setSubmitting(function (param) {
+                                          return false;
+                                        }));
+                        });
+            }));
+    }
   };
   var defaultView$1 = JsxRuntime.jsxs("div", {
         children: [
@@ -410,42 +424,7 @@ function SubmitMatch(props) {
                     children: tmp,
                     className: "grid grid-cols-1"
                   }),
-              onSubmit: match$2.handleSubmit(function (extra) {
-                    setSubmitting(function (param) {
-                          return true;
-                        });
-                    if (extra.scoreLeft === extra.scoreRight) {
-                      alert("No ties allowed");
-                    } else {
-                      Core__Option.map(onComplete, (function (f) {
-                              var winningSide = extra.scoreLeft > extra.scoreRight ? "Left" : "Right";
-                              var score = winningSide === "Left" ? [
-                                  extra.scoreLeft,
-                                  extra.scoreRight
-                                ] : [
-                                  extra.scoreRight,
-                                  extra.scoreLeft
-                                ];
-                              var match_0 = winningSide === "Left" ? team1 : team2;
-                              var match_1 = winningSide === "Left" ? team2 : team1;
-                              var match = [
-                                match_0,
-                                match_1
-                              ];
-                              var x = f([
-                                    match,
-                                    score
-                                  ]);
-                              return x.then(function () {
-                                          setValue("scoreLeft", 0, undefined);
-                                          setValue("scoreRight", 0, undefined);
-                                          return Promise.resolve(setSubmitting(function (param) {
-                                                          return false;
-                                                        }));
-                                        });
-                            }));
-                    }
-                  })
+              onSubmit: match$2.handleSubmit(onSubmit)
             });
 }
 

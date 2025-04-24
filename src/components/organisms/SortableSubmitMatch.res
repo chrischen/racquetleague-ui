@@ -15,16 +15,16 @@ open Lingui.Util
 //           }
 //   }
 // `)
-module PredictMatchOutcome = %relay(`
-query SortableSubmitMatchPredictMatchOutcomeQuery(
-  $input: PredictMatchInput!
-) {
-  predictMatchOutcome(input: $input) {
-     team1
-     team2
-  }
-}
-`)
+// module PredictMatchOutcome = %relay(`
+// query SortableSubmitMatchPredictMatchOutcomeQuery(
+//   $input: PredictMatchInput!
+// ) {
+//   predictMatchOutcome(input: $input) {
+//      team1
+//      team2
+//   }
+// }
+// `)
 open Rating
 module PredictionBar = {
   @react.component

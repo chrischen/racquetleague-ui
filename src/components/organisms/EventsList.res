@@ -104,7 +104,7 @@ module TextEventItem = {
     let {
       id,
       location,
-      details,
+      // details,
       rsvps,
       startDate,
       maxRsvps,

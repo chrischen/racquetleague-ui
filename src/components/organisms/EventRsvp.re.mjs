@@ -84,12 +84,6 @@ function EventRsvp(props) {
                                                   return viewer.id === user.id;
                                                 })), false),
                                       link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
-                                      rating: Core__Option.flatMap(rsvp.rating, (function (r) {
-                                              return r.mu;
-                                            })),
-                                      sigma: Core__Option.flatMap(rsvp.rating, (function (r) {
-                                              return r.sigma;
-                                            })),
                                       sigmaPercent: Core__Option.getOr(Core__Option.flatMap(rsvp.rating, (function (rating) {
                                                   return Core__Option.map(rating.sigma, (function (sigma) {
                                                                 return 3 * sigma / maxRating * 100;

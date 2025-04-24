@@ -57,7 +57,7 @@ module Layout = {
 //   }
 // }
 
-@genType @react.component
+@react.component
 let make = () => {
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()

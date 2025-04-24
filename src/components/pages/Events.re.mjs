@@ -14,7 +14,6 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
 import * as EventsList from "../organisms/EventsList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -121,7 +120,6 @@ function Events(props) {
   var shadowFilter = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(searchParams, "shadow"), (function (param) {
               return true;
             })), false);
-  GlobalQuery.useViewer();
   var navigate = ReactRouterDom.useNavigate();
   var searchParams$1 = Router.ImmSearchParams.fromSearchParams(searchParams);
   return JsxRuntime.jsx(WaitForMessages.make, {

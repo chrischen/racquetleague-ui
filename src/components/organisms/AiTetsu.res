@@ -195,7 +195,7 @@ module TeamSelector = {
   }
 }
 module Leaderboard = {
-  type sortDir = Asc | Desc
+  type sortDir = Desc
   @react.component
   let make = (~players: array<Player.t<'a>>) => {
     let maxRating =
@@ -987,7 +987,6 @@ let make = (~event, ~children) => {
         {manualTeamOpen
           ? <SelectMatch
               players={queuedPlayers}
-              activity
               onMatchQueued={match => queueMatch(match)}
               //   setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))}
             >
@@ -1126,7 +1125,6 @@ let make = (~event, ~children) => {
         setSettingsPane(_ => None)
       }}
       matchSelector={<CompMatch
-        roundsCount
         players={(queuedPlayers :> array<Player.t<'a>>)}
         session=sessionState
         teams

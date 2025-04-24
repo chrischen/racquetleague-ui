@@ -4,6 +4,4 @@ let make: RsvpUser.props<
   string,
   float,
   float,
-  float,
-  float,
 > => React.element

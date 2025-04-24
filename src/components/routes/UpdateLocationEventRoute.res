@@ -28,7 +28,7 @@ let loadMessages = Lingui.loadMessages({
 })
 
 @genType
-let loader = async ({context, params}: LoaderArgs.t) => {
+let loader = async ({params}: LoaderArgs.t) => {
   // let query = UpdateEventPageQuery_graphql.load(
   //   ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
   //   ~variables={},

@@ -30,8 +30,8 @@ let make = (
   ~user: Rating.user,
   ~highlight: bool=false,
   ~link: option<string>=?,
-  ~rating: option<float>=?,
-  ~sigma: option<float>=?,
+  // ~rating: option<float>=?,
+  // ~sigma: option<float>=?,
   ~sigmaPercent: option<float>=?,
   ~ratingPercent: option<float>=?,
 ) => {

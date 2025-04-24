@@ -57,13 +57,12 @@ external alert: string => unit = "alert"
 let make = (~query) => {
   let navigate = Router.useNavigate()
   open Lingui.Util
-  let td = Lingui.UtilString.dynamic
   open Form
   let query = QueryFragment.use(query)
 
   let (commitMutation, _) = Mutation.use()
 
-  let {register, handleSubmit, formState, setValue, watch} = useFormOfInputs(
+  let {register, handleSubmit, formState } = useFormOfInputs(
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {

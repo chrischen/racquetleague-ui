@@ -43,8 +43,8 @@ let make = (~rsvp, ~viewer: option<EventRsvps_user_graphql.Types.fragment>, ~act
       <EventRsvpUser
         link={"/league/" ++ activitySlug->Option.getOr("badminton") ++ "/p/" ++ user.id}
         user={user.fragmentRefs}
-        rating=?{rsvp.rating->Option.flatMap(r => r.mu)}
-        sigma=?{rsvp.rating->Option.flatMap(r => r.sigma)}
+        // rating=?{rsvp.rating->Option.flatMap(r => r.mu)}
+        // sigma=?{rsvp.rating->Option.flatMap(r => r.sigma)}
         sigmaPercent={rsvp.rating
         ->Option.flatMap(rating =>
           rating.sigma->Option.map(sigma => 3. *. sigma /. maxRating *. 100.)

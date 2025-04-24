@@ -15,16 +15,16 @@ open Lingui.Util
 //           }
 //   }
 // `)
-module PredictMatchOutcome = %relay(`
-query SubmitMatchPredictMatchOutcomeQuery(
-  $input: PredictMatchInput!
-) {
-  predictMatchOutcome(input: $input) {
-     team1
-     team2
-  }
-}
-`)
+// module PredictMatchOutcome = %relay(`
+// query SubmitMatchPredictMatchOutcomeQuery(
+//   $input: PredictMatchInput!
+// ) {
+//   predictMatchOutcome(input: $input) {
+//      team1
+//      team2
+//   }
+// }
+// `)
 open Rating
 // module PredictionBar = {
 //   @react.component
@@ -218,7 +218,7 @@ let make = (
   let ts = Lingui.UtilString.t
   open Form
   let (view, setView) = React.useState(() => defaultView)
-  let {register, handleSubmit, setValue, watch} = useFormOfInputsMatch(
+  let {register, handleSubmit, setValue } = useFormOfInputsMatch(
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {
@@ -253,7 +253,7 @@ let make = (
     ->ignore
   }
 
-  let onSubmit = (rated: bool, data: inputsMatch) => {
+  let onSubmit = (data: inputsMatch) => {
     setSubmitting(_ => true)
     switch data.scoreLeft == data.scoreRight {
     | true => alert("No ties allowed")
@@ -433,7 +433,7 @@ let make = (
       </>}
     </div>
 
-  <form onSubmit={handleSubmit(onSubmit(true, ...))}>
+  <form onSubmit={handleSubmit(onSubmit)}>
     <div className="grid grid-cols-1">
       {switch view {
       | Default => defaultView

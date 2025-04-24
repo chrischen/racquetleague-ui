@@ -12932,7 +12932,7 @@ __metadata:
     relay-compiler: "npm:^16.1.0"
     relay-runtime: "npm:16.1"
     relay-test-utils: "npm:^16.0.0"
-    rescript: "npm:^11.1.3"
+    rescript: "npm:^11.1.4"
     rescript-react-intl: "npm:^3.0.0"
     rescript-relay: "npm:3.0.0-rc.4"
     rescript-vitest: "npm:^1.2.0"
@@ -13605,14 +13605,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rescript@npm:^11.1.3":
-  version: 11.1.3
-  resolution: "rescript@npm:11.1.3"
+"rescript@npm:^11.1.4":
+  version: 11.1.4
+  resolution: "rescript@npm:11.1.4"
   bin:
     bsc: bsc
     bstracing: lib/bstracing
     rescript: rescript
-  checksum: 5c96865aca10c6fb541d0e0939a650ef83895db11d918f0815903c16eaa172fa399f76080c12705e270ee096634edcfd350809e311090d57a8bd81d50ea6e532
+  checksum: 2ba71cf76e04000afb025afc245aef0d4c1647c73323f325bbc386f562df5a9fdddf137f6031ac7bb59c935c60174156d7a605a05a70adac8bd76dc0795aa6bd
   languageName: node
   linkType: hard
 

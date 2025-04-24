@@ -77,7 +77,7 @@ let make = () => {
   }
   let shadowFilter =
     searchParams->Router.SearchParams.get("shadow")->Option.map(_ => true)->Option.getOr(false)
-  let viewer = GlobalQuery.useViewer()
+  // let viewer = GlobalQuery.useViewer()
   let navigate = Router.useNavigate()
 
   let searchParams = searchParams->Router.ImmSearchParams.fromSearchParams

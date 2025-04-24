@@ -125,7 +125,6 @@ let rot2 = (players, player) =>
 @react.component
 let make = (
   ~players: array<player>,
-  ~activity: option<AiTetsu_event_graphql.Types.fragment_activity>,
   ~onMatchQueued,
   // ~onMatchCompleted,
   ~children,

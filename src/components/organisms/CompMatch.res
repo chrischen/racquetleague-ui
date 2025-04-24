@@ -145,7 +145,7 @@ let make = (
   ~priorityPlayers: array<Player.t<'a>>,
   ~avoidAllPlayers: array<Player.t<'a>>,
   ~onSelectMatch: option<(Match.t<'a>, ~dequeue: bool=?) => unit>=?,
-  ~roundsCount: int,
+  // ~roundsCount: int,
 ) => {
   let (strategy, setStrategy) = React.useState(() => defaultStrategy)
   let intl = ReactIntl.useIntl()
