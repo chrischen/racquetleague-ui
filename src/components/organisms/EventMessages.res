@@ -19,6 +19,7 @@ external differenceInHours: (Js.Date.t, Js.Date.t) => int = "differenceInHours"
 type payloadType = {
   actorUserName: option<string>,
   activityType: option<string>,
+  details: option<string>,
 }
 
 // Helper function to safely decode the payload
@@ -30,6 +31,7 @@ let decodePayload = (payloadString: string): option<payloadType> => {
       Some({
         actorUserName: dict->Js.Dict.get("actorUserName")->Option.flatMap(Js.Json.decodeString(_)),
         activityType: dict->Js.Dict.get("activityType")->Option.flatMap(Js.Json.decodeString(_)),
+        details: dict->Js.Dict.get("details")->Option.flatMap(Js.Json.decodeString(_)),
       })
     | None => None
     }
@@ -88,8 +90,23 @@ let make = (
               (
                 <Lucide.X className="size-5 text-white" />,
                 "bg-red-500",
-                Some(t`left the event`), // Simple description text
+                // Use details if available, otherwise fallback to default
+                switch decodedPayload->Option.flatMap(p => p.details) {
+                | Some(detailText) => Some(detailText->React.string)
+                | None => Some(t`left the event`)
+                },
                 timeColorClass, // Use calculated color class for time
+              )
+
+            | Some("rsvp_created") => (
+                <Lucide.Check className="size-5 text-white" />, // Use Check icon
+                "bg-green-500", // Green background
+                // Use details if available, otherwise fallback to default
+                switch decodedPayload->Option.flatMap(p => p.details) {
+                | Some(detailText) => Some(detailText->React.string)
+                | None => Some(t`joined the event`)
+                },
+                "text-gray-500", // Default time color
               )
             | _ => (
                 <Lucide.User className="size-5 text-white" />,

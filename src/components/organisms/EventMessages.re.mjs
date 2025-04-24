@@ -45,7 +45,8 @@ function decodePayload(payloadString) {
     if (dict !== undefined) {
       return {
               actorUserName: Core__Option.flatMap(Js_dict.get(dict, "actorUserName"), Js_json.decodeString),
-              activityType: Core__Option.flatMap(Js_dict.get(dict, "activityType"), Js_json.decodeString)
+              activityType: Core__Option.flatMap(Js_dict.get(dict, "activityType"), Js_json.decodeString),
+              details: Core__Option.flatMap(Js_dict.get(dict, "details"), Js_json.decodeString)
             };
     } else {
       return ;
@@ -73,20 +74,42 @@ function EventMessages(props) {
                                   }));
                             var match$1;
                             var exit = 0;
-                            if (match === "rsvp_deleted") {
-                              var messageCreatedAtDate = Util.Datetime.toDate(Util.Datetime.parse(message.createdAt));
-                              var diffHours = DateFns.differenceInHours(eventStartDate, messageCreatedAtDate);
-                              var timeColorClass = diffHours < 24 ? "text-red-600 font-medium" : (
-                                  diffHours < 48 ? "text-yellow-600 font-medium" : "text-gray-500"
-                                );
-                              match$1 = [
-                                JsxRuntime.jsx(LucideReact.X, {
-                                      className: "size-5 text-white"
-                                    }),
-                                "bg-red-500",
-                                Caml_option.some(t`left the event`),
-                                timeColorClass
-                              ];
+                            if (match !== undefined) {
+                              switch (match) {
+                                case "rsvp_created" :
+                                    var detailText = Core__Option.flatMap(decodedPayload, (function (p) {
+                                            return p.details;
+                                          }));
+                                    match$1 = [
+                                      JsxRuntime.jsx(LucideReact.Check, {
+                                            className: "size-5 text-white"
+                                          }),
+                                      "bg-green-500",
+                                      detailText !== undefined ? Caml_option.some(detailText) : Caml_option.some(t`joined the event`),
+                                      "text-gray-500"
+                                    ];
+                                    break;
+                                case "rsvp_deleted" :
+                                    var messageCreatedAtDate = Util.Datetime.toDate(Util.Datetime.parse(message.createdAt));
+                                    var diffHours = DateFns.differenceInHours(eventStartDate, messageCreatedAtDate);
+                                    var timeColorClass = diffHours < 24 ? "text-red-600 font-medium" : (
+                                        diffHours < 48 ? "text-yellow-600 font-medium" : "text-gray-500"
+                                      );
+                                    var detailText$1 = Core__Option.flatMap(decodedPayload, (function (p) {
+                                            return p.details;
+                                          }));
+                                    match$1 = [
+                                      JsxRuntime.jsx(LucideReact.X, {
+                                            className: "size-5 text-white"
+                                          }),
+                                      "bg-red-500",
+                                      detailText$1 !== undefined ? Caml_option.some(detailText$1) : Caml_option.some(t`left the event`),
+                                      timeColorClass
+                                    ];
+                                    break;
+                                default:
+                                  exit = 1;
+                              }
                             } else {
                               exit = 1;
                             }

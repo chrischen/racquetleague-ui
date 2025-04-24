@@ -33,6 +33,8 @@ var User = {};
 
 var List = {};
 
+var Check = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -50,5 +52,6 @@ export {
   Clock ,
   User ,
   List ,
+  Check ,
 }
 /* No side effect */
