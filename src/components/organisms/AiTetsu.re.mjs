@@ -423,12 +423,7 @@ function rsvpToPlayer(rsvp) {
   var rating;
   if (match$1 !== undefined) {
     var mu = match$1.mu;
-    if (mu !== undefined) {
-      var sigma = match$1.sigma;
-      rating = sigma !== undefined ? Rating.Rating.make(mu, sigma) : Rating.Rating.makeDefault();
-    } else {
-      rating = Rating.Rating.makeDefault();
-    }
+    rating = mu !== undefined && match$1.sigma !== undefined ? Rating.Rating.make(mu, 8.333) : Rating.Rating.makeDefault();
   } else {
     rating = Rating.Rating.makeDefault();
   }

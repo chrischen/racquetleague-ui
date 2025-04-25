@@ -399,7 +399,7 @@ let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node)
   switch (rsvp.user->Option.map(u => u.id), rsvp.rating) {
   | (Some(userId), rating) =>
     let rating = switch rating {
-    | Some({mu: Some(mu), sigma: Some(sigma)}) => Rating.make(mu, sigma)
+    | Some({mu: Some(mu), sigma: Some(sigma)}) => Rating.make(mu, 8.333)
     | _ => Rating.makeDefault()
     }
     {
