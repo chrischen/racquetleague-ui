@@ -224,6 +224,10 @@ msgstr "キューされた試合"
 msgid "Random"
 msgstr "ランダムで"
 
+#: src/components/organisms/CompMatch.re.mjs:426
+msgid "Recommended Match"
+msgstr "推奨試合"
+
 #: src/components/organisms/SelectMatch.re.mjs:303
 msgid "right team players"
 msgstr "右チームのプレイヤー"

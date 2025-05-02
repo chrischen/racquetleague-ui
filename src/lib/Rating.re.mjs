@@ -699,15 +699,15 @@ function uniform_shuffle_array(arr, n, offset) {
 
 function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teams) {
   return Core__Array.reduce(array_split_by_n(sortByRatingDesc(players), 8), [], (function (acc, playerSet) {
-                var matches = find_all_match_combos(filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams).toSorted(function (a, b) {
-                      if (a[1] < b[1]) {
-                        return 1;
-                      } else {
-                        return -1;
-                      }
-                    });
-                return acc.concat(matches);
-              }));
+                  var matches = find_all_match_combos(filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams);
+                  return acc.concat(matches);
+                })).toSorted(function (a, b) {
+              if (a[1] < b[1]) {
+                return 1;
+              } else {
+                return -1;
+              }
+            });
 }
 
 function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers, avoidAllPlayers, teams) {
@@ -776,6 +776,70 @@ function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers) {
               }
             });
 }
+
+function recommendMatch(matches, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches) {
+  var filterLRSM = function (param) {
+    return !lastRoundSeenMatches.has(toStableId$1(param[0]));
+  };
+  var filterLRST = function (param) {
+    var match = param[0];
+    return !(lastRoundSeenTeams.has(toStableId(match[0])) || lastRoundSeenTeams.has(toStableId(match[1])));
+  };
+  var filterSM = function (param) {
+    return !seenMatches.has(toStableId$1(param[0]));
+  };
+  var filterST = function (param) {
+    var match = param[0];
+    return !(seenTeams.has(toStableId(match[0])) || seenTeams.has(toStableId(match[1])));
+  };
+  var qualityFilter = function (param) {
+    return param[1] >= 0.39;
+  };
+  var avoidanceFilters = [
+    filterLRSM,
+    filterLRST,
+    filterSM,
+    filterST
+  ];
+  var applyFilters = function (currentMatches, filtersToApply) {
+    return Core__Array.reduce(filtersToApply, currentMatches, (function (acc, filterFn) {
+                  return acc.filter(filterFn);
+                }));
+  };
+  var findResult = function (_currentAvoidanceFilters) {
+    while(true) {
+      var currentAvoidanceFilters = _currentAvoidanceFilters;
+      var filteredByAvoidance = applyFilters(matches, currentAvoidanceFilters);
+      var finalFiltered = filteredByAvoidance.filter(qualityFilter);
+      if (finalFiltered.length > 0) {
+        return finalFiltered;
+      }
+      var fewerFilters = currentAvoidanceFilters.slice(0, currentAvoidanceFilters.length - 1 | 0);
+      if (fewerFilters.length === currentAvoidanceFilters.length) {
+        return matches.filter(qualityFilter);
+      }
+      if (fewerFilters.length === 0) {
+        return matches.filter(qualityFilter);
+      }
+      _currentAvoidanceFilters = fewerFilters;
+      continue ;
+    };
+  };
+  var bestMatches = findResult(avoidanceFilters);
+  return Core__Option.map(bestMatches.at(0), (function (param) {
+                return param[0];
+              }));
+}
+
+var RankedMatches = {
+  strategy_by_competitive: strategy_by_competitive,
+  strategy_by_competitive_plus: strategy_by_competitive_plus,
+  strategy_by_mixed: strategy_by_mixed,
+  strategy_by_round_robin: strategy_by_round_robin,
+  strategy_by_random: strategy_by_random,
+  strategy_by_dupr: strategy_by_dupr,
+  recommendMatch: recommendMatch
+};
 
 function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints) {
   var availablePlayers = filterOut(players, consumedPlayers);
@@ -1034,12 +1098,7 @@ export {
   find_skip ,
   pick_every_n_from_array ,
   uniform_shuffle_array ,
-  strategy_by_competitive ,
-  strategy_by_competitive_plus ,
-  strategy_by_mixed ,
-  strategy_by_round_robin ,
-  strategy_by_random ,
-  strategy_by_dupr ,
+  RankedMatches ,
   getMatches ,
   OrderedQueue ,
   UnorderedQueue ,

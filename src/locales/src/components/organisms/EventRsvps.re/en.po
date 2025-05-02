@@ -13,16 +13,16 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventRsvps.re.mjs:409
-#: src/components/organisms/EventRsvps.re.mjs:538
+#: src/components/organisms/EventRsvps.re.mjs:413
+#: src/components/organisms/EventRsvps.re.mjs:542
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:401
+#: src/components/organisms/EventRsvps.re.mjs:405
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:488
+#: src/components/organisms/EventRsvps.re.mjs:492
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr ""
 
@@ -34,7 +34,7 @@ msgstr ""
 msgid "attendees"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:394
+#: src/components/organisms/EventRsvps.re.mjs:398
 msgid "confirmed"
 msgstr ""
 
@@ -63,9 +63,9 @@ msgstr ""
 msgid "leave event"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:467
-#: src/components/organisms/EventRsvps.re.mjs:519
-#: src/components/organisms/EventRsvps.re.mjs:569
+#: src/components/organisms/EventRsvps.re.mjs:471
+#: src/components/organisms/EventRsvps.re.mjs:523
+#: src/components/organisms/EventRsvps.re.mjs:573
 msgid "load More"
 msgstr ""
 
@@ -83,13 +83,13 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:458
-#: src/components/organisms/EventRsvps.re.mjs:512
-#: src/components/organisms/EventRsvps.re.mjs:562
+#: src/components/organisms/EventRsvps.re.mjs:462
+#: src/components/organisms/EventRsvps.re.mjs:516
+#: src/components/organisms/EventRsvps.re.mjs:566
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:532
+#: src/components/organisms/EventRsvps.re.mjs:536
 msgid "pending"
 msgstr ""
 
@@ -109,8 +109,8 @@ msgstr ""
 #~ msgid "restricted by level"
 #~ msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:429
-#: src/components/organisms/EventRsvps.re.mjs:439
+#: src/components/organisms/EventRsvps.re.mjs:433
+#: src/components/organisms/EventRsvps.re.mjs:443
 msgid "spots available"
 msgstr ""
 
@@ -122,8 +122,8 @@ msgstr ""
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:434
-#: src/components/organisms/EventRsvps.re.mjs:482
+#: src/components/organisms/EventRsvps.re.mjs:438
+#: src/components/organisms/EventRsvps.re.mjs:486
 msgid "waitlist"
 msgstr ""
 

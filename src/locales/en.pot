@@ -1464,3 +1464,7 @@ msgstr ""
 #: src/components/organisms/EventRsvps.re.mjs:283
 msgid "You will lose your spot"
 msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:426
+msgid "Recommended Match"
+msgstr ""

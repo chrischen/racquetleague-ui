@@ -346,10 +346,108 @@ function CompMatch(props) {
                       ],
                       className: "mt-2 text-base leading-7 text-gray-600 mb-2"
                     }),
+                Core__Option.getOr(Core__Option.map(Rating.RankedMatches.recommendMatch(matches$2, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches), (function (match) {
+                            var team2 = match[1];
+                            var team1 = match[0];
+                            var match$1 = lastRoundSeenTeams.has(Rating.Team.toStableId(team1));
+                            var match$2 = lastRoundSeenTeams.has(Rating.Team.toStableId(team2));
+                            var highlight2 = match$1 ? (
+                                match$2 ? "Both2" : "Left2"
+                              ) : (
+                                match$2 ? "Right2" : undefined
+                              );
+                            var match$3 = seenTeams.has(Rating.Team.toStableId(team1));
+                            var match$4 = seenTeams.has(Rating.Team.toStableId(team2));
+                            var highlight;
+                            var exit = 0;
+                            if (highlight2 !== undefined) {
+                              var exit$1 = 0;
+                              switch (highlight2) {
+                                case "Left2" :
+                                    if (match$3) {
+                                      if (match$4) {
+                                        exit = 1;
+                                      } else {
+                                        highlight = "Left2";
+                                      }
+                                    } else {
+                                      exit$1 = 2;
+                                    }
+                                    break;
+                                case "Right2" :
+                                    if (match$3) {
+                                      exit = 1;
+                                    } else if (match$4) {
+                                      highlight = "Right2";
+                                    } else {
+                                      exit$1 = 2;
+                                    }
+                                    break;
+                                case "Both2" :
+                                    if (match$3) {
+                                      if (match$4) {
+                                        highlight = "Both2";
+                                      } else {
+                                        exit = 1;
+                                      }
+                                    } else {
+                                      exit$1 = 2;
+                                    }
+                                    break;
+                                default:
+                                  exit$1 = 2;
+                              }
+                              if (exit$1 === 2) {
+                                if (match$3 || match$4) {
+                                  exit = 1;
+                                } else {
+                                  highlight = highlight2;
+                                }
+                              }
+                              
+                            } else if (match$3 || match$4) {
+                              exit = 1;
+                            } else {
+                              highlight = undefined;
+                            }
+                            if (exit === 1) {
+                              highlight = match$3 ? (
+                                  match$4 ? "Both" : "Left"
+                                ) : "Right";
+                            }
+                            var match$5 = lastRoundSeenMatches.has(Rating.Match.toStableId(match));
+                            var match$6 = seenMatches.has(Rating.Match.toStableId(match));
+                            var border = match$5 ? "Red" : (
+                                match$6 ? "Yellow" : undefined
+                              );
+                            return JsxRuntime.jsxs("div", {
+                                        children: [
+                                          JsxRuntime.jsx("h3", {
+                                                children: t`Recommended Match`,
+                                                className: "text-lg font-semibold p-2"
+                                              }),
+                                          JsxRuntime.jsx(CompMatch$MatchMini, {
+                                                match: match,
+                                                session: session,
+                                                highlight: highlight,
+                                                border: border,
+                                                onSelect: Core__Option.map(onSelectMatch, (function (f) {
+                                                        return function (match) {
+                                                          var tmp;
+                                                          tmp = strategy === "RoundRobin" ? false : true;
+                                                          f(match, tmp);
+                                                        };
+                                                      }))
+                                              })
+                                        ],
+                                        className: "border-zinc-600 rounded ring-1 mb-2 bg-green-100"
+                                      });
+                          })), null),
                 matches$2.map(function (param, i) {
                       var match = param[0];
                       var team2 = match[1];
                       var team1 = match[0];
+                      var quality = param[1];
                       var match$1 = lastRoundSeenTeams.has(Rating.Team.toStableId(team1));
                       var match$2 = lastRoundSeenTeams.has(Rating.Team.toStableId(team2));
                       var highlight2 = match$1 ? (
@@ -437,11 +535,12 @@ function CompMatch(props) {
                                                   };
                                                 }))
                                         }),
+                                    quality.toFixed(3),
                                     JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(FramerMotion.motion.div, {
                                                 className: "h-2 rounded-full bg-red-400",
                                                 animate: {
-                                                  width: match$7 !== 0 ? ((param[1] - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
+                                                  width: match$7 !== 0 ? ((quality - minQuality) / (maxQuality - minQuality) * 100).toFixed(3) + "%" : "0%"
                                                 },
                                                 initial: {
                                                   width: "0%"
@@ -457,6 +556,8 @@ function CompMatch(props) {
             });
 }
 
+var qualityTolerance = 0.7;
+
 var make = CompMatch;
 
 export {
@@ -468,6 +569,7 @@ export {
   matches_contains_match ,
   contains_match ,
   Settings ,
+  qualityTolerance ,
   ts ,
   make ,
 }

@@ -129,6 +129,7 @@ module Settings = {
     React.null
   }
 }
+let qualityTolerance = 0.7
 let ts = Lingui.UtilString.t
 @react.component
 let make = (
@@ -145,8 +146,9 @@ let make = (
   ~priorityPlayers: array<Player.t<'a>>,
   ~avoidAllPlayers: array<Player.t<'a>>,
   ~onSelectMatch: option<(Match.t<'a>, ~dequeue: bool=?) => unit>=?,
-  // ~roundsCount: int,
 ) => {
+  // ~roundsCount: int,
+
   let (strategy, setStrategy) = React.useState(() => defaultStrategy)
   let intl = ReactIntl.useIntl()
 
@@ -280,6 +282,61 @@ let make = (
       {t`Played last round`}
     </p>
     {matches
+    ->RankedMatches.recommendMatch(seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches)
+    ->Option.map(match => {
+      let (team1, team2) = match
+      let highlight2 = switch (
+        lastRoundSeenTeams->Set.has(team1->Team.toStableId),
+        lastRoundSeenTeams->Set.has(team2->Team.toStableId),
+      ) {
+      | (true, true) => Some(MatchMini.Both2)
+      | (true, false) => Some(MatchMini.Left2)
+      | (false, true) => Some(MatchMini.Right2)
+      | (false, false) => None
+      }
+      let highlight = switch (
+        highlight2,
+        seenTeams->Set.has(team1->Team.toStableId),
+        seenTeams->Set.has(team2->Team.toStableId),
+      ) {
+      | (Some(Both2), true, true) => Some(MatchMini.Both2)
+      | (_, true, true) => Some(MatchMini.Both)
+      | (Some(Left2), true, false) => Some(Left2)
+      | (_, true, false) => Some(MatchMini.Left)
+      | (Some(Right2), false, true) => Some(Right2)
+      | (_, false, true) => Some(MatchMini.Right)
+      | (None, false, false) => None
+      | (Some(h), false, false) => Some(h)
+      }
+      let border = switch (
+        lastRoundSeenMatches->Set.has(match->Match.toStableId),
+        seenMatches->Set.has(match->Match.toStableId),
+      ) {
+      | (true, _) => Some(MatchMini.Red)
+      | (_, true) => Some(MatchMini.Yellow)
+      | (false, false) => None
+      }
+      <div className="border-zinc-600 rounded ring-1 mb-2 bg-green-100">
+        <h3 className="text-lg font-semibold p-2"> {t`Recommended Match`} </h3>
+        <MatchMini
+          onSelect=?{onSelectMatch->Option.map(f => match => {
+            f(
+              match,
+              ~dequeue=switch strategy {
+              | RoundRobin => false
+              | _ => true
+              },
+            )
+          })}
+          match
+          session
+          ?highlight
+          ?border
+        />
+      </div>
+    })
+    ->Option.getOr(React.null)}
+    {matches
     ->Array.mapWithIndex(((match, quality), i) => {
       let (team1, team2) = match
       let highlight2 = switch (
@@ -330,7 +387,7 @@ let make = (
           ?highlight
           ?border
         />
-        // {quality->Float.toFixed(~digits=3)->React.string}
+        {quality->Float.toFixed(~digits=3)->React.string}
         <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
           <FramerMotion.Div
             className="h-2 rounded-full bg-red-400"

@@ -53,6 +53,10 @@ msgstr "前回プレイした"
 msgid "Random"
 msgstr "ランダムで"
 
+#: src/components/organisms/CompMatch.re.mjs:426
+msgid "Recommended Match"
+msgstr "推奨試合"
+
 #: src/components/organisms/CompMatch.re.mjs:127
 msgid "Select"
 msgstr "選択"

@@ -1383,13 +1383,17 @@ msgid ""
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
 "want to leave this event?"
 msgstr ""
-"このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリス"
-"トの誰かに譲られます。再参加する場合、ウェイトリストに参加することになりま"
-"す。本当にこのイベントを離れますか？"
+"このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリスト"
+"の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
+"本当にこのイベントを離れますか？"
 
 #: src/components/organisms/EventRsvps.re.mjs:283
 msgid "You will lose your spot"
 msgstr "あなたのスポットを失います"
+
+#: src/components/organisms/CompMatch.re.mjs:426
+msgid "Recommended Match"
+msgstr "推奨試合"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

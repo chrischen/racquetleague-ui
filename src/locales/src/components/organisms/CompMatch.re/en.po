@@ -61,6 +61,10 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
+#: src/components/organisms/CompMatch.re.mjs:426
+msgid "Recommended Match"
+msgstr ""
+
 #: src/components/organisms/CompMatch.re.mjs:229
 #~ msgid "Round Robin"
 #~ msgstr ""

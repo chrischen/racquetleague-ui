@@ -37,8 +37,8 @@ msgstr "ピックルボール"
 msgid "Futsal"
 msgstr "フットサル"
 
-#: src/components/organisms/EventRsvps.re.mjs:409
-#: src/components/organisms/EventRsvps.re.mjs:538
+#: src/components/organisms/EventRsvps.re.mjs:413
+#: src/components/organisms/EventRsvps.re.mjs:542
 msgid "{0, plural, one {player} other {players}}"
 msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
 
@@ -50,11 +50,11 @@ msgstr "{0}時間"
 msgid "{0} hours and {1} minutes"
 msgstr "{0}時間{1}分"
 
-#: src/components/organisms/EventRsvps.re.mjs:401
+#: src/components/organisms/EventRsvps.re.mjs:405
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventRsvps.re.mjs:488
+#: src/components/organisms/EventRsvps.re.mjs:492
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
@@ -78,7 +78,7 @@ msgstr "イベントをキャンセル"
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/organisms/EventRsvps.re.mjs:394
+#: src/components/organisms/EventRsvps.re.mjs:398
 msgid "confirmed"
 msgstr "確認済み"
 
@@ -143,9 +143,9 @@ msgstr "離れる"
 msgid "left the event"
 msgstr "離れました"
 
-#: src/components/organisms/EventRsvps.re.mjs:467
-#: src/components/organisms/EventRsvps.re.mjs:519
-#: src/components/organisms/EventRsvps.re.mjs:569
+#: src/components/organisms/EventRsvps.re.mjs:471
+#: src/components/organisms/EventRsvps.re.mjs:523
+#: src/components/organisms/EventRsvps.re.mjs:573
 msgid "load More"
 msgstr "もっと読み込む"
 
@@ -167,9 +167,9 @@ msgstr "Lineでログイン"
 msgid "media"
 msgstr "メディア"
 
-#: src/components/organisms/EventRsvps.re.mjs:458
-#: src/components/organisms/EventRsvps.re.mjs:512
-#: src/components/organisms/EventRsvps.re.mjs:562
+#: src/components/organisms/EventRsvps.re.mjs:462
+#: src/components/organisms/EventRsvps.re.mjs:516
+#: src/components/organisms/EventRsvps.re.mjs:566
 #: src/components/organisms/EventFullNames.re.mjs:97
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
@@ -178,7 +178,7 @@ msgstr "まだプレイヤーはいません"
 msgid "notes"
 msgstr "メモ"
 
-#: src/components/organisms/EventRsvps.re.mjs:532
+#: src/components/organisms/EventRsvps.re.mjs:536
 msgid "pending"
 msgstr "保留中"
 
@@ -190,8 +190,8 @@ msgstr "プレイヤー"
 msgid "Required rating: {0}"
 msgstr "必要な評価: {0}"
 
-#: src/components/organisms/EventRsvps.re.mjs:429
-#: src/components/organisms/EventRsvps.re.mjs:439
+#: src/components/organisms/EventRsvps.re.mjs:433
+#: src/components/organisms/EventRsvps.re.mjs:443
 msgid "spots available"
 msgstr "利用可能なスポット"
 
@@ -237,8 +237,8 @@ msgstr "{activityName} のイベントから登録解除"
 msgid "view events"
 msgstr "イベントを見る"
 
-#: src/components/organisms/EventRsvps.re.mjs:434
-#: src/components/organisms/EventRsvps.re.mjs:482
+#: src/components/organisms/EventRsvps.re.mjs:438
+#: src/components/organisms/EventRsvps.re.mjs:486
 msgid "waitlist"
 msgstr "ウェイトリスト"
 

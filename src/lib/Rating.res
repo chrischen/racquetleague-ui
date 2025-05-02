@@ -544,125 +544,200 @@ let rec uniform_shuffle_array = (arr: array<'a>, n: int, offset: int) => {
   }
 }
 
-let strategy_by_competitive = (
-  players: array<Player.t<'a>>,
-  consumedPlayers: Set.t<string>,
-  priorityPlayers: array<Player.t<'a>>,
-  avoidAllPlayers: array<Player.t<'a>>,
-  teams: NonEmptyArray.t<Set.t<string>>,
-) => {
-  players
-  ->Players.sortByRatingDesc
-  ->array_split_by_n(8)
-  ->Array.reduce([], (acc, playerSet) => {
-    let matches =
-      playerSet
-      ->Players.filterOut(consumedPlayers)
-      ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams)
-      ->Array.toSorted((a, b) => {
-        let (_, qualityA) = a
-        let (_, qualityB) = b
-        qualityA < qualityB ? 1. : -1.
-      })
-    acc->Array.concat(matches)
-  })
-}
-let strategy_by_competitive_plus = (
-  players: array<Player.t<'a>>,
-  consumedPlayers: Set.t<string>,
-  _priorityPlayers: array<Player.t<'a>>,
-  avoidAllPlayers: array<Player.t<'a>>,
-  teams: NonEmptyArray.t<Set.t<string>>,
-) => {
-  players
-  ->Array.toSorted((a, b) => {
-    let userA = a.rating.mu
-    let userB = b.rating.mu
-    userA < userB ? 1. : -1.
-  })
-  ->array_split_by_n(6)
-  ->Array.reduce([], (acc, playerSet) => {
-    let players = playerSet->Players.filterOut(consumedPlayers)
-    let matches =
-      players
-      ->Array.at(0)
-      ->Option.map(topPlayer => {
-        Js.log(topPlayer)
+module RankedMatches = {
+  type t = array<(Match.t<rsvpNode>, float)>
+  let strategy_by_competitive = (
+    players: array<Player.t<'a>>,
+    consumedPlayers: Set.t<string>,
+    priorityPlayers: array<Player.t<'a>>,
+    avoidAllPlayers: array<Player.t<'a>>,
+    teams: NonEmptyArray.t<Set.t<string>>,
+  ) => {
+    players
+    ->Players.sortByRatingDesc
+    ->array_split_by_n(8)
+    ->Array.reduce([], (acc, playerSet) => {
+      let matches =
         playerSet
         ->Players.filterOut(consumedPlayers)
-        ->find_all_match_combos([], avoidAllPlayers, teams)
-        ->Array.filter(((match, _)) => match->Match.contains_player(topPlayer))
-        ->Array.toSorted(
-          (a, b) => {
-            let (_, qualityA) = a
-            let (_, qualityB) = b
-            qualityA < qualityB ? 1. : -1.
-          },
-        )
-      })
-      ->Option.getOr([])
-    acc->Array.concat(matches)
-  })
-}
+        ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams)
+      acc->Array.concat(matches)
+    })
+    ->Array.toSorted((a, b) => {
+      let (_, qualityA) = a
+      let (_, qualityB) = b
+      qualityA < qualityB ? 1. : -1.
+    })
+  }
+  let strategy_by_competitive_plus = (
+    players: array<Player.t<'a>>,
+    consumedPlayers: Set.t<string>,
+    _priorityPlayers: array<Player.t<'a>>,
+    avoidAllPlayers: array<Player.t<'a>>,
+    teams: NonEmptyArray.t<Set.t<string>>,
+  ) => {
+    players
+    ->Array.toSorted((a, b) => {
+      let userA = a.rating.mu
+      let userB = b.rating.mu
+      userA < userB ? 1. : -1.
+    })
+    ->array_split_by_n(6)
+    ->Array.reduce([], (acc, playerSet) => {
+      let players = playerSet->Players.filterOut(consumedPlayers)
+      let matches =
+        players
+        ->Array.at(0)
+        ->Option.map(topPlayer => {
+          Js.log(topPlayer)
+          playerSet
+          ->Players.filterOut(consumedPlayers)
+          ->find_all_match_combos([], avoidAllPlayers, teams)
+          ->Array.filter(((match, _)) => match->Match.contains_player(topPlayer))
+          ->Array.toSorted(
+            (a, b) => {
+              let (_, qualityA) = a
+              let (_, qualityB) = b
+              qualityA < qualityB ? 1. : -1.
+            },
+          )
+        })
+        ->Option.getOr([])
+      acc->Array.concat(matches)
+    })
+  }
 
-let strategy_by_mixed = (
-  availablePlayers,
-  priorityPlayers,
-  avoidAllPlayers,
-  teams: NonEmptyArray.t<Set.t<string>>,
-) => {
-  find_all_match_combos(
+  let strategy_by_mixed = (
     availablePlayers,
     priorityPlayers,
     avoidAllPlayers,
-    teams,
-  )->Array.toSorted((a, b) => {
-    let (_, qualityA) = a
-    let (_, qualityB) = b
-    qualityA < qualityB ? 1. : -1.
-  })
+    teams: NonEmptyArray.t<Set.t<string>>,
+  ) => {
+    find_all_match_combos(
+      availablePlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teams,
+    )->Array.toSorted((a, b) => {
+      let (_, qualityA) = a
+      let (_, qualityB) = b
+      qualityA < qualityB ? 1. : -1.
+    })
+  }
+
+  let strategy_by_round_robin = (
+    availablePlayers,
+    priorityPlayers,
+    avoidAllPlayers,
+    teams: NonEmptyArray.t<Set.t<string>>,
+  ) => {
+    let count = Math.Int.max(4, availablePlayers->Array.length)
+    let skip = find_skip(count - 4)
+    let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+    let results = matches->uniform_shuffle_array(skip, 0)
+    results
+  }
+
+  let strategy_by_random = (
+    availablePlayers,
+    priorityPlayers,
+    avoidAllPlayers,
+    teams: NonEmptyArray.t<Set.t<string>>,
+  ) => {
+    let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+    matches->shuffle
+  }
+
+  let strategy_by_dupr = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
+    let teams =
+      availablePlayers
+      ->Players.sortByRatingDesc
+      ->array_split_by_n(3)
+      ->Array.map(Array.map(_, p => p.id))
+      ->Array.map(Set.fromArray)
+      ->NonEmptyArray.fromArray
+
+    let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+    matches->Array.toSorted((a, b) => {
+      let (_, qualityA) = a
+      let (_, qualityB) = b
+      qualityA < qualityB ? 1. : -1.
+    })
+  }
+  // Assumes matches are already sorted by quality descending
+  let recommendMatch = (
+    matches: t, // t is array<(Match.t<rsvpNode>, float)>
+    seenTeams: Set.t<string>,
+    seenMatches: Set.t<string>,
+    lastRoundSeenTeams: Set.t<string>,
+    lastRoundSeenMatches: Set.t<string>,
+  ) => {
+    // Define filter functions
+    let filterLRSM = ((match, _)) => !(lastRoundSeenMatches->Set.has(match->Match.toStableId))
+    let filterLRST = ((match, _)) =>
+      !(
+        lastRoundSeenTeams->Set.has(match->fst->Team.toStableId) ||
+          lastRoundSeenTeams->Set.has(match->snd->Team.toStableId)
+      )
+    let filterSM = ((match, _)) => !(seenMatches->Set.has(match->Match.toStableId))
+    let filterST = ((match, _)) =>
+      !(
+        seenTeams->Set.has(match->fst->Team.toStableId) ||
+          seenTeams->Set.has(match->snd->Team.toStableId)
+      )
+    // Quality filter is now defined here but applied last
+    let qualityFilter = ((_, quality)) => quality >= 0.39
+
+    // List of filters to try removing if necessary (most restrictive first)
+    // Quality filter is not included here as it's applied separately at the end.
+    let avoidanceFilters = [filterLRSM, filterLRST, filterSM, filterST]
+
+    // Helper to apply a list of filters sequentially
+    let applyFilters = (currentMatches, filtersToApply) => {
+      filtersToApply->Array.reduce(currentMatches, (acc, filterFn) => acc->Array.filter(filterFn))
+    }
+
+    // Recursive function to find the best match by relaxing constraints
+    let rec findResult = currentAvoidanceFilters => {
+      // Apply current avoidance filters first
+      let filteredByAvoidance = applyFilters(matches, currentAvoidanceFilters)
+      // Then apply the quality filter
+      let finalFiltered = filteredByAvoidance->Array.filter(qualityFilter)
+
+      if finalFiltered->Array.length > 0 {
+        // Found matches with current avoidance filters + quality filter
+        finalFiltered
+      } else {
+        // No matches passed quality filter with these avoidance filters.
+        // Try removing the last avoidance filter.
+        let fewerFilters =
+          currentAvoidanceFilters->Array.slice(
+            ~start=0,
+            ~end=currentAvoidanceFilters->Array.length - 1,
+          )
+
+        if fewerFilters->Array.length == currentAvoidanceFilters->Array.length {
+          // Base case: No avoidance filters left to remove, or slice failed unexpectedly.
+          // Return matches that pass only the quality filter.
+          matches->Array.filter(qualityFilter)
+        } else if fewerFilters->Array.length == 0 {
+          // Base case: No avoidance filters left after removing the last one.
+          // Return matches that pass only the quality filter.
+          matches->Array.filter(qualityFilter)
+        } else {
+          // Recursively call with fewer avoidance filters
+          findResult(fewerFilters)
+        }
+      }
+    }
+
+    // Start the search with all avoidance filters
+    let bestMatches = findResult(avoidanceFilters)
+
+    // Return the first match from the result (which should be the highest quality one due to initial sort)
+    bestMatches->Array.at(0)->Option.map(((match, _)) => match)
+  }
 }
-
-let strategy_by_round_robin = (
-  availablePlayers,
-  priorityPlayers,
-  avoidAllPlayers,
-  teams: NonEmptyArray.t<Set.t<string>>,
-) => {
-  let count = Math.Int.max(4, availablePlayers->Array.length)
-  let skip = find_skip(count - 4)
-  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
-  let results = matches->uniform_shuffle_array(skip, 0)
-  results
-}
-
-let strategy_by_random = (
-  availablePlayers,
-  priorityPlayers,
-  avoidAllPlayers,
-  teams: NonEmptyArray.t<Set.t<string>>,
-) => {
-  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
-  matches->shuffle
-}
-
-let strategy_by_dupr = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
-  let teams =
-    availablePlayers
-    ->Players.sortByRatingDesc
-    ->array_split_by_n(3)
-    ->Array.map(Array.map(_, p => p.id))
-    ->Array.map(Set.fromArray)
-    ->NonEmptyArray.fromArray
-
-  let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
-  matches->Array.toSorted((a, b) => {
-    let (_, qualityA) = a
-    let (_, qualityB) = b
-    qualityA < qualityB ? 1. : -1.
-  })
-}
-
 type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR
 let getMatches = (
   players: Players.t,
@@ -674,14 +749,30 @@ let getMatches = (
 ) => {
   let availablePlayers = players->Players.filterOut(consumedPlayers)
   let matches = switch strategy {
-  | Mixed => strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
+  | Mixed =>
+    RankedMatches.strategy_by_mixed(
+      availablePlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teamConstraints,
+    )
   | RoundRobin =>
-    strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
+    RankedMatches.strategy_by_round_robin(
+      availablePlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teamConstraints,
+    )
   | Random =>
-    strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints)
-  | DUPR => strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers)
+    RankedMatches.strategy_by_random(
+      availablePlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teamConstraints,
+    )
+  | DUPR => RankedMatches.strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers)
   | Competitive =>
-    strategy_by_competitive(
+    RankedMatches.strategy_by_competitive(
       players,
       consumedPlayers,
       priorityPlayers,
@@ -689,7 +780,7 @@ let getMatches = (
       teamConstraints,
     )
   | CompetitivePlus =>
-    strategy_by_competitive_plus(
+    RankedMatches.strategy_by_competitive_plus(
       players,
       consumedPlayers,
       priorityPlayers,
