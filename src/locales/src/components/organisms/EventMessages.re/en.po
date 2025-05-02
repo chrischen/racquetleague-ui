@@ -6,7 +6,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/components/organisms/EventMessages.re.mjs:80
+#: src/components/organisms/EventMessages.re.mjs:119
+msgid "joined from waitlist"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:88
+msgid "joined the event"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:106
 msgid "left the event"
 msgstr ""

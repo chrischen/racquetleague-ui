@@ -13,6 +13,14 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventMessages.re.mjs:80
+#: src/components/organisms/EventMessages.re.mjs:119
+msgid "joined from waitlist"
+msgstr "ウェイトリストから参加"
+
+#: src/components/organisms/EventMessages.re.mjs:88
+msgid "joined the event"
+msgstr "参加しました"
+
+#: src/components/organisms/EventMessages.re.mjs:106
 msgid "left the event"
-msgstr "イベントを離れました"
+msgstr "離れました"

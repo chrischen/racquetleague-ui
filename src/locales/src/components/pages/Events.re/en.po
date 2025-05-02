@@ -100,12 +100,12 @@ msgstr ""
 #~ msgid "all"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:57
+#: src/components/pages/Events.re.mjs:56
 msgid "All"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:116
-#: src/components/pages/Events.re.mjs:119
+#: src/components/pages/Events.re.mjs:115
+#: src/components/pages/Events.re.mjs:118
 msgid "all events"
 msgstr ""
 
@@ -113,11 +113,11 @@ msgstr ""
 #~ msgid "badminton"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:66
+#: src/components/pages/Events.re.mjs:65
 msgid "Badminton"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:110
+#: src/components/pages/Events.re.mjs:109
 msgid "badminton events"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgstr ""
 msgid "filtering by date"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:180
+#: src/components/pages/Events.re.mjs:178
 msgid "include private"
 msgstr ""
 
@@ -161,11 +161,11 @@ msgstr ""
 #~ msgid "pickleball"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:61
+#: src/components/pages/Events.re.mjs:60
 msgid "Pickleball"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:113
+#: src/components/pages/Events.re.mjs:112
 msgid "pickleball events"
 msgstr ""
 

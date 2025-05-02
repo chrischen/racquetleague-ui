@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"FVnbiB\":\"left the event\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OiNSxX\":\"joined from waitlist\",\"1Ogj4M\":\"joined the event\",\"FVnbiB\":\"left the event\"}");

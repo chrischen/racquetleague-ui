@@ -4,13 +4,12 @@ open Lingui.Util
 
 module Fragment = %relay(`
   fragment EventRsvps_event on Event
-  @argumentDefinitions (
+  @argumentDefinitions(
     after: { type: "String" }
     before: { type: "String" }
     first: { type: "Int", defaultValue: 80 }
   )
-  @refetchable(queryName: "EventRsvpsRefetchQuery")
-  {
+  @refetchable(queryName: "EventRsvpsRefetchQuery") {
     __id
     maxRsvps
     minRating
@@ -18,8 +17,7 @@ module Fragment = %relay(`
       slug
     }
     rsvps(after: $after, first: $first, before: $before)
-    @connection(key: "EventRsvps_event_rsvps")
-    {
+      @connection(key: "EventRsvps_event_rsvps") {
       edges {
         node {
           ...EventRsvps_rsvp
@@ -38,15 +36,12 @@ module Fragment = %relay(`
         hasPreviousPage
         endCursor
       }
-		}
+    }
   }
 `)
 module UserFragment = %relay(`
   fragment EventRsvps_user on User
-  @argumentDefinitions (
-    eventId: { type: "ID!" }
-  )
-  {
+  @argumentDefinitions(eventId: { type: "ID!" }) {
     id
     lineUsername
     eventRating(eventId: $eventId) {
@@ -57,47 +52,42 @@ module UserFragment = %relay(`
   }
 `)
 module EventRsvpsJoinMutation = %relay(`
- mutation EventRsvpsJoinMutation(
-    $connections: [ID!]!
-    $id: ID!
-  ) {
-    joinEvent(eventId: $id) {
-      edge @appendEdge(connections: $connections) {
-        node {
-          id
-          user {
-            id
-            lineUsername
-          }
-          listType
-        }
-      }
-    }
-  }
+ mutation EventRsvpsJoinMutation($connections: [ID!]!, $id: ID!) {
+   joinEvent(eventId: $id) {
+     edge @appendEdge(connections: $connections) {
+       node {
+         id
+         user {
+           id
+           lineUsername
+         }
+         listType
+       }
+     }
+   }
+ }
 `)
 
 module EventRsvpsCreateRatingMutation = %relay(`
- mutation EventRsvpsCreateRatingMutation
-  {
-    createLeagueRating(input: {activitySlug: "pickleball", namespace: "doubles:rec"}) {
-      rating {
-        id
-      }
-    }
-  }
+ mutation EventRsvpsCreateRatingMutation {
+   createLeagueRating(
+     input: { activitySlug: "pickleball", namespace: "doubles:rec" }
+   ) {
+     rating {
+       id
+     }
+   }
+ }
 `)
 module EventRsvpsLeaveMutation = %relay(`
- mutation EventRsvpsLeaveMutation(
-    $connections: [ID!]!
-    $id: ID!
-  ) {
-    leaveEvent(eventId: $id) {
-      eventIds @deleteEdge(connections: $connections)
-      errors {
-        message
-      }
-    }
-  }
+ mutation EventRsvpsLeaveMutation($connections: [ID!]!, $id: ID!) {
+   leaveEvent(eventId: $id) {
+     eventIds @deleteEdge(connections: $connections)
+     errors {
+       message
+     }
+   }
+ }
 `)
 
 @module("../layouts/appContext")
@@ -268,12 +258,25 @@ let make = (~event, ~user) => {
       </button>
     </div>
   }
+
   let leaveButton =
-    <button
+    <Button.Button
       onClick=onLeave
       className="inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
       {t`leave event`}
-    </button>
+    </Button.Button>
+  let leaveButtonWithConfirmation =
+    <ConfirmButton
+      button={t`leave event`}
+      className="inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+      title={t`You will lose your spot`}
+      description={t`This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?`}
+      // confirmText={t`Leave`}
+      // cancelText={t`Cancel`}
+      onConfirmed=onLeave
+      // Optional: specify confirm button color if default red is not desired
+      // confirmButtonColor=#zinc
+    />
   <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5 flex flex-col">
     <h2 className="sr-only"> {t`attendees`} </h2>
     <div className="flex-auto p-6 pt-4">
@@ -307,7 +310,8 @@ let make = (~event, ~user) => {
       {spotsAvailable
       ->Option.map(count => {
         switch count {
-        | 0 => viewerHasRsvp ? leaveButton : joinButton
+        | 0 =>
+          viewerHasRsvp ? viewerIsInEvent ? leaveButtonWithConfirmation : leaveButton : joinButton
         | _ => viewerHasRsvp ? leaveButton : joinButton
         }
       })
@@ -430,9 +434,7 @@ let make = (~event, ~user) => {
         </div>
         <div className="mt-4 border-t border-gray-900/5 pl-6 pt-4">
           <div className="flex-auto">
-            <dt className="text-sm font-semibold leading-6 text-gray-900">
-              {t`restricted by level`}
-            </dt>
+            <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`pending`} </dt>
             <dd className="mt-1 text-base font-semibold leading-6 text-gray-900">
               {(restrictedRsvps->Array.length->Int.toString ++ " ")->React.string}
               {plural(restrictedRsvps->Array.length, {one: "player", other: "players"})}

@@ -22,7 +22,7 @@ msgstr "コート数"
 msgid "and"
 msgstr "と"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:232
+#: src/components/organisms/SortableSubmitMatch.re.mjs:210
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -50,15 +50,15 @@ msgstr "コート {0}: {team1} 対 {team2}"
 msgid "Deselect All"
 msgstr "すべて選択解除"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:250
+#: src/components/organisms/SortableSubmitMatch.re.mjs:228
 msgid "Finished"
 msgstr "終了"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:378
+#: src/components/organisms/SortableSubmitMatch.re.mjs:356
 msgid "Go Back"
 msgstr "戻る"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:397
+#: src/components/organisms/SortableSubmitMatch.re.mjs:375
 msgid "Loading"
 msgstr "読み込み中"
 
@@ -66,13 +66,13 @@ msgstr "読み込み中"
 msgid "Matches"
 msgstr "試合"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:303
-#: src/components/organisms/SortableSubmitMatch.re.mjs:347
+#: src/components/organisms/SortableSubmitMatch.re.mjs:281
+#: src/components/organisms/SortableSubmitMatch.re.mjs:325
 msgid "Points"
 msgstr "何点"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:77
-#: src/components/organisms/SortableSubmitMatch.re.mjs:89
+#: src/components/organisms/SortableSubmitMatch.re.mjs:55
+#: src/components/organisms/SortableSubmitMatch.re.mjs:67
 msgid "predicted winner"
 msgstr "予測される勝者"
 
@@ -84,12 +84,12 @@ msgstr "キュー"
 msgid "Select All"
 msgstr "すべて選択"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:385
+#: src/components/organisms/SortableSubmitMatch.re.mjs:363
 msgid "Submit Rated"
 msgstr "評価を提出"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:313
-#: src/components/organisms/SortableSubmitMatch.re.mjs:357
+#: src/components/organisms/SortableSubmitMatch.re.mjs:291
+#: src/components/organisms/SortableSubmitMatch.re.mjs:335
 msgid "Winner"
 msgstr "勝者"
 

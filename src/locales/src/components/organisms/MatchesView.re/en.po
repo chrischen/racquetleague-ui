@@ -22,7 +22,7 @@ msgstr ""
 msgid "and"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:232
+#: src/components/organisms/SortableSubmitMatch.re.mjs:210
 msgid "Cancel"
 msgstr ""
 
@@ -50,15 +50,15 @@ msgstr ""
 msgid "Deselect All"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:250
+#: src/components/organisms/SortableSubmitMatch.re.mjs:228
 msgid "Finished"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:378
+#: src/components/organisms/SortableSubmitMatch.re.mjs:356
 msgid "Go Back"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:397
+#: src/components/organisms/SortableSubmitMatch.re.mjs:375
 msgid "Loading"
 msgstr ""
 
@@ -70,13 +70,13 @@ msgstr ""
 #~ msgid "Players on Break"
 #~ msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:303
-#: src/components/organisms/SortableSubmitMatch.re.mjs:347
+#: src/components/organisms/SortableSubmitMatch.re.mjs:281
+#: src/components/organisms/SortableSubmitMatch.re.mjs:325
 msgid "Points"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:77
-#: src/components/organisms/SortableSubmitMatch.re.mjs:89
+#: src/components/organisms/SortableSubmitMatch.re.mjs:55
+#: src/components/organisms/SortableSubmitMatch.re.mjs:67
 msgid "predicted winner"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Select All"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:385
+#: src/components/organisms/SortableSubmitMatch.re.mjs:363
 msgid "Submit Rated"
 msgstr ""
 
@@ -96,7 +96,7 @@ msgstr ""
 #~ msgid "Toggle All"
 #~ msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:313
-#: src/components/organisms/SortableSubmitMatch.re.mjs:357
+#: src/components/organisms/SortableSubmitMatch.re.mjs:291
+#: src/components/organisms/SortableSubmitMatch.re.mjs:335
 msgid "Winner"
 msgstr ""

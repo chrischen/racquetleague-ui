@@ -107,6 +107,19 @@ function EventMessages(props) {
                                       timeColorClass
                                     ];
                                     break;
+                                case "rsvp_promoted" :
+                                    var detailText$2 = Core__Option.flatMap(decodedPayload, (function (p) {
+                                            return p.details;
+                                          }));
+                                    match$1 = [
+                                      JsxRuntime.jsx(LucideReact.ArrowUpCircle, {
+                                            className: "size-5 text-white"
+                                          }),
+                                      "bg-blue-500",
+                                      detailText$2 !== undefined ? Caml_option.some(detailText$2) : Caml_option.some(t`joined from waitlist`),
+                                      "text-gray-500"
+                                    ];
+                                    break;
                                 default:
                                   exit = 1;
                               }

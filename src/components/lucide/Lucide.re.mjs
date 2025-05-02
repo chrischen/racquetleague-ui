@@ -35,6 +35,8 @@ var List = {};
 
 var Check = {};
 
+var ArrowUpCircle = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -53,5 +55,6 @@ export {
   User ,
   List ,
   Check ,
+  ArrowUpCircle ,
 }
 /* No side effect */

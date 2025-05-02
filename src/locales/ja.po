@@ -1363,7 +1363,33 @@ msgstr "レベルによって制限"
 
 #: src/components/organisms/EventMessages.re.mjs:80
 msgid "left the event"
-msgstr "イベントを離れました"
+msgstr "離れました"
+
+#: src/components/organisms/EventMessages.re.mjs:88
+msgid "joined the event"
+msgstr "参加しました"
+
+#: src/components/organisms/EventMessages.re.mjs:119
+msgid "joined from waitlist"
+msgstr "ウェイトリストから参加"
+
+#: src/components/organisms/EventRsvps.re.mjs:532
+msgid "pending"
+msgstr "保留中"
+
+#: src/components/organisms/EventRsvps.re.mjs:284
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリス"
+"トの誰かに譲られます。再参加する場合、ウェイトリストに参加することになりま"
+"す。本当にこのイベントを離れますか？"
+
+#: src/components/organisms/EventRsvps.re.mjs:283
+msgid "You will lose your spot"
+msgstr "あなたのスポットを失います"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

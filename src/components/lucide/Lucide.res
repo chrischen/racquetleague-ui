@@ -102,3 +102,9 @@ module Check = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Check"
 }
+
+module ArrowUpCircle = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ArrowUpCircle"
+}

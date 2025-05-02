@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"FVnbiB\":\"イベントを離れました\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OiNSxX\":\"ウェイトリストから参加\",\"1Ogj4M\":\"参加しました\",\"FVnbiB\":\"離れました\"}");

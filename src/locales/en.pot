@@ -1441,3 +1441,26 @@ msgstr ""
 #: src/components/organisms/EventMessages.re.mjs:80
 msgid "left the event"
 msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:88
+msgid "joined the event"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:119
+msgid "joined from waitlist"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:532
+msgid "pending"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:284
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:283
+msgid "You will lose your spot"
+msgstr ""

@@ -108,6 +108,16 @@ let make = (
                 },
                 "text-gray-500", // Default time color
               )
+            | Some("rsvp_promoted") => (
+                <Lucide.ArrowUpCircle className="size-5 text-white" />, // Use ArrowUpCircle icon
+                "bg-blue-500", // Blue background
+                // Use details if available, otherwise fallback to default
+                switch decodedPayload->Option.flatMap(p => p.details) {
+                | Some(detailText) => Some(detailText->React.string)
+                | None => Some(t`joined from waitlist`)
+                },
+                "text-gray-500", // Default time color
+              )
             | _ => (
                 <Lucide.User className="size-5 text-white" />,
                 "bg-gray-400",
