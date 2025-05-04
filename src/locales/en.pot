@@ -1472,3 +1472,7 @@ msgstr ""
 #: src/components/pages/LeaguePlayerPage.re.mjs:207
 msgid "Estimated DUPR"
 msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:87
+msgid "View My Profile"
+msgstr ""

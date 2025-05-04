@@ -25,7 +25,7 @@ msgstr ""
 msgid "Load more players..."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:81
+#: src/components/pages/LeagueRankingsPage.re.mjs:130
 msgid "Loading rankings..."
 msgstr ""
 
@@ -33,11 +33,11 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
+#: src/components/pages/LeagueRankingsPage.re.mjs:107
 msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:53
+#: src/components/pages/LeagueRankingsPage.re.mjs:102
 msgid "Recreational Doubles"
 msgstr ""
 
@@ -45,6 +45,10 @@ msgstr ""
 #~ msgid "To participate, please join the badminton events here:"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:63
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
 msgid "To participate, please join the events here:"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:87
+msgid "View My Profile"
 msgstr ""

@@ -1399,6 +1399,10 @@ msgstr "推奨試合"
 msgid "Estimated DUPR"
 msgstr "推定DUPR"
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:87
+msgid "View My Profile"
+msgstr "私のプロフィールを見る"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

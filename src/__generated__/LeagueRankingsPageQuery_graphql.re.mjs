@@ -79,7 +79,53 @@ v4 = {
   "kind": "LocalArgument",
   "name": "namespace"
 },
-v5 = [
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v6 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "lineUsername",
+  "storageKey": null
+},
+v7 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "picture",
+  "storageKey": null
+},
+v8 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "Viewer",
+  "kind": "LinkedField",
+  "name": "viewer",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "User",
+      "kind": "LinkedField",
+      "name": "user",
+      "plural": false,
+      "selections": [
+        (v5/*: any*/),
+        (v6/*: any*/),
+        (v7/*: any*/)
+      ],
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v9 = [
   {
     "kind": "Variable",
     "name": "activitySlug",
@@ -105,14 +151,7 @@ v5 = [
     "name": "namespace",
     "variableName": "namespace"
   }
-],
-v6 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": [
@@ -126,8 +165,9 @@ return {
     "metadata": null,
     "name": "LeagueRankingsPageQuery",
     "selections": [
+      (v8/*: any*/),
       {
-        "args": (v5/*: any*/),
+        "args": (v9/*: any*/),
         "kind": "FragmentSpread",
         "name": "RatingListFragment"
       }
@@ -147,9 +187,10 @@ return {
     "kind": "Operation",
     "name": "LeagueRankingsPageQuery",
     "selections": [
+      (v8/*: any*/),
       {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v9/*: any*/),
         "concreteType": "RatingConnection",
         "kind": "LinkedField",
         "name": "ratings",
@@ -171,7 +212,7 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v6/*: any*/),
+                  (v5/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -187,21 +228,9 @@ return {
                     "name": "user",
                     "plural": false,
                     "selections": [
+                      (v5/*: any*/),
                       (v6/*: any*/),
-                      {
-                        "alias": null,
-                        "args": null,
-                        "kind": "ScalarField",
-                        "name": "lineUsername",
-                        "storageKey": null
-                      },
-                      {
-                        "alias": null,
-                        "args": null,
-                        "kind": "ScalarField",
-                        "name": "picture",
-                        "storageKey": null
-                      },
+                      (v7/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -276,7 +305,7 @@ return {
       },
       {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v9/*: any*/),
         "filters": [
           "activitySlug",
           "namespace"
@@ -289,12 +318,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "51010e09a756f4fc37bef32355da4693",
+    "cacheID": "b99be565699098a93ca2f34df9bd8b30",
     "id": null,
     "metadata": {},
     "name": "LeagueRankingsPageQuery",
     "operationKind": "query",
-    "text": "query LeagueRankingsPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ordinal\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
+    "text": "query LeagueRankingsPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n  }\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ordinal\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
   }
 };
 })());
