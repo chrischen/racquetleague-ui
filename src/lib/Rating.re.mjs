@@ -1074,7 +1074,7 @@ var Matches = {
 };
 
 function guessDupr(ratingMu) {
-  return 0.04910006818 * ratingMu + 2.492812177;
+  return 0.05798181849 * ratingMu + 2.255413064;
 }
 
 export {

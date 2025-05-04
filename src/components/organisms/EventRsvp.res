@@ -49,12 +49,16 @@ let make = (
         user={user.fragmentRefs}
         // rating=?{rsvp.rating->Option.flatMap(r => r.mu)}
         // sigma=?{rsvp.rating->Option.flatMap(r => r.sigma)}
-        secondaryText={rsvp.rating
-        ->Option.flatMap(r => r.mu)
-        ->Option.map(mu =>
-          "DUPR " ++ Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2)
-        )
-        ->Option.getOr("")}
+        secondaryText={switch activitySlug {
+        | Some("pickleball") =>
+          rsvp.rating
+          ->Option.flatMap(r => r.mu)
+          ->Option.map(mu =>
+            "DUPR " ++ Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2)
+          )
+          ->Option.getOr("")
+        | _ => ""
+        }}
         sigmaPercent={rsvp.rating
         ->Option.flatMap(rating =>
           rating.sigma->Option.map(sigma => 3. *. sigma /. maxRating *. 100.)

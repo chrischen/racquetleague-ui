@@ -78,6 +78,12 @@ function EventRsvp(props) {
   var viewer = props.viewer;
   var rsvp = use(props.rsvp);
   return Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
+                    var tmp;
+                    tmp = activitySlug === "pickleball" ? Core__Option.getOr(Core__Option.map(Core__Option.flatMap(rsvp.rating, (function (r) {
+                                      return r.mu;
+                                    })), (function (mu) {
+                                  return "DUPR " + Rating.guessDupr(mu).toFixed(2);
+                                })), "") : "";
                     return JsxRuntime.jsx(EventRsvp$ListItem, {
                                 children: JsxRuntime.jsx(EventRsvpUser.make, {
                                       user: user.fragmentRefs,
@@ -85,11 +91,7 @@ function EventRsvp(props) {
                                                   return viewer.id === user.id;
                                                 })), false),
                                       link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
-                                      secondaryText: Core__Option.getOr(Core__Option.map(Core__Option.flatMap(rsvp.rating, (function (r) {
-                                                      return r.mu;
-                                                    })), (function (mu) {
-                                                  return "DUPR " + Rating.guessDupr(mu).toFixed(2);
-                                                })), ""),
+                                      secondaryText: tmp,
                                       sigmaPercent: Core__Option.getOr(Core__Option.flatMap(rsvp.rating, (function (rating) {
                                                   return Core__Option.map(rating.sigma, (function (sigma) {
                                                                 return 3 * sigma / maxRating * 100;
