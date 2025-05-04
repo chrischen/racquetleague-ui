@@ -25,7 +25,11 @@ msgstr ""
 #~ msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:108
+#: src/components/pages/LeaguePlayerPage.re.mjs:207
+msgid "Estimated DUPR"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:109
 msgid "Female"
 msgstr ""
 
@@ -37,16 +41,16 @@ msgstr ""
 #~ msgid "Load more players..."
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:163
+#: src/components/pages/LeaguePlayerPage.re.mjs:164
 msgid "Loading rankings..."
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:110
+#: src/components/pages/LeaguePlayerPage.re.mjs:111
 msgid "Male"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:146
-#: src/components/pages/LeaguePlayerPage.re.mjs:154
+#: src/components/pages/LeaguePlayerPage.re.mjs:147
+#: src/components/pages/LeaguePlayerPage.re.mjs:155
 msgid "Match History"
 msgstr ""
 
@@ -54,13 +58,13 @@ msgstr ""
 #~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:80
-#: src/components/pages/LeaguePlayerPage.re.mjs:137
+#: src/components/pages/LeaguePlayerPage.re.mjs:81
+#: src/components/pages/LeaguePlayerPage.re.mjs:138
 msgid "Player Profile Page"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:180
-#: src/components/pages/LeaguePlayerPage.re.mjs:188
+#: src/components/pages/LeaguePlayerPage.re.mjs:181
+#: src/components/pages/LeaguePlayerPage.re.mjs:189
 msgid "Rating"
 msgstr ""
 

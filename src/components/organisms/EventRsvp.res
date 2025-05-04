@@ -2,8 +2,7 @@
 %%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
 module Fragment = %relay(`
-  fragment EventRsvps_rsvp on Rsvp
-  {
+  fragment EventRsvps_rsvp on Rsvp {
     user {
       id
       ...EventRsvpUser_user
@@ -34,7 +33,12 @@ module ListItem = {
   }
 }
 @react.component
-let make = (~rsvp, ~viewer: option<EventRsvps_user_graphql.Types.fragment>, ~activitySlug, ~maxRating) => {
+let make = (
+  ~rsvp,
+  ~viewer: option<EventRsvps_user_graphql.Types.fragment>,
+  ~activitySlug,
+  ~maxRating,
+) => {
   let rsvp = Fragment.use(rsvp)
 
   rsvp.user
@@ -45,6 +49,12 @@ let make = (~rsvp, ~viewer: option<EventRsvps_user_graphql.Types.fragment>, ~act
         user={user.fragmentRefs}
         // rating=?{rsvp.rating->Option.flatMap(r => r.mu)}
         // sigma=?{rsvp.rating->Option.flatMap(r => r.sigma)}
+        secondaryText={rsvp.rating
+        ->Option.flatMap(r => r.mu)
+        ->Option.map(mu =>
+          "DUPR " ++ Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2)
+        )
+        ->Option.getOr("")}
         sigmaPercent={rsvp.rating
         ->Option.flatMap(rating =>
           rating.sigma->Option.map(sigma => 3. *. sigma /. maxRating *. 100.)

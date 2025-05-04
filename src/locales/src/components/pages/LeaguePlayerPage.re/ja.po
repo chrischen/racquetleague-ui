@@ -17,7 +17,11 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:108
+#: src/components/pages/LeaguePlayerPage.re.mjs:207
+msgid "Estimated DUPR"
+msgstr "推定DUPR"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:109
 msgid "Female"
 msgstr "女性"
 
@@ -25,26 +29,26 @@ msgstr "女性"
 msgid "Load more matches..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:163
+#: src/components/pages/LeaguePlayerPage.re.mjs:164
 msgid "Loading rankings..."
 msgstr "ランキングを読み込んでいます..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:110
+#: src/components/pages/LeaguePlayerPage.re.mjs:111
 msgid "Male"
 msgstr "男性"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:146
-#: src/components/pages/LeaguePlayerPage.re.mjs:154
+#: src/components/pages/LeaguePlayerPage.re.mjs:147
+#: src/components/pages/LeaguePlayerPage.re.mjs:155
 msgid "Match History"
 msgstr "対戦履歴"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:80
-#: src/components/pages/LeaguePlayerPage.re.mjs:137
+#: src/components/pages/LeaguePlayerPage.re.mjs:81
+#: src/components/pages/LeaguePlayerPage.re.mjs:138
 msgid "Player Profile Page"
 msgstr "プレイヤープロフィールページ"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:180
-#: src/components/pages/LeaguePlayerPage.re.mjs:188
+#: src/components/pages/LeaguePlayerPage.re.mjs:181
+#: src/components/pages/LeaguePlayerPage.re.mjs:189
 msgid "Rating"
 msgstr "評価"
 

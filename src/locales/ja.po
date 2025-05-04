@@ -1395,6 +1395,10 @@ msgstr "あなたのスポットを失います"
 msgid "Recommended Match"
 msgstr "推奨試合"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:207
+msgid "Estimated DUPR"
+msgstr "推定DUPR"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

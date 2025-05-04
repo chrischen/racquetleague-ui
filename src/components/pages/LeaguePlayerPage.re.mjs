@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
+import * as Rating from "../../lib/Rating.re.mjs";
 import * as MatchList from "../organisms/MatchList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -59,17 +60,38 @@ var Query = {
   retain: retain
 };
 
+var Params = {};
+
 function LeaguePlayerPage(props) {
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
   var fragmentRefs = match.fragmentRefs;
   var user = match.user;
+  var params = ReactRouterDom.useParams();
+  var activitySlug = params.activitySlug;
   var userRefs = Core__Option.map(user, (function (user) {
           return user.fragmentRefs;
         }));
   return Core__Option.map(user, (function (user) {
                 return JsxRuntime.jsx(WaitForMessages.make, {
                             children: (function () {
+                                var tmp = activitySlug === "pickleball" ? Core__Option.getOr(Core__Option.map(Core__Option.flatMap(user.rating, (function (r) {
+                                                  return r.mu;
+                                                })), (function (mu) {
+                                              var dupr = Rating.guessDupr(mu);
+                                              return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                          children: [
+                                                            JsxRuntime.jsx("dt", {
+                                                                  children: t`Estimated DUPR`,
+                                                                  className: "mt-4 truncate text-sm font-medium text-gray-500"
+                                                                }),
+                                                            JsxRuntime.jsx("dd", {
+                                                                  children: dupr.toFixed(2),
+                                                                  className: "mt-1 text-3xl font-semibold tracking-tight text-gray-900"
+                                                                })
+                                                          ]
+                                                        });
+                                            })), null) : null;
                                 return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                             children: [
                                               JsxRuntime.jsx("div", {
@@ -195,7 +217,8 @@ function LeaguePlayerPage(props) {
                                                                                                                         }));
                                                                                                           })), "Unrated"),
                                                                                                 className: "mt-1 text-3xl font-semibold tracking-tight text-gray-900"
-                                                                                              })
+                                                                                              }),
+                                                                                          tmp
                                                                                         ],
                                                                                         className: "p-6"
                                                                                       }),
@@ -223,6 +246,7 @@ var make = LeaguePlayerPage;
 
 export {
   Query ,
+  Params ,
   make ,
 }
 /*  Not a pure module */

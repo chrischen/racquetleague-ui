@@ -912,3 +912,7 @@ module Matches = {
     matches
   }
 }
+
+let guessDupr = (ratingMu: float): float => {
+  0.04910006818 *. ratingMu +. 2.492812177
+}

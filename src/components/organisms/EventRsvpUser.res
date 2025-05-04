@@ -1,6 +1,5 @@
 module Fragment = %relay(`
-  fragment EventRsvpUser_user on User
-  {
+  fragment EventRsvpUser_user on User {
     picture
     lineUsername
   }
@@ -35,7 +34,14 @@ let fromRegisteredUser = (user: EventRsvpUser_user_graphql.Types.fragment) => {
 //   ratingPercent: option<float>,
 // }
 let make = (
-  props: RsvpUser.props<RescriptRelay.fragmentRefs<[> #EventRsvpUser_user]>, bool, string, 'a, 'b >,
+  props: RsvpUser.props<
+    RescriptRelay.fragmentRefs<[> #EventRsvpUser_user]>,
+    bool,
+    string,
+    string,
+    'a,
+    'b,
+  >,
 ) => {
   // open Lingui.Util;
   let user = Fragment.use(props.user)->fromRegisteredUser

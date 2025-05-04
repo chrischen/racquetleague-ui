@@ -93,7 +93,7 @@ msgstr ""
 msgid "pending"
 msgstr ""
 
-#: src/components/organisms/EventRsvp.re.mjs:57
+#: src/components/organisms/EventRsvp.re.mjs:58
 msgid "Player"
 msgstr ""
 

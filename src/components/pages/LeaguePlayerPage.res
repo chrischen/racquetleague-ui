@@ -2,8 +2,23 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module Query = %relay(`
-  query LeaguePlayerPageQuery($after: String, $first: Int, $before: String, $activitySlug: String!, $namespace: String!, $userId: ID!) {
-    ... MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId)
+  query LeaguePlayerPageQuery(
+    $after: String
+    $first: Int
+    $before: String
+    $activitySlug: String!
+    $namespace: String!
+    $userId: ID!
+  ) {
+    ...MatchListFragment
+      @arguments(
+        after: $after
+        first: $first
+        before: $before
+        activitySlug: $activitySlug
+        namespace: $namespace
+        userId: $userId
+      )
     user(id: $userId) {
       id
       picture
@@ -11,6 +26,7 @@ module Query = %relay(`
       gender
       rating(activitySlug: $activitySlug, namespace: $namespace) {
         ordinal
+        mu
       }
       ...MatchListUser_user
     }
@@ -21,6 +37,11 @@ type loaderData = LeaguePlayerPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
+module Params = {
+  type t = {activitySlug: string}
+}
+@module("react-router-dom") external useParams: unit => Params.t = "useParams"
+
 @genType @react.component
 let make = () => {
   open Lingui.Util
@@ -28,8 +49,10 @@ let make = () => {
   let query = useLoaderData()
   // let viewer = GlobalQuery.useViewer()
   let {fragmentRefs, user} = Query.usePreloaded(~queryRef=query.data)
-
+  let params = useParams()
+  let activitySlug = params.activitySlug
   let userRefs = user->Option.map(user => user.fragmentRefs)
+
   user->Option.map(user =>
     <WaitForMessages>
       {() => {
@@ -106,6 +129,25 @@ let make = () => {
                         ->Option.getOr("Unrated")
                         ->React.string}
                       </dd>
+                      {switch activitySlug {
+                      | "pickleball" =>
+                        user.rating
+                        ->Option.flatMap(r => r.mu)
+                        ->Option.map(mu => {
+                          let dupr = Rating.guessDupr(mu)
+                          <>
+                            <dt className="mt-4 truncate text-sm font-medium text-gray-500">
+                              {t`Estimated DUPR`}
+                            </dt>
+                            <dd
+                              className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
+                              {dupr->Float.toFixed(~digits=2)->React.string}
+                            </dd>
+                          </>
+                        })
+                        ->Option.getOr(React.null)
+                      | _ => React.null
+                      }}
                     </div>
                   </div>
                 </section>

@@ -30,6 +30,7 @@ let make = (
   ~user: Rating.user,
   ~highlight: bool=false,
   ~link: option<string>=?,
+  ~secondaryText: option<string>=?,
   // ~rating: option<float>=?,
   // ~sigma: option<float>=?,
   ~sigmaPercent: option<float>=?,
@@ -67,24 +68,34 @@ let make = (
     ->Option.getOr(<div className="h-12 w-12 flex-none rounded-full bg-gray-50" />)}
     <div className="min-w-0 flex-auto">
       <p className="text-sm font-semibold leading-6 text-gray-900">
-        {switch link {
-        | Some(link) =>
-          <Link to={link}>
-            <span className="absolute inset-x-0 -top-px bottom-0" />
-            {switch highlight {
-            | true => <strong className="text-lg"> {user.name->React.string} </strong>
-            | false => user.name->React.string
-            }}
-          </Link>
-        | None =>
-          <>
-            <span className="absolute inset-x-0 -top-px bottom-0" />
-            {switch highlight {
-            | true => <strong className="text-lg"> {user.name->React.string} </strong>
-            | false => user.name->React.string
-            }}
-          </>
-        }}
+        {
+          let nameElement = switch highlight {
+          | true => <strong className="text-lg"> {user.name->React.string} </strong>
+          | false => user.name->React.string
+          }
+
+          let secondaryTextElement =
+            secondaryText
+            ->Option.map(text =>
+              <span className="ml-2 text-xs italic text-gray-500"> {text->React.string} </span>
+            )
+            ->Option.getOr(React.null)
+
+          switch link {
+          | Some(link) =>
+            <Link to={link}>
+              <span className="absolute inset-x-0 -top-px bottom-0" />
+              {nameElement}
+              {secondaryTextElement}
+            </Link>
+          | None =>
+            <>
+              <span className="absolute inset-x-0 -top-px bottom-0" />
+              {nameElement}
+              {secondaryTextElement}
+            </>
+          }
+        }
       </p>
       <p className="mt-1 flex text-xs leading-5 text-gray-500">
         <span className="relative truncate hover:underline" />
@@ -104,23 +115,25 @@ let make = (
           // )
           // ->Option.getOr(React.null)}
           {sigmaPercent
-          ->Option.map(sigmaPercent => <div className="flex w-full">
-            <FramerMotion.Div
-              className="h-2 rounded-l-full bg-red-400 z-10"
-              initial={width: "0%"}
-              animate={{
-                width: (ratingPercent)->Float.toFixed(~digits=3) ++ "%",
-              }}
-            />
-            <FramerMotion.Div
-              className="h-2 rounded-r-full bg-red-300 -ml-2 blur-sm z-0"
-              initial={width: "0%"}
-              animate={{
-                // width: (sigmaPercent /. 100. *. ratingPercent)->Float.toFixed(~digits=3) ++ "%",
-                width: (sigmaPercent)->Float.toFixed(~digits=3) ++ "%",
-              }}
-            />
-          </div>)
+          ->Option.map(sigmaPercent =>
+            <div className="flex w-full">
+              <FramerMotion.Div
+                className="h-2 rounded-l-full bg-red-400 z-10"
+                initial={width: "0%"}
+                animate={{
+                  width: ratingPercent->Float.toFixed(~digits=3) ++ "%",
+                }}
+              />
+              <FramerMotion.Div
+                className="h-2 rounded-r-full bg-red-300 -ml-2 blur-sm z-0"
+                initial={width: "0%"}
+                animate={{
+                  // width: (sigmaPercent /. 100. *. ratingPercent)->Float.toFixed(~digits=3) ++ "%",
+                  width: sigmaPercent->Float.toFixed(~digits=3) ++ "%",
+                }}
+              />
+            </div>
+          )
           ->Option.getOr(
             <FramerMotion.Div
               className="h-2 rounded-full bg-red-400"

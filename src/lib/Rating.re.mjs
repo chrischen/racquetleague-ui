@@ -1073,6 +1073,10 @@ var Matches = {
   fromDndItems: fromDndItems
 };
 
+function guessDupr(ratingMu) {
+  return 0.04910006818 * ratingMu + 2.492812177;
+}
+
 export {
   RatingModel ,
   makeGuest ,
@@ -1104,5 +1108,6 @@ export {
   UnorderedQueue ,
   PlayersCache ,
   Matches ,
+  guessDupr ,
 }
 /* plackettLuce Not a pure module */

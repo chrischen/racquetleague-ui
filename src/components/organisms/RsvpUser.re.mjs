@@ -18,6 +18,16 @@ function RsvpUser(props) {
   var __highlight = props.highlight;
   var user = props.user;
   var highlight = __highlight !== undefined ? __highlight : false;
+  var nameElement = highlight ? JsxRuntime.jsx("strong", {
+          children: user.name,
+          className: "text-lg"
+        }) : user.name;
+  var secondaryTextElement = Core__Option.getOr(Core__Option.map(props.secondaryText, (function (text) {
+              return JsxRuntime.jsx("span", {
+                          children: text,
+                          className: "ml-2 text-xs italic text-gray-500"
+                        });
+            })), null);
   return JsxRuntime.jsxs("div", {
               children: [
                 Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
@@ -38,20 +48,16 @@ function RsvpUser(props) {
                                         JsxRuntime.jsx("span", {
                                               className: "absolute inset-x-0 -top-px bottom-0"
                                             }),
-                                        highlight ? JsxRuntime.jsx("strong", {
-                                                children: user.name,
-                                                className: "text-lg"
-                                              }) : user.name
+                                        nameElement,
+                                        secondaryTextElement
                                       ]
                                     }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                       children: [
                                         JsxRuntime.jsx("span", {
                                               className: "absolute inset-x-0 -top-px bottom-0"
                                             }),
-                                        highlight ? JsxRuntime.jsx("strong", {
-                                                children: user.name,
-                                                className: "text-lg"
-                                              }) : user.name
+                                        nameElement,
+                                        secondaryTextElement
                                       ]
                                     }),
                               className: "text-sm font-semibold leading-6 text-gray-900"

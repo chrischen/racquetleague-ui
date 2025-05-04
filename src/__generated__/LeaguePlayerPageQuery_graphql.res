@@ -5,6 +5,7 @@ module Types = {
   @@warning("-30")
 
   type rec response_user_rating = {
+    mu: option<float>,
     ordinal: option<float>,
   }
   and response_user = {
@@ -245,13 +246,20 @@ v15 = {
   "name": "ordinal",
   "storageKey": null
 },
-v16 = [
+v16 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "mu",
+  "storageKey": null
+},
+v17 = [
   (v10/*: any*/),
   (v12/*: any*/),
   (v11/*: any*/),
   (v13/*: any*/)
 ],
-v17 = {
+v18 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -302,7 +310,8 @@ return {
             "name": "rating",
             "plural": false,
             "selections": [
-              (v15/*: any*/)
+              (v15/*: any*/),
+              (v16/*: any*/)
             ],
             "storageKey": null
           },
@@ -363,7 +372,7 @@ return {
                     "kind": "LinkedField",
                     "name": "winners",
                     "plural": true,
-                    "selections": (v16/*: any*/),
+                    "selections": (v17/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -373,7 +382,7 @@ return {
                     "kind": "LinkedField",
                     "name": "losers",
                     "plural": true,
-                    "selections": (v16/*: any*/),
+                    "selections": (v17/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -449,7 +458,7 @@ return {
             ],
             "storageKey": null
           },
-          (v17/*: any*/)
+          (v18/*: any*/)
         ],
         "storageKey": null
       },
@@ -466,7 +475,7 @@ return {
         "kind": "LinkedHandle",
         "name": "matches"
       },
-      (v17/*: any*/),
+      (v18/*: any*/),
       {
         "alias": null,
         "args": (v9/*: any*/),
@@ -488,6 +497,7 @@ return {
             "plural": false,
             "selections": [
               (v15/*: any*/),
+              (v16/*: any*/),
               (v10/*: any*/)
             ],
             "storageKey": null
@@ -498,12 +508,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "26591ee5c1a1f7b47caf1985454ee072",
+    "cacheID": "e393578a97327ab224eaa28204eab523",
     "id": null,
     "metadata": {},
     "name": "LeaguePlayerPageQuery",
     "operationKind": "query",
-    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n  $userId: ID!\n) {\n  ...MatchListFragment_2KkbcH\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace) {\n      ordinal\n      id\n    }\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n  $userId: ID!\n) {\n  ...MatchListFragment_2KkbcH\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace) {\n      ordinal\n      mu\n      id\n    }\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
   }
 };
 })() `)
