@@ -914,5 +914,5 @@ module Matches = {
 }
 
 let guessDupr = (ratingMu: float): float => {
-  0.05798181849 *. ratingMu +. 2.255413064
+  0.05594 *. (ratingMu -. 25.) +. 3.5
 }
