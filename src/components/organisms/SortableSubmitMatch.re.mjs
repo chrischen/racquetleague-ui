@@ -4,6 +4,7 @@ import * as Zod from "zod";
 import * as Form from "../molecules/forms/Form.re.mjs";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Dropdown from "../catalyst/Dropdown.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -11,6 +12,7 @@ import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core__Result from "@rescript/core/src/Core__Result.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as Core from "@linaria/core";
 import * as MatchRsvpUser from "../molecules/MatchRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as ReactHookForm from "react-hook-form";
@@ -142,7 +144,7 @@ var PlayerView = {
 };
 
 function SortableSubmitMatch(props) {
-  var onComplete = props.onComplete;
+  var onUpdated = props.onUpdated;
   var maxRating = props.maxRating;
   var minRating = props.minRating;
   var match = props.match;
@@ -158,28 +160,119 @@ function SortableSubmitMatch(props) {
         defaultValues: {}
       });
   var setValue = match$2.setValue;
+  var watch = match$2.watch;
   var register = match$2.register;
+  var match$3 = watch("scoreLeft");
+  var scoreLeftValue;
+  if (match$3 !== undefined) {
+    if (!Array.isArray(match$3) && (match$3 === null || typeof match$3 !== "object") && typeof match$3 !== "string" && typeof match$3 !== "number" && typeof match$3 !== "boolean") {
+      scoreLeftValue = 0;
+    } else {
+      switch (typeof match$3) {
+        case "number" :
+            scoreLeftValue = match$3;
+            break;
+        case "string" :
+            scoreLeftValue = Core__Option.getOr(Core__Float.fromString(match$3), 0);
+            break;
+        default:
+          scoreLeftValue = 0;
+      }
+    }
+  } else {
+    scoreLeftValue = 0;
+  }
+  var match$4 = watch("scoreRight");
+  var scoreRightValue;
+  if (match$4 !== undefined) {
+    if (!Array.isArray(match$4) && (match$4 === null || typeof match$4 !== "object") && typeof match$4 !== "string" && typeof match$4 !== "number" && typeof match$4 !== "boolean") {
+      scoreRightValue = 0;
+    } else {
+      switch (typeof match$4) {
+        case "number" :
+            scoreRightValue = match$4;
+            break;
+        case "string" :
+            scoreRightValue = Core__Option.getOr(Core__Float.fromString(match$4), 0);
+            break;
+        default:
+          scoreRightValue = 0;
+      }
+    }
+  } else {
+    scoreRightValue = 0;
+  }
+  var currentWinner = scoreLeftValue > scoreRightValue ? "Left" : (
+      scoreRightValue > scoreLeftValue ? "Right" : undefined
+    );
   var team1 = match[0];
   var team2 = match[1];
   var doublesMatch = Rating.DoublesMatch.fromMatch(match);
-  var match$3 = React.useState(function () {
-        return false;
-      });
-  var setSubmitting = match$3[1];
-  var submitting = match$3[0];
-  var handleWinner = function (winningSide) {
-    Core__Option.map(onComplete, (function (f) {
+  var ratedMatch = Core__Result.flatMap(doublesMatch, (function (param) {
+          var match = param[1];
+          var match$1 = param[0];
+          var match$2 = match$1[0].data;
+          var match$3 = match$1[1].data;
+          var match$4 = match[0].data;
+          var match$5 = match[1].data;
+          if (match$2 !== undefined && match$3 !== undefined && match$4 !== undefined && match$5 !== undefined) {
+            return {
+                    TAG: "Ok",
+                    _0: undefined
+                  };
+          } else {
+            return {
+                    TAG: "Error",
+                    _0: "TwoPlayersRequired"
+                  };
+          }
+        }));
+  var onSubmit = function (_rated, data) {
+    Core__Option.map(onUpdated, (function (f) {
+            var winningSide = data.scoreLeft > data.scoreRight ? "Left" : "Right";
+            var score = winningSide === "Left" ? [
+                data.scoreLeft,
+                data.scoreRight
+              ] : [
+                data.scoreRight,
+                data.scoreLeft
+              ];
             var match_0 = winningSide === "Left" ? team1 : team2;
             var match_1 = winningSide === "Left" ? team2 : team1;
             var match = [
               match_0,
               match_1
             ];
-            return f([
-                        match,
-                        undefined
-                      ]);
+            f([
+                  match,
+                  Core__Result.isOk(ratedMatch) ? score : undefined
+                ]);
           }));
+  };
+  React.useEffect((function () {
+          onSubmit(true, {
+                scoreLeft: scoreLeftValue,
+                scoreRight: scoreRightValue
+              });
+        }), [
+        scoreLeftValue,
+        scoreRightValue
+      ]);
+  var setWinner = function (winner) {
+    if (winner === "Left") {
+      setValue("scoreLeft", 1, undefined);
+      setValue("scoreRight", -1, undefined);
+      return onSubmit(true, {
+                  scoreLeft: 1.0,
+                  scoreRight: -1.0
+                });
+    }
+    setValue("scoreLeft", -1, undefined);
+    setValue("scoreRight", 1, undefined);
+    onSubmit(true, {
+          scoreLeft: -1.0,
+          scoreRight: 1.0
+        });
   };
   var team1El = Core__Option.getOr(children[0], null);
   var team2El = Core__Option.getOr(children[1], null);
@@ -233,25 +326,6 @@ function SortableSubmitMatch(props) {
         ],
         className: "grid grid-cols-1 gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm"
       });
-  var unratedMatch = Core__Result.flatMap(doublesMatch, (function (param) {
-          var match = param[1];
-          var match$1 = param[0];
-          var match$2 = match$1[0].data;
-          var match$3 = match$1[1].data;
-          var match$4 = match[0].data;
-          var match$5 = match[1].data;
-          if (match$2 !== undefined && match$3 !== undefined && match$4 !== undefined && match$5 !== undefined) {
-            return {
-                    TAG: "Ok",
-                    _0: undefined
-                  };
-          } else {
-            return {
-                    TAG: "Error",
-                    _0: "TwoPlayersRequired"
-                  };
-          }
-        }));
   var submitMatch = JsxRuntime.jsx("div", {
         children: JsxRuntime.jsx(JsxRuntime.Fragment, {
               children: Caml_option.some(JsxRuntime.jsxs("div", {
@@ -269,7 +343,7 @@ function SortableSubmitMatch(props) {
                                         className: "grid grid-cols-1 gap-0"
                                       }),
                                   JsxRuntime.jsx("div", {
-                                        children: Core__Result.getOr(Core__Result.map(unratedMatch, (function () {
+                                        children: Core__Result.getOr(Core__Result.map(ratedMatch, (function () {
                                                     return JsxRuntime.jsx(Form.Input.make, {
                                                                 onClick: (function (e) {
                                                                     e.stopPropagation();
@@ -285,7 +359,7 @@ function SortableSubmitMatch(props) {
                                                   onClick: (function (e) {
                                                       e.stopPropagation();
                                                       e.preventDefault();
-                                                      handleWinner("Left");
+                                                      setWinner("Left");
                                                     }),
                                                   className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
                                                   children: t`Winner`
@@ -293,11 +367,9 @@ function SortableSubmitMatch(props) {
                                         className: "flex bg-white z-10"
                                       })
                                 ],
-                                className: "flex relative p-0 justify-between rounded-tl-lg rounded-tr-lg bg-white shadow truncate",
+                                className: Core.cx("flex relative p-0 justify-between bg-white shadow truncate", Caml_obj.equal(currentWinner, "Left") ? "bg-green-50 border-green-400 border-4 rounded-lg" : ""),
                                 onClick: (function (param) {
-                                    setView(function (param) {
-                                          return "Default";
-                                        });
+                                    setWinner("Left");
                                   })
                               }),
                           JsxRuntime.jsxs("div", {
@@ -313,7 +385,7 @@ function SortableSubmitMatch(props) {
                                         className: "grid grid-cols-1 gap-0 truncate"
                                       }),
                                   JsxRuntime.jsx("div", {
-                                        children: Core__Result.getOr(Core__Result.map(unratedMatch, (function () {
+                                        children: Core__Result.getOr(Core__Result.map(ratedMatch, (function () {
                                                     return JsxRuntime.jsx(Form.Input.make, {
                                                                 onClick: (function (e) {
                                                                     e.stopPropagation();
@@ -329,7 +401,7 @@ function SortableSubmitMatch(props) {
                                                   onClick: (function (e) {
                                                       e.stopPropagation();
                                                       e.preventDefault();
-                                                      handleWinner("Right");
+                                                      setWinner("Right");
                                                     }),
                                                   className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
                                                   children: t`Winner`
@@ -337,33 +409,21 @@ function SortableSubmitMatch(props) {
                                         className: "flex bg-white z-10"
                                       })
                                 ],
-                                className: "flex relative p-0 justify-between bg-white shadow truncate",
+                                className: Core.cx("flex relative p-0 justify-between bg-white shadow truncate", Caml_obj.equal(currentWinner, "Right") ? "bg-green-50 border-green-400 border-4 rounded-lg" : ""),
                                 onClick: (function (param) {
-                                    setView(function (param) {
-                                          return "Default";
-                                        });
+                                    setWinner("Right");
                                   })
                               }),
-                          JsxRuntime.jsxs("div", {
-                                children: [
-                                  JsxRuntime.jsx(UiAction.make, {
-                                        onClick: (function (param) {
-                                            setView(function (param) {
-                                                  return "Default";
-                                                });
-                                          }),
-                                        className: "inline-flex items-center text-2xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
-                                        children: t`Go Back`
-                                      }),
-                                  Core__Result.getOr(Core__Result.map(unratedMatch, (function () {
-                                              return JsxRuntime.jsx("input", {
-                                                          className: "ml-3 inline-flex items-center text-2xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
-                                                          disabled: submitting,
-                                                          type: "submit",
-                                                          value: t`Submit Rated`
-                                                        });
-                                            })), null)
-                                ],
+                          JsxRuntime.jsx("div", {
+                                children: JsxRuntime.jsx(UiAction.make, {
+                                      onClick: (function (param) {
+                                          setView(function (param) {
+                                                return "Default";
+                                              });
+                                        }),
+                                      className: "inline-flex items-center text-2xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
+                                      children: t`Go Back`
+                                    }),
                                 className: "mt-3 flex md:top-3 md:mt-0 justify-center"
                               }),
                           JsxRuntime.jsx("div", {
@@ -391,44 +451,7 @@ function SortableSubmitMatch(props) {
                     className: "grid grid-cols-1"
                   }),
               onSubmit: match$2.handleSubmit(function (extra) {
-                    setSubmitting(function (param) {
-                          return true;
-                        });
-                    if (extra.scoreLeft === extra.scoreRight) {
-                      alert("No ties allowed");
-                      return setSubmitting(function (param) {
-                                  return false;
-                                });
-                    } else {
-                      Core__Option.map(onComplete, (function (f) {
-                              var winningSide = extra.scoreLeft > extra.scoreRight ? "Left" : "Right";
-                              var score = winningSide === "Left" ? [
-                                  extra.scoreLeft,
-                                  extra.scoreRight
-                                ] : [
-                                  extra.scoreRight,
-                                  extra.scoreLeft
-                                ];
-                              var match_0 = winningSide === "Left" ? team1 : team2;
-                              var match_1 = winningSide === "Left" ? team2 : team1;
-                              var match = [
-                                match_0,
-                                match_1
-                              ];
-                              var x = f([
-                                    match,
-                                    score
-                                  ]);
-                              return x.then(function () {
-                                          setValue("scoreLeft", 0, undefined);
-                                          setValue("scoreRight", 0, undefined);
-                                          return Promise.resolve(setSubmitting(function (param) {
-                                                          return false;
-                                                        }));
-                                        });
-                            }));
-                      return ;
-                    }
+                    return onSubmit(true, extra);
                   })
             });
 }

@@ -85,6 +85,7 @@
 		font-family: monospace;
 		-webkit-font-smoothing: antialiased;
 		/* font-weight: 400; */
+		overscroll-behavior: none;
 	}
 	img {
 		max-width: 100%;

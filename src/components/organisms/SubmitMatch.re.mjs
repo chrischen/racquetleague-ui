@@ -104,12 +104,12 @@ var schema = Zod.z.object({
               return Core__Option.getOr(Core__Float.fromString(a), 0);
             }), Zod.z.number({
                   invalid_type_error: "Enter a number"
-                }).gte(0)),
+                }).gte(-1)),
       scoreRight: Zod.z.preprocess((function (a) {
               return Core__Option.getOr(Core__Float.fromString(a), 0);
             }), Zod.z.number({
                   invalid_type_error: "Enter a number"
-                }).gte(0))
+                }).gte(-1))
     });
 
 function SubmitMatch$PlayerView(props) {
@@ -182,10 +182,10 @@ function SubmitMatch(props) {
               match_0,
               match_1
             ];
-            return f([
-                        match,
-                        undefined
-                      ]);
+            f([
+                  match,
+                  undefined
+                ]);
           }));
   };
   var onSubmit = function (data) {
@@ -210,17 +210,15 @@ function SubmitMatch(props) {
                 match_0,
                 match_1
               ];
-              var x = f([
+              f([
                     match,
                     score
                   ]);
-              return x.then(function () {
-                          setValue("scoreLeft", 0, undefined);
-                          setValue("scoreRight", 0, undefined);
-                          return Promise.resolve(setSubmitting(function (param) {
-                                          return false;
-                                        }));
-                        });
+              setValue("scoreLeft", 0, undefined);
+              setValue("scoreRight", 0, undefined);
+              setSubmitting(function (param) {
+                    return false;
+                  });
             }));
     }
   };

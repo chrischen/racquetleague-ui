@@ -146,6 +146,7 @@ let make = (
   ~priorityPlayers: array<Player.t<'a>>,
   ~avoidAllPlayers: array<Player.t<'a>>,
   ~onSelectMatch: option<(Match.t<'a>, ~dequeue: bool=?) => unit>=?,
+  ~requiredPlayers: option<Set.t<string>>=?,
 ) => {
   // ~roundsCount: int,
 
@@ -189,6 +190,7 @@ let make = (
     // ->Option.getOr(priorityPlayers),
     avoidAllPlayers,
     teamConstraints,
+    requiredPlayers,
   )
   let matchesCount = matches->Array.length
 
@@ -205,6 +207,7 @@ let make = (
       // ->Option.getOr(priorityPlayers),
       avoidAllPlayers,
       None,
+      requiredPlayers,
     )
   | _ => matches
   }
@@ -281,6 +284,34 @@ let make = (
       {" = "->React.string}
       {t`Played last round`}
     </p>
+    {switch matches->Array.length {
+    | 0 =>
+      <div className="rounded-md bg-red-50 p-4 mt-2 mb-2 border-l-4 border-red-400" role="alert">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            // Heroicon name: mini/exclamation-triangle
+            <svg
+              className="h-5 w-5 text-red-400"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              ariaHidden={true}>
+              <path
+                fillRule="evenodd"
+                d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="ml-3">
+            <p className="text-sm text-red-700">
+              {t`Not enough players in the queue. Select the players who want to play from the Queue tab.`}
+            </p>
+          </div>
+        </div>
+      </div>
+    | _ => React.null
+    }}
     {matches
     ->RankedMatches.recommendMatch(seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches)
     ->Option.map(match => {

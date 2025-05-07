@@ -1476,3 +1476,33 @@ msgstr ""
 #: src/components/pages/LeagueRankingsPage.re.mjs:87
 msgid "View My Profile"
 msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1140
+msgid "Advanced Options"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1155
+msgid "Checkin All Players"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:371
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:126
+msgid "Queue All"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1148
+msgid "Queue All Players"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:316
+msgid "SUBMIT RESULTS"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:126
+msgid "Unqueue All"
+msgstr ""

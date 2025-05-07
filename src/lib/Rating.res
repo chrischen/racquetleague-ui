@@ -167,11 +167,11 @@ module CompletedMatch = {
   let submit = (
     (match, score): t<'a>,
     activitySlug: string,
-    submitMatch: (Match.t<'a>, (float, float), string) => Js.Promise.t<unit>,
+    submitMatch: (Match.t<'a>, (float, float), string) => Promise.t<unit>,
   ) => {
     switch score {
     | Some((scoreWinner, scoreLoser)) => submitMatch(match, (scoreWinner, scoreLoser), activitySlug)
-    | None => Js.Promise.resolve()
+    | None => Promise.resolve()
     }
   }
   let toStableId: t<'a> => string = ((t, _)) => t->Match.toStableId
@@ -451,6 +451,7 @@ let find_all_match_combos = (
   priorityPlayers,
   avoidAllPlayers,
   teamConstraints: NonEmptyArray.t<Set.t<string>>,
+  requiredPlayers: option<Set.t<string>>,
 ) => {
   let teams = availablePlayers->array_combos->Array.map(tuple2array)
 
@@ -497,30 +498,57 @@ let find_all_match_combos = (
       ? results
       : results->Array.filter(((match, _)) => !(match->Match.contains_all_players(avoidAllPlayers)))
 
-  teamConstraints
-  ->Option.map(teamConstraints => {
-    let teamConstraints = teamConstraints->Array.concat([implicitTeam])
-    results->Array.filter(((match, _)) => {
-      let (team1, team2) = match
-      let team1 = team1->Team.toSet
-      let team2 = team2->Team.toSet
-      // Include match if it contains any of the teams
-      let constr1 =
-        teamConstraints->Array.findIndex(
-          teamConstraint => {
-            teamConstraint->TeamSet.containsAllOf(team1)
-          },
-        ) > -1
-      let constr2 =
-        teamConstraints->Array.findIndex(
-          teamConstraint => {
-            teamConstraint->TeamSet.containsAllOf(team2)
-          },
-        ) > -1
-      constr1 && constr2
-    })
+  // Filter by `requiredPlayers`
+  let results = // This `results` is after priorityPlayers and avoidAllPlayers filters
+  switch requiredPlayers {
+  | Some(reqPlayerIds) if reqPlayerIds->Set.size > 0 =>
+    // Convert Set of IDs to Array of Player.t from availablePlayers
+    let requiredPlayersArray = availablePlayers->Array.filter(p => reqPlayerIds->Set.has(p.id))
+
+    // Ensure all required players were actually found in the availablePlayers.
+    // If not, then no match can satisfy this constraint.
+    if requiredPlayersArray->Array.length == reqPlayerIds->Set.size {
+      results->Array.filter(((match, _quality)) =>
+        // Check if the match contains all players from requiredPlayersArray
+        match->Match.contains_all_players(requiredPlayersArray)
+      )
+    } else {
+      // Not all required players are present in the `availablePlayers` list for this round,
+      // or some IDs in `reqPlayerIds` don't correspond to any player in `availablePlayers`.
+      // In this case, no match can satisfy the constraint.
+      []
+    }
+  | _ => // No required players specified, or an empty set of required players.
+    results // Pass through results from previous filters
+  }
+
+  // Apply teamConstraints filter (this part is adapted from your original selection)
+  // `teamConstraints` is the NonEmptyArray.t<Set.t<string>> function parameter.
+  // `implicitTeam` is defined earlier in the `find_all_match_combos` function.
+  let teamConstraintsAsArray = teamConstraints->NonEmptyArray.toArray
+  let finalTeamConstraintsList = teamConstraintsAsArray->Array.concat([implicitTeam])
+
+  results->Array.filter(((match, _quality)) => {
+    // This `results` is after the requiredPlayers filter
+    let (team1, team2) = match
+    let team1Set = team1->Team.toSet
+    let team2Set = team2->Team.toSet
+
+    // Check if team1Set is a subset of (or equal to) any constraint in finalTeamConstraintsList
+    let team1SatisfiesConstraint =
+      finalTeamConstraintsList->Array.findIndex(constr =>
+        constr->TeamSet.containsAllOf(team1Set)
+      ) > -1
+
+    // Check if team2Set is a subset of (or equal to) any constraint in finalTeamConstraintsList
+    let team2SatisfiesConstraint =
+      finalTeamConstraintsList->Array.findIndex(constr =>
+        constr->TeamSet.containsAllOf(team2Set)
+      ) > -1
+
+    // Both teams in the match must satisfy their respective constraint conditions.
+    team1SatisfiesConstraint && team2SatisfiesConstraint
   })
-  ->Option.getOr(results)
 }
 
 let rec find_skip = (n: int) => {
@@ -552,6 +580,7 @@ module RankedMatches = {
     priorityPlayers: array<Player.t<'a>>,
     avoidAllPlayers: array<Player.t<'a>>,
     teams: NonEmptyArray.t<Set.t<string>>,
+    requiredPlayers: option<Set.t<string>>,
   ) => {
     players
     ->Players.sortByRatingDesc
@@ -560,7 +589,7 @@ module RankedMatches = {
       let matches =
         playerSet
         ->Players.filterOut(consumedPlayers)
-        ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams)
+        ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams, requiredPlayers)
       acc->Array.concat(matches)
     })
     ->Array.toSorted((a, b) => {
@@ -575,6 +604,7 @@ module RankedMatches = {
     _priorityPlayers: array<Player.t<'a>>,
     avoidAllPlayers: array<Player.t<'a>>,
     teams: NonEmptyArray.t<Set.t<string>>,
+    requiredPlayers: option<Set.t<string>>,
   ) => {
     players
     ->Array.toSorted((a, b) => {
@@ -592,7 +622,7 @@ module RankedMatches = {
           Js.log(topPlayer)
           playerSet
           ->Players.filterOut(consumedPlayers)
-          ->find_all_match_combos([], avoidAllPlayers, teams)
+          ->find_all_match_combos([], avoidAllPlayers, teams, requiredPlayers)
           ->Array.filter(((match, _)) => match->Match.contains_player(topPlayer))
           ->Array.toSorted(
             (a, b) => {
@@ -612,12 +642,14 @@ module RankedMatches = {
     priorityPlayers,
     avoidAllPlayers,
     teams: NonEmptyArray.t<Set.t<string>>,
+    requiredPlayers: option<Set.t<string>>,
   ) => {
     find_all_match_combos(
       availablePlayers,
       priorityPlayers,
       avoidAllPlayers,
       teams,
+      requiredPlayers,
     )->Array.toSorted((a, b) => {
       let (_, qualityA) = a
       let (_, qualityB) = b
@@ -630,10 +662,17 @@ module RankedMatches = {
     priorityPlayers,
     avoidAllPlayers,
     teams: NonEmptyArray.t<Set.t<string>>,
+    requiredPlayers,
   ) => {
     let count = Math.Int.max(4, availablePlayers->Array.length)
     let skip = find_skip(count - 4)
-    let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+    let matches = find_all_match_combos(
+      availablePlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teams,
+      requiredPlayers,
+    )
     let results = matches->uniform_shuffle_array(skip, 0)
     results
   }
@@ -643,12 +682,19 @@ module RankedMatches = {
     priorityPlayers,
     avoidAllPlayers,
     teams: NonEmptyArray.t<Set.t<string>>,
+    requiredPlayers: option<Set.t<string>>,
   ) => {
-    let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+    let matches = find_all_match_combos(
+      availablePlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teams,
+      requiredPlayers,
+    )
     matches->shuffle
   }
 
-  let strategy_by_dupr = (availablePlayers, priorityPlayers, avoidAllPlayers) => {
+  let strategy_by_dupr = (availablePlayers, priorityPlayers, avoidAllPlayers, requiredPlayers) => {
     let teams =
       availablePlayers
       ->Players.sortByRatingDesc
@@ -657,7 +703,13 @@ module RankedMatches = {
       ->Array.map(Set.fromArray)
       ->NonEmptyArray.fromArray
 
-    let matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams)
+    let matches = find_all_match_combos(
+      availablePlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      teams,
+      requiredPlayers,
+    )
     matches->Array.toSorted((a, b) => {
       let (_, qualityA) = a
       let (_, qualityB) = b
@@ -746,6 +798,7 @@ let getMatches = (
   priorityPlayers,
   avoidAllPlayers,
   teamConstraints,
+  requiredPlayers,
 ) => {
   let availablePlayers = players->Players.filterOut(consumedPlayers)
   let matches = switch strategy {
@@ -755,6 +808,7 @@ let getMatches = (
       priorityPlayers,
       avoidAllPlayers,
       teamConstraints,
+      requiredPlayers,
     )
   | RoundRobin =>
     RankedMatches.strategy_by_round_robin(
@@ -762,6 +816,7 @@ let getMatches = (
       priorityPlayers,
       avoidAllPlayers,
       teamConstraints,
+      requiredPlayers,
     )
   | Random =>
     RankedMatches.strategy_by_random(
@@ -769,8 +824,15 @@ let getMatches = (
       priorityPlayers,
       avoidAllPlayers,
       teamConstraints,
+      requiredPlayers,
     )
-  | DUPR => RankedMatches.strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers)
+  | DUPR =>
+    RankedMatches.strategy_by_dupr(
+      availablePlayers,
+      priorityPlayers,
+      avoidAllPlayers,
+      requiredPlayers,
+    )
   | Competitive =>
     RankedMatches.strategy_by_competitive(
       players,
@@ -778,6 +840,7 @@ let getMatches = (
       priorityPlayers,
       avoidAllPlayers,
       teamConstraints,
+      requiredPlayers,
     )
   | CompetitivePlus =>
     RankedMatches.strategy_by_competitive_plus(
@@ -786,6 +849,7 @@ let getMatches = (
       priorityPlayers,
       avoidAllPlayers,
       teamConstraints,
+      requiredPlayers,
     )
   }
   matches
@@ -869,13 +933,17 @@ module Matches = {
   type t<'a> = array<Match.t<'a>>
   let toDndItems: t<'a> => MultipleContainers.Items.t = t => {
     t
-    ->Array.mapWithIndex(((t1, t2), _) => {
-      [t1, t2]
+    ->Array.mapWithIndex(((t1, t2), i) => {
+      [t1, t2]->Array.mapWithIndex((team, j) => {
+        Js.log("Match ID")
+        Js.log(i->Int.toString ++ "." ++ j->Int.toString)
+        (
+          i->Int.toString ++ "." ++ j->Int.toString,
+          team->Array.map(p => i->Int.toString ++ "." ++ j->Int.toString ++ ":" ++ p.id),
+        )
+      })
     })
     ->Array.flatMap(x => x)
-    ->Array.mapWithIndex((team, i) => {
-      (i->Int.toString, team->Array.map(p => i->Int.toString ++ ":" ++ p.id))
-    })
     ->Js.Dict.fromArray
   }
 

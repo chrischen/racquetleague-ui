@@ -21,11 +21,11 @@ msgstr ""
 #~ msgid "{0, plural, one {player} other {players}}"
 #~ msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1168
+#: src/components/organisms/AiTetsu.re.mjs:1222
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:800
+#: src/components/organisms/AiTetsu.re.mjs:830
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 #~ msgid "{waitlistCount, plural, one {player} other {players}}"
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:109
+#: src/components/organisms/MatchesView.re.mjs:111
 msgid "# of courts"
 msgstr ""
 
@@ -45,14 +45,16 @@ msgstr ""
 #~ msgid "Add Player"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:324
+#: src/components/organisms/AiTetsu.re.mjs:1140
+msgid "Advanced Options"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:326
 msgid "Analyzed {0} matches."
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:310
-#: src/components/organisms/MatchesView.re.mjs:313
-#: src/components/organisms/AiTetsu.re.mjs:1323
-#: src/components/organisms/AiTetsu.re.mjs:1326
+#: src/components/organisms/MatchesView.re.mjs:415
+#: src/components/organisms/MatchesView.re.mjs:418
 msgid "and"
 msgstr ""
 
@@ -60,24 +62,28 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:257
-#: src/components/organisms/SortableSubmitMatch.re.mjs:210
+#: src/components/organisms/SubmitMatch.re.mjs:255
+#: src/components/organisms/SortableSubmitMatch.re.mjs:303
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:271
+#: src/components/organisms/MatchesView.re.mjs:376
 msgid "Checkin"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:348
+#: src/components/organisms/AiTetsu.re.mjs:1155
+msgid "Checkin All Players"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:438
 msgid "Choose Match"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:132
+#: src/components/organisms/MatchesView.re.mjs:344
 msgid "CHOOSE MATCH"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:981
+#: src/components/organisms/AiTetsu.re.mjs:1032
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
 msgstr ""
 
@@ -85,7 +91,7 @@ msgstr ""
 msgid "Close panel"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:219
+#: src/components/organisms/CompMatch.re.mjs:220
 msgid "Competitive"
 msgstr ""
 
@@ -105,12 +111,11 @@ msgstr ""
 #~ msgid "court {0}"
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:314
-#: src/components/organisms/AiTetsu.re.mjs:1327
+#: src/components/organisms/MatchesView.re.mjs:419
 msgid "Court {0}: {team1} versus {team2}"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:204
+#: src/components/organisms/AiTetsu.re.mjs:206
 msgid "Create Team"
 msgstr ""
 
@@ -123,8 +128,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/MatchesView.re.mjs:124
-msgid "Deselect All"
-msgstr ""
+#~ msgid "Deselect All"
+#~ msgstr ""
 
 #: src/components/organisms/CompMatch.re.mjs:435
 #~ msgid "DUPR"
@@ -135,15 +140,15 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/AiTetsu.re.mjs:1107
-msgid "Enable All"
-msgstr ""
+#~ msgid "Enable All"
+#~ msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:228
+#: src/components/organisms/SortableSubmitMatch.re.mjs:321
 msgid "Finished"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:390
-#: src/components/organisms/SortableSubmitMatch.re.mjs:356
+#: src/components/organisms/SubmitMatch.re.mjs:388
+#: src/components/organisms/SortableSubmitMatch.re.mjs:425
 msgid "Go Back"
 msgstr ""
 
@@ -151,7 +156,7 @@ msgstr ""
 msgid "How many players should rest? (currently {0} players are resting)"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:975
+#: src/components/organisms/AiTetsu.re.mjs:1026
 msgid "Initialize Ratings"
 msgstr ""
 
@@ -165,7 +170,7 @@ msgstr ""
 #~ msgid "join waitlist"
 #~ msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1055
+#: src/components/organisms/AiTetsu.re.mjs:1106
 msgid "Leaderboard"
 msgstr ""
 
@@ -188,9 +193,9 @@ msgstr ""
 msgid "Load more matches..."
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:409
-#: src/components/organisms/SortableSubmitMatch.re.mjs:375
-#: src/components/organisms/AiTetsu.re.mjs:1234
+#: src/components/organisms/SubmitMatch.re.mjs:407
+#: src/components/organisms/SortableSubmitMatch.re.mjs:435
+#: src/components/organisms/AiTetsu.re.mjs:1257
 msgid "Loading"
 msgstr ""
 
@@ -202,7 +207,7 @@ msgstr ""
 #~ msgid "Loading rankings..."
 #~ msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1080
+#: src/components/organisms/AiTetsu.re.mjs:1131
 msgid "Loading..."
 msgstr ""
 
@@ -218,23 +223,23 @@ msgstr ""
 #~ msgid "Loser Points"
 #~ msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1214
+#: src/components/organisms/AiTetsu.re.mjs:1237
 msgid "manual team"
 msgstr ""
 
 #: src/components/organisms/SelectPlayersList.re.mjs:98
-msgid "Match Count"
-msgstr ""
+#~ msgid "Match Count"
+#~ msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1251
+#: src/components/organisms/AiTetsu.re.mjs:1274
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:301
+#: src/components/organisms/MatchesView.re.mjs:406
 msgid "Matches"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:221
+#: src/components/organisms/CompMatch.re.mjs:222
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 
@@ -242,7 +247,7 @@ msgstr ""
 #~ msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:226
+#: src/components/organisms/CompMatch.re.mjs:227
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 
@@ -250,30 +255,32 @@ msgstr ""
 #~ msgid "Matchmaking"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:224
+#: src/components/organisms/CompMatch.re.mjs:225
 msgid "Mixed"
 msgstr ""
 
 #: src/components/organisms/SelectMatch.re.mjs:136
-#: src/components/organisms/SelectPlayersList.re.mjs:197
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1022
-#: src/components/organisms/AiTetsu.re.mjs:1044
+#: src/components/organisms/CompMatch.re.mjs:371
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1073
+#: src/components/organisms/AiTetsu.re.mjs:1095
 msgid "Offline Mode"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:236
+#: src/components/organisms/CompMatch.re.mjs:237
 msgid "Optimized for DUPR. Teams created with similar skill level players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:345
+#: src/components/organisms/CompMatch.re.mjs:347
 msgid "Played last round"
 msgstr ""
 
 #: src/components/organisms/SelectMatch.re.mjs:91
-#: src/components/organisms/SelectPlayersList.re.mjs:73
 msgid "Player"
 msgstr ""
 
@@ -282,10 +289,10 @@ msgid "Player Name"
 msgstr ""
 
 #: src/components/organisms/AiTetsu.re.mjs:1089
-msgid "Players"
-msgstr ""
+#~ msgid "Players"
+#~ msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:924
+#: src/components/organisms/AiTetsu.re.mjs:975
 msgid "Players in teams will always be placed in a match together on the same side."
 msgstr ""
 
@@ -298,17 +305,17 @@ msgstr ""
 #~ msgid "points"
 #~ msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:315
-#: src/components/organisms/SubmitMatch.re.mjs:359
-#: src/components/organisms/SortableSubmitMatch.re.mjs:281
-#: src/components/organisms/SortableSubmitMatch.re.mjs:325
+#: src/components/organisms/SubmitMatch.re.mjs:313
+#: src/components/organisms/SubmitMatch.re.mjs:357
+#: src/components/organisms/SortableSubmitMatch.re.mjs:355
+#: src/components/organisms/SortableSubmitMatch.re.mjs:397
 msgid "Points"
 msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:52
 #: src/components/organisms/SubmitMatch.re.mjs:64
-#: src/components/organisms/SortableSubmitMatch.re.mjs:55
-#: src/components/organisms/SortableSubmitMatch.re.mjs:67
+#: src/components/organisms/SortableSubmitMatch.re.mjs:57
+#: src/components/organisms/SortableSubmitMatch.re.mjs:69
 msgid "predicted winner"
 msgstr ""
 
@@ -316,8 +323,16 @@ msgstr ""
 #~ msgid "Quality"
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:286
+#: src/components/organisms/MatchesView.re.mjs:391
 msgid "Queue"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:126
+msgid "Queue All"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1148
+msgid "Queue All Players"
 msgstr ""
 
 #: src/components/organisms/SelectMatch.re.mjs:328
@@ -329,14 +344,14 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/AiTetsu.re.mjs:1288
-msgid "Queued Matches"
-msgstr ""
+#~ msgid "Queued Matches"
+#~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:229
+#: src/components/organisms/CompMatch.re.mjs:230
 msgid "Random"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:426
+#: src/components/organisms/CompMatch.re.mjs:459
 msgid "Recommended Match"
 msgstr ""
 
@@ -360,7 +375,7 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:276
+#: src/components/organisms/CompMatch.re.mjs:278
 msgid "Select a tab"
 msgstr ""
 
@@ -369,8 +384,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/MatchesView.re.mjs:124
-msgid "Select All"
-msgstr ""
+#~ msgid "Select All"
+#~ msgstr ""
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:745
 #~ msgid "Select Losers"
@@ -384,32 +399,35 @@ msgstr ""
 msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1013
+#: src/components/organisms/AiTetsu.re.mjs:1064
 msgid "Start Session"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:397
-#: src/components/organisms/SortableSubmitMatch.re.mjs:363
+#: src/components/organisms/SubmitMatch.re.mjs:395
 msgid "Submit Rated"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1242
+#: src/components/organisms/MatchesView.re.mjs:316
+msgid "SUBMIT RESULTS"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1265
 msgid "Submitted Matches"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:94
+#: src/components/organisms/AiTetsu.re.mjs:96
 msgid "Team {0}"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:339
+#: src/components/organisms/CompMatch.re.mjs:341
 msgid "This team has played before"
 msgstr ""
 
 #: src/components/organisms/AiTetsu.re.mjs:1100
-msgid "Toggle All"
-msgstr ""
+#~ msgid "Toggle All"
+#~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:231
+#: src/components/organisms/CompMatch.re.mjs:232
 msgid "Totally random teams."
 msgstr ""
 
@@ -422,14 +440,18 @@ msgstr ""
 #~ msgid "Unique combination of matches."
 #~ msgstr ""
 
+#: src/components/organisms/MatchesView.re.mjs:126
+msgid "Unqueue All"
+msgstr ""
+
 #: src/components/organisms/EventRsvps.re.mjs:339
 #~ msgid "waitlist"
 #~ msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:325
-#: src/components/organisms/SubmitMatch.re.mjs:369
-#: src/components/organisms/SortableSubmitMatch.re.mjs:291
-#: src/components/organisms/SortableSubmitMatch.re.mjs:335
+#: src/components/organisms/SubmitMatch.re.mjs:323
+#: src/components/organisms/SubmitMatch.re.mjs:367
+#: src/components/organisms/SortableSubmitMatch.re.mjs:365
+#: src/components/organisms/SortableSubmitMatch.re.mjs:407
 msgid "Winner"
 msgstr ""
 

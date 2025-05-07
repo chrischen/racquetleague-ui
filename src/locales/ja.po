@@ -1403,6 +1403,36 @@ msgstr "推定DUPR"
 msgid "View My Profile"
 msgstr "私のプロフィールを見る"
 
+#: src/components/organisms/AiTetsu.re.mjs:1140
+msgid "Advanced Options"
+msgstr "詳細オプション"
+
+#: src/components/organisms/AiTetsu.re.mjs:1155
+msgid "Checkin All Players"
+msgstr "すべてのプレイヤーをチェックイン"
+
+#: src/components/organisms/CompMatch.re.mjs:371
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr "キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選択してください。"
+
+#: src/components/organisms/MatchesView.re.mjs:126
+msgid "Queue All"
+msgstr "すべてキューに入れる"
+
+#: src/components/organisms/AiTetsu.re.mjs:1148
+msgid "Queue All Players"
+msgstr "すべてのプレイヤーをキューに入れる"
+
+#: src/components/organisms/MatchesView.re.mjs:316
+msgid "SUBMIT RESULTS"
+msgstr "結果を提出"
+
+#: src/components/organisms/MatchesView.re.mjs:126
+msgid "Unqueue All"
+msgstr "すべてのキューを解除"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

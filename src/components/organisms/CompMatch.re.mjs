@@ -196,6 +196,7 @@ function ts(prim0, prim1) {
 }
 
 function CompMatch(props) {
+  var requiredPlayers = props.requiredPlayers;
   var onSelectMatch = props.onSelectMatch;
   var avoidAllPlayers = props.avoidAllPlayers;
   var priorityPlayers = props.priorityPlayers;
@@ -237,9 +238,9 @@ function CompMatch(props) {
     }
   ];
   var teamConstraints = Util.NonEmptyArray.map(props.teams, Rating.Team.toSet);
-  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints);
+  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
   var matchesCount = matches.length;
-  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, undefined);
+  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, undefined, requiredPlayers);
   var matches$2 = matches$1.slice(0, 115);
   var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
           var quality = param[1];
@@ -268,6 +269,7 @@ function CompMatch(props) {
           return strategy;
         });
   };
+  var match$1 = matches$2.length;
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -346,6 +348,37 @@ function CompMatch(props) {
                       ],
                       className: "mt-2 text-base leading-7 text-gray-600 mb-2"
                     }),
+                match$1 !== 0 ? null : JsxRuntime.jsx("div", {
+                        children: JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("div", {
+                                      children: JsxRuntime.jsx("svg", {
+                                            children: JsxRuntime.jsx("path", {
+                                                  clipRule: "evenodd",
+                                                  d: "M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z",
+                                                  fillRule: "evenodd"
+                                                }),
+                                            "aria-hidden": true,
+                                            className: "h-5 w-5 text-red-400",
+                                            fill: "currentColor",
+                                            viewBox: "0 0 20 20",
+                                            xmlns: "http://www.w3.org/2000/svg"
+                                          }),
+                                      className: "flex-shrink-0"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      children: JsxRuntime.jsx("p", {
+                                            children: t`Not enough players in the queue. Select the players who want to play from the Queue tab.`,
+                                            className: "text-sm text-red-700"
+                                          }),
+                                      className: "ml-3"
+                                    })
+                              ],
+                              className: "flex"
+                            }),
+                        className: "rounded-md bg-red-50 p-4 mt-2 mb-2 border-l-4 border-red-400",
+                        role: "alert"
+                      }),
                 Core__Option.getOr(Core__Option.map(Rating.RankedMatches.recommendMatch(matches$2, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches), (function (match) {
                             var team2 = match[1];
                             var team1 = match[0];

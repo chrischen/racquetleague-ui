@@ -76,8 +76,9 @@ module ActionBar = {
     ~selectAll: unit => unit,
     ~selectedAll: bool,
     ~breakCount: int,
+    ~mainActionText: string,
     ~onChangeBreakCount: int => unit,
-    ~onChooseMatch,
+    ~onMainAction,
   ) => {
     <div
       className="fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center">
@@ -104,13 +105,13 @@ module ActionBar = {
             selectedAll ? "bg-green-300" : "",
           ])}>
           <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5 mr-0.5" />
-          {selectedAll ? t`Deselect All` : t`Select All`}
+          {selectedAll ? t`Unqueue All` : t`Queue All`}
         </UiAction>
         <UiAction
-          onClick={onChooseMatch}
+          onClick={onMainAction}
           className="inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           {">>>>>>>>>>> "->React.string}
-          {t`CHOOSE MATCH`}
+          {mainActionText->React.string}
         </UiAction>
       </div>
     </div>
@@ -127,13 +128,16 @@ let make = (
   ~breakPlayers: Set.t<string>,
   ~consumedPlayers: Set.t<string>,
   ~togglePlayer: Rating.player => unit,
+  ~setQueue: array<string> => unit,
+  ~setRequiredPlayers: (option<Set.t<string>> => option<Set.t<string>>) => unit,
   ~matches: array<Rating.match>,
   ~setMatches: (array<Rating.match> => array<Rating.match>) => unit,
   // ~activity,
   ~minRating,
   ~maxRating,
   ~handleMatchCanceled,
-  ~handleMatchComplete,
+  ~handleMatchUpdated,
+  ~handleMatchesComplete,
   ~onClose,
   ~selectAll: unit => unit,
   ~breakCount: int,
@@ -153,10 +157,10 @@ let make = (
       </UiAction>
       <UiAction
         className={Util.cx([
-          "ml-3 inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+          "ml-3 inline-flex items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
           view == Checkin
-            ? "bg-black border-solid border-white border-2"
-            : "bg-indigo-600 hover:bg-indigo-500",
+            ? "bg-indigo-600 border-solid border-white border-2"
+            : "bg-black border-solid border-indigo-600 border-2",
         ])}
         onClick={_ => setView(_ => Checkin)}>
         <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5" />
@@ -166,8 +170,8 @@ let make = (
         className={Util.cx([
           "ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
           view == Queue
-            ? "bg-black border-solid border-white border-2"
-            : "bg-indigo-600 hover:bg-indigo-500",
+            ? "bg-indigo-600 border-solid border-white border-2"
+            : "bg-black border-solid border-indigo-600 border-2",
         ])}
         onClick={_ => setView(_ => Queue)}>
         <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5" />
@@ -177,8 +181,8 @@ let make = (
         className={Util.cx([
           "ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
           view == Matches
-            ? "bg-black border-solid border-white border-2"
-            : "bg-indigo-600 hover:bg-indigo-500",
+            ? "bg-indigo-600 border-solid border-white border-2"
+            : "bg-black border-solid border-indigo-600 border-2",
         ])}
         onClick={_ => setView(_ => Matches)}>
         <HeroIcons.TableCells \"aria-hidden"="true" className="-ml-0.5 h-5 w-5" />
@@ -236,12 +240,12 @@ let make = (
                     match
                     ->Option.map(match =>
                       <SortableSubmitMatch
-                        key={matchId->Int.toString}
+                        key={match->Rating.Match.toStableId}
                         match
                         minRating
                         maxRating
-                        onDelete={() => handleMatchCanceled(matchId)}
-                        onComplete={match => match->handleMatchComplete(matchId)}>
+                        onDelete={() => handleMatchCanceled(matchId->Int.toString)}
+                        onUpdated={match => match->handleMatchUpdated(matchId->Int.toString)}>
                         {children}
                       </SortableSubmitMatch>
                     )
@@ -255,17 +259,53 @@ let make = (
                     updateFn(items)->Rating.Matches.fromDndItems(playersCache)
                   })
                 }}
-                deleteContainer={i =>
-                  i->Int.fromString->Option.map(i => handleMatchCanceled(i))->Option.getOr()}
+                deleteContainer={i => handleMatchCanceled(i)}
                 renderValue={value => {
                   let value = switch value->String.split(":") {
-                  | [_, id] => Some(id)
+                  | [ids, id] =>
+                    switch ids->String.split(".") {
+                    | [matchId, _] => Some((matchId, id))
+                    | _ => None
+                    }
                   | _ => None
                   }
-                  let player =
-                    value->Option.flatMap(value => playersCache->Rating.PlayersCache.get(value))
+                  let player = value->Option.flatMap(((matchId, value)) =>
+                    playersCache
+                    ->Rating.PlayersCache.get(value)
+                    ->Option.flatMap(player =>
+                      matchId->Int.fromString->Option.map(matchId => (matchId, player))
+                    )
+                  )
                   player
-                  ->Option.map(player => <SubmitMatch.PlayerView player minRating maxRating />)
+                  ->Option.map(((matchId, player)) =>
+                    <UiAction
+                      onClick={_ => {
+                        let match = matches->Array.get(matchId)
+                        match
+                        ->Option.map(match => {
+                          let players =
+                            match
+                            ->Rating.Match.players
+                            ->Array.map(player => player.id)
+                            ->Array.filter(p => p != player.id)
+                          let newQueue =
+                            players
+                            ->Array.concat(availablePlayers->Array.map(player => player.id))
+                            ->Array.concat(breakPlayers->Set.values->Array.fromIterator)
+                          setRequiredPlayers(
+                            _ => {
+                              Some(players->Set.fromArray)
+                            },
+                          )
+                          setQueue(newQueue)
+                        })
+                        ->ignore
+
+                        setShowMatchSelector(_ => true)
+                      }}>
+                      <SubmitMatch.PlayerView player minRating maxRating />
+                    </UiAction>
+                  )
                   ->Option.getOr(React.null)
                 }}
               />
@@ -274,22 +314,57 @@ let make = (
         }}
       </main>
     </div>
-    <ActionBar
-      selectedAll={queue->Set.size == availablePlayers->Array.length}
-      selectAll={_ => {
-        setView(_ => Queue)
-        selectAll()
-      }}
-      breakCount
-      onChangeBreakCount
-      onChooseMatch={_ => setShowMatchSelector(s => !s)}
-    />
+    {switch view {
+    | Matches =>
+      // Render MatchesActionBar when view is Matches
+      <ActionBar
+        selectedAll={queue->Set.size == availablePlayers->Array.length}
+        selectAll={_ => {
+          setView(_ => Queue)
+          selectAll()
+        }}
+        breakCount
+        onChangeBreakCount
+        mainActionText={ts`SUBMIT RESULTS`}
+        onMainAction={_ => {
+          // Call handleMatchesComplete and potentially switch view
+          handleMatchesComplete()
+          ->Promise.then(_ => {
+            // Optional: Switch view after successful completion?
+            // setView(_ => Queue) // Example: Go back to Queue
+            Promise.resolve()
+          })
+          ->Promise.catch(err => {
+            Js.log2("Error submitting matches:", err)
+            // Handle error display if needed
+            Promise.resolve()
+          })
+          ->ignore
+        }}
+      />
+    | Checkin | Queue =>
+      // Render the original ActionBar for Checkin and Queue views
+      <ActionBar
+        selectedAll={queue->Set.size == availablePlayers->Array.length}
+        selectAll={_ => {
+          setView(_ => Queue)
+          selectAll()
+        }}
+        breakCount
+        onChangeBreakCount
+        mainActionText={ts`CHOOSE MATCH`}
+        onMainAction={_ => setShowMatchSelector(s => !s)}
+      />
+    }}
     <ModalDrawer
       title={ts`Choose Match`}
       open_=showMatchSelector
       setOpen={v => {
         // Switch to Matches view after closing match selector
         setView(_ => Matches)
+        setRequiredPlayers(_ => {
+          None
+        })
         setShowMatchSelector(v)
       }}>
       {matchSelector}

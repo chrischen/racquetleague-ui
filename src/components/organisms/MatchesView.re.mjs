@@ -4,11 +4,13 @@ import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ModalDrawer from "../ui/ModalDrawer.re.mjs";
 import * as SubmitMatch from "./SubmitMatch.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@dnd-kit/core";
 import * as Core$1 from "@linaria/core";
+import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as MatchRsvpUser from "../molecules/MatchRsvpUser.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventMatchRsvpUser from "./EventMatchRsvpUser.re.mjs";
@@ -121,15 +123,15 @@ function MatchesView$ActionBar(props) {
                                       className: "-ml-0.5 h-5 w-5 mr-0.5",
                                       "aria-hidden": "true"
                                     }),
-                                selectedAll ? t`Deselect All` : t`Select All`
+                                selectedAll ? t`Unqueue All` : t`Queue All`
                               ]
                             }),
                         JsxRuntime.jsxs(UiAction.make, {
-                              onClick: props.onChooseMatch,
+                              onClick: props.onMainAction,
                               className: "inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
                               children: [
                                 ">>>>>>>>>>> ",
-                                t`CHOOSE MATCH`
+                                props.mainActionText
                               ]
                             })
                       ],
@@ -145,17 +147,24 @@ var ActionBar = {
 };
 
 function MatchesView(props) {
+  var onChangeBreakCount = props.onChangeBreakCount;
+  var breakCount = props.breakCount;
   var selectAll = props.selectAll;
-  var handleMatchComplete = props.handleMatchComplete;
+  var handleMatchesComplete = props.handleMatchesComplete;
+  var handleMatchUpdated = props.handleMatchUpdated;
   var handleMatchCanceled = props.handleMatchCanceled;
   var maxRating = props.maxRating;
   var minRating = props.minRating;
   var setMatches = props.setMatches;
   var matches = props.matches;
+  var setRequiredPlayers = props.setRequiredPlayers;
+  var setQueue = props.setQueue;
   var togglePlayer = props.togglePlayer;
   var consumedPlayers = props.consumedPlayers;
+  var breakPlayers = props.breakPlayers;
   var queue = props.queue;
   var playersCache = props.playersCache;
+  var availablePlayers = props.availablePlayers;
   var match = React.useState(function () {
         return "Matches";
       });
@@ -183,9 +192,7 @@ function MatchesView(props) {
                                   });
                             }),
                           deleteContainer: (function (i) {
-                              Core__Option.getOr(Core__Option.map(Core__Int.fromString(i, undefined), (function (i) {
-                                          handleMatchCanceled(i);
-                                        })), undefined);
+                              handleMatchCanceled(i);
                             }),
                           renderContainer: (function (children, matchId) {
                               var match = matches[matchId];
@@ -196,25 +203,73 @@ function MatchesView(props) {
                                                             minRating: minRating,
                                                             maxRating: maxRating,
                                                             onDelete: (function () {
-                                                                handleMatchCanceled(matchId);
+                                                                handleMatchCanceled(matchId.toString());
                                                               }),
-                                                            onComplete: (function (match) {
-                                                                return handleMatchComplete(match, matchId);
+                                                            onUpdated: (function (match) {
+                                                                handleMatchUpdated(match, matchId.toString());
                                                               })
-                                                          }, matchId.toString());
+                                                          }, Rating.Match.toStableId(match));
                                               })), null);
                             }),
                           renderValue: (function (value) {
                               var match = value.split(":");
-                              var value$1 = match.length !== 2 ? undefined : match[1];
-                              var player = Core__Option.flatMap(value$1, (function (value) {
-                                      return Rating.PlayersCache.get(playersCache, value);
+                              var value$1;
+                              if (match.length !== 2) {
+                                value$1 = undefined;
+                              } else {
+                                var ids = match[0];
+                                var id = match[1];
+                                var match$1 = ids.split(".");
+                                if (match$1.length !== 2) {
+                                  value$1 = undefined;
+                                } else {
+                                  var matchId = match$1[0];
+                                  value$1 = [
+                                    matchId,
+                                    id
+                                  ];
+                                }
+                              }
+                              var player = Core__Option.flatMap(value$1, (function (param) {
+                                      var matchId = param[0];
+                                      return Core__Option.flatMap(Rating.PlayersCache.get(playersCache, param[1]), (function (player) {
+                                                    return Core__Option.map(Core__Int.fromString(matchId, undefined), (function (matchId) {
+                                                                  return [
+                                                                          matchId,
+                                                                          player
+                                                                        ];
+                                                                }));
+                                                  }));
                                     }));
-                              return Core__Option.getOr(Core__Option.map(player, (function (player) {
-                                                return JsxRuntime.jsx(SubmitMatch.PlayerView.make, {
-                                                            player: player,
-                                                            minRating: minRating,
-                                                            maxRating: maxRating
+                              return Core__Option.getOr(Core__Option.map(player, (function (param) {
+                                                var player = param[1];
+                                                var matchId = param[0];
+                                                return JsxRuntime.jsx(UiAction.make, {
+                                                            onClick: (function (param) {
+                                                                var match = matches[matchId];
+                                                                Core__Option.map(match, (function (match) {
+                                                                        var players = Rating.Match.players(match).map(function (player) {
+                                                                                return player.id;
+                                                                              }).filter(function (p) {
+                                                                              return p !== player.id;
+                                                                            });
+                                                                        var newQueue = players.concat(availablePlayers.map(function (player) {
+                                                                                    return player.id;
+                                                                                  })).concat(Array.from(breakPlayers.values()));
+                                                                        setRequiredPlayers(function (param) {
+                                                                              return Caml_option.some(new Set(players));
+                                                                            });
+                                                                        setQueue(newQueue);
+                                                                      }));
+                                                                setShowMatchSelector(function (param) {
+                                                                      return true;
+                                                                    });
+                                                              }),
+                                                            children: JsxRuntime.jsx(SubmitMatch.PlayerView.make, {
+                                                                  player: player,
+                                                                  minRating: minRating,
+                                                                  maxRating: maxRating
+                                                                })
                                                           });
                                               })), null);
                             })
@@ -229,7 +284,7 @@ function MatchesView(props) {
     case "Queue" :
         tmp = JsxRuntime.jsx(MatchesView$Queue, {
               players: props.players,
-              breakPlayers: props.breakPlayers,
+              breakPlayers: breakPlayers,
               consumedPlayers: consumedPlayers,
               queue: queue,
               togglePlayer: (function (player) {
@@ -244,6 +299,56 @@ function MatchesView(props) {
             });
         break;
     
+  }
+  var tmp$1;
+  var exit = 0;
+  switch (view) {
+    case "Matches" :
+        tmp$1 = JsxRuntime.jsx(MatchesView$ActionBar, {
+              selectAll: (function () {
+                  setView(function (param) {
+                        return "Queue";
+                      });
+                  selectAll();
+                }),
+              selectedAll: queue.size === availablePlayers.length,
+              breakCount: breakCount,
+              mainActionText: t`SUBMIT RESULTS`,
+              onChangeBreakCount: onChangeBreakCount,
+              onMainAction: (function (param) {
+                  Core__Promise.$$catch(handleMatchesComplete().then(function (param) {
+                            return Promise.resolve();
+                          }), (function (err) {
+                          console.log("Error submitting matches:", err);
+                          return Promise.resolve();
+                        }));
+                })
+            });
+        break;
+    case "Checkin" :
+    case "Queue" :
+        exit = 1;
+        break;
+    
+  }
+  if (exit === 1) {
+    tmp$1 = JsxRuntime.jsx(MatchesView$ActionBar, {
+          selectAll: (function () {
+              setView(function (param) {
+                    return "Queue";
+                  });
+              selectAll();
+            }),
+          selectedAll: queue.size === availablePlayers.length,
+          breakCount: breakCount,
+          mainActionText: t`CHOOSE MATCH`,
+          onChangeBreakCount: onChangeBreakCount,
+          onMainAction: (function (param) {
+              setShowMatchSelector(function (s) {
+                    return !s;
+                  });
+            })
+        });
   }
   return JsxRuntime.jsxs("div", {
               children: [
@@ -262,7 +367,7 @@ function MatchesView(props) {
                                         return "Checkin";
                                       });
                                 }),
-                              className: Core$1.cx("ml-3 inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Checkin" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
+                              className: Core$1.cx("ml-3 inline-flex items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Checkin" ? "bg-indigo-600 border-solid border-white border-2" : "bg-black border-solid border-indigo-600 border-2"),
                               children: [
                                 JsxRuntime.jsx(Solid.UsersIcon, {
                                       className: "-ml-0.5 h-5 w-5",
@@ -277,7 +382,7 @@ function MatchesView(props) {
                                         return "Queue";
                                       });
                                 }),
-                              className: Core$1.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Queue" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
+                              className: Core$1.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Queue" ? "bg-indigo-600 border-solid border-white border-2" : "bg-black border-solid border-indigo-600 border-2"),
                               children: [
                                 JsxRuntime.jsx(Solid.UsersIcon, {
                                       className: "-ml-0.5 h-5 w-5",
@@ -292,7 +397,7 @@ function MatchesView(props) {
                                         return "Matches";
                                       });
                                 }),
-                              className: Core$1.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Matches" ? "bg-black border-solid border-white border-2" : "bg-indigo-600 hover:bg-indigo-500"),
+                              className: Core$1.cx("ml-3 inline-flex flex-grow items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Matches" ? "bg-indigo-600 border-solid border-white border-2" : "bg-black border-solid border-indigo-600 border-2"),
                               children: [
                                 JsxRuntime.jsx(Solid.TableCellsIcon, {
                                       className: "-ml-0.5 h-5 w-5",
@@ -328,22 +433,7 @@ function MatchesView(props) {
                           }),
                       className: "w-full h-[calc(100vh-(56px+152px))] sm:h-[calc(100vh-(56px+92px))] fixed top-[56px] left-0 overflow-scroll px-3"
                     }),
-                JsxRuntime.jsx(MatchesView$ActionBar, {
-                      selectAll: (function () {
-                          setView(function (param) {
-                                return "Queue";
-                              });
-                          selectAll();
-                        }),
-                      selectedAll: queue.size === props.availablePlayers.length,
-                      breakCount: props.breakCount,
-                      onChangeBreakCount: props.onChangeBreakCount,
-                      onChooseMatch: (function (param) {
-                          setShowMatchSelector(function (s) {
-                                return !s;
-                              });
-                        })
-                    }),
+                tmp$1,
                 JsxRuntime.jsx(ModalDrawer.make, {
                       title: t`Choose Match`,
                       children: props.matchSelector,
@@ -351,6 +441,9 @@ function MatchesView(props) {
                       setOpen: (function (v) {
                           setView(function (param) {
                                 return "Matches";
+                              });
+                          setRequiredPlayers(function (param) {
+                                
                               });
                           setShowMatchSelector(v);
                         })

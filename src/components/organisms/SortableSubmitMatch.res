@@ -122,7 +122,7 @@ let schema = Zod.z->Zod.object(
 
 // type team = array<AddLeagueMatch_event_graphql.Types.fragment_rsvps_edges_node>
 // type match = (team, team)
-external alert: string => unit = "alert"
+// external alert: string => unit = "alert"
 
 // let nullFormEvent: JsxEvent.Form.t = %raw("null")
 type winners = Left | Right
@@ -163,7 +163,7 @@ let make = (
   ~minRating,
   ~maxRating,
   ~onDelete: option<unit => unit>=?,
-  ~onComplete: option<CompletedMatch.t<rsvpNode> => Js.Promise.t<unit>>=?,
+  ~onUpdated: option<CompletedMatch.t<rsvpNode> => unit>=?,
 ) => {
   // ~onSubmitted: option<unit => unit>=?,
   // ~onSubmit: option<CompletedMatch.t<rsvpNode> => unit>=?,
@@ -171,7 +171,7 @@ let make = (
   let ts = Lingui.UtilString.t
   open Form
   let (view, setView) = React.useState(() => defaultView)
-  let {register, handleSubmit, setValue, _} = useFormOfInputsMatch(
+  let {register, handleSubmit, setValue, watch, _} = useFormOfInputsMatch(
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {
@@ -181,11 +181,28 @@ let make = (
     },
   )
 
+  // Watch the score fields and provide a default value
+  let scoreLeftValue = switch watch(ScoreLeft) {
+  | Some(String(s)) => s->Float.fromString->Option.getOr(0.)
+  | Some(Number(n)) => n
+  | _ => 0. // Handles None and any other unexpected Form.value variants
+  }
+  let scoreRightValue = switch watch(ScoreRight) {
+  | Some(String(s)) => s->Float.fromString->Option.getOr(0.)
+  | Some(Number(n)) => n
+  | _ => 0. // Handles None and any other unexpected Form.value variants
+  }
+
+  // Determine the current winner based on watched values
+  let currentWinner = switch (scoreLeftValue, scoreRightValue) {
+  | (left, right) if left > right => Some(Left)
+  | (left, right) if right > left => Some(Right)
+  | _ => None // No winner if scores are equal or zero
+  }
   let team1 = match->fst
   let team2 = match->snd
   let doublesMatch = match->DoublesMatch.fromMatch
 
-  let (submitting, setSubmitting) = React.useState(() => false)
   // React.useEffect2(() => {
   //   // Set the value to the provided score if it exists
   //   score->Option.map(score => {
@@ -195,44 +212,53 @@ let make = (
   //   None
   // }, (view, match))
 
-  let handleWinner = (winningSide: winners) => {
-    onComplete
+  let ratedMatch = doublesMatch->Result.flatMap((((p1, p2), (p3, p4))) =>
+    switch (p1.data, p2.data, p3.data, p4.data) {
+    | (Some(_), Some(_), Some(_), Some(_)) => Ok()
+    | _ => Error(TwoPlayersRequired)
+    }
+  )
+
+  let onSubmit = (_rated: bool, data: inputsMatch) => {
+    onUpdated
     ->Option.map(f => {
+      let winningSide = switch data.scoreLeft > data.scoreRight {
+      | true => Left
+      | false => Right
+      }
+      let score =
+        winningSide == Left ? (data.scoreLeft, data.scoreRight) : (data.scoreRight, data.scoreLeft)
       let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
-      f((match, None))
+
+      f((match, ratedMatch->Result.isOk ? Some(score) : None))->ignore
+      // x->Promise.then(_ => {
+      // setValue(ScoreLeft, Value(0.))
+      // setValue(ScoreRight, Value(0.))
+      // Promise.resolve(setSubmitting(_ => false))
+      // setSubmitting(_ => false)
+      // })
     })
     ->ignore
   }
 
-  let onSubmit = (_rated: bool, data: inputsMatch) => {
-    setSubmitting(_ => true)
-    switch data.scoreLeft == data.scoreRight {
-    | true =>
-      alert("No ties allowed")
-      setSubmitting(_ => false)
-    | false =>
-      onComplete
-      ->Option.map(f => {
-        let winningSide = switch data.scoreLeft > data.scoreRight {
-        | true => Left
-        | false => Right
-        }
-        let score =
-          winningSide == Left
-            ? (data.scoreLeft, data.scoreRight)
-            : (data.scoreRight, data.scoreLeft)
-        let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
-        let x = f((match, Some(score)))
-        x->Promise.then(_ => {
-          setValue(ScoreLeft, Value(0.))
-          setValue(ScoreRight, Value(0.))
-          Promise.resolve(setSubmitting(_ => false))
-        })
-      })
-      ->ignore
+  React.useEffect1(() => {
+    onSubmit(true, {scoreLeft: scoreLeftValue, scoreRight: scoreRightValue})
+
+    None
+  }, [scoreLeftValue, scoreRightValue])
+
+  let setWinner: winners => unit = winner => {
+    switch winner {
+    | Left =>
+      setValue(ScoreLeft, Value(1.))
+      setValue(ScoreRight, Value(-1.))
+      onSubmit(true, {scoreLeft: 1.0, scoreRight: -1.0})
+    | Right =>
+      setValue(ScoreLeft, Value(-1.))
+      setValue(ScoreRight, Value(1.))
+      onSubmit(true, {scoreLeft: -1.0, scoreRight: 1.0})
     }
   }
-
   let team1El = children->Array.get(0)->Option.getOr(React.null)
   let team2El = children->Array.get(1)->Option.getOr(React.null)
   open Dropdown
@@ -240,10 +266,21 @@ let make = (
     <div
       className="grid grid-cols-1 gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm">
       <div
+        // onClick={_ => {
+        //   setWinner(Left)
+        //   setView(_ => SubmitMatch)
+        // }}
         className="grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate border-bottom border-solid border-b-black border-b-4">
         {team1El}
       </div>
-      <div className="grid grid-cols-1 gap-0 p-0 bg-white shadow truncate"> {team2El} </div>
+      <div
+        // onClick={_ => {
+        //   setWinner(Right)
+        //   setView(_ => SubmitMatch)
+        // }}
+        className="grid grid-cols-1 gap-0 p-0 bg-white shadow truncate">
+        {team2El}
+      </div>
       <div className="flex md:top-3 md:mt-0 justify-center">
         <Dropdown>
           <DropdownButton outline=true>
@@ -305,28 +342,28 @@ let make = (
   //   </div>
   // </UiAction>
 
-  let unratedMatch = doublesMatch->Result.flatMap((((p1, p2), (p3, p4))) =>
-    switch (p1.data, p2.data, p3.data, p4.data) {
-    | (Some(_), Some(_), Some(_), Some(_)) => Ok()
-    | _ => Error(TwoPlayersRequired)
-    }
-  )
-
   let submitMatch =
     <div className="grid col-span-1 items-start gap-2 md:gap-4">
       {<>
         <div
           className="grid col-span-1 items-start gap-2 p-0 border bg-white border-gray-200 rounded-lg shadow-sm">
           <div
-            onClick={_ => setView(_ => Default)}
-            className="flex relative p-0 justify-between rounded-tl-lg rounded-tr-lg bg-white shadow truncate">
+            // onClick={_ => setView(_ => Default)}
+            onClick={_ => {
+              setWinner(Left)
+            }}
+            className={Util.cx([
+              "flex relative p-0 justify-between bg-white shadow truncate",
+              // Highlight with green background and border if Team 1 is the winner
+              currentWinner == Some(Left) ? "bg-green-50 border-green-400 border-4 rounded-lg" : "",
+            ])}>
             <div className="grid grid-cols-1 gap-0">
               {team1
               ->Array.map(player => <PlayerView key=player.id player minRating maxRating />)
               ->React.array}
             </div>
             <div className="flex bg-white z-10">
-              {unratedMatch
+              {ratedMatch
               ->Result.map(_ =>
                 <Input
                   className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6"
@@ -352,7 +389,7 @@ let make = (
                   onClick={e => {
                     e->JsxEventU.Mouse.stopPropagation
                     e->JsxEventU.Mouse.preventDefault
-                    handleWinner(Left)
+                    setWinner(Left)
                   }}
                   className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                   {t`Winner`}
@@ -361,15 +398,24 @@ let make = (
             </div>
           </div>
           <div
-            onClick={_ => setView(_ => Default)}
-            className="flex relative p-0 justify-between bg-white shadow truncate">
+            // onClick={_ => setView(_ => Default)}
+            onClick={_ => {
+              setWinner(Right)
+            }}
+            className={Util.cx([
+              "flex relative p-0 justify-between bg-white shadow truncate",
+              // Highlight with green background and border if Team 2 is the winner
+              currentWinner == Some(Right)
+                ? "bg-green-50 border-green-400 border-4 rounded-lg"
+                : "",
+            ])}>
             <div className="grid grid-cols-1 gap-0 truncate">
               {team2
               ->Array.map(player => <PlayerView key=player.id player minRating maxRating />)
               ->React.array}
             </div>
             <div className="flex bg-white z-10">
-              {unratedMatch
+              {ratedMatch
               ->Result.map(_ =>
                 <Input
                   className="w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6"
@@ -393,7 +439,7 @@ let make = (
                   onClick={e => {
                     e->JsxEventU.Mouse.stopPropagation
                     e->JsxEventU.Mouse.preventDefault
-                    handleWinner(Right)
+                    setWinner(Right)
                   }}
                   className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                   {t`Winner`}
@@ -407,16 +453,6 @@ let make = (
               onClick={_ => setView(_ => Default)}>
               {t`Go Back`}
             </UiAction>
-            {unratedMatch
-            ->Result.map(_ =>
-              <input
-                type_="submit"
-                disabled={submitting}
-                className="ml-3 inline-flex items-center text-2xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                value={ts`Submit Rated`}
-              />
-            )
-            ->Result.getOr(React.null)}
           </div>
           <div className="grid gap-0 col-span-1">
             <React.Suspense fallback={<div> {t`Loading`} </div>}>

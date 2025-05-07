@@ -17,6 +17,6 @@ let make: (
   ~minRating: float,
   ~maxRating: float,
   ~onDelete: unit => unit=?,
-  ~onComplete: Rating.CompletedMatch.t<Rating.rsvpNode> => Js.Promise.t<unit>=?,
+  ~onComplete: Rating.CompletedMatch.t<Rating.rsvpNode> => unit=?,
 ) => // ~onSubmitted: unit => unit=?,
 React.element

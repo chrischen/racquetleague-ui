@@ -610,7 +610,7 @@ function team_to_players_set(team) {
                 }));
 }
 
-function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints) {
+function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers) {
   var teams = array_combos(availablePlayers).map(tuple2array);
   var teamConstraintsSet = new Set(Util.NonEmptyArray.toArray(teamConstraints).map(function (a) {
               return Array.from(a.values());
@@ -654,25 +654,40 @@ function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayer
   var results$1 = avoidAllPlayers.length < 2 ? results : results.filter(function (param) {
           return !contains_all_players(param[0], avoidAllPlayers);
         });
-  return Core__Option.getOr(Core__Option.map(teamConstraints, (function (teamConstraints) {
-                    var teamConstraints$1 = teamConstraints.concat([implicitTeam]);
-                    return results$1.filter(function (param) {
-                                var match = param[0];
-                                var team1 = toSet(match[0]);
-                                var team2 = toSet(match[1]);
-                                var constr1 = teamConstraints$1.findIndex(function (teamConstraint) {
-                                      return containsAllOf(teamConstraint, team1);
-                                    }) > -1;
-                                var constr2 = teamConstraints$1.findIndex(function (teamConstraint) {
-                                      return containsAllOf(teamConstraint, team2);
-                                    }) > -1;
-                                if (constr1) {
-                                  return constr2;
-                                } else {
-                                  return false;
-                                }
-                              });
-                  })), results$1);
+  var results$2;
+  if (requiredPlayers !== undefined) {
+    var reqPlayerIds = Caml_option.valFromOption(requiredPlayers);
+    if (reqPlayerIds.size > 0) {
+      var requiredPlayersArray = availablePlayers.filter(function (p) {
+            return reqPlayerIds.has(p.id);
+          });
+      results$2 = requiredPlayersArray.length === reqPlayerIds.size ? results$1.filter(function (param) {
+              return contains_all_players(param[0], requiredPlayersArray);
+            }) : [];
+    } else {
+      results$2 = results$1;
+    }
+  } else {
+    results$2 = results$1;
+  }
+  var teamConstraintsAsArray = Util.NonEmptyArray.toArray(teamConstraints);
+  var finalTeamConstraintsList = teamConstraintsAsArray.concat([implicitTeam]);
+  return results$2.filter(function (param) {
+              var match = param[0];
+              var team1Set = toSet(match[0]);
+              var team2Set = toSet(match[1]);
+              var team1SatisfiesConstraint = finalTeamConstraintsList.findIndex(function (constr) {
+                    return containsAllOf(constr, team1Set);
+                  }) > -1;
+              var team2SatisfiesConstraint = finalTeamConstraintsList.findIndex(function (constr) {
+                    return containsAllOf(constr, team2Set);
+                  }) > -1;
+              if (team1SatisfiesConstraint) {
+                return team2SatisfiesConstraint;
+              } else {
+                return false;
+              }
+            });
 }
 
 function find_skip(n) {
@@ -697,9 +712,9 @@ function uniform_shuffle_array(arr, n, offset) {
   return picks.concat(uniform_shuffle_array(arr, n, offset + 1 | 0));
 }
 
-function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teams) {
+function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
   return Core__Array.reduce(array_split_by_n(sortByRatingDesc(players), 8), [], (function (acc, playerSet) {
-                  var matches = find_all_match_combos(filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams);
+                  var matches = find_all_match_combos(filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams, requiredPlayers);
                   return acc.concat(matches);
                 })).toSorted(function (a, b) {
               if (a[1] < b[1]) {
@@ -710,7 +725,7 @@ function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoi
             });
 }
 
-function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers, avoidAllPlayers, teams) {
+function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
   return Core__Array.reduce(array_split_by_n(players.toSorted(function (a, b) {
                       var userA = a.rating.mu;
                       var userB = b.rating.mu;
@@ -723,7 +738,7 @@ function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers
                 var players = filterOut(playerSet, consumedPlayers);
                 var matches = Core__Option.getOr(Core__Option.map(players.at(0), (function (topPlayer) {
                             console.log(topPlayer);
-                            return find_all_match_combos(filterOut(playerSet, consumedPlayers), [], avoidAllPlayers, teams).filter(function (param) {
+                            return find_all_match_combos(filterOut(playerSet, consumedPlayers), [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
                                           return contains_player$1(param[0], topPlayer);
                                         }).toSorted(function (a, b) {
                                         if (a[1] < b[1]) {
@@ -737,8 +752,8 @@ function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers
               }));
 }
 
-function strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teams) {
-  return find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams).toSorted(function (a, b) {
+function strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
+  return find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers).toSorted(function (a, b) {
               if (a[1] < b[1]) {
                 return 1;
               } else {
@@ -747,19 +762,19 @@ function strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, t
             });
 }
 
-function strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teams) {
+function strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
   var count = Math.max(4, availablePlayers.length);
   var skip = find_skip(count - 4 | 0);
-  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
+  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers);
   return uniform_shuffle_array(matches, skip, 0);
 }
 
-function strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teams) {
-  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
+function strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
+  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers);
   return shuffle(matches);
 }
 
-function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers) {
+function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers, requiredPlayers) {
   var teams = Util.NonEmptyArray.fromArray(array_split_by_n(sortByRatingDesc(availablePlayers), 3).map(function (__x) {
               return __x.map(function (p) {
                           return p.id;
@@ -767,7 +782,7 @@ function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers) {
             }).map(function (prim) {
             return new Set(prim);
           }));
-  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams);
+  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers);
   return matches.toSorted(function (a, b) {
               if (a[1] < b[1]) {
                 return 1;
@@ -841,21 +856,21 @@ var RankedMatches = {
   recommendMatch: recommendMatch
 };
 
-function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints) {
+function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers) {
   var availablePlayers = filterOut(players, consumedPlayers);
   switch (strategy) {
     case "CompetitivePlus" :
-        return strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
+        return strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "Competitive" :
-        return strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
+        return strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "Mixed" :
-        return strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
+        return strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "RoundRobin" :
-        return strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
+        return strategy_by_round_robin(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "Random" :
-        return strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints);
+        return strategy_by_random(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "DUPR" :
-        return strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers);
+        return strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers, requiredPlayers);
     
   }
 }
@@ -979,20 +994,22 @@ var PlayersCache = {
 };
 
 function toDndItems(t) {
-  return Js_dict.fromArray(t.map(function (param, param$1) {
-                      return [
+  return Js_dict.fromArray(t.map(function (param, i) {
+                    return [
                               param[0],
                               param[1]
-                            ];
-                    }).flatMap(function (x) {
-                    return x;
-                  }).map(function (team, i) {
-                  return [
-                          i.toString(),
-                          team.map(function (p) {
-                                return i.toString() + ":" + p.id;
-                              })
-                        ];
+                            ].map(function (team, j) {
+                                console.log("Match ID");
+                                console.log(i.toString() + "." + j.toString());
+                                return [
+                                        i.toString() + "." + j.toString(),
+                                        team.map(function (p) {
+                                              return i.toString() + "." + j.toString() + ":" + p.id;
+                                            })
+                                      ];
+                              });
+                  }).flatMap(function (x) {
+                  return x;
                 }));
 }
 

@@ -158,11 +158,11 @@ let schema = Zod.z->Zod.object(
     {
       scoreLeft: Zod.z->Zod.preprocess(
         a => Float.fromString(a)->Option.getOr(0.),
-        Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(0.),
+        Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(-1.),
       ),
       scoreRight: Zod.z->Zod.preprocess(
         a => Float.fromString(a)->Option.getOr(0.),
-        Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(0.),
+        Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(-1.),
       ),
     }: inputsMatch
   ),
@@ -210,7 +210,7 @@ let make = (
   ~minRating,
   ~maxRating,
   ~onDelete: option<unit => unit>=?,
-  ~onComplete: option<CompletedMatch.t<rsvpNode> => Js.Promise.t<unit>>=?,
+  ~onComplete: option<CompletedMatch.t<rsvpNode> => unit>=?,
 ) => {
   // ~onSubmitted: option<unit => unit>=?,
   // ~onSubmit: option<CompletedMatch.t<rsvpNode> => unit>=?,
@@ -218,7 +218,7 @@ let make = (
   let ts = Lingui.UtilString.t
   open Form
   let (view, setView) = React.useState(() => defaultView)
-  let {register, handleSubmit, setValue } = useFormOfInputsMatch(
+  let {register, handleSubmit, setValue} = useFormOfInputsMatch(
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {
@@ -269,12 +269,13 @@ let make = (
             ? (data.scoreLeft, data.scoreRight)
             : (data.scoreRight, data.scoreLeft)
         let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
-        let x = f((match, Some(score)))
-        x->Promise.then(_ => {
-          setValue(ScoreLeft, Value(0.))
-          setValue(ScoreRight, Value(0.))
-          Promise.resolve(setSubmitting(_ => false))
-        })
+        f((match, Some(score)))
+        // x->Promise.then(_ => {
+        setValue(ScoreLeft, Value(0.))
+        setValue(ScoreRight, Value(0.))
+        // Promise.resolve(setSubmitting(_ => false))
+        setSubmitting(_ => false)
+        // })
       })
       ->ignore
     }
