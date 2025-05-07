@@ -626,13 +626,7 @@ function AiTetsu(props) {
   var availablePlayers$1 = availablePlayers.filter(function (p) {
         return !deprioritized.has(p.id);
       });
-  var incompatiblePlayers = new Set([
-        "User_7e5631a2-53a9-11ef-b5a9-2b281b5a76b0",
-        "User_55448d42-0843-11ef-8202-7b71b4052443"
-      ]);
-  var avoidAllPlayers = queuedPlayers.filter(function (p) {
-        return incompatiblePlayers.has(p.id);
-      });
+  var avoidAllPlayers = [];
   var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
           if (next.rating.mu > acc) {
             return next.rating.mu;

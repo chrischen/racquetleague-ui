@@ -737,7 +737,6 @@ function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers
                     }), 6), [], (function (acc, playerSet) {
                 var players = filterOut(playerSet, consumedPlayers);
                 var matches = Core__Option.getOr(Core__Option.map(players.at(0), (function (topPlayer) {
-                            console.log(topPlayer);
                             return find_all_match_combos(filterOut(playerSet, consumedPlayers), [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
                                           return contains_player$1(param[0], topPlayer);
                                         }).toSorted(function (a, b) {
@@ -999,8 +998,6 @@ function toDndItems(t) {
                               param[0],
                               param[1]
                             ].map(function (team, j) {
-                                console.log("Match ID");
-                                console.log(i.toString() + "." + j.toString());
                                 return [
                                         i.toString() + "." + j.toString(),
                                         team.map(function (p) {

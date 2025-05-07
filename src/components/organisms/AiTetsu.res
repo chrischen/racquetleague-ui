@@ -604,12 +604,13 @@ let make = (~event, ~children) => {
   let availablePlayers = availablePlayers->Array.filter(p => !(deprioritized->Set.has(p.id)))
 
   // These players should be avoided in the same match
-  let incompatiblePlayers =
-    [
-      "User_7e5631a2-53a9-11ef-b5a9-2b281b5a76b0",
-      "User_55448d42-0843-11ef-8202-7b71b4052443",
-    ]->Set.fromArray
-  let avoidAllPlayers = queuedPlayers->Array.filter(p => incompatiblePlayers->Set.has(p.id))
+  // let incompatiblePlayers =
+  //   [
+  //     "User_7e5631a2-53a9-11ef-b5a9-2b281b5a76b0",
+  //     "User_55448d42-0843-11ef-8202-7b71b4052443",
+  //   ]->Set.fromArray
+  // let avoidAllPlayers = queuedPlayers->Array.filter(p => incompatiblePlayers->Set.has(p.id))
+  let avoidAllPlayers = []
 
   let maxRating =
     players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)

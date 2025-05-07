@@ -469,6 +469,7 @@ let find_all_match_combos = (
     ->Set.fromArray
 
   let result = teams->Array.reduce({seenTeams: [], matches: []}, ({seenTeams, matches}, team) => {
+    // For each team combo, get the remaining players
     let players' = availablePlayers->Array.filter(p => !(team->Team.contains_player(p)))
     // Teams of remaining players
     let teams' = players'->array_combos->Array.map(tuple2array)
@@ -619,7 +620,6 @@ module RankedMatches = {
         players
         ->Array.at(0)
         ->Option.map(topPlayer => {
-          Js.log(topPlayer)
           playerSet
           ->Players.filterOut(consumedPlayers)
           ->find_all_match_combos([], avoidAllPlayers, teams, requiredPlayers)
@@ -935,8 +935,6 @@ module Matches = {
     t
     ->Array.mapWithIndex(((t1, t2), i) => {
       [t1, t2]->Array.mapWithIndex((team, j) => {
-        Js.log("Match ID")
-        Js.log(i->Int.toString ++ "." ++ j->Int.toString)
         (
           i->Int.toString ++ "." ++ j->Int.toString,
           team->Array.map(p => i->Int.toString ++ "." ++ j->Int.toString ++ ":" ++ p.id),

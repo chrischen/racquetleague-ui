@@ -283,18 +283,21 @@ let make = (
                         let match = matches->Array.get(matchId)
                         match
                         ->Option.map(match => {
-                          let players =
+                          let matchPlayers =
                             match
                             ->Rating.Match.players
                             ->Array.map(player => player.id)
                             ->Array.filter(p => p != player.id)
-                          let newQueue =
+                          let replacements =
                             players
-                            ->Array.concat(availablePlayers->Array.map(player => player.id))
-                            ->Array.concat(breakPlayers->Set.values->Array.fromIterator)
+                            ->Array.map(player => player.id)
+                            ->Set.fromArray
+                            ->Util.JsSet.difference(consumedPlayers)
+                          let newQueue =
+                            matchPlayers->Array.concat(replacements->Set.values->Array.fromIterator)
                           setRequiredPlayers(
                             _ => {
-                              Some(players->Set.fromArray)
+                              Some(matchPlayers->Set.fromArray)
                             },
                           )
                           setQueue(newQueue)

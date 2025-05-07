@@ -161,10 +161,10 @@ function MatchesView(props) {
   var setQueue = props.setQueue;
   var togglePlayer = props.togglePlayer;
   var consumedPlayers = props.consumedPlayers;
-  var breakPlayers = props.breakPlayers;
   var queue = props.queue;
   var playersCache = props.playersCache;
   var availablePlayers = props.availablePlayers;
+  var players = props.players;
   var match = React.useState(function () {
         return "Matches";
       });
@@ -248,16 +248,17 @@ function MatchesView(props) {
                                                             onClick: (function (param) {
                                                                 var match = matches[matchId];
                                                                 Core__Option.map(match, (function (match) {
-                                                                        var players = Rating.Match.players(match).map(function (player) {
+                                                                        var matchPlayers = Rating.Match.players(match).map(function (player) {
                                                                                 return player.id;
                                                                               }).filter(function (p) {
                                                                               return p !== player.id;
                                                                             });
-                                                                        var newQueue = players.concat(availablePlayers.map(function (player) {
+                                                                        var replacements = new Set(players.map(function (player) {
                                                                                     return player.id;
-                                                                                  })).concat(Array.from(breakPlayers.values()));
+                                                                                  })).difference(consumedPlayers);
+                                                                        var newQueue = matchPlayers.concat(Array.from(replacements.values()));
                                                                         setRequiredPlayers(function (param) {
-                                                                              return Caml_option.some(new Set(players));
+                                                                              return Caml_option.some(new Set(matchPlayers));
                                                                             });
                                                                         setQueue(newQueue);
                                                                       }));
@@ -283,8 +284,8 @@ function MatchesView(props) {
         break;
     case "Queue" :
         tmp = JsxRuntime.jsx(MatchesView$Queue, {
-              players: props.players,
-              breakPlayers: breakPlayers,
+              players: players,
+              breakPlayers: props.breakPlayers,
               consumedPlayers: consumedPlayers,
               queue: queue,
               togglePlayer: (function (player) {
