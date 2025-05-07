@@ -350,20 +350,23 @@ function getDeprioritizedPlayers(history, players, session, $$break) {
                 return false;
               }
             }), session).slice(0, $$break);
-  if (breakPlayers.length >= $$break) {
-    return new Set(breakPlayers.map(function (p) {
-                    return p.id;
-                  }));
-  }
-  var breakAndLastPlayed = Rating.Players.addBreakPlayersFrom(breakPlayers, lastPlayed, $$break);
-  if (breakAndLastPlayed.length < $$break) {
-    return new Set(Rating.Players.addBreakPlayersFrom(breakAndLastPlayed, players, $$break).map(function (p) {
-                    return p.id;
-                  }));
+  var deprioritized;
+  if (breakPlayers.length < $$break) {
+    var breakAndLastPlayed = Rating.Players.addBreakPlayersFrom(breakPlayers, lastPlayed, $$break);
+    deprioritized = breakAndLastPlayed.length < $$break ? new Set(Rating.Players.addBreakPlayersFrom(breakAndLastPlayed, players, $$break).map(function (p) {
+                return p.id;
+              })) : new Set(breakAndLastPlayed.map(function (p) {
+                return p.id;
+              }));
   } else {
-    return new Set(breakAndLastPlayed.map(function (p) {
-                    return p.id;
-                  }));
+    deprioritized = new Set(breakPlayers.map(function (p) {
+              return p.id;
+            }));
+  }
+  if (history.length === 0) {
+    return new Set();
+  } else {
+    return deprioritized;
   }
 }
 
@@ -669,6 +672,11 @@ function AiTetsu(props) {
         });
     setMatches(function (param) {
           return matches$1;
+        });
+    setLocallyCompletedMatches(function (local) {
+          return Js_dict.fromArray(Js_dict.entries(local).filter(function (param) {
+                          return param[0] !== index;
+                        }));
         });
   };
   var dequeueMatches = function (indexes) {

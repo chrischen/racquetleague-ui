@@ -328,7 +328,7 @@ let getDeprioritizedPlayers = (
 
   // let lowestBreakPlayerCount =
   // breakPlayers->Array.last->Option.map(p => (session->Session.get(p.id)).count)->Option.getOr(0)
-  deprioritized
+  history->Array.length == 0 ? Set.make() : deprioritized
 }
 let getPriorityPlayers = (
   history: CompletedMatches.t<'a>,
@@ -638,6 +638,11 @@ let make = (~event, ~children) => {
     let matches = matches->Array.filterWithIndex((_, i) => i->Int.toString != index)
 
     setMatches(_ => matches)
+    setLocallyCompletedMatches(local => {
+      local->Js.Dict.entries->Array.filter(((key, value)) => {
+        key != index
+      })->Js.Dict.fromArray
+    })
   }
   let dequeueMatches = indexes => {
     let matches =
