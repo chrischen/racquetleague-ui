@@ -429,6 +429,22 @@ let array_combos: array<'a> => array<('a, 'a)> = arr => {
     arr->Array.slice(~start=i + 1, ~end=Array.length(arr))->Array.map(v2 => (v, v2))
   )
 }
+let array_combinations_n = (arr: array<'a>, n: int): array<array<'a>> => {
+  let rec helper = (arr, n, acc) => {
+    if n == 0 {
+      [acc]
+    } else if arr->Array.length == 0 {
+      []
+    } else {
+      let head = arr->Array.getUnsafe(0)
+      let tail = arr->Array.slice(~start=1, ~end=arr->Array.length)
+      let withHead = helper(tail, n - 1, acc->Array.concat([head]))
+      let withoutHead = helper(tail, n, acc)
+      withHead->Array.concat(withoutHead)
+    }
+  }
+  helper(arr, n, [])
+}
 let combos = (arr1: array<'a>, arr2: array<'a>): array<('a, 'a)> => {
   arr1->Array.flatMap(d => arr2->Array.map(v => (d, v)))
 }
@@ -468,20 +484,35 @@ let find_all_match_combos = (
     ->Array.map(p => p.id)
     ->Set.fromArray
 
-  let result = teams->Array.reduce({seenTeams: [], matches: []}, ({seenTeams, matches}, team) => {
-    // For each team combo, get the remaining players
-    let players' = availablePlayers->Array.filter(p => !(team->Team.contains_player(p)))
-    // Teams of remaining players
-    let teams' = players'->array_combos->Array.map(tuple2array)
-    let teams' = teams'->Array.filter(t => {
-      seenTeams->Array.findIndex(t' => t'->TeamSet.is_equal_to(t->team_to_players_set)) == -1
+  // This block replaces the original selection.
+  // It assumes a `combinations` function (provided below) is available in scope.
+  // It also assumes `teams` (all 2-player teams from `availablePlayers`) is defined
+  // immediately before this block, as in the original code.
+
+  let result = {
+    // Generate all unique 4-player groups from availablePlayers.
+    // `combinations` should return an array of arrays, e.g., array<array<Player.t<'a>>>.
+    let quads = array_combinations_n(availablePlayers, 4)
+
+    // For each 4-player group, form the 3 distinct 2v2 matches.
+    let new_matches = quads->Array.flatMap(quad => {
+      // `combinations(..., 4)` should guarantee `quad` has 4 players.
+      // If `availablePlayers.length < 4`, `quads` will be empty.
+      let p1 = quad->Array.getUnsafe(0)
+      let p2 = quad->Array.getUnsafe(1)
+      let p3 = quad->Array.getUnsafe(2)
+      let p4 = quad->Array.getUnsafe(3)
+      [([p1, p2], [p3, p4]), ([p1, p3], [p2, p4]), ([p1, p4], [p2, p3])] // Match: (Team [p1,p2]) vs (Team [p3,p4]) // Match: (Team [p1,p3]) vs (Team [p2,p4]) // Match: (Team [p1,p4]) vs (Team [p2,p3])
     })
 
-    {
-      seenTeams: seenTeams->Array.concat([team->team_to_players_set]),
-      matches: matches->Array.concat([team]->combos(teams')),
-    }
-  })
+    // Replicate the original `result.seenTeams` content.
+    // `teams` is `availablePlayers->array_combos->Array.map(tuple2array)`,
+    // representing all possible 2-player teams.
+    let final_seen_teams = teams->Array.map(team_players_array => team_players_array->Team.toSet) // Convert player array to Set of player IDs
+
+    // The result of this block is this record
+    {matches: new_matches, seenTeams: final_seen_teams}
+  }
   let {matches} = result
   let matches = matches->Array.map(match => {
     let quality = match->match_quality

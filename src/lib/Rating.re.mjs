@@ -562,6 +562,23 @@ function array_combos(arr) {
             });
 }
 
+function array_combinations_n(arr, n) {
+  var helper = function (arr, n, acc) {
+    if (n === 0) {
+      return [acc];
+    }
+    if (arr.length === 0) {
+      return [];
+    }
+    var head = arr[0];
+    var tail = arr.slice(1, arr.length);
+    var withHead = helper(tail, n - 1 | 0, acc.concat([head]));
+    var withoutHead = helper(tail, n, acc);
+    return withHead.concat(withoutHead);
+  };
+  return helper(arr, n, []);
+}
+
 function combos(arr1, arr2) {
   return arr1.flatMap(function (d) {
               return arr2.map(function (v) {
@@ -622,26 +639,49 @@ function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayer
             }).map(function (p) {
             return p.id;
           }));
-  var result = Core__Array.reduce(teams, {
-        seenTeams: [],
-        matches: []
-      }, (function (param, team) {
-          var seenTeams = param.seenTeams;
-          var players$p = availablePlayers.filter(function (p) {
-                return !contains_player(team, p);
-              });
-          var teams$p = array_combos(players$p).map(tuple2array);
-          var teams$p$1 = teams$p.filter(function (t) {
-                return seenTeams.findIndex(function (t$p) {
-                            return is_equal_to$1(t$p, team_to_players_set(t));
-                          }) === -1;
-              });
-          return {
-                  seenTeams: seenTeams.concat([team_to_players_set(team)]),
-                  matches: param.matches.concat(combos([team], teams$p$1))
-                };
-        }));
-  var matches = result.matches.map(function (match) {
+  var quads = array_combinations_n(availablePlayers, 4);
+  var new_matches = quads.flatMap(function (quad) {
+        var p1 = quad[0];
+        var p2 = quad[1];
+        var p3 = quad[2];
+        var p4 = quad[3];
+        return [
+                [
+                  [
+                    p1,
+                    p2
+                  ],
+                  [
+                    p3,
+                    p4
+                  ]
+                ],
+                [
+                  [
+                    p1,
+                    p3
+                  ],
+                  [
+                    p2,
+                    p4
+                  ]
+                ],
+                [
+                  [
+                    p1,
+                    p4
+                  ],
+                  [
+                    p2,
+                    p3
+                  ]
+                ]
+              ];
+      });
+  teams.map(function (team_players_array) {
+        return toSet(team_players_array);
+      });
+  var matches = new_matches.map(function (match) {
         var quality = match_quality(match);
         return [
                 match,
@@ -1107,6 +1147,7 @@ export {
   array_get_n_from ,
   array_split_by_n ,
   array_combos ,
+  array_combinations_n ,
   combos ,
   match_quality ,
   shuffle ,
