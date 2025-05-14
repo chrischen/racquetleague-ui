@@ -335,26 +335,26 @@ let make = () => {
                 className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 <div
                   className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-4 col-span-3 lg:row-span-2 lg:row-end-2 flex flex-row gap-2">
-                  <Link
-                    to={"/events/update/" ++
+                  <Button.Button
+                    href={"/events/update/" ++
                     event.id ++
                     "/" ++
                     event.location->Option.map(l => l.id)->Option.getOr("")}>
                     {t`edit event`}
-                  </Link>
+                  </Button.Button>
                   {switch event.deleted {
                   | Some(_) =>
-                    <UiAction
+                    <Button.Button
                       onClick={_ =>
                         !uncanceling ? uncancelEvent(~variables={eventId: event.id})->ignore : ()}>
                       {t`uncancel event`}
-                    </UiAction>
+                    </Button.Button>
                   | None =>
-                    <UiAction
+                    <Button.Button
                       onClick={_ =>
                         !canceling ? cancelEvent(~variables={eventId: event.id})->ignore : ()}>
                       {t`cancel event`}
-                    </UiAction>
+                    </Button.Button>
                   }}
                 </div>
               </div>
@@ -380,43 +380,6 @@ let make = () => {
             // <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-              <div className="lg:col-start-3 lg:row-end-1">
-                <div
-                  className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
-                  {switch shadow {
-                  | None
-                  | Some(false) =>
-                    <EventRsvps event=fragmentRefs user={viewer->Option.map(v => v.fragmentRefs)} />
-                  | Some(true) =>
-                    <ErrorAlert
-                      cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
-                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
-                    </ErrorAlert>
-                  }}
-                  {event.activity
-                  ->Option.flatMap(activity =>
-                    activity.slug->Option.map(
-                      slug =>
-                        switch (canOpenAiTetsu, slug) {
-                        | (true, "pickleball" as slug)
-                        | (true, "badminton" as slug) =>
-                          <div
-                            className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
-                            <h2 className="text-base font-semibold leading-6 text-gray-900">
-                              {t`league`}
-                            </h2>
-                            <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
-                              {t`submit matches`}
-                            </Link>
-                          </div>
-                        | _ => React.null
-                        },
-                    )
-                  )
-                  ->Option.getOr(React.null)}
-                  {viewerIsAdmin ? <EventFullNames event=fragmentRefs /> : React.null}
-                </div>
-              </div>
               <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
                 <div
                   className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
@@ -511,6 +474,43 @@ let make = () => {
                     </div>
                   )
                   ->Option.getOr(React.null)}
+                </div>
+              </div>
+              <div className="lg:col-start-3 lg:row-end-1">
+                <div
+                  className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
+                  {switch shadow {
+                  | None
+                  | Some(false) =>
+                    <EventRsvps event=fragmentRefs user={viewer->Option.map(v => v.fragmentRefs)} />
+                  | Some(true) =>
+                    <ErrorAlert
+                      cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
+                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
+                    </ErrorAlert>
+                  }}
+                  {event.activity
+                  ->Option.flatMap(activity =>
+                    activity.slug->Option.map(
+                      slug =>
+                        switch (canOpenAiTetsu, slug) {
+                        | (true, "pickleball" as slug)
+                        | (true, "badminton" as slug) =>
+                          <div
+                            className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
+                            <h2 className="text-base font-semibold leading-6 text-gray-900">
+                              {t`league`}
+                            </h2>
+                            <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
+                              {t`submit matches`}
+                            </Link>
+                          </div>
+                        | _ => React.null
+                        },
+                    )
+                  )
+                  ->Option.getOr(React.null)}
+                  {viewerIsAdmin ? <EventFullNames event=fragmentRefs /> : React.null}
                 </div>
               </div>
             </div>

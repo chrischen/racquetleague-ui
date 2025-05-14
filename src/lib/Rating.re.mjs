@@ -531,7 +531,7 @@ var Players = {
   loadPlayers: loadPlayers
 };
 
-function array_get_n_from(from, n, arr) {
+function array_get_n_from(arr, from, n) {
   var n$1 = arr.length > 3 && arr.length < n ? arr.length : n;
   if (from >= (arr.length - (n$1 - 1 | 0) | 0)) {
     return ;
@@ -549,7 +549,7 @@ function array_split_by_n(arr, n) {
   while(true) {
     var acc = _acc;
     var from = _from;
-    var next = array_get_n_from(from, n, arr);
+    var next = array_get_n_from(arr, from, n);
     if (next === undefined) {
       return acc;
     }
@@ -774,29 +774,28 @@ function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoi
 }
 
 function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
-  return Core__Array.reduce(array_split_by_n(players.toSorted(function (a, b) {
-                      var userA = a.rating.mu;
-                      var userB = b.rating.mu;
-                      if (userA < userB) {
-                        return 1;
-                      } else {
-                        return -1;
-                      }
-                    }), 6), [], (function (acc, playerSet) {
-                var players = filterOut(playerSet, consumedPlayers);
-                var matches = Core__Option.getOr(Core__Option.map(players.at(0), (function (topPlayer) {
-                            return find_all_match_combos(filterOut(playerSet, consumedPlayers), [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
-                                          return contains_player$1(param[0], topPlayer);
-                                        }).toSorted(function (a, b) {
-                                        if (a[1] < b[1]) {
-                                          return 1;
-                                        } else {
-                                          return -1;
-                                        }
-                                      });
-                          })), []);
-                return acc.concat(matches);
-              }));
+  return Core__Option.getOr(Core__Option.map(array_get_n_from(players.toSorted(function (a, b) {
+                          var userA = a.rating.mu;
+                          var userB = b.rating.mu;
+                          if (userA < userB) {
+                            return 1;
+                          } else {
+                            return -1;
+                          }
+                        }), 0, 6), (function (playerSet) {
+                    var players = filterOut(playerSet, consumedPlayers);
+                    return Core__Option.getOr(Core__Option.map(players.at(0), (function (topPlayer) {
+                                      return find_all_match_combos(filterOut(playerSet, consumedPlayers), [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
+                                                    return contains_player$1(param[0], topPlayer);
+                                                  }).toSorted(function (a, b) {
+                                                  if (a[1] < b[1]) {
+                                                    return 1;
+                                                  } else {
+                                                    return -1;
+                                                  }
+                                                });
+                                    })), []);
+                  })), []);
 }
 
 function strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {

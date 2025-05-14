@@ -403,7 +403,7 @@ type matchmakingResult<'a> = {
 }
 // Gets n from array array from a starting index, or returns the the array if
 // it's less than n and minimum of 4
-let array_get_n_from = (from: int, n: int, arr: array<'a>): option<array<'a>> => {
+let array_get_n_from = (arr: array<'a>, from: int, n: int): option<array<'a>> => {
   let n = if arr->Array.length > 3 && arr->Array.length < n {
     arr->Array.length
   } else {
@@ -429,7 +429,7 @@ let array_get_n_from = (from: int, n: int, arr: array<'a>): option<array<'a>> =>
 }
 let array_split_by_n = (arr: array<'a>, n) => {
   let rec loop = (from: int, acc: array<array<'a>>) => {
-    let next = array_get_n_from(from, n, arr)
+    let next = arr->array_get_n_from(from, n)
     switch next {
     | Some(next) => loop(from + 1, acc->Array.concat([next]))
     | None => acc
@@ -657,8 +657,8 @@ module RankedMatches = {
       let userB = b.rating.mu
       userA < userB ? 1. : -1.
     })
-    ->array_split_by_n(6)
-    ->Array.reduce([], (acc, playerSet) => {
+    ->array_get_n_from(0, 6)
+    ->Option.map(playerSet => {
       let players = playerSet->Players.filterOut(consumedPlayers)
       let matches =
         players
@@ -677,8 +677,9 @@ module RankedMatches = {
           )
         })
         ->Option.getOr([])
-      acc->Array.concat(matches)
-    })
+        matches
+
+    })->Option.getOr([])
   }
 
   let strategy_by_mixed = (
