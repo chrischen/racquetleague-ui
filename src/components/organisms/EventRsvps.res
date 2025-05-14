@@ -158,8 +158,8 @@ let make = (~event, ~user) => {
   let viewerCanJoin: option<bool> = minRating->Option.map(minRating => {
     let rating =
       viewer
-      ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.ordinal))
-      ->Option.getOr(0.0)
+      ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.mu))
+      ->Option.getOr(25.0)
     if rating < minRating {
       false
     } else {
@@ -229,11 +229,11 @@ let make = (~event, ~user) => {
     | _ =>
       <div className="text-center">
         <WarningAlert cta={""->React.string} ctaClick={() => ()}>
-          {t`Required rating: ${minRating->Option.getOr(0.0)->Float.toFixed(~digits=2)}`}
+          {t`Required rating: ${minRating->Option.getOr(25.0)->Float.toFixed(~digits=2)}`}
           <br />
           {t`Your rating ${viewer
           ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.ordinal))
-          ->Option.getOr(0.0)
+          ->Option.getOr(25.0)
           ->Float.toFixed(
             ~digits=2,
           )} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating.`}

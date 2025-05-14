@@ -174,9 +174,9 @@ function EventRsvps(props) {
   var viewerCanJoin = Core__Option.map(minRating, (function (minRating) {
           var rating = Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
                       return Core__Option.flatMap(viewer.eventRating, (function (r) {
-                                    return r.ordinal;
+                                    return r.mu;
                                   }));
-                    })), 0.0);
+                    })), 25.0);
           return rating >= minRating;
         }));
   var onJoin = function (param) {
@@ -220,13 +220,13 @@ function EventRsvps(props) {
             children: [
               JsxRuntime.jsxs(WarningAlert.make, {
                     children: [
-                      t`Required rating: ${Core__Option.getOr(minRating, 0.0).toFixed(2)}`,
+                      t`Required rating: ${Core__Option.getOr(minRating, 25.0).toFixed(2)}`,
                       JsxRuntime.jsx("br", {}),
                       t`Your rating ${Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
                                     return Core__Option.flatMap(viewer.eventRating, (function (r) {
                                                   return r.ordinal;
                                                 }));
-                                  })), 0.0).toFixed(2)} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating.`
+                                  })), 25.0).toFixed(2)} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating.`
                     ],
                     cta: "",
                     ctaClick: (function () {

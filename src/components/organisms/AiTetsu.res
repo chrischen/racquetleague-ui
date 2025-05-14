@@ -639,7 +639,7 @@ let make = (~event, ~children) => {
 
     setMatches(_ => matches)
     setLocallyCompletedMatches(local => {
-      local->Js.Dict.entries->Array.filter(((key, value)) => {
+      local->Js.Dict.entries->Array.filter(((key, _value)) => {
         key != index
       })->Js.Dict.fromArray
     })
