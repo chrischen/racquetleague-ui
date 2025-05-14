@@ -42,6 +42,13 @@ function makeDefault() {
   return Openskill.rating(undefined);
 }
 
+function decay_by_factor(t, factor) {
+  var diff = 8.333333 - t.sigma;
+  var decay = factor * diff;
+  var sigma = t.sigma + decay;
+  return make(t.mu, sigma);
+}
+
 function Rating_predictDraw(prim) {
   return Openskill.predictDraw(prim);
 }
@@ -65,7 +72,8 @@ var Rating = {
   predictDraw: Rating_predictDraw,
   predictWin: Rating_predictWin,
   ordinal: Rating_ordinal,
-  rate: Rating_rate
+  rate: Rating_rate,
+  decay_by_factor: decay_by_factor
 };
 
 function makeDefaultRatingPlayer(name) {

@@ -37,6 +37,8 @@ module Rating: {
   let predictWin: array<array<t>> => array<float>
   let ordinal: t => float
   let rate: (~ratings: matchRatings, ~opts: option<opts>=?) => matchRatings
+  // let log_decay: float => float;
+  let decay_by_factor: (t, float) => t;
 } = {
   type t = {
     mu: float,
@@ -63,6 +65,17 @@ module Rating: {
   let makeDefault: unit => t = () => {
     rating(None)
   }
+  // let log_decay = (x: float): float => {
+  //   let k = 0.00833; // About 160 starts decaying
+  //   let x0 = 640.0;
+  //   1.0 /. (1.0 +. exp(-. k *. (x -. x0)));
+  // };
+  let decay_by_factor = (t: t, factor: float): t => {
+    let diff = 8.333333 -. t.sigma;
+    let decay = factor *. diff;
+    let sigma = t.sigma +. decay;
+    make(t.mu, sigma);
+  };
 }
 module Player = {
   type t<'a> = {

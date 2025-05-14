@@ -425,7 +425,19 @@ function rsvpToPlayer(rsvp) {
   var rating;
   if (match$1 !== undefined) {
     var mu = match$1.mu;
-    rating = mu !== undefined && match$1.sigma !== undefined ? Rating.Rating.make(mu, 8.333) : Rating.Rating.makeDefault();
+    if (mu !== undefined) {
+      var sigma = match$1.sigma;
+      if (sigma !== undefined) {
+        var rating$1 = Rating.Rating.make(mu, sigma);
+        var decayedRating = Rating.Rating.decay_by_factor(rating$1, 0.4);
+        console.log("Decaying sigma: " + rating$1.sigma.toString() + " -> " + decayedRating.sigma.toString());
+        rating = decayedRating;
+      } else {
+        rating = Rating.Rating.makeDefault();
+      }
+    } else {
+      rating = Rating.Rating.makeDefault();
+    }
   } else {
     rating = Rating.Rating.makeDefault();
   }

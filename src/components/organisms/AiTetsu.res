@@ -70,7 +70,7 @@ module Fragment = %relay(`
   @argumentDefinitions(
     after: { type: "String" }
     before: { type: "String" }
-    first: { type: "Int", defaultValue: 50 }
+    first: { type: "Int", defaultValue: 100 }
   )
   @refetchable(queryName: "AiTetsuRsvpsRefetchQuery") {
     __id
@@ -402,7 +402,16 @@ let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node)
   switch (rsvp.user->Option.map(u => u.id), rsvp.rating) {
   | (Some(userId), rating) =>
     let rating = switch rating {
-    | Some({mu: Some(mu), sigma: Some(sigma)}) => Rating.make(mu, 8.333)
+    | Some({mu: Some(mu), sigma: Some(sigma)}) =>
+      let rating = Rating.make(mu, sigma)
+      let decayedRating = rating->Rating.decay_by_factor(0.4) // Set the sigma to a decayed value to increase variability during the session
+      Js.log(
+        "Decaying sigma: " ++
+        rating.sigma->Float.toString ++
+        " -> " ++
+        decayedRating.sigma->Float.toString,
+      )
+      decayedRating
     | _ => Rating.makeDefault()
     }
     {
@@ -639,9 +648,12 @@ let make = (~event, ~children) => {
 
     setMatches(_ => matches)
     setLocallyCompletedMatches(local => {
-      local->Js.Dict.entries->Array.filter(((key, _value)) => {
+      local
+      ->Js.Dict.entries
+      ->Array.filter(((key, _value)) => {
         key != index
-      })->Js.Dict.fromArray
+      })
+      ->Js.Dict.fromArray
     })
   }
   let dequeueMatches = indexes => {
