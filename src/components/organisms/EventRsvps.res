@@ -232,11 +232,11 @@ let make = (~event, ~user) => {
           {t`Required rating: ${minRating->Option.getOr(25.0)->Float.toFixed(~digits=2)}`}
           <br />
           {t`Your rating ${viewer
-          ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.ordinal))
+          ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.mu))
           ->Option.getOr(25.0)
           ->Float.toFixed(
             ~digits=2,
-          )} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating.`}
+          )} is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating.`}
         </WarningAlert>
         <button
           onClick=onJoin

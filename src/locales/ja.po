@@ -1415,7 +1415,9 @@ msgstr "すべてのプレイヤーをチェックイン"
 msgid ""
 "Not enough players in the queue. Select the players who want to play from "
 "the Queue tab."
-msgstr "キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選択してください。"
+msgstr ""
+"キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選"
+"択してください。"
 
 #: src/components/organisms/MatchesView.re.mjs:126
 msgid "Queue All"
@@ -1432,6 +1434,14 @@ msgstr "結果を提出"
 #: src/components/organisms/MatchesView.re.mjs:126
 msgid "Unqueue All"
 msgstr "すべてのキューを解除"
+
+#: src/components/organisms/EventRsvps.re.mjs:225
+msgid ""
+"Your rating {0} is too low. You will be placed in the pending list until the "
+"rating limit is lowered. Please join another JPL rated event to boost your "
+"rating."
+msgstr "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リストに"
+"登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

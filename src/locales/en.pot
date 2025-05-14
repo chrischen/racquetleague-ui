@@ -1506,3 +1506,10 @@ msgstr ""
 #: src/components/organisms/MatchesView.re.mjs:126
 msgid "Unqueue All"
 msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:225
+msgid ""
+"Your rating {0} is too low. You will be placed in the pending list until the "
+"rating limit is lowered. Please join another JPL rated event to boost your "
+"rating."
+msgstr ""

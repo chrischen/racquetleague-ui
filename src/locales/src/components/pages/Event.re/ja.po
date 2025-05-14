@@ -260,12 +260,13 @@ msgstr "あなたはウェイトリストに入っています :("
 
 #: src/components/organisms/EventRsvps.re.mjs:225
 msgid ""
-"Your rating {0} is too low. You will be placed in the waitlist until the "
-"rating limit is lowered. Please join a JPL open event to boost your rating."
+"Your rating {0} is too low. You will be placed in the pending list until the "
+"rating limit is lowered. Please join another JPL rated event to boost your "
+"rating."
 msgstr ""
-"あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイティ"
-"ングリストに登録されます。レーティングを上げるためにJPLのオープンイベントに参"
-"加してください。"
+"あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リスト"
+"に登録されます。レーティングを上げるために別のJPL評価イベントに参加してくださ"
+"い。"
 
 #: src/components/organisms/EventRsvps.re.mjs:203
 #~ msgid ""
@@ -305,3 +306,13 @@ msgstr ""
 #~ msgstr ""
 #~ "あなたの評価{0}が低すぎます。評価を上げるためにJPLオープンイベントに参加し"
 #~ "てください。最速の方法は、Jaiと何度かプレイして勝つことです"
+
+#: src/components/organisms/EventRsvps.re.mjs:225
+#~ msgid ""
+#~ "Your rating {0} is too low. You will be placed in the waitlist until the "
+#~ "rating limit is lowered. Please join a JPL open event to boost your "
+#~ "rating."
+#~ msgstr ""
+#~ "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイ"
+#~ "ティングリストに登録されます。レーティングを上げるためにJPLのオープンイベ"
+#~ "ントに参加してください。"

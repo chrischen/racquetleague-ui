@@ -17,8 +17,8 @@ msgstr ""
 msgid "# of courts"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:415
-#: src/components/organisms/MatchesView.re.mjs:418
+#: src/components/organisms/MatchesView.re.mjs:416
+#: src/components/organisms/MatchesView.re.mjs:419
 msgid "and"
 msgstr ""
 
@@ -26,15 +26,15 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:376
+#: src/components/organisms/MatchesView.re.mjs:377
 msgid "Checkin"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:438
+#: src/components/organisms/MatchesView.re.mjs:439
 msgid "Choose Match"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:344
+#: src/components/organisms/MatchesView.re.mjs:345
 msgid "CHOOSE MATCH"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Close panel"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:419
+#: src/components/organisms/MatchesView.re.mjs:420
 msgid "Court {0}: {team1} versus {team2}"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:406
+#: src/components/organisms/MatchesView.re.mjs:407
 msgid "Matches"
 msgstr ""
 
@@ -80,7 +80,7 @@ msgstr ""
 msgid "predicted winner"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:391
+#: src/components/organisms/MatchesView.re.mjs:392
 msgid "Queue"
 msgstr ""
 
@@ -96,7 +96,7 @@ msgstr ""
 #~ msgid "Submit Rated"
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:316
+#: src/components/organisms/MatchesView.re.mjs:317
 msgid "SUBMIT RESULTS"
 msgstr ""
 

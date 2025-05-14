@@ -148,5 +148,9 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:225
-msgid "Your rating {0} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating."
+msgid "Your rating {0} is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
 msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:225
+#~ msgid "Your rating {0} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating."
+#~ msgstr ""
