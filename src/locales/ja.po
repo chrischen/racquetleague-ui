@@ -1440,8 +1440,21 @@ msgid ""
 "Your rating {0} is too low. You will be placed in the pending list until the "
 "rating limit is lowered. Please join another JPL rated event to boost your "
 "rating."
-msgstr "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リストに"
-"登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
+msgstr ""
+"あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リスト"
+"に登録されます。レーティングを上げるために別のJPL評価イベントに参加してくださ"
+"い。"
+
+#: src/components/organisms/EventRsvps.re.mjs:234
+msgid "Required rating: {0} (DUPR {1})"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:236
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

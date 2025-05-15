@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Button from "../catalyst/Button.re.mjs";
+import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as EventRsvp from "./EventRsvp.re.mjs";
@@ -174,9 +175,9 @@ function EventRsvps(props) {
   var viewerCanJoin = Core__Option.map(minRating, (function (minRating) {
           var rating = Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
                       return Core__Option.flatMap(viewer.eventRating, (function (r) {
-                                    return r.mu;
+                                    return r.ordinal;
                                   }));
-                    })), 25.0);
+                    })), Rating.Rating.ordinal(Rating.Rating.makeDefault()));
           return rating >= minRating;
         }));
   var onJoin = function (param) {
@@ -212,6 +213,16 @@ function EventRsvps(props) {
             return acc;
           }
         }));
+  var viewerLowerRating = Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
+              return Core__Option.flatMap(viewer.eventRating, (function (r) {
+                            return r.ordinal;
+                          }));
+            })), Rating.Rating.ordinal(Rating.Rating.makeDefault()));
+  var viewerUpperRating = Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
+              return Core__Option.flatMap(viewer.eventRating, (function (r) {
+                            return r.mu;
+                          }));
+            })), Rating.Rating.ordinal(Rating.Rating.makeDefault()));
   var joinButton;
   if (viewer !== undefined) {
     var exit = 0;
@@ -220,13 +231,9 @@ function EventRsvps(props) {
             children: [
               JsxRuntime.jsxs(WarningAlert.make, {
                     children: [
-                      t`Required rating: ${Core__Option.getOr(minRating, 25.0).toFixed(2)}`,
+                      t`Required rating: ${Core__Option.getOr(minRating, 0).toFixed(2)} (DUPR ${Rating.guessDupr(Core__Option.getOr(minRating, 0)).toFixed(2)})`,
                       JsxRuntime.jsx("br", {}),
-                      t`Your rating ${Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
-                                    return Core__Option.flatMap(viewer.eventRating, (function (r) {
-                                                  return r.mu;
-                                                }));
-                                  })), 25.0).toFixed(2)} is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating.`
+                      t`Your rating ${viewerLowerRating.toFixed(2)} ~ ${viewerUpperRating.toFixed(2)} (DUPR ${Rating.guessDupr(viewerLowerRating).toFixed(2)} ~ ${Rating.guessDupr(viewerUpperRating).toFixed(2)}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating.`
                     ],
                     cta: "",
                     ctaClick: (function () {

@@ -158,8 +158,8 @@ let make = (~event, ~user) => {
   let viewerCanJoin: option<bool> = minRating->Option.map(minRating => {
     let rating =
       viewer
-      ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.mu))
-      ->Option.getOr(25.0)
+      ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.ordinal))
+      ->Option.getOr(Rating.Rating.makeDefault()->Rating.Rating.ordinal)
     if rating < minRating {
       false
     } else {
@@ -217,6 +217,14 @@ let make = (~event, ~user) => {
   //       : acc
   //   )
 
+  let viewerLowerRating =
+    viewer
+    ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.ordinal))
+    ->Option.getOr(Rating.Rating.makeDefault()->Rating.Rating.ordinal)
+  let viewerUpperRating =
+    viewer
+    ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.mu))
+    ->Option.getOr(Rating.Rating.makeDefault()->Rating.Rating.ordinal)
   let joinButton = switch viewer {
   | Some(_) =>
     switch viewerCanJoin {
@@ -229,14 +237,22 @@ let make = (~event, ~user) => {
     | _ =>
       <div className="text-center">
         <WarningAlert cta={""->React.string} ctaClick={() => ()}>
-          {t`Required rating: ${minRating->Option.getOr(25.0)->Float.toFixed(~digits=2)}`}
+          {t`Required rating: ${minRating
+          ->Option.getOr(0.)
+          ->Float.toFixed(~digits=2)} (DUPR ${minRating
+          ->Option.getOr(0.)
+          ->Rating.guessDupr
+          ->Float.toFixed(~digits=2)})`}
           <br />
-          {t`Your rating ${viewer
-          ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.mu))
-          ->Option.getOr(25.0)
+          {t`Your rating ${viewerLowerRating->Float.toFixed(
+            ~digits=2,
+          )} ~ ${viewerUpperRating->Float.toFixed(~digits=2)} (DUPR ${viewerLowerRating
+          ->Rating.guessDupr
+          ->Float.toFixed(~digits=2)} ~ ${viewerUpperRating
+          ->Rating.guessDupr
           ->Float.toFixed(
             ~digits=2,
-          )} is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating.`}
+          )}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating.`}
         </WarningAlert>
         <button
           onClick=onJoin

@@ -37,8 +37,8 @@ msgstr "ピックルボール"
 msgid "Futsal"
 msgstr "フットサル"
 
-#: src/components/organisms/EventRsvps.re.mjs:413
-#: src/components/organisms/EventRsvps.re.mjs:542
+#: src/components/organisms/EventRsvps.re.mjs:420
+#: src/components/organisms/EventRsvps.re.mjs:549
 msgid "{0, plural, one {player} other {players}}"
 msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
 
@@ -50,15 +50,15 @@ msgstr "{0}時間"
 msgid "{0} hours and {1} minutes"
 msgstr "{0}時間{1}分"
 
-#: src/components/organisms/EventRsvps.re.mjs:405
+#: src/components/organisms/EventRsvps.re.mjs:412
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventRsvps.re.mjs:492
+#: src/components/organisms/EventRsvps.re.mjs:499
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/Event.re.mjs:509
+#: src/components/pages/Event.re.mjs:470
 msgid "activity"
 msgstr "アクティビティ"
 
@@ -66,11 +66,11 @@ msgstr "アクティビティ"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/EventRsvps.re.mjs:323
+#: src/components/organisms/EventRsvps.re.mjs:330
 msgid "attendees"
 msgstr "参加者"
 
-#: src/components/pages/Event.re.mjs:213
+#: src/components/pages/Event.re.mjs:204
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -78,15 +78,15 @@ msgstr "イベントをキャンセル"
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/organisms/EventRsvps.re.mjs:398
+#: src/components/organisms/EventRsvps.re.mjs:405
 msgid "confirmed"
 msgstr "確認済み"
 
-#: src/components/pages/Event.re.mjs:427
+#: src/components/pages/Event.re.mjs:388
 msgid "details"
 msgstr "詳細"
 
-#: src/components/pages/Event.re.mjs:190
+#: src/components/pages/Event.re.mjs:187
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -98,7 +98,7 @@ msgstr "イベント @"
 msgid "event doesn't exist"
 msgstr "イベントが存在しません"
 
-#: src/components/pages/Event.re.mjs:480
+#: src/components/pages/Event.re.mjs:441
 msgid "good luck, have fun"
 msgstr "がんばってください"
 
@@ -115,9 +115,9 @@ msgid "hosted by {name}"
 msgstr "{name}主催"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
-#: src/components/organisms/EventRsvps.re.mjs:237
-#: src/components/organisms/EventRsvps.re.mjs:249
-#: src/components/organisms/EventRsvps.re.mjs:267
+#: src/components/organisms/EventRsvps.re.mjs:244
+#: src/components/organisms/EventRsvps.re.mjs:256
+#: src/components/organisms/EventRsvps.re.mjs:274
 msgid "join event"
 msgstr "参加する"
 
@@ -129,13 +129,13 @@ msgstr "ウェイトリストから参加"
 msgid "joined the event"
 msgstr "参加しました"
 
-#: src/components/pages/Event.re.mjs:401
+#: src/components/pages/Event.re.mjs:522
 msgid "league"
 msgstr "ラケットリーグ"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
-#: src/components/organisms/EventRsvps.re.mjs:277
-#: src/components/organisms/EventRsvps.re.mjs:281
+#: src/components/organisms/EventRsvps.re.mjs:284
+#: src/components/organisms/EventRsvps.re.mjs:288
 msgid "leave event"
 msgstr "離れる"
 
@@ -143,14 +143,14 @@ msgstr "離れる"
 msgid "left the event"
 msgstr "離れました"
 
-#: src/components/organisms/EventRsvps.re.mjs:471
-#: src/components/organisms/EventRsvps.re.mjs:523
-#: src/components/organisms/EventRsvps.re.mjs:573
+#: src/components/organisms/EventRsvps.re.mjs:478
+#: src/components/organisms/EventRsvps.re.mjs:530
+#: src/components/organisms/EventRsvps.re.mjs:580
 msgid "load More"
 msgstr "もっと読み込む"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
-#: src/components/organisms/EventRsvps.re.mjs:260
+#: src/components/organisms/EventRsvps.re.mjs:267
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
@@ -163,22 +163,22 @@ msgstr "ログインして{activityName}のイベントに登録"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/Event.re.mjs:527
+#: src/components/pages/Event.re.mjs:488
 msgid "media"
 msgstr "メディア"
 
-#: src/components/organisms/EventRsvps.re.mjs:462
-#: src/components/organisms/EventRsvps.re.mjs:516
-#: src/components/organisms/EventRsvps.re.mjs:566
+#: src/components/organisms/EventRsvps.re.mjs:469
+#: src/components/organisms/EventRsvps.re.mjs:523
+#: src/components/organisms/EventRsvps.re.mjs:573
 #: src/components/organisms/EventFullNames.re.mjs:97
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/pages/Event.re.mjs:489
+#: src/components/pages/Event.re.mjs:450
 msgid "notes"
 msgstr "メモ"
 
-#: src/components/organisms/EventRsvps.re.mjs:536
+#: src/components/organisms/EventRsvps.re.mjs:543
 msgid "pending"
 msgstr "保留中"
 
@@ -186,16 +186,16 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventRsvps.re.mjs:223
-msgid "Required rating: {0}"
-msgstr "必要な評価: {0}"
+#: src/components/organisms/EventRsvps.re.mjs:234
+msgid "Required rating: {0} (DUPR {1})"
+msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:433
-#: src/components/organisms/EventRsvps.re.mjs:443
+#: src/components/organisms/EventRsvps.re.mjs:440
+#: src/components/organisms/EventRsvps.re.mjs:450
 msgid "spots available"
 msgstr "利用可能なスポット"
 
-#: src/components/pages/Event.re.mjs:406
+#: src/components/pages/Event.re.mjs:527
 msgid "submit matches"
 msgstr "試合を提出"
 
@@ -207,7 +207,7 @@ msgstr "{activityName} のすべてのイベントに登録"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/organisms/EventRsvps.re.mjs:284
+#: src/components/organisms/EventRsvps.re.mjs:291
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
@@ -225,7 +225,7 @@ msgstr ""
 "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
 "加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
-#: src/components/pages/Event.re.mjs:202
+#: src/components/pages/Event.re.mjs:193
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -237,12 +237,12 @@ msgstr "{activityName} のイベントから登録解除"
 msgid "view events"
 msgstr "イベントを見る"
 
-#: src/components/organisms/EventRsvps.re.mjs:438
-#: src/components/organisms/EventRsvps.re.mjs:486
+#: src/components/organisms/EventRsvps.re.mjs:445
+#: src/components/organisms/EventRsvps.re.mjs:493
 msgid "waitlist"
 msgstr "ウェイトリスト"
 
-#: src/components/organisms/EventRsvps.re.mjs:283
+#: src/components/organisms/EventRsvps.re.mjs:290
 msgid "You will lose your spot"
 msgstr "あなたのスポットを失います"
 
@@ -250,23 +250,23 @@ msgstr "あなたのスポットを失います"
 msgid "you will receive email notifications for new events"
 msgstr "新しいイベントについてメール通知を受け取ります"
 
-#: src/components/organisms/EventRsvps.re.mjs:341
+#: src/components/organisms/EventRsvps.re.mjs:348
 msgid "you're going :)"
 msgstr "あなたは行く :)"
 
-#: src/components/organisms/EventRsvps.re.mjs:362
+#: src/components/organisms/EventRsvps.re.mjs:369
 msgid "you're waitlisted :("
 msgstr "あなたはウェイトリストに入っています :("
 
-#: src/components/organisms/EventRsvps.re.mjs:225
+#: src/components/organisms/EventRsvps.re.mjs:236
 msgid ""
-"Your rating {0} is too low. You will be placed in the pending list until the "
-"rating limit is lowered. Please join another JPL rated event to boost your "
-"rating."
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
 msgstr ""
-"あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リスト"
-"に登録されます。レーティングを上げるために別のJPL評価イベントに参加してくださ"
-"い。"
+"あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
+"限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
+"イベントに参加してください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:203
 #~ msgid ""
@@ -295,6 +295,10 @@ msgstr ""
 #~ msgid "required rating: {0}"
 #~ msgstr "必要な評価: {0}"
 
+#: src/components/organisms/EventRsvps.re.mjs:223
+#~ msgid "Required rating: {0}"
+#~ msgstr "必要な評価: {0}"
+
 #: src/components/organisms/EventRsvps.re.mjs:523
 #~ msgid "restricted by level"
 #~ msgstr "レベルによって制限"
@@ -306,6 +310,16 @@ msgstr ""
 #~ msgstr ""
 #~ "あなたの評価{0}が低すぎます。評価を上げるためにJPLオープンイベントに参加し"
 #~ "てください。最速の方法は、Jaiと何度かプレイして勝つことです"
+
+#: src/components/organisms/EventRsvps.re.mjs:225
+#~ msgid ""
+#~ "Your rating {0} is too low. You will be placed in the pending list until "
+#~ "the rating limit is lowered. Please join another JPL rated event to boost "
+#~ "your rating."
+#~ msgstr ""
+#~ "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リ"
+#~ "ストに登録されます。レーティングを上げるために別のJPL評価イベントに参加し"
+#~ "てください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:225
 #~ msgid ""
