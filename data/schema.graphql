@@ -438,6 +438,7 @@ type Rsvp implements Node {
   leaveDate: Datetime
   listType: Int
   rating: Rating
+  rsvpId: Int
   user: User
 }
 

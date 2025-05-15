@@ -80,6 +80,8 @@ module UpdateMutation = %relay(`
       rsvps {
         id
         listType
+        joinTime
+        rsvpId
       }
     }
   }
