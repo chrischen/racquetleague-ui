@@ -76,7 +76,7 @@ let make = () => {
   | _ => t`all events`
   }
   let shadowFilter =
-    searchParams->Router.SearchParams.get("shadow")->Option.map(_ => true)->Option.getOr(false)
+    searchParams->Router.SearchParams.get("shadow")->Option.map(v => v == "true")->Option.getOr(true)
   // let viewer = GlobalQuery.useViewer()
   let navigate = Router.useNavigate()
 
@@ -116,7 +116,7 @@ let make = () => {
                         : navigate(
                             "./?" ++
                             searchParams
-                            ->Router.ImmSearchParams.delete("shadow")
+                            ->Router.ImmSearchParams.set("shadow", "false")
                             ->Router.ImmSearchParams.toString,
                             None,
                           )
@@ -170,7 +170,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
   let activity = url.searchParams->Router.SearchParams.get("activity")
-  let shadow = url.searchParams->Router.SearchParams.get("shadow")->Option.map(_ => true)
+  let shadow = url.searchParams->Router.SearchParams.get("shadow")->Option.map(v => v == "true")->Option.getOr(true)
   let afterDate =
     url.searchParams
     ->Router.SearchParams.get("afterDate")
@@ -190,7 +190,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         ?afterDate,
         filters: {
           activitySlug: ?activity,
-          ?shadow,
+          shadow,
         },
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,

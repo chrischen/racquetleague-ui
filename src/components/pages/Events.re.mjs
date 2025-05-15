@@ -117,9 +117,9 @@ function Events(props) {
   } else {
     title = t`all events`;
   }
-  var shadowFilter = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(searchParams, "shadow"), (function (param) {
-              return true;
-            })), false);
+  var shadowFilter = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(searchParams, "shadow"), (function (v) {
+              return v === "true";
+            })), true);
   var navigate = ReactRouterDom.useNavigate();
   var searchParams$1 = Router.ImmSearchParams.fromSearchParams(searchParams);
   return JsxRuntime.jsx(WaitForMessages.make, {
@@ -166,7 +166,7 @@ function Events(props) {
                                                                                 navigate("./?" + searchParams$1.set("shadow", "true").toString(), undefined);
                                                                                 return ;
                                                                               } else {
-                                                                                return navigate("./?" + searchParams$1.delete("shadow").toString(), undefined);
+                                                                                return navigate("./?" + searchParams$1.set("shadow", "false").toString(), undefined);
                                                                               }
                                                                             })
                                                                         }),
@@ -206,9 +206,9 @@ async function loader(param) {
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
   var activity = Router.SearchParams.get(url.searchParams, "activity");
-  var shadow = Core__Option.map(Router.SearchParams.get(url.searchParams, "shadow"), (function (param) {
-          return true;
-        }));
+  var shadow = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(url.searchParams, "shadow"), (function (v) {
+              return v === "true";
+            })), true);
   var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
           return Util.Datetime.fromDate(new Date(d));
         }));
