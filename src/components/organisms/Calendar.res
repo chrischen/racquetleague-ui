@@ -18,6 +18,7 @@ module Fragment = %relay(`
         node {
           id
           startDate
+          timezone
         }
       }
     }

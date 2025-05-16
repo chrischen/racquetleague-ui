@@ -400,6 +400,7 @@ function $$Event(props) {
                                                                                                                                     children: [
                                                                                                                                       JsxRuntime.jsx(ReactIntl.FormattedDate, {
                                                                                                                                             value: Util.Datetime.toDate(startDate),
+                                                                                                                                            timeZone: $$event.timezone,
                                                                                                                                             weekday: "long",
                                                                                                                                             year: "2-digit",
                                                                                                                                             month: "numeric",
@@ -407,11 +408,13 @@ function $$Event(props) {
                                                                                                                                           }),
                                                                                                                                       " ",
                                                                                                                                       JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                                                                            value: Util.Datetime.toDate(startDate)
+                                                                                                                                            value: Util.Datetime.toDate(startDate),
+                                                                                                                                            timeZone: $$event.timezone
                                                                                                                                           }),
                                                                                                                                       " -> ",
                                                                                                                                       JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                                                                            value: Util.Datetime.toDate(endDate)
+                                                                                                                                            value: Util.Datetime.toDate(endDate),
+                                                                                                                                            timeZone: $$event.timezone
                                                                                                                                           }),
                                                                                                                                       " ",
                                                                                                                                       Core__Option.getOr(Core__Option.map(until, (function (until) {

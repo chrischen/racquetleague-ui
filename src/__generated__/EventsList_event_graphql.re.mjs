@@ -165,6 +165,13 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "timezone",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "shadow",
       "storageKey": null
     },

@@ -92,6 +92,7 @@ var schema = Zod.z.object({
       endTime: Zod.z.string({
               required_error: t`end time is required`
             }).min(5),
+      timezone: Zod.z.string({}).optional(),
       details: Zod.z.string({}).optional(),
       listed: Zod.z.boolean({})
     });
@@ -197,6 +198,7 @@ function CreateLocationEventForm(props) {
               maxRsvps: data.maxRsvps,
               minRating: data.minRating,
               startDate: Util.Datetime.fromDate(startDate),
+              timezone: data.timezone,
               title: data.title
             }
           }, undefined, undefined, undefined, (function (response, _errors) {
@@ -221,6 +223,7 @@ function CreateLocationEventForm(props) {
             maxRsvps: data.maxRsvps,
             minRating: data.minRating,
             startDate: Util.Datetime.fromDate(startDate$1),
+            timezone: data.timezone,
             title: data.title
           }
         }, undefined, undefined, undefined, (function (_response, _errors) {
@@ -341,6 +344,19 @@ function CreateLocationEventForm(props) {
                                                                                       id: "endTime",
                                                                                       type_: "time",
                                                                                       register: register("endTime", undefined)
+                                                                                    }),
+                                                                                className: "sm:col-span-2"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx(Form.Input.make, {
+                                                                                      label: Caml_option.some(t`timezone`),
+                                                                                      name: "timeZone",
+                                                                                      id: "timeZone",
+                                                                                      type_: "text",
+                                                                                      register: register("timezone", {
+                                                                                            required: false
+                                                                                          }),
+                                                                                      defaultValue: new Intl.DateTimeFormat().resolvedOptions().timeZone
                                                                                     }),
                                                                                 className: "sm:col-span-2"
                                                                               }),

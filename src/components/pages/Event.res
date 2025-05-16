@@ -31,6 +31,7 @@ module EventQuery = %relay(`
       viewerHasRsvp
       startDate
       endDate
+      timezone
       shadow
       location {
         id
@@ -403,11 +404,16 @@ let make = () => {
                               year={#"2-digit"}
                               weekday=#long
                               value={startDate->Util.Datetime.toDate}
+                              timeZone=?event.timezone
                             />
                             {" "->React.string}
-                            <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
+                            <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate}
+                              timeZone=?event.timezone
+                            />
                             {" -> "->React.string}
-                            <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />
+                            <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} 
+                              timeZone=?event.timezone
+                            />
                             {" "->React.string}
                             {until
                             ->Option.map(

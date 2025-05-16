@@ -32,6 +32,7 @@ module Types = {
     maxRsvps: option<int>,
     minRating: option<float>,
     startDate: option<Util.Datetime.t>,
+    timezone: option<string>,
     title: option<string>,
   }
   @live
@@ -212,6 +213,13 @@ v3 = [
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "timezone",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "Activity",
             "kind": "LinkedField",
             "name": "activity",
@@ -334,12 +342,12 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "43ffb942fe2bd96e064f02064fa6162d",
+    "cacheID": "cf87ebec40f8cdb8f5ccf0b7a34903f8",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormUpdateMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n    rsvps {\n      id\n      listType\n      joinTime\n      rsvpId\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      timezone\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n    rsvps {\n      id\n      listType\n      joinTime\n      rsvpId\n    }\n  }\n}\n"
   }
 };
 })() `)

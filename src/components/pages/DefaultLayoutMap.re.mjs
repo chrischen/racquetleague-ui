@@ -211,7 +211,7 @@ function DefaultLayoutMap$Layout(props) {
                                                       className: "max-lg:hidden",
                                                       href: "/",
                                                       children: JsxRuntime.jsx(Navbar.NavbarLabel.make, {
-                                                            children: t`Racquet League`
+                                                            children: t`pkuru`
                                                           })
                                                     }),
                                                 JsxRuntime.jsx(Navbar.NavbarDivider.make, {
@@ -276,7 +276,7 @@ function DefaultLayoutMap$Layout(props) {
                                                       children: JsxRuntime.jsx(Sidebar.SidebarItem.make, {
                                                             href: "/",
                                                             children: JsxRuntime.jsx(Sidebar.SidebarLabel.make, {
-                                                                  children: t`Racquet League`
+                                                                  children: t`pkuru`
                                                                 })
                                                           })
                                                     }),

@@ -99,6 +99,7 @@ and input_CreateEventInput = {
   maxRsvps?: int,
   minRating?: float,
   startDate: Util.Datetime.t,
+  timezone?: string,
   title: string,
 }
 
@@ -113,6 +114,7 @@ and input_CreateEventInput_nullable = {
   maxRsvps?: Js.Null.t<int>,
   minRating?: Js.Null.t<float>,
   startDate: Util.Datetime.t,
+  timezone?: Js.Null.t<string>,
   title: string,
 }
 
@@ -122,6 +124,7 @@ and input_CreateEventsInput = {
   clubId: string,
   input: string,
   listed: bool,
+  timezone?: string,
 }
 
 @live
@@ -130,6 +133,7 @@ and input_CreateEventsInput_nullable = {
   clubId: string,
   input: string,
   listed: bool,
+  timezone?: Js.Null.t<string>,
 }
 
 @live

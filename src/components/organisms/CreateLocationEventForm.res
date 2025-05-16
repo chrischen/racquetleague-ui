@@ -24,6 +24,7 @@ module Mutation = %relay(`
         startDate
         endDate
         listed
+        timezone
       }
     }
   }
@@ -47,6 +48,7 @@ module EventFragment = %relay(`
     startDate
     endDate
     listed
+    timezone
   }
 `)
 module UpdateMutation = %relay(`
@@ -62,6 +64,7 @@ module UpdateMutation = %relay(`
         details
         maxRsvps
         minRating
+        timezone
         activity {
           id
         }
@@ -136,6 +139,7 @@ type inputs = {
   minRating?: Zod.number,
   startDate: Zod.string_,
   endTime: Zod.string_,
+  timezone: Zod.optional<Zod.string_>,
   details: Zod.optional<Zod.string_>,
   listed: bool,
 }
@@ -146,16 +150,17 @@ let schema = Zod.z->Zod.object(
       title: Zod.z->Zod.string({required_error: ts`title is required`})->Zod.String.min(1),
       activity: Zod.z->Zod.string({required_error: ts`activity is required`}),
       // clubId: Zod.z->Zod.string({required_error: ts`club is required`}),
-      maxRsvps: ?(Zod.z->Zod.preprocess(
+      maxRsvps: ?Zod.z->Zod.preprocess(
         v => Int.fromString(v),
         Zod.z->Zod.numberInt({})->Zod.optional,
-      )),
-      minRating: ?(Zod.z->Zod.preprocess(
+      ),
+      minRating: ?Zod.z->Zod.preprocess(
         v => Float.fromString(v),
         Zod.z->Zod.number({})->Zod.optional,
-      )),
+      ),
       startDate: Zod.z->Zod.string({required_error: ts`event date is required`})->Zod.String.min(1),
       endTime: Zod.z->Zod.string({required_error: ts`end time is required`})->Zod.String.min(5),
+      timezone: Zod.z->Zod.string({})->Zod.optional,
       details: Zod.z->Zod.string({})->Zod.optional,
       listed: Zod.z->Zod.boolean({}),
     }: inputs
@@ -276,6 +281,7 @@ let make = (~event=?, ~location, ~query) => {
             startDate: startDate->Util.Datetime.fromDate,
             endDate: endDate->Util.Datetime.fromDate,
             listed: data.listed,
+            timezone: ?data.timezone,
           },
           connections: [connectionId],
         },
@@ -302,6 +308,7 @@ let make = (~event=?, ~location, ~query) => {
               startDate: startDate->Util.Datetime.fromDate,
               endDate: endDate->Util.Datetime.fromDate,
               listed: data.listed,
+              timezone: ?data.timezone,
             },
           },
           ~onCompleted=(_response, _errors) => {
@@ -382,6 +389,24 @@ let make = (~event=?, ~location, ~query) => {
                     id="endTime"
                     name="endTime"
                     register={register(EndTime)}
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <Input
+                    label={t`timezone`}
+                    type_="text"
+                    id="timeZone"
+                    name="timeZone"
+                    defaultValue={(
+                      Intl.DateTimeFormat.make()->Intl.DateTimeFormat.resolvedOptions
+                    ).timeZone}
+                    register={register(
+                      Timezone,
+                      ~options={
+                        required: false,
+                        // setValueAs: v => v == "" ? "" : "",
+                      },
+                    )}
                   />
                 </div>
                 <div className="sm:col-span-2">

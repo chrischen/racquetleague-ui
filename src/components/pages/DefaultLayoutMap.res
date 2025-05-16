@@ -119,7 +119,7 @@ module Layout = {
           <StackedLayout
             navbar={<Navbar>
               <NavbarItem href="/" className="max-lg:hidden">
-                <Navbar.NavbarLabel> {t`Racquet League`} </Navbar.NavbarLabel>
+                <Navbar.NavbarLabel> {t`pkuru`} </Navbar.NavbarLabel>
               </NavbarItem>
               <NavbarDivider className="max-lg:hidden" />
               <NavbarSection className="max-lg:hidden">
@@ -164,7 +164,7 @@ module Layout = {
             sidebar={<Sidebar>
               <SidebarHeader>
                 <SidebarItem href="/">
-                  <SidebarLabel> {t`Racquet League`} </SidebarLabel>
+                  <SidebarLabel> {t`pkuru`} </SidebarLabel>
                 </SidebarItem>
               </SidebarHeader>
               <SidebarBody>

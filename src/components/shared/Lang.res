@@ -69,7 +69,7 @@ let loader = async ({params}: LoaderArgs.t) => {
     detectedLocale: ?detectedLocale->(Option.flatMap(_, LangProvider.parseLocale)),
     ?detectedLang,
     lang,
-    timezone: "jst",
+    timezone: "Asia/Tokyo",
   }
 }
 // %raw("loader.hydrate = false")

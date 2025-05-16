@@ -20,6 +20,7 @@ module Fragment = %relay(`
         node {
           id
           startDate
+          timezone
           location {
             id
           }
@@ -62,6 +63,7 @@ module ItemFragment = %relay(`
     }
     startDate
     endDate
+    timezone
     shadow
     deleted
   }
@@ -90,6 +92,7 @@ module TextItemFragment = %relay(`
     maxRsvps
     startDate
     endDate
+    timezone
     shadow
     deleted
   }
@@ -109,6 +112,7 @@ module TextEventItem = {
       startDate,
       maxRsvps,
       endDate,
+      timezone,
       deleted,
     } = TextItemFragment.use(event)
     let {i18n: {locale}} = Lingui.useLingui()
@@ -179,15 +183,17 @@ module TextEventItem = {
       let startDate = startDate->Util.Datetime.toDate
       intl->ReactIntl.Intl.formatDateWithOptions(
         startDate,
-        ReactIntl.dateTimeFormatOptions(~weekday=#short, ~day=#numeric, ~month=#numeric, ()),
+        ReactIntl.dateTimeFormatOptions(~weekday=#short, ~day=#numeric, ~month=#numeric, ~timeZone=?timezone, ()),
       ) ++
       " " ++
-      intl->ReactIntl.Intl.formatTime(startDate)
+      intl->ReactIntl.Intl.formatTimeWithOptions(startDate, 
+        ReactIntl.dateTimeFormatOptions(~timeZone=?timezone, ()),
+      )
     })
     ->Option.getOr("") ++
     "->" ++
     endDate
-    ->Option.map(endDate => intl->ReactIntl.Intl.formatTime(endDate->Util.Datetime.toDate))
+    ->Option.map(endDate => intl->ReactIntl.Intl.formatTimeWithOptions(endDate->Util.Datetime.toDate, ReactIntl.dateTimeFormatOptions(~timeZone=?timezone, ())))
     ->Option.getOr("") ++
     duration
     ->Option.map(duration => " (" ++ duration ++ ") ")
@@ -256,6 +262,7 @@ module EventItem = {
       rsvps,
       maxRsvps,
       endDate,
+      timezone,
       viewerRsvpStatus,
       shadow,
       deleted,
@@ -342,13 +349,15 @@ module EventItem = {
           <p className="whitespace-nowrap">
             {startDate
             ->Option.map(startDate =>
-              <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
+              timezone->Option.map(timezone => <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} timeZone={timezone} />)->Option.getOr(
+              <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
             )
             ->Option.getOr(React.null)}
             {" -> "->React.string}
             {endDate
             ->Option.map(endDate =>
-              <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />
+              timezone->Option.map(timezone => <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} timeZone={timezone} />)->Option.getOr(
+              <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />)
             )
             ->Option.getOr(React.null)}
             {duration
@@ -438,7 +447,7 @@ let sortByDate = (
     let startDateString =
       intl->ReactIntl.Intl.formatDateWithOptions(
         startDate,
-        ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ()),
+        ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ~timeZone=?(event.timezone), ()),
       )
 
     filterByDate
@@ -479,7 +488,7 @@ module Filter = {
     switch filter {
     | ByAfter(cursor) =>
       params->Router.ImmSearchParams.set("after", cursor)->Router.ImmSearchParams.delete("before")
-    | ByDate(date) => params->Router.ImmSearchParams.set("selectedDate", date->Js.Date.toISOString)
+    | ByDate(date) => params->Router.ImmSearchParams.set("selectedDate", date->Js.Date.toDateString)
     | ByAfterDate(date) =>
       params->Router.ImmSearchParams.set("afterDate", date->Js.Date.toISOString)
     | ByBefore(cursor) =>

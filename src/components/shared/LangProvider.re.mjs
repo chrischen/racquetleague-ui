@@ -129,7 +129,6 @@ function LangProvider$DetectedLang(props) {
   var locale = React.useContext(context);
   var navigate = ReactRouterDom.useNavigate();
   React.useEffect((function () {
-          console.log("Effect");
           Core__Option.map(locale.detectedLang, (function (detectedLang) {
                   if (detectedLang !== locale.lang) {
                     return Localized.loadMessages(detectedLang, Lingui.loadMessagesForDetected({

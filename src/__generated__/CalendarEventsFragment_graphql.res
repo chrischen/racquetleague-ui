@@ -7,6 +7,7 @@ module Types = {
   type rec fragment_events_edges_node = {
     @live id: string,
     startDate: option<Util.Datetime.t>,
+    timezone: option<string>,
   }
   and fragment_events_edges = {
     node: option<fragment_events_edges_node>,
@@ -186,6 +187,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "startDate",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "timezone",
                   "storageKey": null
                 },
                 {

@@ -56,6 +56,9 @@ module CreateLeagueMatchMutation = %relay(`
        score
        createdAt
      }
+     errors {
+       message
+     }
      ratings {
        id
        mu

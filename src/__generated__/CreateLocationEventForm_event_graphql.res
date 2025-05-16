@@ -22,6 +22,7 @@ module Types = {
     maxRsvps: option<int>,
     minRating: option<float>,
     startDate: option<Util.Datetime.t>,
+    timezone: option<string>,
     title: option<string>,
   }
 }
@@ -159,6 +160,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "listed",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "timezone",
       "storageKey": null
     }
   ],

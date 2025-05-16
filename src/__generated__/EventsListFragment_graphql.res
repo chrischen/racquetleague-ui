@@ -12,6 +12,7 @@ module Types = {
     location: option<fragment_events_edges_node_location>,
     shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
+    timezone: option<string>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventsListText_event | #EventsList_event]>,
   }
   and fragment_events_edges = {
@@ -201,6 +202,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "startDate",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "timezone",
                   "storageKey": null
                 },
                 {

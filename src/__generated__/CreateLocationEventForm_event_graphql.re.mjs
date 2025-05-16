@@ -125,6 +125,13 @@ return {
       "kind": "ScalarField",
       "name": "listed",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "timezone",
+      "storageKey": null
     }
   ],
   "type": "Event",

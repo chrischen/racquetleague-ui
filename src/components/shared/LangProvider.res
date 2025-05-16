@@ -138,7 +138,6 @@ module DetectedLang = {
     let locale = React.useContext(LocaleContext.context)
     let navigate = Router.useNavigate()
     React.useEffect1(() => {
-      Js.log("Effect")
       locale.detectedLang
       ->Option.map(detectedLang => {
         if detectedLang != locale.lang {

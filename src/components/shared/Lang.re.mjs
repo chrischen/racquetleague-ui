@@ -57,7 +57,7 @@ async function loader(param) {
               })(detectedLocale),
           detectedLang: detectedLang,
           lang: lang,
-          timezone: "jst"
+          timezone: "Asia/Tokyo"
         };
 }
 

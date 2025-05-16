@@ -101,6 +101,7 @@ input CreateEventInput {
   maxRsvps: Int
   minRating: Float
   startDate: Datetime!
+  timezone: String
   title: String!
 }
 
@@ -109,6 +110,7 @@ input CreateEventsInput {
   clubId: String!
   input: String!
   listed: Boolean!
+  timezone: String
 }
 
 type CreateEventsResult implements HasErrors {
@@ -168,6 +170,7 @@ type Event implements Node {
   rsvps(after: String, before: String, first: Int): EventRsvpConnection
   shadow: Boolean
   startDate: Datetime
+  timezone: String
   title: String
   viewerHasRsvp: Boolean
   viewerIsAdmin: Boolean!

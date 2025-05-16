@@ -77,6 +77,7 @@ function ts(prim0, prim1) {
 
 function make($$event) {
   var match = use$2($$event);
+  var timezone = match.timezone;
   var startDate = match.startDate;
   var maxRsvps = match.maxRsvps;
   var $$location = match.location;
@@ -125,13 +126,25 @@ function make($$event) {
   var canceled = Core__Option.isSome(match.deleted) ? " " + t`🚫 CANCELED` : "";
   return "🗓 " + Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
                     var startDate$1 = Util.Datetime.toDate(startDate);
-                    return intl.formatDate(startDate$1, {
-                                weekday: "short",
-                                month: "numeric",
-                                day: "numeric"
-                              }) + " " + intl.formatTime(startDate$1);
+                    var tmp = {
+                      weekday: "short",
+                      month: "numeric",
+                      day: "numeric"
+                    };
+                    if (timezone !== undefined) {
+                      tmp.timeZone = timezone;
+                    }
+                    var tmp$1 = {};
+                    if (timezone !== undefined) {
+                      tmp$1.timeZone = timezone;
+                    }
+                    return intl.formatDate(startDate$1, tmp) + " " + intl.formatTime(startDate$1, tmp$1);
                   })), "") + "->" + Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
-                    return intl.formatTime(Util.Datetime.toDate(endDate));
+                    var tmp = {};
+                    if (timezone !== undefined) {
+                      tmp.timeZone = timezone;
+                    }
+                    return intl.formatTime(Util.Datetime.toDate(endDate), tmp);
                   })), "") + Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
                     return " (" + duration + ") ";
                   })), "") + spaceAvailable + canceled + "\n📍 " + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
@@ -193,6 +206,7 @@ function EventsList$EventItem(props) {
   var highlightedLocation = __highlightedLocation !== undefined ? __highlightedLocation : false;
   var match = use$1(props.event);
   var viewerRsvpStatus = match.viewerRsvpStatus;
+  var timezone = match.timezone;
   var startDate = match.startDate;
   var shadow = match.shadow;
   var endDate = match.endDate;
@@ -320,15 +334,25 @@ function EventsList$EventItem(props) {
                               children: JsxRuntime.jsxs("p", {
                                     children: [
                                       Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                                                  return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                              value: Util.Datetime.toDate(startDate)
-                                                            });
+                                                  return Core__Option.getOr(Core__Option.map(timezone, (function (timezone) {
+                                                                    return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                value: Util.Datetime.toDate(startDate),
+                                                                                timeZone: timezone
+                                                                              });
+                                                                  })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                  value: Util.Datetime.toDate(startDate)
+                                                                }));
                                                 })), null),
                                       " -> ",
                                       Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
-                                                  return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                              value: Util.Datetime.toDate(endDate)
-                                                            });
+                                                  return Core__Option.getOr(Core__Option.map(timezone, (function (timezone) {
+                                                                    return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                value: Util.Datetime.toDate(endDate),
+                                                                                timeZone: timezone
+                                                                              });
+                                                                  })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                  value: Util.Datetime.toDate(endDate)
+                                                                }));
                                                 })), null),
                                       Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
                                                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -380,7 +404,7 @@ var EventItem = {
 function updateParams(filter, params) {
   switch (filter.TAG) {
     case "ByDate" :
-        return params.set("selectedDate", filter._0.toISOString());
+        return params.set("selectedDate", filter._0.toDateString());
     case "ByAfter" :
         return params.set("after", filter._0).delete("before");
     case "ByBefore" :
@@ -480,11 +504,15 @@ function EventsList(props) {
   var eventsByDate = Core__Array.reduce(events$1, {}, (function (extra, extra$1) {
           Core__Option.map(extra$1.startDate, (function (startDate) {
                   var startDate$1 = Util.Datetime.toDate(startDate);
-                  var startDateString = intl.formatDate(startDate$1, {
-                        weekday: "long",
-                        month: "short",
-                        day: "numeric"
-                      });
+                  var tmp = {
+                    weekday: "long",
+                    month: "short",
+                    day: "numeric"
+                  };
+                  if (extra$1.timezone !== undefined) {
+                    tmp.timeZone = extra$1.timezone;
+                  }
+                  var startDateString = intl.formatDate(startDate$1, tmp);
                   Core__Option.map(filterByDate, (function (filterDate) {
                           if (startDate$1.getTime() <= filterDate.getTime()) {
                             return ;

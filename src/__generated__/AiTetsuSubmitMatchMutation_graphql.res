@@ -7,7 +7,11 @@ module Types = {
   @live type leagueMatchInput = RelaySchemaAssets_graphql.input_LeagueMatchInput
   @live type doublesMatchInput = RelaySchemaAssets_graphql.input_DoublesMatchInput
   @live
-  type rec response_createMatch_match_losers = {
+  type rec response_createMatch_errors = {
+    message: string,
+  }
+  @live
+  and response_createMatch_match_losers = {
     lineUsername: option<string>,
   }
   @live
@@ -31,6 +35,7 @@ module Types = {
   }
   @live
   and response_createMatch = {
+    errors: option<array<response_createMatch_errors>>,
     match: option<response_createMatch_match>,
     ratings: option<array<response_createMatch_ratings>>,
   }
@@ -164,6 +169,24 @@ v6 = {
 v7 = {
   "alias": null,
   "args": null,
+  "concreteType": "Error",
+  "kind": "LinkedField",
+  "name": "errors",
+  "plural": true,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "message",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v8 = {
+  "alias": null,
+  "args": null,
   "concreteType": "Rating",
   "kind": "LinkedField",
   "name": "ratings",
@@ -194,7 +217,7 @@ v7 = {
   ],
   "storageKey": null
 },
-v8 = [
+v9 = [
   (v3/*: any*/),
   (v2/*: any*/)
 ];
@@ -247,7 +270,8 @@ return {
             ],
             "storageKey": null
           },
-          (v7/*: any*/)
+          (v7/*: any*/),
+          (v8/*: any*/)
         ],
         "storageKey": null
       }
@@ -285,7 +309,7 @@ return {
                 "kind": "LinkedField",
                 "name": "winners",
                 "plural": true,
-                "selections": (v8/*: any*/),
+                "selections": (v9/*: any*/),
                 "storageKey": null
               },
               {
@@ -295,7 +319,7 @@ return {
                 "kind": "LinkedField",
                 "name": "losers",
                 "plural": true,
-                "selections": (v8/*: any*/),
+                "selections": (v9/*: any*/),
                 "storageKey": null
               },
               (v5/*: any*/),
@@ -324,19 +348,20 @@ return {
               }
             ]
           },
-          (v7/*: any*/)
+          (v7/*: any*/),
+          (v8/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "acfa20805453d7517379c5ad67df9a3f",
+    "cacheID": "3cc6c579bfa495e0007c11849618e576",
     "id": null,
     "metadata": {},
     "name": "AiTetsuSubmitMatchMutation",
     "operationKind": "mutation",
-    "text": "mutation AiTetsuSubmitMatchMutation(\n  $matchInput: LeagueMatchInput!\n) {\n  createMatch(match: $matchInput) {\n    match {\n      id\n      winners {\n        lineUsername\n        id\n      }\n      losers {\n        lineUsername\n        id\n      }\n      score\n      createdAt\n    }\n    ratings {\n      id\n      mu\n      sigma\n      ordinal\n    }\n  }\n}\n"
+    "text": "mutation AiTetsuSubmitMatchMutation(\n  $matchInput: LeagueMatchInput!\n) {\n  createMatch(match: $matchInput) {\n    match {\n      id\n      winners {\n        lineUsername\n        id\n      }\n      losers {\n        lineUsername\n        id\n      }\n      score\n      createdAt\n    }\n    errors {\n      message\n    }\n    ratings {\n      id\n      mu\n      sigma\n      ordinal\n    }\n  }\n}\n"
   }
 };
 })() `)

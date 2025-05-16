@@ -85,6 +85,7 @@ module Input = {
     ~placeholder: option<string>=?,
     ~onBlur: option<JsxEventU.Focus.t => unit>=?,
     ~register: option<JsxDOM.domProps>=?,
+    ~disabled: option<bool>=?,
     ~value: option<string>=?,
     ~defaultValue: option<string>=?,
   ) => {
@@ -118,6 +119,7 @@ module Input = {
               ?value
               ?defaultValue
               ?onClick
+              ?disabled
             />
           | None =>
             <input
@@ -135,6 +137,7 @@ module Input = {
               ?value
               ?defaultValue
               ?onClick
+              ?disabled
             />
           }}
         </div>
