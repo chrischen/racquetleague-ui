@@ -183,11 +183,11 @@ module TextEventItem = {
       let startDate = startDate->Util.Datetime.toDate
       intl->ReactIntl.Intl.formatDateWithOptions(
         startDate,
-        ReactIntl.dateTimeFormatOptions(~weekday=#short, ~day=#numeric, ~month=#numeric, ~timeZone=?timezone, ()),
+        ReactIntl.dateTimeFormatOptions(~weekday=#short, ~day=#numeric, ~month=#numeric, ~timeZone={timezone->Option.getOr("Asia/Tokyo")}, ()),
       ) ++
       " " ++
       intl->ReactIntl.Intl.formatTimeWithOptions(startDate, 
-        ReactIntl.dateTimeFormatOptions(~timeZone=?timezone, ()),
+        ReactIntl.dateTimeFormatOptions(~timeZone={timezone->Option.getOr("Asia/Tokyo")}, ()),
       )
     })
     ->Option.getOr("") ++
@@ -447,7 +447,7 @@ let sortByDate = (
     let startDateString =
       intl->ReactIntl.Intl.formatDateWithOptions(
         startDate,
-        ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ~timeZone=?(event.timezone), ()),
+        ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ~timeZone={event.timezone->Option.getOr("Asia/Tokyo")}, ()),
       )
 
     filterByDate

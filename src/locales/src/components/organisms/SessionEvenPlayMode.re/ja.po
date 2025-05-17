@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/forms/Form.re.mjs:298
+#: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -22,7 +22,7 @@ msgid "How many players should rest? (currently {0} players are resting)"
 msgstr ""
 "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
 
-#: src/components/molecules/forms/Form.re.mjs:305
+#: src/components/molecules/forms/Form.re.mjs:307
 msgid "save"
 msgstr "保存"
 

@@ -51,8 +51,13 @@ msgstr ""
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:214
 #: src/components/pages/DefaultLayoutMap.re.mjs:279
-msgid "Racquet League"
+msgid "pkuru"
 msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:214
+#: src/components/pages/DefaultLayoutMap.re.mjs:279
+#~ msgid "Racquet League"
+#~ msgstr ""
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:245
 #: src/components/pages/DefaultLayoutMap.re.mjs:308

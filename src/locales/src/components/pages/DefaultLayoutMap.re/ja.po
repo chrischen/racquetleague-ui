@@ -47,8 +47,8 @@ msgstr "ピックルボール"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:214
 #: src/components/pages/DefaultLayoutMap.re.mjs:279
-msgid "Racquet League"
-msgstr "ラケットリーグ"
+msgid "pkuru"
+msgstr "ピックル"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:245
 #: src/components/pages/DefaultLayoutMap.re.mjs:308
@@ -63,6 +63,11 @@ msgstr "設定"
 #~ msgid ""
 #~ "It looks like you may prefer English. Would you like to switch to English?"
 #~ msgstr "日本語がお好きなようですね。日本語に変更しますか？"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:214
+#: src/components/pages/DefaultLayoutMap.re.mjs:279
+#~ msgid "Racquet League"
+#~ msgstr "ラケットリーグ"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:89
 #~ msgid "Switch to English"

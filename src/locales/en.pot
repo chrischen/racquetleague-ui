@@ -1524,3 +1524,12 @@ msgid ""
 "pending list until the rating limit is lowered. Please join another JPL "
 "rated event to boost your rating."
 msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:352
+msgid "timezone"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:214
+#: src/components/pages/DefaultLayoutMap.re.mjs:279
+msgid "pkuru"
+msgstr ""

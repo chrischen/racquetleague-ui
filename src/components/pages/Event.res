@@ -404,15 +404,16 @@ let make = () => {
                               year={#"2-digit"}
                               weekday=#long
                               value={startDate->Util.Datetime.toDate}
-                              timeZone=?event.timezone
+                              timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
                             />
                             {" "->React.string}
                             <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate}
-                              timeZone=?event.timezone
+                              timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
+
                             />
                             {" -> "->React.string}
                             <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} 
-                              timeZone=?event.timezone
+                              timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
                             />
                             {" "->React.string}
                             {until

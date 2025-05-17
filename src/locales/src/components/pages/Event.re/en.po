@@ -15,25 +15,25 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:582
+#: src/components/pages/Event.re.mjs:585
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:585
+#: src/components/pages/Event.re.mjs:588
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:588
+#: src/components/pages/Event.re.mjs:591
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:591
+#: src/components/pages/Event.re.mjs:594
 msgid "Futsal"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgstr ""
 #~ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:470
+#: src/components/pages/Event.re.mjs:473
 msgid "activity"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgstr ""
 msgid "event @"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:551
+#: src/components/pages/Event.re.mjs:554
 msgid "event doesn't exist"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 #~ msgid "event:"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:441
+#: src/components/pages/Event.re.mjs:444
 msgid "good luck, have fun"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "joined the event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:522
+#: src/components/pages/Event.re.mjs:525
 msgid "league"
 msgstr ""
 
@@ -211,7 +211,7 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:488
+#: src/components/pages/Event.re.mjs:491
 msgid "media"
 msgstr ""
 
@@ -222,7 +222,7 @@ msgstr ""
 msgid "no players yet"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:450
+#: src/components/pages/Event.re.mjs:453
 msgid "notes"
 msgstr ""
 
@@ -259,7 +259,7 @@ msgstr ""
 #~ msgid "Spots Available"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:527
+#: src/components/pages/Event.re.mjs:530
 msgid "submit matches"
 msgstr ""
 

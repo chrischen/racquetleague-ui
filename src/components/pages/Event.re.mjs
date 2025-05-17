@@ -400,7 +400,7 @@ function $$Event(props) {
                                                                                                                                     children: [
                                                                                                                                       JsxRuntime.jsx(ReactIntl.FormattedDate, {
                                                                                                                                             value: Util.Datetime.toDate(startDate),
-                                                                                                                                            timeZone: $$event.timezone,
+                                                                                                                                            timeZone: Core__Option.getOr($$event.timezone, "Asia/Tokyo"),
                                                                                                                                             weekday: "long",
                                                                                                                                             year: "2-digit",
                                                                                                                                             month: "numeric",
@@ -409,12 +409,12 @@ function $$Event(props) {
                                                                                                                                       " ",
                                                                                                                                       JsxRuntime.jsx(ReactIntl.FormattedTime, {
                                                                                                                                             value: Util.Datetime.toDate(startDate),
-                                                                                                                                            timeZone: $$event.timezone
+                                                                                                                                            timeZone: Core__Option.getOr($$event.timezone, "Asia/Tokyo")
                                                                                                                                           }),
                                                                                                                                       " -> ",
                                                                                                                                       JsxRuntime.jsx(ReactIntl.FormattedTime, {
                                                                                                                                             value: Util.Datetime.toDate(endDate),
-                                                                                                                                            timeZone: $$event.timezone
+                                                                                                                                            timeZone: Core__Option.getOr($$event.timezone, "Asia/Tokyo")
                                                                                                                                           }),
                                                                                                                                       " ",
                                                                                                                                       Core__Option.getOr(Core__Option.map(until, (function (until) {

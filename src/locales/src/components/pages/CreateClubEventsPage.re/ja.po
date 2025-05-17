@@ -59,7 +59,7 @@ msgstr "アクティビティ"
 msgid "activity is required"
 msgstr "アクティビティが必要です"
 
-#: src/components/molecules/forms/Form.re.mjs:298
+#: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -95,7 +95,7 @@ msgstr "読み込み中..."
 msgid "preview events"
 msgstr "イベントをプレビュー"
 
-#: src/components/molecules/forms/Form.re.mjs:305
+#: src/components/molecules/forms/Form.re.mjs:307
 msgid "save"
 msgstr "保存"
 

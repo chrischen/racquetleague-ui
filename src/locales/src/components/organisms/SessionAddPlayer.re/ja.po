@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/forms/Form.re.mjs:298
+#: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -21,6 +21,6 @@ msgstr "キャンセル"
 msgid "Player Name"
 msgstr "プレイヤー名"
 
-#: src/components/molecules/forms/Form.re.mjs:305
+#: src/components/molecules/forms/Form.re.mjs:307
 msgid "save"
 msgstr "保存"

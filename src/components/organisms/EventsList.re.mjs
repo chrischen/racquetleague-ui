@@ -126,19 +126,14 @@ function make($$event) {
   var canceled = Core__Option.isSome(match.deleted) ? " " + t`🚫 CANCELED` : "";
   return "🗓 " + Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
                     var startDate$1 = Util.Datetime.toDate(startDate);
-                    var tmp = {
-                      weekday: "short",
-                      month: "numeric",
-                      day: "numeric"
-                    };
-                    if (timezone !== undefined) {
-                      tmp.timeZone = timezone;
-                    }
-                    var tmp$1 = {};
-                    if (timezone !== undefined) {
-                      tmp$1.timeZone = timezone;
-                    }
-                    return intl.formatDate(startDate$1, tmp) + " " + intl.formatTime(startDate$1, tmp$1);
+                    return intl.formatDate(startDate$1, {
+                                timeZone: Core__Option.getOr(timezone, "Asia/Tokyo"),
+                                weekday: "short",
+                                month: "numeric",
+                                day: "numeric"
+                              }) + " " + intl.formatTime(startDate$1, {
+                                timeZone: Core__Option.getOr(timezone, "Asia/Tokyo")
+                              });
                   })), "") + "->" + Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
                     var tmp = {};
                     if (timezone !== undefined) {
@@ -504,15 +499,12 @@ function EventsList(props) {
   var eventsByDate = Core__Array.reduce(events$1, {}, (function (extra, extra$1) {
           Core__Option.map(extra$1.startDate, (function (startDate) {
                   var startDate$1 = Util.Datetime.toDate(startDate);
-                  var tmp = {
-                    weekday: "long",
-                    month: "short",
-                    day: "numeric"
-                  };
-                  if (extra$1.timezone !== undefined) {
-                    tmp.timeZone = extra$1.timezone;
-                  }
-                  var startDateString = intl.formatDate(startDate$1, tmp);
+                  var startDateString = intl.formatDate(startDate$1, {
+                        timeZone: Core__Option.getOr(extra$1.timezone, "Asia/Tokyo"),
+                        weekday: "long",
+                        month: "short",
+                        day: "numeric"
+                      });
                   Core__Option.map(filterByDate, (function (filterDate) {
                           if (startDate$1.getTime() <= filterDate.getTime()) {
                             return ;

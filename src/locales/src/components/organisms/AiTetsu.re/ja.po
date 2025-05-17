@@ -38,7 +38,7 @@ msgstr "{0}試合を分析しました。"
 msgid "and"
 msgstr "と"
 
-#: src/components/molecules/forms/Form.re.mjs:298
+#: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -231,7 +231,7 @@ msgstr "推奨試合"
 msgid "right team players"
 msgstr "右チームのプレイヤー"
 
-#: src/components/molecules/forms/Form.re.mjs:305
+#: src/components/molecules/forms/Form.re.mjs:307
 msgid "save"
 msgstr "保存"
 

@@ -1454,7 +1454,19 @@ msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "
 "rated event to boost your rating."
-msgstr "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
+msgstr ""
+"あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
+"限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
+"イベントに参加してください。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:352
+msgid "timezone"
+msgstr "タイムゾーン"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:214
+#: src/components/pages/DefaultLayoutMap.re.mjs:279
+msgid "pkuru"
+msgstr "ピックル"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
