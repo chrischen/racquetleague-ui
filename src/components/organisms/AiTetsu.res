@@ -259,6 +259,7 @@ module Checkin = {
     ~players: array<player>,
     ~disabled: Set.t<string>,
     ~onToggleCheckin: (player, bool) => unit,
+    ~addPlayer: option<React.element>=?,
   ) => {
     // ~onUpdatePlayer: (player, bool) => unit,
 
@@ -266,6 +267,7 @@ module Checkin = {
       players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
     let minRating =
       players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       {players
       ->Array.map(player => {
@@ -284,6 +286,7 @@ module Checkin = {
         </UiAction>
       })
       ->React.array}
+      {addPlayer->Option.getOr(React.null)}
     </div>
   }
 }
@@ -408,12 +411,13 @@ let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node)
     | Some({mu: Some(mu), sigma: Some(sigma)}) =>
       let rating = Rating.make(mu, sigma)
       let decayedRating = rating->Rating.decay_by_factor(0.4) // Set the sigma to a decayed value to increase variability during the session
-      Js.log(
-        "Decaying sigma: " ++
-        rating.sigma->Float.toString ++
-        " -> " ++
-        decayedRating.sigma->Float.toString,
-      )
+
+      // Js.log(
+      //   "Decaying sigma: " ++
+      //   rating.sigma->Float.toString ++
+      //   " -> " ++
+      //   decayedRating.sigma->Float.toString,
+      // )
       decayedRating
     | _ => Rating.makeDefault()
     }
@@ -453,7 +457,7 @@ let addGuestPlayer = (sessionPlayers, player: player) => {
   | None => sessionPlayers->Array.concat([player])
   }
 }
-let removeGuestPlayer = (sessionPlayers: array<Player.t<'a>>, player: Player.t<'a>) => {
+let _removeGuestPlayer = (sessionPlayers: array<Player.t<'a>>, player: Player.t<'a>) => {
   sessionPlayers->Array.filter(p => p.id != player.id)
 }
 
@@ -577,8 +581,48 @@ let make = (~event, ~children) => {
     setSessionPlayers(_ => players)
     setMatchHistory(_ => history)
 
-    Js.log("Disabling players by default")
-    setDisabled(_ => Set.fromArray(allPlayers->Array.map(p => p.id)))
+    // Attempt to load disabled player IDs from local storage
+    let storedDisabledPlayerIds =
+      Dom.Storage2.localStorage
+      ->Dom.Storage2.getItem(eventId ++ "-playersCheckinState")
+      ->Option.flatMap(jsonString => {
+        // Safely parse and decode the JSON string
+        try {
+          let parsedJson = jsonString->Js.Json.parseExn
+          // Use rescript-json-combinators to decode an array of strings
+          switch parsedJson->Json.Decode.decode(Json.Decode.array(Json.Decode.string)) {
+          | Ok(ids) => Some(ids)
+          | Error(_) =>
+            Js.log("FairPlay: Failed to decode disabled player IDs from storage:")
+            None
+          }
+        } catch {
+        | Js.Exn.Error(e) =>
+          Js.Console.error3(
+            "FairPlay: Failed to parse disabled player IDs JSON from storage. String was:",
+            jsonString,
+            e,
+          )
+          None
+        | _ =>
+          Js.Console.error2(
+            "AiTetsu: An unknown error occurred while parsing disabled player IDs JSON from storage. String was:",
+            jsonString,
+          )
+          None
+        }
+      })
+
+    switch storedDisabledPlayerIds {
+    | Some(idsArray) =>
+      Js.log("FairPlay: Loaded disabled player IDs from storage.")
+      setDisabled(_ => Set.fromArray(idsArray))
+    | None =>
+      Js.log(
+        "FairPlay: No valid disabled player IDs found in storage, using previously set default.",
+      )
+      setDisabled(_ => UnorderedQueue.fromArray(allPlayers->Array.map(p => p.id)))
+    }
     None
   })
   React.useEffect(() => {
@@ -905,6 +949,35 @@ let make = (~event, ~children) => {
       })
     }
   }
+  let togglePlayerCheckin = (player: player, status: bool) => {
+    switch status {
+    | true =>
+      setDisabled(disabled => {
+        let new = disabled->UnorderedQueue.removeFromQueue(player.id)
+        Dom.Storage2.localStorage->Dom.Storage2.setItem(
+          eventId ++ "-playersCheckinState",
+          new->UnorderedQueue.toArray->Js.Json.stringifyAny->Option.getOr(""),
+        )
+        new
+      })
+    | false =>
+      setDisabled(disabled => {
+        let new = disabled->UnorderedQueue.addToQueue(player.id)
+        Dom.Storage2.localStorage->Dom.Storage2.setItem(
+          eventId ++ "-playersCheckinState",
+          new->UnorderedQueue.toArray->Js.Json.stringifyAny->Option.getOr(""),
+        )
+        new
+      })
+    }
+  }
+
+  let triggerContent =
+    <div
+      className="flex flex-col items-center justify-center p-4 rounded-lg shadow-md bg-white hover:bg-gray-50 border border-gray-200 cursor-pointer text-gray-700 h-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      <HeroIcons.UserPlusOutline className="h-8 w-8 text-indigo-600 mb-2" />
+      <span className="text-sm font-semibold text-center"> {t`Add Guest`} </span>
+    </div>
 
   switch screen {
   | Advanced =>
@@ -1145,12 +1218,35 @@ let make = (~event, ~children) => {
       checkin={<Checkin
         players=allPlayers
         disabled
-        onToggleCheckin={(player, status) => {
-          switch status {
-          | true => setDisabled(disabled => disabled->UnorderedQueue.removeFromQueue(player.id))
-          | false => setDisabled(disabled => disabled->UnorderedQueue.addToQueue(player.id))
-          }
-        }}
+        onToggleCheckin={togglePlayerCheckin}
+        addPlayer={<DialogUiAction
+          triggerContent
+          title={(ts`Add Player`)->React.string}
+          description={React.null} // SessionAddPlayer can provide its own description if needed
+          dialogSize={#"2xl"}
+          body={<SessionAddPlayer
+            eventId
+            onPlayerAdd={player => {
+              setSessionPlayers(guests => {
+                let newState = guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer)
+                newState->Players.savePlayers(eventId)
+                newState
+              })
+              setSettingsPane(_ => None)
+            }}
+          />}
+          onConfirm={() => {
+            // This is the action for the DialogButton's own "Confirm" button.
+            // Since SessionAddPlayer likely handles its own submission,
+            // this button can simply act as another way to close the dialog.
+            // The actual addition is triggered within SessionAddPlayer.
+            ()
+          }}
+          confirmButtonText={ts`Done`} // Or "Close", if SessionAddPlayer has its own primary action button
+          // cancelButtonText={ts`Cancel`}
+          // dialogSize can be specified if needed, e.g., dialogSize={#md}
+        />}
+
         // onUpdatePlayer={(p, paid) => updatePaidStatus(p.id, paid)}
       />}
       setQueue={players => setQueue(_ => players)}

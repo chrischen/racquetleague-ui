@@ -42,8 +42,23 @@ module Queue = {
     //   players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
     // let minRating =
     //   players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
+    let handleLongPress = React.useCallback((event: ReactEvent.Synthetic.t) => {
+      event->ReactEvent.Synthetic.stopPropagation
+      event->ReactEvent.Synthetic.preventDefault
+      Js.log("Long pressed")
+    }, [])
+    let options: UseLongPress.options<string> = {
+      // onStart: handleStart,
+      threshold: 500,
+      cancelOnMovement: true, // or Js.Any.fromInt(25) for pixel threshold
+      detect: #both,
+    }
+    let bind = UseLongPress.use(Some(handleLongPress), None)
     let maxRating = 1.0
     let minRating = 0.0
+
+    let h = bind()
+    Js.log(h)
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       {players
       ->Array.map(player => {
@@ -57,13 +72,25 @@ module Queue = {
         | (_, true, _) => MatchRsvpUser.Break
         | _ => Available
         }
-        <UiAction
-          key=player.id
-          onClick={_ => {
-            togglePlayer(player)
-          }}>
-          <PlayerView status={status} key={player.id} player minRating maxRating />
-        </UiAction>
+        <div
+          className="animate-shake"
+          onMouseDown={h.onMouseDown}
+          onMouseUp={h.onMouseUp}
+          onPointerUp={h.onPointerUp}
+          onPointerMove={h.onPointerMove}
+          onPointerLeave={h.onPointerLeave}
+          onPointerDown={h.onPointerDown}
+          onTouchStart={h.onTouchStart}
+          onTouchEnd={h.onTouchEnd}
+          onTouchMove={h.onTouchMove}>
+          <UiAction
+            key=player.id
+            onClick={_ => {
+              togglePlayer(player)
+            }}>
+            <PlayerView status={status} key={player.id} player minRating maxRating />
+          </UiAction>
+        </div>
       })
       ->React.array}
     </div>

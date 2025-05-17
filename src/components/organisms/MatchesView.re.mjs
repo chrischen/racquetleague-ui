@@ -12,6 +12,7 @@ import * as Core from "@dnd-kit/core";
 import * as Core$1 from "@linaria/core";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as MatchRsvpUser from "../molecules/MatchRsvpUser.re.mjs";
+import * as UseLongPress from "use-long-press";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventMatchRsvpUser from "./EventMatchRsvpUser.re.mjs";
 import * as MultipleContainers from "../dndkit/MultipleContainers.re.mjs";
@@ -53,6 +54,14 @@ function MatchesView$Queue(props) {
   var queue = props.queue;
   var consumedPlayers = props.consumedPlayers;
   var breakPlayers = props.breakPlayers;
+  var handleLongPress = React.useCallback((function ($$event) {
+          $$event.stopPropagation();
+          $$event.preventDefault();
+          console.log("Long pressed");
+        }), []);
+  var bind = UseLongPress.useLongPress(handleLongPress, undefined);
+  var h = bind();
+  console.log(h);
   return JsxRuntime.jsx("div", {
               children: props.players.map(function (player) {
                     var match = queue.has(player.id);
@@ -63,17 +72,29 @@ function MatchesView$Queue(props) {
                             match$1 ? "Break" : "Available"
                           )
                       );
-                    return JsxRuntime.jsx(UiAction.make, {
-                                onClick: (function (param) {
-                                    togglePlayer(player);
-                                  }),
-                                children: JsxRuntime.jsx(MatchesView$PlayerView, {
-                                      player: player,
-                                      minRating: 0.0,
-                                      maxRating: 1.0,
-                                      status: status
-                                    }, player.id)
-                              }, player.id);
+                    return JsxRuntime.jsx("div", {
+                                children: JsxRuntime.jsx(UiAction.make, {
+                                      onClick: (function (param) {
+                                          togglePlayer(player);
+                                        }),
+                                      children: JsxRuntime.jsx(MatchesView$PlayerView, {
+                                            player: player,
+                                            minRating: 0.0,
+                                            maxRating: 1.0,
+                                            status: status
+                                          }, player.id)
+                                    }, player.id),
+                                className: "animate-shake",
+                                onMouseDown: h.onMouseDown,
+                                onMouseUp: h.onMouseUp,
+                                onTouchEnd: h.onTouchEnd,
+                                onTouchMove: h.onTouchMove,
+                                onTouchStart: h.onTouchStart,
+                                onPointerDown: h.onPointerDown,
+                                onPointerMove: h.onPointerMove,
+                                onPointerUp: h.onPointerUp,
+                                onPointerLeave: h.onPointerLeave
+                              });
                   }),
               className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
             });

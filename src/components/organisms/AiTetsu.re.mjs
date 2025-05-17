@@ -3,6 +3,7 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Button from "../catalyst/Button.re.mjs";
+import * as Js_exn from "rescript/lib/es6/js_exn.js";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
@@ -21,9 +22,11 @@ import * as SubmitMatch from "./SubmitMatch.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as DialogUiAction from "../molecules/DialogUiAction.re.mjs";
 import * as SessionAddPlayer from "./SessionAddPlayer.re.mjs";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as ReactHelmetAsync from "react-helmet-async";
 import * as SessionEvenPlayMode from "./SessionEvenPlayMode.re.mjs";
 import * as AppContext from "../layouts/appContext";
@@ -32,6 +35,7 @@ import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragme
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
 import * as Outline from "@heroicons/react/24/outline";
+import * as Json_Decode$JsonCombinators from "@glennsl/rescript-json-combinators/src/Json_Decode.re.mjs";
 import * as AiTetsuRsvpsRefetchQuery_graphql from "../../__generated__/AiTetsuRsvpsRefetchQuery_graphql.re.mjs";
 import * as AiTetsuSubmitMatchMutation_graphql from "../../__generated__/AiTetsuSubmitMatchMutation_graphql.re.mjs";
 import * as AiTetsuCreateRatingMutation_graphql from "../../__generated__/AiTetsuCreateRatingMutation_graphql.re.mjs";
@@ -304,22 +308,25 @@ function AiTetsu$Checkin(props) {
             return acc;
           }
         }));
-  return JsxRuntime.jsx("div", {
-              children: players.map(function (player) {
-                    var match = disabled.has(player.id);
-                    var status = match ? "Available" : "Queued";
-                    return JsxRuntime.jsx(UiAction.make, {
-                                onClick: (function (param) {
-                                    onToggleCheckin(player, disabled.has(player.id));
-                                  }),
-                                children: JsxRuntime.jsx(MatchesView.PlayerView.make, {
-                                      player: player,
-                                      minRating: minRating,
-                                      maxRating: maxRating,
-                                      status: status
-                                    }, player.id)
-                              }, player.id);
-                  }),
+  return JsxRuntime.jsxs("div", {
+              children: [
+                players.map(function (player) {
+                      var match = disabled.has(player.id);
+                      var status = match ? "Available" : "Queued";
+                      return JsxRuntime.jsx(UiAction.make, {
+                                  onClick: (function (param) {
+                                      onToggleCheckin(player, disabled.has(player.id));
+                                    }),
+                                  children: JsxRuntime.jsx(MatchesView.PlayerView.make, {
+                                        player: player,
+                                        minRating: minRating,
+                                        maxRating: maxRating,
+                                        status: status
+                                      }, player.id)
+                                }, player.id);
+                    }),
+                Core__Option.getOr(props.addPlayer, null)
+              ],
               className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
             });
 }
@@ -429,9 +436,7 @@ function rsvpToPlayer(rsvp) {
       var sigma = match$1.sigma;
       if (sigma !== undefined) {
         var rating$1 = Rating.Rating.make(mu, sigma);
-        var decayedRating = Rating.Rating.decay_by_factor(rating$1, 0.4);
-        console.log("Decaying sigma: " + rating$1.sigma.toString() + " -> " + decayedRating.sigma.toString());
-        rating = decayedRating;
+        rating = Rating.Rating.decay_by_factor(rating$1, 0.4);
       } else {
         rating = Rating.Rating.makeDefault();
       }
@@ -608,12 +613,39 @@ function AiTetsu(props) {
           setMatchHistory(function (param) {
                 return history;
               });
-          console.log("Disabling players by default");
-          setDisabled(function (param) {
-                return new Set(allPlayers.map(function (p) {
-                                return p.id;
-                              }));
-              });
+          var storedDisabledPlayerIds = Core__Option.flatMap(Caml_option.null_to_opt(localStorage.getItem(eventId + "-playersCheckinState")), (function (jsonString) {
+                  try {
+                    var parsedJson = JSON.parse(jsonString);
+                    var ids = Json_Decode$JsonCombinators.decode(parsedJson, Json_Decode$JsonCombinators.array(Json_Decode$JsonCombinators.string));
+                    if (ids.TAG === "Ok") {
+                      return ids._0;
+                    }
+                    console.log("FairPlay: Failed to decode disabled player IDs from storage:");
+                    return ;
+                  }
+                  catch (raw_e){
+                    var e = Caml_js_exceptions.internalToOCamlException(raw_e);
+                    if (e.RE_EXN_ID === Js_exn.$$Error) {
+                      console.error("FairPlay: Failed to parse disabled player IDs JSON from storage. String was:", jsonString, e._1);
+                    } else {
+                      console.error("AiTetsu: An unknown error occurred while parsing disabled player IDs JSON from storage. String was:", jsonString);
+                    }
+                    return ;
+                  }
+                }));
+          if (storedDisabledPlayerIds !== undefined) {
+            console.log("FairPlay: Loaded disabled player IDs from storage.");
+            setDisabled(function (param) {
+                  return new Set(storedDisabledPlayerIds);
+                });
+          } else {
+            console.log("FairPlay: No valid disabled player IDs found in storage, using previously set default.");
+            setDisabled(function (param) {
+                  return Rating.UnorderedQueue.fromArray(allPlayers.map(function (p) {
+                                  return p.id;
+                                }));
+                });
+          }
         }), []);
   React.useEffect((function () {
           var history = Rating.CompletedMatches.loadMatches(eventId, allPlayers);
@@ -894,6 +926,33 @@ function AiTetsu(props) {
                 });
     }
   };
+  var togglePlayerCheckin = function (player, status) {
+    if (status) {
+      return setDisabled(function (disabled) {
+                  var $$new = Rating.UnorderedQueue.removeFromQueue(disabled, player.id);
+                  localStorage.setItem(eventId + "-playersCheckinState", Core__Option.getOr(JSON.stringify(Rating.UnorderedQueue.toArray($$new)), ""));
+                  return $$new;
+                });
+    } else {
+      return setDisabled(function (disabled) {
+                  var $$new = Rating.UnorderedQueue.addToQueue(disabled, player.id);
+                  localStorage.setItem(eventId + "-playersCheckinState", Core__Option.getOr(JSON.stringify(Rating.UnorderedQueue.toArray($$new)), ""));
+                  return $$new;
+                });
+    }
+  };
+  var triggerContent = JsxRuntime.jsxs("div", {
+        children: [
+          JsxRuntime.jsx(Outline.UserPlusIcon, {
+                className: "h-8 w-8 text-indigo-600 mb-2"
+              }),
+          JsxRuntime.jsx("span", {
+                children: t`Add Guest`,
+                className: "text-sm font-semibold text-center"
+              })
+        ],
+        className: "flex flex-col items-center justify-center p-4 rounded-lg shadow-md bg-white hover:bg-gray-50 border border-gray-200 cursor-pointer text-gray-700 h-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      });
   if (match$5[0] !== "Advanced") {
     return JsxRuntime.jsx(MatchesView.make, {
                 players: players,
@@ -902,17 +961,30 @@ function AiTetsu(props) {
                 checkin: JsxRuntime.jsx(AiTetsu$Checkin, {
                       players: allPlayers,
                       disabled: disabled,
-                      onToggleCheckin: (function (player, status) {
-                          if (status) {
-                            return setDisabled(function (disabled) {
-                                        return Rating.UnorderedQueue.removeFromQueue(disabled, player.id);
-                                      });
-                          } else {
-                            return setDisabled(function (disabled) {
-                                        return Rating.UnorderedQueue.addToQueue(disabled, player.id);
-                                      });
-                          }
-                        })
+                      onToggleCheckin: togglePlayerCheckin,
+                      addPlayer: Caml_option.some(JsxRuntime.jsx(DialogUiAction.make, {
+                                triggerContent: triggerContent,
+                                title: t`Add Player`,
+                                description: null,
+                                body: JsxRuntime.jsx(SessionAddPlayer.make, {
+                                      eventId: eventId,
+                                      onPlayerAdd: (function (player) {
+                                          setSessionPlayers(function (guests) {
+                                                var newState = addGuestPlayer(guests, Rating.Player.makeDefaultRatingPlayer(player.name));
+                                                Rating.Players.savePlayers(newState, eventId);
+                                                return newState;
+                                              });
+                                          setSettingsPane(function (param) {
+                                                
+                                              });
+                                        })
+                                    }),
+                                onConfirm: (function () {
+                                    
+                                  }),
+                                confirmButtonText: t`Done`,
+                                dialogSize: "2xl"
+                              }))
                     }),
                 queue: new Set(queue),
                 breakPlayers: deprioritized,

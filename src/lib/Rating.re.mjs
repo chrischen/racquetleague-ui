@@ -505,18 +505,35 @@ function savePlayers(t, namespace) {
 function loadPlayers(players, namespace) {
   var state = localStorage.getItem(namespace + "-playersState");
   var storage = state !== null ? JSON.parse(state) : ({});
+  var guests = Object.keys(storage).filter(function (id) {
+          return id.startsWith("guest-");
+        }).map(function (id) {
+        var player = Js_dict.get(storage, id);
+        if (player !== undefined) {
+          return {
+                  data: undefined,
+                  id: player.id,
+                  name: player.name,
+                  rating: player.rating,
+                  ratingOrdinal: player.ratingOrdinal,
+                  paid: player.paid
+                };
+        } else {
+          return makeDefaultRatingPlayer(id);
+        }
+      });
   return players.map(function (p) {
-              return Core__Option.getOr(Core__Option.map(Js_dict.get(storage, p.id), (function (store) {
-                                return {
-                                        data: p.data,
-                                        id: store.id,
-                                        name: store.name,
-                                        rating: store.rating,
-                                        ratingOrdinal: store.ratingOrdinal,
-                                        paid: store.paid
-                                      };
-                              })), p);
-            });
+                return Core__Option.getOr(Core__Option.map(Js_dict.get(storage, p.id), (function (store) {
+                                  return {
+                                          data: p.data,
+                                          id: store.id,
+                                          name: store.name,
+                                          rating: store.rating,
+                                          ratingOrdinal: store.ratingOrdinal,
+                                          paid: store.paid
+                                        };
+                                })), p);
+              }).concat(guests);
 }
 
 var Players = {
@@ -1006,6 +1023,10 @@ function toOrdered(queue) {
   return queue.values();
 }
 
+function toArray(queue) {
+  return Array.from(queue.values());
+}
+
 function fromArray(arr) {
   return new Set(arr);
 }
@@ -1019,6 +1040,7 @@ var UnorderedQueue = {
   removeFromQueue: removeFromQueue$1,
   togglePlayer: togglePlayer,
   toOrdered: toOrdered,
+  toArray: toArray,
   fromArray: fromArray,
   filter: filter$1
 };

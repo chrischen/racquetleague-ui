@@ -38,7 +38,7 @@ module Rating: {
   let ordinal: t => float
   let rate: (~ratings: matchRatings, ~opts: option<opts>=?) => matchRatings
   // let log_decay: float => float;
-  let decay_by_factor: (t, float) => t;
+  let decay_by_factor: (t, float) => t
 } = {
   type t = {
     mu: float,
@@ -71,11 +71,11 @@ module Rating: {
   //   1.0 /. (1.0 +. exp(-. k *. (x -. x0)));
   // };
   let decay_by_factor = (t: t, factor: float): t => {
-    let diff = 8.333333 -. t.sigma;
-    let decay = factor *. diff;
-    let sigma = t.sigma +. decay;
-    make(t.mu, sigma);
-  };
+    let diff = 8.333333 -. t.sigma
+    let decay = factor *. diff
+    let sigma = t.sigma +. decay
+    make(t.mu, sigma)
+  }
 }
 module Player = {
   type t<'a> = {
@@ -390,9 +390,22 @@ module Players = {
     | Some(state) => state->parsePlayers
     | None => Js.Dict.empty()
     }
-    players->Array.map(p => {
+    let guests =
+      storage
+      ->Js.Dict.keys
+      ->Array.filter(id => id->String.startsWith("guest-"))
+      ->Array.map(id => {
+        let player = storage->Js.Dict.get(id)
+        switch player {
+        | Some(p) => {...p, data: None}
+        | None => Player.makeDefaultRatingPlayer(id)
+        }
+      })
+    players
+    ->Array.map(p => {
       storage->Js.Dict.get(p.id)->Option.map(store => {...store, data: p.data})->Option.getOr(p)
     })
+    ->Array.concat(guests)
   }
 }
 open Util
@@ -677,9 +690,9 @@ module RankedMatches = {
           )
         })
         ->Option.getOr([])
-        matches
-
-    })->Option.getOr([])
+      matches
+    })
+    ->Option.getOr([])
   }
 
   let strategy_by_mixed = (
@@ -956,6 +969,7 @@ module UnorderedQueue = {
   }
 
   let toOrdered = (queue: t<'a>) => queue->Set.values
+  let toArray = (queue: t<'a>) => queue->Set.values->Array.fromIterator
 
   let fromArray = (arr): t<'a> => {
     arr->Set.fromArray

@@ -94,6 +94,7 @@
     "resolve": "^1.22.8",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
+    "use-long-press": "^3.3.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

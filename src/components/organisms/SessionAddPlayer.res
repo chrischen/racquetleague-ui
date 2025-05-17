@@ -27,7 +27,6 @@ let make = (~eventId: string, ~onPlayerAdd: inputsUser => unit) => {
   }
 
   <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8 mb-2">
-
     <QRCode value={"https://www.pkuru.com/events/" ++ eventId} />
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input
@@ -44,7 +43,13 @@ let make = (~eventId: string, ~onPlayerAdd: inputsUser => unit) => {
           // },
         )}
       />
-      <Form.Footer />
+      <div className="mt-6 flex items-center justify-end gap-x-6">
+        <button
+          type_="submit"
+          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          {t`Add Guest Player`}
+        </button>
+      </div>
     </form>
   </div>
 }
