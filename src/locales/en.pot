@@ -1533,3 +1533,31 @@ msgstr ""
 #: src/components/pages/DefaultLayoutMap.re.mjs:279
 msgid "pkuru"
 msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:133
+msgid "{0} player selected"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:134
+msgid "{0} players selected"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:132
+msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:562
+msgid "Actions"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:950
+msgid "Add Guest"
+msgstr ""
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:50
+msgid "Add Guest Player"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:985
+msgid "Done"
+msgstr ""

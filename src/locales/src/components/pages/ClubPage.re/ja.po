@@ -13,64 +13,64 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:620
+#: src/components/organisms/EventsList.re.mjs:612
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
-#: src/components/organisms/EventsList.re.mjs:154
-#: src/components/organisms/EventsList.re.mjs:378
+#: src/components/organisms/EventsList.re.mjs:149
+#: src/components/organisms/EventsList.re.mjs:373
 msgid "[location missing]"
 msgstr "[場所がありません]"
 
-#: src/components/organisms/EventsList.re.mjs:315
+#: src/components/organisms/EventsList.re.mjs:310
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
 #: src/components/organisms/EventsList.re.mjs:112
 #: src/components/organisms/EventsList.re.mjs:117
-#: src/components/organisms/EventsList.re.mjs:237
-#: src/components/organisms/EventsList.re.mjs:244
+#: src/components/organisms/EventsList.re.mjs:232
+#: src/components/organisms/EventsList.re.mjs:239
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
 #: src/components/organisms/EventsList.re.mjs:113
 #: src/components/organisms/EventsList.re.mjs:118
-#: src/components/organisms/EventsList.re.mjs:238
-#: src/components/organisms/EventsList.re.mjs:245
+#: src/components/organisms/EventsList.re.mjs:233
+#: src/components/organisms/EventsList.re.mjs:240
 msgid "{0} hour"
 msgstr "{0}時間"
 
 #: src/components/organisms/EventsList.re.mjs:114
 #: src/components/organisms/EventsList.re.mjs:119
-#: src/components/organisms/EventsList.re.mjs:239
-#: src/components/organisms/EventsList.re.mjs:246
+#: src/components/organisms/EventsList.re.mjs:234
+#: src/components/organisms/EventsList.re.mjs:241
 msgid "{0} hours"
 msgstr "{0}時間"
 
 #: src/components/organisms/EventsList.re.mjs:121
-#: src/components/organisms/EventsList.re.mjs:250
+#: src/components/organisms/EventsList.re.mjs:245
 msgid "{0} minute"
 msgstr "{0}分"
 
 #: src/components/organisms/EventsList.re.mjs:122
-#: src/components/organisms/EventsList.re.mjs:251
+#: src/components/organisms/EventsList.re.mjs:246
 msgid "{0} minutes"
 msgstr "{0}分"
 
-#: src/components/organisms/EventsList.re.mjs:455
+#: src/components/organisms/EventsList.re.mjs:450
 msgid "{0} private {shadowCountDesc} hidden"
 msgstr "{0} プライベート {shadowCountDesc} 隠された"
 
 #: src/components/organisms/EventsList.re.mjs:120
-#: src/components/organisms/EventsList.re.mjs:249
+#: src/components/organisms/EventsList.re.mjs:244
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr "{minutes, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventsList.re.mjs:283
+#: src/components/organisms/EventsList.re.mjs:278
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventsList.re.mjs:429
+#: src/components/organisms/EventsList.re.mjs:424
 msgid "{shadowCount, plural, one {event} other {events}}"
 msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 
@@ -78,7 +78,7 @@ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
-#: src/components/organisms/EventsList.re.mjs:592
+#: src/components/organisms/EventsList.re.mjs:584
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
@@ -90,27 +90,27 @@ msgstr "クラブ"
 msgid "club not found"
 msgstr "クラブが見つかりません"
 
-#: src/components/organisms/EventsList.re.mjs:590
+#: src/components/organisms/EventsList.re.mjs:582
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 
-#: src/components/organisms/EventsList.re.mjs:260
+#: src/components/organisms/EventsList.re.mjs:255
 msgid "joined"
 msgstr "参加"
 
-#: src/components/organisms/EventsList.re.mjs:279
+#: src/components/organisms/EventsList.re.mjs:274
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventsList.re.mjs:562
+#: src/components/organisms/EventsList.re.mjs:554
 msgid "share as text"
 msgstr "テキストとして共有"
 
-#: src/components/organisms/EventsList.re.mjs:463
+#: src/components/organisms/EventsList.re.mjs:458
 msgid "show"
 msgstr "表示"
 
-#: src/components/organisms/EventsList.re.mjs:263
+#: src/components/organisms/EventsList.re.mjs:258
 msgid "waitlist"
 msgstr "ウェイトリスト"
 

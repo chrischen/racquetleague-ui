@@ -8,7 +8,7 @@
 type meta<'context> = {context: option<'context>}
 
 // Type for the main long-press callback and event handlers in options (onStart, onFinish, onCancel)
-type eventCallback<'context> = ReactEvent.Synthetic.t => unit
+type eventCallback<'context> = (ReactEvent.Synthetic.t, option<meta<'context>>) => unit
 
 // Type for the filterEvents callback
 type filterEventsCallback = ReactEvent.Synthetic.t => bool
@@ -47,10 +47,10 @@ type bindProps = {
 
 // The useLongPress hook returns a `bind` function.
 // This `bind` function can be called with an optional context argument.
-type bindFn = unit => bindProps
+type bindFn<'context> = option<'context> => bindProps
 
 @module("use-long-press") @react.hook
-external use: (option<eventCallback<'context>>, option<options<'context>>) => bindFn =
+external use: (option<eventCallback<'context>>, option<options<'context>>) => bindFn<'context> =
   "useLongPress"
 
 /*

@@ -410,7 +410,7 @@ let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node)
     let rating = switch rating {
     | Some({mu: Some(mu), sigma: Some(sigma)}) =>
       let rating = Rating.make(mu, sigma)
-      let decayedRating = rating->Rating.decay_by_factor(0.4) // Set the sigma to a decayed value to increase variability during the session
+      let decayedRating = rating->Rating.decay_by_factor(0.25) // Set the sigma to a decayed value to increase variability during the session
 
       // Js.log(
       //   "Decaying sigma: " ++
@@ -1293,6 +1293,23 @@ let make = (~event, ~children) => {
           queueMatch(match, ~dequeue?)
         }}
       />}
+      selectedPlayersActions={(selectedPlayers) => <>
+        <TeamsList teams onDelete=onDeleteTeam />
+      <div className="mt-6 flex items-center justify-end gap-x-6">
+        <UiAction
+          onClick={_ => {
+            switch selectedPlayers->Array.length {
+            | 1
+            | 0 => ()
+            | _ =>
+              createTeam(selectedPlayers)
+            }
+          }}
+          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          {t`Create Team`}
+        </UiAction>
+      </div>
+      </>}
     />
   }
 }

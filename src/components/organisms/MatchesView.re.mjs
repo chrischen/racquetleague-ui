@@ -8,16 +8,19 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ModalDrawer from "../ui/ModalDrawer.re.mjs";
 import * as SubmitMatch from "./SubmitMatch.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as ShakeAnimate from "../../lib/ShakeAnimate.re.mjs";
 import * as Core from "@dnd-kit/core";
 import * as Core$1 from "@linaria/core";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as MatchRsvpUser from "../molecules/MatchRsvpUser.re.mjs";
+import * as FramerMotion from "framer-motion";
 import * as UseLongPress from "use-long-press";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as EventMatchRsvpUser from "./EventMatchRsvpUser.re.mjs";
 import * as MultipleContainers from "../dndkit/MultipleContainers.re.mjs";
 import * as SortableSubmitMatch from "./SortableSubmitMatch.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
+import * as Outline from "@heroicons/react/24/outline";
 
 import { t, plural } from '@lingui/macro'
 ;
@@ -50,20 +53,28 @@ var PlayerView = {
 };
 
 function MatchesView$Queue(props) {
+  var selectedPlayers = props.selectedPlayers;
+  var onToggleSelectedPlayer = props.onToggleSelectedPlayer;
   var togglePlayer = props.togglePlayer;
   var queue = props.queue;
   var consumedPlayers = props.consumedPlayers;
   var breakPlayers = props.breakPlayers;
-  var handleLongPress = React.useCallback((function ($$event) {
-          $$event.stopPropagation();
+  var handleLongPress = React.useCallback((function ($$event, context) {
           $$event.preventDefault();
-          console.log("Long pressed");
-        }), []);
-  var bind = UseLongPress.useLongPress(handleLongPress, undefined);
-  var h = bind();
-  console.log(h);
+          Core__Option.flatMap(context, (function (ctx) {
+                  return Core__Option.map(ctx.context, (function (ctx) {
+                                console.log("Long press detected");
+                                onToggleSelectedPlayer(ctx);
+                              }));
+                }));
+        }), [selectedPlayers]);
+  var bind = UseLongPress.useLongPress(handleLongPress, {
+        threshold: 300,
+        cancelOnMovement: true
+      });
   return JsxRuntime.jsx("div", {
               children: props.players.map(function (player) {
+                    var h = bind(player);
                     var match = queue.has(player.id);
                     var match$1 = breakPlayers.has(player.id);
                     var match$2 = consumedPlayers.has(player.id);
@@ -72,31 +83,43 @@ function MatchesView$Queue(props) {
                             match$1 ? "Break" : "Available"
                           )
                       );
-                    return JsxRuntime.jsx("div", {
-                                children: JsxRuntime.jsx(UiAction.make, {
-                                      onClick: (function (param) {
-                                          togglePlayer(player);
-                                        }),
-                                      children: JsxRuntime.jsx(MatchesView$PlayerView, {
-                                            player: player,
-                                            minRating: 0.0,
-                                            maxRating: 1.0,
-                                            status: status
-                                          }, player.id)
-                                    }, player.id),
-                                className: "animate-shake",
+                    return JsxRuntime.jsx(FramerMotion.motion.div, {
+                                style: ShakeAnimate.getRandomTransformOrigin(),
+                                animate: selectedPlayers.has(player.id) ? ShakeAnimate.variants.start : ShakeAnimate.variants.reset,
                                 onMouseDown: h.onMouseDown,
                                 onMouseUp: h.onMouseUp,
-                                onTouchEnd: h.onTouchEnd,
-                                onTouchMove: h.onTouchMove,
-                                onTouchStart: h.onTouchStart,
+                                onPointerUp: h.onPointerUp,
                                 onPointerDown: h.onPointerDown,
                                 onPointerMove: h.onPointerMove,
-                                onPointerUp: h.onPointerUp,
-                                onPointerLeave: h.onPointerLeave
-                              });
+                                onPointerLeave: h.onPointerLeave,
+                                onTouchStart: (function (e) {
+                                    e.preventDefault();
+                                    h.onTouchStart(e);
+                                  }),
+                                onTouchEnd: h.onTouchEnd,
+                                onTouchMove: h.onTouchMove,
+                                onClick: (function (e) {
+                                    e.preventDefault();
+                                  }),
+                                variants: Caml_option.some(ShakeAnimate.variants),
+                                children: Caml_option.some(JsxRuntime.jsx(UiAction.make, {
+                                          onClick: (function (e) {
+                                              e.preventDefault();
+                                              togglePlayer(player);
+                                            }),
+                                          children: JsxRuntime.jsx(MatchesView$PlayerView, {
+                                                player: player,
+                                                minRating: 0.0,
+                                                maxRating: 1.0,
+                                                status: status
+                                              }, player.id)
+                                        }))
+                              }, player.id);
                   }),
-              className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+              className: Core$1.cx("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"),
+              onTouchStart: (function (e) {
+                  e.preventDefault();
+                })
             });
 }
 
@@ -105,10 +128,16 @@ var Queue = {
 };
 
 function MatchesView$ActionBar(props) {
+  var onClearSelectedPlayers = props.onClearSelectedPlayers;
+  var selectedPlayersCount = props.selectedPlayersCount;
   var onChangeBreakCount = props.onChangeBreakCount;
   var breakCount = props.breakCount;
   var selectedAll = props.selectedAll;
   var selectAll = props.selectAll;
+  var selectedPlayersText = plural(selectedPlayersCount, {
+        one: t`${selectedPlayersCount.toString()} player selected`,
+        other: t`${selectedPlayersCount.toString()} players selected`
+      });
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -134,6 +163,22 @@ function MatchesView$ActionBar(props) {
                     }),
                 JsxRuntime.jsxs("div", {
                       children: [
+                        selectedPlayersCount > 0 ? JsxRuntime.jsx(UiAction.make, {
+                                onClick: (function (param) {
+                                    onClearSelectedPlayers();
+                                  }),
+                                className: "mr-2 p-1 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500",
+                                children: JsxRuntime.jsx(Outline.XMarkIcon, {
+                                      className: "h-5 w-5 text-gray-600"
+                                    })
+                              }) : null,
+                        selectedPlayersCount > 0 ? JsxRuntime.jsx("div", {
+                                children: JsxRuntime.jsx(UiAction.make, {
+                                      onClick: props.onSelectedPlayersAction,
+                                      children: selectedPlayersText
+                                    }),
+                                className: "mr-2 text-sm font-semibold text-gray-700"
+                              }) : null,
                         JsxRuntime.jsxs(UiAction.make, {
                               onClick: (function (param) {
                                   selectAll();
@@ -195,6 +240,15 @@ function MatchesView(props) {
         return false;
       });
   var setShowMatchSelector = match$1[1];
+  var match$2 = React.useState(function () {
+        return false;
+      });
+  var setShowSelectedActions = match$2[1];
+  var match$3 = React.useState(function () {
+        return new Set();
+      });
+  var setSelectedPlayers = match$3[1];
+  var selectedPlayers = match$3[0];
   var tmp;
   switch (view) {
     case "Checkin" :
@@ -317,7 +371,18 @@ function MatchesView(props) {
                   } else {
                     return togglePlayer(player);
                   }
-                })
+                }),
+              onToggleSelectedPlayer: (function (selectedPlayer) {
+                  setSelectedPlayers(function (selectedPlayers) {
+                        if (selectedPlayers.has(selectedPlayer.id)) {
+                          selectedPlayers.delete(selectedPlayer.id);
+                        } else {
+                          selectedPlayers.add(selectedPlayer.id);
+                        }
+                        return selectedPlayers;
+                      });
+                }),
+              selectedPlayers: selectedPlayers
             });
         break;
     
@@ -344,6 +409,20 @@ function MatchesView(props) {
                           console.log("Error submitting matches:", err);
                           return Promise.resolve();
                         }));
+                }),
+              onSelectedPlayersAction: (function (param) {
+                  setShowSelectedActions(function (s) {
+                        return !s;
+                      });
+                }),
+              selectedPlayersCount: selectedPlayers.size,
+              onClearSelectedPlayers: (function () {
+                  setSelectedPlayers(function (param) {
+                        return new Set();
+                      });
+                  setRequiredPlayers(function (param) {
+                        
+                      });
                 })
             });
         break;
@@ -368,6 +447,20 @@ function MatchesView(props) {
           onMainAction: (function (param) {
               setShowMatchSelector(function (s) {
                     return !s;
+                  });
+            }),
+          onSelectedPlayersAction: (function (param) {
+              setShowSelectedActions(function (s) {
+                    return !s;
+                  });
+            }),
+          selectedPlayersCount: selectedPlayers.size,
+          onClearSelectedPlayers: (function () {
+              setSelectedPlayers(function (param) {
+                    return new Set();
+                  });
+              setRequiredPlayers(function (param) {
+                    
                   });
             })
         });
@@ -469,9 +562,20 @@ function MatchesView(props) {
                               });
                           setShowMatchSelector(v);
                         })
+                    }),
+                JsxRuntime.jsx(ModalDrawer.make, {
+                      title: t`Actions`,
+                      children: props.selectedPlayersActions(players.filter(function (p) {
+                                return selectedPlayers.has(p.id);
+                              })),
+                      open_: match$2[0],
+                      setOpen: (function (v) {
+                          setShowSelectedActions(v);
+                        })
                     })
               ],
-              className: "w-full h-full fixed top-0 left-0 bg-black p-3"
+              className: "w-full h-full fixed top-0 left-0 bg-black p-3",
+              id: "FairPlay"
             });
 }
 

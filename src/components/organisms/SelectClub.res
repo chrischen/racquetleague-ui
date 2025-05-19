@@ -4,19 +4,18 @@
 // type data<'a> = Promise('a) | Empty
 
 module Fragment = %relay(`
-  fragment SelectClub_query on Query 
-  @argumentDefinitions (
+  fragment SelectClub_query on Query
+  @argumentDefinitions(
     after: { type: "String" }
     before: { type: "String" }
     first: { type: "Int", defaultValue: 20 }
   )
-  @refetchable(queryName: "SelectClubRefetchQuery")
-  {
+  @refetchable(queryName: "SelectClubRefetchQuery") {
     ...CreateClubForm_activities
     viewer {
       __id
       adminClubs(after: $after, first: $first, before: $before)
-      @connection(key: "SelectClub_adminClubs") {
+        @connection(key: "SelectClub_adminClubs") {
         edges {
           node {
             id
@@ -73,7 +72,7 @@ let make = (~clubs) => {
                       className=""
                       style={opacity: 1., y: 0.}
                       initial={opacity: 0., scale: 1., y: -50.}
-                      animate={opacity: 1., scale: 1., y: 0.00}
+                      animate={FramerMotion.opacity: 1., scale: 1., y: 0.00}
                       exit={opacity: 0., scale: 1., y: -50.}>
                       <CreateClubForm
                         connectionId=?{data.viewer->Option.map(v => v.__id)}

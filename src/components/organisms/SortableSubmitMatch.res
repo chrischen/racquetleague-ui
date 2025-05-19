@@ -85,7 +85,7 @@ module PredictionBar = {
         <FramerMotion.Div
           className="h-2 rounded-l-full bg-red-400 float-right"
           initial={width: "0%"}
-          animate={{width: leftOdds->Float.toFixed(~digits=3) ++ "%"}}
+          animate={{FramerMotion.width: leftOdds->Float.toFixed(~digits=3) ++ "%"}}
         />
       </div>
       <div
@@ -93,7 +93,7 @@ module PredictionBar = {
         <FramerMotion.Div
           className="h-2 rounded-r-full bg-blue-400"
           initial={width: "0%"}
-          animate={{width: rightOdds->Float.toFixed(~digits=3) ++ "%"}}
+          animate={{FramerMotion.width: rightOdds->Float.toFixed(~digits=3) ++ "%"}}
         />
       </div>
     </div>

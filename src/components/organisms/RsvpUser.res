@@ -121,7 +121,7 @@ let make = (
                 className="h-2 rounded-l-full bg-red-400 z-10"
                 initial={width: "0%"}
                 animate={{
-                  width: ratingPercent->Float.toFixed(~digits=3) ++ "%",
+                  FramerMotion.width: ratingPercent->Float.toFixed(~digits=3) ++ "%",
                 }}
               />
               <FramerMotion.Div
@@ -129,7 +129,7 @@ let make = (
                 initial={width: "0%"}
                 animate={{
                   // width: (sigmaPercent /. 100. *. ratingPercent)->Float.toFixed(~digits=3) ++ "%",
-                  width: sigmaPercent->Float.toFixed(~digits=3) ++ "%",
+                  FramerMotion.width: sigmaPercent->Float.toFixed(~digits=3) ++ "%",
                 }}
               />
             </div>
@@ -139,7 +139,7 @@ let make = (
               className="h-2 rounded-full bg-red-400"
               initial={width: "0%"}
               animate={{
-                width: ratingPercent->Float.toFixed(~digits=3) ++ "%",
+                FramerMotion.width: ratingPercent->Float.toFixed(~digits=3) ++ "%",
               }}
             />,
           )}

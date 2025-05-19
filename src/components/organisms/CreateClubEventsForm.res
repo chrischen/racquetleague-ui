@@ -4,26 +4,26 @@
 let ts = Lingui.UtilString.t
 module Mutation = %relay(`
  mutation CreateClubEventsFormMutation(
-    $connections: [ID!]!
-    $input: CreateEventsInput!
-  ) {
-    createEvents(input: $input) {
-      events @appendNode(connections: $connections, edgeTypeName: "EventEdge") {
-        __typename
-        id
-        title
-        details
-        activity {
-          id
-          name
-          slug
-        }
-        startDate
-        endDate
-        listed
-      }
-    }
-  }
+   $connections: [ID!]!
+   $input: CreateEventsInput!
+ ) {
+   createEvents(input: $input) {
+     events @appendNode(connections: $connections, edgeTypeName: "EventEdge") {
+       __typename
+       id
+       title
+       details
+       activity {
+         id
+         name
+         slug
+       }
+       startDate
+       endDate
+       listed
+     }
+   }
+ }
 `)
 
 module Fragment = %relay(`
@@ -34,8 +34,7 @@ module Fragment = %relay(`
   }
 `)
 module QueryFragment = %relay(`
-  fragment CreateClubEventsForm_query on Query
-  {
+  fragment CreateClubEventsForm_query on Query {
     activities {
       id
       name
@@ -161,7 +160,7 @@ let make = (~query, ~club) => {
   <FramerMotion.Div
     style={opacity: 0., y: -50.}
     initial={opacity: 0., scale: 1., y: -50.}
-    animate={opacity: 1., scale: 1., y: 0.00}
+    animate={FramerMotion.opacity: 1., scale: 1., y: 0.00}
     exit={opacity: 0., scale: 1., y: -50.}>
     <WaitForMessages>
       {() => <>

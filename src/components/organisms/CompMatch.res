@@ -424,7 +424,7 @@ let make = (
             className="h-2 rounded-full bg-red-400"
             initial={width: "0%"}
             animate={{
-              width: {
+              FramerMotion.width: {
                 switch maxQuality -. minQuality {
                 | 0. => "0%"
                 | _ =>

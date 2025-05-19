@@ -3,25 +3,22 @@
 
 let ts = Lingui.UtilString.t
 module Mutation = %relay(`
- mutation SettingsProfileFormMutation(
-    $input: UpdateProfileInput!
-  ) {
-    updateProfile(input: $input) {
-      viewer {
-        fullName
-        biography
-        lineUsername
-      }
-      errors {
-        message
-      }
-    }
-  }
+ mutation SettingsProfileFormMutation($input: UpdateProfileInput!) {
+   updateProfile(input: $input) {
+     viewer {
+       fullName
+       biography
+       lineUsername
+     }
+     errors {
+       message
+     }
+   }
+ }
 `)
 
 module QueryFragment = %relay(`
-  fragment SettingsProfileForm_query on Query
-  {
+  fragment SettingsProfileForm_query on Query {
     viewer {
       profile {
         fullName
@@ -62,7 +59,7 @@ let make = (~query) => {
 
   let (commitMutation, _) = Mutation.use()
 
-  let {register, handleSubmit, formState } = useFormOfInputs(
+  let {register, handleSubmit, formState} = useFormOfInputs(
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {
@@ -104,7 +101,7 @@ let make = (~query) => {
   <FramerMotion.Div
     style={opacity: 0., y: -50.}
     initial={opacity: 0., scale: 1., y: -50.}
-    animate={opacity: 1., scale: 1., y: 0.00}
+    animate={FramerMotion.opacity: 1., scale: 1., y: 0.00}
     exit={opacity: 0., scale: 1., y: -50.}>
     <WaitForMessages>
       {() => <>

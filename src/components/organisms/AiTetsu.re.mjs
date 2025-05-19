@@ -436,7 +436,7 @@ function rsvpToPlayer(rsvp) {
       var sigma = match$1.sigma;
       if (sigma !== undefined) {
         var rating$1 = Rating.Rating.make(mu, sigma);
-        rating = Rating.Rating.decay_by_factor(rating$1, 0.4);
+        rating = Rating.Rating.decay_by_factor(rating$1, 0.25);
       } else {
         rating = Rating.Rating.makeDefault();
       }
@@ -1048,7 +1048,31 @@ function AiTetsu(props) {
                           queueMatch(match, dequeue);
                         }),
                       requiredPlayers: match$17[0]
-                    })
+                    }),
+                selectedPlayersActions: (function (selectedPlayers) {
+                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                children: [
+                                  JsxRuntime.jsx(AiTetsu$TeamsList, {
+                                        teams: teams,
+                                        onDelete: onDeleteTeam
+                                      }),
+                                  JsxRuntime.jsx("div", {
+                                        children: JsxRuntime.jsx(UiAction.make, {
+                                              onClick: (function (param) {
+                                                  var match = selectedPlayers.length;
+                                                  if (!(match === 0 || match === 1)) {
+                                                    return createTeam(selectedPlayers);
+                                                  }
+                                                  
+                                                }),
+                                              className: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                              children: t`Create Team`
+                                            }),
+                                        className: "mt-6 flex items-center justify-end gap-x-6"
+                                      })
+                                ]
+                              });
+                  })
               });
   }
   var tmp;

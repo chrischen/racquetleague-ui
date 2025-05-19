@@ -13,14 +13,18 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/forms/Form.re.mjs:300
-msgid "cancel"
+#: src/components/organisms/SessionAddPlayer.re.mjs:50
+msgid "Add Guest Player"
 msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:300
+#~ msgid "cancel"
+#~ msgstr ""
 
 #: src/components/organisms/SessionAddPlayer.re.mjs:42
 msgid "Player Name"
 msgstr ""
 
 #: src/components/molecules/forms/Form.re.mjs:307
-msgid "save"
-msgstr ""
+#~ msgid "save"
+#~ msgstr ""

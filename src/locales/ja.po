@@ -1468,6 +1468,34 @@ msgstr "タイムゾーン"
 msgid "pkuru"
 msgstr "ピックル"
 
+#: src/components/organisms/MatchesView.re.mjs:133
+msgid "{0} player selected"
+msgstr "{0}人のプレイヤーが選択されました"
+
+#: src/components/organisms/MatchesView.re.mjs:134
+msgid "{0} players selected"
+msgstr "{0}人のプレイヤーが選択されました"
+
+#: src/components/organisms/MatchesView.re.mjs:132
+msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
+msgstr "{selectedPlayersCount, plural, one {{0} } other {{1} }}"
+
+#: src/components/organisms/MatchesView.re.mjs:562
+msgid "Actions"
+msgstr "アクション"
+
+#: src/components/organisms/AiTetsu.re.mjs:950
+msgid "Add Guest"
+msgstr "ゲストを追加"
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:50
+msgid "Add Guest Player"
+msgstr "ゲストプレイヤーを追加"
+
+#: src/components/organisms/AiTetsu.re.mjs:985
+msgid "Done"
+msgstr "完了"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

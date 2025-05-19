@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"d8/6/v\":\"cancel\",\"hjoTW3\":\"Player Name\",\"lMpZmf\":\"save\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"9HxgW6\":\"Add Guest Player\",\"d8/6/v\":\"cancel\",\"hjoTW3\":\"Player Name\",\"lMpZmf\":\"save\"}");

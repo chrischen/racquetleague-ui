@@ -11,11 +11,14 @@ var Main = {};
 
 var AnimatePresence = {};
 
+var AnimationControls = {};
+
 export {
   Div ,
   Li ,
   Tr ,
   Main ,
   AnimatePresence ,
+  AnimationControls ,
 }
 /* No side effect */

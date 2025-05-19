@@ -4,7 +4,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
 import * as JsxRuntime from "react/jsx-runtime";
 
-import { cx } from '@linaria/core'
+import { cx, css } from '@linaria/core'
 ;
 
 function UiAction(props) {
@@ -14,9 +14,10 @@ function UiAction(props) {
   var baseClass = active ? "italic" : "";
   return JsxRuntime.jsx("a", {
               children: props.children,
-              className: Core__Option.getOr(Core__Option.map(props.className, (function (c) {
-                          return Core.cx(c, baseClass);
-                        })), baseClass),
+              className: Core.cx(Core__Option.getOr(Core__Option.map(props.className, (function (c) {
+                              return Core.cx(c, baseClass);
+                            })), baseClass), (css`-webkit-touch-callout: none; user-select: none;`)),
+              draggable: false,
               alt: props.alt,
               href: "#",
               onClick: (function (e) {
@@ -25,7 +26,6 @@ function UiAction(props) {
                 }),
               onTouchStart: Core__Option.map(props.onTouchStart, (function (f) {
                       return function (e) {
-                        e.preventDefault();
                         f(e);
                       };
                     }))

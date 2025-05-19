@@ -37,31 +37,53 @@ module Queue = {
     ~consumedPlayers: Set.t<string>,
     ~queue: Set.t<string>,
     ~togglePlayer: Rating.player => unit,
+    ~onToggleSelectedPlayer: Rating.player => unit,
+    ~selectedPlayers: Set.t<string>,
   ) => {
     // let maxRating =
     //   players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
     // let minRating =
     //   players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
-    let handleLongPress = React.useCallback((event: ReactEvent.Synthetic.t) => {
-      event->ReactEvent.Synthetic.stopPropagation
-      event->ReactEvent.Synthetic.preventDefault
-      Js.log("Long pressed")
-    }, [])
-    let options: UseLongPress.options<string> = {
-      // onStart: handleStart,
-      threshold: 500,
+    let handleLongPress = React.useCallback(
+      (event: ReactEvent.Synthetic.t, context: option<UseLongPress.meta<Rating.player>>) => {
+        event->ReactEvent.Synthetic.preventDefault
+        // event->ReactEvent.Synthetic.
+        // event->ReactEvent.Synthetic.stopPropagation
+        context
+        ->Option.flatMap(ctx =>
+          ctx.context->Option.map(
+            ctx => {
+              Js.log("Long press detected")
+              onToggleSelectedPlayer(ctx)
+            },
+          )
+        )
+        ->ignore
+        ()
+      },
+      [selectedPlayers],
+    )
+
+    let options: UseLongPress.options<Rating.player> = {
+      // onStart: handleLongPress,
+      threshold: 300,
       cancelOnMovement: true, // or Js.Any.fromInt(25) for pixel threshold
-      detect: #both,
+      // detect: #both,
     }
-    let bind = UseLongPress.use(Some(handleLongPress), None)
+    let bind = UseLongPress.use(Some(handleLongPress), Some(options))
     let maxRating = 1.0
     let minRating = 0.0
 
-    let h = bind()
-    Js.log(h)
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+    <div
+      className={Util.cx([
+        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3",
+      ])}
+      onTouchStart={e => {
+        e->ReactEvent.Synthetic.preventDefault
+      }}>
       {players
       ->Array.map(player => {
+        let h = bind(Some(player))
         let status = switch (
           queue->Set.has(player.id),
           breakPlayers->Set.has(player.id),
@@ -72,25 +94,39 @@ module Queue = {
         | (_, true, _) => MatchRsvpUser.Break
         | _ => Available
         }
-        <div
-          className="animate-shake"
+        <FramerMotion.Div
+          key=player.id
+          // className={Util.cx([
+          //   selectedPlayers->Set.has(player.id) ? "animate-bounce delay-150 duration-300" : "",
+          // ])}
+          onClick={e => {
+            e->ReactEvent.Synthetic.preventDefault
+          }}
           onMouseDown={h.onMouseDown}
           onMouseUp={h.onMouseUp}
           onPointerUp={h.onPointerUp}
           onPointerMove={h.onPointerMove}
           onPointerLeave={h.onPointerLeave}
           onPointerDown={h.onPointerDown}
-          onTouchStart={h.onTouchStart}
+          onTouchStart={e => {
+            e->ReactEvent.Synthetic.preventDefault
+            h.onTouchStart(e)
+          }}
           onTouchEnd={h.onTouchEnd}
-          onTouchMove={h.onTouchMove}>
+          onTouchMove={h.onTouchMove}
+          style={ShakeAnimate.getRandomTransformOrigin()}
+          variants={ShakeAnimate.variants}
+          animate={selectedPlayers->Set.has(player.id)
+            ? ShakeAnimate.variants["start"]
+            : ShakeAnimate.variants["reset"]}>
           <UiAction
-            key=player.id
-            onClick={_ => {
+            onClick={e => {
+              e->ReactEvent.Synthetic.preventDefault
               togglePlayer(player)
             }}>
             <PlayerView status={status} key={player.id} player minRating maxRating />
           </UiAction>
-        </div>
+        </FramerMotion.Div>
       })
       ->React.array}
     </div>
@@ -106,7 +142,18 @@ module ActionBar = {
     ~mainActionText: string,
     ~onChangeBreakCount: int => unit,
     ~onMainAction,
+    ~onSelectedPlayersAction,
+    ~selectedPlayersCount: int,
+    ~onClearSelectedPlayers: unit => unit,
   ) => {
+    let ts = Lingui.UtilString.t
+    let selectedPlayersText = Lingui.Util.plural(
+      selectedPlayersCount,
+      {
+        one: ts`${selectedPlayersCount->Int.toString} player selected`,
+        other: ts`${selectedPlayersCount->Int.toString} players selected`,
+      },
+    )
     <div
       className="fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center">
       <div>
@@ -125,6 +172,20 @@ module ActionBar = {
         {t`# of courts`}
       </div>
       <div className="-my-3 py-3 align-middle items-center inline-flex">
+        {selectedPlayersCount > 0
+          ? <UiAction
+              onClick={_ => onClearSelectedPlayers()}
+              className="mr-2 p-1 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              // ariaLabel={ts`Clear selection`}
+            >
+              <HeroIcons.XMarkIcon className="h-5 w-5 text-gray-600" />
+            </UiAction>
+          : React.null}
+        {selectedPlayersCount > 0
+          ? <div className="mr-2 text-sm font-semibold text-gray-700">
+              <UiAction onClick={onSelectedPlayersAction}> {selectedPlayersText} </UiAction>
+            </div>
+          : React.null}
         <UiAction
           onClick={_ => selectAll()}
           className={Util.cx([
@@ -170,12 +231,15 @@ let make = (
   ~breakCount: int,
   ~onChangeBreakCount: int => unit,
   ~matchSelector: React.element,
+  ~selectedPlayersActions: array<Rating.player> => React.element,
 ) => {
   let ts = Lingui.UtilString.t
   let (view, setView) = React.useState(() => Matches)
   let (showMatchSelector, setShowMatchSelector) = React.useState(() => false)
+  let (showSelectedActions, setShowSelectedActions) = React.useState(() => false)
+  let (selectedPlayers, setSelectedPlayers) = React.useState(() => Set.make())
 
-  <div className="w-full h-full fixed top-0 left-0 bg-black p-3">
+  <div id="FairPlay" className="w-full h-full fixed top-0 left-0 bg-black p-3">
     <div className="flex h-[34px] justify-between items-center">
       <UiAction
         className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -246,6 +310,14 @@ let make = (
             breakPlayers
             consumedPlayers
             queue
+            onToggleSelectedPlayer={selectedPlayer =>
+              setSelectedPlayers(selectedPlayers => {
+                selectedPlayers->Set.has(selectedPlayer.id)
+                  ? selectedPlayers->Set.delete(selectedPlayer.id)->ignore
+                  : selectedPlayers->Set.add(selectedPlayer.id)->ignore
+                selectedPlayers
+              })}
+            selectedPlayers
             togglePlayer={player => {
               switch consumedPlayers->Set.has(player.id) {
               | true => setView(_ => Matches)
@@ -371,6 +443,16 @@ let make = (
           })
           ->ignore
         }}
+        onSelectedPlayersAction={_ => {
+          setShowSelectedActions(s => !s)
+        }}
+        selectedPlayersCount={selectedPlayers->Set.size}
+        onClearSelectedPlayers={_ => {
+          setSelectedPlayers(_ => Set.make())
+          setRequiredPlayers(_ => {
+            None
+          })
+        }}
       />
     | Checkin | Queue =>
       // Render the original ActionBar for Checkin and Queue views
@@ -384,6 +466,16 @@ let make = (
         onChangeBreakCount
         mainActionText={ts`CHOOSE MATCH`}
         onMainAction={_ => setShowMatchSelector(s => !s)}
+        selectedPlayersCount={selectedPlayers->Set.size}
+        onSelectedPlayersAction={_ => {
+          setShowSelectedActions(s => !s)
+        }}
+        onClearSelectedPlayers={_ => {
+          setSelectedPlayers(_ => Set.make())
+          setRequiredPlayers(_ => {
+            None
+          })
+        }}
       />
     }}
     <ModalDrawer
@@ -398,6 +490,14 @@ let make = (
         setShowMatchSelector(v)
       }}>
       {matchSelector}
+    </ModalDrawer>
+    <ModalDrawer
+      title={ts`Actions`}
+      open_=showSelectedActions
+      setOpen={v => {
+        setShowSelectedActions(v)
+      }}>
+      {selectedPlayersActions(players->Array.filter(p => selectedPlayers->Set.has(p.id)))}
     </ModalDrawer>
   </div>
 }

@@ -1,4 +1,4 @@
-%%raw("import { cx } from '@linaria/core'")
+%%raw("import { cx, css } from '@linaria/core'")
 
 @react.component
 let make = (
@@ -14,14 +14,17 @@ let make = (
   <a
     href="#"
     ?alt
-    className={className->Option.map(c => cx([c, baseClass]))->Option.getOr(baseClass)}
+    className={Util.cx([
+      className->Option.map(c => cx([c, baseClass]))->Option.getOr(baseClass),
+      %raw("css`-webkit-touch-callout: none; user-select: none;`"),
+    ])}
+    draggable=false
     onClick={e => {
       e->JsxEventU.Mouse.preventDefault
       onClick(e)
     }}
     onTouchStart=?{onTouchStart->Option.map(f => {
       e => {
-        e->JsxEventU.Touch.preventDefault
         f(e)
       }
     })}>

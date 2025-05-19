@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"d8/6/v\":\"キャンセル\",\"hjoTW3\":\"プレイヤー名\",\"lMpZmf\":\"保存\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"9HxgW6\":\"ゲストプレイヤーを追加\",\"hjoTW3\":\"プレイヤー名\",\"d8/6/v\":\"キャンセル\",\"lMpZmf\":\"保存\"}");

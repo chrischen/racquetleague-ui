@@ -4,16 +4,15 @@
 // type data<'a> = Promise('a) | Empty
 
 module Fragment = %relay(`
-  fragment SelectLocation_query on Query 
-  @argumentDefinitions (
+  fragment SelectLocation_query on Query
+  @argumentDefinitions(
     after: { type: "String" }
     before: { type: "String" }
     first: { type: "Int", defaultValue: 20 }
   )
-  @refetchable(queryName: "SelectLocationRefetchQuery")
-  {
+  @refetchable(queryName: "SelectLocationRefetchQuery") {
     locations(after: $after, first: $first, before: $before)
-    @connection(key: "SelectLocation_locations") {
+      @connection(key: "SelectLocation_locations") {
       edges {
         node {
           id
@@ -67,7 +66,7 @@ let make = (~locations) => {
                       className=""
                       style={opacity: 1., y: 0.}
                       initial={opacity: 0., scale: 1., y: -50.}
-                      animate={opacity: 1., scale: 1., y: 0.00}
+                      animate={FramerMotion.opacity: 1., scale: 1., y: 0.00}
                       exit={opacity: 0., scale: 1., y: -50.}>
                       <CreateLocationForm
                         onCancel={_ => setShowCreateLocation(_ => false)}

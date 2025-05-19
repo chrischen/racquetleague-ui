@@ -5,29 +5,29 @@ let ts = Lingui.UtilString.t
 
 module Mutation = %relay(`
  mutation CreateLocationEventFormMutation(
-    $connections: [ID!]!
-    $input: CreateEventInput!
-  ) {
-    createEvent(input: $input) {
-      event @appendNode(connections: $connections, edgeTypeName: "EventEdge") {
-        __typename
-        id
-        title
-        details
-        maxRsvps
-        minRating
-        activity {
-          id
-          name
-          slug
-        }
-        startDate
-        endDate
-        listed
-        timezone
-      }
-    }
-  }
+   $connections: [ID!]!
+   $input: CreateEventInput!
+ ) {
+   createEvent(input: $input) {
+     event @appendNode(connections: $connections, edgeTypeName: "EventEdge") {
+       __typename
+       id
+       title
+       details
+       maxRsvps
+       minRating
+       activity {
+         id
+         name
+         slug
+       }
+       startDate
+       endDate
+       listed
+       timezone
+     }
+   }
+ }
 `)
 
 module EventFragment = %relay(`
@@ -53,41 +53,41 @@ module EventFragment = %relay(`
 `)
 module UpdateMutation = %relay(`
  mutation CreateLocationEventFormUpdateMutation(
-    $eventId: ID!,
-    $input: CreateEventInput!
-  ) {
-    updateEvent(eventId: $eventId, input: $input) {
-      event {
-        __typename
-        id
-        title
-        details
-        maxRsvps
-        minRating
-        timezone
-        activity {
-          id
-        }
-        location {
-          id
-        }
-        club {
-          id
-          name
-          slug
-        }
-        startDate
-        endDate
-        listed
-      }
-      rsvps {
-        id
-        listType
-        joinTime
-        rsvpId
-      }
-    }
-  }
+   $eventId: ID!
+   $input: CreateEventInput!
+ ) {
+   updateEvent(eventId: $eventId, input: $input) {
+     event {
+       __typename
+       id
+       title
+       details
+       maxRsvps
+       minRating
+       timezone
+       activity {
+         id
+       }
+       location {
+         id
+       }
+       club {
+         id
+         name
+         slug
+       }
+       startDate
+       endDate
+       listed
+     }
+     rsvps {
+       id
+       listType
+       joinTime
+       rsvpId
+     }
+   }
+ }
 `)
 
 module Fragment = %relay(`
@@ -99,23 +99,23 @@ module Fragment = %relay(`
 `)
 module QueryFragment = %relay(`
   fragment CreateLocationEventForm_query on Query
-  @argumentDefinitions (
+  @argumentDefinitions(
     after: { type: "String" }
     before: { type: "String" }
     first: { type: "Int", defaultValue: 20 }
-  )
-  {
+  ) {
     activities {
       id
       name
       slug
     }
-    ...SelectClubStateful_query @arguments(after: $after, first: $first, before: $before)
+    ...SelectClubStateful_query
+      @arguments(after: $after, first: $first, before: $before)
     ...CreateClubForm_activities
     viewer {
       __id
       adminClubs(after: $after, first: $first, before: $before)
-      @connection(key: "SelectClub_adminClubs") {
+        @connection(key: "SelectClub_adminClubs") {
         edges {
           node {
             id
@@ -323,7 +323,7 @@ let make = (~event=?, ~location, ~query) => {
   <FramerMotion.Div
     style={opacity: 0., y: -50.}
     initial={opacity: 0., scale: 1., y: -50.}
-    animate={opacity: 1., scale: 1., y: 0.00}
+    animate={FramerMotion.opacity: 1., scale: 1., y: 0.00}
     exit={opacity: 0., scale: 1., y: -50.}>
     <WaitForMessages>
       {() => <>
