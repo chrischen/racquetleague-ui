@@ -476,6 +476,9 @@ let make = (~event, ~children) => {
   let (screen, setScreen) = React.useState(() => Advanced)
   // Player team constraints
   let (teams: NonEmptyArray.t<array<player>>, setTeams) = React.useState(() => NonEmptyArray.empty)
+  let (antiTeams: NonEmptyArray.t<array<player>>, setAntiTeams) = React.useState(() =>
+    NonEmptyArray.empty
+  )
   let (settingsPane: option<playerSettings>, setSettingsPane) = React.useState(() => None)
   // let (activePlayers: array<Player.t<rsvpNode>>, setActivePlayers) = React.useState(_ => [])
   let (queue: array<string>, setQueue) = React.useState(_ => [])
@@ -905,13 +908,23 @@ let make = (~event, ~children) => {
     {one: "player", other: "players"},
   )
 
-  let createTeam = (team: array<player>) => {
-    setTeams(teams => {
-      teams->NonEmptyArray.concat(NonEmptyArray.pure(team))
-    })
+  let createTeam = (teamType: Team.teamType, team: array<player>) => {
+    switch teamType {
+    | Anti =>
+      setAntiTeams(teams => {
+        teams->NonEmptyArray.concat(NonEmptyArray.pure(team))
+      })
+    | _ =>
+      setTeams(teams => {
+        teams->NonEmptyArray.concat(NonEmptyArray.pure(team))
+      })
+    }
   }
-  let onDeleteTeam = (i: int) => {
-    setTeams(teams => teams->NonEmptyArray.filterWithIndex((_, i') => i' != i))
+  let onDeleteTeam = (teamType: Team.teamType, i: int) => {
+    switch teamType {
+    | Anti => setAntiTeams(teams => teams->NonEmptyArray.filterWithIndex((_, i') => i' != i))
+    | _ => setTeams(teams => teams->NonEmptyArray.filterWithIndex((_, i') => i' != i))
+    }
   }
 
   let roundsCount =
@@ -1086,11 +1099,19 @@ let make = (~event, ~children) => {
                   <p className="mt-2 text-base leading-7 text-gray-600">
                     {t`Players in teams will always be placed in a match together on the same side.`}
                   </p>
-                  <TeamsList teams onDelete=onDeleteTeam />
+                  <TeamsList teams onDelete={onDeleteTeam(Team.Regular, ...)} />
+                  <TeamsList teams={antiTeams} onDelete={onDeleteTeam(Team.Anti, ...)} />
                   <TeamSelector
                     players
-                    onTeamCreate=createTeam
+                    onTeamCreate={createTeam(Team.Regular, ...)}
                     teamPlayers={teams
+                    ->NonEmptyArray.toArray
+                    ->Array.flatMap(x => x)}
+                  />
+                  <TeamSelector
+                    players
+                    onTeamCreate={createTeam(Team.Anti, ...)}
+                    teamPlayers={antiTeams
                     ->NonEmptyArray.toArray
                     ->Array.flatMap(x => x)}
                   />
@@ -1286,29 +1307,48 @@ let make = (~event, ~children) => {
         // ->Set.fromArray}
         // priorityPlayers={[]}
         priorityPlayers
-        avoidAllPlayers
+        avoidAllPlayers=?{antiTeams}
         ?requiredPlayers
         onSelectMatch={(match, ~dequeue: option<bool>=?) => {
           // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
           queueMatch(match, ~dequeue?)
         }}
       />}
-      selectedPlayersActions={(selectedPlayers) => <>
-        <TeamsList teams onDelete=onDeleteTeam />
-      <div className="mt-6 flex items-center justify-end gap-x-6">
-        <UiAction
-          onClick={_ => {
-            switch selectedPlayers->Array.length {
-            | 1
-            | 0 => ()
-            | _ =>
-              createTeam(selectedPlayers)
-            }
-          }}
-          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          {t`Create Team`}
-        </UiAction>
-      </div>
+      selectedPlayersActions={selectedPlayers => <>
+        <div className="mt-6 flex flex-col justify-end gap-x-6">
+          <TeamsList teams onDelete={onDeleteTeam(Team.Regular, ...)} />
+          <UiAction
+            onClick={_ => {
+              switch selectedPlayers->Array.length {
+              | 1
+              | 0 => ()
+              | _ => createTeam(Team.Regular, selectedPlayers)
+              }
+            }}
+            className="mt-2 rounded-md w-full text-center bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            {t`Create Team`}
+            {" / "->React.string}
+            {t`Fixed Pair`}
+          </UiAction>
+          <p className="mt-1 text-xs text-gray-500 text-center">
+            {t`Players in a team will always be placed in a match together on the same side.`}
+          </p>
+          <TeamsList teams=antiTeams onDelete={onDeleteTeam(Team.Anti, ...)} />
+          <UiAction
+            onClick={_ => {
+              switch selectedPlayers->Array.length {
+              | 1
+              | 0 => ()
+              | _ => createTeam(Team.Anti, selectedPlayers)
+              }
+            }}
+            className="mt-2 rounded-md w-full text-center bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            {t`Create Anti-Team`}
+          </UiAction>
+          <p className="mt-1 text-xs text-gray-500 text-center">
+            {t`Players in an anti-team will never be placed in a match together.`}
+          </p>
+        </div>
       </>}
     />
   }

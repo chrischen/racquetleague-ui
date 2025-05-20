@@ -1496,6 +1496,23 @@ msgstr "ゲストプレイヤーを追加"
 msgid "Done"
 msgstr "完了"
 
+#: src/components/organisms/AiTetsu.re.mjs:1114
+msgid "Create Anti-Team"
+msgstr "アンチチームを作成"
+
+#: src/components/organisms/AiTetsu.re.mjs:1092
+msgid "Fixed Pair"
+msgstr "固定ペア"
+
+#: src/components/organisms/AiTetsu.re.mjs:1096
+msgid ""
+"Players in a team will always be placed in a match together on the same side."
+msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"	
+
+#: src/components/organisms/AiTetsu.re.mjs:1117
+msgid "Players in an anti-team will never be placed in a match together."
+msgstr "アンチチームのプレイヤーは、試合で一緒に配置されることはありません。"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

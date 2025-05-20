@@ -38,7 +38,7 @@ module Rating: {
   let ordinal: t => float
   let rate: (~ratings: matchRatings, ~opts: option<opts>=?) => matchRatings
   // let log_decay: float => float;
-  let decay_by_factor: (t, float) => t;
+  let decay_by_factor: (t, float) => t
 } = {
   type t = {
     mu: float,
@@ -71,11 +71,11 @@ module Rating: {
   //   1.0 /. (1.0 +. exp(-. k *. (x -. x0)));
   // };
   let decay_by_factor = (t: t, factor: float): t => {
-    let diff = 8.333333 -. t.sigma;
-    let decay = factor *. diff;
-    let sigma = t.sigma +. decay;
-    make(t.mu, sigma);
-  };
+    let diff = 8.333333 -. t.sigma
+    let decay = factor *. diff
+    let sigma = t.sigma +. decay
+    make(t.mu, sigma)
+  }
 }
 module Player = {
   type t<'a> = {
@@ -100,6 +100,7 @@ module Player = {
 }
 
 module Team = {
+  type teamType = Regular | Anti
   type t<'a> = array<Player.t<'a>>
   // let contains_player = ((p1, p2): t<'a>, player: Player.t<'a>) =>
   //   p1.id == player.id || p2.id == player.id
@@ -152,6 +153,14 @@ module Match = {
       [t1, t2]->Array.map(t => t->Array.map(p => p.id))->Array.flatMap(x => x)->Set.fromArray
 
     players->intersection(match_players)->Set.size == players->Set.size
+  }
+
+  let contains_more_than_1_players = ((t1, t2): t<'a>, players: array<Player.t<'a>>) => {
+    let players = players->Array.map(p => p.id)->Set.fromArray
+    let match_players =
+      [t1, t2]->Array.map(t => t->Array.map(p => p.id))->Array.flatMap(x => x)->Set.fromArray
+
+    match_players->intersection(players)->Set.size > 1
   }
 
   let rate = ((winners, losers)) => {
@@ -552,9 +561,12 @@ let find_all_match_combos = (
       : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
 
   let results =
-    avoidAllPlayers->Array.length < 2
-      ? results
-      : results->Array.filter(((match, _)) => !(match->Match.contains_all_players(avoidAllPlayers)))
+    avoidAllPlayers->Array.reduce(matches, (matches, antiTeam) => {
+      antiTeam->Array.length < 2
+      ? matches
+      : [...matches->Array.filter(((match, _)) => !(match->Match.contains_more_than_1_players(antiTeam)))]
+
+    })
 
   // Filter by `requiredPlayers`
   let results = // This `results` is after priorityPlayers and avoidAllPlayers filters
@@ -636,7 +648,7 @@ module RankedMatches = {
     players: array<Player.t<'a>>,
     consumedPlayers: Set.t<string>,
     priorityPlayers: array<Player.t<'a>>,
-    avoidAllPlayers: array<Player.t<'a>>,
+    avoidAllPlayers: array<array<Player.t<'a>>>,
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
   ) => {
@@ -660,7 +672,7 @@ module RankedMatches = {
     players: array<Player.t<'a>>,
     consumedPlayers: Set.t<string>,
     _priorityPlayers: array<Player.t<'a>>,
-    avoidAllPlayers: array<Player.t<'a>>,
+    avoidAllPlayers: array<array<Player.t<'a>>>,
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
   ) => {
@@ -690,9 +702,9 @@ module RankedMatches = {
           )
         })
         ->Option.getOr([])
-        matches
-
-    })->Option.getOr([])
+      matches
+    })
+    ->Option.getOr([])
   }
 
   let strategy_by_mixed = (
@@ -854,7 +866,7 @@ let getMatches = (
   consumedPlayers,
   strategy,
   priorityPlayers,
-  avoidAllPlayers,
+  avoidAllPlayers: array<array<Player.t<rsvpNode>>>,
   teamConstraints,
   requiredPlayers,
 ) => {

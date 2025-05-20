@@ -183,6 +183,23 @@ function contains_all_players(param, players) {
   return players$1.intersection(match_players).size === players$1.size;
 }
 
+function contains_more_than_1_players(param, players) {
+  var players$1 = new Set(players.map(function (p) {
+            return p.id;
+          }));
+  var match_players = new Set([
+            param[0],
+            param[1]
+          ].map(function (t) {
+              return t.map(function (p) {
+                          return p.id;
+                        });
+            }).flatMap(function (x) {
+            return x;
+          }));
+  return match_players.intersection(players$1).size > 1;
+}
+
 function rate(param) {
   var losers = param[1];
   var winners = param[0];
@@ -232,6 +249,7 @@ var Match = {
   contains_player: contains_player$1,
   contains_any_players: contains_any_players,
   contains_all_players: contains_all_players,
+  contains_more_than_1_players: contains_more_than_1_players,
   rate: rate,
   toStableId: toStableId$1,
   players: players
@@ -713,31 +731,39 @@ function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayer
                 quality
               ];
       });
-  var results = priorityPlayers.length === 0 ? matches : matches.filter(function (param) {
+  if (priorityPlayers.length !== 0) {
+    matches.filter(function (param) {
           return contains_any_players(param[0], priorityPlayers);
         });
-  var results$1 = avoidAllPlayers.length < 2 ? results : results.filter(function (param) {
-          return !contains_all_players(param[0], avoidAllPlayers);
-        });
-  var results$2;
+  }
+  var results = Core__Array.reduce(avoidAllPlayers, matches, (function (matches, antiTeam) {
+          if (antiTeam.length < 2) {
+            return matches;
+          } else {
+            return Belt_Array.concatMany([matches.filter(function (param) {
+                              return !contains_more_than_1_players(param[0], antiTeam);
+                            })]);
+          }
+        }));
+  var results$1;
   if (requiredPlayers !== undefined) {
     var reqPlayerIds = Caml_option.valFromOption(requiredPlayers);
     if (reqPlayerIds.size > 0) {
       var requiredPlayersArray = availablePlayers.filter(function (p) {
             return reqPlayerIds.has(p.id);
           });
-      results$2 = requiredPlayersArray.length === reqPlayerIds.size ? results$1.filter(function (param) {
+      results$1 = requiredPlayersArray.length === reqPlayerIds.size ? results.filter(function (param) {
               return contains_all_players(param[0], requiredPlayersArray);
             }) : [];
     } else {
-      results$2 = results$1;
+      results$1 = results;
     }
   } else {
-    results$2 = results$1;
+    results$1 = results;
   }
   var teamConstraintsAsArray = Util.NonEmptyArray.toArray(teamConstraints);
   var finalTeamConstraintsList = teamConstraintsAsArray.concat([implicitTeam]);
-  return results$2.filter(function (param) {
+  return results$1.filter(function (param) {
               var match = param[0];
               var team1Set = toSet(match[0]);
               var team2Set = toSet(match[1]);

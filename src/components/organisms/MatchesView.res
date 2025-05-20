@@ -140,7 +140,7 @@ module ActionBar = {
     )
     <div
       className="fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center">
-      <div>
+      <div className={Util.cx([selectedPlayersCount > 0 ? "hidden sm:block" : ""])}>
         <UiAction
           onClick={_ => onChangeBreakCount(breakCount - 1)}
           className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -182,7 +182,6 @@ module ActionBar = {
         <UiAction
           onClick={onMainAction}
           className="inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          {">>>>>>>>>>> "->React.string}
           {mainActionText->React.string}
         </UiAction>
       </div>

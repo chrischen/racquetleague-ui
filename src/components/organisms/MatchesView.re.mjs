@@ -52,8 +52,6 @@ var PlayerView = {
   make: MatchesView$PlayerView
 };
 
-var NativeMouseEvent = {};
-
 function MatchesView$Queue(props) {
   var selectedPlayers = props.selectedPlayers;
   var onToggleSelectedPlayer = props.onToggleSelectedPlayer;
@@ -150,7 +148,8 @@ function MatchesView$ActionBar(props) {
                             }),
                         " ",
                         t`# of courts`
-                      ]
+                      ],
+                      className: Core$1.cx(selectedPlayersCount > 0 ? "hidden sm:block" : "")
                     }),
                 JsxRuntime.jsxs("div", {
                       children: [
@@ -183,13 +182,10 @@ function MatchesView$ActionBar(props) {
                                 selectedAll ? t`Unqueue All` : t`Queue All`
                               ]
                             }),
-                        JsxRuntime.jsxs(UiAction.make, {
+                        JsxRuntime.jsx(UiAction.make, {
                               onClick: props.onMainAction,
                               className: "inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                              children: [
-                                ">>>>>>>>>>> ",
-                                props.mainActionText
-                              ]
+                              children: props.mainActionText
                             })
                       ],
                       className: "-my-3 py-3 align-middle items-center inline-flex"
@@ -569,7 +565,6 @@ var make = MatchesView;
 
 export {
   PlayerView ,
-  NativeMouseEvent ,
   Queue ,
   ActionBar ,
   make ,

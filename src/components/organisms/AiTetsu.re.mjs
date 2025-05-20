@@ -497,53 +497,58 @@ function AiTetsu(props) {
   var setTeams = match$6[1];
   var teams = match$6[0];
   var match$7 = React.useState(function () {
+        return Util.NonEmptyArray.empty;
+      });
+  var setAntiTeams = match$7[1];
+  var antiTeams = match$7[0];
+  var match$8 = React.useState(function () {
         
       });
-  var setSettingsPane = match$7[1];
-  var settingsPane = match$7[0];
-  var match$8 = React.useState(function () {
+  var setSettingsPane = match$8[1];
+  var settingsPane = match$8[0];
+  var match$9 = React.useState(function () {
         return [];
       });
-  var setQueue = match$8[1];
-  var match$9 = React.useState(function () {
+  var setQueue = match$9[1];
+  var match$10 = React.useState(function () {
         return new Set();
       });
-  var setDisabled = match$9[1];
-  var disabled = match$9[0];
-  var match$10 = React.useState(function () {
+  var setDisabled = match$10[1];
+  var disabled = match$10[0];
+  var match$11 = React.useState(function () {
         return Session.make();
       });
-  var setSessionState = match$10[1];
-  var sessionState = match$10[0];
-  var match$11 = React.useState(function () {
+  var setSessionState = match$11[1];
+  var sessionState = match$11[0];
+  var match$12 = React.useState(function () {
         return [];
       });
-  var setSessionPlayers = match$11[1];
-  var sessionPlayers = match$11[0];
-  var match$12 = React.useState(function () {
+  var setSessionPlayers = match$12[1];
+  var sessionPlayers = match$12[0];
+  var match$13 = React.useState(function () {
         return false;
       });
-  var setSessionMode = match$12[1];
-  var sessionMode = match$12[0];
-  var match$13 = React.useState(function () {
+  var setSessionMode = match$13[1];
+  var sessionMode = match$13[0];
+  var match$14 = React.useState(function () {
         return 0;
       });
-  var setCourts = match$13[1];
-  var courts = match$13[0];
-  var match$14 = React.useState(function () {
+  var setCourts = match$14[1];
+  var courts = match$14[0];
+  var match$15 = React.useState(function () {
         return "CompetitivePlus";
       });
-  var match$15 = React.useState(function () {
+  var match$16 = React.useState(function () {
         return [];
       });
-  var setMatchHistory = match$15[1];
-  var matchHistory = match$15[0];
-  var match$16 = React.useState(function () {
+  var setMatchHistory = match$16[1];
+  var matchHistory = match$16[0];
+  var match$17 = React.useState(function () {
         return {};
       });
-  var setLocallyCompletedMatches = match$16[1];
-  var locallyCompletedMatches = match$16[0];
-  var match$17 = React.useState(function () {
+  var setLocallyCompletedMatches = match$17[1];
+  var locallyCompletedMatches = match$17[0];
+  var match$18 = React.useState(function () {
         
       });
   var togglePlayer = Rating.OrderedQueue.toggle;
@@ -552,9 +557,9 @@ function AiTetsu(props) {
           return togglePlayer(queue, player.id);
         });
   };
-  var match$18 = usePagination($$event);
-  var refetch = match$18.refetch;
-  var data = match$18.data;
+  var match$19 = usePagination($$event);
+  var refetch = match$19.refetch;
+  var data = match$19.data;
   var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
   var players = allPlayers.filter(function (p) {
         return !disabled.has(p.id);
@@ -662,18 +667,17 @@ function AiTetsu(props) {
         return !consumedPlayers.has(p.id);
       });
   var deprioritized = getDeprioritizedPlayers(matchHistory, players, sessionState, breakCount);
-  var queue = Rating.OrderedQueue.filter(match$8[0], disabled);
+  var queue = Rating.OrderedQueue.filter(match$9[0], disabled);
   var breakPlayersCount = queue.length;
   var queuedPlayers = Core__Array.filterMap(queue.map(function (id) {
             return Rating.PlayersCache.get(playersCache, id);
           }), (function (x) {
           return x;
         }));
-  var match$19 = getPriorityPlayers(matchHistory, queuedPlayers, sessionState, breakCount);
+  var match$20 = getPriorityPlayers(matchHistory, queuedPlayers, sessionState, breakCount);
   var availablePlayers$1 = availablePlayers.filter(function (p) {
         return !deprioritized.has(p.id);
       });
-  var avoidAllPlayers = [];
   var maxRating = Core__Array.reduce(players, 0, (function (acc, next) {
           if (next.rating.mu > acc) {
             return next.rating.mu;
@@ -877,17 +881,31 @@ function AiTetsu(props) {
         one: "player",
         other: "players"
       });
-  var createTeam = function (team) {
-    setTeams(function (teams) {
-          return Util.NonEmptyArray.concat(teams, Util.NonEmptyArray.pure(team));
-        });
+  var createTeam = function (teamType, team) {
+    if (teamType === "Regular") {
+      return setTeams(function (teams) {
+                  return Util.NonEmptyArray.concat(teams, Util.NonEmptyArray.pure(team));
+                });
+    } else {
+      return setAntiTeams(function (teams) {
+                  return Util.NonEmptyArray.concat(teams, Util.NonEmptyArray.pure(team));
+                });
+    }
   };
-  var onDeleteTeam = function (i) {
-    setTeams(function (teams) {
-          return Util.NonEmptyArray.filterWithIndex(teams, (function (param, i$p) {
-                        return i$p !== i;
-                      }));
-        });
+  var onDeleteTeam = function (teamType, i) {
+    if (teamType === "Regular") {
+      return setTeams(function (teams) {
+                  return Util.NonEmptyArray.filterWithIndex(teams, (function (param, i$p) {
+                                return i$p !== i;
+                              }));
+                });
+    } else {
+      return setAntiTeams(function (teams) {
+                  return Util.NonEmptyArray.filterWithIndex(teams, (function (param, i$p) {
+                                return i$p !== i;
+                              }));
+                });
+    }
   };
   var roundsCount = Rating.CompletedMatches.getNumberOfRounds(matchHistory, breakCount, players.length, 4);
   var selectAllPlayers = function () {
@@ -995,7 +1013,7 @@ function AiTetsu(props) {
                           return players;
                         });
                   }),
-                setRequiredPlayers: match$17[1],
+                setRequiredPlayers: match$18[1],
                 matches: matches,
                 setMatches: setMatches,
                 minRating: minRating,
@@ -1040,37 +1058,68 @@ function AiTetsu(props) {
                       seenMatches: seenMatches,
                       lastRoundSeenTeams: lastRoundSeenTeams,
                       lastRoundSeenMatches: lastRoundSeenMatches,
-                      defaultStrategy: match$14[0],
-                      setDefaultStrategy: match$14[1],
-                      priorityPlayers: match$19.prioritized,
-                      avoidAllPlayers: avoidAllPlayers,
+                      defaultStrategy: match$15[0],
+                      setDefaultStrategy: match$15[1],
+                      priorityPlayers: match$20.prioritized,
+                      avoidAllPlayers: antiTeams,
                       onSelectMatch: (function (match, dequeue) {
                           queueMatch(match, dequeue);
                         }),
-                      requiredPlayers: match$17[0]
+                      requiredPlayers: match$18[0]
                     }),
                 selectedPlayersActions: (function (selectedPlayers) {
-                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                children: [
-                                  JsxRuntime.jsx(AiTetsu$TeamsList, {
-                                        teams: teams,
-                                        onDelete: onDeleteTeam
-                                      }),
-                                  JsxRuntime.jsx("div", {
-                                        children: JsxRuntime.jsx(UiAction.make, {
-                                              onClick: (function (param) {
-                                                  var match = selectedPlayers.length;
-                                                  if (!(match === 0 || match === 1)) {
-                                                    return createTeam(selectedPlayers);
-                                                  }
-                                                  
+                    return JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                children: Caml_option.some(JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx(AiTetsu$TeamsList, {
+                                                  teams: teams,
+                                                  onDelete: (function (extra) {
+                                                      return onDeleteTeam("Regular", extra);
+                                                    })
                                                 }),
-                                              className: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                                              children: t`Create Team`
-                                            }),
-                                        className: "mt-6 flex items-center justify-end gap-x-6"
-                                      })
-                                ]
+                                            JsxRuntime.jsxs(UiAction.make, {
+                                                  onClick: (function (param) {
+                                                      var match = selectedPlayers.length;
+                                                      if (!(match === 0 || match === 1)) {
+                                                        return createTeam("Regular", selectedPlayers);
+                                                      }
+                                                      
+                                                    }),
+                                                  className: "mt-2 rounded-md w-full text-center bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                                  children: [
+                                                    t`Create Team`,
+                                                    " / ",
+                                                    t`Fixed Pair`
+                                                  ]
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: t`Players in a team will always be placed in a match together on the same side.`,
+                                                  className: "mt-1 text-xs text-gray-500 text-center"
+                                                }),
+                                            JsxRuntime.jsx(AiTetsu$TeamsList, {
+                                                  teams: antiTeams,
+                                                  onDelete: (function (extra) {
+                                                      return onDeleteTeam("Anti", extra);
+                                                    })
+                                                }),
+                                            JsxRuntime.jsx(UiAction.make, {
+                                                  onClick: (function (param) {
+                                                      var match = selectedPlayers.length;
+                                                      if (!(match === 0 || match === 1)) {
+                                                        return createTeam("Anti", selectedPlayers);
+                                                      }
+                                                      
+                                                    }),
+                                                  className: "mt-2 rounded-md w-full text-center bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                                  children: t`Create Anti-Team`
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: t`Players in an anti-team will never be placed in a match together.`,
+                                                  className: "mt-1 text-xs text-gray-500 text-center"
+                                                })
+                                          ],
+                                          className: "mt-6 flex flex-col justify-end gap-x-6"
+                                        }))
                               });
                   })
               });
@@ -1087,12 +1136,31 @@ function AiTetsu(props) {
                       }),
                   JsxRuntime.jsx(AiTetsu$TeamsList, {
                         teams: teams,
-                        onDelete: onDeleteTeam
+                        onDelete: (function (extra) {
+                            return onDeleteTeam("Regular", extra);
+                          })
+                      }),
+                  JsxRuntime.jsx(AiTetsu$TeamsList, {
+                        teams: antiTeams,
+                        onDelete: (function (extra) {
+                            return onDeleteTeam("Anti", extra);
+                          })
                       }),
                   JsxRuntime.jsx(AiTetsu$TeamSelector, {
                         players: players,
-                        onTeamCreate: createTeam,
+                        onTeamCreate: (function (extra) {
+                            return createTeam("Regular", extra);
+                          }),
                         teamPlayers: Util.NonEmptyArray.toArray(teams).flatMap(function (x) {
+                              return x;
+                            })
+                      }),
+                  JsxRuntime.jsx(AiTetsu$TeamSelector, {
+                        players: players,
+                        onTeamCreate: (function (extra) {
+                            return createTeam("Anti", extra);
+                          }),
+                        teamPlayers: Util.NonEmptyArray.toArray(antiTeams).flatMap(function (x) {
                               return x;
                             })
                       })

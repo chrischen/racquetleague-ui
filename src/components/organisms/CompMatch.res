@@ -144,7 +144,7 @@ let make = (
   ~defaultStrategy: strategy,
   ~setDefaultStrategy: (strategy => strategy) => unit,
   ~priorityPlayers: array<Player.t<'a>>,
-  ~avoidAllPlayers: array<Player.t<'a>>,
+  ~avoidAllPlayers: option<array<array<Player.t<'a>>>>=?,
   ~onSelectMatch: option<(Match.t<'a>, ~dequeue: bool=?) => unit>=?,
   ~requiredPlayers: option<Set.t<string>>=?,
 ) => {
@@ -188,7 +188,7 @@ let make = (
     // ->Array.get(0)
     // ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
     // ->Option.getOr(priorityPlayers),
-    avoidAllPlayers,
+    avoidAllPlayers->Option.getOr([]),
     teamConstraints,
     requiredPlayers,
   )
@@ -205,7 +205,7 @@ let make = (
       // ->Array.get(0)
       // ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
       // ->Option.getOr(priorityPlayers),
-      avoidAllPlayers,
+      avoidAllPlayers->Option.getOr([]),
       None,
       requiredPlayers,
     )

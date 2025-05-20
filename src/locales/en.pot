@@ -1561,3 +1561,20 @@ msgstr ""
 #: src/components/organisms/AiTetsu.re.mjs:985
 msgid "Done"
 msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1114
+msgid "Create Anti-Team"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1092
+msgid "Fixed Pair"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1096
+msgid ""
+"Players in a team will always be placed in a match together on the same side."
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1117
+msgid "Players in an anti-team will never be placed in a match together."
+msgstr ""

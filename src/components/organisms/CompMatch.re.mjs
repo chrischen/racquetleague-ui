@@ -238,9 +238,9 @@ function CompMatch(props) {
     }
   ];
   var teamConstraints = Util.NonEmptyArray.map(props.teams, Rating.Team.toSet);
-  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
+  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers);
   var matchesCount = matches.length;
-  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, undefined, requiredPlayers);
+  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), undefined, requiredPlayers);
   var matches$2 = matches$1.slice(0, 115);
   var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
           var quality = param[1];
