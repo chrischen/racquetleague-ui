@@ -46,14 +46,10 @@ module Queue = {
     //   players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
     let handleLongPress = React.useCallback(
       (event: ReactEvent.Synthetic.t, context: option<UseLongPress.meta<Rating.player>>) => {
-        event->ReactEvent.Synthetic.preventDefault
-        // event->ReactEvent.Synthetic.
-        // event->ReactEvent.Synthetic.stopPropagation
         context
         ->Option.flatMap(ctx =>
           ctx.context->Option.map(
             ctx => {
-              Js.log("Long press detected")
               onToggleSelectedPlayer(ctx)
             },
           )
@@ -61,26 +57,21 @@ module Queue = {
         ->ignore
         ()
       },
-      [selectedPlayers],
+      [selectedPlayers->Set.size],
     )
 
     let options: UseLongPress.options<Rating.player> = {
       // onStart: handleLongPress,
       threshold: 300,
       cancelOnMovement: true, // or Js.Any.fromInt(25) for pixel threshold
+      captureEvent: true,
       // detect: #both,
     }
     let bind = UseLongPress.use(Some(handleLongPress), Some(options))
     let maxRating = 1.0
     let minRating = 0.0
 
-    <div
-      className={Util.cx([
-        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3",
-      ])}
-      onTouchStart={e => {
-        e->ReactEvent.Synthetic.preventDefault
-      }}>
+    <div className={Util.cx(["grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"])}>
       {players
       ->Array.map(player => {
         let h = bind(Some(player))
@@ -99,19 +90,13 @@ module Queue = {
           // className={Util.cx([
           //   selectedPlayers->Set.has(player.id) ? "animate-bounce delay-150 duration-300" : "",
           // ])}
-          onClick={e => {
-            e->ReactEvent.Synthetic.preventDefault
-          }}
           onMouseDown={h.onMouseDown}
           onMouseUp={h.onMouseUp}
           onPointerUp={h.onPointerUp}
           onPointerMove={h.onPointerMove}
           onPointerLeave={h.onPointerLeave}
           onPointerDown={h.onPointerDown}
-          onTouchStart={e => {
-            e->ReactEvent.Synthetic.preventDefault
-            h.onTouchStart(e)
-          }}
+          onTouchStart={h.onTouchStart}
           onTouchEnd={h.onTouchEnd}
           onTouchMove={h.onTouchMove}
           style={ShakeAnimate.getRandomTransformOrigin()}
@@ -121,7 +106,6 @@ module Queue = {
             : ShakeAnimate.variants["reset"]}>
           <UiAction
             onClick={e => {
-              e->ReactEvent.Synthetic.preventDefault
               togglePlayer(player)
             }}>
             <PlayerView status={status} key={player.id} player minRating maxRating />
@@ -238,6 +222,7 @@ let make = (
   let (showMatchSelector, setShowMatchSelector) = React.useState(() => false)
   let (showSelectedActions, setShowSelectedActions) = React.useState(() => false)
   let (selectedPlayers, setSelectedPlayers) = React.useState(() => Set.make())
+  // let selectedPlayers = React.useRef(Set.make())
 
   <div id="FairPlay" className="w-full h-full fixed top-0 left-0 bg-black p-3">
     <div className="flex h-[34px] justify-between items-center">
@@ -310,13 +295,15 @@ let make = (
             breakPlayers
             consumedPlayers
             queue
-            onToggleSelectedPlayer={selectedPlayer =>
+            onToggleSelectedPlayer={player => {
               setSelectedPlayers(selectedPlayers => {
-                selectedPlayers->Set.has(selectedPlayer.id)
-                  ? selectedPlayers->Set.delete(selectedPlayer.id)->ignore
-                  : selectedPlayers->Set.add(selectedPlayer.id)->ignore
-                selectedPlayers
-              })}
+                let newSet = Set.fromArray(selectedPlayers->Set.values->Array.fromIterator)
+                selectedPlayers->Set.has(player.id)
+                  ? newSet->Set.delete(player.id)->ignore
+                  : newSet->Set.add(player.id)->ignore
+                newSet
+              })
+            }}
             selectedPlayers
             togglePlayer={player => {
               switch consumedPlayers->Set.has(player.id) {
@@ -448,10 +435,8 @@ let make = (
         }}
         selectedPlayersCount={selectedPlayers->Set.size}
         onClearSelectedPlayers={_ => {
+          // selectedPlayers= Set.make()
           setSelectedPlayers(_ => Set.make())
-          setRequiredPlayers(_ => {
-            None
-          })
         }}
       />
     | Checkin | Queue =>
@@ -471,10 +456,8 @@ let make = (
           setShowSelectedActions(s => !s)
         }}
         onClearSelectedPlayers={_ => {
+          // selectedPlayers= Set.make()
           setSelectedPlayers(_ => Set.make())
-          setRequiredPlayers(_ => {
-            None
-          })
         }}
       />
     }}

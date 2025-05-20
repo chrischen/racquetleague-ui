@@ -52,6 +52,8 @@ var PlayerView = {
   make: MatchesView$PlayerView
 };
 
+var NativeMouseEvent = {};
+
 function MatchesView$Queue(props) {
   var selectedPlayers = props.selectedPlayers;
   var onToggleSelectedPlayer = props.onToggleSelectedPlayer;
@@ -60,16 +62,15 @@ function MatchesView$Queue(props) {
   var consumedPlayers = props.consumedPlayers;
   var breakPlayers = props.breakPlayers;
   var handleLongPress = React.useCallback((function ($$event, context) {
-          $$event.preventDefault();
           Core__Option.flatMap(context, (function (ctx) {
                   return Core__Option.map(ctx.context, (function (ctx) {
-                                console.log("Long press detected");
                                 onToggleSelectedPlayer(ctx);
                               }));
                 }));
-        }), [selectedPlayers]);
+        }), [selectedPlayers.size]);
   var bind = UseLongPress.useLongPress(handleLongPress, {
         threshold: 300,
+        captureEvent: true,
         cancelOnMovement: true
       });
   return JsxRuntime.jsx("div", {
@@ -92,19 +93,12 @@ function MatchesView$Queue(props) {
                                 onPointerDown: h.onPointerDown,
                                 onPointerMove: h.onPointerMove,
                                 onPointerLeave: h.onPointerLeave,
-                                onTouchStart: (function (e) {
-                                    e.preventDefault();
-                                    h.onTouchStart(e);
-                                  }),
+                                onTouchStart: h.onTouchStart,
                                 onTouchEnd: h.onTouchEnd,
                                 onTouchMove: h.onTouchMove,
-                                onClick: (function (e) {
-                                    e.preventDefault();
-                                  }),
                                 variants: Caml_option.some(ShakeAnimate.variants),
                                 children: Caml_option.some(JsxRuntime.jsx(UiAction.make, {
                                           onClick: (function (e) {
-                                              e.preventDefault();
                                               togglePlayer(player);
                                             }),
                                           children: JsxRuntime.jsx(MatchesView$PlayerView, {
@@ -116,10 +110,7 @@ function MatchesView$Queue(props) {
                                         }))
                               }, player.id);
                   }),
-              className: Core$1.cx("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"),
-              onTouchStart: (function (e) {
-                  e.preventDefault();
-                })
+              className: Core$1.cx("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3")
             });
 }
 
@@ -372,14 +363,15 @@ function MatchesView(props) {
                     return togglePlayer(player);
                   }
                 }),
-              onToggleSelectedPlayer: (function (selectedPlayer) {
+              onToggleSelectedPlayer: (function (player) {
                   setSelectedPlayers(function (selectedPlayers) {
-                        if (selectedPlayers.has(selectedPlayer.id)) {
-                          selectedPlayers.delete(selectedPlayer.id);
+                        var newSet = new Set(Array.from(selectedPlayers.values()));
+                        if (selectedPlayers.has(player.id)) {
+                          newSet.delete(player.id);
                         } else {
-                          selectedPlayers.add(selectedPlayer.id);
+                          newSet.add(player.id);
                         }
-                        return selectedPlayers;
+                        return newSet;
                       });
                 }),
               selectedPlayers: selectedPlayers
@@ -420,9 +412,6 @@ function MatchesView(props) {
                   setSelectedPlayers(function (param) {
                         return new Set();
                       });
-                  setRequiredPlayers(function (param) {
-                        
-                      });
                 })
             });
         break;
@@ -458,9 +447,6 @@ function MatchesView(props) {
           onClearSelectedPlayers: (function () {
               setSelectedPlayers(function (param) {
                     return new Set();
-                  });
-              setRequiredPlayers(function (param) {
-                    
                   });
             })
         });
@@ -583,6 +569,7 @@ var make = MatchesView;
 
 export {
   PlayerView ,
+  NativeMouseEvent ,
   Queue ,
   ActionBar ,
   make ,

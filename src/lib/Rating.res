@@ -38,7 +38,7 @@ module Rating: {
   let ordinal: t => float
   let rate: (~ratings: matchRatings, ~opts: option<opts>=?) => matchRatings
   // let log_decay: float => float;
-  let decay_by_factor: (t, float) => t
+  let decay_by_factor: (t, float) => t;
 } = {
   type t = {
     mu: float,
@@ -71,11 +71,11 @@ module Rating: {
   //   1.0 /. (1.0 +. exp(-. k *. (x -. x0)));
   // };
   let decay_by_factor = (t: t, factor: float): t => {
-    let diff = 8.333333 -. t.sigma
-    let decay = factor *. diff
-    let sigma = t.sigma +. decay
-    make(t.mu, sigma)
-  }
+    let diff = 8.333333 -. t.sigma;
+    let decay = factor *. diff;
+    let sigma = t.sigma +. decay;
+    make(t.mu, sigma);
+  };
 }
 module Player = {
   type t<'a> = {
@@ -690,9 +690,9 @@ module RankedMatches = {
           )
         })
         ->Option.getOr([])
-      matches
-    })
-    ->Option.getOr([])
+        matches
+
+    })->Option.getOr([])
   }
 
   let strategy_by_mixed = (
