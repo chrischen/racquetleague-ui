@@ -62,7 +62,7 @@ let make = (
       "rounded-lg shadow",
       compact ? "p-2" : "p-4",
       switch highlight {
-      | Playing => "bg-white opacity-50 blur-sm"
+      | Playing => "bg-white opacity-20"
       | Available => "bg-white"
       | Queued => "bg-green-300"
       | Break => "bg-yellow-300"

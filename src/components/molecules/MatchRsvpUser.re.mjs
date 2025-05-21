@@ -61,7 +61,7 @@ function MatchRsvpUser(props) {
         tmp$2 = "bg-green-300";
         break;
     case "Playing" :
-        tmp$2 = "bg-white opacity-50 blur-sm";
+        tmp$2 = "bg-white opacity-20";
         break;
     
   }
