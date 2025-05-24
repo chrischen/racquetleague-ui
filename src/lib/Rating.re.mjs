@@ -77,7 +77,9 @@ var Rating = {
   decay_by_factor: decay_by_factor
 };
 
-function makeDefaultRatingPlayer(name) {
+var Gender = {};
+
+function makeDefaultRatingPlayer(name, gender) {
   var rating = Openskill.rating(undefined);
   return {
           data: undefined,
@@ -85,7 +87,8 @@ function makeDefaultRatingPlayer(name) {
           name: name,
           rating: rating,
           ratingOrdinal: Rating_ordinal(rating),
-          paid: false
+          paid: false,
+          gender: gender
         };
 }
 
@@ -224,7 +227,8 @@ function rate(param) {
                                       name: old_player.name,
                                       rating: new_rating,
                                       ratingOrdinal: old_player.ratingOrdinal,
-                                      paid: old_player.paid
+                                      paid: old_player.paid,
+                                      gender: old_player.gender
                                     };
                             }));
               }));
@@ -511,7 +515,8 @@ function savePlayers(t, namespace) {
                 name: p.name,
                 rating: p.rating,
                 ratingOrdinal: p.ratingOrdinal,
-                paid: p.paid
+                paid: p.paid,
+                gender: p.gender
               };
       });
   var t$2 = Core__Array.reduce(t$1, {}, (function (acc, player) {
@@ -535,10 +540,11 @@ function loadPlayers(players, namespace) {
                   name: player.name,
                   rating: player.rating,
                   ratingOrdinal: player.ratingOrdinal,
-                  paid: player.paid
+                  paid: player.paid,
+                  gender: player.gender
                 };
         } else {
-          return makeDefaultRatingPlayer(id);
+          return makeDefaultRatingPlayer(id, "Male");
         }
       });
   return players.map(function (p) {
@@ -549,7 +555,8 @@ function loadPlayers(players, namespace) {
                                           name: store.name,
                                           rating: store.rating,
                                           ratingOrdinal: store.ratingOrdinal,
-                                          paid: store.paid
+                                          paid: store.paid,
+                                          gender: store.gender
                                         };
                                 })), p);
               }).concat(guests);
@@ -1193,6 +1200,7 @@ export {
   RatingModel ,
   makeGuest ,
   Rating ,
+  Gender ,
   Player ,
   Team ,
   TeamSet ,

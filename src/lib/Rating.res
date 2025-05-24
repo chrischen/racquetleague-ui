@@ -77,6 +77,9 @@ module Rating: {
     make(t.mu, sigma)
   }
 }
+module Gender = {
+  type t = Male | Female
+}
 module Player = {
   type t<'a> = {
     data: option<'a>,
@@ -85,8 +88,9 @@ module Player = {
     rating: Rating.t,
     ratingOrdinal: float,
     paid: bool,
+    gender: Gender.t,
   }
-  let makeDefaultRatingPlayer = (name: string) => {
+  let makeDefaultRatingPlayer = (name: string, gender: Gender.t) => {
     let rating = Rating.makeDefault()
     {
       data: None,
@@ -95,6 +99,7 @@ module Player = {
       rating,
       ratingOrdinal: rating->Rating.ordinal,
       paid: false,
+      gender
     }
   }
 }
@@ -407,7 +412,7 @@ module Players = {
         let player = storage->Js.Dict.get(id)
         switch player {
         | Some(p) => {...p, data: None}
-        | None => Player.makeDefaultRatingPlayer(id)
+        | None => Player.makeDefaultRatingPlayer(id, Male)
         }
       })
     players
@@ -682,6 +687,7 @@ module RankedMatches = {
     avoidAllPlayers: array<array<Player.t<'a>>>,
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
+    // mixed: bool
   ) => {
     let groupSize = Js.Math.min_int(
       players->Array.length,

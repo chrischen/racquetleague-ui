@@ -9,6 +9,7 @@ import * as EventRsvp from "./EventRsvp.re.mjs";
 import * as LoginLink from "../molecules/LoginLink.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as RsvpOptions from "./RsvpOptions.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
 import * as Core from "@linaria/core";
@@ -89,6 +90,7 @@ function EventRsvps(props) {
   var isLoadingNext = match$1.isLoadingNext;
   var hasNext = match$1.hasNext;
   var loadNext = match$1.loadNext;
+  var data = match$1.data;
   var match$2 = use($$event);
   var minRating = match$2.minRating;
   var maxRsvps = match$2.maxRsvps;
@@ -96,7 +98,7 @@ function EventRsvps(props) {
   var viewer = Core__Option.map(props.user, (function (user) {
           return RescriptRelay_Fragment.useFragment(EventRsvps_user_graphql.node, convertFragment$1, user);
         }));
-  var rsvps = getConnectionNodes(match$1.data.rsvps);
+  var rsvps = getConnectionNodes(data.rsvps);
   var isWaitlist = function (count) {
     return Core__Option.isSome(Core__Option.flatMap(maxRsvps, (function (max) {
                       if (count >= max) {
@@ -285,8 +287,10 @@ function EventRsvps(props) {
         onClick: onLeave
       });
   var leaveButtonWithConfirmation = JsxRuntime.jsx(ConfirmButton.make, {
-        button: t`leave event`,
-        className: "inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50",
+        button: JsxRuntime.jsx(Button.Button.make, {
+              children: t`leave event`,
+              type_: "button"
+            }),
         title: t`You will lose your spot`,
         description: t`This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?`,
         onConfirmed: onLeave
@@ -459,13 +463,38 @@ function EventRsvps(props) {
                                       JsxRuntime.jsxs("ul", {
                                             children: [
                                               JsxRuntime.jsx(FramerMotion.AnimatePresence, {
-                                                    children: confirmedRsvps.length !== 0 ? confirmedRsvps.map(function (edge) {
-                                                            return JsxRuntime.jsx(EventRsvp.make, {
-                                                                        rsvp: edge.fragmentRefs,
-                                                                        viewer: viewer,
-                                                                        activitySlug: activitySlug,
-                                                                        maxRating: maxRating
-                                                                      });
+                                                    children: confirmedRsvps.length !== 0 ? confirmedRsvps.map(function (edge, i) {
+                                                            var adminOptions = JsxRuntime.jsx(RsvpOptions.make, {
+                                                                  rsvp: edge.fragmentRefs,
+                                                                  __id: __id
+                                                                });
+                                                            if (data.viewerIsAdmin) {
+                                                              return JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: JsxRuntime.jsx(EventRsvp.make, {
+                                                                                        rsvp: edge.fragmentRefs,
+                                                                                        viewer: viewer,
+                                                                                        activitySlug: activitySlug,
+                                                                                        maxRating: maxRating
+                                                                                      }),
+                                                                                  className: "flex-auto"
+                                                                                }),
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: adminOptions,
+                                                                                  className: "flex-none"
+                                                                                })
+                                                                          ],
+                                                                          className: "flex items-center justify-between w-full gap-2"
+                                                                        }, i.toString());
+                                                            } else {
+                                                              return JsxRuntime.jsx(EventRsvp.make, {
+                                                                          rsvp: edge.fragmentRefs,
+                                                                          viewer: viewer,
+                                                                          activitySlug: activitySlug,
+                                                                          maxRating: maxRating
+                                                                        }, i.toString());
+                                                            }
                                                           }) : t`no players yet`
                                                   }),
                                               tmp

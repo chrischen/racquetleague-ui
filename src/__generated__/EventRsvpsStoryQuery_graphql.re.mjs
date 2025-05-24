@@ -149,6 +149,13 @@ return {
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "viewerIsAdmin",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "Activity",
             "kind": "LinkedField",
             "name": "activity",
@@ -338,12 +345,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3f08525e283dbe35dd4ef23a30d94a5f",
+    "cacheID": "ba3e8e23b327368ff331638fa29f8177",
     "id": null,
     "metadata": {},
     "name": "EventRsvpsStoryQuery",
     "operationKind": "query",
-    "text": "query EventRsvpsStoryQuery(\n  $after: String\n  $first: Int\n) {\n  event(id: \"1\") {\n    id\n    ...EventRsvps_event_2HEEH6\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_2HEEH6 on Event {\n  maxRsvps\n  minRating\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first) {\n    edges {\n      node {\n        ...EventRsvps_rsvp\n        user {\n          id\n        }\n        rating {\n          ordinal\n          mu\n          id\n        }\n        listType\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvps_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n"
+    "text": "query EventRsvpsStoryQuery(\n  $after: String\n  $first: Int\n) {\n  event(id: \"1\") {\n    id\n    ...EventRsvps_event_2HEEH6\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_2HEEH6 on Event {\n  maxRsvps\n  minRating\n  viewerIsAdmin\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first) {\n    edges {\n      node {\n        ...EventRsvps_rsvp\n        ...RsvpOptions_rsvp\n        user {\n          id\n        }\n        rating {\n          ordinal\n          mu\n          id\n        }\n        listType\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvps_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  user {\n    id\n  }\n}\n"
   }
 };
 })());

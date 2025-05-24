@@ -1578,3 +1578,15 @@ msgstr ""
 #: src/components/organisms/AiTetsu.re.mjs:1117
 msgid "Players in an anti-team will never be placed in a match together."
 msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:92
+msgid "Are you sure you want to remove this person from the event?"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:79
+msgid "Remove from event"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:91
+msgid "Remove this RSVP"
+msgstr ""

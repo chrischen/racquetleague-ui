@@ -349,10 +349,45 @@ function $$Event(props) {
                                                                               className: "flex items-center gap-x-6"
                                                                             }),
                                                                         JsxRuntime.jsx("div", {
+                                                                              children: Core__Option.getOr(Core__Option.flatMap($$event.startDate, (function (startDate) {
+                                                                                          return Core__Option.map($$event.endDate, (function (endDate) {
+                                                                                                        return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                                    children: [
+                                                                                                                      JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                                                                                            value: Util.Datetime.toDate(startDate),
+                                                                                                                            timeZone: Core__Option.getOr($$event.timezone, "Asia/Tokyo"),
+                                                                                                                            month: "numeric",
+                                                                                                                            day: "2-digit"
+                                                                                                                          }),
+                                                                                                                      " ",
+                                                                                                                      JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                                                            value: Util.Datetime.toDate(startDate),
+                                                                                                                            timeZone: Core__Option.getOr($$event.timezone, "Asia/Tokyo")
+                                                                                                                          }),
+                                                                                                                      " -> ",
+                                                                                                                      JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                                                            value: Util.Datetime.toDate(endDate),
+                                                                                                                            timeZone: Core__Option.getOr($$event.timezone, "Asia/Tokyo")
+                                                                                                                          }),
+                                                                                                                      " ",
+                                                                                                                      Core__Option.getOr(Core__Option.map(until, (function (until) {
+                                                                                                                                  return JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
+                                                                                                                                              value: until,
+                                                                                                                                              unit: "minute",
+                                                                                                                                              updateIntervalInSeconds: 1
+                                                                                                                                            });
+                                                                                                                                })), null)
+                                                                                                                    ]
+                                                                                                                  });
+                                                                                                      }));
+                                                                                        })), "???"),
+                                                                              className: "font-bold flex items-center mt-2 mb-2 lg:text-xl leading-8 text-gray-700"
+                                                                            }),
+                                                                        JsxRuntime.jsx("div", {
                                                                               className: "flex items-center gap-x-4 sm:gap-x-6"
                                                                             })
                                                                       ],
-                                                                      className: "mx-auto flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none"
+                                                                      className: "mx-auto flex flex-col max-w-2xl justify-between gap-x-8 lg:mx-0 lg:max-w-none"
                                                                     }),
                                                                 className: "py-0"
                                                               })
@@ -379,6 +414,45 @@ function $$Event(props) {
                                                   JsxRuntime.jsx(Layout.Container.make, {
                                                         children: JsxRuntime.jsxs("div", {
                                                               children: [
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsxs("div", {
+                                                                            children: [
+                                                                              tmp$1,
+                                                                              Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (activity) {
+                                                                                          return Core__Option.map(activity.slug, (function (slug) {
+                                                                                                        if (!canOpenAiTetsu) {
+                                                                                                          return null;
+                                                                                                        }
+                                                                                                        switch (slug) {
+                                                                                                          case "badminton" :
+                                                                                                          case "pickleball" :
+                                                                                                              break;
+                                                                                                          default:
+                                                                                                            return null;
+                                                                                                        }
+                                                                                                        return JsxRuntime.jsxs("div", {
+                                                                                                                    children: [
+                                                                                                                      JsxRuntime.jsx("h2", {
+                                                                                                                            children: t`league`,
+                                                                                                                            className: "text-base font-semibold leading-6 text-gray-900"
+                                                                                                                          }),
+                                                                                                                      JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                            to: "/league/events/" + $$event.id + "/" + slug,
+                                                                                                                            children: t`submit matches`
+                                                                                                                          })
+                                                                                                                    ],
+                                                                                                                    className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
+                                                                                                                  });
+                                                                                                      }));
+                                                                                        })), null),
+                                                                              viewerIsAdmin ? JsxRuntime.jsx(EventFullNames.make, {
+                                                                                      event: fragmentRefs
+                                                                                    }) : null
+                                                                            ],
+                                                                            className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
+                                                                          }),
+                                                                      className: "lg:col-start-3 lg:row-end-1"
+                                                                    }),
                                                                 JsxRuntime.jsx("div", {
                                                                       children: JsxRuntime.jsxs("div", {
                                                                             children: [
@@ -502,45 +576,6 @@ function $$Event(props) {
                                                                             className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
                                                                           }),
                                                                       className: "lg:col-span-2 lg:row-span-2 lg:row-end-2"
-                                                                    }),
-                                                                JsxRuntime.jsx("div", {
-                                                                      children: JsxRuntime.jsxs("div", {
-                                                                            children: [
-                                                                              tmp$1,
-                                                                              Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (activity) {
-                                                                                          return Core__Option.map(activity.slug, (function (slug) {
-                                                                                                        if (!canOpenAiTetsu) {
-                                                                                                          return null;
-                                                                                                        }
-                                                                                                        switch (slug) {
-                                                                                                          case "badminton" :
-                                                                                                          case "pickleball" :
-                                                                                                              break;
-                                                                                                          default:
-                                                                                                            return null;
-                                                                                                        }
-                                                                                                        return JsxRuntime.jsxs("div", {
-                                                                                                                    children: [
-                                                                                                                      JsxRuntime.jsx("h2", {
-                                                                                                                            children: t`league`,
-                                                                                                                            className: "text-base font-semibold leading-6 text-gray-900"
-                                                                                                                          }),
-                                                                                                                      JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                                            to: "/league/events/" + $$event.id + "/" + slug,
-                                                                                                                            children: t`submit matches`
-                                                                                                                          })
-                                                                                                                    ],
-                                                                                                                    className: "-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4"
-                                                                                                                  });
-                                                                                                      }));
-                                                                                        })), null),
-                                                                              viewerIsAdmin ? JsxRuntime.jsx(EventFullNames.make, {
-                                                                                      event: fragmentRefs
-                                                                                    }) : null
-                                                                            ],
-                                                                            className: "grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none"
-                                                                          }),
-                                                                      className: "lg:col-start-3 lg:row-end-1"
                                                                     })
                                                               ],
                                                               className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"

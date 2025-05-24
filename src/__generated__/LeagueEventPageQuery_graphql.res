@@ -226,55 +226,56 @@ v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "picture",
+  "name": "gender",
   "storageKey": null
 },
 v16 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "__typename",
+  "name": "picture",
   "storageKey": null
 },
 v17 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "cursor",
+  "name": "__typename",
   "storageKey": null
 },
 v18 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "hasNextPage",
+  "name": "cursor",
   "storageKey": null
 },
 v19 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "hasPreviousPage",
+  "name": "hasNextPage",
   "storageKey": null
 },
 v20 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "hasPreviousPage",
+  "storageKey": null
+},
+v21 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "endCursor",
   "storageKey": null
 },
-v21 = [
+v22 = [
   (v13/*: any*/),
   (v14/*: any*/),
-  (v15/*: any*/),
-  {
-    "alias": null,
-    "args": null,
-    "kind": "ScalarField",
-    "name": "gender",
-    "storageKey": null
-  }
+  (v16/*: any*/),
+  (v15/*: any*/)
 ];
 return {
   "fragment": {
@@ -393,7 +394,8 @@ return {
                         "selections": [
                           (v13/*: any*/),
                           (v14/*: any*/),
-                          (v15/*: any*/)
+                          (v15/*: any*/),
+                          (v16/*: any*/)
                         ],
                         "storageKey": null
                       },
@@ -432,11 +434,11 @@ return {
                       },
                       (v13/*: any*/),
                       (v11/*: any*/),
-                      (v16/*: any*/)
+                      (v17/*: any*/)
                     ],
                     "storageKey": null
                   },
-                  (v17/*: any*/)
+                  (v18/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -448,9 +450,9 @@ return {
                 "name": "pageInfo",
                 "plural": false,
                 "selections": [
-                  (v18/*: any*/),
                   (v19/*: any*/),
-                  (v20/*: any*/)
+                  (v20/*: any*/),
+                  (v21/*: any*/)
                 ],
                 "storageKey": null
               }
@@ -502,7 +504,7 @@ return {
                     "kind": "LinkedField",
                     "name": "winners",
                     "plural": true,
-                    "selections": (v21/*: any*/),
+                    "selections": (v22/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -512,7 +514,7 @@ return {
                     "kind": "LinkedField",
                     "name": "losers",
                     "plural": true,
-                    "selections": (v21/*: any*/),
+                    "selections": (v22/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -529,11 +531,11 @@ return {
                     "name": "createdAt",
                     "storageKey": null
                   },
-                  (v16/*: any*/)
+                  (v17/*: any*/)
                 ],
                 "storageKey": null
               },
-              (v17/*: any*/)
+              (v18/*: any*/)
             ],
             "storageKey": null
           },
@@ -545,9 +547,9 @@ return {
             "name": "pageInfo",
             "plural": false,
             "selections": [
-              (v18/*: any*/),
               (v19/*: any*/),
               (v20/*: any*/),
+              (v21/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -579,12 +581,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "cd63e3df4258b0b12631278754ffa596",
+    "cacheID": "535af11b122a8ceb3cfdf85529162e73",
     "id": null,
     "metadata": {},
     "name": "LeagueEventPageQuery",
     "operationKind": "query",
-    "text": "query LeagueEventPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  event(id: $eventId) {\n    title\n    ...AiTetsu_event_pL3ww\n    id\n  }\n  ...MatchListFragment_2Xn26q\n}\n\nfragment AiTetsu_event_pL3ww on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 50, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchListFragment_2Xn26q on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query LeagueEventPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  event(id: $eventId) {\n    title\n    ...AiTetsu_event_pL3ww\n    id\n  }\n  ...MatchListFragment_2Xn26q\n}\n\nfragment AiTetsu_event_pL3ww on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 50, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchListFragment_2Xn26q on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
   }
 };
 })() `)

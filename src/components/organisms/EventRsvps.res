@@ -13,6 +13,7 @@ module Fragment = %relay(`
     __id
     maxRsvps
     minRating
+    viewerIsAdmin
     activity {
       slug
     }
@@ -21,6 +22,7 @@ module Fragment = %relay(`
       edges {
         node {
           ...EventRsvps_rsvp
+          ...RsvpOptions_rsvp
           user {
             id
           }
@@ -283,8 +285,8 @@ let make = (~event, ~user) => {
     </Button.Button>
   let leaveButtonWithConfirmation =
     <ConfirmButton
-      button={t`leave event`}
-      className="inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+      button={<Button.Button type_="button"> {t`leave event`} </Button.Button>}
+      // className="inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
       title={t`You will lose your spot`}
       description={t`This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?`}
       // confirmText={t`Leave`}
@@ -385,8 +387,25 @@ let make = (~event, ~user) => {
               | [] => t`no players yet`
               | rsvps =>
                 rsvps
-                ->Array.map(edge => {
-                  <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
+                ->Array.mapWithIndex((edge, i) => {
+                  let adminOptions = <RsvpOptions rsvp=edge.fragmentRefs __id />
+
+                  {
+                    data.viewerIsAdmin
+                    ?
+                      <div
+                        key={i->Int.toString}
+                        className="flex items-center justify-between w-full gap-2">
+                        <div className="flex-auto">
+                          <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
+                        </div>
+                        <div className="flex-none"> {adminOptions} </div>
+                      </div>
+                    :
+                      <EventRsvp
+                        key={i->Int.toString} rsvp=edge.fragmentRefs viewer activitySlug maxRating
+                      />
+                  }
                 })
                 ->React.array
               }}

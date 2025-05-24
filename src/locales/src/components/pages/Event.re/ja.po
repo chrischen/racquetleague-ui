@@ -15,30 +15,30 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:585
+#: src/components/pages/Event.re.mjs:620
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:588
+#: src/components/pages/Event.re.mjs:623
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:591
+#: src/components/pages/Event.re.mjs:626
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:594
+#: src/components/pages/Event.re.mjs:629
 msgid "Futsal"
 msgstr "フットサル"
 
-#: src/components/organisms/EventRsvps.re.mjs:420
-#: src/components/organisms/EventRsvps.re.mjs:549
+#: src/components/organisms/EventRsvps.re.mjs:424
+#: src/components/organisms/EventRsvps.re.mjs:578
 msgid "{0, plural, one {player} other {players}}"
 msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
 
@@ -50,15 +50,15 @@ msgstr "{0}時間"
 msgid "{0} hours and {1} minutes"
 msgstr "{0}時間{1}分"
 
-#: src/components/organisms/EventRsvps.re.mjs:412
+#: src/components/organisms/EventRsvps.re.mjs:416
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventRsvps.re.mjs:499
+#: src/components/organisms/EventRsvps.re.mjs:528
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/Event.re.mjs:473
+#: src/components/pages/Event.re.mjs:547
 msgid "activity"
 msgstr "アクティビティ"
 
@@ -66,7 +66,11 @@ msgstr "アクティビティ"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/EventRsvps.re.mjs:330
+#: src/components/organisms/RsvpOptions.re.mjs:92
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "この人をイベントから削除してもよろしいですか？"
+
+#: src/components/organisms/EventRsvps.re.mjs:334
 msgid "attendees"
 msgstr "参加者"
 
@@ -78,11 +82,11 @@ msgstr "イベントをキャンセル"
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/organisms/EventRsvps.re.mjs:405
+#: src/components/organisms/EventRsvps.re.mjs:409
 msgid "confirmed"
 msgstr "確認済み"
 
-#: src/components/pages/Event.re.mjs:388
+#: src/components/pages/Event.re.mjs:462
 msgid "details"
 msgstr "詳細"
 
@@ -94,11 +98,11 @@ msgstr "イベントを編集"
 msgid "event @"
 msgstr "イベント @"
 
-#: src/components/pages/Event.re.mjs:554
+#: src/components/pages/Event.re.mjs:589
 msgid "event doesn't exist"
 msgstr "イベントが存在しません"
 
-#: src/components/pages/Event.re.mjs:444
+#: src/components/pages/Event.re.mjs:518
 msgid "good luck, have fun"
 msgstr "がんばってください"
 
@@ -115,9 +119,9 @@ msgid "hosted by {name}"
 msgstr "{name}主催"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
-#: src/components/organisms/EventRsvps.re.mjs:244
-#: src/components/organisms/EventRsvps.re.mjs:256
-#: src/components/organisms/EventRsvps.re.mjs:274
+#: src/components/organisms/EventRsvps.re.mjs:246
+#: src/components/organisms/EventRsvps.re.mjs:258
+#: src/components/organisms/EventRsvps.re.mjs:276
 msgid "join event"
 msgstr "参加する"
 
@@ -129,13 +133,13 @@ msgstr "ウェイトリストから参加"
 msgid "joined the event"
 msgstr "参加しました"
 
-#: src/components/pages/Event.re.mjs:525
+#: src/components/pages/Event.re.mjs:436
 msgid "league"
 msgstr "ラケットリーグ"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
-#: src/components/organisms/EventRsvps.re.mjs:284
-#: src/components/organisms/EventRsvps.re.mjs:288
+#: src/components/organisms/EventRsvps.re.mjs:286
+#: src/components/organisms/EventRsvps.re.mjs:291
 msgid "leave event"
 msgstr "離れる"
 
@@ -143,18 +147,18 @@ msgstr "離れる"
 msgid "left the event"
 msgstr "離れました"
 
-#: src/components/organisms/EventRsvps.re.mjs:478
-#: src/components/organisms/EventRsvps.re.mjs:530
-#: src/components/organisms/EventRsvps.re.mjs:580
+#: src/components/organisms/EventRsvps.re.mjs:507
+#: src/components/organisms/EventRsvps.re.mjs:559
+#: src/components/organisms/EventRsvps.re.mjs:609
 msgid "load More"
 msgstr "もっと読み込む"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
-#: src/components/organisms/EventRsvps.re.mjs:267
+#: src/components/organisms/EventRsvps.re.mjs:269
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
-#: src/components/pages/Event.re.mjs:372
+#: src/components/pages/Event.re.mjs:407
 msgid "login to subscribe to {activityName} events"
 msgstr "ログインして{activityName}のイベントに登録"
 
@@ -163,22 +167,22 @@ msgstr "ログインして{activityName}のイベントに登録"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/Event.re.mjs:491
+#: src/components/pages/Event.re.mjs:565
 msgid "media"
 msgstr "メディア"
 
-#: src/components/organisms/EventRsvps.re.mjs:469
-#: src/components/organisms/EventRsvps.re.mjs:523
-#: src/components/organisms/EventRsvps.re.mjs:573
+#: src/components/organisms/EventRsvps.re.mjs:498
+#: src/components/organisms/EventRsvps.re.mjs:552
+#: src/components/organisms/EventRsvps.re.mjs:602
 #: src/components/organisms/EventFullNames.re.mjs:97
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/pages/Event.re.mjs:453
+#: src/components/pages/Event.re.mjs:527
 msgid "notes"
 msgstr "メモ"
 
-#: src/components/organisms/EventRsvps.re.mjs:543
+#: src/components/organisms/EventRsvps.re.mjs:572
 msgid "pending"
 msgstr "保留中"
 
@@ -186,16 +190,24 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventRsvps.re.mjs:234
+#: src/components/organisms/RsvpOptions.re.mjs:79
+msgid "Remove from event"
+msgstr "イベントから削除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:91
+msgid "Remove this RSVP"
+msgstr "このRSVPを削除"
+
+#: src/components/organisms/EventRsvps.re.mjs:236
 msgid "Required rating: {0} (DUPR {1})"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:440
-#: src/components/organisms/EventRsvps.re.mjs:450
+#: src/components/organisms/EventRsvps.re.mjs:444
+#: src/components/organisms/EventRsvps.re.mjs:454
 msgid "spots available"
 msgstr "利用可能なスポット"
 
-#: src/components/pages/Event.re.mjs:530
+#: src/components/pages/Event.re.mjs:441
 msgid "submit matches"
 msgstr "試合を提出"
 
@@ -207,7 +219,7 @@ msgstr "{activityName} のすべてのイベントに登録"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/organisms/EventRsvps.re.mjs:291
+#: src/components/organisms/EventRsvps.re.mjs:295
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
@@ -237,12 +249,12 @@ msgstr "{activityName} のイベントから登録解除"
 msgid "view events"
 msgstr "イベントを見る"
 
-#: src/components/organisms/EventRsvps.re.mjs:445
-#: src/components/organisms/EventRsvps.re.mjs:493
+#: src/components/organisms/EventRsvps.re.mjs:449
+#: src/components/organisms/EventRsvps.re.mjs:522
 msgid "waitlist"
 msgstr "ウェイトリスト"
 
-#: src/components/organisms/EventRsvps.re.mjs:290
+#: src/components/organisms/EventRsvps.re.mjs:294
 msgid "You will lose your spot"
 msgstr "あなたのスポットを失います"
 
@@ -250,15 +262,15 @@ msgstr "あなたのスポットを失います"
 msgid "you will receive email notifications for new events"
 msgstr "新しいイベントについてメール通知を受け取ります"
 
-#: src/components/organisms/EventRsvps.re.mjs:348
+#: src/components/organisms/EventRsvps.re.mjs:352
 msgid "you're going :)"
 msgstr "あなたは行く :)"
 
-#: src/components/organisms/EventRsvps.re.mjs:369
+#: src/components/organisms/EventRsvps.re.mjs:373
 msgid "you're waitlisted :("
 msgstr "あなたはウェイトリストに入っています :("
 
-#: src/components/organisms/EventRsvps.re.mjs:236
+#: src/components/organisms/EventRsvps.re.mjs:238
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

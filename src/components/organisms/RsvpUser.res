@@ -52,7 +52,7 @@ let make = (
   //   leaveFrom="scale-100 opacity-100"
   //   leaveTo="scale-125 opacity-0">
   <div
-    className={Util.cx(["relative flex min-w-0 gap-x-4 w-full", highlight ? "py-2 mx-0" : "mx-2"])}>
+    className={Util.cx(["relative flex min-w-0 gap-x-4 w-full", highlight ? "py-2 mx-0" : "ml-0"])}>
     {user.picture
     ->Option.map(picture =>
       <img

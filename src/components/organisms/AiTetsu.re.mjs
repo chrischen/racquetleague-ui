@@ -454,7 +454,16 @@ function rsvpToPlayer(rsvp) {
                     })), ""),
           rating: rating,
           ratingOrdinal: Rating.Rating.ordinal(rating),
-          paid: false
+          paid: false,
+          gender: Core__Option.getOr(Core__Option.flatMap(rsvp.user, (function (u) {
+                      return Core__Option.map(u.gender, (function (g) {
+                                    if ((g === "female" || g === "male") && g === "female") {
+                                      return "Female";
+                                    } else {
+                                      return "Male";
+                                    }
+                                  }));
+                    })), "Male")
         };
 }
 
@@ -988,7 +997,9 @@ function AiTetsu(props) {
                                       eventId: eventId,
                                       onPlayerAdd: (function (player) {
                                           setSessionPlayers(function (guests) {
-                                                var newState = addGuestPlayer(guests, Rating.Player.makeDefaultRatingPlayer(player.name));
+                                                var newState = addGuestPlayer(guests, (function (__x) {
+                                                          return Rating.Player.makeDefaultRatingPlayer(__x, "Male");
+                                                        })(player.name));
                                                 Rating.Players.savePlayers(newState, eventId);
                                                 return newState;
                                               });
@@ -1172,7 +1183,9 @@ function AiTetsu(props) {
                 eventId: eventId,
                 onPlayerAdd: (function (player) {
                     setSessionPlayers(function (guests) {
-                          var newState = addGuestPlayer(guests, Rating.Player.makeDefaultRatingPlayer(player.name));
+                          var newState = addGuestPlayer(guests, (function (__x) {
+                                    return Rating.Player.makeDefaultRatingPlayer(__x, "Male");
+                                  })(player.name));
                           Rating.Players.savePlayers(newState, eventId);
                           return newState;
                         });

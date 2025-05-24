@@ -17,7 +17,7 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
-#: src/components/organisms/AiTetsu.re.mjs:1400
+#: src/components/organisms/AiTetsu.re.mjs:1413
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr "{0} {breakPlayersDesc} はプレイしていません"
 
@@ -29,7 +29,7 @@ msgstr "{0}人のプレイヤーが選択されました"
 msgid "{0} players selected"
 msgstr "{0}人のプレイヤーが選択されました"
 
-#: src/components/organisms/AiTetsu.re.mjs:880
+#: src/components/organisms/AiTetsu.re.mjs:889
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
 msgstr "{breakPlayersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
@@ -45,7 +45,7 @@ msgstr "コート数"
 msgid "Actions"
 msgstr "アクション"
 
-#: src/components/organisms/AiTetsu.re.mjs:968
+#: src/components/organisms/AiTetsu.re.mjs:977
 msgid "Add Guest"
 msgstr "ゲストを追加"
 
@@ -53,11 +53,11 @@ msgstr "ゲストを追加"
 msgid "Add Guest Player"
 msgstr "ゲストプレイヤーを追加"
 
-#: src/components/organisms/AiTetsu.re.mjs:985
+#: src/components/organisms/AiTetsu.re.mjs:994
 msgid "Add Player"
 msgstr "プレイヤーを追加"
 
-#: src/components/organisms/AiTetsu.re.mjs:1318
+#: src/components/organisms/AiTetsu.re.mjs:1331
 msgid "Advanced Options"
 msgstr "詳細オプション"
 
@@ -83,7 +83,7 @@ msgstr "キャンセル"
 msgid "Checkin"
 msgstr "チェックイン"
 
-#: src/components/organisms/AiTetsu.re.mjs:1333
+#: src/components/organisms/AiTetsu.re.mjs:1346
 msgid "Checkin All Players"
 msgstr "すべてのプレイヤーをチェックイン"
 
@@ -95,7 +95,7 @@ msgstr "試合を選択"
 msgid "CHOOSE MATCH"
 msgstr "試合を選択"
 
-#: src/components/organisms/AiTetsu.re.mjs:1210
+#: src/components/organisms/AiTetsu.re.mjs:1223
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
 msgstr "セッションをクリア（評価、試合数、ゲストプレイヤー）"
 
@@ -111,16 +111,16 @@ msgstr "競争力"
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "コート {0}: {team1} 対 {team2}"
 
-#: src/components/organisms/AiTetsu.re.mjs:1114
+#: src/components/organisms/AiTetsu.re.mjs:1125
 msgid "Create Anti-Team"
 msgstr "アンチチームを作成"
 
 #: src/components/organisms/AiTetsu.re.mjs:210
-#: src/components/organisms/AiTetsu.re.mjs:1090
+#: src/components/organisms/AiTetsu.re.mjs:1101
 msgid "Create Team"
 msgstr "チームを作成"
 
-#: src/components/organisms/AiTetsu.re.mjs:1003
+#: src/components/organisms/AiTetsu.re.mjs:1014
 msgid "Done"
 msgstr "完了"
 
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Finished"
 msgstr "終了"
 
-#: src/components/organisms/AiTetsu.re.mjs:1092
+#: src/components/organisms/AiTetsu.re.mjs:1103
 msgid "Fixed Pair"
 msgstr "固定ペア"
 
@@ -146,11 +146,11 @@ msgid "How many players should rest? (currently {0} players are resting)"
 msgstr ""
 "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
 
-#: src/components/organisms/AiTetsu.re.mjs:1204
+#: src/components/organisms/AiTetsu.re.mjs:1217
 msgid "Initialize Ratings"
 msgstr "評価を初期化"
 
-#: src/components/organisms/AiTetsu.re.mjs:1284
+#: src/components/organisms/AiTetsu.re.mjs:1297
 msgid "Leaderboard"
 msgstr "リーダーボード"
 
@@ -164,7 +164,7 @@ msgstr "もっとプレイヤーを読み込む..."
 
 #: src/components/organisms/SubmitMatch.re.mjs:407
 #: src/components/organisms/SortableSubmitMatch.re.mjs:435
-#: src/components/organisms/AiTetsu.re.mjs:1435
+#: src/components/organisms/AiTetsu.re.mjs:1448
 msgid "Loading"
 msgstr "読み込み中"
 
@@ -172,15 +172,15 @@ msgstr "読み込み中"
 msgid "Loading matches..."
 msgstr "試合を読み込んでいます..."
 
-#: src/components/organisms/AiTetsu.re.mjs:1309
+#: src/components/organisms/AiTetsu.re.mjs:1322
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/organisms/AiTetsu.re.mjs:1415
+#: src/components/organisms/AiTetsu.re.mjs:1428
 msgid "manual team"
 msgstr "手動チーム"
 
-#: src/components/organisms/AiTetsu.re.mjs:1452
+#: src/components/organisms/AiTetsu.re.mjs:1465
 msgid "Match History"
 msgstr "対戦履歴"
 
@@ -215,8 +215,8 @@ msgstr ""
 "キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選"
 "択してください。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1251
-#: src/components/organisms/AiTetsu.re.mjs:1273
+#: src/components/organisms/AiTetsu.re.mjs:1264
+#: src/components/organisms/AiTetsu.re.mjs:1286
 msgid "Offline Mode"
 msgstr "オフラインモード"
 
@@ -237,16 +237,16 @@ msgstr "プレイヤー"
 msgid "Player Name"
 msgstr "プレイヤー名"
 
-#: src/components/organisms/AiTetsu.re.mjs:1096
+#: src/components/organisms/AiTetsu.re.mjs:1107
 msgid ""
 "Players in a team will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1117
+#: src/components/organisms/AiTetsu.re.mjs:1128
 msgid "Players in an anti-team will never be placed in a match together."
 msgstr "アンチチームのプレイヤーは、試合で一緒に配置されることはありません。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1134
+#: src/components/organisms/AiTetsu.re.mjs:1145
 msgid ""
 "Players in teams will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
@@ -273,7 +273,7 @@ msgstr "キュー"
 msgid "Queue All"
 msgstr "すべてキューに入れる"
 
-#: src/components/organisms/AiTetsu.re.mjs:1326
+#: src/components/organisms/AiTetsu.re.mjs:1339
 msgid "Queue All Players"
 msgstr "すべてのプレイヤーをキューに入れる"
 
@@ -319,7 +319,7 @@ msgstr ""
 "す。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部"
 "のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1242
+#: src/components/organisms/AiTetsu.re.mjs:1255
 msgid "Start Session"
 msgstr "セッションを開始"
 
@@ -331,7 +331,7 @@ msgstr "評価を提出"
 msgid "SUBMIT RESULTS"
 msgstr "結果を提出"
 
-#: src/components/organisms/AiTetsu.re.mjs:1443
+#: src/components/organisms/AiTetsu.re.mjs:1456
 msgid "Submitted Matches"
 msgstr "提出された試合"
 

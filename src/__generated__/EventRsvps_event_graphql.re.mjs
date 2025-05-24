@@ -123,6 +123,13 @@ return {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "viewerIsAdmin",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Activity",
       "kind": "LinkedField",
       "name": "activity",
@@ -166,6 +173,11 @@ return {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "EventRsvps_rsvp"
+                },
+                {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "RsvpOptions_rsvp"
                 },
                 {
                   "alias": null,

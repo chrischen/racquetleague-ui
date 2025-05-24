@@ -90,6 +90,7 @@ module Fragment = %relay(`
           user {
             id
             lineUsername
+            gender
             ...EventRsvpUser_user
             ...EventMatchRsvpUser_user
           }
@@ -428,6 +429,17 @@ let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node)
       ratingOrdinal: rating->Rating.ordinal,
       rating,
       paid: false,
+      gender: rsvp.user
+      ->Option.flatMap(u =>
+        u.gender->Option.map(g =>
+          switch g {
+          | Male => Gender.Male
+          | Female => Gender.Female
+          | _ => Male
+          }
+        )
+      )
+      ->Option.getOr(Male),
     }->Some
   | _ => None
   }
@@ -1122,7 +1134,7 @@ let make = (~event, ~children) => {
                   onPlayerAdd={player => {
                     setSessionPlayers(guests => {
                       let newState =
-                        guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer)
+                        guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer(_, Male))
                       newState->Players.savePlayers(eventId)
                       newState
                     })
@@ -1249,7 +1261,7 @@ let make = (~event, ~children) => {
             eventId
             onPlayerAdd={player => {
               setSessionPlayers(guests => {
-                let newState = guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer)
+                let newState = guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer(_, Male))
                 newState->Players.savePlayers(eventId)
                 newState
               })

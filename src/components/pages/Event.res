@@ -200,7 +200,7 @@ let make = () => {
             // <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
             <Layout.Container className="py-0">
               <div
-                className="mx-auto flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none">
+                className="mx-auto flex flex-col max-w-2xl justify-between gap-x-8 lg:mx-0 lg:max-w-none">
                 <div className="flex items-center gap-x-6">
                   // <img
                   //   src="https://tailwindui.com/img/logos/48x48/tuple.svg"
@@ -267,6 +267,42 @@ let make = () => {
                     })
                     ->Option.getOr(React.null)}
                   </h1>
+                </div>
+                <div
+                  className="font-bold flex items-center mt-2 mb-2 lg:text-xl leading-8 text-gray-700">
+                  {event.startDate
+                  ->Option.flatMap(startDate =>
+                    event.endDate->Option.map(
+                      endDate => <>
+                        <ReactIntl.FormattedDate
+                          day=#"2-digit"
+                          month=#numeric
+                          value={startDate->Util.Datetime.toDate}
+                          timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
+                        />
+                        {" "->React.string}
+                        <ReactIntl.FormattedTime
+                          value={startDate->Util.Datetime.toDate}
+                          timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
+                        />
+                        {" -> "->React.string}
+                        <ReactIntl.FormattedTime
+                          value={endDate->Util.Datetime.toDate}
+                          timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
+                        />
+                        {" "->React.string}
+                        {until
+                        ->Option.map(
+                          until =>
+                            <ReactIntl.FormattedRelativeTime
+                              value={until} unit=#minute updateIntervalInSeconds=1.
+                            />,
+                        )
+                        ->Option.getOr(React.null)}
+                      </>,
+                    )
+                  )
+                  ->Option.getOr("???"->React.string)}
                 </div>
                 <div className="flex items-center gap-x-4 sm:gap-x-6">
                   // <button
@@ -381,6 +417,43 @@ let make = () => {
             // <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              <div className="lg:col-start-3 lg:row-end-1">
+                <div
+                  className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
+                  {switch shadow {
+                  | None
+                  | Some(false) =>
+                    <EventRsvps event=fragmentRefs user={viewer->Option.map(v => v.fragmentRefs)} />
+                  | Some(true) =>
+                    <ErrorAlert
+                      cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
+                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
+                    </ErrorAlert>
+                  }}
+                  {event.activity
+                  ->Option.flatMap(activity =>
+                    activity.slug->Option.map(
+                      slug =>
+                        switch (canOpenAiTetsu, slug) {
+                        | (true, "pickleball" as slug)
+                        | (true, "badminton" as slug) =>
+                          <div
+                            className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
+                            <h2 className="text-base font-semibold leading-6 text-gray-900">
+                              {t`league`}
+                            </h2>
+                            <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
+                              {t`submit matches`}
+                            </Link>
+                          </div>
+                        | _ => React.null
+                        },
+                    )
+                  )
+                  ->Option.getOr(React.null)}
+                  {viewerIsAdmin ? <EventFullNames event=fragmentRefs /> : React.null}
+                </div>
+              </div>
               <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
                 <div
                   className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
@@ -407,12 +480,13 @@ let make = () => {
                               timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
                             />
                             {" "->React.string}
-                            <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate}
+                            <ReactIntl.FormattedTime
+                              value={startDate->Util.Datetime.toDate}
                               timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
-
                             />
                             {" -> "->React.string}
-                            <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} 
+                            <ReactIntl.FormattedTime
+                              value={endDate->Util.Datetime.toDate}
                               timeZone={event.timezone->Option.getOr("Asia/Tokyo")}
                             />
                             {" "->React.string}
@@ -481,43 +555,6 @@ let make = () => {
                     </div>
                   )
                   ->Option.getOr(React.null)}
-                </div>
-              </div>
-              <div className="lg:col-start-3 lg:row-end-1">
-                <div
-                  className="grid grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none">
-                  {switch shadow {
-                  | None
-                  | Some(false) =>
-                    <EventRsvps event=fragmentRefs user={viewer->Option.map(v => v.fragmentRefs)} />
-                  | Some(true) =>
-                    <ErrorAlert
-                      cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
-                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
-                    </ErrorAlert>
-                  }}
-                  {event.activity
-                  ->Option.flatMap(activity =>
-                    activity.slug->Option.map(
-                      slug =>
-                        switch (canOpenAiTetsu, slug) {
-                        | (true, "pickleball" as slug)
-                        | (true, "badminton" as slug) =>
-                          <div
-                            className="-mx-4 px-6 py-4 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-6 sm:pb-4">
-                            <h2 className="text-base font-semibold leading-6 text-gray-900">
-                              {t`league`}
-                            </h2>
-                            <Link to={"/league/events/" ++ event.id ++ "/" ++ slug}>
-                              {t`submit matches`}
-                            </Link>
-                          </div>
-                        | _ => React.null
-                        },
-                    )
-                  )
-                  ->Option.getOr(React.null)}
-                  {viewerIsAdmin ? <EventFullNames event=fragmentRefs /> : React.null}
                 </div>
               </div>
             </div>

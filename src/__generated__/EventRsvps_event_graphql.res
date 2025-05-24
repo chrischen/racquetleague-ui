@@ -18,7 +18,7 @@ module Types = {
     listType: option<int>,
     rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvps_rsvp]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvps_rsvp | #RsvpOptions_rsvp]>,
   }
   and fragment_rsvps_edges = {
     node: option<fragment_rsvps_edges_node>,
@@ -39,6 +39,7 @@ module Types = {
     maxRsvps: option<int>,
     minRating: option<float>,
     rsvps: option<fragment_rsvps>,
+    viewerIsAdmin: bool,
   }
 }
 
@@ -183,6 +184,13 @@ return {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "viewerIsAdmin",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Activity",
       "kind": "LinkedField",
       "name": "activity",
@@ -226,6 +234,11 @@ return {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "EventRsvps_rsvp"
+                },
+                {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "RsvpOptions_rsvp"
                 },
                 {
                   "alias": null,

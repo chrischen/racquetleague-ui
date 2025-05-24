@@ -1507,11 +1507,23 @@ msgstr "固定ペア"
 #: src/components/organisms/AiTetsu.re.mjs:1096
 msgid ""
 "Players in a team will always be placed in a match together on the same side."
-msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"	
+msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1117
 msgid "Players in an anti-team will never be placed in a match together."
 msgstr "アンチチームのプレイヤーは、試合で一緒に配置されることはありません。"
+
+#: src/components/organisms/RsvpOptions.re.mjs:92
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "この人をイベントから削除してもよろしいですか？"
+
+#: src/components/organisms/RsvpOptions.re.mjs:79
+msgid "Remove from event"
+msgstr "イベントから削除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:91
+msgid "Remove this RSVP"
+msgstr "このRSVPを削除"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

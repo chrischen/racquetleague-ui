@@ -110,7 +110,7 @@ function RsvpUser(props) {
                       className: "min-w-0 flex-auto"
                     })
               ],
-              className: Core.cx("relative flex min-w-0 gap-x-4 w-full", highlight ? "py-2 mx-0" : "mx-2")
+              className: Core.cx("relative flex min-w-0 gap-x-4 w-full", highlight ? "py-2 mx-0" : "ml-0")
             });
 }
 
