@@ -560,13 +560,15 @@ let find_all_match_combos = (
       ? matches
       : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
 
-  let results =
-    avoidAllPlayers->Array.reduce(matches, (matches, antiTeam) => {
-      antiTeam->Array.length < 2
+  let results = avoidAllPlayers->Array.reduce(matches, (matches, antiTeam) => {
+    antiTeam->Array.length < 2
       ? matches
-      : [...matches->Array.filter(((match, _)) => !(match->Match.contains_more_than_1_players(antiTeam)))]
-
-    })
+      : [
+          ...matches->Array.filter(((match, _)) =>
+            !(match->Match.contains_more_than_1_players(antiTeam))
+          ),
+        ]
+  })
 
   // Filter by `requiredPlayers`
   let results = // This `results` is after priorityPlayers and avoidAllPlayers filters
@@ -652,9 +654,14 @@ module RankedMatches = {
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
   ) => {
+    let groupSize = Js.Math.min_int(
+      players->Array.length,
+      (players->Array.length->Int.toFloat *. 0.4)->Js.Math.ceil_int,
+    )
+
     players
     ->Players.sortByRatingDesc
-    ->array_split_by_n(8)
+    ->array_split_by_n(groupSize)
     ->Array.reduce([], (acc, playerSet) => {
       let matches =
         playerSet
@@ -676,13 +683,17 @@ module RankedMatches = {
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
   ) => {
+    let groupSize = Js.Math.min_int(
+      players->Array.length,
+      (players->Array.length->Int.toFloat *. 0.30)->Js.Math.ceil_int,
+    )
     players
     ->Array.toSorted((a, b) => {
       let userA = a.rating.mu
       let userB = b.rating.mu
       userA < userB ? 1. : -1.
     })
-    ->array_get_n_from(0, 6)
+    ->array_get_n_from(0, groupSize)
     ->Option.map(playerSet => {
       let players = playerSet->Players.filterOut(consumedPlayers)
       let matches =

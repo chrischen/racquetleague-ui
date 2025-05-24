@@ -2,6 +2,7 @@
 
 import * as Util from "../components/shared/Util.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as Js_math from "rescript/lib/es6/js_math.js";
 import * as Session from "./Session.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Openskill from "openskill";
@@ -804,7 +805,8 @@ function uniform_shuffle_array(arr, n, offset) {
 }
 
 function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
-  return Core__Array.reduce(array_split_by_n(sortByRatingDesc(players), 8), [], (function (acc, playerSet) {
+  var groupSize = Math.min(players.length, Js_math.ceil_int(players.length * 0.4));
+  return Core__Array.reduce(array_split_by_n(sortByRatingDesc(players), groupSize), [], (function (acc, playerSet) {
                   var matches = find_all_match_combos(filterOut(playerSet, consumedPlayers), priorityPlayers, avoidAllPlayers, teams, requiredPlayers);
                   return acc.concat(matches);
                 })).toSorted(function (a, b) {
@@ -817,6 +819,7 @@ function strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoi
 }
 
 function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
+  var groupSize = Math.min(players.length, Js_math.ceil_int(players.length * 0.30));
   return Core__Option.getOr(Core__Option.map(array_get_n_from(players.toSorted(function (a, b) {
                           var userA = a.rating.mu;
                           var userB = b.rating.mu;
@@ -825,7 +828,7 @@ function strategy_by_competitive_plus(players, consumedPlayers, _priorityPlayers
                           } else {
                             return -1;
                           }
-                        }), 0, 6), (function (playerSet) {
+                        }), 0, groupSize), (function (playerSet) {
                     var players = filterOut(playerSet, consumedPlayers);
                     return Core__Option.getOr(Core__Option.map(players.at(0), (function (topPlayer) {
                                       return find_all_match_combos(filterOut(playerSet, consumedPlayers), [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
