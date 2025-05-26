@@ -147,6 +147,7 @@ let make = (
   ~avoidAllPlayers: option<array<array<Player.t<'a>>>>=?,
   ~onSelectMatch: option<(Match.t<'a>, ~dequeue: bool=?) => unit>=?,
   ~requiredPlayers: option<Set.t<string>>=?,
+  ~courts: NonZeroInt.t,
 ) => {
   // ~roundsCount: int,
 
@@ -170,11 +171,11 @@ let make = (
       details: ts`Matches are arranged by skill while mixing strong and weak players.`,
     },
     {name: ts`Random`, strategy: Random, details: ts`Totally random teams.`},
-    {
-      name: "DUPR",
-      strategy: DUPR,
-      details: ts`Optimized for DUPR. Teams created with similar skill level players.`,
-    },
+    // {
+    //   name: "DUPR",
+    //   strategy: DUPR,
+    //   details: ts`Optimized for DUPR. Teams created with similar skill level players.`,
+    // },
     // {name: ts`Round Robin`, strategy: RoundRobin, details: ts`Unique combination of matches.`},
   ]
   // let availablePlayers = players->Players.filterOut(consumedPlayers)
@@ -191,6 +192,7 @@ let make = (
     avoidAllPlayers->Option.getOr([]),
     teamConstraints,
     requiredPlayers,
+    courts
   )
   let matchesCount = matches->Array.length
 
@@ -208,6 +210,7 @@ let make = (
       avoidAllPlayers->Option.getOr([]),
       None,
       requiredPlayers,
+      courts
     )
   | _ => matches
   }

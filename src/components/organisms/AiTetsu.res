@@ -1325,6 +1325,7 @@ let make = (~event, ~children) => {
           // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
           queueMatch(match, ~dequeue?)
         }}
+        courts={(courts - matches->Array.length)->NonZeroInt.make}
       />}
       selectedPlayersActions={selectedPlayers => <>
         <div className="mt-6 flex flex-col justify-end gap-x-6">

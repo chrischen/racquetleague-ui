@@ -196,6 +196,7 @@ function ts(prim0, prim1) {
 }
 
 function CompMatch(props) {
+  var courts = props.courts;
   var requiredPlayers = props.requiredPlayers;
   var onSelectMatch = props.onSelectMatch;
   var avoidAllPlayers = props.avoidAllPlayers;
@@ -230,17 +231,12 @@ function CompMatch(props) {
       name: t`Random`,
       strategy: "Random",
       details: t`Totally random teams.`
-    },
-    {
-      name: "DUPR",
-      strategy: "DUPR",
-      details: t`Optimized for DUPR. Teams created with similar skill level players.`
     }
   ];
   var teamConstraints = Util.NonEmptyArray.map(props.teams, Rating.Team.toSet);
-  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers);
+  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts);
   var matchesCount = matches.length;
-  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), undefined, requiredPlayers);
+  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), undefined, requiredPlayers, courts);
   var matches$2 = matches$1.slice(0, 115);
   var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
           var quality = param[1];

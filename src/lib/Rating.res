@@ -99,7 +99,7 @@ module Player = {
       rating,
       ratingOrdinal: rating->Rating.ordinal,
       paid: false,
-      gender
+      gender,
     }
   }
 }
@@ -421,6 +421,170 @@ module Players = {
     })
     ->Array.concat(guests)
   }
+  let calculateMeanRating = (group: t): float => {
+    if group->Array.length == 0 {
+      // This case should not be reached given the logic of clusterByRating,
+      // as testGroup will always contain at least one player.
+      // Return 0.0 or raise an error if it's considered an invalid state.
+      0.0
+    } else {
+      let sumOfMus = group->Array.reduce(0.0, (acc, p) => acc +. p.rating.mu)
+      sumOfMus /. group->Array.length->Int.toFloat
+    }
+  }
+
+  let clusterByRating = (rankedPlayers_t: t, ~maxDiff: float): array<t> => {
+    // rankedPlayers_t is already an array<player> due to `type t = Players.t`
+    let resultingClusters: array<t> = [] // Use Js.Array2.push for mutable addition
+    let currentGroup: ref<t> = ref([]) // currentGroup is array<player>
+
+    rankedPlayers_t->Array.forEach(player => {
+      let testGroup = currentGroup.contents->Array.concat([player])
+      // testGroup will always have at least one player.
+      let testGroupMean = calculateMeanRating(testGroup)
+
+      let conditionMet = testGroup->Array.every(p_in_test_group => {
+        Js.Math.abs_float(testGroupMean -. p_in_test_group.rating.mu) < maxDiff
+      })
+
+      if conditionMet {
+        currentGroup := testGroup
+      } else {
+        // Finalize the current group (if not empty) and add to results
+        if currentGroup.contents->Array.length > 0 {
+          Js.Array2.push(resultingClusters, currentGroup.contents)->ignore
+        }
+        // Start a new group with the current player
+        currentGroup := [player]
+      }
+    })
+
+    // Add the last remaining group if it's not empty
+    if currentGroup.contents->Array.length > 0 {
+      Js.Array2.push(resultingClusters, currentGroup.contents)->ignore
+    }
+
+    resultingClusters
+  }
+
+  let toKMeansData = (players: t): Util.NonEmptyArray.t<array<float>> => {
+    players->Array.map(player => [player.rating.mu])->Util.NonEmptyArray.fromArray
+  }
+  let rec findOptimalClustersRecursive = (kMeansData, currentKValue: int): KMeans.kMeansOutput => {
+    // kMeansOutput is array<KMeans.clusterResult>
+    if currentKValue < 1 {
+      // Should ideally not be reached if initialK is capped at 1.
+      // Fallback: run with k=1 if somehow currentKValue drops below 1.
+      Js.Console.warn("K-Means recursion: currentKValue fell below 1. Defaulting to k=1.")
+      KMeans.runKMeansWithOptimalInertia({
+        data: kMeansData,
+        k: 1,
+        numRuns: 10,
+        maxIterations: 100,
+        tolerance: 1e-6,
+      })
+    } else {
+      let currentRunOutput = KMeans.runKMeansWithOptimalInertia({
+        data: kMeansData,
+        k: currentKValue,
+        numRuns: 10,
+        maxIterations: 100,
+        tolerance: 1e-6,
+      })
+
+      // Process with SortedClusters.make to determine the "first" cluster
+      // Assumes KMeans.SortedClusters.make returns array<KMeans.clusterResult>
+      let currentlySortedClusters =
+        currentRunOutput->KMeans.SortedClusters.make->Util.NonEmptyArray.toArray
+
+      if currentlySortedClusters->Array.length > 0 {
+        let firstCluster = currentlySortedClusters->Array.getUnsafe(0)
+        // firstCluster.points is array<array<float>>, length is number of players in it
+        let firstClusterPlayerCount = firstCluster.points->Array.length
+
+        Js.log(
+          "Recursive k-means: k=" ++
+          currentKValue->Int.toString ++
+          ", first cluster size=" ++
+          firstClusterPlayerCount->Int.toString,
+        )
+
+        if firstClusterPlayerCount > 4 {
+          // Condition met: first cluster has more than 4 players.
+          // Return the result from SortedClusters.make for this k.
+          currentlySortedClusters
+        } else if currentKValue == 1 {
+          // Base case: k is 1.
+          // Return this result even if the first cluster size is not > 4 (e.g., total players <= 4).
+          currentlySortedClusters
+        } else {
+          // Condition not met, and k > 1. Recurse with k-1.
+          findOptimalClustersRecursive(kMeansData, currentKValue - 1)
+        }
+      } else {
+        // KMeans library returned no clusters (e.g., kMeansData was empty, or k was 0, or library issue).
+        Js.Console.warn(
+          "K-Means recursion: Library returned no clusters for k=" ++
+          currentKValue->Int.toString ++ ". Trying k-1 if possible.",
+        )
+        if currentKValue > 1 {
+          findOptimalClustersRecursive(kMeansData, currentKValue - 1)
+        } else {
+          // At k=1 and library returned no clusters.
+          // Attempt to get a result for k=1 and sort it.
+          KMeans.runKMeansWithOptimalInertia({
+            data: kMeansData,
+            k: 1,
+            numRuns: 10,
+            maxIterations: 100,
+            tolerance: 1e-6,
+          })
+          ->KMeans.SortedClusters.make
+          ->Util.NonEmptyArray.toArray
+        }
+      }
+    }
+  }
+
+  let findPlayerClusters = (t, k: Util.NonZeroInt.t) => {
+    t
+    ->toKMeansData
+    ->Option.mapOr([], arr =>
+      findOptimalClustersRecursive(arr, k->Util.NonZeroInt.toOption->Option.getOr(1))
+    )
+  }
+}
+module RankedPlayers: {
+  type t = private Players.t
+  // Sorts the players by rating
+  let make: Players.t => t
+  let min_rating: (t, float) => t
+  let to_players: t => Players.t
+} = {
+  type t = Players.t
+
+  let make = (t: t) => {
+    t->Array.toSorted((a, b) => {
+      let userA = a.rating.mu
+      let userB = b.rating.mu
+      userA < userB ? 1. : -1.
+    })
+  }
+
+  let min_rating = (playersArray: t, minRatingValue: float): t => {
+    playersArray->Array.filter(player => player.rating.mu >= minRatingValue)
+  }
+  let to_players = t => t
+}
+
+module DoublesSet: {
+  type t = private Players.t
+  let make: Players.t => option<t>
+} = {
+  type t = Players.t
+  let make = (t: t) => {
+    t->Array.length >= 4 ? Some(t) : None
+  }
 }
 open Util
 type matchmakingResult<'a> = {
@@ -565,7 +729,7 @@ let find_all_match_combos = (
       ? matches
       : matches->Array.filter(((match, _)) => match->Match.contains_any_players(priorityPlayers))
 
-  let results = avoidAllPlayers->Array.reduce(matches, (matches, antiTeam) => {
+  let results = avoidAllPlayers->Array.reduce(results, (matches, antiTeam) => {
     antiTeam->Array.length < 2
       ? matches
       : [
@@ -653,25 +817,24 @@ module RankedMatches = {
   type t = array<(Match.t<rsvpNode>, float)>
   let strategy_by_competitive = (
     players: array<Player.t<'a>>,
-    consumedPlayers: Set.t<string>,
+    _consumedPlayers: Set.t<string>,
     priorityPlayers: array<Player.t<'a>>,
     avoidAllPlayers: array<array<Player.t<'a>>>,
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
   ) => {
-    let groupSize = Js.Math.min_int(
-      players->Array.length,
-      (players->Array.length->Int.toFloat *. 0.4)->Js.Math.ceil_int,
-    )
+    let groupSize = 5
+    // let groupSize = Js.Math.max_int(
+    //   4,
+    //   (players->Array.length->Int.toFloat *. 0.41)->Js.Math.ceil_int,
+    // )
 
     players
     ->Players.sortByRatingDesc
     ->array_split_by_n(groupSize)
     ->Array.reduce([], (acc, playerSet) => {
       let matches =
-        playerSet
-        ->Players.filterOut(consumedPlayers)
-        ->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams, requiredPlayers)
+        playerSet->find_all_match_combos(priorityPlayers, avoidAllPlayers, teams, requiredPlayers)
       acc->Array.concat(matches)
     })
     ->Array.toSorted((a, b) => {
@@ -682,46 +845,68 @@ module RankedMatches = {
   }
   let strategy_by_competitive_plus = (
     players: array<Player.t<'a>>,
-    consumedPlayers: Set.t<string>,
+    _consumedPlayers: Set.t<string>,
     _priorityPlayers: array<Player.t<'a>>,
     avoidAllPlayers: array<array<Player.t<'a>>>,
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
-    // mixed: bool
+    courts: NonZeroInt.t,
   ) => {
-    let groupSize = Js.Math.min_int(
-      players->Array.length,
-      (players->Array.length->Int.toFloat *. 0.30)->Js.Math.ceil_int,
-    )
+    // mixed: bool
+
+    // let groupSize = Js.Math.max_int(
+    //   4,
+    //   (players->Array.length->Int.toFloat *. 0.31)->Js.Math.ceil_int,
+    // )
+
     players
-    ->Array.toSorted((a, b) => {
-      let userA = a.rating.mu
-      let userB = b.rating.mu
-      userA < userB ? 1. : -1.
-    })
-    ->array_get_n_from(0, groupSize)
-    ->Option.map(playerSet => {
-      let players = playerSet->Players.filterOut(consumedPlayers)
-      let matches =
-        players
-        ->Array.at(0)
-        ->Option.map(topPlayer => {
-          playerSet
-          ->Players.filterOut(consumedPlayers)
-          ->find_all_match_combos([], avoidAllPlayers, teams, requiredPlayers)
-          ->Array.filter(((match, _)) => match->Match.contains_player(topPlayer))
-          ->Array.toSorted(
-            (a, b) => {
-              let (_, qualityA) = a
-              let (_, qualityB) = b
-              qualityA < qualityB ? 1. : -1.
-            },
-          )
+    ->RankedPlayers.make
+    ->(
+      (sorted: RankedPlayers.t) => {
+        let groups =
+          courts
+          ->NonZeroInt.toOption
+          ->Option.getOr((players->Array.length->Int.toFloat /. 6.)->Js.Math.ceil_int)
+
+        let clusters = (sorted :> Players.t)->Players.findPlayerClusters(groups->NonZeroInt.make)
+
+        let sortedClusters = clusters->KMeans.SortedClusters.make
+
+        let minRating =
+          sortedClusters
+          ->Util.NonEmptyArray.toArray
+          ->Array.get(0)
+          ->Option.map(c => c->KMeans.ClusterResult.getMinMax->fst)
+          ->Option.getOr(
+            0.)
+
+        sorted
+        ->RankedPlayers.min_rating(minRating)
+        ->RankedPlayers.to_players
+        ->DoublesSet.make
+        ->Option.map(playerSet => {
+          let players = (playerSet :> Players.t)
+          let matches =
+            players
+            ->Array.at(0)
+            ->Option.map(topPlayer => {
+              (playerSet :> Players.t)
+              ->find_all_match_combos([], avoidAllPlayers, teams, requiredPlayers)
+              ->Array.filter(((match, _)) => match->Match.contains_player(topPlayer))
+              ->Array.toSorted(
+                (a, b) => {
+                  let (_, qualityA) = a
+                  let (_, qualityB) = b
+                  qualityA < qualityB ? 1. : -1.
+                },
+              )
+            })
+            ->Option.getOr([])
+          matches
         })
         ->Option.getOr([])
-      matches
-    })
-    ->Option.getOr([])
+      }
+    )
   }
 
   let strategy_by_mixed = (
@@ -824,12 +1009,19 @@ module RankedMatches = {
         seenTeams->Set.has(match->fst->Team.toStableId) ||
           seenTeams->Set.has(match->snd->Team.toStableId)
       )
+
+    let topQualityMatch = matches->Array.at(0)
+    let qualityThreshold = switch topQualityMatch {
+    | Some((_, quality)) => quality *. 0.8 // Set threshold at 90% of the top match quality
+    | None => 0.39 // Default threshold if no matches are available
+    }
+
     // Quality filter is now defined here but applied last
-    let qualityFilter = ((_, quality)) => quality >= 0.39
+    let qualityFilter = ((_, quality)) => quality >= qualityThreshold
 
     // List of filters to try removing if necessary (most restrictive first)
     // Quality filter is not included here as it's applied separately at the end.
-    let avoidanceFilters = [filterLRSM, filterLRST, filterSM, filterST]
+    let avoidanceFilters = [filterLRSM, filterSM, filterLRST, filterST]
 
     // Helper to apply a list of filters sequentially
     let applyFilters = (currentMatches, filtersToApply) => {
@@ -886,12 +1078,13 @@ let getMatches = (
   avoidAllPlayers: array<array<Player.t<rsvpNode>>>,
   teamConstraints,
   requiredPlayers,
+  courts,
 ) => {
-  let availablePlayers = players->Players.filterOut(consumedPlayers)
+  // let availablePlayers = players->Players.filterOut(consumedPlayers)
   let matches = switch strategy {
   | Mixed =>
     RankedMatches.strategy_by_mixed(
-      availablePlayers,
+      players,
       priorityPlayers,
       avoidAllPlayers,
       teamConstraints,
@@ -899,7 +1092,7 @@ let getMatches = (
     )
   | RoundRobin =>
     RankedMatches.strategy_by_round_robin(
-      availablePlayers,
+      players,
       priorityPlayers,
       avoidAllPlayers,
       teamConstraints,
@@ -907,19 +1100,14 @@ let getMatches = (
     )
   | Random =>
     RankedMatches.strategy_by_random(
-      availablePlayers,
+      players,
       priorityPlayers,
       avoidAllPlayers,
       teamConstraints,
       requiredPlayers,
     )
   | DUPR =>
-    RankedMatches.strategy_by_dupr(
-      availablePlayers,
-      priorityPlayers,
-      avoidAllPlayers,
-      requiredPlayers,
-    )
+    RankedMatches.strategy_by_dupr(players, priorityPlayers, avoidAllPlayers, requiredPlayers)
   | Competitive =>
     RankedMatches.strategy_by_competitive(
       players,
@@ -937,6 +1125,7 @@ let getMatches = (
       avoidAllPlayers,
       teamConstraints,
       requiredPlayers,
+      courts,
     )
   }
   matches

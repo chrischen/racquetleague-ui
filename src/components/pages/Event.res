@@ -174,12 +174,13 @@ let make = () => {
       ->Option.flatMap(location => location.name)
       ->Option.getOr("?")
     }
+    let secret = shadow->Option.getOr(false)
 
     <WaitForMessages>
       {() =>
         <main>
           <Util.Helmet>
-            <title> {pageTitle->React.string} </title>
+            <title> {secret ? "---"->React.string : pageTitle->React.string} </title>
             <meta property="og:title" content=pageTitle />
             // <meta property="og:description" content="LINE is a new communication app" />
           </Util.Helmet>
@@ -212,7 +213,7 @@ let make = () => {
                       {t`event @`}
                       {" "->React.string}
                       <span className="text-gray-700">
-                        {location
+                        {secret ? "---"->React.string : location
                         ->Option.flatMap(location =>
                           location.name->Option.map(
                             name =>
@@ -238,7 +239,7 @@ let make = () => {
                         )
                         ->Option.getOr(React.null)}
                         {" / "->React.string}
-                        {title->Option.map(React.string)->Option.getOr(React.null)}
+                        {secret ? "---"->React.string : title->Option.map(React.string)->Option.getOr(React.null)}
                         {duration
                         ->Option.map(duration => <>
                           {" / "->React.string}
@@ -427,7 +428,8 @@ let make = () => {
                   | Some(true) =>
                     <ErrorAlert
                       cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
-                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`}
+                      {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral.`}
+                      <p><strong>{t`showing up without permission may result in a ban for failing to follow rules.`}</strong></p>
                     </ErrorAlert>
                   }}
                   {event.activity
@@ -506,7 +508,7 @@ let make = () => {
                     <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
                       <AddToCalendar />
                     </div>
-                    {location
+                    {secret ? React.null : location
                     ->Option.map(location => <EventLocation location=location.fragmentRefs />)
                     ->Option.getOr(React.null)}
                     {details
@@ -520,7 +522,7 @@ let make = () => {
                       </div>
                       <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
                         <p className="lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
-                          {switch details {
+                          {secret ? "---"->React.string : switch details {
                           | "" => ts`good luck, have fun`
                           | d => d
                           }->React.string}

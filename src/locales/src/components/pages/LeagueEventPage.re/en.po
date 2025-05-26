@@ -73,7 +73,7 @@ msgstr ""
 msgid "Advanced Options"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:326
+#: src/components/organisms/CompMatch.re.mjs:321
 msgid "Analyzed {0} matches."
 msgstr ""
 
@@ -300,7 +300,7 @@ msgstr ""
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:371
+#: src/components/organisms/CompMatch.re.mjs:366
 msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
 msgstr ""
 
@@ -310,10 +310,10 @@ msgid "Offline Mode"
 msgstr ""
 
 #: src/components/organisms/CompMatch.re.mjs:237
-msgid "Optimized for DUPR. Teams created with similar skill level players."
-msgstr ""
+#~ msgid "Optimized for DUPR. Teams created with similar skill level players."
+#~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:347
+#: src/components/organisms/CompMatch.re.mjs:342
 msgid "Played last round"
 msgstr ""
 
@@ -396,7 +396,7 @@ msgstr ""
 msgid "Random"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:459
+#: src/components/organisms/CompMatch.re.mjs:454
 msgid "Recommended Match"
 msgstr ""
 
@@ -420,7 +420,7 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:278
+#: src/components/organisms/CompMatch.re.mjs:273
 msgid "Select a tab"
 msgstr ""
 
@@ -464,7 +464,7 @@ msgstr ""
 msgid "Team {0}"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:341
+#: src/components/organisms/CompMatch.re.mjs:336
 msgid "This team has played before"
 msgstr ""
 

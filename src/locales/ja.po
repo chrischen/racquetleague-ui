@@ -1093,14 +1093,6 @@ msgstr "すべてを切り替える"
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
 msgstr "セッションをクリア（評価、試合数、ゲストプレイヤー）"
 
-#: src/components/pages/Event.re.mjs:369
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first."
-msgstr ""
-"これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
-"加するには、まず日本ピクルボールリーグのイベントに参加してください。"
-
 #: src/components/pages/Event.re.mjs:370
 msgid "view events"
 msgstr "イベントを見る"
@@ -1524,6 +1516,25 @@ msgstr "イベントから削除"
 #: src/components/organisms/RsvpOptions.re.mjs:91
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
+
+#: src/components/organisms/CompMatch.re.mjs:435
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/Event.re.mjs:234
+msgid ""
+"showing up without permission may result in a ban for failing to follow "
+"rules."
+msgstr "許可なしで参加することは、ルールに従わなかったために禁止される可能性があります。"
+
+#: src/components/pages/Event.re.mjs:231
+#, fuzzy
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first to get a referral."
+msgstr ""
+"これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
+"加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

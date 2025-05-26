@@ -1590,3 +1590,15 @@ msgstr ""
 #: src/components/organisms/RsvpOptions.re.mjs:91
 msgid "Remove this RSVP"
 msgstr ""
+
+#: src/components/pages/Event.re.mjs:234
+msgid ""
+"showing up without permission may result in a ban for failing to follow "
+"rules."
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:231
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first to get a referral."
+msgstr ""

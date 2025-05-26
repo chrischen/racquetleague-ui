@@ -1076,7 +1076,8 @@ function AiTetsu(props) {
                       onSelectMatch: (function (match, dequeue) {
                           queueMatch(match, dequeue);
                         }),
-                      requiredPlayers: match$18[0]
+                      requiredPlayers: match$18[0],
+                      courts: Util.NonZeroInt.make(courts - matches.length | 0)
                     }),
                 selectedPlayersActions: (function (selectedPlayers) {
                     return JsxRuntime.jsx(JsxRuntime.Fragment, {

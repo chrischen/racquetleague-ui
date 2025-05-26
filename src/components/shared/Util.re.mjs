@@ -132,10 +132,28 @@ var NonEmptyArray = {
 
 var JsSet = {};
 
+function make(n) {
+  if (n === 0) {
+    return ;
+  } else {
+    return n;
+  }
+}
+
+function toOption(n) {
+  return n;
+}
+
+var NonZeroInt = {
+  make: make,
+  toOption: toOption
+};
+
 export {
   Helmet ,
   Datetime ,
   NonEmptyArray ,
   JsSet ,
+  NonZeroInt ,
 }
 /* No side effect */

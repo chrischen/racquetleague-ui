@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CompMatch.re.mjs:326
+#: src/components/organisms/CompMatch.re.mjs:321
 msgid "Analyzed {0} matches."
 msgstr "{0}試合を分析しました。"
 
@@ -23,7 +23,7 @@ msgstr "競争力"
 
 #: src/components/organisms/CompMatch.re.mjs:435
 msgid "DUPR"
-msgstr ""
+msgstr "DUPR"
 
 #: src/components/organisms/CompMatch.re.mjs:222
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Mixed"
 msgstr "混合"
 
-#: src/components/organisms/CompMatch.re.mjs:371
+#: src/components/organisms/CompMatch.re.mjs:366
 msgid ""
 "Not enough players in the queue. Select the players who want to play from "
 "the Queue tab."
@@ -48,12 +48,7 @@ msgstr ""
 "キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選"
 "択してください。"
 
-#: src/components/organisms/CompMatch.re.mjs:237
-msgid "Optimized for DUPR. Teams created with similar skill level players."
-msgstr ""
-"DUPRに最適化されました。同じスキルレベルのプレイヤーでチームを作成します。"
-
-#: src/components/organisms/CompMatch.re.mjs:347
+#: src/components/organisms/CompMatch.re.mjs:342
 msgid "Played last round"
 msgstr "前回プレイした"
 
@@ -61,7 +56,7 @@ msgstr "前回プレイした"
 msgid "Random"
 msgstr "ランダムで"
 
-#: src/components/organisms/CompMatch.re.mjs:459
+#: src/components/organisms/CompMatch.re.mjs:454
 msgid "Recommended Match"
 msgstr "推奨試合"
 
@@ -69,11 +64,11 @@ msgstr "推奨試合"
 msgid "Select"
 msgstr "選択"
 
-#: src/components/organisms/CompMatch.re.mjs:278
+#: src/components/organisms/CompMatch.re.mjs:273
 msgid "Select a tab"
 msgstr "タブを選択"
 
-#: src/components/organisms/CompMatch.re.mjs:341
+#: src/components/organisms/CompMatch.re.mjs:336
 msgid "This team has played before"
 msgstr "このチームは以前にプレイしました"
 
@@ -89,6 +84,11 @@ msgstr "完全にランダムなチーム。"
 #~ msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 #~ msgstr ""
 #~ "マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
+
+#: src/components/organisms/CompMatch.re.mjs:237
+#~ msgid "Optimized for DUPR. Teams created with similar skill level players."
+#~ msgstr ""
+#~ "DUPRに最適化されました。同じスキルレベルのプレイヤーでチームを作成します。"
 
 #: src/components/organisms/CompMatch.re.mjs:206
 #~ msgid "Quality"

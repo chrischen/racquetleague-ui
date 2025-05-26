@@ -205,6 +205,7 @@ function EventsList$EventItem(props) {
   var startDate = match.startDate;
   var shadow = match.shadow;
   var endDate = match.endDate;
+  var secret = Core__Option.getOr(shadow, false);
   var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
               return Core__Option.map(rsvps.edges, (function (edges) {
                             return edges.filter(function (edge) {
@@ -366,11 +367,11 @@ function EventsList$EventItem(props) {
                         JsxRuntime.jsx("div", {
                               children: JsxRuntime.jsx("span", {
                                     children: JsxRuntime.jsx("p", {
-                                          children: Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
-                                                      return Core__Option.map(l.name, (function (name) {
-                                                                    return name;
-                                                                  }));
-                                                    })), t`[location missing]`),
+                                          children: secret ? null : Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
+                                                        return Core__Option.map(l.name, (function (name) {
+                                                                      return name;
+                                                                    }));
+                                                      })), t`[location missing]`),
                                           className: Core$1.cx("truncate", highlightedLocation ? "font-bold" : "")
                                         }),
                                     className: "whitespace-nowrap"

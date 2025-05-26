@@ -107,3 +107,18 @@ module JsSet = {
   @send
   external difference: (t<'a>, t<'a>) => t<'a> = "difference"
 }
+
+module NonZeroInt: {
+  type t = private option<int>;
+  let make: int => t;
+  let toOption: t => option<int>;
+} = {
+  type t = option<int>;
+  let make = n =>
+    if (n == 0) {
+      None
+    } else {
+      Some(n)
+    }
+    let toOption = n => (n :> option<int>)
+}

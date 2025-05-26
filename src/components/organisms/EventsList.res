@@ -267,6 +267,7 @@ module EventItem = {
       shadow,
       deleted,
     } = ItemFragment.use(event)
+    let secret = shadow->Option.getOr(false)
     let playersCount =
       rsvps
       ->Option.flatMap(rsvps =>
@@ -372,7 +373,7 @@ module EventItem = {
         <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
           <span className="whitespace-nowrap">
             <p className={Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])}>
-              {location
+              {secret ? React.null : location
               ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
               ->Option.getOr(t`[location missing]`)}
             </p>

@@ -174,6 +174,7 @@ function $$Event(props) {
                               })), "") + " @ " + Core__Option.getOr(Core__Option.flatMap($$location, (function ($$location) {
                                 return $$location.name;
                               })), "?");
+                    var secret = Core__Option.getOr(shadow, false);
                     return JsxRuntime.jsx(WaitForMessages.make, {
                                 children: (function () {
                                     var tmp;
@@ -225,8 +226,15 @@ function $$Event(props) {
                                     var tmp$1;
                                     var exit = 0;
                                     if (shadow !== undefined && shadow) {
-                                      tmp$1 = JsxRuntime.jsx(ErrorAlert.make, {
-                                            children: t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first.`,
+                                      tmp$1 = JsxRuntime.jsxs(ErrorAlert.make, {
+                                            children: [
+                                              t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral.`,
+                                              JsxRuntime.jsx("p", {
+                                                    children: JsxRuntime.jsx("strong", {
+                                                          children: t`showing up without permission may result in a ban for failing to follow rules.`
+                                                        })
+                                                  })
+                                            ],
                                             cta: Caml_option.some(t`view events`),
                                             ctaClick: (function () {
                                                 navigate("/clubs/japanpickle", undefined);
@@ -248,7 +256,7 @@ function $$Event(props) {
                                                   JsxRuntime.jsxs(ReactHelmetAsync.Helmet, {
                                                         children: [
                                                           JsxRuntime.jsx("title", {
-                                                                children: pageTitle
+                                                                children: secret ? "---" : pageTitle
                                                               }),
                                                           JsxRuntime.jsx("meta", {
                                                                 content: pageTitle,
@@ -281,14 +289,14 @@ function $$Event(props) {
                                                                                               t`event @`,
                                                                                               " ",
                                                                                               JsxRuntime.jsx("span", {
-                                                                                                    children: Core__Option.getOr(Core__Option.flatMap($$location, (function ($$location) {
-                                                                                                                return Core__Option.map($$location.name, (function (name) {
-                                                                                                                              return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                                                          to: "/locations/" + $$location.id,
-                                                                                                                                          children: name
-                                                                                                                                        });
-                                                                                                                            }));
-                                                                                                              })), null),
+                                                                                                    children: secret ? "---" : Core__Option.getOr(Core__Option.flatMap($$location, (function ($$location) {
+                                                                                                                  return Core__Option.map($$location.name, (function (name) {
+                                                                                                                                return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                                            to: "/locations/" + $$location.id,
+                                                                                                                                            children: name
+                                                                                                                                          });
+                                                                                                                              }));
+                                                                                                                })), null),
                                                                                                     className: "text-gray-700"
                                                                                                   })
                                                                                             ],
@@ -307,9 +315,9 @@ function $$Event(props) {
                                                                                                                               }));
                                                                                                                 })), null),
                                                                                                       " / ",
-                                                                                                      Core__Option.getOr(Core__Option.map(title, (function (prim) {
-                                                                                                                  return prim;
-                                                                                                                })), null),
+                                                                                                      secret ? "---" : Core__Option.getOr(Core__Option.map(title, (function (prim) {
+                                                                                                                    return prim;
+                                                                                                                  })), null),
                                                                                                       Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
                                                                                                                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                                                                                               children: [
@@ -509,13 +517,16 @@ function $$Event(props) {
                                                                                             children: JsxRuntime.jsx(AddToCalendar.make, {}),
                                                                                             className: "ml-3 border-gray-200 border-l-4 pl-5 mt-4"
                                                                                           }),
-                                                                                      Core__Option.getOr(Core__Option.map($$location, (function ($$location) {
-                                                                                                  return JsxRuntime.jsx(EventLocation.make, {
-                                                                                                              location: $$location.fragmentRefs
-                                                                                                            });
-                                                                                                })), null),
+                                                                                      secret ? null : Core__Option.getOr(Core__Option.map($$location, (function ($$location) {
+                                                                                                    return JsxRuntime.jsx(EventLocation.make, {
+                                                                                                                location: $$location.fragmentRefs
+                                                                                                              });
+                                                                                                  })), null),
                                                                                       Core__Option.getOr(Core__Option.map(details, (function (details) {
-                                                                                                  var tmp = details === "" ? t`good luck, have fun` : details;
+                                                                                                  var tmp;
+                                                                                                  tmp = secret ? "---" : (
+                                                                                                      details === "" ? t`good luck, have fun` : details
+                                                                                                    );
                                                                                                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                                                                               children: [
                                                                                                                 JsxRuntime.jsxs("div", {
