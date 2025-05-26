@@ -1525,16 +1525,21 @@ msgstr "DUPR"
 msgid ""
 "showing up without permission may result in a ban for failing to follow "
 "rules."
-msgstr "許可なしで参加することは、ルールに従わなかったために禁止される可能性があります。"
+msgstr ""
+"許可なしで参加することは、ルールに従わなかったために禁止される可能性がありま"
+"す。"
 
 #: src/components/pages/Event.re.mjs:231
-#, fuzzy
 msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first to get a referral."
 msgstr ""
 "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
 "加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+
+#: src/components/organisms/CompMatch.re.mjs:343
+msgid "Gender Mixed Doubles"
+msgstr "男女混合ダブルス"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
@@ -1554,3 +1559,21 @@ msgstr ""
 #, fuzzy
 #~ msgid "My Profile"
 #~ msgstr "あなたのプロフィール"
+
+#: src/components/pages/Event.re.mjs:234
+#, fuzzy
+#~ msgid ""
+#~ "showing up to a private event without permission may result in a ban for "
+#~ "failing to follow rules."
+#~ msgstr ""
+#~ "許可なしで参加することは、ルールに従わなかったために禁止される可能性があり"
+#~ "ます。"
+
+#: src/components/pages/Event.re.mjs:229
+#, fuzzy
+#~ msgid ""
+#~ "this is a private event that requires membership with the club. To join "
+#~ "this club, please join a Japan Pickleball League event first."
+#~ msgstr ""
+#~ "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに"
+#~ "参加するには、まず日本ピクルボールリーグのイベントに参加してください。"

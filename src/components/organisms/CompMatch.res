@@ -152,6 +152,7 @@ let make = (
   // ~roundsCount: int,
 
   let (strategy, setStrategy) = React.useState(() => defaultStrategy)
+  let (genderMixed, setGenderMixed) = React.useState(() => false)
   let intl = ReactIntl.useIntl()
 
   let strats = [
@@ -192,7 +193,8 @@ let make = (
     avoidAllPlayers->Option.getOr([]),
     teamConstraints,
     requiredPlayers,
-    courts
+    courts,
+    genderMixed,
   )
   let matchesCount = matches->Array.length
 
@@ -210,7 +212,8 @@ let make = (
       avoidAllPlayers->Option.getOr([]),
       None,
       requiredPlayers,
-      courts
+      courts,
+      genderMixed,
     )
   | _ => matches
   }
@@ -227,7 +230,8 @@ let make = (
     setStrategy(_ => strategy)
     setDefaultStrategy(_ => strategy)
   }
-
+  open Checkbox
+  open Fieldset
   <>
     <div className="sm:hidden">
       <label htmlFor="tabs" className="sr-only"> {t`Select a tab`} </label>
@@ -274,6 +278,16 @@ let make = (
         ->React.array}
       </nav>
     </div>
+    <CheckboxField className="mt-4">
+      <Checkbox
+        name="discoverability"
+        value="show_on_events_page"
+        defaultChecked=false
+        checked={genderMixed}
+        onChange={e => setGenderMixed(_ => e)}
+      />
+      <Label> {t`Gender Mixed Doubles`} </Label>
+    </CheckboxField>
     <p className="mt-2 text-base leading-7 text-gray-600">
       {t`Analyzed ${intl->ReactIntl.Intl.formatNumber(matchesCount->Int.toFloat)} matches.`}
       {" "->React.string}

@@ -965,7 +965,7 @@ function strategy_by_competitive(players, _consumedPlayers, priorityPlayers, avo
             });
 }
 
-function strategy_by_competitive_plus(players, _consumedPlayers, _priorityPlayers, avoidAllPlayers, teams, requiredPlayers, courts) {
+function strategy_by_competitive_plus(players, _consumedPlayers, _priorityPlayers, avoidAllPlayers, teams, requiredPlayers, courts, genderMixed) {
   var sorted = make$1(players);
   var groups = Core__Option.getOr(Util.NonZeroInt.toOption(courts), Js_math.ceil_int(players.length / 6));
   var clusters = findPlayerClusters(sorted, Util.NonZeroInt.make(groups));
@@ -973,7 +973,40 @@ function strategy_by_competitive_plus(players, _consumedPlayers, _priorityPlayer
   var minRating = Core__Option.getOr(Core__Option.map(Util.NonEmptyArray.toArray(sortedClusters)[0], (function (c) {
               return KMeans.ClusterResult.getMinMax(c)[0];
             })), 0);
-  return Core__Option.getOr(Core__Option.map(make$2(min_rating(sorted, minRating)), (function (playerSet) {
+  return Core__Option.getOr(Core__Option.map(Core__Option.flatMap((function (p) {
+                          var femalePlayers = players.filter(function (p) {
+                                return p.gender === "Female";
+                              });
+                          if (!(genderMixed && femalePlayers.length > 2)) {
+                            return p;
+                          }
+                          var match = Core__Array.reduce(p, [
+                                [],
+                                0
+                              ], (function (param, player) {
+                                  var count = param[1];
+                                  var acc = param[0];
+                                  if (!(count % 2 === 1 && femalePlayers.length > 0)) {
+                                    return [
+                                            acc.concat([player]),
+                                            count + 1 | 0
+                                          ];
+                                  }
+                                  var femalePlayer = femalePlayers.shift();
+                                  if (femalePlayer !== undefined) {
+                                    return [
+                                            acc.concat([femalePlayer]),
+                                            count + 1 | 0
+                                          ];
+                                  } else {
+                                    return [
+                                            acc.concat([player]),
+                                            count + 1 | 0
+                                          ];
+                                  }
+                                }));
+                          return array_get_n_from(match[0], 0, 4);
+                        })(min_rating(sorted, minRating)), make$2), (function (playerSet) {
                     return Core__Option.getOr(Core__Option.map(playerSet.at(0), (function (topPlayer) {
                                       return find_all_match_combos(playerSet, [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
                                                     return contains_player$1(param[0], topPlayer);
@@ -1094,10 +1127,10 @@ var RankedMatches = {
   recommendMatch: recommendMatch
 };
 
-function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, courts) {
+function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, courts, genderMixed) {
   switch (strategy) {
     case "CompetitivePlus" :
-        return strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, courts);
+        return strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, courts, genderMixed);
     case "Competitive" :
         return strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "Mixed" :

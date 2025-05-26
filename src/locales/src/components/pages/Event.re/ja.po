@@ -203,15 +203,6 @@ msgid "Required rating: {0} (DUPR {1})"
 msgstr ""
 
 #: src/components/pages/Event.re.mjs:234
-#, fuzzy
-msgid ""
-"showing up to a private event without permission may result in a ban for "
-"failing to follow rules."
-msgstr ""
-"許可なしで参加することは、ルールに従わなかったために禁止される可能性がありま"
-"す。"
-
-#: src/components/pages/Event.re.mjs:234
 msgid ""
 "showing up without permission may result in a ban for failing to follow "
 "rules."
@@ -247,7 +238,6 @@ msgstr ""
 "本当にこのイベントを離れますか？"
 
 #: src/components/pages/Event.re.mjs:231
-#, fuzzy
 msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first to get a referral."
@@ -332,6 +322,15 @@ msgstr ""
 #: src/components/organisms/EventRsvps.re.mjs:523
 #~ msgid "restricted by level"
 #~ msgstr "レベルによって制限"
+
+#: src/components/pages/Event.re.mjs:234
+#, fuzzy
+#~ msgid ""
+#~ "showing up to a private event without permission may result in a ban for "
+#~ "failing to follow rules."
+#~ msgstr ""
+#~ "許可なしで参加することは、ルールに従わなかったために禁止される可能性があり"
+#~ "ます。"
 
 #: src/components/pages/Event.re.mjs:229
 #, fuzzy

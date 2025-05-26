@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CompMatch.re.mjs:321
+#: src/components/organisms/CompMatch.re.mjs:349
 msgid "Analyzed {0} matches."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:220
+#: src/components/organisms/CompMatch.re.mjs:229
 msgid "Competitive"
 msgstr ""
 
@@ -29,7 +29,11 @@ msgstr ""
 #~ msgid "DUPR"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:222
+#: src/components/organisms/CompMatch.re.mjs:343
+msgid "Gender Mixed Doubles"
+msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:231
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 
@@ -37,15 +41,15 @@ msgstr ""
 #~ msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:227
+#: src/components/organisms/CompMatch.re.mjs:236
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:225
+#: src/components/organisms/CompMatch.re.mjs:234
 msgid "Mixed"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:366
+#: src/components/organisms/CompMatch.re.mjs:394
 msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
 msgstr ""
 
@@ -53,7 +57,7 @@ msgstr ""
 #~ msgid "Optimized for DUPR. Teams created with similar skill level players."
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:342
+#: src/components/organisms/CompMatch.re.mjs:370
 msgid "Played last round"
 msgstr ""
 
@@ -61,11 +65,11 @@ msgstr ""
 #~ msgid "Quality"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:230
+#: src/components/organisms/CompMatch.re.mjs:239
 msgid "Random"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:454
+#: src/components/organisms/CompMatch.re.mjs:482
 msgid "Recommended Match"
 msgstr ""
 
@@ -73,19 +77,19 @@ msgstr ""
 #~ msgid "Round Robin"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:127
+#: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:273
+#: src/components/organisms/CompMatch.re.mjs:282
 msgid "Select a tab"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:336
+#: src/components/organisms/CompMatch.re.mjs:364
 msgid "This team has played before"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:232
+#: src/components/organisms/CompMatch.re.mjs:241
 msgid "Totally random teams."
 msgstr ""
 

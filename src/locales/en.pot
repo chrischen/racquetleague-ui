@@ -1602,3 +1602,7 @@ msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first to get a referral."
 msgstr ""
+
+#: src/components/organisms/CompMatch.re.mjs:343
+msgid "Gender Mixed Doubles"
+msgstr ""

@@ -4,8 +4,11 @@ import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Session from "../../lib/Session.re.mjs";
+import * as Checkbox from "../catalyst/Checkbox.re.mjs";
+import * as Fieldset from "../catalyst/Fieldset.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as ReactIntl from "react-intl";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
@@ -215,6 +218,11 @@ function CompMatch(props) {
       });
   var setStrategy = match[1];
   var strategy = match[0];
+  var match$1 = React.useState(function () {
+        return false;
+      });
+  var setGenderMixed = match$1[1];
+  var genderMixed = match$1[0];
   var intl = ReactIntl.useIntl();
   var strats = [
     {
@@ -234,9 +242,9 @@ function CompMatch(props) {
     }
   ];
   var teamConstraints = Util.NonEmptyArray.map(props.teams, Rating.Team.toSet);
-  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts);
+  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts, genderMixed);
   var matchesCount = matches.length;
-  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), undefined, requiredPlayers, courts);
+  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), undefined, requiredPlayers, courts, genderMixed);
   var matches$2 = matches$1.slice(0, 115);
   var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
           var quality = param[1];
@@ -265,7 +273,7 @@ function CompMatch(props) {
           return strategy;
         });
   };
-  var match$1 = matches$2.length;
+  var match$2 = matches$2.length;
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -317,6 +325,25 @@ function CompMatch(props) {
                           }),
                       className: "hidden sm:block"
                     }),
+                JsxRuntime.jsxs(Checkbox.CheckboxField.make, {
+                      className: "mt-4",
+                      children: [
+                        JsxRuntime.jsx(Checkbox.Checkbox.make, {
+                              checked: genderMixed,
+                              defaultChecked: false,
+                              onChange: (function (e) {
+                                  setGenderMixed(function (param) {
+                                        return e;
+                                      });
+                                }),
+                              name: "discoverability",
+                              value: "show_on_events_page"
+                            }),
+                        JsxRuntime.jsx(Fieldset.Label.make, {
+                              children: Caml_option.some(t`Gender Mixed Doubles`)
+                            })
+                      ]
+                    }),
                 JsxRuntime.jsxs("p", {
                       children: [
                         t`Analyzed ${intl.formatNumber(matchesCount)} matches.`,
@@ -344,7 +371,7 @@ function CompMatch(props) {
                       ],
                       className: "mt-2 text-base leading-7 text-gray-600 mb-2"
                     }),
-                match$1 !== 0 ? null : JsxRuntime.jsx("div", {
+                match$2 !== 0 ? null : JsxRuntime.jsx("div", {
                         children: JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("div", {

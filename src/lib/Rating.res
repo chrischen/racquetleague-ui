@@ -851,6 +851,7 @@ module RankedMatches = {
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
     courts: NonZeroInt.t,
+    genderMixed: bool
   ) => {
     // mixed: bool
 
@@ -877,13 +878,35 @@ module RankedMatches = {
           ->Util.NonEmptyArray.toArray
           ->Array.get(0)
           ->Option.map(c => c->KMeans.ClusterResult.getMinMax->fst)
-          ->Option.getOr(
-            0.)
+          ->Option.getOr(0.)
 
         sorted
         ->RankedPlayers.min_rating(minRating)
         ->RankedPlayers.to_players
-        ->DoublesSet.make
+        ->(p => {
+          // Interpolate female players
+          let femalePlayers = players->Array.filter(p => p.gender == Female)
+
+          if genderMixed && femalePlayers->Array.length > 2 {
+            let (combined, _) = p->Array.reduce(([], 0), ((acc, count), player) => {
+              // If count is odd, add a female player
+              if mod(count, 2) == 1 && femalePlayers->Array.length > 0 {
+                let femalePlayer = femalePlayers->Array.shift
+                switch femalePlayer {
+                | Some(femalePlayer) => (acc->Array.concat([femalePlayer]), count + 1)
+                | None => (acc->Array.concat([player]), count + 1)
+                }
+              } else {
+                (acc->Array.concat([player]), count + 1)
+              }
+            })
+
+            combined->array_get_n_from(0, 4)
+          } else {
+            Some(p)
+          }
+        })
+        ->Option.flatMap(DoublesSet.make)
         ->Option.map(playerSet => {
           let players = (playerSet :> Players.t)
           let matches =
@@ -1079,6 +1102,7 @@ let getMatches = (
   teamConstraints,
   requiredPlayers,
   courts,
+  genderMixed
 ) => {
   // let availablePlayers = players->Players.filterOut(consumedPlayers)
   let matches = switch strategy {
@@ -1126,6 +1150,7 @@ let getMatches = (
       teamConstraints,
       requiredPlayers,
       courts,
+      genderMixed
     )
   }
   matches
