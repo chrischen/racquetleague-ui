@@ -168,7 +168,7 @@ msgstr "もっとプレイヤーを読み込む..."
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/components/pages/LeagueEventPage.re.mjs:73
+#: src/components/pages/LeagueEventPage.re.mjs:80
 msgid "Loading matches..."
 msgstr "試合を読み込んでいます..."
 
@@ -245,6 +245,10 @@ msgstr "アンチチームのプレイヤーは、試合で一緒に配置され
 msgid ""
 "Players in teams will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
+
+#: src/components/pages/LeagueEventPage.re.mjs:96
+msgid "please login before managing the session"
+msgstr "セッションを管理する前にログインしてください"
 
 #: src/components/organisms/SubmitMatch.re.mjs:313
 #: src/components/organisms/SubmitMatch.re.mjs:357

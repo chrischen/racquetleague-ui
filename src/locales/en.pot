@@ -1606,3 +1606,7 @@ msgstr ""
 #: src/components/organisms/CompMatch.re.mjs:343
 msgid "Gender Mixed Doubles"
 msgstr ""
+
+#: src/components/pages/LeagueEventPage.re.mjs:96
+msgid "please login before managing the session"
+msgstr ""

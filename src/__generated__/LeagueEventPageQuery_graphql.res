@@ -9,8 +9,15 @@ module Types = {
     title: option<string>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #AiTetsu_event]>,
   }
+  and response_viewer_user = {
+    @live id: string,
+  }
+  and response_viewer = {
+    user: option<response_viewer_user>,
+  }
   type response = {
     event: option<response_event>,
+    viewer: option<response_viewer>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #MatchListFragment]>,
   }
   @live
@@ -144,40 +151,70 @@ v5 = {
   "kind": "LocalArgument",
   "name": "namespace"
 },
-v6 = [
+v6 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v7 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "Viewer",
+  "kind": "LinkedField",
+  "name": "viewer",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "User",
+      "kind": "LinkedField",
+      "name": "user",
+      "plural": false,
+      "selections": [
+        (v6/*: any*/)
+      ],
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v8 = [
   {
     "kind": "Variable",
     "name": "id",
     "variableName": "eventId"
   }
 ],
-v7 = {
+v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "title",
   "storageKey": null
 },
-v8 = {
+v10 = {
   "kind": "Variable",
   "name": "after",
   "variableName": "after"
 },
-v9 = {
+v11 = {
   "kind": "Variable",
   "name": "before",
   "variableName": "before"
 },
-v10 = [
-  (v8/*: any*/),
-  (v9/*: any*/),
+v12 = [
+  (v10/*: any*/),
+  (v11/*: any*/),
   {
     "kind": "Literal",
     "name": "first",
     "value": 50
   }
 ],
-v11 = {
+v13 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -189,14 +226,14 @@ v11 = {
     }
   ]
 },
-v12 = [
+v14 = [
   {
     "kind": "Variable",
     "name": "activitySlug",
     "variableName": "activitySlug"
   },
-  (v8/*: any*/),
-  (v9/*: any*/),
+  (v10/*: any*/),
+  (v11/*: any*/),
   {
     "kind": "Variable",
     "name": "first",
@@ -208,74 +245,67 @@ v12 = [
     "variableName": "namespace"
   }
 ],
-v13 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-},
-v14 = {
+v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "lineUsername",
   "storageKey": null
 },
-v15 = {
+v16 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "gender",
   "storageKey": null
 },
-v16 = {
+v17 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "picture",
   "storageKey": null
 },
-v17 = {
+v18 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v18 = {
+v19 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "cursor",
   "storageKey": null
 },
-v19 = {
+v20 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "hasNextPage",
   "storageKey": null
 },
-v20 = {
+v21 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "hasPreviousPage",
   "storageKey": null
 },
-v21 = {
+v22 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "endCursor",
   "storageKey": null
 },
-v22 = [
-  (v13/*: any*/),
-  (v14/*: any*/),
-  (v16/*: any*/),
-  (v15/*: any*/)
+v23 = [
+  (v6/*: any*/),
+  (v15/*: any*/),
+  (v17/*: any*/),
+  (v16/*: any*/)
 ];
 return {
   "fragment": {
@@ -291,26 +321,27 @@ return {
     "metadata": null,
     "name": "LeagueEventPageQuery",
     "selections": [
+      (v7/*: any*/),
       {
         "alias": null,
-        "args": (v6/*: any*/),
+        "args": (v8/*: any*/),
         "concreteType": "Event",
         "kind": "LinkedField",
         "name": "event",
         "plural": false,
         "selections": [
-          (v7/*: any*/),
+          (v9/*: any*/),
           {
-            "args": (v10/*: any*/),
+            "args": (v12/*: any*/),
             "kind": "FragmentSpread",
             "name": "AiTetsu_event"
           },
-          (v11/*: any*/)
+          (v13/*: any*/)
         ],
         "storageKey": null
       },
       {
-        "args": (v12/*: any*/),
+        "args": (v14/*: any*/),
         "kind": "FragmentSpread",
         "name": "MatchListFragment"
       }
@@ -331,16 +362,17 @@ return {
     "kind": "Operation",
     "name": "LeagueEventPageQuery",
     "selections": [
+      (v7/*: any*/),
       {
         "alias": null,
-        "args": (v6/*: any*/),
+        "args": (v8/*: any*/),
         "concreteType": "Event",
         "kind": "LinkedField",
         "name": "event",
         "plural": false,
         "selections": [
-          (v7/*: any*/),
-          (v13/*: any*/),
+          (v9/*: any*/),
+          (v6/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -349,7 +381,7 @@ return {
             "name": "activity",
             "plural": false,
             "selections": [
-              (v13/*: any*/),
+              (v6/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -362,7 +394,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v10/*: any*/),
+            "args": (v12/*: any*/),
             "concreteType": "EventRsvpConnection",
             "kind": "LinkedField",
             "name": "rsvps",
@@ -392,10 +424,10 @@ return {
                         "name": "user",
                         "plural": false,
                         "selections": [
-                          (v13/*: any*/),
-                          (v14/*: any*/),
+                          (v6/*: any*/),
                           (v15/*: any*/),
-                          (v16/*: any*/)
+                          (v16/*: any*/),
+                          (v17/*: any*/)
                         ],
                         "storageKey": null
                       },
@@ -407,7 +439,7 @@ return {
                         "name": "rating",
                         "plural": false,
                         "selections": [
-                          (v13/*: any*/),
+                          (v6/*: any*/),
                           {
                             "alias": null,
                             "args": null,
@@ -432,13 +464,13 @@ return {
                         ],
                         "storageKey": null
                       },
+                      (v6/*: any*/),
                       (v13/*: any*/),
-                      (v11/*: any*/),
-                      (v17/*: any*/)
+                      (v18/*: any*/)
                     ],
                     "storageKey": null
                   },
-                  (v18/*: any*/)
+                  (v19/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -450,9 +482,9 @@ return {
                 "name": "pageInfo",
                 "plural": false,
                 "selections": [
-                  (v19/*: any*/),
                   (v20/*: any*/),
-                  (v21/*: any*/)
+                  (v21/*: any*/),
+                  (v22/*: any*/)
                 ],
                 "storageKey": null
               }
@@ -461,20 +493,20 @@ return {
           },
           {
             "alias": null,
-            "args": (v10/*: any*/),
+            "args": (v12/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "SelectMatchRsvps_event_rsvps",
             "kind": "LinkedHandle",
             "name": "rsvps"
           },
-          (v11/*: any*/)
+          (v13/*: any*/)
         ],
         "storageKey": null
       },
       {
         "alias": null,
-        "args": (v12/*: any*/),
+        "args": (v14/*: any*/),
         "concreteType": "MatchConnection",
         "kind": "LinkedField",
         "name": "matches",
@@ -496,7 +528,7 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v13/*: any*/),
+                  (v6/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -504,7 +536,7 @@ return {
                     "kind": "LinkedField",
                     "name": "winners",
                     "plural": true,
-                    "selections": (v22/*: any*/),
+                    "selections": (v23/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -514,7 +546,7 @@ return {
                     "kind": "LinkedField",
                     "name": "losers",
                     "plural": true,
-                    "selections": (v22/*: any*/),
+                    "selections": (v23/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -531,11 +563,11 @@ return {
                     "name": "createdAt",
                     "storageKey": null
                   },
-                  (v17/*: any*/)
+                  (v18/*: any*/)
                 ],
                 "storageKey": null
               },
-              (v18/*: any*/)
+              (v19/*: any*/)
             ],
             "storageKey": null
           },
@@ -547,9 +579,9 @@ return {
             "name": "pageInfo",
             "plural": false,
             "selections": [
-              (v19/*: any*/),
               (v20/*: any*/),
               (v21/*: any*/),
+              (v22/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -560,13 +592,13 @@ return {
             ],
             "storageKey": null
           },
-          (v11/*: any*/)
+          (v13/*: any*/)
         ],
         "storageKey": null
       },
       {
         "alias": null,
-        "args": (v12/*: any*/),
+        "args": (v14/*: any*/),
         "filters": [
           "activitySlug",
           "namespace",
@@ -577,16 +609,16 @@ return {
         "kind": "LinkedHandle",
         "name": "matches"
       },
-      (v11/*: any*/)
+      (v13/*: any*/)
     ]
   },
   "params": {
-    "cacheID": "535af11b122a8ceb3cfdf85529162e73",
+    "cacheID": "1e7c36d658eca1c0d242bed9f35171a1",
     "id": null,
     "metadata": {},
     "name": "LeagueEventPageQuery",
     "operationKind": "query",
-    "text": "query LeagueEventPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  event(id: $eventId) {\n    title\n    ...AiTetsu_event_pL3ww\n    id\n  }\n  ...MatchListFragment_2Xn26q\n}\n\nfragment AiTetsu_event_pL3ww on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 50, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchListFragment_2Xn26q on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query LeagueEventPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n) {\n  viewer {\n    user {\n      id\n    }\n  }\n  event(id: $eventId) {\n    title\n    ...AiTetsu_event_pL3ww\n    id\n  }\n  ...MatchListFragment_2Xn26q\n}\n\nfragment AiTetsu_event_pL3ww on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 50, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchListFragment_2Xn26q on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
   }
 };
 })() `)

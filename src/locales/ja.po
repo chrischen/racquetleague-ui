@@ -1541,6 +1541,10 @@ msgstr ""
 msgid "Gender Mixed Doubles"
 msgstr "男女混合ダブルス"
 
+#: src/components/pages/LeagueEventPage.re.mjs:96
+msgid "please login before managing the session"
+msgstr "セッションを管理する前にログインしてください"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

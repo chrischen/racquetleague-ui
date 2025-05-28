@@ -240,7 +240,7 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: src/components/pages/LeagueEventPage.re.mjs:73
+#: src/components/pages/LeagueEventPage.re.mjs:80
 msgid "Loading matches..."
 msgstr ""
 
@@ -348,6 +348,10 @@ msgstr ""
 #: src/components/organisms/MatchesView.re.mjs:125
 #~ msgid "Players on Break"
 #~ msgstr ""
+
+#: src/components/pages/LeagueEventPage.re.mjs:96
+msgid "please login before managing the session"
+msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:314
 #: src/components/organisms/SubmitMatch.re.mjs:327

@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as AiTetsu from "../organisms/AiTetsu.re.mjs";
+import * as Container from "../vanillaui/atoms/Container.re.mjs";
 import * as MatchList from "../organisms/MatchList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -10,6 +11,7 @@ import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as Solid from "@heroicons/react/24/solid";
 import * as LeagueEventPageQuery_graphql from "../../__generated__/LeagueEventPageQuery_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
@@ -58,22 +60,50 @@ function LeagueEventPage(props) {
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
   var queryRefs = match.fragmentRefs;
+  var viewer = match.viewer;
   var $$event = match.event;
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map($$event, (function ($$event) {
                                     return JsxRuntime.jsx(JsxRuntime.Fragment, {
-                                                children: Caml_option.some(JsxRuntime.jsx(AiTetsu.make, {
-                                                          event: $$event.fragmentRefs,
-                                                          children: JsxRuntime.jsx(React.Suspense, {
-                                                                children: Caml_option.some(JsxRuntime.jsx(MatchList.make, {
-                                                                          matches: queryRefs
-                                                                        })),
-                                                                fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                                                          children: t`Loading matches...`
-                                                                        }))
-                                                              })
-                                                        }))
+                                                children: Caml_option.some(Core__Option.getOr(Core__Option.flatMap(viewer, (function (v) {
+                                                                return Core__Option.map(v.user, (function (u) {
+                                                                              return true;
+                                                                            }));
+                                                              })), false) ? JsxRuntime.jsx(AiTetsu.make, {
+                                                            event: $$event.fragmentRefs,
+                                                            children: JsxRuntime.jsx(React.Suspense, {
+                                                                  children: Caml_option.some(JsxRuntime.jsx(MatchList.make, {
+                                                                            matches: queryRefs
+                                                                          })),
+                                                                  fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
+                                                                            children: t`Loading matches...`
+                                                                          }))
+                                                                })
+                                                          }) : JsxRuntime.jsx(Container.make, {
+                                                            children: JsxRuntime.jsx("div", {
+                                                                  children: JsxRuntime.jsxs("div", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx(Solid.ExclamationTriangleIcon, {
+                                                                                      className: "h-5 w-5 text-yellow-400",
+                                                                                      "aria-hidden": "true"
+                                                                                    }),
+                                                                                className: "flex-shrink-0"
+                                                                              }),
+                                                                          JsxRuntime.jsx("div", {
+                                                                                children: JsxRuntime.jsx("p", {
+                                                                                      children: t`please login before managing the session`,
+                                                                                      className: "text-sm text-yellow-700"
+                                                                                    }),
+                                                                                className: "ml-3"
+                                                                              })
+                                                                        ],
+                                                                        className: "flex"
+                                                                      }),
+                                                                  className: "border-l-4 border-yellow-400 bg-yellow-50 p-4 mb-2"
+                                                                })
+                                                          }))
                                               });
                                   })), null);
                 })
