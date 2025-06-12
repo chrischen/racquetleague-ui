@@ -851,7 +851,7 @@ module RankedMatches = {
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
     courts: NonZeroInt.t,
-    genderMixed: bool
+    genderMixed: bool,
   ) => {
     // mixed: bool
 
@@ -1102,9 +1102,12 @@ let getMatches = (
   teamConstraints,
   requiredPlayers,
   courts,
-  genderMixed
+  genderMixed,
 ) => {
   // let availablePlayers = players->Players.filterOut(consumedPlayers)
+  // Reduce priority players to those that are selected in the queue
+  // let priorityPlayers =
+  //   priorityPlayers->Set.fromArray->intersection(players->Set.fromArray)->Set.values->Array.fromIterator
   let matches = switch strategy {
   | Mixed =>
     RankedMatches.strategy_by_mixed(
@@ -1150,7 +1153,7 @@ let getMatches = (
       teamConstraints,
       requiredPlayers,
       courts,
-      genderMixed
+      genderMixed,
     )
   }
   matches

@@ -1305,7 +1305,7 @@ let make = (~event, ~children) => {
         players={(queuedPlayers :> array<Player.t<'a>>)}
         session=sessionState
         teams
-        consumedPlayers={Set.make()}
+        consumedPlayers
         seenTeams
         lastRoundSeenTeams
         seenMatches

@@ -44,11 +44,13 @@ input AutocompleteLocationInput {
   plusCode: String
 }
 
-type Club {
+type Club implements Node {
   defaultActivity: Activity
   description: String
+  events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int, token: String): EventConnection!
   id: ID!
   name: String
+  shareLink: String
   slug: String
 }
 

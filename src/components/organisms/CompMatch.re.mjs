@@ -211,6 +211,7 @@ function CompMatch(props) {
   var seenMatches = props.seenMatches;
   var seenTeams = props.seenTeams;
   var consumedPlayers = props.consumedPlayers;
+  var teams = props.teams;
   var session = props.session;
   var players = props.players;
   var match = React.useState(function () {
@@ -241,11 +242,23 @@ function CompMatch(props) {
       details: t`Totally random teams.`
     }
   ];
-  var teamConstraints = Util.NonEmptyArray.map(props.teams, Rating.Team.toSet);
-  var matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts, genderMixed);
-  var matchesCount = matches.length;
-  var matches$1 = matchesCount !== 0 ? matches : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), undefined, requiredPlayers, courts, genderMixed);
-  var matches$2 = matches$1.slice(0, 115);
+  var teamConstraints = Util.NonEmptyArray.map(teams, Rating.Team.toSet);
+  var teamPlayers = Core__Array.reduce(Util.NonEmptyArray.toArray(teams), [], (function (acc, team) {
+          return acc.concat(team);
+        }));
+  var teamPlayers$1 = teamPlayers.filter(function (p) {
+        return consumedPlayers.has(p.id) === false;
+      });
+  var matches;
+  if (teamPlayers$1.length > 0) {
+    matches = Rating.getMatches(players, consumedPlayers, "Mixed", teamPlayers$1, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts, genderMixed);
+  } else {
+    var matches$1 = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts, genderMixed);
+    var matchesCount = matches$1.length;
+    matches = matchesCount !== 0 ? matches$1 : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), undefined, requiredPlayers, courts, genderMixed);
+  }
+  var matchesCount$1 = matches.length;
+  var matches$2 = matches.slice(0, 115);
   var maxQuality = Core__Array.reduce(matches$2, 0, (function (acc, param) {
           var quality = param[1];
           if (quality > acc) {
@@ -346,7 +359,7 @@ function CompMatch(props) {
                     }),
                 JsxRuntime.jsxs("p", {
                       children: [
-                        t`Analyzed ${intl.formatNumber(matchesCount)} matches.`,
+                        t`Analyzed ${intl.formatNumber(matchesCount$1)} matches.`,
                         " ",
                         Core__Option.getOr(Core__Option.map(tab, (function (tab) {
                                     return tab.details;

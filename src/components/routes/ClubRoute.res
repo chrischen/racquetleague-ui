@@ -20,6 +20,8 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
+  let token = url.searchParams->Router.SearchParams.get("token")
+
   let afterDate =
     url.searchParams
     ->Router.SearchParams.get("afterDate")

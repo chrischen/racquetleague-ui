@@ -5,6 +5,7 @@ module Query = %relay(`
     club(slug: $slug) {
       name
       ...ClubDetails_club
+      ...ClubEventsListFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate)
     }
     ...EventsListFragment @arguments(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
     ...CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)

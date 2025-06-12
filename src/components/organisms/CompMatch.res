@@ -181,26 +181,27 @@ let make = (
   ]
   // let availablePlayers = players->Players.filterOut(consumedPlayers)
   let teamConstraints = teams->NonEmptyArray.map(Team.toSet)
-  let matches = getMatches(
-    players,
-    consumedPlayers,
-    strategy,
-    priorityPlayers,
-    // players
-    // ->Array.get(0)
-    // ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
-    // ->Option.getOr(priorityPlayers),
-    avoidAllPlayers->Option.getOr([]),
-    teamConstraints,
-    requiredPlayers,
-    courts,
-    genderMixed,
-  )
-  let matchesCount = matches->Array.length
+  let teamPlayers =
+    teams
+    ->NonEmptyArray.toArray
+    ->Array.reduce([], (acc, team) => acc->Array.concat(team))
+  let teamPlayers =
+    teamPlayers->Array.filter(p => consumedPlayers->Set.has(p.id) == false)
 
-  let matches = switch matchesCount {
-  | 0 =>
+  let matches = if teamPlayers->Array.length > 0 {
     getMatches(
+      players,
+      consumedPlayers,
+      Mixed,
+      teamPlayers,
+      avoidAllPlayers->Option.getOr([]),
+      teamConstraints,
+      requiredPlayers,
+      courts,
+      genderMixed,
+    )
+  } else {
+    let matches = getMatches(
       players,
       consumedPlayers,
       strategy,
@@ -210,13 +211,35 @@ let make = (
       // ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
       // ->Option.getOr(priorityPlayers),
       avoidAllPlayers->Option.getOr([]),
-      None,
+      teamConstraints,
       requiredPlayers,
       courts,
       genderMixed,
     )
-  | _ => matches
+    let matchesCount = matches->Array.length
+
+    let matches = switch matchesCount {
+    | 0 =>
+      getMatches(
+        players,
+        consumedPlayers,
+        strategy,
+        priorityPlayers,
+        // players
+        // ->Array.get(0)
+        // ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
+        // ->Option.getOr(priorityPlayers),
+        avoidAllPlayers->Option.getOr([]),
+        None,
+        requiredPlayers,
+        courts,
+        genderMixed,
+      )
+    | _ => matches
+    }
+    matches
   }
+  let matchesCount = matches->Array.length
 
   let matches = matches->Array.slice(~start=0, ~end=115)
 

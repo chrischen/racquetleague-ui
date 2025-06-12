@@ -1064,7 +1064,7 @@ function AiTetsu(props) {
                       players: queuedPlayers,
                       session: sessionState,
                       teams: teams,
-                      consumedPlayers: new Set(),
+                      consumedPlayers: consumedPlayers,
                       seenTeams: seenTeams,
                       seenMatches: seenMatches,
                       lastRoundSeenTeams: lastRoundSeenTeams,
