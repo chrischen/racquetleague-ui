@@ -280,11 +280,11 @@ function SortableSubmitMatch(props) {
         children: [
           JsxRuntime.jsx("div", {
                 children: team1El,
-                className: "grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate border-bottom border-solid border-b-black border-b-4"
+                className: Core.cx("grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate border-bottom border-solid border-b-4", Caml_obj.equal(currentWinner, "Left") ? "border-green-400 border-4 bg-green-50" : "")
               }),
           JsxRuntime.jsx("div", {
                 children: team2El,
-                className: "grid grid-cols-1 gap-0 p-0 bg-white shadow truncate"
+                className: Core.cx("grid grid-cols-1 gap-0 p-0 bg-white shadow truncate", Caml_obj.equal(currentWinner, "Right") ? "border-green-400 border-4 bg-green-50" : "")
               }),
           JsxRuntime.jsxs("div", {
                 children: [
@@ -360,6 +360,9 @@ function SortableSubmitMatch(props) {
                                                       e.stopPropagation();
                                                       e.preventDefault();
                                                       setWinner("Left");
+                                                      setView(function (param) {
+                                                            return "Default";
+                                                          });
                                                     }),
                                                   className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
                                                   children: t`Winner`
@@ -370,6 +373,9 @@ function SortableSubmitMatch(props) {
                                 className: Core.cx("flex relative p-0 justify-between bg-white shadow truncate", Caml_obj.equal(currentWinner, "Left") ? "bg-green-50 border-green-400 border-4 rounded-lg" : ""),
                                 onClick: (function (param) {
                                     setWinner("Left");
+                                    setView(function (param) {
+                                          return "Default";
+                                        });
                                   })
                               }),
                           JsxRuntime.jsxs("div", {
@@ -402,6 +408,9 @@ function SortableSubmitMatch(props) {
                                                       e.stopPropagation();
                                                       e.preventDefault();
                                                       setWinner("Right");
+                                                      setView(function (param) {
+                                                            return "Default";
+                                                          });
                                                     }),
                                                   className: "ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
                                                   children: t`Winner`
@@ -412,6 +421,9 @@ function SortableSubmitMatch(props) {
                                 className: Core.cx("flex relative p-0 justify-between bg-white shadow truncate", Caml_obj.equal(currentWinner, "Right") ? "bg-green-50 border-green-400 border-4 rounded-lg" : ""),
                                 onClick: (function (param) {
                                     setWinner("Right");
+                                    setView(function (param) {
+                                          return "Default";
+                                        });
                                   })
                               }),
                           JsxRuntime.jsx("div", {

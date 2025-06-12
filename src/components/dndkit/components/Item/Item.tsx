@@ -126,7 +126,7 @@ export const Item = React.memo(
         >
           <div
             className={classNames(
-               "flex flex-grow",
+               "flex flex-shrink",
                // styles.Item,
               dragging && styles.dragging,
               handle && styles.withHandle,
@@ -140,13 +140,13 @@ export const Item = React.memo(
             {...props}
             tabIndex={!handle ? 0 : undefined}
           >
-            {value}
             <span className={styles.Actions}>
               {onRemove ? (
                 <Remove className={styles.Remove} onClick={onRemove} />
               ) : null}
               {handle ? <Handle {...handleProps} {...listeners} /> : null}
             </span>
+            {value}
           </div>
         </li>
       );

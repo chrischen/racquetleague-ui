@@ -139,7 +139,7 @@ $focused-outline-color: #4c9ffe;
   display: flex;
   align-self: flex-start;
   width: 30px;
-  margin-left: auto;
+  margin-right: auto;
   margin-bottom: -15px;
   height: 100%;
 }

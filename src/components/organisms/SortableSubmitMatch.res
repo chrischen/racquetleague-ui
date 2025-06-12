@@ -270,7 +270,10 @@ let make = (
         //   setWinner(Left)
         //   setView(_ => SubmitMatch)
         // }}
-        className="grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate border-bottom border-solid border-b-black border-b-4">
+        className={Util.cx([
+          "grid grid-cols-1 gap-0 p-0 bg-white rounded-tl-lg rounded-tr-lg shadow truncate border-bottom border-solid border-b-4",
+          currentWinner == Some(Left) ? "border-green-400 border-4 bg-green-50" : "",
+        ])}>
         {team1El}
       </div>
       <div
@@ -278,7 +281,10 @@ let make = (
         //   setWinner(Right)
         //   setView(_ => SubmitMatch)
         // }}
-        className="grid grid-cols-1 gap-0 p-0 bg-white shadow truncate">
+        className={Util.cx([
+          "grid grid-cols-1 gap-0 p-0 bg-white shadow truncate",
+          currentWinner == Some(Right) ? "border-green-400 border-4 bg-green-50" : "",
+        ])}>
         {team2El}
       </div>
       <div className="flex md:top-3 md:mt-0 justify-center">
@@ -351,6 +357,7 @@ let make = (
             // onClick={_ => setView(_ => Default)}
             onClick={_ => {
               setWinner(Left)
+              setView(_ => Default)
             }}
             className={Util.cx([
               "flex relative p-0 justify-between bg-white shadow truncate",
@@ -390,6 +397,7 @@ let make = (
                     e->JsxEventU.Mouse.stopPropagation
                     e->JsxEventU.Mouse.preventDefault
                     setWinner(Left)
+                    setView(_ => Default)
                   }}
                   className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                   {t`Winner`}
@@ -401,6 +409,7 @@ let make = (
             // onClick={_ => setView(_ => Default)}
             onClick={_ => {
               setWinner(Right)
+              setView(_ => Default)
             }}
             className={Util.cx([
               "flex relative p-0 justify-between bg-white shadow truncate",
@@ -440,6 +449,7 @@ let make = (
                     e->JsxEventU.Mouse.stopPropagation
                     e->JsxEventU.Mouse.preventDefault
                     setWinner(Right)
+                    setView(_ => Default)
                   }}
                   className="ml-3 inline-flex items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                   {t`Winner`}
