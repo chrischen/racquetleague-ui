@@ -1610,3 +1610,11 @@ msgstr ""
 #: src/components/pages/LeagueEventPage.re.mjs:96
 msgid "please login before managing the session"
 msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:68
+msgid "Click the link to select it for easy copying."
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:50
+msgid "Shareable Link"
+msgstr ""

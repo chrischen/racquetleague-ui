@@ -133,7 +133,7 @@ module TeamListItem = {
         {t`Team ${id->Int.toString}`}
       </div>
       {team
-      ->Array.map(player => <CompMatch.PlayerMini player />)
+      ->Array.map(player => <CompMatch.PlayerMini key={player.id} player />)
       ->React.array}
     </>
   }

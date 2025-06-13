@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 01:25+0900\n"
+"POT-Creation-Date: 2025-06-14 00:20+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
 "Language-Team: \n"
@@ -12,6 +12,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:772
+msgid "Badminton"
+msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:775
+msgid "Table Tennis"
+msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:778
+msgid "Pickleball"
+msgstr "ピックルボール"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:781
+msgid "Futsal"
+msgstr "フットサル"
 
 #: src/components/organisms/ClubEventsList.re.mjs:691
 msgid "...load past events"
@@ -82,18 +102,6 @@ msgstr "🚫 キャンセル"
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
-#: src/components/pages/ClubPage.re.mjs:68
-msgid "Click the link to select it for easy copying."
-msgstr "リンクをクリックして、簡単にコピーできるように選択してください。"
-
-#: src/components/pages/ClubPage.re.mjs:102
-msgid "club"
-msgstr "クラブ"
-
-#: src/components/pages/ClubPage.re.mjs:133
-msgid "club not found"
-msgstr "クラブが見つかりません"
-
 #: src/components/organisms/ClubEventsList.re.mjs:661
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
@@ -110,10 +118,6 @@ msgstr "プレイヤー"
 msgid "share as text"
 msgstr "テキストとして共有"
 
-#: src/components/pages/ClubPage.re.mjs:50
-msgid "Shareable Link"
-msgstr "共有可能なリンク"
-
 #: src/components/organisms/ClubEventsList.re.mjs:560
 msgid "show"
 msgstr "表示"
@@ -121,11 +125,3 @@ msgstr "表示"
 #: src/components/organisms/ClubEventsList.re.mjs:317
 msgid "waitlist"
 msgstr "ウェイトリスト"
-
-#: src/components/organisms/EventsList.re.mjs:598
-#~ msgid "load more"
-#~ msgstr "もっと読み込む"
-
-#: src/components/pages/ClubPage.re.mjs:69
-#~ msgid "page not found"
-#~ msgstr "ページが見つかりません"

@@ -6,7 +6,6 @@ import * as Layout from "../shared/Layout.re.mjs";
 import * as PinMap from "./PinMap.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
-import * as Calendar from "./Calendar.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
@@ -14,6 +13,7 @@ import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core from "@lingui/core";
+import * as ClubCalendar from "./ClubCalendar.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
@@ -605,6 +605,14 @@ function ClubEventsList(props) {
   var eventsByDate = Core__Array.reduce(events$1, {}, (function (extra, extra$1) {
           return sortByDate(intl, filterByDate, extra, extra$1);
         }));
+  var dates = Core__Array.reduce(events$1, [], (function (acc, $$event) {
+          var date = $$event.startDate;
+          if (date !== undefined) {
+            return acc.concat([Util.Datetime.toDate(Caml_option.valFromOption(date))]);
+          } else {
+            return acc;
+          }
+        }));
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -636,8 +644,8 @@ function ClubEventsList(props) {
                                 JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsxs("div", {
                                             children: [
-                                              JsxRuntime.jsx(Calendar.make, {
-                                                    events: events,
+                                              JsxRuntime.jsx(ClubCalendar.make, {
+                                                    dates: dates,
                                                     onDateSelected: (function (date) {
                                                         setSearchParams(function (prevParams) {
                                                               return Router.ImmSearchParams.toSearchParams(updateParams({

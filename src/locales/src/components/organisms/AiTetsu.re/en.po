@@ -57,7 +57,7 @@ msgstr ""
 msgid "Advanced Options"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:349
+#: src/components/organisms/CompMatch.re.mjs:362
 msgid "Analyzed {0} matches."
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Close panel"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:229
+#: src/components/organisms/CompMatch.re.mjs:230
 msgid "Competitive"
 msgstr ""
 
@@ -152,12 +152,12 @@ msgstr ""
 msgid "Fixed Pair"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:343
+#: src/components/organisms/CompMatch.re.mjs:356
 msgid "Gender Mixed Doubles"
 msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:388
-#: src/components/organisms/SortableSubmitMatch.re.mjs:425
+#: src/components/organisms/SortableSubmitMatch.re.mjs:437
 msgid "Go Back"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgid "left team players"
 msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:407
-#: src/components/organisms/SortableSubmitMatch.re.mjs:435
+#: src/components/organisms/SortableSubmitMatch.re.mjs:447
 #: src/components/organisms/AiTetsu.re.mjs:1449
 msgid "Loading"
 msgstr ""
@@ -203,7 +203,7 @@ msgstr ""
 msgid "Matches"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:231
+#: src/components/organisms/CompMatch.re.mjs:232
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
 msgstr ""
 
@@ -211,7 +211,7 @@ msgstr ""
 #~ msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:236
+#: src/components/organisms/CompMatch.re.mjs:237
 msgid "Matches are arranged by skill while mixing strong and weak players."
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 #~ msgid "Matchmaking"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:234
+#: src/components/organisms/CompMatch.re.mjs:235
 msgid "Mixed"
 msgstr ""
 
@@ -227,7 +227,7 @@ msgstr ""
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:394
+#: src/components/organisms/CompMatch.re.mjs:407
 msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
 msgstr ""
 
@@ -240,7 +240,7 @@ msgstr ""
 #~ msgid "Optimized for DUPR. Teams created with similar skill level players."
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:370
+#: src/components/organisms/CompMatch.re.mjs:383
 msgid "Played last round"
 msgstr ""
 
@@ -275,7 +275,7 @@ msgstr ""
 #: src/components/organisms/SubmitMatch.re.mjs:313
 #: src/components/organisms/SubmitMatch.re.mjs:357
 #: src/components/organisms/SortableSubmitMatch.re.mjs:355
-#: src/components/organisms/SortableSubmitMatch.re.mjs:397
+#: src/components/organisms/SortableSubmitMatch.re.mjs:403
 msgid "Points"
 msgstr ""
 
@@ -306,11 +306,11 @@ msgstr ""
 #~ msgid "Queued Matches"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:239
+#: src/components/organisms/CompMatch.re.mjs:240
 msgid "Random"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:482
+#: src/components/organisms/CompMatch.re.mjs:495
 msgid "Recommended Match"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:282
+#: src/components/organisms/CompMatch.re.mjs:295
 msgid "Select a tab"
 msgstr ""
 
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Team {0}"
 msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:364
+#: src/components/organisms/CompMatch.re.mjs:377
 msgid "This team has played before"
 msgstr ""
 
@@ -374,7 +374,7 @@ msgstr ""
 #~ msgid "Toggle All"
 #~ msgstr ""
 
-#: src/components/organisms/CompMatch.re.mjs:241
+#: src/components/organisms/CompMatch.re.mjs:242
 msgid "Totally random teams."
 msgstr ""
 
@@ -393,7 +393,7 @@ msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:323
 #: src/components/organisms/SubmitMatch.re.mjs:367
-#: src/components/organisms/SortableSubmitMatch.re.mjs:365
-#: src/components/organisms/SortableSubmitMatch.re.mjs:407
+#: src/components/organisms/SortableSubmitMatch.re.mjs:368
+#: src/components/organisms/SortableSubmitMatch.re.mjs:416
 msgid "Winner"
 msgstr ""

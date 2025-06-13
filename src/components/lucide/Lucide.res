@@ -108,3 +108,12 @@ module ArrowUpCircle = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "ArrowUpCircle"
 }
+
+module Share = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+    ~color: string=?,
+  ) => React.element = "Share2"
+}

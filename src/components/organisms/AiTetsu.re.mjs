@@ -104,7 +104,7 @@ function AiTetsu$TeamListItem(props) {
                 props.team.map(function (player) {
                       return JsxRuntime.jsx(CompMatch.PlayerMini.make, {
                                   player: player
-                                });
+                                }, player.id);
                     })
               ]
             });

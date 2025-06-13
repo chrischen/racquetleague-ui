@@ -1545,6 +1545,14 @@ msgstr "男女混合ダブルス"
 msgid "please login before managing the session"
 msgstr "セッションを管理する前にログインしてください"
 
+#: src/components/pages/ClubPage.re.mjs:68
+msgid "Click the link to select it for easy copying."
+msgstr "リンクをクリックして、簡単にコピーできるように選択してください。"
+
+#: src/components/pages/ClubPage.re.mjs:50
+msgid "Shareable Link"
+msgstr "共有可能なリンク"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"
