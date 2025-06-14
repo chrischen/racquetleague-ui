@@ -23,7 +23,7 @@ async function loader(param) {
   var url = new URL(param.request.url);
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
-  Router.SearchParams.get(url.searchParams, "token");
+  var token = Router.SearchParams.get(url.searchParams, "token");
   var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
           return Util.Datetime.fromDate(new Date(d));
         }));
@@ -31,10 +31,8 @@ async function loader(param) {
         after: after,
         afterDate: afterDate,
         before: before,
-        filters: {
-          clubSlug: params.slug
-        },
-        slug: params.slug
+        slug: params.slug,
+        token: token
       }, "store-or-network", undefined, undefined);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);

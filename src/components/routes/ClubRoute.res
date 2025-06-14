@@ -31,7 +31,13 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
 
   let query = ClubPageQuery_graphql.load(
     ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-    ~variables={slug: params.slug, filters: {clubSlug: params.slug}, ?before, ?after, ?afterDate},
+    ~variables={
+      slug: params.slug,
+      ?before,
+      ?after,
+      ?afterDate,
+      ?token,
+    },
     ~fetchPolicy=RescriptRelay.StoreOrNetwork,
   )
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore

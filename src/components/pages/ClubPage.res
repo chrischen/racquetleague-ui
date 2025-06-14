@@ -6,8 +6,8 @@ module Query = %relay(`
     $after: String
     $first: Int
     $before: String
-    $filters: EventFilters!
     $afterDate: Datetime
+    $token: String
   ) {
     club(slug: $slug) {
       name
@@ -19,16 +19,9 @@ module Query = %relay(`
           first: $first
           before: $before
           afterDate: $afterDate
+          token: $token
         )
     }
-    ...CalendarEventsFragment
-      @arguments(
-        after: $after
-        first: $first
-        before: $before
-        filters: $filters
-        afterDate: $afterDate
-      )
   }
   `)
 type loaderData = ClubPageQuery_graphql.queryRef

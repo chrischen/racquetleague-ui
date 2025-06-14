@@ -6,14 +6,14 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(after, afterDate, before, filters, first, id) {
+function makeRefetchVariables(after, afterDate, before, first, id, token) {
   return {
           after: after,
           afterDate: afterDate,
           before: before,
-          filters: filters,
           first: first,
-          id: id
+          id: id,
+          token: token
         };
 }
 
@@ -21,7 +21,7 @@ var Types = {
   makeRefetchVariables: makeRefetchVariables
 };
 
-var variablesConverter = {"eventFilters":{},"__root":{"filters":{"r":"eventFilters"},"afterDate":{"c":"Util.Datetime"}}};
+var variablesConverter = {"__root":{"afterDate":{"c":"Util.Datetime"}}};
 
 var variablesConverterMap = {
   "Util.Datetime": Util.Datetime.serialize
@@ -60,91 +60,85 @@ var Internal = {
 var Utils = {};
 
 var node = ((function(){
-var v0 = [
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "after"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "afterDate"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "before"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "filters"
-  },
-  {
-    "defaultValue": 20,
-    "kind": "LocalArgument",
-    "name": "first"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "id"
-  }
-],
-v1 = [
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "after"
+},
+v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "afterDate"
+},
+v2 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "before"
+},
+v3 = {
+  "defaultValue": 20,
+  "kind": "LocalArgument",
+  "name": "first"
+},
+v4 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "id"
+},
+v5 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "token"
+},
+v6 = [
   {
     "kind": "Variable",
     "name": "id",
     "variableName": "id"
   }
 ],
-v2 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v3 = {
-  "kind": "Variable",
-  "name": "after",
-  "variableName": "after"
-},
-v4 = {
-  "kind": "Variable",
-  "name": "afterDate",
-  "variableName": "afterDate"
-},
-v5 = {
-  "kind": "Variable",
-  "name": "before",
-  "variableName": "before"
-},
-v6 = {
-  "kind": "Variable",
-  "name": "first",
-  "variableName": "first"
-},
-v7 = {
+v8 = [
+  {
+    "kind": "Variable",
+    "name": "after",
+    "variableName": "after"
+  },
+  {
+    "kind": "Variable",
+    "name": "afterDate",
+    "variableName": "afterDate"
+  },
+  {
+    "kind": "Variable",
+    "name": "before",
+    "variableName": "before"
+  },
+  {
+    "kind": "Variable",
+    "name": "first",
+    "variableName": "first"
+  },
+  {
+    "kind": "Variable",
+    "name": "token",
+    "variableName": "token"
+  }
+],
+v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v8 = [
-  (v3/*: any*/),
-  (v4/*: any*/),
-  (v5/*: any*/),
-  {
-    "kind": "Variable",
-    "name": "filters",
-    "variableName": "filters"
-  },
-  (v6/*: any*/)
-],
-v9 = {
+v10 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -153,27 +147,29 @@ v9 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/),
+      (v2/*: any*/),
+      (v3/*: any*/),
+      (v4/*: any*/),
+      (v5/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "ClubEventsListRefetchQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v1/*: any*/),
+        "args": (v6/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
+          (v7/*: any*/),
           {
-            "args": [
-              (v3/*: any*/),
-              (v4/*: any*/),
-              (v5/*: any*/),
-              (v6/*: any*/)
-            ],
+            "args": (v8/*: any*/),
             "kind": "FragmentSpread",
             "name": "ClubEventsListFragment"
           }
@@ -186,20 +182,27 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/),
+      (v2/*: any*/),
+      (v3/*: any*/),
+      (v5/*: any*/),
+      (v4/*: any*/)
+    ],
     "kind": "Operation",
     "name": "ClubEventsListRefetchQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v1/*: any*/),
+        "args": (v6/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           (v7/*: any*/),
+          (v9/*: any*/),
           {
             "kind": "InlineFragment",
             "selections": [
@@ -227,7 +230,7 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
-                          (v7/*: any*/),
+                          (v9/*: any*/),
                           {
                             "alias": null,
                             "args": null,
@@ -250,8 +253,8 @@ return {
                             "name": "location",
                             "plural": false,
                             "selections": [
-                              (v7/*: any*/),
                               (v9/*: any*/),
+                              (v10/*: any*/),
                               {
                                 "alias": null,
                                 "args": null,
@@ -316,8 +319,8 @@ return {
                             "name": "activity",
                             "plural": false,
                             "selections": [
-                              (v9/*: any*/),
-                              (v7/*: any*/)
+                              (v10/*: any*/),
+                              (v9/*: any*/)
                             ],
                             "storageKey": null
                           },
@@ -359,7 +362,7 @@ return {
                                     "name": "node",
                                     "plural": false,
                                     "selections": [
-                                      (v7/*: any*/),
+                                      (v9/*: any*/),
                                       {
                                         "alias": null,
                                         "args": null,
@@ -397,7 +400,7 @@ return {
                             "name": "details",
                             "storageKey": null
                           },
-                          (v2/*: any*/)
+                          (v7/*: any*/)
                         ],
                         "storageKey": null
                       },
@@ -457,8 +460,8 @@ return {
                 "alias": null,
                 "args": (v8/*: any*/),
                 "filters": [
-                  "filters",
-                  "afterDate"
+                  "afterDate",
+                  "token"
                 ],
                 "handle": "connection",
                 "key": "EventsListFragment_events",
@@ -475,12 +478,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "90d788a2a3379387981f33e5c0ded9e7",
+    "cacheID": "6ded1863d9bd7e1e44b5c7c870298390",
     "id": null,
     "metadata": {},
     "name": "ClubEventsListRefetchQuery",
     "operationKind": "query",
-    "text": "query ClubEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $filters: EventFilters\n  $first: Int = 20\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ClubEventsListFragment_4ysDAd\n    id\n  }\n}\n\nfragment ClubEventsListFragment_4ysDAd on Club {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        ...ClubEventsList_event\n        ...ClubEventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n  id\n}\n\nfragment ClubEventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment ClubEventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
+    "text": "query ClubEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $first: Int = 20\n  $token: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ClubEventsListFragment_1IpZ7U\n    id\n  }\n}\n\nfragment ClubEventsListFragment_1IpZ7U on Club {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        ...ClubEventsList_event\n        ...ClubEventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n  id\n}\n\nfragment ClubEventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment ClubEventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
   }
 };
 })());

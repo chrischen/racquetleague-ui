@@ -10,10 +10,12 @@ module Fragment = %relay(`
     before: { type: "String" }
     first: { type: "Int", defaultValue: 20 }
     afterDate: { type: "Datetime" }
+    token: { type: "String" }
   )
   @refetchable(queryName: "ClubEventsListRefetchQuery")
   {
-    events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
+    events(after: $after, first: $first, before: $before,
+      afterDate: $afterDate, token: $token)
     @connection(key: "EventsListFragment_events") {
       edges {
         node {

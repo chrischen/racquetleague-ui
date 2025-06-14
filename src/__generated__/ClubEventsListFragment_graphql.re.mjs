@@ -26,11 +26,11 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-function makeConnectionId(connectionParentDataId, filters, afterDate) {
+function makeConnectionId(connectionParentDataId, afterDate, token) {
   var afterDate$1 = afterDate !== undefined ? Util.Datetime.serialize(Caml_option.valFromOption(afterDate)) : undefined;
   var args = {
-    filters: filters,
-    afterDate: afterDate$1
+    afterDate: afterDate$1,
+    token: token
   };
   return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "EventsListFragment_events", args);
 }
@@ -83,13 +83,14 @@ return {
       "name": "before"
     },
     {
-      "kind": "RootArgument",
-      "name": "filters"
-    },
-    {
       "defaultValue": 20,
       "kind": "LocalArgument",
       "name": "first"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "token"
     }
   ],
   "kind": "Fragment",
@@ -133,8 +134,8 @@ return {
         },
         {
           "kind": "Variable",
-          "name": "filters",
-          "variableName": "filters"
+          "name": "token",
+          "variableName": "token"
         }
       ],
       "concreteType": "EventConnection",
