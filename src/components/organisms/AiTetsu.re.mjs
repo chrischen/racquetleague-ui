@@ -571,7 +571,15 @@ function AiTetsu(props) {
   var data = match$19.data;
   var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
   var players = allPlayers.filter(function (p) {
-        return !disabled.has(p.id);
+          return !disabled.has(p.id);
+        }).toSorted(function (a, b) {
+        var userA = Rating.Rating.ordinal(a.rating);
+        var userB = Rating.Rating.ordinal(b.rating);
+        if (userA < userB) {
+          return 1;
+        } else {
+          return -1;
+        }
       });
   var playersCache = Rating.PlayersCache.fromPlayers(allPlayers);
   var breakCount = courts === 0 ? 0 : players.length - (courts << 2) | 0;

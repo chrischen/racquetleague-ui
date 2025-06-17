@@ -246,16 +246,19 @@ function CompMatch(props) {
   var teamPlayers = Core__Array.reduce(Util.NonEmptyArray.toArray(teams), [], (function (acc, team) {
           return acc.concat(team);
         }));
+  new Set(players.map(function (p) {
+            return p.id;
+          }));
   var teamPlayers$1 = teamPlayers.filter(function (p) {
         return consumedPlayers.has(p.id) === false;
       });
   var matches;
   if (teamPlayers$1.length > 0) {
-    matches = Rating.getMatches(players, consumedPlayers, "Mixed", teamPlayers$1, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts, genderMixed);
-  } else {
-    var matches$1 = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts, genderMixed);
+    var matches$1 = Rating.getMatches(players, consumedPlayers, "Mixed", teamPlayers$1, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts, genderMixed);
     var matchesCount = matches$1.length;
     matches = matchesCount !== 0 ? matches$1 : Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), undefined, requiredPlayers, courts, genderMixed);
+  } else {
+    matches = Rating.getMatches(players, consumedPlayers, strategy, priorityPlayers, Core__Option.getOr(avoidAllPlayers, []), teamConstraints, requiredPlayers, courts, genderMixed);
   }
   var matchesCount$1 = matches.length;
   var matches$2 = matches.slice(0, 115);
@@ -415,7 +418,7 @@ function CompMatch(props) {
                         className: "rounded-md bg-red-50 p-4 mt-2 mb-2 border-l-4 border-red-400",
                         role: "alert"
                       }),
-                Core__Option.getOr(Core__Option.map(Rating.RankedMatches.recommendMatch(matches$2, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches), (function (match) {
+                Core__Option.getOr(Core__Option.map(Rating.RankedMatches.recommendMatch(matches$2, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teams), (function (match) {
                             var team2 = match[1];
                             var team1 = match[0];
                             var match$1 = lastRoundSeenTeams.has(Rating.Team.toStableId(team1));

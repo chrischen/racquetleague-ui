@@ -548,7 +548,13 @@ let make = (~event, ~children) => {
       ->Array.concat(sessionPlayers)
     }
   } :> array<player>)
-  let players = allPlayers->Array.filter(p => !(disabled->Set.has(p.id)))
+  let players = allPlayers->Array.filter(p => !(disabled->Set.has(p.id)))->Array.toSorted(
+    (a, b) => {
+      let userA = a.rating->Rating.ordinal
+      let userB = b.rating->Rating.ordinal
+      userA < userB ? 1. : -1.
+    },
+  )
   let playersCache = allPlayers->PlayersCache.fromPlayers
   let breakCount = courts == 0 ? 0 : players->Array.length - courts * 4
 

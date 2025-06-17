@@ -235,7 +235,6 @@ function MatchesView(props) {
         return new Set();
       });
   var setSelectedPlayers = match$3[1];
-  var selectedPlayers = match$3[0];
   var tmp;
   switch (view) {
     case "Checkin" :
@@ -360,17 +359,9 @@ function MatchesView(props) {
                   }
                 }),
               onToggleSelectedPlayer: (function (player) {
-                  setSelectedPlayers(function (selectedPlayers) {
-                        var newSet = new Set(Array.from(selectedPlayers.values()));
-                        if (selectedPlayers.has(player.id)) {
-                          newSet.delete(player.id);
-                        } else {
-                          newSet.add(player.id);
-                        }
-                        return newSet;
-                      });
+                  
                 }),
-              selectedPlayers: selectedPlayers
+              selectedPlayers: match$3[0]
             });
         break;
     
@@ -403,7 +394,7 @@ function MatchesView(props) {
                         return !s;
                       });
                 }),
-              selectedPlayersCount: selectedPlayers.size,
+              selectedPlayersCount: queue.size,
               onClearSelectedPlayers: (function () {
                   setSelectedPlayers(function (param) {
                         return new Set();
@@ -439,11 +430,9 @@ function MatchesView(props) {
                     return !s;
                   });
             }),
-          selectedPlayersCount: selectedPlayers.size,
+          selectedPlayersCount: queue.size,
           onClearSelectedPlayers: (function () {
-              setSelectedPlayers(function (param) {
-                    return new Set();
-                  });
+              setQueue([]);
             })
         });
   }
@@ -548,7 +537,7 @@ function MatchesView(props) {
                 JsxRuntime.jsx(ModalDrawer.make, {
                       title: t`Actions`,
                       children: props.selectedPlayersActions(players.filter(function (p) {
-                                return selectedPlayers.has(p.id);
+                                return queue.has(p.id);
                               })),
                       open_: match$2[0],
                       setOpen: (function (v) {

@@ -1061,7 +1061,13 @@ function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers, re
             });
 }
 
-function recommendMatch(matches, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches) {
+function recommendMatch(matches, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraints) {
+  Util.NonEmptyArray.toArray(teamConstraints).map(function (constr) {
+          return toStableId(constr);
+        }).map(function (teamId) {
+        seenTeams.delete(teamId);
+        lastRoundSeenTeams.delete(teamId);
+      });
   var filterLRSM = function (param) {
     return !lastRoundSeenMatches.has(toStableId$1(param[0]));
   };

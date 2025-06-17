@@ -294,14 +294,21 @@ let make = (
             breakPlayers
             consumedPlayers
             queue
+            // onToggleSelectedPlayer={player => {
+            //   setSelectedPlayers(selectedPlayers => {
+            //     let newSet = Set.fromArray(selectedPlayers->Set.values->Array.fromIterator)
+            //     selectedPlayers->Set.has(player.id)
+            //       ? newSet->Set.delete(player.id)->ignore
+            //       : newSet->Set.add(player.id)->ignore
+            //     newSet
+            //   })
+            // }}
             onToggleSelectedPlayer={player => {
-              setSelectedPlayers(selectedPlayers => {
-                let newSet = Set.fromArray(selectedPlayers->Set.values->Array.fromIterator)
-                selectedPlayers->Set.has(player.id)
-                  ? newSet->Set.delete(player.id)->ignore
-                  : newSet->Set.add(player.id)->ignore
-                newSet
-              })
+              ()
+              // switch consumedPlayers->Set.has(player.id) {
+              // | true => setView(_ => Matches)
+              // | false => togglePlayer(player)
+              // }
             }}
             selectedPlayers
             togglePlayer={player => {
@@ -432,7 +439,7 @@ let make = (
         onSelectedPlayersAction={_ => {
           setShowSelectedActions(s => !s)
         }}
-        selectedPlayersCount={selectedPlayers->Set.size}
+        selectedPlayersCount={queue->Set.size}
         onClearSelectedPlayers={_ => {
           // selectedPlayers= Set.make()
           setSelectedPlayers(_ => Set.make())
@@ -450,13 +457,13 @@ let make = (
         onChangeBreakCount
         mainActionText={ts`CHOOSE MATCH`}
         onMainAction={_ => setShowMatchSelector(s => !s)}
-        selectedPlayersCount={selectedPlayers->Set.size}
+        selectedPlayersCount={queue->Set.size}
         onSelectedPlayersAction={_ => {
           setShowSelectedActions(s => !s)
         }}
         onClearSelectedPlayers={_ => {
-          // selectedPlayers= Set.make()
-          setSelectedPlayers(_ => Set.make())
+          // setSelectedPlayers(_ => Set.make())
+          setQueue([])
         }}
       />
     }}
@@ -479,7 +486,8 @@ let make = (
       setOpen={v => {
         setShowSelectedActions(v)
       }}>
-      {selectedPlayersActions(players->Array.filter(p => selectedPlayers->Set.has(p.id)))}
+      // {selectedPlayersActions(players->Array.filter(p => selectedPlayers->Set.has(p.id)))}
+      {selectedPlayersActions(players->Array.filter(p => queue->Set.has(p.id)))}
     </ModalDrawer>
   </div>
 }

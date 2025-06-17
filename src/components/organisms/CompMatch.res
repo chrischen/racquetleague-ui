@@ -185,11 +185,15 @@ let make = (
     teams
     ->NonEmptyArray.toArray
     ->Array.reduce([], (acc, team) => acc->Array.concat(team))
-  let teamPlayers =
-    teamPlayers->Array.filter(p => consumedPlayers->Set.has(p.id) == false)
+  let selectedPlayers = players->Array.map(p => p.id)->Set.fromArray
+  let teamPlayers = teamPlayers->Array.filter(p =>
+    // Remove players that are already in a match and only include selected
+    // players
+    consumedPlayers->Set.has(p.id) == false
+  )
 
   let matches = if teamPlayers->Array.length > 0 {
-    getMatches(
+    let matches = getMatches(
       players,
       consumedPlayers,
       Mixed,
@@ -200,6 +204,23 @@ let make = (
       courts,
       genderMixed,
     )
+    let matchesCount = matches->Array.length
+    let matches = switch matchesCount {
+    | 0 =>
+      getMatches(
+        players,
+        consumedPlayers,
+        strategy,
+        priorityPlayers,
+        avoidAllPlayers->Option.getOr([]),
+        None,
+        requiredPlayers,
+        courts,
+        genderMixed,
+      )
+    | _ => matches
+    }
+    matches
   } else {
     let matches = getMatches(
       players,
@@ -216,27 +237,7 @@ let make = (
       courts,
       genderMixed,
     )
-    let matchesCount = matches->Array.length
 
-    let matches = switch matchesCount {
-    | 0 =>
-      getMatches(
-        players,
-        consumedPlayers,
-        strategy,
-        priorityPlayers,
-        // players
-        // ->Array.get(0)
-        // ->Option.map((p1: player) => [p1]->Array.concat(priorityPlayers))
-        // ->Option.getOr(priorityPlayers),
-        avoidAllPlayers->Option.getOr([]),
-        None,
-        requiredPlayers,
-        courts,
-        genderMixed,
-      )
-    | _ => matches
-    }
     matches
   }
   let matchesCount = matches->Array.length
@@ -353,7 +354,7 @@ let make = (
     | _ => React.null
     }}
     {matches
-    ->RankedMatches.recommendMatch(seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches)
+    ->RankedMatches.recommendMatch(seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teams)
     ->Option.map(match => {
       let (team1, team2) = match
       let highlight2 = switch (

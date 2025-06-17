@@ -1018,7 +1018,15 @@ module RankedMatches = {
     seenMatches: Set.t<string>,
     lastRoundSeenTeams: Set.t<string>,
     lastRoundSeenMatches: Set.t<string>,
+    teamConstraints: NonEmptyArray.t<Team.t<'a>>,
   ) => {
+    // Remove teamConstraints teams from seenTeams
+    teamConstraints->NonEmptyArray.toArray->Array.map(constr => constr->Team.toStableId)->Array.map(teamId => {
+      seenTeams->Set.delete(teamId)->ignore
+      lastRoundSeenTeams->Set.delete(teamId)->ignore
+    })->ignore
+    // Remove teamConstraints teams from lastRoundSeenTeams
+
     // Define filter functions
     let filterLRSM = ((match, _)) => !(lastRoundSeenMatches->Set.has(match->Match.toStableId))
     let filterLRST = ((match, _)) =>
