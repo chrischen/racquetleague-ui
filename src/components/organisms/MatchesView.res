@@ -14,6 +14,7 @@ module PlayerView = {
           highlight={status}
           user={user.fragmentRefs}
           ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+          player
         />
       })
       ->Option.getOr(React.null)
@@ -23,6 +24,7 @@ module PlayerView = {
         highlight={status}
         user={Rating.makeGuest(player.name)}
         ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+        player
       />
     }
   }
@@ -442,7 +444,8 @@ let make = (
         selectedPlayersCount={queue->Set.size}
         onClearSelectedPlayers={_ => {
           // selectedPlayers= Set.make()
-          setSelectedPlayers(_ => Set.make())
+          // setSelectedPlayers(_ => Set.make())
+          setQueue([])
         }}
       />
     | Checkin | Queue =>

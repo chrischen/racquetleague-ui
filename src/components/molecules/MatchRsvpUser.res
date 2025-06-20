@@ -39,6 +39,7 @@ let make = (
   ~link: option<string>=?,
   ~rating as _: option<float>=?,
   ~ratingPercent as _: option<float>=?,
+  ~player: Rating.player,
 ) => {
   open LangProvider.Router
   // open Lingui.Util;
@@ -89,7 +90,14 @@ let make = (
       />,
     )}
     <div className="min-w-0 flex-auto">
-      <p className="text-2xl font-semibold leading-6 text-gray-900">
+      <p
+        className={Util.cx([
+          "text-2xl font-semibold leading-6",
+          switch player.gender {
+          | Rating.Gender.Female => "text-pink-500"
+          | _ => "text-gray-900"
+          },
+        ])}>
         {switch link {
         | Some(link) =>
           <Link to={link}>

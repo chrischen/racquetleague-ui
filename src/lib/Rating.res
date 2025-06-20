@@ -10,6 +10,21 @@ module RatingModel = {
   @module("../lib/rating/models/plackettLuce.ts")
   external plackettLuce: t = "plackettLuce"
 }
+module Gender = {
+  type t = Male | Female
+  let toInt = (gender: t) => {
+    switch gender {
+    | Male => 1
+    | Female => 0
+    }
+  }
+  let fromInt = (int: int): t => {
+    switch int {
+    | 0 => Female
+    | _ => Male
+    }
+  }
+}
 type user = {
   name: string,
   picture: option<string>,
@@ -76,9 +91,6 @@ module Rating: {
     let sigma = t.sigma +. decay
     make(t.mu, sigma)
   }
-}
-module Gender = {
-  type t = Male | Female
 }
 module Player = {
   type t<'a> = {
@@ -887,7 +899,7 @@ module RankedMatches = {
           // Interpolate female players
           let femalePlayers = players->Array.filter(p => p.gender == Female)
 
-          if genderMixed && femalePlayers->Array.length > 2 {
+          if genderMixed && femalePlayers->Array.length >= 2 {
             let (combined, _) = p->Array.reduce(([], 0), ((acc, count), player) => {
               // If count is odd, add a female player
               if mod(count, 2) == 1 && femalePlayers->Array.length > 0 {
@@ -1021,10 +1033,14 @@ module RankedMatches = {
     teamConstraints: NonEmptyArray.t<Team.t<'a>>,
   ) => {
     // Remove teamConstraints teams from seenTeams
-    teamConstraints->NonEmptyArray.toArray->Array.map(constr => constr->Team.toStableId)->Array.map(teamId => {
+    teamConstraints
+    ->NonEmptyArray.toArray
+    ->Array.map(constr => constr->Team.toStableId)
+    ->Array.map(teamId => {
       seenTeams->Set.delete(teamId)->ignore
       lastRoundSeenTeams->Set.delete(teamId)->ignore
-    })->ignore
+    })
+    ->ignore
     // Remove teamConstraints teams from lastRoundSeenTeams
 
     // Define filter functions

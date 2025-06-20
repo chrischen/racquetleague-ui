@@ -1553,6 +1553,14 @@ msgstr "リンクをクリックして、簡単にコピーできるように選
 msgid "Shareable Link"
 msgstr "共有可能なリンク"
 
+#: src/components/organisms/AiTetsu.re.mjs:1174
+msgid "Set as Female"
+msgstr "女性に設定"
+
+#: src/components/organisms/AiTetsu.re.mjs:1156
+msgid "Set as Male"
+msgstr "男性に設定"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

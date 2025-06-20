@@ -548,13 +548,14 @@ let make = (~event, ~children) => {
       ->Array.concat(sessionPlayers)
     }
   } :> array<player>)
-  let players = allPlayers->Array.filter(p => !(disabled->Set.has(p.id)))->Array.toSorted(
-    (a, b) => {
+  let players =
+    allPlayers
+    ->Array.filter(p => !(disabled->Set.has(p.id)))
+    ->Array.toSorted((a, b) => {
       let userA = a.rating->Rating.ordinal
       let userB = b.rating->Rating.ordinal
       userA < userB ? 1. : -1.
-    },
-  )
+    })
   let playersCache = allPlayers->PlayersCache.fromPlayers
   let breakCount = courts == 0 ? 0 : players->Array.length - courts * 4
 
@@ -780,6 +781,16 @@ let make = (~event, ~children) => {
         | Some(player) => player
         | None => p
         }
+      })
+      newState->Players.savePlayers(eventId)
+      newState
+    })
+  }
+
+  let updateSessionPlayersGender = (gender: Gender.t) => {
+    setSessionPlayers(players => {
+      let newState = players->Array.map(p => {
+        {...p, gender}
       })
       newState->Players.savePlayers(eventId)
       newState
@@ -1140,7 +1151,9 @@ let make = (~event, ~children) => {
                   onPlayerAdd={player => {
                     setSessionPlayers(guests => {
                       let newState =
-                        guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer(_, Male))
+                        guests->addGuestPlayer(
+                          player.name->(Player.makeDefaultRatingPlayer(_, Male)),
+                        )
                       newState->Players.savePlayers(eventId)
                       newState
                     })
@@ -1267,7 +1280,8 @@ let make = (~event, ~children) => {
             eventId
             onPlayerAdd={player => {
               setSessionPlayers(guests => {
-                let newState = guests->addGuestPlayer(player.name->Player.makeDefaultRatingPlayer(_, Male))
+                let newState =
+                  guests->addGuestPlayer(player.name->(Player.makeDefaultRatingPlayer(_, Male)))
                 newState->Players.savePlayers(eventId)
                 newState
               })
@@ -1367,6 +1381,26 @@ let make = (~event, ~children) => {
           <p className="mt-1 text-xs text-gray-500 text-center">
             {t`Players in an anti-team will never be placed in a match together.`}
           </p>
+          <UiAction
+            onClick={_ => {
+              let updatedPlayers = selectedPlayers->Array.map(p => {
+                {...p, gender: Male}
+              })
+              updateSessionPlayerRatings(updatedPlayers)
+            }}
+            className="mt-2 rounded-md w-full text-center bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+            {t`Set as Male`}
+          </UiAction>
+          <UiAction
+            onClick={_ => {
+              let updatedPlayers = selectedPlayers->Array.map(p => {
+                {...p, gender: Female}
+              })
+              updateSessionPlayerRatings(updatedPlayers)
+            }}
+            className="mt-2 rounded-md w-full text-center bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+            {t`Set as Female`}
+          </UiAction>
         </div>
       </>}
     />

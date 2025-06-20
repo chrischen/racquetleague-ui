@@ -1618,3 +1618,11 @@ msgstr ""
 #: src/components/pages/ClubPage.re.mjs:50
 msgid "Shareable Link"
 msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1174
+msgid "Set as Female"
+msgstr ""
+
+#: src/components/organisms/AiTetsu.re.mjs:1156
+msgid "Set as Male"
+msgstr ""

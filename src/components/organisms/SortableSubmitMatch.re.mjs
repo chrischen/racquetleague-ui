@@ -127,14 +127,16 @@ function SortableSubmitMatch$PlayerView(props) {
                       return JsxRuntime.jsx(EventMatchRsvpUser.make, {
                                   user: user.fragmentRefs,
                                   compact: true,
-                                  ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                  ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100,
+                                  player: player
                                 }, user.id);
                     })), null);
   } else {
     return JsxRuntime.jsx(MatchRsvpUser.make, {
                 user: Rating.makeGuest(player.name),
                 compact: true,
-                ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100,
+                player: player
               }, player.id);
   }
 }

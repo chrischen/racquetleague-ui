@@ -23,6 +23,27 @@ var RatingModel = {
   plackettLuce: plackettLuce
 };
 
+function toInt(gender) {
+  if (gender === "Male") {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function fromInt($$int) {
+  if ($$int !== 0) {
+    return "Male";
+  } else {
+    return "Female";
+  }
+}
+
+var Gender = {
+  toInt: toInt,
+  fromInt: fromInt
+};
+
 function makeGuest(name) {
   return {
           name: name,
@@ -78,8 +99,6 @@ var Rating = {
   rate: Rating_rate,
   decay_by_factor: decay_by_factor
 };
-
-var Gender = {};
 
 function makeDefaultRatingPlayer(name, gender) {
   var rating = Openskill.rating(undefined);
@@ -977,7 +996,7 @@ function strategy_by_competitive_plus(players, _consumedPlayers, _priorityPlayer
                           var femalePlayers = players.filter(function (p) {
                                 return p.gender === "Female";
                               });
-                          if (!(genderMixed && femalePlayers.length > 2)) {
+                          if (!(genderMixed && femalePlayers.length >= 2)) {
                             return p;
                           }
                           var match = Core__Array.reduce(p, [
@@ -1375,9 +1394,9 @@ function guessDupr(ratingMu) {
 
 export {
   RatingModel ,
+  Gender ,
   makeGuest ,
   Rating ,
-  Gender ,
   Player ,
   Team ,
   TeamSet ,

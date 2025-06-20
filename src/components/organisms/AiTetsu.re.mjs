@@ -1136,6 +1136,42 @@ function AiTetsu(props) {
                                             JsxRuntime.jsx("p", {
                                                   children: t`Players in an anti-team will never be placed in a match together.`,
                                                   className: "mt-1 text-xs text-gray-500 text-center"
+                                                }),
+                                            JsxRuntime.jsx(UiAction.make, {
+                                                  onClick: (function (param) {
+                                                      var updatedPlayers = selectedPlayers.map(function (p) {
+                                                            return {
+                                                                    data: p.data,
+                                                                    id: p.id,
+                                                                    name: p.name,
+                                                                    rating: p.rating,
+                                                                    ratingOrdinal: p.ratingOrdinal,
+                                                                    paid: p.paid,
+                                                                    gender: "Male"
+                                                                  };
+                                                          });
+                                                      updateSessionPlayerRatings(updatedPlayers);
+                                                    }),
+                                                  className: "mt-2 rounded-md w-full text-center bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600",
+                                                  children: t`Set as Male`
+                                                }),
+                                            JsxRuntime.jsx(UiAction.make, {
+                                                  onClick: (function (param) {
+                                                      var updatedPlayers = selectedPlayers.map(function (p) {
+                                                            return {
+                                                                    data: p.data,
+                                                                    id: p.id,
+                                                                    name: p.name,
+                                                                    rating: p.rating,
+                                                                    ratingOrdinal: p.ratingOrdinal,
+                                                                    paid: p.paid,
+                                                                    gender: "Female"
+                                                                  };
+                                                          });
+                                                      updateSessionPlayerRatings(updatedPlayers);
+                                                    }),
+                                                  className: "mt-2 rounded-md w-full text-center bg-pink-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600",
+                                                  children: t`Set as Female`
                                                 })
                                           ],
                                           className: "mt-6 flex flex-col justify-end gap-x-6"

@@ -36,14 +36,16 @@ function MatchesView$PlayerView(props) {
                       return JsxRuntime.jsx(EventMatchRsvpUser.make, {
                                   user: user.fragmentRefs,
                                   highlight: status,
-                                  ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                                  ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100,
+                                  player: player
                                 }, user.id);
                     })), null);
   } else {
     return JsxRuntime.jsx(MatchRsvpUser.make, {
                 user: Rating.makeGuest(player.name),
                 highlight: status,
-                ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100
+                ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100,
+                player: player
               }, player.id);
   }
 }
@@ -234,7 +236,6 @@ function MatchesView(props) {
   var match$3 = React.useState(function () {
         return new Set();
       });
-  var setSelectedPlayers = match$3[1];
   var tmp;
   switch (view) {
     case "Checkin" :
@@ -396,9 +397,7 @@ function MatchesView(props) {
                 }),
               selectedPlayersCount: queue.size,
               onClearSelectedPlayers: (function () {
-                  setSelectedPlayers(function (param) {
-                        return new Set();
-                      });
+                  setQueue([]);
                 })
             });
         break;

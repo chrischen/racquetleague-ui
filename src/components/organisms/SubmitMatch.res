@@ -188,6 +188,7 @@ module PlayerView = {
           key={user.id}
           user={user.fragmentRefs}
           ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+          player
         />
       })
       ->Option.getOr(React.null)
@@ -197,6 +198,7 @@ module PlayerView = {
         key={player.id}
         user={makeGuest(player.name)}
         ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
+        player
       />
     }
 }

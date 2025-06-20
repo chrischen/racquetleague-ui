@@ -49,19 +49,22 @@ function MatchRsvpUser(props) {
           ]
         });
   }
+  var match = props.player.gender;
   var tmp$2;
+  tmp$2 = match === "Male" ? "text-gray-900" : "text-pink-500";
+  var tmp$3;
   switch (highlight) {
     case "Break" :
-        tmp$2 = "bg-yellow-300";
+        tmp$3 = "bg-yellow-300";
         break;
     case "Available" :
-        tmp$2 = "bg-white";
+        tmp$3 = "bg-white";
         break;
     case "Queued" :
-        tmp$2 = "bg-green-300";
+        tmp$3 = "bg-green-300";
         break;
     case "Playing" :
-        tmp$2 = "bg-white opacity-20";
+        tmp$3 = "bg-white opacity-20";
         break;
     
   }
@@ -80,7 +83,7 @@ function MatchRsvpUser(props) {
                       children: [
                         JsxRuntime.jsx("p", {
                               children: tmp,
-                              className: "text-2xl font-semibold leading-6 text-gray-900"
+                              className: Core.cx("text-2xl font-semibold leading-6", tmp$2)
                             }),
                         JsxRuntime.jsx("p", {
                               children: JsxRuntime.jsx("span", {
@@ -92,7 +95,7 @@ function MatchRsvpUser(props) {
                       className: "min-w-0 flex-auto"
                     })
               ],
-              className: Core.cx("relative flex min-w-0 gap-x-4", "w-full", "rounded-lg shadow", compact ? "p-2" : "p-4", tmp$2)
+              className: Core.cx("relative flex min-w-0 gap-x-4", "w-full", "rounded-lg shadow", compact ? "p-2" : "p-4", tmp$3)
             });
 }
 
