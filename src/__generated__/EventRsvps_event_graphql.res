@@ -15,7 +15,9 @@ module Types = {
     @live id: string,
   }
   and fragment_rsvps_edges_node = {
+    @live id: string,
     listType: option<int>,
+    message: option<string>,
     rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvps_rsvp | #RsvpOptions_rsvp]>,
@@ -230,6 +232,7 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
+                (v1/*: any*/),
                 {
                   "args": null,
                   "kind": "FragmentSpread",
@@ -282,6 +285,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "listType",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "message",
                   "storageKey": null
                 },
                 {

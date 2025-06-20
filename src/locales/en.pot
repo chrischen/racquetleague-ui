@@ -1634,3 +1634,9 @@ msgstr ""
 #: src/components/organisms/SortableSubmitMatch.re.mjs:439
 msgid "Save"
 msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:123
+#: src/components/organisms/EventRsvps.re.mjs:124
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr ""

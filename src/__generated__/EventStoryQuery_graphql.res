@@ -282,6 +282,7 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
+                      (v7/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -345,10 +346,16 @@ return {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
+                        "name": "message",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
                         "name": "listType",
                         "storageKey": null
                       },
-                      (v7/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -421,12 +428,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "38cd0fd10dffd03dfa442ff1971b4e6c",
+    "cacheID": "db81883963ceead95e87265a2f6aa835",
     "id": null,
     "metadata": {},
     "name": "EventStoryQuery",
     "operationKind": "query",
-    "text": "query EventStoryQuery(\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: \"1\") {\n    title\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  minRating\n  viewerIsAdmin\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        ...EventRsvps_rsvp\n        ...RsvpOptions_rsvp\n        user {\n          id\n        }\n        rating {\n          ordinal\n          mu\n          id\n        }\n        listType\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvps_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  user {\n    id\n  }\n}\n"
+    "text": "query EventStoryQuery(\n  $after: String\n  $first: Int\n  $before: String\n) {\n  event(id: \"1\") {\n    title\n    ...EventRsvps_event_4uAqg1\n    id\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvps_event_4uAqg1 on Event {\n  maxRsvps\n  minRating\n  viewerIsAdmin\n  activity {\n    slug\n    id\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvps_rsvp\n        ...RsvpOptions_rsvp\n        user {\n          id\n        }\n        rating {\n          ordinal\n          mu\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvps_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  user {\n    id\n  }\n}\n"
   }
 };
 })() `)

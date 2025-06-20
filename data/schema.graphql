@@ -342,6 +342,7 @@ type Mutation {
   uncancelEvent(eventId: ID!): MutationResult2!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
+  updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): Rsvp
 }
 
 type MutationResult implements HasErrors {
@@ -442,6 +443,7 @@ type Rsvp implements Node {
   joinTime: Int
   leaveDate: Datetime
   listType: Int
+  message: String
   rating: Rating
   rsvpId: Int
   user: User
@@ -466,6 +468,11 @@ input UpdateProfileInput {
 type UpdateProfileResult implements HasErrors {
   errors: [Error!]
   viewer: User
+}
+
+input UpdateViewerRsvpMessageInput {
+  message: String!
+  rsvpId: String!
 }
 
 type User implements Node {

@@ -169,6 +169,7 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
+                (v1/*: any*/),
                 {
                   "args": null,
                   "kind": "FragmentSpread",
@@ -221,6 +222,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "listType",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "message",
                   "storageKey": null
                 },
                 {

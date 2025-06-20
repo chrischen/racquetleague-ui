@@ -79,6 +79,13 @@ var node = {
         }
       ],
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "message",
+      "storageKey": null
     }
   ],
   "type": "Rsvp",

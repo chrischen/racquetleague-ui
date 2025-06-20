@@ -12,6 +12,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as RsvpOptions from "./RsvpOptions.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as ConfirmButton from "../molecules/ConfirmButton.re.mjs";
 import * as FramerMotion from "framer-motion";
@@ -29,6 +30,7 @@ import * as EventRsvpsJoinMutation_graphql from "../../__generated__/EventRsvpsJ
 import * as EventRsvpsRefetchQuery_graphql from "../../__generated__/EventRsvpsRefetchQuery_graphql.re.mjs";
 import * as EventRsvpsLeaveMutation_graphql from "../../__generated__/EventRsvpsLeaveMutation_graphql.re.mjs";
 import * as EventRsvpsCreateRatingMutation_graphql from "../../__generated__/EventRsvpsCreateRatingMutation_graphql.re.mjs";
+import * as EventRsvpsUpdateMessageMutation_graphql from "../../__generated__/EventRsvpsUpdateMessageMutation_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -81,6 +83,88 @@ var convertWrapRawResponse$2 = EventRsvpsLeaveMutation_graphql.Internal.convertW
 RescriptRelay_Mutation.commitMutation(convertVariables$2, EventRsvpsLeaveMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
 
 var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, EventRsvpsLeaveMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var convertVariables$3 = EventRsvpsUpdateMessageMutation_graphql.Internal.convertVariables;
+
+var convertResponse$3 = EventRsvpsUpdateMessageMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$3 = EventRsvpsUpdateMessageMutation_graphql.Internal.convertWrapRawResponse;
+
+RescriptRelay_Mutation.commitMutation(convertVariables$3, EventRsvpsUpdateMessageMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+
+var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$3, EventRsvpsUpdateMessageMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+
+function EventRsvps$ViewerStatusMessage(props) {
+  var message = props.message;
+  var rsvpId = props.rsvpId;
+  var match = React.useState(function () {
+        return false;
+      });
+  var setIsEditing = match[1];
+  var match$1 = React.useState(function () {
+        return Core__Option.getOr(message, "");
+      });
+  var setEditedMessage = match$1[1];
+  var editedMessage = match$1[0];
+  var match$2 = use$4();
+  var commitMutationUpdateMessage = match$2[0];
+  var handleSave = function () {
+    commitMutationUpdateMessage({
+          input: {
+            message: editedMessage,
+            rsvpId: rsvpId
+          }
+        }, undefined, undefined, undefined, undefined, undefined, undefined);
+    setIsEditing(function (param) {
+          return false;
+        });
+  };
+  var content = message !== undefined ? (
+      message === "" ? t`Type a status message for people to see... such as 'I will arrive at 19:00.'` : message
+    ) : t`Type a status message for people to see... such as 'I will arrive at 19:00.'`;
+  if (match[0]) {
+    return JsxRuntime.jsxs("div", {
+                children: [
+                  JsxRuntime.jsx("div", {
+                        children: JsxRuntime.jsx("input", {
+                              className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                              value: editedMessage,
+                              onChange: (function (e) {
+                                  setEditedMessage(e.target.value);
+                                })
+                            }),
+                        className: "flex-grow"
+                      }),
+                  JsxRuntime.jsx("button", {
+                        children: t`Save`,
+                        className: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                        onClick: (function (param) {
+                            handleSave();
+                          })
+                      })
+                ],
+                className: "flex items-center gap-x-2 mt-2"
+              });
+  } else {
+    return JsxRuntime.jsx("div", {
+                children: JsxRuntime.jsxs("p", {
+                      children: [
+                        content,
+                        JsxRuntime.jsx(LucideReact.Pencil, {
+                              className: "inline h-4 w-4 ml-2 text-gray-400 invisible group-hover:visible"
+                            })
+                      ],
+                      className: "flex-auto"
+                    }),
+                className: "flex items-center text-sm text-gray-500 mt-4 group cursor-pointer",
+                onClick: (function (param) {
+                    setIsEditing(function (param) {
+                          return true;
+                        });
+                  })
+              });
+  }
+}
 
 function EventRsvps(props) {
   var $$event = props.event;
@@ -225,6 +309,24 @@ function EventRsvps(props) {
                             return r.mu;
                           }));
             })), Rating.Rating.ordinal(Rating.Rating.makeDefault()));
+  var viewerStatusMessage = Core__Option.flatMap(viewer, (function (viewer) {
+          return Core__Option.flatMap(rsvps.find(function (edge) {
+                          return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
+                                            return viewer.id === user.id;
+                                          })), false);
+                        }), (function (edge) {
+                        return edge.message;
+                      }));
+        }));
+  var viewerRsvpId = Core__Option.flatMap(viewer, (function (viewer) {
+          return Core__Option.map(rsvps.find(function (edge) {
+                          return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
+                                            return viewer.id === user.id;
+                                          })), false);
+                        }), (function (edge) {
+                        return edge.id;
+                      }));
+        }));
   var joinButton;
   if (viewer !== undefined) {
     var exit = 0;
@@ -397,7 +499,13 @@ function EventRsvps(props) {
                                     } else {
                                       return joinButton;
                                     }
-                                  })), viewerHasRsvp ? leaveButton : joinButton)
+                                  })), viewerHasRsvp ? leaveButton : joinButton),
+                        Core__Option.getOr(Core__Option.map(viewerRsvpId, (function (rsvpId) {
+                                    return JsxRuntime.jsx(EventRsvps$ViewerStatusMessage, {
+                                                rsvpId: rsvpId,
+                                                message: viewerStatusMessage
+                                              });
+                                  })), null)
                       ],
                       className: "flex-auto p-6 pt-4"
                     }),

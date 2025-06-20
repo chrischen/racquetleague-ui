@@ -21,6 +21,7 @@ module Fragment = %relay(`
       @connection(key: "EventRsvps_event_rsvps") {
       edges {
         node {
+          id
           ...EventRsvps_rsvp
           ...RsvpOptions_rsvp
           user {
@@ -31,6 +32,7 @@ module Fragment = %relay(`
             mu
           }
           listType
+          message
         }
       }
       pageInfo {
@@ -92,10 +94,75 @@ module EventRsvpsLeaveMutation = %relay(`
  }
 `)
 
+module EventRsvpsUpdateMessageMutation = %relay(`
+  mutation EventRsvpsUpdateMessageMutation($input: UpdateViewerRsvpMessageInput!) {
+    updateViewerRsvpMessage(input: $input) {
+      id
+      message
+    }
+  }
+`)
+
 @module("../layouts/appContext")
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
 
 let isRestrictedRsvp = listType => listType != Some(0) && listType != None
+
+// This component displays the current user's status message and allows the user to edit it if clicked.
+
+module ViewerStatusMessage = {
+  @react.component
+  let make = (~rsvpId, ~message: option<string>) => {
+    let ts = Lingui.UtilString.t
+    let (isEditing, setIsEditing) = React.useState(() => false)
+    let (editedMessage, setEditedMessage) = React.useState(() => message->Option.getOr(""))
+    let (
+      commitMutationUpdateMessage,
+      _updateMessageInFlight,
+    ) = EventRsvpsUpdateMessageMutation.use()
+
+    let handleSave = () => {
+      commitMutationUpdateMessage(
+        ~variables={input: {rsvpId, message: editedMessage}},
+      )->RescriptRelay.Disposable.ignore
+      setIsEditing(_ => false)
+    }
+
+    let content = switch message {
+    | Some("") | None =>
+      ts`Type a status message for people to see... such as 'I will arrive at 19:00.'`
+    | Some(msg) => msg
+    }
+
+    if isEditing {
+      <div className="flex items-center gap-x-2 mt-2">
+        <div className="flex-grow">
+          <input
+            value=editedMessage
+            onChange={e => setEditedMessage(ReactEvent.Form.target(e)["value"])}
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+        <button
+          onClick={_ => handleSave()}
+          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          {t`Save`}
+        </button>
+      </div>
+    } else {
+      <div
+        className="flex items-center text-sm text-gray-500 mt-4 group cursor-pointer"
+        onClick={_ => setIsEditing(_ => true)}>
+        <p className="flex-auto">
+          {content->React.string}
+          <Lucide.Pencil
+            className="inline h-4 w-4 ml-2 text-gray-400 invisible group-hover:visible"
+          />
+        </p>
+      </div>
+    }
+  }
+}
 //@genType
 //let default = make
 @react.component
@@ -227,6 +294,16 @@ let make = (~event, ~user) => {
     viewer
     ->Option.flatMap(viewer => viewer.eventRating->Option.flatMap(r => r.mu))
     ->Option.getOr(Rating.Rating.makeDefault()->Rating.Rating.ordinal)
+  let viewerStatusMessage = viewer->Option.flatMap(viewer =>
+    rsvps
+    ->Array.find(edge => edge.user->Option.map(user => viewer.id == user.id)->Option.getOr(false))
+    ->Option.flatMap(edge => edge.message)
+  )
+  let viewerRsvpId = viewer->Option.flatMap(viewer =>
+    rsvps
+    ->Array.find(edge => edge.user->Option.map(user => viewer.id == user.id)->Option.getOr(false))
+    ->Option.map(edge => edge.id)
+  )
   let joinButton = switch viewer {
   | Some(_) =>
     switch viewerCanJoin {
@@ -334,6 +411,9 @@ let make = (~event, ~user) => {
         }
       })
       ->Option.getOr({viewerHasRsvp ? leaveButton : joinButton})}
+      {viewerRsvpId
+      ->Option.map(rsvpId => <ViewerStatusMessage message={viewerStatusMessage} rsvpId={rsvpId} />)
+      ->Option.getOr(React.null)}
     </div>
     <dl className="flex flex-wrap">
       <div className="flex-auto pl-6">
@@ -392,19 +472,17 @@ let make = (~event, ~user) => {
 
                   {
                     data.viewerIsAdmin
-                    ?
-                      <div
-                        key={i->Int.toString}
-                        className="flex items-center justify-between w-full gap-2">
-                        <div className="flex-auto">
-                          <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
+                      ? <div
+                          key={i->Int.toString}
+                          className="flex items-center justify-between w-full gap-2">
+                          <div className="flex-auto">
+                            <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
+                          </div>
+                          <div className="flex-none"> {adminOptions} </div>
                         </div>
-                        <div className="flex-none"> {adminOptions} </div>
-                      </div>
-                    :
-                      <EventRsvp
-                        key={i->Int.toString} rsvp=edge.fragmentRefs viewer activitySlug maxRating
-                      />
+                      : <EventRsvp
+                          key={i->Int.toString} rsvp=edge.fragmentRefs viewer activitySlug maxRating
+                        />
                   }
                 })
                 ->React.array

@@ -253,3 +253,15 @@ and input_UpdateProfileInput_nullable = {
   fullName: string,
   username: string,
 }
+
+@live
+and input_UpdateViewerRsvpMessageInput = {
+  message: string,
+  rsvpId: string,
+}
+
+@live
+and input_UpdateViewerRsvpMessageInput_nullable = {
+  message: string,
+  rsvpId: string,
+}

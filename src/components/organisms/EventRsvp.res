@@ -12,6 +12,7 @@ module Fragment = %relay(`
       mu
       sigma
     }
+    message
   }
 `)
 
@@ -30,6 +31,26 @@ module ListItem = {
       </div>
       <div className="w-full text-sm font-medium leading-6 text-gray-900"> {children} </div>
     </FramerMotion.Li>
+  }
+}
+
+module StatusMessage = {
+  @react.component
+  let make = (~message) => {
+    let (expanded, setExpanded) = React.useState(() => false)
+    let isLong = message->String.length > 25
+
+    let content = if isLong && !expanded {
+      message->String.slice(~start=0, ~end=25) ++ "..."
+    } else {
+      message
+    }
+
+    <div
+      className={"text-sm text-gray-500 ml-2 mt-4" ++ (isLong ? " cursor-pointer" : "")}
+      onClick={_ => isLong ? setExpanded(prev => !prev) : ()}>
+      {content->React.string}
+    </div>
   }
 }
 @react.component
@@ -75,6 +96,9 @@ let make = (
         ->Option.map(viewer => viewer.id == user.id)
         ->Option.getOr(false)}
       />
+      {rsvp.message
+      ->Option.map(message => <StatusMessage message={message} />)
+      ->Option.getOr(React.null)}
     </ListItem>
   })
   ->Option.getOr(React.null)

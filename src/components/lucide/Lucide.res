@@ -117,3 +117,8 @@ module Share = {
     ~color: string=?,
   ) => React.element = "Share2"
 }
+
+module Pencil = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Pencil"
+}
