@@ -119,12 +119,15 @@ var Queue = {
 };
 
 function MatchesView$ActionBar(props) {
+  var __disabled = props.disabled;
   var onClearSelectedPlayers = props.onClearSelectedPlayers;
   var selectedPlayersCount = props.selectedPlayersCount;
+  var onMainAction = props.onMainAction;
   var onChangeBreakCount = props.onChangeBreakCount;
   var breakCount = props.breakCount;
   var selectedAll = props.selectedAll;
   var selectAll = props.selectAll;
+  var disabled = __disabled !== undefined ? __disabled : false;
   var selectedPlayersText = plural(selectedPlayersCount, {
         one: t`${selectedPlayersCount.toString()} player selected`,
         other: t`${selectedPlayersCount.toString()} players selected`
@@ -185,7 +188,13 @@ function MatchesView$ActionBar(props) {
                               ]
                             }),
                         JsxRuntime.jsx(UiAction.make, {
-                              onClick: props.onMainAction,
+                              onClick: (function (e) {
+                                  if (disabled) {
+                                    return ;
+                                  } else {
+                                    return onMainAction(e);
+                                  }
+                                }),
                               className: "inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
                               children: props.mainActionText
                             })
@@ -220,15 +229,16 @@ function MatchesView(props) {
   var playersCache = props.playersCache;
   var availablePlayers = props.availablePlayers;
   var players = props.players;
+  var setView = props.setView;
+  var view = props.view;
   var match = React.useState(function () {
-        return "Matches";
+        return false;
       });
-  var setView = match[1];
-  var view = match[0];
+  var setShowMatchSelector = match[1];
   var match$1 = React.useState(function () {
         return false;
       });
-  var setShowMatchSelector = match$1[1];
+  var setSubmitDisabled = match$1[1];
   var match$2 = React.useState(function () {
         return false;
       });
@@ -383,10 +393,19 @@ function MatchesView(props) {
               mainActionText: t`SUBMIT RESULTS`,
               onChangeBreakCount: onChangeBreakCount,
               onMainAction: (function (param) {
+                  setSubmitDisabled(function (param) {
+                        return true;
+                      });
                   Core__Promise.$$catch(handleMatchesComplete().then(function (param) {
+                            setSubmitDisabled(function (param) {
+                                  return false;
+                                });
                             return Promise.resolve();
                           }), (function (err) {
                           console.log("Error submitting matches:", err);
+                          setSubmitDisabled(function (param) {
+                                return false;
+                              });
                           return Promise.resolve();
                         }));
                 }),
@@ -398,7 +417,8 @@ function MatchesView(props) {
               selectedPlayersCount: queue.size,
               onClearSelectedPlayers: (function () {
                   setQueue([]);
-                })
+                }),
+              disabled: match$1[0]
             });
         break;
     case "Checkin" :
@@ -522,11 +542,8 @@ function MatchesView(props) {
                 JsxRuntime.jsx(ModalDrawer.make, {
                       title: t`Choose Match`,
                       children: props.matchSelector,
-                      open_: match$1[0],
+                      open_: match[0],
                       setOpen: (function (v) {
-                          setView(function (param) {
-                                return "Matches";
-                              });
                           setRequiredPlayers(function (param) {
                                 
                               });

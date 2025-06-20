@@ -56,15 +56,6 @@ module DataPoint = {
   let getAvg = (point: t) =>
     point->Array.reduce(0., (acc, value) => acc +. value) /. float(point->Array.length)
 }
-module SortedClusters = {
-  type t = Util.NonEmptyArray.t<clusterResult>
-  let make = (t): t =>
-    t->Array.toSorted((a, b) => {
-      let clusterA = a.centroid
-      let clusterB = b.centroid
-      clusterA < clusterB ? 1. : -1.
-    })-> Util.NonEmptyArray.fromArray
-}
 module ClusterResult = {
   type t = clusterResult
   let getMinMax = (cluster: t) => {
@@ -77,6 +68,24 @@ module ClusterResult = {
         acc > pt->DataPoint.getAvg ? acc : pt->DataPoint.getAvg
       )
     (min, max)
+  }
+}
+module SortedClusters = {
+  type t = Util.NonEmptyArray.t<clusterResult>
+  let make = (t): t =>
+    t
+    ->Array.toSorted((a, b) => {
+      let clusterA = a.centroid
+      let clusterB = b.centroid
+      clusterA < clusterB ? 1. : -1.
+    })
+    ->Util.NonEmptyArray.fromArray
+  let getMin = (clusters: t) => {
+    clusters
+    ->Util.NonEmptyArray.toArray
+    ->Array.get(0)
+    ->Option.map(c => c->ClusterResult.getMinMax->fst)
+    ->Option.getOr(0.)
   }
 }
 /*

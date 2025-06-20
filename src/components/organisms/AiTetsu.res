@@ -499,6 +499,8 @@ let make = (~event, ~children) => {
   let (sessionState, setSessionState) = React.useState(() => Session.make())
   let (sessionPlayers: array<Player.t<'a>>, setSessionPlayers) = React.useState(() => [])
 
+  let (matchesView, setMatchesView) = React.useState(() => MatchesView.Checkin)
+
   // Aka Tournament Mode. Use only session ratings.
   let (sessionMode, setSessionMode) = React.useState(() => false)
 
@@ -1247,6 +1249,8 @@ let make = (~event, ~children) => {
     </Layout.Container>
   | Matches =>
     <MatchesView
+      view={matchesView}
+      setView={setMatchesView}
       players
       availablePlayers
       playersCache
@@ -1343,6 +1347,7 @@ let make = (~event, ~children) => {
         ?requiredPlayers
         onSelectMatch={(match, ~dequeue: option<bool>=?) => {
           // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
+          setMatchesView(_ => MatchesView.Matches)
           queueMatch(match, ~dequeue?)
         }}
         courts={(courts - matches->Array.length)->NonZeroInt.make}

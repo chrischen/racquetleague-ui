@@ -131,6 +131,7 @@ module ActionBar = {
     ~onSelectedPlayersAction,
     ~selectedPlayersCount: int,
     ~onClearSelectedPlayers: unit => unit,
+    ~disabled: bool=false,
   ) => {
     let ts = Lingui.UtilString.t
     let selectedPlayersText = Lingui.Util.plural(
@@ -182,7 +183,7 @@ module ActionBar = {
           {selectedAll ? t`Unqueue All` : t`Queue All`}
         </UiAction>
         <UiAction
-          onClick={onMainAction}
+          onClick={e => disabled ? () : onMainAction(e)}
           className="inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           {mainActionText->React.string}
         </UiAction>
@@ -193,6 +194,8 @@ module ActionBar = {
 type view = Checkin | Matches | Queue
 @react.component
 let make = (
+  ~view: view,
+  ~setView: (view => view) => unit,
   ~players: array<Rating.player>,
   ~availablePlayers: array<Rating.player>,
   ~playersCache: Rating.PlayersCache.t,
@@ -219,8 +222,9 @@ let make = (
   ~selectedPlayersActions: array<Rating.player> => React.element,
 ) => {
   let ts = Lingui.UtilString.t
-  let (view, setView) = React.useState(() => Matches)
+  // let (view, setView) = React.useState(() => Matches)
   let (showMatchSelector, setShowMatchSelector) = React.useState(() => false)
+  let (submitDisabled, setSubmitDisabled) = React.useState(() => false)
   let (showSelectedActions, setShowSelectedActions) = React.useState(() => false)
   let (selectedPlayers, setSelectedPlayers) = React.useState(() => Set.make())
   // let selectedPlayers = React.useRef(Set.make())
@@ -415,6 +419,7 @@ let make = (
     | Matches =>
       // Render MatchesActionBar when view is Matches
       <ActionBar
+        disabled={submitDisabled}
         selectedAll={queue->Set.size == availablePlayers->Array.length}
         selectAll={_ => {
           setView(_ => Queue)
@@ -425,15 +430,18 @@ let make = (
         mainActionText={ts`SUBMIT RESULTS`}
         onMainAction={_ => {
           // Call handleMatchesComplete and potentially switch view
+          setSubmitDisabled(_ => true)
           handleMatchesComplete()
           ->Promise.then(_ => {
             // Optional: Switch view after successful completion?
             // setView(_ => Queue) // Example: Go back to Queue
+            setSubmitDisabled(_ => false)
             Promise.resolve()
           })
           ->Promise.catch(err => {
             Js.log2("Error submitting matches:", err)
             // Handle error display if needed
+            setSubmitDisabled(_ => false)
             Promise.resolve()
           })
           ->ignore
@@ -475,7 +483,6 @@ let make = (
       open_=showMatchSelector
       setOpen={v => {
         // Switch to Matches view after closing match selector
-        setView(_ => Matches)
         setRequiredPlayers(_ => {
           None
         })

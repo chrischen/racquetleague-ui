@@ -698,6 +698,17 @@ var Players = {
 };
 
 function make$1(t) {
+  if (t.length >= 4) {
+    return t;
+  }
+  
+}
+
+var DoublesSet = {
+  make: make$1
+};
+
+function make$2(t) {
   return t.toSorted(function (a, b) {
               var userA = a.rating.mu;
               var userB = b.rating.mu;
@@ -719,21 +730,29 @@ function to_players(t) {
   return t;
 }
 
-var RankedPlayers = {
-  make: make$1,
-  min_rating: min_rating,
-  to_players: to_players
-};
-
-function make$2(t) {
-  if (t.length >= 4) {
-    return t;
-  }
-  
+function splitByGroups(players, _groups) {
+  var groups = Js_math.ceil_int(players.length / 6);
+  var clusters = findPlayerClusters(players, Util.NonZeroInt.make(groups));
+  return KMeans.SortedClusters.make(clusters);
 }
 
-var DoublesSet = {
-  make: make$2
+function findTopGroup(players, groups) {
+  var sortedClusters = splitByGroups(players, groups);
+  var minRating = KMeans.SortedClusters.getMin(sortedClusters);
+  return min_rating(players, minRating);
+}
+
+function filter(prim0, prim1) {
+  return prim0.filter(prim1);
+}
+
+var RankedPlayers = {
+  make: make$2,
+  min_rating: min_rating,
+  to_players: to_players,
+  splitByGroups: splitByGroups,
+  findTopGroup: findTopGroup,
+  filter: filter
 };
 
 function array_get_n_from(arr, from, n) {
@@ -985,63 +1004,69 @@ function strategy_by_competitive(players, _consumedPlayers, priorityPlayers, avo
 }
 
 function strategy_by_competitive_plus(players, _consumedPlayers, _priorityPlayers, avoidAllPlayers, teams, requiredPlayers, courts, genderMixed) {
-  var sorted = make$1(players);
-  var groups = Core__Option.getOr(Util.NonZeroInt.toOption(courts), Js_math.ceil_int(players.length / 6));
-  var clusters = findPlayerClusters(sorted, Util.NonZeroInt.make(groups));
-  var sortedClusters = KMeans.SortedClusters.make(clusters);
-  var minRating = Core__Option.getOr(Core__Option.map(Util.NonEmptyArray.toArray(sortedClusters)[0], (function (c) {
-              return KMeans.ClusterResult.getMinMax(c)[0];
-            })), 0);
-  return Core__Option.getOr(Core__Option.map(Core__Option.flatMap((function (p) {
-                          var femalePlayers = players.filter(function (p) {
-                                return p.gender === "Female";
-                              });
-                          if (!(genderMixed && femalePlayers.length >= 2)) {
-                            return p;
-                          }
-                          var match = Core__Array.reduce(p, [
-                                [],
-                                0
-                              ], (function (param, player) {
-                                  var count = param[1];
-                                  var acc = param[0];
-                                  if (!(count % 2 === 1 && femalePlayers.length > 0)) {
-                                    return [
-                                            acc.concat([player]),
-                                            count + 1 | 0
-                                          ];
-                                  }
-                                  var femalePlayer = femalePlayers.shift();
-                                  if (femalePlayer !== undefined) {
-                                    return [
-                                            acc.concat([femalePlayer]),
-                                            count + 1 | 0
-                                          ];
+  var sorted = make$2(players);
+  var players$1;
+  if (genderMixed) {
+    var malePlayers = findTopGroup(sorted.filter(function (p) {
+              return p.gender === "Male";
+            }), courts);
+    var femalePlayers = findTopGroup(sorted.filter(function (p) {
+              return p.gender === "Female";
+            }), courts);
+    players$1 = malePlayers.concat(femalePlayers);
+  } else {
+    players$1 = findTopGroup(sorted, courts);
+  }
+  return Core__Option.getOr(Core__Option.map(make$1(players$1), (function (playerSet) {
+                    var matches = Core__Option.getOr(Core__Option.map(playerSet.at(0), (function (topPlayer) {
+                                return find_all_match_combos(playerSet, [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
+                                              return contains_player$1(param[0], topPlayer);
+                                            }).toSorted(function (a, b) {
+                                            if (a[1] < b[1]) {
+                                              return 1;
+                                            } else {
+                                              return -1;
+                                            }
+                                          });
+                              })), []);
+                    if (genderMixed) {
+                      return matches.filter(function (param) {
+                                  var match = param[0];
+                                  var team1HasFemale = match[0].some(function (p) {
+                                        return p.gender === "Female";
+                                      });
+                                  var team2HasFemale = match[1].some(function (p) {
+                                        return p.gender === "Female";
+                                      });
+                                  if (team1HasFemale) {
+                                    return team2HasFemale;
                                   } else {
-                                    return [
-                                            acc.concat([player]),
-                                            count + 1 | 0
-                                          ];
+                                    return false;
                                   }
-                                }));
-                          return array_get_n_from(match[0], 0, 4);
-                        })(min_rating(sorted, minRating)), make$2), (function (playerSet) {
-                    return Core__Option.getOr(Core__Option.map(playerSet.at(0), (function (topPlayer) {
-                                      return find_all_match_combos(playerSet, [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
-                                                    return contains_player$1(param[0], topPlayer);
-                                                  }).toSorted(function (a, b) {
-                                                  if (a[1] < b[1]) {
-                                                    return 1;
-                                                  } else {
-                                                    return -1;
-                                                  }
-                                                });
-                                    })), []);
+                                });
+                    } else {
+                      return matches;
+                    }
                   })), []);
 }
 
-function strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
-  return find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers).toSorted(function (a, b) {
+function strategy_by_mixed(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers, genderMixed) {
+  var matches = find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers);
+  var matches$1 = genderMixed ? matches.filter(function (param) {
+          var match = param[0];
+          var team1HasFemale = match[0].some(function (p) {
+                return p.gender === "Female";
+              });
+          var team2HasFemale = match[1].some(function (p) {
+                return p.gender === "Female";
+              });
+          if (team1HasFemale) {
+            return team2HasFemale;
+          } else {
+            return false;
+          }
+        }) : matches;
+  return matches$1.toSorted(function (a, b) {
               if (a[1] < b[1]) {
                 return 1;
               } else {
@@ -1159,7 +1184,7 @@ function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAl
     case "Competitive" :
         return strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "Mixed" :
-        return strategy_by_mixed(players, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
+        return strategy_by_mixed(players, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, genderMixed);
     case "RoundRobin" :
         return strategy_by_round_robin(players, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "Random" :
@@ -1206,7 +1231,7 @@ function fromSet(set) {
   return Array.from(set.values());
 }
 
-function filter(queue, players) {
+function filter$1(queue, players) {
   return queue.filter(function (p) {
               return !players.has(p);
             });
@@ -1218,7 +1243,7 @@ var OrderedQueue = {
   toggle: toggle,
   toSet: toSet$1,
   fromSet: fromSet,
-  filter: filter
+  filter: filter$1
 };
 
 function addToQueue$1(queue, player) {
@@ -1263,7 +1288,7 @@ function fromArray(arr) {
   return new Set(arr);
 }
 
-function filter$1(queue, players) {
+function filter$2(queue, players) {
   return queue.difference(players);
 }
 
@@ -1274,7 +1299,7 @@ var UnorderedQueue = {
   toOrdered: toOrdered,
   toArray: toArray,
   fromArray: fromArray,
-  filter: filter$1
+  filter: filter$2
 };
 
 function fromPlayers(players) {
@@ -1406,8 +1431,8 @@ export {
   DoublesTeam ,
   DoublesMatch ,
   Players ,
-  RankedPlayers ,
   DoublesSet ,
+  RankedPlayers ,
   array_get_n_from ,
   array_split_by_n ,
   array_combos ,

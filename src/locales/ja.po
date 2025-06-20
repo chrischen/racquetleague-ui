@@ -1561,6 +1561,14 @@ msgstr "女性に設定"
 msgid "Set as Male"
 msgstr "男性に設定"
 
+#: src/components/organisms/SortableSubmitMatch.re.mjs:323
+msgid "Enter Score"
+msgstr "スコアを入力"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+msgid "Save"
+msgstr "保存"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

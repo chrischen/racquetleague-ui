@@ -566,12 +566,24 @@ module Players = {
     )
   }
 }
+module DoublesSet: {
+  type t = private Players.t
+  let make: Players.t => option<t>
+} = {
+  type t = Players.t
+  let make = (t: t) => {
+    t->Array.length >= 4 ? Some(t) : None
+  }
+}
 module RankedPlayers: {
   type t = private Players.t
   // Sorts the players by rating
   let make: Players.t => t
   let min_rating: (t, float) => t
   let to_players: t => Players.t
+  let splitByGroups: (t, Util.NonZeroInt.t) => KMeans.SortedClusters.t
+  let findTopGroup: (t, Util.NonZeroInt.t) => t
+  let filter: (t, player => bool) => t
 } = {
   type t = Players.t
 
@@ -587,17 +599,30 @@ module RankedPlayers: {
     playersArray->Array.filter(player => player.rating.mu >= minRatingValue)
   }
   let to_players = t => t
+  let splitByGroups = (players: t, _groups: Util.NonZeroInt.t) => {
+    // let groups =
+    //   groups
+    //   ->Util.NonZeroInt.toOption
+    //   ->Option.getOr((players->Array.length->Int.toFloat /. 6.)->Js.Math.ceil_int)
+
+    let groups = (players->Array.length->Int.toFloat /. 6.)->Js.Math.ceil_int
+    let clusters = (players :> t)->Players.findPlayerClusters(groups->Util.NonZeroInt.make)
+
+    let sortedClusters = clusters->KMeans.SortedClusters.make
+
+    sortedClusters
+  }
+  let findTopGroup = (players: t, groups: Util.NonZeroInt.t): t => {
+    let sortedClusters = players->splitByGroups(groups)
+    let minRating = sortedClusters->KMeans.SortedClusters.getMin
+
+    players->min_rating(minRating)
+    // ->to_players
+    // ->DoublesSet.make
+  }
+  let filter = Array.filter
 }
 
-module DoublesSet: {
-  type t = private Players.t
-  let make: Players.t => option<t>
-} = {
-  type t = Players.t
-  let make = (t: t) => {
-    t->Array.length >= 4 ? Some(t) : None
-  }
-}
 open Util
 type matchmakingResult<'a> = {
   seenTeams: array<Set.t<string>>,
@@ -865,60 +890,28 @@ module RankedMatches = {
     courts: NonZeroInt.t,
     genderMixed: bool,
   ) => {
-    // mixed: bool
-
-    // let groupSize = Js.Math.max_int(
-    //   4,
-    //   (players->Array.length->Int.toFloat *. 0.31)->Js.Math.ceil_int,
-    // )
-
     players
     ->RankedPlayers.make
     ->(
       (sorted: RankedPlayers.t) => {
-        let groups =
-          courts
-          ->NonZeroInt.toOption
-          ->Option.getOr((players->Array.length->Int.toFloat /. 6.)->Js.Math.ceil_int)
+        let players = if genderMixed {
+          let malePlayers =
+            sorted
+            ->RankedPlayers.filter(p => p.gender == Male)
+            ->RankedPlayers.findTopGroup(courts)
+          let femalePlayers =
+            sorted
+            ->RankedPlayers.filter(p => p.gender == Female)
+            ->RankedPlayers.findTopGroup(courts)
+          malePlayers
+          ->RankedPlayers.to_players
+          ->Array.concat(femalePlayers->RankedPlayers.to_players)
+        } else {
+          sorted->RankedPlayers.findTopGroup(courts)->RankedPlayers.to_players
+        }
 
-        let clusters = (sorted :> Players.t)->Players.findPlayerClusters(groups->NonZeroInt.make)
-
-        let sortedClusters = clusters->KMeans.SortedClusters.make
-
-        let minRating =
-          sortedClusters
-          ->Util.NonEmptyArray.toArray
-          ->Array.get(0)
-          ->Option.map(c => c->KMeans.ClusterResult.getMinMax->fst)
-          ->Option.getOr(0.)
-
-        sorted
-        ->RankedPlayers.min_rating(minRating)
-        ->RankedPlayers.to_players
-        ->(p => {
-          // Interpolate female players
-          let femalePlayers = players->Array.filter(p => p.gender == Female)
-
-          if genderMixed && femalePlayers->Array.length >= 2 {
-            let (combined, _) = p->Array.reduce(([], 0), ((acc, count), player) => {
-              // If count is odd, add a female player
-              if mod(count, 2) == 1 && femalePlayers->Array.length > 0 {
-                let femalePlayer = femalePlayers->Array.shift
-                switch femalePlayer {
-                | Some(femalePlayer) => (acc->Array.concat([femalePlayer]), count + 1)
-                | None => (acc->Array.concat([player]), count + 1)
-                }
-              } else {
-                (acc->Array.concat([player]), count + 1)
-              }
-            })
-
-            combined->array_get_n_from(0, 4)
-          } else {
-            Some(p)
-          }
-        })
-        ->Option.flatMap(DoublesSet.make)
+        players
+        ->DoublesSet.make
         ->Option.map(playerSet => {
           let players = (playerSet :> Players.t)
           let matches =
@@ -937,6 +930,16 @@ module RankedMatches = {
               )
             })
             ->Option.getOr([])
+          let matches = if genderMixed {
+            matches->Array.filter(((match, _)) => {
+              let (team1, team2) = match
+              let team1HasFemale = team1->Array.some(p => p.gender == Female)
+              let team2HasFemale = team2->Array.some(p => p.gender == Female)
+              team1HasFemale && team2HasFemale
+            })
+          } else {
+            matches
+          }
           matches
         })
         ->Option.getOr([])
@@ -950,14 +953,28 @@ module RankedMatches = {
     avoidAllPlayers,
     teams: NonEmptyArray.t<Set.t<string>>,
     requiredPlayers: option<Set.t<string>>,
+    genderMixed: bool,
   ) => {
-    find_all_match_combos(
+    let matches = find_all_match_combos(
       availablePlayers,
       priorityPlayers,
       avoidAllPlayers,
       teams,
       requiredPlayers,
-    )->Array.toSorted((a, b) => {
+    )
+
+    let matches = if genderMixed {
+      matches->Array.filter(((match, _)) => {
+        let (team1, team2) = match
+        let team1HasFemale = team1->Array.some(p => p.gender == Female)
+        let team2HasFemale = team2->Array.some(p => p.gender == Female)
+        team1HasFemale && team2HasFemale
+      })
+    } else {
+      matches
+    }
+
+    matches->Array.toSorted((a, b) => {
       let (_, qualityA) = a
       let (_, qualityB) = b
       qualityA < qualityB ? 1. : -1.
@@ -1140,6 +1157,7 @@ let getMatches = (
       avoidAllPlayers,
       teamConstraints,
       requiredPlayers,
+      genderMixed,
     )
   | RoundRobin =>
     RankedMatches.strategy_by_round_robin(

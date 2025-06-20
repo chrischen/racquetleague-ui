@@ -315,7 +315,7 @@ let make = (
             e->JsxEventU.Mouse.stopPropagation
             setView(_ => SubmitMatch)
           }}>
-          {t`Finished`}
+          {t`Enter Score`}
         </UiAction>
       </div>
     </div>
@@ -463,7 +463,7 @@ let make = (
             <UiAction
               className="inline-flex items-center text-2xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
               onClick={_ => setView(_ => Default)}>
-              {t`Go Back`}
+              {t`Save`}
             </UiAction>
           </div>
           <div className="grid gap-0 col-span-1">

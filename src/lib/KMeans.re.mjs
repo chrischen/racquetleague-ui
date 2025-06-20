@@ -3,6 +3,7 @@
 import * as Util from "../components/shared/Util.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 
 function getAvg(point) {
   return Core__Array.reduce(point, 0, (function (acc, value) {
@@ -12,22 +13,6 @@ function getAvg(point) {
 
 var DataPoint = {
   getAvg: getAvg
-};
-
-function make(t) {
-  return Util.NonEmptyArray.fromArray(t.toSorted(function (a, b) {
-                  var clusterA = a.centroid;
-                  var clusterB = b.centroid;
-                  if (Caml_obj.lessthan(clusterA, clusterB)) {
-                    return 1;
-                  } else {
-                    return -1;
-                  }
-                }));
-}
-
-var SortedClusters = {
-  make: make
 };
 
 function getMinMax(cluster) {
@@ -55,9 +40,32 @@ var ClusterResult = {
   getMinMax: getMinMax
 };
 
+function make(t) {
+  return Util.NonEmptyArray.fromArray(t.toSorted(function (a, b) {
+                  var clusterA = a.centroid;
+                  var clusterB = b.centroid;
+                  if (Caml_obj.lessthan(clusterA, clusterB)) {
+                    return 1;
+                  } else {
+                    return -1;
+                  }
+                }));
+}
+
+function getMin(clusters) {
+  return Core__Option.getOr(Core__Option.map(Util.NonEmptyArray.toArray(clusters)[0], (function (c) {
+                    return getMinMax(c)[0];
+                  })), 0);
+}
+
+var SortedClusters = {
+  make: make,
+  getMin: getMin
+};
+
 export {
   DataPoint ,
-  SortedClusters ,
   ClusterResult ,
+  SortedClusters ,
 }
 /* No side effect */

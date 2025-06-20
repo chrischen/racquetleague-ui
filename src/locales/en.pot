@@ -1626,3 +1626,11 @@ msgstr ""
 #: src/components/organisms/AiTetsu.re.mjs:1156
 msgid "Set as Male"
 msgstr ""
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:323
+msgid "Enter Score"
+msgstr ""
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+msgid "Save"
+msgstr ""

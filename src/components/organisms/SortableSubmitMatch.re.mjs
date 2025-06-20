@@ -320,7 +320,7 @@ function SortableSubmitMatch(props) {
                                 });
                           }),
                         className: "ml-3 flex-grow text-center mr-3 items-center text-3xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
-                        children: t`Finished`
+                        children: t`Enter Score`
                       })
                 ],
                 className: "flex md:top-3 md:mt-0 justify-center"
@@ -436,7 +436,7 @@ function SortableSubmitMatch(props) {
                                               });
                                         }),
                                       className: "inline-flex items-center text-2xl bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
-                                      children: t`Go Back`
+                                      children: t`Save`
                                     }),
                                 className: "mt-3 flex md:top-3 md:mt-0 justify-center"
                               }),

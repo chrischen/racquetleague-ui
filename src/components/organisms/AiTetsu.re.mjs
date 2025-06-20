@@ -535,29 +535,33 @@ function AiTetsu(props) {
   var setSessionPlayers = match$12[1];
   var sessionPlayers = match$12[0];
   var match$13 = React.useState(function () {
+        return "Checkin";
+      });
+  var setMatchesView = match$13[1];
+  var match$14 = React.useState(function () {
         return false;
       });
-  var setSessionMode = match$13[1];
-  var sessionMode = match$13[0];
-  var match$14 = React.useState(function () {
+  var setSessionMode = match$14[1];
+  var sessionMode = match$14[0];
+  var match$15 = React.useState(function () {
         return 0;
       });
-  var setCourts = match$14[1];
-  var courts = match$14[0];
-  var match$15 = React.useState(function () {
+  var setCourts = match$15[1];
+  var courts = match$15[0];
+  var match$16 = React.useState(function () {
         return "CompetitivePlus";
       });
-  var match$16 = React.useState(function () {
+  var match$17 = React.useState(function () {
         return [];
       });
-  var setMatchHistory = match$16[1];
-  var matchHistory = match$16[0];
-  var match$17 = React.useState(function () {
+  var setMatchHistory = match$17[1];
+  var matchHistory = match$17[0];
+  var match$18 = React.useState(function () {
         return {};
       });
-  var setLocallyCompletedMatches = match$17[1];
-  var locallyCompletedMatches = match$17[0];
-  var match$18 = React.useState(function () {
+  var setLocallyCompletedMatches = match$18[1];
+  var locallyCompletedMatches = match$18[0];
+  var match$19 = React.useState(function () {
         
       });
   var togglePlayer = Rating.OrderedQueue.toggle;
@@ -566,9 +570,9 @@ function AiTetsu(props) {
           return togglePlayer(queue, player.id);
         });
   };
-  var match$19 = usePagination($$event);
-  var refetch = match$19.refetch;
-  var data = match$19.data;
+  var match$20 = usePagination($$event);
+  var refetch = match$20.refetch;
+  var data = match$20.data;
   var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
   var players = allPlayers.filter(function (p) {
           return !disabled.has(p.id);
@@ -691,7 +695,7 @@ function AiTetsu(props) {
           }), (function (x) {
           return x;
         }));
-  var match$20 = getPriorityPlayers(matchHistory, queuedPlayers, sessionState, breakCount);
+  var match$21 = getPriorityPlayers(matchHistory, queuedPlayers, sessionState, breakCount);
   var availablePlayers$1 = availablePlayers.filter(function (p) {
         return !deprioritized.has(p.id);
       });
@@ -990,6 +994,8 @@ function AiTetsu(props) {
       });
   if (match$5[0] !== "Advanced") {
     return JsxRuntime.jsx(MatchesView.make, {
+                view: match$13[0],
+                setView: setMatchesView,
                 players: players,
                 availablePlayers: availablePlayers$1,
                 playersCache: playersCache,
@@ -1032,7 +1038,7 @@ function AiTetsu(props) {
                           return players;
                         });
                   }),
-                setRequiredPlayers: match$18[1],
+                setRequiredPlayers: match$19[1],
                 matches: matches,
                 setMatches: setMatches,
                 minRating: minRating,
@@ -1077,14 +1083,17 @@ function AiTetsu(props) {
                       seenMatches: seenMatches,
                       lastRoundSeenTeams: lastRoundSeenTeams,
                       lastRoundSeenMatches: lastRoundSeenMatches,
-                      defaultStrategy: match$15[0],
-                      setDefaultStrategy: match$15[1],
-                      priorityPlayers: match$20.prioritized,
+                      defaultStrategy: match$16[0],
+                      setDefaultStrategy: match$16[1],
+                      priorityPlayers: match$21.prioritized,
                       avoidAllPlayers: antiTeams,
                       onSelectMatch: (function (match, dequeue) {
+                          setMatchesView(function (param) {
+                                return "Matches";
+                              });
                           queueMatch(match, dequeue);
                         }),
-                      requiredPlayers: match$18[0],
+                      requiredPlayers: match$19[0],
                       courts: Util.NonZeroInt.make(courts - matches.length | 0)
                     }),
                 selectedPlayersActions: (function (selectedPlayers) {
