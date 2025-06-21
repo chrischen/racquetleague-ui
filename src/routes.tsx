@@ -50,14 +50,24 @@ export const routes: RouteObject[] = [
           //   handle: "src/components/routes/DefaultLayoutContentRoute.gen.tsx",
           //   children: []
           // },
-          {
-            path: "clubs/:slug",
-            lazy: () => import("./components/routes/ClubRoute.gen"),
-            handle: "src/components/routes/ClubRoute.gen.tsx"
-          },
-
-          {
-            path: "",
+              {
+              path: "clubs",
+              lazy: () => import("./components/routes/ClubsRoute.gen"),
+              handle: "src/components/routes/ClubsRoute.gen.tsx",
+              children: [
+                {
+                index: true,
+                lazy: () => import("./components/routes/ViewerClubsRoute.gen"),
+                handle: "src/components/routes/ViewerClubsRoute.gen.tsx",
+                },
+                {
+                path: ":slug",
+                lazy: () => import("./components/routes/ClubRoute.gen"),
+                handle: "src/components/routes/ClubRoute.gen.tsx",
+                },
+              ],
+              },
+              {
             // Declaring handle allows the server to pull the scripts needed based on
             // the entrypoint to avoid waterfall loading of dependencies
             lazy: () => import("./components/routes/DefaultLayoutContentRoute.gen"),

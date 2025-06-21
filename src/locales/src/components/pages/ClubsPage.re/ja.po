@@ -1,0 +1,27 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-21 17:51+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/ClubsPage.re.mjs:96
+msgid "You are not an admin of any clubs."
+msgstr ""
+
+#: src/components/pages/ClubsPage.re.mjs:74
+#~ msgid "club"
+#~ msgstr "クラブ"
+
+#: src/components/pages/ClubsPage.re.mjs:78
+#, fuzzy
+#~ msgid "my clubs"
+#~ msgstr "私のクラブ"

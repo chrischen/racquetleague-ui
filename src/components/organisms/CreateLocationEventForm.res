@@ -115,7 +115,7 @@ module QueryFragment = %relay(`
     viewer {
       __id
       adminClubs(after: $after, first: $first, before: $before)
-        @connection(key: "SelectClub_adminClubs") {
+        @connection(key: "viewer_adminClubs") {
         edges {
           node {
             id

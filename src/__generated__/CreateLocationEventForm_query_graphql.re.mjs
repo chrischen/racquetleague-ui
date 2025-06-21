@@ -20,7 +20,7 @@ var Internal = {
 };
 
 function makeConnectionId(connectionParentDataId) {
-  return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "SelectClub_adminClubs", undefined);
+  return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "viewer_adminClubs", undefined);
 }
 
 function getConnectionNodes(connection) {
@@ -149,7 +149,7 @@ return {
           "args": null,
           "concreteType": "ClubConnection",
           "kind": "LinkedField",
-          "name": "__SelectClub_adminClubs_connection",
+          "name": "__viewer_adminClubs_connection",
           "plural": false,
           "selections": [
             {

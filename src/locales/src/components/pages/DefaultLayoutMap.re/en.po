@@ -40,6 +40,10 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "My Clubs"
+msgstr ""
+
 #: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Events"
 msgstr ""
@@ -64,7 +68,7 @@ msgstr ""
 msgid "Rankings"
 msgstr ""
 
-#: src/components/organisms/NavViewer.re.mjs:71
+#: src/components/organisms/NavViewer.re.mjs:77
 msgid "Settings"
 msgstr ""
 

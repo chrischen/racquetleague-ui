@@ -22,10 +22,14 @@ msgstr "(サインアウト)"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "My Clubs"
+msgstr "私のクラブ"
+
 #: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Events"
 msgstr "私のイベント"
 
-#: src/components/organisms/NavViewer.re.mjs:71
+#: src/components/organisms/NavViewer.re.mjs:77
 msgid "Settings"
 msgstr "設定"

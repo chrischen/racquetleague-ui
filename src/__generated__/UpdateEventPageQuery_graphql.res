@@ -426,6 +426,15 @@ return {
             "name": "adminClubs"
           },
           {
+            "alias": null,
+            "args": (v7/*: any*/),
+            "filters": null,
+            "handle": "connection",
+            "key": "viewer_adminClubs",
+            "kind": "LinkedHandle",
+            "name": "adminClubs"
+          },
+          {
             "kind": "ClientExtension",
             "selections": [
               {

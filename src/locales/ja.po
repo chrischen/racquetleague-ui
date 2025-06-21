@@ -1573,7 +1573,13 @@ msgstr "保存"
 #: src/components/organisms/EventRsvps.re.mjs:124
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してください。"
+msgstr ""
+"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
+"ださい。"
+
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "My Clubs"
+msgstr "私のクラブ"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

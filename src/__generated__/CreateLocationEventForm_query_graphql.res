@@ -54,11 +54,11 @@ external getFragmentRef:
 
 @live
 @inline
-let connectionKey = "SelectClub_adminClubs"
+let connectionKey = "viewer_adminClubs"
 
 %%private(
   @live @module("relay-runtime") @scope("ConnectionHandler")
-  external internal_makeConnectionId: (RescriptRelay.dataId, @as("SelectClub_adminClubs") _, 'arguments) => RescriptRelay.dataId = "getConnectionID"
+  external internal_makeConnectionId: (RescriptRelay.dataId, @as("viewer_adminClubs") _, 'arguments) => RescriptRelay.dataId = "getConnectionID"
 )
 
 @live
@@ -196,7 +196,7 @@ return {
           "args": null,
           "concreteType": "ClubConnection",
           "kind": "LinkedField",
-          "name": "__SelectClub_adminClubs_connection",
+          "name": "__viewer_adminClubs_connection",
           "plural": false,
           "selections": [
             {

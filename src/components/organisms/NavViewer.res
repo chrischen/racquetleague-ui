@@ -23,12 +23,13 @@ module Fragment = %relay(`
 
 @genType @react.component
 let make = (~viewer) => {
-  open Dropdown;
-  open Navbar;
+  open Dropdown
+  open Navbar
   let {user} = Fragment.use(viewer)
   <WaitForMessages>
     {() =>
-      user->Option.map(user =>
+      user
+      ->Option.map(user =>
         <Dropdown>
           <DropdownButton \"as"={NavbarItem.make}>
             {user.lineUsername->Option.getOr("")->React.string}
@@ -38,6 +39,10 @@ let make = (~viewer) => {
             <DropdownItem href="/events">
               // <HeroIcons.UserIcon />
               <DropdownLabel> {t`My Events`} </DropdownLabel>
+            </DropdownItem>
+            <DropdownItem href="/clubs">
+              // <HeroIcons.UserIcon />
+              <DropdownLabel> {t`My Clubs`} </DropdownLabel>
             </DropdownItem>
             <DropdownItem href="/settings/profile">
               // <HeroIcons.UserIcon />
@@ -65,7 +70,8 @@ let make = (~viewer) => {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-      )->Option.getOr(<LoginLink />)}
+      )
+      ->Option.getOr(<LoginLink />)}
   </WaitForMessages>
 }
 
