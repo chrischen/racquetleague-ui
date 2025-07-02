@@ -521,8 +521,8 @@ module Players = {
           firstClusterPlayerCount->Int.toString,
         )
 
-        if firstClusterPlayerCount > 4 {
-          // Condition met: first cluster has more than 4 players.
+        if firstClusterPlayerCount > 3 {
+          // Condition met: first cluster has more than 3 players.
           // Return the result from SortedClusters.make for this k.
           currentlySortedClusters
         } else if currentKValue == 1 {

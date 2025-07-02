@@ -650,7 +650,7 @@ function findOptimalClustersRecursive(kMeansData, _currentKValue) {
       var firstCluster = currentlySortedClusters[0];
       var firstClusterPlayerCount = firstCluster.points.length;
       console.log("Recursive k-means: k=" + currentKValue.toString() + ", first cluster size=" + firstClusterPlayerCount.toString());
-      if (firstClusterPlayerCount > 4) {
+      if (firstClusterPlayerCount > 3) {
         return currentlySortedClusters;
       }
       if (currentKValue === 1) {
