@@ -4,7 +4,7 @@
 
 module Query = %relay(`
   query DefaultLayoutMapQuery {
-    viewer { 
+    viewer {
       ...GlobalQueryProvider_viewer
       ...NavViewer_viewer
     }
@@ -137,6 +137,9 @@ module Layout = {
                   </DropdownButton>
                   <ActivityLeagueDropdownMenu />
                 </Dropdown>
+                <NavbarItem href="/pickleball-tokyo-guide" className="max-lg:hidden">
+                  <Navbar.NavbarLabel> {t`Find Games`} </Navbar.NavbarLabel>
+                </NavbarItem>
               </NavbarSection>
               <NavbarSpacer />
               <NavbarSection className="max-lg:hidden">
@@ -183,6 +186,9 @@ module Layout = {
                     </DropdownButton>
                     <ActivityLeagueDropdownMenu />
                   </Dropdown>
+                  <SidebarItem href="/pickleball-tokyo-guide" className="lg:mb-2.5">
+                    <SidebarLabel> {t`Find Games`} </SidebarLabel>
+                  </SidebarItem>
                   <div className="ml-2 mt-2">
                     <LangSwitch />
                   </div>

@@ -650,11 +650,21 @@ function findOptimalClustersRecursive(kMeansData, _currentKValue) {
       var firstCluster = currentlySortedClusters[0];
       var firstClusterPlayerCount = firstCluster.points.length;
       console.log("Recursive k-means: k=" + currentKValue.toString() + ", first cluster size=" + firstClusterPlayerCount.toString());
-      if (firstClusterPlayerCount > 3) {
+      if (firstClusterPlayerCount >= 4) {
         return currentlySortedClusters;
       }
       if (currentKValue === 1) {
         return currentlySortedClusters;
+      }
+      if (currentKValue >= 3) {
+        var merged = [KMeans.ClusterResult.concat(currentlySortedClusters[0], currentlySortedClusters[1])].concat(currentlySortedClusters.slice(2, currentlySortedClusters.length));
+        var firstCluster$1 = merged[0];
+        if (firstCluster$1.points.length > 3) {
+          return merged;
+        }
+        console.warn("K-Means recursion: Merged cluster size is <= 3 for k=" + currentKValue.toString() + ". Trying k-1.");
+        _currentKValue = currentKValue - 1 | 0;
+        continue ;
       }
       _currentKValue = currentKValue - 1 | 0;
       continue ;

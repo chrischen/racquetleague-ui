@@ -50,24 +50,24 @@ export const routes: RouteObject[] = [
           //   handle: "src/components/routes/DefaultLayoutContentRoute.gen.tsx",
           //   children: []
           // },
+          {
+            path: "clubs",
+            lazy: () => import("./components/routes/ClubsRoute.gen"),
+            handle: "src/components/routes/ClubsRoute.gen.tsx",
+            children: [
               {
-              path: "clubs",
-              lazy: () => import("./components/routes/ClubsRoute.gen"),
-              handle: "src/components/routes/ClubsRoute.gen.tsx",
-              children: [
-                {
                 index: true,
                 lazy: () => import("./components/routes/ViewerClubsRoute.gen"),
                 handle: "src/components/routes/ViewerClubsRoute.gen.tsx",
-                },
-                {
+              },
+              {
                 path: ":slug",
                 lazy: () => import("./components/routes/ClubRoute.gen"),
                 handle: "src/components/routes/ClubRoute.gen.tsx",
-                },
-              ],
               },
-              {
+            ],
+          },
+          {
             // Declaring handle allows the server to pull the scripts needed based on
             // the entrypoint to avoid waterfall loading of dependencies
             lazy: () => import("./components/routes/DefaultLayoutContentRoute.gen"),
@@ -83,6 +83,16 @@ export const routes: RouteObject[] = [
                 lazy: () => import("./components/routes/CreateLocationRoute.gen"),
                 handle: "src/components/routes/CreateLocationRoute.gen.tsx",
 
+              },
+              {
+                path: "pickleball-tokyo-guide",
+                lazy: () => import("./components/routes/PickleballTokyoRoute.gen"),
+                handle: "src/components/routes/PickleballTokyoRoute.gen.tsx",
+              },
+              {
+                path: "fairplay-guide",
+                lazy: () => import("./components/routes/FairPlayGuideRoute.gen"),
+                handle: "src/components/routes/FairPlayGuideRoute.gen.tsx",
               },
             ]
           },
@@ -208,8 +218,7 @@ export const routes: RouteObject[] = [
             path: "*",
             lazy: () => import("./components/routes/NotFoundRoute.gen"),
             handle: "src/components/routes/NotFoundRoute.gen.tsx",
-          }
-
+          },
         ]
       },
       {

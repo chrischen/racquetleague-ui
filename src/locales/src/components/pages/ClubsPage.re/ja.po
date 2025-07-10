@@ -22,6 +22,5 @@ msgstr ""
 #~ msgstr "クラブ"
 
 #: src/components/pages/ClubsPage.re.mjs:78
-#, fuzzy
 #~ msgid "my clubs"
 #~ msgstr "私のクラブ"

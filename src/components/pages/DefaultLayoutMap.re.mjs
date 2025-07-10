@@ -249,6 +249,13 @@ function DefaultLayoutMap$Layout(props) {
                                                                     }),
                                                                 JsxRuntime.jsx(DefaultLayoutMap$ActivityLeagueDropdownMenu, {})
                                                               ]
+                                                            }),
+                                                        JsxRuntime.jsx(Navbar.NavbarItem.make, {
+                                                              className: "max-lg:hidden",
+                                                              href: "/pickleball-tokyo-guide",
+                                                              children: JsxRuntime.jsx(Navbar.NavbarLabel.make, {
+                                                                    children: t`Find Games`
+                                                                  })
                                                             })
                                                       ]
                                                     }),
@@ -312,6 +319,13 @@ function DefaultLayoutMap$Layout(props) {
                                                                           }),
                                                                       JsxRuntime.jsx(DefaultLayoutMap$ActivityLeagueDropdownMenu, {})
                                                                     ]
+                                                                  }),
+                                                              JsxRuntime.jsx(Sidebar.SidebarItem.make, {
+                                                                    href: "/pickleball-tokyo-guide",
+                                                                    className: "lg:mb-2.5",
+                                                                    children: JsxRuntime.jsx(Sidebar.SidebarLabel.make, {
+                                                                          children: t`Find Games`
+                                                                        })
                                                                   }),
                                                               JsxRuntime.jsx("div", {
                                                                     children: JsxRuntime.jsx(LangSwitch.make, {}),

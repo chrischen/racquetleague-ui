@@ -1,10 +1,10 @@
-import type { LinguiConfig } from "@lingui/conf"
+import type { LinguiConfig } from "@lingui/conf";
 
 const config: LinguiConfig = {
   locales: ["en", "ja"],
   compileNamespace: "ts",
   fallbackLocales: {
-    default: "en"
+    default: "en",
   },
   catalogs: [
     // {
@@ -40,16 +40,33 @@ const config: LinguiConfig = {
       /// ...
       // glob pattern of entrypoints
       // this will find all nextjs pages
-      entries: ["<rootDir>/src/components/pages/**/*.mjs", "<rootDir>/src/components/organisms/**/*.mjs"],
+      entries: [
+        "<rootDir>/src/components/routes/**/*.mjs",
+        "<rootDir>/src/components/pages/**/*.mjs",
+        "<rootDir>/src/components/organisms/**/*.mjs",
+      ],
       // output pattern, this instruct extractor where to store catalogs
       // src/pages/faq.tsx -> src/pages/locales/faq/en.po
       output: "<rootDir>/src/locales/{entryDir}/{entryName}/{locale}",
-      resolveEsbuildOptions: (options: import('esbuild').BuildOptions) => {
-        options.resolveExtensions = ['.ts', '.js', '.jsx', '.tsx', '.mjs'];
+      resolveEsbuildOptions: (options: import("esbuild").BuildOptions) => {
+        options.resolveExtensions = [
+          ".ts",
+          ".js",
+          ".jsx",
+          ".tsx",
+          ".mjs",
+          ".webp",
+        ];
+        // Add loader for .webp files as dataurl (or file, depending on your needs)
+        options.loader = {
+          ...(options.loader || {}),
+          ".webp": "dataurl",
+        };
+
         return options;
-      }
+      },
     },
   },
-}
+};
 
-export default config
+export default config;

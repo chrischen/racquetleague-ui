@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-07-10 16:14+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:208
+msgid "As mentioned above, public games are not really a thing in Japan. However, you can find some public games on the home page of this website. They will tend to be full with a waitlist so just join the waitlist and cross your fingers. 5-6 spots tend to open up the day of the event as people cancel last minute."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid "Book a court and find the players yourself."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:69
+#: src/components/pages/PickleballTokyoPage.re.mjs:98
+#: src/components/pages/PickleballTokyoPage.re.mjs:127
+#: src/components/pages/PickleballTokyoPage.re.mjs:156
+msgid "Book the Court"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Hilton Tokyo Tennis Courts"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:62
+msgid "Create an Event at KPI Park"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:176
+msgid "Create an event at one of the locations above (use the buttons above). Make the event public so people can join you."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:91
+msgid "Create an Event at Pacific Pickle Club"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:120
+msgid "Create an Event at Tokyo Tower Pickleball"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Hilton Tokyo Tennis Courts (painted lines)"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:170
+msgid "How to Find Players in Tokyo"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:204
+msgid "How to Find Public Games"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:19
+msgid "How to Play Pickleball in Tokyo"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:23
+msgid "Japan does not really have public drop in courts or games. Most pickleball games happen indoors at community center and school gymnasiums (multi-use gyms) or on private tennis/pickleball courts and these all require reservations for court time, or reservations to join the events. Many of the public facilities do not allow groups to advertise to the public, which makes it difficult for new players or visitors to drop in on sessions."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:33
+msgid "Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and which has a join button, then you can join."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:52
+msgid "KPI Park in Kanagawa/Yokohama"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:39
+msgid "Message @japanpickle on Instagram for referrals or questions"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:81
+msgid "Pacific Pickle Club at Ariake"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:217
+msgid "Please do not show up to any events without permission and only if you are in the confirmed going list. Indoor events always require a set of clean indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:191
+msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:180
+msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:27
+msgid "So, how can one play pickleball in Tokyo then as a tourist, recent transplant, or a beginner?"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:212
+msgid "Some events are restricted by level. If you are restricted, just type in your DUPR rating as a comment with your RSVP."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:54
+msgid "The courts require reservations but there are 10 courts and it's generally available last minute. Therefore you can book the courts just-in-time once you've already gathered the players."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:83
+msgid "The courts require reservations but there are only 2 courts so you will need to book in advance. They also hold open play sessions but the level may be low to complete beginner."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:110
+msgid "Tokyo Tower Pickleball"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:112
+msgid "Two courts are available. Conditions may be windy."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid "Two courts are available. More expensive than other courts and the conditions can be windy."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:45
+msgid "Where to Book Courts in Tokyo"
+msgstr ""

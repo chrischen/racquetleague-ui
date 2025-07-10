@@ -92,6 +92,8 @@ module Link = {
     ~reloadDocument: bool=?,
     ~unstable_viewTransition: bool=?,
     ~ariaCurrent: [> #page | #"false"]=?,
+    ~rel: string=?,
+    ~target: string=?,
   ) => React.element = "Link"
 }
 module NavLink = {

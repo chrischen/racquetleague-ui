@@ -59,6 +59,8 @@ module Router = {
         bool,
         bool,
         [> #page | #"false"],
+        string,
+        string,
       >,
     ) => {
       let locale = React.useContext(LocaleContext.context)

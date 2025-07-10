@@ -1,0 +1,250 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-10 16:14+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:106
+msgid ""
+"By clicking on the Gear icon in the top left, you can go back to the start "
+"screen. At the bottom of this screen will be the match history."
+msgstr ""
+"左上の歯車アイコンをクリックすると、スタート画面に戻ることができます。この画"
+"面の下部には、試合の履歴が表示されます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:70
+msgid "Checkin Screen"
+msgstr "チェックイン画面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:95
+msgid "Editing Matches"
+msgstr "試合の編集"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:100
+msgid "Entering Results"
+msgstr "結果の入力"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:116
+msgid ""
+"From the Queue screen you can select some players (highlighted in green) and "
+"take some special actions for them such as creating a team, anti-team, or "
+"setting their genders. The team feature is important if you have a group of "
+"players (2 minimum) who always want to play together, often called a 'fixed-"
+"pair.' The gender is important if you want to use the Gender-Mixed doubles "
+"option when choosing matches."
+msgstr ""
+"キュー画面から、いくつかのプレイヤー（緑色でハイライト）を選択し、チームの作"
+"成、アンチチームの設定、性別の設定などの特別なアクションを実行できます。チー"
+"ム機能は、常に一緒にプレイしたいプレイヤーのグループ（最低2人）がいる場合に重"
+"要です。これは「固定ペア」と呼ばれることもあります。性別は、男女混合ダブルス"
+"のオプションを選択する場合に重要です。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:85
+msgid "Generating Draws"
+msgstr "ドローの生成"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:130
+msgid "How to use FairPlay"
+msgstr "FairPlayの使い方"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:111
+msgid ""
+"If you enabled offline mode, you can go down this list and submit the "
+"results to Pkuru.com. Simply tap on the match, then click on the Submit "
+"button. Once the score shows 0 and 0 then it has successfully submitted. "
+"This step is not necessary if you did not enable offline mode. In normal "
+"Online Mode matches will be submitted as soon as you complete them from the "
+"Matches screen."
+msgstr ""
+"オフラインモードを有効にした場合は、このリストを下にスクロールして結果を"
+"Pkuru.comに送信できます。試合をタップし、送信ボタンをクリックするだけです。ス"
+"コアが0と0で表示されたら、正常に送信されています。オフラインモードを有効にし"
+"ていない場合、この手順は必要ありません。通常のオンラインモードでは、試合画面"
+"で完了するとすぐに試合結果が送信されます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:60
+msgid "Launching FairPlay"
+msgstr "FairPlayの起動"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:75
+msgid "Manage Courts and Player Breaks"
+msgstr "コートとプレイヤーの休憩管理"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:105
+msgid "Match History"
+msgstr "対戦履歴"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:90
+msgid "Matches Screen"
+msgstr "試合画面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:110
+msgid "Offline Mode"
+msgstr "オフラインモード"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:76
+msgid ""
+"On the bottom left you can select the number of courts under management by "
+"the app. When it is set to a value greater than 0, the app will "
+"automatically track the number of times everyone has played and determine "
+"who should be taking a break. Players who should be taking a break will be "
+"highlighted in yellow. This is a suggestion, so you can still tap on them to "
+"select them for the next match."
+msgstr ""
+"左下で、アプリで管理するコートの数を選択できます。0より大きい値に設定すると、"
+"アプリは全員がプレイした回数を自動的に追跡し、誰が休憩すべきかを判断します。"
+"休憩すべきプレイヤーは黄色でハイライトされます。これは提案なので、タップして"
+"次の試合に選択することもできます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:86
+msgid ""
+"Once at least 4 players are selected (highlighted in green) from the Queue "
+"screen, you can generate draws with the blue button on the bottom right. The "
+"system will generate all possible combinations of matches for the given "
+"players based on the matchmaking strategy selected. Additionally it will "
+"show you the relative 'quality' of the matches and sort them from highest to "
+"lowest. Quality of the match means whether the match is going to be close or "
+"one-sided. The green highlighted match at the top is the 'recommended match' "
+"which uses some heuristics to select a match that balances quality while "
+"avoiding repeated teams or matches. The list of matches will also highlight "
+"previously played matches or pairs in yellow or red. This allows you as the "
+"organizer to determine whether to avoid repeated matches. Use the blue "
+"button to select a match which will then update the draws for the remaining "
+"players that were selected. Keep selecting matches until all players are in "
+"a match."
+msgstr ""
+"キュー画面から少なくとも4人のプレイヤーが選択されると（緑色でハイライト）、右"
+"下の青いボタンでドローを生成できます。システムは、選択されたマッチメイキング"
+"戦略に基づいて、指定されたプレイヤーのすべての可能な試合の組み合わせを生成し"
+"ます。さらに、試合の相対的な「品質」を表示し、最高から最低まで並べ替えます。"
+"試合の品質とは、試合が接戦になるか一方的になるかを意味します。一番上の緑色で"
+"ハイライトされた試合は「推奨試合」であり、いくつかのヒューリスティックを使用"
+"して、繰り返しのチームや試合を避けながら品質のバランスをとる試合を選択しま"
+"す。試合のリストは、以前にプレイされた試合やペアを黄色または赤色でハイライト"
+"表示します。これにより、主催者は繰り返しの試合を避けるかどうかを判断できま"
+"す。青いボタンを使用して試合を選択すると、選択された残りのプレイヤーのドロー"
+"が更新されます。すべてのプレイヤーが試合に参加するまで、試合を選択し続けま"
+"す。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:115
+msgid "Player Options"
+msgstr "プレイヤーオプション"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:66
+msgid ""
+"Press the large blue button to launch the system. The 'Offline Mode' toggle "
+"should be used if there is no internet connection or if you want to test the "
+"system out without saving any results. In Offline mode, no submissions are "
+"made to Pkuru.com and if you delete the matches or close the web page there "
+"will be no permanent effects of your actions using the system. Additionally "
+"this screen shows the relative strengths of the players and at the bottom of "
+"the page there is a history of all the matches played."
+msgstr ""
+"大きな青いボタンを押してシステムを起動します。「オフラインモード」トグルは、"
+"インターネット接続がない場合や、結果を保存せずにシステムをテストしたい場合に"
+"使用します。オフラインモードでは、Pkuru.comへの送信は行われず、試合を削除した"
+"りウェブページを閉じたりしても、システムを使用したアクションの永続的な影響は"
+"ありません。さらに、この画面にはプレイヤーの相対的な強さが表示され、ページの"
+"下部にはプレイされたすべての試合の履歴があります。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:80
+msgid "Queue Screen"
+msgstr "キュー画面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:65
+msgid "Start Screen"
+msgstr "スタート画面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:101
+msgid ""
+"Tapping on the names on the left side can select the winner without entering "
+"scores. Optionally, the exact score can be entered into the number field on "
+"the right side of each match. Once the green border is around the winner, "
+"the entry is complete and you can leave it as it is. Once results are "
+"entered for all matches, you can use the blue button on the bottom right to "
+"submit all the results at once.If you enabled offline mode, no results are "
+"submitted to Pkuru.com, but ratings will still be updated locally on your "
+"device. Additionally the predicted winner is shown in the red bar at the "
+"bottom."
+msgstr ""
+"左側の名前をタップすると、スコアを入力せずに勝者を選択できます。オプション"
+"で、各試合の右側にある数字フィールドに正確なスコアを入力できます。勝者の周り"
+"に緑色の境界線が表示されたら、入力は完了ですので、そのままにしておいてかまい"
+"ません。すべての試合の結果が入力されたら、右下の青いボタンを使用してすべての"
+"結果を一度に送信できます。オフラインモードを有効にした場合、結果はPkuru.comに"
+"送信されませんが、評価はデバイス上でローカルに更新されます。さらに、予測され"
+"る勝者が下部の赤いバーに表示されます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:61
+msgid ""
+"The FairPlay system can be launched from any event page on Pkuru.com. The "
+"system will automatically load all signed up players, including those in the "
+"waitlist. Players who did not join the event can be added as a guest, but "
+"their ratings and results cannot be saved to Pkuru.com."
+msgstr ""
+"FairPlayシステムは、Pkuru.comのどのイベントページからでも起動できます。システ"
+"ムは、ウェイトリストにいるプレイヤーを含む、すべての登録済みプレイヤーを自動"
+"的に読み込みます。イベントに参加しなかったプレイヤーはゲストとして追加できま"
+"すが、その評価と結果はPkuru.comに保存できません。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:96
+msgid ""
+"The handlebars on the left side of each name can be used to drag and drop "
+"the players into a different match or re-arrange the teams. If you press the "
+"Enter Score button you can select the winner and/or enter the score. If you "
+"want to cancel the match you can press the '...' button."
+msgstr ""
+"各名前の左側にあるハンドルバーを使用して、プレイヤーを別の試合にドラッグアン"
+"ドドロップしたり、チームを再編成したりできます。「スコアを入力」ボタンを押す"
+"と、勝者を選択したり、スコアを入力したりできます。試合をキャンセルしたい場合"
+"は、「...」ボタンを押します。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:81
+msgid ""
+"The second screen is the Queue screen. This is where you can select players "
+"who want to play a match. On the bottom is a button to queue all players. "
+"This button will automatically select everyone and exclude the players who "
+"should be on break (highlighted in yellow). If you play matches in timed "
+"rounds, this is an easy way to select everyone who should participate in the "
+"next round of matches."
+msgstr ""
+"2番目の画面はキュー画面です。ここでは、試合をしたいプレイヤーを選択できます。"
+"下部には、すべてのプレイヤーをキューに入れるボタンがあります。このボタンは、"
+"休憩すべきプレイヤー（黄色でハイライト）を除いて、全員を自動的に選択します。"
+"時間制のラウンドで試合をする場合、これは次のラウンドに参加すべき全員を簡単に"
+"選択する方法です。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:71
+msgid ""
+"The system is composed of 3 main screns. The first is the checkin screen "
+"where you can enable/disable players for the session. Tap on a player's name "
+"to check them in. Green means the player is checked in. Check a player in if "
+"they are ready to play, and check them out if they are leaving early. If a "
+"player wants to take a break and it's not their turn yet, it's easiest to "
+"check them out and then check them back in next round."
+msgstr ""
+"システムは3つの主要な画面で構成されています。最初の画面はチェックイン画面で、"
+"セッションのプレイヤーを有効/無効にできます。プレイヤーの名前をタップして"
+"チェックインします。緑色はプレイヤーがチェックインしたことを意味します。プレ"
+"イする準備ができている場合はプレイヤーをチェックインし、早く帰る場合はチェッ"
+"クアウトします。プレイヤーが休憩を取りたいが、まだ自分の番でない場合は、"
+"チェックアウトして次のラウンドで再度チェックインするのが最も簡単です。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:91
+msgid ""
+"The third and final screen shows the active matches that are being played. "
+"The ordering of the teams is randomized, so you can use this to determine "
+"the serving team (usually the team on top)."
+msgstr ""
+"3番目の最後の画面には、現在プレイされているアクティブな試合が表示されます。"
+"チームの順序はランダム化されているため、これを使用してサーブするチーム（通常"
+"は一番上のチーム）を決定できます。"

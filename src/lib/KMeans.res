@@ -69,6 +69,12 @@ module ClusterResult = {
       )
     (min, max)
   }
+  let concat = (a: t, b: t): t => {
+    {
+      centroid: a.centroid->Array.concat(b.centroid),
+      points: a.points->Array.concat(b.points),
+    }
+  }
 }
 module SortedClusters = {
   type t = Util.NonEmptyArray.t<clusterResult>

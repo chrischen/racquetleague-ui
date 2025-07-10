@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"vxHMzr\":\"住所\",\"FTtysD\":\"住所が必要です\",\"MEvVfp\":\"赤羽小学校\",\"d8/6/v\":\"キャンセル\",\"Px+rYS\":\"詳細\",\"ZwC8OW\":\"この場所で開催されるすべてのイベントに適用される指示または情報。\",\"vCYnNv\":\"場所\",\"lmnGGX\":\"マップリンク\",\"XmJfZT\":\"場所名\",\"26Gms/\":\"場所名は必須\",\"lMpZmf\":\"保存\"}");

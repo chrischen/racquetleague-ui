@@ -53,6 +53,10 @@ var DocumentText = {};
 
 var DocumentTextOutline = {};
 
+var PlusSmallIcon = {};
+
+var MinusSmallIcon = {};
+
 export {
   ArrowPathIcon ,
   PhotoIcon ,
@@ -80,5 +84,7 @@ export {
   LockClosedOutline ,
   DocumentText ,
   DocumentTextOutline ,
+  PlusSmallIcon ,
+  MinusSmallIcon ,
 }
 /* No side effect */

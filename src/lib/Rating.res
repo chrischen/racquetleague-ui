@@ -521,7 +521,7 @@ module Players = {
           firstClusterPlayerCount->Int.toString,
         )
 
-        if firstClusterPlayerCount > 3 {
+        if firstClusterPlayerCount >= 4 {
           // Condition met: first cluster has more than 3 players.
           // Return the result from SortedClusters.make for this k.
           currentlySortedClusters
@@ -531,7 +531,33 @@ module Players = {
           currentlySortedClusters
         } else {
           // Condition not met, and k > 1. Recurse with k-1.
-          findOptimalClustersRecursive(kMeansData, currentKValue - 1)
+          switch currentKValue {
+          | k if k >= 3 =>
+            // Combine the first two clusters
+            let merged = [
+              currentlySortedClusters
+              ->Array.getUnsafe(0)
+              ->KMeans.ClusterResult.concat(currentlySortedClusters->Array.getUnsafe(1)),
+            ]->Array.concat(
+              Array.slice(
+                currentlySortedClusters,
+                ~start=2,
+                ~end=currentlySortedClusters->Array.length,
+              ),
+            )
+            let firstCluster = merged->Array.getUnsafe(0)
+            if firstCluster.points->Array.length > 3 {
+              merged
+            } else {
+              // If the merged cluster still has <= 3 players, recurse with k-1.
+              Js.Console.warn(
+                "K-Means recursion: Merged cluster size is <= 3 for k=" ++
+                currentKValue->Int.toString ++ ". Trying k-1.",
+              )
+              findOptimalClustersRecursive(kMeansData, k - 1)
+            }
+          | k => findOptimalClustersRecursive(kMeansData, k - 1)
+          }
         }
       } else {
         // KMeans library returned no clusters (e.g., kMeansData was empty, or k was 0, or library issue).

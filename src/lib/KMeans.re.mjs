@@ -36,8 +36,16 @@ function getMinMax(cluster) {
         ];
 }
 
+function concat(a, b) {
+  return {
+          centroid: a.centroid.concat(b.centroid),
+          points: a.points.concat(b.points)
+        };
+}
+
 var ClusterResult = {
-  getMinMax: getMinMax
+  getMinMax: getMinMax,
+  concat: concat
 };
 
 function make(t) {

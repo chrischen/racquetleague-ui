@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"KPrAat\":\"前のものを読み込む\",\"8N4rgM\":\"推定DUPR\",\"M9iqFS\":\"女性\",\"z/wCvw\":\"もっとプレイヤーを読み込む...\",\"jBmM6G\":\"ランキングを読み込んでいます...\",\"CvCWBI\":\"男性\",\"GKYoJu\":\"対戦履歴\",\"0mhvIo\":\"プレイヤープロフィールページ\",\"z1U/Fh\":\"評価\",\"HvRBc1\":\"スコア:\"}");

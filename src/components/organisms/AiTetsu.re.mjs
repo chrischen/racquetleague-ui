@@ -577,8 +577,8 @@ function AiTetsu(props) {
   var players = allPlayers.filter(function (p) {
           return !disabled.has(p.id);
         }).toSorted(function (a, b) {
-        var userA = Rating.Rating.ordinal(a.rating);
-        var userB = Rating.Rating.ordinal(b.rating);
+        var userA = a.rating.mu;
+        var userB = b.rating.mu;
         if (userA < userB) {
           return 1;
         } else {

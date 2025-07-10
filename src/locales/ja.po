@@ -1581,6 +1581,348 @@ msgstr ""
 msgid "My Clubs"
 msgstr "私のクラブ"
 
+#: src/components/pages/ViewerClubsPage.re.mjs:73
+msgid "my clubs"
+msgstr "私のクラブ"
+
+#: src/components/pages/PickleballPage.re.mjs:15
+msgid "How to Play Pickleball in Tokyo"
+msgstr "東京でピックルボールをプレイする方法"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:208
+msgid ""
+"As mentioned above, public games are not really a thing in Japan. However, "
+"you can find some public games on the home page of this website. They will "
+"tend to be full with a waitlist so just join the waitlist and cross your "
+"fingers. 5-6 spots tend to open up the day of the event as people cancel "
+"last minute."
+msgstr ""
+"前述の通り、日本では公開ゲームはあまり一般的ではありません。しかし、このウェ"
+"ブサイトのホームページでいくつかの公開ゲームを見つけることができます。これら"
+"は通常、ウェイティングリストで満員になる傾向があるので、ウェイティングリスト"
+"に参加して幸運を祈ってください。イベント当日になると、直前のキャンセルで5〜6"
+"人分の空きが出ることがよくあります。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid "Book a court and find the players yourself."
+msgstr "コートを予約して、自分でプレイヤーを見つけましょう。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:69
+#: src/components/pages/PickleballTokyoPage.re.mjs:98
+#: src/components/pages/PickleballTokyoPage.re.mjs:127
+#: src/components/pages/PickleballTokyoPage.re.mjs:156
+msgid "Book the Court"
+msgstr "コートを予約"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Hilton Tokyo Tennis Courts"
+msgstr "ヒルトン東京テニスコートでイベントを作成"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:62
+msgid "Create an Event at KPI Park"
+msgstr "KPIパークでイベントを作成"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:176
+msgid ""
+"Create an event at one of the locations above (use the buttons above). Make "
+"the event public so people can join you."
+msgstr ""
+"上記の場所のいずれかでイベントを作成します（上記のボタンを使用）。イベントを"
+"公開して、他の人が参加できるようにします。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:91
+msgid "Create an Event at Pacific Pickle Club"
+msgstr "パシフィックピックルクラブでイベントを作成"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:120
+msgid "Create an Event at Tokyo Tower Pickleball"
+msgstr "東京タワーピックルボールでイベントを作成"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Hilton Tokyo Tennis Courts (painted lines)"
+msgstr "ヒルトン東京テニスコート（ペイントライン）"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:170
+msgid "How to Find Players in Tokyo"
+msgstr "東京でプレイヤーを見つける方法"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:204
+msgid "How to Find Public Games"
+msgstr "公開ゲームの見つけ方"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:23
+msgid ""
+"Japan does not really have public drop in courts or games. Most pickleball "
+"games happen indoors at community center and school gymnasiums (multi-use "
+"gyms) or on private tennis/pickleball courts and these all require "
+"reservations for court time, or reservations to join the events. Many of the "
+"public facilities do not allow groups to advertise to the public, which "
+"makes it difficult for new players or visitors to drop in on sessions."
+msgstr ""
+"日本では、一般の人が自由に利用できるコートやゲームはあまりありません。ほとん"
+"どのピックルボールの試合は、公民館や学校の体育館（多目的体育館）などの屋内、"
+"または民間のテニス/ピックルボールコートで行われ、これらはすべてコートの時間予"
+"約、またはイベントへの参加予約が必要です。多くの公共施設では、団体が一般に宣"
+"伝することを許可していないため、新しいプレイヤーや訪問者がセッションに飛び入"
+"り参加することが難しくなっています。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:33
+msgid ""
+"Join any public events on Pkuru.com (this website). If you find an event "
+"without the 'lock' icon and which has a join button, then you can join."
+msgstr ""
+"Pkuru.com（このウェブサイト）で公開イベントに参加してください。「ロック」アイ"
+"コンがなく、参加ボタンがあるイベントを見つけたら、参加できます。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:52
+msgid "KPI Park in Kanagawa/Yokohama"
+msgstr "神奈川/横浜のKPIパーク"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:39
+msgid "Message @japanpickle on Instagram for referrals or questions"
+msgstr ""
+"紹介や質問については、Instagramで@japanpickleにメッセージを送ってください"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:81
+msgid "Pacific Pickle Club at Ariake"
+msgstr "有明のパシフィックピックルクラブ"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:217
+msgid ""
+"Please do not show up to any events without permission and only if you are "
+"in the confirmed going list. Indoor events always require a set of clean "
+"indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr ""
+"許可なくイベントに参加しないでください。参加が確定している方のみご参加いただ"
+"けます。屋内イベントでは、常に清潔な室内専用のコートシューズが必要です。日本"
+"ではこの点について非常に厳しいです。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:191
+msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
+msgstr "FacebookのJPAAグループに投稿する（主に日本語）"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:180
+msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
+msgstr ""
+"Facebookの横須賀（米海軍基地）ピックルボールグループに投稿してください："
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:27
+msgid ""
+"So, how can one play pickleball in Tokyo then as a tourist, recent "
+"transplant, or a beginner?"
+msgstr ""
+"では、観光客、最近移住してきた人、または初心者は、東京でどのようにピックル"
+"ボールをプレイできるのでしょうか？"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:212
+msgid ""
+"Some events are restricted by level. If you are restricted, just type in "
+"your DUPR rating as a comment with your RSVP."
+msgstr ""
+"一部のイベントはレベルによって制限されています。制限されている場合は、RSVPの"
+"コメントにDUPRレーティングを入力してください。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:54
+msgid ""
+"The courts require reservations but there are 10 courts and it's generally "
+"available last minute. Therefore you can book the courts just-in-time once "
+"you've already gathered the players."
+msgstr ""
+"コートは予約が必要ですが、10面あり、通常は直前でも予約可能です。そのため、プ"
+"レイヤーを集めてからジャストインタイムでコートを予約することができます。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:83
+msgid ""
+"The courts require reservations but there are only 2 courts so you will need "
+"to book in advance. They also hold open play sessions but the level may be "
+"low to complete beginner."
+msgstr ""
+"コートは予約が必要ですが、2面しかないので事前に予約する必要があります。オープ"
+"ンプレイセッションも開催していますが、レベルは初心者向けかもしれません。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:110
+msgid "Tokyo Tower Pickleball"
+msgstr "東京タワーピックルボール"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:112
+msgid "Two courts are available. Conditions may be windy."
+msgstr "コートは2面あります。風が強い場合があります。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"Two courts are available. More expensive than other courts and the "
+"conditions can be windy."
+msgstr "コートは2面あります。他のコートよりも高価で、風が強い場合があります。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:45
+msgid "Where to Book Courts in Tokyo"
+msgstr "東京でコートを予約できる場所"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:106
+msgid ""
+"By clicking on the Gear icon in the top left, you can go back to the start "
+"screen. At the bottom of this screen will be the match history."
+msgstr "左上の歯車アイコンをクリックすると、スタート画面に戻ることができます。この画面の下部には、試合の履歴が表示されます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:70
+msgid "Checkin Screen"
+msgstr "チェックイン画面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:95
+msgid "Editing Matches"
+msgstr "試合の編集"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:100
+msgid "Entering Results"
+msgstr "結果の入力"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:116
+msgid ""
+"From the Queue screen you can select some players (highlighted in green) and "
+"take some special actions for them such as creating a team, anti-team, or "
+"setting their genders. The team feature is important if you have a group of "
+"players (2 minimum) who always want to play together, often called a 'fixed-"
+"pair.' The gender is important if you want to use the Gender-Mixed doubles "
+"option when choosing matches."
+msgstr "キュー画面から、いくつかのプレイヤー（緑色でハイライト）を選択し、チームの作成、アンチチームの設定、性別の設定などの特別なアクションを実行できます。チーム機能は、常に一緒にプレイしたいプレイヤーのグループ（最低2人）がいる場合に重要です。これは「固定ペア」と呼ばれることもあります。性別は、男女混合ダブルスのオプションを選択する場合に重要です。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:85
+msgid "Generating Draws"
+msgstr "ドローの生成"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:130
+msgid "How to use FairPlay"
+msgstr "FairPlayの使い方"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:111
+msgid ""
+"If you enabled offline mode, you can go down this list and submit the "
+"results to Pkuru.com. Simply tap on the match, then click on the Submit "
+"button. Once the score shows 0 and 0 then it has successfully submitted. "
+"This step is not necessary if you did not enable offline mode. In normal "
+"Online Mode matches will be submitted as soon as you complete them from the "
+"Matches screen."
+msgstr "オフラインモードを有効にした場合は、このリストを下にスクロールして結果をPkuru.comに送信できます。試合をタップし、送信ボタンをクリックするだけです。スコアが0と0で表示されたら、正常に送信されています。オフラインモードを有効にしていない場合、この手順は必要ありません。通常のオンラインモードでは、試合画面で完了するとすぐに試合結果が送信されます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:60
+msgid "Launching FairPlay"
+msgstr "FairPlayの起動"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:75
+msgid "Manage Courts and Player Breaks"
+msgstr "コートとプレイヤーの休憩管理"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:90
+msgid "Matches Screen"
+msgstr "試合画面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:76
+msgid ""
+"On the bottom left you can select the number of courts under management by "
+"the app. When it is set to a value greater than 0, the app will "
+"automatically track the number of times everyone has played and determine "
+"who should be taking a break. Players who should be taking a break will be "
+"highlighted in yellow. This is a suggestion, so you can still tap on them to "
+"select them for the next match."
+msgstr "左下で、アプリで管理するコートの数を選択できます。0より大きい値に設定すると、アプリは全員がプレイした回数を自動的に追跡し、誰が休憩すべきかを判断します。休憩すべきプレイヤーは黄色でハイライトされます。これは提案なので、タップして次の試合に選択することもできます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:86
+msgid ""
+"Once at least 4 players are selected (highlighted in green) from the Queue "
+"screen, you can generate draws with the blue button on the bottom right. The "
+"system will generate all possible combinations of matches for the given "
+"players based on the matchmaking strategy selected. Additionally it will "
+"show you the relative 'quality' of the matches and sort them from highest to "
+"lowest. Quality of the match means whether the match is going to be close or "
+"one-sided. The green highlighted match at the top is the 'recommended match' "
+"which uses some heuristics to select a match that balances quality while "
+"avoiding repeated teams or matches. The list of matches will also highlight "
+"previously played matches or pairs in yellow or red. This allows you as the "
+"organizer to determine whether to avoid repeated matches. Use the blue "
+"button to select a match which will then update the draws for the remaining "
+"players that were selected. Keep selecting matches until all players are in "
+"a match."
+msgstr "キュー画面から少なくとも4人のプレイヤーが選択されると（緑色でハイライト）、右下の青いボタンでドローを生成できます。システムは、選択されたマッチメイキング戦略に基づいて、指定されたプレイヤーのすべての可能な試合の組み合わせを生成します。さらに、試合の相対的な「品質」を表示し、最高から最低まで並べ替えます。試合の品質とは、試合が接戦になるか一方的になるかを意味します。一番上の緑色でハイライトされた試合は「推奨試合」であり、いくつかのヒューリスティックを使用して、繰り返しのチームや試合を避けながら品質のバランスをとる試合を選択します。試合のリストは、以前にプレイされた試合やペアを黄色または赤色でハイライト表示します。これにより、主催者は繰り返しの試合を避けるかどうかを判断できます。青いボタンを使用して試合を選択すると、選択された残りのプレイヤーのドローが更新されます。すべてのプレイヤーが試合に参加するまで、試合を選択し続けます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:115
+msgid "Player Options"
+msgstr "プレイヤーオプション"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:66
+msgid ""
+"Press the large blue button to launch the system. The 'Offline Mode' toggle "
+"should be used if there is no internet connection or if you want to test the "
+"system out without saving any results. In Offline mode, no submissions are "
+"made to Pkuru.com and if you delete the matches or close the web page there "
+"will be no permanent effects of your actions using the system. Additionally "
+"this screen shows the relative strengths of the players and at the bottom of "
+"the page there is a history of all the matches played."
+msgstr "大きな青いボタンを押してシステムを起動します。「オフラインモード」トグルは、インターネット接続がない場合や、結果を保存せずにシステムをテストしたい場合に使用します。オフラインモードでは、Pkuru.comへの送信は行われず、試合を削除したりウェブページを閉じたりしても、システムを使用したアクションの永続的な影響はありません。さらに、この画面にはプレイヤーの相対的な強さが表示され、ページの下部にはプレイされたすべての試合の履歴があります。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:80
+msgid "Queue Screen"
+msgstr "キュー画面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:65
+msgid "Start Screen"
+msgstr "スタート画面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:101
+msgid ""
+"Tapping on the names on the left side can select the winner without entering "
+"scores. Optionally, the exact score can be entered into the number field on "
+"the right side of each match. Once the green border is around the winner, "
+"the entry is complete and you can leave it as it is. Once results are "
+"entered for all matches, you can use the blue button on the bottom right to "
+"submit all the results at once.If you enabled offline mode, no results are "
+"submitted to Pkuru.com, but ratings will still be updated locally on your "
+"device. Additionally the predicted winner is shown in the red bar at the "
+"bottom."
+msgstr "左側の名前をタップすると、スコアを入力せずに勝者を選択できます。オプションで、各試合の右側にある数字フィールドに正確なスコアを入力できます。勝者の周りに緑色の境界線が表示されたら、入力は完了ですので、そのままにしておいてかまいません。すべての試合の結果が入力されたら、右下の青いボタンを使用してすべての結果を一度に送信できます。オフラインモードを有効にした場合、結果はPkuru.comに送信されませんが、評価はデバイス上でローカルに更新されます。さらに、予測される勝者が下部の赤いバーに表示されます。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:61
+msgid ""
+"The FairPlay system can be launched from any event page on Pkuru.com. The "
+"system will automatically load all signed up players, including those in the "
+"waitlist. Players who did not join the event can be added as a guest, but "
+"their ratings and results cannot be saved to Pkuru.com."
+msgstr "FairPlayシステムは、Pkuru.comのどのイベントページからでも起動できます。システムは、ウェイトリストにいるプレイヤーを含む、すべての登録済みプレイヤーを自動的に読み込みます。イベントに参加しなかったプレイヤーはゲストとして追加できますが、その評価と結果はPkuru.comに保存できません。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:96
+msgid ""
+"The handlebars on the left side of each name can be used to drag and drop "
+"the players into a different match or re-arrange the teams. If you press the "
+"Enter Score button you can select the winner and/or enter the score. If you "
+"want to cancel the match you can press the '...' button."
+msgstr "各名前の左側にあるハンドルバーを使用して、プレイヤーを別の試合にドラッグアンドドロップしたり、チームを再編成したりできます。「スコアを入力」ボタンを押すと、勝者を選択したり、スコアを入力したりできます。試合をキャンセルしたい場合は、「...」ボタンを押します。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:81
+msgid ""
+"The second screen is the Queue screen. This is where you can select players "
+"who want to play a match. On the bottom is a button to queue all players. "
+"This button will automatically select everyone and exclude the players who "
+"should be on break (highlighted in yellow). If you play matches in timed "
+"rounds, this is an easy way to select everyone who should participate in the "
+"next round of matches."
+msgstr "2番目の画面はキュー画面です。ここでは、試合をしたいプレイヤーを選択できます。下部には、すべてのプレイヤーをキューに入れるボタンがあります。このボタンは、休憩すべきプレイヤー（黄色でハイライト）を除いて、全員を自動的に選択します。時間制のラウンドで試合をする場合、これは次のラウンドに参加すべき全員を簡単に選択する方法です。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:71
+msgid ""
+"The system is composed of 3 main screns. The first is the checkin screen "
+"where you can enable/disable players for the session. Tap on a player's name "
+"to check them in. Green means the player is checked in. Check a player in if "
+"they are ready to play, and check them out if they are leaving early. If a "
+"player wants to take a break and it's not their turn yet, it's easiest to "
+"check them out and then check them back in next round."
+msgstr "システムは3つの主要な画面で構成されています。最初の画面はチェックイン画面で、セッションのプレイヤーを有効/無効にできます。プレイヤーの名前をタップしてチェックインします。緑色はプレイヤーがチェックインしたことを意味します。プレイする準備ができている場合はプレイヤーをチェックインし、早く帰る場合はチェックアウトします。プレイヤーが休憩を取りたいが、まだ自分の番でない場合は、チェックアウトして次のラウンドで再度チェックインするのが最も簡単です。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:91
+msgid ""
+"The third and final screen shows the active matches that are being played. "
+"The ordering of the teams is randomized, so you can use this to determine "
+"the serving team (usually the team on top)."
+msgstr "3番目の最後の画面には、現在プレイされているアクティブな試合が表示されます。チームの順序はランダム化されているため、これを使用してサーブするチーム（通常は一番上のチーム）を決定できます。"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"
@@ -1617,3 +1959,27 @@ msgstr "私のクラブ"
 #~ msgstr ""
 #~ "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに"
 #~ "参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+#, fuzzy
+#~ msgid "Book a court and find the players."
+#~ msgstr "コートを予約して、自分でプレイヤーを見つけましょう。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:33
+#, fuzzy
+#~ msgid ""
+#~ "Join any public events on Pkuru.com (this website). If you find an event "
+#~ "without the 'lock' icon and and has a join button, then you can join."
+#~ msgstr ""
+#~ "Pkuru.com（このウェブサイト）で公開イベントに参加してください。「ロック」"
+#~ "アイコンがなく、参加ボタンがあるイベントを見つけたら、参加できます。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:42
+#, fuzzy
+#~ msgid "Where to book courts in Tokyo"
+#~ msgstr "東京でコートを予約できる場所"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:107
+#, fuzzy
+#~ msgid "Where to find players in Tokyo"
+#~ msgstr "東京でプレイヤーを見つける方法"

@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-10 16:14+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventsList.re.mjs:613
+msgid "...load past events"
+msgstr "...過去のイベントを読み込む"
+
+#: src/components/organisms/EventsList.re.mjs:149
+#: src/components/organisms/EventsList.re.mjs:374
+msgid "[location missing]"
+msgstr "[場所がありません]"
+
+#: src/components/organisms/EventsList.re.mjs:311
+msgid "[missing title]"
+msgstr "[タイトルがありません]"
+
+#: src/components/organisms/EventsList.re.mjs:112
+#: src/components/organisms/EventsList.re.mjs:117
+#: src/components/organisms/EventsList.re.mjs:233
+#: src/components/organisms/EventsList.re.mjs:240
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{0, plural, one {{1}} other {{2}}}"
+
+#: src/components/organisms/EventsList.re.mjs:113
+#: src/components/organisms/EventsList.re.mjs:118
+#: src/components/organisms/EventsList.re.mjs:234
+#: src/components/organisms/EventsList.re.mjs:241
+msgid "{0} hour"
+msgstr "{0}時間"
+
+#: src/components/organisms/EventsList.re.mjs:114
+#: src/components/organisms/EventsList.re.mjs:119
+#: src/components/organisms/EventsList.re.mjs:235
+#: src/components/organisms/EventsList.re.mjs:242
+msgid "{0} hours"
+msgstr "{0}時間"
+
+#: src/components/organisms/EventsList.re.mjs:121
+#: src/components/organisms/EventsList.re.mjs:246
+msgid "{0} minute"
+msgstr "{0}分"
+
+#: src/components/organisms/EventsList.re.mjs:122
+#: src/components/organisms/EventsList.re.mjs:247
+msgid "{0} minutes"
+msgstr "{0}分"
+
+#: src/components/organisms/EventsList.re.mjs:451
+msgid "{0} private {shadowCountDesc} hidden"
+msgstr "{0} プライベート {shadowCountDesc} 隠された"
+
+#: src/components/organisms/EventsList.re.mjs:120
+#: src/components/organisms/EventsList.re.mjs:245
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{minutes, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventsList.re.mjs:279
+msgid "{playersCount, plural, one {player} other {players}}"
+msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
+
+#: src/components/organisms/EventsList.re.mjs:425
+msgid "{shadowCount, plural, one {event} other {events}}"
+msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/organisms/EventsList.re.mjs:126
+msgid "🚫 CANCELED"
+msgstr "🚫 キャンセル"
+
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/EventsList.re.mjs:585
+msgid "clear filter"
+msgstr "フィルターをクリア"
+
+#: src/components/organisms/EventsList.re.mjs:583
+msgid "filtering by date"
+msgstr "日付でフィルタリング"
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
+msgstr "Google カレンダー"
+
+#: src/components/organisms/EventsList.re.mjs:256
+msgid "joined"
+msgstr "参加"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:59
+#: src/components/pages/ViewerEventsPage.re.mjs:83
+msgid "my events"
+msgstr "私のイベント"
+
+#: src/components/organisms/EventsList.re.mjs:275
+msgid "players"
+msgstr "プレイヤー"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:65
+msgid "public events"
+msgstr "公開イベント"
+
+#: src/components/organisms/EventsList.re.mjs:555
+msgid "share as text"
+msgstr "テキストとして共有"
+
+#: src/components/organisms/EventsList.re.mjs:459
+msgid "show"
+msgstr "表示"
+
+#: src/components/molecules/AddToCalendar.re.mjs:87
+msgid "sync calendar"
+msgstr "カレンダー同期"
+
+#: src/components/organisms/EventsList.re.mjs:259
+msgid "waitlist"
+msgstr "ウェイトリスト"

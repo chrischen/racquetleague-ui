@@ -14,7 +14,6 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/pages/ViewerClubsPage.re.mjs:73
-#, fuzzy
 msgid "my clubs"
 msgstr "私のクラブ"
 

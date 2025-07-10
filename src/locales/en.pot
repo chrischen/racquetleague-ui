@@ -1644,3 +1644,313 @@ msgstr ""
 #: src/components/organisms/NavViewer.re.mjs:71
 msgid "My Clubs"
 msgstr ""
+
+#: src/components/pages/PickleballPage.re.mjs:15
+msgid "How to Play Pickleball in Tokyo"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:208
+msgid ""
+"As mentioned above, public games are not really a thing in Japan. However, "
+"you can find some public games on the home page of this website. They will "
+"tend to be full with a waitlist so just join the waitlist and cross your "
+"fingers. 5-6 spots tend to open up the day of the event as people cancel "
+"last minute."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid "Book a court and find the players yourself."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:69
+#: src/components/pages/PickleballTokyoPage.re.mjs:98
+#: src/components/pages/PickleballTokyoPage.re.mjs:127
+#: src/components/pages/PickleballTokyoPage.re.mjs:156
+msgid "Book the Court"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Hilton Tokyo Tennis Courts"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:62
+msgid "Create an Event at KPI Park"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:176
+msgid ""
+"Create an event at one of the locations above (use the buttons above). Make "
+"the event public so people can join you."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:91
+msgid "Create an Event at Pacific Pickle Club"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:120
+msgid "Create an Event at Tokyo Tower Pickleball"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Hilton Tokyo Tennis Courts (painted lines)"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:170
+msgid "How to Find Players in Tokyo"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:204
+msgid "How to Find Public Games"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:23
+msgid ""
+"Japan does not really have public drop in courts or games. Most pickleball "
+"games happen indoors at community center and school gymnasiums (multi-use "
+"gyms) or on private tennis/pickleball courts and these all require "
+"reservations for court time, or reservations to join the events. Many of the "
+"public facilities do not allow groups to advertise to the public, which "
+"makes it difficult for new players or visitors to drop in on sessions."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:33
+msgid ""
+"Join any public events on Pkuru.com (this website). If you find an event "
+"without the 'lock' icon and which has a join button, then you can join."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:52
+msgid "KPI Park in Kanagawa/Yokohama"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:39
+msgid "Message @japanpickle on Instagram for referrals or questions"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:81
+msgid "Pacific Pickle Club at Ariake"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:217
+msgid ""
+"Please do not show up to any events without permission and only if you are "
+"in the confirmed going list. Indoor events always require a set of clean "
+"indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:191
+msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:180
+msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:27
+msgid ""
+"So, how can one play pickleball in Tokyo then as a tourist, recent "
+"transplant, or a beginner?"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:212
+msgid ""
+"Some events are restricted by level. If you are restricted, just type in "
+"your DUPR rating as a comment with your RSVP."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:54
+msgid ""
+"The courts require reservations but there are 10 courts and it's generally "
+"available last minute. Therefore you can book the courts just-in-time once "
+"you've already gathered the players."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:83
+msgid ""
+"The courts require reservations but there are only 2 courts so you will need "
+"to book in advance. They also hold open play sessions but the level may be "
+"low to complete beginner."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:110
+msgid "Tokyo Tower Pickleball"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:112
+msgid "Two courts are available. Conditions may be windy."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"Two courts are available. More expensive than other courts and the "
+"conditions can be windy."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:45
+msgid "Where to Book Courts in Tokyo"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:106
+msgid ""
+"By clicking on the Gear icon in the top left, you can go back to the start "
+"screen. At the bottom of this screen will be the match history."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:70
+msgid "Checkin Screen"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:95
+msgid "Editing Matches"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:100
+msgid "Entering Results"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:116
+msgid ""
+"From the Queue screen you can select some players (highlighted in green) and "
+"take some special actions for them such as creating a team, anti-team, or "
+"setting their genders. The team feature is important if you have a group of "
+"players (2 minimum) who always want to play together, often called a 'fixed-"
+"pair.' The gender is important if you want to use the Gender-Mixed doubles "
+"option when choosing matches."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:85
+msgid "Generating Draws"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:130
+msgid "How to use FairPlay"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:111
+msgid ""
+"If you enabled offline mode, you can go down this list and submit the "
+"results to Pkuru.com. Simply tap on the match, then click on the Submit "
+"button. Once the score shows 0 and 0 then it has successfully submitted. "
+"This step is not necessary if you did not enable offline mode. In normal "
+"Online Mode matches will be submitted as soon as you complete them from the "
+"Matches screen."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:60
+msgid "Launching FairPlay"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:75
+msgid "Manage Courts and Player Breaks"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:90
+msgid "Matches Screen"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:76
+msgid ""
+"On the bottom left you can select the number of courts under management by "
+"the app. When it is set to a value greater than 0, the app will "
+"automatically track the number of times everyone has played and determine "
+"who should be taking a break. Players who should be taking a break will be "
+"highlighted in yellow. This is a suggestion, so you can still tap on them to "
+"select them for the next match."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:86
+msgid ""
+"Once at least 4 players are selected (highlighted in green) from the Queue "
+"screen, you can generate draws with the blue button on the bottom right. The "
+"system will generate all possible combinations of matches for the given "
+"players based on the matchmaking strategy selected. Additionally it will "
+"show you the relative 'quality' of the matches and sort them from highest to "
+"lowest. Quality of the match means whether the match is going to be close or "
+"one-sided. The green highlighted match at the top is the 'recommended match' "
+"which uses some heuristics to select a match that balances quality while "
+"avoiding repeated teams or matches. The list of matches will also highlight "
+"previously played matches or pairs in yellow or red. This allows you as the "
+"organizer to determine whether to avoid repeated matches. Use the blue "
+"button to select a match which will then update the draws for the remaining "
+"players that were selected. Keep selecting matches until all players are in "
+"a match."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:115
+msgid "Player Options"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:66
+msgid ""
+"Press the large blue button to launch the system. The 'Offline Mode' toggle "
+"should be used if there is no internet connection or if you want to test the "
+"system out without saving any results. In Offline mode, no submissions are "
+"made to Pkuru.com and if you delete the matches or close the web page there "
+"will be no permanent effects of your actions using the system. Additionally "
+"this screen shows the relative strengths of the players and at the bottom of "
+"the page there is a history of all the matches played."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:80
+msgid "Queue Screen"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:65
+msgid "Start Screen"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:101
+msgid ""
+"Tapping on the names on the left side can select the winner without entering "
+"scores. Optionally, the exact score can be entered into the number field on "
+"the right side of each match. Once the green border is around the winner, "
+"the entry is complete and you can leave it as it is. Once results are "
+"entered for all matches, you can use the blue button on the bottom right to "
+"submit all the results at once.If you enabled offline mode, no results are "
+"submitted to Pkuru.com, but ratings will still be updated locally on your "
+"device. Additionally the predicted winner is shown in the red bar at the "
+"bottom."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:61
+msgid ""
+"The FairPlay system can be launched from any event page on Pkuru.com. The "
+"system will automatically load all signed up players, including those in the "
+"waitlist. Players who did not join the event can be added as a guest, but "
+"their ratings and results cannot be saved to Pkuru.com."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:96
+msgid ""
+"The handlebars on the left side of each name can be used to drag and drop "
+"the players into a different match or re-arrange the teams. If you press the "
+"Enter Score button you can select the winner and/or enter the score. If you "
+"want to cancel the match you can press the '...' button."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:81
+msgid ""
+"The second screen is the Queue screen. This is where you can select players "
+"who want to play a match. On the bottom is a button to queue all players. "
+"This button will automatically select everyone and exclude the players who "
+"should be on break (highlighted in yellow). If you play matches in timed "
+"rounds, this is an easy way to select everyone who should participate in the "
+"next round of matches."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:71
+msgid ""
+"The system is composed of 3 main screns. The first is the checkin screen "
+"where you can enable/disable players for the session. Tap on a player's name "
+"to check them in. Green means the player is checked in. Check a player in if "
+"they are ready to play, and check them out if they are leaving early. If a "
+"player wants to take a break and it's not their turn yet, it's easiest to "
+"check them out and then check them back in next round."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:91
+msgid ""
+"The third and final screen shows the active matches that are being played. "
+"The ordering of the teams is randomized, so you can use this to determine "
+"the serving team (usually the team on top)."
+msgstr ""

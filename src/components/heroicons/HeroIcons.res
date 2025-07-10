@@ -1,6 +1,7 @@
 module ArrowPathIcon = {
   @module("@heroicons/react/24/solid") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ArrowPathIcon"
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ArrowPathIcon"
 }
 module PhotoIcon = {
   @module("@heroicons/react/24/solid") @react.component
@@ -119,4 +120,15 @@ module DocumentTextOutline = {
   @module("@heroicons/react/24/outline") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "DocumentTextIcon"
+}
+
+module PlusSmallIcon = {
+  @module("@heroicons/react/24/outline") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "PlusSmallIcon"
+}
+module MinusSmallIcon = {
+  @module("@heroicons/react/24/outline") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "MinusSmallIcon"
 }

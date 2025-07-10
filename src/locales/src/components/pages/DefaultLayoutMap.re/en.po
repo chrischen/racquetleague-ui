@@ -27,8 +27,13 @@ msgid "Badminton"
 msgstr ""
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:230
-#: src/components/pages/DefaultLayoutMap.re.mjs:293
+#: src/components/pages/DefaultLayoutMap.re.mjs:300
 msgid "Events"
+msgstr ""
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:257
+#: src/components/pages/DefaultLayoutMap.re.mjs:327
+msgid "Find Games"
 msgstr ""
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:88
@@ -54,7 +59,7 @@ msgid "Pickleball"
 msgstr ""
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:214
-#: src/components/pages/DefaultLayoutMap.re.mjs:279
+#: src/components/pages/DefaultLayoutMap.re.mjs:286
 msgid "pkuru"
 msgstr ""
 
@@ -64,7 +69,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:245
-#: src/components/pages/DefaultLayoutMap.re.mjs:308
+#: src/components/pages/DefaultLayoutMap.re.mjs:315
 msgid "Rankings"
 msgstr ""
 

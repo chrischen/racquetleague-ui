@@ -50,7 +50,8 @@ module DisclosurePanel = {
   type state = {close: unit => unit}
   type cb = state => React.element
   @module("@headlessui/react") @react.component
-  external make: (~className: string=?, ~children: cb) => React.element = "DisclosurePanel"
+  external make: (~\"as": 'asType=?, ~className: string=?, ~children: 'children) => React.element =
+    "DisclosurePanel"
 }
 module Menu = {
   @module("@headlessui/react") @react.component

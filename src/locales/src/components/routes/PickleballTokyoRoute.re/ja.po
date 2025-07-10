@@ -1,0 +1,187 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-10 16:14+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:208
+msgid ""
+"As mentioned above, public games are not really a thing in Japan. However, "
+"you can find some public games on the home page of this website. They will "
+"tend to be full with a waitlist so just join the waitlist and cross your "
+"fingers. 5-6 spots tend to open up the day of the event as people cancel "
+"last minute."
+msgstr ""
+"前述の通り、日本では公開ゲームはあまり一般的ではありません。しかし、このウェ"
+"ブサイトのホームページでいくつかの公開ゲームを見つけることができます。これら"
+"は通常、ウェイティングリストで満員になる傾向があるので、ウェイティングリスト"
+"に参加して幸運を祈ってください。イベント当日になると、直前のキャンセルで5〜6"
+"人分の空きが出ることがよくあります。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid "Book a court and find the players yourself."
+msgstr "コートを予約して、自分でプレイヤーを見つけましょう。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:69
+#: src/components/pages/PickleballTokyoPage.re.mjs:98
+#: src/components/pages/PickleballTokyoPage.re.mjs:127
+#: src/components/pages/PickleballTokyoPage.re.mjs:156
+msgid "Book the Court"
+msgstr "コートを予約"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Hilton Tokyo Tennis Courts"
+msgstr "ヒルトン東京テニスコートでイベントを作成"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:62
+msgid "Create an Event at KPI Park"
+msgstr "KPIパークでイベントを作成"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:176
+msgid ""
+"Create an event at one of the locations above (use the buttons above). Make "
+"the event public so people can join you."
+msgstr ""
+"上記の場所のいずれかでイベントを作成します（上記のボタンを使用）。イベントを"
+"公開して、他の人が参加できるようにします。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:91
+msgid "Create an Event at Pacific Pickle Club"
+msgstr "パシフィックピックルクラブでイベントを作成"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:120
+msgid "Create an Event at Tokyo Tower Pickleball"
+msgstr "東京タワーピックルボールでイベントを作成"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Hilton Tokyo Tennis Courts (painted lines)"
+msgstr "ヒルトン東京テニスコート（ペイントライン）"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:170
+msgid "How to Find Players in Tokyo"
+msgstr "東京でプレイヤーを見つける方法"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:204
+msgid "How to Find Public Games"
+msgstr "公開ゲームの見つけ方"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:19
+msgid "How to Play Pickleball in Tokyo"
+msgstr "東京でピックルボールをプレイする方法"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:23
+msgid ""
+"Japan does not really have public drop in courts or games. Most pickleball "
+"games happen indoors at community center and school gymnasiums (multi-use "
+"gyms) or on private tennis/pickleball courts and these all require "
+"reservations for court time, or reservations to join the events. Many of the "
+"public facilities do not allow groups to advertise to the public, which "
+"makes it difficult for new players or visitors to drop in on sessions."
+msgstr ""
+"日本では、一般の人が自由に利用できるコートやゲームはあまりありません。ほとん"
+"どのピックルボールの試合は、公民館や学校の体育館（多目的体育館）などの屋内、"
+"または民間のテニス/ピックルボールコートで行われ、これらはすべてコートの時間予"
+"約、またはイベントへの参加予約が必要です。多くの公共施設では、団体が一般に宣"
+"伝することを許可していないため、新しいプレイヤーや訪問者がセッションに飛び入"
+"り参加することが難しくなっています。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:33
+msgid ""
+"Join any public events on Pkuru.com (this website). If you find an event "
+"without the 'lock' icon and which has a join button, then you can join."
+msgstr ""
+"Pkuru.com（このウェブサイト）で公開イベントに参加してください。「ロック」アイ"
+"コンがなく、参加ボタンがあるイベントを見つけたら、参加できます。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:52
+msgid "KPI Park in Kanagawa/Yokohama"
+msgstr "神奈川/横浜のKPIパーク"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:39
+msgid "Message @japanpickle on Instagram for referrals or questions"
+msgstr ""
+"紹介や質問については、Instagramで@japanpickleにメッセージを送ってください"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:81
+msgid "Pacific Pickle Club at Ariake"
+msgstr "有明のパシフィックピックルクラブ"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:217
+msgid ""
+"Please do not show up to any events without permission and only if you are "
+"in the confirmed going list. Indoor events always require a set of clean "
+"indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr ""
+"許可なくイベントに参加しないでください。参加が確定している方のみご参加いただ"
+"けます。屋内イベントでは、常に清潔な室内専用のコートシューズが必要です。日本"
+"ではこの点について非常に厳しいです。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:191
+msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
+msgstr "FacebookのJPAAグループに投稿する（主に日本語）"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:180
+msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
+msgstr ""
+"Facebookの横須賀（米海軍基地）ピックルボールグループに投稿してください："
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:27
+msgid ""
+"So, how can one play pickleball in Tokyo then as a tourist, recent "
+"transplant, or a beginner?"
+msgstr ""
+"では、観光客、最近移住してきた人、または初心者は、東京でどのようにピックル"
+"ボールをプレイできるのでしょうか？"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:212
+msgid ""
+"Some events are restricted by level. If you are restricted, just type in "
+"your DUPR rating as a comment with your RSVP."
+msgstr ""
+"一部のイベントはレベルによって制限されています。制限されている場合は、RSVPの"
+"コメントにDUPRレーティングを入力してください。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:54
+msgid ""
+"The courts require reservations but there are 10 courts and it's generally "
+"available last minute. Therefore you can book the courts just-in-time once "
+"you've already gathered the players."
+msgstr ""
+"コートは予約が必要ですが、10面あり、通常は直前でも予約可能です。そのため、プ"
+"レイヤーを集めてからジャストインタイムでコートを予約することができます。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:83
+msgid ""
+"The courts require reservations but there are only 2 courts so you will need "
+"to book in advance. They also hold open play sessions but the level may be "
+"low to complete beginner."
+msgstr ""
+"コートは予約が必要ですが、2面しかないので事前に予約する必要があります。オープ"
+"ンプレイセッションも開催していますが、レベルは初心者向けかもしれません。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:110
+msgid "Tokyo Tower Pickleball"
+msgstr "東京タワーピックルボール"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:112
+msgid "Two courts are available. Conditions may be windy."
+msgstr "コートは2面あります。風が強い場合があります。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"Two courts are available. More expensive than other courts and the "
+"conditions can be windy."
+msgstr "コートは2面あります。他のコートよりも高価で、風が強い場合があります。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:45
+msgid "Where to Book Courts in Tokyo"
+msgstr "東京でコートを予約できる場所"

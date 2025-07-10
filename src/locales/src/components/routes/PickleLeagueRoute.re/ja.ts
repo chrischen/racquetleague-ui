@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"FBemUe\":\"日本ピックルリーグ\",\"MOwEv6\":\"東京バドミントンリーグ\"}");

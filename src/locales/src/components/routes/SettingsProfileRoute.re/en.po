@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-07-10 16:14+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:201
+msgid "biography"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:300
+msgid "cancel"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:166
+msgid "details about yourself"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:178
+msgid "Doe John"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:174
+msgid "full name"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:165
+msgid "profile"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:307
+msgid "save"
+msgstr ""
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:36
+msgid "seeking a doubles partner"
+msgstr ""
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:41
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:176
+msgid "Some events require your legal name as shown on an ID card."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:204
+msgid "tell us a little about yourself"
+msgstr ""

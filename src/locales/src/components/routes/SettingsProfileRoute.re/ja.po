@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-10 16:14+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:201
+msgid "biography"
+msgstr "バイオグラフィー"
+
+#: src/components/molecules/forms/Form.re.mjs:300
+msgid "cancel"
+msgstr "キャンセル"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:166
+msgid "details about yourself"
+msgstr "自己紹介"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:178
+msgid "Doe John"
+msgstr "ジョン・ドウ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:174
+msgid "full name"
+msgstr "フルネーム"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:165
+msgid "profile"
+msgstr "プロフィール"
+
+#: src/components/molecules/forms/Form.re.mjs:307
+msgid "save"
+msgstr "保存"
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:36
+msgid "seeking a doubles partner"
+msgstr "ダブルスパートナーを探しています"
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:41
+msgid ""
+"shows a badge next to your name in RSVP lists to tell people you are looking "
+"for a partner"
+msgstr ""
+"RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
+"す。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:176
+msgid "Some events require your legal name as shown on an ID card."
+msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:204
+msgid "tell us a little about yourself"
+msgstr "自己紹介をしてください"
