@@ -7,6 +7,9 @@ module Types = {
   type rec fragment_activity = {
     name: option<string>,
   }
+  and fragment_club = {
+    name: option<string>,
+  }
   and fragment_location = {
     @live id: string,
     name: option<string>,
@@ -23,6 +26,7 @@ module Types = {
   }
   type fragment = {
     activity: option<fragment_activity>,
+    club: option<fragment_club>,
     deleted: option<Util.Datetime.t>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
@@ -99,7 +103,10 @@ v1 = {
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
-};
+},
+v2 = [
+  (v1/*: any*/)
+];
 return {
   "argumentDefinitions": [],
   "kind": "Fragment",
@@ -121,9 +128,7 @@ return {
       "kind": "LinkedField",
       "name": "activity",
       "plural": false,
-      "selections": [
-        (v1/*: any*/)
-      ],
+      "selections": (v2/*: any*/),
       "storageKey": null
     },
     {
@@ -137,6 +142,16 @@ return {
         (v0/*: any*/),
         (v1/*: any*/)
       ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Club",
+      "kind": "LinkedField",
+      "name": "club",
+      "plural": false,
+      "selections": (v2/*: any*/),
       "storageKey": null
     },
     {

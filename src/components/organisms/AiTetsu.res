@@ -791,13 +791,15 @@ let make = (~event, ~children) => {
   }
 
   let submitMatch = (match: Match.t<'a>, score, activitySlug): Js.Promise.t<unit> => {
+    let namespace = score->fst == -1.0 || score->snd == -1.0 ? "doubles:rec" : "doubles:comp"
+
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
       // __id,
       "root"->RescriptRelay.makeDataId,
       "MatchListFragment_matches",
       {
         LeagueEventPageQuery_graphql.Types.activitySlug: Some(activitySlug),
-        namespace: Some("doubles:rec"),
+        namespace: Some(namespace),
         after: None,
         before: None,
         eventId: None,
@@ -810,7 +812,7 @@ let make = (~event, ~children) => {
         ~variables={
           matchInput: {
             activitySlug,
-            namespace: "doubles:rec",
+            namespace,
             doublesMatch: {
               winners: match->fst->Array.map(p => p.id),
               losers: match->snd->Array.map(p => p.id),

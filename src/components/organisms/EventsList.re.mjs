@@ -365,15 +365,25 @@ function EventsList$EventItem(props) {
                               className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
                             }),
                         JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsx("span", {
-                                    children: JsxRuntime.jsx("p", {
-                                          children: secret ? null : Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
-                                                        return Core__Option.map(l.name, (function (name) {
-                                                                      return name;
-                                                                    }));
-                                                      })), t`[location missing]`),
-                                          className: Core$1.cx("truncate", highlightedLocation ? "font-bold" : "")
-                                        }),
+                              children: JsxRuntime.jsxs("span", {
+                                    children: [
+                                      JsxRuntime.jsx("p", {
+                                            children: secret ? null : Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
+                                                          return Core__Option.map(l.name, (function (name) {
+                                                                        return name;
+                                                                      }));
+                                                        })), t`[location missing]`),
+                                            className: Core$1.cx("truncate", highlightedLocation ? "font-bold" : "")
+                                          }),
+                                      Core__Option.getOr(Core__Option.flatMap(match.club, (function (c) {
+                                                  return Core__Option.map(c.name, (function (name) {
+                                                                return JsxRuntime.jsx("p", {
+                                                                            children: name,
+                                                                            className: "text-xs text-gray-500 truncate"
+                                                                          });
+                                                              }));
+                                                })), null)
+                                    ],
                                     className: "whitespace-nowrap"
                                   }),
                               className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"

@@ -51,6 +51,9 @@ module ItemFragment = %relay(`
       id
       name
     }
+    club {
+      name
+    }
     viewerRsvpStatus
     maxRsvps
     rsvps {
@@ -183,17 +186,29 @@ module TextEventItem = {
       let startDate = startDate->Util.Datetime.toDate
       intl->ReactIntl.Intl.formatDateWithOptions(
         startDate,
-        ReactIntl.dateTimeFormatOptions(~weekday=#short, ~day=#numeric, ~month=#numeric, ~timeZone={timezone->Option.getOr("Asia/Tokyo")}, ()),
+        ReactIntl.dateTimeFormatOptions(
+          ~weekday=#short,
+          ~day=#numeric,
+          ~month=#numeric,
+          ~timeZone={timezone->Option.getOr("Asia/Tokyo")},
+          (),
+        ),
       ) ++
       " " ++
-      intl->ReactIntl.Intl.formatTimeWithOptions(startDate, 
+      intl->ReactIntl.Intl.formatTimeWithOptions(
+        startDate,
         ReactIntl.dateTimeFormatOptions(~timeZone={timezone->Option.getOr("Asia/Tokyo")}, ()),
       )
     })
     ->Option.getOr("") ++
     "->" ++
     endDate
-    ->Option.map(endDate => intl->ReactIntl.Intl.formatTimeWithOptions(endDate->Util.Datetime.toDate, ReactIntl.dateTimeFormatOptions(~timeZone=?timezone, ())))
+    ->Option.map(endDate =>
+      intl->ReactIntl.Intl.formatTimeWithOptions(
+        endDate->Util.Datetime.toDate,
+        ReactIntl.dateTimeFormatOptions(~timeZone=?timezone, ()),
+      )
+    )
     ->Option.getOr("") ++
     duration
     ->Option.map(duration => " (" ++ duration ++ ") ")
@@ -258,6 +273,7 @@ module EventItem = {
       title,
       activity,
       location,
+      club,
       startDate,
       rsvps,
       maxRsvps,
@@ -350,15 +366,25 @@ module EventItem = {
           <p className="whitespace-nowrap">
             {startDate
             ->Option.map(startDate =>
-              timezone->Option.map(timezone => <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} timeZone={timezone} />)->Option.getOr(
-              <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
+              timezone
+              ->Option.map(timezone =>
+                <ReactIntl.FormattedTime
+                  value={startDate->Util.Datetime.toDate} timeZone={timezone}
+                />
+              )
+              ->Option.getOr(<ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
             )
             ->Option.getOr(React.null)}
             {" -> "->React.string}
             {endDate
             ->Option.map(endDate =>
-              timezone->Option.map(timezone => <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} timeZone={timezone} />)->Option.getOr(
-              <ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />)
+              timezone
+              ->Option.map(timezone =>
+                <ReactIntl.FormattedTime
+                  value={endDate->Util.Datetime.toDate} timeZone={timezone}
+                />
+              )
+              ->Option.getOr(<ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />)
             )
             ->Option.getOr(React.null)}
             {duration
@@ -373,10 +399,19 @@ module EventItem = {
         <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
           <span className="whitespace-nowrap">
             <p className={Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])}>
-              {secret ? React.null : location
-              ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-              ->Option.getOr(t`[location missing]`)}
+              {secret
+                ? React.null
+                : location
+                  ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
+                  ->Option.getOr(t`[location missing]`)}
             </p>
+            {club
+            ->Option.flatMap(c =>
+              c.name->Option.map(name =>
+                <p className="text-xs text-gray-500 truncate"> {name->React.string} </p>
+              )
+            )
+            ->Option.getOr(React.null)}
           </span>
         </div>
       </div>
@@ -448,7 +483,13 @@ let sortByDate = (
     let startDateString =
       intl->ReactIntl.Intl.formatDateWithOptions(
         startDate,
-        ReactIntl.dateTimeFormatOptions(~weekday=#long, ~day=#numeric, ~month=#short, ~timeZone={event.timezone->Option.getOr("Asia/Tokyo")}, ()),
+        ReactIntl.dateTimeFormatOptions(
+          ~weekday=#long,
+          ~day=#numeric,
+          ~month=#short,
+          ~timeZone={event.timezone->Option.getOr("Asia/Tokyo")},
+          (),
+        ),
       )
 
     filterByDate
