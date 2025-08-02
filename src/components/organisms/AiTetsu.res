@@ -561,6 +561,10 @@ let make = (~event, ~children) => {
   let playersCache = allPlayers->PlayersCache.fromPlayers
   let breakCount = courts == 0 ? 0 : players->Array.length - courts * 4
 
+  let totalCounts =
+    allPlayers->Array.reduce(0, (sum, player) => sum + (sessionState->Session.get(player.id)).count)
+  let avgCount = totalCounts > 0 ? totalCounts->float /. players->Array.length->float : 0.
+
   let seenTeams: RescriptCore.Set.t<string> =
     matchHistory
     ->Array.flatMap(((match, _)) => [match->fst, match->snd])
@@ -730,9 +734,30 @@ let make = (~event, ~children) => {
       let nextState =
         [match->fst, match->snd]
         ->Array.flatMap(x => x)
-        ->Array.reduce(prevState, (state, p) =>
-          state->Session.update(p.id, prev => {count: prev.count + 1, paid: prev.paid})
-        )
+        ->Array.reduce(prevState, (state, p) => {
+          state->Session.update(
+            p.id,
+            prev => {
+              // If player's play count was 0, boost their play count to the average
+              // play count
+              let playCount = (sessionState->Session.get(p.id)).count
+              let newPlayCount =
+                avgCount > 0. && playCount == 0
+                  ? avgCount->Math.floor->int_of_float
+                  : prev.count + 1
+
+              {count: newPlayCount, paid: prev.paid}
+            },
+          )
+        })
+
+      nextState->Session.saveState(eventId)
+      nextState
+    })
+  }
+  let setPlayCount = (player: player, count: int) => {
+    setSessionState(prevState => {
+      let nextState = prevState->Session.update(player.id, prev => {count, paid: prev.paid})
 
       nextState->Session.saveState(eventId)
       nextState

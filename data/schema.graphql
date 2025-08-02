@@ -488,7 +488,7 @@ type User implements Node {
 
 type Viewer {
   adminClubs(after: String, before: String, first: Int): ClubConnection!
-  events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
+  events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int!): EventConnection!
   profile: User
   subscriptions: [Subscription!]!
   user: User

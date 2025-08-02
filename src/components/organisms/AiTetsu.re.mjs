@@ -587,6 +587,10 @@ function AiTetsu(props) {
       });
   var playersCache = Rating.PlayersCache.fromPlayers(allPlayers);
   var breakCount = courts === 0 ? 0 : players.length - (courts << 2) | 0;
+  var totalCounts = Core__Array.reduce(allPlayers, 0, (function (sum, player) {
+          return sum + Session.get(sessionState, player.id).count | 0;
+        }));
+  var avgCount = totalCounts > 0 ? totalCounts / players.length : 0;
   var seenTeams = new Set(matchHistory.flatMap(function (param) {
               var match = param[0];
               return [
@@ -765,8 +769,10 @@ function AiTetsu(props) {
                     return x;
                   }), prevState, (function (state, p) {
                   return Session.update(state, p.id, (function (prev) {
+                                var playCount = Session.get(sessionState, p.id).count;
+                                var newPlayCount = avgCount > 0 && playCount === 0 ? Math.floor(avgCount) | 0 : prev.count + 1 | 0;
                                 return {
-                                        count: prev.count + 1 | 0,
+                                        count: newPlayCount,
                                         paid: prev.paid
                                       };
                               }));
