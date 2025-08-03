@@ -261,6 +261,8 @@ module Checkin = {
     ~disabled: Set.t<string>,
     ~onToggleCheckin: (player, bool) => unit,
     ~addPlayer: option<React.element>=?,
+    ~setCourts,
+    ~courts,
   ) => {
     // ~onUpdatePlayer: (player, bool) => unit,
 
@@ -269,26 +271,46 @@ module Checkin = {
     let minRating =
       players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-      {players
-      ->Array.map(player => {
-        let status = switch (disabled->Set.has(player.id), player.paid) {
-        | (false, true) => MatchRsvpUser.Queued
-        | (false, false) => MatchRsvpUser.Queued
-        | _ => Available
-        }
-        <UiAction
-          key={player.id}
-          onClick={_ => {
-            onToggleCheckin(player, disabled->Set.has(player.id))
-            ()
-          }}>
-          <MatchesView.PlayerView status={status} key={player.id} player minRating maxRating />
-        </UiAction>
-      })
-      ->React.array}
-      {addPlayer->Option.getOr(React.null)}
-    </div>
+    <>
+      <div className="flex justify-center mb-6">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+          <div className="flex items-center justify-center gap-3">
+            <UiAction
+              onClick={_ => setCourts(courts => Js.Math.max_int(0, courts - 1))}
+              className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+              {"-"->React.string}
+            </UiAction>
+            <span className="text-lg font-semibold"> {courts->Int.toString->React.string} </span>
+            <UiAction
+              onClick={_ => setCourts(courts => courts + 1)}
+              className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+              {"+"->React.string}
+            </UiAction>
+            <span className="text-sm text-gray-600 ml-2"> {t`# of courts`} </span>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        {players
+        ->Array.map(player => {
+          let status = switch (disabled->Set.has(player.id), player.paid) {
+          | (false, true) => MatchRsvpUser.Queued
+          | (false, false) => MatchRsvpUser.Queued
+          | _ => Available
+          }
+          <UiAction
+            key={player.id}
+            onClick={_ => {
+              onToggleCheckin(player, disabled->Set.has(player.id))
+              ()
+            }}>
+            <MatchesView.PlayerView status={status} key={player.id} player minRating maxRating />
+          </UiAction>
+        })
+        ->React.array}
+        {addPlayer->Option.getOr(React.null)}
+      </div>
+    </>
   }
 }
 let getDeprioritizedPlayers = (
@@ -1293,6 +1315,8 @@ let make = (~event, ~children) => {
         players=allPlayers
         disabled
         onToggleCheckin={togglePlayerCheckin}
+        setCourts
+        courts
         addPlayer={<DialogUiAction
           triggerContent
           title={(ts`Add Player`)->React.string}

@@ -41,6 +41,7 @@ module Queue = {
     ~togglePlayer: Rating.player => unit,
     ~onToggleSelectedPlayer: Rating.player => unit,
     ~selectedPlayers: Set.t<string>,
+    ~onGoToCheckin: unit => unit,
   ) => {
     // let maxRating =
     //   players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
@@ -115,11 +116,39 @@ module Queue = {
         </FramerMotion.Div>
       })
       ->React.array}
+      <UiAction onClick={_ => onGoToCheckin()}>
+        <div
+          className="flex flex-col items-center justify-center p-4 rounded-lg shadow-md bg-white hover:bg-gray-50 border border-gray-200 cursor-pointer text-gray-700 h-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          <HeroIcons.UserPlusOutline className="h-8 w-8 text-indigo-600 mb-2" />
+          <span className="text-sm font-semibold text-center"> {t`Add/Remove Players`} </span>
+        </div>
+      </UiAction>
     </div>
   }
 }
 
 module ActionBar = {
+  @react.component
+  let make = (~children: React.element) => {
+    <div
+      className="fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center">
+      {children}
+    </div>
+  }
+}
+module CheckinActionBar = {
+  @react.component
+  let make = (~mainActionText: string, ~onMainAction, ~disabled: bool=false) => {
+    <>
+      <UiAction
+        onClick={e => disabled ? () : onMainAction(e)}
+        className="w-full h-[64px] bg-indigo-600 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 flex items-center justify-center">
+        {mainActionText->React.string}
+      </UiAction>
+    </>
+  }
+}
+module QueueActionBar = {
   @react.component
   let make = (
     ~selectAll: unit => unit,
@@ -141,8 +170,7 @@ module ActionBar = {
         other: ts`${selectedPlayersCount->Int.toString} players selected`,
       },
     )
-    <div
-      className="fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center">
+    <>
       <div className={Util.cx([selectedPlayersCount > 0 ? "hidden sm:block" : ""])}>
         <UiAction
           onClick={_ => onChangeBreakCount(breakCount - 1)}
@@ -182,13 +210,15 @@ module ActionBar = {
           <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5 mr-0.5" />
           {selectedAll ? t`Unqueue All` : t`Queue All`}
         </UiAction>
-        <UiAction
-          onClick={e => disabled ? () : onMainAction(e)}
-          className="inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          {mainActionText->React.string}
-        </UiAction>
+        {selectedPlayersCount < 4
+          ? React.null
+          : <UiAction
+              onClick={e => disabled ? () : onMainAction(e)}
+              className="inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              {mainActionText->React.string}
+            </UiAction>}
       </div>
-    </div>
+    </>
   }
 }
 type view = Checkin | Matches | Queue
@@ -235,17 +265,6 @@ let make = (
         className="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         onClick=onClose>
         <HeroIcons.Cog6Tooth className="-ml-0.5 h-5 w-5" />
-      </UiAction>
-      <UiAction
-        className={Util.cx([
-          "ml-3 inline-flex items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-          view == Checkin
-            ? "bg-indigo-600 border-solid border-white border-2"
-            : "bg-black border-solid border-indigo-600 border-2",
-        ])}
-        onClick={_ => setView(_ => Checkin)}>
-        <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5" />
-        {t`Checkin`}
       </UiAction>
       <UiAction
         className={Util.cx([
@@ -323,6 +342,7 @@ let make = (
               | false => togglePlayer(player)
               }
             }}
+            onGoToCheckin={() => setView(_ => Checkin)}
           />
         | Matches =>
           <DndKit.DndContext onDragEnd={_ => ()}>
@@ -418,65 +438,74 @@ let make = (
     {switch view {
     | Matches =>
       // Render MatchesActionBar when view is Matches
-      <ActionBar
-        disabled={submitDisabled}
-        selectedAll={queue->Set.size == availablePlayers->Array.length}
-        selectAll={_ => {
-          setView(_ => Queue)
-          selectAll()
-        }}
-        breakCount
-        onChangeBreakCount
-        mainActionText={ts`SUBMIT RESULTS`}
-        onMainAction={_ => {
-          // Call handleMatchesComplete and potentially switch view
-          setSubmitDisabled(_ => true)
-          handleMatchesComplete()
-          ->Promise.then(_ => {
-            // Optional: Switch view after successful completion?
-            // setView(_ => Queue) // Example: Go back to Queue
-            setSubmitDisabled(_ => false)
-            Promise.resolve()
-          })
-          ->Promise.catch(err => {
-            Js.log2("Error submitting matches:", err)
-            // Handle error display if needed
-            setSubmitDisabled(_ => false)
-            Promise.resolve()
-          })
-          ->ignore
-        }}
-        onSelectedPlayersAction={_ => {
-          setShowSelectedActions(s => !s)
-        }}
-        selectedPlayersCount={queue->Set.size}
-        onClearSelectedPlayers={_ => {
-          // selectedPlayers= Set.make()
-          // setSelectedPlayers(_ => Set.make())
-          setQueue([])
-        }}
-      />
-    | Checkin | Queue =>
-      // Render the original ActionBar for Checkin and Queue views
-      <ActionBar
-        selectedAll={queue->Set.size == availablePlayers->Array.length}
-        selectAll={_ => {
-          setView(_ => Queue)
-          selectAll()
-        }}
-        breakCount
-        onChangeBreakCount
-        mainActionText={ts`CHOOSE MATCH`}
-        onMainAction={_ => setShowMatchSelector(s => !s)}
-        selectedPlayersCount={queue->Set.size}
-        onSelectedPlayersAction={_ => {
-          setShowSelectedActions(s => !s)
-        }}
-        onClearSelectedPlayers={_ => {
-          // setSelectedPlayers(_ => Set.make())
-          setQueue([])
-        }}
-      />
+      <ActionBar>
+        <QueueActionBar
+          disabled={submitDisabled}
+          selectedAll={queue->Set.size == availablePlayers->Array.length}
+          selectAll={_ => {
+            setView(_ => Queue)
+            selectAll()
+          }}
+          breakCount
+          onChangeBreakCount
+          mainActionText={ts`SUBMIT RESULTS`}
+          onMainAction={_ => {
+            // Call handleMatchesComplete and potentially switch view
+            setSubmitDisabled(_ => true)
+            handleMatchesComplete()
+            ->Promise.then(_ => {
+              // Optional: Switch view after successful completion?
+              // setView(_ => Queue) // Example: Go back to Queue
+              setSubmitDisabled(_ => false)
+              Promise.resolve()
+            })
+            ->Promise.catch(err => {
+              Js.log2("Error submitting matches:", err)
+              // Handle error display if needed
+              setSubmitDisabled(_ => false)
+              Promise.resolve()
+            })
+            ->ignore
+          }}
+          onSelectedPlayersAction={_ => {
+            setShowSelectedActions(s => !s)
+          }}
+          selectedPlayersCount={queue->Set.size}
+          onClearSelectedPlayers={_ => {
+            // selectedPlayers= Set.make()
+            // setSelectedPlayers(_ => Set.make())
+            setQueue([])
+          }}
+        />
+      </ActionBar>
+    | Queue =>
+      <ActionBar>
+        <QueueActionBar
+          selectedAll={queue->Set.size == availablePlayers->Array.length}
+          selectAll={_ => {
+            setView(_ => Queue)
+            selectAll()
+          }}
+          breakCount
+          onChangeBreakCount
+          mainActionText={ts`CHOOSE MATCH`}
+          onMainAction={_ => setShowMatchSelector(s => !s)}
+          selectedPlayersCount={queue->Set.size}
+          onSelectedPlayersAction={_ => {
+            setShowSelectedActions(s => !s)
+          }}
+          onClearSelectedPlayers={_ => {
+            // setSelectedPlayers(_ => Set.make())
+            setQueue([])
+          }}
+        />
+      </ActionBar>
+    | Checkin =>
+      <ActionBar>
+        <CheckinActionBar
+          mainActionText={ts`START SESSION`} onMainAction={_ => setView(_ => Queue)}
+        />
+      </ActionBar>
     }}
     <ModalDrawer
       title={ts`Choose Match`}

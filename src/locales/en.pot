@@ -1954,3 +1954,11 @@ msgid ""
 "The ordering of the teams is randomized, so you can use this to determine "
 "the serving team (usually the team on top)."
 msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:125
+msgid "Add/Remove Players"
+msgstr ""
+
+#: src/components/organisms/MatchesView.re.mjs:443
+msgid "START SESSION"
+msgstr ""

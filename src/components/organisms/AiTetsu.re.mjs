@@ -291,6 +291,7 @@ function AiTetsu$Leaderboard(props) {
 }
 
 function AiTetsu$Checkin(props) {
+  var setCourts = props.setCourts;
   var onToggleCheckin = props.onToggleCheckin;
   var disabled = props.disabled;
   var players = props.players;
@@ -308,26 +309,67 @@ function AiTetsu$Checkin(props) {
             return acc;
           }
         }));
-  return JsxRuntime.jsxs("div", {
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                players.map(function (player) {
-                      var match = disabled.has(player.id);
-                      var status = match ? "Available" : "Queued";
-                      return JsxRuntime.jsx(UiAction.make, {
-                                  onClick: (function (param) {
-                                      onToggleCheckin(player, disabled.has(player.id));
-                                    }),
-                                  children: JsxRuntime.jsx(MatchesView.PlayerView.make, {
-                                        player: player,
-                                        minRating: minRating,
-                                        maxRating: maxRating,
-                                        status: status
-                                      }, player.id)
-                                }, player.id);
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsxs("div", {
+                                  children: [
+                                    JsxRuntime.jsx(UiAction.make, {
+                                          onClick: (function (param) {
+                                              setCourts(function (courts) {
+                                                    return Math.max(0, courts - 1 | 0);
+                                                  });
+                                            }),
+                                          className: "rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50",
+                                          children: "-"
+                                        }),
+                                    JsxRuntime.jsx("span", {
+                                          children: props.courts.toString(),
+                                          className: "text-lg font-semibold"
+                                        }),
+                                    JsxRuntime.jsx(UiAction.make, {
+                                          onClick: (function (param) {
+                                              setCourts(function (courts) {
+                                                    return courts + 1 | 0;
+                                                  });
+                                            }),
+                                          className: "rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50",
+                                          children: "+"
+                                        }),
+                                    JsxRuntime.jsx("span", {
+                                          children: t`# of courts`,
+                                          className: "text-sm text-gray-600 ml-2"
+                                        })
+                                  ],
+                                  className: "flex items-center justify-center gap-3"
+                                }),
+                            className: "bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+                          }),
+                      className: "flex justify-center mb-6"
                     }),
-                Core__Option.getOr(props.addPlayer, null)
-              ],
-              className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        players.map(function (player) {
+                              var match = disabled.has(player.id);
+                              var status = match ? "Available" : "Queued";
+                              return JsxRuntime.jsx(UiAction.make, {
+                                          onClick: (function (param) {
+                                              onToggleCheckin(player, disabled.has(player.id));
+                                            }),
+                                          children: JsxRuntime.jsx(MatchesView.PlayerView.make, {
+                                                player: player,
+                                                minRating: minRating,
+                                                maxRating: maxRating,
+                                                status: status
+                                              }, player.id)
+                                        }, player.id);
+                            }),
+                        Core__Option.getOr(props.addPlayer, null)
+                      ],
+                      className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+                    })
+              ]
             });
 }
 
@@ -1034,7 +1076,9 @@ function AiTetsu(props) {
                                   }),
                                 confirmButtonText: t`Done`,
                                 dialogSize: "2xl"
-                              }))
+                              })),
+                      setCourts: setCourts,
+                      courts: courts
                     }),
                 queue: new Set(queue),
                 breakPlayers: deprioritized,

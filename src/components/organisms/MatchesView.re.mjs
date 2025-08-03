@@ -55,6 +55,7 @@ var PlayerView = {
 };
 
 function MatchesView$Queue(props) {
+  var onGoToCheckin = props.onGoToCheckin;
   var selectedPlayers = props.selectedPlayers;
   var onToggleSelectedPlayer = props.onToggleSelectedPlayer;
   var togglePlayer = props.togglePlayer;
@@ -73,43 +74,62 @@ function MatchesView$Queue(props) {
         captureEvent: true,
         cancelOnMovement: true
       });
-  return JsxRuntime.jsx("div", {
-              children: props.players.map(function (player) {
-                    var h = bind(player);
-                    var match = queue.has(player.id);
-                    var match$1 = breakPlayers.has(player.id);
-                    var match$2 = consumedPlayers.has(player.id);
-                    var status = match ? "Queued" : (
-                        match$2 ? "Playing" : (
-                            match$1 ? "Break" : "Available"
-                          )
-                      );
-                    return JsxRuntime.jsx(FramerMotion.motion.div, {
-                                style: ShakeAnimate.getRandomTransformOrigin(),
-                                animate: selectedPlayers.has(player.id) ? ShakeAnimate.variants.start : ShakeAnimate.variants.reset,
-                                onMouseDown: h.onMouseDown,
-                                onMouseUp: h.onMouseUp,
-                                onPointerUp: h.onPointerUp,
-                                onPointerDown: h.onPointerDown,
-                                onPointerMove: h.onPointerMove,
-                                onPointerLeave: h.onPointerLeave,
-                                onTouchStart: h.onTouchStart,
-                                onTouchEnd: h.onTouchEnd,
-                                onTouchMove: h.onTouchMove,
-                                variants: Caml_option.some(ShakeAnimate.variants),
-                                children: Caml_option.some(JsxRuntime.jsx(UiAction.make, {
-                                          onClick: (function (e) {
-                                              togglePlayer(player);
-                                            }),
-                                          children: JsxRuntime.jsx(MatchesView$PlayerView, {
-                                                player: player,
-                                                minRating: 0.0,
-                                                maxRating: 1.0,
-                                                status: status
-                                              }, player.id)
-                                        }))
-                              }, player.id);
-                  }),
+  return JsxRuntime.jsxs("div", {
+              children: [
+                props.players.map(function (player) {
+                      var h = bind(player);
+                      var match = queue.has(player.id);
+                      var match$1 = breakPlayers.has(player.id);
+                      var match$2 = consumedPlayers.has(player.id);
+                      var status = match ? "Queued" : (
+                          match$2 ? "Playing" : (
+                              match$1 ? "Break" : "Available"
+                            )
+                        );
+                      return JsxRuntime.jsx(FramerMotion.motion.div, {
+                                  style: ShakeAnimate.getRandomTransformOrigin(),
+                                  animate: selectedPlayers.has(player.id) ? ShakeAnimate.variants.start : ShakeAnimate.variants.reset,
+                                  onMouseDown: h.onMouseDown,
+                                  onMouseUp: h.onMouseUp,
+                                  onPointerUp: h.onPointerUp,
+                                  onPointerDown: h.onPointerDown,
+                                  onPointerMove: h.onPointerMove,
+                                  onPointerLeave: h.onPointerLeave,
+                                  onTouchStart: h.onTouchStart,
+                                  onTouchEnd: h.onTouchEnd,
+                                  onTouchMove: h.onTouchMove,
+                                  variants: Caml_option.some(ShakeAnimate.variants),
+                                  children: Caml_option.some(JsxRuntime.jsx(UiAction.make, {
+                                            onClick: (function (e) {
+                                                togglePlayer(player);
+                                              }),
+                                            children: JsxRuntime.jsx(MatchesView$PlayerView, {
+                                                  player: player,
+                                                  minRating: 0.0,
+                                                  maxRating: 1.0,
+                                                  status: status
+                                                }, player.id)
+                                          }))
+                                }, player.id);
+                    }),
+                JsxRuntime.jsx(UiAction.make, {
+                      onClick: (function (param) {
+                          onGoToCheckin();
+                        }),
+                      children: JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx(Outline.UserPlusIcon, {
+                                    className: "h-8 w-8 text-indigo-600 mb-2"
+                                  }),
+                              JsxRuntime.jsx("span", {
+                                    children: t`Add/Remove Players`,
+                                    className: "text-sm font-semibold text-center"
+                                  })
+                            ],
+                            className: "flex flex-col items-center justify-center p-4 rounded-lg shadow-md bg-white hover:bg-gray-50 border border-gray-200 cursor-pointer text-gray-700 h-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          })
+                    })
+              ],
               className: Core$1.cx("grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3")
             });
 }
@@ -119,6 +139,40 @@ var Queue = {
 };
 
 function MatchesView$ActionBar(props) {
+  return JsxRuntime.jsx("div", {
+              children: props.children,
+              className: "fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center"
+            });
+}
+
+var ActionBar = {
+  make: MatchesView$ActionBar
+};
+
+function MatchesView$CheckinActionBar(props) {
+  var __disabled = props.disabled;
+  var onMainAction = props.onMainAction;
+  var disabled = __disabled !== undefined ? __disabled : false;
+  return JsxRuntime.jsx(JsxRuntime.Fragment, {
+              children: Caml_option.some(JsxRuntime.jsx(UiAction.make, {
+                        onClick: (function (e) {
+                            if (disabled) {
+                              return ;
+                            } else {
+                              return onMainAction(e);
+                            }
+                          }),
+                        className: "w-full h-[64px] bg-indigo-600 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 flex items-center justify-center",
+                        children: props.mainActionText
+                      }))
+            });
+}
+
+var CheckinActionBar = {
+  make: MatchesView$CheckinActionBar
+};
+
+function MatchesView$QueueActionBar(props) {
   var __disabled = props.disabled;
   var onClearSelectedPlayers = props.onClearSelectedPlayers;
   var selectedPlayersCount = props.selectedPlayersCount;
@@ -132,7 +186,7 @@ function MatchesView$ActionBar(props) {
         one: t`${selectedPlayersCount.toString()} player selected`,
         other: t`${selectedPlayersCount.toString()} players selected`
       });
-  return JsxRuntime.jsxs("div", {
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs("div", {
                       children: [
@@ -187,27 +241,26 @@ function MatchesView$ActionBar(props) {
                                 selectedAll ? t`Unqueue All` : t`Queue All`
                               ]
                             }),
-                        JsxRuntime.jsx(UiAction.make, {
-                              onClick: (function (e) {
-                                  if (disabled) {
-                                    return ;
-                                  } else {
-                                    return onMainAction(e);
-                                  }
-                                }),
-                              className: "inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                              children: props.mainActionText
-                            })
+                        selectedPlayersCount < 4 ? null : JsxRuntime.jsx(UiAction.make, {
+                                onClick: (function (e) {
+                                    if (disabled) {
+                                      return ;
+                                    } else {
+                                      return onMainAction(e);
+                                    }
+                                  }),
+                                className: "inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                children: props.mainActionText
+                              })
                       ],
                       className: "-my-3 py-3 align-middle items-center inline-flex"
                     })
-              ],
-              className: "fixed bottom-0 bg-white w-full flex h-[64px] -ml-3 p-3 justify-between items-center"
+              ]
             });
 }
 
-var ActionBar = {
-  make: MatchesView$ActionBar
+var QueueActionBar = {
+  make: MatchesView$QueueActionBar
 };
 
 function MatchesView(props) {
@@ -372,88 +425,104 @@ function MatchesView(props) {
               onToggleSelectedPlayer: (function (player) {
                   
                 }),
-              selectedPlayers: match$3[0]
+              selectedPlayers: match$3[0],
+              onGoToCheckin: (function () {
+                  setView(function (param) {
+                        return "Checkin";
+                      });
+                })
             });
         break;
     
   }
   var tmp$1;
-  var exit = 0;
   switch (view) {
-    case "Matches" :
+    case "Checkin" :
         tmp$1 = JsxRuntime.jsx(MatchesView$ActionBar, {
-              selectAll: (function () {
-                  setView(function (param) {
-                        return "Queue";
-                      });
-                  selectAll();
-                }),
-              selectedAll: queue.size === availablePlayers.length,
-              breakCount: breakCount,
-              mainActionText: t`SUBMIT RESULTS`,
-              onChangeBreakCount: onChangeBreakCount,
-              onMainAction: (function (param) {
-                  setSubmitDisabled(function (param) {
-                        return true;
-                      });
-                  Core__Promise.$$catch(handleMatchesComplete().then(function (param) {
-                            setSubmitDisabled(function (param) {
-                                  return false;
-                                });
-                            return Promise.resolve();
-                          }), (function (err) {
-                          console.log("Error submitting matches:", err);
-                          setSubmitDisabled(function (param) {
-                                return false;
-                              });
-                          return Promise.resolve();
-                        }));
-                }),
-              onSelectedPlayersAction: (function (param) {
-                  setShowSelectedActions(function (s) {
-                        return !s;
-                      });
-                }),
-              selectedPlayersCount: queue.size,
-              onClearSelectedPlayers: (function () {
-                  setQueue([]);
-                }),
-              disabled: match$1[0]
+              children: JsxRuntime.jsx(MatchesView$CheckinActionBar, {
+                    mainActionText: t`START SESSION`,
+                    onMainAction: (function (param) {
+                        setView(function (param) {
+                              return "Queue";
+                            });
+                      })
+                  })
             });
         break;
-    case "Checkin" :
+    case "Matches" :
+        tmp$1 = JsxRuntime.jsx(MatchesView$ActionBar, {
+              children: JsxRuntime.jsx(MatchesView$QueueActionBar, {
+                    selectAll: (function () {
+                        setView(function (param) {
+                              return "Queue";
+                            });
+                        selectAll();
+                      }),
+                    selectedAll: queue.size === availablePlayers.length,
+                    breakCount: breakCount,
+                    mainActionText: t`SUBMIT RESULTS`,
+                    onChangeBreakCount: onChangeBreakCount,
+                    onMainAction: (function (param) {
+                        setSubmitDisabled(function (param) {
+                              return true;
+                            });
+                        Core__Promise.$$catch(handleMatchesComplete().then(function (param) {
+                                  setSubmitDisabled(function (param) {
+                                        return false;
+                                      });
+                                  return Promise.resolve();
+                                }), (function (err) {
+                                console.log("Error submitting matches:", err);
+                                setSubmitDisabled(function (param) {
+                                      return false;
+                                    });
+                                return Promise.resolve();
+                              }));
+                      }),
+                    onSelectedPlayersAction: (function (param) {
+                        setShowSelectedActions(function (s) {
+                              return !s;
+                            });
+                      }),
+                    selectedPlayersCount: queue.size,
+                    onClearSelectedPlayers: (function () {
+                        setQueue([]);
+                      }),
+                    disabled: match$1[0]
+                  })
+            });
+        break;
     case "Queue" :
-        exit = 1;
+        tmp$1 = JsxRuntime.jsx(MatchesView$ActionBar, {
+              children: JsxRuntime.jsx(MatchesView$QueueActionBar, {
+                    selectAll: (function () {
+                        setView(function (param) {
+                              return "Queue";
+                            });
+                        selectAll();
+                      }),
+                    selectedAll: queue.size === availablePlayers.length,
+                    breakCount: breakCount,
+                    mainActionText: t`CHOOSE MATCH`,
+                    onChangeBreakCount: onChangeBreakCount,
+                    onMainAction: (function (param) {
+                        setShowMatchSelector(function (s) {
+                              return !s;
+                            });
+                      }),
+                    onSelectedPlayersAction: (function (param) {
+                        setShowSelectedActions(function (s) {
+                              return !s;
+                            });
+                      }),
+                    selectedPlayersCount: queue.size,
+                    onClearSelectedPlayers: (function () {
+                        setQueue([]);
+                      })
+                  })
+            });
         break;
     
-  }
-  if (exit === 1) {
-    tmp$1 = JsxRuntime.jsx(MatchesView$ActionBar, {
-          selectAll: (function () {
-              setView(function (param) {
-                    return "Queue";
-                  });
-              selectAll();
-            }),
-          selectedAll: queue.size === availablePlayers.length,
-          breakCount: breakCount,
-          mainActionText: t`CHOOSE MATCH`,
-          onChangeBreakCount: onChangeBreakCount,
-          onMainAction: (function (param) {
-              setShowMatchSelector(function (s) {
-                    return !s;
-                  });
-            }),
-          onSelectedPlayersAction: (function (param) {
-              setShowSelectedActions(function (s) {
-                    return !s;
-                  });
-            }),
-          selectedPlayersCount: queue.size,
-          onClearSelectedPlayers: (function () {
-              setQueue([]);
-            })
-        });
   }
   return JsxRuntime.jsxs("div", {
               children: [
@@ -465,21 +534,6 @@ function MatchesView(props) {
                               children: JsxRuntime.jsx(Solid.Cog6ToothIcon, {
                                     className: "-ml-0.5 h-5 w-5"
                                   })
-                            }),
-                        JsxRuntime.jsxs(UiAction.make, {
-                              onClick: (function (param) {
-                                  setView(function (param) {
-                                        return "Checkin";
-                                      });
-                                }),
-                              className: Core$1.cx("ml-3 inline-flex items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", view === "Checkin" ? "bg-indigo-600 border-solid border-white border-2" : "bg-black border-solid border-indigo-600 border-2"),
-                              children: [
-                                JsxRuntime.jsx(Solid.UsersIcon, {
-                                      className: "-ml-0.5 h-5 w-5",
-                                      "aria-hidden": "true"
-                                    }),
-                                t`Checkin`
-                              ]
                             }),
                         JsxRuntime.jsxs(UiAction.make, {
                               onClick: (function (param) {
@@ -572,6 +626,8 @@ export {
   PlayerView ,
   Queue ,
   ActionBar ,
+  CheckinActionBar ,
+  QueueActionBar ,
   make ,
 }
 /*  Not a pure module */

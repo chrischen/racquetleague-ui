@@ -23,12 +23,12 @@ msgstr ""
 #~ msgid "Futsal"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:613
+#: src/components/organisms/EventsList.re.mjs:623
 msgid "...load past events"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:149
-#: src/components/organisms/EventsList.re.mjs:374
+#: src/components/organisms/EventsList.re.mjs:375
 msgid "[location missing]"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "{0} minutes"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:451
+#: src/components/organisms/EventsList.re.mjs:461
 msgid "{0} private {shadowCountDesc} hidden"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:425
+#: src/components/organisms/EventsList.re.mjs:435
 msgid "{shadowCount, plural, one {event} other {events}}"
 msgstr ""
 
@@ -121,11 +121,11 @@ msgstr ""
 msgid "badminton events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:585
+#: src/components/organisms/EventsList.re.mjs:595
 msgid "clear filter"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:583
+#: src/components/organisms/EventsList.re.mjs:593
 msgid "filtering by date"
 msgstr ""
 
@@ -177,11 +177,11 @@ msgstr ""
 #~ msgid "public events"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:555
+#: src/components/organisms/EventsList.re.mjs:565
 msgid "share as text"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:459
+#: src/components/organisms/EventsList.re.mjs:469
 msgid "show"
 msgstr ""
 

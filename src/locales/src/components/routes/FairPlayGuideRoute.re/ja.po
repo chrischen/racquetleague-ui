@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:106
+#: src/components/pages/FairPlayGuidePage.re.mjs:110
 msgid ""
 "By clicking on the Gear icon in the top left, you can go back to the start "
 "screen. At the bottom of this screen will be the match history."
@@ -21,19 +21,19 @@ msgstr ""
 "左上の歯車アイコンをクリックすると、スタート画面に戻ることができます。この画"
 "面の下部には、試合の履歴が表示されます。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:70
+#: src/components/pages/FairPlayGuidePage.re.mjs:74
 msgid "Checkin Screen"
 msgstr "チェックイン画面"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:95
+#: src/components/pages/FairPlayGuidePage.re.mjs:99
 msgid "Editing Matches"
 msgstr "試合の編集"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:100
+#: src/components/pages/FairPlayGuidePage.re.mjs:104
 msgid "Entering Results"
 msgstr "結果の入力"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:116
+#: src/components/pages/FairPlayGuidePage.re.mjs:120
 msgid ""
 "From the Queue screen you can select some players (highlighted in green) and "
 "take some special actions for them such as creating a team, anti-team, or "
@@ -48,15 +48,15 @@ msgstr ""
 "要です。これは「固定ペア」と呼ばれることもあります。性別は、男女混合ダブルス"
 "のオプションを選択する場合に重要です。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:85
+#: src/components/pages/FairPlayGuidePage.re.mjs:89
 msgid "Generating Draws"
 msgstr "ドローの生成"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:130
+#: src/components/pages/FairPlayGuidePage.re.mjs:132
 msgid "How to use FairPlay"
 msgstr "FairPlayの使い方"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:111
+#: src/components/pages/FairPlayGuidePage.re.mjs:115
 msgid ""
 "If you enabled offline mode, you can go down this list and submit the "
 "results to Pkuru.com. Simply tap on the match, then click on the Submit "
@@ -71,27 +71,27 @@ msgstr ""
 "ていない場合、この手順は必要ありません。通常のオンラインモードでは、試合画面"
 "で完了するとすぐに試合結果が送信されます。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:60
+#: src/components/pages/FairPlayGuidePage.re.mjs:64
 msgid "Launching FairPlay"
 msgstr "FairPlayの起動"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:75
+#: src/components/pages/FairPlayGuidePage.re.mjs:79
 msgid "Manage Courts and Player Breaks"
 msgstr "コートとプレイヤーの休憩管理"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:105
+#: src/components/pages/FairPlayGuidePage.re.mjs:109
 msgid "Match History"
 msgstr "対戦履歴"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:90
+#: src/components/pages/FairPlayGuidePage.re.mjs:94
 msgid "Matches Screen"
 msgstr "試合画面"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:110
+#: src/components/pages/FairPlayGuidePage.re.mjs:114
 msgid "Offline Mode"
 msgstr "オフラインモード"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:76
+#: src/components/pages/FairPlayGuidePage.re.mjs:80
 msgid ""
 "On the bottom left you can select the number of courts under management by "
 "the app. When it is set to a value greater than 0, the app will "
@@ -105,7 +105,7 @@ msgstr ""
 "休憩すべきプレイヤーは黄色でハイライトされます。これは提案なので、タップして"
 "次の試合に選択することもできます。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:86
+#: src/components/pages/FairPlayGuidePage.re.mjs:90
 msgid ""
 "Once at least 4 players are selected (highlighted in green) from the Queue "
 "screen, you can generate draws with the blue button on the bottom right. The "
@@ -135,11 +135,11 @@ msgstr ""
 "が更新されます。すべてのプレイヤーが試合に参加するまで、試合を選択し続けま"
 "す。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:115
+#: src/components/pages/FairPlayGuidePage.re.mjs:119
 msgid "Player Options"
 msgstr "プレイヤーオプション"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:66
+#: src/components/pages/FairPlayGuidePage.re.mjs:70
 msgid ""
 "Press the large blue button to launch the system. The 'Offline Mode' toggle "
 "should be used if there is no internet connection or if you want to test the "
@@ -156,15 +156,15 @@ msgstr ""
 "ありません。さらに、この画面にはプレイヤーの相対的な強さが表示され、ページの"
 "下部にはプレイされたすべての試合の履歴があります。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:80
+#: src/components/pages/FairPlayGuidePage.re.mjs:84
 msgid "Queue Screen"
 msgstr "キュー画面"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:65
+#: src/components/pages/FairPlayGuidePage.re.mjs:69
 msgid "Start Screen"
 msgstr "スタート画面"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:101
+#: src/components/pages/FairPlayGuidePage.re.mjs:105
 msgid ""
 "Tapping on the names on the left side can select the winner without entering "
 "scores. Optionally, the exact score can be entered into the number field on "
@@ -184,7 +184,7 @@ msgstr ""
 "送信されませんが、評価はデバイス上でローカルに更新されます。さらに、予測され"
 "る勝者が下部の赤いバーに表示されます。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:61
+#: src/components/pages/FairPlayGuidePage.re.mjs:65
 msgid ""
 "The FairPlay system can be launched from any event page on Pkuru.com. The "
 "system will automatically load all signed up players, including those in the "
@@ -196,7 +196,7 @@ msgstr ""
 "的に読み込みます。イベントに参加しなかったプレイヤーはゲストとして追加できま"
 "すが、その評価と結果はPkuru.comに保存できません。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:96
+#: src/components/pages/FairPlayGuidePage.re.mjs:100
 msgid ""
 "The handlebars on the left side of each name can be used to drag and drop "
 "the players into a different match or re-arrange the teams. If you press the "
@@ -208,7 +208,7 @@ msgstr ""
 "と、勝者を選択したり、スコアを入力したりできます。試合をキャンセルしたい場合"
 "は、「...」ボタンを押します。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:81
+#: src/components/pages/FairPlayGuidePage.re.mjs:85
 msgid ""
 "The second screen is the Queue screen. This is where you can select players "
 "who want to play a match. On the bottom is a button to queue all players. "
@@ -223,7 +223,7 @@ msgstr ""
 "時間制のラウンドで試合をする場合、これは次のラウンドに参加すべき全員を簡単に"
 "選択する方法です。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:71
+#: src/components/pages/FairPlayGuidePage.re.mjs:75
 msgid ""
 "The system is composed of 3 main screns. The first is the checkin screen "
 "where you can enable/disable players for the session. Tap on a player's name "
@@ -239,7 +239,7 @@ msgstr ""
 "クアウトします。プレイヤーが休憩を取りたいが、まだ自分の番でない場合は、"
 "チェックアウトして次のラウンドで再度チェックインするのが最も簡単です。"
 
-#: src/components/pages/FairPlayGuidePage.re.mjs:91
+#: src/components/pages/FairPlayGuidePage.re.mjs:95
 msgid ""
 "The third and final screen shows the active matches that are being played. "
 "The ordering of the teams is randomized, so you can use this to determine "

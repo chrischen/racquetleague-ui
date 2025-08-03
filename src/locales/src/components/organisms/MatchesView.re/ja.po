@@ -13,28 +13,32 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchesView.re.mjs:132
+#: src/components/organisms/MatchesView.re.mjs:186
 msgid "{0} player selected"
 msgstr "{0}人のプレイヤーが選択されました"
 
-#: src/components/organisms/MatchesView.re.mjs:133
+#: src/components/organisms/MatchesView.re.mjs:187
 msgid "{0} players selected"
 msgstr "{0}人のプレイヤーが選択されました"
 
-#: src/components/organisms/MatchesView.re.mjs:131
+#: src/components/organisms/MatchesView.re.mjs:185
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr "{selectedPlayersCount, plural, one {{0} } other {{1} }}"
 
-#: src/components/organisms/MatchesView.re.mjs:155
+#: src/components/organisms/MatchesView.re.mjs:209
 msgid "# of courts"
 msgstr "コート数"
 
-#: src/components/organisms/MatchesView.re.mjs:554
+#: src/components/organisms/MatchesView.re.mjs:608
 msgid "Actions"
 msgstr "アクション"
 
-#: src/components/organisms/MatchesView.re.mjs:520
-#: src/components/organisms/MatchesView.re.mjs:523
+#: src/components/organisms/MatchesView.re.mjs:125
+msgid "Add/Remove Players"
+msgstr "プレイヤーの追加/削除"
+
+#: src/components/organisms/MatchesView.re.mjs:574
+#: src/components/organisms/MatchesView.re.mjs:577
 msgid "and"
 msgstr "と"
 
@@ -42,15 +46,11 @@ msgstr "と"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/MatchesView.re.mjs:481
-msgid "Checkin"
-msgstr "チェックイン"
-
-#: src/components/organisms/MatchesView.re.mjs:543
+#: src/components/organisms/MatchesView.re.mjs:597
 msgid "Choose Match"
 msgstr "試合を選択"
 
-#: src/components/organisms/MatchesView.re.mjs:440
+#: src/components/organisms/MatchesView.re.mjs:506
 msgid "CHOOSE MATCH"
 msgstr "試合を選択"
 
@@ -58,7 +58,7 @@ msgstr "試合を選択"
 msgid "Close panel"
 msgstr "パネルを閉じる"
 
-#: src/components/organisms/MatchesView.re.mjs:524
+#: src/components/organisms/MatchesView.re.mjs:578
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "コート {0}: {team1} 対 {team2}"
 
@@ -70,7 +70,7 @@ msgstr "スコアを入力"
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/components/organisms/MatchesView.re.mjs:511
+#: src/components/organisms/MatchesView.re.mjs:565
 msgid "Matches"
 msgstr "試合"
 
@@ -84,11 +84,11 @@ msgstr "何点"
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/MatchesView.re.mjs:496
+#: src/components/organisms/MatchesView.re.mjs:550
 msgid "Queue"
 msgstr "キュー"
 
-#: src/components/organisms/MatchesView.re.mjs:187
+#: src/components/organisms/MatchesView.re.mjs:241
 msgid "Queue All"
 msgstr "すべてキューに入れる"
 
@@ -96,11 +96,15 @@ msgstr "すべてキューに入れる"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/MatchesView.re.mjs:393
+#: src/components/organisms/MatchesView.re.mjs:443
+msgid "START SESSION"
+msgstr "セッションを開始"
+
+#: src/components/organisms/MatchesView.re.mjs:463
 msgid "SUBMIT RESULTS"
 msgstr "結果を提出"
 
-#: src/components/organisms/MatchesView.re.mjs:187
+#: src/components/organisms/MatchesView.re.mjs:241
 msgid "Unqueue All"
 msgstr "すべてのキューを解除"
 
@@ -108,6 +112,10 @@ msgstr "すべてのキューを解除"
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "勝者"
+
+#: src/components/organisms/MatchesView.re.mjs:481
+#~ msgid "Checkin"
+#~ msgstr "チェックイン"
 
 #: src/components/organisms/MatchesView.re.mjs:124
 #~ msgid "Deselect All"
