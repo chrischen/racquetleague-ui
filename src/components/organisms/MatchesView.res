@@ -148,6 +148,33 @@ module CheckinActionBar = {
     </>
   }
 }
+module MatchesActionBar = {
+  @react.component
+  let make = (
+    ~selectAll: unit => unit,
+    ~selectedAll: bool,
+    ~mainActionText: string,
+    ~onMainAction,
+    ~disabled: bool=false,
+  ) => {
+    <>
+      <UiAction
+        onClick={_ => selectAll()}
+        className={Util.cx([
+          "inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300",
+          selectedAll ? "bg-green-300" : "",
+        ])}>
+        <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5 mr-0.5" />
+        {selectedAll ? t`Unqueue All` : t`Queue All`}
+      </UiAction>
+      <UiAction
+        onClick={e => disabled ? () : onMainAction(e)}
+        className="bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md">
+        {mainActionText->React.string}
+      </UiAction>
+    </>
+  }
+}
 module QueueActionBar = {
   @react.component
   let make = (
@@ -171,22 +198,22 @@ module QueueActionBar = {
       },
     )
     <>
-      <div className={Util.cx([selectedPlayersCount > 0 ? "hidden sm:block" : ""])}>
-        <UiAction
-          onClick={_ => onChangeBreakCount(breakCount - 1)}
-          className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {"-"->React.string}
-        </UiAction>
-        {(" " ++ breakCount->Int.toString ++ " ")->React.string}
-        <UiAction
-          onClick={_ => onChangeBreakCount(breakCount + 1)}
-          className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {"+"->React.string}
-        </UiAction>
-        {" "->React.string}
-        {t`# of courts`}
-      </div>
-      <div className="-my-3 py-3 align-middle items-center inline-flex">
+      <div className="flex items-center">
+        <div className={Util.cx(["hidden sm:block", "mr-4"])}>
+          <UiAction
+            onClick={_ => onChangeBreakCount(breakCount - 1)}
+            className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            {"-"->React.string}
+          </UiAction>
+          {(" " ++ breakCount->Int.toString ++ " ")->React.string}
+          <UiAction
+            onClick={_ => onChangeBreakCount(breakCount + 1)}
+            className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            {"+"->React.string}
+          </UiAction>
+          {" "->React.string}
+          {t`# of courts`}
+        </div>
         {selectedPlayersCount > 0
           ? <UiAction
               onClick={_ => onClearSelectedPlayers()}
@@ -201,23 +228,25 @@ module QueueActionBar = {
               <UiAction onClick={onSelectedPlayersAction}> {selectedPlayersText} </UiAction>
             </div>
           : React.null}
-        <UiAction
-          onClick={_ => selectAll()}
-          className={Util.cx([
-            "inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300",
-            selectedAll ? "bg-green-300" : "",
-          ])}>
-          <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5 mr-0.5" />
-          {selectedAll ? t`Unqueue All` : t`Queue All`}
-        </UiAction>
-        {selectedPlayersCount < 4
+        {selectedAll
           ? React.null
           : <UiAction
-              onClick={e => disabled ? () : onMainAction(e)}
-              className="inline-block h-100vh align-top py-5 -mr-3 ml-3 bg-indigo-600 px-3.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              {mainActionText->React.string}
+              onClick={_ => selectAll()}
+              className={Util.cx([
+                "inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300",
+                selectedAll ? "bg-green-300" : "",
+              ])}>
+              <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5 mr-0.5" />
+              {selectedAll ? t`Unqueue All` : t`Queue All`}
             </UiAction>}
       </div>
+      {selectedPlayersCount < 4
+        ? React.null
+        : <UiAction
+            onClick={e => disabled ? () : onMainAction(e)}
+            className="bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md">
+            {mainActionText->React.string}
+          </UiAction>}
     </>
   }
 }
@@ -439,15 +468,13 @@ let make = (
     | Matches =>
       // Render MatchesActionBar when view is Matches
       <ActionBar>
-        <QueueActionBar
+        <MatchesActionBar
           disabled={submitDisabled}
           selectedAll={queue->Set.size == availablePlayers->Array.length}
           selectAll={_ => {
             setView(_ => Queue)
             selectAll()
           }}
-          breakCount
-          onChangeBreakCount
           mainActionText={ts`SUBMIT RESULTS`}
           onMainAction={_ => {
             // Call handleMatchesComplete and potentially switch view
@@ -466,15 +493,6 @@ let make = (
               Promise.resolve()
             })
             ->ignore
-          }}
-          onSelectedPlayersAction={_ => {
-            setShowSelectedActions(s => !s)
-          }}
-          selectedPlayersCount={queue->Set.size}
-          onClearSelectedPlayers={_ => {
-            // selectedPlayers= Set.make()
-            // setSelectedPlayers(_ => Set.make())
-            setQueue([])
           }}
         />
       </ActionBar>
