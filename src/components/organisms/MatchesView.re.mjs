@@ -175,35 +175,34 @@ var CheckinActionBar = {
 function MatchesView$MatchesActionBar(props) {
   var __disabled = props.disabled;
   var onMainAction = props.onMainAction;
-  var selectedAll = props.selectedAll;
   var selectAll = props.selectAll;
   var disabled = __disabled !== undefined ? __disabled : false;
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                JsxRuntime.jsxs(UiAction.make, {
-                      onClick: (function (param) {
-                          selectAll();
-                        }),
-                      className: Core$1.cx("inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300", selectedAll ? "bg-green-300" : ""),
-                      children: [
-                        JsxRuntime.jsx(Solid.UsersIcon, {
-                              className: "-ml-0.5 h-5 w-5 mr-0.5",
-                              "aria-hidden": "true"
-                            }),
-                        selectedAll ? t`Unqueue All` : t`Queue All`
-                      ]
-                    }),
-                JsxRuntime.jsx(UiAction.make, {
-                      onClick: (function (e) {
-                          if (disabled) {
-                            return ;
-                          } else {
-                            return onMainAction(e);
-                          }
-                        }),
-                      className: "bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md",
-                      children: props.mainActionText
-                    })
+                JsxRuntime.jsx("div", {}),
+                props.hasMatches ? JsxRuntime.jsx(UiAction.make, {
+                        onClick: (function (e) {
+                            if (disabled) {
+                              return ;
+                            } else {
+                              return onMainAction(e);
+                            }
+                          }),
+                        className: "bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md",
+                        children: props.mainActionText
+                      }) : JsxRuntime.jsxs(UiAction.make, {
+                        onClick: (function (param) {
+                            selectAll();
+                          }),
+                        className: "bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md inline-flex items-center",
+                        children: [
+                          JsxRuntime.jsx(Solid.UsersIcon, {
+                                className: "h-5 w-5 mr-2",
+                                "aria-hidden": "true"
+                              }),
+                          props.selectedAll ? t`Unqueue All` : t`Queue All`
+                        ]
+                      })
               ]
             });
 }
@@ -219,7 +218,6 @@ function MatchesView$QueueActionBar(props) {
   var onMainAction = props.onMainAction;
   var onChangeBreakCount = props.onChangeBreakCount;
   var breakCount = props.breakCount;
-  var selectedAll = props.selectedAll;
   var selectAll = props.selectAll;
   var disabled = __disabled !== undefined ? __disabled : false;
   var selectedPlayersText = plural(selectedPlayersCount, {
@@ -267,24 +265,23 @@ function MatchesView$QueueActionBar(props) {
                                       children: selectedPlayersText
                                     }),
                                 className: "mr-2 text-sm font-semibold text-gray-700"
-                              }) : null,
-                        selectedAll ? null : JsxRuntime.jsxs(UiAction.make, {
-                                onClick: (function (param) {
-                                    selectAll();
-                                  }),
-                                className: Core$1.cx("inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300", selectedAll ? "bg-green-300" : ""),
-                                children: [
-                                  JsxRuntime.jsx(Solid.UsersIcon, {
-                                        className: "-ml-0.5 h-5 w-5 mr-0.5",
-                                        "aria-hidden": "true"
-                                      }),
-                                  selectedAll ? t`Unqueue All` : t`Queue All`
-                                ]
-                              })
+                              }) : null
                       ],
                       className: "flex items-center"
                     }),
-                selectedPlayersCount < 4 ? null : JsxRuntime.jsx(UiAction.make, {
+                selectedPlayersCount < 4 ? JsxRuntime.jsxs(UiAction.make, {
+                        onClick: (function (param) {
+                            selectAll();
+                          }),
+                        className: "bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md inline-flex items-center",
+                        children: [
+                          JsxRuntime.jsx(Solid.UsersIcon, {
+                                className: "h-5 w-5 mr-2",
+                                "aria-hidden": "true"
+                              }),
+                          props.selectedAll ? t`Unqueue All` : t`Queue All`
+                        ]
+                      }) : JsxRuntime.jsx(UiAction.make, {
                         onClick: (function (e) {
                             if (disabled) {
                               return ;
@@ -515,6 +512,7 @@ function MatchesView(props) {
                                 return Promise.resolve();
                               }));
                       }),
+                    hasMatches: matches.length > 0,
                     disabled: match$1[0]
                   })
             });

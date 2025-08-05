@@ -155,23 +155,23 @@ module MatchesActionBar = {
     ~selectedAll: bool,
     ~mainActionText: string,
     ~onMainAction,
+    ~hasMatches: bool,
     ~disabled: bool=false,
   ) => {
     <>
-      <UiAction
-        onClick={_ => selectAll()}
-        className={Util.cx([
-          "inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300",
-          selectedAll ? "bg-green-300" : "",
-        ])}>
-        <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5 mr-0.5" />
-        {selectedAll ? t`Unqueue All` : t`Queue All`}
-      </UiAction>
-      <UiAction
-        onClick={e => disabled ? () : onMainAction(e)}
-        className="bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md">
-        {mainActionText->React.string}
-      </UiAction>
+      <div /> // Empty div to push button to the right
+      {!hasMatches
+        ? <UiAction
+            onClick={_ => selectAll()}
+            className="bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md inline-flex items-center">
+            <HeroIcons.Users \"aria-hidden"="true" className="h-5 w-5 mr-2" />
+            {selectedAll ? t`Unqueue All` : t`Queue All`}
+          </UiAction>
+        : <UiAction
+            onClick={e => disabled ? () : onMainAction(e)}
+            className="bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md">
+            {mainActionText->React.string}
+          </UiAction>}
     </>
   }
 }
@@ -228,20 +228,14 @@ module QueueActionBar = {
               <UiAction onClick={onSelectedPlayersAction}> {selectedPlayersText} </UiAction>
             </div>
           : React.null}
-        {selectedAll
-          ? React.null
-          : <UiAction
-              onClick={_ => selectAll()}
-              className={Util.cx([
-                "inline-flex rounded-md px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300",
-                selectedAll ? "bg-green-300" : "",
-              ])}>
-              <HeroIcons.Users \"aria-hidden"="true" className="-ml-0.5 h-5 w-5 mr-0.5" />
-              {selectedAll ? t`Unqueue All` : t`Queue All`}
-            </UiAction>}
       </div>
       {selectedPlayersCount < 4
-        ? React.null
+        ? <UiAction
+            onClick={_ => selectAll()}
+            className="bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md inline-flex items-center">
+            <HeroIcons.Users \"aria-hidden"="true" className="h-5 w-5 mr-2" />
+            {selectedAll ? t`Unqueue All` : t`Queue All`}
+          </UiAction>
         : <UiAction
             onClick={e => disabled ? () : onMainAction(e)}
             className="bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md">
@@ -476,6 +470,7 @@ let make = (
             selectAll()
           }}
           mainActionText={ts`SUBMIT RESULTS`}
+          hasMatches={matches->Array.length > 0}
           onMainAction={_ => {
             // Call handleMatchesComplete and potentially switch view
             setSubmitDisabled(_ => true)
