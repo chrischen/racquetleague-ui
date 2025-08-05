@@ -60,9 +60,8 @@ let connectionKey = "MatchListFragment_matches"
 )
 
 @live
-let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~activitySlug: string, ~namespace: string, ~userId: option<string>=?) => {
+let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~activitySlug: string, ~namespace: option<string>=?, ~userId: option<string>=?) => {
   let activitySlug = Some(activitySlug)
-  let namespace = Some(namespace)
   let args = {"activitySlug": activitySlug, "namespace": namespace, "userId": userId}
   internal_makeConnectionId(connectionParentDataId, args)
 }

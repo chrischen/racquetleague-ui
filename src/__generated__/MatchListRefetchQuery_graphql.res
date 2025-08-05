@@ -16,7 +16,7 @@ module Types = {
     after?: string,
     before?: string,
     first?: int,
-    namespace: string,
+    namespace?: string,
     userId?: string,
   }
   @live
@@ -25,7 +25,7 @@ module Types = {
     after: option<option<string>>,
     before: option<option<string>>,
     first: option<option<int>>,
-    namespace: option<string>,
+    namespace: option<option<string>>,
     userId: option<option<string>>,
   }
   @live let makeRefetchVariables = (
@@ -377,12 +377,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c917eaf7ec7f7eb4f19e694e2e216d09",
+    "cacheID": "ae967a1c5f062ba9a8d8ac5a20f65f29",
     "id": null,
     "metadata": {},
     "name": "MatchListRefetchQuery",
     "operationKind": "query",
-    "text": "query MatchListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $namespace: String!\n  $userId: ID\n) {\n  ...MatchListFragment_2KkbcH\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query MatchListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $namespace: String\n  $userId: ID\n) {\n  ...MatchListFragment_2KkbcH\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
   }
 };
 })() `)

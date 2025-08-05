@@ -1,7 +1,6 @@
 @genType
 let \"Component" = LeagueEventPage.make
 
-
 type params = {
   ...EventQuery_graphql.Types.variables,
   activitySlug: string,
@@ -34,7 +33,13 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   Router.defer({
     WaitForMessages.data: LeagueEventPageQuery_graphql.load(
       ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-      ~variables={eventId: params.eventId, ?after, ?before, first: 3, activitySlug: params.activitySlug, namespace: "doubles:rec"},
+      ~variables={
+        eventId: params.eventId,
+        ?after,
+        ?before,
+        first: 3,
+        activitySlug: params.activitySlug,
+      },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),
     i18nLoaders: Localized.loadMessages(params.lang, loadMessages),

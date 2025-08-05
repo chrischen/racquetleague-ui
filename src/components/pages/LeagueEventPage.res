@@ -2,7 +2,7 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module Query = %relay(`
-  query LeagueEventPageQuery($eventId: ID!, $after: String, $first: Int, $before: String, $activitySlug: String!, $namespace: String!) {
+  query LeagueEventPageQuery($eventId: ID!, $after: String, $first: Int, $before: String, $activitySlug: String!, $namespace: String) {
     viewer {
       user {
         id
@@ -49,7 +49,9 @@ let make = () => {
                       />
                     </div>
                     <div className="ml-3">
-                      <p className="text-sm text-yellow-700"> {t`please login before managing the session`} </p>
+                      <p className="text-sm text-yellow-700">
+                        {t`please login before managing the session`}
+                      </p>
                     </div>
                   </div>
                 </div>

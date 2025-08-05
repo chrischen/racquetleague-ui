@@ -30,8 +30,7 @@ async function loader(param) {
                     after: after,
                     before: before,
                     eventId: params.eventId,
-                    first: 3,
-                    namespace: "doubles:rec"
+                    first: 3
                   }, "store-or-network", undefined, undefined),
               i18nLoaders: Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
             });

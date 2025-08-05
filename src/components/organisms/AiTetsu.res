@@ -846,7 +846,7 @@ let make = (~event, ~children) => {
       "MatchListFragment_matches",
       {
         LeagueEventPageQuery_graphql.Types.activitySlug: Some(activitySlug),
-        namespace: Some(namespace),
+        namespace: None,
         after: None,
         before: None,
         eventId: None,

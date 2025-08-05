@@ -104,12 +104,7 @@ v6 = {
   "name": "activitySlug",
   "variableName": "activitySlug"
 },
-v7 = {
-  "kind": "Variable",
-  "name": "namespace",
-  "variableName": "namespace"
-},
-v8 = [
+v7 = [
   (v6/*: any*/),
   {
     "kind": "Variable",
@@ -126,73 +121,81 @@ v8 = [
     "name": "first",
     "variableName": "first"
   },
-  (v7/*: any*/),
+  {
+    "kind": "Variable",
+    "name": "namespace",
+    "variableName": "namespace"
+  },
   {
     "kind": "Variable",
     "name": "userId",
     "variableName": "userId"
   }
 ],
-v9 = [
+v8 = [
   {
     "kind": "Variable",
     "name": "id",
     "variableName": "userId"
   }
 ],
-v10 = {
+v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v11 = {
+v10 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "picture",
   "storageKey": null
 },
-v12 = {
+v11 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "lineUsername",
   "storageKey": null
 },
-v13 = {
+v12 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "gender",
   "storageKey": null
 },
-v14 = [
+v13 = [
   (v6/*: any*/),
-  (v7/*: any*/)
+  {
+    "kind": "Literal",
+    "name": "namespace",
+    "value": "doubles:rec"
+  }
 ],
-v15 = {
+v14 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "ordinal",
   "storageKey": null
 },
-v16 = {
+v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "mu",
   "storageKey": null
 },
-v17 = [
-  (v10/*: any*/),
-  (v12/*: any*/),
+v16 = [
+  (v9/*: any*/),
   (v11/*: any*/),
-  (v13/*: any*/)
+  (v10/*: any*/),
+  (v12/*: any*/)
 ],
-v18 = {
+v17 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -219,32 +222,32 @@ return {
     "name": "LeaguePlayerPageQuery",
     "selections": [
       {
-        "args": (v8/*: any*/),
+        "args": (v7/*: any*/),
         "kind": "FragmentSpread",
         "name": "MatchListFragment"
       },
       {
         "alias": null,
-        "args": (v9/*: any*/),
+        "args": (v8/*: any*/),
         "concreteType": "User",
         "kind": "LinkedField",
         "name": "user",
         "plural": false,
         "selections": [
+          (v9/*: any*/),
           (v10/*: any*/),
           (v11/*: any*/),
           (v12/*: any*/),
-          (v13/*: any*/),
           {
             "alias": null,
-            "args": (v14/*: any*/),
+            "args": (v13/*: any*/),
             "concreteType": "Rating",
             "kind": "LinkedField",
             "name": "rating",
             "plural": false,
             "selections": [
-              (v15/*: any*/),
-              (v16/*: any*/)
+              (v14/*: any*/),
+              (v15/*: any*/)
             ],
             "storageKey": null
           },
@@ -275,7 +278,7 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v8/*: any*/),
+        "args": (v7/*: any*/),
         "concreteType": "MatchConnection",
         "kind": "LinkedField",
         "name": "matches",
@@ -297,7 +300,7 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v10/*: any*/),
+                  (v9/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -305,7 +308,7 @@ return {
                     "kind": "LinkedField",
                     "name": "winners",
                     "plural": true,
-                    "selections": (v17/*: any*/),
+                    "selections": (v16/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -315,7 +318,7 @@ return {
                     "kind": "LinkedField",
                     "name": "losers",
                     "plural": true,
-                    "selections": (v17/*: any*/),
+                    "selections": (v16/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -391,13 +394,13 @@ return {
             ],
             "storageKey": null
           },
-          (v18/*: any*/)
+          (v17/*: any*/)
         ],
         "storageKey": null
       },
       {
         "alias": null,
-        "args": (v8/*: any*/),
+        "args": (v7/*: any*/),
         "filters": [
           "activitySlug",
           "namespace",
@@ -408,30 +411,30 @@ return {
         "kind": "LinkedHandle",
         "name": "matches"
       },
-      (v18/*: any*/),
+      (v17/*: any*/),
       {
         "alias": null,
-        "args": (v9/*: any*/),
+        "args": (v8/*: any*/),
         "concreteType": "User",
         "kind": "LinkedField",
         "name": "user",
         "plural": false,
         "selections": [
+          (v9/*: any*/),
           (v10/*: any*/),
           (v11/*: any*/),
           (v12/*: any*/),
-          (v13/*: any*/),
           {
             "alias": null,
-            "args": (v14/*: any*/),
+            "args": (v13/*: any*/),
             "concreteType": "Rating",
             "kind": "LinkedField",
             "name": "rating",
             "plural": false,
             "selections": [
+              (v14/*: any*/),
               (v15/*: any*/),
-              (v16/*: any*/),
-              (v10/*: any*/)
+              (v9/*: any*/)
             ],
             "storageKey": null
           }
@@ -441,12 +444,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e393578a97327ab224eaa28204eab523",
+    "cacheID": "d60f0590ccb4fde7eb135c9f6ae9af73",
     "id": null,
     "metadata": {},
     "name": "LeaguePlayerPageQuery",
     "operationKind": "query",
-    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n  $userId: ID!\n) {\n  ...MatchListFragment_2KkbcH\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace) {\n      ordinal\n      mu\n      id\n    }\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n  $userId: ID!\n) {\n  ...MatchListFragment_2KkbcH\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: \"doubles:rec\") {\n      ordinal\n      mu\n      id\n    }\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
   }
 };
 })());

@@ -20,7 +20,7 @@ export type params = {
   readonly after?: string; 
   readonly before?: string; 
   readonly first?: number; 
-  readonly namespace: string; 
+  readonly namespace?: string; 
   readonly userId: string; 
   readonly lang: (undefined | string)
 };

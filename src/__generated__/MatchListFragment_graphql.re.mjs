@@ -22,10 +22,9 @@ var Internal = {
 
 function makeConnectionId(connectionParentDataId, activitySlug, namespace, userId) {
   var activitySlug$1 = activitySlug;
-  var namespace$1 = namespace;
   var args = {
     activitySlug: activitySlug$1,
-    namespace: namespace$1,
+    namespace: namespace,
     userId: userId
   };
   return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "MatchListFragment_matches", args);

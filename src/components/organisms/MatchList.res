@@ -10,7 +10,7 @@ module Fragment = %relay(`
     before: { type: "String" }
     first: { type: "Int", defaultValue: 20 }
     activitySlug: { type: "String!" }
-    namespace: { type: "String!" }
+    namespace: { type: "String" }
     userId: { type: "ID" }
   )
   @refetchable(queryName: "MatchListRefetchQuery")
@@ -294,13 +294,15 @@ let make = (~matches, ~user=?) => {
         ? {
             pageInfo.endCursor
             ->Option.map(endCursor =>
-              <Link to={"./" ++ "?after=" ++ endCursor->encodeURIComponent}> {t`Load more matches...`} </Link>
+              <Link to={"./" ++ "?after=" ++ endCursor->encodeURIComponent}>
+                {t`Load more matches...`}
+              </Link>
             )
             ->Option.getOr(React.null)
           }
         : React.null}
     </div>
-    </>
+  </>
   // </Layout.Container>
 }
 

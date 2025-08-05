@@ -863,7 +863,7 @@ function AiTetsu(props) {
           before: undefined,
           eventId: undefined,
           first: undefined,
-          namespace: namespace
+          namespace: undefined
         });
     return new Promise((function (resolve, reject) {
                   commitMutationCreateLeagueMatch({

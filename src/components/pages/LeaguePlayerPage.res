@@ -7,7 +7,7 @@ module Query = %relay(`
     $first: Int
     $before: String
     $activitySlug: String!
-    $namespace: String!
+    $namespace: String
     $userId: ID!
   ) {
     ...MatchListFragment
@@ -24,7 +24,7 @@ module Query = %relay(`
       picture
       lineUsername
       gender
-      rating(activitySlug: $activitySlug, namespace: $namespace) {
+      rating(activitySlug: $activitySlug, namespace: "doubles:rec") {
         ordinal
         mu
       }
