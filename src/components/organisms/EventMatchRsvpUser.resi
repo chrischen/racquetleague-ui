@@ -6,4 +6,5 @@ let make: MatchRsvpUser.props<
   float,
   float,
   Rating.player,
+  int,
 > => React.element

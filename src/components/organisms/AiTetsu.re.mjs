@@ -811,7 +811,7 @@ function AiTetsu(props) {
                     return x;
                   }), prevState, (function (state, p) {
                   return Session.update(state, p.id, (function (prev) {
-                                var playCount = Session.get(sessionState, p.id).count;
+                                var playCount = Math.max(Session.get(sessionState, p.id).count, 1);
                                 var newPlayCount = avgCount > 0 && playCount === 0 ? Math.floor(avgCount) | 0 : prev.count + 1 | 0;
                                 return {
                                         count: newPlayCount,
@@ -1237,7 +1237,8 @@ function AiTetsu(props) {
                                           className: "mt-6 flex flex-col justify-end gap-x-6"
                                         }))
                               });
-                  })
+                  }),
+                sessionState: sessionState
               });
   }
   var tmp;

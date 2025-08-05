@@ -3,7 +3,9 @@ open Lingui.Util
 
 module PlayerView = {
   @react.component
-  let make = (~player: Rating.player, ~minRating, ~maxRating, ~status) => {
+  let make = (~player: Rating.player, ~minRating, ~maxRating, ~status, ~sessionState: option<Session.t>=?) => {
+    let playCount = sessionState->Option.map(session => (session->Session.get(player.id)).count)
+    
     // <div className="rounded-lg bg-white shadow p-8">
     switch player.data {
     | Some(data) =>
@@ -15,6 +17,7 @@ module PlayerView = {
           user={user.fragmentRefs}
           ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
           player
+          ?playCount
         />
       })
       ->Option.getOr(React.null)
@@ -25,6 +28,7 @@ module PlayerView = {
         user={Rating.makeGuest(player.name)}
         ratingPercent={(player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.}
         player
+        ?playCount
       />
     }
   }
@@ -42,6 +46,7 @@ module Queue = {
     ~onToggleSelectedPlayer: Rating.player => unit,
     ~selectedPlayers: Set.t<string>,
     ~onGoToCheckin: unit => unit,
+    ~sessionState: Session.t,
   ) => {
     // let maxRating =
     //   players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
@@ -111,7 +116,7 @@ module Queue = {
             onClick={e => {
               togglePlayer(player)
             }}>
-            <PlayerView status={status} key={player.id} player minRating maxRating />
+            <PlayerView status={status} key={player.id} player minRating maxRating sessionState />
           </UiAction>
         </FramerMotion.Div>
       })
@@ -273,6 +278,7 @@ let make = (
   ~onChangeBreakCount: int => unit,
   ~matchSelector: React.element,
   ~selectedPlayersActions: array<Rating.player> => React.element,
+  ~sessionState: Session.t,
 ) => {
   let ts = Lingui.UtilString.t
   // let (view, setView) = React.useState(() => Matches)
@@ -366,6 +372,7 @@ let make = (
               }
             }}
             onGoToCheckin={() => setView(_ => Checkin)}
+            sessionState
           />
         | Matches =>
           <DndKit.DndContext onDragEnd={_ => ()}>

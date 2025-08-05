@@ -24,6 +24,7 @@ let make = (
     'a,
     'b,
     Rating.player,
+    int,
   >,
 ) => {
   let user: EventMatchRsvpUser_user_graphql.Types.fragment = Fragment.use(props.user)

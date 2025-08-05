@@ -42,6 +42,12 @@ function MatchRsvpUser(props) {
                   className: "absolute inset-x-0 -top-px bottom-0"
                 }),
             user.name,
+            Core__Option.getOr(Core__Option.map(props.playCount, (function (count) {
+                        return JsxRuntime.jsx("span", {
+                                    children: count.toString(),
+                                    className: "ml-2 text-sm text-gray-600"
+                                  });
+                      })), null),
             highlight === "Break" ? JsxRuntime.jsx(LucideReact.Clock, {
                     className: "mr-1.5 h-7 w-7 flex-shrink-0 text-gray-500",
                     "aria-hidden": "true"

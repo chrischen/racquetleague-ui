@@ -762,7 +762,7 @@ let make = (~event, ~children) => {
             prev => {
               // If player's play count was 0, boost their play count to the average
               // play count
-              let playCount = (sessionState->Session.get(p.id)).count
+              let playCount = Js.Math.max_int((sessionState->Session.get(p.id)).count, 1)
               let newPlayCount =
                 avgCount > 0. && playCount == 0
                   ? avgCount->Math.floor->int_of_float
@@ -1450,6 +1450,7 @@ let make = (~event, ~children) => {
           </UiAction>
         </div>
       </>}
+      sessionState
     />
   }
 }

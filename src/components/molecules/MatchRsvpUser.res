@@ -40,6 +40,7 @@ let make = (
   ~rating as _: option<float>=?,
   ~ratingPercent as _: option<float>=?,
   ~player: Rating.player,
+  ~playCount: option<int>=?,
 ) => {
   open LangProvider.Router
   // open Lingui.Util;
@@ -113,6 +114,13 @@ let make = (
             // {switch highlight {
             // | true => <strong className="text-lg"> {user.name->React.string} </strong>
             {user.name->React.string}
+            {playCount
+            ->Option.map(count =>
+              <span className="ml-2 text-sm text-gray-600">
+                {`${count->Int.toString}`->React.string}
+              </span>
+            )
+            ->Option.getOr(React.null)}
             {highlight == Break
               ? <Lucide.Clock
                   className="mr-1.5 h-7 w-7 flex-shrink-0 text-gray-500" \"aria-hidden"="true"

@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
+import * as Session from "../../lib/Session.re.mjs";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -30,6 +31,9 @@ function MatchesView$PlayerView(props) {
   var maxRating = props.maxRating;
   var minRating = props.minRating;
   var player = props.player;
+  var playCount = Core__Option.map(props.sessionState, (function (session) {
+          return Session.get(session, player.id).count;
+        }));
   var data = player.data;
   if (data !== undefined) {
     return Core__Option.getOr(Core__Option.map(data.user, (function (user) {
@@ -37,7 +41,8 @@ function MatchesView$PlayerView(props) {
                                   user: user.fragmentRefs,
                                   highlight: status,
                                   ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100,
-                                  player: player
+                                  player: player,
+                                  playCount: playCount
                                 }, user.id);
                     })), null);
   } else {
@@ -45,7 +50,8 @@ function MatchesView$PlayerView(props) {
                 user: Rating.makeGuest(player.name),
                 highlight: status,
                 ratingPercent: (player.rating.mu - minRating) / (maxRating - minRating) * 100,
-                player: player
+                player: player,
+                playCount: playCount
               }, player.id);
   }
 }
@@ -55,6 +61,7 @@ var PlayerView = {
 };
 
 function MatchesView$Queue(props) {
+  var sessionState = props.sessionState;
   var onGoToCheckin = props.onGoToCheckin;
   var selectedPlayers = props.selectedPlayers;
   var onToggleSelectedPlayer = props.onToggleSelectedPlayer;
@@ -107,7 +114,8 @@ function MatchesView$Queue(props) {
                                                   player: player,
                                                   minRating: 0.0,
                                                   maxRating: 1.0,
-                                                  status: status
+                                                  status: status,
+                                                  sessionState: sessionState
                                                 }, player.id)
                                           }))
                                 }, player.id);
@@ -465,7 +473,8 @@ function MatchesView(props) {
                   setView(function (param) {
                         return "Checkin";
                       });
-                })
+                }),
+              sessionState: props.sessionState
             });
         break;
     
