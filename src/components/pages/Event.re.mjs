@@ -327,51 +327,49 @@ function $$Event(props) {
                                                                                             ],
                                                                                             className: "text-base leading-6 text-gray-500"
                                                                                           }),
-                                                                                      JsxRuntime.jsxs("div", {
-                                                                                            children: [
-                                                                                              JsxRuntime.jsxs("div", {
-                                                                                                    children: [
-                                                                                                      Core__Option.getOr($$event.tags, []).includes("comp") ? JsxRuntime.jsx("div", {
-                                                                                                              children: JsxRuntime.jsx(LucideReact.Trophy, {
-                                                                                                                    className: "h-6 w-6"
-                                                                                                                  }),
-                                                                                                              className: "flex-none text-yellow-500"
-                                                                                                            }) : null,
-                                                                                                      JsxRuntime.jsxs("span", {
-                                                                                                            children: [
-                                                                                                              Core__Option.getOr(Core__Option.flatMap(activity, (function (a) {
-                                                                                                                          return Core__Option.map(a.name, (function (name) {
-                                                                                                                                        return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                                                                    to: "/?activity=" + Core__Option.getOr(a.slug, ""),
-                                                                                                                                                    children: Core.i18n._(name)
-                                                                                                                                                  });
-                                                                                                                                      }));
+                                                                                      JsxRuntime.jsx("div", {
+                                                                                            children: JsxRuntime.jsxs("div", {
+                                                                                                  children: [
+                                                                                                    Core__Option.getOr(Core__Option.map($$event.deleted, (function (param) {
+                                                                                                                return JsxRuntime.jsx("span", {
+                                                                                                                            children: t`CANCELED`,
+                                                                                                                            className: "mr-2"
+                                                                                                                          });
+                                                                                                              })), null),
+                                                                                                    Core__Option.getOr($$event.tags, []).includes("comp") ? JsxRuntime.jsx("div", {
+                                                                                                            children: JsxRuntime.jsx(LucideReact.Trophy, {
+                                                                                                                  className: "h-6 w-6"
+                                                                                                                }),
+                                                                                                            className: "flex-none text-yellow-500"
+                                                                                                          }) : null,
+                                                                                                    JsxRuntime.jsxs("span", {
+                                                                                                          children: [
+                                                                                                            Core__Option.getOr(Core__Option.flatMap(activity, (function (a) {
+                                                                                                                        return Core__Option.map(a.name, (function (name) {
+                                                                                                                                      return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                                                                  to: "/?activity=" + Core__Option.getOr(a.slug, ""),
+                                                                                                                                                  children: Core.i18n._(name)
+                                                                                                                                                });
+                                                                                                                                    }));
+                                                                                                                      })), null),
+                                                                                                            " / ",
+                                                                                                            secret ? "---" : Core__Option.getOr(Core__Option.map(title, (function (prim) {
+                                                                                                                          return prim;
                                                                                                                         })), null),
-                                                                                                              " / ",
-                                                                                                              secret ? "---" : Core__Option.getOr(Core__Option.map(title, (function (prim) {
-                                                                                                                            return prim;
-                                                                                                                          })), null),
-                                                                                                              Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
-                                                                                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                                                                                      children: [
-                                                                                                                                        " / ",
-                                                                                                                                        duration
-                                                                                                                                      ]
-                                                                                                                                    });
-                                                                                                                        })), null)
-                                                                                                            ],
-                                                                                                            className: Core$1.cx(Core__Option.isSome($$event.deleted) ? "line-through" : "")
-                                                                                                          })
-                                                                                                    ],
-                                                                                                    className: "flex items-center gap-x-3"
-                                                                                                  }),
-                                                                                              Core__Option.getOr(Core__Option.map($$event.deleted, (function (param) {
-                                                                                                          return JsxRuntime.jsx("span", {
-                                                                                                                      children: t`CANCELED`,
-                                                                                                                      className: "ml-2"
-                                                                                                                    });
-                                                                                                        })), null)
-                                                                                            ],
+                                                                                                            Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
+                                                                                                                        return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                                                                    children: [
+                                                                                                                                      " / ",
+                                                                                                                                      duration
+                                                                                                                                    ]
+                                                                                                                                  });
+                                                                                                                      })), null)
+                                                                                                          ],
+                                                                                                          className: Core$1.cx(Core__Option.isSome($$event.deleted) ? "line-through" : "")
+                                                                                                        })
+                                                                                                  ],
+                                                                                                  className: "flex items-center gap-x-3"
+                                                                                                }),
                                                                                             className: Core$1.cx("mt-1 text-2xl font-semibold leading-6 text-gray-900")
                                                                                           }),
                                                                                       Core__Option.getOr(Core__Option.flatMap($$event.club, (function (club) {

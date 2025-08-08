@@ -246,6 +246,9 @@ let make = () => {
                       className={Util.cx(["mt-1 text-2xl font-semibold leading-6 text-gray-900"])}>
                       // <PageTitle>
                       <div className="flex items-center gap-x-3">
+                        {event.deleted
+                        ->Option.map(_ => <span className="mr-2"> {t`CANCELED`} </span>)
+                        ->Option.getOr(React.null)}
                         {event.tags
                         ->Option.getOr([])
                         ->Array.includes("comp")
@@ -277,9 +280,6 @@ let make = () => {
                           ->Option.getOr(React.null)}
                         </span>
                       </div>
-                      {event.deleted
-                      ->Option.map(_ => <span className="ml-2"> {t`CANCELED`} </span>)
-                      ->Option.getOr(React.null)}
 
                       // </PageTitle>
                     </div>
