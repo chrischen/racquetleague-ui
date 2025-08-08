@@ -17,15 +17,15 @@ msgstr ""
 msgid "...load previous matches"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1518
+#: src/components/organisms/AiTetsu.re.mjs:1519
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:186
+#: src/components/organisms/MatchesView.re.mjs:232
 msgid "{0} player selected"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:187
+#: src/components/organisms/MatchesView.re.mjs:233
 msgid "{0} players selected"
 msgstr ""
 
@@ -33,16 +33,16 @@ msgstr ""
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:185
+#: src/components/organisms/MatchesView.re.mjs:231
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:209
+#: src/components/organisms/MatchesView.re.mjs:257
 #: src/components/organisms/AiTetsu.re.mjs:341
 msgid "# of courts"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:608
+#: src/components/organisms/MatchesView.re.mjs:642
 msgid "Actions"
 msgstr ""
 
@@ -58,11 +58,11 @@ msgstr ""
 msgid "Add Player"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:125
+#: src/components/organisms/MatchesView.re.mjs:133
 msgid "Add/Remove Players"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1436
+#: src/components/organisms/AiTetsu.re.mjs:1437
 msgid "Advanced Options"
 msgstr ""
 
@@ -70,8 +70,8 @@ msgstr ""
 msgid "Analyzed {0} matches."
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:574
-#: src/components/organisms/MatchesView.re.mjs:577
+#: src/components/organisms/MatchesView.re.mjs:608
+#: src/components/organisms/MatchesView.re.mjs:611
 msgid "and"
 msgstr ""
 
@@ -88,19 +88,19 @@ msgstr ""
 #~ msgid "Checkin"
 #~ msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1451
+#: src/components/organisms/AiTetsu.re.mjs:1452
 msgid "Checkin All Players"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:597
+#: src/components/organisms/MatchesView.re.mjs:631
 msgid "Choose Match"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:506
+#: src/components/organisms/MatchesView.re.mjs:540
 msgid "CHOOSE MATCH"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1328
+#: src/components/organisms/AiTetsu.re.mjs:1329
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Competitive"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:578
+#: src/components/organisms/MatchesView.re.mjs:612
 msgid "Court {0}: {team1} versus {team2}"
 msgstr ""
 
@@ -149,11 +149,11 @@ msgstr ""
 msgid "How many players should rest? (currently {0} players are resting)"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1322
+#: src/components/organisms/AiTetsu.re.mjs:1323
 msgid "Initialize Ratings"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1402
+#: src/components/organisms/AiTetsu.re.mjs:1403
 msgid "Leaderboard"
 msgstr ""
 
@@ -167,7 +167,7 @@ msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:409
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
-#: src/components/organisms/AiTetsu.re.mjs:1553
+#: src/components/organisms/AiTetsu.re.mjs:1554
 msgid "Loading"
 msgstr ""
 
@@ -175,19 +175,19 @@ msgstr ""
 msgid "Loading matches..."
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1427
+#: src/components/organisms/AiTetsu.re.mjs:1428
 msgid "Loading..."
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1533
+#: src/components/organisms/AiTetsu.re.mjs:1534
 msgid "manual team"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1570
+#: src/components/organisms/AiTetsu.re.mjs:1571
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:565
+#: src/components/organisms/MatchesView.re.mjs:599
 msgid "Matches"
 msgstr ""
 
@@ -211,8 +211,8 @@ msgstr ""
 msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1369
-#: src/components/organisms/AiTetsu.re.mjs:1391
+#: src/components/organisms/AiTetsu.re.mjs:1370
+#: src/components/organisms/AiTetsu.re.mjs:1392
 msgid "Offline Mode"
 msgstr ""
 
@@ -236,7 +236,7 @@ msgstr ""
 msgid "Players in an anti-team will never be placed in a match together."
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1250
+#: src/components/organisms/AiTetsu.re.mjs:1251
 msgid "Players in teams will always be placed in a match together on the same side."
 msgstr ""
 
@@ -258,15 +258,16 @@ msgstr ""
 msgid "predicted winner"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:550
+#: src/components/organisms/MatchesView.re.mjs:584
 msgid "Queue"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:241
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
 msgid "Queue All"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1444
+#: src/components/organisms/AiTetsu.re.mjs:1445
 msgid "Queue All Players"
 msgstr ""
 
@@ -318,11 +319,11 @@ msgstr ""
 msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1360
+#: src/components/organisms/AiTetsu.re.mjs:1361
 msgid "Start Session"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:443
+#: src/components/organisms/MatchesView.re.mjs:487
 msgid "START SESSION"
 msgstr ""
 
@@ -330,11 +331,11 @@ msgstr ""
 msgid "Submit Rated"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:463
+#: src/components/organisms/MatchesView.re.mjs:506
 msgid "SUBMIT RESULTS"
 msgstr ""
 
-#: src/components/organisms/AiTetsu.re.mjs:1561
+#: src/components/organisms/AiTetsu.re.mjs:1562
 msgid "Submitted Matches"
 msgstr ""
 
@@ -350,7 +351,8 @@ msgstr ""
 msgid "Totally random teams."
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:241
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
 msgid "Unqueue All"
 msgstr ""
 

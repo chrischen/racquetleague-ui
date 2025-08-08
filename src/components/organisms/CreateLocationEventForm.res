@@ -25,6 +25,7 @@ module Mutation = %relay(`
        endDate
        listed
        timezone
+       tags
      }
    }
  }
@@ -49,6 +50,7 @@ module EventFragment = %relay(`
     endDate
     listed
     timezone
+    tags
   }
 `)
 module UpdateMutation = %relay(`
@@ -79,6 +81,7 @@ module UpdateMutation = %relay(`
        startDate
        endDate
        listed
+       tags
      }
      rsvps {
        id
@@ -177,6 +180,7 @@ let makeAction = (event: option<CreateLocationEventForm_event_graphql.Types.frag
 @react.component
 let make = (~event=?, ~location, ~query) => {
   open Lingui.Util
+  let ts = Lingui.UtilString.t
   let td = Lingui.UtilString.dynamic
   open Form
   let event = event->Option.map(event => EventFragment.use(event))
@@ -230,6 +234,26 @@ let make = (~event=?, ~location, ~query) => {
     ->Option.getOr(clubs->Array.get(0)->Option.map(c => c.id))
   )
 
+  let (selectedTags, setSelectedTags) = React.useState(() =>
+    event
+    ->Option.map(e => e.tags->Option.getOr([]))
+    ->Option.getOr([])
+  )
+
+  let getTagTooltip = tag =>
+    switch tag {
+    | "drill" => ts`Skills practice and drills focused on technique improvement`
+    | "rec" => ts`Recreational play that will not be submitted to competitive ratings nor DUPR.`
+    | "comp" => ts`Results will be submitted to the JPL rating system and/or DUPR.`
+    | "all level" => ts`No restriction on skill level. Open to all players.`
+    | "3.0+" => ts`Lower intermediate and above`
+    | "3.5+" => ts`Upper intermediate and above`
+    | "4.0+" => ts`Advanced players`
+    | "4.5+" => ts`Highly skilled players`
+    | "5.0+" => ts`Professional players`
+    | _ => ts`Event tag: ${tag}`
+    }
+
   React.useEffect(() => {
     switch action {
     | Create =>
@@ -257,7 +281,8 @@ let make = (~event=?, ~location, ~query) => {
   }, [])
 
   let onSubmit = (data: inputs) => {
-    Js.log(data)
+    // Filter out "rec" since it's the default (represented by absence of type tags)
+    let tagsToSubmit = selectedTags->Array.filter(tag => tag !== "rec")
     switch action {
     | Create =>
       let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -282,6 +307,7 @@ let make = (~event=?, ~location, ~query) => {
             endDate: endDate->Util.Datetime.fromDate,
             listed: data.listed,
             timezone: ?data.timezone,
+            tags: tagsToSubmit,
           },
           connections: [connectionId],
         },
@@ -309,6 +335,7 @@ let make = (~event=?, ~location, ~query) => {
               endDate: endDate->Util.Datetime.fromDate,
               listed: data.listed,
               timezone: ?data.timezone,
+              tags: tagsToSubmit,
             },
           },
           ~onCompleted=(_response, _errors) => {
@@ -435,6 +462,122 @@ let make = (~event=?, ~location, ~query) => {
                   />
                 </div>
                 <div className="col-span-full">
+                  <label className="block text-sm font-medium leading-6 text-gray-900">
+                    {t`type of event`}
+                  </label>
+                  <Radix.Tooltip.Provider>
+                    <div className="mt-2 flex gap-2">
+                      {["comp", "rec", "drill"]
+                      ->Array.map(tag => {
+                        let isSelected =
+                          selectedTags->Array.includes(tag) ||
+                            (!(selectedTags->Array.includes("comp")) &&
+                            !(selectedTags->Array.includes("drill")) &&
+                            tag == "rec")
+                        <Radix.Tooltip.Root key={tag} delayDuration=200.>
+                          <Radix.Tooltip.Trigger asChild=true>
+                            <button
+                              type_="button"
+                              onClick={_ => {
+                                let typeTags = ["comp", "rec"]
+                                let newTags = if isSelected {
+                                  selectedTags->Array.filter(t => t !== tag)
+                                } else if typeTags->Array.includes(tag) {
+                                  // If selecting comp or rec, remove the other one and add this one
+                                  selectedTags
+                                  ->Array.filter(t => !(typeTags->Array.includes(t)))
+                                  ->Array.concat([tag])
+                                } else {
+                                  // For drill or other tags, just add normally
+                                  selectedTags->Array.concat([tag])
+                                }
+                                setSelectedTags(_ => newTags)
+                              }}
+                              className={Util.cx([
+                                "inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-help",
+                                isSelected
+                                  ? "bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600"
+                                  : "bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-indigo-600",
+                              ])}>
+                              {td(tag)->React.string}
+                            </button>
+                          </Radix.Tooltip.Trigger>
+                          <Radix.Tooltip.Content
+                            side=#top
+                            className="z-50 overflow-hidden rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95">
+                            {getTagTooltip(tag)->React.string}
+                          </Radix.Tooltip.Content>
+                        </Radix.Tooltip.Root>
+                      })
+                      ->React.array}
+                    </div>
+                  </Radix.Tooltip.Provider>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {t`Select tags that best describe this event`}
+                  </p>
+                </div>
+                <div className="col-span-full">
+                  <label className="block text-sm font-medium leading-6 text-gray-900">
+                    {t`level of play`}
+                  </label>
+                  <Radix.Tooltip.Provider>
+                    <div className="mt-2 flex gap-2">
+                      {["all level", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
+                      ->Array.map(tag => {
+                        let levelTags = ["all level", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
+                        let selectedLevelTags =
+                          selectedTags->Array.filter(t => levelTags->Array.includes(t))
+                        let isSelected =
+                          selectedTags->Array.includes(tag) ||
+                            (selectedLevelTags->Array.length == 0 && tag == "all level")
+                        <Radix.Tooltip.Root key={tag} delayDuration=200.>
+                          <Radix.Tooltip.Trigger asChild=true>
+                            <button
+                              type_="button"
+                              onClick={_ => {
+                                let levelTags = [
+                                  "all level",
+                                  "3.0+",
+                                  "3.5+",
+                                  "4.0+",
+                                  "4.5+",
+                                  "5.0+",
+                                ]
+                                let newTags = if isSelected {
+                                  selectedTags->Array.filter(t => t !== tag)
+                                } else if tag == "all level" {
+                                  // If selecting "all level", remove all other level tags and add "all level"
+                                  selectedTags->Array.filter(t => !(levelTags->Array.includes(t)))
+                                } else {
+                                  // If selecting a specific level, remove "all level" and add the specific level
+                                  selectedTags->Array.concat([tag])
+                                }
+                                setSelectedTags(_ => newTags)
+                              }}
+                              className={Util.cx([
+                                "inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-help",
+                                isSelected
+                                  ? "bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600"
+                                  : "bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-indigo-600",
+                              ])}>
+                              {td(tag)->React.string}
+                            </button>
+                          </Radix.Tooltip.Trigger>
+                          <Radix.Tooltip.Content
+                            side=#top
+                            className="z-50 overflow-hidden rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95">
+                            {getTagTooltip(tag)->React.string}
+                          </Radix.Tooltip.Content>
+                        </Radix.Tooltip.Root>
+                      })
+                      ->React.array}
+                    </div>
+                  </Radix.Tooltip.Provider>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {t`Select tags that best describe this event`}
+                  </p>
+                </div>
+                <div className="col-span-full">
                   <TextArea
                     label={t`location details`}
                     id="location_details"
@@ -508,3 +651,12 @@ td({id: "Futsal"})->ignore
 td({id: "Basketball"})->ignore
 @live
 td({id: "Volleyball"})->ignore
+
+@live
+td({id: "drill"})->ignore
+@live
+td({id: "comp"})->ignore
+@live
+td({id: "rec"})->ignore
+@live
+td({id: "all level"})->ignore

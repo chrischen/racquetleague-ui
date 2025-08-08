@@ -33,6 +33,7 @@ module EventQuery = %relay(`
       endDate
       timezone
       shadow
+      tags
       location {
         id
         name
@@ -176,6 +177,20 @@ let make = () => {
     }
     let secret = shadow->Option.getOr(false)
 
+    let getTagTooltip = tag =>
+      switch tag {
+      | "drill" => ts`Skills practice and drills focused on technique improvement`
+      | "rec" => ts`Recreational play that will not be submitted to competitive ratings nor DUPR.`
+      | "comp" => ts`Results will be submitted to the JPL rating system and/or DUPR.`
+      | "all level" => ts`No restriction on skill level. Open to all players.`
+      | "3.0+" => ts`Lower intermediate and above`
+      | "3.5+" => ts`Upper intermediate and above`
+      | "4.0+" => ts`Advanced players`
+      | "4.5+" => ts`Highly skilled players`
+      | "5.0+" => ts`Professional players`
+      | _ => ts`Event tag: ${tag}`
+      }
+
     <WaitForMessages>
       {() =>
         <main>
@@ -213,14 +228,18 @@ let make = () => {
                       {t`event @`}
                       {" "->React.string}
                       <span className="text-gray-700">
-                        {secret ? "---"->React.string : location
-                        ->Option.flatMap(location =>
-                          location.name->Option.map(
-                            name =>
-                              <Link to={"/locations/" ++ location.id}> {name->React.string} </Link>,
-                          )
-                        )
-                        ->Option.getOr(React.null)}
+                        {secret
+                          ? "---"->React.string
+                          : location
+                            ->Option.flatMap(location =>
+                              location.name->Option.map(
+                                name =>
+                                  <Link to={"/locations/" ++ location.id}>
+                                    {name->React.string}
+                                  </Link>,
+                              )
+                            )
+                            ->Option.getOr(React.null)}
                       </span>
                     </div>
                     <div
@@ -239,7 +258,9 @@ let make = () => {
                         )
                         ->Option.getOr(React.null)}
                         {" / "->React.string}
-                        {secret ? "---"->React.string : title->Option.map(React.string)->Option.getOr(React.null)}
+                        {secret
+                          ? "---"->React.string
+                          : title->Option.map(React.string)->Option.getOr(React.null)}
                         {duration
                         ->Option.map(duration => <>
                           {" / "->React.string}
@@ -305,6 +326,39 @@ let make = () => {
                   )
                   ->Option.getOr("???"->React.string)}
                 </div>
+                {event.tags
+                ->Option.map(tags => {
+                  let levelTags = ["all level", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
+                  let hasLevelTags = tags->Array.some(tag => levelTags->Array.includes(tag))
+                  let displayTags = hasLevelTags ? tags : tags->Array.concat(["all level"])
+                  displayTags
+                })
+                ->Option.filter(tags => tags->Array.length > 0)
+                ->Option.map(tags =>
+                  <Radix.Tooltip.Provider>
+                    <div className="mt-2 mb-2 flex gap-2">
+                      {tags
+                      ->Array.map(
+                        tag =>
+                          <Radix.Tooltip.Root key={tag} delayDuration=200.>
+                            <Radix.Tooltip.Trigger asChild=true>
+                              <span
+                                className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
+                                {td(tag)->React.string}
+                              </span>
+                            </Radix.Tooltip.Trigger>
+                            <Radix.Tooltip.Content
+                              side=#top
+                              className="z-50 overflow-hidden rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95">
+                              {getTagTooltip(tag)->React.string}
+                            </Radix.Tooltip.Content>
+                          </Radix.Tooltip.Root>,
+                      )
+                      ->React.array}
+                    </div>
+                  </Radix.Tooltip.Provider>
+                )
+                ->Option.getOr(React.null)}
                 <div className="flex items-center gap-x-4 sm:gap-x-6">
                   // <button
                   //   type_="button"
@@ -429,7 +483,11 @@ let make = () => {
                     <ErrorAlert
                       cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
                       {t`this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral.`}
-                      <p><strong>{t`showing up without permission may result in a ban for failing to follow rules.`}</strong></p>
+                      <p>
+                        <strong>
+                          {t`showing up without permission may result in a ban for failing to follow rules.`}
+                        </strong>
+                      </p>
                     </ErrorAlert>
                   }}
                   {event.activity
@@ -508,9 +566,11 @@ let make = () => {
                     <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
                       <AddToCalendar />
                     </div>
-                    {secret ? React.null : location
-                    ->Option.map(location => <EventLocation location=location.fragmentRefs />)
-                    ->Option.getOr(React.null)}
+                    {secret
+                      ? React.null
+                      : location
+                        ->Option.map(location => <EventLocation location=location.fragmentRefs />)
+                        ->Option.getOr(React.null)}
                     {details
                     ->Option.map(details => <>
                       <div
@@ -522,10 +582,12 @@ let make = () => {
                       </div>
                       <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
                         <p className="lg:text-xl leading-8 text-gray-700 whitespace-pre text-wrap">
-                          {secret ? "---"->React.string : switch details {
-                          | "" => ts`good luck, have fun`
-                          | d => d
-                          }->React.string}
+                          {secret
+                            ? "---"->React.string
+                            : switch details {
+                              | "" => ts`good luck, have fun`
+                              | d => d
+                              }->React.string}
                         </p>
                       </div>
                     </>)
@@ -632,4 +694,8 @@ let __unused = () => {
   @live (td({id: "Pickleball"})->ignore)
 
   @live (td({id: "Futsal"})->ignore)
+  @live (td({id: "drill"})->ignore)
+  @live (td({id: "comp"})->ignore)
+  @live (td({id: "rec"})->ignore)
+  @live (td({id: "all level"})->ignore)
 }

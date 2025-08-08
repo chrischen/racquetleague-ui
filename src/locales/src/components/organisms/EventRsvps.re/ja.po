@@ -91,7 +91,7 @@ msgstr "このRSVPを削除"
 
 #: src/components/organisms/EventRsvps.re.mjs:338
 msgid "Required rating: {0} (DUPR {1})"
-msgstr ""
+msgstr "必要レーティング: {0} (DUPR {1})"
 
 #: src/components/organisms/EventRsvps.re.mjs:139
 msgid "Save"

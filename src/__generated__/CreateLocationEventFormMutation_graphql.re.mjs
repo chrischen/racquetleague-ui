@@ -176,6 +176,13 @@ v3 = {
       "kind": "ScalarField",
       "name": "timezone",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "tags",
+      "storageKey": null
     }
   ],
   "storageKey": null
@@ -245,12 +252,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e1a21c9a940ee608a8ea0d26322d75a6",
+    "cacheID": "a56b9b477c9df89d7ae938dd49cdf947",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      timezone\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      timezone\n      tags\n    }\n  }\n}\n"
   }
 };
 })());

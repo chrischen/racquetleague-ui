@@ -99,6 +99,7 @@ and input_CreateEventInput = {
   maxRsvps?: int,
   minRating?: float,
   startDate: Util.Datetime.t,
+  tags?: array<string>,
   timezone?: string,
   title: string,
 }
@@ -114,6 +115,7 @@ and input_CreateEventInput_nullable = {
   maxRsvps?: Js.Null.t<int>,
   minRating?: Js.Null.t<float>,
   startDate: Util.Datetime.t,
+  tags?: Js.Null.t<array<string>>,
   timezone?: Js.Null.t<string>,
   title: string,
 }

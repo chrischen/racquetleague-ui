@@ -15,26 +15,46 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:631
+#: src/components/pages/Event.re.mjs:701
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:634
+#: src/components/pages/Event.re.mjs:704
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:637
+#: src/components/pages/Event.re.mjs:707
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:640
+#: src/components/pages/Event.re.mjs:710
 msgid "Futsal"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:713
+msgid "drill"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:716
+msgid "comp"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:719
+msgid "rec"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:722
+msgid "all level"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:532
@@ -42,11 +62,11 @@ msgstr ""
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:160
+#: src/components/pages/Event.re.mjs:161
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:162
+#: src/components/pages/Event.re.mjs:163
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
@@ -62,13 +82,17 @@ msgstr ""
 #~ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:558
+#: src/components/pages/Event.re.mjs:628
 msgid "activity"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #~ msgid "add to calendar"
 #~ msgstr ""
+
+#: src/components/pages/Event.re.mjs:186
+msgid "Advanced players"
+msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:29
 msgid "Apple iCal"
@@ -86,11 +110,11 @@ msgstr ""
 #~ msgid "Attendees"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:205
+#: src/components/pages/Event.re.mjs:230
 msgid "cancel event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:334
+#: src/components/pages/Event.re.mjs:359
 msgid "CANCELED"
 msgstr ""
 
@@ -102,7 +126,7 @@ msgstr ""
 #~ msgid "Confirmed"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:470
+#: src/components/pages/Event.re.mjs:540
 msgid "details"
 msgstr ""
 
@@ -110,15 +134,15 @@ msgstr ""
 #~ msgid "Details"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:188
+#: src/components/pages/Event.re.mjs:213
 msgid "edit event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:289
+#: src/components/pages/Event.re.mjs:314
 msgid "event @"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:600
+#: src/components/pages/Event.re.mjs:670
 msgid "event doesn't exist"
 msgstr ""
 
@@ -130,11 +154,15 @@ msgstr ""
 #~ msgid "Event Location"
 #~ msgstr ""
 
+#: src/components/pages/Event.re.mjs:200
+msgid "Event tag: {tag}"
+msgstr ""
+
 #: src/components/pages/Event.re.mjs:102
 #~ msgid "event:"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:528
+#: src/components/pages/Event.re.mjs:598
 msgid "good luck, have fun"
 msgstr ""
 
@@ -146,11 +174,15 @@ msgstr ""
 msgid "guest list"
 msgstr ""
 
+#: src/components/pages/Event.re.mjs:188
+msgid "Highly skilled players"
+msgstr ""
+
 #: src/components/pages/Event.re.mjs:195
 #~ msgid "hosted by"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:347
+#: src/components/pages/Event.re.mjs:372
 msgid "hosted by {name}"
 msgstr ""
 
@@ -177,7 +209,7 @@ msgstr ""
 msgid "joined the event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:444
+#: src/components/pages/Event.re.mjs:514
 msgid "league"
 msgstr ""
 
@@ -206,7 +238,7 @@ msgstr ""
 msgid "login to join the event"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:415
+#: src/components/pages/Event.re.mjs:485
 msgid "login to subscribe to {activityName} events"
 msgstr ""
 
@@ -215,7 +247,11 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:576
+#: src/components/pages/Event.re.mjs:182
+msgid "Lower intermediate and above"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:646
 msgid "media"
 msgstr ""
 
@@ -226,7 +262,11 @@ msgstr ""
 msgid "no players yet"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:538
+#: src/components/pages/Event.re.mjs:192
+msgid "No restriction on skill level. Open to all players."
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:608
 msgid "notes"
 msgstr ""
 
@@ -236,6 +276,18 @@ msgstr ""
 
 #: src/components/organisms/EventRsvp.re.mjs:59
 msgid "Player"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:190
+msgid "Professional players"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:198
+#~ msgid "Recreational play suitable for all skill levels"
+#~ msgstr ""
+
+#: src/components/pages/Event.re.mjs:198
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:79
@@ -262,6 +314,10 @@ msgstr ""
 #~ msgid "restricted by level"
 #~ msgstr ""
 
+#: src/components/pages/Event.re.mjs:194
+msgid "Results will be submitted to the JPL rating system and/or DUPR."
+msgstr ""
+
 #: src/components/organisms/EventRsvps.re.mjs:139
 msgid "Save"
 msgstr ""
@@ -270,8 +326,12 @@ msgstr ""
 #~ msgid "showing up to a private event without permission may result in a ban for failing to follow rules."
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:234
+#: src/components/pages/Event.re.mjs:259
 msgid "showing up without permission may result in a ban for failing to follow rules."
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:196
+msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:552
@@ -283,7 +343,7 @@ msgstr ""
 #~ msgid "Spots Available"
 #~ msgstr ""
 
-#: src/components/pages/Event.re.mjs:449
+#: src/components/pages/Event.re.mjs:519
 msgid "submit matches"
 msgstr ""
 
@@ -299,7 +359,7 @@ msgstr ""
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:231
+#: src/components/pages/Event.re.mjs:256
 msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
 msgstr ""
 
@@ -312,7 +372,7 @@ msgstr ""
 msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:194
+#: src/components/pages/Event.re.mjs:219
 msgid "uncancel event"
 msgstr ""
 
@@ -320,7 +380,11 @@ msgstr ""
 msgid "unsubscribe from {activityName} events"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:238
+#: src/components/pages/Event.re.mjs:184
+msgid "Upper intermediate and above"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:263
 msgid "view events"
 msgstr ""
 
