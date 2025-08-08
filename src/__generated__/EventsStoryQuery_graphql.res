@@ -324,6 +324,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "tags",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "details",
                     "storageKey": null
                   },
@@ -404,12 +411,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d330400d542829c45668b35f25eb4ff2",
+    "cacheID": "7bc92594453aa138a5f5307b1c5cd68d",
     "id": null,
     "metadata": {},
     "name": "EventsStoryQuery",
     "operationKind": "query",
-    "text": "query EventsStoryQuery {\n  ...EventsListFragment\n}\n\nfragment EventsListFragment on Query {\n  events(first: 20) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        ...EventsList_event\n        ...EventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
+    "text": "query EventsStoryQuery {\n  ...EventsListFragment\n}\n\nfragment EventsListFragment on Query {\n  events(first: 20) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        ...EventsList_event\n        ...EventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n  tags\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -69,6 +69,7 @@ module ItemFragment = %relay(`
     timezone
     shadow
     deleted
+    tags
   }
 `)
 
@@ -282,8 +283,10 @@ module EventItem = {
       viewerRsvpStatus,
       shadow,
       deleted,
+      tags,
     } = ItemFragment.use(event)
     let secret = shadow->Option.getOr(false)
+    let isCompetitive = tags->Option.getOr([])->Array.includes("comp")
     let playersCount =
       rsvps
       ->Option.flatMap(rsvps =>
@@ -342,10 +345,17 @@ module EventItem = {
     <Layout.Container className="relative flex items-center space-x-4 py-4">
       <div className="min-w-0 flex-auto">
         <div className="flex items-center gap-x-3">
-          <div
-            className={Util.cx(["text-green-400 bg-green-400/10", "flex-none rounded-full p-1"])}>
-            <div className="h-2 w-2 rounded-full bg-current" />
-          </div>
+          {isCompetitive
+            ? <div className="flex-none text-yellow-500">
+                <Lucide.Trophy className="h-5 w-5" />
+              </div>
+            : <div
+                className={Util.cx([
+                  "text-green-400 bg-green-400/10",
+                  "flex-none rounded-full p-1",
+                ])}>
+                <div className="h-2 w-2 rounded-full bg-current" />
+              </div>}
           <h2 className="min-w-0 text-sm font-semibold leading-6 text-black w-full">
             <Link to={"/events/" ++ id} relative="path" className="">
               <div className="flex gap-x-2">

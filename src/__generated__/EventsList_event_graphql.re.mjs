@@ -192,6 +192,13 @@ return {
       "kind": "ScalarField",
       "name": "deleted",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "tags",
+      "storageKey": null
     }
   ],
   "type": "Event",

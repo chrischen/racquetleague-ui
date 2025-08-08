@@ -17,6 +17,7 @@ import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as React$1 from "@lingui/react";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
@@ -206,6 +207,7 @@ function EventsList$EventItem(props) {
   var shadow = match.shadow;
   var endDate = match.endDate;
   var secret = Core__Option.getOr(shadow, false);
+  var isCompetitive = Core__Option.getOr(match.tags, []).includes("comp");
   var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
               return Core__Option.map(rsvps.edges, (function (edges) {
                             return edges.filter(function (edge) {
@@ -289,12 +291,17 @@ function EventsList$EventItem(props) {
                       children: [
                         JsxRuntime.jsxs("div", {
                               children: [
-                                JsxRuntime.jsx("div", {
-                                      children: JsxRuntime.jsx("div", {
-                                            className: "h-2 w-2 rounded-full bg-current"
-                                          }),
-                                      className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
-                                    }),
+                                isCompetitive ? JsxRuntime.jsx("div", {
+                                        children: JsxRuntime.jsx(LucideReact.Trophy, {
+                                              className: "h-5 w-5"
+                                            }),
+                                        className: "flex-none text-yellow-500"
+                                      }) : JsxRuntime.jsx("div", {
+                                        children: JsxRuntime.jsx("div", {
+                                              className: "h-2 w-2 rounded-full bg-current"
+                                            }),
+                                        className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
+                                      }),
                                 JsxRuntime.jsx("h2", {
                                       children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                             to: "/events/" + match.id,

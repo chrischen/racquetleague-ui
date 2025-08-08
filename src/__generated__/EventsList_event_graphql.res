@@ -35,6 +35,7 @@ module Types = {
     rsvps: option<fragment_rsvps>,
     shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
+    tags: option<array<string>>,
     timezone: option<string>,
     title: option<string>,
     viewerRsvpStatus: option<RelaySchemaAssets_graphql.enum_RsvpStatus>,
@@ -242,6 +243,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "deleted",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "tags",
       "storageKey": null
     }
   ],

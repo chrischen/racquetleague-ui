@@ -245,29 +245,38 @@ let make = () => {
                     <div
                       className={Util.cx(["mt-1 text-2xl font-semibold leading-6 text-gray-900"])}>
                       // <PageTitle>
-                      <span
-                        className={Util.cx([event.deleted->Option.isSome ? "line-through" : ""])}>
-                        {activity
-                        ->Option.flatMap(a =>
-                          a.name->Option.map(
-                            name =>
-                              <Link to={"/?activity=" ++ a.slug->Option.getOr("")}>
-                                {td(name)->React.string}
-                              </Link>,
+                      <div className="flex items-center gap-x-3">
+                        {event.tags
+                        ->Option.getOr([])
+                        ->Array.includes("comp")
+                          ? <div className="flex-none text-yellow-500">
+                              <Lucide.Trophy className="h-6 w-6" />
+                            </div>
+                          : React.null}
+                        <span
+                          className={Util.cx([event.deleted->Option.isSome ? "line-through" : ""])}>
+                          {activity
+                          ->Option.flatMap(a =>
+                            a.name->Option.map(
+                              name =>
+                                <Link to={"/?activity=" ++ a.slug->Option.getOr("")}>
+                                  {td(name)->React.string}
+                                </Link>,
+                            )
                           )
-                        )
-                        ->Option.getOr(React.null)}
-                        {" / "->React.string}
-                        {secret
-                          ? "---"->React.string
-                          : title->Option.map(React.string)->Option.getOr(React.null)}
-                        {duration
-                        ->Option.map(duration => <>
+                          ->Option.getOr(React.null)}
                           {" / "->React.string}
-                          {duration->React.string}
-                        </>)
-                        ->Option.getOr(React.null)}
-                      </span>
+                          {secret
+                            ? "---"->React.string
+                            : title->Option.map(React.string)->Option.getOr(React.null)}
+                          {duration
+                          ->Option.map(duration => <>
+                            {" / "->React.string}
+                            {duration->React.string}
+                          </>)
+                          ->Option.getOr(React.null)}
+                        </span>
+                      </div>
                       {event.deleted
                       ->Option.map(_ => <span className="ml-2"> {t`CANCELED`} </span>)
                       ->Option.getOr(React.null)}

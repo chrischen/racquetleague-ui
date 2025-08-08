@@ -122,3 +122,8 @@ module Pencil = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Pencil"
 }
+
+module Trophy = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Trophy"
+}
