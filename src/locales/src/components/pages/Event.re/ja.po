@@ -15,45 +15,45 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:701
+#: src/components/pages/Event.re.mjs:666
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:704
+#: src/components/pages/Event.re.mjs:669
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:707
+#: src/components/pages/Event.re.mjs:672
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:710
+#: src/components/pages/Event.re.mjs:675
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:713
+#: src/components/pages/Event.re.mjs:678
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:716
+#: src/components/pages/Event.re.mjs:681
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:719
+#: src/components/pages/Event.re.mjs:684
 msgid "rec"
-msgstr "レク"
+msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:722
+#: src/components/pages/Event.re.mjs:687
 msgid "all level"
 msgstr "全レベル"
 
@@ -78,11 +78,11 @@ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/pages/Event.re.mjs:628
+#: src/components/pages/Event.re.mjs:593
 msgid "activity"
 msgstr "アクティビティ"
 
-#: src/components/pages/Event.re.mjs:186
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
@@ -98,11 +98,11 @@ msgstr "この人をイベントから削除してもよろしいですか？"
 msgid "attendees"
 msgstr "参加者"
 
-#: src/components/pages/Event.re.mjs:230
+#: src/components/pages/Event.re.mjs:206
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
-#: src/components/pages/Event.re.mjs:359
+#: src/components/pages/Event.re.mjs:311
 msgid "CANCELED"
 msgstr "キャンセル"
 
@@ -110,27 +110,27 @@ msgstr "キャンセル"
 msgid "confirmed"
 msgstr "確認済み"
 
-#: src/components/pages/Event.re.mjs:540
+#: src/components/pages/Event.re.mjs:505
 msgid "details"
 msgstr "詳細"
 
-#: src/components/pages/Event.re.mjs:213
+#: src/components/pages/Event.re.mjs:189
 msgid "edit event"
 msgstr "イベントを編集"
 
-#: src/components/pages/Event.re.mjs:314
+#: src/components/pages/Event.re.mjs:290
 msgid "event @"
 msgstr "イベント @"
 
-#: src/components/pages/Event.re.mjs:670
+#: src/components/pages/Event.re.mjs:635
 msgid "event doesn't exist"
 msgstr "イベントが存在しません"
 
-#: src/components/pages/Event.re.mjs:200
+#: src/components/atoms/EventTag.re.mjs:60
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
 
-#: src/components/pages/Event.re.mjs:598
+#: src/components/pages/Event.re.mjs:563
 msgid "good luck, have fun"
 msgstr "がんばってください"
 
@@ -142,11 +142,11 @@ msgstr "Google カレンダー"
 msgid "guest list"
 msgstr "ゲストリスト"
 
-#: src/components/pages/Event.re.mjs:188
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/pages/Event.re.mjs:372
+#: src/components/pages/Event.re.mjs:357
 msgid "hosted by {name}"
 msgstr "{name}主催"
 
@@ -165,7 +165,7 @@ msgstr "ウェイトリストから参加"
 msgid "joined the event"
 msgstr "参加しました"
 
-#: src/components/pages/Event.re.mjs:514
+#: src/components/pages/Event.re.mjs:479
 msgid "league"
 msgstr "ラケットリーグ"
 
@@ -190,7 +190,7 @@ msgstr "もっと読み込む"
 msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
-#: src/components/pages/Event.re.mjs:485
+#: src/components/pages/Event.re.mjs:450
 msgid "login to subscribe to {activityName} events"
 msgstr "ログインして{activityName}のイベントに登録"
 
@@ -199,11 +199,15 @@ msgstr "ログインして{activityName}のイベントに登録"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/Event.re.mjs:182
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
-#: src/components/pages/Event.re.mjs:646
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Matches will be submitted to DUPR."
+msgstr "試合結果はDUPRに提出されます。"
+
+#: src/components/pages/Event.re.mjs:611
 msgid "media"
 msgstr "メディア"
 
@@ -214,11 +218,11 @@ msgstr "メディア"
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/pages/Event.re.mjs:192
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
-#: src/components/pages/Event.re.mjs:608
+#: src/components/pages/Event.re.mjs:573
 msgid "notes"
 msgstr "メモ"
 
@@ -230,7 +234,7 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/pages/Event.re.mjs:190
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Professional players"
 msgstr "プロプレイヤー"
 
@@ -238,7 +242,7 @@ msgstr "プロプレイヤー"
 msgid "Recreational play suitable for all skill levels"
 msgstr ""
 
-#: src/components/pages/Event.re.mjs:198
+#: src/components/atoms/EventTag.re.mjs:58
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
@@ -255,15 +259,15 @@ msgstr "このRSVPを削除"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
-#: src/components/pages/Event.re.mjs:194
-msgid "Results will be submitted to the JPL rating system and/or DUPR."
-msgstr "結果はJPLレーティングシステムやDUPRに提出されます。"
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Results will be submitted to competitive ratings."
+msgstr "結果は競技レーティングに提出されます。"
 
 #: src/components/organisms/EventRsvps.re.mjs:139
 msgid "Save"
 msgstr "保存"
 
-#: src/components/pages/Event.re.mjs:259
+#: src/components/pages/Event.re.mjs:235
 msgid ""
 "showing up without permission may result in a ban for failing to follow "
 "rules."
@@ -271,7 +275,7 @@ msgstr ""
 "許可なしで参加することは、ルールに従わなかったために禁止される可能性がありま"
 "す。"
 
-#: src/components/pages/Event.re.mjs:196
+#: src/components/atoms/EventTag.re.mjs:54
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
@@ -280,7 +284,7 @@ msgstr "技術向上に焦点を当てたスキル練習とドリル"
 msgid "spots available"
 msgstr "利用可能なスポット"
 
-#: src/components/pages/Event.re.mjs:519
+#: src/components/pages/Event.re.mjs:484
 msgid "submit matches"
 msgstr "試合を提出"
 
@@ -302,7 +306,7 @@ msgstr ""
 "の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
 "本当にこのイベントを離れますか？"
 
-#: src/components/pages/Event.re.mjs:256
+#: src/components/pages/Event.re.mjs:232
 msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first to get a referral."
@@ -318,7 +322,7 @@ msgstr ""
 "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
 "ださい。"
 
-#: src/components/pages/Event.re.mjs:219
+#: src/components/pages/Event.re.mjs:195
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -326,11 +330,11 @@ msgstr "イベントをキャンセル解除"
 msgid "unsubscribe from {activityName} events"
 msgstr "{activityName} のイベントから登録解除"
 
-#: src/components/pages/Event.re.mjs:184
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 
-#: src/components/pages/Event.re.mjs:263
+#: src/components/pages/Event.re.mjs:239
 msgid "view events"
 msgstr "イベントを見る"
 
@@ -399,6 +403,10 @@ msgstr ""
 #: src/components/organisms/EventRsvps.re.mjs:523
 #~ msgid "restricted by level"
 #~ msgstr "レベルによって制限"
+
+#: src/components/pages/Event.re.mjs:194
+#~ msgid "Results will be submitted to the JPL rating system and/or DUPR."
+#~ msgstr "結果はJPLレーティングシステムやDUPRに提出されます。"
 
 #: src/components/pages/Event.re.mjs:234
 #, fuzzy

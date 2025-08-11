@@ -177,20 +177,6 @@ let make = () => {
     }
     let secret = shadow->Option.getOr(false)
 
-    let getTagTooltip = tag =>
-      switch tag {
-      | "drill" => ts`Skills practice and drills focused on technique improvement`
-      | "rec" => ts`Recreational play that will not be submitted to competitive ratings nor DUPR.`
-      | "comp" => ts`Results will be submitted to the JPL rating system and/or DUPR.`
-      | "all level" => ts`No restriction on skill level. Open to all players.`
-      | "3.0+" => ts`Lower intermediate and above`
-      | "3.5+" => ts`Upper intermediate and above`
-      | "4.0+" => ts`Advanced players`
-      | "4.5+" => ts`Highly skilled players`
-      | "5.0+" => ts`Professional players`
-      | _ => ts`Event tag: ${tag}`
-      }
-
     <WaitForMessages>
       {() =>
         <main>
@@ -343,29 +329,8 @@ let make = () => {
                   displayTags
                 })
                 ->Option.filter(tags => tags->Array.length > 0)
-                ->Option.map(tags =>
-                  <Radix.Tooltip.Provider>
-                    <div className="mt-2 mb-2 flex gap-2">
-                      {tags
-                      ->Array.map(
-                        tag =>
-                          <Radix.Tooltip.Root key={tag} delayDuration=200.>
-                            <Radix.Tooltip.Trigger asChild=true>
-                              <span
-                                className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
-                                {td(tag)->React.string}
-                              </span>
-                            </Radix.Tooltip.Trigger>
-                            <Radix.Tooltip.Content
-                              side=#top
-                              className="z-50 overflow-hidden rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95">
-                              {getTagTooltip(tag)->React.string}
-                            </Radix.Tooltip.Content>
-                          </Radix.Tooltip.Root>,
-                      )
-                      ->React.array}
-                    </div>
-                  </Radix.Tooltip.Provider>
+                ->Option.map(tags => 
+                  <EventTag.TagList tags className="mt-2 mb-2" />
                 )
                 ->Option.getOr(React.null)}
                 <div className="flex items-center gap-x-4 sm:gap-x-6">

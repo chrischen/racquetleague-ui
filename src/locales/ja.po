@@ -2051,7 +2051,7 @@ msgstr "競技"
 #. js-lingui-explicit-id
 #: src/components/pages/Event.re.mjs:719
 msgid "rec"
-msgstr "レク"
+msgstr "練習試合"
 
 #. js-lingui-explicit-id
 #: src/components/pages/Event.re.mjs:722
@@ -2067,6 +2067,19 @@ msgstr "競技レーティングやDUPRに提出されないレクリエーシ�
 #: src/components/organisms/CreateLocationEventForm.re.mjs:554
 msgid "Select tags that best describe this event"
 msgstr "このイベントを最もよく説明するタグを選択してください"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Matches will be submitted to DUPR."
+msgstr "試合結果はDUPRに提出されます。"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Results will be submitted to competitive ratings."
+msgstr "結果は競技レーティングに提出されます。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+#: src/components/pages/LeagueRankingsPage.re.mjs:52
+msgid "Competitive Doubles"
+msgstr "競技ダブルス"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

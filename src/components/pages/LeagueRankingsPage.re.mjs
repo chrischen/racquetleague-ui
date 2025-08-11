@@ -42,9 +42,14 @@ RescriptRelay_Query.retain(LeagueRankingsPageQuery_graphql.node, convertVariable
 
 function LeagueRankingsPage(props) {
   var query = ReactRouterDom.useLoaderData();
+  var params = ReactRouterDom.useParams();
   var match = usePreloaded(query.data.query);
   var fragmentRefs = match.fragmentRefs;
   var viewer = match.viewer;
+  var match$1 = params.ns;
+  var title = match$1 !== undefined ? (
+      match$1 === "doubles:rec" ? t`Recreational Doubles` : t`Competitive Doubles`
+    ) : t`Competitive Doubles`;
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -99,7 +104,7 @@ function LeagueRankingsPage(props) {
                                             children: [
                                               JsxRuntime.jsx(PageTitle.make, {
                                                     children: JsxRuntime.jsx("span", {
-                                                          children: t`Recreational Doubles`,
+                                                          children: title,
                                                           className: "text-white font-extrabold text-3xl"
                                                         })
                                                   }),

@@ -15,7 +15,11 @@
 @genType
 let \"Component" = LeagueRankingsPage.make
 
-type params = {...LeagueRankingsPageQuery_graphql.Types.variables, lang: option<string>}
+type params = {
+  ns?: string,
+  ...LeagueRankingsPageQuery_graphql.Types.variables,
+  lang: option<string>,
+}
 module LoaderArgs = {
   type t = {
     context: RelayEnv.context,
@@ -29,30 +33,32 @@ let loadMessages = Lingui.loadMessages({
   en: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/en"),
 })
 
-type loaderData = LeagueRankingsPage.loaderData;
+type loaderData = LeagueRankingsPage.loaderData
 
 @genType
 let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
+  let namespace = params.ns->Option.getOr("doubles:comp")
 
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
     WaitForMessages.data: {
-      LeagueRankingsPage.query: RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)->(env =>
-        LeagueRankingsPageQuery_graphql.load(
-          ~environment=env,
-          ~variables={
-            ?after,
-            ?before,
-            activitySlug: params.activitySlug,
-            namespace: "doubles:rec",
-          },
-          ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-        )
-      )
+      LeagueRankingsPage.query: RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)->(
+        env =>
+          LeagueRankingsPageQuery_graphql.load(
+            ~environment=env,
+            ~variables={
+              ?after,
+              ?before,
+              activitySlug: params.activitySlug,
+              namespace,
+            },
+            ~fetchPolicy=RescriptRelay.StoreOrNetwork,
+          )
+      ),
     },
     // i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
     // i18nData: !RelaySSRUtils.ssr ? await Localized.loadMessages(params.lang, loadMessages) : %raw("[]"),

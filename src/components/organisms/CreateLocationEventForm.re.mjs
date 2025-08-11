@@ -13,6 +13,7 @@ import * as FormSection from "../molecules/forms/FormSection.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core$1 from "@linaria/core";
+import * as EventTagInput from "../atoms/EventTagInput.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -25,7 +26,6 @@ import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
-import * as ReactTooltip from "@radix-ui/react-tooltip";
 import * as CreateLocationEventForm_event_graphql from "../../__generated__/CreateLocationEventForm_event_graphql.re.mjs";
 import * as CreateLocationEventForm_query_graphql from "../../__generated__/CreateLocationEventForm_query_graphql.re.mjs";
 import * as CreateLocationEventFormMutation_graphql from "../../__generated__/CreateLocationEventFormMutation_graphql.re.mjs";
@@ -176,30 +176,6 @@ function CreateLocationEventForm(props) {
       });
   var setSelectedTags = match$4[1];
   var selectedTags = match$4[0];
-  var getTagTooltip = function (tag) {
-    switch (tag) {
-      case "3.0+" :
-          return t`Lower intermediate and above`;
-      case "3.5+" :
-          return t`Upper intermediate and above`;
-      case "4.0+" :
-          return t`Advanced players`;
-      case "4.5+" :
-          return t`Highly skilled players`;
-      case "5.0+" :
-          return t`Professional players`;
-      case "all level" :
-          return t`No restriction on skill level. Open to all players.`;
-      case "comp" :
-          return t`Results will be submitted to the JPL rating system and/or DUPR.`;
-      case "drill" :
-          return t`Skills practice and drills focused on technique improvement`;
-      case "rec" :
-          return t`Recreational play that will not be submitted to competitive ratings nor DUPR.`;
-      default:
-        return t`Event tag: ${tag}`;
-    }
-  };
   React.useEffect((function () {
           if (typeof action !== "object") {
             var now = new Date();
@@ -421,141 +397,38 @@ function CreateLocationEventForm(props) {
                                                                                     }),
                                                                                 className: "sm:col-span-2"
                                                                               }),
-                                                                          JsxRuntime.jsxs("div", {
-                                                                                children: [
-                                                                                  JsxRuntime.jsx("label", {
-                                                                                        children: t`type of event`,
-                                                                                        className: "block text-sm font-medium leading-6 text-gray-900"
-                                                                                      }),
-                                                                                  JsxRuntime.jsx(ReactTooltip.Provider, {
-                                                                                        children: JsxRuntime.jsx("div", {
-                                                                                              children: [
-                                                                                                  "comp",
-                                                                                                  "rec",
-                                                                                                  "drill"
-                                                                                                ].map(function (tag) {
-                                                                                                    var isSelected = selectedTags.includes(tag) || !selectedTags.includes("comp") && !selectedTags.includes("drill") && tag === "rec";
-                                                                                                    return JsxRuntime.jsxs(ReactTooltip.Root, {
-                                                                                                                delayDuration: 200,
-                                                                                                                children: [
-                                                                                                                  JsxRuntime.jsx(ReactTooltip.Trigger, {
-                                                                                                                        asChild: true,
-                                                                                                                        children: JsxRuntime.jsx("button", {
-                                                                                                                              children: Core.i18n._(tag),
-                                                                                                                              className: Core$1.cx("inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-help", isSelected ? "bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600" : "bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-indigo-600"),
-                                                                                                                              type: "button",
-                                                                                                                              onClick: (function (param) {
-                                                                                                                                  var typeTags = [
-                                                                                                                                    "comp",
-                                                                                                                                    "rec"
-                                                                                                                                  ];
-                                                                                                                                  var newTags = isSelected ? selectedTags.filter(function (t) {
-                                                                                                                                          return t !== tag;
-                                                                                                                                        }) : (
-                                                                                                                                      typeTags.includes(tag) ? selectedTags.filter(function (t) {
-                                                                                                                                                return !typeTags.includes(t);
-                                                                                                                                              }).concat([tag]) : selectedTags.concat([tag])
-                                                                                                                                    );
-                                                                                                                                  setSelectedTags(function (param) {
-                                                                                                                                        return newTags;
-                                                                                                                                      });
-                                                                                                                                })
-                                                                                                                            })
-                                                                                                                      }),
-                                                                                                                  JsxRuntime.jsx(ReactTooltip.Content, {
-                                                                                                                        children: getTagTooltip(tag),
-                                                                                                                        side: "top",
-                                                                                                                        className: "z-50 overflow-hidden rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
-                                                                                                                      })
-                                                                                                                ]
-                                                                                                              }, tag);
-                                                                                                  }),
-                                                                                              className: "mt-2 flex gap-2"
-                                                                                            })
-                                                                                      }),
-                                                                                  JsxRuntime.jsx("p", {
-                                                                                        children: t`Select tags that best describe this event`,
-                                                                                        className: "mt-1 text-sm text-gray-500"
-                                                                                      })
+                                                                          JsxRuntime.jsx(EventTagInput.TagGroup.make, {
+                                                                                tags: [
+                                                                                  "rec",
+                                                                                  "comp"
                                                                                 ],
-                                                                                className: "col-span-full"
+                                                                                selectedTags: selectedTags,
+                                                                                onTagsChange: (function (tags) {
+                                                                                    setSelectedTags(function (param) {
+                                                                                          return tags;
+                                                                                        });
+                                                                                  }),
+                                                                                category: "type",
+                                                                                label: t`type of event`,
+                                                                                description: t`Select tags that best describe this event`
                                                                               }),
-                                                                          JsxRuntime.jsxs("div", {
-                                                                                children: [
-                                                                                  JsxRuntime.jsx("label", {
-                                                                                        children: t`level of play`,
-                                                                                        className: "block text-sm font-medium leading-6 text-gray-900"
-                                                                                      }),
-                                                                                  JsxRuntime.jsx(ReactTooltip.Provider, {
-                                                                                        children: JsxRuntime.jsx("div", {
-                                                                                              children: [
-                                                                                                  "all level",
-                                                                                                  "3.0+",
-                                                                                                  "3.5+",
-                                                                                                  "4.0+",
-                                                                                                  "4.5+",
-                                                                                                  "5.0+"
-                                                                                                ].map(function (tag) {
-                                                                                                    var levelTags = [
-                                                                                                      "all level",
-                                                                                                      "3.0+",
-                                                                                                      "3.5+",
-                                                                                                      "4.0+",
-                                                                                                      "4.5+",
-                                                                                                      "5.0+"
-                                                                                                    ];
-                                                                                                    var selectedLevelTags = selectedTags.filter(function (t) {
-                                                                                                          return levelTags.includes(t);
-                                                                                                        });
-                                                                                                    var isSelected = selectedTags.includes(tag) || selectedLevelTags.length === 0 && tag === "all level";
-                                                                                                    return JsxRuntime.jsxs(ReactTooltip.Root, {
-                                                                                                                delayDuration: 200,
-                                                                                                                children: [
-                                                                                                                  JsxRuntime.jsx(ReactTooltip.Trigger, {
-                                                                                                                        asChild: true,
-                                                                                                                        children: JsxRuntime.jsx("button", {
-                                                                                                                              children: Core.i18n._(tag),
-                                                                                                                              className: Core$1.cx("inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-help", isSelected ? "bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600" : "bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-indigo-600"),
-                                                                                                                              type: "button",
-                                                                                                                              onClick: (function (param) {
-                                                                                                                                  var levelTags = [
-                                                                                                                                    "all level",
-                                                                                                                                    "3.0+",
-                                                                                                                                    "3.5+",
-                                                                                                                                    "4.0+",
-                                                                                                                                    "4.5+",
-                                                                                                                                    "5.0+"
-                                                                                                                                  ];
-                                                                                                                                  var newTags = isSelected ? selectedTags.filter(function (t) {
-                                                                                                                                          return t !== tag;
-                                                                                                                                        }) : (
-                                                                                                                                      tag === "all level" ? selectedTags.filter(function (t) {
-                                                                                                                                              return !levelTags.includes(t);
-                                                                                                                                            }) : selectedTags.concat([tag])
-                                                                                                                                    );
-                                                                                                                                  setSelectedTags(function (param) {
-                                                                                                                                        return newTags;
-                                                                                                                                      });
-                                                                                                                                })
-                                                                                                                            })
-                                                                                                                      }),
-                                                                                                                  JsxRuntime.jsx(ReactTooltip.Content, {
-                                                                                                                        children: getTagTooltip(tag),
-                                                                                                                        side: "top",
-                                                                                                                        className: "z-50 overflow-hidden rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
-                                                                                                                      })
-                                                                                                                ]
-                                                                                                              }, tag);
-                                                                                                  }),
-                                                                                              className: "mt-2 flex gap-2"
-                                                                                            })
-                                                                                      }),
-                                                                                  JsxRuntime.jsx("p", {
-                                                                                        children: t`Select tags that best describe this event`,
-                                                                                        className: "mt-1 text-sm text-gray-500"
-                                                                                      })
+                                                                          JsxRuntime.jsx(EventTagInput.TagGroup.make, {
+                                                                                tags: [
+                                                                                  "all level",
+                                                                                  "3.0+",
+                                                                                  "3.5+",
+                                                                                  "4.0+",
+                                                                                  "4.5+",
+                                                                                  "5.0+"
                                                                                 ],
-                                                                                className: "col-span-full"
+                                                                                selectedTags: selectedTags,
+                                                                                onTagsChange: (function (tags) {
+                                                                                    setSelectedTags(function (param) {
+                                                                                          return tags;
+                                                                                        });
+                                                                                  }),
+                                                                                category: "level",
+                                                                                label: t`level of play`
                                                                               }),
                                                                           JsxRuntime.jsx("div", {
                                                                                 children: JsxRuntime.jsx(Form.TextArea.make, {

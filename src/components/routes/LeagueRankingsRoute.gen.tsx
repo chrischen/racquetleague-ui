@@ -16,6 +16,7 @@ import type {loaderData as LeagueRankingsPage_loaderData} from '../../../src/com
 import type {props as LeagueRankingsPage_props} from '../../../src/components/pages/LeagueRankingsPage.gen';
 
 export type params = {
+  readonly ns?: string; 
   readonly activitySlug: string; 
   readonly after?: string; 
   readonly before?: string; 

@@ -17,6 +17,11 @@ msgstr ""
 msgid "...load higher rated players"
 msgstr ""
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+#: src/components/pages/LeagueRankingsPage.re.mjs:52
+msgid "Competitive Doubles"
+msgstr ""
+
 #: src/components/organisms/RatingList.re.mjs:202
 msgid "Female"
 msgstr ""
@@ -25,7 +30,7 @@ msgstr ""
 msgid "Load more players..."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:130
+#: src/components/pages/LeagueRankingsPage.re.mjs:135
 msgid "Loading rankings..."
 msgstr ""
 
@@ -33,18 +38,18 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:107
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
 msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:102
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
 msgid "Recreational Doubles"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:112
+#: src/components/pages/LeagueRankingsPage.re.mjs:117
 msgid "To participate, please join the events here:"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:87
+#: src/components/pages/LeagueRankingsPage.re.mjs:92
 msgid "View My Profile"
 msgstr ""

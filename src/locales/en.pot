@@ -2040,3 +2040,16 @@ msgstr ""
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Matches will be submitted to DUPR."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Results will be submitted to competitive ratings."
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+#: src/components/pages/LeagueRankingsPage.re.mjs:52
+msgid "Competitive Doubles"
+msgstr ""

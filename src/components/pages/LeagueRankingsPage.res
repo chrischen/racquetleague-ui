@@ -29,6 +29,8 @@ module Query = %relay(`
 `)
 
 type loaderData = {query: LeagueRankingsPageQuery_graphql.queryRef}
+type params = {ns?: string, activitySlug?: string, lang?: string}
+
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
@@ -37,8 +39,15 @@ let make = () => {
   open Lingui.Util
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
+  let params: params = Router.useParams()
   // let viewer = GlobalQuery.useViewer()
   let {viewer, fragmentRefs} = Query.usePreloaded(~queryRef=query.data.query)
+
+  // Determine title based on ns parameter
+  let title = switch params.ns {
+  | Some("doubles:rec") => t`Recreational Doubles`
+  | _ => t`Competitive Doubles` // Default for empty or other values
+  }
 
   <WaitForMessages>
     {() => {
@@ -85,9 +94,7 @@ let make = () => {
         <div className="py-10 text-white bg-leaguePrimary">
           <Layout.Container>
             <PageTitle>
-              <span className="text-white font-extrabold text-3xl">
-                {t`Recreational Doubles`}
-              </span>
+              <span className="text-white font-extrabold text-3xl"> {title} </span>
             </PageTitle>
             <p className="mt-5">
               {t`Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players.`}

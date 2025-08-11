@@ -176,6 +176,11 @@ export const routes: RouteObject[] = [
                     handle: "src/components/routes/LeagueRankingsRoute.gen.tsx",
                   },
                   {
+                    path: ":ns",
+                    lazy: () => import("./components/routes/LeagueRankingsRoute.gen"),
+                    handle: "src/components/routes/LeagueRankingsRoute.gen.tsx",
+                  },
+                  {
                     path: "p/:userId",
                     lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
                     handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",

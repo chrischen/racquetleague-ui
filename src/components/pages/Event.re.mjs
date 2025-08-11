@@ -5,6 +5,7 @@ import * as Button from "../catalyst/Button.re.mjs";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
+import * as EventTag from "../atoms/EventTag.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as $$MediaList from "../organisms/MediaList.re.mjs";
@@ -30,7 +31,6 @@ import * as ReactHelmetAsync from "react-helmet-async";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
-import * as ReactTooltip from "@radix-ui/react-tooltip";
 import * as EventCancelMutation_graphql from "../../__generated__/EventCancelMutation_graphql.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 import * as EventUncancelMutation_graphql from "../../__generated__/EventUncancelMutation_graphql.re.mjs";
@@ -176,30 +176,6 @@ function $$Event(props) {
                                 return $$location.name;
                               })), "?");
                     var secret = Core__Option.getOr(shadow, false);
-                    var getTagTooltip = function (tag) {
-                      switch (tag) {
-                        case "3.0+" :
-                            return t`Lower intermediate and above`;
-                        case "3.5+" :
-                            return t`Upper intermediate and above`;
-                        case "4.0+" :
-                            return t`Advanced players`;
-                        case "4.5+" :
-                            return t`Highly skilled players`;
-                        case "5.0+" :
-                            return t`Professional players`;
-                        case "all level" :
-                            return t`No restriction on skill level. Open to all players.`;
-                        case "comp" :
-                            return t`Results will be submitted to the JPL rating system and/or DUPR.`;
-                        case "drill" :
-                            return t`Skills practice and drills focused on technique improvement`;
-                        case "rec" :
-                            return t`Recreational play that will not be submitted to competitive ratings nor DUPR.`;
-                        default:
-                          return t`Event tag: ${tag}`;
-                      }
-                    };
                     return JsxRuntime.jsx(WaitForMessages.make, {
                                 children: (function () {
                                     var tmp;
@@ -445,29 +421,9 @@ function $$Event(props) {
                                                                                           })), (function (tags) {
                                                                                         return tags.length > 0;
                                                                                       })), (function (tags) {
-                                                                                    return JsxRuntime.jsx(ReactTooltip.Provider, {
-                                                                                                children: JsxRuntime.jsx("div", {
-                                                                                                      children: tags.map(function (tag) {
-                                                                                                            return JsxRuntime.jsxs(ReactTooltip.Root, {
-                                                                                                                        delayDuration: 200,
-                                                                                                                        children: [
-                                                                                                                          JsxRuntime.jsx(ReactTooltip.Trigger, {
-                                                                                                                                asChild: true,
-                                                                                                                                children: JsxRuntime.jsx("span", {
-                                                                                                                                      children: Core.i18n._(tag),
-                                                                                                                                      className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
-                                                                                                                                    })
-                                                                                                                              }),
-                                                                                                                          JsxRuntime.jsx(ReactTooltip.Content, {
-                                                                                                                                children: getTagTooltip(tag),
-                                                                                                                                side: "top",
-                                                                                                                                className: "z-50 overflow-hidden rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
-                                                                                                                              })
-                                                                                                                        ]
-                                                                                                                      }, tag);
-                                                                                                          }),
-                                                                                                      className: "mt-2 mb-2 flex gap-2"
-                                                                                                    })
+                                                                                    return JsxRuntime.jsx(EventTag.TagList.make, {
+                                                                                                tags: tags,
+                                                                                                className: "mt-2 mb-2"
                                                                                               });
                                                                                   })), null),
                                                                         JsxRuntime.jsx("div", {
