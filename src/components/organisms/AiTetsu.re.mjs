@@ -525,6 +525,8 @@ function AiTetsu(props) {
   var match = use$2($$event);
   var eventId = match.id;
   var activity = match.activity;
+  var eventTags = Core__Option.getOr(match.tags, []);
+  var eventNamespace = eventTags.includes("comp") ? "doubles:comp" : "doubles:rec";
   var match$1 = use();
   var commitMutationCreateRating = match$1[0];
   var match$2 = use$1();
@@ -856,7 +858,6 @@ function AiTetsu(props) {
         });
   };
   var submitMatch = function (match, score, activitySlug) {
-    var namespace = score[0] === -1.0 || score[1] === -1.0 ? "doubles:rec" : "doubles:comp";
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("root", "MatchListFragment_matches", {
           activitySlug: activitySlug,
           after: undefined,
@@ -883,7 +884,7 @@ function AiTetsu(props) {
                                   return p.id;
                                 })
                           },
-                          namespace: namespace
+                          namespace: eventNamespace
                         }
                       }, undefined, undefined, undefined, (function (param, errs) {
                           if (errs !== undefined) {

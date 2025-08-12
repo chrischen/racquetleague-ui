@@ -78,6 +78,7 @@ module Fragment = %relay(`
   @refetchable(queryName: "AiTetsuRsvpsRefetchQuery") {
     __id
     id
+    tags
     activity {
       id
       slug
@@ -115,6 +116,13 @@ module Fragment = %relay(`
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
 //@genType
 //let default = make
+
+// Hook to return the event tags from the fragment reference
+@genType
+let useEventTags = event => {
+  let {tags} = Fragment.use(event)
+  tags->Option.getOr([])
+}
 
 open Rating
 type priority<'a> = {
@@ -500,7 +508,9 @@ type screen = Advanced | Matches
 @react.component
 let make = (~event, ~children) => {
   let ts = Lingui.UtilString.t
-  let {__id, id: eventId, activity} = Fragment.use(event)
+  let {__id, id: eventId, activity, tags} = Fragment.use(event)
+  let eventTags: array<string> = tags->Option.getOr([])
+  let eventNamespace = eventTags->Array.includes("comp") ? "doubles:comp" : "doubles:rec"
   // let {__id, id: eventId, activity} = eventData
   let (commitMutationCreateRating, _) = AiTetsuCreateRatingMutation.use()
   let (commitMutationCreateLeagueMatch, _isMutationInFlight) = CreateLeagueMatchMutation.use()
@@ -838,7 +848,8 @@ let make = (~event, ~children) => {
   }
 
   let submitMatch = (match: Match.t<'a>, score, activitySlug): Js.Promise.t<unit> => {
-    let namespace = score->fst == -1.0 || score->snd == -1.0 ? "doubles:rec" : "doubles:comp"
+    // Determine namespace from event tags: if "comp" tag exists => doubles:comp, else doubles:rec
+    let namespace = eventNamespace
 
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
       // __id,

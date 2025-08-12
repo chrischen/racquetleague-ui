@@ -175,6 +175,13 @@ return {
               {
                 "alias": null,
                 "args": null,
+                "kind": "ScalarField",
+                "name": "tags",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
                 "concreteType": "Activity",
                 "kind": "LinkedField",
                 "name": "activity",
@@ -352,12 +359,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a515d34258484702299a3793bf93ee75",
+    "cacheID": "37a1f6396d684dcab790cdfd99fa9018",
     "id": null,
     "metadata": {},
     "name": "AiTetsuRsvpsRefetchQuery",
     "operationKind": "query",
-    "text": "query AiTetsuRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 100\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...AiTetsu_event_4uAqg1\n    id\n  }\n}\n\nfragment AiTetsu_event_4uAqg1 on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n"
+    "text": "query AiTetsuRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 100\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...AiTetsu_event_4uAqg1\n    id\n  }\n}\n\nfragment AiTetsu_event_4uAqg1 on Event {\n  id\n  tags\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n"
   }
 };
 })());

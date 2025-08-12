@@ -42,6 +42,7 @@ module Types = {
     activity: option<fragment_activity>,
     @live id: string,
     rsvps: option<fragment_rsvps>,
+    tags: option<array<string>>,
   }
 }
 
@@ -197,6 +198,13 @@ return {
   "name": "AiTetsu_event",
   "selections": [
     (v1/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "tags",
+      "storageKey": null
+    },
     {
       "alias": null,
       "args": null,

@@ -376,6 +376,13 @@ return {
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "tags",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "Activity",
             "kind": "LinkedField",
             "name": "activity",
@@ -613,12 +620,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1203459baf44468ad934b68c074e5fd1",
+    "cacheID": "f327f7df7b4ee476ebc254d50d02e8ee",
     "id": null,
     "metadata": {},
     "name": "LeagueEventPageQuery",
     "operationKind": "query",
-    "text": "query LeagueEventPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n) {\n  viewer {\n    user {\n      id\n    }\n  }\n  event(id: $eventId) {\n    title\n    ...AiTetsu_event_pL3ww\n    id\n  }\n  ...MatchListFragment_2Xn26q\n}\n\nfragment AiTetsu_event_pL3ww on Event {\n  id\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 50, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchListFragment_2Xn26q on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query LeagueEventPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n) {\n  viewer {\n    user {\n      id\n    }\n  }\n  event(id: $eventId) {\n    title\n    ...AiTetsu_event_pL3ww\n    id\n  }\n  ...MatchListFragment_2Xn26q\n}\n\nfragment AiTetsu_event_pL3ww on Event {\n  id\n  tags\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 50, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUser_user\n          ...EventMatchRsvpUser_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchListFragment_2Xn26q on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
   }
 };
 })() `)
