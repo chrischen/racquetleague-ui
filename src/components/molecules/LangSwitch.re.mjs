@@ -44,13 +44,14 @@ function LangSwitch(props) {
   var locale = match.i18n.locale;
   var match$1 = ReactRouterDom.useLocation();
   var basePath = I18n.getBasePath(locale, match$1.pathname);
+  var basePathWithQuery = basePath + match$1.search;
   return Belt_Array.mapWithIndex(locales, (function (index, loc) {
                 return JsxRuntime.jsxs(React.Fragment, {
                             children: [
                               index > 0 ? " | " : null,
                               JsxRuntime.jsx(LangSwitch$LocaleButton, {
                                     locale: loc,
-                                    path: basePath,
+                                    path: basePathWithQuery,
                                     active: loc.lang === locale
                                   })
                             ]
