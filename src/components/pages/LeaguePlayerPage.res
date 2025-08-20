@@ -16,7 +16,6 @@ module Query = %relay(`
         first: $first
         before: $before
         activitySlug: $activitySlug
-        namespace: $namespace
         userId: $userId
       )
     user(id: $userId) {
@@ -24,7 +23,7 @@ module Query = %relay(`
       picture
       lineUsername
       gender
-      rating(activitySlug: $activitySlug, namespace: "doubles:rec") {
+      rating(activitySlug: $activitySlug, namespace: $namespace) {
         ordinal
         mu
       }

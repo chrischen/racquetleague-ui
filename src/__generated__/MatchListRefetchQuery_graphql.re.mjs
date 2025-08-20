@@ -5,13 +5,12 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(activitySlug, after, before, first, namespace, userId) {
+function makeRefetchVariables(activitySlug, after, before, first, userId) {
   return {
           activitySlug: activitySlug,
           after: after,
           before: before,
           first: first,
-          namespace: namespace,
           userId: userId
         };
 }
@@ -79,11 +78,6 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "namespace"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
     "name": "userId"
   }
 ],
@@ -107,11 +101,6 @@ v1 = [
     "kind": "Variable",
     "name": "first",
     "variableName": "first"
-  },
-  {
-    "kind": "Variable",
-    "name": "namespace",
-    "variableName": "namespace"
   },
   {
     "kind": "Variable",
@@ -233,6 +222,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "namespace",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "score",
                     "storageKey": null
                   },
@@ -311,7 +307,6 @@ return {
         "args": (v1/*: any*/),
         "filters": [
           "activitySlug",
-          "namespace",
           "userId"
         ],
         "handle": "connection",
@@ -323,12 +318,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "ae967a1c5f062ba9a8d8ac5a20f65f29",
+    "cacheID": "31a1d239fd3bd9252074e4571f701957",
     "id": null,
     "metadata": {},
     "name": "MatchListRefetchQuery",
     "operationKind": "query",
-    "text": "query MatchListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $namespace: String\n  $userId: ID\n) {\n  ...MatchListFragment_2KkbcH\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query MatchListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $userId: ID\n) {\n  ...MatchListFragment_32wNNd\n}\n\nfragment MatchListFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  namespace\n  score\n  createdAt\n}\n"
   }
 };
 })());

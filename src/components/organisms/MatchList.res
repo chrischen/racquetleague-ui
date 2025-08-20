@@ -10,13 +10,12 @@ module Fragment = %relay(`
     before: { type: "String" }
     first: { type: "Int", defaultValue: 20 }
     activitySlug: { type: "String!" }
-    namespace: { type: "String" }
     userId: { type: "ID" }
   )
   @refetchable(queryName: "MatchListRefetchQuery")
   {
     __id
-    matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId)
+    matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId)
     @connection(key: "MatchListFragment_matches") {
       __id
       edges {
@@ -45,6 +44,7 @@ module ItemFragment = %relay(`
     losers {
       ...MatchListTeam_user
     }
+    namespace
     score
     createdAt
   }
@@ -133,7 +133,7 @@ module Match = {
     ~idx: int,
     ~length: int,
   ) => {
-    let {id, winners, losers, score, createdAt} = ItemFragment.use(match)
+    let {id, winners, losers, score, createdAt, namespace} = ItemFragment.use(match)
 
     let isWinner =
       user
@@ -164,7 +164,11 @@ module Match = {
           </div>
           <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
             <div>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 flex items-center gap-1">
+                {switch namespace {
+                | Some("doubles:comp") => <Lucide.Trophy className="h-4 w-4 text-amber-500" />
+                | _ => React.null
+                }}
                 {isWinner
                   ? {
                       winners

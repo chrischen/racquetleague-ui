@@ -73,6 +73,13 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "namespace",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "score",
       "storageKey": null
     },

@@ -190,11 +190,6 @@ v7 = [
   },
   {
     "kind": "Variable",
-    "name": "namespace",
-    "variableName": "namespace"
-  },
-  {
-    "kind": "Variable",
     "name": "userId",
     "variableName": "userId"
   }
@@ -237,9 +232,9 @@ v12 = {
 v13 = [
   (v6/*: any*/),
   {
-    "kind": "Literal",
+    "kind": "Variable",
     "name": "namespace",
-    "value": "doubles:rec"
+    "variableName": "namespace"
   }
 ],
 v14 = {
@@ -392,6 +387,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "namespace",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "score",
                     "storageKey": null
                   },
@@ -470,7 +472,6 @@ return {
         "args": (v7/*: any*/),
         "filters": [
           "activitySlug",
-          "namespace",
           "userId"
         ],
         "handle": "connection",
@@ -511,12 +512,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d60f0590ccb4fde7eb135c9f6ae9af73",
+    "cacheID": "cd727fb2850af0236e08953286e49bfa",
     "id": null,
     "metadata": {},
     "name": "LeaguePlayerPageQuery",
     "operationKind": "query",
-    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n  $userId: ID!\n) {\n  ...MatchListFragment_2KkbcH\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: \"doubles:rec\") {\n      ordinal\n      mu\n      id\n    }\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_2KkbcH on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  score\n  createdAt\n}\n"
+    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n  $userId: ID!\n) {\n  ...MatchListFragment_32wNNd\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace) {\n      ordinal\n      mu\n      id\n    }\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  namespace\n  score\n  createdAt\n}\n"
   }
 };
 })() `)

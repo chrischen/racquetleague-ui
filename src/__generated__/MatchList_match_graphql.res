@@ -15,6 +15,7 @@ module Types = {
     createdAt: option<Util.Datetime.t>,
     @live id: string,
     losers: option<array<fragment_losers>>,
+    namespace: option<string>,
     score: option<array<float>>,
     winners: option<array<fragment_winners>>,
   }
@@ -96,6 +97,13 @@ return {
       "selections": [
         (v1/*: any*/)
       ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "namespace",
       "storageKey": null
     },
     {

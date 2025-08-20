@@ -46,7 +46,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         first: 5,
         activitySlug: params.activitySlug,
         userId: params.userId,
-        // namespace: "doubles:rec"
+        namespace: "doubles:comp",
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),

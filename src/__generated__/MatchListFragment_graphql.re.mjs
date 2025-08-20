@@ -20,11 +20,10 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-function makeConnectionId(connectionParentDataId, activitySlug, namespace, userId) {
+function makeConnectionId(connectionParentDataId, activitySlug, userId) {
   var activitySlug$1 = activitySlug;
   var args = {
     activitySlug: activitySlug$1,
-    namespace: namespace,
     userId: userId
   };
   return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "MatchListFragment_matches", args);
@@ -90,11 +89,6 @@ return {
     {
       "defaultValue": null,
       "kind": "LocalArgument",
-      "name": "namespace"
-    },
-    {
-      "defaultValue": null,
-      "kind": "LocalArgument",
       "name": "userId"
     }
   ],
@@ -130,11 +124,6 @@ return {
           "kind": "Variable",
           "name": "activitySlug",
           "variableName": "activitySlug"
-        },
-        {
-          "kind": "Variable",
-          "name": "namespace",
-          "variableName": "namespace"
         },
         {
           "kind": "Variable",

@@ -2,7 +2,7 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module Query = %relay(`
-  query LeagueEventPageQuery($eventId: ID!, $after: String, $first: Int, $before: String, $activitySlug: String!, $namespace: String) {
+  query LeagueEventPageQuery($eventId: ID!, $after: String, $first: Int, $before: String, $activitySlug: String!) {
     viewer {
       user {
         id
@@ -13,7 +13,7 @@ module Query = %relay(`
       title
       ...AiTetsu_event @arguments(after: $after, first: 50, before: $before)
     }
-    ...MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace)
+    ...MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug)
   }
 `)
 

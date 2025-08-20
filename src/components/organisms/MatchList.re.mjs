@@ -8,6 +8,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
@@ -203,6 +204,7 @@ function ts(prim0, prim1) {
 function MatchList$Match(props) {
   var match = use$1(props.match);
   var winners = match.winners;
+  var namespace = match.namespace;
   var losers = match.losers;
   var createdAt = match.createdAt;
   var isWinner = Core__Option.isSome(Core__Option.flatMap(props.user, (function (user) {
@@ -216,6 +218,10 @@ function MatchList$Match(props) {
                                         }));
                           }));
             })));
+  var tmp;
+  tmp = namespace === "doubles:comp" ? JsxRuntime.jsx(LucideReact.Trophy, {
+          className: "h-4 w-4 text-amber-500"
+        }) : null;
   return JsxRuntime.jsx("li", {
               children: JsxRuntime.jsxs("div", {
                     children: [
@@ -243,6 +249,7 @@ function MatchList$Match(props) {
                                             children: [
                                               JsxRuntime.jsxs("p", {
                                                     children: [
+                                                      tmp,
                                                       isWinner ? Core__Option.getOr(Core__Option.map(winners, (function (winners) {
                                                                     return JsxRuntime.jsx(MatchList$InlineTeam, {
                                                                                 players: winners.map(function (x) {
@@ -274,7 +281,7 @@ function MatchList$Match(props) {
                                                                               });
                                                                   })), null)
                                                     ],
-                                                    className: "text-sm text-gray-500"
+                                                    className: "text-sm text-gray-500 flex items-center gap-1"
                                                   }),
                                               JsxRuntime.jsx(JsxRuntime.Fragment, {
                                                     children: Caml_option.some(JsxRuntime.jsxs("div", {
