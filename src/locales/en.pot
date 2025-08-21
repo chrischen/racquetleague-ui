@@ -2053,3 +2053,7 @@ msgstr ""
 #: src/components/pages/LeagueRankingsPage.re.mjs:52
 msgid "Competitive Doubles"
 msgstr ""
+
+#: src/components/organisms/EventItem.re.mjs:433
+msgid "close"
+msgstr ""

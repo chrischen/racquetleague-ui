@@ -13,12 +13,12 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:401
+#: src/components/organisms/EventsList.re.mjs:394
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
 #: src/components/organisms/EventItem.re.mjs:396
-#: src/components/organisms/EventsList.re.mjs:142
+#: src/components/organisms/EventsList.re.mjs:141
 msgid "[location missing]"
 msgstr "[場所がありません]"
 
@@ -28,41 +28,41 @@ msgstr "[タイトルがありません]"
 
 #: src/components/organisms/EventItem.re.mjs:212
 #: src/components/organisms/EventItem.re.mjs:219
-#: src/components/organisms/EventsList.re.mjs:105
-#: src/components/organisms/EventsList.re.mjs:110
+#: src/components/organisms/EventsList.re.mjs:104
+#: src/components/organisms/EventsList.re.mjs:109
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
 #: src/components/organisms/EventItem.re.mjs:213
 #: src/components/organisms/EventItem.re.mjs:220
-#: src/components/organisms/EventsList.re.mjs:106
-#: src/components/organisms/EventsList.re.mjs:111
+#: src/components/organisms/EventsList.re.mjs:105
+#: src/components/organisms/EventsList.re.mjs:110
 msgid "{0} hour"
 msgstr "{0}時間"
 
 #: src/components/organisms/EventItem.re.mjs:214
 #: src/components/organisms/EventItem.re.mjs:221
-#: src/components/organisms/EventsList.re.mjs:107
-#: src/components/organisms/EventsList.re.mjs:112
+#: src/components/organisms/EventsList.re.mjs:106
+#: src/components/organisms/EventsList.re.mjs:111
 msgid "{0} hours"
 msgstr "{0}時間"
 
 #: src/components/organisms/EventItem.re.mjs:225
-#: src/components/organisms/EventsList.re.mjs:114
+#: src/components/organisms/EventsList.re.mjs:113
 msgid "{0} minute"
 msgstr "{0}分"
 
 #: src/components/organisms/EventItem.re.mjs:226
-#: src/components/organisms/EventsList.re.mjs:115
+#: src/components/organisms/EventsList.re.mjs:114
 msgid "{0} minutes"
 msgstr "{0}分"
 
-#: src/components/organisms/EventsList.re.mjs:238
+#: src/components/organisms/EventsList.re.mjs:231
 msgid "{0} private {shadowCountDesc} hidden"
 msgstr "{0} プライベート {shadowCountDesc} 隠された"
 
 #: src/components/organisms/EventItem.re.mjs:224
-#: src/components/organisms/EventsList.re.mjs:113
+#: src/components/organisms/EventsList.re.mjs:112
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr "{minutes, plural, one {{0}} other {{1}}}"
 
@@ -70,11 +70,11 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventsList.re.mjs:207
+#: src/components/organisms/EventsList.re.mjs:200
 msgid "{shadowCount, plural, one {event} other {events}}"
 msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 
-#: src/components/organisms/EventsList.re.mjs:119
+#: src/components/organisms/EventsList.re.mjs:118
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
@@ -82,19 +82,19 @@ msgstr "🚫 キャンセル"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/EventsList.re.mjs:373
+#: src/components/organisms/EventsList.re.mjs:366
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
-#: src/components/organisms/EventItem.re.mjs:430
+#: src/components/organisms/EventItem.re.mjs:433
 msgid "close"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:466
+#: src/components/organisms/EventItem.re.mjs:469
 msgid "details"
 msgstr "詳細"
 
-#: src/components/organisms/EventsList.re.mjs:371
+#: src/components/organisms/EventsList.re.mjs:364
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 
@@ -102,7 +102,7 @@ msgstr "日付でフィルタリング"
 msgid "Google Calendar"
 msgstr "Google カレンダー"
 
-#: src/components/organisms/EventItem.re.mjs:453
+#: src/components/organisms/EventItem.re.mjs:456
 msgid "join event"
 msgstr "参加する"
 
@@ -110,7 +110,7 @@ msgstr "参加する"
 msgid "joined"
 msgstr "参加"
 
-#: src/components/organisms/EventItem.re.mjs:444
+#: src/components/organisms/EventItem.re.mjs:447
 msgid "leave event"
 msgstr "離れる"
 
@@ -131,11 +131,11 @@ msgstr "プレイヤー"
 msgid "public events"
 msgstr "公開イベント"
 
-#: src/components/organisms/EventsList.re.mjs:343
+#: src/components/organisms/EventsList.re.mjs:336
 msgid "share as text"
 msgstr "テキストとして共有"
 
-#: src/components/organisms/EventsList.re.mjs:246
+#: src/components/organisms/EventsList.re.mjs:239
 msgid "show"
 msgstr "表示"
 

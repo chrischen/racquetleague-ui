@@ -2081,6 +2081,10 @@ msgstr "結果は競技レーティングに提出されます。"
 msgid "Competitive Doubles"
 msgstr "競技ダブルス"
 
+#: src/components/organisms/EventItem.re.mjs:433
+msgid "close"
+msgstr ""
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

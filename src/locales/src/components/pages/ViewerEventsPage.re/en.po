@@ -13,12 +13,12 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventsList.re.mjs:401
+#: src/components/organisms/EventsList.re.mjs:394
 msgid "...load past events"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:396
-#: src/components/organisms/EventsList.re.mjs:142
+#: src/components/organisms/EventsList.re.mjs:141
 msgid "[location missing]"
 msgstr ""
 
@@ -28,41 +28,41 @@ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:212
 #: src/components/organisms/EventItem.re.mjs:219
-#: src/components/organisms/EventsList.re.mjs:105
-#: src/components/organisms/EventsList.re.mjs:110
+#: src/components/organisms/EventsList.re.mjs:104
+#: src/components/organisms/EventsList.re.mjs:109
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:213
 #: src/components/organisms/EventItem.re.mjs:220
-#: src/components/organisms/EventsList.re.mjs:106
-#: src/components/organisms/EventsList.re.mjs:111
+#: src/components/organisms/EventsList.re.mjs:105
+#: src/components/organisms/EventsList.re.mjs:110
 msgid "{0} hour"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:214
 #: src/components/organisms/EventItem.re.mjs:221
-#: src/components/organisms/EventsList.re.mjs:107
-#: src/components/organisms/EventsList.re.mjs:112
+#: src/components/organisms/EventsList.re.mjs:106
+#: src/components/organisms/EventsList.re.mjs:111
 msgid "{0} hours"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:225
-#: src/components/organisms/EventsList.re.mjs:114
+#: src/components/organisms/EventsList.re.mjs:113
 msgid "{0} minute"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:226
-#: src/components/organisms/EventsList.re.mjs:115
+#: src/components/organisms/EventsList.re.mjs:114
 msgid "{0} minutes"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:238
+#: src/components/organisms/EventsList.re.mjs:231
 msgid "{0} private {shadowCountDesc} hidden"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:224
-#: src/components/organisms/EventsList.re.mjs:113
+#: src/components/organisms/EventsList.re.mjs:112
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -70,11 +70,11 @@ msgstr ""
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:207
+#: src/components/organisms/EventsList.re.mjs:200
 msgid "{shadowCount, plural, one {event} other {events}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:119
+#: src/components/organisms/EventsList.re.mjs:118
 msgid "🚫 CANCELED"
 msgstr ""
 
@@ -86,19 +86,19 @@ msgstr ""
 msgid "Apple iCal"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:373
+#: src/components/organisms/EventsList.re.mjs:366
 msgid "clear filter"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:430
+#: src/components/organisms/EventItem.re.mjs:433
 msgid "close"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:466
+#: src/components/organisms/EventItem.re.mjs:469
 msgid "details"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:371
+#: src/components/organisms/EventsList.re.mjs:364
 msgid "filtering by date"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Google Calendar"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:453
+#: src/components/organisms/EventItem.re.mjs:456
 msgid "join event"
 msgstr ""
 
@@ -118,7 +118,7 @@ msgstr ""
 #~ msgid "Joined"
 #~ msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:444
+#: src/components/organisms/EventItem.re.mjs:447
 msgid "leave event"
 msgstr ""
 
@@ -143,11 +143,11 @@ msgstr ""
 msgid "public events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:343
+#: src/components/organisms/EventsList.re.mjs:336
 msgid "share as text"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:246
+#: src/components/organisms/EventsList.re.mjs:239
 msgid "show"
 msgstr ""
 

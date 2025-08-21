@@ -52,15 +52,15 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventItem.re.mjs:430
+#: src/components/organisms/EventItem.re.mjs:433
 msgid "close"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:466
+#: src/components/organisms/EventItem.re.mjs:469
 msgid "details"
 msgstr "詳細"
 
-#: src/components/organisms/EventItem.re.mjs:453
+#: src/components/organisms/EventItem.re.mjs:456
 msgid "join event"
 msgstr "参加する"
 
@@ -68,7 +68,7 @@ msgstr "参加する"
 msgid "joined"
 msgstr "参加"
 
-#: src/components/organisms/EventItem.re.mjs:444
+#: src/components/organisms/EventItem.re.mjs:447
 msgid "leave event"
 msgstr "離れる"
 

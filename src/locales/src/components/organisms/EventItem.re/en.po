@@ -52,15 +52,15 @@ msgstr ""
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:430
+#: src/components/organisms/EventItem.re.mjs:433
 msgid "close"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:466
+#: src/components/organisms/EventItem.re.mjs:469
 msgid "details"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:453
+#: src/components/organisms/EventItem.re.mjs:456
 msgid "join event"
 msgstr ""
 
@@ -68,7 +68,7 @@ msgstr ""
 msgid "joined"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:444
+#: src/components/organisms/EventItem.re.mjs:447
 msgid "leave event"
 msgstr ""
 
