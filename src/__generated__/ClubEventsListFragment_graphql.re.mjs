@@ -246,6 +246,11 @@ return {
                   "name": "EventItem_event"
                 },
                 {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "ClubEventsListText_event"
+                },
+                {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",

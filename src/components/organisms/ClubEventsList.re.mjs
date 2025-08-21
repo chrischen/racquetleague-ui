@@ -6,25 +6,35 @@ import * as Layout from "../shared/Layout.re.mjs";
 import * as PinMap from "./PinMap.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as EventItem from "./EventItem.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as Core from "@lingui/core";
 import * as ClubCalendar from "./ClubCalendar.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
+import * as React$1 from "@lingui/react";
+import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
+import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
 import * as Outline from "@heroicons/react/24/outline";
+import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 import * as ClubEventsListFragment_graphql from "../../__generated__/ClubEventsListFragment_graphql.re.mjs";
+import * as ClubEventsListText_event_graphql from "../../__generated__/ClubEventsListText_event_graphql.re.mjs";
 import * as ClubEventsListRefetchQuery_graphql from "../../__generated__/ClubEventsListRefetchQuery_graphql.re.mjs";
 
-import { t } from '@lingui/macro'
+import { css, cx } from '@linaria/core'
+;
+
+import { t, plural } from '@lingui/macro'
 ;
 
 var getConnectionNodes = ClubEventsListFragment_graphql.Utils.getConnectionNodes;
@@ -94,6 +104,138 @@ function addEventToGroups(intl, filterByDate, groups, $$event) {
         }));
   return groups;
 }
+
+var convertFragment$1 = ClubEventsListText_event_graphql.Internal.convertFragment;
+
+function use$1(fRef) {
+  return RescriptRelay_Fragment.useFragment(ClubEventsListText_event_graphql.node, convertFragment$1, fRef);
+}
+
+function useOpt$1(fRef) {
+  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, ClubEventsListText_event_graphql.node, convertFragment$1);
+}
+
+var TextItemFragment = {
+  Types: undefined,
+  Operation: undefined,
+  convertFragment: convertFragment$1,
+  use: use$1,
+  useOpt: useOpt$1
+};
+
+function td(prim) {
+  return Core.i18n._(prim);
+}
+
+function ts(prim0, prim1) {
+  return Caml_splice_call.spliceApply(t, [
+              prim0,
+              prim1
+            ]);
+}
+
+function make($$event) {
+  var match = use$1($$event);
+  var timezone = match.timezone;
+  var startDate = match.startDate;
+  var maxRsvps = match.maxRsvps;
+  var endDate = match.endDate;
+  var match$1 = React$1.useLingui();
+  var intl = ReactIntl.useIntl();
+  var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
+              return Core__Option.map(rsvps.edges, (function (edges) {
+                            return edges.filter(function (edge) {
+                                        return Core__Option.getOr(Core__Option.flatMap(edge, (function (edge) {
+                                                          return Core__Option.map(edge.node, (function (node) {
+                                                                        if (Caml_obj.equal(node.listType, 0)) {
+                                                                          return true;
+                                                                        } else {
+                                                                          return node.listType === undefined;
+                                                                        }
+                                                                      }));
+                                                        })), true);
+                                      }).length;
+                          }));
+            })), 0);
+  var spaceAvailable = maxRsvps !== undefined && (maxRsvps - playersCount | 0) <= 0 ? "🈵" : "🈳";
+  var duration = Core__Option.flatMap(startDate, (function (startDate) {
+          return Core__Option.map(endDate, (function (endDate) {
+                        return DifferenceInMinutes.differenceInMinutes(Util.Datetime.toDate(endDate), Util.Datetime.toDate(startDate));
+                      }));
+        }));
+  var duration$1 = Core__Option.map(duration, (function (duration) {
+          var hours = Math.floor(duration / 60);
+          var minutes = (duration | 0) % 60;
+          if (minutes === 0) {
+            return plural(hours | 0, {
+                        one: t`${hours.toString()} hour`,
+                        other: t`${hours.toString()} hours`
+                      });
+          } else {
+            return plural(hours | 0, {
+                        one: t`${hours.toString()} hour`,
+                        other: t`${hours.toString()} hours`
+                      }) + " " + plural(minutes, {
+                        one: t`${minutes.toString()} minute`,
+                        other: t`${minutes.toString()} minutes`
+                      });
+          }
+        }));
+  var canceled = Core__Option.isSome(match.deleted) ? " " + t`🚫 CANCELED` : "";
+  return "🗓 " + Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
+                    var startDate$1 = Util.Datetime.toDate(startDate);
+                    return intl.formatDate(startDate$1, {
+                                timeZone: Core__Option.getOr(timezone, "Asia/Tokyo"),
+                                weekday: "short",
+                                month: "numeric",
+                                day: "numeric"
+                              }) + " " + intl.formatTime(startDate$1, {
+                                timeZone: Core__Option.getOr(timezone, "Asia/Tokyo")
+                              });
+                  })), "") + "->" + Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
+                    var tmp = {};
+                    if (timezone !== undefined) {
+                      tmp.timeZone = timezone;
+                    }
+                    return intl.formatTime(Util.Datetime.toDate(endDate), tmp);
+                  })), "") + Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
+                    return " (" + duration + ") ";
+                  })), "") + spaceAvailable + canceled + "\n📍 " + Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
+                    return Core__Option.map(l.name, (function (name) {
+                                  return name;
+                                }));
+                  })), t`[location missing]`) + "\n👉 https://www.pkuru.com/" + match$1.i18n.locale + "/events/" + match.id + "\n-----------------------------";
+}
+
+var TextEventItem = {
+  td: td,
+  ts: ts,
+  make: make
+};
+
+function toLocalTime(date) {
+  return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
+}
+
+function ClubEventsList$TextEventsList(props) {
+  ReactExperimental.useTransition();
+  var match = usePagination(props.events);
+  var events = getConnectionNodes(match.data.events);
+  var str = events.map(function (edge) {
+          return make(edge.fragmentRefs);
+        }).join("\n");
+  return JsxRuntime.jsx("textarea", {
+              className: "w-full",
+              readOnly: true,
+              rows: 10,
+              value: str
+            });
+}
+
+var TextEventsList = {
+  toLocalTime: toLocalTime,
+  make: ClubEventsList$TextEventsList
+};
 
 function updateParams(filter, params) {
   switch (filter.TAG) {
@@ -190,6 +332,7 @@ function ClubEventsList(props) {
         return false;
       });
   var setShareOpen = match$2[1];
+  var shareOpen = match$2[0];
   var match$3 = React.useState(function () {
         
       });
@@ -221,19 +364,24 @@ function ClubEventsList(props) {
                         JsxRuntime.jsxs("div", {
                               children: [
                                 props.header,
-                                JsxRuntime.jsx(Layout.Container.make, {
-                                      children: JsxRuntime.jsx(UiAction.make, {
-                                            onClick: (function (param) {
-                                                setShareOpen(function (o) {
-                                                      return !o;
-                                                    });
-                                              }),
-                                            active: match$2[0],
-                                            alt: t`share as text`,
-                                            children: JsxRuntime.jsx(Outline.DocumentTextIcon, {
-                                                  className: "inline w-6 h-6"
-                                                })
-                                          }),
+                                JsxRuntime.jsxs(Layout.Container.make, {
+                                      children: [
+                                        JsxRuntime.jsx(UiAction.make, {
+                                              onClick: (function (param) {
+                                                  setShareOpen(function (o) {
+                                                        return !o;
+                                                      });
+                                                }),
+                                              active: shareOpen,
+                                              alt: t`share as text`,
+                                              children: JsxRuntime.jsx(Outline.DocumentTextIcon, {
+                                                    className: "inline w-6 h-6"
+                                                  })
+                                            }),
+                                        shareOpen ? JsxRuntime.jsx(ClubEventsList$TextEventsList, {
+                                                events: events
+                                              }) : null
+                                      ],
                                       className: "p-2 flex-row flex gap-2"
                                     }),
                                 JsxRuntime.jsx("div", {
@@ -369,14 +517,17 @@ function __unused() {
       });
 }
 
-var make = ClubEventsList;
+var make$1 = ClubEventsList;
 
 export {
   Fragment ,
   addEventToGroups ,
+  TextItemFragment ,
+  TextEventItem ,
+  TextEventsList ,
   Filter ,
   Day ,
-  make ,
+  make$1 as make,
   __unused ,
 }
 /*  Not a pure module */

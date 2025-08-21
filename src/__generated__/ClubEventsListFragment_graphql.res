@@ -24,7 +24,7 @@ module Types = {
     shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     timezone: option<string>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventItem_event]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #ClubEventsListText_event | #EventItem_event]>,
   }
   and fragment_events_edges = {
     node: option<fragment_events_edges_node>,
@@ -299,6 +299,11 @@ return {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "EventItem_event"
+                },
+                {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "ClubEventsListText_event"
                 },
                 {
                   "alias": null,
