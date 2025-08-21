@@ -23,4 +23,3 @@ let make = () => {
       ->Option.getOr(t`club doesn't exist.`)}
   </WaitForMessages>
 }
-

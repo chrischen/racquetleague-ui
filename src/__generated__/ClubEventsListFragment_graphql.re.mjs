@@ -32,7 +32,7 @@ function makeConnectionId(connectionParentDataId, afterDate, token) {
     afterDate: afterDate$1,
     token: token
   };
-  return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "EventsListFragment_events", args);
+  return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "ClubEventsListFragment_events", args);
 }
 
 function getConnectionNodes(connection) {
@@ -140,7 +140,7 @@ return {
       ],
       "concreteType": "EventConnection",
       "kind": "LinkedField",
-      "name": "__EventsListFragment_events_connection",
+      "name": "__ClubEventsListFragment_events_connection",
       "plural": false,
       "selections": [
         {
@@ -176,6 +176,53 @@ return {
                 },
                 {
                   "alias": null,
+                  "args": [
+                    {
+                      "kind": "Literal",
+                      "name": "first",
+                      "value": 100
+                    }
+                  ],
+                  "concreteType": "EventRsvpConnection",
+                  "kind": "LinkedField",
+                  "name": "rsvps",
+                  "plural": false,
+                  "selections": [
+                    {
+                      "alias": null,
+                      "args": null,
+                      "concreteType": "EventRsvpEdge",
+                      "kind": "LinkedField",
+                      "name": "edges",
+                      "plural": true,
+                      "selections": [
+                        {
+                          "alias": null,
+                          "args": null,
+                          "concreteType": "Rsvp",
+                          "kind": "LinkedField",
+                          "name": "node",
+                          "plural": false,
+                          "selections": [
+                            (v1/*: any*/),
+                            {
+                              "alias": null,
+                              "args": null,
+                              "kind": "ScalarField",
+                              "name": "listType",
+                              "storageKey": null
+                            }
+                          ],
+                          "storageKey": null
+                        }
+                      ],
+                      "storageKey": null
+                    }
+                  ],
+                  "storageKey": "rsvps(first:100)"
+                },
+                {
+                  "alias": null,
                   "args": null,
                   "concreteType": "Location",
                   "kind": "LinkedField",
@@ -196,12 +243,7 @@ return {
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "ClubEventsList_event"
-                },
-                {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "ClubEventsListText_event"
+                  "name": "EventItem_event"
                 },
                 {
                   "alias": null,

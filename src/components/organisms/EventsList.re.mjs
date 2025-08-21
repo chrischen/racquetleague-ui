@@ -73,7 +73,6 @@ function make($$event) {
   var timezone = match.timezone;
   var startDate = match.startDate;
   var maxRsvps = match.maxRsvps;
-  var $$location = match.location;
   var endDate = match.endDate;
   var match$1 = React$1.useLingui();
   var intl = ReactIntl.useIntl();
@@ -135,17 +134,11 @@ function make($$event) {
                     return intl.formatTime(Util.Datetime.toDate(endDate), tmp);
                   })), "") + Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
                     return " (" + duration + ") ";
-                  })), "") + spaceAvailable + canceled + "\n📍 " + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                  })), "") + spaceAvailable + canceled + "\n📍 " + Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
                     return Core__Option.map(l.name, (function (name) {
                                   return name;
                                 }));
-                  })), t`[location missing]`) + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
-                    return Core__Option.flatMap(l.links, (function (l) {
-                                  return Core__Option.map(l[0], (function (mapLink) {
-                                                return "\n🧭 " + encodeURI(mapLink);
-                                              }));
-                                }));
-                  })), "") + "\n👉 https://www.pkuru.com/" + match$1.i18n.locale + "/events/" + match.id + "\n-----------------------------";
+                  })), t`[location missing]`) + "\n👉 https://www.pkuru.com/" + match$1.i18n.locale + "/events/" + match.id + "\n-----------------------------";
 }
 
 var TextEventItem = {

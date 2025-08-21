@@ -22,6 +22,11 @@ module Query = %relay(`
           token: $token
         )
     }
+    viewer {
+      user {
+        ...EventItem_user
+      }
+    }
   }
   `)
 type loaderData = ClubPageQuery_graphql.queryRef
@@ -85,6 +90,7 @@ let make = () => {
       ->Option.map(club => <>
         <ClubEventsList
           events={club.fragmentRefs}
+          viewer={query.viewer}
           header={<Layout.Container>
             <h1>
               <div className="text-base leading-6 text-gray-500"> {t`club`} </div>

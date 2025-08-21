@@ -94,6 +94,7 @@ function ClubPage(props) {
                                     return JsxRuntime.jsx(JsxRuntime.Fragment, {
                                                 children: Caml_option.some(JsxRuntime.jsx(ClubEventsList.make, {
                                                           events: club.fragmentRefs,
+                                                          viewer: query.viewer,
                                                           header: JsxRuntime.jsxs(Layout.Container.make, {
                                                                 children: [
                                                                   JsxRuntime.jsxs("h1", {

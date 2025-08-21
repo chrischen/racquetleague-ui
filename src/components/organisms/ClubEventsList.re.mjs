@@ -6,36 +6,25 @@ import * as Layout from "../shared/Layout.re.mjs";
 import * as PinMap from "./PinMap.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
-import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
+import * as EventItem from "./EventItem.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
-import * as Core from "@lingui/core";
 import * as ClubCalendar from "./ClubCalendar.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
-import * as Core$1 from "@linaria/core";
-import * as React$1 from "@lingui/react";
-import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
-import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
 import * as Outline from "@heroicons/react/24/outline";
-import * as ClubEventsList_event_graphql from "../../__generated__/ClubEventsList_event_graphql.re.mjs";
-import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 import * as ClubEventsListFragment_graphql from "../../__generated__/ClubEventsListFragment_graphql.re.mjs";
-import * as ClubEventsListText_event_graphql from "../../__generated__/ClubEventsListText_event_graphql.re.mjs";
 import * as ClubEventsListRefetchQuery_graphql from "../../__generated__/ClubEventsListRefetchQuery_graphql.re.mjs";
 
-import { css, cx } from '@linaria/core'
-;
-
-import { t, plural } from '@lingui/macro'
+import { t } from '@lingui/macro'
 ;
 
 var getConnectionNodes = ClubEventsListFragment_graphql.Utils.getConnectionNodes;
@@ -80,418 +69,30 @@ var Fragment = {
   useBlockingPagination: useBlockingPagination
 };
 
-var convertFragment$1 = ClubEventsList_event_graphql.Internal.convertFragment;
-
-function use$1(fRef) {
-  return RescriptRelay_Fragment.useFragment(ClubEventsList_event_graphql.node, convertFragment$1, fRef);
-}
-
-function useOpt$1(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, ClubEventsList_event_graphql.node, convertFragment$1);
-}
-
-var ItemFragment_rsvpStatus_decode = ClubEventsList_event_graphql.Utils.rsvpStatus_decode;
-
-var ItemFragment_rsvpStatus_fromString = ClubEventsList_event_graphql.Utils.rsvpStatus_fromString;
-
-var ItemFragment = {
-  rsvpStatus_decode: ItemFragment_rsvpStatus_decode,
-  rsvpStatus_fromString: ItemFragment_rsvpStatus_fromString,
-  Types: undefined,
-  Operation: undefined,
-  convertFragment: convertFragment$1,
-  use: use$1,
-  useOpt: useOpt$1
-};
-
-var convertFragment$2 = ClubEventsListText_event_graphql.Internal.convertFragment;
-
-function use$2(fRef) {
-  return RescriptRelay_Fragment.useFragment(ClubEventsListText_event_graphql.node, convertFragment$2, fRef);
-}
-
-function useOpt$2(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, ClubEventsListText_event_graphql.node, convertFragment$2);
-}
-
-var TextItemFragment = {
-  Types: undefined,
-  Operation: undefined,
-  convertFragment: convertFragment$2,
-  use: use$2,
-  useOpt: useOpt$2
-};
-
-function td(prim) {
-  return Core.i18n._(prim);
-}
-
-function ts(prim0, prim1) {
-  return Caml_splice_call.spliceApply(t, [
-              prim0,
-              prim1
-            ]);
-}
-
-function make($$event) {
-  var match = use$2($$event);
-  var timezone = match.timezone;
-  var startDate = match.startDate;
-  var maxRsvps = match.maxRsvps;
-  var $$location = match.location;
-  var endDate = match.endDate;
-  var match$1 = React$1.useLingui();
-  var intl = ReactIntl.useIntl();
-  var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
-              return Core__Option.map(rsvps.edges, (function (edges) {
-                            return edges.filter(function (edge) {
-                                        return Core__Option.getOr(Core__Option.flatMap(edge, (function (edge) {
-                                                          return Core__Option.map(edge.node, (function (node) {
-                                                                        if (Caml_obj.equal(node.listType, 0)) {
-                                                                          return true;
-                                                                        } else {
-                                                                          return node.listType === undefined;
-                                                                        }
-                                                                      }));
-                                                        })), true);
-                                      }).length;
-                          }));
-            })), 0);
-  var spaceAvailable = maxRsvps !== undefined && (maxRsvps - playersCount | 0) <= 0 ? "🈵" : "🈳";
-  var duration = Core__Option.flatMap(startDate, (function (startDate) {
-          return Core__Option.map(endDate, (function (endDate) {
-                        return DifferenceInMinutes.differenceInMinutes(Util.Datetime.toDate(endDate), Util.Datetime.toDate(startDate));
-                      }));
-        }));
-  var duration$1 = Core__Option.map(duration, (function (duration) {
-          var hours = Math.floor(duration / 60);
-          var minutes = (duration | 0) % 60;
-          if (minutes === 0) {
-            return plural(hours | 0, {
-                        one: t`${hours.toString()} hour`,
-                        other: t`${hours.toString()} hours`
-                      });
-          } else {
-            return plural(hours | 0, {
-                        one: t`${hours.toString()} hour`,
-                        other: t`${hours.toString()} hours`
-                      }) + " " + plural(minutes, {
-                        one: t`${minutes.toString()} minute`,
-                        other: t`${minutes.toString()} minutes`
-                      });
-          }
-        }));
-  var canceled = Core__Option.isSome(match.deleted) ? " " + t`🚫 CANCELED` : "";
-  return "🗓 " + Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                    var startDate$1 = Util.Datetime.toDate(startDate);
-                    return intl.formatDate(startDate$1, {
-                                timeZone: Core__Option.getOr(timezone, "Asia/Tokyo"),
-                                weekday: "short",
-                                month: "numeric",
-                                day: "numeric"
-                              }) + " " + intl.formatTime(startDate$1, {
-                                timeZone: Core__Option.getOr(timezone, "Asia/Tokyo")
-                              });
-                  })), "") + "->" + Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
-                    var tmp = {};
-                    if (timezone !== undefined) {
-                      tmp.timeZone = timezone;
-                    }
-                    return intl.formatTime(Util.Datetime.toDate(endDate), tmp);
-                  })), "") + Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
-                    return " (" + duration + ") ";
-                  })), "") + spaceAvailable + canceled + "\n📍 " + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
-                    return Core__Option.map(l.name, (function (name) {
-                                  return name;
-                                }));
-                  })), t`[location missing]`) + Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
-                    return Core__Option.flatMap(l.links, (function (l) {
-                                  return Core__Option.map(l[0], (function (mapLink) {
-                                                return "\n🧭 " + encodeURI(mapLink);
-                                              }));
-                                }));
-                  })), "") + "\n👉 https://www.pkuru.com/" + match$1.i18n.locale + "/events/" + match.id + "\n-----------------------------";
-}
-
-var TextEventItem = {
-  td: td,
-  ts: ts,
-  make: make
-};
-
-function toLocalTime(date) {
-  return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
-}
-
-function ClubEventsList$TextEventsList(props) {
-  ReactExperimental.useTransition();
-  var match = usePagination(props.events);
-  var events = getConnectionNodes(match.data.events);
-  var str = events.map(function (edge) {
-          return make(edge.fragmentRefs);
-        }).join("\n");
-  return JsxRuntime.jsx("textarea", {
-              className: "w-full",
-              readOnly: true,
-              rows: 10,
-              value: str
-            });
-}
-
-var TextEventsList = {
-  toLocalTime: toLocalTime,
-  make: ClubEventsList$TextEventsList
-};
-
-function td$1(prim) {
-  return Core.i18n._(prim);
-}
-
-function ts$1(prim0, prim1) {
-  return Caml_splice_call.spliceApply(t, [
-              prim0,
-              prim1
-            ]);
-}
-
-function ClubEventsList$EventItem(props) {
-  var __highlightedLocation = props.highlightedLocation;
-  var highlightedLocation = __highlightedLocation !== undefined ? __highlightedLocation : false;
-  var match = use$1(props.event);
-  var viewerRsvpStatus = match.viewerRsvpStatus;
-  var timezone = match.timezone;
-  var startDate = match.startDate;
-  var shadow = match.shadow;
-  var endDate = match.endDate;
-  var secret = Core__Option.getOr(shadow, false);
-  var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
-              return Core__Option.map(rsvps.edges, (function (edges) {
-                            return edges.filter(function (edge) {
-                                        return Core__Option.getOr(Core__Option.flatMap(edge, (function (edge) {
-                                                          return Core__Option.map(edge.node, (function (node) {
-                                                                        if (Caml_obj.equal(node.listType, 0)) {
-                                                                          return true;
-                                                                        } else {
-                                                                          return node.listType === undefined;
-                                                                        }
-                                                                      }));
-                                                        })), true);
-                                      }).length;
-                          }));
-            })), 0);
-  var duration = Core__Option.flatMap(startDate, (function (startDate) {
-          return Core__Option.map(endDate, (function (endDate) {
-                        return DifferenceInMinutes.differenceInMinutes(Util.Datetime.toDate(endDate), Util.Datetime.toDate(startDate));
-                      }));
-        }));
-  var duration$1 = Core__Option.map(duration, (function (duration) {
-          var hours = Math.floor(duration / 60);
-          var minutes = (duration | 0) % 60;
-          if (minutes === 0) {
-            return plural(hours | 0, {
-                        one: t`${hours.toString()} hour`,
-                        other: t`${hours.toString()} hours`
-                      });
-          } else {
-            return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                        children: [
-                          plural(hours | 0, {
-                                one: t`${hours.toString()} hour`,
-                                other: t`${hours.toString()} hours`
-                              }),
-                          " ",
-                          plural(minutes, {
-                                one: t`${minutes.toString()} minute`,
-                                other: t`${minutes.toString()} minutes`
-                              })
-                        ]
-                      });
-          }
-        }));
-  var tmp;
-  tmp = viewerRsvpStatus !== undefined && (viewerRsvpStatus === "Joined" || viewerRsvpStatus === "Waitlist") ? (
-      viewerRsvpStatus === "Joined" ? JsxRuntime.jsx("div", {
-              children: t`joined`,
-              className: Core$1.cx("text-green-600 bg-green-400/10 ring-green-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-            }) : JsxRuntime.jsx("div", {
-              children: t`waitlist`,
-              className: Core$1.cx("text-yellow-600 bg-yellow-400/10 ring-yellow-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-            })
-    ) : null;
-  var tmp$1;
-  var exit = 0;
-  if (shadow !== undefined && shadow) {
-    tmp$1 = JsxRuntime.jsx(Solid.LockClosedIcon, {
-          className: "-ml-0.5 h-3 w-3",
-          "aria-hidden": "true"
-        });
-  } else {
-    exit = 1;
-  }
-  if (exit === 1) {
-    tmp$1 = Core__Option.getOr(Core__Option.map(match.maxRsvps, (function (maxRsvps) {
-                return playersCount.toString() + "/" + maxRsvps.toString() + " " + t`players`;
-              })), JsxRuntime.jsxs(JsxRuntime.Fragment, {
-              children: [
-                playersCount.toString() + " ",
-                plural(playersCount, {
-                      one: "player",
-                      other: "players"
-                    })
-              ]
-            }));
-  }
-  return JsxRuntime.jsxs(Layout.Container.make, {
-              children: [
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("div", {
-                                      children: JsxRuntime.jsx("div", {
-                                            className: "h-2 w-2 rounded-full bg-current"
-                                          }),
-                                      className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
-                                    }),
-                                JsxRuntime.jsx("h2", {
-                                      children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                            to: "/events/" + match.id,
-                                            children: JsxRuntime.jsxs("div", {
-                                                  children: [
-                                                    JsxRuntime.jsxs("span", {
-                                                          children: [
-                                                            Core__Option.getOr(Core__Option.flatMap(match.activity, (function (a) {
-                                                                        return Core__Option.map(a.name, (function (name) {
-                                                                                      return Core.i18n._(name);
-                                                                                    }));
-                                                                      })), null),
-                                                            " / ",
-                                                            Core__Option.getOr(match.title, t`[missing title]`)
-                                                          ],
-                                                          className: Core$1.cx("truncate", Core__Option.isSome(match.deleted) ? "line-through" : "")
-                                                        }),
-                                                    JsxRuntime.jsx("span", {
-                                                          className: "absolute inset-0"
-                                                        })
-                                                  ],
-                                                  className: "flex gap-x-2"
-                                                }),
-                                            className: "",
-                                            relative: "path"
-                                          }),
-                                      className: "min-w-0 text-sm font-semibold leading-6 text-black w-full"
-                                    })
-                              ],
-                              className: "flex items-center gap-x-3"
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsxs("p", {
-                                    children: [
-                                      Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                                                  return Core__Option.getOr(Core__Option.map(timezone, (function (timezone) {
-                                                                    return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                value: Util.Datetime.toDate(startDate),
-                                                                                timeZone: timezone
-                                                                              });
-                                                                  })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                  value: Util.Datetime.toDate(startDate)
-                                                                }));
-                                                })), null),
-                                      " -> ",
-                                      Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
-                                                  return Core__Option.getOr(Core__Option.map(timezone, (function (timezone) {
-                                                                    return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                value: Util.Datetime.toDate(endDate),
-                                                                                timeZone: timezone
-                                                                              });
-                                                                  })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                  value: Util.Datetime.toDate(endDate)
-                                                                }));
-                                                })), null),
-                                      Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
-                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                              children: [
-                                                                " (",
-                                                                duration,
-                                                                ") "
-                                                              ]
-                                                            });
-                                                })), null)
-                                    ],
-                                    className: "whitespace-nowrap"
-                                  }),
-                              className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsx("span", {
-                                    children: JsxRuntime.jsx("p", {
-                                          children: secret ? null : Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
-                                                        return Core__Option.map(l.name, (function (name) {
-                                                                      return name;
-                                                                    }));
-                                                      })), t`[location missing]`),
-                                          className: Core$1.cx("truncate", highlightedLocation ? "font-bold" : "")
-                                        }),
-                                    className: "whitespace-nowrap"
-                                  }),
-                              className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
-                            })
-                      ],
-                      className: "min-w-0 flex-auto"
-                    }),
-                tmp,
-                JsxRuntime.jsx("div", {
-                      children: tmp$1,
-                      className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-                    })
-              ],
-              className: "relative flex items-center space-x-4 py-4"
-            });
-}
-
-var EventItem = {
-  td: td$1,
-  ts: ts$1,
-  make: ClubEventsList$EventItem
-};
-
-function sortByDate(intl, filterByDate, dates, $$event) {
+function addEventToGroups(intl, filterByDate, groups, $$event) {
   Core__Option.map($$event.startDate, (function (startDate) {
-          var startDate$1 = Util.Datetime.toDate(startDate);
-          var startDateString = intl.formatDate(startDate$1, {
-                timeZone: Core__Option.getOr($$event.timezone, "Asia/Tokyo"),
+          var dateJs = Util.Datetime.toDate(startDate);
+          var key = intl.formatDate(dateJs, {
+                timeZone: Core__Option.getOr($$event.timezone, "UTC"),
                 weekday: "long",
                 month: "short",
                 day: "numeric"
               });
-          Core__Option.map(filterByDate, (function (filterDate) {
-                  if (startDate$1.getTime() <= filterDate.getTime()) {
-                    return ;
-                  }
-                  var events = Js_dict.get(dates, startDateString);
-                  if (events !== undefined) {
-                    dates[startDateString] = Belt_Array.concatMany([
-                          [$$event],
-                          events
-                        ]);
-                  } else {
-                    dates[startDateString] = [$$event];
-                  }
-                }));
-          if (filterByDate !== undefined) {
+          var shouldInclude = filterByDate !== undefined ? dateJs.getTime() > Caml_option.valFromOption(filterByDate).getTime() : true;
+          if (!shouldInclude) {
             return ;
           }
-          var events = Js_dict.get(dates, startDateString);
-          if (events !== undefined) {
-            dates[startDateString] = Belt_Array.concatMany([
+          var existing = Js_dict.get(groups, key);
+          if (existing !== undefined) {
+            groups[key] = Belt_Array.concatMany([
                   [$$event],
-                  events
+                  existing
                 ]);
           } else {
-            dates[startDateString] = [$$event];
+            groups[key] = [$$event];
           }
         }));
-  return dates;
+  return groups;
 }
 
 function updateParams(filter, params) {
@@ -513,6 +114,7 @@ var Filter = {
 };
 
 function ClubEventsList$Day(props) {
+  var viewer = props.viewer;
   var highlightedLocation = props.highlightedLocation;
   var events = props.events;
   var match = React.useState(function () {
@@ -520,28 +122,30 @@ function ClubEventsList$Day(props) {
       });
   var setShowShadow = match[1];
   var showShadow = match[0];
-  var shadowCount = events.filter(function (edge) {
-        return Core__Option.getOr(edge.shadow, false);
-      }).length;
-  var shadowCountDesc = plural(shadowCount, {
-        one: "event",
-        other: "events"
+  var shadowEvents = events.filter(function (e) {
+        return Core__Option.getOr(e.shadow, false);
       });
+  var shadowCount = shadowEvents.length;
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 events.map(function (edge) {
-                      var highlighted = Core__Option.getOr(Core__Option.map(edge.location, (function ($$location) {
-                                  return highlightedLocation === $$location.id;
+                      var highlighted = Core__Option.getOr(Core__Option.map(edge.location, (function (loc) {
+                                  return highlightedLocation === loc.id;
                                 })), false);
-                      var highlightedClass = highlighted ? "bg-yellow-100/35" : "";
                       if (Core__Option.getOr(edge.shadow, false) && !showShadow) {
                         return null;
                       } else {
                         return JsxRuntime.jsx("li", {
-                                    children: JsxRuntime.jsx(ClubEventsList$EventItem, {
-                                          event: edge.fragmentRefs
-                                        }, edge.id),
-                                    className: highlightedClass,
+                                    children: JsxRuntime.jsx(EventItem.make, {
+                                          event: edge.fragmentRefs,
+                                          user: Core__Option.flatMap(viewer, (function (v) {
+                                                  return Core__Option.map(v.user, (function (u) {
+                                                                return u.fragmentRefs;
+                                                              }));
+                                                })),
+                                          highlightedLocation: highlighted
+                                        }),
+                                    className: highlighted ? "bg-yellow-100/35" : "",
                                     id: highlighted ? "highlighted" : ""
                                   }, edge.id);
                       }
@@ -549,7 +153,9 @@ function ClubEventsList$Day(props) {
                 shadowCount > 0 && !showShadow ? JsxRuntime.jsx("li", {
                         children: JsxRuntime.jsxs("p", {
                               children: [
-                                t`${shadowCount.toString()} private ${shadowCountDesc} hidden`,
+                                shadowCount.toString() + " private event" + (
+                                  shadowCount > 1 ? "s" : ""
+                                ) + " hidden",
                                 " ",
                                 JsxRuntime.jsx(UiAction.make, {
                                       onClick: (function (param) {
@@ -572,47 +178,41 @@ var Day = {
 };
 
 function ClubEventsList(props) {
+  var viewer = props.viewer;
   var events = props.events;
-  ReactExperimental.useTransition();
   var match = use(events);
   var match$1 = usePagination(events);
   var data = match$1.data;
-  var events$1 = getConnectionNodes(data.events);
+  var nodes = getConnectionNodes(data.events);
   var pageInfo = data.events.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
   var match$2 = React.useState(function () {
         return false;
       });
   var setShareOpen = match$2[1];
-  var shareOpen = match$2[0];
   var match$3 = React.useState(function () {
         
       });
   var navigate = ReactRouterDom.useNavigate();
   var match$4 = ReactRouterDom.useSearchParams();
   var setSearchParams = match$4[1];
-  var searchParams = Router.ImmSearchParams.fromSearchParams(match$4[0]);
-  var filterByDate = Core__Option.map(Router.ImmSearchParams.get(searchParams, "selectedDate"), (function (date) {
-          return new Date(date);
+  var immParams = Router.ImmSearchParams.fromSearchParams(match$4[0]);
+  var filterByDate = Core__Option.map(Router.ImmSearchParams.get(immParams, "selectedDate"), (function (d) {
+          return new Date(d);
         }));
   var clearFilterByDate = function () {
-    setSearchParams(function (prevParams) {
-          prevParams.delete("selectedDate");
-          return prevParams;
+    setSearchParams(function (prev) {
+          prev.delete("selectedDate");
+          return prev;
         });
   };
   var intl = ReactIntl.useIntl();
-  var eventsByDate = Core__Array.reduce(events$1, {}, (function (extra, extra$1) {
-          return sortByDate(intl, filterByDate, extra, extra$1);
+  var grouped = Core__Array.reduce(nodes, {}, (function (extra, extra$1) {
+          return addEventToGroups(intl, filterByDate, extra, extra$1);
         }));
-  var dates = Core__Array.reduce(events$1, [], (function (acc, $$event) {
-          var date = $$event.startDate;
-          if (date !== undefined) {
-            return acc.concat([Util.Datetime.toDate(Caml_option.valFromOption(date))]);
-          } else {
-            return acc;
-          }
-        }));
+  var calendarDates = Object.keys(grouped).map(function (dateString) {
+        return new Date(dateString);
+      });
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -621,37 +221,32 @@ function ClubEventsList(props) {
                         JsxRuntime.jsxs("div", {
                               children: [
                                 props.header,
-                                JsxRuntime.jsxs(Layout.Container.make, {
-                                      children: [
-                                        JsxRuntime.jsx(UiAction.make, {
-                                              onClick: (function (param) {
-                                                  setShareOpen(function (v) {
-                                                        return !v;
-                                                      });
-                                                }),
-                                              active: shareOpen,
-                                              alt: t`share as text`,
-                                              children: JsxRuntime.jsx(Outline.DocumentTextIcon, {
-                                                    className: "inline w-6 h-6"
-                                                  })
-                                            }),
-                                        shareOpen ? JsxRuntime.jsx(ClubEventsList$TextEventsList, {
-                                                events: events
-                                              }) : null
-                                      ],
+                                JsxRuntime.jsx(Layout.Container.make, {
+                                      children: JsxRuntime.jsx(UiAction.make, {
+                                            onClick: (function (param) {
+                                                setShareOpen(function (o) {
+                                                      return !o;
+                                                    });
+                                              }),
+                                            active: match$2[0],
+                                            alt: t`share as text`,
+                                            children: JsxRuntime.jsx(Outline.DocumentTextIcon, {
+                                                  className: "inline w-6 h-6"
+                                                })
+                                          }),
                                       className: "p-2 flex-row flex gap-2"
                                     }),
                                 JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsxs("div", {
                                             children: [
                                               JsxRuntime.jsx(ClubCalendar.make, {
-                                                    dates: dates,
+                                                    dates: calendarDates,
                                                     onDateSelected: (function (date) {
-                                                        setSearchParams(function (prevParams) {
+                                                        setSearchParams(function (prev) {
                                                               return Router.ImmSearchParams.toSearchParams(updateParams({
                                                                               TAG: "ByDate",
                                                                               _0: date
-                                                                            }, Router.ImmSearchParams.fromSearchParams(prevParams)));
+                                                                            }, Router.ImmSearchParams.fromSearchParams(prev)));
                                                             });
                                                       })
                                                   }),
@@ -673,25 +268,16 @@ function ClubEventsList(props) {
                                                                           search: updateParams({
                                                                                   TAG: "ByBefore",
                                                                                   _0: startCursor
-                                                                                }, searchParams).toString()
+                                                                                }, immParams).toString()
                                                                         },
                                                                         children: JsxRuntime.jsx(Solid.ChevronUpIcon, {
                                                                               className: "inline w-7 h-7"
                                                                             }),
                                                                         className: "hover:bg-gray-100 p-3 w-full text-center block"
                                                                       });
-                                                          })), JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
-                                                          to: {
-                                                            pathname: "./",
-                                                            search: updateParams({
-                                                                    TAG: "ByAfterDate",
-                                                                    _0: new Date("2020-01-01")
-                                                                  }, searchParams).toString()
-                                                          },
-                                                          children: t`...load past events`
-                                                        })) : null,
+                                                          })), null) : null,
                                               JsxRuntime.jsx("ul", {
-                                                    children: Js_dict.entries(eventsByDate).map(function (param) {
+                                                    children: Js_dict.entries(grouped).map(function (param) {
                                                           var dateString = param[0];
                                                           return JsxRuntime.jsxs("li", {
                                                                       children: [
@@ -706,7 +292,8 @@ function ClubEventsList(props) {
                                                                         JsxRuntime.jsx("ul", {
                                                                               children: JsxRuntime.jsx(ClubEventsList$Day, {
                                                                                     events: param[1],
-                                                                                    highlightedLocation: ""
+                                                                                    highlightedLocation: "",
+                                                                                    viewer: viewer
                                                                                   }),
                                                                               className: "divide-y divide-gray-200",
                                                                               role: "list"
@@ -714,7 +301,6 @@ function ClubEventsList(props) {
                                                                       ]
                                                                     }, dateString);
                                                         }),
-                                                    className: "",
                                                     role: "list"
                                                   }),
                                               match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
@@ -725,7 +311,7 @@ function ClubEventsList(props) {
                                                                                 search: updateParams({
                                                                                         TAG: "ByAfter",
                                                                                         _0: endCursor
-                                                                                      }, searchParams).toString()
+                                                                                      }, immParams).toString()
                                                                               },
                                                                               children: JsxRuntime.jsx(Solid.ChevronDownIcon, {
                                                                                     className: "inline w-7 h-7"
@@ -783,19 +369,14 @@ function __unused() {
       });
 }
 
-var make$1 = ClubEventsList;
+var make = ClubEventsList;
 
 export {
   Fragment ,
-  ItemFragment ,
-  TextItemFragment ,
-  TextEventItem ,
-  TextEventsList ,
-  EventItem ,
-  sortByDate ,
+  addEventToGroups ,
   Filter ,
   Day ,
-  make$1 as make,
+  make ,
   __unused ,
 }
 /*  Not a pure module */

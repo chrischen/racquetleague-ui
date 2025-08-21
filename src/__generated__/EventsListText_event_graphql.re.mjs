@@ -32,13 +32,15 @@ var v0 = {
   "name": "id",
   "storageKey": null
 },
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-};
+v1 = [
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "name",
+    "storageKey": null
+  }
+];
 return {
   "argumentDefinitions": [],
   "kind": "Fragment",
@@ -67,9 +69,7 @@ return {
       "kind": "LinkedField",
       "name": "activity",
       "plural": false,
-      "selections": [
-        (v1/*: any*/)
-      ],
+      "selections": (v1/*: any*/),
       "storageKey": null
     },
     {
@@ -79,16 +79,7 @@ return {
       "kind": "LinkedField",
       "name": "location",
       "plural": false,
-      "selections": [
-        (v1/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "links",
-          "storageKey": null
-        }
-      ],
+      "selections": (v1/*: any*/),
       "storageKey": null
     },
     {

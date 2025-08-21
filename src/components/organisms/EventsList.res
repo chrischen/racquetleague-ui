@@ -55,7 +55,6 @@ module TextItemFragment = %relay(`
     }
     location {
       name
-      links
     }
     rsvps(first: 100) {
       edges {
@@ -197,13 +196,6 @@ module TextEventItem = {
     //   (ts`Max`) ++ " " ++ maxRsvps->Int.toString ++ " " ++ ts(["players"], []) ++ "\n"
     // )
     // ->Option.getOr("") ++
-    location
-    ->Option.flatMap(l =>
-      l.links->Option.flatMap(l =>
-        l->Array.get(0)->Option.map(mapLink => "\n" ++ "🧭 " ++ mapLink->Util.encodeURI)
-      )
-    )
-    ->Option.getOr("") ++
     "\n👉 https://www.pkuru.com/" ++
     locale ++
     "/events/" ++
