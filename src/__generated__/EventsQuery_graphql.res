@@ -178,6 +178,41 @@ v8 = [
   (v6/*: any*/)
 ],
 v9 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 100
+  }
+],
+v10 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
+  "storageKey": null
+},
+v11 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "cursor",
+  "storageKey": null
+},
+v12 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "endCursor",
+  "storageKey": null
+},
+v13 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "hasNextPage",
+  "storageKey": null
+},
+v14 = [
   "filters",
   "afterDate"
 ];
@@ -220,6 +255,36 @@ return {
     "kind": "Operation",
     "name": "EventsQuery",
     "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Viewer",
+        "kind": "LinkedField",
+        "name": "viewer",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v6/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "lineUsername",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
       {
         "alias": null,
         "args": (v5/*: any*/),
@@ -349,19 +414,12 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
-                    "name": "viewerRsvpStatus",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
                     "name": "maxRsvps",
                     "storageKey": null
                   },
                   {
                     "alias": null,
-                    "args": null,
+                    "args": (v9/*: any*/),
                     "concreteType": "EventRsvpConnection",
                     "kind": "LinkedField",
                     "name": "rsvps",
@@ -387,18 +445,54 @@ return {
                               {
                                 "alias": null,
                                 "args": null,
+                                "concreteType": "User",
+                                "kind": "LinkedField",
+                                "name": "user",
+                                "plural": false,
+                                "selections": [
+                                  (v6/*: any*/)
+                                ],
+                                "storageKey": null
+                              },
+                              {
+                                "alias": null,
+                                "args": null,
                                 "kind": "ScalarField",
                                 "name": "listType",
                                 "storageKey": null
-                              }
+                              },
+                              (v10/*: any*/)
                             ],
                             "storageKey": null
-                          }
+                          },
+                          (v11/*: any*/)
+                        ],
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "PageInfo",
+                        "kind": "LinkedField",
+                        "name": "pageInfo",
+                        "plural": false,
+                        "selections": [
+                          (v12/*: any*/),
+                          (v13/*: any*/)
                         ],
                         "storageKey": null
                       }
                     ],
-                    "storageKey": null
+                    "storageKey": "rsvps(first:100)"
+                  },
+                  {
+                    "alias": null,
+                    "args": (v9/*: any*/),
+                    "filters": null,
+                    "handle": "connection",
+                    "key": "EventRsvps_event_rsvps",
+                    "kind": "LinkedHandle",
+                    "name": "rsvps"
                   },
                   {
                     "alias": null,
@@ -422,29 +516,29 @@ return {
                     "storageKey": null
                   },
                   {
+                    "kind": "ClientExtension",
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "__id",
+                        "storageKey": null
+                      }
+                    ]
+                  },
+                  {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
                     "name": "details",
                     "storageKey": null
                   },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "__typename",
-                    "storageKey": null
-                  }
+                  (v10/*: any*/)
                 ],
                 "storageKey": null
               },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "cursor",
-                "storageKey": null
-              }
+              (v11/*: any*/)
             ],
             "storageKey": null
           },
@@ -456,13 +550,7 @@ return {
             "name": "pageInfo",
             "plural": false,
             "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "hasNextPage",
-                "storageKey": null
-              },
+              (v13/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -470,13 +558,7 @@ return {
                 "name": "hasPreviousPage",
                 "storageKey": null
               },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "endCursor",
-                "storageKey": null
-              },
+              (v12/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -493,7 +575,7 @@ return {
       {
         "alias": null,
         "args": (v5/*: any*/),
-        "filters": (v9/*: any*/),
+        "filters": (v14/*: any*/),
         "handle": "connection",
         "key": "EventsListFragment_events",
         "kind": "LinkedHandle",
@@ -502,7 +584,7 @@ return {
       {
         "alias": null,
         "args": (v5/*: any*/),
-        "filters": (v9/*: any*/),
+        "filters": (v14/*: any*/),
         "handle": "connection",
         "key": "CalendarEventsFragment_events",
         "kind": "LinkedHandle",
@@ -511,12 +593,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c7ba29228bc91b29fb7a3a607d62779d",
+    "cacheID": "3c8bba97b8ceaed2c83619c747758da1",
     "id": null,
     "metadata": {},
     "name": "EventsQuery",
     "operationKind": "query",
-    "text": "query EventsQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n  $filters: EventFilters\n) {\n  ...EventsListFragment_N8DiW\n  ...CalendarEventsFragment_N8DiW\n}\n\nfragment CalendarEventsFragment_N8DiW on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EventsListFragment_N8DiW on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        ...EventsList_event\n        ...EventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment EventsList_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  viewerRsvpStatus\n  maxRsvps\n  rsvps {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n  tags\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
+    "text": "query EventsQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n  $filters: EventFilters\n) {\n  ...EventsListFragment_N8DiW\n  ...CalendarEventsFragment_N8DiW\n}\n\nfragment CalendarEventsFragment_N8DiW on Query {\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EventItem_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n  tags\n}\n\nfragment EventItem_user on User {\n  id\n  lineUsername\n}\n\nfragment EventsListFragment_N8DiW on Query {\n  viewer {\n    user {\n      ...EventItem_user\n      id\n    }\n  }\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        ...EventItem_event\n        ...EventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment EventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    links\n    id\n  }\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -9,15 +9,6 @@ module TextEventsList: {
   let make: props<RescriptRelay.fragmentRefs<[> #EventsListFragment]>> => Jsx.element
 }
 
-module EventItem: {
-  let td: string => string
-  let ts: (array<string>, array<string>) => string
-  type props<'event, 'highlightedLocation> = {
-    event: 'event,
-    highlightedLocation?: 'highlightedLocation,
-  }
-  let make: props<RescriptRelay.fragmentRefs<[> #EventsList_event]>, bool> => Jsx.element
-}
 
 @react.component
 let make: (

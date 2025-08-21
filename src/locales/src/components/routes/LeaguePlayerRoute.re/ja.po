@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:365
+#: src/components/organisms/MatchList.re.mjs:372
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
@@ -25,7 +25,7 @@ msgstr "推定DUPR"
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/MatchList.re.mjs:388
+#: src/components/organisms/MatchList.re.mjs:395
 msgid "Load more matches..."
 msgstr "もっとプレイヤーを読み込む..."
 
@@ -52,6 +52,6 @@ msgstr "プレイヤープロフィールページ"
 msgid "Rating"
 msgstr "評価"
 
-#: src/components/organisms/MatchList.re.mjs:285
+#: src/components/organisms/MatchList.re.mjs:292
 msgid "Score:"
 msgstr "スコア:"

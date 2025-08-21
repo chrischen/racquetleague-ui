@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchList.re.mjs:365
+#: src/components/organisms/MatchList.re.mjs:372
 msgid "...load previous matches"
 msgstr ""
 
@@ -238,7 +238,7 @@ msgstr ""
 #~ msgid "load More"
 #~ msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:388
+#: src/components/organisms/MatchList.re.mjs:395
 msgid "Load more matches..."
 msgstr ""
 
@@ -433,7 +433,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:285
+#: src/components/organisms/MatchList.re.mjs:292
 msgid "Score:"
 msgstr ""
 

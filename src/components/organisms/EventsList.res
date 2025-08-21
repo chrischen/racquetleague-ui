@@ -14,6 +14,11 @@ module Fragment = %relay(`
   )
   @refetchable(queryName: "EventsListRefetchQuery")
   {
+    viewer {
+      user {
+        ...EventItem_user
+      }
+    }
     events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
     @connection(key: "EventsListFragment_events") {
       edges {
@@ -25,7 +30,7 @@ module Fragment = %relay(`
             id
           }
           shadow
-          ...EventsList_event
+          ...EventItem_event
           ...EventsListText_event
         }
       }
@@ -37,39 +42,6 @@ module Fragment = %relay(`
         startCursor
       }
     }
-  }
-`)
-
-module ItemFragment = %relay(`
-  fragment EventsList_event on Event {
-    id
-    title
-    activity {
-      name
-    }
-    location {
-      id
-      name
-    }
-    club {
-      name
-    }
-    viewerRsvpStatus
-    maxRsvps
-    rsvps {
-      edges {
-        node {
-          id
-          listType
-        }
-      }
-    }
-    startDate
-    endDate
-    timezone
-    shadow
-    deleted
-    tags
   }
 `)
 
@@ -85,7 +57,7 @@ module TextItemFragment = %relay(`
       name
       links
     }
-    rsvps {
+    rsvps(first: 100) {
       edges {
         node {
           id
@@ -180,7 +152,6 @@ module TextEventItem = {
     let canceled = deleted->Option.isSome ? " " ++ (ts`🚫 CANCELED`) : ""
 
     // Date string in local time
-
     "🗓 " ++
     startDate
     ->Option.map(startDate => {
@@ -188,17 +159,17 @@ module TextEventItem = {
       intl->ReactIntl.Intl.formatDateWithOptions(
         startDate,
         ReactIntl.dateTimeFormatOptions(
+          ~timeZone=timezone->Option.getOr("Asia/Tokyo"),
           ~weekday=#short,
-          ~day=#numeric,
           ~month=#numeric,
-          ~timeZone={timezone->Option.getOr("Asia/Tokyo")},
+          ~day=#numeric,
           (),
         ),
       ) ++
       " " ++
       intl->ReactIntl.Intl.formatTimeWithOptions(
         startDate,
-        ReactIntl.dateTimeFormatOptions(~timeZone={timezone->Option.getOr("Asia/Tokyo")}, ()),
+        ReactIntl.dateTimeFormatOptions(~timeZone=timezone->Option.getOr("Asia/Tokyo"), ()),
       )
     })
     ->Option.getOr("") ++
@@ -216,8 +187,7 @@ module TextEventItem = {
     ->Option.getOr("") ++
     spaceAvailable ++
     canceled ++
-    "\n" ++
-    "📍 " ++
+    "\n📍 " ++
     location
     ->Option.flatMap(l => l.name->Option.map(name => name))
     ->Option.getOr(ts`[location missing]`) ++
@@ -234,9 +204,7 @@ module TextEventItem = {
       )
     )
     ->Option.getOr("") ++
-    "\n" ++
-    "👉 " ++
-    "https://www.pkuru.com/" ++
+    "\n👉 https://www.pkuru.com/" ++
     locale ++
     "/events/" ++
     id ++
@@ -260,214 +228,6 @@ module TextEventsList = {
       ->Array.join("\n")
     }
     <textarea readOnly=true className="w-full" rows=10 value={str} />
-  }
-}
-
-module EventItem = {
-  open Lingui.Util
-  let td = Lingui.UtilString.dynamic
-  let ts = Lingui.UtilString.t
-  @react.component
-  let make = (~event, ~highlightedLocation: bool=false) => {
-    let {
-      id,
-      title,
-      activity,
-      location,
-      club,
-      startDate,
-      rsvps,
-      maxRsvps,
-      endDate,
-      timezone,
-      viewerRsvpStatus,
-      shadow,
-      deleted,
-      tags,
-    } = ItemFragment.use(event)
-    let secret = shadow->Option.getOr(false)
-    let isCompetitive = tags->Option.getOr([])->Array.includes("comp")
-    let playersCount =
-      rsvps
-      ->Option.flatMap(rsvps =>
-        rsvps.edges->Option.map(edges =>
-          edges
-          ->Array.filter(
-            edge => {
-              edge
-              ->Option.flatMap(
-                edge =>
-                  edge.node->Option.map(node => node.listType == Some(0) || node.listType == None),
-              )
-              ->Option.getOr(true)
-            },
-          )
-          ->Array.length
-        )
-      )
-      ->Option.getOr(0)
-    // let id = id->NodeIdDto.toDomain->Result.map(NodeId.toId)
-
-    // id->Result.map(id =>
-    let duration = startDate->Option.flatMap(startDate =>
-      endDate->Option.map(endDate =>
-        endDate
-        ->Util.Datetime.toDate
-        ->DateFns.differenceInMinutes(startDate->Util.Datetime.toDate)
-      )
-    )
-    let duration = duration->Option.map(duration => {
-      let hours = Js.Math.floor_float(duration /. 60.)
-      let minutes = mod(duration->Float.toInt, 60)
-      if minutes == 0 {
-        plural(
-          hours->Float.toInt,
-          {one: ts`${hours->Float.toString} hour`, other: ts`${hours->Float.toString} hours`},
-        )
-      } else {
-        // t`${hours->Float.toString} hours and ${minutes->Int.toString} minutes`
-        <>
-          {plural(
-            hours->Float.toInt,
-            {one: ts`${hours->Float.toString} hour`, other: ts`${hours->Float.toString} hours`},
-          )}
-          {" "->React.string}
-          {plural(
-            minutes,
-            {
-              one: ts`${minutes->Int.toString} minute`,
-              other: ts`${minutes->Int.toString} minutes`,
-            },
-          )}
-        </>
-      }
-    })
-    <Layout.Container className="relative flex items-center space-x-4 py-4">
-      <div className="min-w-0 flex-auto">
-        <div className="flex items-center gap-x-3">
-          {isCompetitive
-            ? <div className="flex-none text-yellow-500">
-                <Lucide.Trophy className="h-5 w-5" />
-              </div>
-            : <div
-                className={Util.cx([
-                  "text-green-400 bg-green-400/10",
-                  "flex-none rounded-full p-1",
-                ])}>
-                <div className="h-2 w-2 rounded-full bg-current" />
-              </div>}
-          <h2 className="min-w-0 text-sm font-semibold leading-6 text-black w-full">
-            <Link to={"/events/" ++ id} relative="path" className="">
-              <div className="flex gap-x-2">
-                <span
-                  className={Util.cx(["truncate", deleted->Option.isSome ? "line-through" : ""])}>
-                  {activity
-                  ->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))
-                  ->Option.getOr(React.null)}
-                  {" / "->React.string}
-                  {title->Option.getOr(ts`[missing title]`)->React.string}
-                </span>
-                <span className="absolute inset-0" />
-              </div>
-            </Link>
-          </h2>
-        </div>
-        <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
-          <p className="whitespace-nowrap">
-            {startDate
-            ->Option.map(startDate =>
-              timezone
-              ->Option.map(timezone =>
-                <ReactIntl.FormattedTime
-                  value={startDate->Util.Datetime.toDate} timeZone={timezone}
-                />
-              )
-              ->Option.getOr(<ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
-            )
-            ->Option.getOr(React.null)}
-            {" -> "->React.string}
-            {endDate
-            ->Option.map(endDate =>
-              timezone
-              ->Option.map(timezone =>
-                <ReactIntl.FormattedTime
-                  value={endDate->Util.Datetime.toDate} timeZone={timezone}
-                />
-              )
-              ->Option.getOr(<ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />)
-            )
-            ->Option.getOr(React.null)}
-            {duration
-            ->Option.map(duration => <>
-              {" ("->React.string}
-              {duration}
-              {") "->React.string}
-            </>)
-            ->Option.getOr(React.null)}
-          </p>
-        </div>
-        <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
-          <span className="whitespace-nowrap">
-            <p className={Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])}>
-              {secret
-                ? React.null
-                : location
-                  ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-                  ->Option.getOr(t`[location missing]`)}
-            </p>
-            {club
-            ->Option.flatMap(c =>
-              c.name->Option.map(name =>
-                <p className="text-xs text-gray-500 truncate"> {name->React.string} </p>
-              )
-            )
-            ->Option.getOr(React.null)}
-          </span>
-        </div>
-      </div>
-      {switch viewerRsvpStatus {
-      | Some(Joined) =>
-        <div
-          className={Util.cx([
-            "text-green-600 bg-green-400/10 ring-green-400/30",
-            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-          ])}>
-          {t`joined`}
-        </div>
-      | Some(Waitlist) =>
-        <div
-          className={Util.cx([
-            "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30",
-            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-          ])}>
-          {t`waitlist`}
-        </div>
-      | Some(FutureAddedValue(_)) => React.null
-      | None => React.null
-      }}
-      <div
-        className={Util.cx([
-          "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
-          "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-        ])}>
-        {switch shadow {
-        | None
-        | Some(false) =>
-          maxRsvps
-          ->Option.map(maxRsvps =>
-            (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ (ts`players`))
-              ->React.string
-          )
-          ->Option.getOr(<>
-            {(playersCount->Int.toString ++ " ")->React.string}
-            {plural(playersCount, {one: "player", other: "players"})}
-          </>)
-        | _ => <HeroIcons.LockClosed \"aria-hidden"="true" className="-ml-0.5 h-3 w-3" />
-        }}
-      </div>
-      // <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" ariaHidden="true" />
-    </Layout.Container>
-    // )->Result.getOr(React.null)
   }
 }
 
@@ -555,6 +315,7 @@ module Day = {
   let make = (
     ~events: array<EventsListFragment_graphql.Types.fragment_events_edges_node>,
     ~highlightedLocation,
+    ~viewer: option<EventsListFragment_graphql.Types.fragment_viewer>,
   ) => {
     let (showShadow, setShowShadow) = React.useState(() => false)
     let shadowCount = events->Array.filter(edge => edge.shadow->Option.getOr(false))->Array.length
@@ -579,7 +340,11 @@ module Day = {
                 //     setSelectedEvent(_ => edge.location->Option.map(l => l.id))
                 //   }}
                 //   key={edge.id}>
-                <EventItem key={edge.id} event=edge.fragmentRefs />
+                <EventItem
+                  key={edge.id}
+                  event=edge.fragmentRefs
+                  user={viewer->Option.flatMap(v => v.user->Option.map(u => u.fragmentRefs))}
+                />
                 // </UiAction>
               </li>
         }
@@ -602,7 +367,7 @@ let make = (~events, ~header: React.element) => {
   open Lingui.Util
   let (_isPending, _) = ReactExperimental.useTransition()
   let eventsFragment = events
-  let {events: eventsQuery} = Fragment.use(events)
+  let {events: eventsQuery, viewer} = Fragment.use(events)
   let {data, isLoadingNext, hasNext, isLoadingPrevious} = Fragment.usePagination(events)
   let events = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
@@ -729,7 +494,7 @@ let make = (~events, ~header: React.element) => {
                     </Layout.Container>
                   </div>
                   <ul role="list" className="divide-y divide-gray-200">
-                    <Day events highlightedLocation="" />
+                    <Day events viewer highlightedLocation="" />
                   </ul>
                 </li>
               })

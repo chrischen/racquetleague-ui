@@ -10,7 +10,7 @@ import * as EventsListRefetchQuery_graphql from "./EventsListRefetchQuery_graphq
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}};
+var fragmentConverter = {"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}};
 
 var fragmentConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -119,6 +119,33 @@ return {
   "name": "EventsListFragment",
   "selections": [
     {
+      "alias": null,
+      "args": null,
+      "concreteType": "Viewer",
+      "kind": "LinkedField",
+      "name": "viewer",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "User",
+          "kind": "LinkedField",
+          "name": "user",
+          "plural": false,
+          "selections": [
+            {
+              "args": null,
+              "kind": "FragmentSpread",
+              "name": "EventItem_user"
+            }
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
       "alias": "events",
       "args": [
         {
@@ -190,7 +217,7 @@ return {
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "EventsList_event"
+                  "name": "EventItem_event"
                 },
                 {
                   "args": null,

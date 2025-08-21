@@ -13,68 +13,68 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:630
+#: src/components/organisms/EventsList.re.mjs:401
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
-#: src/components/organisms/EventsList.re.mjs:150
-#: src/components/organisms/EventsList.re.mjs:382
+#: src/components/organisms/EventItem.re.mjs:396
+#: src/components/organisms/EventsList.re.mjs:142
 msgid "[location missing]"
 msgstr "[場所がありません]"
 
-#: src/components/organisms/EventsList.re.mjs:318
+#: src/components/organisms/EventItem.re.mjs:339
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/organisms/EventsList.re.mjs:113
-#: src/components/organisms/EventsList.re.mjs:118
-#: src/components/organisms/EventsList.re.mjs:235
-#: src/components/organisms/EventsList.re.mjs:242
+#: src/components/organisms/EventItem.re.mjs:212
+#: src/components/organisms/EventItem.re.mjs:219
+#: src/components/organisms/EventsList.re.mjs:105
+#: src/components/organisms/EventsList.re.mjs:110
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/EventsList.re.mjs:114
-#: src/components/organisms/EventsList.re.mjs:119
-#: src/components/organisms/EventsList.re.mjs:236
-#: src/components/organisms/EventsList.re.mjs:243
+#: src/components/organisms/EventItem.re.mjs:213
+#: src/components/organisms/EventItem.re.mjs:220
+#: src/components/organisms/EventsList.re.mjs:106
+#: src/components/organisms/EventsList.re.mjs:111
 msgid "{0} hour"
 msgstr "{0}時間"
 
-#: src/components/organisms/EventsList.re.mjs:115
-#: src/components/organisms/EventsList.re.mjs:120
-#: src/components/organisms/EventsList.re.mjs:237
-#: src/components/organisms/EventsList.re.mjs:244
+#: src/components/organisms/EventItem.re.mjs:214
+#: src/components/organisms/EventItem.re.mjs:221
+#: src/components/organisms/EventsList.re.mjs:107
+#: src/components/organisms/EventsList.re.mjs:112
 msgid "{0} hours"
 msgstr "{0}時間"
 
-#: src/components/organisms/EventsList.re.mjs:122
-#: src/components/organisms/EventsList.re.mjs:248
+#: src/components/organisms/EventItem.re.mjs:225
+#: src/components/organisms/EventsList.re.mjs:114
 msgid "{0} minute"
 msgstr "{0}分"
 
-#: src/components/organisms/EventsList.re.mjs:123
-#: src/components/organisms/EventsList.re.mjs:249
+#: src/components/organisms/EventItem.re.mjs:226
+#: src/components/organisms/EventsList.re.mjs:115
 msgid "{0} minutes"
 msgstr "{0}分"
 
-#: src/components/organisms/EventsList.re.mjs:468
+#: src/components/organisms/EventsList.re.mjs:238
 msgid "{0} private {shadowCountDesc} hidden"
 msgstr "{0} プライベート {shadowCountDesc} 隠された"
 
-#: src/components/organisms/EventsList.re.mjs:121
-#: src/components/organisms/EventsList.re.mjs:247
+#: src/components/organisms/EventItem.re.mjs:224
+#: src/components/organisms/EventsList.re.mjs:113
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr "{minutes, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventsList.re.mjs:281
+#: src/components/organisms/EventItem.re.mjs:303
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventsList.re.mjs:442
+#: src/components/organisms/EventsList.re.mjs:207
 msgid "{shadowCount, plural, one {event} other {events}}"
 msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 
-#: src/components/organisms/EventsList.re.mjs:127
+#: src/components/organisms/EventsList.re.mjs:119
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
@@ -95,11 +95,19 @@ msgstr "バドミントン"
 msgid "badminton events"
 msgstr "バドミントンイベント"
 
-#: src/components/organisms/EventsList.re.mjs:602
+#: src/components/organisms/EventsList.re.mjs:373
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
-#: src/components/organisms/EventsList.re.mjs:600
+#: src/components/organisms/EventItem.re.mjs:430
+msgid "close"
+msgstr ""
+
+#: src/components/organisms/EventItem.re.mjs:466
+msgid "details"
+msgstr "詳細"
+
+#: src/components/organisms/EventsList.re.mjs:371
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 
@@ -107,9 +115,21 @@ msgstr "日付でフィルタリング"
 msgid "include private"
 msgstr "プライベートを含める"
 
-#: src/components/organisms/EventsList.re.mjs:258
+#: src/components/organisms/EventItem.re.mjs:453
+msgid "join event"
+msgstr "参加する"
+
+#: src/components/organisms/EventItem.re.mjs:267
 msgid "joined"
 msgstr "参加"
+
+#: src/components/organisms/EventItem.re.mjs:444
+msgid "leave event"
+msgstr "離れる"
+
+#: src/components/organisms/EventItem.re.mjs:279
+msgid "pending"
+msgstr "保留中"
 
 #: src/components/pages/Events.re.mjs:60
 msgid "Pickleball"
@@ -119,19 +139,19 @@ msgstr "ピックルボール"
 msgid "pickleball events"
 msgstr "ピクルボールイベント"
 
-#: src/components/organisms/EventsList.re.mjs:277
+#: src/components/organisms/EventItem.re.mjs:299
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventsList.re.mjs:572
+#: src/components/organisms/EventsList.re.mjs:343
 msgid "share as text"
 msgstr "テキストとして共有"
 
-#: src/components/organisms/EventsList.re.mjs:476
+#: src/components/organisms/EventsList.re.mjs:246
 msgid "show"
 msgstr "表示"
 
-#: src/components/organisms/EventsList.re.mjs:261
+#: src/components/organisms/EventItem.re.mjs:273
 msgid "waitlist"
 msgstr "ウェイトリスト"
 

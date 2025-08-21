@@ -1,4 +1,4 @@
-/* @sourceLoc EventsList.res */
+/* @sourceLoc EventItem.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -14,9 +14,13 @@ module Types = {
     @live id: string,
     name: option<string>,
   }
+  and fragment_rsvps_edges_node_user = {
+    @live id: string,
+  }
   and fragment_rsvps_edges_node = {
     @live id: string,
     listType: option<int>,
+    user: option<fragment_rsvps_edges_node_user>,
   }
   and fragment_rsvps_edges = {
     node: option<fragment_rsvps_edges_node>,
@@ -25,6 +29,7 @@ module Types = {
     edges: option<array<option<fragment_rsvps_edges>>>,
   }
   type fragment = {
+    @live __id: RescriptRelay.dataId,
     activity: option<fragment_activity>,
     club: option<fragment_club>,
     deleted: option<Util.Datetime.t>,
@@ -38,7 +43,6 @@ module Types = {
     tags: option<array<string>>,
     timezone: option<string>,
     title: option<string>,
-    viewerRsvpStatus: option<RelaySchemaAssets_graphql.enum_RsvpStatus>,
   }
 }
 
@@ -64,26 +68,42 @@ module Internal = {
 type t
 type fragmentRef
 external getFragmentRef:
-  RescriptRelay.fragmentRefs<[> | #EventsList_event]> => fragmentRef = "%identity"
+  RescriptRelay.fragmentRefs<[> | #EventItem_event]> => fragmentRef = "%identity"
 
+@live
+@inline
+let connectionKey = "EventRsvps_event_rsvps"
+
+%%private(
+  @live @module("relay-runtime") @scope("ConnectionHandler")
+  external internal_makeConnectionId: (RescriptRelay.dataId, @as("EventRsvps_event_rsvps") _, 'arguments) => RescriptRelay.dataId = "getConnectionID"
+)
+
+@live
+let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ) => {
+  let args = ()
+  internal_makeConnectionId(connectionParentDataId, args)
+}
 module Utils = {
   @@warning("-33")
   open Types
+
   @live
-  external rsvpStatus_toString: RelaySchemaAssets_graphql.enum_RsvpStatus => string = "%identity"
-  @live
-  external rsvpStatus_input_toString: RelaySchemaAssets_graphql.enum_RsvpStatus_input => string = "%identity"
-  @live
-  let rsvpStatus_decode = (enum: RelaySchemaAssets_graphql.enum_RsvpStatus): option<RelaySchemaAssets_graphql.enum_RsvpStatus_input> => {
-    switch enum {
-      | FutureAddedValue(_) => None
-      | valid => Some(Obj.magic(valid))
+  let getConnectionNodes: option<Types.fragment_rsvps> => array<Types.fragment_rsvps_edges_node> = connection => 
+    switch connection {
+      | None => []
+      | Some(connection) => 
+        switch connection.edges {
+          | None => []
+          | Some(edges) => edges
+            ->Belt.Array.keepMap(edge => switch edge {
+              | None => None
+              | Some(edge) => edge.node
+            })
+        }
     }
-  }
-  @live
-  let rsvpStatus_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_RsvpStatus_input> => {
-    rsvpStatus_decode(Obj.magic(str))
-  }
+
+
 }
 
 type relayOperationNode
@@ -111,8 +131,19 @@ v2 = [
 return {
   "argumentDefinitions": [],
   "kind": "Fragment",
-  "metadata": null,
-  "name": "EventsList_event",
+  "metadata": {
+    "connection": [
+      {
+        "count": null,
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "rsvps"
+        ]
+      }
+    ]
+  },
+  "name": "EventItem_event",
   "selections": [
     (v0/*: any*/),
     {
@@ -159,22 +190,15 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "viewerRsvpStatus",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
       "name": "maxRsvps",
       "storageKey": null
     },
     {
-      "alias": null,
+      "alias": "rsvps",
       "args": null,
       "concreteType": "EventRsvpConnection",
       "kind": "LinkedField",
-      "name": "rsvps",
+      "name": "__EventRsvps_event_rsvps_connection",
       "plural": false,
       "selections": [
         {
@@ -197,11 +221,62 @@ return {
                 {
                   "alias": null,
                   "args": null,
+                  "concreteType": "User",
+                  "kind": "LinkedField",
+                  "name": "user",
+                  "plural": false,
+                  "selections": [
+                    (v0/*: any*/)
+                  ],
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
                   "kind": "ScalarField",
                   "name": "listType",
                   "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "__typename",
+                  "storageKey": null
                 }
               ],
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "cursor",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "kind": "LinkedField",
+          "name": "pageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "hasNextPage",
               "storageKey": null
             }
           ],
@@ -251,6 +326,18 @@ return {
       "kind": "ScalarField",
       "name": "tags",
       "storageKey": null
+    },
+    {
+      "kind": "ClientExtension",
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "__id",
+          "storageKey": null
+        }
+      ]
     }
   ],
   "type": "Event",

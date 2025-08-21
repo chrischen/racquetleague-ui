@@ -2,7 +2,9 @@
 /* @generated */
 
 import * as Util from "../components/shared/Util.re.mjs";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
+import * as RelayRuntime from "relay-runtime";
 
 var Types = {};
 
@@ -22,20 +24,29 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-function rsvpStatus_decode($$enum) {
-  if ($$enum === "Joined" || $$enum === "Waitlist") {
-    return $$enum;
-  }
-  
+function makeConnectionId(connectionParentDataId) {
+  return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "EventRsvps_event_rsvps", undefined);
 }
 
-function rsvpStatus_fromString(str) {
-  return rsvpStatus_decode(str);
+function getConnectionNodes(connection) {
+  if (connection === undefined) {
+    return [];
+  }
+  var edges = connection.edges;
+  if (edges !== undefined) {
+    return Belt_Array.keepMap(edges, (function (edge) {
+                  if (edge !== undefined) {
+                    return edge.node;
+                  }
+                  
+                }));
+  } else {
+    return [];
+  }
 }
 
 var Utils = {
-  rsvpStatus_decode: rsvpStatus_decode,
-  rsvpStatus_fromString: rsvpStatus_fromString
+  getConnectionNodes: getConnectionNodes
 };
 
 var node = ((function(){
@@ -59,8 +70,19 @@ v2 = [
 return {
   "argumentDefinitions": [],
   "kind": "Fragment",
-  "metadata": null,
-  "name": "EventsList_event",
+  "metadata": {
+    "connection": [
+      {
+        "count": null,
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "rsvps"
+        ]
+      }
+    ]
+  },
+  "name": "EventItem_event",
   "selections": [
     (v0/*: any*/),
     {
@@ -107,22 +129,15 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "viewerRsvpStatus",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
       "name": "maxRsvps",
       "storageKey": null
     },
     {
-      "alias": null,
+      "alias": "rsvps",
       "args": null,
       "concreteType": "EventRsvpConnection",
       "kind": "LinkedField",
-      "name": "rsvps",
+      "name": "__EventRsvps_event_rsvps_connection",
       "plural": false,
       "selections": [
         {
@@ -145,11 +160,62 @@ return {
                 {
                   "alias": null,
                   "args": null,
+                  "concreteType": "User",
+                  "kind": "LinkedField",
+                  "name": "user",
+                  "plural": false,
+                  "selections": [
+                    (v0/*: any*/)
+                  ],
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
                   "kind": "ScalarField",
                   "name": "listType",
                   "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "__typename",
+                  "storageKey": null
                 }
               ],
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "cursor",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "kind": "LinkedField",
+          "name": "pageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "hasNextPage",
               "storageKey": null
             }
           ],
@@ -199,6 +265,18 @@ return {
       "kind": "ScalarField",
       "name": "tags",
       "storageKey": null
+    },
+    {
+      "kind": "ClientExtension",
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "__id",
+          "storageKey": null
+        }
+      ]
     }
   ],
   "type": "Event",
@@ -209,6 +287,7 @@ return {
 export {
   Types ,
   Internal ,
+  makeConnectionId ,
   Utils ,
   node ,
 }

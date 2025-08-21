@@ -9,6 +9,7 @@ import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Calendar from "./Calendar.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
+import * as EventItem from "./EventItem.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -17,15 +18,12 @@ import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
-import * as LucideReact from "lucide-react";
-import * as Core$1 from "@linaria/core";
 import * as React$1 from "@lingui/react";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
-import * as EventsList_event_graphql from "../../__generated__/EventsList_event_graphql.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
 import * as EventsListFragment_graphql from "../../__generated__/EventsListFragment_graphql.re.mjs";
 import * as Outline from "@heroicons/react/24/outline";
@@ -53,16 +51,10 @@ function usePagination(fRef) {
   return RescriptRelay_Fragment.usePaginationFragment(EventsListFragment_graphql.node, fRef, convertFragment, convertRefetchVariables);
 }
 
-var convertFragment$1 = EventsList_event_graphql.Internal.convertFragment;
+var convertFragment$1 = EventsListText_event_graphql.Internal.convertFragment;
 
 function use$1(fRef) {
-  return RescriptRelay_Fragment.useFragment(EventsList_event_graphql.node, convertFragment$1, fRef);
-}
-
-var convertFragment$2 = EventsListText_event_graphql.Internal.convertFragment;
-
-function use$2(fRef) {
-  return RescriptRelay_Fragment.useFragment(EventsListText_event_graphql.node, convertFragment$2, fRef);
+  return RescriptRelay_Fragment.useFragment(EventsListText_event_graphql.node, convertFragment$1, fRef);
 }
 
 function td(prim) {
@@ -77,7 +69,7 @@ function ts(prim0, prim1) {
 }
 
 function make($$event) {
-  var match = use$2($$event);
+  var match = use$1($$event);
   var timezone = match.timezone;
   var startDate = match.startDate;
   var maxRsvps = match.maxRsvps;
@@ -186,234 +178,6 @@ var TextEventsList = {
   make: EventsList$TextEventsList
 };
 
-function td$1(prim) {
-  return Core.i18n._(prim);
-}
-
-function ts$1(prim0, prim1) {
-  return Caml_splice_call.spliceApply(t, [
-              prim0,
-              prim1
-            ]);
-}
-
-function EventsList$EventItem(props) {
-  var __highlightedLocation = props.highlightedLocation;
-  var highlightedLocation = __highlightedLocation !== undefined ? __highlightedLocation : false;
-  var match = use$1(props.event);
-  var viewerRsvpStatus = match.viewerRsvpStatus;
-  var timezone = match.timezone;
-  var startDate = match.startDate;
-  var shadow = match.shadow;
-  var endDate = match.endDate;
-  var secret = Core__Option.getOr(shadow, false);
-  var isCompetitive = Core__Option.getOr(match.tags, []).includes("comp");
-  var playersCount = Core__Option.getOr(Core__Option.flatMap(match.rsvps, (function (rsvps) {
-              return Core__Option.map(rsvps.edges, (function (edges) {
-                            return edges.filter(function (edge) {
-                                        return Core__Option.getOr(Core__Option.flatMap(edge, (function (edge) {
-                                                          return Core__Option.map(edge.node, (function (node) {
-                                                                        if (Caml_obj.equal(node.listType, 0)) {
-                                                                          return true;
-                                                                        } else {
-                                                                          return node.listType === undefined;
-                                                                        }
-                                                                      }));
-                                                        })), true);
-                                      }).length;
-                          }));
-            })), 0);
-  var duration = Core__Option.flatMap(startDate, (function (startDate) {
-          return Core__Option.map(endDate, (function (endDate) {
-                        return DifferenceInMinutes.differenceInMinutes(Util.Datetime.toDate(endDate), Util.Datetime.toDate(startDate));
-                      }));
-        }));
-  var duration$1 = Core__Option.map(duration, (function (duration) {
-          var hours = Math.floor(duration / 60);
-          var minutes = (duration | 0) % 60;
-          if (minutes === 0) {
-            return plural(hours | 0, {
-                        one: t`${hours.toString()} hour`,
-                        other: t`${hours.toString()} hours`
-                      });
-          } else {
-            return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                        children: [
-                          plural(hours | 0, {
-                                one: t`${hours.toString()} hour`,
-                                other: t`${hours.toString()} hours`
-                              }),
-                          " ",
-                          plural(minutes, {
-                                one: t`${minutes.toString()} minute`,
-                                other: t`${minutes.toString()} minutes`
-                              })
-                        ]
-                      });
-          }
-        }));
-  var tmp;
-  tmp = viewerRsvpStatus !== undefined && (viewerRsvpStatus === "Joined" || viewerRsvpStatus === "Waitlist") ? (
-      viewerRsvpStatus === "Joined" ? JsxRuntime.jsx("div", {
-              children: t`joined`,
-              className: Core$1.cx("text-green-600 bg-green-400/10 ring-green-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-            }) : JsxRuntime.jsx("div", {
-              children: t`waitlist`,
-              className: Core$1.cx("text-yellow-600 bg-yellow-400/10 ring-yellow-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-            })
-    ) : null;
-  var tmp$1;
-  var exit = 0;
-  if (shadow !== undefined && shadow) {
-    tmp$1 = JsxRuntime.jsx(Solid.LockClosedIcon, {
-          className: "-ml-0.5 h-3 w-3",
-          "aria-hidden": "true"
-        });
-  } else {
-    exit = 1;
-  }
-  if (exit === 1) {
-    tmp$1 = Core__Option.getOr(Core__Option.map(match.maxRsvps, (function (maxRsvps) {
-                return playersCount.toString() + "/" + maxRsvps.toString() + " " + t`players`;
-              })), JsxRuntime.jsxs(JsxRuntime.Fragment, {
-              children: [
-                playersCount.toString() + " ",
-                plural(playersCount, {
-                      one: "player",
-                      other: "players"
-                    })
-              ]
-            }));
-  }
-  return JsxRuntime.jsxs(Layout.Container.make, {
-              children: [
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                isCompetitive ? JsxRuntime.jsx("div", {
-                                        children: JsxRuntime.jsx(LucideReact.Trophy, {
-                                              className: "h-5 w-5"
-                                            }),
-                                        className: "flex-none text-yellow-500"
-                                      }) : JsxRuntime.jsx("div", {
-                                        children: JsxRuntime.jsx("div", {
-                                              className: "h-2 w-2 rounded-full bg-current"
-                                            }),
-                                        className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
-                                      }),
-                                JsxRuntime.jsx("h2", {
-                                      children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                            to: "/events/" + match.id,
-                                            children: JsxRuntime.jsxs("div", {
-                                                  children: [
-                                                    JsxRuntime.jsxs("span", {
-                                                          children: [
-                                                            Core__Option.getOr(Core__Option.flatMap(match.activity, (function (a) {
-                                                                        return Core__Option.map(a.name, (function (name) {
-                                                                                      return Core.i18n._(name);
-                                                                                    }));
-                                                                      })), null),
-                                                            " / ",
-                                                            Core__Option.getOr(match.title, t`[missing title]`)
-                                                          ],
-                                                          className: Core$1.cx("truncate", Core__Option.isSome(match.deleted) ? "line-through" : "")
-                                                        }),
-                                                    JsxRuntime.jsx("span", {
-                                                          className: "absolute inset-0"
-                                                        })
-                                                  ],
-                                                  className: "flex gap-x-2"
-                                                }),
-                                            className: "",
-                                            relative: "path"
-                                          }),
-                                      className: "min-w-0 text-sm font-semibold leading-6 text-black w-full"
-                                    })
-                              ],
-                              className: "flex items-center gap-x-3"
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsxs("p", {
-                                    children: [
-                                      Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                                                  return Core__Option.getOr(Core__Option.map(timezone, (function (timezone) {
-                                                                    return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                value: Util.Datetime.toDate(startDate),
-                                                                                timeZone: timezone
-                                                                              });
-                                                                  })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                  value: Util.Datetime.toDate(startDate)
-                                                                }));
-                                                })), null),
-                                      " -> ",
-                                      Core__Option.getOr(Core__Option.map(endDate, (function (endDate) {
-                                                  return Core__Option.getOr(Core__Option.map(timezone, (function (timezone) {
-                                                                    return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                value: Util.Datetime.toDate(endDate),
-                                                                                timeZone: timezone
-                                                                              });
-                                                                  })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                  value: Util.Datetime.toDate(endDate)
-                                                                }));
-                                                })), null),
-                                      Core__Option.getOr(Core__Option.map(duration$1, (function (duration) {
-                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                              children: [
-                                                                " (",
-                                                                duration,
-                                                                ") "
-                                                              ]
-                                                            });
-                                                })), null)
-                                    ],
-                                    className: "whitespace-nowrap"
-                                  }),
-                              className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsxs("span", {
-                                    children: [
-                                      JsxRuntime.jsx("p", {
-                                            children: secret ? null : Core__Option.getOr(Core__Option.flatMap(match.location, (function (l) {
-                                                          return Core__Option.map(l.name, (function (name) {
-                                                                        return name;
-                                                                      }));
-                                                        })), t`[location missing]`),
-                                            className: Core$1.cx("truncate", highlightedLocation ? "font-bold" : "")
-                                          }),
-                                      Core__Option.getOr(Core__Option.flatMap(match.club, (function (c) {
-                                                  return Core__Option.map(c.name, (function (name) {
-                                                                return JsxRuntime.jsx("p", {
-                                                                            children: name,
-                                                                            className: "text-xs text-gray-500 truncate"
-                                                                          });
-                                                              }));
-                                                })), null)
-                                    ],
-                                    className: "whitespace-nowrap"
-                                  }),
-                              className: "mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600"
-                            })
-                      ],
-                      className: "min-w-0 flex-auto"
-                    }),
-                tmp,
-                JsxRuntime.jsx("div", {
-                      children: tmp$1,
-                      className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
-                    })
-              ],
-              className: "relative flex items-center space-x-4 py-4"
-            });
-}
-
-var EventItem = {
-  td: td$1,
-  ts: ts$1,
-  make: EventsList$EventItem
-};
-
 function updateParams(filter, params) {
   switch (filter.TAG) {
     case "ByDate" :
@@ -429,6 +193,7 @@ function updateParams(filter, params) {
 }
 
 function EventsList$Day(props) {
+  var viewer = props.viewer;
   var highlightedLocation = props.highlightedLocation;
   var events = props.events;
   var match = React.useState(function () {
@@ -454,8 +219,13 @@ function EventsList$Day(props) {
                         return null;
                       } else {
                         return JsxRuntime.jsx("li", {
-                                    children: JsxRuntime.jsx(EventsList$EventItem, {
-                                          event: edge.fragmentRefs
+                                    children: JsxRuntime.jsx(EventItem.make, {
+                                          event: edge.fragmentRefs,
+                                          user: Core__Option.flatMap(viewer, (function (v) {
+                                                  return Core__Option.map(v.user, (function (u) {
+                                                                return u.fragmentRefs;
+                                                              }));
+                                                }))
                                         }, edge.id),
                                     className: highlightedClass,
                                     id: highlighted ? "highlighted" : ""
@@ -487,6 +257,7 @@ function EventsList(props) {
   var events = props.events;
   ReactExperimental.useTransition();
   var match = use(events);
+  var viewer = match.viewer;
   var match$1 = usePagination(events);
   var data = match$1.data;
   var events$1 = getConnectionNodes(data.events);
@@ -645,7 +416,8 @@ function EventsList(props) {
                                                                         JsxRuntime.jsx("ul", {
                                                                               children: JsxRuntime.jsx(EventsList$Day, {
                                                                                     events: param[1],
-                                                                                    highlightedLocation: ""
+                                                                                    highlightedLocation: "",
+                                                                                    viewer: viewer
                                                                                   }),
                                                                               className: "divide-y divide-gray-200",
                                                                               role: "list"
@@ -712,7 +484,6 @@ var make$1 = EventsList;
 export {
   TextEventItem ,
   TextEventsList ,
-  EventItem ,
   make$1 as make,
 }
 /*  Not a pure module */

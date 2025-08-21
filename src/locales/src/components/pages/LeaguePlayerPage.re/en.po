@@ -17,7 +17,7 @@ msgstr ""
 #~ msgid "...load higher rated players"
 #~ msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:365
+#: src/components/organisms/MatchList.re.mjs:372
 msgid "...load previous matches"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:388
+#: src/components/organisms/MatchList.re.mjs:395
 msgid "Load more matches..."
 msgstr ""
 
@@ -72,6 +72,6 @@ msgstr ""
 #~ msgid "Recreational Doubles"
 #~ msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:285
+#: src/components/organisms/MatchList.re.mjs:292
 msgid "Score:"
 msgstr ""

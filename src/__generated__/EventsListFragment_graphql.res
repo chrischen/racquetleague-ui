@@ -13,7 +13,7 @@ module Types = {
     shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     timezone: option<string>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventsListText_event | #EventsList_event]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventItem_event | #EventsListText_event]>,
   }
   and fragment_events_edges = {
     node: option<fragment_events_edges_node>,
@@ -29,8 +29,15 @@ module Types = {
     pageInfo: fragment_events_pageInfo,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #PinMap_eventConnection]>,
   }
+  and fragment_viewer_user = {
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventItem_user]>,
+  }
+  and fragment_viewer = {
+    user: option<fragment_viewer_user>,
+  }
   type fragment = {
     events: fragment_events,
+    viewer: option<fragment_viewer>,
   }
 }
 
@@ -39,7 +46,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}}`
+    json`{"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = {
@@ -162,6 +169,33 @@ return {
   "name": "EventsListFragment",
   "selections": [
     {
+      "alias": null,
+      "args": null,
+      "concreteType": "Viewer",
+      "kind": "LinkedField",
+      "name": "viewer",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "User",
+          "kind": "LinkedField",
+          "name": "user",
+          "plural": false,
+          "selections": [
+            {
+              "args": null,
+              "kind": "FragmentSpread",
+              "name": "EventItem_user"
+            }
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
       "alias": "events",
       "args": [
         {
@@ -233,7 +267,7 @@ return {
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "EventsList_event"
+                  "name": "EventItem_event"
                 },
                 {
                   "args": null,
