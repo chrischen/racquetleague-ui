@@ -103,8 +103,13 @@ var LinkWithOpts = {
   make: make$3
 };
 
-function useNavigate(prim) {
-  return ReactRouterDom.useNavigate();
+function useNavigate() {
+  var navigate = ReactRouterDom.useNavigate();
+  var locale = React.useContext(context);
+  return function (target, opts) {
+    var prefixed = target.startsWith("/") ? "/" + locale.lang + target : target;
+    navigate(prefixed, opts);
+  };
 }
 
 function useLocation(prim) {
@@ -127,7 +132,7 @@ function LangProvider$DetectedLang(props) {
   var match$1 = ReactRouterDom.useLocation();
   var pathname = match$1.pathname;
   var locale = React.useContext(context);
-  var navigate = ReactRouterDom.useNavigate();
+  var navigate = useNavigate();
   React.useEffect((function () {
           Core__Option.map(locale.detectedLang, (function (detectedLang) {
                   if (detectedLang !== locale.lang) {

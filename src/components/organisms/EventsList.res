@@ -30,6 +30,14 @@ module Fragment = %relay(`
             id
           }
           shadow
+          rsvps(first: 100) {
+            edges {
+              node {
+                id
+                listType
+              }
+            }
+          }
           ...EventItem_event
           ...EventsListText_event
         }

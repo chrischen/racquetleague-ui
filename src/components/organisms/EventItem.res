@@ -1,5 +1,4 @@
 %%raw("import { t, plural } from '@lingui/macro'")
-// Removed unused open LangProvider.Router
 
 module ItemFragment = %relay(`
   fragment EventItem_event on Event {
@@ -191,7 +190,8 @@ let make = (~event, ~user, ~highlightedLocation: bool=false) => {
     }
   })
   let eventPath = "/events/" ++ id
-  let (showActions, setShowActions) = React.useState(() => false)
+  let navigate = LangProvider.Router.useNavigate()
+  // SwipeAction handles open state internally; legacy showActions removed
   // Reuse join/leave mutations from EventRsvps component
   let (commitJoin, _joinInFlight) = JoinEventMutation.use()
   let (commitLeave, _leaveInFlight) = LeaveEventMutation.use()
@@ -212,7 +212,7 @@ let make = (~event, ~user, ~highlightedLocation: bool=false) => {
         connections: [eventPageConnectionId],
       },
     )->RescriptRelay.Disposable.ignore
-    setShowActions(_ => false)
+    ()
   }
   let onLeave = _ => {
     let eventPageConnectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -231,191 +231,181 @@ let make = (~event, ~user, ~highlightedLocation: bool=false) => {
         connections: [eventPageConnectionId],
       },
     )->RescriptRelay.Disposable.ignore
-    setShowActions(_ => false)
+    ()
   }
-  <div className="relative" onClick={_ => setShowActions(prev => !prev)}>
-    <Layout.Container
-      className={Util.cx(["relative flex items-center space-x-4 py-4 cursor-pointer select-none"])}>
-      <div className="min-w-0 flex-auto">
-        <div className="flex items-center gap-x-3">
-          {isCompetitive
-            ? <div className="flex-none text-yellow-500">
-                <Lucide.Trophy className="h-5 w-5" />
-              </div>
-            : <div
-                className={Util.cx([
-                  "text-green-400 bg-green-400/10",
-                  "flex-none rounded-full p-1",
-                ])}>
-                <div className="h-2 w-2 rounded-full bg-current" />
-              </div>}
-          <h2 className="min-w-0 text-sm font-semibold leading-6 text-black w-full">
-            <div className="flex gap-x-2">
-              <span className={Util.cx(["truncate", deleted->Option.isSome ? "line-through" : ""])}>
-                {activity
-                ->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))
-                ->Option.getOr(React.null)}
-                {" / "->React.string}
-                {title->Option.getOr(ts`[missing title]`)->React.string}
-              </span>
-            </div>
-          </h2>
-        </div>
-        <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
-          <p className="whitespace-nowrap">
-            {startDate
-            ->Option.map(startDate =>
-              timezone
-              ->Option.map(timezone =>
-                <ReactIntl.FormattedTime
-                  value={startDate->Util.Datetime.toDate} timeZone={timezone}
-                />
-              )
-              ->Option.getOr(<ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
-            )
-            ->Option.getOr(React.null)}
-            {" -> "->React.string}
-            {endDate
-            ->Option.map(endDate =>
-              timezone
-              ->Option.map(timezone =>
-                <ReactIntl.FormattedTime
-                  value={endDate->Util.Datetime.toDate} timeZone={timezone}
-                />
-              )
-              ->Option.getOr(<ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />)
-            )
-            ->Option.getOr(React.null)}
-            {duration
-            ->Option.map(duration => <>
-              {" ("->React.string}
-              {duration}
-              {") "->React.string}
-            </>)
-            ->Option.getOr(React.null)}
-          </p>
-        </div>
-        <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
-          <span className="whitespace-nowrap">
-            <p className={Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])}>
-              {secret
-                ? React.null
-                : location
-                  ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-                  ->Option.getOr(t`[location missing]`)}
-            </p>
-            {club
-            ->Option.flatMap(c =>
-              c.name->Option.map(name =>
-                <p className="text-xs text-gray-500 truncate"> {name->React.string} </p>
-              )
-            )
-            ->Option.getOr(React.null)}
-          </span>
-        </div>
-      </div>
-      {switch viewerRsvpStatus {
-      | Some(Confirmed) =>
-        <div
-          className={Util.cx([
-            "text-green-600 bg-green-400/10 ring-green-400/30",
-            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-          ])}>
-          {t`joined`}
-        </div>
-      | Some(Waitlist) =>
-        <div
-          className={Util.cx([
-            "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30",
-            "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-          ])}>
-          {t`waitlist`}
-        </div>
+  <SwipeAction
+    className="cursor-pointer"
+    onFullSwipeLeft={() => {
+      switch viewerRsvpStatus {
+      | Some(Confirmed)
+      | Some(Waitlist)
       | Some(Pending) =>
+        onLeave()
+      | None => onJoin()
+      }
+    }}
+    onTapped={() => navigate(eventPath, None)}
+    rightActions={secret
+      ? React.null
+      : switch viewerRsvpStatus {
+        | Some(Confirmed)
+        | Some(Waitlist)
+        | Some(Pending) =>
+          <Button.Button
+            color=#dark
+            onClick={ev => {
+              onLeave(ev)
+            }}>
+            {t`leave event`}
+          </Button.Button>
+        | None =>
+          <Button.Button
+            color=#red
+            onClick={ev => {
+              onJoin(ev)
+            }}>
+            {t`join event`}
+          </Button.Button>
+        }}
+    partialThreshold=120
+    fullThreshold=260
+    hoverPartialSide="right">
+    <div
+      role="link"
+      tabIndex=0
+      onKeyDown={ev =>
+        if ReactEvent.Keyboard.key(ev) == "Enter" {
+          navigate(eventPath, None)
+        }}>
+      <Layout.Container
+        className={Util.cx(["relative flex items-center space-x-4 py-4 select-none"])}>
+        <div className="min-w-0 flex-auto">
+          <div className="flex items-center gap-x-3">
+            {isCompetitive
+              ? <div className="flex-none text-yellow-500">
+                  <Lucide.Trophy className="h-5 w-5" />
+                </div>
+              : <div
+                  className={Util.cx([
+                    "text-green-400 bg-green-400/10",
+                    "flex-none rounded-full p-1",
+                  ])}>
+                  <div className="h-2 w-2 rounded-full bg-current" />
+                </div>}
+            <h2 className="min-w-0 text-sm font-semibold leading-6 text-black w-full">
+              <div className="flex gap-x-2">
+                <span
+                  className={Util.cx(["truncate", deleted->Option.isSome ? "line-through" : ""])}>
+                  {activity
+                  ->Option.flatMap(a => a.name->Option.map(name => td(name)->React.string))
+                  ->Option.getOr(React.null)}
+                  {" / "->React.string}
+                  {title->Option.getOr(ts`[missing title]`)->React.string}
+                </span>
+              </div>
+            </h2>
+          </div>
+          <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
+            <p className="whitespace-nowrap">
+              {startDate
+              ->Option.map(startDate =>
+                timezone
+                ->Option.map(timezone =>
+                  <ReactIntl.FormattedTime
+                    value={startDate->Util.Datetime.toDate} timeZone={timezone}
+                  />
+                )
+                ->Option.getOr(<ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
+              )
+              ->Option.getOr(React.null)}
+              {" -> "->React.string}
+              {endDate
+              ->Option.map(endDate =>
+                timezone
+                ->Option.map(timezone =>
+                  <ReactIntl.FormattedTime
+                    value={endDate->Util.Datetime.toDate} timeZone={timezone}
+                  />
+                )
+                ->Option.getOr(<ReactIntl.FormattedTime value={endDate->Util.Datetime.toDate} />)
+              )
+              ->Option.getOr(React.null)}
+              {duration
+              ->Option.map(duration => <>
+                {" ("->React.string}
+                {duration}
+                {") "->React.string}
+              </>)
+              ->Option.getOr(React.null)}
+            </p>
+          </div>
+          <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-600">
+            <span className="whitespace-nowrap">
+              <p className={Util.cx(["truncate", highlightedLocation ? "font-bold" : ""])}>
+                {secret
+                  ? React.null
+                  : location
+                    ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
+                    ->Option.getOr(t`[location missing]`)}
+              </p>
+              {club
+              ->Option.flatMap(c =>
+                c.name->Option.map(name =>
+                  <p className="text-xs text-gray-500 truncate"> {name->React.string} </p>
+                )
+              )
+              ->Option.getOr(React.null)}
+            </span>
+          </div>
+        </div>
+        {switch viewerRsvpStatus {
+        | Some(Confirmed) =>
+          <div
+            className={Util.cx([
+              "text-green-600 bg-green-400/10 ring-green-400/30",
+              "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+            ])}>
+            {t`joined`}
+          </div>
+        | Some(Waitlist) =>
+          <div
+            className={Util.cx([
+              "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30",
+              "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+            ])}>
+            {t`waitlist`}
+          </div>
+        | Some(Pending) =>
+          <div
+            className={Util.cx([
+              "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30",
+              "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
+            ])}>
+            {t`pending`}
+          </div>
+        | None => React.null
+        }}
         <div
           className={Util.cx([
-            "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30",
+            "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
             "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
           ])}>
-          {t`pending`}
+          {switch shadow {
+          | None
+          | Some(false) =>
+            maxRsvps
+            ->Option.map(maxRsvps =>
+              (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ (ts`players`))
+                ->React.string
+            )
+            ->Option.getOr(<>
+              {(playersCount->Int.toString ++ " ")->React.string}
+              {plural(playersCount, {one: "player", other: "players"})}
+            </>)
+          | _ => <HeroIcons.LockClosed className="-ml-0.5 h-3 w-3" />
+          }}
         </div>
-      | None => React.null
-      }}
-      <div
-        className={Util.cx([
-          "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
-          "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
-        ])}>
-        {switch shadow {
-        | None
-        | Some(false) =>
-          maxRsvps
-          ->Option.map(maxRsvps =>
-            (playersCount->Int.toString ++ "/" ++ maxRsvps->Int.toString ++ " " ++ (ts`players`))
-              ->React.string
-          )
-          ->Option.getOr(<>
-            {(playersCount->Int.toString ++ " ")->React.string}
-            {plural(playersCount, {one: "player", other: "players"})}
-          </>)
-        | _ => <HeroIcons.LockClosed className="-ml-0.5 h-3 w-3" />
-        }}
-      </div>
-    </Layout.Container>
-    {showActions
-      ? <div className="absolute inset-0 bg-white/60 pointer-events-none transition-opacity" />
-      : React.null}
-    <div
-      className={Util.cx([
-        "absolute top-0 right-0 h-full w-4/5 sm:w-4/5 md:w-2/3 bg-white/95 backdrop-blur border-l border-gray-200",
-        "flex px-4 py-2 transition-transform duration-150 ease-in-out z-20",
-        showActions
-          ? "translate-x-0 shadow-[-4px_0_8px_-2px_rgba(0,0,0,0.15)]"
-          : "translate-x-full",
-      ])}
-      onClick={e => e->ReactEvent.Mouse.stopPropagation}>
-      <div className="flex h-full w-full items-stretch">
-        <button
-          type_="button"
-          onClick={_ => setShowActions(_ => false)}
-          className="self-stretch flex items-center px-2 -ml-2 rounded-r-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
-          ariaLabel={ts`close`}>
-          <HeroIcons.ChevronRightIcon className="h-5 w-5" />
-        </button>
-        <div className="flex flex-1 items-center justify-end gap-3 px-4">
-          {secret
-            ? React.null
-            : switch viewerRsvpStatus {
-              | Some(Confirmed)
-              | Some(Waitlist)
-              | Some(Pending) =>
-                <Button.Button
-                  color=#dark
-                  onClick={ev => {
-                    onLeave(ev)
-                    setShowActions(_ => false)
-                  }}>
-                  {t`leave event`}
-                </Button.Button>
-              | None =>
-                <Button.Button
-                  color=#red
-                  onClick={ev => {
-                    onJoin(ev)
-                    setShowActions(_ => false)
-                  }}>
-                  {t`join event`}
-                </Button.Button>
-              }}
-          <Button.Button
-            color=#indigo
-            href=eventPath
-            className="px-3 py-1 text-xs font-medium shadow inline-flex items-center gap-1">
-            {t`details`}
-            <HeroIcons.ChevronRightIcon className="h-4 w-4" />
-          </Button.Button>
-        </div>
-      </div>
+      </Layout.Container>
     </div>
-  </div>
+  </SwipeAction>
 }

@@ -128,7 +128,15 @@ module Router = {
       <Router.LinkWithOpts {...props} />
     }
   }
-  let useNavigate = Router.useNavigate
+  // Locale-aware navigate hook: prefixes leading "/" paths with current locale.lang unless already present
+  let useNavigate = () => {
+    let navigate = Router.useNavigate()
+    let locale = React.useContext(LocaleContext.context)
+    (target: string, opts) => {
+      let prefixed = target->String.startsWith("/") ? "/" ++ locale.lang ++ target : target
+      navigate(prefixed, opts)
+    }
+  }
   let useLocation = Router.useLocation
 }
 

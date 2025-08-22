@@ -13,73 +13,69 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventItem.re.mjs:396
+#: src/components/organisms/EventItem.re.mjs:416
 msgid "[location missing]"
 msgstr "[場所がありません]"
 
-#: src/components/organisms/EventItem.re.mjs:339
+#: src/components/organisms/EventItem.re.mjs:359
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/organisms/EventItem.re.mjs:212
-#: src/components/organisms/EventItem.re.mjs:219
+#: src/components/organisms/EventItem.re.mjs:213
+#: src/components/organisms/EventItem.re.mjs:220
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/EventItem.re.mjs:213
-#: src/components/organisms/EventItem.re.mjs:220
+#: src/components/organisms/EventItem.re.mjs:214
+#: src/components/organisms/EventItem.re.mjs:221
 msgid "{0} hour"
 msgstr "{0}時間"
 
-#: src/components/organisms/EventItem.re.mjs:214
-#: src/components/organisms/EventItem.re.mjs:221
+#: src/components/organisms/EventItem.re.mjs:215
+#: src/components/organisms/EventItem.re.mjs:222
 msgid "{0} hours"
 msgstr "{0}時間"
 
-#: src/components/organisms/EventItem.re.mjs:225
+#: src/components/organisms/EventItem.re.mjs:226
 msgid "{0} minute"
 msgstr "{0}分"
 
-#: src/components/organisms/EventItem.re.mjs:226
+#: src/components/organisms/EventItem.re.mjs:227
 msgid "{0} minutes"
 msgstr "{0}分"
 
-#: src/components/organisms/EventItem.re.mjs:224
+#: src/components/organisms/EventItem.re.mjs:225
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr "{minutes, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventItem.re.mjs:303
+#: src/components/organisms/EventItem.re.mjs:294
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventItem.re.mjs:433
-msgid "close"
-msgstr ""
-
-#: src/components/organisms/EventItem.re.mjs:469
-msgid "details"
-msgstr "詳細"
-
-#: src/components/organisms/EventItem.re.mjs:456
+#: src/components/organisms/EventItem.re.mjs:311
 msgid "join event"
 msgstr "参加する"
 
-#: src/components/organisms/EventItem.re.mjs:267
+#: src/components/organisms/EventItem.re.mjs:258
 msgid "joined"
 msgstr "参加"
 
-#: src/components/organisms/EventItem.re.mjs:447
+#: src/components/organisms/EventItem.re.mjs:305
 msgid "leave event"
 msgstr "離れる"
 
-#: src/components/organisms/EventItem.re.mjs:279
+#: src/components/organisms/EventItem.re.mjs:270
 msgid "pending"
 msgstr "保留中"
 
-#: src/components/organisms/EventItem.re.mjs:299
+#: src/components/organisms/EventItem.re.mjs:290
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventItem.re.mjs:273
+#: src/components/organisms/EventItem.re.mjs:264
 msgid "waitlist"
 msgstr "ウェイトリスト"
+
+#: src/components/organisms/EventItem.re.mjs:469
+#~ msgid "details"
+#~ msgstr "詳細"
