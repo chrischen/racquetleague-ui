@@ -2057,3 +2057,15 @@ msgstr ""
 #: src/components/organisms/EventItem.re.mjs:433
 msgid "close"
 msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:58
+msgid "Mach 2 Forza Paddle"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:31
+msgid "Next Prize: September 10"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:130
+msgid "volair pickleball"
+msgstr ""

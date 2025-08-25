@@ -37,7 +37,7 @@ msgstr ""
 #~ msgid "Hesacore Grip"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:40
+#: src/components/pages/LeaguePage.re.mjs:122
 msgid "japan pickle league"
 msgstr ""
 
@@ -53,13 +53,17 @@ msgstr ""
 #~ msgid "Loading rankings..."
 #~ msgstr ""
 
+#: src/components/pages/LeaguePage.re.mjs:58
+msgid "Mach 2 Forza Paddle"
+msgstr ""
+
 #: src/components/organisms/RatingList.re.mjs:206
 #~ msgid "Male"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:86
-#~ msgid "Multiple colors available."
-#~ msgstr ""
+#: src/components/pages/LeaguePage.re.mjs:64
+msgid "Multiple colors available."
+msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:57
 #: src/components/pages/LeaguePage.re.mjs:81
@@ -69,6 +73,10 @@ msgstr ""
 #: src/components/pages/LeaguePage.re.mjs:53
 #~ msgid "Next Prize: June 10"
 #~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:31
+msgid "Next Prize: September 10"
+msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:140
 #~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
@@ -90,10 +98,14 @@ msgstr ""
 #~ msgid "sync calendar"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:57
-#~ msgid "This prize will be awarded to the top male and female players on this day."
-#~ msgstr ""
+#: src/components/pages/LeaguePage.re.mjs:35
+msgid "This prize will be awarded to the top male and female players on this day."
+msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:32
+#: src/components/pages/LeaguePage.re.mjs:112
 msgid "Tokyo Badminton League"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:130
+msgid "volair pickleball"
 msgstr ""

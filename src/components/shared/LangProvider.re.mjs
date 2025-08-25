@@ -112,6 +112,10 @@ function useNavigate() {
   };
 }
 
+function useOriginalNavigate(prim) {
+  return ReactRouterDom.useNavigate();
+}
+
 function useLocation(prim) {
   return ReactRouterDom.useLocation();
 }
@@ -121,6 +125,7 @@ var Router = {
   NavLink: NavLink,
   LinkWithOpts: LinkWithOpts,
   useNavigate: useNavigate,
+  useOriginalNavigate: useOriginalNavigate,
   useLocation: useLocation
 };
 
@@ -132,7 +137,7 @@ function LangProvider$DetectedLang(props) {
   var match$1 = ReactRouterDom.useLocation();
   var pathname = match$1.pathname;
   var locale = React.useContext(context);
-  var navigate = useNavigate();
+  var navigate = ReactRouterDom.useNavigate();
   React.useEffect((function () {
           Core__Option.map(locale.detectedLang, (function (detectedLang) {
                   if (detectedLang !== locale.lang) {

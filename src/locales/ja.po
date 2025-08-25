@@ -2083,7 +2083,19 @@ msgstr "競技ダブルス"
 
 #: src/components/organisms/EventItem.re.mjs:433
 msgid "close"
-msgstr ""
+msgstr "閉じる"
+
+#: src/components/pages/LeaguePage.re.mjs:58
+msgid "Mach 2 Forza Paddle"
+msgstr "マッハ2フォルツァパドル"
+
+#: src/components/pages/LeaguePage.re.mjs:31
+msgid "Next Prize: September 10"
+msgstr "次の賞品: 9月10日"
+
+#: src/components/pages/LeaguePage.re.mjs:130
+msgid "volair pickleball"
+msgstr "ボレアピクルボール"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

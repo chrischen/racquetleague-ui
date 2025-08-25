@@ -70,6 +70,13 @@ export const SwipeAction: React.FC<SwipeActionProps> = ({
   const tapMovedRef = React.useRef(false)
   const tapSlop = 8 // px threshold before we consider it a swipe/drag instead of tap
   const hoverAutoRef = React.useRef(false)
+  const isCoarsePointer = React.useMemo(() => {
+    if (typeof window === 'undefined' || typeof matchMedia === 'undefined') return false
+    // coarse pointer usually indicates touch (mobile / tablet)
+    try {
+      return matchMedia('(pointer: coarse)').matches
+    } catch { return false }
+  }, [])
 
   const leftWidth = leftRef.current?.offsetWidth ?? 0
   const rightWidth = rightRef.current?.offsetWidth ?? 0
@@ -173,6 +180,7 @@ export const SwipeAction: React.FC<SwipeActionProps> = ({
       className={`relative select-none ${className}`}
       onMouseEnter={() => {
         if (!hoverPartialSide) return
+        if (isCoarsePointer) return // disable on mobile/touch
         if (isDraggingRef.current) return
         if (partialSide) return // don't override an existing manual partial state
         // Determine if the requested side has actions
@@ -187,6 +195,7 @@ export const SwipeAction: React.FC<SwipeActionProps> = ({
       }}
       onMouseLeave={() => {
         if (!hoverPartialSide) return
+        if (isCoarsePointer) return
         if (!hoverAutoRef.current) return
         if (isDraggingRef.current) return
         // Only auto-close if the partial open was caused by hover and user hasn't interacted

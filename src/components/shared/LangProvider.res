@@ -137,6 +137,8 @@ module Router = {
       navigate(prefixed, opts)
     }
   }
+
+  let useOriginalNavigate = Router.useNavigate
   let useLocation = Router.useLocation
 }
 
@@ -146,7 +148,7 @@ module DetectedLang = {
     let (langNotice, setLangNotice) = React.useState(() => false)
     let {pathname} = Router.useLocation()
     let locale = React.useContext(LocaleContext.context)
-    let navigate = Router.useNavigate()
+    let navigate = Router.useOriginalNavigate()
     React.useEffect1(() => {
       locale.detectedLang
       ->Option.map(detectedLang => {

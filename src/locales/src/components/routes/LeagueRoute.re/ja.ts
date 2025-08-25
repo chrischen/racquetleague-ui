@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"FBemUe\":\"日本ピックルリーグ\",\"MOwEv6\":\"東京バドミントンリーグ\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"FBemUe\":\"日本ピックルリーグ\",\"v3h9an\":\"マッハ2フォルツァパドル\",\"n/ugbp\":\"複数の色が利用可能です。\",\"/3lgte\":\"次の賞品: 9月10日\",\"uQ8DNU\":\"この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。\",\"MOwEv6\":\"東京バドミントンリーグ\",\"svUNNm\":\"ボレアピクルボール\"}");
