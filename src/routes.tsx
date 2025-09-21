@@ -6,17 +6,16 @@ export const routes: RouteObject[] = [
     path: "/defertest",
     lazy: () => import("./components/routes/DeferTestRoute.re.mjs"),
     handle: "src/components/routes/DeferTestRoute.re.mjs",
-    HydrateFallbackElement: <>Loading Fallback...</>,
+    // HydrateFallbackElement: <>Loading Fallback...</>,
   },
   {
     path: "/:lang?",
-    lazy: () =>
-      import("./components/shared/Lang.gen"),
+    lazy: () => import("./components/routes/Lang.gen"),
     // Component: (await import("./components/shared/LangProvider.gen")).make,
 
     handle: "src/components/shared/Lang.gen.tsx",
-    HydrateFallbackElement: <>Loading Fallback...</>,
-    errorElement: <RootErrorBoundary/>,
+    // HydrateFallbackElement: <>Loading Fallback...</>,
+    // errorElement: <RootErrorBoundary/>,
     children: [
       {
         // path: ":activitySlug",
@@ -25,13 +24,13 @@ export const routes: RouteObject[] = [
         // the entrypoint to avoid waterfall loading of dependencies
         lazy: () => import("./components/routes/DefaultLayoutRoute.gen"),
         handle: "src/components/routes/DefaultLayoutRoute.gen.tsx",
-        HydrateFallbackElement: <>Loading Fallback...</>,
+        // HydrateFallbackElement: <>Loading Fallback...</>,
         children: [
           {
             index: true,
             lazy: () => import("./components/pages/Events.gen"),
             handle: "src/components/pages/Events.gen.tsx",
-            HydrateFallbackElement: <>Loading Fallback...</>
+            // HydrateFallbackElement: <>Loading Fallback...</>
           },
           {
             path: "events",

@@ -2194,3 +2194,8 @@ msgstr "本当に{0}をクラブから削除しますか？"
 #, fuzzy
 #~ msgid "Where to find players in Tokyo"
 #~ msgstr "東京でプレイヤーを見つける方法"
+
+#: src/components/pages/ClubMembersPage.re.mjs:179
+#, fuzzy
+#~ msgid "Are you sure you want to remove"
+#~ msgstr "本当に{0}をクラブから削除しますか？"

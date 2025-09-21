@@ -13,7 +13,7 @@ import { bootOnClient } from "../../server/RelaySSRUtils.re.mjs";
 // import { routes } from "../routes";
 // import { routes as routesJpl } from "../routes-jpl";
 import { Wrapper } from "../wrapper.tsx";
-import { wrapRoutesWithErrorBoundary } from "../routesWrapper";
+// import { wrapRoutesWithErrorBoundary } from "../routesWrapper";
 
 const helmetContext: { helmet: HelmetServerState | undefined } = {
   helmet: undefined,
@@ -29,8 +29,8 @@ declare global {
 }
 
 export const renderApp = (routes: RouteObject[]) => () => {
-  const routesWithErrorBoundary = wrapRoutesWithErrorBoundary(routes);
-  const router = createBrowserRouter(routesWithErrorBoundary, { future: { v7_partialHydration: true } });
+  // const routesWithErrorBoundary = wrapRoutesWithErrorBoundary(routes);
+  const router = createBrowserRouter(routes, { future: { v7_partialHydration: true } });
 
   const jsx = (
     <StrictMode>
