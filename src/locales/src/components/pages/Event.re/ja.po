@@ -311,8 +311,8 @@ msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first to get a referral."
 msgstr ""
-"これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
-"加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+"これはサークルのメンバーシップが必要なプライベートイベントです。このサークル"
+"に参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:123
 #: src/components/organisms/EventRsvps.re.mjs:124
@@ -423,8 +423,8 @@ msgstr ""
 #~ "this is a private event that requires membership with the club. To join "
 #~ "this club, please join a Japan Pickleball League event first."
 #~ msgstr ""
-#~ "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに"
-#~ "参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+#~ "これはサークルのメンバーシップが必要なプライベートイベントです。このサーク"
+#~ "ルに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:204
 #~ msgid ""

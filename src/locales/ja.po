@@ -752,7 +752,7 @@ msgstr "約"
 
 #: src/components/organisms/CreateClubForm.re.mjs:144
 msgid "club"
-msgstr "クラブ"
+msgstr "サークル"
 
 #: src/components/organisms/CreateClubForm.re.mjs:165
 msgid "main activity"
@@ -764,7 +764,7 @@ msgstr "主なアクティビティが必要です"
 
 #: src/components/organisms/CreateClubForm.re.mjs:187
 msgid "tell people about your club"
-msgstr "あなたのクラブについて人々に伝える"
+msgstr "あなたのサークルについて人々に伝える"
 
 #: src/components/organisms/CreateClubForm.re.mjs:153
 msgid "ゆびバド"
@@ -772,19 +772,19 @@ msgstr "ゆびバド"
 
 #: src/components/organisms/SelectClub.re.mjs:73
 msgid "add new club"
-msgstr "新しいクラブを追加"
+msgstr "新しいサークルを追加"
 
 #: src/components/organisms/SelectClub.re.mjs:50
 msgid "choose the club where this event will be held."
-msgstr "このイベントが開催されるクラブを選択してください。"
+msgstr "このイベントが開催されるサークルを選択してください。"
 
 #: src/components/organisms/SelectClub.re.mjs:49
 msgid "select club"
-msgstr "クラブを選択"
+msgstr "サークルを選択"
 
 #: src/components/pages/CreateClubEventsPage.re.mjs:60
 msgid "club doesn't exist."
-msgstr "クラブが存在しません。"
+msgstr "サークルが存在しません。"
 
 #: src/components/pages/Event.re.mjs:377
 msgid "league"
@@ -796,7 +796,7 @@ msgstr "試合を提出"
 
 #: src/components/pages/ClubPage.re.mjs:69
 msgid "club not found"
-msgstr "クラブが見つかりません"
+msgstr "サークルが見つかりません"
 
 #: src/components/pages/Event.re.mjs:195
 msgid "hosted by {name}"
@@ -1534,7 +1534,7 @@ msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first to get a referral."
 msgstr ""
-"これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに参"
+"これはサークルのメンバーシップが必要なプライベートイベントです。このサークルに参"
 "加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/organisms/CompMatch.re.mjs:343
@@ -1579,11 +1579,11 @@ msgstr ""
 
 #: src/components/organisms/NavViewer.re.mjs:71
 msgid "My Clubs"
-msgstr "私のクラブ"
+msgstr "私のサークル"
 
 #: src/components/pages/ViewerClubsPage.re.mjs:73
 msgid "my clubs"
-msgstr "私のクラブ"
+msgstr "私のサークル"
 
 #: src/components/pages/PickleballPage.re.mjs:15
 msgid "How to Play Pickleball in Tokyo"
@@ -1632,7 +1632,7 @@ msgstr ""
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:91
 msgid "Create an Event at Pacific Pickle Club"
-msgstr "パシフィックピックルクラブでイベントを作成"
+msgstr "パシフィックピックルサークルでイベントを作成"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:120
 msgid "Create an Event at Tokyo Tower Pickleball"
@@ -1685,7 +1685,7 @@ msgstr ""
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:81
 msgid "Pacific Pickle Club at Ariake"
-msgstr "有明のパシフィックピックルクラブ"
+msgstr "有明のパシフィックピックルサークル"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:217
 msgid ""
@@ -2132,7 +2132,11 @@ msgstr "参加をリクエスト"
 
 #: src/components/pages/ClubMembersPage.re.mjs:177
 msgid "Are you sure you want to remove {0} from the club?"
-msgstr "本当に{0}をクラブから削除しますか？"
+msgstr "本当に{0}をサークルから削除しますか？"
+
+#: src/components/pages/ClubPage.re.mjs:188
+msgid "Leave club"
+msgstr "サークルを退会"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
@@ -2168,7 +2172,7 @@ msgstr "本当に{0}をクラブから削除しますか？"
 #~ "this is a private event that requires membership with the club. To join "
 #~ "this club, please join a Japan Pickleball League event first."
 #~ msgstr ""
-#~ "これはクラブのメンバーシップが必要なプライベートイベントです。このクラブに"
+#~ "これはサークルのメンバーシップが必要なプライベートイベントです。このサークルに"
 #~ "参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
@@ -2198,4 +2202,4 @@ msgstr "本当に{0}をクラブから削除しますか？"
 #: src/components/pages/ClubMembersPage.re.mjs:179
 #, fuzzy
 #~ msgid "Are you sure you want to remove"
-#~ msgstr "本当に{0}をクラブから削除しますか？"
+#~ msgstr "本当に{0}をサークルから削除しますか？"

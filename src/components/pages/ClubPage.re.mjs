@@ -119,51 +119,55 @@ function ClubPage(props) {
                 return !prev;
               });
         }), [setIsShareLinkOpen]);
+  var handleJoinClub = function () {
+    Core__Option.getOr(Core__Option.map(query.club, (function (club) {
+                var membersConnectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "ClubMembersPageMembersQuery_clubMembers", undefined);
+                commitJoinClub({
+                      connections: [membersConnectionId],
+                      input: {
+                        clubId: club.id
+                      }
+                    }, undefined, undefined, undefined, (function (param, _errors) {
+                        var errors = param.joinClub.errors;
+                        if (errors !== undefined && errors.length !== 0) {
+                          errors.forEach(function (e) {
+                                console.error(e.message);
+                              });
+                          return ;
+                        }
+                        
+                      }), undefined, undefined);
+              })), undefined);
+  };
+  var handleCancelRequest = function () {
+    Core__Option.getOr(Core__Option.map(query.club, (function (club) {
+                var user = Core__Option.flatMap(query.viewer, (function (v) {
+                        return v.user;
+                      }));
+                if (user !== undefined) {
+                  commitRemoveUser({
+                        input: {
+                          clubId: club.id,
+                          userId: user.id
+                        }
+                      }, undefined, undefined, undefined, (function (param, _errors) {
+                          var errors = param.removeUserFromClub.errors;
+                          if (errors !== undefined && errors.length !== 0) {
+                            errors.forEach(function (e) {
+                                  console.error(e.message);
+                                });
+                            return ;
+                          }
+                          
+                        }), undefined, undefined);
+                  return ;
+                }
+                
+              })), undefined);
+  };
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map(query.club, (function (club) {
-                                    var membersConnectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "ClubMembersPageMembersQuery_clubMembers", undefined);
-                                    var handleJoinClub = function () {
-                                      commitJoinClub({
-                                            connections: [membersConnectionId],
-                                            input: {
-                                              clubId: club.id
-                                            }
-                                          }, undefined, undefined, undefined, (function (param, _errors) {
-                                              var errors = param.joinClub.errors;
-                                              if (errors !== undefined && errors.length !== 0) {
-                                                errors.forEach(function (e) {
-                                                      console.error(e.message);
-                                                    });
-                                                return ;
-                                              }
-                                              
-                                            }), undefined, undefined);
-                                    };
-                                    var handleCancelRequest = function () {
-                                      var user = Core__Option.flatMap(query.viewer, (function (v) {
-                                              return v.user;
-                                            }));
-                                      if (user !== undefined) {
-                                        commitRemoveUser({
-                                              input: {
-                                                clubId: club.id,
-                                                userId: user.id
-                                              }
-                                            }, undefined, undefined, undefined, (function (param, _errors) {
-                                                var errors = param.removeUserFromClub.errors;
-                                                if (errors !== undefined && errors.length !== 0) {
-                                                  errors.forEach(function (e) {
-                                                        console.error(e.message);
-                                                      });
-                                                  return ;
-                                                }
-                                                
-                                              }), undefined, undefined);
-                                        return ;
-                                      }
-                                      
-                                    };
                                     var _u = Core__Option.flatMap(query.viewer, (function (v) {
                                             return v.user;
                                           }));
@@ -178,7 +182,17 @@ function ClubPage(props) {
                                       if (status !== undefined && (status === "Pending" || status === "Active" || status === "Rejected")) {
                                         switch (status) {
                                           case "Active" :
-                                              tmp = null;
+                                              tmp = JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsx(Button.Button.make, {
+                                                          color: "red",
+                                                          children: t`Leave club`,
+                                                          onClick: (function (param) {
+                                                              handleCancelRequest();
+                                                            }),
+                                                          disabled: isRemoveInFlight
+                                                        }),
+                                                    className: "mt-3"
+                                                  });
                                               break;
                                           case "Pending" :
                                               tmp = JsxRuntime.jsx("div", {

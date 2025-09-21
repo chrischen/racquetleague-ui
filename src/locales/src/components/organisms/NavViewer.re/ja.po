@@ -24,7 +24,7 @@ msgstr "Lineでログイン"
 
 #: src/components/organisms/NavViewer.re.mjs:71
 msgid "My Clubs"
-msgstr "私のクラブ"
+msgstr "私のサークル"
 
 #: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Events"

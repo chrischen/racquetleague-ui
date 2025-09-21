@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(サインアウト)\",\"GCkpYm\":\"Lineでログイン\",\"QejCSM\":\"私のクラブ\",\"dNSt+v\":\"私のイベント\",\"Tz0i8g\":\"設定\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(サインアウト)\",\"GCkpYm\":\"Lineでログイン\",\"QejCSM\":\"私のサークル\",\"dNSt+v\":\"私のイベント\",\"Tz0i8g\":\"設定\"}");

@@ -65,7 +65,7 @@ msgstr "キャンセル"
 
 #: src/components/pages/CreateClubEventsPage.re.mjs:60
 msgid "club doesn't exist."
-msgstr "クラブが存在しません。"
+msgstr "サークルが存在しません。"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:194
 msgid "create multiple events at one time"

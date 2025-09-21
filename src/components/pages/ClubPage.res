@@ -123,53 +123,60 @@ let make = () => {
     setIsShareLinkOpen(prev => !prev)
   }, [setIsShareLinkOpen])
 
+  let handleJoinClub = () => {
+    query.club
+    ->Option.map(club => {
+      // Build connection id for club members list (used when joining)
+      let membersConnectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+        RescriptRelay.makeDataId("client:root"),
+        "ClubMembersPageMembersQuery_clubMembers",
+        (),
+      )
+      commitJoinClub(
+        ~variables={
+          connections: [membersConnectionId],
+          input: {clubId: club.id},
+        },
+        ~onCompleted=({joinClub}, _errors) => {
+          switch joinClub.errors {
+          | None | Some([]) => ()
+          | Some(errors) => errors->Array.forEach(e => Js.Console.error(e.message))
+          }
+        },
+      )->RescriptRelay.Disposable.ignore
+    })
+    ->Option.getOr()
+  }
+
+  let handleCancelRequest = () => {
+    query.club
+    ->Option.map(club => {
+      // We need the viewer's user ID to remove them from the club
+      switch query.viewer->Option.flatMap(v => v.user) {
+      | Some(user) =>
+        commitRemoveUser(
+          ~variables={
+            input: {clubId: club.id, userId: user.id},
+          },
+          ~onCompleted=({removeUserFromClub}, _errors) => {
+            switch removeUserFromClub.errors {
+            | None | Some([]) => // Successfully removed - the membership should no longer exist
+              // The UI will update on the next render since viewerMembership will be null
+              ()
+            | Some(errors) => errors->Array.forEach(e => Js.Console.error(e.message))
+            }
+          },
+        )->RescriptRelay.Disposable.ignore
+      | None => ()
+      }
+    })
+    ->Option.getOr()
+  }
+
   <WaitForMessages>
     {_ => {
       query.club
       ->Option.map(club => {
-        // Build connection id for club members list (used when joining)
-        let membersConnectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-          RescriptRelay.makeDataId("client:root"),
-          "ClubMembersPageMembersQuery_clubMembers",
-          (),
-        )
-
-        let handleJoinClub = () => {
-          commitJoinClub(
-            ~variables={
-              connections: [membersConnectionId],
-              input: {clubId: club.id},
-            },
-            ~onCompleted=({joinClub}, _errors) => {
-              switch joinClub.errors {
-              | None | Some([]) => ()
-              | Some(errors) => errors->Array.forEach(e => Js.Console.error(e.message))
-              }
-            },
-          )->RescriptRelay.Disposable.ignore
-        }
-
-        let handleCancelRequest = () => {
-          // We need the viewer's user ID to remove them from the club
-          switch query.viewer->Option.flatMap(v => v.user) {
-          | Some(user) =>
-            commitRemoveUser(
-              ~variables={
-                input: {clubId: club.id, userId: user.id},
-              },
-              ~onCompleted=({removeUserFromClub}, _errors) => {
-                switch removeUserFromClub.errors {
-                | None | Some([]) => // Successfully removed - the membership should no longer exist
-                  // The UI will update on the next render since viewerMembership will be null
-                  ()
-                | Some(errors) => errors->Array.forEach(e => Js.Console.error(e.message))
-                }
-              },
-            )->RescriptRelay.Disposable.ignore
-          | None => ()
-          }
-        }
-
         <ClubEventsList
           events={club.fragmentRefs}
           viewer={query.viewer}
@@ -194,7 +201,13 @@ let make = () => {
                   ->Option.flatMap(m => m.status)
 
                 switch status {
-                | Some(Active) => React.null
+                | Some(Active) =>
+                  <div className="mt-3">
+                    <Button.Button
+                      color=#red disabled={isRemoveInFlight} onClick={_ => handleCancelRequest()}>
+                      {t`Leave club`}
+                    </Button.Button>
+                  </div>
                 | Some(Pending) =>
                   <div className="mt-3">
                     <Button.Button

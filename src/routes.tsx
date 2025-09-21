@@ -10,7 +10,7 @@ export const routes: RouteObject[] = [
   },
   {
     path: "/:lang?",
-    lazy: () => import("./components/routes/Lang.gen"),
+    lazy: () => import("./components/shared/Lang.gen"),
     // Component: (await import("./components/shared/LangProvider.gen")).make,
 
     handle: "src/components/shared/Lang.gen.tsx",

@@ -19,7 +19,7 @@ msgstr "約"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:108
 msgid "add new club"
-msgstr "新しいクラブを追加"
+msgstr "新しいサークルを追加"
 
 #: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
@@ -27,11 +27,11 @@ msgstr "キャンセル"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:82
 msgid "choose the club where this event will be held."
-msgstr "このイベントが開催されるクラブを選択してください。"
+msgstr "このイベントが開催されるサークルを選択してください。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
 msgid "club"
-msgstr "クラブ"
+msgstr "サークル"
 
 #: src/components/organisms/CreateClubForm.re.mjs:194
 msgid "main activity"
@@ -55,7 +55,7 @@ msgstr "保存"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:81
 msgid "select club"
-msgstr "クラブを選択"
+msgstr "サークルを選択"
 
 #: src/components/organisms/CreateClubForm.re.mjs:177
 msgid "slug"
@@ -63,7 +63,7 @@ msgstr "スラッグ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:216
 msgid "tell people about your club"
-msgstr "あなたのクラブについて人々に伝える"
+msgstr "あなたのサークルについて人々に伝える"
 
 #: src/components/organisms/CreateClubForm.re.mjs:82
 msgid "url slug is required"

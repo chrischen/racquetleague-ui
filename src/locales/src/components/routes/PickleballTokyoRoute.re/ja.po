@@ -56,7 +56,7 @@ msgstr ""
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:91
 msgid "Create an Event at Pacific Pickle Club"
-msgstr "パシフィックピックルクラブでイベントを作成"
+msgstr "パシフィックピックルサークルでイベントを作成"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:120
 msgid "Create an Event at Tokyo Tower Pickleball"
@@ -113,7 +113,7 @@ msgstr ""
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:81
 msgid "Pacific Pickle Club at Ariake"
-msgstr "有明のパシフィックピックルクラブ"
+msgstr "有明のパシフィックピックルサークル"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:217
 msgid ""

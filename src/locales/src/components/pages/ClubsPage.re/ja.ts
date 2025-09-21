@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"v9mk9S\":\"You are not an admin of any clubs.\",\"p8ntXw\":\"クラブ\",\"5TE/8f\":\"私のクラブ\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"v9mk9S\":\"You are not an admin of any clubs.\",\"p8ntXw\":\"サークル\",\"5TE/8f\":\"私のサークル\"}");

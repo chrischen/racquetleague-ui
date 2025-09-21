@@ -81,7 +81,7 @@ msgstr "アクティビティが必要です"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:108
 msgid "add new club"
-msgstr "新しいクラブを追加"
+msgstr "新しいサークルを追加"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "Advanced players"
@@ -105,11 +105,11 @@ msgstr "キャンセル"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:82
 msgid "choose the club where this event will be held."
-msgstr "このイベントが開催されるクラブを選択してください。"
+msgstr "このイベントが開催されるサークルを選択してください。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
 msgid "club"
-msgstr "クラブ"
+msgstr "サークル"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:344
 msgid "date and start time"
@@ -218,7 +218,7 @@ msgstr "保存"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:81
 msgid "select club"
-msgstr "クラブを選択"
+msgstr "サークルを選択"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:413
 msgid "Select tags that best describe this event"
@@ -242,7 +242,7 @@ msgstr "スラッグ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:216
 msgid "tell people about your club"
-msgstr "あなたのクラブについて人々に伝える"
+msgstr "あなたのサークルについて人々に伝える"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:364
 msgid "timezone"

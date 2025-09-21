@@ -66,7 +66,7 @@ msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
-#: src/components/pages/ClubPage.re.mjs:187
+#: src/components/pages/ClubPage.re.mjs:201
 msgid "Cancel Request"
 msgstr "リクエストをキャンセル"
 
@@ -78,13 +78,13 @@ msgstr "フィルターをクリア"
 msgid "Click the link to select it for easy copying."
 msgstr "リンクをクリックして、簡単にコピーできるように選択してください。"
 
-#: src/components/pages/ClubPage.re.mjs:229
+#: src/components/pages/ClubPage.re.mjs:243
 msgid "club"
-msgstr "クラブ"
+msgstr "サークル"
 
-#: src/components/pages/ClubPage.re.mjs:263
+#: src/components/pages/ClubPage.re.mjs:277
 msgid "club not found"
-msgstr "クラブが見つかりません"
+msgstr "サークルが見つかりません"
 
 #: src/components/organisms/ClubEventsList.re.mjs:404
 msgid "filtering by date"
@@ -98,6 +98,10 @@ msgstr "参加する"
 msgid "joined"
 msgstr "参加"
 
+#: src/components/pages/ClubPage.re.mjs:188
+msgid "Leave club"
+msgstr "サークルを退会"
+
 #: src/components/organisms/EventItem.re.mjs:305
 msgid "leave event"
 msgstr "離れる"
@@ -110,7 +114,7 @@ msgstr "保留中"
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/pages/ClubPage.re.mjs:208
+#: src/components/pages/ClubPage.re.mjs:222
 msgid "Request to join"
 msgstr "参加をリクエスト"
 

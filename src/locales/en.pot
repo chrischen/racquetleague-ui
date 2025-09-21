@@ -2114,3 +2114,7 @@ msgstr ""
 #: src/components/pages/ClubMembersPage.re.mjs:177
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:188
+msgid "Leave club"
+msgstr ""

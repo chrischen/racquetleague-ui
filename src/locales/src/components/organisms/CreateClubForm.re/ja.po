@@ -23,7 +23,7 @@ msgstr "キャンセル"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
 msgid "club"
-msgstr "クラブ"
+msgstr "サークル"
 
 #: src/components/organisms/CreateClubForm.re.mjs:194
 msgid "main activity"
@@ -51,7 +51,7 @@ msgstr "スラッグ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:216
 msgid "tell people about your club"
-msgstr "あなたのクラブについて人々に伝える"
+msgstr "あなたのサークルについて人々に伝える"
 
 #: src/components/organisms/CreateClubForm.re.mjs:82
 msgid "url slug is required"

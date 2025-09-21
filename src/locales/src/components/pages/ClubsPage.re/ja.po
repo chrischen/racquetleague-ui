@@ -19,8 +19,8 @@ msgstr ""
 
 #: src/components/pages/ClubsPage.re.mjs:74
 #~ msgid "club"
-#~ msgstr "クラブ"
+#~ msgstr "サークル"
 
 #: src/components/pages/ClubsPage.re.mjs:78
 #~ msgid "my clubs"
-#~ msgstr "私のクラブ"
+#~ msgstr "私のサークル"
