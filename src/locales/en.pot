@@ -2069,3 +2069,48 @@ msgstr ""
 #: src/components/pages/LeaguePage.re.mjs:130
 msgid "volair pickleball"
 msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:165
+msgid "Approve"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:179
+msgid "Are you sure you want to remove"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:183
+msgid "from the club?"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:369
+#: src/components/pages/ClubMembersPage.re.mjs:416
+msgid "Members"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:359
+msgid "No members found"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:334
+msgid "Pending"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:174
+msgid "Remove"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:176
+msgid "Remove member?"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:187
+msgid "Cancel Request"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:208
+msgid "Request to join"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:177
+msgid "Are you sure you want to remove {0} from the club?"
+msgstr ""

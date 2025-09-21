@@ -27,7 +27,8 @@ async function loader(param) {
   var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
           return Util.Datetime.fromDate(new Date(d));
         }));
-  var query = ClubPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
+  var environment = RelayEnv.getRelayEnv(param.context, import.meta.env.SSR);
+  var query = ClubPageQuery_graphql.load(environment, {
         after: after,
         afterDate: afterDate,
         before: before,

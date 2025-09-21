@@ -76,7 +76,10 @@ let make = () => {
   | _ => t`all events`
   }
   let shadowFilter =
-    searchParams->Router.SearchParams.get("shadow")->Option.map(v => v == "true")->Option.getOr(true)
+    searchParams
+    ->Router.SearchParams.get("shadow")
+    ->Option.map(v => v == "true")
+    ->Option.getOr(true)
   // let viewer = GlobalQuery.useViewer()
   let navigate = Router.useNavigate()
 
@@ -166,11 +169,22 @@ let loadMessages = Lingui.loadMessages({
 })
 
 let loader = async ({context, params, request}: LoaderArgs.t) => {
+  let validLangs = ["en", "ja"]
+  switch params.lang {
+  | Some(lang) if !(validLangs->Array.includes(lang)) =>
+    // Throw custom ReScript exception for invalid language
+    raise(Lang.InvalidLanguageException(lang))
+  | _ => ()
+  }
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
   let activity = url.searchParams->Router.SearchParams.get("activity")
-  let shadow = url.searchParams->Router.SearchParams.get("shadow")->Option.map(v => v == "true")->Option.getOr(true)
+  let shadow =
+    url.searchParams
+    ->Router.SearchParams.get("shadow")
+    ->Option.map(v => v == "true")
+    ->Option.getOr(true)
   let afterDate =
     url.searchParams
     ->Router.SearchParams.get("afterDate")

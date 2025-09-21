@@ -215,6 +215,53 @@ return {
                   "storageKey": null
                 },
                 {
+                  "alias": null,
+                  "args": [
+                    {
+                      "kind": "Literal",
+                      "name": "first",
+                      "value": 100
+                    }
+                  ],
+                  "concreteType": "EventRsvpConnection",
+                  "kind": "LinkedField",
+                  "name": "rsvps",
+                  "plural": false,
+                  "selections": [
+                    {
+                      "alias": null,
+                      "args": null,
+                      "concreteType": "EventRsvpEdge",
+                      "kind": "LinkedField",
+                      "name": "edges",
+                      "plural": true,
+                      "selections": [
+                        {
+                          "alias": null,
+                          "args": null,
+                          "concreteType": "Rsvp",
+                          "kind": "LinkedField",
+                          "name": "node",
+                          "plural": false,
+                          "selections": [
+                            (v1/*: any*/),
+                            {
+                              "alias": null,
+                              "args": null,
+                              "kind": "ScalarField",
+                              "name": "listType",
+                              "storageKey": null
+                            }
+                          ],
+                          "storageKey": null
+                        }
+                      ],
+                      "storageKey": null
+                    }
+                  ],
+                  "storageKey": "rsvps(first:100)"
+                },
+                {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "EventItem_event"

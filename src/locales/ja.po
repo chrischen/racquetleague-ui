@@ -2097,6 +2097,43 @@ msgstr "次の賞品: 9月10日"
 msgid "volair pickleball"
 msgstr "ボレアピクルボール"
 
+#: src/components/pages/ClubMembersPage.re.mjs:165
+msgid "Approve"
+msgstr "承認"
+
+#: src/components/pages/ClubMembersPage.re.mjs:369
+#: src/components/pages/ClubMembersPage.re.mjs:416
+msgid "Members"
+msgstr "メンバー"
+
+#: src/components/pages/ClubMembersPage.re.mjs:359
+msgid "No members found"
+msgstr "メンバーが見つかりません"
+
+#: src/components/pages/ClubMembersPage.re.mjs:334
+msgid "Pending"
+msgstr "保留中"
+
+#: src/components/pages/ClubMembersPage.re.mjs:174
+msgid "Remove"
+msgstr "削除"
+
+#: src/components/pages/ClubMembersPage.re.mjs:176
+msgid "Remove member?"
+msgstr "メンバーを削除しますか？"
+
+#: src/components/pages/ClubPage.re.mjs:187
+msgid "Cancel Request"
+msgstr "リクエストをキャンセル"
+
+#: src/components/pages/ClubPage.re.mjs:208
+msgid "Request to join"
+msgstr "参加をリクエスト"
+
+#: src/components/pages/ClubMembersPage.re.mjs:177
+msgid "Are you sure you want to remove {0} from the club?"
+msgstr "本当に{0}をクラブから削除しますか？"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

@@ -329,9 +329,7 @@ let make = () => {
                   displayTags
                 })
                 ->Option.filter(tags => tags->Array.length > 0)
-                ->Option.map(tags => 
-                  <EventTag.TagList tags className="mt-2 mb-2" />
-                )
+                ->Option.map(tags => <EventTag.TagList tags className="mt-2 mb-2" />)
                 ->Option.getOr(React.null)}
                 <div className="flex items-center gap-x-4 sm:gap-x-6">
                   // <button

@@ -10,8 +10,11 @@ module Query = %relay(`
     $token: String
   ) {
     club(slug: $slug) {
+      id
+      slug
       name
       shareLink
+      viewerMembership { status }
       ...ClubDetails_club
       ...ClubEventsListFragment
         @arguments(
@@ -25,10 +28,44 @@ module Query = %relay(`
     viewer {
       user {
         ...EventItem_user
+        id
       }
     }
   }
   `)
+
+module JoinClubMutation = %relay(`
+  mutation ClubPageJoinClubMutation(
+    $connections: [ID!]!
+    $input: JoinClubInput!
+  ) {
+    joinClub(input: $input) {
+      errors { message }
+      club {
+        viewerMembership @appendNode(connections: $connections, edgeTypeName: "MembershipEdge") {
+          status
+        }
+      }
+    }
+  }
+`)
+
+module RemoveUserFromClubMutation = %relay(`
+  mutation ClubPageRemoveUserFromClubMutation(
+    $input: RemoveUserFromClubInput!
+  ) {
+    removeUserFromClub(input: $input) {
+      errors { message }
+      membershipIds
+      club {
+        viewerMembership {
+          status
+        }
+      }
+    }
+  }
+`)
+
 type loaderData = ClubPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
@@ -79,6 +116,8 @@ let make = () => {
   let query = Query.usePreloaded(~queryRef=data.data)
   let {i18n: {locale}} = Lingui.useLingui()
   let (isShareLinkOpen, setIsShareLinkOpen) = React.useState(() => false)
+  let (commitJoinClub, isJoinInFlight) = JoinClubMutation.use()
+  let (commitRemoveUser, isRemoveInFlight) = RemoveUserFromClubMutation.use()
 
   let toggleShareLink = React.useCallback1(() => {
     setIsShareLinkOpen(prev => !prev)
@@ -87,7 +126,50 @@ let make = () => {
   <WaitForMessages>
     {_ => {
       query.club
-      ->Option.map(club => <>
+      ->Option.map(club => {
+        // Build connection id for club members list (used when joining)
+        let membersConnectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+          RescriptRelay.makeDataId("client:root"),
+          "ClubMembersPageMembersQuery_clubMembers",
+          (),
+        )
+
+        let handleJoinClub = () => {
+          commitJoinClub(
+            ~variables={
+              connections: [membersConnectionId],
+              input: {clubId: club.id},
+            },
+            ~onCompleted=({joinClub}, _errors) => {
+              switch joinClub.errors {
+              | None | Some([]) => ()
+              | Some(errors) => errors->Array.forEach(e => Js.Console.error(e.message))
+              }
+            },
+          )->RescriptRelay.Disposable.ignore
+        }
+
+        let handleCancelRequest = () => {
+          // We need the viewer's user ID to remove them from the club
+          switch query.viewer->Option.flatMap(v => v.user) {
+          | Some(user) =>
+            commitRemoveUser(
+              ~variables={
+                input: {clubId: club.id, userId: user.id},
+              },
+              ~onCompleted=({removeUserFromClub}, _errors) => {
+                switch removeUserFromClub.errors {
+                | None | Some([]) => // Successfully removed - the membership should no longer exist
+                  // The UI will update on the next render since viewerMembership will be null
+                  ()
+                | Some(errors) => errors->Array.forEach(e => Js.Console.error(e.message))
+                }
+              },
+            )->RescriptRelay.Disposable.ignore
+          | None => ()
+          }
+        }
+
         <ClubEventsList
           events={club.fragmentRefs}
           viewer={query.viewer}
@@ -96,12 +178,41 @@ let make = () => {
               <div className="text-base leading-6 text-gray-500"> {t`club`} </div>
               <div
                 className="flex items-center mt-1 text-2xl font-semibold leading-6 text-gray-900">
-                {club.name->Option.getOr("?")->React.string}
-                <button className="ml-2" onClick={_ => toggleShareLink()}>
-                  <Lucide.Share color="#6B7280" />
-                </button>
+                <span className="flex items-center">
+                  {club.name->Option.getOr("?")->React.string}
+                  <button className="ml-2" onClick={_ => toggleShareLink()}>
+                    <Lucide.Share color="#6B7280" />
+                  </button>
+                </span>
               </div>
             </h1>
+            {switch query.viewer->Option.flatMap(v => v.user) {
+            | Some(_u) => {
+                let status =
+                  query.club
+                  ->Option.flatMap(c => c.viewerMembership)
+                  ->Option.flatMap(m => m.status)
+
+                switch status {
+                | Some(Active) => React.null
+                | Some(Pending) =>
+                  <div className="mt-3">
+                    <Button.Button
+                      color=#red disabled={isRemoveInFlight} onClick={_ => handleCancelRequest()}>
+                      {t`Cancel Request`}
+                    </Button.Button>
+                  </div>
+                | Some(Rejected) | Some(FutureAddedValue(_)) | None =>
+                  <div className="mt-3">
+                    <Button.Button
+                      color=#indigo disabled={isJoinInFlight} onClick={_ => handleJoinClub()}>
+                      {t`Request to join`}
+                    </Button.Button>
+                  </div>
+                }
+              }
+            | None => React.null
+            }}
             {isShareLinkOpen
               ? <ShareLink
                   link={"https://www.pkuru.com/" ++ locale ++ club.shareLink->Option.getOr("")}
@@ -110,6 +221,7 @@ let make = () => {
             <ClubDetails club={club.fragmentRefs} />
           </Layout.Container>}
         />
+
         // <EventsList
         //   events={query.fragmentRefs}
         //   header={<Layout.Container>
@@ -122,7 +234,7 @@ let make = () => {
         //     <ClubDetails club={club.fragmentRefs} />
         //   </Layout.Container>}
         // />
-      </>)
+      })
       ->Option.getOr(<Layout.Container> {t`club not found`} </Layout.Container>)
     }}
   </WaitForMessages>

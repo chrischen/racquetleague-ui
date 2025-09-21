@@ -32,8 +32,33 @@ module LoaderArgs = {
 @val external importLang: 'a => Js.Promise.t<{"messages": Lingui.Messages.t}> = "import"
 
 external window: LocaleDetector.window = "window"
+
+// Custom ReScript exception for invalid language
+exception InvalidLanguageException(string)
+
+// Function to check if an error is an InvalidLanguageException
+@genType
+let isInvalidLanguageError = (error: 'a): bool => {
+  // Assuming this is always a ReScript exception object with RE_EXN_ID
+  switch error->Js.Dict.get("RE_EXN_ID") {
+  | Some(exnId) =>
+    Js.log(exnId)
+    exnId->Js.String.make->Js.String2.includes("InvalidLanguageException")
+  | None => false
+  }
+}
+
 @genType
 let loader = async ({params}: LoaderArgs.t) => {
+  // Validate lang parameter - only allow supported languages
+  let validLangs = ["en", "ja"]
+  switch params.lang {
+  | Some(lang) if !(validLangs->Array.includes(lang)) =>
+    // Throw custom ReScript exception for invalid language
+    raise(InvalidLanguageException(lang))
+  | _ => ()
+  }
+
   let lang = params.lang->Option.getOr("en")
   let locale = switch lang {
   | "ja" => "jp"

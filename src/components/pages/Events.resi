@@ -1,9 +1,8 @@
-
 @genType @react.component
-let make: unit => React.element;
+let make: unit => React.element
 
 @genType
-let \"Component": props => React.element;
+let \"Component": props => React.element
 
 type params = {
   after?: string,
@@ -23,6 +22,4 @@ module LoaderArgs: {
 }
 
 @genType
-let loader: LoaderArgs.t => promise<
-  WaitForMessages.data<EventsQuery_graphql.queryRef>,
->
+let loader: LoaderArgs.t => promise<WaitForMessages.data<EventsQuery_graphql.queryRef>>

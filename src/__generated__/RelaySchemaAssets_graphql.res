@@ -15,16 +15,18 @@ type enum_Gender_input =
 
 
 @live @unboxed
-type enum_RsvpStatus = 
-  | Joined
-  | Waitlist
+type enum_T = 
+  | Active
+  | Pending
+  | Rejected
   | FutureAddedValue(string)
 
 
 @live @unboxed
-type enum_RsvpStatus_input = 
-  | Joined
-  | Waitlist
+type enum_T_input = 
+  | Active
+  | Pending
+  | Rejected
 
 
 @live @unboxed
@@ -43,7 +45,21 @@ type enum_RequiredFieldAction_input =
 
 
 @live
-type rec input_AutocompleteLocationInput = {
+type rec input_AddUserToClubInput = {
+  clubId: string,
+  isAdmin?: bool,
+  userId: string,
+}
+
+@live
+and input_AddUserToClubInput_nullable = {
+  clubId: string,
+  isAdmin?: Js.Null.t<bool>,
+  userId: string,
+}
+
+@live
+and input_AutocompleteLocationInput = {
   formattedAddress: string,
   lat: float,
   lng: float,
@@ -60,6 +76,16 @@ and input_AutocompleteLocationInput_nullable = {
   mapsId: string,
   name: string,
   plusCode?: Js.Null.t<string>,
+}
+
+@live
+and input_ClubMembersInput = {
+  clubId: string,
+}
+
+@live
+and input_ClubMembersInput_nullable = {
+  clubId: string,
 }
 
 @live
@@ -203,6 +229,28 @@ and input_EventFilters_nullable = {
 }
 
 @live
+and input_GetUserClubMembershipInput = {
+  clubId: string,
+  userId: string,
+}
+
+@live
+and input_GetUserClubMembershipInput_nullable = {
+  clubId: string,
+  userId: string,
+}
+
+@live
+and input_JoinClubInput = {
+  clubId: string,
+}
+
+@live
+and input_JoinClubInput_nullable = {
+  clubId: string,
+}
+
+@live
 and input_LeagueMatchInput = {
   activitySlug: string,
   doublesMatch: input_DoublesMatchInput,
@@ -240,6 +288,30 @@ and input_PredictMatchInput = {
 and input_PredictMatchInput_nullable = {
   team1RatingIds: array<string>,
   team2RatingIds: array<string>,
+}
+
+@live
+and input_RemoveUserFromClubInput = {
+  clubId: string,
+  userId: string,
+}
+
+@live
+and input_RemoveUserFromClubInput_nullable = {
+  clubId: string,
+  userId: string,
+}
+
+@live
+and input_UpdateMembershipStatusInput = {
+  membershipId: string,
+  status: enum_T_input,
+}
+
+@live
+and input_UpdateMembershipStatusInput_nullable = {
+  membershipId: string,
+  status: enum_T_input,
 }
 
 @live

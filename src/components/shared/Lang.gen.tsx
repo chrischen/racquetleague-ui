@@ -21,6 +21,8 @@ export type LoaderArgs_t = {
   readonly request: Router_RouterRequest_t
 };
 
+export const isInvalidLanguageError: <T1>(error:{[id: string]: T1}) => boolean = LangJS.isInvalidLanguageError as any;
+
 export const loader: (param:LoaderArgs_t) => Promise<LangProvider_locale> = LangJS.loader as any;
 
 export const Component: React.ComponentType<{}> = LangJS.Component as any;

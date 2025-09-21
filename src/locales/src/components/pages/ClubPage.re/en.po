@@ -78,11 +78,15 @@ msgstr ""
 msgid "🚫 CANCELED"
 msgstr ""
 
+#: src/components/pages/ClubPage.re.mjs:187
+msgid "Cancel Request"
+msgstr ""
+
 #: src/components/organisms/ClubEventsList.re.mjs:406
 msgid "clear filter"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:68
+#: src/components/pages/ClubPage.re.mjs:93
 msgid "Click the link to select it for easy copying."
 msgstr ""
 
@@ -90,11 +94,11 @@ msgstr ""
 #~ msgid "close"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:103
+#: src/components/pages/ClubPage.re.mjs:229
 msgid "club"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:134
+#: src/components/pages/ClubPage.re.mjs:263
 msgid "club not found"
 msgstr ""
 
@@ -134,11 +138,15 @@ msgstr ""
 msgid "players"
 msgstr ""
 
+#: src/components/pages/ClubPage.re.mjs:208
+msgid "Request to join"
+msgstr ""
+
 #: src/components/organisms/ClubEventsList.re.mjs:376
 msgid "share as text"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:50
+#: src/components/pages/ClubPage.re.mjs:75
 msgid "Shareable Link"
 msgstr ""
 

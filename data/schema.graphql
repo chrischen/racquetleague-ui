@@ -35,6 +35,17 @@ type ActivitySubscriptionMutationResult implements HasErrors {
   errors: [Error!]
 }
 
+input AddUserToClubInput {
+  clubId: ID!
+  isAdmin: Boolean
+  userId: ID!
+}
+
+type AddUserToClubResult implements HasErrors {
+  errors: [Error!]
+  membership: Membership
+}
+
 input AutocompleteLocationInput {
   formattedAddress: String!
   lat: Float!
@@ -52,6 +63,7 @@ type Club implements Node {
   name: String
   shareLink: String
   slug: String
+  viewerMembership: Membership
 }
 
 """A connection to clubs."""
@@ -70,6 +82,10 @@ type ClubEdge {
 
   """The item at the end of the edge."""
   node: Club
+}
+
+input ClubMembersInput {
+  clubId: ID!
 }
 
 type Coords {
@@ -91,6 +107,7 @@ input CreateClubInput {
 type CreateClubResult implements HasErrors {
   club: Club
   errors: [Error!]
+  membershipIds: [ID!]
 }
 
 input CreateEventInput {
@@ -178,7 +195,6 @@ type Event implements Node {
   title: String
   viewerHasRsvp: Boolean
   viewerIsAdmin: Boolean!
-  viewerRsvpStatus: RsvpStatus
 }
 
 """A connection to users."""
@@ -231,8 +247,22 @@ enum Gender {
   male
 }
 
+input GetUserClubMembershipInput {
+  clubId: ID!
+  userId: ID!
+}
+
+type GetUserClubMembershipResult implements HasErrors {
+  errors: [Error!]
+  membership: Membership
+}
+
 interface HasErrors {
   errors: [Error!]
+}
+
+input JoinClubInput {
+  clubId: ID!
 }
 
 type JoinEventResult implements HasErrors {
@@ -319,6 +349,35 @@ type Media {
   url: String
 }
 
+type Membership implements Node {
+  club: Club
+  id: ID!
+  isAdmin: Boolean
+  isOwner: Boolean
+  joinDate: Datetime
+  leaveDate: Datetime
+  status: T
+  user: User
+}
+
+"""A connection to memberships."""
+type MembershipConnection {
+  """A list of edges."""
+  edges: [MembershipEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+"""An edge to a membership."""
+type MembershipEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Membership
+}
+
 type Message {
   createdAt: String!
   id: ID!
@@ -328,6 +387,7 @@ type Message {
 
 type Mutation {
   addRsvpToEvent(eventId: ID!, userId: ID!): JoinEventResult!
+  addUserToClub(input: AddUserToClubInput!): AddUserToClubResult!
   autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
   cancelEvent(eventId: ID!): MutationResult2!
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
@@ -339,10 +399,13 @@ type Mutation {
   createMatch(match: LeagueMatchInput!): CreateMatchResponse!
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
+  joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
+  removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
   uncancelEvent(eventId: ID!): MutationResult2!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
+  updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
   updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): Rsvp
 }
@@ -391,6 +454,7 @@ type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
   club(id: ID, slug: String): Club
+  clubMembers(after: String, first: Int, input: ClubMembersInput!): MembershipConnection!
   clubs(after: String, before: String, first: Int): ClubConnection!
 
   """The current time on the server, as a timestamp."""
@@ -400,6 +464,7 @@ type Query {
   currentTime2: Float
   event(id: ID!): Event
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
+  getUserClubMembership(input: GetUserClubMembershipInput!): GetUserClubMembershipResult!
   location(id: ID!): Location
   locations(after: String, before: String, first: Int): LocationConnection!
   matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
@@ -440,6 +505,11 @@ type RatingEdge {
   node: Rating
 }
 
+input RemoveUserFromClubInput {
+  clubId: ID!
+  userId: ID!
+}
+
 type Rsvp implements Node {
   id: ID!
   joinTime: Int
@@ -451,14 +521,25 @@ type Rsvp implements Node {
   user: User
 }
 
-enum RsvpStatus {
-  Joined
-  Waitlist
-}
-
 type Subscription {
   id: ID!
   topic: String
+}
+
+enum T {
+  Active
+  Pending
+  Rejected
+}
+
+input UpdateMembershipStatusInput {
+  membershipId: ID!
+  status: T!
+}
+
+type UpdateMembershipStatusResult implements HasErrors {
+  errors: [Error!]
+  membership: Membership
 }
 
 input UpdateProfileInput {

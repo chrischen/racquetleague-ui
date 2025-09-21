@@ -29,8 +29,10 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
       d->Js.Date.fromString->Util.Datetime.fromDate
     })
 
+  let environment = RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)
+
   let query = ClubPageQuery_graphql.load(
-    ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
+    ~environment,
     ~variables={
       slug: params.slug,
       ?before,

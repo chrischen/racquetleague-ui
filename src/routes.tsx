@@ -1,5 +1,6 @@
 import type { RouteObject } from "react-router-dom";
-import { make as NotFound } from "./components/pages/NotFound.gen";
+import { RootErrorBoundary } from "./components/shared/RootErrorBoundary";
+
 export const routes: RouteObject[] = [
   {
     path: "/defertest",
@@ -15,6 +16,7 @@ export const routes: RouteObject[] = [
 
     handle: "src/components/shared/Lang.gen.tsx",
     HydrateFallbackElement: <>Loading Fallback...</>,
+    errorElement: <RootErrorBoundary/>,
     children: [
       {
         // path: ":activitySlug",
@@ -26,8 +28,7 @@ export const routes: RouteObject[] = [
         HydrateFallbackElement: <>Loading Fallback...</>,
         children: [
           {
-            path: "",
-            // index: true,
+            index: true,
             lazy: () => import("./components/pages/Events.gen"),
             handle: "src/components/pages/Events.gen.tsx",
             HydrateFallbackElement: <>Loading Fallback...</>
@@ -64,6 +65,11 @@ export const routes: RouteObject[] = [
                 path: ":slug",
                 lazy: () => import("./components/routes/ClubRoute.gen"),
                 handle: "src/components/routes/ClubRoute.gen.tsx",
+              },
+              {
+                path: ":slug/members",
+                lazy: () => import("./components/routes/ClubMembersRoute.gen"),
+                handle: "src/components/routes/ClubMembersRoute.gen.tsx",
               },
             ],
           },
@@ -257,5 +263,10 @@ export const routes: RouteObject[] = [
         ]
       }
     ]
+  },
+  {
+    path: "*",
+    lazy: () => import("./components/routes/NotFoundRoute.gen"),
+    handle: "src/components/routes/NotFoundRoute.gen.tsx",
   }
 ];

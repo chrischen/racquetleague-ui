@@ -23,6 +23,7 @@ import { createFetchRequest } from "./fetch";
 import type { RouteObject } from "react-router-dom"
 import { routes as routesRl } from "../routes";
 import { routes as routesJpl } from "../routes-jpl";
+import { wrapRoutesWithErrorBoundary } from "../routesWrapper";
 import { Wrapper } from "../wrapper.tsx";
 
 interface CriticalCss {
@@ -159,9 +160,13 @@ export async function render(
   } else {
     routes = routesRl;
   }
+  
+  // Wrap routes with error boundary for consistent error handling
+  const routesWithErrorBoundary = wrapRoutesWithErrorBoundary(routes);
+  
   const environment = makeServer(transformStream.onQuery.bind(transformStream), req);
   /* React Router */
-  const handler = createStaticHandler(routes);
+  const handler = createStaticHandler(routesWithErrorBoundary);
   const fetchRequest = createFetchRequest(req);
   const context = await handler.query(fetchRequest, {
     requestContext: {
@@ -182,7 +187,7 @@ export async function render(
     context as StaticHandlerContext
   );
 
-  const route = matchRoutes(routes, url);
+  const route = matchRoutes(routesWithErrorBoundary, url);
   let css: string[] = [];
   let scripts: string[] = [];
   let preloadScripts: string[] = [];

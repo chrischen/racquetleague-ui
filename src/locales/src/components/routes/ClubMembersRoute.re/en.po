@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-09-17 20:07+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/pages/ClubMembersPage.re.mjs:165
+msgid "Approve"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:179
+#~ msgid "Are you sure you want to remove"
+#~ msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:177
+msgid "Are you sure you want to remove {0} from the club?"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:428
+msgid "club not found"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:183
+#~ msgid "from the club?"
+#~ msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:361
+#: src/components/pages/ClubMembersPage.re.mjs:408
+msgid "Members"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:351
+msgid "No members found"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:326
+msgid "Pending"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:174
+msgid "Remove"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:176
+msgid "Remove member?"
+msgstr ""

@@ -7,9 +7,20 @@ module Types = {
   type rec fragment_events_edges_node_location = {
     @live id: string,
   }
+  and fragment_events_edges_node_rsvps_edges_node = {
+    @live id: string,
+    listType: option<int>,
+  }
+  and fragment_events_edges_node_rsvps_edges = {
+    node: option<fragment_events_edges_node_rsvps_edges_node>,
+  }
+  and fragment_events_edges_node_rsvps = {
+    edges: option<array<option<fragment_events_edges_node_rsvps_edges>>>,
+  }
   and fragment_events_edges_node = {
     @live id: string,
     location: option<fragment_events_edges_node_location>,
+    rsvps: option<fragment_events_edges_node_rsvps>,
     shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     timezone: option<string>,
@@ -263,6 +274,53 @@ return {
                   "kind": "ScalarField",
                   "name": "shadow",
                   "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": [
+                    {
+                      "kind": "Literal",
+                      "name": "first",
+                      "value": 100
+                    }
+                  ],
+                  "concreteType": "EventRsvpConnection",
+                  "kind": "LinkedField",
+                  "name": "rsvps",
+                  "plural": false,
+                  "selections": [
+                    {
+                      "alias": null,
+                      "args": null,
+                      "concreteType": "EventRsvpEdge",
+                      "kind": "LinkedField",
+                      "name": "edges",
+                      "plural": true,
+                      "selections": [
+                        {
+                          "alias": null,
+                          "args": null,
+                          "concreteType": "Rsvp",
+                          "kind": "LinkedField",
+                          "name": "node",
+                          "plural": false,
+                          "selections": [
+                            (v1/*: any*/),
+                            {
+                              "alias": null,
+                              "args": null,
+                              "kind": "ScalarField",
+                              "name": "listType",
+                              "storageKey": null
+                            }
+                          ],
+                          "storageKey": null
+                        }
+                      ],
+                      "storageKey": null
+                    }
+                  ],
+                  "storageKey": "rsvps(first:100)"
                 },
                 {
                   "args": null,
