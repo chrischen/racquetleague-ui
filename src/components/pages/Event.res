@@ -33,6 +33,7 @@ module EventQuery = %relay(`
       endDate
       timezone
       shadow
+      listed
       tags
       location {
         id
@@ -326,6 +327,7 @@ let make = () => {
                   let levelTags = ["all level", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
                   let hasLevelTags = tags->Array.some(tag => levelTags->Array.includes(tag))
                   let displayTags = hasLevelTags ? tags : tags->Array.concat(["all level"])
+                  let displayTags = switch event.listed { | Some(false) => displayTags->Array.concat(["unlisted"]) | _ => displayTags }
                   displayTags
                 })
                 ->Option.filter(tags => tags->Array.length > 0)

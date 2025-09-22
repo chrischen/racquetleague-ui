@@ -18,6 +18,8 @@ let getTagTooltip = tag => {
   | "rec" => ts`Recreational play that will not be submitted to competitive ratings nor DUPR.`
   | "comp" => ts`Results will be submitted to competitive ratings.`
   | "dupr" => ts`Matches will be submitted to DUPR.`
+  | "unlisted" =>
+    ts`This event is private. Please do not share this event without permission from the organizer.`
   | "all level" => ts`No restriction on skill level. Open to all players.`
   | "3.0+" => ts`Lower intermediate and above`
   | "3.5+" => ts`Upper intermediate and above`
@@ -62,6 +64,11 @@ let make = (~tag: string, ~size: [#small | #medium]=#small) => {
   | #comp =>
     <span className="inline-flex items-center text-yellow-500 cursor-help">
       <Lucide.Trophy className={iconSize} />
+    </span>
+  | #other if tag == "unlisted" =>
+    <span
+      className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
+      <HeroIcons.LockClosed className={`${iconSize} text-gray-600`} />
     </span>
   | _ =>
     <span
@@ -136,6 +143,16 @@ module TagList = {
               | #comp =>
                 <span className="inline-flex items-center text-yellow-500 cursor-help">
                   <Lucide.Trophy className={iconSize} />
+                </span>
+              | #other if tag == "unlisted" =>
+                <span
+                  className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
+                  <HeroIcons.LockClosed className={`${iconSize} text-gray-600`} />
+                </span>
+              | #other if tag == "unlisted" =>
+                <span
+                  className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
+                  <HeroIcons.LockClosed className={`${iconSize} text-gray-600`} />
                 </span>
               | _ =>
                 <span

@@ -7,6 +7,7 @@ import * as LucideReact from "lucide-react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as ReactPopover from "@radix-ui/react-popover";
 import * as ReactTooltip from "@radix-ui/react-tooltip";
+import * as Solid from "@heroicons/react/24/solid";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -56,6 +57,8 @@ function getTagTooltip(tag) {
         return t`Matches will be submitted to DUPR.`;
     case "rec" :
         return t`Recreational play that will not be submitted to competitive ratings nor DUPR.`;
+    case "unlisted" :
+        return t`This event is private. Please do not share this event without permission from the organizer.`;
     default:
       return t`Event tag: ${tag}`;
   }
@@ -91,15 +94,31 @@ function EventTag(props) {
   var isMobile = useMobileDetection();
   var tagType = getTagType(tag);
   var iconSize = size === "small" ? "h-4 w-4" : "h-5 w-5";
-  var content = tagType === "comp" ? JsxRuntime.jsx("span", {
+  var content;
+  var exit = 0;
+  if (tagType === "comp") {
+    content = JsxRuntime.jsx("span", {
           children: JsxRuntime.jsx(LucideReact.Trophy, {
                 className: iconSize
               }),
           className: "inline-flex items-center text-yellow-500 cursor-help"
-        }) : JsxRuntime.jsx("span", {
+        });
+  } else if (tagType === "other" && tag === "unlisted") {
+    content = JsxRuntime.jsx("span", {
+          children: JsxRuntime.jsx(Solid.LockClosedIcon, {
+                className: iconSize + " text-gray-600"
+              }),
+          className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
+        });
+  } else {
+    exit = 1;
+  }
+  if (exit === 1) {
+    content = JsxRuntime.jsx("span", {
           children: Core.i18n._(tag),
           className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
         });
+  }
   if (isMobile) {
     return JsxRuntime.jsxs(ReactPopover.Root, {
                 children: [
@@ -168,15 +187,42 @@ function EventTag$TagList(props) {
                     }) : JsxRuntime.jsx(ReactTooltip.Provider, {
                       children: tags.map(function (tag) {
                             var tagType = getTagType(tag);
-                            var content = tagType === "comp" ? JsxRuntime.jsx("span", {
+                            var content;
+                            var exit = 0;
+                            if (tagType === "comp") {
+                              content = JsxRuntime.jsx("span", {
                                     children: JsxRuntime.jsx(LucideReact.Trophy, {
                                           className: iconSize
                                         }),
                                     className: "inline-flex items-center text-yellow-500 cursor-help"
-                                  }) : JsxRuntime.jsx("span", {
+                                  });
+                            } else if (tagType === "other") {
+                              if (tag === "unlisted") {
+                                content = JsxRuntime.jsx("span", {
+                                      children: JsxRuntime.jsx(Solid.LockClosedIcon, {
+                                            className: iconSize + " text-gray-600"
+                                          }),
+                                      className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
+                                    });
+                              } else if (tag === "unlisted") {
+                                content = JsxRuntime.jsx("span", {
+                                      children: JsxRuntime.jsx(Solid.LockClosedIcon, {
+                                            className: iconSize + " text-gray-600"
+                                          }),
+                                      className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
+                                    });
+                              } else {
+                                exit = 1;
+                              }
+                            } else {
+                              exit = 1;
+                            }
+                            if (exit === 1) {
+                              content = JsxRuntime.jsx("span", {
                                     children: Core.i18n._(tag),
                                     className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
                                   });
+                            }
                             return JsxRuntime.jsxs(ReactTooltip.Root, {
                                         delayDuration: 200,
                                         children: [

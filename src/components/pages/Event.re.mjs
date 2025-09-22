@@ -413,10 +413,12 @@ function $$Event(props) {
                                                                                             var hasLevelTags = tags.some(function (tag) {
                                                                                                   return levelTags.includes(tag);
                                                                                                 });
-                                                                                            if (hasLevelTags) {
-                                                                                              return tags;
+                                                                                            var displayTags = hasLevelTags ? tags : tags.concat(["all level"]);
+                                                                                            var match = $$event.listed;
+                                                                                            if (match !== undefined && !match) {
+                                                                                              return displayTags.concat(["unlisted"]);
                                                                                             } else {
-                                                                                              return tags.concat(["all level"]);
+                                                                                              return displayTags;
                                                                                             }
                                                                                           })), (function (tags) {
                                                                                         return tags.length > 0;

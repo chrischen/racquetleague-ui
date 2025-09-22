@@ -168,6 +168,13 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "listed",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "deleted",
       "storageKey": null
     }

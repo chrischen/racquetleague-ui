@@ -19,6 +19,7 @@ module Types = {
   }
   and fragment_events_edges_node = {
     @live id: string,
+    listed: option<bool>,
     location: option<fragment_events_edges_node_location>,
     rsvps: option<fragment_events_edges_node_rsvps>,
     shadow: option<bool>,
@@ -273,6 +274,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "shadow",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "listed",
                   "storageKey": null
                 },
                 {

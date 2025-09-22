@@ -30,6 +30,7 @@ module Fragment = %relay(`
             id
           }
           shadow
+          listed
           rsvps(first: 100) {
             edges {
               node {
@@ -77,6 +78,7 @@ module TextItemFragment = %relay(`
     endDate
     timezone
     shadow
+    listed
     deleted
   }
 `)

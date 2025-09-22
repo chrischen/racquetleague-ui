@@ -178,33 +178,33 @@ function ClubPage(props) {
                                                 })), (function (m) {
                                               return m.status;
                                             }));
+                                      var viewerIsAdmin = Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(query.club, (function (c) {
+                                                      return c.viewerMembership;
+                                                    })), (function (m) {
+                                                  return m.isAdmin;
+                                                })), false);
+                                      var tmp$1;
                                       var exit = 0;
                                       if (status !== undefined && (status === "Pending" || status === "Active" || status === "Rejected")) {
                                         switch (status) {
                                           case "Active" :
-                                              tmp = JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx(Button.Button.make, {
-                                                          color: "red",
-                                                          children: t`Leave club`,
-                                                          onClick: (function (param) {
-                                                              handleCancelRequest();
-                                                            }),
-                                                          disabled: isRemoveInFlight
+                                              tmp$1 = viewerIsAdmin ? null : JsxRuntime.jsx(Button.Button.make, {
+                                                      color: "red",
+                                                      children: t`Leave club`,
+                                                      onClick: (function (param) {
+                                                          handleCancelRequest();
                                                         }),
-                                                    className: "mt-3"
-                                                  });
+                                                      disabled: isRemoveInFlight
+                                                    });
                                               break;
                                           case "Pending" :
-                                              tmp = JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx(Button.Button.make, {
-                                                          color: "red",
-                                                          children: t`Cancel Request`,
-                                                          onClick: (function (param) {
-                                                              handleCancelRequest();
-                                                            }),
-                                                          disabled: isRemoveInFlight
-                                                        }),
-                                                    className: "mt-3"
+                                              tmp$1 = JsxRuntime.jsx(Button.Button.make, {
+                                                    color: "red",
+                                                    children: t`Cancel Request`,
+                                                    onClick: (function (param) {
+                                                        handleCancelRequest();
+                                                      }),
+                                                    disabled: isRemoveInFlight
                                                   });
                                               break;
                                           case "Rejected" :
@@ -216,19 +216,26 @@ function ClubPage(props) {
                                         exit = 1;
                                       }
                                       if (exit === 1) {
-                                        tmp = JsxRuntime.jsx("div", {
-                                              children: JsxRuntime.jsx(Button.Button.make, {
-                                                    color: "indigo",
-                                                    children: t`Request to join`,
-                                                    onClick: (function (param) {
-                                                        handleJoinClub();
-                                                      }),
-                                                    disabled: isJoinInFlight
-                                                  }),
-                                              className: "mt-3"
+                                        tmp$1 = JsxRuntime.jsx(Button.Button.make, {
+                                              color: "indigo",
+                                              children: t`Request to join`,
+                                              onClick: (function (param) {
+                                                  handleJoinClub();
+                                                }),
+                                              disabled: isJoinInFlight
                                             });
                                       }
-                                      
+                                      tmp = JsxRuntime.jsxs("div", {
+                                            children: [
+                                              tmp$1,
+                                              viewerIsAdmin ? JsxRuntime.jsx(Button.Button.make, {
+                                                      color: "indigo",
+                                                      children: t`Manage Members`,
+                                                      href: "./members"
+                                                    }) : null
+                                            ],
+                                            className: "mt-3 flex flex-wrap items-center gap-2"
+                                          });
                                     } else {
                                       tmp = null;
                                     }

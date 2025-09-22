@@ -14,7 +14,7 @@ module Query = %relay(`
       slug
       name
       shareLink
-      viewerMembership { status }
+      viewerMembership { status isAdmin }
       ...ClubDetails_club
       ...ClubEventsListFragment
         @arguments(
@@ -200,29 +200,40 @@ let make = () => {
                   ->Option.flatMap(c => c.viewerMembership)
                   ->Option.flatMap(m => m.status)
 
-                switch status {
-                | Some(Active) =>
-                  <div className="mt-3">
-                    <Button.Button
-                      color=#red disabled={isRemoveInFlight} onClick={_ => handleCancelRequest()}>
-                      {t`Leave club`}
-                    </Button.Button>
-                  </div>
-                | Some(Pending) =>
-                  <div className="mt-3">
+                let viewerIsAdmin =
+                  query.club
+                  ->Option.flatMap(c => c.viewerMembership)
+                  ->Option.flatMap(m => m.isAdmin)
+                  ->Option.getOr(false)
+
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  {switch status {
+                  | Some(Active) =>
+                    if viewerIsAdmin {
+                      React.null
+                    } else {
+                      <Button.Button
+                        color=#red disabled={isRemoveInFlight} onClick={_ => handleCancelRequest()}>
+                        {t`Leave club`}
+                      </Button.Button>
+                    }
+                  | Some(Pending) =>
                     <Button.Button
                       color=#red disabled={isRemoveInFlight} onClick={_ => handleCancelRequest()}>
                       {t`Cancel Request`}
                     </Button.Button>
-                  </div>
-                | Some(Rejected) | Some(FutureAddedValue(_)) | None =>
-                  <div className="mt-3">
+                  | Some(Rejected) | Some(FutureAddedValue(_)) | None =>
                     <Button.Button
                       color=#indigo disabled={isJoinInFlight} onClick={_ => handleJoinClub()}>
                       {t`Request to join`}
                     </Button.Button>
-                  </div>
-                }
+                  }}
+                  {viewerIsAdmin
+                    ? <Button.Button href={"./members"} color=#indigo>
+                        {t`Manage Members`}
+                      </Button.Button>
+                    : React.null}
+                </div>
               }
             | None => React.null
             }}

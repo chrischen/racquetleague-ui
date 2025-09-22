@@ -128,9 +128,11 @@ function EventItem(props) {
   var shadow = match.shadow;
   var rsvps = match.rsvps;
   var maxRsvps = match.maxRsvps;
+  var listed = match.listed;
   var endDate = match.endDate;
   var __id = match.__id;
   var secret = Core__Option.getOr(shadow, false);
+  var isUnlisted = listed !== undefined && !listed ? true : false;
   var isCompetitive = Core__Option.getOr(match.tags, []).includes("comp");
   var playersCount = Core__Option.getOr(Core__Option.flatMap(rsvps, (function (rsvps) {
               return Core__Option.map(rsvps.edges, (function (edges) {
@@ -347,19 +349,24 @@ function EventItem(props) {
                                                     className: Core$1.cx("text-green-400 bg-green-400/10", "flex-none rounded-full p-1")
                                                   }),
                                             JsxRuntime.jsx("h2", {
-                                                  children: JsxRuntime.jsx("div", {
-                                                        children: JsxRuntime.jsxs("span", {
-                                                              children: [
-                                                                Core__Option.getOr(Core__Option.flatMap(match.activity, (function (a) {
-                                                                            return Core__Option.map(a.name, (function (name) {
-                                                                                          return Core.i18n._(name);
-                                                                                        }));
-                                                                          })), null),
-                                                                " / ",
-                                                                Core__Option.getOr(match.title, t`[missing title]`)
-                                                              ],
-                                                              className: Core$1.cx("truncate", Core__Option.isSome(match.deleted) ? "line-through" : "")
-                                                            }),
+                                                  children: JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          isUnlisted ? JsxRuntime.jsx(Solid.LockClosedIcon, {
+                                                                  className: "h-4 w-4 text-gray-500"
+                                                                }) : null,
+                                                          JsxRuntime.jsxs("span", {
+                                                                children: [
+                                                                  Core__Option.getOr(Core__Option.flatMap(match.activity, (function (a) {
+                                                                              return Core__Option.map(a.name, (function (name) {
+                                                                                            return Core.i18n._(name);
+                                                                                          }));
+                                                                            })), null),
+                                                                  " / ",
+                                                                  Core__Option.getOr(match.title, t`[missing title]`)
+                                                                ],
+                                                                className: Core$1.cx("truncate", Core__Option.isSome(match.deleted) ? "line-through" : "")
+                                                              })
+                                                        ],
                                                         className: "flex gap-x-2"
                                                       }),
                                                   className: "min-w-0 text-sm font-semibold leading-6 text-black w-full"

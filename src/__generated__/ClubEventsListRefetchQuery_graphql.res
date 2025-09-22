@@ -507,6 +507,13 @@ return {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
+                            "name": "listed",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
                             "name": "deleted",
                             "storageKey": null
                           },
@@ -596,12 +603,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a7f4069d83eceb235cf701e80581ad04",
+    "cacheID": "0f382f1c09a4d348733cc76394b27892",
     "id": null,
     "metadata": {},
     "name": "ClubEventsListRefetchQuery",
     "operationKind": "query",
-    "text": "query ClubEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $first: Int = 20\n  $token: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ClubEventsListFragment_1IpZ7U\n    id\n  }\n}\n\nfragment ClubEventsListFragment_1IpZ7U on Club {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        location {\n          id\n        }\n        shadow\n        ...EventItem_event\n        ...ClubEventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n  id\n}\n\nfragment ClubEventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    id\n  }\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment EventItem_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n  tags\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
+    "text": "query ClubEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $first: Int = 20\n  $token: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ClubEventsListFragment_1IpZ7U\n    id\n  }\n}\n\nfragment ClubEventsListFragment_1IpZ7U on Club {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        location {\n          id\n        }\n        shadow\n        ...EventItem_event\n        ...ClubEventsListText_event\n        __typename\n      }\n      cursor\n    }\n    ...PinMap_eventConnection\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n  id\n}\n\nfragment ClubEventsListText_event on Event {\n  id\n  title\n  details\n  activity {\n    name\n    id\n  }\n  location {\n    name\n    id\n  }\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        listType\n      }\n    }\n  }\n  maxRsvps\n  startDate\n  endDate\n  timezone\n  shadow\n  deleted\n}\n\nfragment EventItem_event on Event {\n  id\n  title\n  activity {\n    name\n    id\n  }\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

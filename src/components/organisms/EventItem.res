@@ -15,6 +15,7 @@ module ItemFragment = %relay(`
     endDate
     timezone
     shadow
+    listed
     deleted
     tags
   }
@@ -25,15 +26,15 @@ module JoinEventMutation = %relay(`
   mutation EventItemJoinEventMutation($connections: [ID!]!, $id: ID!) {
     joinEvent(eventId: $id) {
       edge @appendEdge(connections: $connections) {
-       node {
-         id
-         user {
-           id
-           lineUsername
-         }
-         listType
-       }
-     }
+        node {
+          id
+          user {
+            id
+            lineUsername
+          }
+          listType
+        }
+      }
     }
   }
 `)
@@ -71,10 +72,15 @@ let make = (~event, ~user, ~highlightedLocation: bool=false) => {
     endDate,
     timezone,
     shadow,
+    listed,
     deleted,
     tags,
   } = ItemFragment.use(event)
   let secret = shadow->Option.getOr(false)
+  let isUnlisted = switch listed {
+  | Some(false) => true
+  | _ => false
+  }
   let isCompetitive = tags->Option.getOr([])->Array.includes("comp")
   let playersCount =
     rsvps
@@ -294,6 +300,9 @@ let make = (~event, ~user, ~highlightedLocation: bool=false) => {
                 </div>}
             <h2 className="min-w-0 text-sm font-semibold leading-6 text-black w-full">
               <div className="flex gap-x-2">
+                {isUnlisted
+                  ? <HeroIcons.LockClosed className="h-4 w-4 text-gray-500" />
+                  : React.null}
                 <span
                   className={Util.cx(["truncate", deleted->Option.isSome ? "line-through" : ""])}>
                   {activity
