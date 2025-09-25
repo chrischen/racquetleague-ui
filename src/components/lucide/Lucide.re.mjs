@@ -43,6 +43,8 @@ var Pencil = {};
 
 var Trophy = {};
 
+var MessageCircle = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -65,5 +67,6 @@ export {
   Share ,
   Pencil ,
   Trophy ,
+  MessageCircle ,
 }
 /* No side effect */

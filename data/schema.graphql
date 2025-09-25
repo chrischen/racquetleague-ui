@@ -224,6 +224,23 @@ input EventFilters {
   viewer: Boolean
 }
 
+type EventMessageConnection {
+  """A list of edges."""
+  edges: [EventMessageEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+"""An edge to a user."""
+type EventMessageEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Message
+}
+
 """A connection to users."""
 type EventRsvpConnection {
   """A list of edges."""
@@ -407,7 +424,7 @@ type Mutation {
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
   updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
-  updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): Rsvp
+  updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): UpdateViewerRsvpMessageResult
 }
 
 type MutationResult implements HasErrors {
@@ -468,7 +485,7 @@ type Query {
   location(id: ID!): Location
   locations(after: String, before: String, first: Int): LocationConnection!
   matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
-  messagesByTopic(topic: String!): [Message!]!
+  messagesByTopic(after: String, before: String, first: Int, topic: String!): EventMessageConnection
   node(id: ID!): Node
   parseBulkEvents(input: String!): String!
   predictMatchOutcome(input: PredictMatchInput!): PredictMatchOutcome
@@ -554,8 +571,14 @@ type UpdateProfileResult implements HasErrors {
 }
 
 input UpdateViewerRsvpMessageInput {
+  eventId: ID!
   message: String!
-  rsvpId: String!
+}
+
+type UpdateViewerRsvpMessageResult implements HasErrors {
+  edge: EventMessageEdge
+  errors: [Error!]
+  rsvp: Rsvp
 }
 
 type User implements Node {
@@ -571,7 +594,7 @@ type User implements Node {
 
 type Viewer {
   adminClubs(after: String, before: String, first: Int): ClubConnection!
-  events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int!): EventConnection!
+  events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
   profile: User
   subscriptions: [Subscription!]!
   user: User

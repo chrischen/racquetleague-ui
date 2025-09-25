@@ -20,6 +20,8 @@ import { css, cx } from '@linaria/core'
 import { t } from '@lingui/macro'
 ;
 
+var getConnectionNodes = EventMessages_query_graphql.Utils.getConnectionNodes;
+
 var convertFragment = EventMessages_query_graphql.Internal.convertFragment;
 
 function use(fRef) {
@@ -31,6 +33,7 @@ function useOpt(fRef) {
 }
 
 var Fragment = {
+  getConnectionNodes: getConnectionNodes,
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment,
@@ -60,7 +63,7 @@ function decodePayload(payloadString) {
 function EventMessages(props) {
   var eventStartDate = props.eventStartDate;
   var data = use(props.queryRef);
-  var messages = data.messagesByTopic;
+  var messages = getConnectionNodes(data.messagesByTopic);
   if (messages.length > 0) {
     return JsxRuntime.jsx("div", {
                 children: JsxRuntime.jsx("ul", {
@@ -76,6 +79,19 @@ function EventMessages(props) {
                             var exit = 0;
                             if (match !== undefined) {
                               switch (match) {
+                                case "host_message" :
+                                    var text = Core__Option.flatMap(decodedPayload, (function (p) {
+                                            return p.details;
+                                          }));
+                                    match$1 = [
+                                      JsxRuntime.jsx(LucideReact.MessageCircle, {
+                                            className: "size-5 text-white"
+                                          }),
+                                      "bg-indigo-600",
+                                      text !== undefined ? Caml_option.some(text) : undefined,
+                                      "text-gray-500"
+                                    ];
+                                    break;
                                 case "rsvp_created" :
                                     var detailText = Core__Option.flatMap(decodedPayload, (function (p) {
                                             return p.details;
@@ -117,6 +133,19 @@ function EventMessages(props) {
                                           }),
                                       "bg-blue-500",
                                       detailText$2 !== undefined ? Caml_option.some(detailText$2) : Caml_option.some(t`joined from waitlist`),
+                                      "text-gray-500"
+                                    ];
+                                    break;
+                                case "user_message" :
+                                    var text$1 = Core__Option.flatMap(decodedPayload, (function (p) {
+                                            return p.details;
+                                          }));
+                                    match$1 = [
+                                      JsxRuntime.jsx(LucideReact.MessageCircle, {
+                                            className: "size-5 text-white"
+                                          }),
+                                      "bg-slate-400",
+                                      text$1 !== undefined ? Caml_option.some(text$1) : undefined,
                                       "text-gray-500"
                                     ];
                                     break;

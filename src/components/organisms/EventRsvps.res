@@ -11,6 +11,7 @@ module Fragment = %relay(`
   )
   @refetchable(queryName: "EventRsvpsRefetchQuery") {
     __id
+    id
     maxRsvps
     minRating
     viewerIsAdmin
@@ -95,10 +96,20 @@ module EventRsvpsLeaveMutation = %relay(`
 `)
 
 module EventRsvpsUpdateMessageMutation = %relay(`
-  mutation EventRsvpsUpdateMessageMutation($input: UpdateViewerRsvpMessageInput!) {
+  mutation EventRsvpsUpdateMessageMutation($connections: [ID!]!, $input: UpdateViewerRsvpMessageInput!) {
     updateViewerRsvpMessage(input: $input) {
-      id
-      message
+      rsvp {
+        id
+        message
+      }
+      edge @prependEdge(connections: $connections) {
+        node {
+          id
+          payload
+          createdAt
+          topic
+        }
+      }
     }
   }
 `)
@@ -112,7 +123,7 @@ let isRestrictedRsvp = listType => listType != Some(0) && listType != None
 
 module ViewerStatusMessage = {
   @react.component
-  let make = (~rsvpId, ~message: option<string>) => {
+  let make = (~eventId, ~message: option<string>) => {
     let ts = Lingui.UtilString.t
     let (isEditing, setIsEditing) = React.useState(() => false)
     let (editedMessage, setEditedMessage) = React.useState(() => message->Option.getOr(""))
@@ -122,8 +133,13 @@ module ViewerStatusMessage = {
     ) = EventRsvpsUpdateMessageMutation.use()
 
     let handleSave = () => {
+      let connectionId =
+        "client:root"
+        ->RescriptRelay.makeDataId
+        ->EventMessages.Fragment.Operation.makeConnectionId(~topic=eventId ++ ".updated")
+
       commitMutationUpdateMessage(
-        ~variables={input: {rsvpId, message: editedMessage}},
+        ~variables={connections: [connectionId], input: {eventId, message: editedMessage}},
       )->RescriptRelay.Disposable.ignore
       setIsEditing(_ => false)
     }
@@ -169,7 +185,7 @@ module ViewerStatusMessage = {
 let make = (~event, ~user) => {
   let (_isPending, startTransition) = ReactExperimental.useTransition()
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
-  let {__id, maxRsvps, minRating, activity} = Fragment.use(event)
+  let {__id, id: eventId, maxRsvps, minRating, activity} = Fragment.use(event)
   let viewer = user->Option.map(user => UserFragment.use(user))
   let rsvps = data.rsvps->Fragment.getConnectionNodes
 
@@ -243,6 +259,8 @@ let make = (~event, ~user) => {
       (),
     )
     commitMutationCreateRating(~variables=())->RescriptRelay.Disposable.ignore
+    Js.log("Connection ID")
+    Js.log(connectionId)
     commitMutationJoin(
       ~variables={
         id: __id->RescriptRelay.dataIdToString,
@@ -298,11 +316,6 @@ let make = (~event, ~user) => {
     rsvps
     ->Array.find(edge => edge.user->Option.map(user => viewer.id == user.id)->Option.getOr(false))
     ->Option.flatMap(edge => edge.message)
-  )
-  let viewerRsvpId = viewer->Option.flatMap(viewer =>
-    rsvps
-    ->Array.find(edge => edge.user->Option.map(user => viewer.id == user.id)->Option.getOr(false))
-    ->Option.map(edge => edge.id)
   )
   let joinButton = switch viewer {
   | Some(_) =>
@@ -411,9 +424,9 @@ let make = (~event, ~user) => {
         }
       })
       ->Option.getOr({viewerHasRsvp ? leaveButton : joinButton})}
-      {viewerRsvpId
-      ->Option.map(rsvpId => <ViewerStatusMessage message={viewerStatusMessage} rsvpId={rsvpId} />)
-      ->Option.getOr(React.null)}
+      {viewerHasRsvp
+        ? <ViewerStatusMessage message={viewerStatusMessage} eventId={eventId} />
+        : React.null}
     </div>
     <dl className="flex flex-wrap">
       <div className="flex-auto pl-6">

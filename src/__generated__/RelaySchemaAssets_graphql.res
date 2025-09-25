@@ -330,12 +330,12 @@ and input_UpdateProfileInput_nullable = {
 
 @live
 and input_UpdateViewerRsvpMessageInput = {
+  eventId: string,
   message: string,
-  rsvpId: string,
 }
 
 @live
 and input_UpdateViewerRsvpMessageInput_nullable = {
+  eventId: string,
   message: string,
-  rsvpId: string,
 }

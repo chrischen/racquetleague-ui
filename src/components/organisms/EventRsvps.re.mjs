@@ -26,6 +26,7 @@ import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutati
 import * as EventRsvps_user_graphql from "../../__generated__/EventRsvps_user_graphql.re.mjs";
 import * as EventRsvps_event_graphql from "../../__generated__/EventRsvps_event_graphql.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
+import * as EventMessages_query_graphql from "../../__generated__/EventMessages_query_graphql.re.mjs";
 import * as EventRsvpsJoinMutation_graphql from "../../__generated__/EventRsvpsJoinMutation_graphql.re.mjs";
 import * as EventRsvpsRefetchQuery_graphql from "../../__generated__/EventRsvpsRefetchQuery_graphql.re.mjs";
 import * as EventRsvpsLeaveMutation_graphql from "../../__generated__/EventRsvpsLeaveMutation_graphql.re.mjs";
@@ -96,7 +97,7 @@ var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$3, EventRsvpsUpd
 
 function EventRsvps$ViewerStatusMessage(props) {
   var message = props.message;
-  var rsvpId = props.rsvpId;
+  var eventId = props.eventId;
   var match = React.useState(function () {
         return false;
       });
@@ -109,10 +110,12 @@ function EventRsvps$ViewerStatusMessage(props) {
   var match$2 = use$4();
   var commitMutationUpdateMessage = match$2[0];
   var handleSave = function () {
+    var connectionId = EventMessages_query_graphql.makeConnectionId("client:root", eventId + ".updated");
     commitMutationUpdateMessage({
+          connections: [connectionId],
           input: {
-            message: editedMessage,
-            rsvpId: rsvpId
+            eventId: eventId,
+            message: editedMessage
           }
         }, undefined, undefined, undefined, undefined, undefined, undefined);
     setIsEditing(function (param) {
@@ -269,6 +272,8 @@ function EventRsvps(props) {
   var onJoin = function (param) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "EventRsvps_event_rsvps", undefined);
     commitMutationCreateRating(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+    console.log("Connection ID");
+    console.log(connectionId);
     commitMutationJoin({
           connections: [connectionId],
           id: __id
@@ -316,15 +321,6 @@ function EventRsvps(props) {
                                           })), false);
                         }), (function (edge) {
                         return edge.message;
-                      }));
-        }));
-  var viewerRsvpId = Core__Option.flatMap(viewer, (function (viewer) {
-          return Core__Option.map(rsvps.find(function (edge) {
-                          return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
-                                            return viewer.id === user.id;
-                                          })), false);
-                        }), (function (edge) {
-                        return edge.id;
                       }));
         }));
   var joinButton;
@@ -500,12 +496,10 @@ function EventRsvps(props) {
                                       return joinButton;
                                     }
                                   })), viewerHasRsvp ? leaveButton : joinButton),
-                        Core__Option.getOr(Core__Option.map(viewerRsvpId, (function (rsvpId) {
-                                    return JsxRuntime.jsx(EventRsvps$ViewerStatusMessage, {
-                                                rsvpId: rsvpId,
-                                                message: viewerStatusMessage
-                                              });
-                                  })), null)
+                        viewerHasRsvp ? JsxRuntime.jsx(EventRsvps$ViewerStatusMessage, {
+                                eventId: match$2.id,
+                                message: viewerStatusMessage
+                              }) : null
                       ],
                       className: "flex-auto p-6 pt-4"
                     }),

@@ -95,7 +95,7 @@ msgstr ""
 #~ msgid "address is required"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:45
 msgid "Advanced players"
 msgstr ""
 
@@ -171,11 +171,11 @@ msgstr ""
 msgid "Event or Location doesn't exist."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:63
 msgid "Event tag: {tag}"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:47
 msgid "Highly skilled players"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgstr ""
 msgid "location details"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:41
 msgid "Lower intermediate and above"
 msgstr ""
 
@@ -215,7 +215,7 @@ msgstr ""
 #~ msgid "maps link"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:57
 msgid "Matches will be submitted to DUPR."
 msgstr ""
 
@@ -235,11 +235,11 @@ msgstr ""
 msgid "name is required"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:51
 msgid "No restriction on skill level. Open to all players."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:49
 msgid "Professional players"
 msgstr ""
 
@@ -247,11 +247,11 @@ msgstr ""
 #~ msgid "Recreational play suitable for all skill levels"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:59
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:53
 msgid "Results will be submitted to competitive ratings."
 msgstr ""
 
@@ -275,7 +275,7 @@ msgstr ""
 msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/atoms/EventTag.re.mjs:55
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
@@ -285,6 +285,10 @@ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:216
 msgid "tell people about your club"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:61
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:364
@@ -303,7 +307,7 @@ msgstr ""
 msgid "type of event"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:43
 msgid "Upper intermediate and above"
 msgstr ""
 

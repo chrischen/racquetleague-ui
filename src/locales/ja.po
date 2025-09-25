@@ -1534,8 +1534,8 @@ msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first to get a referral."
 msgstr ""
-"これはサークルのメンバーシップが必要なプライベートイベントです。このサークルに参"
-"加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+"これはサークルのメンバーシップが必要なプライベートイベントです。このサークル"
+"に参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/organisms/CompMatch.re.mjs:343
 msgid "Gender Mixed Doubles"
@@ -2138,6 +2138,20 @@ msgstr "本当に{0}をサークルから削除しますか？"
 msgid "Leave club"
 msgstr "サークルを退会"
 
+#: src/components/atoms/EventTag.re.mjs:61
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
+
+#: src/components/pages/ClubPage.re.mjs:233
+msgid "Manage Members"
+msgstr "メンバー管理"
+
+#: src/components/pages/Event.re.mjs:165
+msgid "Status message"
+msgstr "ステータスメッセージ"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"
@@ -2172,8 +2186,8 @@ msgstr "サークルを退会"
 #~ "this is a private event that requires membership with the club. To join "
 #~ "this club, please join a Japan Pickleball League event first."
 #~ msgstr ""
-#~ "これはサークルのメンバーシップが必要なプライベートイベントです。このサークルに"
-#~ "参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+#~ "これはサークルのメンバーシップが必要なプライベートイベントです。このサーク"
+#~ "ルに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
 #, fuzzy

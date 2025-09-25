@@ -4,14 +4,21 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_messagesByTopic = {
+  type rec fragment_messagesByTopic_edges_node = {
     createdAt: string,
     @live id: string,
     payload: option<string>,
     topic: string,
   }
+  and fragment_messagesByTopic_edges = {
+    node: option<fragment_messagesByTopic_edges_node>,
+  }
+  and fragment_messagesByTopic = {
+    edges: option<array<option<fragment_messagesByTopic_edges>>>,
+  }
   type fragment = {
-    messagesByTopic: array<fragment_messagesByTopic>,
+    @live __id: RescriptRelay.dataId,
+    messagesByTopic: option<fragment_messagesByTopic>,
   }
 }
 
@@ -37,9 +44,41 @@ type fragmentRef
 external getFragmentRef:
   RescriptRelay.fragmentRefs<[> | #EventMessages_query]> => fragmentRef = "%identity"
 
+@live
+@inline
+let connectionKey = "EventMessages_messagesByTopic"
+
+%%private(
+  @live @module("relay-runtime") @scope("ConnectionHandler")
+  external internal_makeConnectionId: (RescriptRelay.dataId, @as("EventMessages_messagesByTopic") _, 'arguments) => RescriptRelay.dataId = "getConnectionID"
+)
+
+@live
+let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~topic: string) => {
+  let topic = Some(topic)
+  let args = {"topic": topic}
+  internal_makeConnectionId(connectionParentDataId, args)
+}
 module Utils = {
   @@warning("-33")
   open Types
+
+  @live
+  let getConnectionNodes: option<Types.fragment_messagesByTopic> => array<Types.fragment_messagesByTopic_edges_node> = connection => 
+    switch connection {
+      | None => []
+      | Some(connection) => 
+        switch connection.edges {
+          | None => []
+          | Some(edges) => edges
+            ->Belt.Array.keepMap(edge => switch edge {
+              | None => None
+              | Some(edge) => edge.node
+            })
+        }
+    }
+
+
 }
 
 type relayOperationNode
@@ -51,15 +90,41 @@ let node: operationType = %raw(json` {
     {
       "defaultValue": null,
       "kind": "LocalArgument",
+      "name": "after"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "before"
+    },
+    {
+      "defaultValue": 80,
+      "kind": "LocalArgument",
+      "name": "first"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
       "name": "topic"
     }
   ],
   "kind": "Fragment",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": "first",
+        "cursor": "after",
+        "direction": "forward",
+        "path": [
+          "messagesByTopic"
+        ]
+      }
+    ]
+  },
   "name": "EventMessages_query",
   "selections": [
     {
-      "alias": null,
+      "alias": "messagesByTopic",
       "args": [
         {
           "kind": "Variable",
@@ -67,41 +132,114 @@ let node: operationType = %raw(json` {
           "variableName": "topic"
         }
       ],
-      "concreteType": "Message",
+      "concreteType": "EventMessageConnection",
       "kind": "LinkedField",
-      "name": "messagesByTopic",
-      "plural": true,
+      "name": "__EventMessages_messagesByTopic_connection",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "EventMessageEdge",
+          "kind": "LinkedField",
+          "name": "edges",
+          "plural": true,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "Message",
+              "kind": "LinkedField",
+              "name": "node",
+              "plural": false,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "id",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "createdAt",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "payload",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "topic",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "__typename",
+                  "storageKey": null
+                }
+              ],
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "cursor",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "kind": "LinkedField",
+          "name": "pageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "hasNextPage",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "kind": "ClientExtension",
       "selections": [
         {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "createdAt",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "payload",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "topic",
+          "name": "__id",
           "storageKey": null
         }
-      ],
-      "storageKey": null
+      ]
     }
   ],
   "type": "Query",

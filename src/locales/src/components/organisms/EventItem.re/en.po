@@ -13,42 +13,42 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventItem.re.mjs:416
+#: src/components/organisms/EventItem.re.mjs:423
 msgid "[location missing]"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:359
+#: src/components/organisms/EventItem.re.mjs:365
 msgid "[missing title]"
-msgstr ""
-
-#: src/components/organisms/EventItem.re.mjs:213
-#: src/components/organisms/EventItem.re.mjs:220
-msgid "{0, plural, one {{1}} other {{2}}}"
-msgstr ""
-
-#: src/components/organisms/EventItem.re.mjs:214
-#: src/components/organisms/EventItem.re.mjs:221
-msgid "{0} hour"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:215
 #: src/components/organisms/EventItem.re.mjs:222
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr ""
+
+#: src/components/organisms/EventItem.re.mjs:216
+#: src/components/organisms/EventItem.re.mjs:223
+msgid "{0} hour"
+msgstr ""
+
+#: src/components/organisms/EventItem.re.mjs:217
+#: src/components/organisms/EventItem.re.mjs:224
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:226
+#: src/components/organisms/EventItem.re.mjs:228
 msgid "{0} minute"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:227
+#: src/components/organisms/EventItem.re.mjs:229
 msgid "{0} minutes"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:225
+#: src/components/organisms/EventItem.re.mjs:227
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:294
+#: src/components/organisms/EventItem.re.mjs:296
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
@@ -60,26 +60,26 @@ msgstr ""
 #~ msgid "details"
 #~ msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:311
+#: src/components/organisms/EventItem.re.mjs:313
 msgid "join event"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:258
+#: src/components/organisms/EventItem.re.mjs:260
 msgid "joined"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:305
+#: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:270
+#: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:290
+#: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:264
+#: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr ""

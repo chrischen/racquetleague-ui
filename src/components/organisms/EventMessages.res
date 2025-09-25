@@ -2,12 +2,20 @@
 %%raw("import { t } from '@lingui/macro'")
 module Fragment = %relay(`
   fragment EventMessages_query on Query
-  @argumentDefinitions(topic: { type: "String!" }) {
-    messagesByTopic(topic: $topic) {
-      id
-      createdAt
-      payload
-      topic
+  @argumentDefinitions(topic: { type: "String!" }, 
+    after: { type: "String" }
+    before: { type: "String" }
+    first: { type: "Int", defaultValue: 80 }) {
+    __id
+    messagesByTopic(topic: $topic, after: $after, first: $first, before: $before) @connection(key: "EventMessages_messagesByTopic") {
+      edges {
+        node {
+          id
+          createdAt
+          payload
+          topic
+        }
+      }
     }
   }
 `)
@@ -47,7 +55,7 @@ let make = (
 ) => {
   let t = Lingui.Util.t
   let data = Fragment.use(queryRef)
-  let messages = data.messagesByTopic
+  let messages = data.messagesByTopic->Fragment.getConnectionNodes
 
   messages->Array.length > 0
     ? <div className="flow-root mt-4">
@@ -70,6 +78,24 @@ let make = (
               description,
               timeClassName,
             ) = switch decodedPayload->Option.flatMap(p => p.activityType) {
+            | Some("host_message") => (
+                <Lucide.MessageCircle className="size-5 text-white" />,
+                "bg-indigo-600",
+                switch decodedPayload->Option.flatMap(p => p.details) {
+                | Some(text) => Some(text->React.string)
+                | None => None
+                },
+                "text-gray-500",
+              )
+            | Some("user_message") => (
+                <Lucide.MessageCircle className="size-5 text-white" />,
+                "bg-slate-400",
+                switch decodedPayload->Option.flatMap(p => p.details) {
+                | Some(text) => Some(text->React.string)
+                | None => None
+                },
+                "text-gray-500",
+              )
             | Some("rsvp_deleted") =>
               // Calculate time difference and determine color class
               let timeColorClass = switch message.createdAt

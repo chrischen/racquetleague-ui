@@ -1,4 +1,4 @@
-/* @sourceLoc EventRsvps.res */
+/* @sourceLoc Event.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -191,7 +191,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "EventRsvpsUpdateMessageMutation",
+    "name": "EventPageUpdateViewerRsvpMessageMutation",
     "selections": [
       {
         "alias": null,
@@ -214,7 +214,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "EventRsvpsUpdateMessageMutation",
+    "name": "EventPageUpdateViewerRsvpMessageMutation",
     "selections": [
       {
         "alias": null,
@@ -248,12 +248,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "dab8ea7bd8441055c71b387fecf8bb14",
+    "cacheID": "d3f7820de17aa4a5f0845692352bf630",
     "id": null,
     "metadata": {},
-    "name": "EventRsvpsUpdateMessageMutation",
+    "name": "EventPageUpdateViewerRsvpMessageMutation",
     "operationKind": "mutation",
-    "text": "mutation EventRsvpsUpdateMessageMutation(\n  $input: UpdateViewerRsvpMessageInput!\n) {\n  updateViewerRsvpMessage(input: $input) {\n    rsvp {\n      id\n      message\n    }\n    edge {\n      node {\n        id\n        payload\n        createdAt\n        topic\n      }\n    }\n  }\n}\n"
+    "text": "mutation EventPageUpdateViewerRsvpMessageMutation(\n  $input: UpdateViewerRsvpMessageInput!\n) {\n  updateViewerRsvpMessage(input: $input) {\n    rsvp {\n      id\n      message\n    }\n    edge {\n      node {\n        id\n        payload\n        createdAt\n        topic\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

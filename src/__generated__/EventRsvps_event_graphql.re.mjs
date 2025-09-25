@@ -106,6 +106,7 @@ return {
   },
   "name": "EventRsvps_event",
   "selections": [
+    (v1/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -286,7 +287,6 @@ return {
       ],
       "storageKey": null
     },
-    (v1/*: any*/),
     {
       "kind": "ClientExtension",
       "selections": [

@@ -13,6 +13,7 @@ module EventQuery = %relay(`
   ) {
     viewer {
       user {
+        id
         ...EventRsvps_user @arguments(eventId: $eventId)
       }
     }
@@ -78,6 +79,66 @@ module EventUncancelMutation = %relay(`
    }
  }
 `)
+// Local mutation to update the viewer's RSVP status message
+module EventPageUpdateViewerRsvpMessageMutation = %relay(`
+  mutation EventPageUpdateViewerRsvpMessageMutation($connections: [ID!]!, $input: UpdateViewerRsvpMessageInput!) {
+    updateViewerRsvpMessage(input: $input) {
+      rsvp {
+        id
+        message
+      }
+      edge @prependEdge(connections: $connections)  {
+            node {
+            id
+            payload
+            createdAt
+            topic
+        }
+      }
+    }
+  }
+`)
+
+// Small component: shows a text input to edit the viewer's RSVP message
+module Message = {
+  @react.component
+  let make = (~eventId: string) => {
+    let (editedMessage, setEditedMessage) = React.useState(() => "")
+    let (commitUpdate, _inFlight) = EventPageUpdateViewerRsvpMessageMutation.use()
+
+    let onSave = () => {
+      // let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+      //   "client:root"->RescriptRelay.makeDataId,
+      //   "messagesByTopic",
+      //   (),
+      // )
+      let connectionId =
+        "client:root"
+        ->RescriptRelay.makeDataId
+        ->EventMessages.Fragment.Operation.makeConnectionId(~topic=eventId ++ ".updated")
+      commitUpdate(
+        ~variables={connections: [connectionId], input: {eventId, message: editedMessage}},
+      )->RescriptRelay.Disposable.ignore
+    }
+
+    <div className="mb-4">
+      <label className="block text-sm font-medium text-gray-700"> {t`Status message`} </label>
+      <div className="mt-1 flex gap-2">
+        <input
+          value=editedMessage
+          onChange={e => setEditedMessage(ReactEvent.Form.target(e)["value"])}
+          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          placeholder={Lingui.UtilString.t`Type a status message for people to see... such as 'I will arrive at 19:00.'`}
+        />
+        <button
+          onClick={_ => onSave()}
+          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          {t`Save`}
+        </button>
+      </div>
+    </div>
+  }
+}
 // module EventLeaveMutation = %relay(`
 //  mutation EventLeaveMutation(
 //     $connections: [ID!]!
@@ -327,7 +388,10 @@ let make = () => {
                   let levelTags = ["all level", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
                   let hasLevelTags = tags->Array.some(tag => levelTags->Array.includes(tag))
                   let displayTags = hasLevelTags ? tags : tags->Array.concat(["all level"])
-                  let displayTags = switch event.listed { | Some(false) => displayTags->Array.concat(["unlisted"]) | _ => displayTags }
+                  let displayTags = switch event.listed {
+                  | Some(false) => displayTags->Array.concat(["unlisted"])
+                  | _ => displayTags
+                  }
                   displayTags
                 })
                 ->Option.filter(tags => tags->Array.length > 0)
@@ -574,6 +638,10 @@ let make = () => {
                       {t`activity`}
                     </div>
                     <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
+                      // Viewer RSVP status message input at top of activity section
+                      {event.viewerHasRsvp
+                      ->Option.map(has => has ? <Message eventId=event.id /> : React.null)
+                      ->Option.getOr(React.null)}
                       <EventMessages
                         queryRef=queryFragmentRefs
                         eventStartDate={event.startDate

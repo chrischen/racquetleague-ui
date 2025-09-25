@@ -2118,3 +2118,17 @@ msgstr ""
 #: src/components/pages/ClubPage.re.mjs:188
 msgid "Leave club"
 msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:61
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:233
+msgid "Manage Members"
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:165
+msgid "Status message"
+msgstr ""

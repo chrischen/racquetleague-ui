@@ -17,42 +17,42 @@ msgstr ""
 #~ msgid "...load past events"
 #~ msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:416
+#: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/ClubEventsList.re.mjs:207
 msgid "[location missing]"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:359
+#: src/components/organisms/EventItem.re.mjs:365
 msgid "[missing title]"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:213
-#: src/components/organisms/EventItem.re.mjs:220
+#: src/components/organisms/EventItem.re.mjs:215
+#: src/components/organisms/EventItem.re.mjs:222
 #: src/components/organisms/ClubEventsList.re.mjs:170
 #: src/components/organisms/ClubEventsList.re.mjs:175
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:214
-#: src/components/organisms/EventItem.re.mjs:221
+#: src/components/organisms/EventItem.re.mjs:216
+#: src/components/organisms/EventItem.re.mjs:223
 #: src/components/organisms/ClubEventsList.re.mjs:171
 #: src/components/organisms/ClubEventsList.re.mjs:176
 msgid "{0} hour"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:215
-#: src/components/organisms/EventItem.re.mjs:222
+#: src/components/organisms/EventItem.re.mjs:217
+#: src/components/organisms/EventItem.re.mjs:224
 #: src/components/organisms/ClubEventsList.re.mjs:172
 #: src/components/organisms/ClubEventsList.re.mjs:177
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:226
+#: src/components/organisms/EventItem.re.mjs:228
 #: src/components/organisms/ClubEventsList.re.mjs:179
 msgid "{0} minute"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:227
+#: src/components/organisms/EventItem.re.mjs:229
 #: src/components/organisms/ClubEventsList.re.mjs:180
 msgid "{0} minutes"
 msgstr ""
@@ -61,12 +61,12 @@ msgstr ""
 #~ msgid "{0} private {shadowCountDesc} hidden"
 #~ msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:225
+#: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/ClubEventsList.re.mjs:178
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:294
+#: src/components/organisms/EventItem.re.mjs:296
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "🚫 CANCELED"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:201
+#: src/components/pages/ClubPage.re.mjs:203
 msgid "Cancel Request"
 msgstr ""
 
@@ -94,11 +94,11 @@ msgstr ""
 #~ msgid "close"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:243
+#: src/components/pages/ClubPage.re.mjs:250
 msgid "club"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:277
+#: src/components/pages/ClubPage.re.mjs:284
 msgid "club not found"
 msgstr ""
 
@@ -110,31 +110,35 @@ msgstr ""
 msgid "filtering by date"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:311
+#: src/components/organisms/EventItem.re.mjs:313
 msgid "join event"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:258
+#: src/components/organisms/EventItem.re.mjs:260
 msgid "joined"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:188
+#: src/components/pages/ClubPage.re.mjs:193
 msgid "Leave club"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:305
+#: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:270
+#: src/components/pages/ClubPage.re.mjs:233
+msgid "Manage Members"
+msgstr ""
+
+#: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:290
+#: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:222
+#: src/components/pages/ClubPage.re.mjs:221
 msgid "Request to join"
 msgstr ""
 
@@ -150,6 +154,6 @@ msgstr ""
 msgid "show"
 msgstr ""
 
-#: src/components/organisms/EventItem.re.mjs:264
+#: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr ""
