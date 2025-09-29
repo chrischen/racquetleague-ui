@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"KPrAat\":\"...加载之前的比赛\",\"8N4rgM\":\"预估 DUPR\",\"M9iqFS\":\"女性\",\"z/wCvw\":\"加载更多比赛...\",\"jBmM6G\":\"加载排名...\",\"CvCWBI\":\"男性\",\"GKYoJu\":\"比赛历史\",\"0mhvIo\":\"球员资料页面\",\"z1U/Fh\":\"评分\",\"HvRBc1\":\"比分：\"}");

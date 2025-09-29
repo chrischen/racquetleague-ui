@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-28 00:51+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr "+{0}人他"
+
+#: src/components/organisms/RSVPSection.re.mjs:496
+msgid "Going"
+msgstr "参加"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+msgid "Join"
+msgstr "参加"
+
+#: src/components/organisms/RSVPSection.re.mjs:630
+msgid "Load more"
+msgstr "もっと読み込む"
+
+#: src/components/organisms/RSVPSection.re.mjs:627
+msgid "Loading..."
+msgstr "読み込み中..."
+
+#: src/components/organisms/RSVPSection.re.mjs:412
+#: src/components/organisms/RSVPSection.re.mjs:602
+msgid "Pending"
+msgstr "保留中"
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+msgid "Player"
+msgstr "プレイヤー"
+
+#: src/components/organisms/RSVPSection.re.mjs:389
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "必要レーティング: {0} (DUPR {1})"
+
+#: src/components/organisms/RSVPSection.re.mjs:438
+msgid "RSVP"
+msgstr "参加申込"
+
+#: src/components/organisms/RSVPSection.re.mjs:231
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+msgid "Show all"
+msgstr "全て表示"
+
+#: src/components/organisms/RSVPSection.re.mjs:507
+msgid "Show less"
+msgstr "折りたたむ"
+
+#: src/components/organisms/RSVPSection.re.mjs:215
+#: src/components/organisms/RSVPSection.re.mjs:216
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr ""
+"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
+"ださい。"
+
+#: src/components/organisms/RSVPSection.re.mjs:567
+msgid "Waitlist"
+msgstr "キャンセル待ち"
+
+#: src/components/organisms/RSVPSection.re.mjs:419
+msgid "You're Going"
+msgstr "参加中"
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr "キャンセル待ち中です"
+
+#: src/components/organisms/RSVPSection.re.mjs:391
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
+"限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
+"イベントに参加してください。"

@@ -17,7 +17,7 @@ module Fragment = %relay(`
     {
       edges {
         node {
-          ...EventRsvps_rsvp
+          ...EventRsvp_rsvp
           user {
             id
             fullName

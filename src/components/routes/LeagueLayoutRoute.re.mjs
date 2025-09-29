@@ -17,8 +17,11 @@ import { t } from '@lingui/macro'
 ;
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/LeagueLayout.re/en"),
       ja: import("../../locales/src/components/pages/LeagueLayout.re/ja"),
-      en: import("../../locales/src/components/pages/LeagueLayout.re/en")
+      th: import("../../locales/src/components/pages/LeagueLayout.re/th"),
+      zhTW: import("../../locales/src/components/pages/LeagueLayout.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/LeagueLayout.re/zh-CN")
     });
 
 var LoaderArgs = {};

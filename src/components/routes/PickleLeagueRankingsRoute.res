@@ -25,11 +25,14 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
+  en: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/en"),
   ja: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/ja"),
-  en:Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/en"),
+  th: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/zh-CN"),
 })
 
-type loaderData = LeagueRankingsPage.loaderData;
+type loaderData = LeagueRankingsPage.loaderData
 
 @genType
 let loader = async ({context, params, request}: LoaderArgs.t) => {
@@ -41,18 +44,19 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
     WaitForMessages.data: {
-      LeagueRankingsPage.query: RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)->(env =>
-        LeagueRankingsPageQuery_graphql.load(
-          ~environment=env,
-          ~variables={
-            ?after,
-            ?before,
-            activitySlug: "pickleball",
-            namespace: "doubles:rec",
-          },
-          ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-        )
-      )
+      LeagueRankingsPage.query: RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)->(
+        env =>
+          LeagueRankingsPageQuery_graphql.load(
+            ~environment=env,
+            ~variables={
+              ?after,
+              ?before,
+              activitySlug: "pickleball",
+              namespace: "doubles:rec",
+            },
+            ~fetchPolicy=RescriptRelay.StoreOrNetwork,
+          )
+      ),
     },
     // i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
     // i18nData: !RelaySSRUtils.ssr ? await Localized.loadMessages(params.lang, loadMessages) : %raw("[]"),

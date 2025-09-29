@@ -1,0 +1,279 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:508
+msgid "Badminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:512
+msgid "Table Tennis"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:516
+msgid "Pickleball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:520
+msgid "Futsal"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:524
+msgid "Basketball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:528
+msgid "Volleyball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:532
+msgid "drill"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+msgid "comp"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:540
+msgid "rec"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:544
+msgid "all level"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:303
+msgid "{0} event details"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:213
+msgid "about"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:325
+msgid "activity"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:82
+msgid "activity is required"
+msgstr ""
+
+#: src/components/organisms/SelectClubStateful.re.mjs:108
+msgid "add new club"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:313
+msgid "All Level"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:452
+msgid ""
+"any details from the location will already be included. Mention any "
+"additional event-specific instructions, rules, or details."
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:300
+msgid "cancel"
+msgstr ""
+
+#: src/components/organisms/SelectClubStateful.re.mjs:82
+msgid "choose the club where this event will be held."
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "club"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:344
+msgid "date and start time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:304
+msgid "details specific to this event on the specified date and time."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:440
+msgid "edit the location to edit the details for this location."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:354
+msgid "end time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:94
+msgid "end time is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:91
+msgid "event date is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:449
+msgid "event details"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:431
+msgid "level of play"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:478
+msgid "list publicly"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:435
+msgid "location details"
+msgstr ""
+
+#: src/components/pages/CreateLocationEventPage.re.mjs:63
+msgid "location doesn't exist."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:194
+msgid "main activity"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:85
+msgid "main activity is required"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:377
+msgid "max participants"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:389
+msgid "minimum rating"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:162
+msgid "name"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:79
+msgid "name is required"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:307
+msgid "save"
+msgstr ""
+
+#: src/components/organisms/SelectClubStateful.re.mjs:81
+msgid "select club"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:413
+msgid "Select tags that best describe this event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+msgid ""
+"show your event publicly on our home page. Otherwise, only people with a "
+"link to your event will be able to find it."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+msgid "slug"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:216
+msgid "tell people about your club"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:364
+msgid "timezone"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:310
+msgid "title"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:79
+msgid "title is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+msgid "type of event"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:82
+msgid "url slug is required"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+msgid "yubibado"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+msgid "ゆびバド"
+msgstr ""

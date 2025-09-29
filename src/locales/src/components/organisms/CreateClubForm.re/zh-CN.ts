@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OjELwL\":\"关于\",\"d8/6/v\":\"取消\",\"p8ntXw\":\"俱乐部\",\"HwK9ma\":\"主要活动\",\"SPqLfS\":\"必须填写主要活动\",\"XmJfZT\":\"名称\",\"26Gms/\":\"必须填写名称\",\"lMpZmf\":\"保存\",\"WfffrI\":\"URL 简称\",\"6Hk3hQ\":\"告诉大家关于您的俱乐部\",\"NNv38O\":\"必须填写 URL 简称\",\"5Rc/+B\":\"yubibado\",\"FrkrvV\":\"ゆびバド\"}");

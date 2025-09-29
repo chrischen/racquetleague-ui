@@ -11,8 +11,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-CN"),
 })
 
 @genType

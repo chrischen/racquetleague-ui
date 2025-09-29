@@ -1,0 +1,119 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventsList.re.mjs:394
+msgid "...load past events"
+msgstr "...โหลดกิจกรรมที่ผ่านมา"
+
+#: src/components/organisms/EventItem.re.mjs:423
+#: src/components/organisms/EventsList.re.mjs:141
+msgid "[location missing]"
+msgstr "[ไม่มีสถานที่]"
+
+#: src/components/organisms/EventItem.re.mjs:365
+msgid "[missing title]"
+msgstr "[ไม่มีหัวข้อ]"
+
+#: src/components/organisms/EventItem.re.mjs:215
+#: src/components/organisms/EventItem.re.mjs:222
+#: src/components/organisms/EventsList.re.mjs:104
+#: src/components/organisms/EventsList.re.mjs:109
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/organisms/EventItem.re.mjs:216
+#: src/components/organisms/EventItem.re.mjs:223
+#: src/components/organisms/EventsList.re.mjs:105
+#: src/components/organisms/EventsList.re.mjs:110
+msgid "{0} hour"
+msgstr "{0} ชั่วโมง"
+
+#: src/components/organisms/EventItem.re.mjs:217
+#: src/components/organisms/EventItem.re.mjs:224
+#: src/components/organisms/EventsList.re.mjs:106
+#: src/components/organisms/EventsList.re.mjs:111
+msgid "{0} hours"
+msgstr "{0} ชั่วโมง"
+
+#: src/components/organisms/EventItem.re.mjs:228
+#: src/components/organisms/EventsList.re.mjs:113
+msgid "{0} minute"
+msgstr "{0} นาที"
+
+#: src/components/organisms/EventItem.re.mjs:229
+#: src/components/organisms/EventsList.re.mjs:114
+msgid "{0} minutes"
+msgstr "{0} นาที"
+
+#: src/components/organisms/EventsList.re.mjs:231
+msgid "{0} private {shadowCountDesc} hidden"
+msgstr "{0} ส่วนตัว {shadowCountDesc} ถูกซ่อน"
+
+#: src/components/organisms/EventItem.re.mjs:227
+#: src/components/organisms/EventsList.re.mjs:112
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{0}"
+
+#: src/components/organisms/EventItem.re.mjs:296
+msgid "{playersCount, plural, one {player} other {players}}"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/EventsList.re.mjs:200
+msgid "{shadowCount, plural, one {event} other {events}}"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/EventsList.re.mjs:118
+msgid "🚫 CANCELED"
+msgstr "🚫 ยกเลิก"
+
+#: src/components/organisms/EventsList.re.mjs:366
+msgid "clear filter"
+msgstr "ล้างตัวกรอง"
+
+#: src/components/organisms/EventsList.re.mjs:364
+msgid "filtering by date"
+msgstr "กรองตามวันที่"
+
+#: src/components/organisms/EventItem.re.mjs:313
+msgid "join event"
+msgstr "เข้าร่วมกิจกรรม"
+
+#: src/components/organisms/EventItem.re.mjs:260
+msgid "joined"
+msgstr "เข้าร่วมแล้ว"
+
+#: src/components/organisms/EventItem.re.mjs:307
+msgid "leave event"
+msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/EventItem.re.mjs:272
+msgid "pending"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/EventItem.re.mjs:292
+msgid "players"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/EventsList.re.mjs:336
+msgid "share as text"
+msgstr "แชร์เป็นข้อความ"
+
+#: src/components/organisms/EventsList.re.mjs:239
+msgid "show"
+msgstr "แสดง"
+
+#: src/components/organisms/EventItem.re.mjs:266
+msgid "waitlist"
+msgstr "รายชื่อคอย"

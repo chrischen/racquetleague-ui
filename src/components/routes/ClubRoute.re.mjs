@@ -14,8 +14,11 @@ import * as ClubPageQuery_graphql from "../../__generated__/ClubPageQuery_graphq
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/ClubPage.re/en"),
       ja: import("../../locales/src/components/pages/ClubPage.re/ja"),
-      en: import("../../locales/src/components/pages/ClubPage.re/en")
+      th: import("../../locales/src/components/pages/ClubPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/ClubPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/ClubPage.re/zh-CN")
     });
 
 async function loader(param) {

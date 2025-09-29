@@ -92,7 +92,7 @@ module Fragment = %relay(`
             id
             lineUsername
             gender
-            ...EventRsvpUser_user
+            ...EventRsvpUserBar_user
             ...EventMatchRsvpUser_user
           }
           rating {

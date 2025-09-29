@@ -32,7 +32,6 @@ type core = {i18n: t}
 external i18n: t = "i18n"
 let i18n = i18n
 
-
 @send
 external trans: (t, string) => string = "_"
 
@@ -44,10 +43,7 @@ type transOpts = {
 @send
 external trans2: (t, transOpts) => string = "_"
 
-
-type setupOpts = {
-  locale: string
-}
+type setupOpts = {locale: string}
 @module("@lingui/core")
 external setupI18n: (~opts: option<setupOpts>=?) => t = "setupI18n"
 let detectedI18n = setupI18n()
@@ -62,12 +58,19 @@ type messageBundle = {messages: Messages.t}
 @val external import: 'a => Js.Promise.t<messageBundle> = "import"
 
 type srcMap = {
-  ja: promise<messageBundle>,
   en: promise<messageBundle>,
+  ja: promise<messageBundle>,
+  th: promise<messageBundle>,
+  zhTW: promise<messageBundle>,
+  zhCN: promise<messageBundle>,
 }
 let loadMessages = src => lang => {
   let messages = switch lang {
+  | "en" => src.en
   | "ja" => src.ja
+  | "th" => src.th
+  | "zh-TW" => src.zhTW
+  | "zh-CN" => src.zhCN
   | _ => src.en
   }->Promise.thenResolve(messages => {
     Util.startTransition(() => i18n.load(lang, messages.messages))
@@ -78,12 +81,13 @@ let loadMessages = src => lang => {
 
 let loadMessagesForDetected = src => lang => {
   let messages = switch lang {
+  | "en" => src.en
   | "ja" => src.ja
+  | "th" => src.th
+  | "zh-TW" => src.zhTW
+  | "zh-CN" => src.zhCN
   | _ => src.en
   }->Promise.thenResolve(messages => {
-    Js.log("Loading")
-    Js.log(lang);
-    Js.log(messages.messages);
     Util.startTransition(() => detectedI18n.load(lang, messages.messages))
   })
   // }->Promise.thenResolve(messages => Lingui.i18n.loadAndActivate({locale: lang, messages: messages["messages"]}))

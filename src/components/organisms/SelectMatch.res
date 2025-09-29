@@ -44,9 +44,9 @@ module SelectEventPlayersList = {
                   let percent = switch maxRating -. minRating {
                   | 0. => 0.
                   // | _ => (player.rating.mu -. minRating) /. (maxRating -. minRating) *. 100.
-                  | _ => (player.rating.mu -. (player.rating.sigma *. 3.)) /. (maxRating) *. 100.
+                  | _ => (player.rating.mu -. player.rating.sigma *. 3.) /. maxRating *. 100.
                   }
-                  let sigmaPercent = (player.rating.sigma *. 3.) /. (maxRating) *. 100.
+                  let sigmaPercent = player.rating.sigma *. 3. /. maxRating *. 100.
 
                   <FramerMotion.Li
                     layout=true
@@ -83,7 +83,7 @@ module SelectEventPlayersList = {
                         ->Option.flatMap(data => {
                           data.user->Option.map(
                             user => {
-                              <EventRsvpUser
+                              <EventRsvpUserBar
                                 user={user.fragmentRefs}
                                 highlight={selected->Array.findIndex(
                                   player => player.id == user.id,

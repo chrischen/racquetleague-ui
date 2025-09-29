@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"Z7ZXbT\":\"อนุมัติ\",\"WmzGlG\":[\"คุณแน่ใจหรือไม่ว่าต้องการลบ \",[\"0\"],\" ออกจากคลับ?\"],\"NbzQ8J\":\"ไม่พบคลับ\",\"wlQNTg\":\"สมาชิก\",\"FK5/sf\":\"ไม่พบสมาชิก\",\"UbRKMZ\":\"รอการอนุมัติ\",\"t/YqKh\":\"ลบ\",\"hb5UGc\":\"ลบสมาชิกหรือไม่?\"}");

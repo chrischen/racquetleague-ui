@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"FBemUe\":\"日本匹克球联盟\",\"v3h9an\":\"Mach 2 Forza 球拍\",\"n/ugbp\":\"多色可选。\",\"/3lgte\":\"下一个奖品：9月10日\",\"uQ8DNU\":\"此奖品将在这一天颁发给最优秀的男性和女性球员。\",\"MOwEv6\":\"东京羽毛球联盟\",\"svUNNm\":\"Volair 匹克球\"}");

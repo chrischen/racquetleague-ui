@@ -5,8 +5,17 @@ var enFallback = 'en';
 
 var jaFallback = 'ja';
 
+var thFallback = 'th';
+
+var zhTWFallback = 'zh-TW';
+
+var zhCNFallback = 'zh-CN';
+
 export {
   enFallback ,
   jaFallback ,
+  thFallback ,
+  zhTWFallback ,
+  zhCNFallback ,
 }
 /* No side effect */

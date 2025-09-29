@@ -6,8 +6,11 @@
 let \"Component" = DefaultLayoutMap.make
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-CN"),
 })
 
 type params = {lang: option<string>}

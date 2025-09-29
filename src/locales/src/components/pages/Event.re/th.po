@@ -1,0 +1,327 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:132
+#: src/components/pages/Event.re.mjs:759
+msgid "Badminton"
+msgstr "แบดมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:136
+#: src/components/pages/Event.re.mjs:762
+msgid "Table Tennis"
+msgstr "ปิงปอง"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:140
+#: src/components/pages/Event.re.mjs:765
+msgid "Pickleball"
+msgstr "พิคเคิลบอล"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:144
+#: src/components/pages/Event.re.mjs:768
+msgid "Futsal"
+msgstr "ฟุตซอล"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:771
+msgid "drill"
+msgstr "ฝึกซ้อม"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:774
+msgid "comp"
+msgstr "แข่ง"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:777
+msgid "rec"
+msgstr "บันเทิง"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:780
+msgid "all level"
+msgstr "ทุกระดับ"
+
+#: src/components/pages/Event.re.mjs:238
+msgid "{0} hours"
+msgstr "{0} ชั่วโมง"
+
+#: src/components/pages/Event.re.mjs:240
+msgid "{0} hours and {1} minutes"
+msgstr "{0} ชั่วโมง {1} นาที"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr "+{0} คน"
+
+#: src/components/pages/Event.re.mjs:672
+msgid "activity"
+msgstr "กิจกรรม"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "ผู้เล่นระดับสูง"
+
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/pages/Event.re.mjs:283
+msgid "cancel event"
+msgstr "ยกเลิกกิจกรรม"
+
+#: src/components/pages/Event.re.mjs:388
+msgid "CANCELED"
+msgstr "ยกเลิก"
+
+#: src/components/pages/Event.re.mjs:584
+msgid "details"
+msgstr "รายละเอียด"
+
+#: src/components/pages/Event.re.mjs:266
+msgid "edit event"
+msgstr "แก้ไขกิจกรรม"
+
+#: src/components/pages/Event.re.mjs:367
+msgid "event @"
+msgstr "กิจกรรม @"
+
+#: src/components/pages/Event.re.mjs:728
+msgid "event doesn't exist"
+msgstr "ไม่มีกิจกรรมนี้"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "แท็กกิจกรรม: {tag}"
+
+#: src/components/organisms/RSVPSection.re.mjs:496
+msgid "Going"
+msgstr "จะไป"
+
+#: src/components/pages/Event.re.mjs:642
+msgid "good luck, have fun"
+msgstr "ขอให้โชคดี สนุกได้"
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: src/components/organisms/EventFullNames.re.mjs:78
+msgid "guest list"
+msgstr "รายชื่อแขก"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "ผู้เล่นที่มีทักษะสูงมาก"
+
+#: src/components/pages/Event.re.mjs:434
+msgid "hosted by {name}"
+msgstr "จัดโดย {name}"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+msgid "Join"
+msgstr "เข้าร่วม"
+
+#: src/components/organisms/EventMessages.re.mjs:258
+msgid "joined from waitlist"
+msgstr "เข้าร่วมจากรายชื่อคอย"
+
+#: src/components/organisms/EventMessages.re.mjs:252
+msgid "joined the event"
+msgstr "เข้าร่วมกิจกรรม"
+
+#: src/components/pages/Event.re.mjs:558
+msgid "league"
+msgstr "ลีก"
+
+#: src/components/organisms/EventMessages.re.mjs:255
+msgid "left the event"
+msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/RSVPSection.re.mjs:630
+msgid "Load more"
+msgstr "โหลดเพิ่มเติม"
+
+#: src/components/organisms/RSVPSection.re.mjs:627
+msgid "Loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/pages/Event.re.mjs:529
+msgid "login to subscribe to {activityName} events"
+msgstr "เข้าสู่ระบบเพื่อติดตามกิจกรรม {activityName}"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "ระดับกลางขั้นต้นขึ้นไป"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "การแข่งขันจะถูกส่งไปยัง DUPR"
+
+#: src/components/pages/Event.re.mjs:703
+msgid "media"
+msgstr "สื่อ"
+
+#: src/components/organisms/EventMessages.re.mjs:172
+msgid "No activity yet"
+msgstr "ยังไม่มีกิจกรรม"
+
+#: src/components/organisms/EventFullNames.re.mjs:97
+msgid "no players yet"
+msgstr "ยังไม่มีผู้เล่น"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
+
+#: src/components/pages/Event.re.mjs:652
+msgid "notes"
+msgstr "หมายเหตุ"
+
+#: src/components/organisms/RSVPSection.re.mjs:412
+#: src/components/organisms/RSVPSection.re.mjs:602
+msgid "Pending"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+msgid "Player"
+msgstr "ผู้เล่น"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "ผู้เล่นมืออาชีพ"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
+
+#: src/components/organisms/RSVPSection.re.mjs:389
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
+
+#: src/components/organisms/RSVPSection.re.mjs:438
+msgid "RSVP"
+msgstr "ยืนยันการเข้าร่วม"
+
+#: src/components/organisms/RSVPSection.re.mjs:231
+#: src/components/organisms/EventMessages.re.mjs:125
+#: src/components/pages/Event.re.mjs:179
+msgid "Save"
+msgstr "บันทึก"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+msgid "Show all"
+msgstr "แสดงทั้งหมด"
+
+#: src/components/organisms/RSVPSection.re.mjs:507
+msgid "Show less"
+msgstr "แสดงน้อยลง"
+
+#: src/components/pages/Event.re.mjs:312
+msgid ""
+"showing up without permission may result in a ban for failing to follow "
+"rules."
+msgstr "การมาโดยไม่ได้รับอนุญาตอาจส่งผลให้ถูกแบนเนื่องจากการไม่ปฏิบัติตาม กฎ"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
+
+#: src/components/organisms/EventMessages.re.mjs:111
+#: src/components/pages/Event.re.mjs:165
+msgid "Status message"
+msgstr "ข้อความสถานะ"
+
+#: src/components/pages/Event.re.mjs:563
+msgid "submit matches"
+msgstr "ส่งผลแมทช์"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:112
+msgid "subscribe to all {activityName} events"
+msgstr "ติดตามกิจกรรม {activityName} ทั้งหมด"
+
+#: src/components/molecules/AddToCalendar.re.mjs:87
+msgid "sync calendar"
+msgstr "ซิงค์ปฏิทิน"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
+
+#: src/components/pages/Event.re.mjs:309
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first to get a referral."
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:215
+#: src/components/organisms/RSVPSection.re.mjs:216
+#: src/components/organisms/EventMessages.re.mjs:118
+#: src/components/pages/Event.re.mjs:172
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
+
+#: src/components/pages/Event.re.mjs:272
+msgid "uncancel event"
+msgstr "เลิกยกเลิกกิจกรรม"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:91
+msgid "unsubscribe from {activityName} events"
+msgstr "ยกเลิกการติดตามกิจกรรม {activityName}"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "ระดับกลางขั้นบนขึ้นไป"
+
+#: src/components/pages/Event.re.mjs:316
+msgid "view events"
+msgstr "ดูกิจกรรม"
+
+#: src/components/organisms/RSVPSection.re.mjs:567
+msgid "Waitlist"
+msgstr "รายชื่อคอย"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:104
+msgid "you will receive email notifications for new events"
+msgstr "คุณจะได้รับการแจ้งเตือนทางอีเมลสำหรับกิจกรรมใหม่"
+
+#: src/components/organisms/RSVPSection.re.mjs:419
+msgid "You're Going"
+msgstr "คุณจะไป"
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr "คุณอยู่ในรายชื่อคอย"
+
+#: src/components/organisms/RSVPSection.re.mjs:391
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
+"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
+"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"

@@ -13,8 +13,11 @@ import * as LeagueRankingsPageQuery_graphql from "../../__generated__/LeagueRank
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/LeagueRankingsPage.re/en"),
       ja: import("../../locales/src/components/pages/LeagueRankingsPage.re/ja"),
-      en: import("../../locales/src/components/pages/LeagueRankingsPage.re/en")
+      th: import("../../locales/src/components/pages/LeagueRankingsPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/LeagueRankingsPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/LeagueRankingsPage.re/zh-CN")
     });
 
 async function loader(param) {

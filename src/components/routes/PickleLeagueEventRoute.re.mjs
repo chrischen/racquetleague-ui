@@ -13,8 +13,11 @@ import * as LeagueEventPageQuery_graphql from "../../__generated__/LeagueEventPa
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/LeagueEventPage.re/en"),
       ja: import("../../locales/src/components/pages/LeagueEventPage.re/ja"),
-      en: import("../../locales/src/components/pages/LeagueEventPage.re/en")
+      th: import("../../locales/src/components/pages/LeagueEventPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/LeagueEventPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/LeagueEventPage.re/zh-CN")
     });
 
 async function loader(param) {

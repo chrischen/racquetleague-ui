@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"VELG/8\":\"取消登录\",\"lqK+4Y\":\"显示名称\",\"ocwjau\":\"邮箱地址\",\"EW3kAb\":\"活动组织者和其他用户无法查看您的邮箱\",\"GCkpYm\":\"使用 Line 登录\",\"OxTMYa\":\"活动更新或取消通知（您可以选择退出）\",\"JnLcwT\":\"隐私声明\",\"gGgt/r\":\"头像\",\"sS1m8X\":\"在活动参与者列表中公开显示\",\"gzFemi\":\"我们将从您的 Line 账户中收集以下信息\"}");

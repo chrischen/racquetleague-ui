@@ -22,8 +22,11 @@ function parseData(json) {
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/organisms/CreateLocationForm.re/en"),
       ja: import("../../locales/src/components/organisms/CreateLocationForm.re/ja"),
-      en: import("../../locales/src/components/organisms/CreateLocationForm.re/en")
+      th: import("../../locales/src/components/organisms/CreateLocationForm.re/th"),
+      zhTW: import("../../locales/src/components/organisms/CreateLocationForm.re/zh-TW"),
+      zhCN: import("../../locales/src/components/organisms/CreateLocationForm.re/zh-CN")
     });
 
 async function loader(param) {

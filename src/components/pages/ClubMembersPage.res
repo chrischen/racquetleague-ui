@@ -224,7 +224,6 @@ module ClubMembersData = {
 
     <div className="bg-white shadow overflow-hidden sm:rounded-md">
       <div className="px-4 py-5 sm:p-6">
-        <h3 className="text-lg font-medium text-gray-900 mb-4"> {t`Members`} </h3>
         <div className="">
           {switch data.clubMembers.edges {
           | None | Some([]) =>

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"k9aPnD\":\"...加载更高评分的球员\",\"SBggqf\":\"竞技双打\",\"M9iqFS\":\"女性\",\"UqCm6U\":\"加载更多球员...\",\"jBmM6G\":\"加载排名...\",\"CvCWBI\":\"男性\",\"QY7VFK\":\"与不同的搭档进行双打比赛，获得个人评分。每月向最优秀的球员颁发奖品。\",\"kkY93T\":\"休闲双打\",\"NAwrkb\":\"要参与，请在此加入活动：\",\"cbY5/n\":\"查看我的资料\"}");

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"of+3Wd\":\"左队球员\",\"827u5r\":\"还没有球员\",\"vRayGs\":\"球员\",\"zE3EXc\":\"比赛入队\",\"UD752P\":\"右队球员\"}");

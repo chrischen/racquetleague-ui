@@ -9,8 +9,11 @@ import * as ReactRouterDom from "react-router-dom";
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/ClubsPage.re/en"),
       ja: import("../../locales/src/components/pages/ClubsPage.re/ja"),
-      en: import("../../locales/src/components/pages/ClubsPage.re/en")
+      th: import("../../locales/src/components/pages/ClubsPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/ClubsPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/ClubsPage.re/zh-CN")
     });
 
 async function loader(param) {

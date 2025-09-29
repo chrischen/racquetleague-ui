@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"+rZFLM\":\"寻找双打搭档\",\"hor1p7\":\"在 RSVP 列表中您的名字旁显示一个徽章，告诉别人您正在寻找搭档\"}");

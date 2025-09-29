@@ -4,8 +4,11 @@ import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as Calendar from "../organisms/Calendar.re.mjs";
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/organisms/Calendar.re/en"),
       ja: import("../../locales/src/components/organisms/Calendar.re/ja"),
-      en: import("../../locales/src/components/organisms/Calendar.re/en")
+      th: import("../../locales/src/components/organisms/Calendar.re/th"),
+      zhTW: import("../../locales/src/components/organisms/Calendar.re/zh-TW"),
+      zhCN: import("../../locales/src/components/organisms/Calendar.re/zh-CN")
     });
 
 var Component = Calendar.make;

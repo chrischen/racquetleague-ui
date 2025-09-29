@@ -45,5 +45,12 @@ let make = (
 ) => {
   // open Lingui.Util;
   let user = Fragment.use(props.user)->fromRegisteredUser
-  <RsvpUser {...props} user={user} />
+  <AvatarRsvpUser
+    user={user}
+    highlight=?props.highlight
+    link=?props.link
+    secondaryText=?props.secondaryText
+    sigmaPercent=?props.sigmaPercent
+    ratingPercent=?props.ratingPercent
+  />
 }

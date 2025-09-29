@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:508
+msgid "Badminton"
+msgstr "แบดมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:512
+msgid "Table Tennis"
+msgstr "ปิงปอง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:516
+msgid "Pickleball"
+msgstr "พิคเคิลบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:520
+msgid "Futsal"
+msgstr "ฟุตซอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:524
+msgid "Basketball"
+msgstr "บาสเก็ตบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:528
+msgid "Volleyball"
+msgstr "วอลเลย์บอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:532
+msgid "drill"
+msgstr "ฝึกซ้อม"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+msgid "comp"
+msgstr "แข่ง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:540
+msgid "rec"
+msgstr "บันเทิง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:544
+msgid "all level"
+msgstr "ทุกระดับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:303
+msgid "{0} event details"
+msgstr "รายละเอียดกิจกรรม {0}"
+
+#: src/components/organisms/CreateClubForm.re.mjs:213
+msgid "about"
+msgstr "เกี่ยวกับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:325
+msgid "activity"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:82
+msgid "activity is required"
+msgstr "ต้องระบุกิจกรรม"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:108
+msgid "add new club"
+msgstr "เพิ่มคลับใหม่"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "ผู้เล่นระดับสูง"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:313
+msgid "All Level"
+msgstr "ทุกระดับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:452
+msgid ""
+"any details from the location will already be included. Mention any "
+"additional event-specific instructions, rules, or details."
+msgstr ""
+"รายละเอียดใดๆ จากสถานที่จะถูกรวมไว้แล้ว ระบุ คำแนะนำ กฎ "
+"หรือรายละเอียดเพิ่มเติมเฉพาะกิจกรรม"
+
+#: src/components/molecules/forms/Form.re.mjs:300
+msgid "cancel"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/SelectedLocation.re.mjs:69
+msgid "change location"
+msgstr "เปลี่ยนสถานที่"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:82
+msgid "choose the club where this event will be held."
+msgstr "เลือกคลับที่จะจัดกิจกรรมนี้"
+
+#: src/components/organisms/SelectedLocation.re.mjs:53
+msgid "choose the location where this event will be held."
+msgstr "เลือกสถานที่ที่จะจัดกิจกรรมนี้"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "club"
+msgstr "คลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:344
+msgid "date and start time"
+msgstr "วันที่และเวลาเริ่มต้น"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:304
+msgid "details specific to this event on the specified date and time."
+msgstr "รายละเอียดเฉพาะกิจกรรมนี้ในวันที่และเวลาที่กำหนด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:440
+msgid "edit the location to edit the details for this location."
+msgstr "แก้ไขสถานที่เพื่อแก้ไขรายละเอียดสำหรับสถานที่นี้"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:354
+msgid "end time"
+msgstr "เวลาสิ้นสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:94
+msgid "end time is required"
+msgstr "ต้องระบุเวลาสิ้นสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:91
+msgid "event date is required"
+msgstr "ต้องระบุวันที่กิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:449
+msgid "event details"
+msgstr "รายละเอียดกิจกรรม"
+
+#: src/components/organisms/SelectedLocation.re.mjs:52
+msgid "event location"
+msgstr "สถานที่จัดกิจกรรม"
+
+#: src/components/pages/UpdateEventPage.re.mjs:63
+msgid "Event or Location doesn't exist."
+msgstr "ไม่มีกิจกรรมหรือสถานที่นี้"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "แท็กกิจกรรม: {tag}"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "ผู้เล่นที่มีทักษะสูงมาก"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:431
+msgid "level of play"
+msgstr "ระดับการเล่น"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:478
+msgid "list publicly"
+msgstr "แสดงสาธารณะ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:435
+msgid "location details"
+msgstr "รายละเอียดสถานที่"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "ระดับกลางขั้นต้นขึ้นไป"
+
+#: src/components/organisms/CreateClubForm.re.mjs:194
+msgid "main activity"
+msgstr "กิจกรรมหลัก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:85
+msgid "main activity is required"
+msgstr "ต้องระบุกิจกรรมหลัก"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "การแข่งขันจะถูกส่งไปยัง DUPR"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:377
+msgid "max participants"
+msgstr "ผู้เข้าร่วมสูงสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:389
+msgid "minimum rating"
+msgstr "เรตติ้งต่ำสุด"
+
+#: src/components/organisms/CreateClubForm.re.mjs:162
+msgid "name"
+msgstr "ชื่อ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:79
+msgid "name is required"
+msgstr "ต้องระบุชื่อ"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "ผู้เล่นมืออาชีพ"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
+
+#: src/components/molecules/forms/Form.re.mjs:307
+msgid "save"
+msgstr "บันทึก"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:81
+msgid "select club"
+msgstr "เลือกคลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:413
+msgid "Select tags that best describe this event"
+msgstr "เลือกแท็กที่อธิบายกิจกรรมนี้ได้ดีที่สุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+msgid ""
+"show your event publicly on our home page. Otherwise, only people with a "
+"link to your event will be able to find it."
+msgstr ""
+"แสดงกิจกรรมของคุณแบบสาธารณะในหน้าแรกของเรา มิฉะนั้นจะมีเพียงคนที่มี "
+"ลิงค์ไปยังกิจกรรมของคุณเท่านั้นที่จะสามารถค้นหาได้"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+msgid "slug"
+msgstr "สลัก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:216
+msgid "tell people about your club"
+msgstr "บอกคนอื่นเกี่ยวกับคลับของคุณ"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:364
+msgid "timezone"
+msgstr "เขตเวลา"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:310
+msgid "title"
+msgstr "หัวข้อ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:79
+msgid "title is required"
+msgstr "ต้องระบุหัวข้อ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+msgid "type of event"
+msgstr "ประเภทกิจกรรม"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "ระดับกลางขั้นบนขึ้นไป"
+
+#: src/components/organisms/CreateClubForm.re.mjs:82
+msgid "url slug is required"
+msgstr "ต้องระบุ URL slug"
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+msgid "yubibado"
+msgstr "yubibado"
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+msgid "ゆびバド"
+msgstr "ゆびバド"

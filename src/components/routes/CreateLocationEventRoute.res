@@ -24,8 +24,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/CreateLocationEventPage.re/zh-CN"),
 })
 
 @genType

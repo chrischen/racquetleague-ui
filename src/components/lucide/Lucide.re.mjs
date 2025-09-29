@@ -33,6 +33,10 @@ var User = {};
 
 var List = {};
 
+var Calendar = {};
+
+var Users = {};
+
 var Check = {};
 
 var ArrowUpCircle = {};
@@ -44,6 +48,8 @@ var Pencil = {};
 var Trophy = {};
 
 var MessageCircle = {};
+
+var Bell = {};
 
 export {
   CalendarClock ,
@@ -62,11 +68,14 @@ export {
   Clock ,
   User ,
   List ,
+  Calendar ,
+  Users ,
   Check ,
   ArrowUpCircle ,
   Share ,
   Pencil ,
   Trophy ,
   MessageCircle ,
+  Bell ,
 }
 /* No side effect */

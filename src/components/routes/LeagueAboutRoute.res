@@ -25,12 +25,15 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/LeagueAboutPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/LeagueAboutPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/LeagueAboutPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/LeagueAboutPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/LeagueAboutPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/LeagueAboutPage.re/zh-CN"),
 })
 
 @genType
-let loader = async ({params }: LoaderArgs.t) => {
+let loader = async ({params}: LoaderArgs.t) => {
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {

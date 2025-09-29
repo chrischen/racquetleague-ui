@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:303
+msgid "Badminton"
+msgstr "แบดมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:307
+msgid "Table Tennis"
+msgstr "ปิงปอง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:311
+msgid "Pickleball"
+msgstr "พิคเคิลบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:315
+msgid "Futsal"
+msgstr "ฟุตซอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:319
+msgid "Basketball"
+msgstr "บาสเก็ตบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:323
+msgid "Volleyball"
+msgstr "วอลเลย์บอล"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:193
+msgid "{0} event details"
+msgstr "รายละเอียดกิจกรรม {0}"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:146
+msgid "{0} events created!"
+msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:236
+msgid "activity"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:61
+msgid "activity is required"
+msgstr "ต้องระบุกิจกรรม"
+
+#: src/components/molecules/forms/Form.re.mjs:300
+msgid "cancel"
+msgstr "ยกเลิก"
+
+#: src/components/pages/CreateClubEventsPage.re.mjs:60
+msgid "club doesn't exist."
+msgstr "ไม่มีคลับนี้"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:194
+msgid "create multiple events at one time"
+msgstr "สร้างหลายกิจกรรมในครั้งเดียว"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:200
+msgid "events"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:91
+msgid "events preview"
+msgstr "ตัวอย่างกิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:58
+msgid "input is required"
+msgstr "ต้องกรอกข้อมูล"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:274
+msgid "list publicly"
+msgstr "แสดงสาธารณะ"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:227
+msgid "loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:212
+msgid "preview events"
+msgstr "ดูตัวอย่างกิจกรรม"
+
+#: src/components/molecules/forms/Form.re.mjs:307
+msgid "save"
+msgstr "บันทึก"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:279
+msgid ""
+"show your event publicly on our home page. Otherwise, only people with a "
+"link to your event will be able to find it."
+msgstr ""
+"แสดงกิจกรรมของคุณแบบสาธารณะในหน้าแรกของเรา มิฉะนั้นจะมีเพียงคนที่มี "
+"ลิงค์ไปยังกิจกรรมของคุณเท่านั้นที่จะสามารถค้นหาได้"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+msgid "type your events in the format above"
+msgstr "พิมพ์กิจกรรมของคุณในรูปแบบข้างต้น"

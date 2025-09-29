@@ -6,8 +6,11 @@
 let \"Component" = LeagueLayout.make
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/zh-CN"),
 })
 
 type params = {lang: option<string>}

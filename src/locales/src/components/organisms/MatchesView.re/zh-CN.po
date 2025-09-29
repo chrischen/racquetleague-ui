@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/MatchesView.re.mjs:232
+msgid "{0} player selected"
+msgstr "已选择 {0} 位球员"
+
+#: src/components/organisms/MatchesView.re.mjs:233
+msgid "{0} players selected"
+msgstr "已选择 {0} 位球员"
+
+#: src/components/organisms/MatchesView.re.mjs:231
+msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
+msgstr "{0}"
+
+#: src/components/organisms/MatchesView.re.mjs:257
+msgid "# of courts"
+msgstr "球场数量"
+
+#: src/components/organisms/MatchesView.re.mjs:642
+msgid "Actions"
+msgstr "操作"
+
+#: src/components/organisms/MatchesView.re.mjs:133
+msgid "Add/Remove Players"
+msgstr "添加/移除球员"
+
+#: src/components/organisms/MatchesView.re.mjs:608
+#: src/components/organisms/MatchesView.re.mjs:611
+msgid "and"
+msgstr "和"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:305
+msgid "Cancel"
+msgstr "取消"
+
+#: src/components/organisms/MatchesView.re.mjs:631
+msgid "Choose Match"
+msgstr "选择比赛"
+
+#: src/components/organisms/MatchesView.re.mjs:540
+msgid "CHOOSE MATCH"
+msgstr "选择比赛"
+
+#: src/components/ui/ModalDrawer.re.mjs:43
+msgid "Close panel"
+msgstr "关闭面板"
+
+#: src/components/organisms/MatchesView.re.mjs:612
+msgid "Court {0}: {team1} versus {team2}"
+msgstr "球场 {0}: {team1} 对战 {team2}"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:323
+msgid "Enter Score"
+msgstr "输入分数"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+msgid "Loading"
+msgstr "加载中"
+
+#: src/components/organisms/MatchesView.re.mjs:599
+msgid "Matches"
+msgstr "比赛"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:357
+#: src/components/organisms/SortableSubmitMatch.re.mjs:405
+msgid "Points"
+msgstr "分数"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:57
+#: src/components/organisms/SortableSubmitMatch.re.mjs:69
+msgid "predicted winner"
+msgstr "预测胜者"
+
+#: src/components/organisms/MatchesView.re.mjs:584
+msgid "Queue"
+msgstr "队列"
+
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
+msgid "Queue All"
+msgstr "全部入队"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/MatchesView.re.mjs:487
+msgid "START SESSION"
+msgstr "开始会话"
+
+#: src/components/organisms/MatchesView.re.mjs:506
+msgid "SUBMIT RESULTS"
+msgstr "提交结果"
+
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
+msgid "Unqueue All"
+msgstr "全部移出队列"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:370
+#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+msgid "Winner"
+msgstr "胜者"

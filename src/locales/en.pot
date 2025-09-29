@@ -2132,3 +2132,104 @@ msgstr ""
 #: src/components/pages/Event.re.mjs:165
 msgid "Status message"
 msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:61
+msgid "Unknown club"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:163
+msgid "Unknown location"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:48
+msgid "Untitled event"
+msgstr ""
+
+#: src/components/organisms/EventRsvps2.re.mjs:416
+msgid "Join Event"
+msgstr ""
+
+#: src/components/organisms/EventRsvps2.re.mjs:430
+msgid "Leave Event"
+msgstr ""
+
+#: src/components/organisms/EventRsvps2.re.mjs:626
+msgid "Load more"
+msgstr ""
+
+#: src/components/organisms/EventRsvps2.re.mjs:424
+msgid "Login to Join"
+msgstr ""
+
+#: src/components/organisms/EventRsvps2.re.mjs:517
+msgid "No players yet"
+msgstr ""
+
+#: src/components/organisms/EventRsvps2.re.mjs:407
+msgid "Rating Too Low"
+msgstr ""
+
+#: src/components/organisms/EventRsvps2.re.mjs:440
+msgid "RSVPs"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:309
+#: src/components/organisms/RSVPSection.re.mjs:345
+msgid "Going"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:326
+msgid "Maybe"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:399
+msgid "more"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:298
+msgid "RSVP"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:365
+msgid "Show all"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:356
+msgid "Show less"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:117
+msgid "Event not found"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:71
+msgid "No event details provided."
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:74
+msgid "No location details provided."
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:296
+msgid "Join"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:288
+msgid "Waitlisted"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:291
+msgid "You're Going"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:172
+msgid "No activity yet"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr ""

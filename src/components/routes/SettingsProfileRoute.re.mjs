@@ -24,8 +24,11 @@ function parseData(json) {
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/SettingsProfilePage.re/en"),
       ja: import("../../locales/src/components/pages/SettingsProfilePage.re/ja"),
-      en: import("../../locales/src/components/pages/SettingsProfilePage.re/en")
+      th: import("../../locales/src/components/pages/SettingsProfilePage.re/th"),
+      zhTW: import("../../locales/src/components/pages/SettingsProfilePage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/SettingsProfilePage.re/zh-CN")
     });
 
 async function loader(param) {

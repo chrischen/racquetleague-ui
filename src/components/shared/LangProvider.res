@@ -27,22 +27,13 @@ external useLoaderData: unit => locale = "useLoaderData"
 @genType @react.component
 let make = () => {
   let data = useLoaderData()
-  let locale = switch data.lang {
-  | "ja" => Some("ja")
-  | "en" => Some("en")
-  | _ => None
-  }
   open Router
 
   <LocaleContext.Provider value=data>
     <Lingui.I18nProvider i18n=Lingui.i18n>
-      {switch locale {
-      | Some(locale) =>
-        <ReactIntl2.IntlProvider locale timeZone=data.timezone>
-          <Outlet />
-        </ReactIntl2.IntlProvider>
-      | None => <NotFound />
-      }}
+      <ReactIntl2.IntlProvider locale=data.lang timeZone=data.timezone>
+        <Outlet />
+      </ReactIntl2.IntlProvider>
     </Lingui.I18nProvider>
   </LocaleContext.Provider>
 }
@@ -156,8 +147,11 @@ module DetectedLang = {
           Localized.loadMessages(
             Some(detectedLang),
             Lingui.loadMessagesForDetected({
-              ja: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/ja"),
               en: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/en"),
+              ja: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/ja"),
+              th: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/th"),
+              zhTW: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-TW"),
+              zhCN: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-CN"),
             }),
           )->Promise.thenResolve(
             _ => {

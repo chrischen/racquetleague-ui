@@ -24,8 +24,11 @@ function parseData(json) {
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/CreateClubEventsPage.re/en"),
       ja: import("../../locales/src/components/pages/CreateClubEventsPage.re/ja"),
-      en: import("../../locales/src/components/pages/CreateClubEventsPage.re/en")
+      th: import("../../locales/src/components/pages/CreateClubEventsPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/CreateClubEventsPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/CreateClubEventsPage.re/zh-CN")
     });
 
 async function loader(param) {

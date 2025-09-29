@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventRsvps.re.mjs:524
+#: src/components/organisms/EventRsvps.re.mjs:678
+msgid "{0, plural, one {player} other {players}}"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:516
+msgid "{maxRsvps, plural, one {player} other {players}}"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:628
+msgid "{waitlistCount, plural, one {player} other {players}}"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:92
+msgid "Are you sure you want to remove this person from the event?"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:430
+msgid "attendees"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:509
+msgid "confirmed"
+msgstr ""
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:35
+#: src/components/organisms/EventRsvps.re.mjs:342
+#: src/components/organisms/EventRsvps.re.mjs:354
+#: src/components/organisms/EventRsvps.re.mjs:372
+msgid "join event"
+msgstr ""
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:21
+#: src/components/organisms/EventRsvps.re.mjs:382
+#: src/components/organisms/EventRsvps.re.mjs:387
+msgid "leave event"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:607
+#: src/components/organisms/EventRsvps.re.mjs:659
+#: src/components/organisms/EventRsvps.re.mjs:709
+msgid "load More"
+msgstr ""
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
+#: src/components/organisms/EventRsvps.re.mjs:365
+msgid "login to join the event"
+msgstr ""
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+msgid "login with Line"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:598
+#: src/components/organisms/EventRsvps.re.mjs:652
+#: src/components/organisms/EventRsvps.re.mjs:702
+msgid "no players yet"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:672
+msgid "pending"
+msgstr ""
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+msgid "Player"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:79
+msgid "Remove from event"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:91
+msgid "Remove this RSVP"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:332
+msgid "Required rating: {0} (DUPR {1})"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:142
+msgid "Save"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:544
+#: src/components/organisms/EventRsvps.re.mjs:554
+msgid "spots available"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:391
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:126
+#: src/components/organisms/EventRsvps.re.mjs:127
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:549
+#: src/components/organisms/EventRsvps.re.mjs:622
+msgid "waitlist"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:390
+msgid "You will lose your spot"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:448
+msgid "you're going :)"
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:469
+msgid "you're waitlisted :("
+msgstr ""
+
+#: src/components/organisms/EventRsvps.re.mjs:334
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""

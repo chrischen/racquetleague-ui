@@ -197,15 +197,21 @@ function Events(props) {
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/Events.re/en"),
       ja: import("../../locales/src/components/pages/Events.re/ja"),
-      en: import("../../locales/src/components/pages/Events.re/en")
+      th: import("../../locales/src/components/pages/Events.re/th"),
+      zhTW: import("../../locales/src/components/pages/Events.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/Events.re/zh-CN")
     });
 
 async function loader(param) {
   var params = param.params;
   var validLangs = [
     "en",
-    "ja"
+    "ja",
+    "th",
+    "zh-TW",
+    "zh-CN"
   ];
   var lang = params.lang;
   if (lang !== undefined && !validLangs.includes(lang)) {

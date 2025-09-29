@@ -25,22 +25,25 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/zh-CN"),
 })
-  // Debug code to delay client message bundle loading
-  // ->Promise.then(messages =>
-  //   Promise.make((resolve, _) =>
-  //     setTimeout(
-  //       _ => {
-  //         Js.log("Events Messages Load")
-  //         Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
-  //         resolve()
-  //       },
-  //       RelaySSRUtils.ssr ? 0 : 3000,
-  //     )->ignore
-  //   )
-  // )
+// Debug code to delay client message bundle loading
+// ->Promise.then(messages =>
+//   Promise.make((resolve, _) =>
+//     setTimeout(
+//       _ => {
+//         Js.log("Events Messages Load")
+//         Util.startTransition(() => Lingui.i18n.load(lang, messages["messages"]))
+//         resolve()
+//       },
+//       RelaySSRUtils.ssr ? 0 : 3000,
+//     )->ignore
+//   )
+// )
 @genType
 let loader = async ({params}: LoaderArgs.t) => {
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)

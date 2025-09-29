@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OR5BoT\":\"关于联盟\",\"viBiJe\":\"通过打双打比赛，即使每场搭档不同，球员也会获得个人评分。双打评分使用 OpenSkill（TrueSkill 的衣生系统），单打评分使用 Glicko2。\",\"2NA2Vk\":\"日本匹克球联盟是一个开源非营利项目，旨在提高社区休闲匹克球比赛和活动的质量。\",\"IueX+L\":\"东京羽毛球联盟是一个开源非营利项目，旨在提高社区休闲羽毛球比赛和活动的质量。\"}");

@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventItem.re.mjs:423
+#: src/components/organisms/ClubEventsList.re.mjs:207
+msgid "[location missing]"
+msgstr "[地点缺失]"
+
+#: src/components/organisms/EventItem.re.mjs:365
+msgid "[missing title]"
+msgstr "[标题缺失]"
+
+#: src/components/organisms/EventItem.re.mjs:215
+#: src/components/organisms/EventItem.re.mjs:222
+#: src/components/organisms/ClubEventsList.re.mjs:170
+#: src/components/organisms/ClubEventsList.re.mjs:175
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/organisms/EventItem.re.mjs:216
+#: src/components/organisms/EventItem.re.mjs:223
+#: src/components/organisms/ClubEventsList.re.mjs:171
+#: src/components/organisms/ClubEventsList.re.mjs:176
+msgid "{0} hour"
+msgstr "{0} 小时"
+
+#: src/components/organisms/EventItem.re.mjs:217
+#: src/components/organisms/EventItem.re.mjs:224
+#: src/components/organisms/ClubEventsList.re.mjs:172
+#: src/components/organisms/ClubEventsList.re.mjs:177
+msgid "{0} hours"
+msgstr "{0} 小时"
+
+#: src/components/organisms/EventItem.re.mjs:228
+#: src/components/organisms/ClubEventsList.re.mjs:179
+msgid "{0} minute"
+msgstr "{0} 分钟"
+
+#: src/components/organisms/EventItem.re.mjs:229
+#: src/components/organisms/ClubEventsList.re.mjs:180
+msgid "{0} minutes"
+msgstr "{0} 分钟"
+
+#: src/components/organisms/EventItem.re.mjs:227
+#: src/components/organisms/ClubEventsList.re.mjs:178
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{0}"
+
+#: src/components/organisms/EventItem.re.mjs:296
+msgid "{playersCount, plural, one {player} other {players}}"
+msgstr "位球员"
+
+#: src/components/organisms/ClubEventsList.re.mjs:184
+msgid "🚫 CANCELED"
+msgstr "🚫 已取消"
+
+#: src/components/pages/ClubPage.re.mjs:203
+msgid "Cancel Request"
+msgstr "取消申请"
+
+#: src/components/organisms/ClubEventsList.re.mjs:406
+msgid "clear filter"
+msgstr "清除筛选"
+
+#: src/components/pages/ClubPage.re.mjs:93
+msgid "Click the link to select it for easy copying."
+msgstr "点击链接选中以便复制。"
+
+#: src/components/pages/ClubPage.re.mjs:250
+msgid "club"
+msgstr "俱乐部"
+
+#: src/components/pages/ClubPage.re.mjs:284
+msgid "club not found"
+msgstr "俱乐部未找到"
+
+#: src/components/organisms/ClubEventsList.re.mjs:404
+msgid "filtering by date"
+msgstr "按日期筛选"
+
+#: src/components/organisms/EventItem.re.mjs:313
+msgid "join event"
+msgstr "加入活动"
+
+#: src/components/organisms/EventItem.re.mjs:260
+msgid "joined"
+msgstr "已加入"
+
+#: src/components/pages/ClubPage.re.mjs:193
+msgid "Leave club"
+msgstr "退出俱乐部"
+
+#: src/components/organisms/EventItem.re.mjs:307
+msgid "leave event"
+msgstr "退出活动"
+
+#: src/components/pages/ClubPage.re.mjs:233
+msgid "Manage Members"
+msgstr "管理成员"
+
+#: src/components/organisms/EventItem.re.mjs:272
+msgid "pending"
+msgstr "待审核"
+
+#: src/components/organisms/EventItem.re.mjs:292
+msgid "players"
+msgstr "球员"
+
+#: src/components/pages/ClubPage.re.mjs:221
+msgid "Request to join"
+msgstr "申请加入"
+
+#: src/components/organisms/ClubEventsList.re.mjs:376
+msgid "share as text"
+msgstr "分享为文本"
+
+#: src/components/pages/ClubPage.re.mjs:75
+msgid "Shareable Link"
+msgstr "可分享链接"
+
+#: src/components/organisms/ClubEventsList.re.mjs:308
+msgid "show"
+msgstr "显示"
+
+#: src/components/organisms/EventItem.re.mjs:266
+msgid "waitlist"
+msgstr "等待列表"

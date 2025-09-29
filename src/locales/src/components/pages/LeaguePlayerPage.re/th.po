@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/MatchList.re.mjs:372
+msgid "...load previous matches"
+msgstr "...โหลดแมทช์ก่อนหน้า"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:85
+msgid "Estimated DUPR"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:130
+msgid "Female"
+msgstr "หญิง"
+
+#: src/components/organisms/MatchList.re.mjs:395
+msgid "Load more matches..."
+msgstr "โหลดแมทช์เพิ่มเติม..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:185
+msgid "Loading rankings..."
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:132
+msgid "Male"
+msgstr "ชาย"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:168
+#: src/components/pages/LeaguePlayerPage.re.mjs:176
+msgid "Match History"
+msgstr "ประวัติแมทช์"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:102
+#: src/components/pages/LeaguePlayerPage.re.mjs:159
+msgid "Player Profile Page"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:202
+#: src/components/pages/LeaguePlayerPage.re.mjs:210
+msgid "Rating"
+msgstr ""
+
+#: src/components/organisms/MatchList.re.mjs:292
+msgid "Score:"
+msgstr "คะแนน:"

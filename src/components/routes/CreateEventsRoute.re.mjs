@@ -24,8 +24,11 @@ function parseData(json) {
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/CreateEventsPage.re/en"),
       ja: import("../../locales/src/components/pages/CreateEventsPage.re/ja"),
-      en: import("../../locales/src/components/pages/CreateEventsPage.re/en")
+      th: import("../../locales/src/components/pages/CreateEventsPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/CreateEventsPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/CreateEventsPage.re/zh-CN")
     });
 
 async function loader(param) {

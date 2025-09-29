@@ -24,8 +24,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/zh-CN"),
 })
 
 @genType
@@ -35,8 +38,6 @@ let loader = async ({context, params}: LoaderArgs.t) => {
     ~variables={eventId: params.eventId, locationId: params.locationId},
     ~fetchPolicy=RescriptRelay.StoreOrNetwork,
   )
-  Js.log("Loading ID")
-  Js.log(params.locationId);
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   Router.defer({
     WaitForMessages.data: query,

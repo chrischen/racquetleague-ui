@@ -18,7 +18,23 @@ var I18nProvider = {};
 
 function loadMessages(src) {
   return function (lang) {
-    var tmp = lang === "ja" ? src.ja : src.en;
+    var tmp;
+    switch (lang) {
+      case "ja" :
+          tmp = src.ja;
+          break;
+      case "th" :
+          tmp = src.th;
+          break;
+      case "zh-CN" :
+          tmp = src.zhCN;
+          break;
+      case "zh-TW" :
+          tmp = src.zhTW;
+          break;
+      default:
+        tmp = src.en;
+    }
     return [tmp.then(function (messages) {
                   React.startTransition(function () {
                         i18n.load(lang, messages.messages);
@@ -29,11 +45,24 @@ function loadMessages(src) {
 
 function loadMessagesForDetected(src) {
   return function (lang) {
-    var tmp = lang === "ja" ? src.ja : src.en;
+    var tmp;
+    switch (lang) {
+      case "ja" :
+          tmp = src.ja;
+          break;
+      case "th" :
+          tmp = src.th;
+          break;
+      case "zh-CN" :
+          tmp = src.zhCN;
+          break;
+      case "zh-TW" :
+          tmp = src.zhTW;
+          break;
+      default:
+        tmp = src.en;
+    }
     return [tmp.then(function (messages) {
-                  console.log("Loading");
-                  console.log(lang);
-                  console.log(messages.messages);
                   React.startTransition(function () {
                         detectedI18n.load(lang, messages.messages);
                       });

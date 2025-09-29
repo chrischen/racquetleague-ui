@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(ออกจากระบบ)\",\"tst44n\":\"กิจกรรม\",\"GCkpYm\":\"เข้าสู่ระบบด้วย Line\",\"d4VXx5\":\"แรคเก็ต ลีก\",\"W8fQRI\":\"อันดับ\"}");

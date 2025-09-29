@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/components/pages/ClubsPage.re.mjs:96
 msgid "You are not an admin of any clubs."
-msgstr ""
+msgstr "あなたはどのクラブの管理者でもありません。"
 
 #: src/components/pages/ClubsPage.re.mjs:74
 #~ msgid "club"

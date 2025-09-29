@@ -1,0 +1,230 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:110
+msgid ""
+"By clicking on the Gear icon in the top left, you can go back to the start "
+"screen. At the bottom of this screen will be the match history."
+msgstr ""
+"通过点击左上角的齿轮图标，您可以返回开始界面。在此界面的底部将显示比赛历史。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:74
+msgid "Checkin Screen"
+msgstr "签到界面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:99
+msgid "Editing Matches"
+msgstr "编辑比赛"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:104
+msgid "Entering Results"
+msgstr "输入结果"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:120
+msgid ""
+"From the Queue screen you can select some players (highlighted in green) and "
+"take some special actions for them such as creating a team, anti-team, or "
+"setting their genders. The team feature is important if you have a group of "
+"players (2 minimum) who always want to play together, often called a 'fixed-"
+"pair.' The gender is important if you want to use the Gender-Mixed doubles "
+"option when choosing matches."
+msgstr ""
+"从队列界面您可以选择一些球员（绿色高亮显示）并为他们执行一些特殊操作，如创建"
+"队伍、反对队或设置他们的性别。如果您有一组总是想一起打球的球员（2人起），通常"
+"称为“固定搭档”，队伍功能很重要。如果您想在选择比赛时使用性别混合双打选项，性"
+"别设置很重要。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:89
+msgid "Generating Draws"
+msgstr "生成对阵"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:132
+msgid "How to use FairPlay"
+msgstr "如何使用 FairPlay"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:115
+msgid ""
+"If you enabled offline mode, you can go down this list and submit the "
+"results to Pkuru.com. Simply tap on the match, then click on the Submit "
+"button. Once the score shows 0 and 0 then it has successfully submitted. "
+"This step is not necessary if you did not enable offline mode. In normal "
+"Online Mode matches will be submitted as soon as you complete them from the "
+"Matches screen."
+msgstr ""
+"如果您启用了离线模式，您可以按照此列表将结果提交到 Pkuru.com。只需点击比赛，"
+"然后点击提交按钮。一旦分数显示为 0 和 0，表示已成功提交。如果您未启用离线模"
+"式，此步骤不必要。在正常的在线模式下，比赛将在您从比赛界面完成后立即提交。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:64
+msgid "Launching FairPlay"
+msgstr "启动 FairPlay"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:79
+msgid "Manage Courts and Player Breaks"
+msgstr "管理球场和球员休息"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:109
+msgid "Match History"
+msgstr "比赛历史"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:94
+msgid "Matches Screen"
+msgstr "比赛界面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:114
+msgid "Offline Mode"
+msgstr "离线模式"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:80
+msgid ""
+"On the bottom left you can select the number of courts under management by "
+"the app. When it is set to a value greater than 0, the app will "
+"automatically track the number of times everyone has played and determine "
+"who should be taking a break. Players who should be taking a break will be "
+"highlighted in yellow. This is a suggestion, so you can still tap on them to "
+"select them for the next match."
+msgstr ""
+"在左下角您可以选择应用程序管理的球场数量。当设置为大于 0 的值时，应用程序将自"
+"动跟踪每个人的比赛次数并确定谁应该休息。应该休息的球员将以黄色高亮显示。这只"
+"是一个建议，您仍可以点击他们选择下一场比赛。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:90
+msgid ""
+"Once at least 4 players are selected (highlighted in green) from the Queue "
+"screen, you can generate draws with the blue button on the bottom right. The "
+"system will generate all possible combinations of matches for the given "
+"players based on the matchmaking strategy selected. Additionally it will "
+"show you the relative 'quality' of the matches and sort them from highest to "
+"lowest. Quality of the match means whether the match is going to be close or "
+"one-sided. The green highlighted match at the top is the 'recommended match' "
+"which uses some heuristics to select a match that balances quality while "
+"avoiding repeated teams or matches. The list of matches will also highlight "
+"previously played matches or pairs in yellow or red. This allows you as the "
+"organizer to determine whether to avoid repeated matches. Use the blue "
+"button to select a match which will then update the draws for the remaining "
+"players that were selected. Keep selecting matches until all players are in "
+"a match."
+msgstr ""
+"从队列界面至少选择 4 名球员（绿色高亮显示）后，您可以使用右下角的蓝色按钮生成"
+"对阵。系统将根据所选的配对策略，为给定的球员生成所有可能的比赛组合。此外，它"
+"将显示比赛的相对“质量”并从高到低排序。比赛质量意味着比赛是否会非常接近或一边"
+"倒。顶部绿色高亮显示的比赛是“推荐比赛”，使用一些启发式方法来选择平衡质量同时"
+"避免重复团队或比赛的比赛。比赛列表还会以黄色或红色高亮显示以前打过的比赛或搭"
+"档。这允许您作为组织者决定是否避免重复比赛。使用蓝色按钮选择一场比赛，然后为"
+"剩余的被选中球员更新对阵。继续选择比赛直到所有球员都参与比赛。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:119
+msgid "Player Options"
+msgstr "球员选项"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:70
+msgid ""
+"Press the large blue button to launch the system. The 'Offline Mode' toggle "
+"should be used if there is no internet connection or if you want to test the "
+"system out without saving any results. In Offline mode, no submissions are "
+"made to Pkuru.com and if you delete the matches or close the web page there "
+"will be no permanent effects of your actions using the system. Additionally "
+"this screen shows the relative strengths of the players and at the bottom of "
+"the page there is a history of all the matches played."
+msgstr ""
+"按下大蓝色按钮启动系统。如果没有互联网连接或您想在不保存任何结果的情况下测试"
+"系统，应使用“离线模式”切换。在离线模式下，不会向 Pkuru.com 提交任何信息，如果"
+"您删除比赛或关闭网页，您使用系统的操作将不会有永久影响。此外，此界面显示球员"
+"的相对实力，在页面底部有所有已进行比赛的历史记录。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:84
+msgid "Queue Screen"
+msgstr "队列界面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:69
+msgid "Start Screen"
+msgstr "开始界面"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:105
+msgid ""
+"Tapping on the names on the left side can select the winner without entering "
+"scores. Optionally, the exact score can be entered into the number field on "
+"the right side of each match. Once the green border is around the winner, "
+"the entry is complete and you can leave it as it is. Once results are "
+"entered for all matches, you can use the blue button on the bottom right to "
+"submit all the results at once.If you enabled offline mode, no results are "
+"submitted to Pkuru.com, but ratings will still be updated locally on your "
+"device. Additionally the predicted winner is shown in the red bar at the "
+"bottom."
+msgstr ""
+"点击左侧的姓名可以在不输入分数的情况下选择胜者。可选地，在每场比赛右侧的数字"
+"字段中输入确切分数。一旦胜者周围有绿色边框，输入就完成了，您可以保持原样。一"
+"旦所有比赛的结果都输入完毕，您可以使用右下角的蓝色按钮一次性提交所有结果。如"
+"果您启用了离线模式，结果不会提交到 Pkuru.com，但评分仍将在您的设备上本地更"
+"新。此外，底部的红色条中显示预测胜者。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:65
+msgid ""
+"The FairPlay system can be launched from any event page on Pkuru.com. The "
+"system will automatically load all signed up players, including those in the "
+"waitlist. Players who did not join the event can be added as a guest, but "
+"their ratings and results cannot be saved to Pkuru.com."
+msgstr ""
+"FairPlay 系统可以从 Pkuru.com 上的任何活动页面启动。系统将自动加载所有已报名"
+"的球员，包括那些在等待列表中的。未加入活动的球员可以作为客人添加，但他们的评"
+"分和结果无法保存到 Pkuru.com。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:100
+msgid ""
+"The handlebars on the left side of each name can be used to drag and drop "
+"the players into a different match or re-arrange the teams. If you press the "
+"Enter Score button you can select the winner and/or enter the score. If you "
+"want to cancel the match you can press the '...' button."
+msgstr ""
+"每个名字左侧的手柄可用于拖放球员到不同的比赛或重新安排团队。如果您按下输入分"
+"数按钮，您可以选择获胜者和/或输入分数。如果您想取消比赛，您可以按下“...”按"
+"钮。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:85
+msgid ""
+"The second screen is the Queue screen. This is where you can select players "
+"who want to play a match. On the bottom is a button to queue all players. "
+"This button will automatically select everyone and exclude the players who "
+"should be on break (highlighted in yellow). If you play matches in timed "
+"rounds, this is an easy way to select everyone who should participate in the "
+"next round of matches."
+msgstr ""
+"第二个界面是队列界面。这是您可以选择想要比赛的球员的地方。底部有一个将所有球"
+"员加入队列的按钮。此按钮将自动选择所有人并排除那些应该休息的球员（黄色高亮显"
+"示）。如果您在定时轮次中进行比赛，这是选择所有应该参与下一轮比赛的人的简单方"
+"法。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:75
+msgid ""
+"The system is composed of 3 main screns. The first is the checkin screen "
+"where you can enable/disable players for the session. Tap on a player's name "
+"to check them in. Green means the player is checked in. Check a player in if "
+"they are ready to play, and check them out if they are leaving early. If a "
+"player wants to take a break and it's not their turn yet, it's easiest to "
+"check them out and then check them back in next round."
+msgstr ""
+"系统由 3 个主要界面组成。第一个是签到界面，您可以在此启用/禁用球员参与会话。"
+"点击球员的名字进行签到。绿色表示球员已签到。如果球员准备好比赛就签到，如果他"
+"们要提早离开就签退。如果球员想要休息但还轮不到他们，最简单的方法是签退他们，"
+"然后在下一轮再签到。"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:95
+msgid ""
+"The third and final screen shows the active matches that are being played. "
+"The ordering of the teams is randomized, so you can use this to determine "
+"the serving team (usually the team on top)."
+msgstr ""
+"第三个也是最后一个界面显示正在进行的活跃比赛。团队的顺序是随机的，所以您可以"
+"用此来确定发球团队（通常是上方的团队）。"

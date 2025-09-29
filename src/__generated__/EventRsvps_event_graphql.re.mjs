@@ -174,7 +174,7 @@ return {
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "EventRsvps_rsvp"
+                  "name": "EventRsvp_rsvp"
                 },
                 {
                   "args": null,

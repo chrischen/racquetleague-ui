@@ -13,14 +13,33 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventMessages.re.mjs:135
+#: src/components/organisms/EventMessages.re.mjs:258
 msgid "joined from waitlist"
 msgstr "ウェイトリストから参加"
 
-#: src/components/organisms/EventMessages.re.mjs:104
+#: src/components/organisms/EventMessages.re.mjs:252
 msgid "joined the event"
 msgstr "参加しました"
 
-#: src/components/organisms/EventMessages.re.mjs:122
+#: src/components/organisms/EventMessages.re.mjs:255
 msgid "left the event"
 msgstr "離れました"
+
+#: src/components/organisms/EventMessages.re.mjs:172
+msgid "No activity yet"
+msgstr "まだアクティビティがありません"
+
+#: src/components/organisms/EventMessages.re.mjs:125
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/EventMessages.re.mjs:111
+msgid "Status message"
+msgstr "ステータスメッセージ"
+
+#: src/components/organisms/EventMessages.re.mjs:118
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr ""
+"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
+"ださい。"

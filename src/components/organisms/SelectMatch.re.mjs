@@ -9,8 +9,8 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
-import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
+import * as EventRsvpUserBar from "./EventRsvpUserBar.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { css, cx } from '@linaria/core'
@@ -99,7 +99,7 @@ function SelectMatch$SelectEventPlayersList(props) {
                                                                               ((i + playerNumberOffset | 0) + 1 | 0).toString(),
                                                                               Core__Option.getOr(Core__Option.flatMap(player.data, (function (data) {
                                                                                           return Core__Option.map(data.user, (function (user) {
-                                                                                                        return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                                                        return JsxRuntime.jsx(EventRsvpUserBar.make, {
                                                                                                                     user: user.fragmentRefs,
                                                                                                                     highlight: selected.findIndex(function (player) {
                                                                                                                           return player.id === user.id;

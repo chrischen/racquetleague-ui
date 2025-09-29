@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr "+{0} คน"
+
+#: src/components/organisms/RSVPSection.re.mjs:496
+msgid "Going"
+msgstr "จะไป"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+msgid "Join"
+msgstr "เข้าร่วม"
+
+#: src/components/organisms/RSVPSection.re.mjs:630
+msgid "Load more"
+msgstr "โหลดเพิ่มเติม"
+
+#: src/components/organisms/RSVPSection.re.mjs:627
+msgid "Loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/organisms/RSVPSection.re.mjs:412
+#: src/components/organisms/RSVPSection.re.mjs:602
+msgid "Pending"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+msgid "Player"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/RSVPSection.re.mjs:389
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
+
+#: src/components/organisms/RSVPSection.re.mjs:438
+msgid "RSVP"
+msgstr "ยืนยันการเข้าร่วม"
+
+#: src/components/organisms/RSVPSection.re.mjs:231
+msgid "Save"
+msgstr "บันทึก"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+msgid "Show all"
+msgstr "แสดงทั้งหมด"
+
+#: src/components/organisms/RSVPSection.re.mjs:507
+msgid "Show less"
+msgstr "แสดงน้อยลง"
+
+#: src/components/organisms/RSVPSection.re.mjs:215
+#: src/components/organisms/RSVPSection.re.mjs:216
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
+
+#: src/components/organisms/RSVPSection.re.mjs:567
+msgid "Waitlist"
+msgstr "รายชื่อคอย"
+
+#: src/components/organisms/RSVPSection.re.mjs:419
+msgid "You're Going"
+msgstr "คุณจะไป"
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr "คุณอยู่ในรายชื่อคอย"
+
+#: src/components/organisms/RSVPSection.re.mjs:391
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
+"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
+"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"

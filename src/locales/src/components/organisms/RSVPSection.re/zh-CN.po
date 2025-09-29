@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr "+{0} 人"
+
+#: src/components/organisms/RSVPSection.re.mjs:496
+msgid "Going"
+msgstr "将参加"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+msgid "Join"
+msgstr "加入"
+
+#: src/components/organisms/RSVPSection.re.mjs:630
+msgid "Load more"
+msgstr "加载更多"
+
+#: src/components/organisms/RSVPSection.re.mjs:627
+msgid "Loading..."
+msgstr "加载中..."
+
+#: src/components/organisms/RSVPSection.re.mjs:412
+#: src/components/organisms/RSVPSection.re.mjs:602
+msgid "Pending"
+msgstr "待审核"
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+msgid "Player"
+msgstr "球员"
+
+#: src/components/organisms/RSVPSection.re.mjs:389
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "最低评分要求：{0}（DUPR {1}）"
+
+#: src/components/organisms/RSVPSection.re.mjs:438
+msgid "RSVP"
+msgstr "报名"
+
+#: src/components/organisms/RSVPSection.re.mjs:231
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+msgid "Show all"
+msgstr "查看全部"
+
+#: src/components/organisms/RSVPSection.re.mjs:507
+msgid "Show less"
+msgstr "收起"
+
+#: src/components/organisms/RSVPSection.re.mjs:215
+#: src/components/organisms/RSVPSection.re.mjs:216
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
+
+#: src/components/organisms/RSVPSection.re.mjs:567
+msgid "Waitlist"
+msgstr "等待列表"
+
+#: src/components/organisms/RSVPSection.re.mjs:419
+msgid "You're Going"
+msgstr "您将参加"
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr "您在等待列表中"
+
+#: src/components/organisms/RSVPSection.re.mjs:391
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
+"制降低。请参加其他 JPL 评级活动来提高您的评分。"

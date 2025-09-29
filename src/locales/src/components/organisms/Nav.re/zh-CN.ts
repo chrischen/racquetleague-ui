@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（退出登录）\",\"GCkpYm\":\"使用 Line 登录\",\"UdC6Dp\":\"网球联盟\"}");

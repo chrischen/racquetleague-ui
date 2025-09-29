@@ -13,6 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventRsvp.re.mjs:59
+#: src/components/organisms/EventRsvp.re.mjs:60
 msgid "Player"
 msgstr ""

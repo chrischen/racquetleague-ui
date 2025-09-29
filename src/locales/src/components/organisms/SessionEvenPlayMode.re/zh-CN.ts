@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"d8/6/v\":\"取消\",\"+iFi9C\":[\"有多少球员应该休息？（目前有 \",[\"0\"],\" 名球员在休息）\"],\"lMpZmf\":\"保存\",\"BL2t/n\":\"设置为当前休息的球员数量，以启用比赛场次的均衡分配。设置为0可以禁用此功能并优化比赛质量，但这可能导致某些球员比其他球员参加更多比赛。\"}");

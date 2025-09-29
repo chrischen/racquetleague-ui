@@ -98,6 +98,16 @@ module List = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "List"
 }
 
+module Calendar = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Calendar"
+}
+
+module Users = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Users"
+}
+
 module Check = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Check"
@@ -132,4 +142,9 @@ module MessageCircle = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden\": string=?) => React.element =
     "MessageCircle"
+}
+
+module Bell = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden\": string=?) => React.element = "Bell"
 }

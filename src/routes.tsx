@@ -110,6 +110,12 @@ export const routes: RouteObject[] = [
           //
           // },
           {
+            path: "events/:eventId",
+            lazy: () => import("./components/pages/EventPage.gen"),
+            handle: "src/components/pages/EventPage.gen.tsx",
+            HydrateFallbackElement: <>Loading Fallback...</>
+          },
+          {
             path: "events",
             // Declaring handle allows the server to pull the scripts needed based on
             // the entrypoint to avoid waterfall loading of dependencies
@@ -156,12 +162,6 @@ export const routes: RouteObject[] = [
                 //
                 // ]
 
-              },
-              {
-                path: ":eventId",
-                lazy: () => import("./components/pages/Event.gen"),
-                handle: "src/components/pages/Event.gen.tsx",
-                HydrateFallbackElement: <>Loading Fallback...</>
               },
             ]
           },

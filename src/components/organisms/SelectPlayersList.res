@@ -90,7 +90,7 @@ let make = (
                       ->Option.flatMap(data =>
                         data.user->Option.map(
                           user => {
-                            <EventRsvpUser user={user.fragmentRefs} />
+                            <EventRsvpUserBar user={user.fragmentRefs} />
                           },
                         )
                       )

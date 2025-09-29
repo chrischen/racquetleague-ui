@@ -14,8 +14,11 @@ import * as ViewerEventsPageQuery_graphql from "../../__generated__/ViewerEvents
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/ViewerEventsPage.re/en"),
       ja: import("../../locales/src/components/pages/ViewerEventsPage.re/ja"),
-      en: import("../../locales/src/components/pages/ViewerEventsPage.re/en")
+      th: import("../../locales/src/components/pages/ViewerEventsPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/ViewerEventsPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/ViewerEventsPage.re/zh-CN")
     });
 
 async function loader(param) {

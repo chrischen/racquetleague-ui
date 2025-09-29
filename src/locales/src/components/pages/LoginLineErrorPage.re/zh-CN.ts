@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"lFnBmD\":\"您在使用私人浏览模式吗？\",\"tC8E1T\":\"登录失败\",\"GCkpYm\":\"使用 Line 登录\",\"i3R0WM\":\"请在私人浏览模式之外重新尝试，因为它可能会干扰 Line 登录。如果问题仍然存在，您可以尝试下面的安全模式登录按钮。\",\"ZjdhXc\":\"使用 Line 安全模式登录\"}");

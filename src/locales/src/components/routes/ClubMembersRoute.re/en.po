@@ -25,7 +25,7 @@ msgstr ""
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:428
+#: src/components/pages/ClubMembersPage.re.mjs:422
 msgid "club not found"
 msgstr ""
 
@@ -33,8 +33,7 @@ msgstr ""
 #~ msgid "from the club?"
 #~ msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:361
-#: src/components/pages/ClubMembersPage.re.mjs:408
+#: src/components/pages/ClubMembersPage.re.mjs:402
 msgid "Members"
 msgstr ""
 

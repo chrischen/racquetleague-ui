@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "cancel login"
+msgstr "取消登录"
+
+#: src/components/pages/LoginPage.re.mjs:63
+msgid "display name"
+msgstr "显示名称"
+
+#: src/components/pages/LoginPage.re.mjs:43
+msgid "email address"
+msgstr "邮箱地址"
+
+#: src/components/pages/LoginPage.re.mjs:54
+msgid "event organizers and other users cannot view your email"
+msgstr "活动组织者和其他用户无法查看您的邮箱"
+
+#: src/components/pages/LoginPage.re.mjs:27
+#: src/components/pages/LoginPage.re.mjs:82
+msgid "login with Line"
+msgstr "使用 Line 登录"
+
+#: src/components/pages/LoginPage.re.mjs:50
+msgid "notification of updates or cancellations to events (you can opt out)"
+msgstr "活动更新或取消通知（您可以选择退出）"
+
+#: src/components/pages/LoginPage.re.mjs:31
+msgid "privacy disclosure"
+msgstr "隐私声明"
+
+#: src/components/pages/LoginPage.re.mjs:71
+msgid "profile picture"
+msgstr "头像"
+
+#: src/components/pages/LoginPage.re.mjs:67
+#: src/components/pages/LoginPage.re.mjs:75
+msgid "publicly displayed on event attendance lists"
+msgstr "在活动参与者列表中公开显示"
+
+#: src/components/pages/LoginPage.re.mjs:37
+msgid "we will collect the following information from your Line account"
+msgstr "我们将从您的 Line 账户中收集以下信息"

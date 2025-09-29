@@ -29,8 +29,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/zh-CN"),
 })
 
 type loaderData = LeagueRankingsPage.loaderData

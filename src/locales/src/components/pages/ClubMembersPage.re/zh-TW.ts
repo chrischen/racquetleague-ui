@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"Z7ZXbT\":\"Approve\",\"WmzGlG\":[\"Are you sure you want to remove \",[\"0\"],\" from the club?\"],\"NbzQ8J\":\"club not found\",\"wlQNTg\":\"Members\",\"FK5/sf\":\"No members found\",\"UbRKMZ\":\"Pending\",\"t/YqKh\":\"Remove\",\"hb5UGc\":\"Remove member?\"}");

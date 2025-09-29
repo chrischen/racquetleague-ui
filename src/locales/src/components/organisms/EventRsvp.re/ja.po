@@ -13,6 +13,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventRsvp.re.mjs:59
+#: src/components/organisms/EventRsvp.re.mjs:60
 msgid "Player"
 msgstr "プレイヤー"

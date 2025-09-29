@@ -21,3 +21,6 @@ external fromNavigator: navigator => detector = "fromNavigator"
 
 let enFallback: detector = %raw("'en'");
 let jaFallback: detector = %raw("'ja'");
+let thFallback: detector = %raw("'th'");
+let zhTWFallback: detector = %raw("'zh-TW'");
+let zhCNFallback: detector = %raw("'zh-CN'");

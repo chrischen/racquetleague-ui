@@ -19,4 +19,4 @@ msgstr "私のサークル"
 
 #: src/components/pages/ViewerClubsPage.re.mjs:95
 msgid "You are not an admin of any clubs."
-msgstr ""
+msgstr "あなたはどのクラブの管理者でもありません。"

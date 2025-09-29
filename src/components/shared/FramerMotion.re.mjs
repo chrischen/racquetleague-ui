@@ -3,6 +3,8 @@
 
 var Div = {};
 
+var DivCss = {};
+
 var Li = {};
 
 var Tr = {};
@@ -15,6 +17,7 @@ var AnimationControls = {};
 
 export {
   Div ,
+  DivCss ,
   Li ,
   Tr ,
   Main ,

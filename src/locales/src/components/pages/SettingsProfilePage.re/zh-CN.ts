@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RnXsZz\":\"个人简介\",\"d8/6/v\":\"取消\",\"X/pivd\":\"关于您的详细信息\",\"TZG9lN\":\"张三\",\"rq+nmk\":\"全名\",\"bbvfbr\":\"个人资料\",\"lMpZmf\":\"保存\",\"+rZFLM\":\"寻找双打搭档\",\"hor1p7\":\"在 RSVP 列表中您的名字旁显示一个徽章，告诉别人您正在寻找搭档\",\"09hTim\":\"某些活动需要您的真实姓名，如身份证上所示。\",\"T3WED1\":\"简单介绍一下您自己\"}");

@@ -51,7 +51,10 @@ async function loader(param) {
   var params = param.params;
   var validLangs = [
     "en",
-    "ja"
+    "ja",
+    "th",
+    "zh-TW",
+    "zh-CN"
   ];
   var lang = params.lang;
   if (lang !== undefined && !validLangs.includes(lang)) {
@@ -62,15 +65,63 @@ async function loader(param) {
         };
   }
   var lang$1 = Core__Option.getOr(params.lang, "en");
-  var locale = lang$1 === "ja" ? "jp" : "us";
+  var locale;
+  switch (lang$1) {
+    case "ja" :
+        locale = "jp";
+        break;
+    case "th" :
+        locale = "th";
+        break;
+    case "zh-CN" :
+        locale = "cn";
+        break;
+    case "zh-TW" :
+        locale = "tw";
+        break;
+    default:
+      locale = "us";
+  }
   var tmp;
   if (import.meta.env.SSR) {
-    var tmp$1 = lang$1 === "ja" ? LocaleDetector.jaFallback : LocaleDetector.enFallback;
+    var tmp$1;
+    switch (lang$1) {
+      case "ja" :
+          tmp$1 = LocaleDetector.jaFallback;
+          break;
+      case "th" :
+          tmp$1 = LocaleDetector.thFallback;
+          break;
+      case "zh-CN" :
+          tmp$1 = LocaleDetector.zhCNFallback;
+          break;
+      case "zh-TW" :
+          tmp$1 = LocaleDetector.zhTWFallback;
+          break;
+      default:
+        tmp$1 = LocaleDetector.enFallback;
+    }
     tmp = DetectLocale.detect(DetectLocale.fromNavigator({
               language: lang$1
             }), tmp$1);
   } else {
-    var tmp$2 = lang$1 === "ja" ? LocaleDetector.jaFallback : LocaleDetector.enFallback;
+    var tmp$2;
+    switch (lang$1) {
+      case "ja" :
+          tmp$2 = LocaleDetector.jaFallback;
+          break;
+      case "th" :
+          tmp$2 = LocaleDetector.thFallback;
+          break;
+      case "zh-CN" :
+          tmp$2 = LocaleDetector.zhCNFallback;
+          break;
+      case "zh-TW" :
+          tmp$2 = LocaleDetector.zhTWFallback;
+          break;
+      default:
+        tmp$2 = LocaleDetector.enFallback;
+    }
     tmp = DetectLocale.detect(DetectLocale.fromNavigator(window.navigator), tmp$2).toLowerCase();
   }
   var detectedLocale = tmp;

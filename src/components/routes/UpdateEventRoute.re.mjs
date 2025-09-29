@@ -24,8 +24,11 @@ function parseData(json) {
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/UpdateEventPage.re/en"),
       ja: import("../../locales/src/components/pages/UpdateEventPage.re/ja"),
-      en: import("../../locales/src/components/pages/UpdateEventPage.re/en")
+      th: import("../../locales/src/components/pages/UpdateEventPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/UpdateEventPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/UpdateEventPage.re/zh-CN")
     });
 
 async function loader(param) {
@@ -34,8 +37,6 @@ async function loader(param) {
         eventId: params.eventId,
         locationId: params.locationId
       }, "store-or-network", undefined, undefined);
-  console.log("Loading ID");
-  console.log(params.locationId);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

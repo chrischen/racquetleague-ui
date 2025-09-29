@@ -23,8 +23,11 @@ module LoaderArgs = {
   }
 }
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/CreateEventsPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/CreateEventsPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/CreateEventsPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/CreateEventsPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/CreateEventsPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/CreateEventsPage.re/zh-CN"),
 })
 
 @genType
@@ -40,6 +43,5 @@ let loader = async ({context, params}: LoaderArgs.t) => {
     i18nLoaders: ?(
       RelaySSRUtils.ssr ? None : Some(Localized.loadMessages(params.lang, loadMessages))
     ),
-
   })
 }

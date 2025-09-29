@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"ajpE1C\":\"เข้าร่วมกิจกรรม\",\"Llt7x1\":\"ออกจากกิจกรรม\",\"2boChF\":\"เข้าสู่ระบบเพื่อเข้าร่วมกิจกรรม\",\"GCkpYm\":\"เข้าสู่ระบบด้วย Line\"}");

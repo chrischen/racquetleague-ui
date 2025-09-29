@@ -12,8 +12,11 @@ import '../../global/static.css'
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/LoginPage.re/en"),
       ja: import("../../locales/src/components/pages/LoginPage.re/ja"),
-      en: import("../../locales/src/components/pages/LoginPage.re/en")
+      th: import("../../locales/src/components/pages/LoginPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/LoginPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/LoginPage.re/zh-CN")
     });
 
 async function loader(param) {

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(ออกจากระบบ)\",\"hOdM7G\":\"ลิขสิทธิ์โดยผู้ร่วมงาน the racquet league\",\"GCkpYm\":\"เข้าสู่ระบบด้วย Line\",\"UdC6Dp\":\"แรคเก็ต ลีก\"}");

@@ -14,8 +14,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/zh-CN"),
 })
 @genType
 let loader = async ({context, params, request}: LoaderArgs.t) => {

@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/CompMatch.re.mjs:365
+msgid "Analyzed {0} matches."
+msgstr "已分析 {0} 场比赛。"
+
+#: src/components/organisms/CompMatch.re.mjs:230
+msgid "Competitive"
+msgstr "竞技模式"
+
+#: src/components/organisms/CompMatch.re.mjs:359
+msgid "Gender Mixed Doubles"
+msgstr "性别混合双打"
+
+#: src/components/organisms/CompMatch.re.mjs:232
+msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
+msgstr "比赛按最大技能差距 +- 1 名球员进行安排。"
+
+#: src/components/organisms/CompMatch.re.mjs:237
+msgid "Matches are arranged by skill while mixing strong and weak players."
+msgstr "比赛按技能安排，同时将强弱球员混合搭配。"
+
+#: src/components/organisms/CompMatch.re.mjs:235
+msgid "Mixed"
+msgstr "混合"
+
+#: src/components/organisms/CompMatch.re.mjs:410
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr "队列中球员不足。请从“队列”选项卡中选择想要参赛的球员。"
+
+#: src/components/organisms/CompMatch.re.mjs:386
+msgid "Played last round"
+msgstr "上一轮已比赛"
+
+#: src/components/organisms/CompMatch.re.mjs:240
+msgid "Random"
+msgstr "随机"
+
+#: src/components/organisms/CompMatch.re.mjs:498
+msgid "Recommended Match"
+msgstr "推荐比赛"
+
+#: src/components/organisms/CompMatch.re.mjs:130
+msgid "Select"
+msgstr "选择"
+
+#: src/components/organisms/CompMatch.re.mjs:298
+msgid "Select a tab"
+msgstr "选择一个标签页"
+
+#: src/components/organisms/CompMatch.re.mjs:380
+msgid "This team has played before"
+msgstr "这个队伍之前比赛过"
+
+#: src/components/organisms/CompMatch.re.mjs:242
+msgid "Totally random teams."
+msgstr "完全随机的队伍。"

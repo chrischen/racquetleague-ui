@@ -23,7 +23,7 @@ module Fragment = %relay(`
       edges {
         node {
           id
-          ...EventRsvps_rsvp
+          ...EventRsvp_rsvp
           ...RsvpOptions_rsvp
           user {
             id
@@ -259,8 +259,6 @@ let make = (~event, ~user) => {
       (),
     )
     commitMutationCreateRating(~variables=())->RescriptRelay.Disposable.ignore
-    Js.log("Connection ID")
-    Js.log(connectionId)
     commitMutationJoin(
       ~variables={
         id: __id->RescriptRelay.dataIdToString,
@@ -489,12 +487,16 @@ let make = (~event, ~user) => {
                           key={i->Int.toString}
                           className="flex items-center justify-between w-full gap-2">
                           <div className="flex-auto">
-                            <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
+                            <EventRsvp rsvp=edge.fragmentRefs viewer=None activitySlug maxRating />
                           </div>
                           <div className="flex-none"> {adminOptions} </div>
                         </div>
                       : <EventRsvp
-                          key={i->Int.toString} rsvp=edge.fragmentRefs viewer activitySlug maxRating
+                          key={i->Int.toString}
+                          rsvp=edge.fragmentRefs
+                          viewer=None
+                          activitySlug
+                          maxRating
                         />
                   }
                 })
@@ -543,7 +545,7 @@ let make = (~event, ~user) => {
                 | rsvps =>
                   rsvps
                   ->Array.map(edge => {
-                    <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
+                    <EventRsvp rsvp=edge.fragmentRefs viewer={None} activitySlug maxRating />
                   })
                   ->React.array
                 }}
@@ -576,7 +578,7 @@ let make = (~event, ~user) => {
                 | rsvps =>
                   rsvps
                   ->Array.map(edge => {
-                    <EventRsvp rsvp=edge.fragmentRefs viewer activitySlug maxRating />
+                    <EventRsvp rsvp=edge.fragmentRefs viewer=None activitySlug maxRating />
                   })
                   ->React.array
                 }}

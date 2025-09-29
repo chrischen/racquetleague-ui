@@ -9,8 +9,11 @@ import * as LoginLineErrorPage from "../pages/LoginLineErrorPage.re.mjs";
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/LoginLineErrorPage.re/en"),
       ja: import("../../locales/src/components/pages/LoginLineErrorPage.re/ja"),
-      en: import("../../locales/src/components/pages/LoginLineErrorPage.re/en")
+      th: import("../../locales/src/components/pages/LoginLineErrorPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/LoginLineErrorPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/LoginLineErrorPage.re/zh-CN")
     });
 
 async function loader(param) {

@@ -24,8 +24,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/CreateClubEventsPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/CreateClubEventsPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/CreateClubEventsPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/CreateClubEventsPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/CreateClubEventsPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/CreateClubEventsPage.re/zh-CN"),
 })
 
 @genType
@@ -59,4 +62,3 @@ let loader = async ({context, params}: LoaderArgs.t) => {
 // @genType
 // let \"HydrateFallback" = <div> {React.string("Loading fallback...")} </div>
 // %raw("loader.hydrate = true")
-

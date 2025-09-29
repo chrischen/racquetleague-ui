@@ -14,7 +14,31 @@ module Div = {
     ~className: string=?,
     ~style: css=?,
     ~key: string=?,
-    ~animate: 'a=?,
+    ~animate: 'animate=?, // Can be cssAnimate, variantAnimate, or any other type
+    ~initial: css=?,
+    ~exit: css=?,
+    ~onMouseDown: ReactEvent.Mouse.t => unit=?,
+    ~onMouseUp: ReactEvent.Mouse.t => unit=?,
+    ~onPointerUp: ReactEvent.Pointer.t => unit=?,
+    ~onPointerDown: ReactEvent.Pointer.t => unit=?,
+    ~onPointerMove: ReactEvent.Pointer.t => unit=?,
+    ~onPointerLeave: ReactEvent.Pointer.t => unit=?,
+    ~onTouchStart: ReactEvent.Touch.t => unit=?,
+    ~onTouchEnd: ReactEvent.Touch.t => unit=?,
+    ~onTouchMove: ReactEvent.Touch.t => unit=?,
+    ~onClick: ReactEvent.Mouse.t => unit=?,
+    ~variants: 'b=?,
+    // ~animateControls as :  'a=?,
+    ~children: React.element=?,
+  ) => React.element = "div"
+}
+module DivCss = {
+  @module("framer-motion") @scope("motion") @react.component
+  external make: (
+    ~className: string=?,
+    ~style: css=?,
+    ~key: string=?,
+    ~animate: css=?, // Can be cssAnimate, variantAnimate, or any other type
     ~initial: css=?,
     ~exit: css=?,
     ~onMouseDown: ReactEvent.Mouse.t => unit=?,

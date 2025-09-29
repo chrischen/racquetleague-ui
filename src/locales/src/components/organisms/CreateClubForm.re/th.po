@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/CreateClubForm.re.mjs:213
+msgid "about"
+msgstr "เกี่ยวกับ"
+
+#: src/components/molecules/forms/Form.re.mjs:300
+msgid "cancel"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "club"
+msgstr "คลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:194
+msgid "main activity"
+msgstr "กิจกรรมหลัก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:85
+msgid "main activity is required"
+msgstr "ต้องระบุกิจกรรมหลัก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:162
+msgid "name"
+msgstr "ชื่อ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:79
+msgid "name is required"
+msgstr "ต้องระบุชื่อ"
+
+#: src/components/molecules/forms/Form.re.mjs:307
+msgid "save"
+msgstr "บันทึก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+msgid "slug"
+msgstr "สลัก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:216
+msgid "tell people about your club"
+msgstr "บอกคนอื่นเกี่ยวกับคลับของคุณ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:82
+msgid "url slug is required"
+msgstr "ต้องระบุ URL slug"
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+msgid "yubibado"
+msgstr "yubibado"
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+msgid "ゆびバド"
+msgstr "ゆびバド"

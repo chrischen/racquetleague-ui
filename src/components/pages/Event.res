@@ -14,7 +14,7 @@ module EventQuery = %relay(`
     viewer {
       user {
         id
-        ...EventRsvps_user @arguments(eventId: $eventId)
+        ...RSVPSection_user @arguments(eventId: $eventId)
       }
     }
     event(id: $eventId) {
@@ -48,7 +48,7 @@ module EventQuery = %relay(`
         slug
       }
       deleted
-      ...EventRsvps_event
+      ...RSVPSection_event
         @arguments(after: $after, first: $first, before: $before)
       ...EventFullNames_event
         @arguments(after: $after, first: $first, before: $before)
@@ -506,7 +506,7 @@ let make = () => {
               </div>
             </div>
           </Layout.Container>
-          <Layout.Container>
+          <Layout.Container className="pb-96 md:pb-0">
             // <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div
               className="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -516,7 +516,9 @@ let make = () => {
                   {switch shadow {
                   | None
                   | Some(false) =>
-                    <EventRsvps event=fragmentRefs user={viewer->Option.map(v => v.fragmentRefs)} />
+                    <RSVPSection
+                      event=fragmentRefs user={viewer->Option.map(v => v.fragmentRefs)}
+                    />
                   | Some(true) =>
                     <ErrorAlert
                       cta={t`view events`} ctaClick={_ => navigate("/clubs/japanpickle", None)}>
@@ -632,9 +634,10 @@ let make = () => {
                     ->Option.getOr(React.null)}
                     <div
                       className="font-bold flex items-center mt-4 lg:text-xl leading-8 text-gray-700">
-                      <Lucide.List
-                        className="mr-2 h-7 w-7 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
-                      />
+                      <span
+                        className="mr-2 h-7 w-7 flex-shrink-0 text-gray-500 inline-flex items-center justify-center">
+                        <Lucide.List />
+                      </span>
                       {t`activity`}
                     </div>
                     <div className="ml-3 border-gray-200 border-l-4 pl-5 mt-4">
@@ -647,6 +650,8 @@ let make = () => {
                         eventStartDate={event.startDate
                         ->Option.map(Util.Datetime.toDate)
                         ->Option.getOr(Js.Date.make())}
+                        eventId=event.id
+                        viewerHasRsvp=?event.viewerHasRsvp
                       />
                     </div>
                   </div>
@@ -696,8 +701,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/Event.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/Event.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/Event.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/Event.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/Event.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/Event.re/zh-CN"),
 })
 
 @genType

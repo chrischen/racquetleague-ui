@@ -272,8 +272,6 @@ function EventRsvps(props) {
   var onJoin = function (param) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "EventRsvps_event_rsvps", undefined);
     commitMutationCreateRating(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
-    console.log("Connection ID");
-    console.log(connectionId);
     commitMutationJoin({
           connections: [connectionId],
           id: __id
@@ -576,7 +574,7 @@ function EventRsvps(props) {
                                                                             JsxRuntime.jsx("div", {
                                                                                   children: JsxRuntime.jsx(EventRsvp.make, {
                                                                                         rsvp: edge.fragmentRefs,
-                                                                                        viewer: viewer,
+                                                                                        viewer: undefined,
                                                                                         activitySlug: activitySlug,
                                                                                         maxRating: maxRating
                                                                                       }),
@@ -592,7 +590,7 @@ function EventRsvps(props) {
                                                             } else {
                                                               return JsxRuntime.jsx(EventRsvp.make, {
                                                                           rsvp: edge.fragmentRefs,
-                                                                          viewer: viewer,
+                                                                          viewer: undefined,
                                                                           activitySlug: activitySlug,
                                                                           maxRating: maxRating
                                                                         }, i.toString());
@@ -647,7 +645,7 @@ function EventRsvps(props) {
                                                           children: waitlistRsvps.length !== 0 ? waitlistRsvps.map(function (edge) {
                                                                   return JsxRuntime.jsx(EventRsvp.make, {
                                                                               rsvp: edge.fragmentRefs,
-                                                                              viewer: viewer,
+                                                                              viewer: undefined,
                                                                               activitySlug: activitySlug,
                                                                               maxRating: maxRating
                                                                             });
@@ -697,7 +695,7 @@ function EventRsvps(props) {
                                                           children: restrictedRsvps.length !== 0 ? restrictedRsvps.map(function (edge) {
                                                                   return JsxRuntime.jsx(EventRsvp.make, {
                                                                               rsvp: edge.fragmentRefs,
-                                                                              viewer: viewer,
+                                                                              viewer: undefined,
                                                                               activitySlug: activitySlug,
                                                                               maxRating: maxRating
                                                                             });

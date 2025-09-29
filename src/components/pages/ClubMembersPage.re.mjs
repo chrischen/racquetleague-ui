@@ -355,17 +355,11 @@ function ClubMembersPage$ClubMembersData(props) {
         });
   }
   return JsxRuntime.jsx("div", {
-              children: JsxRuntime.jsxs("div", {
-                    children: [
-                      JsxRuntime.jsx("h3", {
-                            children: t`Members`,
-                            className: "text-lg font-medium text-gray-900 mb-4"
-                          }),
-                      JsxRuntime.jsx("div", {
-                            children: tmp,
-                            className: ""
-                          })
-                    ],
+              children: JsxRuntime.jsx("div", {
+                    children: JsxRuntime.jsx("div", {
+                          children: tmp,
+                          className: ""
+                        }),
                     className: "px-4 py-5 sm:p-6"
                   }),
               className: "bg-white shadow overflow-hidden sm:rounded-md"

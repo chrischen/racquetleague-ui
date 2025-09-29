@@ -9,8 +9,11 @@ import * as FairPlayGuidePage from "../pages/FairPlayGuidePage.re.mjs";
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/FairPlayGuidePage.re/en"),
       ja: import("../../locales/src/components/pages/FairPlayGuidePage.re/ja"),
-      en: import("../../locales/src/components/pages/FairPlayGuidePage.re/en")
+      th: import("../../locales/src/components/pages/FairPlayGuidePage.re/th"),
+      zhTW: import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-CN")
     });
 
 async function loader(param) {

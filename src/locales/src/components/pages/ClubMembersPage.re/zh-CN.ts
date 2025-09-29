@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"Z7ZXbT\":\"批准\",\"WmzGlG\":[\"您确定要将 \",[\"0\"],\" 从俱乐部移除吗？\"],\"NbzQ8J\":\"俱乐部未找到\",\"wlQNTg\":\"成员\",\"FK5/sf\":\"未找到成员\",\"UbRKMZ\":\"待审核\",\"t/YqKh\":\"移除\",\"hb5UGc\":\"移除成员？\"}");

@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "...load higher rated players"
+msgstr "...โหลดผู้เล่นเรตติ้งสูงกว่า"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+#: src/components/pages/LeagueRankingsPage.re.mjs:52
+msgid "Competitive Doubles"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:202
+msgid "Female"
+msgstr "หญิง"
+
+#: src/components/organisms/RatingList.re.mjs:295
+msgid "Load more players..."
+msgstr "โหลดผู้เล่นเพิ่มเติม..."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:135
+msgid "Loading rankings..."
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:204
+msgid "Male"
+msgstr "ชาย"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
+msgid ""
+"Play doubles games with different partners and receive an individual rating. "
+"Prizes are awarded monthly to top players."
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+msgid "Recreational Doubles"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:117
+msgid "To participate, please join the events here:"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:92
+msgid "View My Profile"
+msgstr ""

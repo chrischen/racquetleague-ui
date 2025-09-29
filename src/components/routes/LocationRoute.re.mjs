@@ -14,8 +14,11 @@ import * as LocationPageQuery_graphql from "../../__generated__/LocationPageQuer
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/LocationPage.re/en"),
       ja: import("../../locales/src/components/pages/LocationPage.re/ja"),
-      en: import("../../locales/src/components/pages/LocationPage.re/en")
+      th: import("../../locales/src/components/pages/LocationPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/LocationPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/LocationPage.re/zh-CN")
     });
 
 async function loader(param) {

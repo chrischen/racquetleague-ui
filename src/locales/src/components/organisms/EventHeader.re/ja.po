@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-28 13:09+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{0} hours"
+msgstr "{0}時間"
+
+#: src/components/organisms/EventHeader.re.mjs:55
+msgid "{0} hours and {1} minutes"
+msgstr "{0}時間{1}分"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "上級プレイヤー"
+
+#: src/components/organisms/EventHeader.re.mjs:78
+msgid "CANCELED"
+msgstr "キャンセル"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "イベントタグ: {tag}"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "高技能プレイヤー"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "初中級以上"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "試合結果はDUPRに提出されます。"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "プロプレイヤー"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "結果は競技レーティングに提出されます。"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "技術向上に焦点を当てたスキル練習とドリル"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
+
+#: src/components/organisms/EventHeader.re.mjs:116
+msgid "Unknown club"
+msgstr "不明なクラブ"
+
+#: src/components/organisms/EventHeader.re.mjs:236
+msgid "Unknown location"
+msgstr "不明な場所"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "中上級以上"

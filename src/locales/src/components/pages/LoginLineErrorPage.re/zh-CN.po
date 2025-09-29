@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:33
+msgid "are you in a private browsing mode?"
+msgstr "您在使用私人浏览模式吗？"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:27
+msgid "login failed"
+msgstr "登录失败"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:23
+msgid "login with Line"
+msgstr "使用 Line 登录"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:37
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem persists, you can try the safe-mode login button below."
+msgstr ""
+"请在私人浏览模式之外重新尝试，因为它可能会干扰 Line 登录。如果问题仍然存在，"
+"您可以尝试下面的安全模式登录按钮。"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:41
+msgid "safe-mode login with Line"
+msgstr "使用 Line 安全模式登录"

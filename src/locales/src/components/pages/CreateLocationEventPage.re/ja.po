@@ -83,7 +83,7 @@ msgstr "アクティビティが必要です"
 msgid "add new club"
 msgstr "新しいサークルを追加"
 
-#: src/components/atoms/EventTag.re.mjs:45
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
@@ -139,11 +139,11 @@ msgstr "イベント日付が必要です"
 msgid "event details"
 msgstr "イベント詳細"
 
-#: src/components/atoms/EventTag.re.mjs:63
+#: src/components/atoms/EventTag.re.mjs:60
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
 
-#: src/components/atoms/EventTag.re.mjs:47
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
@@ -163,7 +163,7 @@ msgstr "場所の詳細"
 msgid "location doesn't exist."
 msgstr "場所が存在しません。"
 
-#: src/components/atoms/EventTag.re.mjs:41
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
@@ -175,7 +175,7 @@ msgstr "主なアクティビティ"
 msgid "main activity is required"
 msgstr "主なアクティビティが必要です"
 
-#: src/components/atoms/EventTag.re.mjs:57
+#: src/components/atoms/EventTag.re.mjs:54
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
 
@@ -195,24 +195,24 @@ msgstr "場所名"
 msgid "name is required"
 msgstr "場所名は必須"
 
-#: src/components/atoms/EventTag.re.mjs:51
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
-#: src/components/atoms/EventTag.re.mjs:49
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Professional players"
 msgstr "プロプレイヤー"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:198
 msgid "Recreational play suitable for all skill levels"
-msgstr ""
+msgstr "すべてのスキルレベルに適したレクリエーションプレー"
 
-#: src/components/atoms/EventTag.re.mjs:59
+#: src/components/atoms/EventTag.re.mjs:56
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
-#: src/components/atoms/EventTag.re.mjs:53
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
@@ -236,7 +236,7 @@ msgstr ""
 "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
 "持っている人だけがイベントを見つけることができます。"
 
-#: src/components/atoms/EventTag.re.mjs:55
+#: src/components/atoms/EventTag.re.mjs:52
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
@@ -248,7 +248,7 @@ msgstr "スラッグ"
 msgid "tell people about your club"
 msgstr "あなたのサークルについて人々に伝える"
 
-#: src/components/atoms/EventTag.re.mjs:61
+#: src/components/atoms/EventTag.re.mjs:58
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
@@ -270,7 +270,7 @@ msgstr "タイトルが必要です"
 msgid "type of event"
 msgstr "イベントタイプ"
 
-#: src/components/atoms/EventTag.re.mjs:43
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 

@@ -12,8 +12,11 @@ import * as LeaguePlayerPageQuery_graphql from "../../__generated__/LeaguePlayer
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/LeaguePlayerPage.re/en"),
       ja: import("../../locales/src/components/pages/LeaguePlayerPage.re/ja"),
-      en: import("../../locales/src/components/pages/LeaguePlayerPage.re/en")
+      th: import("../../locales/src/components/pages/LeaguePlayerPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/LeaguePlayerPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/LeaguePlayerPage.re/zh-CN")
     });
 
 async function loader(param) {

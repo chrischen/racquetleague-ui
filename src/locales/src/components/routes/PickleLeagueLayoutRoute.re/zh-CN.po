@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/LogoutLink.re.mjs:10
+msgid "(logout)"
+msgstr "（退出登录）"
+
+#: src/components/organisms/LeagueNav.re.mjs:114
+msgid "About"
+msgstr "关于"
+
+#: src/components/organisms/Footer.re.mjs:19
+msgid "copyright the racquet league contributors"
+msgstr "版权所有 网球联盟贡献者"
+
+#: src/components/organisms/LeagueNav.re.mjs:110
+msgid "Find Games"
+msgstr "寻找比赛"
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+msgid "login with Line"
+msgstr "使用 Line 登录"
+
+#: src/components/organisms/LeagueNav.re.mjs:126
+msgid "Logout"
+msgstr "退出登录"
+
+#: src/components/organisms/LeagueNav.re.mjs:253
+msgid "Open main menu"
+msgstr "打开主菜单"
+
+#: src/components/organisms/LeagueNav.re.mjs:200
+msgid "Open user menu"
+msgstr "打开用户菜单"
+
+#: src/components/organisms/LeagueNav.re.mjs:206
+#: src/components/organisms/LeagueNav.re.mjs:301
+msgid "Profile picture"
+msgstr "头像"
+
+#: src/components/organisms/LeagueNav.re.mjs:106
+msgid "Rankings"
+msgstr "排名"
+
+#: src/components/organisms/LeagueNav.re.mjs:175
+#: src/components/organisms/LeagueNav.re.mjs:326
+msgid "View notifications"
+msgstr "查看通知"
+
+#: src/components/organisms/LeagueNav.re.mjs:122
+msgid "Your Profile"
+msgstr "您的资料"

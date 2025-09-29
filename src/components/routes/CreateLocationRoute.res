@@ -24,8 +24,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/ja"),
   en: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/en"),
+  ja: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/ja"),
+  th: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/zh-CN"),
 })
 
 @genType

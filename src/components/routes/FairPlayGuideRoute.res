@@ -11,8 +11,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-CN"),
 })
 
 @genType

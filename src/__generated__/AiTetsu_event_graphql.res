@@ -18,7 +18,7 @@ module Types = {
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventMatchRsvpUser_user | #EventRsvpUser_user]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventMatchRsvpUser_user | #EventRsvpUserBar_user]>,
   }
   and fragment_rsvps_edges_node = {
     @live __id: RescriptRelay.dataId,
@@ -274,7 +274,7 @@ return {
                     {
                       "args": null,
                       "kind": "FragmentSpread",
-                      "name": "EventRsvpUser_user"
+                      "name": "EventRsvpUserBar_user"
                     },
                     {
                       "args": null,

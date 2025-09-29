@@ -11,9 +11,9 @@ import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as $$MediaList from "../organisms/MediaList.re.mjs";
 import * as ErrorAlert from "../molecules/ErrorAlert.re.mjs";
-import * as EventRsvps from "../organisms/EventRsvps.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as RSVPSection from "../organisms/RSVPSection.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
@@ -322,7 +322,7 @@ function $$Event(props) {
                                       exit = 1;
                                     }
                                     if (exit === 1) {
-                                      tmp$1 = JsxRuntime.jsx(EventRsvps.make, {
+                                      tmp$1 = JsxRuntime.jsx(RSVPSection.make, {
                                             event: fragmentRefs,
                                             user: Core__Option.map(viewer, (function (v) {
                                                     return v.fragmentRefs;
@@ -665,9 +665,9 @@ function $$Event(props) {
                                                                                                 })), null),
                                                                                       JsxRuntime.jsxs("div", {
                                                                                             children: [
-                                                                                              JsxRuntime.jsx(LucideReact.List, {
-                                                                                                    className: "mr-2 h-7 w-7 flex-shrink-0 text-gray-500",
-                                                                                                    "aria-hidden": "true"
+                                                                                              JsxRuntime.jsx("span", {
+                                                                                                    children: JsxRuntime.jsx(LucideReact.List, {}),
+                                                                                                    className: "mr-2 h-7 w-7 flex-shrink-0 text-gray-500 inline-flex items-center justify-center"
                                                                                                   }),
                                                                                               t`activity`
                                                                                             ],
@@ -686,7 +686,9 @@ function $$Event(props) {
                                                                                                         })), null),
                                                                                               JsxRuntime.jsx(EventMessages.make, {
                                                                                                     queryRef: queryFragmentRefs,
-                                                                                                    eventStartDate: Core__Option.getOr(Core__Option.map($$event.startDate, Util.Datetime.toDate), new Date())
+                                                                                                    eventStartDate: Core__Option.getOr(Core__Option.map($$event.startDate, Util.Datetime.toDate), new Date()),
+                                                                                                    eventId: $$event.id,
+                                                                                                    viewerHasRsvp: $$event.viewerHasRsvp
                                                                                                   })
                                                                                             ],
                                                                                             className: "ml-3 border-gray-200 border-l-4 pl-5 mt-4"
@@ -715,7 +717,8 @@ function $$Event(props) {
                                                                     })
                                                               ],
                                                               className: "mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-4 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-                                                            })
+                                                            }),
+                                                        className: "pb-96 md:pb-0"
                                                       })
                                                 ]
                                               });
@@ -729,8 +732,11 @@ function $$Event(props) {
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/Event.re/en"),
       ja: import("../../locales/src/components/pages/Event.re/ja"),
-      en: import("../../locales/src/components/pages/Event.re/en")
+      th: import("../../locales/src/components/pages/Event.re/th"),
+      zhTW: import("../../locales/src/components/pages/Event.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/Event.re/zh-CN")
     });
 
 async function loader(param) {

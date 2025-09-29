@@ -8,8 +8,8 @@ import * as UiAction from "../atoms/UiAction.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
-import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
 import * as FramerMotion from "framer-motion";
+import * as EventRsvpUserBar from "./EventRsvpUserBar.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as Solid from "@heroicons/react/24/solid";
 
@@ -143,7 +143,7 @@ function SelectPlayersList(props) {
                                                                                 }),
                                                                               children: Core__Option.getOr(Core__Option.flatMap(player.data, (function (data) {
                                                                                           return Core__Option.map(data.user, (function (user) {
-                                                                                                        return JsxRuntime.jsx(EventRsvpUser.make, {
+                                                                                                        return JsxRuntime.jsx(EventRsvpUserBar.make, {
                                                                                                                     user: user.fragmentRefs
                                                                                                                   });
                                                                                                       }));

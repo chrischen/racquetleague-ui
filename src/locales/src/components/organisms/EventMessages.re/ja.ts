@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OiNSxX\":\"ウェイトリストから参加\",\"1Ogj4M\":\"参加しました\",\"FVnbiB\":\"離れました\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OiNSxX\":\"ウェイトリストから参加\",\"1Ogj4M\":\"参加しました\",\"FVnbiB\":\"離れました\",\"aXFOuf\":\"まだアクティビティがありません\",\"tfDRzk\":\"保存\",\"WRzDEM\":\"ステータスメッセージ\",\"C/pi+J\":\"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してください。\"}");

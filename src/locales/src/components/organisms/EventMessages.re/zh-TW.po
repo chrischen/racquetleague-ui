@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventMessages.re.mjs:258
+msgid "joined from waitlist"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:252
+msgid "joined the event"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:255
+msgid "left the event"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:172
+msgid "No activity yet"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:125
+msgid "Save"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:111
+msgid "Status message"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:118
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr ""

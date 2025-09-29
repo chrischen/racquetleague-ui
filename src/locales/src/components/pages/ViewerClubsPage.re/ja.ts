@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"5TE/8f\":\"私のサークル\",\"v9mk9S\":\"You are not an admin of any clubs.\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"5TE/8f\":\"私のサークル\",\"v9mk9S\":\"あなたはどのクラブの管理者でもありません。\"}");

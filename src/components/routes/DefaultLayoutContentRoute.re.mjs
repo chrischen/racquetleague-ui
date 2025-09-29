@@ -10,8 +10,11 @@ import { t } from '@lingui/macro'
 ;
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/en"),
       ja: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/ja"),
-      en: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/en")
+      th: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/zh-CN")
     });
 
 var Component = DefaultLayoutContentPage.make;

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"vxHMzr\":\"地址\",\"FTtysD\":\"必须填写地址\",\"MEvVfp\":\"Akabane Elementary School\",\"d8/6/v\":\"取消\",\"Px+rYS\":\"详情\",\"ZwC8OW\":\"适用于在此地点举办的所有活动的说明或信息。\",\"vCYnNv\":\"位置\",\"lmnGGX\":\"地图链接\",\"XmJfZT\":\"名称\",\"26Gms/\":\"必须填写名称\",\"lMpZmf\":\"保存\"}");

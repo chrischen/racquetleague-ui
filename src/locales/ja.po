@@ -2152,6 +2152,123 @@ msgstr "メンバー管理"
 msgid "Status message"
 msgstr "ステータスメッセージ"
 
+#: src/components/organisms/EventHeader.re.mjs:61
+msgid "Unknown club"
+msgstr "不明なクラブ"
+
+#: src/components/organisms/EventHeader.re.mjs:163
+msgid "Unknown location"
+msgstr "不明な場所"
+
+#: src/components/organisms/EventHeader.re.mjs:48
+msgid "Untitled event"
+msgstr "無題のイベント"
+
+#: src/components/organisms/EventRsvps2.re.mjs:462
+msgid "Confirmed"
+msgstr "確認済み"
+
+#: src/components/organisms/EventRsvps2.re.mjs:416
+msgid "Join Event"
+msgstr "イベントに参加"
+
+#: src/components/organisms/EventRsvps2.re.mjs:430
+msgid "Leave Event"
+msgstr "イベントを退出"
+
+#: src/components/organisms/EventRsvps2.re.mjs:626
+msgid "Load more"
+msgstr "もっと読み込む"
+
+#: src/components/organisms/EventRsvps2.re.mjs:424
+msgid "Login to Join"
+msgstr "ログインして参加"
+
+#: src/components/organisms/EventRsvps2.re.mjs:517
+msgid "No players yet"
+msgstr "まだプレーヤーがいません"
+
+#: src/components/organisms/EventRsvps2.re.mjs:407
+msgid "Rating Too Low"
+msgstr "レーティングが低すぎます"
+
+#: src/components/organisms/EventRsvps2.re.mjs:440
+msgid "RSVPs"
+msgstr "参加申込"
+
+#: src/components/organisms/EventRsvps2.re.mjs:529
+msgid "Waitlist"
+msgstr "キャンセル待ち"
+
+#: src/components/organisms/RSVPSection.re.mjs:309
+#: src/components/organisms/RSVPSection.re.mjs:345
+msgid "Going"
+msgstr "参加"
+
+#: src/components/organisms/RSVPSection.re.mjs:326
+msgid "Maybe"
+msgstr "たぶん"
+
+#: src/components/organisms/RSVPSection.re.mjs:399
+msgid "more"
+msgstr "もっと見る"
+
+#: src/components/organisms/RSVPSection.re.mjs:298
+msgid "RSVP"
+msgstr "参加申込"
+
+#: src/components/organisms/RSVPSection.re.mjs:365
+msgid "Show all"
+msgstr "全て表示"
+
+#: src/components/organisms/RSVPSection.re.mjs:356
+msgid "Show less"
+msgstr "折りたたむ"
+
+#: src/components/pages/EventPage.re.mjs:117
+msgid "Event not found"
+msgstr "イベントが見つかりません"
+
+#: src/components/pages/EventPage.re.mjs:71
+msgid "No event details provided."
+msgstr "イベントの詳細が提供されていません。"
+
+#: src/components/pages/EventPage.re.mjs:74
+msgid "No location details provided."
+msgstr "場所の詳細が提供されていません。"
+
+#: src/components/organisms/RSVPSection.re.mjs:296
+msgid "Join"
+msgstr "参加"
+
+#: src/components/organisms/RSVPSection.re.mjs:288
+msgid "Waitlisted"
+msgstr "キャンセル待ち中"
+
+#: src/components/organisms/RSVPSection.re.mjs:291
+msgid "You're Going"
+msgstr "参加中"
+
+#: src/components/organisms/EventMessages.re.mjs:172
+msgid "No activity yet"
+msgstr "まだアクティビティがありません"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr "+{0}人他"
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr "キャンセル待ち中です"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:198
+msgid "Recreational play suitable for all skill levels"
+msgstr "すべてのスキルレベルに適したレクリエーションプレー"
+
+#: src/components/pages/ClubsPage.re.mjs:96
+msgid "You are not an admin of any clubs."
+msgstr "あなたはどのクラブの管理者でもありません。"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

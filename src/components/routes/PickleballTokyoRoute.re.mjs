@@ -9,8 +9,11 @@ import * as PickleballTokyoPage from "../pages/PickleballTokyoPage.re.mjs";
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/PickleballTokyoPage.re/en"),
       ja: import("../../locales/src/components/pages/PickleballTokyoPage.re/ja"),
-      en: import("../../locales/src/components/pages/PickleballTokyoPage.re/en")
+      th: import("../../locales/src/components/pages/PickleballTokyoPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-CN")
     });
 
 async function loader(param) {

@@ -4,7 +4,6 @@ import * as I18n from "../../lib/I18n.re.mjs";
 import * as React from "react";
 import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
-import * as NotFound from "../pages/NotFound.re.mjs";
 import * as InfoAlert from "../molecules/InfoAlert.re.mjs";
 import * as Localized from "./i18n/Localized.re.mjs";
 import * as ReactIntl from "react-intl";
@@ -37,26 +36,14 @@ var LocaleContext = {
 
 function LangProvider(props) {
   var data = ReactRouterDom.useLoaderData();
-  var match = data.lang;
-  var locale;
-  switch (match) {
-    case "en" :
-        locale = "en";
-        break;
-    case "ja" :
-        locale = "ja";
-        break;
-    default:
-      locale = undefined;
-  }
   return JsxRuntime.jsx(make, {
               children: JsxRuntime.jsx(React$1.I18nProvider, {
                     i18n: Lingui.i18n,
-                    children: locale !== undefined ? JsxRuntime.jsx(ReactIntl.IntlProvider, {
-                            locale: locale,
-                            timeZone: data.timezone,
-                            children: JsxRuntime.jsx(ReactRouterDom.Outlet, {})
-                          }) : JsxRuntime.jsx(NotFound.make, {})
+                    children: JsxRuntime.jsx(ReactIntl.IntlProvider, {
+                          locale: data.lang,
+                          timeZone: data.timezone,
+                          children: JsxRuntime.jsx(ReactRouterDom.Outlet, {})
+                        })
                   }),
               value: data
             });
@@ -142,8 +129,11 @@ function LangProvider$DetectedLang(props) {
           Core__Option.map(locale.detectedLang, (function (detectedLang) {
                   if (detectedLang !== locale.lang) {
                     return Localized.loadMessages(detectedLang, Lingui.loadMessagesForDetected({
+                                      en: import("../../locales/src/components/pages/DefaultLayoutMap.re/en"),
                                       ja: import("../../locales/src/components/pages/DefaultLayoutMap.re/ja"),
-                                      en: import("../../locales/src/components/pages/DefaultLayoutMap.re/en")
+                                      th: import("../../locales/src/components/pages/DefaultLayoutMap.re/th"),
+                                      zhTW: import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-TW"),
+                                      zhCN: import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-CN")
                                     })).then(function (param) {
                                 Lingui.detectedI18n.activate(detectedLang);
                                 setLangNotice(function (param) {

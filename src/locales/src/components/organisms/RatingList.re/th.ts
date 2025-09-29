@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"k9aPnD\":\"...โหลดผู้เล่นเรตติ้งสูงกว่า\",\"M9iqFS\":\"หญิง\",\"UqCm6U\":\"โหลดผู้เล่นเพิ่มเติม...\",\"CvCWBI\":\"ชาย\"}");

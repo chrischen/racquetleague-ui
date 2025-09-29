@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/ClubMembersPage.re.mjs:165
+msgid "Approve"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:177
+msgid "Are you sure you want to remove {0} from the club?"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:422
+msgid "club not found"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:402
+msgid "Members"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:351
+msgid "No members found"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:326
+msgid "Pending"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:174
+msgid "Remove"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:176
+msgid "Remove member?"
+msgstr ""

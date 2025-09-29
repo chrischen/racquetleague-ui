@@ -1,0 +1,328 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:132
+#: src/components/pages/Event.re.mjs:759
+msgid "Badminton"
+msgstr "羽毛球"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:136
+#: src/components/pages/Event.re.mjs:762
+msgid "Table Tennis"
+msgstr "乒乓球"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:140
+#: src/components/pages/Event.re.mjs:765
+msgid "Pickleball"
+msgstr "匹克球"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:144
+#: src/components/pages/Event.re.mjs:768
+msgid "Futsal"
+msgstr "五人制足球"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:771
+msgid "drill"
+msgstr "训练"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:774
+msgid "comp"
+msgstr "竞赛"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:777
+msgid "rec"
+msgstr "休闲"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:780
+msgid "all level"
+msgstr "所有级别"
+
+#: src/components/pages/Event.re.mjs:238
+msgid "{0} hours"
+msgstr "{0} 小时"
+
+#: src/components/pages/Event.re.mjs:240
+msgid "{0} hours and {1} minutes"
+msgstr "{0} 小时 {1} 分钟"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr "+{0} 人"
+
+#: src/components/pages/Event.re.mjs:672
+msgid "activity"
+msgstr "活动"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "高级球员"
+
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/pages/Event.re.mjs:283
+msgid "cancel event"
+msgstr "取消活动"
+
+#: src/components/pages/Event.re.mjs:388
+msgid "CANCELED"
+msgstr "已取消"
+
+#: src/components/pages/Event.re.mjs:584
+msgid "details"
+msgstr "详情"
+
+#: src/components/pages/Event.re.mjs:266
+msgid "edit event"
+msgstr "编辑活动"
+
+#: src/components/pages/Event.re.mjs:367
+msgid "event @"
+msgstr "活动地点："
+
+#: src/components/pages/Event.re.mjs:728
+msgid "event doesn't exist"
+msgstr "活动不存在"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "活动标签：{tag}"
+
+#: src/components/organisms/RSVPSection.re.mjs:496
+msgid "Going"
+msgstr "将参加"
+
+#: src/components/pages/Event.re.mjs:642
+msgid "good luck, have fun"
+msgstr "好运，玩得开心"
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
+msgstr "谷歌日历"
+
+#: src/components/organisms/EventFullNames.re.mjs:78
+msgid "guest list"
+msgstr "客人列表"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "高技能球员"
+
+#: src/components/pages/Event.re.mjs:434
+msgid "hosted by {name}"
+msgstr "由 {name} 主办"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+msgid "Join"
+msgstr "加入"
+
+#: src/components/organisms/EventMessages.re.mjs:258
+msgid "joined from waitlist"
+msgstr "从等待列表加入"
+
+#: src/components/organisms/EventMessages.re.mjs:252
+msgid "joined the event"
+msgstr "加入了活动"
+
+#: src/components/pages/Event.re.mjs:558
+msgid "league"
+msgstr "联盟"
+
+#: src/components/organisms/EventMessages.re.mjs:255
+msgid "left the event"
+msgstr "退出了活动"
+
+#: src/components/organisms/RSVPSection.re.mjs:630
+msgid "Load more"
+msgstr "加载更多"
+
+#: src/components/organisms/RSVPSection.re.mjs:627
+msgid "Loading..."
+msgstr "加载中..."
+
+#: src/components/pages/Event.re.mjs:529
+msgid "login to subscribe to {activityName} events"
+msgstr "登录以订阅 {activityName} 活动"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "中级初级及以上"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "比赛结果将提交至 DUPR。"
+
+#: src/components/pages/Event.re.mjs:703
+msgid "media"
+msgstr "媒体"
+
+#: src/components/organisms/EventMessages.re.mjs:172
+msgid "No activity yet"
+msgstr "尚无活动"
+
+#: src/components/organisms/EventFullNames.re.mjs:97
+msgid "no players yet"
+msgstr "还没有球员"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "没有技能等级限制。对所有球员开放。"
+
+#: src/components/pages/Event.re.mjs:652
+msgid "notes"
+msgstr "备注"
+
+#: src/components/organisms/RSVPSection.re.mjs:412
+#: src/components/organisms/RSVPSection.re.mjs:602
+msgid "Pending"
+msgstr "待审核"
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+msgid "Player"
+msgstr "球员"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "职业球员"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
+
+#: src/components/organisms/RSVPSection.re.mjs:389
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "最低评分要求：{0}（DUPR {1}）"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "比赛结果将提交至竞技评分系统。"
+
+#: src/components/organisms/RSVPSection.re.mjs:438
+msgid "RSVP"
+msgstr "报名"
+
+#: src/components/organisms/RSVPSection.re.mjs:231
+#: src/components/organisms/EventMessages.re.mjs:125
+#: src/components/pages/Event.re.mjs:179
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+msgid "Show all"
+msgstr "查看全部"
+
+#: src/components/organisms/RSVPSection.re.mjs:507
+msgid "Show less"
+msgstr "收起"
+
+#: src/components/pages/Event.re.mjs:312
+msgid ""
+"showing up without permission may result in a ban for failing to follow "
+"rules."
+msgstr "未经许可出现可能会因违反规则而被禁止。"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "技能练习和专注于技术提高的训练"
+
+#: src/components/organisms/EventMessages.re.mjs:111
+#: src/components/pages/Event.re.mjs:165
+msgid "Status message"
+msgstr "状态信息"
+
+#: src/components/pages/Event.re.mjs:563
+msgid "submit matches"
+msgstr "提交比赛结果"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:112
+msgid "subscribe to all {activityName} events"
+msgstr "订阅所有 {activityName} 活动"
+
+#: src/components/molecules/AddToCalendar.re.mjs:87
+msgid "sync calendar"
+msgstr "同步日历"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
+
+#: src/components/pages/Event.re.mjs:309
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first to get a referral."
+msgstr ""
+"这是一个需要俱乐部成员身份的私人活动。要加入此俱乐部，请先参加日本匹克球联盟"
+"活动以获取推荐。"
+
+#: src/components/organisms/RSVPSection.re.mjs:215
+#: src/components/organisms/RSVPSection.re.mjs:216
+#: src/components/organisms/EventMessages.re.mjs:118
+#: src/components/pages/Event.re.mjs:172
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
+
+#: src/components/pages/Event.re.mjs:272
+msgid "uncancel event"
+msgstr "取消取消活动"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:91
+msgid "unsubscribe from {activityName} events"
+msgstr "取消订阅 {activityName} 活动"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "中高级及以上"
+
+#: src/components/pages/Event.re.mjs:316
+msgid "view events"
+msgstr "查看活动"
+
+#: src/components/organisms/RSVPSection.re.mjs:567
+msgid "Waitlist"
+msgstr "等待列表"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:104
+msgid "you will receive email notifications for new events"
+msgstr "您将收到新活动的邮件通知"
+
+#: src/components/organisms/RSVPSection.re.mjs:419
+msgid "You're Going"
+msgstr "您将参加"
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr "您在等待列表中"
+
+#: src/components/organisms/RSVPSection.re.mjs:391
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
+"制降低。请参加其他 JPL 评级活动来提高您的评分。"

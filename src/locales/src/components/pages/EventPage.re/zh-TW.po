@@ -1,0 +1,249 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:262
+msgid "Badminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:265
+msgid "Table Tennis"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:268
+msgid "Pickleball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:271
+msgid "Futsal"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:274
+msgid "drill"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:277
+msgid "comp"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:280
+msgid "rec"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:283
+msgid "all level"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{0} hours"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:55
+msgid "{0} hours and {1} minutes"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:151
+msgid "cancel event"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:78
+msgid "CANCELED"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:134
+msgid "edit event"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:228
+msgid "Event not found"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:496
+msgid "Going"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+msgid "Join"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:258
+msgid "joined from waitlist"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:252
+msgid "joined the event"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:255
+msgid "left the event"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:630
+msgid "Load more"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:627
+msgid "Loading..."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:172
+msgid "No activity yet"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:121
+msgid "No event details provided."
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:124
+msgid "No location details provided."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:412
+#: src/components/organisms/RSVPSection.re.mjs:602
+msgid "Pending"
+msgstr ""
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+msgid "Player"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:389
+msgid "Required rating: {0} (DUPR {1})"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:438
+msgid "RSVP"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:231
+#: src/components/organisms/EventMessages.re.mjs:125
+msgid "Save"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+msgid "Show all"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:507
+msgid "Show less"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:111
+msgid "Status message"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:172
+msgid "submit matches"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:215
+#: src/components/organisms/RSVPSection.re.mjs:216
+#: src/components/organisms/EventMessages.re.mjs:118
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:140
+msgid "uncancel event"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:116
+msgid "Unknown club"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:236
+msgid "Unknown location"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:567
+msgid "Waitlist"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:419
+msgid "You're Going"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:391
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""

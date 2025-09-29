@@ -1,0 +1,1913 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-15 18:22+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/CreateEvent.mjs:84
+msgid "End Date"
+msgstr "วันที่สิ้นสุด"
+
+#: src/components/pages/CreateEvent.mjs:74
+msgid "Start Date"
+msgstr "วันที่เริ่มต้น"
+
+#: src/components/pages/CreateEvent.mjs:64
+msgid "Title"
+msgstr "หัวข้อ"
+
+#: src/components/organisms/Nav.mjs:79
+msgid "(Logout)"
+msgstr "(ออกจากระบบ)"
+
+#: src/components/organisms/AiTetsu.re.mjs:1519
+msgid "{0} {breakPlayersDesc} are not playing"
+msgstr "{0} {breakPlayersDesc} ไม่ได้เล่น"
+
+#: src/components/organisms/MatchesView.re.mjs:232
+msgid "{0} player selected"
+msgstr "เลือกผู้เล่น {0} คน"
+
+#: src/components/organisms/MatchesView.re.mjs:233
+msgid "{0} players selected"
+msgstr "เลือกผู้เล่น {0} คน"
+
+#: src/components/organisms/AiTetsu.re.mjs:950
+msgid "{breakPlayersCount, plural, one {player} other {players}}"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/MatchesView.re.mjs:231
+msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
+msgstr "{0}"
+
+#: src/components/organisms/MatchesView.re.mjs:257
+#: src/components/organisms/AiTetsu.re.mjs:341
+msgid "# of courts"
+msgstr "จำนวนคอร์ต"
+
+#: src/components/organisms/MatchesView.re.mjs:642
+msgid "Actions"
+msgstr "การกระทำ"
+
+#: src/components/organisms/AiTetsu.re.mjs:1038
+msgid "Add Guest"
+msgstr "เพิ่มแขก"
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:50
+msgid "Add Guest Player"
+msgstr "เพิ่มผู้เล่นแขก"
+
+#: src/components/organisms/AiTetsu.re.mjs:1057
+msgid "Add Player"
+msgstr "เพิ่มผู้เล่น"
+
+#: src/components/organisms/MatchesView.re.mjs:133
+msgid "Add/Remove Players"
+msgstr "เพิ่ม/ลบผู้เล่น"
+
+#: src/components/organisms/AiTetsu.re.mjs:1437
+msgid "Advanced Options"
+msgstr "ตัวเลือกขั้นสูง"
+
+#: src/components/organisms/CompMatch.re.mjs:365
+msgid "Analyzed {0} matches."
+msgstr "วิเคราะห์แมทช์แล้ว {0} แมทช์"
+
+#: src/components/organisms/MatchesView.re.mjs:608
+#: src/components/organisms/MatchesView.re.mjs:611
+msgid "and"
+msgstr "และ"
+
+#: src/components/molecules/forms/Form.re.mjs:300
+msgid "cancel"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/SubmitMatch.re.mjs:257
+#: src/components/organisms/SortableSubmitMatch.re.mjs:305
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/AiTetsu.re.mjs:1452
+msgid "Checkin All Players"
+msgstr "เช็คอินผู้เล่นทั้งหมด"
+
+#: src/components/organisms/MatchesView.re.mjs:631
+msgid "Choose Match"
+msgstr "เลือกแมทช์"
+
+#: src/components/organisms/MatchesView.re.mjs:540
+msgid "CHOOSE MATCH"
+msgstr "เลือกแมทช์"
+
+#: src/components/organisms/AiTetsu.re.mjs:1329
+msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
+msgstr "ล้างเซสชั่น (เรตติ้ง, จำนวนการแข่งขัน และผู้เล่นแขก)"
+
+#: src/components/ui/ModalDrawer.re.mjs:43
+msgid "Close panel"
+msgstr "ปิดแผง"
+
+#: src/components/organisms/CompMatch.re.mjs:230
+msgid "Competitive"
+msgstr "แข่งขัน"
+
+#: src/components/organisms/MatchesView.re.mjs:612
+msgid "Court {0}: {team1} versus {team2}"
+msgstr "คอร์ต {0}: {team1} เทียบ {team2}"
+
+#: src/components/organisms/AiTetsu.re.mjs:1194
+msgid "Create Anti-Team"
+msgstr "สร้างแอนตี้ทีม"
+
+#: src/components/organisms/AiTetsu.re.mjs:210
+#: src/components/organisms/AiTetsu.re.mjs:1170
+msgid "Create Team"
+msgstr "สร้างทีม"
+
+#: src/components/organisms/AiTetsu.re.mjs:1077
+msgid "Done"
+msgstr "เสร็จ"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:323
+msgid "Enter Score"
+msgstr "ป้อนคะแนน"
+
+#: src/components/organisms/AiTetsu.re.mjs:1172
+msgid "Fixed Pair"
+msgstr "คู่ครอง"
+
+#: src/components/organisms/CompMatch.re.mjs:359
+msgid "Gender Mixed Doubles"
+msgstr "คู่คล้องผสมเพศ"
+
+#: src/components/organisms/SubmitMatch.re.mjs:390
+msgid "Go Back"
+msgstr "กลับ"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:38
+msgid "How many players should rest? (currently {0} players are resting)"
+msgstr "ผู้เล่นกี่คนควรพัก? (ปัจจุบันมีผู้เล่น {0} คนกำลังพัก)"
+
+#: src/components/organisms/AiTetsu.re.mjs:1323
+msgid "Initialize Ratings"
+msgstr "ตั้งค่าเรตติ้งเริ่มต้น"
+
+#: src/components/organisms/AiTetsu.re.mjs:1403
+msgid "Leaderboard"
+msgstr "กระดานผู้นำ"
+
+#: src/components/organisms/SelectMatch.re.mjs:279
+msgid "left team players"
+msgstr "ผู้เล่นทีมซ้าย"
+
+#: src/components/organisms/SubmitMatch.re.mjs:409
+#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+#: src/components/organisms/AiTetsu.re.mjs:1554
+msgid "Loading"
+msgstr "กำลังโหลด"
+
+#: src/components/organisms/AiTetsu.re.mjs:1428
+msgid "Loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/organisms/AiTetsu.re.mjs:1534
+msgid "manual team"
+msgstr "ทีมแมนนวล"
+
+#: src/components/organisms/AiTetsu.re.mjs:1571
+msgid "Match History"
+msgstr "ประวัติแมทช์"
+
+#: src/components/organisms/MatchesView.re.mjs:599
+msgid "Matches"
+msgstr "แมทช์"
+
+#: src/components/organisms/CompMatch.re.mjs:232
+msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
+msgstr "แมทช์ถูกจัดโดยความแตกต่างของทักษะสูงสุด +- 1 คน"
+
+#: src/components/organisms/CompMatch.re.mjs:237
+msgid "Matches are arranged by skill while mixing strong and weak players."
+msgstr "แมทช์ถูกจัดตามทักษะโดยผสมผู้เล่นเก่งและอ่อน"
+
+#: src/components/organisms/CompMatch.re.mjs:235
+msgid "Mixed"
+msgstr "ผสม"
+
+#: src/components/organisms/SelectMatch.re.mjs:136
+msgid "no players yet"
+msgstr "ยังไม่มีผู้เล่น"
+
+#: src/components/organisms/CompMatch.re.mjs:410
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr ""
+"ผู้เล่นในคิวไม่เพียงพอ เลือกผู้เล่นที่ต้องการเล่นจาก "
+"แท็บคิว"
+
+#: src/components/organisms/AiTetsu.re.mjs:1370
+#: src/components/organisms/AiTetsu.re.mjs:1392
+msgid "Offline Mode"
+msgstr "โหมดออฟไลน์"
+
+#: src/components/organisms/CompMatch.re.mjs:386
+msgid "Played last round"
+msgstr "เล่นรอบที่แล้ว"
+
+#: src/components/organisms/SelectMatch.re.mjs:91
+msgid "Player"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:42
+msgid "Player Name"
+msgstr "ชื่อผู้เล่น"
+
+#: src/components/organisms/AiTetsu.re.mjs:1176
+msgid ""
+"Players in a team will always be placed in a match together on the same side."
+msgstr ""
+"ผู้เล่นในทีมจะถูกจับคู่ในการแข่งขันด้วยกันเสมอในข้างเดียวกัน"
+
+#: src/components/organisms/AiTetsu.re.mjs:1197
+msgid "Players in an anti-team will never be placed in a match together."
+msgstr "ผู้เล่นในแอนตี้-ทีมจะไม่ถูกจับคู่ในการแข่งขันด้วยกันเลย"
+
+#: src/components/organisms/AiTetsu.re.mjs:1251
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
+msgstr ""
+"ผู้เล่นในทีมจะถูกจับคู่ในการแข่งขันด้วยกันเสมอในข้างเดียวกัน"
+
+#: src/components/organisms/SubmitMatch.re.mjs:315
+#: src/components/organisms/SubmitMatch.re.mjs:359
+#: src/components/organisms/SortableSubmitMatch.re.mjs:357
+#: src/components/organisms/SortableSubmitMatch.re.mjs:405
+msgid "Points"
+msgstr "คะแนน"
+
+#: src/components/organisms/SubmitMatch.re.mjs:52
+#: src/components/organisms/SubmitMatch.re.mjs:64
+#: src/components/organisms/SortableSubmitMatch.re.mjs:57
+#: src/components/organisms/SortableSubmitMatch.re.mjs:69
+msgid "predicted winner"
+msgstr "ผู้ชนะที่คาดการณ์"
+
+#: src/components/organisms/MatchesView.re.mjs:584
+msgid "Queue"
+msgstr "คิว"
+
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
+msgid "Queue All"
+msgstr "จัดคิวทั้งหมด"
+
+#: src/components/organisms/AiTetsu.re.mjs:1445
+msgid "Queue All Players"
+msgstr "จัดคิวผู้เล่นทั้งหมด"
+
+#: src/components/organisms/SelectMatch.re.mjs:328
+msgid "Queue Match"
+msgstr "จัดคิวแมทช์"
+
+#: src/components/organisms/CompMatch.re.mjs:240
+msgid "Random"
+msgstr "สุ่ม"
+
+#: src/components/organisms/CompMatch.re.mjs:498
+msgid "Recommended Match"
+msgstr "แมทช์ที่แนะนำ"
+
+#: src/components/organisms/SelectMatch.re.mjs:303
+msgid "right team players"
+msgstr "ผู้เล่นทีมขวา"
+
+#: src/components/molecules/forms/Form.re.mjs:307
+msgid "save"
+msgstr "บันทึก"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+msgid "Save"
+msgstr "บันทึก"
+
+#: src/components/organisms/CompMatch.re.mjs:130
+msgid "Select"
+msgstr "เลือก"
+
+#: src/components/organisms/CompMatch.re.mjs:298
+msgid "Select a tab"
+msgstr "เลือกแท็บ"
+
+#: src/components/organisms/AiTetsu.re.mjs:1234
+msgid "Set as Female"
+msgstr "ตั้งเป็นหญิง"
+
+#: src/components/organisms/AiTetsu.re.mjs:1216
+msgid "Set as Male"
+msgstr "ตั้งเป็นชาย"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:53
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"กำหนดจำนวนผู้เล่นที่กำลังพักเพื่อให้การแจกจับคู่เท่าๆ กัน "
+"ตั้งค่าเป็น 0 เพื่อปิดการใช้งานและปรับปรุงคุณภาพการแข่งขัน แต่ "
+"อาจทำให้ผู้เล่นบางคนเล่นมากกว่าคนอื่น"
+
+#: src/components/organisms/AiTetsu.re.mjs:1361
+msgid "Start Session"
+msgstr "เริ่มเซสชั่น"
+
+#: src/components/organisms/MatchesView.re.mjs:487
+msgid "START SESSION"
+msgstr "เริ่มเซสชั่น"
+
+#: src/components/organisms/SubmitMatch.re.mjs:397
+msgid "Submit Rated"
+msgstr "ส่งผลที่มีเรตติ้ง"
+
+#: src/components/organisms/MatchesView.re.mjs:506
+msgid "SUBMIT RESULTS"
+msgstr "ส่งผลลัพธ์"
+
+#: src/components/organisms/AiTetsu.re.mjs:1562
+msgid "Submitted Matches"
+msgstr "แมทช์ที่ส่งแล้ว"
+
+#: src/components/organisms/AiTetsu.re.mjs:100
+msgid "Team {0}"
+msgstr "ทีม {0}"
+
+#: src/components/organisms/CompMatch.re.mjs:380
+msgid "This team has played before"
+msgstr "ทีมนี้เคยเล่นกันมาก่อน"
+
+#: src/components/organisms/CompMatch.re.mjs:242
+msgid "Totally random teams."
+msgstr "ทีมสุ่มสิ้นเชิง"
+
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
+msgid "Unqueue All"
+msgstr "ยกเลิกคิวทั้งหมด"
+
+#: src/components/organisms/SubmitMatch.re.mjs:325
+#: src/components/organisms/SubmitMatch.re.mjs:369
+#: src/components/organisms/SortableSubmitMatch.re.mjs:370
+#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+msgid "Winner"
+msgstr "ผู้ชนะ"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:506
+msgid "Badminton"
+msgstr "แบดมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:509
+msgid "Table Tennis"
+msgstr "ปิงปอง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:512
+msgid "Pickleball"
+msgstr "พิคเคิลบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:515
+msgid "Futsal"
+msgstr "ฟุตซอล"
+
+#: src/components/organisms/EventItem.re.mjs:423
+#: src/components/organisms/ClubEventsList.re.mjs:207
+msgid "[location missing]"
+msgstr "[ไม่มีสถานที่]"
+
+#: src/components/organisms/EventItem.re.mjs:365
+msgid "[missing title]"
+msgstr "[ไม่มีหัวข้อ]"
+
+#: src/components/organisms/EventItem.re.mjs:215
+#: src/components/organisms/EventItem.re.mjs:222
+#: src/components/organisms/ClubEventsList.re.mjs:170
+#: src/components/organisms/ClubEventsList.re.mjs:175
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/organisms/EventItem.re.mjs:216
+#: src/components/organisms/EventItem.re.mjs:223
+#: src/components/organisms/ClubEventsList.re.mjs:171
+#: src/components/organisms/ClubEventsList.re.mjs:176
+msgid "{0} hour"
+msgstr "{0} ชั่วโมง"
+
+#: src/components/organisms/EventItem.re.mjs:217
+#: src/components/organisms/EventItem.re.mjs:224
+#: src/components/organisms/ClubEventsList.re.mjs:172
+#: src/components/organisms/ClubEventsList.re.mjs:177
+msgid "{0} hours"
+msgstr "{0} ชั่วโมง"
+
+#: src/components/organisms/EventItem.re.mjs:228
+#: src/components/organisms/ClubEventsList.re.mjs:179
+msgid "{0} minute"
+msgstr "{0} นาที"
+
+#: src/components/organisms/EventItem.re.mjs:229
+#: src/components/organisms/ClubEventsList.re.mjs:180
+msgid "{0} minutes"
+msgstr "{0} นาที"
+
+#: src/components/organisms/EventItem.re.mjs:227
+#: src/components/organisms/ClubEventsList.re.mjs:178
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{0}"
+
+#: src/components/organisms/EventItem.re.mjs:296
+msgid "{playersCount, plural, one {player} other {players}}"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/ClubEventsList.re.mjs:184
+msgid "🚫 CANCELED"
+msgstr "🚫 ยกเลิก"
+
+#: src/components/organisms/ClubEventsList.re.mjs:406
+msgid "clear filter"
+msgstr "ล้างตัวกรอง"
+
+#: src/components/organisms/ClubEventsList.re.mjs:404
+msgid "filtering by date"
+msgstr "กรองตามวันที่"
+
+#: src/components/organisms/EventItem.re.mjs:313
+msgid "join event"
+msgstr "เข้าร่วมกิจกรรม"
+
+#: src/components/organisms/EventItem.re.mjs:260
+msgid "joined"
+msgstr "เข้าร่วมแล้ว"
+
+#: src/components/organisms/EventItem.re.mjs:307
+msgid "leave event"
+msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/EventItem.re.mjs:272
+msgid "pending"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/EventItem.re.mjs:292
+msgid "players"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/ClubEventsList.re.mjs:376
+msgid "share as text"
+msgstr "แชร์เป็นข้อความ"
+
+#: src/components/organisms/ClubEventsList.re.mjs:308
+msgid "show"
+msgstr "แสดง"
+
+#: src/components/organisms/EventItem.re.mjs:266
+msgid "waitlist"
+msgstr "รายชื่อคอย"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:319
+msgid "Basketball"
+msgstr "บาสเก็ตบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:323
+msgid "Volleyball"
+msgstr "วอลเลย์บอล"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:193
+msgid "{0} event details"
+msgstr "รายละเอียดกิจกรรม {0}"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:146
+msgid "{0} events created!"
+msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:236
+msgid "activity"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:61
+msgid "activity is required"
+msgstr "ต้องระบุกิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:194
+msgid "create multiple events at one time"
+msgstr "สร้างหลายกิจกรรมในครั้งเดียว"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:200
+msgid "events"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:91
+msgid "events preview"
+msgstr "ตัวอย่างกิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:58
+msgid "input is required"
+msgstr "ต้องกรอกข้อมูล"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:274
+msgid "list publicly"
+msgstr "แสดงสาธารณะ"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:227
+msgid "loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:212
+msgid "preview events"
+msgstr "ดูตัวอย่างกิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:279
+msgid ""
+"show your event publicly on our home page. Otherwise, only people with a "
+"link to your event will be able to find it."
+msgstr ""
+"แสดงกิจกรรมของคุณแบบสาธารณะในหน้าแรกของเรา มิฉะนั้นจะมีเพียงคนที่มี "
+"ลิงค์ไปยังกิจกรรมของคุณเท่านั้นที่จะสามารถค้นหาได้"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+msgid "type your events in the format above"
+msgstr "พิมพ์กิจกรรมของคุณในรูปแบบข้างต้น"
+
+#: src/components/organisms/CreateClubForm.re.mjs:213
+msgid "about"
+msgstr "เกี่ยวกับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "club"
+msgstr "คลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:194
+msgid "main activity"
+msgstr "กิจกรรมหลัก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:85
+msgid "main activity is required"
+msgstr "ต้องระบุกิจกรรมหลัก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:162
+msgid "name"
+msgstr "ชื่อ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:79
+msgid "name is required"
+msgstr "ต้องระบุชื่อ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+msgid "slug"
+msgstr "สลัก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:216
+msgid "tell people about your club"
+msgstr "บอกคนอื่นเกี่ยวกับคลับของคุณ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:82
+msgid "url slug is required"
+msgstr "ต้องระบุ URL slug"
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+msgid "yubibado"
+msgstr "yubibado"
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+msgid "ゆびバド"
+msgstr "ゆびバド"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:148
+msgid "address"
+msgstr "ที่อยู่"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:75
+msgid "address is required"
+msgstr "ต้องระบุที่อยู่"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:137
+msgid "Akabane Elementary School"
+msgstr "โรงเรียนประถม Akabane"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:167
+msgid "details"
+msgstr "รายละเอียด"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:170
+msgid ""
+"Instructions or information that will apply to all events held at this "
+"location."
+msgstr ""
+"คำแนะนำหรือข้อมูลที่จะใช้กับกิจกรรมทั้งหมดที่จัดขึ้นใน "
+"สถานที่นี้"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:128
+msgid "location"
+msgstr "สถานที่"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:157
+msgid "maps link"
+msgstr "ลิงก์แผนที่"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:532
+msgid "drill"
+msgstr "ฝึกซ้อม"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+msgid "comp"
+msgstr "แข่ง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:540
+msgid "rec"
+msgstr "บันเทิง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:544
+msgid "all level"
+msgstr "ทุกระดับ"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:108
+msgid "add new club"
+msgstr "เพิ่มคลับใหม่"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "ผู้เล่นระดับสูง"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:313
+msgid "All Level"
+msgstr "ทุกระดับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:452
+msgid ""
+"any details from the location will already be included. Mention any "
+"additional event-specific instructions, rules, or details."
+msgstr ""
+"รายละเอียดใดๆ จากสถานที่จะถูกรวมไว้แล้ว ระบุ "
+"คำแนะนำ กฎ หรือรายละเอียดเพิ่มเติมเฉพาะกิจกรรม"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:82
+msgid "choose the club where this event will be held."
+msgstr "เลือกคลับที่จะจัดกิจกรรมนี้"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:344
+msgid "date and start time"
+msgstr "วันที่และเวลาเริ่มต้น"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:304
+msgid "details specific to this event on the specified date and time."
+msgstr "รายละเอียดเฉพาะกิจกรรมนี้ในวันที่และเวลาที่กำหนด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:440
+msgid "edit the location to edit the details for this location."
+msgstr "แก้ไขสถานที่เพื่อแก้ไขรายละเอียดสำหรับสถานที่นี้"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:354
+msgid "end time"
+msgstr "เวลาสิ้นสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:94
+msgid "end time is required"
+msgstr "ต้องระบุเวลาสิ้นสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:91
+msgid "event date is required"
+msgstr "ต้องระบุวันที่กิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:449
+msgid "event details"
+msgstr "รายละเอียดกิจกรรม"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "แท็กกิจกรรม: {tag}"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "ผู้เล่นที่มีทักษะสูงมาก"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:431
+msgid "level of play"
+msgstr "ระดับการเล่น"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:435
+msgid "location details"
+msgstr "รายละเอียดสถานที่"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "ระดับกลางขั้นต้นขึ้นไป"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "การแข่งขันจะถูกส่งไปยัง DUPR"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:377
+msgid "max participants"
+msgstr "ผู้เข้าร่วมสูงสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:389
+msgid "minimum rating"
+msgstr "เรตติ้งต่ำสุด"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "ผู้เล่นมืออาชีพ"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr ""
+"การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:81
+msgid "select club"
+msgstr "เลือกคลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:413
+msgid "Select tags that best describe this event"
+msgstr "เลือกแท็กที่อธิบายกิจกรรมนี้ได้ดีที่สุด"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+"กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต "
+"จากผู้จัดงาน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:364
+msgid "timezone"
+msgstr "เขตเวลา"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:310
+msgid "title"
+msgstr "หัวข้อ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:79
+msgid "title is required"
+msgstr "ต้องระบุหัวข้อ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+msgid "type of event"
+msgstr "ประเภทกิจกรรม"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "ระดับกลางขั้นบนขึ้นไป"
+
+#: src/components/organisms/EventFullNames.re.mjs:78
+msgid "guest list"
+msgstr "รายชื่อแขก"
+
+#: src/components/organisms/EventHeader.re.mjs:55
+msgid "{0} hours and {1} minutes"
+msgstr "{0} ชั่วโมง {1} นาที"
+
+#: src/components/organisms/EventHeader.re.mjs:78
+msgid "CANCELED"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/EventHeader.re.mjs:116
+msgid "Unknown club"
+msgstr "คลับที่ไม่ทราบ"
+
+#: src/components/organisms/EventHeader.re.mjs:236
+msgid "Unknown location"
+msgstr "สถานที่ที่ไม่ทราบ"
+
+#: src/components/organisms/EventMessages.re.mjs:258
+msgid "joined from waitlist"
+msgstr "เข้าร่วมจากรายชื่อคอย"
+
+#: src/components/organisms/EventMessages.re.mjs:252
+msgid "joined the event"
+msgstr "เข้าร่วมกิจกรรม"
+
+#: src/components/organisms/EventMessages.re.mjs:255
+msgid "left the event"
+msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/EventMessages.re.mjs:172
+msgid "No activity yet"
+msgstr "ยังไม่มีกิจกรรม"
+
+#: src/components/organisms/EventMessages.re.mjs:111
+msgid "Status message"
+msgstr "ข้อความสถานะ"
+
+#: src/components/organisms/EventMessages.re.mjs:118
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr ""
+"พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
+
+#: src/components/organisms/EventRsvps.re.mjs:524
+#: src/components/organisms/EventRsvps.re.mjs:678
+msgid "{0, plural, one {player} other {players}}"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/EventRsvps.re.mjs:516
+msgid "{maxRsvps, plural, one {player} other {players}}"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/EventRsvps.re.mjs:628
+msgid "{waitlistCount, plural, one {player} other {players}}"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/RsvpOptions.re.mjs:92
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
+
+#: src/components/organisms/EventRsvps.re.mjs:430
+msgid "attendees"
+msgstr "ผู้เข้าร่วม"
+
+#: src/components/organisms/EventRsvps.re.mjs:509
+msgid "confirmed"
+msgstr "ยืนยันแล้ว"
+
+#: src/components/organisms/EventRsvps.re.mjs:607
+#: src/components/organisms/EventRsvps.re.mjs:659
+#: src/components/organisms/EventRsvps.re.mjs:709
+msgid "load More"
+msgstr "โหลดเพิ่มเติม"
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
+#: src/components/organisms/EventRsvps.re.mjs:365
+msgid "login to join the event"
+msgstr "เข้าสู่ระบบเพื่อเข้าร่วมกิจกรรม"
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+msgid "login with Line"
+msgstr "เข้าสู่ระบบด้วย Line"
+
+#: src/components/organisms/RsvpOptions.re.mjs:79
+msgid "Remove from event"
+msgstr "ลบจากกิจกรรม"
+
+#: src/components/organisms/RsvpOptions.re.mjs:91
+msgid "Remove this RSVP"
+msgstr "ลบการยืนยันนี้"
+
+#: src/components/organisms/EventRsvps.re.mjs:332
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
+
+#: src/components/organisms/EventRsvps.re.mjs:544
+#: src/components/organisms/EventRsvps.re.mjs:554
+msgid "spots available"
+msgstr "ที่ว่าง"
+
+#: src/components/organisms/EventRsvps.re.mjs:391
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน "
+"รายชื่อคอย หากคุณเข้าร่วมใหม่ คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ "
+"ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
+
+#: src/components/organisms/EventRsvps.re.mjs:390
+msgid "You will lose your spot"
+msgstr "คุณจะเสียที่นั่ง"
+
+#: src/components/organisms/EventRsvps.re.mjs:448
+msgid "you're going :)"
+msgstr "คุณจะไป :)"
+
+#: src/components/organisms/EventRsvps.re.mjs:469
+msgid "you're waitlisted :("
+msgstr "คุณอยู่ในรายชื่อคอย :("
+
+#: src/components/organisms/EventRsvps.re.mjs:334
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
+"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
+"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
+
+#: src/components/organisms/EventRsvps2.re.mjs:462
+msgid "Confirmed"
+msgstr "ยืนยันแล้ว"
+
+#: src/components/organisms/EventRsvps2.re.mjs:416
+msgid "Join Event"
+msgstr "เข้าร่วมกิจกรรม"
+
+#: src/components/organisms/EventRsvps2.re.mjs:430
+msgid "Leave Event"
+msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/EventRsvps2.re.mjs:626
+msgid "Load more"
+msgstr "โหลดเพิ่มเติม"
+
+#: src/components/organisms/EventRsvps2.re.mjs:424
+msgid "Login to Join"
+msgstr "เข้าสู่ระบบเพื่อเข้าร่วม"
+
+#: src/components/organisms/EventRsvps2.re.mjs:517
+msgid "No players yet"
+msgstr "ยังไม่มีผู้เล่น"
+
+#: src/components/organisms/EventRsvps2.re.mjs:576
+msgid "Pending"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/EventRsvps2.re.mjs:407
+msgid "Rating Too Low"
+msgstr "เรตติ้งต่ำเกินไป"
+
+#: src/components/organisms/EventRsvps2.re.mjs:440
+msgid "RSVPs"
+msgstr "การยืนยันเข้าร่วม"
+
+#: src/components/organisms/EventRsvps2.re.mjs:529
+msgid "Waitlist"
+msgstr "รายชื่อคอย"
+
+#: src/components/organisms/EventsList.re.mjs:394
+msgid "...load past events"
+msgstr "...โหลดกิจกรรมที่ผ่านมา"
+
+#: src/components/organisms/EventsList.re.mjs:231
+msgid "{0} private {shadowCountDesc} hidden"
+msgstr "{0} ส่วนตัว {shadowCountDesc} ถูกซ่อน"
+
+#: src/components/organisms/EventsList.re.mjs:200
+msgid "{shadowCount, plural, one {event} other {events}}"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/Footer.re.mjs:19
+msgid "copyright the racquet league contributors"
+msgstr "ลิขสิทธิ์โดยผู้ร่วมงาน the racquet league"
+
+#: src/components/molecules/LogoutLink.re.mjs:10
+msgid "(logout)"
+msgstr "(ออกจากระบบ)"
+
+#: src/components/organisms/LeagueNav.re.mjs:114
+msgid "About"
+msgstr "เกี่ยวกับ"
+
+#: src/components/organisms/LeagueNav.re.mjs:110
+msgid "Find Games"
+msgstr "ค้นหาเกม"
+
+#: src/components/organisms/LeagueNav.re.mjs:126
+msgid "Logout"
+msgstr "ออกจากระบบ"
+
+#: src/components/organisms/LeagueNav.re.mjs:253
+msgid "Open main menu"
+msgstr "เปิดเมนูหลัก"
+
+#: src/components/organisms/LeagueNav.re.mjs:200
+msgid "Open user menu"
+msgstr "เปิดเมนูผู้ใช้"
+
+#: src/components/organisms/LeagueNav.re.mjs:206
+#: src/components/organisms/LeagueNav.re.mjs:301
+msgid "Profile picture"
+msgstr "รูปโปรไฟล์"
+
+#: src/components/organisms/LeagueNav.re.mjs:106
+msgid "Rankings"
+msgstr "อันดับ"
+
+#: src/components/organisms/LeagueNav.re.mjs:175
+#: src/components/organisms/LeagueNav.re.mjs:326
+msgid "View notifications"
+msgstr "ดูการแจ้งเตือน"
+
+#: src/components/organisms/LeagueNav.re.mjs:122
+msgid "Your Profile"
+msgstr "โปรไฟล์ของคุณ"
+
+#: src/components/organisms/MatchList.re.mjs:372
+msgid "...load previous matches"
+msgstr "...โหลดแมทช์ก่อนหน้า"
+
+#: src/components/organisms/MatchList.re.mjs:395
+msgid "Load more matches..."
+msgstr "โหลดแมทช์เพิ่มเติม..."
+
+#: src/components/organisms/MatchList.re.mjs:292
+msgid "Score:"
+msgstr "คะแนน:"
+
+#: src/components/organisms/Nav.re.mjs:98
+msgid "racquet league"
+msgstr "แรคเก็ต ลีก"
+
+#: src/components/organisms/NavViewer.re.mjs:71
+msgid "My Clubs"
+msgstr "คลับของฉัน"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "My Events"
+msgstr "กิจกรรมของฉัน"
+
+#: src/components/organisms/NavViewer.re.mjs:77
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "...load higher rated players"
+msgstr "...โหลดผู้เล่นเรตติ้งสูงกว่า"
+
+#: src/components/organisms/RatingList.re.mjs:202
+msgid "Female"
+msgstr "หญิง"
+
+#: src/components/organisms/RatingList.re.mjs:295
+msgid "Load more players..."
+msgstr "โหลดผู้เล่นเพิ่มเติม..."
+
+#: src/components/organisms/RatingList.re.mjs:204
+msgid "Male"
+msgstr "ชาย"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+msgid "+{0} more"
+msgstr "+{0} คน"
+
+#: src/components/organisms/RSVPSection.re.mjs:496
+msgid "Going"
+msgstr "จะไป"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+msgid "Join"
+msgstr "เข้าร่วม"
+
+#: src/components/organisms/RSVPSection.re.mjs:438
+msgid "RSVP"
+msgstr "ยืนยันการเข้าร่วม"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+msgid "Show all"
+msgstr "แสดงทั้งหมด"
+
+#: src/components/organisms/RSVPSection.re.mjs:507
+msgid "Show less"
+msgstr "แสดงน้อยลง"
+
+#: src/components/organisms/RSVPSection.re.mjs:419
+msgid "You're Going"
+msgstr "คุณจะไป"
+
+#: src/components/organisms/RSVPSection.re.mjs:416
+msgid "You're Waitlisted"
+msgstr "คุณอยู่ในรายชื่อคอย"
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:36
+msgid "seeking a doubles partner"
+msgstr "กำลังมองหาคู่คู่"
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:41
+msgid ""
+"shows a badge next to your name in RSVP lists to tell people you are looking "
+"for a partner"
+msgstr ""
+"แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา "
+"คู่หู"
+
+#: src/components/organisms/SelectedLocation.re.mjs:69
+msgid "change location"
+msgstr "เปลี่ยนสถานที่"
+
+#: src/components/organisms/SelectedLocation.re.mjs:53
+msgid "choose the location where this event will be held."
+msgstr "เลือกสถานที่ที่จะจัดกิจกรรมนี้"
+
+#: src/components/organisms/SelectedLocation.re.mjs:52
+msgid "event location"
+msgstr "สถานที่จัดกิจกรรม"
+
+#: src/components/organisms/SelectLocation.re.mjs:71
+msgid "add new location"
+msgstr "เพิ่มสถานที่ใหม่"
+
+#: src/components/organisms/SelectPlayersList.re.mjs:98
+msgid "Match Count"
+msgstr "จำนวนแมทช์"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:201
+msgid "biography"
+msgstr "ประวัติส่วนตัว"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:166
+msgid "details about yourself"
+msgstr "รายละเอียดเกี่ยวกับตัวคุณ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:178
+msgid "Doe John"
+msgstr "Doe John"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:174
+msgid "full name"
+msgstr "ชื่อเต็ม"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:165
+msgid "profile"
+msgstr "โปรไฟล์"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:176
+msgid "Some events require your legal name as shown on an ID card."
+msgstr "กิจกรรมบางกิจกรรมต้องการชื่อจริงของคุณตามที่แสดงในบัตรประจำตัว"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:204
+msgid "tell us a little about yourself"
+msgstr "เล่าให้ฟังเกี่ยวกับตัวคุณสักนิด"
+
+#: src/components/pages/ClubMembersPage.re.mjs:165
+msgid "Approve"
+msgstr "อนุมัติ"
+
+#: src/components/pages/ClubMembersPage.re.mjs:177
+msgid "Are you sure you want to remove {0} from the club?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบ {0} ออกจากคลับ?"
+
+#: src/components/pages/ClubMembersPage.re.mjs:422
+msgid "club not found"
+msgstr "ไม่พบคลับ"
+
+#: src/components/pages/ClubMembersPage.re.mjs:402
+msgid "Members"
+msgstr "สมาชิก"
+
+#: src/components/pages/ClubMembersPage.re.mjs:351
+msgid "No members found"
+msgstr "ไม่พบสมาชิก"
+
+#: src/components/pages/ClubMembersPage.re.mjs:174
+msgid "Remove"
+msgstr "ลบ"
+
+#: src/components/pages/ClubMembersPage.re.mjs:176
+msgid "Remove member?"
+msgstr "ลบสมาชิกหรือไม่?"
+
+#: src/components/pages/ClubPage.re.mjs:203
+msgid "Cancel Request"
+msgstr "ยกเลิกคำขอ"
+
+#: src/components/pages/ClubPage.re.mjs:93
+msgid "Click the link to select it for easy copying."
+msgstr "คลิกลิงก์เพื่อเลือกและคัดลอกได้ง่าย"
+
+#: src/components/pages/ClubPage.re.mjs:193
+msgid "Leave club"
+msgstr "ออกจากคลับ"
+
+#: src/components/pages/ClubPage.re.mjs:233
+msgid "Manage Members"
+msgstr "จัดการสมาชิก"
+
+#: src/components/pages/ClubPage.re.mjs:221
+msgid "Request to join"
+msgstr "ขอเข้าร่วม"
+
+#: src/components/pages/ClubPage.re.mjs:75
+msgid "Shareable Link"
+msgstr "ลิงก์ที่แชร์ได้"
+
+#: src/components/pages/CreateClubEventsPage.re.mjs:60
+msgid "club doesn't exist."
+msgstr "ไม่มีคลับนี้"
+
+#: src/components/pages/CreateLocationEventPage.re.mjs:63
+msgid "location doesn't exist."
+msgstr "ไม่มีสถานที่นี้"
+
+#: src/components/pages/DefaultLayout2.re.mjs:77
+msgid "Events"
+msgstr "กิจกรรม"
+
+#: src/components/pages/DefaultLayout2.re.mjs:182
+msgid "Racquet League"
+msgstr "แรคเก็ต ลีก"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:97
+msgid "All"
+msgstr "ทั้งหมด"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:214
+#: src/components/pages/DefaultLayoutMap.re.mjs:286
+msgid "pkuru"
+msgstr "pkuru"
+
+#: src/components/molecules/AddToCalendar.re.mjs:29
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/pages/Event.re.mjs:283
+msgid "cancel event"
+msgstr "ยกเลิกกิจกรรม"
+
+#: src/components/pages/Event.re.mjs:266
+msgid "edit event"
+msgstr "แก้ไขกิจกรรม"
+
+#: src/components/pages/Event.re.mjs:367
+msgid "event @"
+msgstr "กิจกรรม @"
+
+#: src/components/pages/Event.re.mjs:728
+msgid "event doesn't exist"
+msgstr "ไม่มีกิจกรรมนี้"
+
+#: src/components/pages/Event.re.mjs:642
+msgid "good luck, have fun"
+msgstr "ขอให้โชคดี สนุกได้"
+
+#: src/components/molecules/AddToCalendar.re.mjs:34
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: src/components/pages/Event.re.mjs:434
+msgid "hosted by {name}"
+msgstr "จัดโดย {name}"
+
+#: src/components/pages/Event.re.mjs:558
+msgid "league"
+msgstr "ลีก"
+
+#: src/components/pages/Event.re.mjs:529
+msgid "login to subscribe to {activityName} events"
+msgstr "เข้าสู่ระบบเพื่อติดตามกิจกรรม {activityName}"
+
+#: src/components/pages/Event.re.mjs:703
+msgid "media"
+msgstr "สื่อ"
+
+#: src/components/pages/Event.re.mjs:652
+msgid "notes"
+msgstr "หมายเหตุ"
+
+#: src/components/pages/Event.re.mjs:312
+msgid ""
+"showing up without permission may result in a ban for failing to follow "
+"rules."
+msgstr ""
+"การมาโดยไม่ได้รับอนุญาตอาจส่งผลให้ถูกแบนเนื่องจากการไม่ปฏิบัติตาม "
+"กฎ"
+
+#: src/components/pages/Event.re.mjs:563
+msgid "submit matches"
+msgstr "ส่งผลแมทช์"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:112
+msgid "subscribe to all {activityName} events"
+msgstr "ติดตามกิจกรรม {activityName} ทั้งหมด"
+
+#: src/components/molecules/AddToCalendar.re.mjs:87
+msgid "sync calendar"
+msgstr "ซิงค์ปฏิทิน"
+
+#: src/components/pages/Event.re.mjs:309
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first to get a referral."
+msgstr ""
+
+#: src/components/pages/Event.re.mjs:272
+msgid "uncancel event"
+msgstr "เลิกยกเลิกกิจกรรม"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:91
+msgid "unsubscribe from {activityName} events"
+msgstr "ยกเลิกการติดตามกิจกรรม {activityName}"
+
+#: src/components/pages/Event.re.mjs:316
+msgid "view events"
+msgstr "ดูกิจกรรม"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:104
+msgid "you will receive email notifications for new events"
+msgstr "คุณจะได้รับการแจ้งเตือนทางอีเมลสำหรับกิจกรรมใหม่"
+
+#: src/components/pages/EventPage.re.mjs:228
+msgid "Event not found"
+msgstr "ไม่พบกิจกรรม"
+
+#: src/components/pages/EventPage.re.mjs:121
+msgid "No event details provided."
+msgstr "ไม่มีรายละเอียดกิจกรรม"
+
+#: src/components/pages/EventPage.re.mjs:124
+msgid "No location details provided."
+msgstr "ไม่มีรายละเอียดสถานที่"
+
+#: src/components/pages/Events.re.mjs:116
+#: src/components/pages/Events.re.mjs:119
+msgid "all events"
+msgstr "กิจกรรมทั้งหมด"
+
+#: src/components/pages/Events.re.mjs:110
+msgid "badminton events"
+msgstr "กิจกรรมแบดมินตัน"
+
+#: src/components/pages/Events.re.mjs:179
+msgid "include private"
+msgstr "รวมกิจกรรมส่วนตัว"
+
+#: src/components/pages/Events.re.mjs:113
+msgid "pickleball events"
+msgstr "กิจกรรมพิคเคิลบอล"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:110
+msgid ""
+"By clicking on the Gear icon in the top left, you can go back to the start "
+"screen. At the bottom of this screen will be the match history."
+msgstr ""
+"โดยการคลิกที่ไอคอนเกียร์ที่มุมซ้ายบน คุณสามารถกลับไปยัง "
+"หน้าจอเริ่มต้นได้ ที่ด้านล่างของหน้าจอนี้จะเป็นประวัติการแข่งขัน"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:74
+msgid "Checkin Screen"
+msgstr "หน้าจอเช็คอิน"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:99
+msgid "Editing Matches"
+msgstr "การแก้ไขการแข่งขัน"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:104
+msgid "Entering Results"
+msgstr "การป้อนผลการแข่งขัน"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:120
+msgid ""
+"From the Queue screen you can select some players (highlighted in green) and "
+"take some special actions for them such as creating a team, anti-team, or "
+"setting their genders. The team feature is important if you have a group of "
+"players (2 minimum) who always want to play together, often called a 'fixed-"
+"pair.' The gender is important if you want to use the Gender-Mixed doubles "
+"option when choosing matches."
+msgstr ""
+"จากหน้าจอคิว คุณสามารถเลือกผู้เล่นบางคน (ไฮไลต์เป็นสีเขียว) และ "
+"ทำการกระทำพิเศษกับพวกเขา เช่น การสร้างทีม แอนตี้-ทีม หรือ "
+"ตั้งค่าเพศ คุณสมบัติทีมมีความสำคัญหากคุณมีกลุ่ม "
+"ผู้เล่น (อย่างน้อย 2 คน) ที่ต้องการเล่นด้วยกันเสมอ มักเรียกว่า 'คู่คงที่' "
+"เพศมีความสำคัญหากคุณต้องการใช้ตัวเลือกคู่ผสมเพศ "
+"เมื่อเลือกการแข่งขัน"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:89
+msgid "Generating Draws"
+msgstr "การสร้างการจับคู่"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:132
+msgid "How to use FairPlay"
+msgstr "วิธีการใช้ FairPlay"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:115
+msgid ""
+"If you enabled offline mode, you can go down this list and submit the "
+"results to Pkuru.com. Simply tap on the match, then click on the Submit "
+"button. Once the score shows 0 and 0 then it has successfully submitted. "
+"This step is not necessary if you did not enable offline mode. In normal "
+"Online Mode matches will be submitted as soon as you complete them from the "
+"Matches screen."
+msgstr ""
+"หากคุณเปิดใช้งานโหมดออฟไลน์ คุณสามารถดูรายการนี้และส่งผล "
+"ไปยัง Pkuru.com แค่แตะที่การแข่งขัน จากนั้นคลิกปุ่มส่ง "
+"เมื่อคะแนนแสดง 0 และ 0 แสดงว่าส่งสำเร็จแล้ว "
+"ขั้นตอนนี้ไม่จำเป็นหากคุณไม่ได้เปิดใช้งานโหมดออฟไลน์ ในโหมด "
+"ออนไลน์ปกติ การแข่งขันจะถูกส่งทันทีที่คุณเสร็จสิ้นจาก "
+"หน้าจอการแข่งขัน"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:64
+msgid "Launching FairPlay"
+msgstr "การเปิดตัว FairPlay"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:79
+msgid "Manage Courts and Player Breaks"
+msgstr "การจัดการสนามและการพักของผู้เล่น"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:94
+msgid "Matches Screen"
+msgstr "หน้าจอการแข่งขัน"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:80
+msgid ""
+"On the bottom left you can select the number of courts under management by "
+"the app. When it is set to a value greater than 0, the app will "
+"automatically track the number of times everyone has played and determine "
+"who should be taking a break. Players who should be taking a break will be "
+"highlighted in yellow. This is a suggestion, so you can still tap on them to "
+"select them for the next match."
+msgstr ""
+"ที่ด้านล่างซ้าย คุณสามารถเลือกจำนวนสนามที่อยู่ภายใต้การจัดการของ "
+"แอป เมื่อตั้งค่ามากกว่า 0 แอปจะ "
+"ติดตามจำนวนครั้งที่ทุกคนเล่นโดยอัตโนมัติและกำหนด "
+"ว่าใครควรพัก ผู้เล่นที่ควรพักจะ "
+"ถูกไฮไลต์เป็นสีเหลือง นี่เป็นข้อเสนอแนะ ดังนั้นคุณยังสามารถแตะพวกเขาเพื่อ "
+"เลือกสำหรับการแข่งขันครั้งต่อไป"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:90
+msgid ""
+"Once at least 4 players are selected (highlighted in green) from the Queue "
+"screen, you can generate draws with the blue button on the bottom right. The "
+"system will generate all possible combinations of matches for the given "
+"players based on the matchmaking strategy selected. Additionally it will "
+"show you the relative 'quality' of the matches and sort them from highest to "
+"lowest. Quality of the match means whether the match is going to be close or "
+"one-sided. The green highlighted match at the top is the 'recommended match' "
+"which uses some heuristics to select a match that balances quality while "
+"avoiding repeated teams or matches. The list of matches will also highlight "
+"previously played matches or pairs in yellow or red. This allows you as the "
+"organizer to determine whether to avoid repeated matches. Use the blue "
+"button to select a match which will then update the draws for the remaining "
+"players that were selected. Keep selecting matches until all players are in "
+"a match."
+msgstr ""
+"เมื่อเลือกผู้เล่นอย่างน้อย 4 คน (ไฮไลต์เป็นสีเขียว) จากหน้าจอคิว "
+"คุณสามารถสร้างการจับคู่ด้วยปุ่มสีน้ำเงินที่มุมล่างขวา ระบบ "
+"จะสร้างการจับคู่ที่เป็นไปได้ทั้งหมดสำหรับผู้เล่นที่กำหนด "
+"ตามกลยุทธ์การจับคู่ที่เลือก นอกจากนี้จะ "
+"แสดง 'คุณภาพ' สัมพัทธ์ของการแข่งขันและเรียงจากสูงสุดไปต่ำสุด "
+"คุณภาพของการแข่งขันหมายถึงการแข่งขันจะสนุกหรือ "
+"เอาชนะง่าย การแข่งขันที่ไฮไลต์สีเขียวที่ด้านบนคือ 'การแข่งขันที่แนะนำ' "
+"ซึ่งใช้วิธีการคำนวณเพื่อเลือกการแข่งขันที่สมดุลคุณภาพขณะ "
+"หลีกเลี่ยงทีมหรือการแข่งขันซ้ำ รายการการแข่งขันจะไฮไลต์ "
+"การแข่งขันหรือคู่ที่เล่นมาแล้วเป็นสีเหลืองหรือแดง ทำให้คุณในฐานะ "
+"ผู้จัดงานกำหนดได้ว่าจะหลีกเลี่ยงการแข่งขันซ้ำหรือไม่ ใช้ปุ่ม "
+"สีน้ำเงินเพื่อเลือกการแข่งขันซึ่งจะอัปเดตการจับคู่สำหรับผู้เล่น "
+"ที่เหลือที่ถูกเลือก เลือกการแข่งขันต่อไปจนกว่าผู้เล่นทุกคนจะอยู่ใน "
+"การแข่งขัน"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:119
+msgid "Player Options"
+msgstr "ตัวเลือกผู้เล่น"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:70
+msgid ""
+"Press the large blue button to launch the system. The 'Offline Mode' toggle "
+"should be used if there is no internet connection or if you want to test the "
+"system out without saving any results. In Offline mode, no submissions are "
+"made to Pkuru.com and if you delete the matches or close the web page there "
+"will be no permanent effects of your actions using the system. Additionally "
+"this screen shows the relative strengths of the players and at the bottom of "
+"the page there is a history of all the matches played."
+msgstr ""
+"กดปุ่มสีน้ำเงินขนาดใหญ่เพื่อเปิดระบบ ตัวเลือก 'โหมดออฟไลน์' "
+"ควรใช้หากไม่มีการเชื่อมต่ออินเทอร์เน็ตหรือหากคุณต้องการทดสอบ "
+"ระบบโดยไม่บันทึกผล ในโหมดออฟไลน์ จะไม่มีการส่ง "
+"ไปยัง Pkuru.com และหากคุณลบการแข่งขันหรือปิดหน้าเว็บ "
+"จะไม่มีผลกระทบถาวรจากการกระทำของคุณในระบบ นอกจากนี้ "
+"หน้าจอนี้แสดงความแข็งแกร่งของผู้เล่นและที่ด้านล่างของ "
+"หน้ามีประวัติการแข่งขันทั้งหมดที่เล่น"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:84
+msgid "Queue Screen"
+msgstr "หน้าจอคิว"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:69
+msgid "Start Screen"
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:105
+msgid ""
+"Tapping on the names on the left side can select the winner without entering "
+"scores. Optionally, the exact score can be entered into the number field on "
+"the right side of each match. Once the green border is around the winner, "
+"the entry is complete and you can leave it as it is. Once results are "
+"entered for all matches, you can use the blue button on the bottom right to "
+"submit all the results at once.If you enabled offline mode, no results are "
+"submitted to Pkuru.com, but ratings will still be updated locally on your "
+"device. Additionally the predicted winner is shown in the red bar at the "
+"bottom."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:65
+msgid ""
+"The FairPlay system can be launched from any event page on Pkuru.com. The "
+"system will automatically load all signed up players, including those in the "
+"waitlist. Players who did not join the event can be added as a guest, but "
+"their ratings and results cannot be saved to Pkuru.com."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:100
+msgid ""
+"The handlebars on the left side of each name can be used to drag and drop "
+"the players into a different match or re-arrange the teams. If you press the "
+"Enter Score button you can select the winner and/or enter the score. If you "
+"want to cancel the match you can press the '...' button."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:85
+msgid ""
+"The second screen is the Queue screen. This is where you can select players "
+"who want to play a match. On the bottom is a button to queue all players. "
+"This button will automatically select everyone and exclude the players who "
+"should be on break (highlighted in yellow). If you play matches in timed "
+"rounds, this is an easy way to select everyone who should participate in the "
+"next round of matches."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:75
+msgid ""
+"The system is composed of 3 main screns. The first is the checkin screen "
+"where you can enable/disable players for the session. Tap on a player's name "
+"to check them in. Green means the player is checked in. Check a player in if "
+"they are ready to play, and check them out if they are leaving early. If a "
+"player wants to take a break and it's not their turn yet, it's easiest to "
+"check them out and then check them back in next round."
+msgstr ""
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:95
+msgid ""
+"The third and final screen shows the active matches that are being played. "
+"The ordering of the teams is randomized, so you can use this to determine "
+"the serving team (usually the team on top)."
+msgstr ""
+
+#: src/components/pages/FindGamesPage.re.mjs:33
+msgid "Find League Games"
+msgstr ""
+
+#: src/components/pages/FindGamesPage.re.mjs:30
+msgid ""
+"To participate in the league and win prizes, please join the league events."
+msgstr ""
+
+#: src/components/pages/FindGamesPage.re.mjs:24
+msgid "Where to Play"
+msgstr ""
+
+#: src/components/pages/LeagueAboutPage.re.mjs:40
+msgid "About the League"
+msgstr ""
+
+#: src/components/pages/LeagueAboutPage.re.mjs:51
+msgid ""
+"Ratings are assigned to individual players just by playing doubles games, "
+"even with different partners each game. For doubles ratings we use OpenSkill "
+"(a derivative of TrueSkill), and for singles ratings we use Glicko2."
+msgstr ""
+
+#: src/components/pages/LeagueAboutPage.re.mjs:29
+msgid ""
+"The Japan Pickleball League is an open-source non-profit project to help "
+"improve the quality of community recreational pickleball games and events."
+msgstr ""
+
+#: src/components/pages/LeagueAboutPage.re.mjs:22
+msgid ""
+"The Tokyo Badminton League is an open-source non-profit project to help "
+"improve the quality of community recreational pickleball games and events."
+msgstr ""
+
+#: src/components/pages/LeagueEventPage.re.mjs:80
+msgid "Loading matches..."
+msgstr ""
+
+#: src/components/pages/LeagueEventPage.re.mjs:96
+msgid "please login before managing the session"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:122
+msgid "japan pickle league"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:58
+msgid "Mach 2 Forza Paddle"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:64
+msgid "Multiple colors available."
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:31
+msgid "Next Prize: September 10"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:35
+msgid ""
+"This prize will be awarded to the top male and female players on this day."
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:112
+msgid "Tokyo Badminton League"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:130
+msgid "volair pickleball"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:85
+msgid "Estimated DUPR"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:185
+msgid "Loading rankings..."
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:102
+#: src/components/pages/LeaguePlayerPage.re.mjs:159
+msgid "Player Profile Page"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:202
+#: src/components/pages/LeaguePlayerPage.re.mjs:210
+msgid "Rating"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+#: src/components/pages/LeagueRankingsPage.re.mjs:52
+msgid "Competitive Doubles"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
+msgid ""
+"Play doubles games with different partners and receive an individual rating. "
+"Prizes are awarded monthly to top players."
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+msgid "Recreational Doubles"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:117
+msgid "To participate, please join the events here:"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:92
+msgid "View My Profile"
+msgstr ""
+
+#: src/components/pages/LocationPage.re.mjs:68
+msgid "page not found"
+msgstr "ไม่พบหน้า"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:33
+msgid "are you in a private browsing mode?"
+msgstr "คุณอยู่ในโหมดท่องเว็บส่วนตัวหรือไม่?"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:27
+msgid "login failed"
+msgstr "เข้าสู่ระบบไม่สำเร็จ"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:37
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem persists, you can try the safe-mode login button below."
+msgstr ""
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:41
+msgid "safe-mode login with Line"
+msgstr "เข้าสู่ระบบด้วย Line แบบปลอดภัย"
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "cancel login"
+msgstr "ยกเลิกการเข้าสู่ระบบ"
+
+#: src/components/pages/LoginPage.re.mjs:63
+msgid "display name"
+msgstr "ชื่อที่แสดง"
+
+#: src/components/pages/LoginPage.re.mjs:43
+msgid "email address"
+msgstr "ที่อยู่อีเมล"
+
+#: src/components/pages/LoginPage.re.mjs:54
+msgid "event organizers and other users cannot view your email"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:50
+msgid "notification of updates or cancellations to events (you can opt out)"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:31
+msgid "privacy disclosure"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:71
+msgid "profile picture"
+msgstr "รูปโปรไฟล์"
+
+#: src/components/pages/LoginPage.re.mjs:67
+#: src/components/pages/LoginPage.re.mjs:75
+msgid "publicly displayed on event attendance lists"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:37
+msgid "we will collect the following information from your Line account"
+msgstr ""
+
+#: src/components/pages/NotFound.re.mjs:14
+msgid "page not found."
+msgstr "ไม่พบหน้า"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:208
+msgid ""
+"As mentioned above, public games are not really a thing in Japan. However, "
+"you can find some public games on the home page of this website. They will "
+"tend to be full with a waitlist so just join the waitlist and cross your "
+"fingers. 5-6 spots tend to open up the day of the event as people cancel "
+"last minute."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid "Book a court and find the players yourself."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:69
+#: src/components/pages/PickleballTokyoPage.re.mjs:98
+#: src/components/pages/PickleballTokyoPage.re.mjs:127
+#: src/components/pages/PickleballTokyoPage.re.mjs:156
+msgid "Book the Court"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Hilton Tokyo Tennis Courts"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:62
+msgid "Create an Event at KPI Park"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:176
+msgid ""
+"Create an event at one of the locations above (use the buttons above). Make "
+"the event public so people can join you."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:91
+msgid "Create an Event at Pacific Pickle Club"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:120
+msgid "Create an Event at Tokyo Tower Pickleball"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Hilton Tokyo Tennis Courts (painted lines)"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:170
+msgid "How to Find Players in Tokyo"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:204
+msgid "How to Find Public Games"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:19
+msgid "How to Play Pickleball in Tokyo"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:23
+msgid ""
+"Japan does not really have public drop in courts or games. Most pickleball "
+"games happen indoors at community center and school gymnasiums (multi-use "
+"gyms) or on private tennis/pickleball courts and these all require "
+"reservations for court time, or reservations to join the events. Many of the "
+"public facilities do not allow groups to advertise to the public, which "
+"makes it difficult for new players or visitors to drop in on sessions."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:33
+msgid ""
+"Join any public events on Pkuru.com (this website). If you find an event "
+"without the 'lock' icon and which has a join button, then you can join."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:52
+msgid "KPI Park in Kanagawa/Yokohama"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:39
+msgid "Message @japanpickle on Instagram for referrals or questions"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:81
+msgid "Pacific Pickle Club at Ariake"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:217
+msgid ""
+"Please do not show up to any events without permission and only if you are "
+"in the confirmed going list. Indoor events always require a set of clean "
+"indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:191
+msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:180
+msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:27
+msgid ""
+"So, how can one play pickleball in Tokyo then as a tourist, recent "
+"transplant, or a beginner?"
+msgstr ""
+"แล้วคนจะเล่นพิคเกิลบอลในโตกยวได้อย่างไร ในฐานะนักท่องเที่ยว คนย้ายมาใหม่ "
+"หรือผู้เริ่มต้น?"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:212
+msgid ""
+"Some events are restricted by level. If you are restricted, just type in "
+"your DUPR rating as a comment with your RSVP."
+msgstr ""
+"กิจกรรมบางอย่างมีการจำกัดตามระดับ หากคุณถูกจำกัด ให้พิมพ์ "
+"เรตติ้ง DUPR ของคุณเป็นคำอธิบายในการ RSVP"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:54
+msgid ""
+"The courts require reservations but there are 10 courts and it's generally "
+"available last minute. Therefore you can book the courts just-in-time once "
+"you've already gathered the players."
+msgstr ""
+"สนามต้องการจองล่วงหน้า แต่มี 10 สนามและโดยทั่วไปจะ "
+"มีให้ในนาทีสุดท้าย ดังนั้นคุณจึงสามารถจองสนามตอนที่ "
+"รวมตัวผู้เล่นแล้ว"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:83
+msgid ""
+"The courts require reservations but there are only 2 courts so you will need "
+"to book in advance. They also hold open play sessions but the level may be "
+"low to complete beginner."
+msgstr ""
+"สนามต้องการจองล่วงหน้า แต่มีเพียง 2 สนาม จึงต้องจองล่วงหน้า "
+"มีเซสชั่นเล่นเปิดด้วย แต่ระดับอาจต่ำถึงผู้เริ่มต้น"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:110
+msgid "Tokyo Tower Pickleball"
+msgstr "พิคเกิลบอลโตกยวทาวเวอร์"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:112
+msgid "Two courts are available. Conditions may be windy."
+msgstr "มีสนาม 2 สนาม สภาพอาจมีลมแรง"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"Two courts are available. More expensive than other courts and the "
+"conditions can be windy."
+msgstr ""
+"มีสนาม 2 สนาม ราคาแพงกว่าสนามอื่น และ "
+"สภาพอาจมีลมแรง"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:45
+msgid "Where to Book Courts in Tokyo"
+msgstr "ที่จองสนามในโตกยว"
+
+#: src/components/pages/UpdateEventPage.re.mjs:63
+msgid "Event or Location doesn't exist."
+msgstr "ไม่มีกิจกรรมหรือสถานที่นี้"
+
+#: src/components/pages/ViewerClubsPage.re.mjs:73
+msgid "my clubs"
+msgstr "คลับของฉัน"
+
+#: src/components/pages/ViewerClubsPage.re.mjs:95
+msgid "You are not an admin of any clubs."
+msgstr "คุณไม่ได้เป็นแอดมินของคลับใด ๆ"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:59
+#: src/components/pages/ViewerEventsPage.re.mjs:83
+msgid "my events"
+msgstr "กิจกรรมของฉัน"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:65
+msgid "public events"
+msgstr "กิจกรรมสาธารณะ"

@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 02:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:35
+msgid "join event"
+msgstr "加入活动"
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:21
+msgid "leave event"
+msgstr "退出活动"
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
+msgid "login to join the event"
+msgstr "登录以加入活动"
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+msgid "login with Line"
+msgstr "使用 Line 登录"

@@ -208,7 +208,7 @@ return {
                     {
                       "args": null,
                       "kind": "FragmentSpread",
-                      "name": "EventRsvpUser_user"
+                      "name": "EventRsvpUserBar_user"
                     },
                     {
                       "args": null,

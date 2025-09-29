@@ -9,8 +9,11 @@ import * as JsxRuntime from "react/jsx-runtime";
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/LeaguePage.re/en"),
       ja: import("../../locales/src/components/pages/LeaguePage.re/ja"),
-      en: import("../../locales/src/components/pages/LeaguePage.re/en")
+      th: import("../../locales/src/components/pages/LeaguePage.re/th"),
+      zhTW: import("../../locales/src/components/pages/LeaguePage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/LeaguePage.re/zh-CN")
     });
 
 async function loader(param) {

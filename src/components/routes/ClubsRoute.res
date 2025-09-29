@@ -11,8 +11,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
-  ja: Lingui.import("../../locales/src/components/pages/ClubsPage.re/ja"),
   en: Lingui.import("../../locales/src/components/pages/ClubsPage.re/en"),
+  ja: Lingui.import("../../locales/src/components/pages/ClubsPage.re/ja"),
+  th: Lingui.import("../../locales/src/components/pages/ClubsPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/ClubsPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/ClubsPage.re/zh-CN"),
 })
 
 @genType

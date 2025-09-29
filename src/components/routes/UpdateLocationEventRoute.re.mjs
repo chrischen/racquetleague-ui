@@ -22,8 +22,11 @@ function parseData(json) {
 var LoaderArgs = {};
 
 var loadMessages = Lingui.loadMessages({
+      en: import("../../locales/src/components/pages/UpdateLocationEventPage.re/en"),
       ja: import("../../locales/src/components/pages/UpdateLocationEventPage.re/ja"),
-      en: import("../../locales/src/components/pages/UpdateLocationEventPage.re/en")
+      th: import("../../locales/src/components/pages/UpdateLocationEventPage.re/th"),
+      zhTW: import("../../locales/src/components/pages/UpdateLocationEventPage.re/zh-TW"),
+      zhCN: import("../../locales/src/components/pages/UpdateLocationEventPage.re/zh-CN")
     });
 
 async function loader(param) {

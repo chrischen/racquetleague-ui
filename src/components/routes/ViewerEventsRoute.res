@@ -25,8 +25,11 @@ module LoaderArgs = {
 }
 
 let loadMessages = Lingui.loadMessages({
+  en: Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/en"),
   ja: Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/ja"),
-  en: Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/en")
+  th: Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/th"),
+  zhTW: Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/zh-TW"),
+  zhCN: Lingui.import("../../locales/src/components/pages/ViewerEventsPage.re/zh-CN"),
 })
 
 @genType
@@ -40,7 +43,6 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
     ->Option.map(d => {
       d->Js.Date.fromString->Util.Datetime.fromDate
     })
-
 
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
