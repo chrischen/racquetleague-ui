@@ -169,7 +169,7 @@ msgstr "กำลังโหลด"
 
 #: src/components/pages/LeagueEventPage.re.mjs:80
 msgid "Loading matches..."
-msgstr ""
+msgstr "กำลังโหลดแมทช์..."
 
 #: src/components/organisms/AiTetsu.re.mjs:1428
 msgid "Loading..."
@@ -242,7 +242,7 @@ msgstr "ผู้เล่นในทีมจะถูกจับคู่ใ
 
 #: src/components/pages/LeagueEventPage.re.mjs:96
 msgid "please login before managing the session"
-msgstr ""
+msgstr "กรุณาล็อคอินก่อนจัดการเซสชั่น"
 
 #: src/components/organisms/SubmitMatch.re.mjs:315
 #: src/components/organisms/SubmitMatch.re.mjs:359

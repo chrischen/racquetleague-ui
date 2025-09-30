@@ -1,8 +1,30 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-29 02:42+0900\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
 "Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/RsvpOptions.re.mjs:102
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "您确定要将这个人从活动中移除吗？"
+
+#: src/components/organisms/RsvpOptions.re.mjs:88
+msgid "Remove from event"
+msgstr "从活动中移除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:101
+msgid "Remove this RSVP"
+msgstr "移除此 RSVP"
+
+#: src/components/organisms/RsvpOptions.re.mjs:82
+msgid "View Profile"
+msgstr "查看资料"

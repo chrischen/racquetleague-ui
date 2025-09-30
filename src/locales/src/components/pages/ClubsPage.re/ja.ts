@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"v9mk9S\":\"あなたはどのクラブの管理者でもありません。\",\"p8ntXw\":\"サークル\",\"5TE/8f\":\"私のサークル\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"p8ntXw\":\"サークル\",\"5TE/8f\":\"私のサークル\",\"v9mk9S\":\"あなたはどのクラブの管理者でもありません。\"}");

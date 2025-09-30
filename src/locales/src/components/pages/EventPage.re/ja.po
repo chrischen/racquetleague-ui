@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:262
+#: src/components/pages/EventPage.re.mjs:282
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:265
+#: src/components/pages/EventPage.re.mjs:285
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:268
+#: src/components/pages/EventPage.re.mjs:288
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:271
+#: src/components/pages/EventPage.re.mjs:291
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:274
+#: src/components/pages/EventPage.re.mjs:294
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:277
+#: src/components/pages/EventPage.re.mjs:297
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:280
+#: src/components/pages/EventPage.re.mjs:300
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:283
+#: src/components/pages/EventPage.re.mjs:303
 msgid "all level"
 msgstr "全レベル"
 
@@ -61,15 +61,15 @@ msgstr "{0}時間"
 msgid "{0} hours and {1} minutes"
 msgstr "{0}時間{1}分"
 
-#: src/components/organisms/RSVPSection.re.mjs:547
-msgid "+{0} more"
-msgstr "+{0}人他"
-
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
-#: src/components/pages/EventPage.re.mjs:151
+#: src/components/organisms/RsvpOptions.re.mjs:102
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "この人をイベントから削除してもよろしいですか？"
+
+#: src/components/pages/EventPage.re.mjs:147
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -77,11 +77,15 @@ msgstr "イベントをキャンセル"
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/pages/EventPage.re.mjs:134
+#: src/components/organisms/RSVPSection.re.mjs:612
+msgid "Collapse"
+msgstr "折りたたむ"
+
+#: src/components/pages/EventPage.re.mjs:130
 msgid "edit event"
 msgstr "イベントを編集"
 
-#: src/components/pages/EventPage.re.mjs:228
+#: src/components/pages/EventPage.re.mjs:245
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -89,7 +93,7 @@ msgstr "イベントが見つかりません"
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
 
-#: src/components/organisms/RSVPSection.re.mjs:496
+#: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
 msgstr "参加"
 
@@ -97,9 +101,13 @@ msgstr "参加"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/organisms/RSVPSection.re.mjs:424
-msgid "Join"
-msgstr "参加"
+#: src/components/atoms/RsvpButtonText.re.mjs:26
+msgid "Join Event"
+msgstr "イベントに参加"
+
+#: src/components/atoms/RsvpButtonText.re.mjs:26
+msgid "Join Waitlist"
+msgstr "ウェイトリストに参加"
 
 #: src/components/organisms/EventMessages.re.mjs:258
 msgid "joined from waitlist"
@@ -113,17 +121,21 @@ msgstr "参加しました"
 msgid "left the event"
 msgstr "離れました"
 
-#: src/components/organisms/RSVPSection.re.mjs:630
+#: src/components/organisms/RSVPSection.re.mjs:703
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/RSVPSection.re.mjs:627
+#: src/components/organisms/RSVPSection.re.mjs:700
 msgid "Loading..."
 msgstr "読み込み中..."
 
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
+
+#: src/components/pages/EventPage.re.mjs:186
+msgid "Manage Event"
+msgstr "イベント管理"
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid "Matches will be submitted to DUPR."
@@ -133,24 +145,16 @@ msgstr "試合結果はDUPRに提出されます。"
 msgid "No activity yet"
 msgstr "まだアクティビティがありません"
 
-#: src/components/pages/EventPage.re.mjs:121
-msgid "No event details provided."
-msgstr "イベントの詳細が提供されていません。"
-
-#: src/components/pages/EventPage.re.mjs:124
-msgid "No location details provided."
-msgstr "場所の詳細が提供されていません。"
-
 #: src/components/atoms/EventTag.re.mjs:48
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
-#: src/components/organisms/RSVPSection.re.mjs:412
-#: src/components/organisms/RSVPSection.re.mjs:602
+#: src/components/organisms/PendingRsvps.re.mjs:58
 msgid "Pending"
 msgstr "保留中"
 
 #: src/components/organisms/EventRsvp.re.mjs:60
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "プレイヤー"
 
@@ -163,7 +167,15 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
-#: src/components/organisms/RSVPSection.re.mjs:389
+#: src/components/organisms/RsvpOptions.re.mjs:88
+msgid "Remove from event"
+msgstr "イベントから削除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:101
+msgid "Remove this RSVP"
+msgstr "このRSVPを削除"
+
+#: src/components/organisms/RSVPSection.re.mjs:391
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
@@ -171,20 +183,25 @@ msgstr "必要レーティング: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/organisms/RSVPSection.re.mjs:438
+#: src/components/organisms/RSVPSection.re.mjs:476
+#: src/components/organisms/RSVPSection.re.mjs:634
 msgid "RSVP"
 msgstr "参加申込"
 
-#: src/components/organisms/RSVPSection.re.mjs:231
+#: src/components/atoms/RsvpButtonText.re.mjs:15
+msgid "RSVP Pending..."
+msgstr "参加申込 保留中..."
+
+#: src/components/organisms/RSVPSection.re.mjs:234
 #: src/components/organisms/EventMessages.re.mjs:125
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/RSVPSection.re.mjs:516
-msgid "Show all"
-msgstr "全て表示"
+#: src/components/organisms/GoingRsvps.re.mjs:122
+msgid "See all"
+msgstr "すべて見る"
 
-#: src/components/organisms/RSVPSection.re.mjs:507
+#: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
 msgstr "折りたたむ"
 
@@ -196,18 +213,14 @@ msgstr "技術向上に焦点を当てたスキル練習とドリル"
 msgid "Status message"
 msgstr "ステータスメッセージ"
 
-#: src/components/pages/EventPage.re.mjs:172
-msgid "submit matches"
-msgstr "試合を提出"
-
 #: src/components/atoms/EventTag.re.mjs:58
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
 
-#: src/components/organisms/RSVPSection.re.mjs:215
-#: src/components/organisms/RSVPSection.re.mjs:216
+#: src/components/organisms/RSVPSection.re.mjs:218
+#: src/components/organisms/RSVPSection.re.mjs:219
 #: src/components/organisms/EventMessages.re.mjs:118
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
@@ -215,7 +228,7 @@ msgstr ""
 "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
 "ださい。"
 
-#: src/components/pages/EventPage.re.mjs:140
+#: src/components/pages/EventPage.re.mjs:136
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -231,19 +244,23 @@ msgstr "不明な場所"
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 
-#: src/components/organisms/RSVPSection.re.mjs:567
+#: src/components/organisms/RsvpOptions.re.mjs:82
+msgid "View Profile"
+msgstr "プロフィールを表示"
+
+#: src/components/organisms/RsvpWaitlist.re.mjs:52
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
-#: src/components/organisms/RSVPSection.re.mjs:419
+#: src/components/atoms/RsvpButtonText.re.mjs:18
 msgid "You're Going"
 msgstr "参加中"
 
-#: src/components/organisms/RSVPSection.re.mjs:416
+#: src/components/atoms/RsvpButtonText.re.mjs:21
 msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 
-#: src/components/organisms/RSVPSection.re.mjs:391
+#: src/components/organisms/RSVPSection.re.mjs:393
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "
@@ -252,3 +269,27 @@ msgstr ""
 "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
 "限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
 "イベントに参加してください。"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+#~ msgid "+{0} more"
+#~ msgstr "+{0}人他"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "参加"
+
+#: src/components/pages/EventPage.re.mjs:121
+#~ msgid "No event details provided."
+#~ msgstr "イベントの詳細が提供されていません。"
+
+#: src/components/pages/EventPage.re.mjs:124
+#~ msgid "No location details provided."
+#~ msgstr "場所の詳細が提供されていません。"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "全て表示"
+
+#: src/components/pages/EventPage.re.mjs:168
+#~ msgid "submit matches"
+#~ msgstr "試合を提出"

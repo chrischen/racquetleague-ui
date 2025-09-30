@@ -51,6 +51,10 @@ var MessageCircle = {};
 
 var Bell = {};
 
+var ChevronUp = {};
+
+var ChevronDown = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -77,5 +81,7 @@ export {
   Trophy ,
   MessageCircle ,
   Bell ,
+  ChevronUp ,
+  ChevronDown ,
 }
 /* No side effect */

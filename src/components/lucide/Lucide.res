@@ -110,7 +110,8 @@ module Users = {
 
 module Check = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Check"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Check"
 }
 
 module ArrowUpCircle = {
@@ -147,4 +148,16 @@ module MessageCircle = {
 module Bell = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden\": string=?) => React.element = "Bell"
+}
+
+module ChevronUp = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ChevronUp"
+}
+
+module ChevronDown = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ChevronDown"
 }

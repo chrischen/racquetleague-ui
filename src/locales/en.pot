@@ -2233,3 +2233,23 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:416
 msgid "You're Waitlisted"
 msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:80
+msgid "View Profile"
+msgstr ""
+
+#: src/components/organisms/GoingRsvps.re.mjs:121
+msgid "See all"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:611
+msgid "Collapse"
+msgstr ""
+
+#: src/components/atoms/RsvpButtonText.re.mjs:15
+msgid "RSVP Pending..."
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:186
+msgid "Manage Event"
+msgstr ""

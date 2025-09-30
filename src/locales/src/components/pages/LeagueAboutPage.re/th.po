@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/components/pages/LeagueAboutPage.re.mjs:40
 msgid "About the League"
-msgstr ""
+msgstr "เกี่ยวกับลีก"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:51
 msgid ""
@@ -23,15 +23,22 @@ msgid ""
 "even with different partners each game. For doubles ratings we use OpenSkill "
 "(a derivative of TrueSkill), and for singles ratings we use Glicko2."
 msgstr ""
+"เรตติ้งจะถูกกำหนดให้ผู้เล่นแต่ละคนโดยการเล่นเกมคู่ แม้แต่ละเกมจะมีคู่คนต่างกัน "
+"สำหรับเรตติ้งคู่เราใช้ OpenSkill (อนุพันธ์ของ TrueSkill) และสำหรับเรตติ้งเดี่ยวเราใช้ "
+"Glicko2"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:29
 msgid ""
 "The Japan Pickleball League is an open-source non-profit project to help "
 "improve the quality of community recreational pickleball games and events."
 msgstr ""
+"Japan Pickleball League เป็นโครงการโอเพ่นซอร์สไม่หากำไรเพื่อช่วย "
+"ปรับปรุงคุณภาพของเกมและกิจกรรมพิคเกิลบอลเพื่อความบันเทิงในชุมชน"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:22
 msgid ""
 "The Tokyo Badminton League is an open-source non-profit project to help "
 "improve the quality of community recreational pickleball games and events."
 msgstr ""
+"Tokyo Badminton League เป็นโครงการโอเพ่นซอร์สไม่หากำไรเพื่อช่วย "
+"ปรับปรุงคุณภาพของเกมและกิจกรรมพิคเกิลบอลเพื่อความบันเทิงในชุมชน"

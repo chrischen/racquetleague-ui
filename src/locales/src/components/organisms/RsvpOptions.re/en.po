@@ -13,14 +13,18 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RsvpOptions.re.mjs:92
+#: src/components/organisms/RsvpOptions.re.mjs:102
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:79
+#: src/components/organisms/RsvpOptions.re.mjs:88
 msgid "Remove from event"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:91
+#: src/components/organisms/RsvpOptions.re.mjs:101
 msgid "Remove this RSVP"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:82
+msgid "View Profile"
 msgstr ""

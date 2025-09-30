@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-09-30 04:21+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/RsvpOptions.re.mjs:102
+msgid "Are you sure you want to remove this person from the event?"
+msgstr ""
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+msgid "Player"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:88
+msgid "Remove from event"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:101
+msgid "Remove this RSVP"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:82
+msgid "View Profile"
+msgstr ""
+
+#: src/components/organisms/RsvpWaitlist.re.mjs:52
+msgid "Waitlist"
+msgstr ""

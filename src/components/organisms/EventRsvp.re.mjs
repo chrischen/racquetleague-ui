@@ -72,9 +72,12 @@ var ListItem = {
 };
 
 function EventRsvp(props) {
+  var __isAdmin = props.isAdmin;
+  var eventId = props.eventId;
   var maxRating = props.maxRating;
   var activitySlug = props.activitySlug;
   var viewer = props.viewer;
+  var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
   var rsvp = use(props.rsvp);
   return Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
                     var tmp;
@@ -104,7 +107,10 @@ function EventRsvp(props) {
                                                                                       return (mu - sigma * 3.0) / maxRating * 100;
                                                                                     }));
                                                                       }));
-                                                        })), 0)
+                                                        })), 0),
+                                              eventId: eventId,
+                                              eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
+                                              isAdmin: isAdmin
                                             }),
                                         Core__Option.getOr(Core__Option.map(rsvp.message, (function (message) {
                                                     return JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {

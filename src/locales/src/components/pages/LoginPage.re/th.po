@@ -27,7 +27,7 @@ msgstr "ที่อยู่อีเมล"
 
 #: src/components/pages/LoginPage.re.mjs:54
 msgid "event organizers and other users cannot view your email"
-msgstr ""
+msgstr "ผู้จัดกิจกรรมและผู้ใช้คนอื่นไม่สามารถดูอีเมลของคุณได้"
 
 #: src/components/pages/LoginPage.re.mjs:27
 #: src/components/pages/LoginPage.re.mjs:82
@@ -36,11 +36,11 @@ msgstr "เข้าสู่ระบบด้วย Line"
 
 #: src/components/pages/LoginPage.re.mjs:50
 msgid "notification of updates or cancellations to events (you can opt out)"
-msgstr ""
+msgstr "การแจ้งเตือนการอัปเดตหรือการยกเลิกกิจกรรม (คุณสามารถยกเลิกได้)"
 
 #: src/components/pages/LoginPage.re.mjs:31
 msgid "privacy disclosure"
-msgstr ""
+msgstr "การเปิดเผยความเป็นส่วนตัว"
 
 #: src/components/pages/LoginPage.re.mjs:71
 msgid "profile picture"
@@ -49,8 +49,8 @@ msgstr "รูปโปรไฟล์"
 #: src/components/pages/LoginPage.re.mjs:67
 #: src/components/pages/LoginPage.re.mjs:75
 msgid "publicly displayed on event attendance lists"
-msgstr ""
+msgstr "แสดงสาธารณะในรายชื่อผู้เข้าร่วมกิจกรรม"
 
 #: src/components/pages/LoginPage.re.mjs:37
 msgid "we will collect the following information from your Line account"
-msgstr ""
+msgstr "เราจะเก็บข้อมูลต่อไปนี้จากบัญชี Line ของคุณ"

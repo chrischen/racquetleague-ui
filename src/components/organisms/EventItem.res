@@ -396,7 +396,12 @@ let make = (~event, ~user, ~highlightedLocation: bool=false) => {
         }}
         <div
           className={Util.cx([
-            "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30",
+            // Use yellow color if playersCount exceeds maxRsvps (waitlist), otherwise indigo
+            switch maxRsvps {
+            | Some(maxRsvps)
+              if playersCount >= maxRsvps => "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30"
+            | _ => "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30"
+            },
             "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
           ])}>
           {switch shadow {

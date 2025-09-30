@@ -158,7 +158,7 @@ msgstr "หน้าจอคิว"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:69
 msgid "Start Screen"
-msgstr ""
+msgstr "หน้าจอเริ่มต้น"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:105
 msgid ""
@@ -172,6 +172,12 @@ msgid ""
 "device. Additionally the predicted winner is shown in the red bar at the "
 "bottom."
 msgstr ""
+"การแตะชื่อที่ด้านซ้ายสามารถเลือกผู้ชนะได้โดยไม่ต้องป้อน คะแนน "
+"หรือสามารถป้อนคะแนนที่แน่นอนในช่องตัวเลขที่ ด้านขวาของแต่ละการแข่งขัน เมื่อมีขอบสีเขียวรอบผู้ชนะ "
+"การป้อนข้อมูลเสร็จสิ้นและคุณสามารถทิ้งไว้ได้ เมื่อป้อนผลสำหรับ การแข่งขันทั้งหมดแล้ว "
+"คุณสามารถใช้ปุ่มสีน้ำเงินที่มุมล่างขวาเพื่อ ส่งผลทั้งหมดพร้อมกัน หากคุณเปิดใช้งานโหมดออฟไลน์ "
+"จะไม่มีการส่งผล ไปยัง Pkuru.com แต่เรตติ้งจะยังคงถูกอัปเดตในเครื่องของคุณ นอกจากนี้ "
+"ผู้ชนะที่คาดการณ์จะแสดงในแถบสีแดงที่ ด้านล่าง"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:65
 msgid ""
@@ -180,6 +186,10 @@ msgid ""
 "waitlist. Players who did not join the event can be added as a guest, but "
 "their ratings and results cannot be saved to Pkuru.com."
 msgstr ""
+"ระบบ FairPlay สามารถเปิดได้จากหน้ากิจกรรมใดๆ ใน Pkuru.com "
+"ระบบจะโหลดผู้เล่นที่ลงทะเบียนทั้งหมดโดยอัตโนมัติ รวมถึงคนใน รายชื่อคอย "
+"ผู้เล่นที่ไม่ได้เข้าร่วมกิจกรรมสามารถเพิ่มเป็นแขก แต่ "
+"เรตติ้งและผลของพวกเขาจะไม่สามารถบันทึกไปยัง Pkuru.com ได้"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:100
 msgid ""
@@ -188,6 +198,9 @@ msgid ""
 "Enter Score button you can select the winner and/or enter the score. If you "
 "want to cancel the match you can press the '...' button."
 msgstr ""
+"บาร์ที่ด้านซ้ายของชื่อแต่ละคนสามารถใช้ลากและวาง ผู้เล่นไปยังการแข่งขันอื่นหรือจัดเรียงทีมใหม่ "
+"หากคุณกด ปุ่ม Enter Score คุณสามารถเลือกผู้ชนะและ/หรือป้อนคะแนน หากคุณ "
+"ต้องการยกเลิกการแข่งขัน คุณสามารถกดปุ่ม '...' ได้"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:85
 msgid ""
@@ -198,6 +211,10 @@ msgid ""
 "rounds, this is an easy way to select everyone who should participate in the "
 "next round of matches."
 msgstr ""
+"หน้าจอที่สองคือหน้าจอคิว นี่คือที่ที่คุณสามารถเลือกผู้เล่น ที่ต้องการเล่นการแข่งขัน "
+"ที่ด้านล่างมีปุ่มสำหรับเข้าคิวผู้เล่นทั้งหมด ปุ่มนี้จะเลือกทุกคนโดยอัตโนมัติและไม่รวมผู้เล่นที่ ควรพัก "
+"(ไฮไลต์เป็นสีเหลือง) หากคุณเล่นการแข่งขันแบบรอบจับเวลา "
+"นี่เป็นวิธีง่ายในการเลือกทุกคนที่ควรเข้าร่วมใน รอบการแข่งขันถัดไป"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:75
 msgid ""
@@ -208,6 +225,10 @@ msgid ""
 "player wants to take a break and it's not their turn yet, it's easiest to "
 "check them out and then check them back in next round."
 msgstr ""
+"ระบบประกอบด้วยหน้าจอหลัก 3 หน้าจอ หน้าจอแรกคือหน้าจอเช็คอิน ที่คุณสามารถเปิด/"
+"ปิดผู้เล่นสำหรับเซสชั่น แตะชื่อผู้เล่น เพื่อเช็คอิน สีเขียวหมายถึงผู้เล่นเช็คอินแล้ว เช็คอินผู้เล่นหาก "
+"พวกเขาพร้อมเล่น และเช็คเอาท์หากพวกเขากลับเร็ว หาก ผู้เล่นต้องการพักและยังไม่ถึงเที่ยน "
+"ก็ง่ายที่สุดคือ เช็คเอาท์แล้วเช็คอินใหม่ในรอบต่อไป"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:95
 msgid ""
@@ -215,3 +236,5 @@ msgid ""
 "The ordering of the teams is randomized, so you can use this to determine "
 "the serving team (usually the team on top)."
 msgstr ""
+"หน้าจอที่สามและสุดท้ายจะแสดงการแข่งขันที่กำลังเล่น ลำดับของทีมเป็นแบบสุ่ม "
+"ดังนั้นคุณสามารถใช้กำหนด ทีมเซิร์ฟได้ (โดยทั่วไปจะเป็นทีมที่อยู่ด้านบน)"

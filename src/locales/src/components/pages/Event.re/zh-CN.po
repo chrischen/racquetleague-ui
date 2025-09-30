@@ -15,45 +15,45 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:759
+#: src/components/pages/Event.re.mjs:762
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:762
+#: src/components/pages/Event.re.mjs:765
 msgid "Table Tennis"
 msgstr "乒乓球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:765
+#: src/components/pages/Event.re.mjs:768
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:768
+#: src/components/pages/Event.re.mjs:771
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:771
+#: src/components/pages/Event.re.mjs:774
 msgid "drill"
 msgstr "训练"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:774
+#: src/components/pages/Event.re.mjs:777
 msgid "comp"
 msgstr "竞赛"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:777
+#: src/components/pages/Event.re.mjs:780
 msgid "rec"
 msgstr "休闲"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:780
+#: src/components/pages/Event.re.mjs:783
 msgid "all level"
 msgstr "所有级别"
 
@@ -64,10 +64,6 @@ msgstr "{0} 小时"
 #: src/components/pages/Event.re.mjs:240
 msgid "{0} hours and {1} minutes"
 msgstr "{0} 小时 {1} 分钟"
-
-#: src/components/organisms/RSVPSection.re.mjs:547
-msgid "+{0} more"
-msgstr "+{0} 人"
 
 #: src/components/pages/Event.re.mjs:672
 msgid "activity"
@@ -81,6 +77,10 @@ msgstr "高级球员"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
+#: src/components/organisms/RsvpOptions.re.mjs:102
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "您确定要将这个人从活动中移除吗？"
+
 #: src/components/pages/Event.re.mjs:283
 msgid "cancel event"
 msgstr "取消活动"
@@ -88,6 +88,10 @@ msgstr "取消活动"
 #: src/components/pages/Event.re.mjs:388
 msgid "CANCELED"
 msgstr "已取消"
+
+#: src/components/organisms/RSVPSection.re.mjs:612
+msgid "Collapse"
+msgstr "折叠"
 
 #: src/components/pages/Event.re.mjs:584
 msgid "details"
@@ -109,7 +113,7 @@ msgstr "活动不存在"
 msgid "Event tag: {tag}"
 msgstr "活动标签：{tag}"
 
-#: src/components/organisms/RSVPSection.re.mjs:496
+#: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
 msgstr "将参加"
 
@@ -133,9 +137,13 @@ msgstr "高技能球员"
 msgid "hosted by {name}"
 msgstr "由 {name} 主办"
 
-#: src/components/organisms/RSVPSection.re.mjs:424
-msgid "Join"
-msgstr "加入"
+#: src/components/atoms/RsvpButtonText.re.mjs:26
+msgid "Join Event"
+msgstr "加入活动"
+
+#: src/components/atoms/RsvpButtonText.re.mjs:26
+msgid "Join Waitlist"
+msgstr "加入候补名单"
 
 #: src/components/organisms/EventMessages.re.mjs:258
 msgid "joined from waitlist"
@@ -153,11 +161,11 @@ msgstr "联盟"
 msgid "left the event"
 msgstr "退出了活动"
 
-#: src/components/organisms/RSVPSection.re.mjs:630
+#: src/components/organisms/RSVPSection.re.mjs:703
 msgid "Load more"
 msgstr "加载更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:627
+#: src/components/organisms/RSVPSection.re.mjs:700
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -193,12 +201,12 @@ msgstr "没有技能等级限制。对所有球员开放。"
 msgid "notes"
 msgstr "备注"
 
-#: src/components/organisms/RSVPSection.re.mjs:412
-#: src/components/organisms/RSVPSection.re.mjs:602
+#: src/components/organisms/PendingRsvps.re.mjs:58
 msgid "Pending"
 msgstr "待审核"
 
 #: src/components/organisms/EventRsvp.re.mjs:60
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "球员"
 
@@ -211,7 +219,15 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
-#: src/components/organisms/RSVPSection.re.mjs:389
+#: src/components/organisms/RsvpOptions.re.mjs:88
+msgid "Remove from event"
+msgstr "从活动中移除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:101
+msgid "Remove this RSVP"
+msgstr "移除此 RSVP"
+
+#: src/components/organisms/RSVPSection.re.mjs:391
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "最低评分要求：{0}（DUPR {1}）"
 
@@ -219,21 +235,26 @@ msgstr "最低评分要求：{0}（DUPR {1}）"
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
-#: src/components/organisms/RSVPSection.re.mjs:438
+#: src/components/organisms/RSVPSection.re.mjs:476
+#: src/components/organisms/RSVPSection.re.mjs:634
 msgid "RSVP"
 msgstr "报名"
 
-#: src/components/organisms/RSVPSection.re.mjs:231
+#: src/components/atoms/RsvpButtonText.re.mjs:15
+msgid "RSVP Pending..."
+msgstr "报名待审..."
+
+#: src/components/organisms/RSVPSection.re.mjs:234
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:179
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/RSVPSection.re.mjs:516
-msgid "Show all"
+#: src/components/organisms/GoingRsvps.re.mjs:122
+msgid "See all"
 msgstr "查看全部"
 
-#: src/components/organisms/RSVPSection.re.mjs:507
+#: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
 msgstr "收起"
 
@@ -278,8 +299,8 @@ msgstr ""
 "这是一个需要俱乐部成员身份的私人活动。要加入此俱乐部，请先参加日本匹克球联盟"
 "活动以获取推荐。"
 
-#: src/components/organisms/RSVPSection.re.mjs:215
-#: src/components/organisms/RSVPSection.re.mjs:216
+#: src/components/organisms/RSVPSection.re.mjs:218
+#: src/components/organisms/RSVPSection.re.mjs:219
 #: src/components/organisms/EventMessages.re.mjs:118
 #: src/components/pages/Event.re.mjs:172
 msgid ""
@@ -302,7 +323,11 @@ msgstr "中高级及以上"
 msgid "view events"
 msgstr "查看活动"
 
-#: src/components/organisms/RSVPSection.re.mjs:567
+#: src/components/organisms/RsvpOptions.re.mjs:82
+msgid "View Profile"
+msgstr "查看资料"
+
+#: src/components/organisms/RsvpWaitlist.re.mjs:52
 msgid "Waitlist"
 msgstr "等待列表"
 
@@ -310,15 +335,15 @@ msgstr "等待列表"
 msgid "you will receive email notifications for new events"
 msgstr "您将收到新活动的邮件通知"
 
-#: src/components/organisms/RSVPSection.re.mjs:419
+#: src/components/atoms/RsvpButtonText.re.mjs:18
 msgid "You're Going"
 msgstr "您将参加"
 
-#: src/components/organisms/RSVPSection.re.mjs:416
+#: src/components/atoms/RsvpButtonText.re.mjs:21
 msgid "You're Waitlisted"
 msgstr "您在等待列表中"
 
-#: src/components/organisms/RSVPSection.re.mjs:391
+#: src/components/organisms/RSVPSection.re.mjs:393
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "
@@ -326,3 +351,15 @@ msgid ""
 msgstr ""
 "您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
 "制降低。请参加其他 JPL 评级活动来提高您的评分。"
+
+#: src/components/organisms/RSVPSection.re.mjs:547
+#~ msgid "+{0} more"
+#~ msgstr "+{0} 人"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "加入"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "查看全部"

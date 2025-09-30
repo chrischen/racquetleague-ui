@@ -20,13 +20,16 @@ module Fragment = %relay(`
     activity {
       slug
     }
+    ...RsvpWaitlist_event @arguments(after: $after, first: $first, before: $before)
+    ...GoingRsvps_event @arguments(after: $after, first: $first, before: $before)
+    ...PendingRsvps_event @arguments(after: $after, first: $first, before: $before)
     rsvps(after: $after, first: $first, before: $before)
       @connection(key: "RSVPSection_event_rsvps") {
       edges {
         node {
           id
           ...EventRsvp_rsvp
-          ...RsvpOptions_rsvp
+          ...MiniEventRsvp_rsvp
           user {
             id
             picture
@@ -156,6 +159,11 @@ module ViewerStatusMessage = {
       setIsEditing(_ => false)
     }
 
+    let onSubmit = e => {
+      ReactEvent.Form.preventDefault(e)
+      handleSave()
+    }
+
     let content = switch message {
     | Some("") | None =>
       ts`Type a status message for people to see... such as 'I will arrive at 19:00.'`
@@ -163,7 +171,7 @@ module ViewerStatusMessage = {
     }
 
     if isEditing {
-      <div className="flex items-center gap-x-2 mt-2">
+      <form onSubmit={onSubmit} className="flex items-center gap-x-2 mt-2">
         <div className="flex-grow">
           <input
             value=editedMessage
@@ -172,11 +180,11 @@ module ViewerStatusMessage = {
           />
         </div>
         <button
-          onClick={_ => handleSave()}
+          type_="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           {t`Save`}
         </button>
-      </div>
+      </form>
     } else {
       <div
         className="flex items-center text-sm text-gray-500 mt-4 group cursor-pointer"
@@ -223,8 +231,6 @@ let make = (~event, ~user) => {
       let userB = b.rating->Option.flatMap(rating => rating.mu)->Option.getOr(0.)
       userB > userA ? 1. : userB < userA ? -1. : 0.
     })
-  let waitlistRsvps = mainList->Array.filterWithIndex((_, i) => isWaitlist(i))
-  let restrictedRsvps = rsvps->Array.filter(edge => isRestrictedRsvp(edge.listType))
 
   // Viewer state calculations
   let viewerRsvp =
@@ -254,6 +260,10 @@ let make = (~event, ~user) => {
       }
     })
     ->Option.getOr((false, false))
+
+  // Check if event is full (confirmed RSVPs >= max capacity)
+  let eventIsFull =
+    maxRsvps->Option.map(max => confirmedRsvps->Array.length >= max)->Option.getOr(false)
 
   // Rating validation logic
   let viewerCanJoin: option<bool> = minRating->Option.map(minRating => {
@@ -365,164 +375,209 @@ let make = (~event, ~user) => {
   // Use GraphQL edges directly instead of converting to simple records
   let goingRsvps = confirmedRsvps
 
-  // Determine button text and style
-  let (buttonText, buttonStyle) = if viewerHasRsvp {
-    if viewerInPending {
-      (t`Pending`, "bg-red-600 text-white") // Red for pending/restricted
-    } else if viewerInWaitlist {
-      (t`You're Waitlisted`, "bg-yellow-500 text-white") // Yellow for waitlisted
+  // UI state
+  let (mobileExpanded, setMobileExpanded) = React.useState(() => false)
+
+  let rsvpButtonStatus: RsvpButtonText.status = if viewerInPending {
+    Joined(Pending)
+  } else if viewerHasRsvp {
+    if viewerInWaitlist {
+      Joined(Waitlisted)
     } else {
-      (t`You're Going`, "bg-green-600 text-white") // Green for confirmed going
+      Joined(Going)
     }
+  } else if eventIsFull {
+    NotJoined(JoinWaitlist)
   } else {
-    (t`Join`, "bg-green-100 text-green-800 hover:bg-green-200") // Default join state
+    NotJoined(Join)
   }
 
-  // UI state
-  let (expanded, setExpanded) = React.useState(() => false)
-  let initialDisplayCount = 3
-  let displayedGoingRsvps = expanded
-    ? goingRsvps
-    : goingRsvps->Array.slice(~start=0, ~end=initialDisplayCount)
+  // Toggle mobile expanded state
+  let toggleMobileExpanded = () => {
+    let newMobileExpanded = !mobileExpanded
+    setMobileExpanded(_ => newMobileExpanded)
+  }
 
-  <div
-    className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t md:border-t-0 md:relative md:rounded-lg md:shadow-sm md:mt-4 z-10 max-h-[75vh] md:max-h-none flex flex-col">
-    <div className="p-4 md:p-6 flex-shrink-0">
-      <h2 className="text-lg font-semibold mb-4"> {t`RSVP`} </h2>
-      {ratingWarning}
-      // RSVP Button
-      <div className="flex mb-6">
-        <button
-          onClick={_ => onRsvp("going")}
-          className={"w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 " ++
-          buttonStyle}>
-          <HeroIcons.CheckIcon className="w-4 h-4" />
-          <span> {buttonText} </span>
-        </button>
+  <>
+    <div
+      className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t md:border-t-0 md:rounded-lg md:shadow-sm md:p-6 md:mt-4 md:sticky md:top-4 z-10">
+      // Mobile view
+      <div className="md:hidden">
+        <div className="p-4">
+          {!mobileExpanded
+            ? <div className="flex justify-between items-center">
+                <div>
+                  <button
+                    onClick={_ => onRsvp("going")}
+                    className={`py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base ${viewerInPending
+                        ? "bg-red-100 text-red-800"
+                        : viewerHasRsvp && !viewerInPending
+                        ? viewerInWaitlist
+                          ? "bg-yellow-100 text-yellow-800"
+                          : "bg-green-600 text-white"
+                        : eventIsFull
+                        ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
+                        : "bg-green-100 text-green-800 hover:bg-green-200"}`}>
+                    <Lucide.Check size=16 />
+                    <span>
+                      <RsvpButtonText status=rsvpButtonStatus />
+                    </span>
+                  </button>
+                </div>
+                <div
+                  className="flex items-center space-x-3 cursor-pointer"
+                  onClick={_ => toggleMobileExpanded()}>
+                  <h2 className="text-lg font-semibold"> {t`RSVP`} </h2>
+                  <div className="flex -space-x-2">
+                    {goingRsvps
+                    ->Array.slice(~start=0, ~end=3)
+                    ->Array.map(edge =>
+                      <div key={edge.id} className="inline-block">
+                        <MiniEventRsvp rsvp={edge.fragmentRefs} maxRating />
+                      </div>
+                    )
+                    ->React.array}
+                    {goingRsvps->Array.length > 3
+                      ? <div
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-xs font-medium text-gray-800 cursor-pointer hover:bg-gray-300">
+                          <div className="flex items-center">
+                            {`+${(goingRsvps->Array.length - 3)->Int.toString}`->React.string}
+                          </div>
+                        </div>
+                      : React.null}
+                  </div>
+                  <Lucide.ChevronUp
+                    size=20
+                    className={`text-gray-500 transition-transform ${mobileExpanded
+                        ? "rotate-180"
+                        : ""}`}
+                  />
+                </div>
+              </div>
+            : <div>
+                <div
+                  className="flex justify-between items-center cursor-pointer"
+                  onClick={_ => toggleMobileExpanded()}>
+                  <h2 className="text-lg font-semibold"> {t`RSVP`} </h2>
+                  <Lucide.ChevronUp
+                    size=20
+                    className={`text-gray-500 transition-transform ${mobileExpanded
+                        ? "rotate-180"
+                        : ""}`}
+                  />
+                </div>
+                <button
+                  onClick={_ => onRsvp("going")}
+                  className={`w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 mt-3 ${viewerInPending
+                      ? "bg-red-100 text-red-800"
+                      : viewerHasRsvp && !viewerInPending
+                      ? viewerInWaitlist
+                        ? "bg-yellow-100 text-yellow-800"
+                        : "bg-green-600 text-white"
+                      : eventIsFull
+                      ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
+                      : "bg-green-100 text-green-800 hover:bg-green-200"}`}>
+                  <Lucide.Check size=16 />
+                  <span>
+                    <RsvpButtonText status=rsvpButtonStatus />
+                  </span>
+                </button>
+              </div>}
+        </div>
+        {mobileExpanded
+          ? <div className="p-4 pt-0">
+              {ratingWarning}
+              {viewerHasRsvp
+                ? <div className="mb-5">
+                    <ViewerStatusMessage message={viewerStatusMessage} eventId={data.id} />
+                  </div>
+                : React.null}
+              <div className="max-h-[60vh] overflow-y-auto">
+                <GoingRsvps
+                  event={data.fragmentRefs}
+                  ?viewer
+                  activitySlug=?{activity->Option.flatMap(a => a.slug)}
+                  maxRating
+                  className=?Some("mb-5")
+                />
+                <RsvpWaitlist
+                  event={data.fragmentRefs}
+                  ?viewer
+                  activitySlug=?{activity->Option.flatMap(a => a.slug)}
+                />
+                <PendingRsvps
+                  event={data.fragmentRefs}
+                  ?viewer
+                  activitySlug=?{activity->Option.flatMap(a => a.slug)}
+                  maxRating
+                />
+              </div>
+              <button
+                onClick={_ => toggleMobileExpanded()}
+                className="w-full py-3 mt-4 flex items-center justify-center text-blue-600 border-t border-gray-200">
+                <span className="font-medium"> {t`Collapse`} </span>
+                <Lucide.ChevronUp size=20 className="ml-1" />
+              </button>
+            </div>
+          : React.null}
       </div>
-      <div className="mb-5">
+      // Desktop View
+      <div className="hidden md:block">
+        <h2 className="text-lg font-semibold mb-4"> {t`RSVP`} </h2>
+        {ratingWarning}
+        <div className="mb-6">
+          <button
+            onClick={_ => onRsvp("going")}
+            className={`w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 ${viewerInPending
+                ? "bg-red-100 text-red-800"
+                : viewerHasRsvp && !viewerInPending
+                ? viewerInWaitlist ? "bg-yellow-100 text-yellow-800" : "bg-green-600 text-white"
+                : eventIsFull
+                ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
+                : "bg-green-100 text-green-800 hover:bg-green-200"}`}>
+            <Lucide.Check size=16 />
+            <span>
+              <RsvpButtonText status=rsvpButtonStatus />
+            </span>
+          </button>
+        </div>
         {viewerHasRsvp
-          ? <ViewerStatusMessage message={viewerStatusMessage} eventId={data.id} />
+          ? <div className="mb-5">
+              <ViewerStatusMessage message={viewerStatusMessage} eventId={data.id} />
+            </div>
+          : React.null}
+        <GoingRsvps
+          event={data.fragmentRefs}
+          ?viewer
+          activitySlug=?{activity->Option.flatMap(a => a.slug)}
+          maxRating
+          className=?Some("mb-5")
+        />
+        <RsvpWaitlist
+          event={data.fragmentRefs}
+          ?viewer
+          activitySlug=?{activity->Option.flatMap(a => a.slug)}
+          className=?Some("mb-5")
+        />
+        <PendingRsvps
+          event={data.fragmentRefs}
+          ?viewer
+          activitySlug=?{activity->Option.flatMap(a => a.slug)}
+          maxRating
+          className=?Some("mb-5")
+        />
+        {hasNext || isLoadingNext
+          ? <div className="mt-4 text-center">
+              {isLoadingNext
+                ? <span className="text-sm text-gray-500"> {t`Loading...`} </span>
+                : <button
+                    className="text-sm font-medium text-blue-600 hover:underline"
+                    onClick={_ => onLoadMore()}>
+                    {t`Load more`}
+                  </button>}
+            </div>
           : React.null}
       </div>
     </div>
-    <div className="flex-1 overflow-y-auto p-4 md:p-6 pt-0 md:pt-0">
-      // Going Section
-      <div className="mb-5">
-        <div className="flex justify-between items-center mb-3">
-          <h3 className="font-medium text-gray-900">
-            {t`Going`}
-            {" ("->React.string}
-            {goingRsvps->Array.length->Int.toString->React.string}
-            {")"->React.string}
-          </h3>
-          {goingRsvps->Array.length > initialDisplayCount ||
-          waitlistRsvps->Array.length > 0 ||
-          restrictedRsvps->Array.length > 0 ||
-          restrictedRsvps->Array.length > 0
-            ? <button
-                onClick={_ => setExpanded(prev => !prev)}
-                className="text-sm text-blue-600 hover:text-blue-800 flex items-center">
-                {expanded
-                  ? <>
-                      <span> {t`Show less`} </span>
-                      <HeroIcons.ChevronUpIcon className="w-4 h-4 ml-1" />
-                    </>
-                  : <>
-                      <span> {t`Show all`} </span>
-                      <HeroIcons.ChevronDownIcon className="w-4 h-4 ml-1" />
-                    </>}
-              </button>
-            : React.null}
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {displayedGoingRsvps
-          ->Array.mapWithIndex((edge, _) =>
-            <EventRsvp
-              key={edge.id}
-              rsvp={edge.fragmentRefs}
-              viewer
-              activitySlug={activity->Option.flatMap(a => a.slug)}
-              maxRating={maxRating}
-            />
-          )
-          ->React.array}
-          {!expanded && goingRsvps->Array.length > initialDisplayCount
-            ? <div
-                className="flex items-center cursor-pointer text-blue-600 hover:text-blue-800"
-                onClick={_ => setExpanded(_ => true)}>
-                <span className="text-sm">
-                  {t`+${(goingRsvps->Array.length - initialDisplayCount)->Int.toString} more`}
-                </span>
-              </div>
-            : React.null}
-        </div>
-      </div>
-      // Maybe Section - Only show when expanded (using waitlist data)
-      {expanded && waitlistRsvps->Array.length > 0
-        ? <div>
-            <h3 className="font-medium text-gray-900 mb-3">
-              {t`Waitlist`}
-              {" ("->React.string}
-              {waitlistRsvps->Array.length->Int.toString->React.string}
-              {")"->React.string}
-            </h3>
-            <div className="space-y-2">
-              {waitlistRsvps
-              ->Array.mapWithIndex((edge, i) =>
-                <div key={edge.id} className="flex items-center space-x-3">
-                  <span
-                    className="flex-shrink-0 w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-xs font-medium text-gray-600">
-                    {(i + 1)->Int.toString->React.string}
-                  </span>
-                  <EventRsvp
-                    rsvp={edge.fragmentRefs}
-                    viewer
-                    activitySlug={activity->Option.flatMap(a => a.slug)}
-                    maxRating={maxRating}
-                  />
-                </div>
-              )
-              ->React.array}
-            </div>
-          </div>
-        : React.null}
-      // Pending Section - Only show when expanded and has pending users
-      {expanded && restrictedRsvps->Array.length > 0
-        ? <div className="mt-5">
-            <h3 className="font-medium text-gray-900 mb-3">
-              {t`Pending`}
-              {" ("->React.string}
-              {restrictedRsvps->Array.length->Int.toString->React.string}
-              {")"->React.string}
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {restrictedRsvps
-              ->Array.mapWithIndex((edge, _) =>
-                <EventRsvp
-                  key={edge.id}
-                  rsvp={edge.fragmentRefs}
-                  viewer
-                  activitySlug={activity->Option.flatMap(a => a.slug)}
-                  maxRating={maxRating}
-                />
-              )
-              ->React.array}
-            </div>
-          </div>
-        : React.null}
-      // Load more if available
-      {hasNext || isLoadingNext
-        ? <div className="mt-4 text-center">
-            {isLoadingNext
-              ? <span className="text-sm text-gray-500"> {t`Loading...`} </span>
-              : <button
-                  className="text-sm font-medium text-blue-600 hover:underline"
-                  onClick={_ => onLoadMore()}>
-                  {t`Load more`}
-                </button>}
-          </div>
-        : React.null}
-    </div>
-  </div>
+  </>
 }

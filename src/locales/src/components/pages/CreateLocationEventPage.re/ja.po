@@ -203,10 +203,6 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "Professional players"
 msgstr "プロプレイヤー"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:198
-msgid "Recreational play suitable for all skill levels"
-msgstr "すべてのスキルレベルに適したレクリエーションプレー"
-
 #: src/components/atoms/EventTag.re.mjs:56
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
@@ -293,6 +289,10 @@ msgstr "ゆびバド"
 #: src/components/pages/CreateLocationEventPage.re.mjs:60
 #~ msgid "Location doesn't exist."
 #~ msgstr "場所が存在しません。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:198
+#~ msgid "Recreational play suitable for all skill levels"
+#~ msgstr "すべてのスキルレベルに適したレクリエーションプレー"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:194
 #~ msgid "Results will be submitted to the JPL rating system and/or DUPR."

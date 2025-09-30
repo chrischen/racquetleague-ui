@@ -86,14 +86,20 @@ module Message = {
         commitUpdate(
           ~variables={connections: [connectionId], input: {eventId, message: trimmedMessage}},
         )->RescriptRelay.Disposable.ignore
+        setEditedMessage(_ => "")
       }
+    }
+
+    let onSubmit = e => {
+      ReactEvent.Form.preventDefault(e)
+      onSave()
     }
 
     <div className="mb-4">
       <label className="block text-sm font-medium text-gray-700">
         {(ts`Status message`)->React.string}
       </label>
-      <div className="mt-1 flex gap-2">
+      <form onSubmit={onSubmit} className="mt-1 flex gap-2">
         <input
           value=editedMessage
           onChange={e => setEditedMessage(ReactEvent.Form.target(e)["value"])}
@@ -101,11 +107,11 @@ module Message = {
           placeholder={ts`Type a status message for people to see... such as 'I will arrive at 19:00.'`}
         />
         <button
-          onClick={_ => onSave()}
+          type_="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          {(ts`Save`)->React.string}
+          {(ts`Send`)->React.string}
         </button>
-      </div>
+      </form>
     </div>
   }
 }

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"3Dqptb\":\"您确定要将这个人从活动中移除吗？\",\"dhWUjC\":\"从活动中移除\",\"vj0eGy\":\"移除此 RSVP\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"3Dqptb\":\"您确定要将这个人从活动中移除吗？\",\"dhWUjC\":\"从活动中移除\",\"vj0eGy\":\"移除此 RSVP\",\"YURQaF\":\"查看资料\"}");

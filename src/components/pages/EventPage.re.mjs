@@ -154,22 +154,7 @@ function EventPage(props) {
                                                                       }
                                                                       
                                                                     })
-                                                                }),
-                                                          Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (activity) {
-                                                                      return Core__Option.map(activity.slug, (function (slug) {
-                                                                                    switch (slug) {
-                                                                                      case "badminton" :
-                                                                                      case "pickleball" :
-                                                                                          break;
-                                                                                      default:
-                                                                                        return null;
-                                                                                    }
-                                                                                    return JsxRuntime.jsx(Button.Button.make, {
-                                                                                                children: t`submit matches`,
-                                                                                                href: "/league/events/" + $$event.id + "/" + slug
-                                                                                              });
-                                                                                  }));
-                                                                    })), null)
+                                                                })
                                                         ],
                                                         className: "flex flex-row gap-2"
                                                       }),
@@ -179,6 +164,39 @@ function EventPage(props) {
                                           });
                                     } else {
                                       tmp = null;
+                                    }
+                                    var match$2 = $$event.activity;
+                                    var tmp$1;
+                                    if (viewerUser !== undefined && match$2 !== undefined) {
+                                      var match$3 = match$2.slug;
+                                      if (match$3 !== undefined) {
+                                        var exit = 0;
+                                        switch (match$3) {
+                                          case "badminton" :
+                                          case "pickleball" :
+                                              exit = 1;
+                                              break;
+                                          default:
+                                            tmp$1 = null;
+                                        }
+                                        if (exit === 1) {
+                                          tmp$1 = JsxRuntime.jsx("div", {
+                                                children: JsxRuntime.jsx("div", {
+                                                      children: JsxRuntime.jsx(Button.Button.make, {
+                                                            children: t`Manage Event`,
+                                                            href: "/league/events/" + $$event.id + "/" + Core__Option.getOr(match$2.slug, "")
+                                                          }),
+                                                      className: "bg-gray-50 rounded-lg p-4 border"
+                                                    }),
+                                                className: "mt-6"
+                                              });
+                                        }
+                                        
+                                      } else {
+                                        tmp$1 = null;
+                                      }
+                                    } else {
+                                      tmp$1 = null;
                                     }
                                     return JsxRuntime.jsxs("div", {
                                                 children: [
@@ -194,6 +212,7 @@ function EventPage(props) {
                                                                         JsxRuntime.jsx(EventDetails.make, {
                                                                               event: $$event.fragmentRefs
                                                                             }),
+                                                                        tmp$1,
                                                                         JsxRuntime.jsx(EventMessages.make, {
                                                                               queryRef: queryFragmentRefs,
                                                                               eventStartDate: startDateJs,

@@ -5,7 +5,7 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
 var Types = {};
 
-var fragmentConverter = {};
+var fragmentConverter = {"__root":{"":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -38,6 +38,11 @@ var node = {
       "kind": "ScalarField",
       "name": "lineUsername",
       "storageKey": null
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "RsvpOptions_user"
     }
   ],
   "type": "User",

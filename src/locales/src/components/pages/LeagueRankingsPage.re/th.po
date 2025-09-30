@@ -20,7 +20,7 @@ msgstr "...โหลดผู้เล่นเรตติ้งสูงกว
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 #: src/components/pages/LeagueRankingsPage.re.mjs:52
 msgid "Competitive Doubles"
-msgstr ""
+msgstr "คู่แข่งขัน"
 
 #: src/components/organisms/RatingList.re.mjs:202
 msgid "Female"
@@ -32,7 +32,7 @@ msgstr "โหลดผู้เล่นเพิ่มเติม..."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:135
 msgid "Loading rankings..."
-msgstr ""
+msgstr "กำลังโหลดการจัดอันดับ..."
 
 #: src/components/organisms/RatingList.re.mjs:204
 msgid "Male"
@@ -42,16 +42,16 @@ msgstr "ชาย"
 msgid ""
 "Play doubles games with different partners and receive an individual rating. "
 "Prizes are awarded monthly to top players."
-msgstr ""
+msgstr "เล่นเกมคู่กับคู่คนต่างๆ และได้รับเรตติ้งส่วนบุคคล รางวัลจะมอบให้ผู้เล่นอันดับต้นทุกเดือน"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 msgid "Recreational Doubles"
-msgstr ""
+msgstr "คู่เพื่อความบันเทิง"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:117
 msgid "To participate, please join the events here:"
-msgstr ""
+msgstr "เพื่อเข้าร่วม กรุณาเข้าร่วมกิจกรรมที่นี่:"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:92
 msgid "View My Profile"
-msgstr ""
+msgstr "ดูโปรไฟล์ของฉัน"

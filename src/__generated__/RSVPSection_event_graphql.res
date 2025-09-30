@@ -23,7 +23,7 @@ module Types = {
     message: option<string>,
     rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvp_rsvp | #RsvpOptions_rsvp]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvp_rsvp | #MiniEventRsvp_rsvp]>,
   }
   and fragment_rsvps_edges = {
     node: option<fragment_rsvps_edges_node>,
@@ -45,6 +45,7 @@ module Types = {
     minRating: option<float>,
     rsvps: option<fragment_rsvps>,
     viewerIsAdmin: bool,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GoingRsvps_event | #PendingRsvps_event | #RsvpWaitlist_event]>,
   }
 }
 
@@ -53,7 +54,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"rsvps_edges_node":{"f":""}}}`
+    json`{"__root":{"rsvps_edges_node":{"f":""},"":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = ()
@@ -122,7 +123,24 @@ v1 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
-};
+},
+v2 = [
+  {
+    "kind": "Variable",
+    "name": "after",
+    "variableName": "after"
+  },
+  {
+    "kind": "Variable",
+    "name": "before",
+    "variableName": "before"
+  },
+  {
+    "kind": "Variable",
+    "name": "first",
+    "variableName": "first"
+  }
+];
 return {
   "argumentDefinitions": [
     {
@@ -213,6 +231,21 @@ return {
       "storageKey": null
     },
     {
+      "args": (v2/*: any*/),
+      "kind": "FragmentSpread",
+      "name": "RsvpWaitlist_event"
+    },
+    {
+      "args": (v2/*: any*/),
+      "kind": "FragmentSpread",
+      "name": "GoingRsvps_event"
+    },
+    {
+      "args": (v2/*: any*/),
+      "kind": "FragmentSpread",
+      "name": "PendingRsvps_event"
+    },
+    {
       "alias": "rsvps",
       "args": null,
       "concreteType": "EventRsvpConnection",
@@ -245,7 +278,7 @@ return {
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "RsvpOptions_rsvp"
+                  "name": "MiniEventRsvp_rsvp"
                 },
                 {
                   "alias": null,

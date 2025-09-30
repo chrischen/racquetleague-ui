@@ -2,10 +2,8 @@
 %%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
 module Fragment = %relay(`
-  fragment RsvpOptions_rsvp on Rsvp {
-    user {
+  fragment RsvpOptions_user on User {
       id
-    }
   }
 `)
 
@@ -21,19 +19,20 @@ module RsvpOptionsDeleteMutation = %relay(`
 `)
 
 @react.component
-let make = (~rsvp, ~__id) => {
+let make = (~user, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~children) => {
   let (commitMutationDeleteRsvp, _isMutationInFlight) = RsvpOptionsDeleteMutation.use()
-  let rsvp = Fragment.use(rsvp)
+  let user = Fragment.use(user)
+  let nav = LangProvider.Router.useNavigate()
 
   let onDeleteRsvp = userId => {
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-      __id,
-      "EventRsvps_event_rsvps",
+      eventId->RescriptRelay.makeDataId,
+      "RSVPSection_event_rsvps",
       (),
     )
     commitMutationDeleteRsvp(
       ~variables={
-        id: __id->RescriptRelay.dataIdToString,
+        id: eventId,
         userId,
         connections: [connectionId],
       },
@@ -41,39 +40,41 @@ let make = (~rsvp, ~__id) => {
   }
   let (isOpen, setIsOpen) = React.useState(() => false)
 
-  rsvp.user
-  ->Option.map(user => {
-    open Dropdown
-    <>
-      <Dropdown>
-        <DropdownButton outline=true>
-          <HeroIcons.ChevronDownIcon />
-        </DropdownButton>
-        <DropdownMenu>
-          <DropdownItem
-            onClick={e => {
-              e->JsxEventU.Mouse.stopPropagation
-              setIsOpen(_ => true)
-            }}>
-            {t`Remove from event`}
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-      <ConfirmDialog
-        title={t`Remove this RSVP`}
-        description={t`Are you sure you want to remove this person from the event?`}
-        // confirmText={t`Leave`}
-        // cancelText={t`Cancel`}
-        setIsOpen
-        isOpen
-        onConfirmed={_ => {
-          onDeleteRsvp(user.id)
-        }}
+  open Dropdown
+  <>
+    <Dropdown>
+      <DropdownButton \"as"={Router.Link.make}> {children} </DropdownButton>
+      <DropdownMenu>
+        <DropdownItem
+          onClick={e => {
+            nav("/league/" ++ eventActivitySlug ++ "/p/" ++ user.id, None)
+          }}>
+          {t`View Profile`}
+        </DropdownItem>
+        {isAdmin
+          ? <DropdownItem
+              onClick={e => {
+                e->JsxEventU.Mouse.stopPropagation
+                setIsOpen(_ => true)
+              }}>
+              {t`Remove from event`}
+            </DropdownItem>
+          : React.null}
+      </DropdownMenu>
+    </Dropdown>
+    <ConfirmDialog
+      title={t`Remove this RSVP`}
+      description={t`Are you sure you want to remove this person from the event?`}
+      // confirmText={t`Leave`}
+      // cancelText={t`Cancel`}
+      setIsOpen
+      isOpen
+      onConfirmed={_ => {
+        onDeleteRsvp(user.id)
+      }}
 
-        // Optional: specify confirm button color if default red is not desired
-        // confirmButtonColor=#zinc
-      />
-    </>
-  })
-  ->Option.getOr(React.null)
+      // Optional: specify confirm button color if default red is not desired
+      // confirmButtonColor=#zinc
+    />
+  </>
 }

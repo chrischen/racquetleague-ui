@@ -18,6 +18,7 @@ function ConfirmButton(props) {
                                 return true;
                               });
                         }),
+                      className: props.className,
                       children: props.button
                     }),
                 JsxRuntime.jsx(ConfirmDialog.make, {

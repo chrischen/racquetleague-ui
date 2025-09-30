@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/organisms/EventRsvps.re.mjs:524
-#: src/components/organisms/EventRsvps.re.mjs:678
+#: src/components/organisms/EventRsvps.re.mjs:671
 msgid "{0, plural, one {player} other {players}}"
 msgstr "位球员"
 
@@ -22,11 +22,11 @@ msgstr "位球员"
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr "位球员"
 
-#: src/components/organisms/EventRsvps.re.mjs:628
+#: src/components/organisms/EventRsvps.re.mjs:620
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr "位球员"
 
-#: src/components/organisms/RsvpOptions.re.mjs:92
+#: src/components/organisms/RsvpOptions.re.mjs:102
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
@@ -51,9 +51,9 @@ msgstr "加入活动"
 msgid "leave event"
 msgstr "退出活动"
 
-#: src/components/organisms/EventRsvps.re.mjs:607
-#: src/components/organisms/EventRsvps.re.mjs:659
-#: src/components/organisms/EventRsvps.re.mjs:709
+#: src/components/organisms/EventRsvps.re.mjs:599
+#: src/components/organisms/EventRsvps.re.mjs:652
+#: src/components/organisms/EventRsvps.re.mjs:703
 msgid "load More"
 msgstr "加载更多"
 
@@ -67,13 +67,13 @@ msgstr "登录以加入活动"
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
-#: src/components/organisms/EventRsvps.re.mjs:598
-#: src/components/organisms/EventRsvps.re.mjs:652
-#: src/components/organisms/EventRsvps.re.mjs:702
+#: src/components/organisms/EventRsvps.re.mjs:590
+#: src/components/organisms/EventRsvps.re.mjs:645
+#: src/components/organisms/EventRsvps.re.mjs:696
 msgid "no players yet"
 msgstr "还没有球员"
 
-#: src/components/organisms/EventRsvps.re.mjs:672
+#: src/components/organisms/EventRsvps.re.mjs:665
 msgid "pending"
 msgstr "待审核"
 
@@ -81,11 +81,11 @@ msgstr "待审核"
 msgid "Player"
 msgstr "球员"
 
-#: src/components/organisms/RsvpOptions.re.mjs:79
+#: src/components/organisms/RsvpOptions.re.mjs:88
 msgid "Remove from event"
 msgstr "从活动中移除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:91
+#: src/components/organisms/RsvpOptions.re.mjs:101
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
@@ -93,7 +93,7 @@ msgstr "移除此 RSVP"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "最低评分要求：{0}（DUPR {1}）"
 
-#: src/components/organisms/EventRsvps.re.mjs:142
+#: src/components/organisms/EventRsvps.re.mjs:141
 msgid "Save"
 msgstr "保存"
 
@@ -111,14 +111,18 @@ msgstr ""
 "这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
 "加入等待列表。您确定要退出这个活动吗？"
 
+#: src/components/organisms/EventRsvps.re.mjs:125
 #: src/components/organisms/EventRsvps.re.mjs:126
-#: src/components/organisms/EventRsvps.re.mjs:127
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 
+#: src/components/organisms/RsvpOptions.re.mjs:82
+msgid "View Profile"
+msgstr "查看资料"
+
 #: src/components/organisms/EventRsvps.re.mjs:549
-#: src/components/organisms/EventRsvps.re.mjs:622
+#: src/components/organisms/EventRsvps.re.mjs:614
 msgid "waitlist"
 msgstr "等待列表"
 

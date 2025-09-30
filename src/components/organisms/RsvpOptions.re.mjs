@@ -3,28 +3,28 @@
 import * as React from "react";
 import * as Dropdown from "../catalyst/Dropdown.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as ReactRouterDom from "react-router-dom";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
-import * as RsvpOptions_rsvp_graphql from "../../__generated__/RsvpOptions_rsvp_graphql.re.mjs";
-import * as Solid from "@heroicons/react/24/solid";
+import * as RsvpOptions_user_graphql from "../../__generated__/RsvpOptions_user_graphql.re.mjs";
 import * as RsvpOptionsDeleteMutation_graphql from "../../__generated__/RsvpOptionsDeleteMutation_graphql.re.mjs";
 
 import { t, plural } from '@lingui/macro'
 ;
 
-var convertFragment = RsvpOptions_rsvp_graphql.Internal.convertFragment;
+var convertFragment = RsvpOptions_user_graphql.Internal.convertFragment;
 
 function use(fRef) {
-  return RescriptRelay_Fragment.useFragment(RsvpOptions_rsvp_graphql.node, convertFragment, fRef);
+  return RescriptRelay_Fragment.useFragment(RsvpOptions_user_graphql.node, convertFragment, fRef);
 }
 
 function useOpt(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, RsvpOptions_rsvp_graphql.node, convertFragment);
+  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, RsvpOptions_user_graphql.node, convertFragment);
 }
 
 var Fragment = {
@@ -56,55 +56,64 @@ var RsvpOptionsDeleteMutation = {
 };
 
 function RsvpOptions(props) {
-  var __id = props.__id;
+  var __isAdmin = props.isAdmin;
+  var eventActivitySlug = props.eventActivitySlug;
+  var eventId = props.eventId;
+  var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
   var match = use$1();
   var commitMutationDeleteRsvp = match[0];
-  var rsvp = use(props.rsvp);
+  var user = use(props.user);
+  var nav = LangProvider.Router.useNavigate();
   var match$1 = React.useState(function () {
         return false;
       });
   var setIsOpen = match$1[1];
-  var isOpen = match$1[0];
-  return Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
-                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                children: [
-                                  JsxRuntime.jsxs(React$1.Menu, {
-                                        children: [
-                                          JsxRuntime.jsx(Dropdown.DropdownButton.make, {
-                                                children: JsxRuntime.jsx(Solid.ChevronDownIcon, {}),
-                                                outline: true
-                                              }),
-                                          JsxRuntime.jsx(Dropdown.DropdownMenu.make, {
-                                                children: JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-                                                      children: t`Remove from event`,
-                                                      onClick: (function (e) {
-                                                          e.stopPropagation();
-                                                          setIsOpen(function (param) {
-                                                                return true;
-                                                              });
-                                                        })
-                                                    })
-                                              })
-                                        ]
-                                      }),
-                                  JsxRuntime.jsx(ConfirmDialog.make, {
-                                        title: t`Remove this RSVP`,
-                                        description: t`Are you sure you want to remove this person from the event?`,
-                                        onConfirmed: (function () {
-                                            var userId = user.id;
-                                            var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "EventRsvps_event_rsvps", undefined);
-                                            commitMutationDeleteRsvp({
-                                                  connections: [connectionId],
-                                                  id: __id,
-                                                  userId: userId
-                                                }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                          }),
-                                        setIsOpen: setIsOpen,
-                                        isOpen: isOpen
-                                      })
-                                ]
-                              });
-                  })), null);
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                JsxRuntime.jsxs(React$1.Menu, {
+                      children: [
+                        JsxRuntime.jsx(Dropdown.DropdownButton.make, {
+                              as: ReactRouterDom.Link,
+                              children: props.children
+                            }),
+                        JsxRuntime.jsxs(Dropdown.DropdownMenu.make, {
+                              children: [
+                                JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                                      children: t`View Profile`,
+                                      onClick: (function (e) {
+                                          nav("/league/" + eventActivitySlug + "/p/" + user.id, undefined);
+                                        })
+                                    }),
+                                isAdmin ? JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                                        children: t`Remove from event`,
+                                        onClick: (function (e) {
+                                            e.stopPropagation();
+                                            setIsOpen(function (param) {
+                                                  return true;
+                                                });
+                                          })
+                                      }) : null
+                              ]
+                            })
+                      ]
+                    }),
+                JsxRuntime.jsx(ConfirmDialog.make, {
+                      title: t`Remove this RSVP`,
+                      description: t`Are you sure you want to remove this person from the event?`,
+                      onConfirmed: (function () {
+                          var userId = user.id;
+                          var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventId, "RSVPSection_event_rsvps", undefined);
+                          commitMutationDeleteRsvp({
+                                connections: [connectionId],
+                                id: eventId,
+                                userId: userId
+                              }, undefined, undefined, undefined, undefined, undefined, undefined);
+                        }),
+                      setIsOpen: setIsOpen,
+                      isOpen: match$1[0]
+                    })
+              ]
+            });
 }
 
 var make = RsvpOptions;

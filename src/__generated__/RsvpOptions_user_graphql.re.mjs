@@ -23,28 +23,17 @@ var node = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "RsvpOptions_rsvp",
+  "name": "RsvpOptions_user",
   "selections": [
     {
       "alias": null,
       "args": null,
-      "concreteType": "User",
-      "kind": "LinkedField",
-      "name": "user",
-      "plural": false,
-      "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        }
-      ],
+      "kind": "ScalarField",
+      "name": "id",
       "storageKey": null
     }
   ],
-  "type": "Rsvp",
+  "type": "User",
   "abstractKey": null
 };
 

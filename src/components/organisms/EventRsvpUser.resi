@@ -1,8 +1,12 @@
-let make: RsvpUser.props<
-  RescriptRelay.fragmentRefs<[> #EventRsvpUser_user]>,
-  bool,
-  string,
-  string,
-  float,
-  float,
-> => React.element
+@react.component
+let make: (
+  ~user: RescriptRelay.fragmentRefs<[> #EventRsvpUser_user]>,
+  ~highlight: bool=?,
+  ~link: string=?,
+  ~secondaryText: string=?,
+  ~sigmaPercent: float=?,
+  ~ratingPercent: float=?,
+  ~eventId: string,
+  ~eventActivitySlug: string,
+  ~isAdmin: bool=?,
+) => React.element

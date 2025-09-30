@@ -3,20 +3,23 @@
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
-import * as EventRsvp from "./EventRsvp.re.mjs";
+import * as GoingRsvps from "./GoingRsvps.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as PendingRsvps from "./PendingRsvps.re.mjs";
+import * as RsvpWaitlist from "./RsvpWaitlist.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as MiniEventRsvp from "./MiniEventRsvp.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as RsvpButtonText from "../atoms/RsvpButtonText.re.mjs";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as RSVPSection_user_graphql from "../../__generated__/RSVPSection_user_graphql.re.mjs";
-import * as Solid from "@heroicons/react/24/solid";
 import * as RSVPSection_event_graphql from "../../__generated__/RSVPSection_event_graphql.re.mjs";
 import * as EventMessages_query_graphql from "../../__generated__/EventMessages_query_graphql.re.mjs";
 import * as RSVPSectionJoinMutation_graphql from "../../__generated__/RSVPSectionJoinMutation_graphql.re.mjs";
@@ -211,11 +214,15 @@ function RSVPSection$ViewerStatusMessage(props) {
           return false;
         });
   };
+  var onSubmit = function (e) {
+    e.preventDefault();
+    handleSave();
+  };
   var content = message !== undefined ? (
       message === "" ? t`Type a status message for people to see... such as 'I will arrive at 19:00.'` : message
     ) : t`Type a status message for people to see... such as 'I will arrive at 19:00.'`;
   if (match[0]) {
-    return JsxRuntime.jsxs("div", {
+    return JsxRuntime.jsxs("form", {
                 children: [
                   JsxRuntime.jsx("div", {
                         children: JsxRuntime.jsx("input", {
@@ -230,12 +237,11 @@ function RSVPSection$ViewerStatusMessage(props) {
                   JsxRuntime.jsx("button", {
                         children: t`Save`,
                         className: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                        onClick: (function (param) {
-                            handleSave();
-                          })
+                        type: "submit"
                       })
                 ],
-                className: "flex items-center gap-x-2 mt-2"
+                className: "flex items-center gap-x-2 mt-2",
+                onSubmit: onSubmit
               });
   } else {
     return JsxRuntime.jsx("div", {
@@ -317,12 +323,6 @@ function RSVPSection(props) {
           return 0;
         }
       });
-  var waitlistRsvps = mainList.filter(function (param, i) {
-        return isWaitlist(i);
-      });
-  var restrictedRsvps = rsvps.filter(function (edge) {
-        return isRestrictedRsvp(edge.listType);
-      });
   var viewerRsvp = Core__Option.flatMap(viewer, (function (viewer) {
           return rsvps.find(function (edge) {
                       return Core__Option.getOr(Core__Option.map(edge.user, (function (user) {
@@ -356,6 +356,11 @@ function RSVPSection(props) {
         false,
         false
       ]);
+  var viewerInPending = match$6[1];
+  var viewerInWaitlist = match$6[0];
+  var eventIsFull = Core__Option.getOr(Core__Option.map(maxRsvps, (function (max) {
+              return confirmedRsvps.length >= max;
+            })), false);
   var viewerCanJoin = Core__Option.map(minRating, (function (minRating) {
           var rating = Core__Option.getOr(Core__Option.flatMap(viewer, (function (viewer) {
                       return Core__Option.flatMap(viewer.eventRating, (function (r) {
@@ -397,6 +402,27 @@ function RSVPSection(props) {
               }),
           className: "mb-3"
         }) : null;
+  var onRsvp = function (status) {
+    if (status === "going") {
+      if (viewerHasRsvp) {
+        var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "RSVPSection_event_rsvps", undefined);
+        commitMutationLeave({
+              connections: [connectionId],
+              id: __id
+            }, undefined, undefined, undefined, undefined, undefined, undefined);
+        return ;
+      } else {
+        var connectionId$1 = RelayRuntime.ConnectionHandler.getConnectionID(__id, "RSVPSection_event_rsvps", undefined);
+        commitMutationCreateRating(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+        commitMutationJoin({
+              connections: [connectionId$1],
+              id: __id
+            }, undefined, undefined, undefined, undefined, undefined, undefined);
+        return ;
+      }
+    }
+    
+  };
   var maxRating = Core__Array.reduce(rsvps, 0, (function (max, edge) {
           var currentRating = Core__Option.getOr(Core__Option.flatMap(edge.rating, (function (rating) {
                       return rating.mu;
@@ -407,241 +433,311 @@ function RSVPSection(props) {
             return max;
           }
         }));
-  var match$7 = viewerHasRsvp ? (
-      match$6[1] ? [
-          t`Pending`,
-          "bg-red-600 text-white"
-        ] : (
-          match$6[0] ? [
-              t`You're Waitlisted`,
-              "bg-yellow-500 text-white"
-            ] : [
-              t`You're Going`,
-              "bg-green-600 text-white"
-            ]
-        )
-    ) : [
-      t`Join`,
-      "bg-green-100 text-green-800 hover:bg-green-200"
-    ];
-  var match$8 = React.useState(function () {
+  var match$7 = React.useState(function () {
         return false;
       });
-  var setExpanded = match$8[1];
-  var expanded = match$8[0];
-  var displayedGoingRsvps = expanded ? confirmedRsvps : confirmedRsvps.slice(0, 3);
-  return JsxRuntime.jsxs("div", {
-              children: [
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsx("h2", {
-                              children: t`RSVP`,
-                              className: "text-lg font-semibold mb-4"
-                            }),
-                        ratingWarning,
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsxs("button", {
-                                    children: [
-                                      JsxRuntime.jsx(Solid.CheckIcon, {
-                                            className: "w-4 h-4"
-                                          }),
-                                      JsxRuntime.jsx("span", {
-                                            children: match$7[0]
-                                          })
-                                    ],
-                                    className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 " + match$7[1],
-                                    onClick: (function (param) {
-                                        var status = "going";
-                                        if (status === "going") {
-                                          if (viewerHasRsvp) {
-                                            var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "RSVPSection_event_rsvps", undefined);
-                                            commitMutationLeave({
-                                                  connections: [connectionId],
-                                                  id: __id
-                                                }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                            return ;
-                                          } else {
-                                            var connectionId$1 = RelayRuntime.ConnectionHandler.getConnectionID(__id, "RSVPSection_event_rsvps", undefined);
-                                            commitMutationCreateRating(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
-                                            commitMutationJoin({
-                                                  connections: [connectionId$1],
-                                                  id: __id
-                                                }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                            return ;
-                                          }
-                                        }
-                                        
-                                      })
-                                  }),
-                              className: "flex mb-6"
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: viewerHasRsvp ? JsxRuntime.jsx(RSVPSection$ViewerStatusMessage, {
-                                      eventId: data.id,
-                                      message: viewerStatusMessage
-                                    }) : null,
-                              className: "mb-5"
-                            })
-                      ],
-                      className: "p-4 md:p-6 flex-shrink-0"
-                    }),
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsxs("h3", {
-                                              children: [
-                                                t`Going`,
-                                                " (",
-                                                confirmedRsvps.length.toString(),
-                                                ")"
-                                              ],
-                                              className: "font-medium text-gray-900"
-                                            }),
-                                        confirmedRsvps.length > 3 || waitlistRsvps.length > 0 || restrictedRsvps.length > 0 || restrictedRsvps.length > 0 ? JsxRuntime.jsx("button", {
-                                                children: expanded ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+  var setMobileExpanded = match$7[1];
+  var mobileExpanded = match$7[0];
+  var rsvpButtonStatus = viewerInPending ? ({
+        TAG: "Joined",
+        _0: "Pending"
+      }) : (
+      viewerHasRsvp ? (
+          viewerInWaitlist ? ({
+                TAG: "Joined",
+                _0: "Waitlisted"
+              }) : ({
+                TAG: "Joined",
+                _0: "Going"
+              })
+        ) : (
+          eventIsFull ? ({
+                TAG: "NotJoined",
+                _0: "JoinWaitlist"
+              }) : ({
+                TAG: "NotJoined",
+                _0: "Join"
+              })
+        )
+    );
+  var toggleMobileExpanded = function () {
+    var newMobileExpanded = !mobileExpanded;
+    setMobileExpanded(function (param) {
+          return newMobileExpanded;
+        });
+  };
+  return JsxRuntime.jsx(JsxRuntime.Fragment, {
+              children: Caml_option.some(JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("div", {
+                                        children: mobileExpanded ? JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsxs("div", {
                                                         children: [
-                                                          JsxRuntime.jsx("span", {
-                                                                children: t`Show less`
+                                                          JsxRuntime.jsx("h2", {
+                                                                children: t`RSVP`,
+                                                                className: "text-lg font-semibold"
                                                               }),
-                                                          JsxRuntime.jsx(Solid.ChevronUpIcon, {
-                                                                className: "w-4 h-4 ml-1"
+                                                          JsxRuntime.jsx(LucideReact.ChevronUp, {
+                                                                size: 20,
+                                                                className: "text-gray-500 transition-transform " + (
+                                                                  mobileExpanded ? "rotate-180" : ""
+                                                                )
                                                               })
-                                                        ]
-                                                      }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                        children: [
-                                                          JsxRuntime.jsx("span", {
-                                                                children: t`Show all`
-                                                              }),
-                                                          JsxRuntime.jsx(Solid.ChevronDownIcon, {
-                                                                className: "w-4 h-4 ml-1"
-                                                              })
-                                                        ]
+                                                        ],
+                                                        className: "flex justify-between items-center cursor-pointer",
+                                                        onClick: (function (param) {
+                                                            toggleMobileExpanded();
+                                                          })
                                                       }),
-                                                className: "text-sm text-blue-600 hover:text-blue-800 flex items-center",
-                                                onClick: (function (param) {
-                                                    setExpanded(function (prev) {
-                                                          return !prev;
-                                                        });
-                                                  })
-                                              }) : null
-                                      ],
-                                      className: "flex justify-between items-center mb-3"
-                                    }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        displayedGoingRsvps.map(function (edge, param) {
-                                              return JsxRuntime.jsx(EventRsvp.make, {
-                                                          rsvp: edge.fragmentRefs,
-                                                          viewer: viewer,
-                                                          activitySlug: Core__Option.flatMap(activity, (function (a) {
-                                                                  return a.slug;
-                                                                })),
-                                                          maxRating: maxRating
-                                                        }, edge.id);
-                                            }),
-                                        !expanded && confirmedRsvps.length > 3 ? JsxRuntime.jsx("div", {
-                                                children: JsxRuntime.jsx("span", {
-                                                      children: t`+${(confirmedRsvps.length - 3 | 0).toString()} more`,
-                                                      className: "text-sm"
-                                                    }),
-                                                className: "flex items-center cursor-pointer text-blue-600 hover:text-blue-800",
-                                                onClick: (function (param) {
-                                                    setExpanded(function (param) {
-                                                          return true;
-                                                        });
-                                                  })
-                                              }) : null
-                                      ],
-                                      className: "flex flex-wrap gap-3"
-                                    })
-                              ],
-                              className: "mb-5"
-                            }),
-                        expanded && waitlistRsvps.length > 0 ? JsxRuntime.jsxs("div", {
-                                children: [
-                                  JsxRuntime.jsxs("h3", {
-                                        children: [
-                                          t`Waitlist`,
-                                          " (",
-                                          waitlistRsvps.length.toString(),
-                                          ")"
-                                        ],
-                                        className: "font-medium text-gray-900 mb-3"
-                                      }),
-                                  JsxRuntime.jsx("div", {
-                                        children: waitlistRsvps.map(function (edge, i) {
-                                              return JsxRuntime.jsxs("div", {
-                                                          children: [
-                                                            JsxRuntime.jsx("span", {
-                                                                  children: (i + 1 | 0).toString(),
-                                                                  className: "flex-shrink-0 w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-xs font-medium text-gray-600"
-                                                                }),
-                                                            JsxRuntime.jsx(EventRsvp.make, {
-                                                                  rsvp: edge.fragmentRefs,
-                                                                  viewer: viewer,
-                                                                  activitySlug: Core__Option.flatMap(activity, (function (a) {
-                                                                          return a.slug;
-                                                                        })),
-                                                                  maxRating: maxRating
+                                                  JsxRuntime.jsxs("button", {
+                                                        children: [
+                                                          JsxRuntime.jsx(LucideReact.Check, {
+                                                                size: 16
+                                                              }),
+                                                          JsxRuntime.jsx("span", {
+                                                                children: JsxRuntime.jsx(RsvpButtonText.make, {
+                                                                      status: rsvpButtonStatus
+                                                                    })
+                                                              })
+                                                        ],
+                                                        className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 mt-3 " + (
+                                                          viewerInPending ? "bg-red-100 text-red-800" : (
+                                                              viewerHasRsvp && !viewerInPending ? (
+                                                                  viewerInWaitlist ? "bg-yellow-100 text-yellow-800" : "bg-green-600 text-white"
+                                                                ) : (
+                                                                  eventIsFull ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200" : "bg-green-100 text-green-800 hover:bg-green-200"
+                                                                )
+                                                            )
+                                                        ),
+                                                        onClick: (function (param) {
+                                                            onRsvp("going");
+                                                          })
+                                                      })
+                                                ]
+                                              }) : JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsx("div", {
+                                                        children: JsxRuntime.jsxs("button", {
+                                                              children: [
+                                                                JsxRuntime.jsx(LucideReact.Check, {
+                                                                      size: 16
+                                                                    }),
+                                                                JsxRuntime.jsx("span", {
+                                                                      children: JsxRuntime.jsx(RsvpButtonText.make, {
+                                                                            status: rsvpButtonStatus
+                                                                          })
+                                                                    })
+                                                              ],
+                                                              className: "py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base " + (
+                                                                viewerInPending ? "bg-red-100 text-red-800" : (
+                                                                    viewerHasRsvp && !viewerInPending ? (
+                                                                        viewerInWaitlist ? "bg-yellow-100 text-yellow-800" : "bg-green-600 text-white"
+                                                                      ) : (
+                                                                        eventIsFull ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200" : "bg-green-100 text-green-800 hover:bg-green-200"
+                                                                      )
+                                                                  )
+                                                              ),
+                                                              onClick: (function (param) {
+                                                                  onRsvp("going");
                                                                 })
-                                                          ],
-                                                          className: "flex items-center space-x-3"
-                                                        }, edge.id);
-                                            }),
-                                        className: "space-y-2"
-                                      })
-                                ]
-                              }) : null,
-                        expanded && restrictedRsvps.length > 0 ? JsxRuntime.jsxs("div", {
-                                children: [
-                                  JsxRuntime.jsxs("h3", {
-                                        children: [
-                                          t`Pending`,
-                                          " (",
-                                          restrictedRsvps.length.toString(),
-                                          ")"
-                                        ],
-                                        className: "font-medium text-gray-900 mb-3"
+                                                            })
+                                                      }),
+                                                  JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsx("h2", {
+                                                                children: t`RSVP`,
+                                                                className: "text-lg font-semibold"
+                                                              }),
+                                                          JsxRuntime.jsxs("div", {
+                                                                children: [
+                                                                  confirmedRsvps.slice(0, 3).map(function (edge) {
+                                                                        return JsxRuntime.jsx("div", {
+                                                                                    children: JsxRuntime.jsx(MiniEventRsvp.make, {
+                                                                                          rsvp: edge.fragmentRefs,
+                                                                                          maxRating: maxRating
+                                                                                        }),
+                                                                                    className: "inline-block"
+                                                                                  }, edge.id);
+                                                                      }),
+                                                                  confirmedRsvps.length > 3 ? JsxRuntime.jsx("div", {
+                                                                          children: JsxRuntime.jsx("div", {
+                                                                                children: "+" + (confirmedRsvps.length - 3 | 0).toString(),
+                                                                                className: "flex items-center"
+                                                                              }),
+                                                                          className: "inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-xs font-medium text-gray-800 cursor-pointer hover:bg-gray-300"
+                                                                        }) : null
+                                                                ],
+                                                                className: "flex -space-x-2"
+                                                              }),
+                                                          JsxRuntime.jsx(LucideReact.ChevronUp, {
+                                                                size: 20,
+                                                                className: "text-gray-500 transition-transform " + (
+                                                                  mobileExpanded ? "rotate-180" : ""
+                                                                )
+                                                              })
+                                                        ],
+                                                        className: "flex items-center space-x-3 cursor-pointer",
+                                                        onClick: (function (param) {
+                                                            toggleMobileExpanded();
+                                                          })
+                                                      })
+                                                ],
+                                                className: "flex justify-between items-center"
+                                              }),
+                                        className: "p-4"
                                       }),
-                                  JsxRuntime.jsx("div", {
-                                        children: restrictedRsvps.map(function (edge, param) {
-                                              return JsxRuntime.jsx(EventRsvp.make, {
-                                                          rsvp: edge.fragmentRefs,
+                                  mobileExpanded ? JsxRuntime.jsxs("div", {
+                                          children: [
+                                            ratingWarning,
+                                            viewerHasRsvp ? JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsx(RSVPSection$ViewerStatusMessage, {
+                                                          eventId: data.id,
+                                                          message: viewerStatusMessage
+                                                        }),
+                                                    className: "mb-5"
+                                                  }) : null,
+                                            JsxRuntime.jsxs("div", {
+                                                  children: [
+                                                    JsxRuntime.jsx(GoingRsvps.make, {
+                                                          event: data.fragmentRefs,
+                                                          viewer: viewer,
+                                                          activitySlug: Core__Option.flatMap(activity, (function (a) {
+                                                                  return a.slug;
+                                                                })),
+                                                          maxRating: maxRating,
+                                                          className: "mb-5"
+                                                        }),
+                                                    JsxRuntime.jsx(RsvpWaitlist.make, {
+                                                          event: data.fragmentRefs,
+                                                          viewer: viewer,
+                                                          activitySlug: Core__Option.flatMap(activity, (function (a) {
+                                                                  return a.slug;
+                                                                }))
+                                                        }),
+                                                    JsxRuntime.jsx(PendingRsvps.make, {
+                                                          event: data.fragmentRefs,
                                                           viewer: viewer,
                                                           activitySlug: Core__Option.flatMap(activity, (function (a) {
                                                                   return a.slug;
                                                                 })),
                                                           maxRating: maxRating
-                                                        }, edge.id);
-                                            }),
-                                        className: "flex flex-wrap gap-3"
-                                      })
+                                                        })
+                                                  ],
+                                                  className: "max-h-[60vh] overflow-y-auto"
+                                                }),
+                                            JsxRuntime.jsxs("button", {
+                                                  children: [
+                                                    JsxRuntime.jsx("span", {
+                                                          children: t`Collapse`,
+                                                          className: "font-medium"
+                                                        }),
+                                                    JsxRuntime.jsx(LucideReact.ChevronUp, {
+                                                          size: 20,
+                                                          className: "ml-1"
+                                                        })
+                                                  ],
+                                                  className: "w-full py-3 mt-4 flex items-center justify-center text-blue-600 border-t border-gray-200",
+                                                  onClick: (function (param) {
+                                                      toggleMobileExpanded();
+                                                    })
+                                                })
+                                          ],
+                                          className: "p-4 pt-0"
+                                        }) : null
                                 ],
-                                className: "mt-5"
-                              }) : null,
-                        match$1.hasNext || isLoadingNext ? JsxRuntime.jsx("div", {
-                                children: isLoadingNext ? JsxRuntime.jsx("span", {
-                                        children: t`Loading...`,
-                                        className: "text-sm text-gray-500"
-                                      }) : JsxRuntime.jsx("button", {
-                                        children: t`Load more`,
-                                        className: "text-sm font-medium text-blue-600 hover:underline",
-                                        onClick: (function (param) {
-                                            startTransition(function () {
-                                                  loadNext(80, undefined);
-                                                });
-                                          })
+                                className: "md:hidden"
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("h2", {
+                                        children: t`RSVP`,
+                                        className: "text-lg font-semibold mb-4"
                                       }),
-                                className: "mt-4 text-center"
-                              }) : null
-                      ],
-                      className: "flex-1 overflow-y-auto p-4 md:p-6 pt-0 md:pt-0"
-                    })
-              ],
-              className: "fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t md:border-t-0 md:relative md:rounded-lg md:shadow-sm md:mt-4 z-10 max-h-[75vh] md:max-h-none flex flex-col"
+                                  ratingWarning,
+                                  JsxRuntime.jsx("div", {
+                                        children: JsxRuntime.jsxs("button", {
+                                              children: [
+                                                JsxRuntime.jsx(LucideReact.Check, {
+                                                      size: 16
+                                                    }),
+                                                JsxRuntime.jsx("span", {
+                                                      children: JsxRuntime.jsx(RsvpButtonText.make, {
+                                                            status: rsvpButtonStatus
+                                                          })
+                                                    })
+                                              ],
+                                              className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 " + (
+                                                viewerInPending ? "bg-red-100 text-red-800" : (
+                                                    viewerHasRsvp && !viewerInPending ? (
+                                                        viewerInWaitlist ? "bg-yellow-100 text-yellow-800" : "bg-green-600 text-white"
+                                                      ) : (
+                                                        eventIsFull ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200" : "bg-green-100 text-green-800 hover:bg-green-200"
+                                                      )
+                                                  )
+                                              ),
+                                              onClick: (function (param) {
+                                                  onRsvp("going");
+                                                })
+                                            }),
+                                        className: "mb-6"
+                                      }),
+                                  viewerHasRsvp ? JsxRuntime.jsx("div", {
+                                          children: JsxRuntime.jsx(RSVPSection$ViewerStatusMessage, {
+                                                eventId: data.id,
+                                                message: viewerStatusMessage
+                                              }),
+                                          className: "mb-5"
+                                        }) : null,
+                                  JsxRuntime.jsx(GoingRsvps.make, {
+                                        event: data.fragmentRefs,
+                                        viewer: viewer,
+                                        activitySlug: Core__Option.flatMap(activity, (function (a) {
+                                                return a.slug;
+                                              })),
+                                        maxRating: maxRating,
+                                        className: "mb-5"
+                                      }),
+                                  JsxRuntime.jsx(RsvpWaitlist.make, {
+                                        event: data.fragmentRefs,
+                                        viewer: viewer,
+                                        activitySlug: Core__Option.flatMap(activity, (function (a) {
+                                                return a.slug;
+                                              })),
+                                        className: "mb-5"
+                                      }),
+                                  JsxRuntime.jsx(PendingRsvps.make, {
+                                        event: data.fragmentRefs,
+                                        viewer: viewer,
+                                        activitySlug: Core__Option.flatMap(activity, (function (a) {
+                                                return a.slug;
+                                              })),
+                                        maxRating: maxRating,
+                                        className: "mb-5"
+                                      }),
+                                  match$1.hasNext || isLoadingNext ? JsxRuntime.jsx("div", {
+                                          children: isLoadingNext ? JsxRuntime.jsx("span", {
+                                                  children: t`Loading...`,
+                                                  className: "text-sm text-gray-500"
+                                                }) : JsxRuntime.jsx("button", {
+                                                  children: t`Load more`,
+                                                  className: "text-sm font-medium text-blue-600 hover:underline",
+                                                  onClick: (function (param) {
+                                                      startTransition(function () {
+                                                            loadNext(80, undefined);
+                                                          });
+                                                    })
+                                                }),
+                                          className: "mt-4 text-center"
+                                        }) : null
+                                ],
+                                className: "hidden md:block"
+                              })
+                        ],
+                        className: "fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t md:border-t-0 md:rounded-lg md:shadow-sm md:p-6 md:mt-4 md:sticky md:top-4 z-10"
+                      }))
             });
 }
 

@@ -211,8 +211,7 @@ msgstr "还没有球员"
 msgid ""
 "Not enough players in the queue. Select the players who want to play from "
 "the Queue tab."
-msgstr ""
-"队列中球员不足。请从“队列”选项卡中选择想要参赛的球员。"
+msgstr "队列中球员不足。请从“队列”选项卡中选择想要参赛的球员。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1370
 #: src/components/organisms/AiTetsu.re.mjs:1392
@@ -235,8 +234,8 @@ msgstr "球员姓名"
 msgid ""
 "Players in a team will always be placed in a match together on the same side."
 msgstr ""
-"队伍中的球员将始终安排在同一方一起比赛。"
-"队伍中的球员将始终安排在同一方一起比赛。"
+"队伍中的球员将始终安排在同一方一起比赛。队伍中的球员将始终安排在同一方一起比"
+"赛。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1197
 msgid "Players in an anti-team will never be placed in a match together."
@@ -246,8 +245,7 @@ msgstr "反对队中的球员永远不会被安排在一起比赛。"
 msgid ""
 "Players in teams will always be placed in a match together on the same side."
 msgstr ""
-"队伍中的球员将始终在同一方一起比赛。"
-"队伍中的球员将始终在同一方一起比赛。"
+"队伍中的球员将始终在同一方一起比赛。队伍中的球员将始终在同一方一起比赛。"
 
 #: src/components/organisms/SubmitMatch.re.mjs:315
 #: src/components/organisms/SubmitMatch.re.mjs:359
@@ -322,7 +320,8 @@ msgid ""
 "of match counts. Set to 0 to disable and optimize match quality instead, but "
 "this may result in some players playing more matches than others."
 msgstr ""
-"设置为当前休息的球员数量，以启用比赛场次的均衡分配。设置为0可以禁用此功能并优化比赛质量，但这可能导致某些球员比其他球员参加更多比赛。"
+"设置为当前休息的球员数量，以启用比赛场次的均衡分配。设置为0可以禁用此功能并优"
+"化比赛质量，但这可能导致某些球员比其他球员参加更多比赛。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1361
 msgid "Start Session"
@@ -539,8 +538,7 @@ msgstr "预览活动"
 msgid ""
 "show your event publicly on our home page. Otherwise, only people with a "
 "link to your event will be able to find it."
-msgstr ""
-"在我们的主页上公开展示您的活动。否则，只有拥有活动链接的人才能找到它。"
+msgstr "在我们的主页上公开展示您的活动。否则，只有拥有活动链接的人才能找到它。"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:203
 msgid "type your events in the format above"
@@ -733,8 +731,7 @@ msgstr "职业球员"
 #: src/components/atoms/EventTag.re.mjs:56
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
-msgstr ""
-"休闲比赛，不会提交至竞技评分系统和 DUPR。"
+msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Results will be submitted to competitive ratings."
@@ -756,8 +753,7 @@ msgstr "技能练习和专注于技术提高的训练"
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
-msgstr ""
-"这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
+msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:364
 msgid "timezone"
@@ -822,8 +818,7 @@ msgstr "状态信息"
 #: src/components/organisms/EventMessages.re.mjs:118
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr ""
-"输入状态信息让大家看到...比如'我将于19:00到达'。"
+msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 
 #: src/components/organisms/EventRsvps.re.mjs:524
 #: src/components/organisms/EventRsvps.re.mjs:678
@@ -889,7 +884,8 @@ msgid ""
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
 "want to leave this event?"
 msgstr ""
-"这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将加入等待列表。您确定要退出这个活动吗？"
+"这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
+"加入等待列表。您确定要退出这个活动吗？"
 
 #: src/components/organisms/EventRsvps.re.mjs:390
 msgid "You will lose your spot"
@@ -909,7 +905,8 @@ msgid ""
 "pending list until the rating limit is lowered. Please join another JPL "
 "rated event to boost your rating."
 msgstr ""
-"您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限制降低。请参加其他 JPL 评级活动来提高您的评分。"
+"您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
+"制降低。请参加其他 JPL 评级活动来提高您的评分。"
 
 #: src/components/organisms/EventRsvps2.re.mjs:462
 msgid "Confirmed"
@@ -1290,7 +1287,9 @@ msgstr "同步日历"
 msgid ""
 "this is a private event that requires membership with the club. To join this "
 "club, please join a Japan Pickleball League event first to get a referral."
-msgstr "这是一个需要俱乐部成员身份的私人活动。要加入此俱乐部，请先参加日本匹克球联盟活动以获取推荐。"
+msgstr ""
+"这是一个需要俱乐部成员身份的私人活动。要加入此俱乐部，请先参加日本匹克球联盟"
+"活动以获取推荐。"
 
 #: src/components/pages/Event.re.mjs:272
 msgid "uncancel event"
@@ -1341,7 +1340,8 @@ msgstr "匹克球活动"
 msgid ""
 "By clicking on the Gear icon in the top left, you can go back to the start "
 "screen. At the bottom of this screen will be the match history."
-msgstr "通过点击左上角的齿轮图标，您可以返回开始界面。在此界面的底部将显示比赛历史。"
+msgstr ""
+"通过点击左上角的齿轮图标，您可以返回开始界面。在此界面的底部将显示比赛历史。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:74
 msgid "Checkin Screen"
@@ -1363,7 +1363,11 @@ msgid ""
 "players (2 minimum) who always want to play together, often called a 'fixed-"
 "pair.' The gender is important if you want to use the Gender-Mixed doubles "
 "option when choosing matches."
-msgstr "从队列界面您可以选择一些球员（绿色高亮显示）并为他们执行一些特殊操作，如创建队伍、反对队或设置他们的性别。如果您有一组总是想一起打球的球员（2人起），通常称为“固定搭档”，队伍功能很重要。如果您想在选择比赛时使用性别混合双打选项，性别设置很重要。"
+msgstr ""
+"从队列界面您可以选择一些球员（绿色高亮显示）并为他们执行一些特殊操作，如创建"
+"队伍、反对队或设置他们的性别。如果您有一组总是想一起打球的球员（2人起），通常"
+"称为“固定搭档”，队伍功能很重要。如果您想在选择比赛时使用性别混合双打选项，性"
+"别设置很重要。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:89
 msgid "Generating Draws"
@@ -1381,7 +1385,10 @@ msgid ""
 "This step is not necessary if you did not enable offline mode. In normal "
 "Online Mode matches will be submitted as soon as you complete them from the "
 "Matches screen."
-msgstr "如果您启用了离线模式，您可以按照此列表将结果提交到 Pkuru.com。只需点击比赛，然后点击提交按钮。一旦分数显示为 0 和 0，表示已成功提交。如果您未启用离线模式，此步骤不必要。在正常的在线模式下，比赛将在您从比赛界面完成后立即提交。"
+msgstr ""
+"如果您启用了离线模式，您可以按照此列表将结果提交到 Pkuru.com。只需点击比赛，"
+"然后点击提交按钮。一旦分数显示为 0 和 0，表示已成功提交。如果您未启用离线模"
+"式，此步骤不必要。在正常的在线模式下，比赛将在您从比赛界面完成后立即提交。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:64
 msgid "Launching FairPlay"
@@ -1403,7 +1410,10 @@ msgid ""
 "who should be taking a break. Players who should be taking a break will be "
 "highlighted in yellow. This is a suggestion, so you can still tap on them to "
 "select them for the next match."
-msgstr "在左下角您可以选择应用程序管理的球场数量。当设置为大于 0 的值时，应用程序将自动跟踪每个人的比赛次数并确定谁应该休息。应该休息的球员将以黄色高亮显示。这只是一个建议，您仍可以点击他们选择下一场比赛。"
+msgstr ""
+"在左下角您可以选择应用程序管理的球场数量。当设置为大于 0 的值时，应用程序将自"
+"动跟踪每个人的比赛次数并确定谁应该休息。应该休息的球员将以黄色高亮显示。这只"
+"是一个建议，您仍可以点击他们选择下一场比赛。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:90
 msgid ""
@@ -1421,7 +1431,14 @@ msgid ""
 "button to select a match which will then update the draws for the remaining "
 "players that were selected. Keep selecting matches until all players are in "
 "a match."
-msgstr "从队列界面至少选择 4 名球员（绿色高亮显示）后，您可以使用右下角的蓝色按钮生成对阵。系统将根据所选的配对策略，为给定的球员生成所有可能的比赛组合。此外，它将显示比赛的相对“质量”并从高到低排序。比赛质量意味着比赛是否会非常接近或一边倒。顶部绿色高亮显示的比赛是“推荐比赛”，使用一些启发式方法来选择平衡质量同时避免重复团队或比赛的比赛。比赛列表还会以黄色或红色高亮显示以前打过的比赛或搭档。这允许您作为组织者决定是否避免重复比赛。使用蓝色按钮选择一场比赛，然后为剩余的被选中球员更新对阵。继续选择比赛直到所有球员都参与比赛。"
+msgstr ""
+"从队列界面至少选择 4 名球员（绿色高亮显示）后，您可以使用右下角的蓝色按钮生成"
+"对阵。系统将根据所选的配对策略，为给定的球员生成所有可能的比赛组合。此外，它"
+"将显示比赛的相对“质量”并从高到低排序。比赛质量意味着比赛是否会非常接近或一边"
+"倒。顶部绿色高亮显示的比赛是“推荐比赛”，使用一些启发式方法来选择平衡质量同时"
+"避免重复团队或比赛的比赛。比赛列表还会以黄色或红色高亮显示以前打过的比赛或搭"
+"档。这允许您作为组织者决定是否避免重复比赛。使用蓝色按钮选择一场比赛，然后为"
+"剩余的被选中球员更新对阵。继续选择比赛直到所有球员都参与比赛。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:119
 msgid "Player Options"
@@ -1436,7 +1453,11 @@ msgid ""
 "will be no permanent effects of your actions using the system. Additionally "
 "this screen shows the relative strengths of the players and at the bottom of "
 "the page there is a history of all the matches played."
-msgstr "按下大蓝色按钮启动系统。如果没有互联网连接或您想在不保存任何结果的情况下测试系统，应使用“离线模式”切换。在离线模式下，不会向 Pkuru.com 提交任何信息，如果您删除比赛或关闭网页，您使用系统的操作将不会有永久影响。此外，此界面显示球员的相对实力，在页面底部有所有已进行比赛的历史记录。"
+msgstr ""
+"按下大蓝色按钮启动系统。如果没有互联网连接或您想在不保存任何结果的情况下测试"
+"系统，应使用“离线模式”切换。在离线模式下，不会向 Pkuru.com 提交任何信息，如果"
+"您删除比赛或关闭网页，您使用系统的操作将不会有永久影响。此外，此界面显示球员"
+"的相对实力，在页面底部有所有已进行比赛的历史记录。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:84
 msgid "Queue Screen"
@@ -1457,7 +1478,12 @@ msgid ""
 "submitted to Pkuru.com, but ratings will still be updated locally on your "
 "device. Additionally the predicted winner is shown in the red bar at the "
 "bottom."
-msgstr "点击左侧的姓名可以在不输入分数的情况下选择胜者。可选地，在每场比赛右侧的数字字段中输入确切分数。一旦胜者周围有绿色边框，输入就完成了，您可以保持原样。一旦所有比赛的结果都输入完毕，您可以使用右下角的蓝色按钮一次性提交所有结果。如果您启用了离线模式，结果不会提交到 Pkuru.com，但评分仍将在您的设备上本地更新。此外，底部的红色条中显示预测胜者。"
+msgstr ""
+"点击左侧的姓名可以在不输入分数的情况下选择胜者。可选地，在每场比赛右侧的数字"
+"字段中输入确切分数。一旦胜者周围有绿色边框，输入就完成了，您可以保持原样。一"
+"旦所有比赛的结果都输入完毕，您可以使用右下角的蓝色按钮一次性提交所有结果。如"
+"果您启用了离线模式，结果不会提交到 Pkuru.com，但评分仍将在您的设备上本地更"
+"新。此外，底部的红色条中显示预测胜者。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:65
 msgid ""
@@ -1465,7 +1491,10 @@ msgid ""
 "system will automatically load all signed up players, including those in the "
 "waitlist. Players who did not join the event can be added as a guest, but "
 "their ratings and results cannot be saved to Pkuru.com."
-msgstr "FairPlay 系统可以从 Pkuru.com 上的任何活动页面启动。系统将自动加载所有已报名的球员，包括那些在等待列表中的。未加入活动的球员可以作为客人添加，但他们的评分和结果无法保存到 Pkuru.com。"
+msgstr ""
+"FairPlay 系统可以从 Pkuru.com 上的任何活动页面启动。系统将自动加载所有已报名"
+"的球员，包括那些在等待列表中的。未加入活动的球员可以作为客人添加，但他们的评"
+"分和结果无法保存到 Pkuru.com。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:100
 msgid ""
@@ -1473,7 +1502,10 @@ msgid ""
 "the players into a different match or re-arrange the teams. If you press the "
 "Enter Score button you can select the winner and/or enter the score. If you "
 "want to cancel the match you can press the '...' button."
-msgstr "每个名字左侧的手柄可用于拖放球员到不同的比赛或重新安排团队。如果您按下输入分数按钮，您可以选择获胜者和/或输入分数。如果您想取消比赛，您可以按下“...”按钮。"
+msgstr ""
+"每个名字左侧的手柄可用于拖放球员到不同的比赛或重新安排团队。如果您按下输入分"
+"数按钮，您可以选择获胜者和/或输入分数。如果您想取消比赛，您可以按下“...”按"
+"钮。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:85
 msgid ""
@@ -1483,7 +1515,11 @@ msgid ""
 "should be on break (highlighted in yellow). If you play matches in timed "
 "rounds, this is an easy way to select everyone who should participate in the "
 "next round of matches."
-msgstr "第二个界面是队列界面。这是您可以选择想要比赛的球员的地方。底部有一个将所有球员加入队列的按钮。此按钮将自动选择所有人并排除那些应该休息的球员（黄色高亮显示）。如果您在定时轮次中进行比赛，这是选择所有应该参与下一轮比赛的人的简单方法。"
+msgstr ""
+"第二个界面是队列界面。这是您可以选择想要比赛的球员的地方。底部有一个将所有球"
+"员加入队列的按钮。此按钮将自动选择所有人并排除那些应该休息的球员（黄色高亮显"
+"示）。如果您在定时轮次中进行比赛，这是选择所有应该参与下一轮比赛的人的简单方"
+"法。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:75
 msgid ""
@@ -1493,14 +1529,20 @@ msgid ""
 "they are ready to play, and check them out if they are leaving early. If a "
 "player wants to take a break and it's not their turn yet, it's easiest to "
 "check them out and then check them back in next round."
-msgstr "系统由 3 个主要界面组成。第一个是签到界面，您可以在此启用/禁用球员参与会话。点击球员的名字进行签到。绿色表示球员已签到。如果球员准备好比赛就签到，如果他们要提早离开就签退。如果球员想要休息但还轮不到他们，最简单的方法是签退他们，然后在下一轮再签到。"
+msgstr ""
+"系统由 3 个主要界面组成。第一个是签到界面，您可以在此启用/禁用球员参与会话。"
+"点击球员的名字进行签到。绿色表示球员已签到。如果球员准备好比赛就签到，如果他"
+"们要提早离开就签退。如果球员想要休息但还轮不到他们，最简单的方法是签退他们，"
+"然后在下一轮再签到。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:95
 msgid ""
 "The third and final screen shows the active matches that are being played. "
 "The ordering of the teams is randomized, so you can use this to determine "
 "the serving team (usually the team on top)."
-msgstr "第三个也是最后一个界面显示正在进行的活跃比赛。团队的顺序是随机的，所以您可以用此来确定发球团队（通常是上方的团队）。"
+msgstr ""
+"第三个也是最后一个界面显示正在进行的活跃比赛。团队的顺序是随机的，所以您可以"
+"用此来确定发球团队（通常是上方的团队）。"
 
 #: src/components/pages/FindGamesPage.re.mjs:33
 msgid "Find League Games"
@@ -1524,19 +1566,23 @@ msgid ""
 "Ratings are assigned to individual players just by playing doubles games, "
 "even with different partners each game. For doubles ratings we use OpenSkill "
 "(a derivative of TrueSkill), and for singles ratings we use Glicko2."
-msgstr "通过打双打比赛，即使每场搭档不同，球员也会获得个人评分。双打评分使用 OpenSkill（TrueSkill 的衣生系统），单打评分使用 Glicko2。"
+msgstr ""
+"通过打双打比赛，即使每场搭档不同，球员也会获得个人评分。双打评分使用 "
+"OpenSkill（TrueSkill 的衣生系统），单打评分使用 Glicko2。"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:29
 msgid ""
 "The Japan Pickleball League is an open-source non-profit project to help "
 "improve the quality of community recreational pickleball games and events."
-msgstr "日本匹克球联盟是一个开源非营利项目，旨在提高社区休闲匹克球比赛和活动的质量。"
+msgstr ""
+"日本匹克球联盟是一个开源非营利项目，旨在提高社区休闲匹克球比赛和活动的质量。"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:22
 msgid ""
 "The Tokyo Badminton League is an open-source non-profit project to help "
 "improve the quality of community recreational pickleball games and events."
-msgstr "东京羽毛球联盟是一个开源非营利项目，旨在提高社区休闲羽毛球比赛和活动的质量。"
+msgstr ""
+"东京羽毛球联盟是一个开源非营利项目，旨在提高社区休闲羽毛球比赛和活动的质量。"
 
 #: src/components/pages/LeagueEventPage.re.mjs:80
 msgid "Loading matches..."
@@ -1632,7 +1678,9 @@ msgstr "登录失败"
 msgid ""
 "please try again outside of private browsing as it can interfere with Line "
 "login. if the problem persists, you can try the safe-mode login button below."
-msgstr "请在私人浏览模式之外重新尝试，因为它可能会干扰 Line 登录。如果问题仍然存在，您可以尝试下面的安全模式登录按钮。"
+msgstr ""
+"请在私人浏览模式之外重新尝试，因为它可能会干扰 Line 登录。如果问题仍然存在，"
+"您可以尝试下面的安全模式登录按钮。"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"
@@ -1686,7 +1734,10 @@ msgid ""
 "tend to be full with a waitlist so just join the waitlist and cross your "
 "fingers. 5-6 spots tend to open up the day of the event as people cancel "
 "last minute."
-msgstr "如上所述，公开比赛在日本并不常见。但是，您可以在此网站的主页上找到一些公开比赛。它们通常会满员并有等待列表，所以只需加入等待列表并祈祷好运。通常在活动当天会有5-6个位置，因为人们会在最后一分钟取消。"
+msgstr ""
+"如上所述，公开比赛在日本并不常见。但是，您可以在此网站的主页上找到一些公开比"
+"赛。它们通常会满员并有等待列表，所以只需加入等待列表并祈祷好运。通常在活动当"
+"天会有5-6个位置，因为人们会在最后一分钟取消。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
 msgid "Book a court and find the players yourself."
@@ -1711,7 +1762,9 @@ msgstr "在 KPI 公园创建活动"
 msgid ""
 "Create an event at one of the locations above (use the buttons above). Make "
 "the event public so people can join you."
-msgstr "在上述位置之一创建活动（使用上面的按钮）。请将活动设为公开，这样别人就可以加入您。"
+msgstr ""
+"在上述位置之一创建活动（使用上面的按钮）。请将活动设为公开，这样别人就可以加"
+"入您。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:91
 msgid "Create an Event at Pacific Pickle Club"
@@ -1745,13 +1798,19 @@ msgid ""
 "reservations for court time, or reservations to join the events. Many of the "
 "public facilities do not allow groups to advertise to the public, which "
 "makes it difficult for new players or visitors to drop in on sessions."
-msgstr "日本并没有真正的公共直接参与的球场或比赛。大多数匹克球比赛在社区中心和学校体育馆（多功能体育馆）的室内举行，或在私人网球/匹克球场举行，这些都需要预订球场时间或预订加入活动。许多公共设施不允许团体向公众做广告，这使得新球员或访问者难以直接参加活动。"
+msgstr ""
+"日本并没有真正的公共直接参与的球场或比赛。大多数匹克球比赛在社区中心和学校体"
+"育馆（多功能体育馆）的室内举行，或在私人网球/匹克球场举行，这些都需要预订球场"
+"时间或预订加入活动。许多公共设施不允许团体向公众做广告，这使得新球员或访问者"
+"难以直接参加活动。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:33
 msgid ""
 "Join any public events on Pkuru.com (this website). If you find an event "
 "without the 'lock' icon and which has a join button, then you can join."
-msgstr "加入 Pkuru.com（此网站）上的任何公开活动。如果您找到一个没有“锁”图标并且有加入按钮的活动，那么您就可以加入。"
+msgstr ""
+"加入 Pkuru.com（此网站）上的任何公开活动。如果您找到一个没有“锁”图标并且有加"
+"入按钮的活动，那么您就可以加入。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:52
 msgid "KPI Park in Kanagawa/Yokohama"
@@ -1771,7 +1830,8 @@ msgid ""
 "in the confirmed going list. Indoor events always require a set of clean "
 "indoor only court shoes. They are really serious about this stuff in Japan."
 msgstr ""
-"请不要在未经允许的情况下出现在任何活动中，只有在您在确认参加名单中才可以。室内活动始终需要一双干净的室内专用球鞋。在日本，他们对这些事情非常认真。"
+"请不要在未经允许的情况下出现在任何活动中，只有在您在确认参加名单中才可以。室"
+"内活动始终需要一双干净的室内专用球鞋。在日本，他们对这些事情非常认真。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:191
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
@@ -1791,14 +1851,18 @@ msgstr "那么，作为游客、新搬来的人或初学者，在东京怎么打
 msgid ""
 "Some events are restricted by level. If you are restricted, just type in "
 "your DUPR rating as a comment with your RSVP."
-msgstr "某些活动有等级限制。如果您受到限制，只需在 RSVP 时在评论中输入您的 DUPR 评分即可。"
+msgstr ""
+"某些活动有等级限制。如果您受到限制，只需在 RSVP 时在评论中输入您的 DUPR 评分"
+"即可。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:54
 msgid ""
 "The courts require reservations but there are 10 courts and it's generally "
 "available last minute. Therefore you can book the courts just-in-time once "
 "you've already gathered the players."
-msgstr "球场需要预订，但有 10 个球场，通常可以最后一分钟使用。因此，一旦您已经聚集了球员，您可以及时预订球场。"
+msgstr ""
+"球场需要预订，但有 10 个球场，通常可以最后一分钟使用。因此，一旦您已经聚集了"
+"球员，您可以及时预订球场。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:83
 msgid ""
@@ -1806,7 +1870,8 @@ msgid ""
 "to book in advance. They also hold open play sessions but the level may be "
 "low to complete beginner."
 msgstr ""
-"球场需要预订，但只有2个球场，所以您需要提前预订。他们也举办公开比赛，但水平可能是低到完全初学者。"
+"球场需要预订，但只有2个球场，所以您需要提前预订。他们也举办公开比赛，但水平可"
+"能是低到完全初学者。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:110
 msgid "Tokyo Tower Pickleball"
@@ -1820,8 +1885,7 @@ msgstr "有两个球场可用。条件可能有风。"
 msgid ""
 "Two courts are available. More expensive than other courts and the "
 "conditions can be windy."
-msgstr ""
-"有两个球场可用。比其他球场更贵，条件可能有风。"
+msgstr "有两个球场可用。比其他球场更贵，条件可能有风。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:45
 msgid "Where to Book Courts in Tokyo"
@@ -1847,3 +1911,27 @@ msgstr "我的活动"
 #: src/components/pages/ViewerEventsPage.re.mjs:65
 msgid "public events"
 msgstr "公开活动"
+
+#: src/components/organisms/RsvpOptions.re.mjs:80
+msgid "View Profile"
+msgstr "查看资料"
+
+#: src/components/organisms/GoingRsvps.re.mjs:121
+msgid "See all"
+msgstr "查看全部"
+
+#: src/components/organisms/RSVPSection.re.mjs:611
+msgid "Collapse"
+msgstr "折叠"
+
+#: src/components/atoms/RsvpButtonText.re.mjs:26
+msgid "Join Waitlist"
+msgstr "加入候补名单"
+
+#: src/components/atoms/RsvpButtonText.re.mjs:15
+msgid "RSVP Pending..."
+msgstr "报名待审..."
+
+#: src/components/pages/EventPage.re.mjs:186
+msgid "Manage Event"
+msgstr "管理活动"

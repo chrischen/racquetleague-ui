@@ -123,21 +123,6 @@ let make = () => {
                       {(ts`cancel event`)->React.string}
                     </Button.Button>
                   }}
-                  {event.activity
-                  ->Option.flatMap(activity =>
-                    activity.slug->Option.map(
-                      slug =>
-                        switch slug {
-                        | "pickleball"
-                        | "badminton" =>
-                          <Button.Button href={"/league/events/" ++ event.id ++ "/" ++ slug}>
-                            {(ts`submit matches`)->React.string}
-                          </Button.Button>
-                        | _ => React.null
-                        },
-                    )
-                  )
-                  ->Option.getOr(React.null)}
                 </div>
               </div>
             </div>
@@ -147,6 +132,25 @@ let make = () => {
             <div className="md:grid md:grid-cols-12 md:gap-8">
               <div className="md:col-span-7 lg:col-span-8 pb-8 md:pb-0">
                 <EventDetails event=event.fragmentRefs />
+                {switch (viewerUser, event.activity) {
+                | (Some(_), Some(activity)) =>
+                  switch activity.slug {
+                  | Some("pickleball" | "badminton") =>
+                    <div className="mt-6">
+                      <div className="bg-gray-50 rounded-lg p-4 border">
+                        <Button.Button
+                          href={"/league/events/" ++
+                          event.id ++
+                          "/" ++
+                          activity.slug->Option.getOr("")}>
+                          {(ts`Manage Event`)->React.string}
+                        </Button.Button>
+                      </div>
+                    </div>
+                  | _ => React.null
+                  }
+                | _ => React.null
+                }}
                 <EventMessages
                   queryRef=queryFragmentRefs
                   eventStartDate=startDateJs

@@ -13,10 +13,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/ClubsPage.re.mjs:96
-msgid "You are not an admin of any clubs."
-msgstr "あなたはどのクラブの管理者でもありません。"
-
 #: src/components/pages/ClubsPage.re.mjs:74
 #~ msgid "club"
 #~ msgstr "サークル"
@@ -24,3 +20,7 @@ msgstr "あなたはどのクラブの管理者でもありません。"
 #: src/components/pages/ClubsPage.re.mjs:78
 #~ msgid "my clubs"
 #~ msgstr "私のサークル"
+
+#: src/components/pages/ClubsPage.re.mjs:96
+#~ msgid "You are not an admin of any clubs."
+#~ msgstr "あなたはどのクラブの管理者でもありません。"

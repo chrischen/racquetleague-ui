@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"3Dqptb\":\"この人をイベントから削除してもよろしいですか？\",\"dhWUjC\":\"イベントから削除\",\"vj0eGy\":\"このRSVPを削除\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"3Dqptb\":\"この人をイベントから削除してもよろしいですか？\",\"dhWUjC\":\"イベントから削除\",\"vj0eGy\":\"このRSVPを削除\",\"YURQaF\":\"プロフィールを表示\"}");

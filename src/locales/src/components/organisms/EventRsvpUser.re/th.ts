@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"3Dqptb\":\"คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?\",\"dhWUjC\":\"ลบจากกิจกรรม\",\"vj0eGy\":\"ลบการยืนยันนี้\",\"YURQaF\":\"ดูโปรไฟล์\"}");

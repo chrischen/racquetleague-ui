@@ -19,7 +19,7 @@ msgstr "...โหลดแมทช์ก่อนหน้า"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:85
 msgid "Estimated DUPR"
-msgstr ""
+msgstr "DUPR ที่คาดการณ์"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:130
 msgid "Female"
@@ -31,7 +31,7 @@ msgstr "โหลดแมทช์เพิ่มเติม..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:185
 msgid "Loading rankings..."
-msgstr ""
+msgstr "กำลังโหลดการจัดอันดับ..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:132
 msgid "Male"
@@ -45,12 +45,12 @@ msgstr "ประวัติแมทช์"
 #: src/components/pages/LeaguePlayerPage.re.mjs:102
 #: src/components/pages/LeaguePlayerPage.re.mjs:159
 msgid "Player Profile Page"
-msgstr ""
+msgstr "หน้าโปรไฟล์ผู้เล่น"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:202
 #: src/components/pages/LeaguePlayerPage.re.mjs:210
 msgid "Rating"
-msgstr ""
+msgstr "เรตติ้ง"
 
 #: src/components/organisms/MatchList.re.mjs:292
 msgid "Score:"

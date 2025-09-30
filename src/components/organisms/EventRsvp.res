@@ -40,6 +40,8 @@ let make = (
   ~viewer: option<RSVPSection_user_graphql.Types.fragment>,
   ~activitySlug,
   ~maxRating,
+  ~eventId,
+  ~isAdmin=false,
 ) => {
   let rsvp = Fragment.use(rsvp)
 
@@ -48,7 +50,10 @@ let make = (
     <ListItem key={user.id}>
       <div className="flex items-center">
         <EventRsvpUser
+          eventId
+          eventActivitySlug={activitySlug->Option.getOr("badminton")}
           user={user.fragmentRefs}
+          isAdmin
           link={"/league/" ++ activitySlug->Option.getOr("badminton") ++ "/p/" ++ user.id}
           secondaryText={switch activitySlug {
           | Some("pickleball") =>

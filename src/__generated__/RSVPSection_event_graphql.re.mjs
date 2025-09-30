@@ -8,7 +8,7 @@ import * as RSVPSectionRefetchQuery_graphql from "./RSVPSectionRefetchQuery_grap
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"rsvps_edges_node":{"f":""}}};
+var fragmentConverter = {"__root":{"rsvps_edges_node":{"f":""},"":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -56,7 +56,24 @@ v1 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
-};
+},
+v2 = [
+  {
+    "kind": "Variable",
+    "name": "after",
+    "variableName": "after"
+  },
+  {
+    "kind": "Variable",
+    "name": "before",
+    "variableName": "before"
+  },
+  {
+    "kind": "Variable",
+    "name": "first",
+    "variableName": "first"
+  }
+];
 return {
   "argumentDefinitions": [
     {
@@ -147,6 +164,21 @@ return {
       "storageKey": null
     },
     {
+      "args": (v2/*: any*/),
+      "kind": "FragmentSpread",
+      "name": "RsvpWaitlist_event"
+    },
+    {
+      "args": (v2/*: any*/),
+      "kind": "FragmentSpread",
+      "name": "GoingRsvps_event"
+    },
+    {
+      "args": (v2/*: any*/),
+      "kind": "FragmentSpread",
+      "name": "PendingRsvps_event"
+    },
+    {
       "alias": "rsvps",
       "args": null,
       "concreteType": "EventRsvpConnection",
@@ -179,7 +211,7 @@ return {
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "RsvpOptions_rsvp"
+                  "name": "MiniEventRsvp_rsvp"
                 },
                 {
                   "alias": null,

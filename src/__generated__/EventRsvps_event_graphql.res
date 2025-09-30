@@ -20,7 +20,7 @@ module Types = {
     message: option<string>,
     rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvp_rsvp | #RsvpOptions_rsvp]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvp_rsvp]>,
   }
   and fragment_rsvps_edges = {
     node: option<fragment_rsvps_edges_node>,
@@ -238,11 +238,6 @@ return {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "EventRsvp_rsvp"
-                },
-                {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "RsvpOptions_rsvp"
                 },
                 {
                   "alias": null,

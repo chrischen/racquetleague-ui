@@ -177,11 +177,6 @@ return {
                   "name": "EventRsvp_rsvp"
                 },
                 {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "RsvpOptions_rsvp"
-                },
-                {
                   "alias": null,
                   "args": null,
                   "concreteType": "User",

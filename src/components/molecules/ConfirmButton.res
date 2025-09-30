@@ -4,7 +4,7 @@
 @react.component
 let make = (
   ~button: React.element,
-  // ~className: string=?,
+  ~className: string=?,
   ~title: React.element,
   ~description: React.element,
   ~onConfirmed: unit => unit,
@@ -12,8 +12,8 @@ let make = (
   let (isOpen, setIsOpen) = React.useState(() => false)
 
   <>
-    <UiAction onClick={_ => setIsOpen(_ => true)}> {button} </UiAction>
-    <ConfirmDialog title description isOpen=isOpen setIsOpen={setIsOpen} onConfirmed />
+    <UiAction ?className onClick={_ => setIsOpen(_ => true)}> {button} </UiAction>
+    <ConfirmDialog title description isOpen setIsOpen={setIsOpen} onConfirmed />
   </>
 }
 

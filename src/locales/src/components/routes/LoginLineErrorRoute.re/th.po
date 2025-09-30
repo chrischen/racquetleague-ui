@@ -30,6 +30,8 @@ msgid ""
 "please try again outside of private browsing as it can interfere with Line "
 "login. if the problem persists, you can try the safe-mode login button below."
 msgstr ""
+"กรุณาลองใหม่นอกโหมดการเรียกดูแบบส่วนตัว เนื่องจากอาจรบกวนการเข้าสู่ระบบ Line "
+"หากปัญหายังคงอยู่ คุณสามารถลองปุ่มเข้าสู่ระบบโหมดปลอดภัยด้านล่าง"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"

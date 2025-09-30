@@ -442,7 +442,7 @@ function EventItem(props) {
                             tmp,
                             JsxRuntime.jsx("div", {
                                   children: tmp$1,
-                                  className: Core$1.cx("text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
+                                  className: Core$1.cx(maxRsvps !== undefined && playersCount >= maxRsvps ? "text-yellow-600 bg-yellow-400/10 ring-yellow-400/30" : "text-indigo-400 bg-indigo-400/10 ring-indigo-400/30", "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset")
                                 })
                           ],
                           className: Core$1.cx("relative flex items-center space-x-4 py-4 select-none")

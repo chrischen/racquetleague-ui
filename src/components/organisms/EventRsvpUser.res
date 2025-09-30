@@ -2,6 +2,7 @@ module Fragment = %relay(`
   fragment EventRsvpUser_user on User {
     picture
     lineUsername
+    ...RsvpOptions_user
   }
 `)
 
@@ -33,24 +34,26 @@ let fromRegisteredUser = (user: EventRsvpUser_user_graphql.Types.fragment) => {
 //   rating: option<float>,
 //   ratingPercent: option<float>,
 // }
+@react.component
 let make = (
-  props: RsvpUser.props<
-    RescriptRelay.fragmentRefs<[> #EventRsvpUser_user]>,
-    bool,
-    string,
-    string,
-    'a,
-    'b,
-  >,
+  ~user: RescriptRelay.fragmentRefs<[> #EventRsvpUser_user]>,
+  ~highlight=false,
+  ~link=?,
+  ~secondaryText=?,
+  ~sigmaPercent=?,
+  ~ratingPercent=?,
+  ~eventId: string,
+  ~eventActivitySlug: string,
+  ~isAdmin=false,
 ) => {
   // open Lingui.Util;
-  let user = Fragment.use(props.user)->fromRegisteredUser
-  <AvatarRsvpUser
-    user={user}
-    highlight=?props.highlight
-    link=?props.link
-    secondaryText=?props.secondaryText
-    sigmaPercent=?props.sigmaPercent
-    ratingPercent=?props.ratingPercent
-  />
+
+  let user = Fragment.use(user)
+  let userData = user->fromRegisteredUser
+  let avatarRsvpUser =
+    <AvatarRsvpUser user={userData} highlight ?link ?secondaryText ?sigmaPercent ?ratingPercent />
+
+  <RsvpOptions user=user.fragmentRefs eventId eventActivitySlug isAdmin>
+    {avatarRsvpUser}
+  </RsvpOptions>
 }

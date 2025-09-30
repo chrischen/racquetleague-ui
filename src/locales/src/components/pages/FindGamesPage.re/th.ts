@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"DjiR74\":\"Find League Games\",\"BSnHsk\":\"To participate in the league and win prizes, please join the league events.\",\"8RB3JH\":\"Where to Play\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"DjiR74\":\"ค้นหาเกมลีก\",\"BSnHsk\":\"เพื่อเข้าร่วมลีกและชนะรางวัล กรุณาเข้าร่วมกิจกรรมลีก\",\"8RB3JH\":\"สถานที่เล่น\"}");

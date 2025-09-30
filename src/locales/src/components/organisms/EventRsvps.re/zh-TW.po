@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/organisms/EventRsvps.re.mjs:524
-#: src/components/organisms/EventRsvps.re.mjs:678
+#: src/components/organisms/EventRsvps.re.mjs:671
 msgid "{0, plural, one {player} other {players}}"
 msgstr ""
 
@@ -22,11 +22,11 @@ msgstr ""
 msgid "{maxRsvps, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:628
+#: src/components/organisms/EventRsvps.re.mjs:620
 msgid "{waitlistCount, plural, one {player} other {players}}"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:92
+#: src/components/organisms/RsvpOptions.re.mjs:102
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
@@ -51,9 +51,9 @@ msgstr ""
 msgid "leave event"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:607
-#: src/components/organisms/EventRsvps.re.mjs:659
-#: src/components/organisms/EventRsvps.re.mjs:709
+#: src/components/organisms/EventRsvps.re.mjs:599
+#: src/components/organisms/EventRsvps.re.mjs:652
+#: src/components/organisms/EventRsvps.re.mjs:703
 msgid "load More"
 msgstr ""
 
@@ -67,13 +67,13 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:598
-#: src/components/organisms/EventRsvps.re.mjs:652
-#: src/components/organisms/EventRsvps.re.mjs:702
+#: src/components/organisms/EventRsvps.re.mjs:590
+#: src/components/organisms/EventRsvps.re.mjs:645
+#: src/components/organisms/EventRsvps.re.mjs:696
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:672
+#: src/components/organisms/EventRsvps.re.mjs:665
 msgid "pending"
 msgstr ""
 
@@ -81,11 +81,11 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:79
+#: src/components/organisms/RsvpOptions.re.mjs:88
 msgid "Remove from event"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:91
+#: src/components/organisms/RsvpOptions.re.mjs:101
 msgid "Remove this RSVP"
 msgstr ""
 
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Required rating: {0} (DUPR {1})"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:142
+#: src/components/organisms/EventRsvps.re.mjs:141
 msgid "Save"
 msgstr ""
 
@@ -109,14 +109,18 @@ msgid ""
 "want to leave this event?"
 msgstr ""
 
+#: src/components/organisms/EventRsvps.re.mjs:125
 #: src/components/organisms/EventRsvps.re.mjs:126
-#: src/components/organisms/EventRsvps.re.mjs:127
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr ""
 
+#: src/components/organisms/RsvpOptions.re.mjs:82
+msgid "View Profile"
+msgstr ""
+
 #: src/components/organisms/EventRsvps.re.mjs:549
-#: src/components/organisms/EventRsvps.re.mjs:622
+#: src/components/organisms/EventRsvps.re.mjs:614
 msgid "waitlist"
 msgstr ""
 

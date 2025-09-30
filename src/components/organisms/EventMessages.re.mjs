@@ -104,6 +104,13 @@ function EventMessages$Message(props) {
             message: trimmedMessage
           }
         }, undefined, undefined, undefined, undefined, undefined, undefined);
+    setEditedMessage(function (param) {
+          return "";
+        });
+  };
+  var onSubmit = function (e) {
+    e.preventDefault();
+    onSave();
   };
   return JsxRuntime.jsxs("div", {
               children: [
@@ -111,7 +118,7 @@ function EventMessages$Message(props) {
                       children: t`Status message`,
                       className: "block text-sm font-medium text-gray-700"
                     }),
-                JsxRuntime.jsxs("div", {
+                JsxRuntime.jsxs("form", {
                       children: [
                         JsxRuntime.jsx("input", {
                               className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
@@ -122,14 +129,13 @@ function EventMessages$Message(props) {
                                 })
                             }),
                         JsxRuntime.jsx("button", {
-                              children: t`Save`,
+                              children: t`Send`,
                               className: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
-                              onClick: (function (param) {
-                                  onSave();
-                                })
+                              type: "submit"
                             })
                       ],
-                      className: "mt-1 flex gap-2"
+                      className: "mt-1 flex gap-2",
+                      onSubmit: onSubmit
                     })
               ],
               className: "mb-4"
