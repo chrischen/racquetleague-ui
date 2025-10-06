@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"3Dqptb\":\"Are you sure you want to remove this person from the event?\",\"vRayGs\":\"Player\",\"dhWUjC\":\"Remove from event\",\"vj0eGy\":\"Remove this RSVP\",\"YURQaF\":\"View Profile\",\"u0n+wz\":\"Waitlist\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"3Dqptb\":\"您確定要將此人從活動中移除嗎？\",\"vRayGs\":\"球員\",\"dhWUjC\":\"從活動中移除\",\"vj0eGy\":\"移除此 RSVP\",\"YURQaF\":\"查看個人資料\",\"u0n+wz\":\"等待列表\"}");

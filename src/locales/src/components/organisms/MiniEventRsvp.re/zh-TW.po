@@ -15,4 +15,4 @@ msgstr ""
 
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
-msgstr ""
+msgstr "球員"

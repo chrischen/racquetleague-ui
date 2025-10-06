@@ -15,134 +15,135 @@ msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:524
 #: src/components/organisms/EventRsvps.re.mjs:671
-msgid "{0, plural, one {player} other {players}}"
-msgstr "位球员"
+#~ msgid "{0, plural, one {player} other {players}}"
+#~ msgstr "位球员"
 
 #: src/components/organisms/EventRsvps.re.mjs:516
-msgid "{maxRsvps, plural, one {player} other {players}}"
-msgstr "位球员"
+#~ msgid "{maxRsvps, plural, one {player} other {players}}"
+#~ msgstr "位球员"
 
 #: src/components/organisms/EventRsvps.re.mjs:620
-msgid "{waitlistCount, plural, one {player} other {players}}"
-msgstr "位球员"
+#~ msgid "{waitlistCount, plural, one {player} other {players}}"
+#~ msgstr "位球员"
 
 #: src/components/organisms/RsvpOptions.re.mjs:102
-msgid "Are you sure you want to remove this person from the event?"
-msgstr "您确定要将这个人从活动中移除吗？"
+#~ msgid "Are you sure you want to remove this person from the event?"
+#~ msgstr "您确定要将这个人从活动中移除吗？"
 
 #: src/components/organisms/EventRsvps.re.mjs:430
-msgid "attendees"
-msgstr "参与者"
+#~ msgid "attendees"
+#~ msgstr "参与者"
 
 #: src/components/organisms/EventRsvps.re.mjs:509
-msgid "confirmed"
-msgstr "已确认"
+#~ msgid "confirmed"
+#~ msgstr "已确认"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
 #: src/components/organisms/EventRsvps.re.mjs:342
 #: src/components/organisms/EventRsvps.re.mjs:354
 #: src/components/organisms/EventRsvps.re.mjs:372
-msgid "join event"
-msgstr "加入活动"
+#~ msgid "join event"
+#~ msgstr "加入活动"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
 #: src/components/organisms/EventRsvps.re.mjs:382
 #: src/components/organisms/EventRsvps.re.mjs:387
-msgid "leave event"
-msgstr "退出活动"
+#~ msgid "leave event"
+#~ msgstr "退出活动"
 
 #: src/components/organisms/EventRsvps.re.mjs:599
 #: src/components/organisms/EventRsvps.re.mjs:652
 #: src/components/organisms/EventRsvps.re.mjs:703
-msgid "load More"
-msgstr "加载更多"
+#~ msgid "load More"
+#~ msgstr "加载更多"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
 #: src/components/organisms/EventRsvps.re.mjs:365
-msgid "login to join the event"
-msgstr "登录以加入活动"
+#~ msgid "login to join the event"
+#~ msgstr "登录以加入活动"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
-msgid "login with Line"
-msgstr "使用 Line 登录"
+#~ msgid "login with Line"
+#~ msgstr "使用 Line 登录"
 
 #: src/components/organisms/EventRsvps.re.mjs:590
 #: src/components/organisms/EventRsvps.re.mjs:645
 #: src/components/organisms/EventRsvps.re.mjs:696
-msgid "no players yet"
-msgstr "还没有球员"
+#~ msgid "no players yet"
+#~ msgstr "还没有球员"
 
 #: src/components/organisms/EventRsvps.re.mjs:665
-msgid "pending"
-msgstr "待审核"
+#~ msgid "pending"
+#~ msgstr "待审核"
 
 #: src/components/organisms/EventRsvp.re.mjs:60
-msgid "Player"
-msgstr "球员"
+#~ msgid "Player"
+#~ msgstr "球员"
 
 #: src/components/organisms/RsvpOptions.re.mjs:88
-msgid "Remove from event"
-msgstr "从活动中移除"
+#~ msgid "Remove from event"
+#~ msgstr "从活动中移除"
 
 #: src/components/organisms/RsvpOptions.re.mjs:101
-msgid "Remove this RSVP"
-msgstr "移除此 RSVP"
+#~ msgid "Remove this RSVP"
+#~ msgstr "移除此 RSVP"
 
 #: src/components/organisms/EventRsvps.re.mjs:332
-msgid "Required rating: {0} (DUPR {1})"
-msgstr "最低评分要求：{0}（DUPR {1}）"
+#~ msgid "Required rating: {0} (DUPR {1})"
+#~ msgstr "最低评分要求：{0}（DUPR {1}）"
 
 #: src/components/organisms/EventRsvps.re.mjs:141
-msgid "Save"
-msgstr "保存"
+#~ msgid "Save"
+#~ msgstr "保存"
 
 #: src/components/organisms/EventRsvps.re.mjs:544
 #: src/components/organisms/EventRsvps.re.mjs:554
-msgid "spots available"
-msgstr "可用位置"
+#~ msgid "spots available"
+#~ msgstr "可用位置"
 
 #: src/components/organisms/EventRsvps.re.mjs:391
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
-"加入等待列表。您确定要退出这个活动吗？"
+#~ msgid ""
+#~ "This event is full, so leaving the event will give your spot to someone "
+#~ "on the waitlist. If you rejoin, you will join the waitlist. Are you sure "
+#~ "you want to leave this event?"
+#~ msgstr ""
+#~ "这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您"
+#~ "将加入等待列表。您确定要退出这个活动吗？"
 
 #: src/components/organisms/EventRsvps.re.mjs:125
 #: src/components/organisms/EventRsvps.re.mjs:126
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
+#~ msgid ""
+#~ "Type a status message for people to see... such as 'I will arrive at "
+#~ "19:00.'"
+#~ msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:82
-msgid "View Profile"
-msgstr "查看资料"
+#~ msgid "View Profile"
+#~ msgstr "查看资料"
 
 #: src/components/organisms/EventRsvps.re.mjs:549
 #: src/components/organisms/EventRsvps.re.mjs:614
-msgid "waitlist"
-msgstr "等待列表"
+#~ msgid "waitlist"
+#~ msgstr "等待列表"
 
 #: src/components/organisms/EventRsvps.re.mjs:390
-msgid "You will lose your spot"
-msgstr "您将失去您的位置"
+#~ msgid "You will lose your spot"
+#~ msgstr "您将失去您的位置"
 
 #: src/components/organisms/EventRsvps.re.mjs:448
-msgid "you're going :)"
-msgstr "您将参加 :)"
+#~ msgid "you're going :)"
+#~ msgstr "您将参加 :)"
 
 #: src/components/organisms/EventRsvps.re.mjs:469
-msgid "you're waitlisted :("
-msgstr "您在等待列表中 :("
+#~ msgid "you're waitlisted :("
+#~ msgstr "您在等待列表中 :("
 
 #: src/components/organisms/EventRsvps.re.mjs:334
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
-"制降低。请参加其他 JPL 评级活动来提高您的评分。"
+#~ msgid ""
+#~ "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in "
+#~ "the pending list until the rating limit is lowered. Please join another "
+#~ "JPL rated event to boost your rating."
+#~ msgstr ""
+#~ "您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分"
+#~ "限制降低。请参加其他 JPL 评级活动来提高您的评分。"

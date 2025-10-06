@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"+rZFLM\":\"seeking a doubles partner\",\"hor1p7\":\"shows a badge next to your name in RSVP lists to tell people you are looking for a partner\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"+rZFLM\":\"尋找雙打搭檔\",\"hor1p7\":\"在 RSVP 名單中在您的名字旁顯示徽章，告訴大家您正在尋找搭檔\"}");

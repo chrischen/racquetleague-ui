@@ -15,46 +15,46 @@ msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:201
 msgid "biography"
-msgstr ""
+msgstr "個人簡介"
 
 #: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:166
 msgid "details about yourself"
-msgstr ""
+msgstr "關於您自己的詳細資料"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:178
 msgid "Doe John"
-msgstr ""
+msgstr "李大明"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:174
 msgid "full name"
-msgstr ""
+msgstr "全名"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:165
 msgid "profile"
-msgstr ""
+msgstr "個人資料"
 
 #: src/components/molecules/forms/Form.re.mjs:307
 msgid "save"
-msgstr ""
+msgstr "儲存"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
-msgstr ""
+msgstr "尋找雙打搭檔"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
 "shows a badge next to your name in RSVP lists to tell people you are looking "
 "for a partner"
-msgstr ""
+msgstr "在 RSVP 名單中在您的名字旁顯示徽章，告訴大家您正在尋找搭檔"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:176
 msgid "Some events require your legal name as shown on an ID card."
-msgstr ""
+msgstr "某些活動需要您在證件上顯示的法定姓名。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:204
 msgid "tell us a little about yourself"
-msgstr ""
+msgstr "告訴我們一些關於您自己的事"

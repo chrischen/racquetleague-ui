@@ -15,17 +15,17 @@ msgstr ""
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
 msgid "join event"
-msgstr ""
+msgstr "加入活動"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
 msgid "leave event"
-msgstr ""
+msgstr "退出活動"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
 msgid "login to join the event"
-msgstr ""
+msgstr "登入以加入活動"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
-msgstr ""
+msgstr "使用 Line 登入"

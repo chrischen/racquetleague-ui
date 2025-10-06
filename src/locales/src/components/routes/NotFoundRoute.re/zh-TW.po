@@ -15,4 +15,4 @@ msgstr ""
 
 #: src/components/pages/NotFound.re.mjs:14
 msgid "page not found."
-msgstr ""
+msgstr "找不到頁面。"

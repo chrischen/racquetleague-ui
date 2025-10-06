@@ -15,102 +15,102 @@ msgstr ""
 
 #: src/components/organisms/MatchesView.re.mjs:232
 msgid "{0} player selected"
-msgstr ""
+msgstr "已選擇 {0} 位球員"
 
 #: src/components/organisms/MatchesView.re.mjs:233
 msgid "{0} players selected"
-msgstr ""
+msgstr "已選擇 {0} 位球員"
 
 #: src/components/organisms/MatchesView.re.mjs:231
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
-msgstr ""
+msgstr "{0}"
 
 #: src/components/organisms/MatchesView.re.mjs:257
 msgid "# of courts"
-msgstr ""
+msgstr "球場數量"
 
 #: src/components/organisms/MatchesView.re.mjs:642
 msgid "Actions"
-msgstr ""
+msgstr "操作"
 
 #: src/components/organisms/MatchesView.re.mjs:133
 msgid "Add/Remove Players"
-msgstr ""
+msgstr "新增/移除球員"
 
 #: src/components/organisms/MatchesView.re.mjs:608
 #: src/components/organisms/MatchesView.re.mjs:611
 msgid "and"
-msgstr ""
+msgstr "和"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:305
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/components/organisms/MatchesView.re.mjs:631
 msgid "Choose Match"
-msgstr ""
+msgstr "選擇比賽"
 
 #: src/components/organisms/MatchesView.re.mjs:540
 msgid "CHOOSE MATCH"
-msgstr ""
+msgstr "選擇比賽"
 
 #: src/components/ui/ModalDrawer.re.mjs:43
 msgid "Close panel"
-msgstr ""
+msgstr "關閉面板"
 
 #: src/components/organisms/MatchesView.re.mjs:612
 msgid "Court {0}: {team1} versus {team2}"
-msgstr ""
+msgstr "球場 {0}: {team1} 對戰 {team2}"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:323
 msgid "Enter Score"
-msgstr ""
+msgstr "輸入分數"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 msgid "Loading"
-msgstr ""
+msgstr "載入中"
 
 #: src/components/organisms/MatchesView.re.mjs:599
 msgid "Matches"
-msgstr ""
+msgstr "比賽"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:357
 #: src/components/organisms/SortableSubmitMatch.re.mjs:405
 msgid "Points"
-msgstr ""
+msgstr "分數"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:57
 #: src/components/organisms/SortableSubmitMatch.re.mjs:69
 msgid "predicted winner"
-msgstr ""
+msgstr "預測勝者"
 
 #: src/components/organisms/MatchesView.re.mjs:584
 msgid "Queue"
-msgstr ""
+msgstr "隊列"
 
 #: src/components/organisms/MatchesView.re.mjs:211
 #: src/components/organisms/MatchesView.re.mjs:290
 msgid "Queue All"
-msgstr ""
+msgstr "全部入隊"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:439
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: src/components/organisms/MatchesView.re.mjs:487
 msgid "START SESSION"
-msgstr ""
+msgstr "開始會話"
 
 #: src/components/organisms/MatchesView.re.mjs:506
 msgid "SUBMIT RESULTS"
-msgstr ""
+msgstr "提交結果"
 
 #: src/components/organisms/MatchesView.re.mjs:211
 #: src/components/organisms/MatchesView.re.mjs:290
 msgid "Unqueue All"
-msgstr ""
+msgstr "全部移出隊列"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:370
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
-msgstr ""
+msgstr "勝者"

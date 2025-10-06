@@ -15,134 +15,134 @@ msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:394
 msgid "...load past events"
-msgstr ""
+msgstr "...載入過往活動"
 
 #: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/EventsList.re.mjs:141
 msgid "[location missing]"
-msgstr ""
+msgstr "[地點缺失]"
 
 #: src/components/organisms/EventItem.re.mjs:365
 msgid "[missing title]"
-msgstr ""
+msgstr "[標題缺失]"
 
 #: src/components/organisms/EventItem.re.mjs:215
 #: src/components/organisms/EventItem.re.mjs:222
 #: src/components/organisms/EventsList.re.mjs:104
 #: src/components/organisms/EventsList.re.mjs:109
 msgid "{0, plural, one {{1}} other {{2}}}"
-msgstr ""
+msgstr "{1}"
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
 #: src/components/organisms/EventsList.re.mjs:105
 #: src/components/organisms/EventsList.re.mjs:110
 msgid "{0} hour"
-msgstr ""
+msgstr "{0} 小時"
 
 #: src/components/organisms/EventItem.re.mjs:217
 #: src/components/organisms/EventItem.re.mjs:224
 #: src/components/organisms/EventsList.re.mjs:106
 #: src/components/organisms/EventsList.re.mjs:111
 msgid "{0} hours"
-msgstr ""
+msgstr "{0} 小時"
 
 #: src/components/organisms/EventItem.re.mjs:228
 #: src/components/organisms/EventsList.re.mjs:113
 msgid "{0} minute"
-msgstr ""
+msgstr "{0} 分鐘"
 
 #: src/components/organisms/EventItem.re.mjs:229
 #: src/components/organisms/EventsList.re.mjs:114
 msgid "{0} minutes"
-msgstr ""
+msgstr "{0} 分鐘"
 
 #: src/components/organisms/EventsList.re.mjs:231
 msgid "{0} private {shadowCountDesc} hidden"
-msgstr ""
+msgstr "{0} 私人 {shadowCountDesc} 已隱藏"
 
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:112
 msgid "{minutes, plural, one {{0}} other {{1}}}"
-msgstr ""
+msgstr "{0}"
 
 #: src/components/organisms/EventItem.re.mjs:296
 msgid "{playersCount, plural, one {player} other {players}}"
-msgstr ""
+msgstr "位球員"
 
 #: src/components/organisms/EventsList.re.mjs:200
 msgid "{shadowCount, plural, one {event} other {events}}"
-msgstr ""
+msgstr "個活動"
 
 #: src/components/organisms/EventsList.re.mjs:118
 msgid "🚫 CANCELED"
-msgstr ""
+msgstr "🚫 已取消"
 
 #: src/components/pages/Events.re.mjs:57
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 #: src/components/pages/Events.re.mjs:116
 #: src/components/pages/Events.re.mjs:119
 msgid "all events"
-msgstr ""
+msgstr "所有活動"
 
 #: src/components/pages/Events.re.mjs:66
 msgid "Badminton"
-msgstr ""
+msgstr "羽毛球"
 
 #: src/components/pages/Events.re.mjs:110
 msgid "badminton events"
-msgstr ""
+msgstr "羽毛球活動"
 
 #: src/components/organisms/EventsList.re.mjs:366
 msgid "clear filter"
-msgstr ""
+msgstr "清除篩選"
 
 #: src/components/organisms/EventsList.re.mjs:364
 msgid "filtering by date"
-msgstr ""
+msgstr "按日期篩選"
 
 #: src/components/pages/Events.re.mjs:179
 msgid "include private"
-msgstr ""
+msgstr "包含私人"
 
 #: src/components/organisms/EventItem.re.mjs:313
 msgid "join event"
-msgstr ""
+msgstr "加入活動"
 
 #: src/components/organisms/EventItem.re.mjs:260
 msgid "joined"
-msgstr ""
+msgstr "已加入"
 
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
-msgstr ""
+msgstr "退出活動"
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
-msgstr ""
+msgstr "待審核"
 
 #: src/components/pages/Events.re.mjs:61
 msgid "Pickleball"
-msgstr ""
+msgstr "匹克球"
 
 #: src/components/pages/Events.re.mjs:113
 msgid "pickleball events"
-msgstr ""
+msgstr "匹克球活動"
 
 #: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
-msgstr ""
+msgstr "球員"
 
 #: src/components/organisms/EventsList.re.mjs:336
 msgid "share as text"
-msgstr ""
+msgstr "分享為文字"
 
 #: src/components/organisms/EventsList.re.mjs:239
 msgid "show"
-msgstr ""
+msgstr "顯示"
 
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
-msgstr ""
+msgstr "等待列表"

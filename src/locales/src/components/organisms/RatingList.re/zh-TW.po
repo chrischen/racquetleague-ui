@@ -15,16 +15,16 @@ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:278
 msgid "...load higher rated players"
-msgstr ""
+msgstr "...載入更高評分的球員"
 
 #: src/components/organisms/RatingList.re.mjs:202
 msgid "Female"
-msgstr ""
+msgstr "女性"
 
 #: src/components/organisms/RatingList.re.mjs:295
 msgid "Load more players..."
-msgstr ""
+msgstr "載入更多球員..."
 
 #: src/components/organisms/RatingList.re.mjs:204
 msgid "Male"
-msgstr ""
+msgstr "男性"

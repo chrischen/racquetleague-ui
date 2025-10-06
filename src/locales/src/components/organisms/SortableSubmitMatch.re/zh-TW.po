@@ -15,31 +15,31 @@ msgstr ""
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:305
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:323
 msgid "Enter Score"
-msgstr ""
+msgstr "輸入分數"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 msgid "Loading"
-msgstr ""
+msgstr "載入中"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:357
 #: src/components/organisms/SortableSubmitMatch.re.mjs:405
 msgid "Points"
-msgstr ""
+msgstr "分數"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:57
 #: src/components/organisms/SortableSubmitMatch.re.mjs:69
 msgid "predicted winner"
-msgstr ""
+msgstr "預測勝者"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:439
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:370
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
-msgstr ""
+msgstr "勝者"

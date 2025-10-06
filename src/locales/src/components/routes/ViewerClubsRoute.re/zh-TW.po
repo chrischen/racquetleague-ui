@@ -15,8 +15,8 @@ msgstr ""
 
 #: src/components/pages/ViewerClubsPage.re.mjs:73
 msgid "my clubs"
-msgstr ""
+msgstr "我的俱樂部"
 
 #: src/components/pages/ViewerClubsPage.re.mjs:95
 msgid "You are not an admin of any clubs."
-msgstr ""
+msgstr "您不是任何俱樂部的管理員。"

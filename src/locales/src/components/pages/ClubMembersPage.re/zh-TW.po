@@ -15,32 +15,32 @@ msgstr ""
 
 #: src/components/pages/ClubMembersPage.re.mjs:165
 msgid "Approve"
-msgstr ""
+msgstr "批准"
 
 #: src/components/pages/ClubMembersPage.re.mjs:177
 msgid "Are you sure you want to remove {0} from the club?"
-msgstr ""
+msgstr "您確定要將 {0} 從俱樂部中移除嗎？"
 
 #: src/components/pages/ClubMembersPage.re.mjs:422
 msgid "club not found"
-msgstr ""
+msgstr "找不到俱樂部"
 
 #: src/components/pages/ClubMembersPage.re.mjs:402
 msgid "Members"
-msgstr ""
+msgstr "成員"
 
 #: src/components/pages/ClubMembersPage.re.mjs:351
 msgid "No members found"
-msgstr ""
+msgstr "找不到成員"
 
 #: src/components/pages/ClubMembersPage.re.mjs:326
 msgid "Pending"
-msgstr ""
+msgstr "待審核"
 
 #: src/components/pages/ClubMembersPage.re.mjs:174
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: src/components/pages/ClubMembersPage.re.mjs:176
 msgid "Remove member?"
-msgstr ""
+msgstr "移除成員？"

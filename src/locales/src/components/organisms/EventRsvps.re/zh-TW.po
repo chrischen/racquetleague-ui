@@ -13,132 +13,38 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventRsvps.re.mjs:524
-#: src/components/organisms/EventRsvps.re.mjs:671
-msgid "{0, plural, one {player} other {players}}"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:516
-msgid "{maxRsvps, plural, one {player} other {players}}"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:620
-msgid "{waitlistCount, plural, one {player} other {players}}"
-msgstr ""
-
-#: src/components/organisms/RsvpOptions.re.mjs:102
-msgid "Are you sure you want to remove this person from the event?"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:430
-msgid "attendees"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:509
-msgid "confirmed"
-msgstr ""
-
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
 #: src/components/organisms/EventRsvps.re.mjs:342
 #: src/components/organisms/EventRsvps.re.mjs:354
 #: src/components/organisms/EventRsvps.re.mjs:372
-msgid "join event"
-msgstr ""
+#~ msgid "join event"
+#~ msgstr "加入活動"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
 #: src/components/organisms/EventRsvps.re.mjs:382
 #: src/components/organisms/EventRsvps.re.mjs:387
-msgid "leave event"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:599
-#: src/components/organisms/EventRsvps.re.mjs:652
-#: src/components/organisms/EventRsvps.re.mjs:703
-msgid "load More"
-msgstr ""
-
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
-#: src/components/organisms/EventRsvps.re.mjs:365
-msgid "login to join the event"
-msgstr ""
-
-#: src/components/molecules/LoginLink.re.mjs:28
-#: src/components/molecules/LoginLink.re.mjs:32
-msgid "login with Line"
-msgstr ""
+#~ msgid "leave event"
+#~ msgstr "退出活動"
 
 #: src/components/organisms/EventRsvps.re.mjs:590
 #: src/components/organisms/EventRsvps.re.mjs:645
 #: src/components/organisms/EventRsvps.re.mjs:696
-msgid "no players yet"
-msgstr ""
+#~ msgid "no players yet"
+#~ msgstr "還沒有球員"
 
 #: src/components/organisms/EventRsvps.re.mjs:665
-msgid "pending"
-msgstr ""
+#~ msgid "pending"
+#~ msgstr "待審核"
 
 #: src/components/organisms/EventRsvp.re.mjs:60
-msgid "Player"
-msgstr ""
-
-#: src/components/organisms/RsvpOptions.re.mjs:88
-msgid "Remove from event"
-msgstr ""
-
-#: src/components/organisms/RsvpOptions.re.mjs:101
-msgid "Remove this RSVP"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:332
-msgid "Required rating: {0} (DUPR {1})"
-msgstr ""
+#~ msgid "Player"
+#~ msgstr "球員"
 
 #: src/components/organisms/EventRsvps.re.mjs:141
-msgid "Save"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:544
-#: src/components/organisms/EventRsvps.re.mjs:554
-msgid "spots available"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:391
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:125
-#: src/components/organisms/EventRsvps.re.mjs:126
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr ""
-
-#: src/components/organisms/RsvpOptions.re.mjs:82
-msgid "View Profile"
-msgstr ""
+#~ msgid "Save"
+#~ msgstr "儲存"
 
 #: src/components/organisms/EventRsvps.re.mjs:549
 #: src/components/organisms/EventRsvps.re.mjs:614
-msgid "waitlist"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:390
-msgid "You will lose your spot"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:448
-msgid "you're going :)"
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:469
-msgid "you're waitlisted :("
-msgstr ""
-
-#: src/components/organisms/EventRsvps.re.mjs:334
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
+#~ msgid "waitlist"
+#~ msgstr "等待列表"

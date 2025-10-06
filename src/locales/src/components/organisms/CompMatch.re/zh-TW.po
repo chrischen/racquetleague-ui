@@ -15,58 +15,58 @@ msgstr ""
 
 #: src/components/organisms/CompMatch.re.mjs:365
 msgid "Analyzed {0} matches."
-msgstr ""
+msgstr "已分析 {0} 場比賽。"
 
 #: src/components/organisms/CompMatch.re.mjs:230
 msgid "Competitive"
-msgstr ""
+msgstr "競技模式"
 
 #: src/components/organisms/CompMatch.re.mjs:359
 msgid "Gender Mixed Doubles"
-msgstr ""
+msgstr "性別混合雙打"
 
 #: src/components/organisms/CompMatch.re.mjs:232
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-msgstr ""
+msgstr "比賽按最大技能差距 +- 1 名球員進行安排。"
 
 #: src/components/organisms/CompMatch.re.mjs:237
 msgid "Matches are arranged by skill while mixing strong and weak players."
-msgstr ""
+msgstr "比賽按技能安排，同時將強弱球員混合搭配。"
 
 #: src/components/organisms/CompMatch.re.mjs:235
 msgid "Mixed"
-msgstr ""
+msgstr "混合"
 
 #: src/components/organisms/CompMatch.re.mjs:410
 msgid ""
 "Not enough players in the queue. Select the players who want to play from "
 "the Queue tab."
-msgstr ""
+msgstr "隊列中球員不足。請從「隊列」選項卡中選擇想要參賽的球員。"
 
 #: src/components/organisms/CompMatch.re.mjs:386
 msgid "Played last round"
-msgstr ""
+msgstr "上一輪已比賽"
 
 #: src/components/organisms/CompMatch.re.mjs:240
 msgid "Random"
-msgstr ""
+msgstr "隨機"
 
 #: src/components/organisms/CompMatch.re.mjs:498
 msgid "Recommended Match"
-msgstr ""
+msgstr "推薦比賽"
 
 #: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
-msgstr ""
+msgstr "選擇"
 
 #: src/components/organisms/CompMatch.re.mjs:298
 msgid "Select a tab"
-msgstr ""
+msgstr "選擇一個標籤頁"
 
 #: src/components/organisms/CompMatch.re.mjs:380
 msgid "This team has played before"
-msgstr ""
+msgstr "這個隊伍之前比賽過"
 
 #: src/components/organisms/CompMatch.re.mjs:242
 msgid "Totally random teams."
-msgstr ""
+msgstr "完全隨機的隊伍。"

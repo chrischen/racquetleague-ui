@@ -15,12 +15,12 @@ msgstr ""
 
 #: src/components/organisms/SelectPlayersList.re.mjs:98
 msgid "Match Count"
-msgstr ""
+msgstr "比賽次數"
 
 #: src/components/organisms/SelectPlayersList.re.mjs:197
 msgid "no players yet"
-msgstr ""
+msgstr "還沒有球員"
 
 #: src/components/organisms/SelectPlayersList.re.mjs:73
 msgid "Player"
-msgstr ""
+msgstr "球員"

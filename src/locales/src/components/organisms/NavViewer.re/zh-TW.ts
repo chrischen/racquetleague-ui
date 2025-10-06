@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(logout)\",\"GCkpYm\":\"login with Line\",\"QejCSM\":\"My Clubs\",\"dNSt+v\":\"My Events\",\"Tz0i8g\":\"Settings\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（登出）\",\"GCkpYm\":\"使用 Line 登入\",\"QejCSM\":\"我的俱樂部\",\"dNSt+v\":\"我的活動\",\"Tz0i8g\":\"設定\"}");

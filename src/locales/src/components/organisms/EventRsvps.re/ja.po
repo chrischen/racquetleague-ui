@@ -15,150 +15,88 @@ msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:524
 #: src/components/organisms/EventRsvps.re.mjs:671
-msgid "{0, plural, one {player} other {players}}"
-msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
+#~ msgid "{0, plural, one {player} other {players}}"
+#~ msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
 
 #: src/components/organisms/EventRsvps.re.mjs:516
-msgid "{maxRsvps, plural, one {player} other {players}}"
-msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
+#~ msgid "{maxRsvps, plural, one {player} other {players}}"
+#~ msgstr "{maxRsvps, plural, one {プレイヤー} other {プレイヤー}}"
 
 #: src/components/organisms/EventRsvps.re.mjs:620
-msgid "{waitlistCount, plural, one {player} other {players}}"
-msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
-
-#: src/components/organisms/RsvpOptions.re.mjs:102
-msgid "Are you sure you want to remove this person from the event?"
-msgstr "この人をイベントから削除してもよろしいですか？"
-
-#: src/components/organisms/EventRsvps.re.mjs:430
-msgid "attendees"
-msgstr "参加者"
-
-#: src/components/organisms/EventRsvps.re.mjs:509
-msgid "confirmed"
-msgstr "確認済み"
-
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:35
-#: src/components/organisms/EventRsvps.re.mjs:342
-#: src/components/organisms/EventRsvps.re.mjs:354
-#: src/components/organisms/EventRsvps.re.mjs:372
-msgid "join event"
-msgstr "参加する"
-
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:21
-#: src/components/organisms/EventRsvps.re.mjs:382
-#: src/components/organisms/EventRsvps.re.mjs:387
-msgid "leave event"
-msgstr "離れる"
-
-#: src/components/organisms/EventRsvps.re.mjs:599
-#: src/components/organisms/EventRsvps.re.mjs:652
-#: src/components/organisms/EventRsvps.re.mjs:703
-msgid "load More"
-msgstr "もっと読み込む"
-
-#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
-#: src/components/organisms/EventRsvps.re.mjs:365
-msgid "login to join the event"
-msgstr "イベントに参加するにはログインしてください"
-
-#: src/components/molecules/LoginLink.re.mjs:28
-#: src/components/molecules/LoginLink.re.mjs:32
-msgid "login with Line"
-msgstr "Lineでログイン"
-
-#: src/components/organisms/EventRsvps.re.mjs:590
-#: src/components/organisms/EventRsvps.re.mjs:645
-#: src/components/organisms/EventRsvps.re.mjs:696
-msgid "no players yet"
-msgstr "まだプレイヤーはいません"
-
-#: src/components/organisms/EventRsvps.re.mjs:665
-msgid "pending"
-msgstr "保留中"
-
-#: src/components/organisms/EventRsvp.re.mjs:60
-msgid "Player"
-msgstr "プレイヤー"
-
-#: src/components/organisms/RsvpOptions.re.mjs:88
-msgid "Remove from event"
-msgstr "イベントから削除"
-
-#: src/components/organisms/RsvpOptions.re.mjs:101
-msgid "Remove this RSVP"
-msgstr "このRSVPを削除"
-
-#: src/components/organisms/EventRsvps.re.mjs:332
-msgid "Required rating: {0} (DUPR {1})"
-msgstr "必要レーティング: {0} (DUPR {1})"
-
-#: src/components/organisms/EventRsvps.re.mjs:141
-msgid "Save"
-msgstr "保存"
-
-#: src/components/organisms/EventRsvps.re.mjs:544
-#: src/components/organisms/EventRsvps.re.mjs:554
-msgid "spots available"
-msgstr "利用可能なスポット"
-
-#: src/components/organisms/EventRsvps.re.mjs:391
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリスト"
-"の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
-"本当にこのイベントを離れますか？"
-
-#: src/components/organisms/EventRsvps.re.mjs:125
-#: src/components/organisms/EventRsvps.re.mjs:126
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr ""
-"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
-"ださい。"
-
-#: src/components/organisms/RsvpOptions.re.mjs:82
-msgid "View Profile"
-msgstr "プロフィールを表示"
-
-#: src/components/organisms/EventRsvps.re.mjs:549
-#: src/components/organisms/EventRsvps.re.mjs:614
-msgid "waitlist"
-msgstr "ウェイトリスト"
-
-#: src/components/organisms/EventRsvps.re.mjs:390
-msgid "You will lose your spot"
-msgstr "あなたのスポットを失います"
-
-#: src/components/organisms/EventRsvps.re.mjs:448
-msgid "you're going :)"
-msgstr "あなたは行く :)"
-
-#: src/components/organisms/EventRsvps.re.mjs:469
-msgid "you're waitlisted :("
-msgstr "あなたはウェイトリストに入っています :("
-
-#: src/components/organisms/EventRsvps.re.mjs:334
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
-"限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
-"イベントに参加してください。"
+#~ msgid "{waitlistCount, plural, one {player} other {players}}"
+#~ msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
 #: src/components/organisms/EventRsvps.re.mjs:203
 #~ msgid ""
 #~ "{waitlistCount, plural, one {spot available} other {spots available}}"
 #~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
 
+#: src/components/organisms/RsvpOptions.re.mjs:102
+#~ msgid "Are you sure you want to remove this person from the event?"
+#~ msgstr "この人をイベントから削除してもよろしいですか？"
+
+#: src/components/organisms/EventRsvps.re.mjs:430
+#~ msgid "attendees"
+#~ msgstr "参加者"
+
+#: src/components/organisms/EventRsvps.re.mjs:509
+#~ msgid "confirmed"
+#~ msgstr "確認済み"
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:35
+#: src/components/organisms/EventRsvps.re.mjs:342
+#: src/components/organisms/EventRsvps.re.mjs:354
+#: src/components/organisms/EventRsvps.re.mjs:372
+#~ msgid "join event"
+#~ msgstr "参加する"
+
 #: src/components/organisms/EventRsvps.re.mjs:225
 #~ msgid "join waitlist"
 #~ msgstr "ウェイトリストに参加"
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:21
+#: src/components/organisms/EventRsvps.re.mjs:382
+#: src/components/organisms/EventRsvps.re.mjs:387
+#~ msgid "leave event"
+#~ msgstr "離れる"
+
+#: src/components/organisms/EventRsvps.re.mjs:599
+#: src/components/organisms/EventRsvps.re.mjs:652
+#: src/components/organisms/EventRsvps.re.mjs:703
+#~ msgid "load More"
+#~ msgstr "もっと読み込む"
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
+#: src/components/organisms/EventRsvps.re.mjs:365
+#~ msgid "login to join the event"
+#~ msgstr "イベントに参加するにはログインしてください"
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+#~ msgid "login with Line"
+#~ msgstr "Lineでログイン"
+
+#: src/components/organisms/EventRsvps.re.mjs:590
+#: src/components/organisms/EventRsvps.re.mjs:645
+#: src/components/organisms/EventRsvps.re.mjs:696
+#~ msgid "no players yet"
+#~ msgstr "まだプレイヤーはいません"
+
+#: src/components/organisms/EventRsvps.re.mjs:665
+#~ msgid "pending"
+#~ msgstr "保留中"
+
+#: src/components/organisms/EventRsvp.re.mjs:60
+#~ msgid "Player"
+#~ msgstr "プレイヤー"
+
+#: src/components/organisms/RsvpOptions.re.mjs:88
+#~ msgid "Remove from event"
+#~ msgstr "イベントから削除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:101
+#~ msgid "Remove this RSVP"
+#~ msgstr "このRSVPを削除"
 
 #: src/components/organisms/EventRsvps.re.mjs:202
 #~ msgid "required rating: {0}"
@@ -168,9 +106,72 @@ msgstr ""
 #~ msgid "Required rating: {0}"
 #~ msgstr "必要な評価: {0}"
 
+#: src/components/organisms/EventRsvps.re.mjs:332
+#~ msgid "Required rating: {0} (DUPR {1})"
+#~ msgstr "必要レーティング: {0} (DUPR {1})"
+
 #: src/components/organisms/EventRsvps.re.mjs:523
 #~ msgid "restricted by level"
 #~ msgstr "レベルによって制限"
+
+#: src/components/organisms/EventRsvps.re.mjs:141
+#~ msgid "Save"
+#~ msgstr "保存"
+
+#: src/components/organisms/EventRsvps.re.mjs:544
+#: src/components/organisms/EventRsvps.re.mjs:554
+#~ msgid "spots available"
+#~ msgstr "利用可能なスポット"
+
+#: src/components/organisms/EventRsvps.re.mjs:391
+#~ msgid ""
+#~ "This event is full, so leaving the event will give your spot to someone "
+#~ "on the waitlist. If you rejoin, you will join the waitlist. Are you sure "
+#~ "you want to leave this event?"
+#~ msgstr ""
+#~ "このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリス"
+#~ "トの誰かに譲られます。再参加する場合、ウェイトリストに参加することになりま"
+#~ "す。本当にこのイベントを離れますか？"
+
+#: src/components/organisms/EventRsvps.re.mjs:125
+#: src/components/organisms/EventRsvps.re.mjs:126
+#~ msgid ""
+#~ "Type a status message for people to see... such as 'I will arrive at "
+#~ "19:00.'"
+#~ msgstr ""
+#~ "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力し"
+#~ "てください。"
+
+#: src/components/organisms/RsvpOptions.re.mjs:82
+#~ msgid "View Profile"
+#~ msgstr "プロフィールを表示"
+
+#: src/components/organisms/EventRsvps.re.mjs:549
+#: src/components/organisms/EventRsvps.re.mjs:614
+#~ msgid "waitlist"
+#~ msgstr "ウェイトリスト"
+
+#: src/components/organisms/EventRsvps.re.mjs:390
+#~ msgid "You will lose your spot"
+#~ msgstr "あなたのスポットを失います"
+
+#: src/components/organisms/EventRsvps.re.mjs:448
+#~ msgid "you're going :)"
+#~ msgstr "あなたは行く :)"
+
+#: src/components/organisms/EventRsvps.re.mjs:469
+#~ msgid "you're waitlisted :("
+#~ msgstr "あなたはウェイトリストに入っています :("
+
+#: src/components/organisms/EventRsvps.re.mjs:334
+#~ msgid ""
+#~ "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in "
+#~ "the pending list until the rating limit is lowered. Please join another "
+#~ "JPL rated event to boost your rating."
+#~ msgstr ""
+#~ "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの"
+#~ "上限が下がるまで保留リストに登録されます。レーティングを上げるために別の"
+#~ "JPL評価イベントに参加してください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:204
 #~ msgid ""

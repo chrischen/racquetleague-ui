@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OiNSxX\":\"从等待列表加入\",\"1Ogj4M\":\"加入了活动\",\"FVnbiB\":\"退出了活动\",\"aXFOuf\":\"尚无活动\",\"tfDRzk\":\"保存\",\"WRzDEM\":\"状态信息\",\"C/pi+J\":\"输入状态信息让大家看到...比如'我将于19:00到达'。\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OiNSxX\":\"从等待列表加入\",\"1Ogj4M\":\"加入了活动\",\"FVnbiB\":\"退出了活动\",\"aXFOuf\":\"尚无活动\",\"JlFcis\":\"发送\",\"WRzDEM\":\"状态信息\",\"C/pi+J\":\"输入状态信息让大家看到...比如'我将于19:00到达'。\",\"tfDRzk\":\"保存\"}");

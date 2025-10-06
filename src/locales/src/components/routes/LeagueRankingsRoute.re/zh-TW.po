@@ -15,43 +15,43 @@ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:278
 msgid "...load higher rated players"
-msgstr ""
+msgstr "...載入更高評分的球員"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 #: src/components/pages/LeagueRankingsPage.re.mjs:52
 msgid "Competitive Doubles"
-msgstr ""
+msgstr "競技雙打"
 
 #: src/components/organisms/RatingList.re.mjs:202
 msgid "Female"
-msgstr ""
+msgstr "女性"
 
 #: src/components/organisms/RatingList.re.mjs:295
 msgid "Load more players..."
-msgstr ""
+msgstr "載入更多球員..."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:135
 msgid "Loading rankings..."
-msgstr ""
+msgstr "載入排名中..."
 
 #: src/components/organisms/RatingList.re.mjs:204
 msgid "Male"
-msgstr ""
+msgstr "男性"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:112
 msgid ""
 "Play doubles games with different partners and receive an individual rating. "
 "Prizes are awarded monthly to top players."
-msgstr ""
+msgstr "與不同的搭檔進行雙打比賽，獲得個人評分。每月向最優秀的球員頒發獎品。"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 msgid "Recreational Doubles"
-msgstr ""
+msgstr "休閒雙打"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:117
 msgid "To participate, please join the events here:"
-msgstr ""
+msgstr "要參與，請在此加入活動："
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:92
 msgid "View My Profile"
-msgstr ""
+msgstr "查看我的個人資料"

@@ -15,8 +15,8 @@ msgstr ""
 
 #: src/components/organisms/SessionAddPlayer.re.mjs:50
 msgid "Add Guest Player"
-msgstr ""
+msgstr "新增客人球員"
 
 #: src/components/organisms/SessionAddPlayer.re.mjs:42
 msgid "Player Name"
-msgstr ""
+msgstr "球員姓名"

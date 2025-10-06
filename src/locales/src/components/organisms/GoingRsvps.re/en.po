@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/GoingRsvps.re.mjs:104
+msgid "+{0} more"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:102
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""

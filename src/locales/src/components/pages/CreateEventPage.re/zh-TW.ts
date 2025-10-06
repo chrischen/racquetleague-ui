@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"Vveohd\":\"choose the location where this event will be held.\",\"xl+An2\":\"event location\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"Vveohd\":\"選擇舉辦此活動的地點。\",\"xl+An2\":\"活動地點\"}");

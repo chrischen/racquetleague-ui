@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"k9aPnD\":\"...load higher rated players\",\"M9iqFS\":\"Female\",\"UqCm6U\":\"Load more players...\",\"CvCWBI\":\"Male\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"k9aPnD\":\"...載入更高評分的球員\",\"M9iqFS\":\"女性\",\"UqCm6U\":\"載入更多球員...\",\"CvCWBI\":\"男性\"}");

@@ -15,63 +15,63 @@ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:423
 msgid "[location missing]"
-msgstr ""
+msgstr "[地點缺失]"
 
 #: src/components/organisms/EventItem.re.mjs:365
 msgid "[missing title]"
-msgstr ""
+msgstr "[標題缺失]"
 
 #: src/components/organisms/EventItem.re.mjs:215
 #: src/components/organisms/EventItem.re.mjs:222
 msgid "{0, plural, one {{1}} other {{2}}}"
-msgstr ""
+msgstr "{1}"
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
 msgid "{0} hour"
-msgstr ""
+msgstr "{0} 小時"
 
 #: src/components/organisms/EventItem.re.mjs:217
 #: src/components/organisms/EventItem.re.mjs:224
 msgid "{0} hours"
-msgstr ""
+msgstr "{0} 小時"
 
 #: src/components/organisms/EventItem.re.mjs:228
 msgid "{0} minute"
-msgstr ""
+msgstr "{0} 分鐘"
 
 #: src/components/organisms/EventItem.re.mjs:229
 msgid "{0} minutes"
-msgstr ""
+msgstr "{0} 分鐘"
 
 #: src/components/organisms/EventItem.re.mjs:227
 msgid "{minutes, plural, one {{0}} other {{1}}}"
-msgstr ""
+msgstr "{0}"
 
 #: src/components/organisms/EventItem.re.mjs:296
 msgid "{playersCount, plural, one {player} other {players}}"
-msgstr ""
+msgstr "位球員"
 
 #: src/components/organisms/EventItem.re.mjs:313
 msgid "join event"
-msgstr ""
+msgstr "加入活動"
 
 #: src/components/organisms/EventItem.re.mjs:260
 msgid "joined"
-msgstr ""
+msgstr "已加入"
 
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
-msgstr ""
+msgstr "退出活動"
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
-msgstr ""
+msgstr "待審核"
 
 #: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
-msgstr ""
+msgstr "球員"
 
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
-msgstr ""
+msgstr "等待列表"

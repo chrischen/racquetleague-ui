@@ -15,42 +15,42 @@ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:88
 msgid "cancel login"
-msgstr ""
+msgstr "取消登入"
 
 #: src/components/pages/LoginPage.re.mjs:63
 msgid "display name"
-msgstr ""
+msgstr "顯示名稱"
 
 #: src/components/pages/LoginPage.re.mjs:43
 msgid "email address"
-msgstr ""
+msgstr "電子郵件地址"
 
 #: src/components/pages/LoginPage.re.mjs:54
 msgid "event organizers and other users cannot view your email"
-msgstr ""
+msgstr "活動主辦單位和其他使用者無法查看您的電子郵件"
 
 #: src/components/pages/LoginPage.re.mjs:27
 #: src/components/pages/LoginPage.re.mjs:82
 msgid "login with Line"
-msgstr ""
+msgstr "使用 Line 登入"
 
 #: src/components/pages/LoginPage.re.mjs:50
 msgid "notification of updates or cancellations to events (you can opt out)"
-msgstr ""
+msgstr "活動更新或取消的通知（您可以選擇退出）"
 
 #: src/components/pages/LoginPage.re.mjs:31
 msgid "privacy disclosure"
-msgstr ""
+msgstr "隱私披露"
 
 #: src/components/pages/LoginPage.re.mjs:71
 msgid "profile picture"
-msgstr ""
+msgstr "個人資料照片"
 
 #: src/components/pages/LoginPage.re.mjs:67
 #: src/components/pages/LoginPage.re.mjs:75
 msgid "publicly displayed on event attendance lists"
-msgstr ""
+msgstr "在活動出席名單上公開顯示"
 
 #: src/components/pages/LoginPage.re.mjs:37
 msgid "we will collect the following information from your Line account"
-msgstr ""
+msgstr "我們將從您的 Line 帳戶收集以下資訊"

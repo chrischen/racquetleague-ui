@@ -15,13 +15,13 @@ msgstr ""
 
 #: src/components/pages/FindGamesPage.re.mjs:33
 msgid "Find League Games"
-msgstr ""
+msgstr "尋找聯盟比賽"
 
 #: src/components/pages/FindGamesPage.re.mjs:30
 msgid ""
 "To participate in the league and win prizes, please join the league events."
-msgstr ""
+msgstr "要參與聯盟並獲得獎品，請加入聯盟活動。"
 
 #: src/components/pages/FindGamesPage.re.mjs:24
 msgid "Where to Play"
-msgstr ""
+msgstr "在哪裡比賽"

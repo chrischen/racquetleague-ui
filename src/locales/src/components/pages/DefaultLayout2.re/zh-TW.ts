@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(logout)\",\"tst44n\":\"Events\",\"GCkpYm\":\"login with Line\",\"d4VXx5\":\"Racquet League\",\"W8fQRI\":\"Rankings\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（登出）\",\"tst44n\":\"活動\",\"GCkpYm\":\"使用 Line 登入\",\"d4VXx5\":\"球拍聯盟\",\"W8fQRI\":\"排名\"}");

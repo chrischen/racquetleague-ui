@@ -15,12 +15,12 @@ msgstr ""
 
 #: src/components/organisms/MatchList.re.mjs:372
 msgid "...load previous matches"
-msgstr ""
+msgstr "...載入之前的比賽"
 
 #: src/components/organisms/MatchList.re.mjs:395
 msgid "Load more matches..."
-msgstr ""
+msgstr "載入更多比賽..."
 
 #: src/components/organisms/MatchList.re.mjs:292
 msgid "Score:"
-msgstr ""
+msgstr "分數："

@@ -16,91 +16,91 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:303
 msgid "Badminton"
-msgstr ""
+msgstr "羽毛球"
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:307
 msgid "Table Tennis"
-msgstr ""
+msgstr "乿乓球"
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:311
 msgid "Pickleball"
-msgstr ""
+msgstr "匹克球"
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:315
 msgid "Futsal"
-msgstr ""
+msgstr "五人制足球"
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:319
 msgid "Basketball"
-msgstr ""
+msgstr "籃球"
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubEventsForm.re.mjs:323
 msgid "Volleyball"
-msgstr ""
+msgstr "排球"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:193
 msgid "{0} event details"
-msgstr ""
+msgstr "{0} 個活動詳情"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:146
 msgid "{0} events created!"
-msgstr ""
+msgstr "已建立 {0} 個活動！"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:236
 msgid "activity"
-msgstr ""
+msgstr "活動"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:61
 msgid "activity is required"
-msgstr ""
+msgstr "活動是必填項目"
 
 #: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:194
 msgid "create multiple events at one time"
-msgstr ""
+msgstr "一次建立多個活動"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:200
 msgid "events"
-msgstr ""
+msgstr "活動"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:91
 msgid "events preview"
-msgstr ""
+msgstr "活動預覽"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:58
 msgid "input is required"
-msgstr ""
+msgstr "輸入是必填項目"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:274
 msgid "list publicly"
-msgstr ""
+msgstr "公開列出"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:227
 msgid "loading..."
-msgstr ""
+msgstr "載入中..."
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:212
 msgid "preview events"
-msgstr ""
+msgstr "預覽活動"
 
 #: src/components/molecules/forms/Form.re.mjs:307
 msgid "save"
-msgstr ""
+msgstr "儲存"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:279
 msgid ""
 "show your event publicly on our home page. Otherwise, only people with a "
 "link to your event will be able to find it."
-msgstr ""
+msgstr "在我們的首頁公開顯示您的活動。否則，只有擁有您活動連結的人才能找到它。"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:203
 msgid "type your events in the format above"
-msgstr ""
+msgstr "以上方格式輸入您的活動"

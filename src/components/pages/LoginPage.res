@@ -49,8 +49,10 @@ let make = () => {
             {t`publicly displayed on event attendance lists`}
           </dd>
         </dl>
-        <a href={"/login" ++ search} className="block mt-4 text-2xl"> {t`login with Line`} </a>
-        <Router.Link to={returnUrl->Option.getOr("/")} className="block mt-4 text-2xl">
+        <a href={"/login" ++ search} >
+          <Button.Button className="block mt-4 text-2xl"> {t`login with Line`} </Button.Button>
+        </a>
+        <Router.Link to={returnUrl->Option.getOr("/")} className="block mt-4 text">
           {t`cancel login`}
         </Router.Link>
       </Layout.Container>}

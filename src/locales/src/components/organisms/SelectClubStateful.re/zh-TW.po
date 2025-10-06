@@ -15,64 +15,64 @@ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:213
 msgid "about"
-msgstr ""
+msgstr "關於"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:108
 msgid "add new club"
-msgstr ""
+msgstr "新增俱樂部"
 
 #: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:82
 msgid "choose the club where this event will be held."
-msgstr ""
+msgstr "選擇舉辦此活動的俱樂部。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
 msgid "club"
-msgstr ""
+msgstr "俱樂部"
 
 #: src/components/organisms/CreateClubForm.re.mjs:194
 msgid "main activity"
-msgstr ""
+msgstr "主要活動"
 
 #: src/components/organisms/CreateClubForm.re.mjs:85
 msgid "main activity is required"
-msgstr ""
+msgstr "主要活動是必填項目"
 
 #: src/components/organisms/CreateClubForm.re.mjs:162
 msgid "name"
-msgstr ""
+msgstr "名稱"
 
 #: src/components/organisms/CreateClubForm.re.mjs:79
 msgid "name is required"
-msgstr ""
+msgstr "名稱是必填項目"
 
 #: src/components/molecules/forms/Form.re.mjs:307
 msgid "save"
-msgstr ""
+msgstr "儲存"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:81
 msgid "select club"
-msgstr ""
+msgstr "選擇俱樂部"
 
 #: src/components/organisms/CreateClubForm.re.mjs:177
 msgid "slug"
-msgstr ""
+msgstr "網址簡碼"
 
 #: src/components/organisms/CreateClubForm.re.mjs:216
 msgid "tell people about your club"
-msgstr ""
+msgstr "告訴大家您俱樂部的情況"
 
 #: src/components/organisms/CreateClubForm.re.mjs:82
 msgid "url slug is required"
-msgstr ""
+msgstr "網址簡碼是必填項目"
 
 #: src/components/organisms/CreateClubForm.re.mjs:182
 msgid "yubibado"
-msgstr ""
+msgstr "yubibado"
 
 #: src/components/organisms/CreateClubForm.re.mjs:165
 msgid "ゆびバド"
-msgstr ""
+msgstr "手指羽毛球"

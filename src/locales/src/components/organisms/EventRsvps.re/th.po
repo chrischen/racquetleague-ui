@@ -15,135 +15,136 @@ msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:524
 #: src/components/organisms/EventRsvps.re.mjs:671
-msgid "{0, plural, one {player} other {players}}"
-msgstr "ผู้เล่น"
+#~ msgid "{0, plural, one {player} other {players}}"
+#~ msgstr "ผู้เล่น"
 
 #: src/components/organisms/EventRsvps.re.mjs:516
-msgid "{maxRsvps, plural, one {player} other {players}}"
-msgstr "ผู้เล่น"
+#~ msgid "{maxRsvps, plural, one {player} other {players}}"
+#~ msgstr "ผู้เล่น"
 
 #: src/components/organisms/EventRsvps.re.mjs:620
-msgid "{waitlistCount, plural, one {player} other {players}}"
-msgstr "ผู้เล่น"
+#~ msgid "{waitlistCount, plural, one {player} other {players}}"
+#~ msgstr "ผู้เล่น"
 
 #: src/components/organisms/RsvpOptions.re.mjs:102
-msgid "Are you sure you want to remove this person from the event?"
-msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
+#~ msgid "Are you sure you want to remove this person from the event?"
+#~ msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
 #: src/components/organisms/EventRsvps.re.mjs:430
-msgid "attendees"
-msgstr "ผู้เข้าร่วม"
+#~ msgid "attendees"
+#~ msgstr "ผู้เข้าร่วม"
 
 #: src/components/organisms/EventRsvps.re.mjs:509
-msgid "confirmed"
-msgstr "ยืนยันแล้ว"
+#~ msgid "confirmed"
+#~ msgstr "ยืนยันแล้ว"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:35
 #: src/components/organisms/EventRsvps.re.mjs:342
 #: src/components/organisms/EventRsvps.re.mjs:354
 #: src/components/organisms/EventRsvps.re.mjs:372
-msgid "join event"
-msgstr "เข้าร่วมกิจกรรม"
+#~ msgid "join event"
+#~ msgstr "เข้าร่วมกิจกรรม"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
 #: src/components/organisms/EventRsvps.re.mjs:382
 #: src/components/organisms/EventRsvps.re.mjs:387
-msgid "leave event"
-msgstr "ออกจากกิจกรรม"
+#~ msgid "leave event"
+#~ msgstr "ออกจากกิจกรรม"
 
 #: src/components/organisms/EventRsvps.re.mjs:599
 #: src/components/organisms/EventRsvps.re.mjs:652
 #: src/components/organisms/EventRsvps.re.mjs:703
-msgid "load More"
-msgstr "โหลดเพิ่มเติม"
+#~ msgid "load More"
+#~ msgstr "โหลดเพิ่มเติม"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
 #: src/components/organisms/EventRsvps.re.mjs:365
-msgid "login to join the event"
-msgstr "เข้าสู่ระบบเพื่อเข้าร่วมกิจกรรม"
+#~ msgid "login to join the event"
+#~ msgstr "เข้าสู่ระบบเพื่อเข้าร่วมกิจกรรม"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
-msgid "login with Line"
-msgstr "เข้าสู่ระบบด้วย Line"
+#~ msgid "login with Line"
+#~ msgstr "เข้าสู่ระบบด้วย Line"
 
 #: src/components/organisms/EventRsvps.re.mjs:590
 #: src/components/organisms/EventRsvps.re.mjs:645
 #: src/components/organisms/EventRsvps.re.mjs:696
-msgid "no players yet"
-msgstr "ยังไม่มีผู้เล่น"
+#~ msgid "no players yet"
+#~ msgstr "ยังไม่มีผู้เล่น"
 
 #: src/components/organisms/EventRsvps.re.mjs:665
-msgid "pending"
-msgstr "รอการอนุมัติ"
+#~ msgid "pending"
+#~ msgstr "รอการอนุมัติ"
 
 #: src/components/organisms/EventRsvp.re.mjs:60
-msgid "Player"
-msgstr "ผู้เล่น"
+#~ msgid "Player"
+#~ msgstr "ผู้เล่น"
 
 #: src/components/organisms/RsvpOptions.re.mjs:88
-msgid "Remove from event"
-msgstr "ลบจากกิจกรรม"
+#~ msgid "Remove from event"
+#~ msgstr "ลบจากกิจกรรม"
 
 #: src/components/organisms/RsvpOptions.re.mjs:101
-msgid "Remove this RSVP"
-msgstr "ลบการยืนยันนี้"
+#~ msgid "Remove this RSVP"
+#~ msgstr "ลบการยืนยันนี้"
 
 #: src/components/organisms/EventRsvps.re.mjs:332
-msgid "Required rating: {0} (DUPR {1})"
-msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
+#~ msgid "Required rating: {0} (DUPR {1})"
+#~ msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 
 #: src/components/organisms/EventRsvps.re.mjs:141
-msgid "Save"
-msgstr "บันทึก"
+#~ msgid "Save"
+#~ msgstr "บันทึก"
 
 #: src/components/organisms/EventRsvps.re.mjs:544
 #: src/components/organisms/EventRsvps.re.mjs:554
-msgid "spots available"
-msgstr "ที่ว่าง"
+#~ msgid "spots available"
+#~ msgstr "ที่ว่าง"
 
 #: src/components/organisms/EventRsvps.re.mjs:391
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
-"คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
+#~ msgid ""
+#~ "This event is full, so leaving the event will give your spot to someone "
+#~ "on the waitlist. If you rejoin, you will join the waitlist. Are you sure "
+#~ "you want to leave this event?"
+#~ msgstr ""
+#~ "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
+#~ "คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
 #: src/components/organisms/EventRsvps.re.mjs:125
 #: src/components/organisms/EventRsvps.re.mjs:126
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
+#~ msgid ""
+#~ "Type a status message for people to see... such as 'I will arrive at "
+#~ "19:00.'"
+#~ msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
 #: src/components/organisms/RsvpOptions.re.mjs:82
-msgid "View Profile"
-msgstr "ดูโปรไฟล์"
+#~ msgid "View Profile"
+#~ msgstr "ดูโปรไฟล์"
 
 #: src/components/organisms/EventRsvps.re.mjs:549
 #: src/components/organisms/EventRsvps.re.mjs:614
-msgid "waitlist"
-msgstr "รายชื่อคอย"
+#~ msgid "waitlist"
+#~ msgstr "รายชื่อคอย"
 
 #: src/components/organisms/EventRsvps.re.mjs:390
-msgid "You will lose your spot"
-msgstr "คุณจะเสียที่นั่ง"
+#~ msgid "You will lose your spot"
+#~ msgstr "คุณจะเสียที่นั่ง"
 
 #: src/components/organisms/EventRsvps.re.mjs:448
-msgid "you're going :)"
-msgstr "คุณจะไป :)"
+#~ msgid "you're going :)"
+#~ msgstr "คุณจะไป :)"
 
 #: src/components/organisms/EventRsvps.re.mjs:469
-msgid "you're waitlisted :("
-msgstr "คุณอยู่ในรายชื่อคอย :("
+#~ msgid "you're waitlisted :("
+#~ msgstr "คุณอยู่ในรายชื่อคอย :("
 
 #: src/components/organisms/EventRsvps.re.mjs:334
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
-"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
-"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
+#~ msgid ""
+#~ "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in "
+#~ "the pending list until the rating limit is lowered. Please join another "
+#~ "JPL rated event to boost your rating."
+#~ msgstr ""
+#~ "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
+#~ "รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
+#~ "อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"

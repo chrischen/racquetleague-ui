@@ -378,18 +378,22 @@ let make = (~event, ~user) => {
   // UI state
   let (mobileExpanded, setMobileExpanded) = React.useState(() => false)
 
-  let rsvpButtonStatus: RsvpButtonText.status = if viewerInPending {
-    Joined(Pending)
-  } else if viewerHasRsvp {
-    if viewerInWaitlist {
-      Joined(Waitlisted)
+  let rsvpButtonStatus: EventSignupButton.status = switch viewer {
+  | None => NotJoined(Login)
+  | Some(_) =>
+    if viewerInPending {
+      Joined(Pending)
+    } else if viewerHasRsvp {
+      if viewerInWaitlist {
+        Joined(Waitlisted)
+      } else {
+        Joined(Going)
+      }
+    } else if eventIsFull {
+      NotJoined(JoinWaitlist)
     } else {
-      Joined(Going)
+      NotJoined(Join)
     }
-  } else if eventIsFull {
-    NotJoined(JoinWaitlist)
-  } else {
-    NotJoined(Join)
   }
 
   // Toggle mobile expanded state
@@ -407,22 +411,11 @@ let make = (~event, ~user) => {
           {!mobileExpanded
             ? <div className="flex justify-between items-center">
                 <div>
-                  <button
+                  <EventSignupButton
                     onClick={_ => onRsvp("going")}
-                    className={`py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base ${viewerInPending
-                        ? "bg-red-100 text-red-800"
-                        : viewerHasRsvp && !viewerInPending
-                        ? viewerInWaitlist
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-green-600 text-white"
-                        : eventIsFull
-                        ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
-                        : "bg-green-100 text-green-800 hover:bg-green-200"}`}>
-                    <Lucide.Check size=16 />
-                    <span>
-                      <RsvpButtonText status=rsvpButtonStatus />
-                    </span>
-                  </button>
+                    status=rsvpButtonStatus
+                    className="py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base"
+                  />
                 </div>
                 <div
                   className="flex items-center space-x-3 cursor-pointer"
@@ -466,22 +459,11 @@ let make = (~event, ~user) => {
                         : ""}`}
                   />
                 </div>
-                <button
+                <EventSignupButton
                   onClick={_ => onRsvp("going")}
-                  className={`w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 mt-3 ${viewerInPending
-                      ? "bg-red-100 text-red-800"
-                      : viewerHasRsvp && !viewerInPending
-                      ? viewerInWaitlist
-                        ? "bg-yellow-100 text-yellow-800"
-                        : "bg-green-600 text-white"
-                      : eventIsFull
-                      ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
-                      : "bg-green-100 text-green-800 hover:bg-green-200"}`}>
-                  <Lucide.Check size=16 />
-                  <span>
-                    <RsvpButtonText status=rsvpButtonStatus />
-                  </span>
-                </button>
+                  status=rsvpButtonStatus
+                  className="w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 mt-3"
+                />
               </div>}
         </div>
         {mobileExpanded
@@ -526,20 +508,11 @@ let make = (~event, ~user) => {
         <h2 className="text-lg font-semibold mb-4"> {t`RSVP`} </h2>
         {ratingWarning}
         <div className="mb-6">
-          <button
+          <EventSignupButton
             onClick={_ => onRsvp("going")}
-            className={`w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 ${viewerInPending
-                ? "bg-red-100 text-red-800"
-                : viewerHasRsvp && !viewerInPending
-                ? viewerInWaitlist ? "bg-yellow-100 text-yellow-800" : "bg-green-600 text-white"
-                : eventIsFull
-                ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
-                : "bg-green-100 text-green-800 hover:bg-green-200"}`}>
-            <Lucide.Check size=16 />
-            <span>
-              <RsvpButtonText status=rsvpButtonStatus />
-            </span>
-          </button>
+            status=rsvpButtonStatus
+            className="w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1"
+          />
         </div>
         {viewerHasRsvp
           ? <div className="mb-5">

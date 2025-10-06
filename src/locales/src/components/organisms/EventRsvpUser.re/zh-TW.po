@@ -15,16 +15,16 @@ msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:102
 msgid "Are you sure you want to remove this person from the event?"
-msgstr ""
+msgstr "您確定要將此人從活動中移除嗎？"
 
 #: src/components/organisms/RsvpOptions.re.mjs:88
 msgid "Remove from event"
-msgstr ""
+msgstr "從活動中移除"
 
 #: src/components/organisms/RsvpOptions.re.mjs:101
 msgid "Remove this RSVP"
-msgstr ""
+msgstr "移除此 RSVP"
 
 #: src/components/organisms/RsvpOptions.re.mjs:82
 msgid "View Profile"
-msgstr ""
+msgstr "查看個人資料"

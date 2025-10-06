@@ -18,18 +18,19 @@ msgid ""
 "By clicking on the Gear icon in the top left, you can go back to the start "
 "screen. At the bottom of this screen will be the match history."
 msgstr ""
+"通過點擊左上角的齒輪圖示，您可以返回開始畢面。在此畢面的底部將是比賽歷史。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:74
 msgid "Checkin Screen"
-msgstr ""
+msgstr "簽到畢面"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:99
 msgid "Editing Matches"
-msgstr ""
+msgstr "編輯比賽"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:104
 msgid "Entering Results"
-msgstr ""
+msgstr "輸入結果"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:120
 msgid ""
@@ -40,14 +41,18 @@ msgid ""
 "pair.' The gender is important if you want to use the Gender-Mixed doubles "
 "option when choosing matches."
 msgstr ""
+"從隊列畫面您可以選擇一些球員（以綠色突出顯示）並對他們執行一些特殊操作，例如"
+"創建團隊、反團隊或設置他們的性別。如果您有一組球員（最少2人）總是想一起比賽，"
+"通常稱為「固定對」，團隊功能很重要。如果您想在選擇比賽時使用性別混合雙打選"
+"項，性別設置就很重要。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:89
 msgid "Generating Draws"
-msgstr ""
+msgstr "生成籤表"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:132
 msgid "How to use FairPlay"
-msgstr ""
+msgstr "如何使用 FairPlay"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:115
 msgid ""
@@ -58,26 +63,29 @@ msgid ""
 "Online Mode matches will be submitted as soon as you complete them from the "
 "Matches screen."
 msgstr ""
+"如果您啟用了離線模式，您可以按照此列表將結果提交到 Pkuru.com。只需點擊比賽，"
+"然後點擊提交按鈕。一旦分數顯示為 0 和 0，表示已成功提交。如果您未啟用離線模"
+"式，此步驟不必要。在正常的線上模式下，比賽將在您從比賽畫面完成後立即提交。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:64
 msgid "Launching FairPlay"
-msgstr ""
+msgstr "啟動 FairPlay"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:79
 msgid "Manage Courts and Player Breaks"
-msgstr ""
+msgstr "管理球場和球員休息"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:109
 msgid "Match History"
-msgstr ""
+msgstr "比賽歷史"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:94
 msgid "Matches Screen"
-msgstr ""
+msgstr "比賽畢面"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:114
 msgid "Offline Mode"
-msgstr ""
+msgstr "離線模式"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:80
 msgid ""
@@ -88,6 +96,9 @@ msgid ""
 "highlighted in yellow. This is a suggestion, so you can still tap on them to "
 "select them for the next match."
 msgstr ""
+"在左下角，您可以選擇應用程式管理的球場數量。當設置為大於 0 的值時，應用程式將"
+"自動追蹤每個人的比賽次數並確定誰應該休息。應該休息的球員將以黃色突出顯示。這"
+"只是建議，所以您仍然可以點擊他們為下一場比賽選擇他們。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:90
 msgid ""
@@ -106,10 +117,17 @@ msgid ""
 "players that were selected. Keep selecting matches until all players are in "
 "a match."
 msgstr ""
+"一旦從隊列畫面選擇了至少4名球員（以綠色突出顯示），您可以使用右下角的藍色按鈕"
+"生成籤表。系統將根據選擇的配對策略為給定的球員生成所有可能的比賽組合。此外，"
+"它將向您顯示比賽的相對「品質」並從最高到最低排序。比賽品質意味著比賽是否接近"
+"或一面倒。頂部綠色突出顯示的比賽是「推薦比賽」，它使用一些啟發式方法選擇平衡"
+"品質同時避免重複團隊或比賽的比賽。比賽列表也將以黃色或紅色突出顯示之前比過的"
+"比賽或組合。這讓您作為組織者能確定是否避免重複比賽。使用藍色按鈕選擇比賽，然"
+"後更新剩餘選中球員的籤表。繼續選擇比賽，直到所有球員都在比賽中。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:119
 msgid "Player Options"
-msgstr ""
+msgstr "球員選項"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:70
 msgid ""
@@ -121,14 +139,18 @@ msgid ""
 "this screen shows the relative strengths of the players and at the bottom of "
 "the page there is a history of all the matches played."
 msgstr ""
+"按下大藍色按鈕啟動系統。如果沒有互聯網連接或您想在不保存任何結果的情況下測試"
+"系統，應使用「離線模式」切換。在離線模式下，不會向 Pkuru.com 提交任何資訊，如"
+"果您刪除比賽或關閉網頁，您使用系統的操作將不會有永久影響。此外，此畫面顯示球"
+"員的相對實力，在頁面底部有所有已進行比賽的歷史記錄。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:84
 msgid "Queue Screen"
-msgstr ""
+msgstr "隊列畢面"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:69
 msgid "Start Screen"
-msgstr ""
+msgstr "開始畢面"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:105
 msgid ""
@@ -142,6 +164,11 @@ msgid ""
 "device. Additionally the predicted winner is shown in the red bar at the "
 "bottom."
 msgstr ""
+"點擊左側的名字可以在不輸入分數的情況下選擇勝者。可以選擇性地在每場比賽右側的"
+"數位欄位中輸入確切分數。一旦勝者周圍有綠色邊框，輸入就完成了，您可以保持原"
+"狀。一旦所有比賽的結果都輸入完畢，您可以使用右下角的藍色按鈕一次性提交所有結"
+"果。如果您啟用了離線模式，結果不會提交到 Pkuru.com，但評分仍將在您的設備上本"
+"地更新。此外，底部的紅色條中顯示預測勝者。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:65
 msgid ""
@@ -150,6 +177,9 @@ msgid ""
 "waitlist. Players who did not join the event can be added as a guest, but "
 "their ratings and results cannot be saved to Pkuru.com."
 msgstr ""
+"FairPlay 系統可以從 Pkuru.com 上的任何活動頁面啟動。系統將自動載入所有已報名"
+"的球員，包括那些在等待列表中的。未加入活動的球員可以作為訪客添加，但他們的評"
+"分和結果無法保存到 Pkuru.com。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:100
 msgid ""
@@ -158,6 +188,9 @@ msgid ""
 "Enter Score button you can select the winner and/or enter the score. If you "
 "want to cancel the match you can press the '...' button."
 msgstr ""
+"每個名字左側的握把可以用來拖放球員到不同的比賽或重新排列團隊。如果您按下「輸"
+"入分數」按鈕，您可以選擇勝者和/或輸入分數。如果您想取消比賽，可以按下「...」"
+"按鈕。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:85
 msgid ""
@@ -168,6 +201,9 @@ msgid ""
 "rounds, this is an easy way to select everyone who should participate in the "
 "next round of matches."
 msgstr ""
+"第二個畫面是隊列畫面。這裡您可以選擇想要比賽的球員。底部有一個按鈕可以將所有"
+"球員加入隊列。此按鈕將自動選擇所有人並排除應該休息的球員（以黃色突出顯示）。"
+"如果您以計時輪次進行比賽，這是選擇所有應該參與下一輪比賽的人的簡單方法。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:75
 msgid ""
@@ -178,6 +214,10 @@ msgid ""
 "player wants to take a break and it's not their turn yet, it's easiest to "
 "check them out and then check them back in next round."
 msgstr ""
+"系統由 3 個主要畫面組成。第一個是簽到畫面，您可以在此啟用/禁用本次活動的球"
+"員。點擊球員的名字即可簽到。綠色表示球員已簽到。如果球員準備好比賽，就簽到；"
+"如果他們要提早離開，就簽出。如果球員想休息且還不是他們的回合，最簡單的方法是"
+"先簽出，然後在下一輪再簽到。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:95
 msgid ""
@@ -185,3 +225,5 @@ msgid ""
 "The ordering of the teams is randomized, so you can use this to determine "
 "the serving team (usually the team on top)."
 msgstr ""
+"第三個也是最後一個畫面顯示正在進行的比賽。團隊的順序是隨機的，所以您可以用這"
+"個來確定發球團隊（通常是頂部的團隊）。"

@@ -15,13 +15,13 @@ msgstr ""
 
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
-msgstr ""
+msgstr "（登出）"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
-msgstr ""
+msgstr "使用 Line 登入"
 
 #: src/components/organisms/Nav.re.mjs:98
 msgid "racquet league"
-msgstr ""
+msgstr "球拍聯盟"

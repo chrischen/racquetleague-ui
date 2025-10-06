@@ -13,34 +13,38 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/GoingRsvps.re.mjs:104
+msgid "+{0} more"
+msgstr "+{0} 更多"
+
 #: src/components/organisms/RsvpOptions.re.mjs:102
 msgid "Are you sure you want to remove this person from the event?"
-msgstr ""
+msgstr "您確定要將此人從活動中移除嗎？"
 
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
-msgstr ""
+msgstr "參加"
 
 #: src/components/organisms/EventRsvp.re.mjs:60
 msgid "Player"
-msgstr ""
+msgstr "球員"
 
 #: src/components/organisms/RsvpOptions.re.mjs:88
 msgid "Remove from event"
-msgstr ""
+msgstr "從活動中移除"
 
 #: src/components/organisms/RsvpOptions.re.mjs:101
 msgid "Remove this RSVP"
-msgstr ""
+msgstr "移除此 RSVP"
 
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "See all"
-msgstr ""
+msgstr "查看全部"
 
 #: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
-msgstr ""
+msgstr "顯示更少"
 
 #: src/components/organisms/RsvpOptions.re.mjs:82
 msgid "View Profile"
-msgstr ""
+msgstr "查看個人資料"

@@ -15,8 +15,8 @@ msgstr ""
 
 #: src/components/pages/CreateEventPage.re.mjs:31
 msgid "choose the location where this event will be held."
-msgstr ""
+msgstr "選擇舉辦此活動的地點。"
 
 #: src/components/pages/CreateEventPage.re.mjs:30
 msgid "event location"
-msgstr ""
+msgstr "活動地點"

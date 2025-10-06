@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(logout)\",\"hOdM7G\":\"copyright the racquet league contributors\",\"GCkpYm\":\"login with Line\",\"UdC6Dp\":\"racquet league\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（登出）\",\"hOdM7G\":\"版權所有 球拍聯盟貢獻者\",\"GCkpYm\":\"使用 Line 登入\",\"UdC6Dp\":\"球拍聯盟\"}");

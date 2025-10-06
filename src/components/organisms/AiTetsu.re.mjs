@@ -391,18 +391,18 @@ function getDeprioritizedPlayers(history, players, session, $$break) {
             return acc;
           }
         }));
-  var breakPlayers = Rating.Players.sortByPlayCountDesc(players.filter(function (p) {
-              var count = Session.get(session, p.id).count;
-              if (count === maxCount) {
-                return count !== minCount;
-              } else {
-                return false;
-              }
-            }), session).slice(0, $$break);
+  var breakPlayers = Rating.Players.addBreakPlayersFrom([], Rating.Players.sortByRatingDesc(players.filter(function (p) {
+                var count = Session.get(session, p.id).count;
+                if (count === maxCount) {
+                  return count !== minCount;
+                } else {
+                  return false;
+                }
+              })), $$break);
   var deprioritized;
   if (breakPlayers.length < $$break) {
-    var breakAndLastPlayed = Rating.Players.addBreakPlayersFrom(breakPlayers, lastPlayed, $$break);
-    deprioritized = breakAndLastPlayed.length < $$break ? new Set(Rating.Players.addBreakPlayersFrom(breakAndLastPlayed, players, $$break).map(function (p) {
+    var breakAndLastPlayed = Rating.Players.addBreakPlayersFrom(breakPlayers, Rating.Players.sortByRatingDesc(lastPlayed), $$break);
+    deprioritized = breakAndLastPlayed.length < $$break ? new Set(Rating.Players.addBreakPlayersFrom(breakAndLastPlayed, Rating.Players.sortByRatingDesc(players), $$break).map(function (p) {
                 return p.id;
               })) : new Set(breakAndLastPlayed.map(function (p) {
                 return p.id;

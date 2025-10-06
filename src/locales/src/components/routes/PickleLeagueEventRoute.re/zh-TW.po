@@ -15,305 +15,305 @@ msgstr ""
 
 #: src/components/organisms/MatchList.re.mjs:372
 msgid "...load previous matches"
-msgstr ""
+msgstr "...載入之前的比賽"
 
 #: src/components/organisms/AiTetsu.re.mjs:1519
 msgid "{0} {breakPlayersDesc} are not playing"
-msgstr ""
+msgstr "{0} {breakPlayersDesc} 沒有參賽"
 
 #: src/components/organisms/MatchesView.re.mjs:232
 msgid "{0} player selected"
-msgstr ""
+msgstr "已選擇 {0} 位球員"
 
 #: src/components/organisms/MatchesView.re.mjs:233
 msgid "{0} players selected"
-msgstr ""
+msgstr "已選擇 {0} 位球員"
 
 #: src/components/organisms/AiTetsu.re.mjs:950
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
-msgstr ""
+msgstr "位球員"
 
 #: src/components/organisms/MatchesView.re.mjs:231
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
-msgstr ""
+msgstr "{0}"
 
 #: src/components/organisms/MatchesView.re.mjs:257
 #: src/components/organisms/AiTetsu.re.mjs:341
 msgid "# of courts"
-msgstr ""
+msgstr "球場數量"
 
 #: src/components/organisms/MatchesView.re.mjs:642
 msgid "Actions"
-msgstr ""
+msgstr "操作"
 
 #: src/components/organisms/AiTetsu.re.mjs:1038
 msgid "Add Guest"
-msgstr ""
+msgstr "新增客人"
 
 #: src/components/organisms/SessionAddPlayer.re.mjs:50
 msgid "Add Guest Player"
-msgstr ""
+msgstr "新增客人球員"
 
 #: src/components/organisms/AiTetsu.re.mjs:1057
 msgid "Add Player"
-msgstr ""
+msgstr "新增球員"
 
 #: src/components/organisms/MatchesView.re.mjs:133
 msgid "Add/Remove Players"
-msgstr ""
+msgstr "新增/移除球員"
 
 #: src/components/organisms/AiTetsu.re.mjs:1437
 msgid "Advanced Options"
-msgstr ""
+msgstr "進階選項"
 
 #: src/components/organisms/CompMatch.re.mjs:365
 msgid "Analyzed {0} matches."
-msgstr ""
+msgstr "已分析 {0} 場比賽。"
 
 #: src/components/organisms/MatchesView.re.mjs:608
 #: src/components/organisms/MatchesView.re.mjs:611
 msgid "and"
-msgstr ""
+msgstr "和"
 
 #: src/components/molecules/forms/Form.re.mjs:300
 msgid "cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/components/organisms/SubmitMatch.re.mjs:257
 #: src/components/organisms/SortableSubmitMatch.re.mjs:305
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/components/organisms/AiTetsu.re.mjs:1452
 msgid "Checkin All Players"
-msgstr ""
+msgstr "所有球員簽到"
 
 #: src/components/organisms/MatchesView.re.mjs:631
 msgid "Choose Match"
-msgstr ""
+msgstr "選擇比賽"
 
 #: src/components/organisms/MatchesView.re.mjs:540
 msgid "CHOOSE MATCH"
-msgstr ""
+msgstr "選擇比賽"
 
 #: src/components/organisms/AiTetsu.re.mjs:1329
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
-msgstr ""
+msgstr "清除會話（評分、比賽數量和客人球員）"
 
 #: src/components/ui/ModalDrawer.re.mjs:43
 msgid "Close panel"
-msgstr ""
+msgstr "關閉面板"
 
 #: src/components/organisms/CompMatch.re.mjs:230
 msgid "Competitive"
-msgstr ""
+msgstr "競技模式"
 
 #: src/components/organisms/MatchesView.re.mjs:612
 msgid "Court {0}: {team1} versus {team2}"
-msgstr ""
+msgstr "球場 {0}: {team1} 對戰 {team2}"
 
 #: src/components/organisms/AiTetsu.re.mjs:1194
 msgid "Create Anti-Team"
-msgstr ""
+msgstr "建立反對隊"
 
 #: src/components/organisms/AiTetsu.re.mjs:210
 #: src/components/organisms/AiTetsu.re.mjs:1170
 msgid "Create Team"
-msgstr ""
+msgstr "建立隊伍"
 
 #: src/components/organisms/AiTetsu.re.mjs:1077
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:323
 msgid "Enter Score"
-msgstr ""
+msgstr "輸入分數"
 
 #: src/components/organisms/AiTetsu.re.mjs:1172
 msgid "Fixed Pair"
-msgstr ""
+msgstr "固定搭檔"
 
 #: src/components/organisms/CompMatch.re.mjs:359
 msgid "Gender Mixed Doubles"
-msgstr ""
+msgstr "性別混合雙打"
 
 #: src/components/organisms/SubmitMatch.re.mjs:390
 msgid "Go Back"
-msgstr ""
+msgstr "返回"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:38
 msgid "How many players should rest? (currently {0} players are resting)"
-msgstr ""
+msgstr "有多少球員應該休息？（目前有 {0} 名球員在休息）"
 
 #: src/components/organisms/AiTetsu.re.mjs:1323
 msgid "Initialize Ratings"
-msgstr ""
+msgstr "初始化評分"
 
 #: src/components/organisms/AiTetsu.re.mjs:1403
 msgid "Leaderboard"
-msgstr ""
+msgstr "排行榜"
 
 #: src/components/organisms/SelectMatch.re.mjs:279
 msgid "left team players"
-msgstr ""
+msgstr "左隊球員"
 
 #: src/components/organisms/MatchList.re.mjs:395
 msgid "Load more matches..."
-msgstr ""
+msgstr "載入更多比賽..."
 
 #: src/components/organisms/SubmitMatch.re.mjs:409
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 #: src/components/organisms/AiTetsu.re.mjs:1554
 msgid "Loading"
-msgstr ""
+msgstr "載入中"
 
 #: src/components/pages/LeagueEventPage.re.mjs:80
 msgid "Loading matches..."
-msgstr ""
+msgstr "載入比賽中..."
 
 #: src/components/organisms/AiTetsu.re.mjs:1428
 msgid "Loading..."
-msgstr ""
+msgstr "載入中..."
 
 #: src/components/organisms/AiTetsu.re.mjs:1534
 msgid "manual team"
-msgstr ""
+msgstr "手動組隊"
 
 #: src/components/organisms/AiTetsu.re.mjs:1571
 msgid "Match History"
-msgstr ""
+msgstr "比賽歷史"
 
 #: src/components/organisms/MatchesView.re.mjs:599
 msgid "Matches"
-msgstr ""
+msgstr "比賽"
 
 #: src/components/organisms/CompMatch.re.mjs:232
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-msgstr ""
+msgstr "比賽按最大技能差距 +- 1 名球員進行安排。"
 
 #: src/components/organisms/CompMatch.re.mjs:237
 msgid "Matches are arranged by skill while mixing strong and weak players."
-msgstr ""
+msgstr "比賽按技能安排，同時將強弱球員混合搭配。"
 
 #: src/components/organisms/CompMatch.re.mjs:235
 msgid "Mixed"
-msgstr ""
+msgstr "混合"
 
 #: src/components/organisms/SelectMatch.re.mjs:136
 msgid "no players yet"
-msgstr ""
+msgstr "還沒有球員"
 
 #: src/components/organisms/CompMatch.re.mjs:410
 msgid ""
 "Not enough players in the queue. Select the players who want to play from "
 "the Queue tab."
-msgstr ""
+msgstr "隊列中球員不足。請從「隊列」選項卡中選擇想要參賽的球員。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1370
 #: src/components/organisms/AiTetsu.re.mjs:1392
 msgid "Offline Mode"
-msgstr ""
+msgstr "離線模式"
 
 #: src/components/organisms/CompMatch.re.mjs:386
 msgid "Played last round"
-msgstr ""
+msgstr "上一輪已比賽"
 
 #: src/components/organisms/SelectMatch.re.mjs:91
 msgid "Player"
-msgstr ""
+msgstr "球員"
 
 #: src/components/organisms/SessionAddPlayer.re.mjs:42
 msgid "Player Name"
-msgstr ""
+msgstr "球員姓名"
 
 #: src/components/organisms/AiTetsu.re.mjs:1176
 msgid ""
 "Players in a team will always be placed in a match together on the same side."
-msgstr ""
+msgstr "隊伍中的球員將始終安排在同一方一起比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1197
 msgid "Players in an anti-team will never be placed in a match together."
-msgstr ""
+msgstr "反對隊中的球員永遠不會被安排在一起比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1251
 msgid ""
 "Players in teams will always be placed in a match together on the same side."
-msgstr ""
+msgstr "隊伍中的球員將始終在同一方一起比賽。"
 
 #: src/components/pages/LeagueEventPage.re.mjs:96
 msgid "please login before managing the session"
-msgstr ""
+msgstr "請在管理會話之前登入"
 
 #: src/components/organisms/SubmitMatch.re.mjs:315
 #: src/components/organisms/SubmitMatch.re.mjs:359
 #: src/components/organisms/SortableSubmitMatch.re.mjs:357
 #: src/components/organisms/SortableSubmitMatch.re.mjs:405
 msgid "Points"
-msgstr ""
+msgstr "分數"
 
 #: src/components/organisms/SubmitMatch.re.mjs:52
 #: src/components/organisms/SubmitMatch.re.mjs:64
 #: src/components/organisms/SortableSubmitMatch.re.mjs:57
 #: src/components/organisms/SortableSubmitMatch.re.mjs:69
 msgid "predicted winner"
-msgstr ""
+msgstr "預測勝者"
 
 #: src/components/organisms/MatchesView.re.mjs:584
 msgid "Queue"
-msgstr ""
+msgstr "隊列"
 
 #: src/components/organisms/MatchesView.re.mjs:211
 #: src/components/organisms/MatchesView.re.mjs:290
 msgid "Queue All"
-msgstr ""
+msgstr "全部入隊"
 
 #: src/components/organisms/AiTetsu.re.mjs:1445
 msgid "Queue All Players"
-msgstr ""
+msgstr "所有球員入隊"
 
 #: src/components/organisms/SelectMatch.re.mjs:328
 msgid "Queue Match"
-msgstr ""
+msgstr "比賽入隊"
 
 #: src/components/organisms/CompMatch.re.mjs:240
 msgid "Random"
-msgstr ""
+msgstr "隨機"
 
 #: src/components/organisms/CompMatch.re.mjs:498
 msgid "Recommended Match"
-msgstr ""
+msgstr "推薦比賽"
 
 #: src/components/organisms/SelectMatch.re.mjs:303
 msgid "right team players"
-msgstr ""
+msgstr "右隊球員"
 
 #: src/components/molecules/forms/Form.re.mjs:307
 msgid "save"
-msgstr ""
+msgstr "儲存"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:439
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: src/components/organisms/MatchList.re.mjs:292
 msgid "Score:"
-msgstr ""
+msgstr "分數："
 
 #: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
-msgstr ""
+msgstr "選擇"
 
 #: src/components/organisms/CompMatch.re.mjs:298
 msgid "Select a tab"
-msgstr ""
+msgstr "選擇一個標籤頁"
 
 #: src/components/organisms/AiTetsu.re.mjs:1234
 msgid "Set as Female"
-msgstr ""
+msgstr "設為女性"
 
 #: src/components/organisms/AiTetsu.re.mjs:1216
 msgid "Set as Male"
-msgstr ""
+msgstr "設為男性"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
 msgid ""
@@ -321,47 +321,49 @@ msgid ""
 "of match counts. Set to 0 to disable and optimize match quality instead, but "
 "this may result in some players playing more matches than others."
 msgstr ""
+"設置為目前休息的球員數量，以啟用比賽場次的均衡分配。設置為0可以禁用此功能並優"
+"化比賽品質，但這可能導致某些球員比其他球員參加更多比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1361
 msgid "Start Session"
-msgstr ""
+msgstr "開始會話"
 
 #: src/components/organisms/MatchesView.re.mjs:487
 msgid "START SESSION"
-msgstr ""
+msgstr "開始會話"
 
 #: src/components/organisms/SubmitMatch.re.mjs:397
 msgid "Submit Rated"
-msgstr ""
+msgstr "提交評級比賽"
 
 #: src/components/organisms/MatchesView.re.mjs:506
 msgid "SUBMIT RESULTS"
-msgstr ""
+msgstr "提交結果"
 
 #: src/components/organisms/AiTetsu.re.mjs:1562
 msgid "Submitted Matches"
-msgstr ""
+msgstr "已提交比賽"
 
 #: src/components/organisms/AiTetsu.re.mjs:100
 msgid "Team {0}"
-msgstr ""
+msgstr "第 {0} 隊"
 
 #: src/components/organisms/CompMatch.re.mjs:380
 msgid "This team has played before"
-msgstr ""
+msgstr "這個隊伍之前比賽過"
 
 #: src/components/organisms/CompMatch.re.mjs:242
 msgid "Totally random teams."
-msgstr ""
+msgstr "完全隨機的隊伍。"
 
 #: src/components/organisms/MatchesView.re.mjs:211
 #: src/components/organisms/MatchesView.re.mjs:290
 msgid "Unqueue All"
-msgstr ""
+msgstr "全部移出隊列"
 
 #: src/components/organisms/SubmitMatch.re.mjs:325
 #: src/components/organisms/SubmitMatch.re.mjs:369
 #: src/components/organisms/SortableSubmitMatch.re.mjs:370
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
-msgstr ""
+msgstr "勝者"

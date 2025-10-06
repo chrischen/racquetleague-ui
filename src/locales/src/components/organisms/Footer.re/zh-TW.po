@@ -15,4 +15,4 @@ msgstr ""
 
 #: src/components/organisms/Footer.re.mjs:19
 msgid "copyright the racquet league contributors"
-msgstr ""
+msgstr "版權所有 球拍聯盟貢獻者"

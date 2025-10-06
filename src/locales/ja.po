@@ -2289,6 +2289,10 @@ msgstr "参加申込 保留中..."
 msgid "Manage Event"
 msgstr "イベント管理"
 
+#: src/components/organisms/EventMessages.re.mjs:132
+msgid "Send"
+msgstr "送信"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

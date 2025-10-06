@@ -15,55 +15,55 @@ msgstr ""
 
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
-msgstr ""
+msgstr "（登出）"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:97
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:106
 #: src/components/pages/DefaultLayoutMap.re.mjs:159
 msgid "Badminton"
-msgstr ""
+msgstr "羽毛球"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:230
 #: src/components/pages/DefaultLayoutMap.re.mjs:300
 msgid "Events"
-msgstr ""
+msgstr "活動"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:257
 #: src/components/pages/DefaultLayoutMap.re.mjs:327
 msgid "Find Games"
-msgstr ""
+msgstr "尋找比賽"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
-msgstr ""
+msgstr "使用 Line 登入"
 
 #: src/components/organisms/NavViewer.re.mjs:71
 msgid "My Clubs"
-msgstr ""
+msgstr "我的俱樂部"
 
 #: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Events"
-msgstr ""
+msgstr "我的活動"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:101
 #: src/components/pages/DefaultLayoutMap.re.mjs:154
 msgid "Pickleball"
-msgstr ""
+msgstr "匹克球"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:214
 #: src/components/pages/DefaultLayoutMap.re.mjs:286
 msgid "pkuru"
-msgstr ""
+msgstr "pkuru"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:245
 #: src/components/pages/DefaultLayoutMap.re.mjs:315
 msgid "Rankings"
-msgstr ""
+msgstr "排名"
 
 #: src/components/organisms/NavViewer.re.mjs:77
 msgid "Settings"
-msgstr ""
+msgstr "設定"

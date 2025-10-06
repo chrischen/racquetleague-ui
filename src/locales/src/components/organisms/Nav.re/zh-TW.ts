@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(logout)\",\"GCkpYm\":\"login with Line\",\"UdC6Dp\":\"racquet league\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（登出）\",\"GCkpYm\":\"使用 Line 登入\",\"UdC6Dp\":\"球拍聯盟\"}");

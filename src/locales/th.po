@@ -1953,3 +1953,7 @@ msgstr "กำลังรอการอนุมัติ..."
 #: src/components/pages/EventPage.re.mjs:186
 msgid "Manage Event"
 msgstr "จัดการกิจกรรม"
+
+#: src/components/organisms/EventMessages.re.mjs:132
+msgid "Send"
+msgstr ""

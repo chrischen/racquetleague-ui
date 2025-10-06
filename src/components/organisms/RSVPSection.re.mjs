@@ -13,7 +13,7 @@ import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as MiniEventRsvp from "./MiniEventRsvp.re.mjs";
 import * as RelayRuntime from "relay-runtime";
-import * as RsvpButtonText from "../atoms/RsvpButtonText.re.mjs";
+import * as EventSignupButton from "../atoms/EventSignupButton.re.mjs";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as AppContext from "../layouts/appContext";
@@ -356,8 +356,6 @@ function RSVPSection(props) {
         false,
         false
       ]);
-  var viewerInPending = match$6[1];
-  var viewerInWaitlist = match$6[0];
   var eventIsFull = Core__Option.getOr(Core__Option.map(maxRsvps, (function (max) {
               return confirmedRsvps.length >= max;
             })), false);
@@ -438,28 +436,33 @@ function RSVPSection(props) {
       });
   var setMobileExpanded = match$7[1];
   var mobileExpanded = match$7[0];
-  var rsvpButtonStatus = viewerInPending ? ({
-        TAG: "Joined",
-        _0: "Pending"
-      }) : (
-      viewerHasRsvp ? (
-          viewerInWaitlist ? ({
-                TAG: "Joined",
-                _0: "Waitlisted"
-              }) : ({
-                TAG: "Joined",
-                _0: "Going"
-              })
-        ) : (
-          eventIsFull ? ({
-                TAG: "NotJoined",
-                _0: "JoinWaitlist"
-              }) : ({
-                TAG: "NotJoined",
-                _0: "Join"
-              })
+  var rsvpButtonStatus = viewer !== undefined ? (
+      match$6[1] ? ({
+            TAG: "Joined",
+            _0: "Pending"
+          }) : (
+          viewerHasRsvp ? (
+              match$6[0] ? ({
+                    TAG: "Joined",
+                    _0: "Waitlisted"
+                  }) : ({
+                    TAG: "Joined",
+                    _0: "Going"
+                  })
+            ) : (
+              eventIsFull ? ({
+                    TAG: "NotJoined",
+                    _0: "JoinWaitlist"
+                  }) : ({
+                    TAG: "NotJoined",
+                    _0: "Join"
+                  })
+            )
         )
-    );
+    ) : ({
+        TAG: "NotJoined",
+        _0: "Login"
+      });
   var toggleMobileExpanded = function () {
     var newMobileExpanded = !mobileExpanded;
     setMobileExpanded(function (param) {
@@ -492,57 +495,23 @@ function RSVPSection(props) {
                                                             toggleMobileExpanded();
                                                           })
                                                       }),
-                                                  JsxRuntime.jsxs("button", {
-                                                        children: [
-                                                          JsxRuntime.jsx(LucideReact.Check, {
-                                                                size: 16
-                                                              }),
-                                                          JsxRuntime.jsx("span", {
-                                                                children: JsxRuntime.jsx(RsvpButtonText.make, {
-                                                                      status: rsvpButtonStatus
-                                                                    })
-                                                              })
-                                                        ],
-                                                        className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 mt-3 " + (
-                                                          viewerInPending ? "bg-red-100 text-red-800" : (
-                                                              viewerHasRsvp && !viewerInPending ? (
-                                                                  viewerInWaitlist ? "bg-yellow-100 text-yellow-800" : "bg-green-600 text-white"
-                                                                ) : (
-                                                                  eventIsFull ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200" : "bg-green-100 text-green-800 hover:bg-green-200"
-                                                                )
-                                                            )
-                                                        ),
+                                                  JsxRuntime.jsx(EventSignupButton.make, {
                                                         onClick: (function (param) {
                                                             onRsvp("going");
-                                                          })
+                                                          }),
+                                                        status: rsvpButtonStatus,
+                                                        className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 mt-3"
                                                       })
                                                 ]
                                               }) : JsxRuntime.jsxs("div", {
                                                 children: [
                                                   JsxRuntime.jsx("div", {
-                                                        children: JsxRuntime.jsxs("button", {
-                                                              children: [
-                                                                JsxRuntime.jsx(LucideReact.Check, {
-                                                                      size: 16
-                                                                    }),
-                                                                JsxRuntime.jsx("span", {
-                                                                      children: JsxRuntime.jsx(RsvpButtonText.make, {
-                                                                            status: rsvpButtonStatus
-                                                                          })
-                                                                    })
-                                                              ],
-                                                              className: "py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base " + (
-                                                                viewerInPending ? "bg-red-100 text-red-800" : (
-                                                                    viewerHasRsvp && !viewerInPending ? (
-                                                                        viewerInWaitlist ? "bg-yellow-100 text-yellow-800" : "bg-green-600 text-white"
-                                                                      ) : (
-                                                                        eventIsFull ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200" : "bg-green-100 text-green-800 hover:bg-green-200"
-                                                                      )
-                                                                  )
-                                                              ),
+                                                        children: JsxRuntime.jsx(EventSignupButton.make, {
                                                               onClick: (function (param) {
                                                                   onRsvp("going");
-                                                                })
+                                                                }),
+                                                              status: rsvpButtonStatus,
+                                                              className: "py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base"
                                                             })
                                                       }),
                                                   JsxRuntime.jsxs("div", {
@@ -658,29 +627,12 @@ function RSVPSection(props) {
                                       }),
                                   ratingWarning,
                                   JsxRuntime.jsx("div", {
-                                        children: JsxRuntime.jsxs("button", {
-                                              children: [
-                                                JsxRuntime.jsx(LucideReact.Check, {
-                                                      size: 16
-                                                    }),
-                                                JsxRuntime.jsx("span", {
-                                                      children: JsxRuntime.jsx(RsvpButtonText.make, {
-                                                            status: rsvpButtonStatus
-                                                          })
-                                                    })
-                                              ],
-                                              className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 " + (
-                                                viewerInPending ? "bg-red-100 text-red-800" : (
-                                                    viewerHasRsvp && !viewerInPending ? (
-                                                        viewerInWaitlist ? "bg-yellow-100 text-yellow-800" : "bg-green-600 text-white"
-                                                      ) : (
-                                                        eventIsFull ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200" : "bg-green-100 text-green-800 hover:bg-green-200"
-                                                      )
-                                                  )
-                                              ),
+                                        children: JsxRuntime.jsx(EventSignupButton.make, {
                                               onClick: (function (param) {
                                                   onRsvp("going");
-                                                })
+                                                }),
+                                              status: rsvpButtonStatus,
+                                              className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1"
                                             }),
                                         className: "mb-6"
                                       }),

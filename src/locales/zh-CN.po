@@ -1935,3 +1935,7 @@ msgstr "报名待审..."
 #: src/components/pages/EventPage.re.mjs:186
 msgid "Manage Event"
 msgstr "管理活动"
+
+#: src/components/organisms/EventMessages.re.mjs:132
+msgid "Send"
+msgstr "发送"

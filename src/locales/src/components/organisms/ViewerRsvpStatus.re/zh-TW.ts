@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"ajpE1C\":\"join event\",\"Llt7x1\":\"leave event\",\"2boChF\":\"login to join the event\",\"GCkpYm\":\"login with Line\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"ajpE1C\":\"加入活動\",\"Llt7x1\":\"退出活動\",\"2boChF\":\"登入以加入活動\",\"GCkpYm\":\"使用 Line 登入\"}");

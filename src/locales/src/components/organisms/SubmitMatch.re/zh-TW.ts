@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"Cancel\",\"sr0UJD\":\"Go Back\",\"yQE2r9\":\"Loading\",\"COUcFd\":\"Points\",\"oqJvMR\":\"predicted winner\",\"DzbT9G\":\"Submit Rated\",\"2ZSUoj\":\"Winner\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"取消\",\"sr0UJD\":\"返回\",\"yQE2r9\":\"載入中\",\"COUcFd\":\"分數\",\"oqJvMR\":\"預測勝者\",\"DzbT9G\":\"提交評級比賽\",\"2ZSUoj\":\"勝者\"}");

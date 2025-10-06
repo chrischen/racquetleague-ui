@@ -16,124 +16,124 @@ msgstr ""
 #: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/ClubEventsList.re.mjs:207
 msgid "[location missing]"
-msgstr ""
+msgstr "[地點缺失]"
 
 #: src/components/organisms/EventItem.re.mjs:365
 msgid "[missing title]"
-msgstr ""
+msgstr "[標題缺失]"
 
 #: src/components/organisms/EventItem.re.mjs:215
 #: src/components/organisms/EventItem.re.mjs:222
 #: src/components/organisms/ClubEventsList.re.mjs:170
 #: src/components/organisms/ClubEventsList.re.mjs:175
 msgid "{0, plural, one {{1}} other {{2}}}"
-msgstr ""
+msgstr "{1}"
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
 #: src/components/organisms/ClubEventsList.re.mjs:171
 #: src/components/organisms/ClubEventsList.re.mjs:176
 msgid "{0} hour"
-msgstr ""
+msgstr "{0} 小時"
 
 #: src/components/organisms/EventItem.re.mjs:217
 #: src/components/organisms/EventItem.re.mjs:224
 #: src/components/organisms/ClubEventsList.re.mjs:172
 #: src/components/organisms/ClubEventsList.re.mjs:177
 msgid "{0} hours"
-msgstr ""
+msgstr "{0} 小時"
 
 #: src/components/organisms/EventItem.re.mjs:228
 #: src/components/organisms/ClubEventsList.re.mjs:179
 msgid "{0} minute"
-msgstr ""
+msgstr "{0} 分鐘"
 
 #: src/components/organisms/EventItem.re.mjs:229
 #: src/components/organisms/ClubEventsList.re.mjs:180
 msgid "{0} minutes"
-msgstr ""
+msgstr "{0} 分鐘"
 
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/ClubEventsList.re.mjs:178
 msgid "{minutes, plural, one {{0}} other {{1}}}"
-msgstr ""
+msgstr "{0}"
 
 #: src/components/organisms/EventItem.re.mjs:296
 msgid "{playersCount, plural, one {player} other {players}}"
-msgstr ""
+msgstr "位球員"
 
 #: src/components/organisms/ClubEventsList.re.mjs:184
 msgid "🚫 CANCELED"
-msgstr ""
+msgstr "🚫 已取消"
 
 #: src/components/pages/ClubPage.re.mjs:203
 msgid "Cancel Request"
-msgstr ""
+msgstr "取消申請"
 
 #: src/components/organisms/ClubEventsList.re.mjs:406
 msgid "clear filter"
-msgstr ""
+msgstr "清除篩選"
 
 #: src/components/pages/ClubPage.re.mjs:93
 msgid "Click the link to select it for easy copying."
-msgstr ""
+msgstr "點擊連結以選擇它以便複製。"
 
 #: src/components/pages/ClubPage.re.mjs:250
 msgid "club"
-msgstr ""
+msgstr "俱樂部"
 
 #: src/components/pages/ClubPage.re.mjs:284
 msgid "club not found"
-msgstr ""
+msgstr "找不到俱樂部"
 
 #: src/components/organisms/ClubEventsList.re.mjs:404
 msgid "filtering by date"
-msgstr ""
+msgstr "按日期篩選"
 
 #: src/components/organisms/EventItem.re.mjs:313
 msgid "join event"
-msgstr ""
+msgstr "加入活動"
 
 #: src/components/organisms/EventItem.re.mjs:260
 msgid "joined"
-msgstr ""
+msgstr "已加入"
 
 #: src/components/pages/ClubPage.re.mjs:193
 msgid "Leave club"
-msgstr ""
+msgstr "退出俱樂部"
 
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
-msgstr ""
+msgstr "退出活動"
 
 #: src/components/pages/ClubPage.re.mjs:233
 msgid "Manage Members"
-msgstr ""
+msgstr "管理成員"
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
-msgstr ""
+msgstr "待審核"
 
 #: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
-msgstr ""
+msgstr "球員"
 
 #: src/components/pages/ClubPage.re.mjs:221
 msgid "Request to join"
-msgstr ""
+msgstr "申請加入"
 
 #: src/components/organisms/ClubEventsList.re.mjs:376
 msgid "share as text"
-msgstr ""
+msgstr "分享為文字"
 
 #: src/components/pages/ClubPage.re.mjs:75
 msgid "Shareable Link"
-msgstr ""
+msgstr "可分享連結"
 
 #: src/components/organisms/ClubEventsList.re.mjs:308
 msgid "show"
-msgstr ""
+msgstr "顯示"
 
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
-msgstr ""
+msgstr "等待列表"

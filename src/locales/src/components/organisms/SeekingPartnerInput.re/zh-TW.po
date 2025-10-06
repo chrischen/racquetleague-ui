@@ -15,10 +15,10 @@ msgstr ""
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
-msgstr ""
+msgstr "尋找雙打搭檔"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
 "shows a badge next to your name in RSVP lists to tell people you are looking "
 "for a partner"
-msgstr ""
+msgstr "在 RSVP 名單中在您的名字旁顯示徽章，告訴大家您正在尋找搭檔"

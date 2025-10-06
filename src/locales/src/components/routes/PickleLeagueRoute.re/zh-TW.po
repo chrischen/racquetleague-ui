@@ -15,29 +15,29 @@ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:122
 msgid "japan pickle league"
-msgstr ""
+msgstr "日本匹克球聯盟"
 
 #: src/components/pages/LeaguePage.re.mjs:58
 msgid "Mach 2 Forza Paddle"
-msgstr ""
+msgstr "Mach 2 Forza 球拍"
 
 #: src/components/pages/LeaguePage.re.mjs:64
 msgid "Multiple colors available."
-msgstr ""
+msgstr "提供多種顏色。"
 
 #: src/components/pages/LeaguePage.re.mjs:31
 msgid "Next Prize: September 10"
-msgstr ""
+msgstr "下一次獎品：9月10日"
 
 #: src/components/pages/LeaguePage.re.mjs:35
 msgid ""
 "This prize will be awarded to the top male and female players on this day."
-msgstr ""
+msgstr "這個獎品將在這一天頒發給最佳男女球員。"
 
 #: src/components/pages/LeaguePage.re.mjs:112
 msgid "Tokyo Badminton League"
-msgstr ""
+msgstr "東京羽毛球聯盟"
 
 #: src/components/pages/LeaguePage.re.mjs:130
 msgid "volair pickleball"
-msgstr ""
+msgstr "volair 匹克球"

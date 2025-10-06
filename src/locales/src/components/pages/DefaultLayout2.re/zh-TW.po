@@ -15,21 +15,21 @@ msgstr ""
 
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
-msgstr ""
+msgstr "（登出）"
 
 #: src/components/pages/DefaultLayout2.re.mjs:77
 msgid "Events"
-msgstr ""
+msgstr "活動"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
-msgstr ""
+msgstr "使用 Line 登入"
 
 #: src/components/pages/DefaultLayout2.re.mjs:182
 msgid "Racquet League"
-msgstr ""
+msgstr "球拍聯盟"
 
 #: src/components/pages/DefaultLayout2.re.mjs:81
 msgid "Rankings"
-msgstr ""
+msgstr "排名"

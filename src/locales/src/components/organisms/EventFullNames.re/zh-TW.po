@@ -15,8 +15,8 @@ msgstr ""
 
 #: src/components/organisms/EventFullNames.re.mjs:78
 msgid "guest list"
-msgstr ""
+msgstr "客人名單"
 
 #: src/components/organisms/EventFullNames.re.mjs:97
 msgid "no players yet"
-msgstr ""
+msgstr "還沒有球員"

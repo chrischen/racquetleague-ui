@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:282
+#: src/components/pages/EventPage.re.mjs:280
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:285
+#: src/components/pages/EventPage.re.mjs:283
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:288
+#: src/components/pages/EventPage.re.mjs:286
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:291
+#: src/components/pages/EventPage.re.mjs:289
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:294
+#: src/components/pages/EventPage.re.mjs:292
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:297
+#: src/components/pages/EventPage.re.mjs:295
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:300
+#: src/components/pages/EventPage.re.mjs:298
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:303
+#: src/components/pages/EventPage.re.mjs:301
 msgid "all level"
 msgstr "全レベル"
 
@@ -60,6 +60,10 @@ msgstr "{0}時間"
 #: src/components/organisms/EventHeader.re.mjs:55
 msgid "{0} hours and {1} minutes"
 msgstr "{0}時間{1}分"
+
+#: src/components/organisms/GoingRsvps.re.mjs:104
+msgid "+{0} more"
+msgstr "+{0}人他"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
@@ -77,7 +81,7 @@ msgstr "イベントをキャンセル"
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/organisms/RSVPSection.re.mjs:612
+#: src/components/organisms/RSVPSection.re.mjs:603
 msgid "Collapse"
 msgstr "折りたたむ"
 
@@ -85,7 +89,7 @@ msgstr "折りたたむ"
 msgid "edit event"
 msgstr "イベントを編集"
 
-#: src/components/pages/EventPage.re.mjs:245
+#: src/components/pages/EventPage.re.mjs:243
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -101,33 +105,37 @@ msgstr "参加"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:26
+#: src/components/atoms/EventSignupButton.re.mjs:60
 msgid "Join Event"
 msgstr "イベントに参加"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:26
+#: src/components/atoms/EventSignupButton.re.mjs:57
 msgid "Join Waitlist"
 msgstr "ウェイトリストに参加"
 
-#: src/components/organisms/EventMessages.re.mjs:258
+#: src/components/organisms/EventMessages.re.mjs:264
 msgid "joined from waitlist"
 msgstr "ウェイトリストから参加"
 
-#: src/components/organisms/EventMessages.re.mjs:252
+#: src/components/organisms/EventMessages.re.mjs:258
 msgid "joined the event"
 msgstr "参加しました"
 
-#: src/components/organisms/EventMessages.re.mjs:255
+#: src/components/organisms/EventMessages.re.mjs:261
 msgid "left the event"
 msgstr "離れました"
 
-#: src/components/organisms/RSVPSection.re.mjs:703
+#: src/components/organisms/RSVPSection.re.mjs:677
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/RSVPSection.re.mjs:700
+#: src/components/organisms/RSVPSection.re.mjs:674
 msgid "Loading..."
 msgstr "読み込み中..."
+
+#: src/components/atoms/EventSignupButton.re.mjs:63
+msgid "Login to Join"
+msgstr "ログインして参加"
 
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Lower intermediate and above"
@@ -141,7 +149,7 @@ msgstr "イベント管理"
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
 
-#: src/components/organisms/EventMessages.re.mjs:172
+#: src/components/organisms/EventMessages.re.mjs:178
 msgid "No activity yet"
 msgstr "まだアクティビティがありません"
 
@@ -175,7 +183,7 @@ msgstr "イベントから削除"
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
-#: src/components/organisms/RSVPSection.re.mjs:391
+#: src/components/organisms/RSVPSection.re.mjs:392
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
@@ -183,23 +191,27 @@ msgstr "必要レーティング: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/organisms/RSVPSection.re.mjs:476
-#: src/components/organisms/RSVPSection.re.mjs:634
+#: src/components/organisms/RSVPSection.re.mjs:483
+#: src/components/organisms/RSVPSection.re.mjs:520
+#: src/components/organisms/RSVPSection.re.mjs:625
 msgid "RSVP"
 msgstr "参加申込"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:15
+#: src/components/atoms/EventSignupButton.re.mjs:44
 msgid "RSVP Pending..."
 msgstr "参加申込 保留中..."
 
-#: src/components/organisms/RSVPSection.re.mjs:234
-#: src/components/organisms/EventMessages.re.mjs:125
+#: src/components/organisms/RSVPSection.re.mjs:238
 msgid "Save"
 msgstr "保存"
 
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "See all"
 msgstr "すべて見る"
+
+#: src/components/organisms/EventMessages.re.mjs:132
+msgid "Send"
+msgstr "送信"
 
 #: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
@@ -209,7 +221,7 @@ msgstr "折りたたむ"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
-#: src/components/organisms/EventMessages.re.mjs:111
+#: src/components/organisms/EventMessages.re.mjs:118
 msgid "Status message"
 msgstr "ステータスメッセージ"
 
@@ -219,9 +231,9 @@ msgid ""
 "from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
 
-#: src/components/organisms/RSVPSection.re.mjs:218
-#: src/components/organisms/RSVPSection.re.mjs:219
-#: src/components/organisms/EventMessages.re.mjs:118
+#: src/components/organisms/RSVPSection.re.mjs:222
+#: src/components/organisms/RSVPSection.re.mjs:223
+#: src/components/organisms/EventMessages.re.mjs:125
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr ""
@@ -252,15 +264,15 @@ msgstr "プロフィールを表示"
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:18
+#: src/components/atoms/EventSignupButton.re.mjs:47
 msgid "You're Going"
 msgstr "参加中"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:21
+#: src/components/atoms/EventSignupButton.re.mjs:50
 msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 
-#: src/components/organisms/RSVPSection.re.mjs:393
+#: src/components/organisms/RSVPSection.re.mjs:394
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "
@@ -269,10 +281,6 @@ msgstr ""
 "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
 "限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
 "イベントに参加してください。"
-
-#: src/components/organisms/RSVPSection.re.mjs:547
-#~ msgid "+{0} more"
-#~ msgstr "+{0}人他"
 
 #: src/components/organisms/RSVPSection.re.mjs:424
 #~ msgid "Join"

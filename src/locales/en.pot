@@ -2253,3 +2253,7 @@ msgstr ""
 #: src/components/pages/EventPage.re.mjs:186
 msgid "Manage Event"
 msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:132
+msgid "Send"
+msgstr ""

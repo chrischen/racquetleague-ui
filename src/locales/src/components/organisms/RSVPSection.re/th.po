@@ -13,11 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/GoingRsvps.re.mjs:104
+msgid "+{0} more"
+msgstr "+{0} คน"
+
 #: src/components/organisms/RsvpOptions.re.mjs:102
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
-#: src/components/organisms/RSVPSection.re.mjs:612
+#: src/components/organisms/RSVPSection.re.mjs:603
 msgid "Collapse"
 msgstr "ย่อ"
 
@@ -25,21 +29,25 @@ msgstr "ย่อ"
 msgid "Going"
 msgstr "จะไป"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:26
+#: src/components/atoms/EventSignupButton.re.mjs:60
 msgid "Join Event"
 msgstr "เข้าร่วมกิจกรรม"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:26
+#: src/components/atoms/EventSignupButton.re.mjs:57
 msgid "Join Waitlist"
 msgstr "เข้าร่วมรายชื่อคอย"
 
-#: src/components/organisms/RSVPSection.re.mjs:703
+#: src/components/organisms/RSVPSection.re.mjs:677
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
 
-#: src/components/organisms/RSVPSection.re.mjs:700
+#: src/components/organisms/RSVPSection.re.mjs:674
 msgid "Loading..."
 msgstr "กำลังโหลด..."
+
+#: src/components/atoms/EventSignupButton.re.mjs:63
+msgid "Login to Join"
+msgstr "เข้าสู่ระบบเพื่อเข้าร่วม"
 
 #: src/components/organisms/PendingRsvps.re.mjs:58
 msgid "Pending"
@@ -58,20 +66,21 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
-#: src/components/organisms/RSVPSection.re.mjs:391
+#: src/components/organisms/RSVPSection.re.mjs:392
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 
-#: src/components/organisms/RSVPSection.re.mjs:476
-#: src/components/organisms/RSVPSection.re.mjs:634
+#: src/components/organisms/RSVPSection.re.mjs:483
+#: src/components/organisms/RSVPSection.re.mjs:520
+#: src/components/organisms/RSVPSection.re.mjs:625
 msgid "RSVP"
 msgstr "ยืนยันการเข้าร่วม"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:15
+#: src/components/atoms/EventSignupButton.re.mjs:44
 msgid "RSVP Pending..."
 msgstr "กำลังรอการอนุมัติ..."
 
-#: src/components/organisms/RSVPSection.re.mjs:234
+#: src/components/organisms/RSVPSection.re.mjs:238
 msgid "Save"
 msgstr "บันทึก"
 
@@ -83,8 +92,8 @@ msgstr "ดูทั้งหมด"
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
-#: src/components/organisms/RSVPSection.re.mjs:218
-#: src/components/organisms/RSVPSection.re.mjs:219
+#: src/components/organisms/RSVPSection.re.mjs:222
+#: src/components/organisms/RSVPSection.re.mjs:223
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
@@ -97,15 +106,15 @@ msgstr "ดูโปรไฟล์"
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:18
+#: src/components/atoms/EventSignupButton.re.mjs:47
 msgid "You're Going"
 msgstr "คุณจะไป"
 
-#: src/components/atoms/RsvpButtonText.re.mjs:21
+#: src/components/atoms/EventSignupButton.re.mjs:50
 msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 
-#: src/components/organisms/RSVPSection.re.mjs:393
+#: src/components/organisms/RSVPSection.re.mjs:394
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "
@@ -114,10 +123,6 @@ msgstr ""
 "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
 "รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
 "อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
-
-#: src/components/organisms/RSVPSection.re.mjs:547
-#~ msgid "+{0} more"
-#~ msgstr "+{0} คน"
 
 #: src/components/organisms/RSVPSection.re.mjs:424
 #~ msgid "Join"

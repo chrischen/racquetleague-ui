@@ -15,71 +15,71 @@ msgstr ""
 
 #: src/components/organisms/EventHeader.re.mjs:53
 msgid "{0} hours"
-msgstr ""
+msgstr "{0} 小時"
 
 #: src/components/organisms/EventHeader.re.mjs:55
 msgid "{0} hours and {1} minutes"
-msgstr ""
+msgstr "{0} 小時 {1} 分鐘"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
-msgstr ""
+msgstr "進階球員"
 
 #: src/components/organisms/EventHeader.re.mjs:78
 msgid "CANCELED"
-msgstr ""
+msgstr "已取消"
 
 #: src/components/atoms/EventTag.re.mjs:60
 msgid "Event tag: {tag}"
-msgstr ""
+msgstr "活動標籤：{tag}"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "Highly skilled players"
-msgstr ""
+msgstr "高技能球員"
 
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Lower intermediate and above"
-msgstr ""
+msgstr "中下等級及以上"
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid "Matches will be submitted to DUPR."
-msgstr ""
+msgstr "比賽將提交至 DUPR。"
 
 #: src/components/atoms/EventTag.re.mjs:48
 msgid "No restriction on skill level. Open to all players."
-msgstr ""
+msgstr "技能等級無限制。對所有球員開放。"
 
 #: src/components/atoms/EventTag.re.mjs:46
 msgid "Professional players"
-msgstr ""
+msgstr "職業球員"
 
 #: src/components/atoms/EventTag.re.mjs:56
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
-msgstr ""
+msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Results will be submitted to competitive ratings."
-msgstr ""
+msgstr "結果將提交至競技評分。"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid "Skills practice and drills focused on technique improvement"
-msgstr ""
+msgstr "技能練習和訓練，專注於技術改進"
 
 #: src/components/atoms/EventTag.re.mjs:58
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
-msgstr ""
+msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
 #: src/components/organisms/EventHeader.re.mjs:116
 msgid "Unknown club"
-msgstr ""
+msgstr "未知俱樂部"
 
 #: src/components/organisms/EventHeader.re.mjs:236
 msgid "Unknown location"
-msgstr ""
+msgstr "未知地點"
 
 #: src/components/atoms/EventTag.re.mjs:40
 msgid "Upper intermediate and above"
-msgstr ""
+msgstr "中上等級及以上"

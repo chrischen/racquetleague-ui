@@ -338,24 +338,35 @@ let getDeprioritizedPlayers = (
     count < acc ? count : acc
   })
 
-  let breakPlayers =
+  // Get the break players which are players with the highest play count, and then sorted by ascending rating
+  let breakPlayers = []->Players.addBreakPlayersFrom(
     players
     ->Array.filter(p => {
       let count = (session->Session.get(p.id)).count
       count == maxCount && count != minCount
     })
-    ->Players.sortByPlayCountDesc(session)
-    ->Array.slice(~start=0, ~end=break)
+    ->Players.sortByRatingDesc,
+    // ->Array.toReversed,
+    break,
+  )
 
   let deprioritized = switch breakPlayers->Array.length < break {
   // Choose break players from players that rested previously + designated break
   // players
   | true =>
-    let breakAndLastPlayed = breakPlayers->Players.addBreakPlayersFrom(lastPlayed, break)
+    let breakAndLastPlayed = breakPlayers->Players.addBreakPlayersFrom(
+      lastPlayed->Players.sortByRatingDesc,
+      // ->Array.toReversed,
+      break,
+    )
     switch breakAndLastPlayed->Array.length < break {
     | true =>
       breakAndLastPlayed
-      ->Players.addBreakPlayersFrom(players, break)
+      ->Players.addBreakPlayersFrom(
+        players->Players.sortByRatingDesc,
+        // ->Array.toReversed,
+        break,
+      )
       ->Array.map(p => p.id)
       ->Set.fromArray
     | false => breakAndLastPlayed->Array.map(p => p.id)->Set.fromArray

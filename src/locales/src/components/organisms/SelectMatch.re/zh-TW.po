@@ -15,20 +15,20 @@ msgstr ""
 
 #: src/components/organisms/SelectMatch.re.mjs:279
 msgid "left team players"
-msgstr ""
+msgstr "左隊球員"
 
 #: src/components/organisms/SelectMatch.re.mjs:136
 msgid "no players yet"
-msgstr ""
+msgstr "還沒有球員"
 
 #: src/components/organisms/SelectMatch.re.mjs:91
 msgid "Player"
-msgstr ""
+msgstr "球員"
 
 #: src/components/organisms/SelectMatch.re.mjs:328
 msgid "Queue Match"
-msgstr ""
+msgstr "比賽入隊"
 
 #: src/components/organisms/SelectMatch.re.mjs:303
 msgid "right team players"
-msgstr ""
+msgstr "右隊球員"

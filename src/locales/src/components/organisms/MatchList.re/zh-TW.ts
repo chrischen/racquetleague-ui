@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"KPrAat\":\"...load previous matches\",\"z/wCvw\":\"Load more matches...\",\"HvRBc1\":\"Score:\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"KPrAat\":\"...載入之前的比賽\",\"z/wCvw\":\"載入更多比賽...\",\"HvRBc1\":\"分數：\"}");

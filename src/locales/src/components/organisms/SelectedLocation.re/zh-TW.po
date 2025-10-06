@@ -15,12 +15,12 @@ msgstr ""
 
 #: src/components/organisms/SelectedLocation.re.mjs:69
 msgid "change location"
-msgstr ""
+msgstr "更改地點"
 
 #: src/components/organisms/SelectedLocation.re.mjs:53
 msgid "choose the location where this event will be held."
-msgstr ""
+msgstr "選擇舉辦此活動的地點。"
 
 #: src/components/organisms/SelectedLocation.re.mjs:52
 msgid "event location"
-msgstr ""
+msgstr "活動地點"
