@@ -122,7 +122,7 @@ msgstr ""
 msgid "CANCELED"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:603
+#: src/components/organisms/RSVPSection.re.mjs:628
 msgid "Collapse"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 #~ msgid "join event"
 #~ msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:60
+#: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 #~ msgid "join waitlist"
 #~ msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:57
+#: src/components/atoms/EventSignupButton.re.mjs:61
 msgid "Join Waitlist"
 msgstr ""
 
@@ -249,11 +249,11 @@ msgstr ""
 #~ msgid "load More"
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:677
+#: src/components/organisms/RSVPSection.re.mjs:703
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:674
+#: src/components/organisms/RSVPSection.re.mjs:700
 msgid "Loading..."
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 #~ msgid "login"
 #~ msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:63
+#: src/components/atoms/EventSignupButton.re.mjs:67
 msgid "Login to Join"
 msgstr ""
 
@@ -372,13 +372,13 @@ msgstr ""
 #~ msgid "Results will be submitted to the JPL rating system and/or DUPR."
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:483
-#: src/components/organisms/RSVPSection.re.mjs:520
-#: src/components/organisms/RSVPSection.re.mjs:625
+#: src/components/organisms/RSVPSection.re.mjs:507
+#: src/components/organisms/RSVPSection.re.mjs:545
+#: src/components/organisms/RSVPSection.re.mjs:650
 msgid "RSVP"
 msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:44
+#: src/components/atoms/EventSignupButton.re.mjs:48
 msgid "RSVP Pending..."
 msgstr ""
 
@@ -441,9 +441,9 @@ msgstr ""
 msgid "sync calendar"
 msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:393
-#~ msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
-#~ msgstr ""
+#: src/components/atoms/EventSignupButton.re.mjs:89
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:58
 msgid "This event is private. Please do not share this event without permission from the organizer."
@@ -489,7 +489,7 @@ msgstr ""
 #~ msgid "waitlist"
 #~ msgstr ""
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:52
+#: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr ""
 
@@ -497,15 +497,15 @@ msgstr ""
 #~ msgid "Waitlisted"
 #~ msgstr ""
 
-#: src/components/organisms/EventRsvps.re.mjs:392
-#~ msgid "You will lose your spot"
-#~ msgstr ""
+#: src/components/atoms/EventSignupButton.re.mjs:88
+msgid "You will lose your spot"
+msgstr ""
 
 #: src/components/molecules/SubscribeActivity.re.mjs:104
 msgid "you will receive email notifications for new events"
 msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:47
+#: src/components/atoms/EventSignupButton.re.mjs:51
 msgid "You're Going"
 msgstr ""
 
@@ -513,7 +513,7 @@ msgstr ""
 #~ msgid "you're going :)"
 #~ msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:50
+#: src/components/atoms/EventSignupButton.re.mjs:54
 msgid "You're Waitlisted"
 msgstr ""
 

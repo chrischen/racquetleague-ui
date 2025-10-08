@@ -2,13 +2,17 @@
 
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as ConfirmButton from "../molecules/ConfirmButton.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { t } from '@lingui/macro'
 ;
 
 function EventSignupButton(props) {
+  var __requireConfirmation = props.requireConfirmation;
   var status = props.status;
+  var onClick = props.onClick;
+  var requireConfirmation = __requireConfirmation !== undefined ? __requireConfirmation : false;
   var colorClassName;
   if (status.TAG === "Joined") {
     switch (status._0) {
@@ -66,26 +70,60 @@ function EventSignupButton(props) {
     }
   }
   var buttonClassName = props.className + " " + colorClassName;
-  if (status.TAG !== "Joined") {
-    switch (status._0) {
-      case "JoinWaitlist" :
-      case "Join" :
-          break;
-      case "Login" :
-          return JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                      to: "/oauth-login",
-                      children: [
-                        JsxRuntime.jsx(LucideReact.Check, {
-                              size: 16
-                            }),
-                        JsxRuntime.jsx("span", {
-                              children: buttonText
-                            })
-                      ],
-                      className: buttonClassName
-                    });
-      
+  if (status.TAG === "Joined") {
+    if (requireConfirmation) {
+      return JsxRuntime.jsx(ConfirmButton.make, {
+                  button: JsxRuntime.jsxs("button", {
+                        children: [
+                          JsxRuntime.jsx(LucideReact.Check, {
+                                size: 16
+                              }),
+                          JsxRuntime.jsx("span", {
+                                children: buttonText
+                              })
+                        ],
+                        className: buttonClassName,
+                        type: "button"
+                      }),
+                  title: t`You will lose your spot`,
+                  description: t`This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?`,
+                  onConfirmed: onClick
+                });
+    } else {
+      return JsxRuntime.jsxs("button", {
+                  children: [
+                    JsxRuntime.jsx(LucideReact.Check, {
+                          size: 16
+                        }),
+                    JsxRuntime.jsx("span", {
+                          children: buttonText
+                        })
+                  ],
+                  className: buttonClassName,
+                  onClick: (function (param) {
+                      onClick();
+                    })
+                });
     }
+  }
+  switch (status._0) {
+    case "JoinWaitlist" :
+    case "Join" :
+        break;
+    case "Login" :
+        return JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                    to: "/oauth-login",
+                    children: [
+                      JsxRuntime.jsx(LucideReact.Check, {
+                            size: 16
+                          }),
+                      JsxRuntime.jsx("span", {
+                            children: buttonText
+                          })
+                    ],
+                    className: buttonClassName
+                  });
+    
   }
   return JsxRuntime.jsxs("button", {
               children: [
@@ -97,7 +135,9 @@ function EventSignupButton(props) {
                     })
               ],
               className: buttonClassName,
-              onClick: props.onClick
+              onClick: (function (param) {
+                  onClick();
+                })
             });
 }
 

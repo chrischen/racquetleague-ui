@@ -13,44 +13,44 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LoginPage.re.mjs:88
+#: src/components/pages/LoginPage.re.mjs:91
 msgid "cancel login"
 msgstr "取消登入"
 
-#: src/components/pages/LoginPage.re.mjs:63
+#: src/components/pages/LoginPage.re.mjs:64
 msgid "display name"
 msgstr "顯示名稱"
 
-#: src/components/pages/LoginPage.re.mjs:43
+#: src/components/pages/LoginPage.re.mjs:44
 msgid "email address"
 msgstr "電子郵件地址"
 
-#: src/components/pages/LoginPage.re.mjs:54
+#: src/components/pages/LoginPage.re.mjs:55
 msgid "event organizers and other users cannot view your email"
 msgstr "活動主辦單位和其他使用者無法查看您的電子郵件"
 
-#: src/components/pages/LoginPage.re.mjs:27
-#: src/components/pages/LoginPage.re.mjs:82
+#: src/components/pages/LoginPage.re.mjs:28
+#: src/components/pages/LoginPage.re.mjs:85
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
-#: src/components/pages/LoginPage.re.mjs:50
+#: src/components/pages/LoginPage.re.mjs:51
 msgid "notification of updates or cancellations to events (you can opt out)"
 msgstr "活動更新或取消的通知（您可以選擇退出）"
 
-#: src/components/pages/LoginPage.re.mjs:31
+#: src/components/pages/LoginPage.re.mjs:32
 msgid "privacy disclosure"
 msgstr "隱私披露"
 
-#: src/components/pages/LoginPage.re.mjs:71
+#: src/components/pages/LoginPage.re.mjs:72
 msgid "profile picture"
 msgstr "個人資料照片"
 
-#: src/components/pages/LoginPage.re.mjs:67
-#: src/components/pages/LoginPage.re.mjs:75
+#: src/components/pages/LoginPage.re.mjs:68
+#: src/components/pages/LoginPage.re.mjs:76
 msgid "publicly displayed on event attendance lists"
 msgstr "在活動出席名單上公開顯示"
 
-#: src/components/pages/LoginPage.re.mjs:37
+#: src/components/pages/LoginPage.re.mjs:38
 msgid "we will collect the following information from your Line account"
 msgstr "我們將從您的 Line 帳戶收集以下資訊"

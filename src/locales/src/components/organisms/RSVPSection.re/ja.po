@@ -21,7 +21,7 @@ msgstr "+{0}人他"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
-#: src/components/organisms/RSVPSection.re.mjs:603
+#: src/components/organisms/RSVPSection.re.mjs:628
 msgid "Collapse"
 msgstr "折りたたむ"
 
@@ -29,23 +29,23 @@ msgstr "折りたたむ"
 msgid "Going"
 msgstr "参加"
 
-#: src/components/atoms/EventSignupButton.re.mjs:60
+#: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
 msgstr "イベントに参加"
 
-#: src/components/atoms/EventSignupButton.re.mjs:57
+#: src/components/atoms/EventSignupButton.re.mjs:61
 msgid "Join Waitlist"
 msgstr "ウェイトリストに参加"
 
-#: src/components/organisms/RSVPSection.re.mjs:677
+#: src/components/organisms/RSVPSection.re.mjs:703
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/RSVPSection.re.mjs:674
+#: src/components/organisms/RSVPSection.re.mjs:700
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:63
+#: src/components/atoms/EventSignupButton.re.mjs:67
 msgid "Login to Join"
 msgstr "ログインして参加"
 
@@ -70,13 +70,13 @@ msgstr "このRSVPを削除"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
-#: src/components/organisms/RSVPSection.re.mjs:483
-#: src/components/organisms/RSVPSection.re.mjs:520
-#: src/components/organisms/RSVPSection.re.mjs:625
+#: src/components/organisms/RSVPSection.re.mjs:507
+#: src/components/organisms/RSVPSection.re.mjs:545
+#: src/components/organisms/RSVPSection.re.mjs:650
 msgid "RSVP"
 msgstr "参加申込"
 
-#: src/components/atoms/EventSignupButton.re.mjs:44
+#: src/components/atoms/EventSignupButton.re.mjs:48
 msgid "RSVP Pending..."
 msgstr "参加申込 保留中..."
 
@@ -92,6 +92,16 @@ msgstr "すべて見る"
 msgid "Show less"
 msgstr "折りたたむ"
 
+#: src/components/atoms/EventSignupButton.re.mjs:89
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリスト"
+"の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
+"本当にこのイベントを離れますか？"
+
 #: src/components/organisms/RSVPSection.re.mjs:222
 #: src/components/organisms/RSVPSection.re.mjs:223
 msgid ""
@@ -104,15 +114,19 @@ msgstr ""
 msgid "View Profile"
 msgstr "プロフィールを表示"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:52
+#: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
-#: src/components/atoms/EventSignupButton.re.mjs:47
+#: src/components/atoms/EventSignupButton.re.mjs:88
+msgid "You will lose your spot"
+msgstr "あなたのスポットを失います"
+
+#: src/components/atoms/EventSignupButton.re.mjs:51
 msgid "You're Going"
 msgstr "参加中"
 
-#: src/components/atoms/EventSignupButton.re.mjs:50
+#: src/components/atoms/EventSignupButton.re.mjs:54
 msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 

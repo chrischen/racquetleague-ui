@@ -33,6 +33,6 @@ msgstr "このRSVPを削除"
 msgid "View Profile"
 msgstr "プロフィールを表示"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:52
+#: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr "キャンセル待ち"

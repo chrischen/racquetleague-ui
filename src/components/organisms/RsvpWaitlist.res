@@ -47,6 +47,7 @@ let make = (
   ~event: RescriptRelay.fragmentRefs<[> #RsvpWaitlist_event]>,
   ~viewer: option<RSVPSection_user_graphql.Types.fragment>=?,
   ~activitySlug: option<string>=?,
+  ~maxRating: float,
   ~className: option<string>=?,
 ) => {
   let eventData = Fragment.use(event)
@@ -57,7 +58,9 @@ let make = (
     eventData.maxRsvps->Option.map(max => count >= max)->Option.getOr(false)
   }
 
-  let waitlistRsvps = rsvps->Array.filterWithIndex((_, i) => isWaitlist(i))
+    // Only consider RSVPs in the main list (listType None or 0)
+    let mainList = rsvps->Array.filter(edge => edge.listType == None || edge.listType == Some(0))
+    let waitlistRsvps = mainList->Array.filterWithIndex((_, i) => isWaitlist(i))
 
   if waitlistRsvps->Array.length == 0 {
     React.null

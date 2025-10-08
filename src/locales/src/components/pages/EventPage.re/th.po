@@ -81,7 +81,7 @@ msgstr "ยกเลิกกิจกรรม"
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/RSVPSection.re.mjs:603
+#: src/components/organisms/RSVPSection.re.mjs:628
 msgid "Collapse"
 msgstr "ย่อ"
 
@@ -105,11 +105,11 @@ msgstr "จะไป"
 msgid "Highly skilled players"
 msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 
-#: src/components/atoms/EventSignupButton.re.mjs:60
+#: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
 msgstr "เข้าร่วมกิจกรรม"
 
-#: src/components/atoms/EventSignupButton.re.mjs:57
+#: src/components/atoms/EventSignupButton.re.mjs:61
 msgid "Join Waitlist"
 msgstr "เข้าร่วมรายชื่อคอย"
 
@@ -125,15 +125,15 @@ msgstr "เข้าร่วมกิจกรรม"
 msgid "left the event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/RSVPSection.re.mjs:677
+#: src/components/organisms/RSVPSection.re.mjs:703
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
 
-#: src/components/organisms/RSVPSection.re.mjs:674
+#: src/components/organisms/RSVPSection.re.mjs:700
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:63
+#: src/components/atoms/EventSignupButton.re.mjs:67
 msgid "Login to Join"
 msgstr "เข้าสู่ระบบเพื่อเข้าร่วม"
 
@@ -191,13 +191,13 @@ msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
 
-#: src/components/organisms/RSVPSection.re.mjs:483
-#: src/components/organisms/RSVPSection.re.mjs:520
-#: src/components/organisms/RSVPSection.re.mjs:625
+#: src/components/organisms/RSVPSection.re.mjs:507
+#: src/components/organisms/RSVPSection.re.mjs:545
+#: src/components/organisms/RSVPSection.re.mjs:650
 msgid "RSVP"
 msgstr "ยืนยันการเข้าร่วม"
 
-#: src/components/atoms/EventSignupButton.re.mjs:44
+#: src/components/atoms/EventSignupButton.re.mjs:48
 msgid "RSVP Pending..."
 msgstr "กำลังรอการอนุมัติ..."
 
@@ -224,6 +224,15 @@ msgstr "การฝึกฝนทักษะและการซ้อมเ
 #: src/components/organisms/EventMessages.re.mjs:118
 msgid "Status message"
 msgstr "ข้อความสถานะ"
+
+#: src/components/atoms/EventSignupButton.re.mjs:89
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
+"คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
 #: src/components/atoms/EventTag.re.mjs:58
 msgid ""
@@ -258,15 +267,19 @@ msgstr "ระดับกลางขั้นบนขึ้นไป"
 msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:52
+#: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
-#: src/components/atoms/EventSignupButton.re.mjs:47
+#: src/components/atoms/EventSignupButton.re.mjs:88
+msgid "You will lose your spot"
+msgstr "คุณจะเสียที่นั่ง"
+
+#: src/components/atoms/EventSignupButton.re.mjs:51
 msgid "You're Going"
 msgstr "คุณจะไป"
 
-#: src/components/atoms/EventSignupButton.re.mjs:50
+#: src/components/atoms/EventSignupButton.re.mjs:54
 msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 

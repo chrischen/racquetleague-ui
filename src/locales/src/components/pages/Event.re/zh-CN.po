@@ -93,7 +93,7 @@ msgstr "取消活动"
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/organisms/RSVPSection.re.mjs:603
+#: src/components/organisms/RSVPSection.re.mjs:628
 msgid "Collapse"
 msgstr "折叠"
 
@@ -141,11 +141,11 @@ msgstr "高技能球员"
 msgid "hosted by {name}"
 msgstr "由 {name} 主办"
 
-#: src/components/atoms/EventSignupButton.re.mjs:60
+#: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
 msgstr "加入活动"
 
-#: src/components/atoms/EventSignupButton.re.mjs:57
+#: src/components/atoms/EventSignupButton.re.mjs:61
 msgid "Join Waitlist"
 msgstr "加入候补名单"
 
@@ -165,15 +165,15 @@ msgstr "联盟"
 msgid "left the event"
 msgstr "退出了活动"
 
-#: src/components/organisms/RSVPSection.re.mjs:677
+#: src/components/organisms/RSVPSection.re.mjs:703
 msgid "Load more"
 msgstr "加载更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:674
+#: src/components/organisms/RSVPSection.re.mjs:700
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:63
+#: src/components/atoms/EventSignupButton.re.mjs:67
 msgid "Login to Join"
 msgstr "登录加入"
 
@@ -243,13 +243,13 @@ msgstr "最低评分要求：{0}（DUPR {1}）"
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
-#: src/components/organisms/RSVPSection.re.mjs:483
-#: src/components/organisms/RSVPSection.re.mjs:520
-#: src/components/organisms/RSVPSection.re.mjs:625
+#: src/components/organisms/RSVPSection.re.mjs:507
+#: src/components/organisms/RSVPSection.re.mjs:545
+#: src/components/organisms/RSVPSection.re.mjs:650
 msgid "RSVP"
 msgstr "报名"
 
-#: src/components/atoms/EventSignupButton.re.mjs:44
+#: src/components/atoms/EventSignupButton.re.mjs:48
 msgid "RSVP Pending..."
 msgstr "报名待审..."
 
@@ -297,6 +297,15 @@ msgstr "订阅所有 {activityName} 活动"
 msgid "sync calendar"
 msgstr "同步日历"
 
+#: src/components/atoms/EventSignupButton.re.mjs:89
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
+"加入等待列表。您确定要退出这个活动吗？"
+
 #: src/components/atoms/EventTag.re.mjs:58
 msgid ""
 "This event is private. Please do not share this event without permission "
@@ -339,19 +348,23 @@ msgstr "查看活动"
 msgid "View Profile"
 msgstr "查看资料"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:52
+#: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr "等待列表"
+
+#: src/components/atoms/EventSignupButton.re.mjs:88
+msgid "You will lose your spot"
+msgstr "您将失去您的位置"
 
 #: src/components/molecules/SubscribeActivity.re.mjs:104
 msgid "you will receive email notifications for new events"
 msgstr "您将收到新活动的邮件通知"
 
-#: src/components/atoms/EventSignupButton.re.mjs:47
+#: src/components/atoms/EventSignupButton.re.mjs:51
 msgid "You're Going"
 msgstr "您将参加"
 
-#: src/components/atoms/EventSignupButton.re.mjs:50
+#: src/components/atoms/EventSignupButton.re.mjs:54
 msgid "You're Waitlisted"
 msgstr "您在等待列表中"
 

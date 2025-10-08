@@ -463,6 +463,30 @@ function RSVPSection(props) {
         TAG: "NotJoined",
         _0: "Login"
       });
+  var requireConfirmation = false;
+  if (eventIsFull && rsvps.filter(function (edge) {
+          var i = mainList.findIndex(function (e) {
+                return e.id === edge.id;
+              });
+          return isWaitlist(i);
+        }).length > 0) {
+    var tmp;
+    if (rsvpButtonStatus.TAG === "Joined") {
+      switch (rsvpButtonStatus._0) {
+        case "Pending" :
+            tmp = false;
+            break;
+        case "Going" :
+        case "Waitlisted" :
+            tmp = true;
+            break;
+        
+      }
+    } else {
+      tmp = false;
+    }
+    requireConfirmation = tmp;
+  }
   var toggleMobileExpanded = function () {
     var newMobileExpanded = !mobileExpanded;
     setMobileExpanded(function (param) {
@@ -496,7 +520,7 @@ function RSVPSection(props) {
                                                           })
                                                       }),
                                                   JsxRuntime.jsx(EventSignupButton.make, {
-                                                        onClick: (function (param) {
+                                                        onClick: (function () {
                                                             onRsvp("going");
                                                           }),
                                                         status: rsvpButtonStatus,
@@ -507,11 +531,12 @@ function RSVPSection(props) {
                                                 children: [
                                                   JsxRuntime.jsx("div", {
                                                         children: JsxRuntime.jsx(EventSignupButton.make, {
-                                                              onClick: (function (param) {
+                                                              onClick: (function () {
                                                                   onRsvp("going");
                                                                 }),
                                                               status: rsvpButtonStatus,
-                                                              className: "py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base"
+                                                              className: "py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base",
+                                                              requireConfirmation: requireConfirmation
                                                             })
                                                       }),
                                                   JsxRuntime.jsxs("div", {
@@ -584,7 +609,8 @@ function RSVPSection(props) {
                                                           viewer: viewer,
                                                           activitySlug: Core__Option.flatMap(activity, (function (a) {
                                                                   return a.slug;
-                                                                }))
+                                                                })),
+                                                          maxRating: maxRating
                                                         }),
                                                     JsxRuntime.jsx(PendingRsvps.make, {
                                                           event: data.fragmentRefs,
@@ -628,11 +654,12 @@ function RSVPSection(props) {
                                   ratingWarning,
                                   JsxRuntime.jsx("div", {
                                         children: JsxRuntime.jsx(EventSignupButton.make, {
-                                              onClick: (function (param) {
+                                              onClick: (function () {
                                                   onRsvp("going");
                                                 }),
                                               status: rsvpButtonStatus,
-                                              className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1"
+                                              className: "w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1",
+                                              requireConfirmation: requireConfirmation
                                             }),
                                         className: "mb-6"
                                       }),
@@ -658,6 +685,7 @@ function RSVPSection(props) {
                                         activitySlug: Core__Option.flatMap(activity, (function (a) {
                                                 return a.slug;
                                               })),
+                                        maxRating: maxRating,
                                         className: "mb-5"
                                       }),
                                   JsxRuntime.jsx(PendingRsvps.make, {

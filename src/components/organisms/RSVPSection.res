@@ -396,6 +396,21 @@ let make = (~event, ~user) => {
     }
   }
 
+  // Centralized confirmation logic for leave button
+  let requireConfirmation =
+    eventIsFull &&
+    rsvps
+    ->Array.filter(edge =>
+      mainList
+      ->Array.findIndex(e => e.id == edge.id)
+      ->(i => isWaitlist(i))
+    )
+    ->Array.length > 0 &&
+    switch rsvpButtonStatus {
+    | Joined(Going) | Joined(Waitlisted) => true
+    | _ => false
+    }
+
   // Toggle mobile expanded state
   let toggleMobileExpanded = () => {
     let newMobileExpanded = !mobileExpanded
@@ -415,6 +430,7 @@ let make = (~event, ~user) => {
                     onClick={_ => onRsvp("going")}
                     status=rsvpButtonStatus
                     className="py-2 px-4 rounded-md flex items-center justify-center space-x-1 text-base"
+                    requireConfirmation
                   />
                 </div>
                 <div
@@ -486,6 +502,7 @@ let make = (~event, ~user) => {
                   event={data.fragmentRefs}
                   ?viewer
                   activitySlug=?{activity->Option.flatMap(a => a.slug)}
+                  maxRating
                 />
                 <PendingRsvps
                   event={data.fragmentRefs}
@@ -512,6 +529,7 @@ let make = (~event, ~user) => {
             onClick={_ => onRsvp("going")}
             status=rsvpButtonStatus
             className="w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1"
+            requireConfirmation
           />
         </div>
         {viewerHasRsvp
@@ -530,6 +548,7 @@ let make = (~event, ~user) => {
           event={data.fragmentRefs}
           ?viewer
           activitySlug=?{activity->Option.flatMap(a => a.slug)}
+          maxRating
           className=?Some("mb-5")
         />
         <PendingRsvps
