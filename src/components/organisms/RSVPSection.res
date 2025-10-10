@@ -479,6 +479,7 @@ let make = (~event, ~user) => {
                   onClick={_ => onRsvp("going")}
                   status=rsvpButtonStatus
                   className="w-full py-2 px-4 rounded-md flex items-center justify-center space-x-1 mt-3"
+                  requireConfirmation
                 />
               </div>}
         </div>
