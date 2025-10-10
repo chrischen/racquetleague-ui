@@ -2,7 +2,6 @@ module Fragment = %relay(`
   fragment EventRsvpUser_user on User {
     picture
     lineUsername
-    ...RsvpOptions_user
   }
 `)
 
@@ -42,18 +41,11 @@ let make = (
   ~secondaryText=?,
   ~sigmaPercent=?,
   ~ratingPercent=?,
-  ~eventId: string,
-  ~eventActivitySlug: string,
   ~isAdmin=false,
 ) => {
   // open Lingui.Util;
 
   let user = Fragment.use(user)
   let userData = user->fromRegisteredUser
-  let avatarRsvpUser =
-    <AvatarRsvpUser user={userData} highlight ?link ?secondaryText ?sigmaPercent ?ratingPercent />
-
-  <RsvpOptions user=user.fragmentRefs eventId eventActivitySlug isAdmin>
-    {avatarRsvpUser}
-  </RsvpOptions>
+  <AvatarRsvpUser user={userData} highlight ?link ?secondaryText ?sigmaPercent ?ratingPercent />
 }

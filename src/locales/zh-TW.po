@@ -1939,3 +1939,18 @@ msgstr "管理活動"
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "傳送"
+
+#: src/components/organisms/RsvpOptions.re.mjs:115
+msgid "Approve RSVP"
+msgstr "批准報名"
+
+#: src/components/organisms/RsvpOptions.re.mjs:125
+#: src/components/organisms/RsvpOptions.re.mjs:192
+msgid "Move to Pending List"
+msgstr "移至待審核名單"
+
+#: src/components/organisms/RsvpOptions.re.mjs:193
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要限制其報名嗎？"

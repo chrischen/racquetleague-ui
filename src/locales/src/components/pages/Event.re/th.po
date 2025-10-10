@@ -81,7 +81,11 @@ msgstr "ผู้เล่นระดับสูง"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:102
+#: src/components/organisms/RsvpOptions.re.mjs:115
+msgid "Approve RSVP"
+msgstr "อนุมัติ RSVP"
+
+#: src/components/organisms/RsvpOptions.re.mjs:177
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
@@ -93,7 +97,7 @@ msgstr "ยกเลิกกิจกรรม"
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/RSVPSection.re.mjs:628
+#: src/components/organisms/RSVPSection.re.mjs:629
 msgid "Collapse"
 msgstr "ย่อ"
 
@@ -165,11 +169,11 @@ msgstr "ลีก"
 msgid "left the event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/RSVPSection.re.mjs:703
+#: src/components/organisms/RSVPSection.re.mjs:705
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
 
-#: src/components/organisms/RSVPSection.re.mjs:700
+#: src/components/organisms/RSVPSection.re.mjs:702
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -193,6 +197,11 @@ msgstr "การแข่งขันจะถูกส่งไปยัง DU
 msgid "media"
 msgstr "สื่อ"
 
+#: src/components/organisms/RsvpOptions.re.mjs:125
+#: src/components/organisms/RsvpOptions.re.mjs:192
+msgid "Move to Pending List"
+msgstr "ย้ายไปรายชื่อรอ"
+
 #: src/components/organisms/EventMessages.re.mjs:178
 msgid "No activity yet"
 msgstr "ยังไม่มีกิจกรรม"
@@ -213,7 +222,7 @@ msgstr "หมายเหตุ"
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/organisms/EventRsvp.re.mjs:60
+#: src/components/organisms/EventRsvp.re.mjs:61
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "ผู้เล่น"
@@ -227,11 +236,11 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
 
-#: src/components/organisms/RsvpOptions.re.mjs:88
+#: src/components/organisms/RsvpOptions.re.mjs:138
 msgid "Remove from event"
 msgstr "ลบจากกิจกรรม"
 
-#: src/components/organisms/RsvpOptions.re.mjs:101
+#: src/components/organisms/RsvpOptions.re.mjs:176
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
@@ -245,7 +254,7 @@ msgstr "ผลการแข่งขันจะถูกส่งไปยั
 
 #: src/components/organisms/RSVPSection.re.mjs:507
 #: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:650
+#: src/components/organisms/RSVPSection.re.mjs:651
 msgid "RSVP"
 msgstr "ยืนยันการเข้าร่วม"
 
@@ -320,6 +329,14 @@ msgstr ""
 "นี่เป็นกิจกรรมส่วนตัวที่ต้องการสมาชิกภาพกับคลับ หากต้องการเข้าร่วม คลับนี้ กรุณาเข้าร่วมกิจกรรม "
 "Japan Pickleball League ก่อนเพื่อขอการแนะนำ"
 
+#: src/components/organisms/RsvpOptions.re.mjs:193
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
+"หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+
 #: src/components/organisms/RSVPSection.re.mjs:222
 #: src/components/organisms/RSVPSection.re.mjs:223
 #: src/components/organisms/EventMessages.re.mjs:125
@@ -344,7 +361,7 @@ msgstr "ระดับกลางขั้นบนขึ้นไป"
 msgid "view events"
 msgstr "ดูกิจกรรม"
 
-#: src/components/organisms/RsvpOptions.re.mjs:82
+#: src/components/organisms/RsvpOptions.re.mjs:163
 msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 

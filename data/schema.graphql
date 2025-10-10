@@ -424,6 +424,7 @@ type Mutation {
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
   updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
+  updateRsvpListType(input: UpdateRsvpListTypeInput!): UpdateRsvpListTypeResult!
   updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): UpdateViewerRsvpMessageResult
 }
 
@@ -568,6 +569,16 @@ input UpdateProfileInput {
 type UpdateProfileResult implements HasErrors {
   errors: [Error!]
   viewer: User
+}
+
+input UpdateRsvpListTypeInput {
+  listType: Int!
+  rsvpId: ID!
+}
+
+type UpdateRsvpListTypeResult implements HasErrors {
+  errors: [Error!]
+  rsvp: Rsvp
 }
 
 input UpdateViewerRsvpMessageInput {

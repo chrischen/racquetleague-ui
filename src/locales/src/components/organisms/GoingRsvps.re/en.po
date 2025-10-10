@@ -17,7 +17,11 @@ msgstr ""
 msgid "+{0} more"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:102
+#: src/components/organisms/RsvpOptions.re.mjs:115
+msgid "Approve RSVP"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:177
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
@@ -25,15 +29,20 @@ msgstr ""
 msgid "Going"
 msgstr ""
 
-#: src/components/organisms/EventRsvp.re.mjs:60
+#: src/components/organisms/RsvpOptions.re.mjs:125
+#: src/components/organisms/RsvpOptions.re.mjs:192
+msgid "Move to Pending List"
+msgstr ""
+
+#: src/components/organisms/EventRsvp.re.mjs:61
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:88
+#: src/components/organisms/RsvpOptions.re.mjs:138
 msgid "Remove from event"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:101
+#: src/components/organisms/RsvpOptions.re.mjs:176
 msgid "Remove this RSVP"
 msgstr ""
 
@@ -45,6 +54,10 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:82
+#: src/components/organisms/RsvpOptions.re.mjs:193
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:163
 msgid "View Profile"
 msgstr ""

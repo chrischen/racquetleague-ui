@@ -14,17 +14,17 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/organisms/RsvpOptions.re.mjs:102
-msgid "Are you sure you want to remove this person from the event?"
-msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
+#~ msgid "Are you sure you want to remove this person from the event?"
+#~ msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
 #: src/components/organisms/RsvpOptions.re.mjs:88
-msgid "Remove from event"
-msgstr "ลบจากกิจกรรม"
+#~ msgid "Remove from event"
+#~ msgstr "ลบจากกิจกรรม"
 
 #: src/components/organisms/RsvpOptions.re.mjs:101
-msgid "Remove this RSVP"
-msgstr "ลบการยืนยันนี้"
+#~ msgid "Remove this RSVP"
+#~ msgstr "ลบการยืนยันนี้"
 
 #: src/components/organisms/RsvpOptions.re.mjs:82
-msgid "View Profile"
-msgstr "ดูโปรไฟล์"
+#~ msgid "View Profile"
+#~ msgstr "ดูโปรไฟล์"

@@ -7,6 +7,7 @@ module Fragment = %relay(`
       id
       ...EventRsvpUser_user
     }
+    ...RsvpOptions_rsvp
     rating {
       ordinal
       mu
@@ -49,36 +50,40 @@ let make = (
   ->Option.map(user => {
     <ListItem key={user.id}>
       <div className="flex items-center">
-        <EventRsvpUser
+        <RsvpOptions
+          rsvp={rsvp.fragmentRefs}
           eventId
           eventActivitySlug={activitySlug->Option.getOr("badminton")}
-          user={user.fragmentRefs}
-          isAdmin
-          link={"/league/" ++ activitySlug->Option.getOr("badminton") ++ "/p/" ++ user.id}
-          secondaryText={switch activitySlug {
-          | Some("pickleball") =>
-            rsvp.rating
-            ->Option.flatMap(r => r.mu)
-            ->Option.map(mu => Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2))
-            ->Option.getOr("")
-          | _ => ""
-          }}
-          sigmaPercent={rsvp.rating
-          ->Option.flatMap(rating =>
-            rating.sigma->Option.map(sigma => 3. *. sigma /. maxRating *. 100.)
-          )
-          ->Option.getOr(0.)}
-          ratingPercent={rsvp.rating
-          ->Option.flatMap(rating =>
-            rating.mu->Option.flatMap(
-              mu => rating.sigma->Option.map(sigma => (mu -. sigma *. 3.0) /. maxRating *. 100.),
+          isAdmin>
+          <EventRsvpUser
+            user={user.fragmentRefs}
+            isAdmin
+            link={"/league/" ++ activitySlug->Option.getOr("badminton") ++ "/p/" ++ user.id}
+            secondaryText={switch activitySlug {
+            | Some("pickleball") =>
+              rsvp.rating
+              ->Option.flatMap(r => r.mu)
+              ->Option.map(mu => Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2))
+              ->Option.getOr("")
+            | _ => ""
+            }}
+            sigmaPercent={rsvp.rating
+            ->Option.flatMap(rating =>
+              rating.sigma->Option.map(sigma => 3. *. sigma /. maxRating *. 100.)
             )
-          )
-          ->Option.getOr(0.)}
-          highlight={viewer
-          ->Option.map(viewer => viewer.id == user.id)
-          ->Option.getOr(false)}
-        />
+            ->Option.getOr(0.)}
+            ratingPercent={rsvp.rating
+            ->Option.flatMap(rating =>
+              rating.mu->Option.flatMap(
+                mu => rating.sigma->Option.map(sigma => (mu -. sigma *. 3.0) /. maxRating *. 100.),
+              )
+            )
+            ->Option.getOr(0.)}
+            highlight={viewer
+            ->Option.map(viewer => viewer.id == user.id)
+            ->Option.getOr(false)}
+          />
+        </RsvpOptions>
         {rsvp.message
         ->Option.map(message =>
           <ResponsiveTooltip.Provider>

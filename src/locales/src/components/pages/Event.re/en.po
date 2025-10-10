@@ -102,7 +102,11 @@ msgstr ""
 msgid "Apple iCal"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:102
+#: src/components/organisms/RsvpOptions.re.mjs:115
+msgid "Approve RSVP"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:177
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
@@ -122,7 +126,7 @@ msgstr ""
 msgid "CANCELED"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:628
+#: src/components/organisms/RSVPSection.re.mjs:629
 msgid "Collapse"
 msgstr ""
 
@@ -249,11 +253,11 @@ msgstr ""
 #~ msgid "load More"
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:703
+#: src/components/organisms/RSVPSection.re.mjs:705
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:700
+#: src/components/organisms/RSVPSection.re.mjs:702
 msgid "Loading..."
 msgstr ""
 
@@ -299,6 +303,11 @@ msgstr ""
 #~ msgid "more"
 #~ msgstr ""
 
+#: src/components/organisms/RsvpOptions.re.mjs:125
+#: src/components/organisms/RsvpOptions.re.mjs:192
+msgid "Move to Pending List"
+msgstr ""
+
 #: src/components/organisms/EventMessages.re.mjs:178
 msgid "No activity yet"
 msgstr ""
@@ -323,7 +332,7 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: src/components/organisms/EventRsvp.re.mjs:60
+#: src/components/organisms/EventRsvp.re.mjs:61
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr ""
@@ -340,11 +349,11 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:88
+#: src/components/organisms/RsvpOptions.re.mjs:138
 msgid "Remove from event"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:101
+#: src/components/organisms/RsvpOptions.re.mjs:176
 msgid "Remove this RSVP"
 msgstr ""
 
@@ -374,7 +383,7 @@ msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:507
 #: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:650
+#: src/components/organisms/RSVPSection.re.mjs:651
 msgid "RSVP"
 msgstr ""
 
@@ -457,6 +466,10 @@ msgstr ""
 #~ msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first."
 #~ msgstr ""
 
+#: src/components/organisms/RsvpOptions.re.mjs:193
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+
 #: src/components/organisms/RSVPSection.re.mjs:222
 #: src/components/organisms/RSVPSection.re.mjs:223
 #: src/components/organisms/EventMessages.re.mjs:125
@@ -480,7 +493,7 @@ msgstr ""
 msgid "view events"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:82
+#: src/components/organisms/RsvpOptions.re.mjs:163
 msgid "View Profile"
 msgstr ""
 

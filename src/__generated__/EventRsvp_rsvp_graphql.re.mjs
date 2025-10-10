@@ -5,7 +5,7 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"user":{"f":""}}};
+var fragmentConverter = {"__root":{"user":{"f":""},"":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -47,6 +47,11 @@ var node = {
         }
       ],
       "storageKey": null
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "RsvpOptions_rsvp"
     },
     {
       "alias": null,

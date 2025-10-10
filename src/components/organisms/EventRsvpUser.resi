@@ -6,7 +6,5 @@ let make: (
   ~secondaryText: string=?,
   ~sigmaPercent: float=?,
   ~ratingPercent: float=?,
-  ~eventId: string,
-  ~eventActivitySlug: string,
   ~isAdmin: bool=?,
 ) => React.element

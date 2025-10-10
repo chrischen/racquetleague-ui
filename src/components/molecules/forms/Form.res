@@ -88,6 +88,8 @@ module Input = {
     ~disabled: option<bool>=?,
     ~value: option<string>=?,
     ~defaultValue: option<string>=?,
+    ~pattern: option<string>=?,
+    ~inputMode: option<string>=?,
   ) => {
     <>
       {label
@@ -120,6 +122,8 @@ module Input = {
               ?defaultValue
               ?onClick
               ?disabled
+              ?pattern
+              ?inputMode
             />
           | None =>
             <input
@@ -138,6 +142,8 @@ module Input = {
               ?defaultValue
               ?onClick
               ?disabled
+              ?pattern
+              ?inputMode
             />
           }}
         </div>

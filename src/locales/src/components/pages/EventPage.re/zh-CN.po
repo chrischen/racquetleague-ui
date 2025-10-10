@@ -69,7 +69,11 @@ msgstr "+{0} 人"
 msgid "Advanced players"
 msgstr "高级球员"
 
-#: src/components/organisms/RsvpOptions.re.mjs:102
+#: src/components/organisms/RsvpOptions.re.mjs:115
+msgid "Approve RSVP"
+msgstr "批准报名"
+
+#: src/components/organisms/RsvpOptions.re.mjs:177
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
@@ -81,7 +85,7 @@ msgstr "取消活动"
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/organisms/RSVPSection.re.mjs:628
+#: src/components/organisms/RSVPSection.re.mjs:629
 msgid "Collapse"
 msgstr "折叠"
 
@@ -125,11 +129,11 @@ msgstr "加入了活动"
 msgid "left the event"
 msgstr "退出了活动"
 
-#: src/components/organisms/RSVPSection.re.mjs:703
+#: src/components/organisms/RSVPSection.re.mjs:705
 msgid "Load more"
 msgstr "加载更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:700
+#: src/components/organisms/RSVPSection.re.mjs:702
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -149,6 +153,11 @@ msgstr "管理活动"
 msgid "Matches will be submitted to DUPR."
 msgstr "比赛结果将提交至 DUPR。"
 
+#: src/components/organisms/RsvpOptions.re.mjs:125
+#: src/components/organisms/RsvpOptions.re.mjs:192
+msgid "Move to Pending List"
+msgstr "移至待审核列表"
+
 #: src/components/organisms/EventMessages.re.mjs:178
 msgid "No activity yet"
 msgstr "尚无活动"
@@ -161,7 +170,7 @@ msgstr "没有技能等级限制。对所有球员开放。"
 msgid "Pending"
 msgstr "待审核"
 
-#: src/components/organisms/EventRsvp.re.mjs:60
+#: src/components/organisms/EventRsvp.re.mjs:61
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "球员"
@@ -175,11 +184,11 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:88
+#: src/components/organisms/RsvpOptions.re.mjs:138
 msgid "Remove from event"
 msgstr "从活动中移除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:101
+#: src/components/organisms/RsvpOptions.re.mjs:176
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
@@ -193,7 +202,7 @@ msgstr "比赛结果将提交至竞技评分系统。"
 
 #: src/components/organisms/RSVPSection.re.mjs:507
 #: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:650
+#: src/components/organisms/RSVPSection.re.mjs:651
 msgid "RSVP"
 msgstr "报名"
 
@@ -240,6 +249,14 @@ msgid ""
 "from the organizer."
 msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
 
+#: src/components/organisms/RsvpOptions.re.mjs:193
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
+"制其报名吗？"
+
 #: src/components/organisms/RSVPSection.re.mjs:222
 #: src/components/organisms/RSVPSection.re.mjs:223
 #: src/components/organisms/EventMessages.re.mjs:125
@@ -263,7 +280,7 @@ msgstr "未知地点"
 msgid "Upper intermediate and above"
 msgstr "中高级及以上"
 
-#: src/components/organisms/RsvpOptions.re.mjs:82
+#: src/components/organisms/RsvpOptions.re.mjs:163
 msgid "View Profile"
 msgstr "查看资料"
 

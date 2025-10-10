@@ -19,23 +19,45 @@ var Internal = {
 
 var Utils = {};
 
-var node = {
+var node = ((function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "RsvpOptions_user",
+  "name": "RsvpOptions_rsvp",
   "selections": [
+    (v0/*: any*/),
     {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "id",
+      "name": "listType",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "User",
+      "kind": "LinkedField",
+      "name": "user",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/)
+      ],
       "storageKey": null
     }
   ],
-  "type": "User",
+  "type": "Rsvp",
   "abstractKey": null
 };
+})());
 
 export {
   Types ,
@@ -43,4 +65,4 @@ export {
   Utils ,
   node ,
 }
-/* RescriptRelay Not a pure module */
+/* node Not a pure module */

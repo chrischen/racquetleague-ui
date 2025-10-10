@@ -81,7 +81,11 @@ msgstr "上級プレイヤー"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:102
+#: src/components/organisms/RsvpOptions.re.mjs:115
+msgid "Approve RSVP"
+msgstr "参加申込を承認"
+
+#: src/components/organisms/RsvpOptions.re.mjs:177
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
@@ -93,7 +97,7 @@ msgstr "イベントをキャンセル"
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/organisms/RSVPSection.re.mjs:628
+#: src/components/organisms/RSVPSection.re.mjs:629
 msgid "Collapse"
 msgstr "折りたたむ"
 
@@ -165,11 +169,11 @@ msgstr "ラケットリーグ"
 msgid "left the event"
 msgstr "離れました"
 
-#: src/components/organisms/RSVPSection.re.mjs:703
+#: src/components/organisms/RSVPSection.re.mjs:705
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/RSVPSection.re.mjs:700
+#: src/components/organisms/RSVPSection.re.mjs:702
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -193,6 +197,11 @@ msgstr "試合結果はDUPRに提出されます。"
 msgid "media"
 msgstr "メディア"
 
+#: src/components/organisms/RsvpOptions.re.mjs:125
+#: src/components/organisms/RsvpOptions.re.mjs:192
+msgid "Move to Pending List"
+msgstr "保留リストに移動"
+
 #: src/components/organisms/EventMessages.re.mjs:178
 msgid "No activity yet"
 msgstr "まだアクティビティがありません"
@@ -213,7 +222,7 @@ msgstr "メモ"
 msgid "Pending"
 msgstr "保留中"
 
-#: src/components/organisms/EventRsvp.re.mjs:60
+#: src/components/organisms/EventRsvp.re.mjs:61
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "プレイヤー"
@@ -227,11 +236,11 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:88
+#: src/components/organisms/RsvpOptions.re.mjs:138
 msgid "Remove from event"
 msgstr "イベントから削除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:101
+#: src/components/organisms/RsvpOptions.re.mjs:176
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
@@ -245,7 +254,7 @@ msgstr "結果は競技レーティングに提出されます。"
 
 #: src/components/organisms/RSVPSection.re.mjs:507
 #: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:650
+#: src/components/organisms/RSVPSection.re.mjs:651
 msgid "RSVP"
 msgstr "参加申込"
 
@@ -323,6 +332,14 @@ msgstr ""
 "これはサークルのメンバーシップが必要なプライベートイベントです。このサークル"
 "に参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
+#: src/components/organisms/RsvpOptions.re.mjs:193
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
+"失われます。本当にこのユーザーの参加申込を制限しますか？"
+
 #: src/components/organisms/RSVPSection.re.mjs:222
 #: src/components/organisms/RSVPSection.re.mjs:223
 #: src/components/organisms/EventMessages.re.mjs:125
@@ -349,7 +366,7 @@ msgstr "中上級以上"
 msgid "view events"
 msgstr "イベントを見る"
 
-#: src/components/organisms/RsvpOptions.re.mjs:82
+#: src/components/organisms/RsvpOptions.re.mjs:163
 msgid "View Profile"
 msgstr "プロフィールを表示"
 

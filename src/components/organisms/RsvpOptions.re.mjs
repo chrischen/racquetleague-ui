@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as Dropdown from "../catalyst/Dropdown.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as RelayRuntime from "relay-runtime";
@@ -11,20 +12,21 @@ import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
-import * as RsvpOptions_user_graphql from "../../__generated__/RsvpOptions_user_graphql.re.mjs";
+import * as RsvpOptions_rsvp_graphql from "../../__generated__/RsvpOptions_rsvp_graphql.re.mjs";
 import * as RsvpOptionsDeleteMutation_graphql from "../../__generated__/RsvpOptionsDeleteMutation_graphql.re.mjs";
+import * as RsvpOptionsUpdateListTypeMutation_graphql from "../../__generated__/RsvpOptionsUpdateListTypeMutation_graphql.re.mjs";
 
 import { t, plural } from '@lingui/macro'
 ;
 
-var convertFragment = RsvpOptions_user_graphql.Internal.convertFragment;
+var convertFragment = RsvpOptions_rsvp_graphql.Internal.convertFragment;
 
 function use(fRef) {
-  return RescriptRelay_Fragment.useFragment(RsvpOptions_user_graphql.node, convertFragment, fRef);
+  return RescriptRelay_Fragment.useFragment(RsvpOptions_rsvp_graphql.node, convertFragment, fRef);
 }
 
 function useOpt(fRef) {
-  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, RsvpOptions_user_graphql.node, convertFragment);
+  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, RsvpOptions_rsvp_graphql.node, convertFragment);
 }
 
 var Fragment = {
@@ -55,6 +57,26 @@ var RsvpOptionsDeleteMutation = {
   use: use$1
 };
 
+var convertVariables$1 = RsvpOptionsUpdateListTypeMutation_graphql.Internal.convertVariables;
+
+var convertResponse$1 = RsvpOptionsUpdateListTypeMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = RsvpOptionsUpdateListTypeMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, RsvpOptionsUpdateListTypeMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, RsvpOptionsUpdateListTypeMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var RsvpOptionsUpdateListTypeMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  commitMutation: commitMutation$1,
+  use: use$2
+};
+
 function RsvpOptions(props) {
   var __isAdmin = props.isAdmin;
   var eventActivitySlug = props.eventActivitySlug;
@@ -62,12 +84,70 @@ function RsvpOptions(props) {
   var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
   var match = use$1();
   var commitMutationDeleteRsvp = match[0];
-  var user = use(props.user);
+  var match$1 = use$2();
+  var commitMutationUpdateListType = match$1[0];
+  var rsvp = use(props.rsvp);
   var nav = LangProvider.Router.useNavigate();
-  var match$1 = React.useState(function () {
+  var onUpdateListType = function (rsvpId, listType) {
+    commitMutationUpdateListType({
+          input: {
+            listType: listType,
+            rsvpId: rsvpId
+          }
+        }, undefined, undefined, undefined, undefined, undefined, undefined);
+  };
+  var match$2 = React.useState(function () {
         return false;
       });
-  var setIsOpen = match$1[1];
+  var setIsOpen = match$2[1];
+  var isOpen = match$2[0];
+  var match$3 = React.useState(function () {
+        return false;
+      });
+  var setIsUpdateDialogOpen = match$3[1];
+  var tmp;
+  if (isAdmin) {
+    var match$4 = rsvp.listType;
+    var tmp$1;
+    var exit = 0;
+    if (match$4 !== undefined && match$4 !== 0) {
+      tmp$1 = match$4 !== 1 ? null : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+              children: t`Approve RSVP`,
+              onClick: (function (param) {
+                  onUpdateListType(rsvp.id, 0);
+                })
+            });
+    } else {
+      exit = 1;
+    }
+    if (exit === 1) {
+      tmp$1 = JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+            children: t`Move to Pending List`,
+            onClick: (function (e) {
+                e.stopPropagation();
+                setIsUpdateDialogOpen(function (param) {
+                      return true;
+                    });
+              })
+          });
+    }
+    tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+          children: [
+            tmp$1,
+            JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                  children: t`Remove from event`,
+                  onClick: (function (e) {
+                      e.stopPropagation();
+                      setIsOpen(function (param) {
+                            return true;
+                          });
+                    })
+                })
+          ]
+        });
+  } else {
+    tmp = null;
+  }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs(React$1.Menu, {
@@ -78,39 +158,44 @@ function RsvpOptions(props) {
                             }),
                         JsxRuntime.jsxs(Dropdown.DropdownMenu.make, {
                               children: [
-                                JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-                                      children: t`View Profile`,
-                                      onClick: (function (e) {
-                                          nav("/league/" + eventActivitySlug + "/p/" + user.id, undefined);
-                                        })
-                                    }),
-                                isAdmin ? JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-                                        children: t`Remove from event`,
-                                        onClick: (function (e) {
-                                            e.stopPropagation();
-                                            setIsOpen(function (param) {
-                                                  return true;
-                                                });
-                                          })
-                                      }) : null
+                                Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
+                                            return JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                                                        children: t`View Profile`,
+                                                        onClick: (function (param) {
+                                                            nav("/league/" + eventActivitySlug + "/p/" + user.id, undefined);
+                                                          })
+                                                      });
+                                          })), null),
+                                tmp
                               ]
                             })
                       ]
                     }),
+                Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
+                            return JsxRuntime.jsx(ConfirmDialog.make, {
+                                        title: t`Remove this RSVP`,
+                                        description: t`Are you sure you want to remove this person from the event?`,
+                                        onConfirmed: (function () {
+                                            var userId = user.id;
+                                            var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventId, "RSVPSection_event_rsvps", undefined);
+                                            commitMutationDeleteRsvp({
+                                                  connections: [connectionId],
+                                                  id: eventId,
+                                                  userId: userId
+                                                }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                          }),
+                                        setIsOpen: setIsOpen,
+                                        isOpen: isOpen
+                                      });
+                          })), null),
                 JsxRuntime.jsx(ConfirmDialog.make, {
-                      title: t`Remove this RSVP`,
-                      description: t`Are you sure you want to remove this person from the event?`,
+                      title: t`Move to Pending List`,
+                      description: t`This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?`,
                       onConfirmed: (function () {
-                          var userId = user.id;
-                          var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventId, "RSVPSection_event_rsvps", undefined);
-                          commitMutationDeleteRsvp({
-                                connections: [connectionId],
-                                id: eventId,
-                                userId: userId
-                              }, undefined, undefined, undefined, undefined, undefined, undefined);
+                          onUpdateListType(rsvp.id, 1);
                         }),
-                      setIsOpen: setIsOpen,
-                      isOpen: match$1[0]
+                      setIsOpen: setIsUpdateDialogOpen,
+                      isOpen: match$3[0]
                     })
               ]
             });
@@ -121,6 +206,7 @@ var make = RsvpOptions;
 export {
   Fragment ,
   RsvpOptionsDeleteMutation ,
+  RsvpOptionsUpdateListTypeMutation ,
   make ,
 }
 /*  Not a pure module */

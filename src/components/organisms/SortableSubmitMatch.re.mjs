@@ -353,9 +353,11 @@ function SortableSubmitMatch(props) {
                                                                   }),
                                                                 className: "w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6",
                                                                 id: "scoreLeft",
-                                                                type_: "text",
+                                                                type_: "number",
                                                                 placeholder: t`Points`,
-                                                                register: register("scoreLeft", undefined)
+                                                                register: register("scoreLeft", undefined),
+                                                                pattern: "[0-9]*",
+                                                                inputMode: "numeric"
                                                               });
                                                   })), JsxRuntime.jsx(UiAction.make, {
                                                   onClick: (function (e) {
@@ -401,9 +403,11 @@ function SortableSubmitMatch(props) {
                                                                   }),
                                                                 className: "w-24 sm:w-32 md:w-48 flex-1 border-0 bg-transparent py-3.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-4xl sm:leading-6",
                                                                 id: "scoreRight",
-                                                                type_: "text",
+                                                                type_: "number",
                                                                 placeholder: t`Points`,
-                                                                register: register("scoreRight", undefined)
+                                                                register: register("scoreRight", undefined),
+                                                                pattern: "[0-9]*",
+                                                                inputMode: "numeric"
                                                               });
                                                   })), JsxRuntime.jsx(UiAction.make, {
                                                   onClick: (function (e) {

@@ -69,6 +69,8 @@ var PrefixedInput = {
 };
 
 function Form$Input(props) {
+  var inputMode = props.inputMode;
+  var pattern = props.pattern;
   var defaultValue = props.defaultValue;
   var value = props.value;
   var disabled = props.disabled;
@@ -86,7 +88,7 @@ function Form$Input(props) {
   var tmp;
   if (register !== undefined) {
     var newrecord = Caml_obj.obj_dup(register);
-    tmp = JsxRuntime.jsx("input", (newrecord.onClick = onClick, newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.step = step, newrecord.placeholder = placeholder, newrecord.disabled = disabled, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
+    tmp = JsxRuntime.jsx("input", (newrecord.onClick = onClick, newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.step = step, newrecord.placeholder = placeholder, newrecord.pattern = pattern, newrecord.inputMode = inputMode, newrecord.disabled = disabled, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
   } else {
     tmp = JsxRuntime.jsx("input", {
           defaultValue: defaultValue,
@@ -94,7 +96,9 @@ function Form$Input(props) {
           id: id,
           autoComplete: autoComplete,
           disabled: disabled,
+          inputMode: inputMode,
           name: name,
+          pattern: pattern,
           placeholder: placeholder,
           step: step,
           type: type_,

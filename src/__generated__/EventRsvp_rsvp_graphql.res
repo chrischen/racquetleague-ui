@@ -17,6 +17,7 @@ module Types = {
     message: option<string>,
     rating: option<fragment_rating>,
     user: option<fragment_user>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #RsvpOptions_rsvp]>,
   }
 }
 
@@ -25,7 +26,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"user":{"f":""}}}`
+    json`{"__root":{"user":{"f":""},"":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = ()
@@ -79,6 +80,11 @@ let node: operationType = %raw(json` {
         }
       ],
       "storageKey": null
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "RsvpOptions_rsvp"
     },
     {
       "alias": null,

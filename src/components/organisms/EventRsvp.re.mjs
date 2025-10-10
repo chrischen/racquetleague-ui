@@ -2,6 +2,7 @@
 
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as RsvpOptions from "./RsvpOptions.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as EventRsvpUser from "./EventRsvpUser.re.mjs";
@@ -89,28 +90,32 @@ function EventRsvp(props) {
                     return JsxRuntime.jsx(EventRsvp$ListItem, {
                                 children: JsxRuntime.jsxs("div", {
                                       children: [
-                                        JsxRuntime.jsx(EventRsvpUser.make, {
-                                              user: user.fragmentRefs,
-                                              highlight: Core__Option.getOr(Core__Option.map(viewer, (function (viewer) {
-                                                          return viewer.id === user.id;
-                                                        })), false),
-                                              link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
-                                              secondaryText: tmp,
-                                              sigmaPercent: Core__Option.getOr(Core__Option.flatMap(rsvp.rating, (function (rating) {
-                                                          return Core__Option.map(rating.sigma, (function (sigma) {
-                                                                        return 3 * sigma / maxRating * 100;
-                                                                      }));
-                                                        })), 0),
-                                              ratingPercent: Core__Option.getOr(Core__Option.flatMap(rsvp.rating, (function (rating) {
-                                                          return Core__Option.flatMap(rating.mu, (function (mu) {
-                                                                        return Core__Option.map(rating.sigma, (function (sigma) {
-                                                                                      return (mu - sigma * 3.0) / maxRating * 100;
-                                                                                    }));
-                                                                      }));
-                                                        })), 0),
+                                        JsxRuntime.jsx(RsvpOptions.make, {
+                                              rsvp: rsvp.fragmentRefs,
                                               eventId: eventId,
                                               eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
-                                              isAdmin: isAdmin
+                                              isAdmin: isAdmin,
+                                              children: JsxRuntime.jsx(EventRsvpUser.make, {
+                                                    user: user.fragmentRefs,
+                                                    highlight: Core__Option.getOr(Core__Option.map(viewer, (function (viewer) {
+                                                                return viewer.id === user.id;
+                                                              })), false),
+                                                    link: "/league/" + Core__Option.getOr(activitySlug, "badminton") + "/p/" + user.id,
+                                                    secondaryText: tmp,
+                                                    sigmaPercent: Core__Option.getOr(Core__Option.flatMap(rsvp.rating, (function (rating) {
+                                                                return Core__Option.map(rating.sigma, (function (sigma) {
+                                                                              return 3 * sigma / maxRating * 100;
+                                                                            }));
+                                                              })), 0),
+                                                    ratingPercent: Core__Option.getOr(Core__Option.flatMap(rsvp.rating, (function (rating) {
+                                                                return Core__Option.flatMap(rating.mu, (function (mu) {
+                                                                              return Core__Option.map(rating.sigma, (function (sigma) {
+                                                                                            return (mu - sigma * 3.0) / maxRating * 100;
+                                                                                          }));
+                                                                            }));
+                                                              })), 0),
+                                                    isAdmin: isAdmin
+                                                  })
                                             }),
                                         Core__Option.getOr(Core__Option.map(rsvp.message, (function (message) {
                                                     return JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {

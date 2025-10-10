@@ -329,6 +329,18 @@ and input_UpdateProfileInput_nullable = {
 }
 
 @live
+and input_UpdateRsvpListTypeInput = {
+  listType: int,
+  rsvpId: string,
+}
+
+@live
+and input_UpdateRsvpListTypeInput_nullable = {
+  listType: int,
+  rsvpId: string,
+}
+
+@live
 and input_UpdateViewerRsvpMessageInput = {
   eventId: string,
   message: string,

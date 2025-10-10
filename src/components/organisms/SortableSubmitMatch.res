@@ -381,7 +381,9 @@ let make = (
                     e->JsxEventU.Mouse.stopPropagation
                     e->JsxEventU.Mouse.preventDefault
                   }}
-                  type_="text"
+                  type_="number"
+                  pattern="[0-9]*"
+                  inputMode="numeric"
                   id="scoreLeft"
                   register={register(
                     ScoreLeft,
@@ -435,7 +437,9 @@ let make = (
                     e->JsxEventU.Mouse.stopPropagation
                     e->JsxEventU.Mouse.preventDefault
                   }}
-                  type_="text"
+                  type_="number"
+                  pattern="[0-9]*"
+                  inputMode="numeric"
                   id="scoreRight"
                   register={register(
                     ScoreRight,
