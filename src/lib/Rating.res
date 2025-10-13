@@ -96,17 +96,19 @@ module Player = {
   type t<'a> = {
     data: option<'a>,
     id: string,
+    intId: int,
     name: string,
     rating: Rating.t,
     ratingOrdinal: float,
     paid: bool,
     gender: Gender.t,
   }
-  let makeDefaultRatingPlayer = (name: string, gender: Gender.t) => {
+  let makeDefaultRatingPlayer = (name: string, gender: Gender.t, intId: int) => {
     let rating = Rating.makeDefault()
     {
       data: None,
       id: "guest-" ++ name,
+      intId,
       name,
       rating,
       ratingOrdinal: rating->Rating.ordinal,
@@ -357,7 +359,85 @@ type player = Player.t<rsvpNode>
 type team = array<player>
 type match = (team, team)
 
-external parsePlayers: string => Js.Dict.t<Player.t<rsvpNode>> = "JSON.parse"
+module PlayerDecoder = {
+  let decodeRating: Json.Decode.t<Rating.t> = Json.Decode.object(field => {
+    let mu = field.required("mu", Json.Decode.float)
+    let sigma = field.required("sigma", Json.Decode.float)
+    Rating.make(mu, sigma)
+  })
+
+  let decodeGender: Json.Decode.t<Gender.t> = Json.Decode.int->Json.Decode.map(Gender.fromInt)
+
+  let decodePlayer: Json.Decode.t<Player.t<rsvpNode>> = Json.Decode.object(field => {
+    let id = field.required("id", Json.Decode.string)
+    let intId = field.required("intId", Json.Decode.int)
+    let name = field.required("name", Json.Decode.string)
+    let rating = field.required("rating", decodeRating)
+    let ratingOrdinal = field.required("ratingOrdinal", Json.Decode.float)
+    let paid = field.required("paid", Json.Decode.bool)
+    let gender = field.required("gender", decodeGender)
+    {
+      Player.data: None, // Always set to None when loading from storage
+      id,
+      intId,
+      name,
+      rating,
+      ratingOrdinal,
+      paid,
+      gender,
+    }
+  })
+
+  let parsePlayersFromStorage = (jsonString: string): Js.Dict.t<Player.t<rsvpNode>> => {
+    try {
+      let json = jsonString->Js.Json.parseExn
+      let resultDict = Js.Dict.empty()
+
+      // Decode the entire dict of players
+      let playersDecoder = Json.Decode.dict(decodePlayer)
+
+      switch json->Json.Decode.decode(playersDecoder) {
+      | Ok(playersDict) =>
+        // Successfully decoded all players
+        playersDict
+        ->Js.Dict.entries
+        ->Array.forEach(((key, player)) => {
+          resultDict->Js.Dict.set(key, player)
+        })
+      | Error(_error) =>
+        // If decoding as a dict of players fails, try decoding each player individually
+        Js.log("Failed to decode all players at once, trying individual decoding")
+
+        // Try to decode as a dict of JSON values, then decode each individually
+        switch json->Js.Json.classify {
+        | Js.Json.JSONObject(obj) =>
+          obj
+          ->Js.Dict.entries
+          ->Array.forEach(((key, playerJson)) => {
+            switch playerJson->Json.Decode.decode(decodePlayer) {
+            | Ok(player) => resultDict->Js.Dict.set(key, player)
+            | Error(_decodeError) =>
+              Js.log("Failed to decode player with key: " ++ key)
+              // Ignore this player and continue
+              ()
+            }
+          })
+        | _ => Js.Console.error("Players storage is not a JSON object")
+        }
+      }
+
+      resultDict
+    } catch {
+    | Js.Exn.Error(e) =>
+      Js.Console.error2("Failed to parse players JSON: ", e)
+      Js.Dict.empty()
+    | _ =>
+      Js.Console.error("Unknown error occurred while parsing players JSON")
+      Js.Dict.empty()
+    }
+  }
+}
+
 module Players = {
   type t = array<player>
   let sortByRatingDesc = (t: t) =>
@@ -413,18 +493,19 @@ module Players = {
     let storage = switch Dom.Storage2.localStorage->Dom.Storage2.getItem(
       namespace ++ "-playersState",
     ) {
-    | Some(state) => state->parsePlayers
+    | Some(state) => state->PlayerDecoder.parsePlayersFromStorage
     | None => Js.Dict.empty()
     }
+    let maxPlayerIntId = players->Array.reduce(0, (max, p) => p.intId > max ? p.intId : max)
     let guests =
       storage
       ->Js.Dict.keys
       ->Array.filter(id => id->String.startsWith("guest-"))
-      ->Array.map(id => {
+      ->Array.mapWithIndex((id, index) => {
         let player = storage->Js.Dict.get(id)
         switch player {
         | Some(p) => {...p, data: None}
-        | None => Player.makeDefaultRatingPlayer(id, Male)
+        | None => Player.makeDefaultRatingPlayer(id, Male, maxPlayerIntId + index + 1)
         }
       })
     players

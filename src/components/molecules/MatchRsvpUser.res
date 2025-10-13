@@ -70,26 +70,32 @@ let make = (
       | Break => "bg-yellow-300"
       },
     ])}>
-    {user.picture
-    ->Option.map(picture =>
-      <img
-        className={Util.cx([
-          compact ? "h-8 w-8" : "h-16 w-16",
-          "flex-none rounded-full bg-gray-50",
-          "drop-shadow-lg",
-        ])}
-        src={picture}
-        alt=""
-      />
-    )
-    ->Option.getOr(
+    <div className="relative flex-none">
+      {user.picture
+      ->Option.map(picture =>
+        <img
+          className={Util.cx([
+            compact ? "h-8 w-8" : "h-16 w-16",
+            "flex-none rounded-full bg-gray-50",
+            "drop-shadow-lg",
+          ])}
+          src={picture}
+          alt=""
+        />
+      )
+      ->Option.getOr(
+        <div
+          className={Util.cx([
+            compact ? "h-8 w-8" : "h-16 w-16",
+            "flex-none rounded-full bg-gray-50",
+          ])}
+        />,
+      )}
       <div
-        className={Util.cx([
-          compact ? "h-8 w-8" : "h-16 w-16",
-          "flex-none rounded-full bg-gray-50",
-        ])}
-      />,
-    )}
+        className="absolute -bottom-1 -right-1 flex items-center justify-center w-6 h-6 rounded-full bg-blue-500 text-white text-xs font-bold border-2 border-white">
+        {player.intId->Int.toString->React.string}
+      </div>
+    </div>
     <div className="min-w-0 flex-auto">
       <p
         className={Util.cx([

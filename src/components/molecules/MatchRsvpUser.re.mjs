@@ -13,6 +13,7 @@ import { t, plural } from '@lingui/macro'
 ;
 
 function MatchRsvpUser(props) {
+  var player = props.player;
   var link = props.link;
   var __highlight = props.highlight;
   var __compact = props.compact;
@@ -55,7 +56,7 @@ function MatchRsvpUser(props) {
           ]
         });
   }
-  var match = props.player.gender;
+  var match = player.gender;
   var tmp$2;
   tmp$2 = match === "Male" ? "text-gray-900" : "text-pink-500";
   var tmp$3;
@@ -76,15 +77,24 @@ function MatchRsvpUser(props) {
   }
   return JsxRuntime.jsxs("div", {
               children: [
-                Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
-                            return JsxRuntime.jsx("img", {
-                                        className: Core.cx(compact ? "h-8 w-8" : "h-16 w-16", "flex-none rounded-full bg-gray-50", "drop-shadow-lg"),
-                                        alt: "",
-                                        src: picture
-                                      });
-                          })), JsxRuntime.jsx("div", {
-                          className: Core.cx(compact ? "h-8 w-8" : "h-16 w-16", "flex-none rounded-full bg-gray-50")
-                        })),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
+                                    return JsxRuntime.jsx("img", {
+                                                className: Core.cx(compact ? "h-8 w-8" : "h-16 w-16", "flex-none rounded-full bg-gray-50", "drop-shadow-lg"),
+                                                alt: "",
+                                                src: picture
+                                              });
+                                  })), JsxRuntime.jsx("div", {
+                                  className: Core.cx(compact ? "h-8 w-8" : "h-16 w-16", "flex-none rounded-full bg-gray-50")
+                                })),
+                        JsxRuntime.jsx("div", {
+                              children: player.intId.toString(),
+                              className: "absolute -bottom-1 -right-1 flex items-center justify-center w-6 h-6 rounded-full bg-blue-500 text-white text-xs font-bold border-2 border-white"
+                            })
+                      ],
+                      className: "relative flex-none"
+                    }),
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("p", {

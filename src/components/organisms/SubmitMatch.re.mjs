@@ -313,7 +313,9 @@ function SubmitMatch(props) {
                                                                 id: "scoreLeft",
                                                                 type_: "number",
                                                                 placeholder: t`Points`,
-                                                                register: register("scoreLeft", undefined)
+                                                                register: register("scoreLeft", undefined),
+                                                                pattern: "[0-9]*",
+                                                                inputMode: "numeric"
                                                               });
                                                   })), JsxRuntime.jsx(UiAction.make, {
                                                   onClick: (function (e) {
@@ -357,7 +359,9 @@ function SubmitMatch(props) {
                                                                 id: "scoreRight",
                                                                 type_: "number",
                                                                 placeholder: t`Points`,
-                                                                register: register("scoreRight", undefined)
+                                                                register: register("scoreRight", undefined),
+                                                                pattern: "[0-9]*",
+                                                                inputMode: "numeric"
                                                               });
                                                   })), JsxRuntime.jsx(UiAction.make, {
                                                   onClick: (function (e) {

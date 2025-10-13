@@ -463,7 +463,7 @@ function getPriorityPlayers(history, players, session, $$break) {
         };
 }
 
-function rsvpToPlayer(rsvp) {
+function rsvpToPlayer(rsvp, intId) {
   var match = Core__Option.map(rsvp.user, (function (u) {
           return u.id;
         }));
@@ -491,6 +491,7 @@ function rsvpToPlayer(rsvp) {
   return {
           data: rsvp,
           id: match,
+          intId: intId,
           name: Core__Option.getOr(Core__Option.flatMap(rsvp.user, (function (u) {
                       return u.lineUsername;
                     })), ""),
@@ -617,7 +618,14 @@ function AiTetsu(props) {
   var match$20 = usePagination($$event);
   var refetch = match$20.refetch;
   var data = match$20.data;
-  var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
+  var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps).map(function (rsvp, index) {
+                return [
+                        rsvp,
+                        index + 1 | 0
+                      ];
+              }), (function (param) {
+              return rsvpToPlayer(param[0], param[1]);
+            })).concat(sessionPlayers);
   var players = allPlayers.filter(function (p) {
           return !disabled.has(p.id);
         }).toSorted(function (a, b) {
@@ -829,7 +837,14 @@ function AiTetsu(props) {
     if (sessionPlayers.length >= getConnectionNodes(data.rsvps).length) {
       return ;
     }
-    var players = Core__Array.filterMap(getConnectionNodes(data.rsvps), rsvpToPlayer).concat(sessionPlayers);
+    var players = Core__Array.filterMap(getConnectionNodes(data.rsvps).map(function (rsvp, index) {
+                return [
+                        rsvp,
+                        index + 1 | 0
+                      ];
+              }), (function (param) {
+              return rsvpToPlayer(param[0], param[1]);
+            })).concat(sessionPlayers);
     setSessionPlayers(function (param) {
           return players;
         });
@@ -1060,9 +1075,15 @@ function AiTetsu(props) {
                                       eventId: eventId,
                                       onPlayerAdd: (function (player) {
                                           setSessionPlayers(function (guests) {
-                                                var newState = addGuestPlayer(guests, (function (__x) {
-                                                          return Rating.Player.makeDefaultRatingPlayer(__x, "Male");
-                                                        })(player.name));
+                                                var maxIntId = Core__Array.reduce(allPlayers, 0, (function (max, p) {
+                                                        if (p.intId > max) {
+                                                          return p.intId;
+                                                        } else {
+                                                          return max;
+                                                        }
+                                                      }));
+                                                var nextIntId = maxIntId + 1 | 0;
+                                                var newState = addGuestPlayer(guests, Rating.Player.makeDefaultRatingPlayer(player.name, "Male", nextIntId));
                                                 Rating.Players.savePlayers(newState, eventId);
                                                 return newState;
                                               });
@@ -1203,6 +1224,7 @@ function AiTetsu(props) {
                                                             return {
                                                                     data: p.data,
                                                                     id: p.id,
+                                                                    intId: p.intId,
                                                                     name: p.name,
                                                                     rating: p.rating,
                                                                     ratingOrdinal: p.ratingOrdinal,
@@ -1221,6 +1243,7 @@ function AiTetsu(props) {
                                                             return {
                                                                     data: p.data,
                                                                     id: p.id,
+                                                                    intId: p.intId,
                                                                     name: p.name,
                                                                     rating: p.rating,
                                                                     ratingOrdinal: p.ratingOrdinal,
@@ -1289,9 +1312,15 @@ function AiTetsu(props) {
                 eventId: eventId,
                 onPlayerAdd: (function (player) {
                     setSessionPlayers(function (guests) {
-                          var newState = addGuestPlayer(guests, (function (__x) {
-                                    return Rating.Player.makeDefaultRatingPlayer(__x, "Male");
-                                  })(player.name));
+                          var maxIntId = Core__Array.reduce(allPlayers, 0, (function (max, p) {
+                                  if (p.intId > max) {
+                                    return p.intId;
+                                  } else {
+                                    return max;
+                                  }
+                                }));
+                          var nextIntId = maxIntId + 1 | 0;
+                          var newState = addGuestPlayer(guests, Rating.Player.makeDefaultRatingPlayer(player.name, "Male", nextIntId));
                           Rating.Players.savePlayers(newState, eventId);
                           return newState;
                         });

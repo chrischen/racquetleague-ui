@@ -444,7 +444,7 @@ let getPriorityPlayers = (
     deprioritized,
   }
 }
-let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node): option<
+let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node, intId: int): option<
   Player.t<'a>,
 > => {
   switch (rsvp.user->Option.map(u => u.id), rsvp.rating) {
@@ -466,6 +466,7 @@ let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node)
     {
       data: Some(rsvp),
       Player.id: userId,
+      intId,
       name: rsvp.user->Option.flatMap(u => u.lineUsername)->Option.getOr(""),
       ratingOrdinal: rating->Rating.ordinal,
       rating,
@@ -589,7 +590,8 @@ let make = (~event, ~children) => {
     | false =>
       data.rsvps
       ->Fragment.getConnectionNodes
-      ->Array.filterMap(rsvpToPlayer)
+      ->Array.mapWithIndex((rsvp, index) => (rsvp, index + 1))
+      ->Array.filterMap(((rsvp, intId)) => rsvpToPlayer(rsvp, intId))
       ->Array.concat(sessionPlayers)
     }
   } :> array<player>)
@@ -822,8 +824,9 @@ let make = (~event, ~children) => {
       let players =
         data.rsvps
         ->Fragment.getConnectionNodes
+        ->Array.mapWithIndex((rsvp, index) => (rsvp, index + 1))
         // ->Array.filterMap(rsvpToPlayerDefault)
-        ->Array.filterMap(rsvpToPlayer)
+        ->Array.filterMap(((rsvp, intId)) => rsvpToPlayer(rsvp, intId))
         ->Array.concat(sessionPlayers)
       setSessionPlayers(_ => players)
     }
@@ -1213,9 +1216,13 @@ let make = (~event, ~children) => {
                   eventId
                   onPlayerAdd={player => {
                     setSessionPlayers(guests => {
+                      let maxIntId = allPlayers->Array.reduce(0, (max, p) => 
+                        p.intId > max ? p.intId : max
+                      )
+                      let nextIntId = maxIntId + 1
                       let newState =
                         guests->addGuestPlayer(
-                          player.name->(Player.makeDefaultRatingPlayer(_, Male)),
+                          Player.makeDefaultRatingPlayer(player.name, Male, nextIntId),
                         )
                       newState->Players.savePlayers(eventId)
                       newState
@@ -1347,8 +1354,12 @@ let make = (~event, ~children) => {
             eventId
             onPlayerAdd={player => {
               setSessionPlayers(guests => {
+                let maxIntId = allPlayers->Array.reduce(0, (max, p) => 
+                  p.intId > max ? p.intId : max
+                )
+                let nextIntId = maxIntId + 1
                 let newState =
-                  guests->addGuestPlayer(player.name->(Player.makeDefaultRatingPlayer(_, Male)))
+                  guests->addGuestPlayer(Player.makeDefaultRatingPlayer(player.name, Male, nextIntId))
                 newState->Players.savePlayers(eventId)
                 newState
               })
