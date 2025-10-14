@@ -13,6 +13,7 @@ import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as MiniEventRsvp from "./MiniEventRsvp.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as AutocompleteUser from "./AutocompleteUser.re.mjs";
 import * as EventSignupButton from "../atoms/EventSignupButton.re.mjs";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -25,6 +26,7 @@ import * as EventMessages_query_graphql from "../../__generated__/EventMessages_
 import * as RSVPSectionJoinMutation_graphql from "../../__generated__/RSVPSectionJoinMutation_graphql.re.mjs";
 import * as RSVPSectionRefetchQuery_graphql from "../../__generated__/RSVPSectionRefetchQuery_graphql.re.mjs";
 import * as RSVPSectionLeaveMutation_graphql from "../../__generated__/RSVPSectionLeaveMutation_graphql.re.mjs";
+import * as RSVPSectionAddUserMutation_graphql from "../../__generated__/RSVPSectionAddUserMutation_graphql.re.mjs";
 import * as RSVPSectionCreateRatingMutation_graphql from "../../__generated__/RSVPSectionCreateRatingMutation_graphql.re.mjs";
 import * as RSVPSectionUpdateMessageMutation_graphql from "../../__generated__/RSVPSectionUpdateMessageMutation_graphql.re.mjs";
 
@@ -174,6 +176,26 @@ var RSVPSectionUpdateMessageMutation = {
   use: use$5
 };
 
+var convertVariables$4 = RSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+
+var convertResponse$4 = RSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$4 = RSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$4 = RescriptRelay_Mutation.commitMutation(convertVariables$4, RSVPSectionAddUserMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
+
+var use$6 = RescriptRelay_Mutation.useMutation(convertVariables$4, RSVPSectionAddUserMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
+
+var RSVPSectionAddUserMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$4,
+  convertResponse: convertResponse$4,
+  convertWrapRawResponse: convertWrapRawResponse$4,
+  commitMutation: commitMutation$4,
+  use: use$6
+};
+
 var sessionContext = AppContext.SessionContext;
 
 function isRestrictedRsvp(listType) {
@@ -277,8 +299,10 @@ function RSVPSection(props) {
   var loadNext = match$1.loadNext;
   var data = match$1.data;
   var match$2 = use($$event);
+  var viewerIsAdmin = match$2.viewerIsAdmin;
   var minRating = match$2.minRating;
   var maxRsvps = match$2.maxRsvps;
+  var club = match$2.club;
   var activity = match$2.activity;
   var __id = match$2.__id;
   var viewer = Core__Option.map(props.user, (function (user) {
@@ -291,6 +315,20 @@ function RSVPSection(props) {
   var commitMutationLeave = match$4[0];
   var match$5 = use$3();
   var commitMutationCreateRating = match$5[0];
+  var match$6 = use$6();
+  var commitMutationAddUser = match$6[0];
+  var handleAddUser = function (user) {
+    var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "RSVPSection_event_rsvps", undefined);
+    commitMutationAddUser({
+          connections: [connectionId],
+          eventId: data.id,
+          userId: user.id
+        }, undefined, undefined, undefined, (function (param, param$1) {
+            console.log("Successfully added user to event:", user);
+          }), (function (error) {
+            console.log("Error adding user to event:", error);
+          }), undefined);
+  };
   var isWaitlist = function (count) {
     return Core__Option.isSome(Core__Option.flatMap(maxRsvps, (function (max) {
                       if (count >= max) {
@@ -331,7 +369,7 @@ function RSVPSection(props) {
                     });
         }));
   var viewerHasRsvp = Core__Option.isSome(viewerRsvp);
-  var match$6 = Core__Option.getOr(Core__Option.map(viewerRsvp, (function (rsvp) {
+  var match$7 = Core__Option.getOr(Core__Option.map(viewerRsvp, (function (rsvp) {
               if (isRestrictedRsvp(rsvp.listType)) {
                 return [
                         false,
@@ -431,18 +469,18 @@ function RSVPSection(props) {
             return max;
           }
         }));
-  var match$7 = React.useState(function () {
+  var match$8 = React.useState(function () {
         return false;
       });
-  var setMobileExpanded = match$7[1];
-  var mobileExpanded = match$7[0];
+  var setMobileExpanded = match$8[1];
+  var mobileExpanded = match$8[0];
   var rsvpButtonStatus = viewer !== undefined ? (
-      match$6[1] ? ({
+      match$7[1] ? ({
             TAG: "Joined",
             _0: "Pending"
           }) : (
           viewerHasRsvp ? (
-              match$6[0] ? ({
+              match$7[0] ? ({
                     TAG: "Joined",
                     _0: "Waitlisted"
                   }) : ({
@@ -620,7 +658,22 @@ function RSVPSection(props) {
                                                                   return a.slug;
                                                                 })),
                                                           maxRating: maxRating
-                                                        })
+                                                        }),
+                                                    viewerIsAdmin ? Core__Option.getOr(Core__Option.map(club, (function (c) {
+                                                                  return JsxRuntime.jsxs("div", {
+                                                                              children: [
+                                                                                JsxRuntime.jsx("h3", {
+                                                                                      children: t`Add Member`,
+                                                                                      className: "text-sm font-medium text-gray-700 mb-2"
+                                                                                    }),
+                                                                                JsxRuntime.jsx(AutocompleteUser.make, {
+                                                                                      clubId: c.id,
+                                                                                      onSelected: handleAddUser
+                                                                                    })
+                                                                              ],
+                                                                              className: "mt-5"
+                                                                            });
+                                                                })), null) : null
                                                   ],
                                                   className: "max-h-[60vh] overflow-y-auto"
                                                 }),
@@ -698,6 +751,21 @@ function RSVPSection(props) {
                                         maxRating: maxRating,
                                         className: "mb-5"
                                       }),
+                                  viewerIsAdmin ? Core__Option.getOr(Core__Option.map(club, (function (c) {
+                                                return JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsx("h3", {
+                                                                    children: t`Add Member`,
+                                                                    className: "text-sm font-medium text-gray-700 mb-2"
+                                                                  }),
+                                                              JsxRuntime.jsx(AutocompleteUser.make, {
+                                                                    clubId: c.id,
+                                                                    onSelected: handleAddUser
+                                                                  })
+                                                            ],
+                                                            className: "mb-5"
+                                                          });
+                                              })), null) : null,
                                   match$1.hasNext || isLoadingNext ? JsxRuntime.jsx("div", {
                                           children: isLoadingNext ? JsxRuntime.jsx("span", {
                                                   children: t`Loading...`,
@@ -731,6 +799,7 @@ export {
   RSVPSectionCreateRatingMutation ,
   RSVPSectionLeaveMutation ,
   RSVPSectionUpdateMessageMutation ,
+  RSVPSectionAddUserMutation ,
   sessionContext ,
   isRestrictedRsvp ,
   ViewerStatusMessage ,

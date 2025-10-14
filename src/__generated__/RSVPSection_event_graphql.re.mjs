@@ -164,6 +164,18 @@ return {
       "storageKey": null
     },
     {
+      "alias": null,
+      "args": null,
+      "concreteType": "Club",
+      "kind": "LinkedField",
+      "name": "club",
+      "plural": false,
+      "selections": [
+        (v1/*: any*/)
+      ],
+      "storageKey": null
+    },
+    {
       "args": (v2/*: any*/),
       "kind": "FragmentSpread",
       "name": "RsvpWaitlist_event"

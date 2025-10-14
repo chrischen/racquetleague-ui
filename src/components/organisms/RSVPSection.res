@@ -20,6 +20,9 @@ module Fragment = %relay(`
     activity {
       slug
     }
+    club {
+      id
+    }
     ...RsvpWaitlist_event @arguments(after: $after, first: $first, before: $before)
     ...GoingRsvps_event @arguments(after: $after, first: $first, before: $before)
     ...PendingRsvps_event @arguments(after: $after, first: $first, before: $before)
@@ -125,6 +128,23 @@ module RSVPSectionUpdateMessageMutation = %relay(`
   }
 `)
 
+module RSVPSectionAddUserMutation = %relay(`
+ mutation RSVPSectionAddUserMutation($connections: [ID!]!, $eventId: ID!, $userId: ID!) {
+   addRsvpToEvent(eventId: $eventId, userId: $userId) {
+     edge @appendEdge(connections: $connections) {
+       node {
+         id
+         user {
+           id
+           lineUsername
+         }
+         listType
+       }
+     }
+   }
+ }
+`)
+
 @module("../layouts/appContext")
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
 
@@ -204,7 +224,7 @@ module ViewerStatusMessage = {
 let make = (~event, ~user) => {
   let (_isPending, startTransition) = ReactExperimental.useTransition()
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
-  let {__id, maxRsvps, minRating, activity} = Fragment.use(event)
+  let {__id, maxRsvps, minRating, activity, viewerIsAdmin, club} = Fragment.use(event)
   let viewer = user->Option.map(user => UserFragment.use(user))
   let rsvps = data.rsvps->Fragment.getConnectionNodes
 
@@ -212,11 +232,34 @@ let make = (~event, ~user) => {
   let (commitMutationJoin, _joinInFlight) = RSVPSectionJoinMutation.use()
   let (commitMutationLeave, _leaveInFlight) = RSVPSectionLeaveMutation.use()
   let (commitMutationCreateRating, _createRatingInFlight) = RSVPSectionCreateRatingMutation.use()
+  let (commitMutationAddUser, _addUserInFlight) = RSVPSectionAddUserMutation.use()
 
   let onLoadMore = _ =>
     startTransition(() => {
       loadNext(~count=80)->RescriptRelay.Disposable.ignore
     })
+
+  // Handler to add a user to the event
+  let handleAddUser = (user: AutocompleteUser.user) => {
+    let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+      __id,
+      "RSVPSection_event_rsvps",
+      None,
+    )
+    commitMutationAddUser(
+      ~variables={
+        connections: [connectionId],
+        eventId: data.id,
+        userId: user.id,
+      },
+      ~onCompleted=(_, _) => {
+        Js.log2("Successfully added user to event:", user)
+      },
+      ~onError=error => {
+        Js.log2("Error adding user to event:", error)
+      },
+    )->RescriptRelay.Disposable.ignore
+  }
 
   // Data processing - separate RSVPs by list type
   let isWaitlist = count => {
@@ -511,6 +554,16 @@ let make = (~event, ~user) => {
                   activitySlug=?{activity->Option.flatMap(a => a.slug)}
                   maxRating
                 />
+                {viewerIsAdmin
+                  ? club
+                    ->Option.map(c =>
+                      <div className="mt-5">
+                        <h3 className="text-sm font-medium text-gray-700 mb-2"> {t`Add Member`} </h3>
+                        <AutocompleteUser clubId={c.id} onSelected={handleAddUser} />
+                      </div>
+                    )
+                    ->Option.getOr(React.null)
+                  : React.null}
               </div>
               <button
                 onClick={_ => toggleMobileExpanded()}
@@ -559,6 +612,16 @@ let make = (~event, ~user) => {
           maxRating
           className=?Some("mb-5")
         />
+        {viewerIsAdmin
+          ? club
+            ->Option.map(c =>
+              <div className="mb-5">
+                <h3 className="text-sm font-medium text-gray-700 mb-2"> {t`Add Member`} </h3>
+                <AutocompleteUser clubId={c.id} onSelected={handleAddUser} />
+              </div>
+            )
+            ->Option.getOr(React.null)
+          : React.null}
         {hasNext || isLoadingNext
           ? <div className="mt-4 text-center">
               {isLoadingNext

@@ -55,6 +55,8 @@ var ChevronUp = {};
 
 var ChevronDown = {};
 
+var Search = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -83,5 +85,6 @@ export {
   Bell ,
   ChevronUp ,
   ChevronDown ,
+  Search ,
 }
 /* No side effect */

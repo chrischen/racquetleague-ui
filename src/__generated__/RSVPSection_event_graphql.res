@@ -7,6 +7,9 @@ module Types = {
   type rec fragment_activity = {
     slug: option<string>,
   }
+  and fragment_club = {
+    @live id: string,
+  }
   and fragment_rsvps_edges_node_rating = {
     mu: option<float>,
     ordinal: option<float>,
@@ -40,6 +43,7 @@ module Types = {
   type fragment = {
     @live __id: RescriptRelay.dataId,
     activity: option<fragment_activity>,
+    club: option<fragment_club>,
     @live id: string,
     maxRsvps: option<int>,
     minRating: option<float>,
@@ -227,6 +231,18 @@ return {
           "name": "slug",
           "storageKey": null
         }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Club",
+      "kind": "LinkedField",
+      "name": "club",
+      "plural": false,
+      "selections": [
+        (v1/*: any*/)
       ],
       "storageKey": null
     },
