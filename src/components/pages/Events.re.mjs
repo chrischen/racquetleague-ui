@@ -15,6 +15,7 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
 import * as EventsList from "../organisms/EventsList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as ViewerClubs from "../organisms/ViewerClubs.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core from "@linaria/core";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -100,6 +101,7 @@ function Events(props) {
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
   var fragmentRefs = match.fragmentRefs;
+  var viewer = match.viewer;
   var match$1 = ReactRouterDom.useSearchParams();
   var searchParams = match$1[0];
   var activityFilter = Router.SearchParams.get(searchParams, "activity");
@@ -128,10 +130,10 @@ function Events(props) {
                   return JsxRuntime.jsx(JsxRuntime.Fragment, {
                               children: Caml_option.some(JsxRuntime.jsx(EventsList.make, {
                                         events: fragmentRefs,
-                                        header: JsxRuntime.jsx(Layout.Container.make, {
-                                              children: JsxRuntime.jsxs(Grid.make, {
-                                                    children: [
-                                                      JsxRuntime.jsxs(PageTitle.make, {
+                                        header: JsxRuntime.jsxs(Layout.Container.make, {
+                                              children: [
+                                                JsxRuntime.jsx(Grid.make, {
+                                                      children: JsxRuntime.jsxs(PageTitle.make, {
                                                             children: [
                                                               title,
                                                               JsxRuntime.jsxs(React$1.Menu, {
@@ -149,8 +151,16 @@ function Events(props) {
                                                                     children: "+"
                                                                   })
                                                             ]
-                                                          }),
-                                                      JsxRuntime.jsx("div", {
+                                                          })
+                                                    }),
+                                                Core__Option.getOr(Core__Option.map(viewer, (function (viewer) {
+                                                            return JsxRuntime.jsx(ViewerClubs.make, {
+                                                                        viewer: viewer.fragmentRefs,
+                                                                        activitySlug: activityFilter
+                                                                      });
+                                                          })), null),
+                                                JsxRuntime.jsx(Grid.make, {
+                                                      children: JsxRuntime.jsx("div", {
                                                             children: JsxRuntime.jsxs(React$1.Switch.Group, {
                                                                   as: "div",
                                                                   className: "flex items-center",
@@ -185,8 +195,8 @@ function Events(props) {
                                                                   ]
                                                                 })
                                                           })
-                                                    ]
-                                                  })
+                                                    })
+                                              ]
                                             })
                                       }))
                             });

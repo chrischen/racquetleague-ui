@@ -17,16 +17,16 @@ msgstr ""
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SubmitMatch.re.mjs:390
+#: src/components/organisms/SubmitMatch.re.mjs:394
 msgid "Go Back"
 msgstr "戻る"
 
-#: src/components/organisms/SubmitMatch.re.mjs:409
+#: src/components/organisms/SubmitMatch.re.mjs:413
 msgid "Loading"
 msgstr "読み込み中"
 
 #: src/components/organisms/SubmitMatch.re.mjs:315
-#: src/components/organisms/SubmitMatch.re.mjs:359
+#: src/components/organisms/SubmitMatch.re.mjs:361
 msgid "Points"
 msgstr "何点"
 
@@ -35,12 +35,12 @@ msgstr "何点"
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/SubmitMatch.re.mjs:397
+#: src/components/organisms/SubmitMatch.re.mjs:401
 msgid "Submit Rated"
 msgstr "評価を提出"
 
-#: src/components/organisms/SubmitMatch.re.mjs:325
-#: src/components/organisms/SubmitMatch.re.mjs:369
+#: src/components/organisms/SubmitMatch.re.mjs:327
+#: src/components/organisms/SubmitMatch.re.mjs:373
 msgid "Winner"
 msgstr "勝者"
 

@@ -82,7 +82,7 @@ msgstr ""
 #~ msgid "Go Back"
 #~ msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+#: src/components/organisms/SortableSubmitMatch.re.mjs:453
 msgid "Loading"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:357
-#: src/components/organisms/SortableSubmitMatch.re.mjs:405
+#: src/components/organisms/SortableSubmitMatch.re.mjs:407
 msgid "Points"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Queue All"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+#: src/components/organisms/SortableSubmitMatch.re.mjs:443
 msgid "Save"
 msgstr ""
 
@@ -142,7 +142,7 @@ msgstr ""
 msgid "Unqueue All"
 msgstr ""
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:370
-#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+#: src/components/organisms/SortableSubmitMatch.re.mjs:372
+#: src/components/organisms/SortableSubmitMatch.re.mjs:422
 msgid "Winner"
 msgstr ""

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:394
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "...load past events"
 msgstr "...加载历史活动"
 
@@ -32,6 +32,10 @@ msgstr "[标题缺失]"
 #: src/components/organisms/EventsList.re.mjs:109
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
+
+#: src/components/organisms/EventsList.re.mjs:260
+msgid "{0} {hiddenCountDesc} hidden"
+msgstr "隐藏 {0} {hiddenCountDesc}"
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
@@ -57,10 +61,6 @@ msgstr "{0} 分钟"
 msgid "{0} minutes"
 msgstr "{0} 分钟"
 
-#: src/components/organisms/EventsList.re.mjs:231
-msgid "{0} private {shadowCountDesc} hidden"
-msgstr "{0} 个私人 {shadowCountDesc} 已隐藏"
-
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:112
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -70,19 +70,19 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "位球员"
 
-#: src/components/organisms/EventsList.re.mjs:200
-msgid "{shadowCount, plural, one {event} other {events}}"
-msgstr "活动"
+#: src/components/organisms/EventsList.re.mjs:229
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
+msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
 
 #: src/components/organisms/EventsList.re.mjs:118
 msgid "🚫 CANCELED"
 msgstr "🚫 已取消"
 
-#: src/components/organisms/EventsList.re.mjs:366
+#: src/components/organisms/EventsList.re.mjs:395
 msgid "clear filter"
 msgstr "清除筛选"
 
-#: src/components/organisms/EventsList.re.mjs:364
+#: src/components/organisms/EventsList.re.mjs:393
 msgid "filtering by date"
 msgstr "按日期筛选"
 
@@ -106,14 +106,32 @@ msgstr "待审核"
 msgid "players"
 msgstr "球员"
 
-#: src/components/organisms/EventsList.re.mjs:336
+#: src/components/organisms/EventsList.re.mjs:365
 msgid "share as text"
 msgstr "分享为文本"
 
-#: src/components/organisms/EventsList.re.mjs:239
+#: src/components/organisms/EventsList.re.mjs:268
 msgid "show"
 msgstr "显示"
 
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "等待列表"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "隐藏 {0} {hiddenCountDesc}"
+
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} 个私人 {shadowCountDesc} 已隐藏"
+
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "活动"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"

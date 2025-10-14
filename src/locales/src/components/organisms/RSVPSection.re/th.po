@@ -17,6 +17,11 @@ msgstr ""
 msgid "+{0} more"
 msgstr "+{0} คน"
 
+#: src/components/organisms/RSVPSection.re.mjs:666
+#: src/components/organisms/RSVPSection.re.mjs:758
+msgid "Add Member"
+msgstr "เพิ่มสมาชิก"
+
 #: src/components/organisms/RsvpOptions.re.mjs:115
 msgid "Approve RSVP"
 msgstr "อนุมัติ RSVP"
@@ -25,7 +30,7 @@ msgstr "อนุมัติ RSVP"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
-#: src/components/organisms/RSVPSection.re.mjs:629
+#: src/components/organisms/RSVPSection.re.mjs:683
 msgid "Collapse"
 msgstr "ย่อ"
 
@@ -41,11 +46,11 @@ msgstr "เข้าร่วมกิจกรรม"
 msgid "Join Waitlist"
 msgstr "เข้าร่วมรายชื่อคอย"
 
-#: src/components/organisms/RSVPSection.re.mjs:705
+#: src/components/organisms/RSVPSection.re.mjs:774
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
 
-#: src/components/organisms/RSVPSection.re.mjs:702
+#: src/components/organisms/RSVPSection.re.mjs:771
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -75,13 +80,13 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
-#: src/components/organisms/RSVPSection.re.mjs:392
+#: src/components/organisms/RSVPSection.re.mjs:430
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 
-#: src/components/organisms/RSVPSection.re.mjs:507
 #: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:651
+#: src/components/organisms/RSVPSection.re.mjs:584
+#: src/components/organisms/RSVPSection.re.mjs:705
 msgid "RSVP"
 msgstr "ยืนยันการเข้าร่วม"
 
@@ -89,7 +94,7 @@ msgstr "ยืนยันการเข้าร่วม"
 msgid "RSVP Pending..."
 msgstr "กำลังรอการอนุมัติ..."
 
-#: src/components/organisms/RSVPSection.re.mjs:238
+#: src/components/organisms/RSVPSection.re.mjs:260
 msgid "Save"
 msgstr "บันทึก"
 
@@ -118,8 +123,8 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/organisms/RSVPSection.re.mjs:222
-#: src/components/organisms/RSVPSection.re.mjs:223
+#: src/components/organisms/RSVPSection.re.mjs:244
+#: src/components/organisms/RSVPSection.re.mjs:245
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
@@ -144,7 +149,7 @@ msgstr "คุณจะไป"
 msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 
-#: src/components/organisms/RSVPSection.re.mjs:394
+#: src/components/organisms/RSVPSection.re.mjs:432
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

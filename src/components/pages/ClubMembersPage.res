@@ -101,10 +101,16 @@ module MemberItem = {
     | Some(member) =>
       <SwipeAction
         className="cursor-pointer border-b border-gray-200"
-        rightActions={
-          // Only show remove action if viewer is admin and member is not owner
-          viewerIsAdmin && !isOwner
-            ? <ConfirmButton
+        rightActions={viewerIsAdmin && !isOwner
+          ? <div className="flex gap-2">
+              {switch membership.status {
+              | Some(Pending) =>
+                <Button.Button color=#indigo onClick={_ => onApprove()}>
+                  {t`Approve`}
+                </Button.Button>
+              | _ => React.null
+              }}
+              <ConfirmButton
                 button={<Button.Button color=#red> {t`Remove`} </Button.Button>}
                 title={t`Remove member?`}
                 description={(
@@ -114,8 +120,8 @@ module MemberItem = {
                 )->React.string}
                 onConfirmed={_ => onRemove()}
               />
-            : React.null
-        }
+            </div>
+          : React.null}
         partialThreshold=120
         fullThreshold=260
         hoverPartialSide="right">
@@ -138,11 +144,6 @@ module MemberItem = {
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            {switch membership.status {
-            | Some(Pending) if viewerIsAdmin && !isOwner =>
-              <Button.Button color=#indigo onClick={_ => onApprove()}> {t`Approve`} </Button.Button>
-            | _ => React.null
-            }}
             {isOwner
               ? <span
                   className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">

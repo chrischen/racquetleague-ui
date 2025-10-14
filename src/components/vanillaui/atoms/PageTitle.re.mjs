@@ -11,7 +11,7 @@ function PageTitle(props) {
                         }),
                     className: "min-w-0 flex-1"
                   }),
-              className: "md:flex md:items-center md:justify-between"
+              className: "md:flex md:items-center md:justify-between mb-4"
             });
 }
 

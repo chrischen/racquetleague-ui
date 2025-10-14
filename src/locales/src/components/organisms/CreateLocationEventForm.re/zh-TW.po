@@ -99,7 +99,7 @@ msgstr ""
 "來自地點的任何詳細資料都已包含在內。請提及任何額外的活動特定指示、規則或詳細"
 "資料。"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "取消"
 
@@ -208,7 +208,7 @@ msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果將提交至競技評分。"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "儲存"
 

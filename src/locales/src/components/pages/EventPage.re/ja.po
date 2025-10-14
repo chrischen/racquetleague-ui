@@ -65,6 +65,11 @@ msgstr "{0}時間{1}分"
 msgid "+{0} more"
 msgstr "+{0}人他"
 
+#: src/components/organisms/RSVPSection.re.mjs:666
+#: src/components/organisms/RSVPSection.re.mjs:758
+msgid "Add Member"
+msgstr "メンバーを追加"
+
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
 msgstr "上級プレイヤー"
@@ -85,7 +90,7 @@ msgstr "イベントをキャンセル"
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/organisms/RSVPSection.re.mjs:629
+#: src/components/organisms/RSVPSection.re.mjs:683
 msgid "Collapse"
 msgstr "折りたたむ"
 
@@ -129,11 +134,11 @@ msgstr "参加しました"
 msgid "left the event"
 msgstr "離れました"
 
-#: src/components/organisms/RSVPSection.re.mjs:705
+#: src/components/organisms/RSVPSection.re.mjs:774
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/RSVPSection.re.mjs:702
+#: src/components/organisms/RSVPSection.re.mjs:771
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -192,7 +197,7 @@ msgstr "イベントから削除"
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
-#: src/components/organisms/RSVPSection.re.mjs:392
+#: src/components/organisms/RSVPSection.re.mjs:430
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
@@ -200,9 +205,9 @@ msgstr "必要レーティング: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/organisms/RSVPSection.re.mjs:507
 #: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:651
+#: src/components/organisms/RSVPSection.re.mjs:584
+#: src/components/organisms/RSVPSection.re.mjs:705
 msgid "RSVP"
 msgstr "参加申込"
 
@@ -210,7 +215,7 @@ msgstr "参加申込"
 msgid "RSVP Pending..."
 msgstr "参加申込 保留中..."
 
-#: src/components/organisms/RSVPSection.re.mjs:238
+#: src/components/organisms/RSVPSection.re.mjs:260
 msgid "Save"
 msgstr "保存"
 
@@ -258,8 +263,8 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/RSVPSection.re.mjs:222
-#: src/components/organisms/RSVPSection.re.mjs:223
+#: src/components/organisms/RSVPSection.re.mjs:244
+#: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
@@ -303,7 +308,7 @@ msgstr "参加中"
 msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 
-#: src/components/organisms/RSVPSection.re.mjs:394
+#: src/components/organisms/RSVPSection.re.mjs:432
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

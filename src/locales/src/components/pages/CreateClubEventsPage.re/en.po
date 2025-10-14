@@ -63,7 +63,7 @@ msgstr ""
 #~ msgid "bulk events"
 #~ msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "preview events"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr ""
 

@@ -21,7 +21,7 @@ msgstr "เกี่ยวกับ"
 msgid "add new club"
 msgstr "เพิ่มคลับใหม่"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "ยกเลิก"
 
@@ -49,7 +49,7 @@ msgstr "ชื่อ"
 msgid "name is required"
 msgstr "ต้องระบุชื่อ"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "บันทึก"
 

@@ -1953,4 +1953,19 @@ msgstr "移至待審核名單"
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要限制其報名嗎？"
+msgstr ""
+"此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
+"限制其報名嗎？"
+
+#: src/components/organisms/RSVPSection.re.mjs:666
+#: src/components/organisms/RSVPSection.re.mjs:758
+msgid "Add Member"
+msgstr "新增成員"
+
+#: src/components/organisms/EventsList.re.mjs:260
+msgid "隱藏 {0} {hiddenCountDesc}"
+msgstr "隱藏 {0} {hiddenCountDesc}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
+msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"

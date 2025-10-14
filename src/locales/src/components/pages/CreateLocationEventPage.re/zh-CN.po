@@ -97,7 +97,7 @@ msgid ""
 "additional event-specific instructions, rules, or details."
 msgstr "地点的详细信息已经包含。请提及任何额外的活动特定说明、规则或详情。"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "取消"
 
@@ -210,7 +210,7 @@ msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "保存"
 

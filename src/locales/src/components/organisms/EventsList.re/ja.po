@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:394
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
@@ -32,6 +32,10 @@ msgstr "[タイトルがありません]"
 #: src/components/organisms/EventsList.re.mjs:109
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
+
+#: src/components/organisms/EventsList.re.mjs:260
+msgid "{0} {hiddenCountDesc} hidden"
+msgstr "{0}5件の{hiddenCountDesc}非表示"
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
@@ -57,10 +61,6 @@ msgstr "{0}分"
 msgid "{0} minutes"
 msgstr "{0}分"
 
-#: src/components/organisms/EventsList.re.mjs:231
-msgid "{0} private {shadowCountDesc} hidden"
-msgstr "{0} プライベート {shadowCountDesc} 隠された"
-
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:112
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -70,19 +70,19 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventsList.re.mjs:200
-msgid "{shadowCount, plural, one {event} other {events}}"
-msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
+#: src/components/organisms/EventsList.re.mjs:229
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
+msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
 #: src/components/organisms/EventsList.re.mjs:118
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
-#: src/components/organisms/EventsList.re.mjs:366
+#: src/components/organisms/EventsList.re.mjs:395
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
-#: src/components/organisms/EventsList.re.mjs:364
+#: src/components/organisms/EventsList.re.mjs:393
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 
@@ -106,11 +106,11 @@ msgstr "保留中"
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/organisms/EventsList.re.mjs:336
+#: src/components/organisms/EventsList.re.mjs:365
 msgid "share as text"
 msgstr "テキストとして共有"
 
-#: src/components/organisms/EventsList.re.mjs:239
+#: src/components/organisms/EventsList.re.mjs:268
 msgid "show"
 msgstr "表示"
 
@@ -137,6 +137,24 @@ msgstr "ウェイトリスト"
 #: src/components/organisms/EventsList.re.mjs:638
 #~ msgid "Futsal"
 #~ msgstr "フットサル"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "{0}5件の{hiddenCountDesc}非表示"
+
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} プライベート {shadowCountDesc} 隠された"
+
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
 #: src/components/organisms/EventItem.re.mjs:469
 #~ msgid "details"

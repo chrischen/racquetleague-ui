@@ -558,7 +558,9 @@ let make = (~event, ~user) => {
                   ? club
                     ->Option.map(c =>
                       <div className="mt-5">
-                        <h3 className="text-sm font-medium text-gray-700 mb-2"> {t`Add Member`} </h3>
+                        <h3 className="text-sm font-medium text-gray-700 mb-2">
+                          {t`Add Member`}
+                        </h3>
                         <AutocompleteUser clubId={c.id} onSelected={handleAddUser} />
                       </div>
                     )

@@ -2272,3 +2272,28 @@ msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:666
+#: src/components/organisms/RSVPSection.re.mjs:758
+msgid "Add Member"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:260
+msgid "{0} {hiddenCountDesc} hidden"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:229
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
+msgstr ""
+
+#: src/components/organisms/ViewerClubs.re.mjs:98
+msgid "my clubs"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:260
+msgid "{0} {hiddenCountDesc}"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:229
+msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+msgstr ""

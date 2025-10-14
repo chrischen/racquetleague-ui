@@ -99,7 +99,7 @@ msgstr ""
 "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
 "細」があれば記載してください。"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -212,7 +212,7 @@ msgstr "競技レーティングやDUPRに提出されないレクリエーシ�
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "保存"
 

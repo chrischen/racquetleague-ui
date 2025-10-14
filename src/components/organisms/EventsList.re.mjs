@@ -194,10 +194,39 @@ function EventsList$Day(props) {
       });
   var setShowShadow = match[1];
   var showShadow = match[0];
+  var userClubIds = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(viewer, (function (v) {
+                  return v.clubs.edges;
+                })), (function (edges) {
+              return new Set(Core__Array.filterMap(Core__Array.filterMap(edges, (function (edge) {
+                                      return edge;
+                                    })), (function (edge) {
+                                  return edge.node;
+                                })).map(function (node) {
+                              return node.id;
+                            }));
+            })), new Set());
+  var hasClubs = userClubIds.size > 0;
+  var shouldHideEvent = function (edge) {
+    var isPrivate = Core__Option.getOr(edge.shadow, false);
+    var isFromNonMemberClub = viewer !== undefined && hasClubs ? Core__Option.getOr(Core__Option.map(edge.club, (function (club) {
+                  return !userClubIds.has(club.id);
+                })), false) : false;
+    if (isPrivate || isFromNonMemberClub) {
+      return !showShadow;
+    } else {
+      return false;
+    }
+  };
   var shadowCount = events.filter(function (edge) {
         return Core__Option.getOr(edge.shadow, false);
       }).length;
-  var shadowCountDesc = plural(shadowCount, {
+  var nonMemberClubCount = viewer !== undefined && hasClubs ? events.filter(function (edge) {
+          return Core__Option.getOr(Core__Option.map(edge.club, (function (club) {
+                            return !userClubIds.has(club.id);
+                          })), false);
+        }).length : 0;
+  var totalHiddenCount = shadowCount + nonMemberClubCount | 0;
+  var hiddenCountDesc = plural(totalHiddenCount, {
         one: "event",
         other: "events"
       });
@@ -208,7 +237,7 @@ function EventsList$Day(props) {
                                   return highlightedLocation === $$location.id;
                                 })), false);
                       var highlightedClass = highlighted ? "bg-yellow-100/35" : "";
-                      if (Core__Option.getOr(edge.shadow, false) && !showShadow) {
+                      if (shouldHideEvent(edge)) {
                         return null;
                       } else {
                         return JsxRuntime.jsx("li", {
@@ -225,10 +254,10 @@ function EventsList$Day(props) {
                                   }, edge.id);
                       }
                     }),
-                shadowCount > 0 && !showShadow ? JsxRuntime.jsx("li", {
+                totalHiddenCount > 0 && !showShadow ? JsxRuntime.jsx("li", {
                         children: JsxRuntime.jsxs("p", {
                               children: [
-                                t`${shadowCount.toString()} private ${shadowCountDesc} hidden`,
+                                t`${totalHiddenCount.toString()} ${hiddenCountDesc} hidden`,
                                 " ",
                                 JsxRuntime.jsx(UiAction.make, {
                                       onClick: (function (param) {

@@ -17,7 +17,7 @@ msgstr ""
 msgid "biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "ยกเลิก"
 
@@ -37,7 +37,7 @@ msgstr "ชื่อเต็ม"
 msgid "profile"
 msgstr "โปรไฟล์"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "บันทึก"
 

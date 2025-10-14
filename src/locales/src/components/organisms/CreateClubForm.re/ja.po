@@ -17,7 +17,7 @@ msgstr ""
 msgid "about"
 msgstr "約"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -41,7 +41,7 @@ msgstr "場所名"
 msgid "name is required"
 msgstr "場所名は必須"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "保存"
 

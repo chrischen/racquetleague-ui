@@ -39,7 +39,7 @@ module Types = {
   @live
   and response_updateEvent_rsvps = {
     @live id: string,
-    joinTime: option<int>,
+    joinTime: option<float>,
     listType: option<int>,
     rsvpId: option<int>,
   }

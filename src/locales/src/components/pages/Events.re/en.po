@@ -23,7 +23,7 @@ msgstr ""
 #~ msgid "Futsal"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:394
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "...load past events"
 msgstr ""
 
@@ -51,6 +51,14 @@ msgstr ""
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
+#: src/components/organisms/EventsList.re.mjs:260
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:260
+msgid "{0} {hiddenCountDesc} hidden"
+msgstr ""
+
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
 #: src/components/organisms/EventsList.re.mjs:105
@@ -76,8 +84,8 @@ msgid "{0} minutes"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:231
-msgid "{0} private {shadowCountDesc} hidden"
-msgstr ""
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:112
@@ -89,7 +97,15 @@ msgid "{playersCount, plural, one {player} other {players}}"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:200
-msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:229
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:229
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:118
@@ -100,12 +116,12 @@ msgstr ""
 #~ msgid "all"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:57
+#: src/components/pages/Events.re.mjs:58
 msgid "All"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:116
-#: src/components/pages/Events.re.mjs:119
+#: src/components/pages/Events.re.mjs:118
+#: src/components/pages/Events.re.mjs:121
 msgid "all events"
 msgstr ""
 
@@ -113,15 +129,15 @@ msgstr ""
 #~ msgid "badminton"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:66
+#: src/components/pages/Events.re.mjs:67
 msgid "Badminton"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:110
+#: src/components/pages/Events.re.mjs:112
 msgid "badminton events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:366
+#: src/components/organisms/EventsList.re.mjs:395
 msgid "clear filter"
 msgstr ""
 
@@ -133,11 +149,11 @@ msgstr ""
 #~ msgid "details"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:364
+#: src/components/organisms/EventsList.re.mjs:393
 msgid "filtering by date"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:179
+#: src/components/pages/Events.re.mjs:189
 msgid "include private"
 msgstr ""
 
@@ -169,6 +185,10 @@ msgstr ""
 #~ msgid "loading events..."
 #~ msgstr ""
 
+#: src/components/organisms/ViewerClubs.re.mjs:98
+msgid "my clubs"
+msgstr ""
+
 #: src/components/pages/Events.re.mjs:153
 #~ msgid "my events"
 #~ msgstr ""
@@ -181,11 +201,11 @@ msgstr ""
 #~ msgid "pickleball"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:61
+#: src/components/pages/Events.re.mjs:62
 msgid "Pickleball"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:113
+#: src/components/pages/Events.re.mjs:115
 msgid "pickleball events"
 msgstr ""
 
@@ -197,11 +217,11 @@ msgstr ""
 #~ msgid "public events"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:336
+#: src/components/organisms/EventsList.re.mjs:365
 msgid "share as text"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:239
+#: src/components/organisms/EventsList.re.mjs:268
 msgid "show"
 msgstr ""
 

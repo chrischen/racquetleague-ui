@@ -530,7 +530,7 @@ input RemoveUserFromClubInput {
 
 type Rsvp implements Node {
   id: ID!
-  joinTime: Int
+  joinTime: Float
   leaveDate: Datetime
   listType: Int
   message: String
@@ -605,6 +605,7 @@ type User implements Node {
 
 type Viewer {
   adminClubs(after: String, before: String, first: Int): ClubConnection!
+  clubs(after: String, before: String, first: Int): ClubConnection!
   events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
   profile: User
   subscriptions: [Subscription!]!

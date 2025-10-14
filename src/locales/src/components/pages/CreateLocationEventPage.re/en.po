@@ -115,7 +115,7 @@ msgstr ""
 #~ msgid "Any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
 #~ msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgstr ""
 #~ msgid "Results will be submitted to the JPL rating system and/or DUPR."
 #~ msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr ""
 

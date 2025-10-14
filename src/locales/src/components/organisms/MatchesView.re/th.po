@@ -66,7 +66,7 @@ msgstr "คอร์ต {0}: {team1} เทียบ {team2}"
 msgid "Enter Score"
 msgstr "ป้อนคะแนน"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+#: src/components/organisms/SortableSubmitMatch.re.mjs:453
 msgid "Loading"
 msgstr "กำลังโหลด"
 
@@ -75,7 +75,7 @@ msgid "Matches"
 msgstr "แมทช์"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:357
-#: src/components/organisms/SortableSubmitMatch.re.mjs:405
+#: src/components/organisms/SortableSubmitMatch.re.mjs:407
 msgid "Points"
 msgstr "คะแนน"
 
@@ -93,7 +93,7 @@ msgstr "คิว"
 msgid "Queue All"
 msgstr "จัดคิวทั้งหมด"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+#: src/components/organisms/SortableSubmitMatch.re.mjs:443
 msgid "Save"
 msgstr "บันทึก"
 
@@ -110,7 +110,7 @@ msgstr "ส่งผลลัพธ์"
 msgid "Unqueue All"
 msgstr "ยกเลิกคิวทั้งหมด"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:370
-#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+#: src/components/organisms/SortableSubmitMatch.re.mjs:372
+#: src/components/organisms/SortableSubmitMatch.re.mjs:422
 msgid "Winner"
 msgstr "ผู้ชนะ"

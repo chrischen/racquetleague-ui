@@ -21,11 +21,11 @@ msgstr ""
 #~ msgid "Are you sure you want to remove"
 #~ msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:177
+#: src/components/pages/ClubMembersPage.re.mjs:179
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:422
+#: src/components/pages/ClubMembersPage.re.mjs:432
 msgid "club not found"
 msgstr ""
 
@@ -33,22 +33,22 @@ msgstr ""
 #~ msgid "from the club?"
 #~ msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:402
+#: src/components/pages/ClubMembersPage.re.mjs:412
 msgid "Members"
 msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:351
+#: src/components/pages/ClubMembersPage.re.mjs:361
 msgid "No members found"
 msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:326
+#: src/components/pages/ClubMembersPage.re.mjs:336
 msgid "Pending"
 msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:174
+#: src/components/pages/ClubMembersPage.re.mjs:176
 msgid "Remove"
 msgstr ""
 
-#: src/components/pages/ClubMembersPage.re.mjs:176
+#: src/components/pages/ClubMembersPage.re.mjs:178
 msgid "Remove member?"
 msgstr ""

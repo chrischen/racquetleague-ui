@@ -4,7 +4,10 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_events_edges_node_location = {
+  type rec fragment_events_edges_node_club = {
+    @live id: string,
+  }
+  and fragment_events_edges_node_location = {
     @live id: string,
   }
   and fragment_events_edges_node_rsvps_edges_node = {
@@ -18,6 +21,7 @@ module Types = {
     edges: option<array<option<fragment_events_edges_node_rsvps_edges>>>,
   }
   and fragment_events_edges_node = {
+    club: option<fragment_events_edges_node_club>,
     @live id: string,
     listed: option<bool>,
     location: option<fragment_events_edges_node_location>,
@@ -41,10 +45,20 @@ module Types = {
     pageInfo: fragment_events_pageInfo,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #PinMap_eventConnection]>,
   }
+  and fragment_viewer_clubs_edges_node = {
+    @live id: string,
+  }
+  and fragment_viewer_clubs_edges = {
+    node: option<fragment_viewer_clubs_edges_node>,
+  }
+  and fragment_viewer_clubs = {
+    edges: option<array<option<fragment_viewer_clubs_edges>>>,
+  }
   and fragment_viewer_user = {
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventItem_user]>,
   }
   and fragment_viewer = {
+    clubs: fragment_viewer_clubs,
     user: option<fragment_viewer_user>,
   }
   type fragment = {
@@ -120,13 +134,23 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
 var v0 = [
   "events"
 ],
-v1 = {
+v1 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 100
+  }
+],
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
-};
+},
+v3 = [
+  (v2/*: any*/)
+];
 return {
   "argumentDefinitions": [
     {
@@ -203,6 +227,38 @@ return {
             }
           ],
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": (v1/*: any*/),
+          "concreteType": "ClubConnection",
+          "kind": "LinkedField",
+          "name": "clubs",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "ClubEdge",
+              "kind": "LinkedField",
+              "name": "edges",
+              "plural": true,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "Club",
+                  "kind": "LinkedField",
+                  "name": "node",
+                  "plural": false,
+                  "selections": (v3/*: any*/),
+                  "storageKey": null
+                }
+              ],
+              "storageKey": null
+            }
+          ],
+          "storageKey": "clubs(first:100)"
         }
       ],
       "storageKey": null
@@ -242,7 +298,7 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                (v1/*: any*/),
+                (v2/*: any*/),
                 {
                   "alias": null,
                   "args": null,
@@ -264,9 +320,7 @@ return {
                   "kind": "LinkedField",
                   "name": "location",
                   "plural": false,
-                  "selections": [
-                    (v1/*: any*/)
-                  ],
+                  "selections": (v3/*: any*/),
                   "storageKey": null
                 },
                 {
@@ -285,13 +339,17 @@ return {
                 },
                 {
                   "alias": null,
-                  "args": [
-                    {
-                      "kind": "Literal",
-                      "name": "first",
-                      "value": 100
-                    }
-                  ],
+                  "args": null,
+                  "concreteType": "Club",
+                  "kind": "LinkedField",
+                  "name": "club",
+                  "plural": false,
+                  "selections": (v3/*: any*/),
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": (v1/*: any*/),
                   "concreteType": "EventRsvpConnection",
                   "kind": "LinkedField",
                   "name": "rsvps",
@@ -313,7 +371,7 @@ return {
                           "name": "node",
                           "plural": false,
                           "selections": [
-                            (v1/*: any*/),
+                            (v2/*: any*/),
                             {
                               "alias": null,
                               "args": null,

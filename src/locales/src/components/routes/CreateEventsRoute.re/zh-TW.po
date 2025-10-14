@@ -21,7 +21,7 @@ msgstr "關於"
 msgid "add new club"
 msgstr "新增俱樂部"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "取消"
 
@@ -49,7 +49,7 @@ msgstr "名稱"
 msgid "name is required"
 msgstr "名稱是必填項目"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "儲存"
 

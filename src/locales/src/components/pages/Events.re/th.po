@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:394
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "...load past events"
 msgstr "...โหลดกิจกรรมที่ผ่านมา"
 
@@ -32,6 +32,10 @@ msgstr "[ไม่มีหัวข้อ]"
 #: src/components/organisms/EventsList.re.mjs:109
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
+
+#: src/components/organisms/EventsList.re.mjs:260
+msgid "{0} {hiddenCountDesc} hidden"
+msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
@@ -57,10 +61,6 @@ msgstr "{0} นาที"
 msgid "{0} minutes"
 msgstr "{0} นาที"
 
-#: src/components/organisms/EventsList.re.mjs:231
-msgid "{0} private {shadowCountDesc} hidden"
-msgstr "{0} ส่วนตัว {shadowCountDesc} ถูกซ่อน"
-
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:112
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -70,40 +70,40 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/EventsList.re.mjs:200
-msgid "{shadowCount, plural, one {event} other {events}}"
-msgstr "กิจกรรม"
+#: src/components/organisms/EventsList.re.mjs:229
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
+msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
 
 #: src/components/organisms/EventsList.re.mjs:118
 msgid "🚫 CANCELED"
 msgstr "🚫 ยกเลิก"
 
-#: src/components/pages/Events.re.mjs:57
+#: src/components/pages/Events.re.mjs:58
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: src/components/pages/Events.re.mjs:116
-#: src/components/pages/Events.re.mjs:119
+#: src/components/pages/Events.re.mjs:118
+#: src/components/pages/Events.re.mjs:121
 msgid "all events"
 msgstr "กิจกรรมทั้งหมด"
 
-#: src/components/pages/Events.re.mjs:66
+#: src/components/pages/Events.re.mjs:67
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
-#: src/components/pages/Events.re.mjs:110
+#: src/components/pages/Events.re.mjs:112
 msgid "badminton events"
 msgstr "กิจกรรมแบดมินตัน"
 
-#: src/components/organisms/EventsList.re.mjs:366
+#: src/components/organisms/EventsList.re.mjs:395
 msgid "clear filter"
 msgstr "ล้างตัวกรอง"
 
-#: src/components/organisms/EventsList.re.mjs:364
+#: src/components/organisms/EventsList.re.mjs:393
 msgid "filtering by date"
 msgstr "กรองตามวันที่"
 
-#: src/components/pages/Events.re.mjs:179
+#: src/components/pages/Events.re.mjs:189
 msgid "include private"
 msgstr "รวมกิจกรรมส่วนตัว"
 
@@ -119,15 +119,19 @@ msgstr "เข้าร่วมแล้ว"
 msgid "leave event"
 msgstr "ออกจากกิจกรรม"
 
+#: src/components/organisms/ViewerClubs.re.mjs:98
+msgid "my clubs"
+msgstr "คลับของฉัน"
+
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/pages/Events.re.mjs:61
+#: src/components/pages/Events.re.mjs:62
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
-#: src/components/pages/Events.re.mjs:113
+#: src/components/pages/Events.re.mjs:115
 msgid "pickleball events"
 msgstr "กิจกรรมพิคเคิลบอล"
 
@@ -135,14 +139,32 @@ msgstr "กิจกรรมพิคเคิลบอล"
 msgid "players"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/EventsList.re.mjs:336
+#: src/components/organisms/EventsList.re.mjs:365
 msgid "share as text"
 msgstr "แชร์เป็นข้อความ"
 
-#: src/components/organisms/EventsList.re.mjs:239
+#: src/components/organisms/EventsList.re.mjs:268
 msgid "show"
 msgstr "แสดง"
 
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "รายชื่อคอย"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
+
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} ส่วนตัว {shadowCountDesc} ถูกซ่อน"
+
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "กิจกรรม"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"

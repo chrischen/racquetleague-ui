@@ -21,12 +21,12 @@ msgstr "取消"
 msgid "Enter Score"
 msgstr "輸入分數"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+#: src/components/organisms/SortableSubmitMatch.re.mjs:453
 msgid "Loading"
 msgstr "載入中"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:357
-#: src/components/organisms/SortableSubmitMatch.re.mjs:405
+#: src/components/organisms/SortableSubmitMatch.re.mjs:407
 msgid "Points"
 msgstr "分數"
 
@@ -35,11 +35,11 @@ msgstr "分數"
 msgid "predicted winner"
 msgstr "預測勝者"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+#: src/components/organisms/SortableSubmitMatch.re.mjs:443
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:370
-#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+#: src/components/organisms/SortableSubmitMatch.re.mjs:372
+#: src/components/organisms/SortableSubmitMatch.re.mjs:422
 msgid "Winner"
 msgstr "勝者"

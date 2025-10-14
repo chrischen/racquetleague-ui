@@ -59,7 +59,7 @@ msgstr "活動"
 msgid "activity is required"
 msgstr "活動是必填項目"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "取消"
 
@@ -91,7 +91,7 @@ msgstr "載入中..."
 msgid "preview events"
 msgstr "預覽活動"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "儲存"
 

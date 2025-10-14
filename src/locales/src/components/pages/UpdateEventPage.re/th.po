@@ -99,7 +99,7 @@ msgstr ""
 "รายละเอียดใดๆ จากสถานที่จะถูกรวมไว้แล้ว ระบุ คำแนะนำ กฎ "
 "หรือรายละเอียดเพิ่มเติมเฉพาะกิจกรรม"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "ยกเลิก"
 
@@ -224,7 +224,7 @@ msgstr "การเล่นเพื่อความบันเทิงท
 msgid "Results will be submitted to competitive ratings."
 msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "บันทึก"
 

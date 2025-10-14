@@ -58,13 +58,23 @@ function makeNode(rescript_graphql_node_EventsListRefetchQuery) {
 var v0 = [
   "events"
 ],
-v1 = {
+v1 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 100
+  }
+],
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
-};
+},
+v3 = [
+  (v2/*: any*/)
+];
 return {
   "argumentDefinitions": [
     {
@@ -141,6 +151,38 @@ return {
             }
           ],
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": (v1/*: any*/),
+          "concreteType": "ClubConnection",
+          "kind": "LinkedField",
+          "name": "clubs",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "ClubEdge",
+              "kind": "LinkedField",
+              "name": "edges",
+              "plural": true,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "Club",
+                  "kind": "LinkedField",
+                  "name": "node",
+                  "plural": false,
+                  "selections": (v3/*: any*/),
+                  "storageKey": null
+                }
+              ],
+              "storageKey": null
+            }
+          ],
+          "storageKey": "clubs(first:100)"
         }
       ],
       "storageKey": null
@@ -180,7 +222,7 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                (v1/*: any*/),
+                (v2/*: any*/),
                 {
                   "alias": null,
                   "args": null,
@@ -202,9 +244,7 @@ return {
                   "kind": "LinkedField",
                   "name": "location",
                   "plural": false,
-                  "selections": [
-                    (v1/*: any*/)
-                  ],
+                  "selections": (v3/*: any*/),
                   "storageKey": null
                 },
                 {
@@ -223,13 +263,17 @@ return {
                 },
                 {
                   "alias": null,
-                  "args": [
-                    {
-                      "kind": "Literal",
-                      "name": "first",
-                      "value": 100
-                    }
-                  ],
+                  "args": null,
+                  "concreteType": "Club",
+                  "kind": "LinkedField",
+                  "name": "club",
+                  "plural": false,
+                  "selections": (v3/*: any*/),
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": (v1/*: any*/),
                   "concreteType": "EventRsvpConnection",
                   "kind": "LinkedField",
                   "name": "rsvps",
@@ -251,7 +295,7 @@ return {
                           "name": "node",
                           "plural": false,
                           "selections": [
-                            (v1/*: any*/),
+                            (v2/*: any*/),
                             {
                               "alias": null,
                               "args": null,

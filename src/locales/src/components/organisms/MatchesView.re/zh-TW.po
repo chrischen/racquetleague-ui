@@ -66,7 +66,7 @@ msgstr "球場 {0}: {team1} 對戰 {team2}"
 msgid "Enter Score"
 msgstr "輸入分數"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+#: src/components/organisms/SortableSubmitMatch.re.mjs:453
 msgid "Loading"
 msgstr "載入中"
 
@@ -75,7 +75,7 @@ msgid "Matches"
 msgstr "比賽"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:357
-#: src/components/organisms/SortableSubmitMatch.re.mjs:405
+#: src/components/organisms/SortableSubmitMatch.re.mjs:407
 msgid "Points"
 msgstr "分數"
 
@@ -93,7 +93,7 @@ msgstr "隊列"
 msgid "Queue All"
 msgstr "全部入隊"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+#: src/components/organisms/SortableSubmitMatch.re.mjs:443
 msgid "Save"
 msgstr "儲存"
 
@@ -110,7 +110,7 @@ msgstr "提交結果"
 msgid "Unqueue All"
 msgstr "全部移出隊列"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:370
-#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+#: src/components/organisms/SortableSubmitMatch.re.mjs:372
+#: src/components/organisms/SortableSubmitMatch.re.mjs:422
 msgid "Winner"
 msgstr "勝者"

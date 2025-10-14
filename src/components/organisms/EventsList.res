@@ -18,6 +18,13 @@ module Fragment = %relay(`
       user {
         ...EventItem_user
       }
+      clubs(first: 100) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
     }
     events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
     @connection(key: "EventsListFragment_events") {
@@ -31,6 +38,9 @@ module Fragment = %relay(`
           }
           shadow
           listed
+          club {
+            id
+          }
           rsvps(first: 100) {
             edges {
               node {
@@ -320,8 +330,58 @@ module Day = {
     ~viewer: option<EventsListFragment_graphql.Types.fragment_viewer>,
   ) => {
     let (showShadow, setShowShadow) = React.useState(() => false)
+
+    // Get the user's club IDs
+    let userClubIds =
+      viewer
+      ->Option.flatMap(v => v.clubs.edges)
+      ->Option.map(edges =>
+        edges
+        ->Array.filterMap(edge => edge)
+        ->Array.filterMap(edge => edge.node)
+        ->Array.map(node => node.id)
+        ->Set.fromArray
+      )
+      ->Option.getOr(Set.make())
+
+    // Check if user has any clubs
+    let hasClubs = Set.size(userClubIds) > 0
+
+    // Helper function to check if event should be hidden
+    let shouldHideEvent = (edge: EventsListFragment_graphql.Types.fragment_events_edges_node) => {
+      let isPrivate = edge.shadow->Option.getOr(false)
+
+      // Only check non-member club filtering if viewer exists AND has clubs
+      let isFromNonMemberClub = switch viewer {
+      | None => false // Not logged in, show all public events
+      | Some(_) if !hasClubs => false // Logged in but no clubs, show all public events
+      | Some(_) =>
+        edge.club
+        ->Option.map(club => !Set.has(userClubIds, club.id))
+        ->Option.getOr(false)
+      }
+
+      (isPrivate || isFromNonMemberClub) && !showShadow
+    }
+
     let shadowCount = events->Array.filter(edge => edge.shadow->Option.getOr(false))->Array.length
-    let shadowCountDesc = Lingui.UtilString.plural(shadowCount, {one: "event", other: "events"})
+    let nonMemberClubCount = switch viewer {
+    | None => 0 // Not logged in, don't count non-member events
+    | Some(_) if !hasClubs => 0 // Logged in but no clubs, don't count non-member events
+    | Some(_) =>
+      events
+      ->Array.filter(edge =>
+        edge.club
+        ->Option.map(club => !Set.has(userClubIds, club.id))
+        ->Option.getOr(false)
+      )
+      ->Array.length
+    }
+    let totalHiddenCount = shadowCount + nonMemberClubCount
+    let hiddenCountDesc = Lingui.UtilString.plural(
+      totalHiddenCount,
+      {one: "event", other: "events"},
+    )
     <>
       {events
       ->Array.map(edge => {
@@ -333,7 +393,7 @@ module Day = {
         let highlightedClass = highlighted ? "bg-yellow-100/35" : ""
 
         {
-          edge.shadow->Option.getOr(false) && !showShadow
+          shouldHideEvent(edge)
             ? React.null
             : <li key=edge.id className=highlightedClass id={highlighted ? "highlighted" : ""}>
                 // <UiAction
@@ -352,10 +412,10 @@ module Day = {
         }
       })
       ->React.array}
-      {shadowCount > 0 && !showShadow
+      {totalHiddenCount > 0 && !showShadow
         ? <li>
             <p className="text-gray-700 p-3 italic ml-6">
-              {t`${shadowCount->Int.toString} private ${shadowCountDesc} hidden`}
+              {t`${totalHiddenCount->Int.toString} ${hiddenCountDesc} hidden`}
               {" "->React.string}
               <UiAction onClick={_ => setShowShadow(_ => true)}> {t`show`} </UiAction>
             </p>

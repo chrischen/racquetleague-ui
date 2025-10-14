@@ -4,6 +4,9 @@ open Lingui.Util
 
 module EventsQuery = %relay(`
   query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
+    viewer {
+      ...ViewerClubs_viewer
+    }
     ... EventsListFragment @arguments(
       after: $after,
       first: $first,
@@ -67,7 +70,7 @@ let make = () => {
   open Dropdown
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
-  let {fragmentRefs} = EventsQuery.usePreloaded(~queryRef=query.data)
+  let {fragmentRefs, viewer} = EventsQuery.usePreloaded(~queryRef=query.data)
   let (searchParams, _) = Router.useSearchParamsFunc()
   let activityFilter = searchParams->Router.SearchParams.get("activity")
   let title = switch activityFilter {
@@ -103,6 +106,13 @@ let make = () => {
                 {" "->React.string}
                 <Link to="/events/create"> {"+"->React.string} </Link>
               </PageTitle>
+            </Grid>
+            {viewer
+            ->Option.map(viewer =>
+              <ViewerClubs viewer={viewer.fragmentRefs} activitySlug=?activityFilter />
+            )
+            ->Option.getOr(React.null)}
+            <Grid>
               <div>
                 <HeadlessUi.Switch.Group \"as"="div" className="flex items-center">
                   <HeadlessUi.Switch

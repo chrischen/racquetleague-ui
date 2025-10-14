@@ -149,7 +149,6 @@ var UpdateMembershipStatusMutation = {
 function ClubMembersPage$MemberItem(props) {
   var onApprove = props.onApprove;
   var onRemove = props.onRemove;
-  var viewerIsAdmin = props.viewerIsAdmin;
   var membership = props.membership;
   var isAdmin = Core__Option.getOr(membership.isAdmin, false);
   var isOwner = Core__Option.getOr(membership.isOwner, false);
@@ -157,28 +156,40 @@ function ClubMembersPage$MemberItem(props) {
   if (member === undefined) {
     return null;
   }
-  var username = member.lineUsername;
-  var match = membership.status;
   var tmp;
-  tmp = match !== undefined && (match === "Pending" || match === "Active" || match === "Rejected") && match === "Pending" && viewerIsAdmin && !isOwner ? JsxRuntime.jsx(Button.Button.make, {
-          color: "indigo",
-          children: t`Approve`,
-          onClick: (function (param) {
-              onApprove();
-            })
-        }) : null;
+  if (props.viewerIsAdmin && !isOwner) {
+    var match = membership.status;
+    var tmp$1;
+    tmp$1 = match !== undefined && (match === "Pending" || match === "Active" || match === "Rejected") && match === "Pending" ? JsxRuntime.jsx(Button.Button.make, {
+            color: "indigo",
+            children: t`Approve`,
+            onClick: (function (param) {
+                onApprove();
+              })
+          }) : null;
+    tmp = JsxRuntime.jsxs("div", {
+          children: [
+            tmp$1,
+            JsxRuntime.jsx(ConfirmButton.make, {
+                  button: JsxRuntime.jsx(Button.Button.make, {
+                        color: "red",
+                        children: t`Remove`
+                      }),
+                  title: t`Remove member?`,
+                  description: t`Are you sure you want to remove ${Core__Option.getOr(member.fullName, "this member")} from the club?`,
+                  onConfirmed: (function () {
+                      onRemove();
+                    })
+                })
+          ],
+          className: "flex gap-2"
+        });
+  } else {
+    tmp = null;
+  }
+  var username = member.lineUsername;
   return JsxRuntime.jsx(SwipeAction.make, {
-              rightActions: Caml_option.some(viewerIsAdmin && !isOwner ? JsxRuntime.jsx(ConfirmButton.make, {
-                          button: JsxRuntime.jsx(Button.Button.make, {
-                                color: "red",
-                                children: t`Remove`
-                              }),
-                          title: t`Remove member?`,
-                          description: t`Are you sure you want to remove ${Core__Option.getOr(member.fullName, "this member")} from the club?`,
-                          onConfirmed: (function () {
-                              onRemove();
-                            })
-                        }) : null),
+              rightActions: Caml_option.some(tmp),
               partialThreshold: 120,
               fullThreshold: 260,
               className: "cursor-pointer border-b border-gray-200",
@@ -209,7 +220,6 @@ function ClubMembersPage$MemberItem(props) {
                           }),
                       JsxRuntime.jsxs("div", {
                             children: [
-                              tmp,
                               isOwner ? JsxRuntime.jsx("span", {
                                       children: "Owner",
                                       className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800"

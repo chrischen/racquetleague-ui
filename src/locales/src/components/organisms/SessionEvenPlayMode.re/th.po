@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/forms/Form.re.mjs:300
+#: src/components/molecules/forms/Form.re.mjs:304
 msgid "cancel"
 msgstr "ยกเลิก"
 
@@ -21,7 +21,7 @@ msgstr "ยกเลิก"
 msgid "How many players should rest? (currently {0} players are resting)"
 msgstr "ผู้เล่นกี่คนควรพัก? (ปัจจุบันมีผู้เล่น {0} คนกำลังพัก)"
 
-#: src/components/molecules/forms/Form.re.mjs:307
+#: src/components/molecules/forms/Form.re.mjs:311
 msgid "save"
 msgstr "บันทึก"
 

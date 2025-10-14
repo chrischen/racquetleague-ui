@@ -66,7 +66,7 @@ msgstr "コート {0}: {team1} 対 {team2}"
 msgid "Enter Score"
 msgstr "スコアを入力"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+#: src/components/organisms/SortableSubmitMatch.re.mjs:453
 msgid "Loading"
 msgstr "読み込み中"
 
@@ -75,7 +75,7 @@ msgid "Matches"
 msgstr "試合"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:357
-#: src/components/organisms/SortableSubmitMatch.re.mjs:405
+#: src/components/organisms/SortableSubmitMatch.re.mjs:407
 msgid "Points"
 msgstr "何点"
 
@@ -93,7 +93,7 @@ msgstr "キュー"
 msgid "Queue All"
 msgstr "すべてキューに入れる"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+#: src/components/organisms/SortableSubmitMatch.re.mjs:443
 msgid "Save"
 msgstr "保存"
 
@@ -110,8 +110,8 @@ msgstr "結果を提出"
 msgid "Unqueue All"
 msgstr "すべてのキューを解除"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:370
-#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+#: src/components/organisms/SortableSubmitMatch.re.mjs:372
+#: src/components/organisms/SortableSubmitMatch.re.mjs:422
 msgid "Winner"
 msgstr "勝者"
 

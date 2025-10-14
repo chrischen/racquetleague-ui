@@ -2306,7 +2306,22 @@ msgstr "保留リストに移動"
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は失われます。本当にこのユーザーの参加申込を制限しますか？"
+msgstr ""
+"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
+"失われます。本当にこのユーザーの参加申込を制限しますか？"
+
+#: src/components/organisms/RSVPSection.re.mjs:666
+#: src/components/organisms/RSVPSection.re.mjs:758
+msgid "Add Member"
+msgstr "メンバーを追加"
+
+#: src/components/organisms/EventsList.re.mjs:260
+msgid "{0} {hiddenCountDesc} hidden"
+msgstr "{0}5件の{hiddenCountDesc}非表示"
+
+#: src/components/organisms/EventsList.re.mjs:229
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
+msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
