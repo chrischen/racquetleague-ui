@@ -82,7 +82,7 @@ msgstr "添加成员"
 msgid "Advanced players"
 msgstr "高级球员"
 
-#: src/components/molecules/AddToCalendar.re.mjs:29
+#: src/components/molecules/AddToCalendar.re.mjs:30
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -134,7 +134,7 @@ msgstr "将参加"
 msgid "good luck, have fun"
 msgstr "好运，玩得开心"
 
-#: src/components/molecules/AddToCalendar.re.mjs:34
+#: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
 msgstr "谷歌日历"
 
@@ -307,7 +307,7 @@ msgstr "提交比赛结果"
 msgid "subscribe to all {activityName} events"
 msgstr "订阅所有 {activityName} 活动"
 
-#: src/components/molecules/AddToCalendar.re.mjs:87
+#: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
 msgstr "同步日历"
 

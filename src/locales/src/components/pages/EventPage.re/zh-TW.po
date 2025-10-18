@@ -53,11 +53,11 @@ msgstr "休閒"
 msgid "all level"
 msgstr "所有等級"
 
-#: src/components/organisms/EventHeader.re.mjs:53
+#: src/components/organisms/EventHeader.re.mjs:54
 msgid "{0} hours"
 msgstr "{0} 小時"
 
-#: src/components/organisms/EventHeader.re.mjs:55
+#: src/components/organisms/EventHeader.re.mjs:56
 msgid "{0} hours and {1} minutes"
 msgstr "{0} 小時 {1} 分鐘"
 
@@ -74,6 +74,10 @@ msgstr "新增成員"
 msgid "Advanced players"
 msgstr "進階球員"
 
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
 #: src/components/organisms/RsvpOptions.re.mjs:115
 msgid "Approve RSVP"
 msgstr "批准報名"
@@ -86,7 +90,7 @@ msgstr "您確定要將此人從活動中移除嗎？"
 msgid "cancel event"
 msgstr "取消活動"
 
-#: src/components/organisms/EventHeader.re.mjs:78
+#: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr "已取消"
 
@@ -109,6 +113,10 @@ msgstr "活動標籤：{tag}"
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
 msgstr "參加"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google 日曆"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "Highly skilled players"
@@ -239,6 +247,10 @@ msgstr "技能練習和訓練，專注於技術改進"
 msgid "Status message"
 msgstr "狀態訊息"
 
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "同步日曆"
+
 #: src/components/atoms/EventSignupButton.re.mjs:89
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
@@ -273,11 +285,11 @@ msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」�
 msgid "uncancel event"
 msgstr "取消取消活動"
 
-#: src/components/organisms/EventHeader.re.mjs:116
+#: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"
 msgstr "未知俱樂部"
 
-#: src/components/organisms/EventHeader.re.mjs:236
+#: src/components/organisms/EventHeader.re.mjs:243
 msgid "Unknown location"
 msgstr "未知地點"
 

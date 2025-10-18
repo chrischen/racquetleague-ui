@@ -53,11 +53,11 @@ msgstr "บันเทิง"
 msgid "all level"
 msgstr "ทุกระดับ"
 
-#: src/components/organisms/EventHeader.re.mjs:53
+#: src/components/organisms/EventHeader.re.mjs:54
 msgid "{0} hours"
 msgstr "{0} ชั่วโมง"
 
-#: src/components/organisms/EventHeader.re.mjs:55
+#: src/components/organisms/EventHeader.re.mjs:56
 msgid "{0} hours and {1} minutes"
 msgstr "{0} ชั่วโมง {1} นาที"
 
@@ -74,6 +74,10 @@ msgstr "เพิ่มสมาชิก"
 msgid "Advanced players"
 msgstr "ผู้เล่นระดับสูง"
 
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
 #: src/components/organisms/RsvpOptions.re.mjs:115
 msgid "Approve RSVP"
 msgstr "อนุมัติ RSVP"
@@ -86,7 +90,7 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 msgid "cancel event"
 msgstr "ยกเลิกกิจกรรม"
 
-#: src/components/organisms/EventHeader.re.mjs:78
+#: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
@@ -109,6 +113,10 @@ msgstr "แท็กกิจกรรม: {tag}"
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
 msgstr "จะไป"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google Calendar"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "Highly skilled players"
@@ -239,6 +247,10 @@ msgstr "การฝึกฝนทักษะและการซ้อมเ
 msgid "Status message"
 msgstr "ข้อความสถานะ"
 
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "ซิงค์ปฏิทิน"
+
 #: src/components/atoms/EventSignupButton.re.mjs:89
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
@@ -273,11 +285,11 @@ msgstr "พิมพ์ข้อความสถานะสำหรับใ
 msgid "uncancel event"
 msgstr "เลิกยกเลิกกิจกรรม"
 
-#: src/components/organisms/EventHeader.re.mjs:116
+#: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"
 msgstr "คลับที่ไม่ทราบ"
 
-#: src/components/organisms/EventHeader.re.mjs:236
+#: src/components/organisms/EventHeader.re.mjs:243
 msgid "Unknown location"
 msgstr "สถานที่ที่ไม่ทราบ"
 

@@ -2388,3 +2388,13 @@ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 #, fuzzy
 #~ msgid "Are you sure you want to remove"
 #~ msgstr "本当に{0}をサークルから削除しますか？"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "{0}5件の{hiddenCountDesc}非表示"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"

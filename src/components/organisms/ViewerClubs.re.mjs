@@ -120,7 +120,7 @@ function ViewerClubs(props) {
                         className: "flex overflow-x-auto gap-3 pb-2 -mx-1 px-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
                       })
                 ],
-                className: "bg-white mb-4"
+                className: "mb-4"
               });
   }
 }

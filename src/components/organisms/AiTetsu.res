@@ -444,9 +444,10 @@ let getPriorityPlayers = (
     deprioritized,
   }
 }
-let rsvpToPlayer = (rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node, intId: int): option<
-  Player.t<'a>,
-> => {
+let rsvpToPlayer = (
+  rsvp: AiTetsu_event_graphql.Types.fragment_rsvps_edges_node,
+  intId: int,
+): option<Player.t<'a>> => {
   switch (rsvp.user->Option.map(u => u.id), rsvp.rating) {
   | (Some(userId), rating) =>
     let rating = switch rating {
@@ -784,10 +785,9 @@ let make = (~event, ~children) => {
             p.id,
             prev => {
               // If player's play count was 0, boost their play count to the average
-              // play count
-              let playCount = Js.Math.max_int((sessionState->Session.get(p.id)).count, 1)
+              // play count if average count is > 3 rounds of play
               let newPlayCount =
-                avgCount > 0. && playCount == 0
+                avgCount > 3. && prev.count == 0
                   ? avgCount->Math.floor->int_of_float
                   : prev.count + 1
 
@@ -1216,9 +1216,8 @@ let make = (~event, ~children) => {
                   eventId
                   onPlayerAdd={player => {
                     setSessionPlayers(guests => {
-                      let maxIntId = allPlayers->Array.reduce(0, (max, p) => 
-                        p.intId > max ? p.intId : max
-                      )
+                      let maxIntId =
+                        allPlayers->Array.reduce(0, (max, p) => p.intId > max ? p.intId : max)
                       let nextIntId = maxIntId + 1
                       let newState =
                         guests->addGuestPlayer(
@@ -1354,12 +1353,13 @@ let make = (~event, ~children) => {
             eventId
             onPlayerAdd={player => {
               setSessionPlayers(guests => {
-                let maxIntId = allPlayers->Array.reduce(0, (max, p) => 
-                  p.intId > max ? p.intId : max
-                )
+                let maxIntId =
+                  allPlayers->Array.reduce(0, (max, p) => p.intId > max ? p.intId : max)
                 let nextIntId = maxIntId + 1
                 let newState =
-                  guests->addGuestPlayer(Player.makeDefaultRatingPlayer(player.name, Male, nextIntId))
+                  guests->addGuestPlayer(
+                    Player.makeDefaultRatingPlayer(player.name, Male, nextIntId),
+                  )
                 newState->Players.savePlayers(eventId)
                 newState
               })

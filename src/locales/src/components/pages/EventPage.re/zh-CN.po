@@ -53,11 +53,11 @@ msgstr "休闲"
 msgid "all level"
 msgstr "所有级别"
 
-#: src/components/organisms/EventHeader.re.mjs:53
+#: src/components/organisms/EventHeader.re.mjs:54
 msgid "{0} hours"
 msgstr "{0} 小时"
 
-#: src/components/organisms/EventHeader.re.mjs:55
+#: src/components/organisms/EventHeader.re.mjs:56
 msgid "{0} hours and {1} minutes"
 msgstr "{0} 小时 {1} 分钟"
 
@@ -74,6 +74,10 @@ msgstr "添加成员"
 msgid "Advanced players"
 msgstr "高级球员"
 
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
 #: src/components/organisms/RsvpOptions.re.mjs:115
 msgid "Approve RSVP"
 msgstr "批准报名"
@@ -86,7 +90,7 @@ msgstr "您确定要将这个人从活动中移除吗？"
 msgid "cancel event"
 msgstr "取消活动"
 
-#: src/components/organisms/EventHeader.re.mjs:78
+#: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr "已取消"
 
@@ -109,6 +113,10 @@ msgstr "活动标签：{tag}"
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
 msgstr "将参加"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "谷歌日历"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "Highly skilled players"
@@ -239,6 +247,10 @@ msgstr "技能练习和专注于技术提高的训练"
 msgid "Status message"
 msgstr "状态信息"
 
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "同步日历"
+
 #: src/components/atoms/EventSignupButton.re.mjs:89
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
@@ -273,11 +285,11 @@ msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 msgid "uncancel event"
 msgstr "取消取消活动"
 
-#: src/components/organisms/EventHeader.re.mjs:116
+#: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"
 msgstr "未知俱乐部"
 
-#: src/components/organisms/EventHeader.re.mjs:236
+#: src/components/organisms/EventHeader.re.mjs:243
 msgid "Unknown location"
 msgstr "未知地点"
 

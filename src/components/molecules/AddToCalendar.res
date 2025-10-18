@@ -34,8 +34,14 @@ module ProvidersMenu = {
     </DropdownMenu>
   }
 }
+module Anchor = {
+  @react.component
+  let make = (~href: string, ~children: React.element) => {
+    <a href="#" onClick={e => e->JsxEventU.Mouse.preventDefault} className=""> {children} </a>
+  }
+}
 @genType @react.component
-let make = () => {
+let make = (~children: option<React.element>=?) => {
   open Dropdown
   let viewer = GlobalQuery.useViewer()
 
@@ -43,14 +49,19 @@ let make = () => {
     {() =>
       viewer.user
       ->Option.map(user =>
-        <div className="flex items-center lg:text-sm">
+        <div className="items-center lg:text-sm inline-block">
           <Dropdown>
-            <DropdownButton \"as"={Navbar.NavbarItem.make}>
-              <Lucide.CalendarPlus
-                className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
-              />
-              {t`sync calendar`}
-            </DropdownButton>
+            {switch children {
+            | Some(child) =>
+              <DropdownButton \"as"={Navbar.NavbarItem.make}> {child} </DropdownButton>
+            | None =>
+              <DropdownButton \"as"={Navbar.NavbarItem.make}>
+                <Lucide.CalendarPlus
+                  className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
+                />
+                {t`sync calendar`}
+              </DropdownButton>
+            }}
             <ProvidersMenu userId=user.id />
           </Dropdown>
         </div>

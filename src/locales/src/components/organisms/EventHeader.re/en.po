@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventHeader.re.mjs:53
+#: src/components/organisms/EventHeader.re.mjs:54
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:55
+#: src/components/organisms/EventHeader.re.mjs:56
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
@@ -25,12 +25,20 @@ msgstr ""
 msgid "Advanced players"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:78
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:60
 msgid "Event tag: {tag}"
+msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:44
@@ -65,15 +73,19 @@ msgstr ""
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:58
 msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:116
+#: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:236
+#: src/components/organisms/EventHeader.re.mjs:243
 msgid "Unknown location"
 msgstr ""
 

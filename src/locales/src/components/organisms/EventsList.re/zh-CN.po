@@ -13,12 +13,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:423
+#: src/components/organisms/EventsList.re.mjs:428
 msgid "...load past events"
 msgstr "...加载历史活动"
 
 #: src/components/organisms/EventItem.re.mjs:423
-#: src/components/organisms/EventsList.re.mjs:141
+#: src/components/organisms/EventsList.re.mjs:142
 msgid "[location missing]"
 msgstr "[地点缺失]"
 
@@ -28,41 +28,41 @@ msgstr "[标题缺失]"
 
 #: src/components/organisms/EventItem.re.mjs:215
 #: src/components/organisms/EventItem.re.mjs:222
-#: src/components/organisms/EventsList.re.mjs:104
-#: src/components/organisms/EventsList.re.mjs:109
+#: src/components/organisms/EventsList.re.mjs:105
+#: src/components/organisms/EventsList.re.mjs:110
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/organisms/EventsList.re.mjs:260
+#: src/components/organisms/EventsList.re.mjs:261
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "隐藏 {0} {hiddenCountDesc}"
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
-#: src/components/organisms/EventsList.re.mjs:105
-#: src/components/organisms/EventsList.re.mjs:110
+#: src/components/organisms/EventsList.re.mjs:106
+#: src/components/organisms/EventsList.re.mjs:111
 msgid "{0} hour"
 msgstr "{0} 小时"
 
 #: src/components/organisms/EventItem.re.mjs:217
 #: src/components/organisms/EventItem.re.mjs:224
-#: src/components/organisms/EventsList.re.mjs:106
-#: src/components/organisms/EventsList.re.mjs:111
+#: src/components/organisms/EventsList.re.mjs:107
+#: src/components/organisms/EventsList.re.mjs:112
 msgid "{0} hours"
 msgstr "{0} 小时"
 
 #: src/components/organisms/EventItem.re.mjs:228
-#: src/components/organisms/EventsList.re.mjs:113
+#: src/components/organisms/EventsList.re.mjs:114
 msgid "{0} minute"
 msgstr "{0} 分钟"
 
 #: src/components/organisms/EventItem.re.mjs:229
-#: src/components/organisms/EventsList.re.mjs:114
+#: src/components/organisms/EventsList.re.mjs:115
 msgid "{0} minutes"
 msgstr "{0} 分钟"
 
 #: src/components/organisms/EventItem.re.mjs:227
-#: src/components/organisms/EventsList.re.mjs:112
+#: src/components/organisms/EventsList.re.mjs:113
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr "{0}"
 
@@ -70,21 +70,29 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "位球员"
 
-#: src/components/organisms/EventsList.re.mjs:229
+#: src/components/organisms/EventsList.re.mjs:230
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
 
-#: src/components/organisms/EventsList.re.mjs:118
+#: src/components/organisms/EventsList.re.mjs:119
 msgid "🚫 CANCELED"
 msgstr "🚫 已取消"
 
-#: src/components/organisms/EventsList.re.mjs:395
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/EventsList.re.mjs:400
 msgid "clear filter"
 msgstr "清除筛选"
 
-#: src/components/organisms/EventsList.re.mjs:393
+#: src/components/organisms/EventsList.re.mjs:398
 msgid "filtering by date"
 msgstr "按日期筛选"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "谷歌日历"
 
 #: src/components/organisms/EventItem.re.mjs:313
 msgid "join event"
@@ -106,13 +114,17 @@ msgstr "待审核"
 msgid "players"
 msgstr "球员"
 
-#: src/components/organisms/EventsList.re.mjs:365
+#: src/components/organisms/EventsList.re.mjs:366
 msgid "share as text"
 msgstr "分享为文本"
 
-#: src/components/organisms/EventsList.re.mjs:268
+#: src/components/organisms/EventsList.re.mjs:269
 msgid "show"
 msgstr "显示"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "同步日历"
 
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"

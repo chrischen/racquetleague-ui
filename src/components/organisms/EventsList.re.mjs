@@ -19,6 +19,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
 import * as React$1 from "@lingui/react";
+import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
@@ -386,6 +387,10 @@ function EventsList(props) {
                                                                             }, Router.ImmSearchParams.fromSearchParams(prevParams)));
                                                             });
                                                       })
+                                                  }),
+                                              JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsx(AddToCalendar.make, {}),
+                                                    className: "mb-4 mt-4 flex justify-center items-center"
                                                   }),
                                               Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
                                                           return JsxRuntime.jsx(WarningAlert.make, {

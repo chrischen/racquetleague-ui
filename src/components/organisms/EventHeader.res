@@ -146,6 +146,11 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
                     />
                   )
                   ->Option.getOr(React.null)}
+                  <AddToCalendar>
+                    <Lucide.CalendarPlus
+                      className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
+                    />
+                  </AddToCalendar>
                 </div>
                 <div className="text-lg font-bold text-blue-700">
                   {data.startDate

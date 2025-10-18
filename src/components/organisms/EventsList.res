@@ -492,6 +492,9 @@ let make = (~events, ~header: React.element) => {
                 })
               }}
             />
+            <div className="mb-4 mt-4 flex justify-center items-center">
+              <AddToCalendar />
+            </div>
             {filterByDate
             ->Option.map(_ =>
               <WarningAlert cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>

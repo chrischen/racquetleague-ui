@@ -110,7 +110,7 @@ let make = (
   if Array.length(clubs) == 0 {
     React.null
   } else {
-    <div className="bg-white mb-4">
+    <div className="mb-4">
       <h2 className="text-sm font-semibold text-gray-700 mb-3"> {t`my clubs`} </h2>
       <div
         className="flex overflow-x-auto gap-3 pb-2 -mx-1 px-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">

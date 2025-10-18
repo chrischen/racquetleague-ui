@@ -5,6 +5,6 @@
 
 import * as AddToCalendarJS from './AddToCalendar.re.mjs';
 
-export type props = {};
+export type props<children> = { readonly children?: children };
 
-export const make: React.ComponentType<{}> = AddToCalendarJS.make as any;
+export const make: React.ComponentType<{ readonly children?: React.ReactNode }> = AddToCalendarJS.make as any;

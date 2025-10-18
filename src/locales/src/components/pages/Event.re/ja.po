@@ -82,7 +82,7 @@ msgstr "メンバーを追加"
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
-#: src/components/molecules/AddToCalendar.re.mjs:29
+#: src/components/molecules/AddToCalendar.re.mjs:30
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -134,7 +134,7 @@ msgstr "参加"
 msgid "good luck, have fun"
 msgstr "がんばってください"
 
-#: src/components/molecules/AddToCalendar.re.mjs:34
+#: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
 msgstr "Google カレンダー"
 
@@ -309,7 +309,7 @@ msgstr "試合を提出"
 msgid "subscribe to all {activityName} events"
 msgstr "{activityName} のすべてのイベントに登録"
 
-#: src/components/molecules/AddToCalendar.re.mjs:87
+#: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
 msgstr "カレンダー同期"
 

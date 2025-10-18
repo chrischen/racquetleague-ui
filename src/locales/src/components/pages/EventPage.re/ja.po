@@ -53,11 +53,11 @@ msgstr "練習試合"
 msgid "all level"
 msgstr "全レベル"
 
-#: src/components/organisms/EventHeader.re.mjs:53
+#: src/components/organisms/EventHeader.re.mjs:54
 msgid "{0} hours"
 msgstr "{0}時間"
 
-#: src/components/organisms/EventHeader.re.mjs:55
+#: src/components/organisms/EventHeader.re.mjs:56
 msgid "{0} hours and {1} minutes"
 msgstr "{0}時間{1}分"
 
@@ -74,6 +74,10 @@ msgstr "メンバーを追加"
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
 #: src/components/organisms/RsvpOptions.re.mjs:115
 msgid "Approve RSVP"
 msgstr "参加申込を承認"
@@ -86,7 +90,7 @@ msgstr "この人をイベントから削除してもよろしいですか？"
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
-#: src/components/organisms/EventHeader.re.mjs:78
+#: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr "キャンセル"
 
@@ -109,6 +113,10 @@ msgstr "イベントタグ: {tag}"
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
 msgstr "参加"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google カレンダー"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "Highly skilled players"
@@ -239,6 +247,10 @@ msgstr "技術向上に焦点を当てたスキル練習とドリル"
 msgid "Status message"
 msgstr "ステータスメッセージ"
 
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "カレンダー同期"
+
 #: src/components/atoms/EventSignupButton.re.mjs:89
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
@@ -276,11 +288,11 @@ msgstr ""
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
-#: src/components/organisms/EventHeader.re.mjs:116
+#: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"
 msgstr "不明なクラブ"
 
-#: src/components/organisms/EventHeader.re.mjs:236
+#: src/components/organisms/EventHeader.re.mjs:243
 msgid "Unknown location"
 msgstr "不明な場所"
 

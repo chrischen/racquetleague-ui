@@ -4,6 +4,7 @@ import * as React from "react";
 import * as Avatar from "../catalyst/Avatar.re.mjs";
 import * as Navbar from "../catalyst/Navbar.re.mjs";
 import * as Dropdown from "../catalyst/Dropdown.re.mjs";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -69,7 +70,23 @@ var ProvidersMenu = {
   make: AddToCalendar$ProvidersMenu
 };
 
+function AddToCalendar$Anchor(props) {
+  return JsxRuntime.jsx("a", {
+              children: props.children,
+              className: "",
+              href: "#",
+              onClick: (function (e) {
+                  e.preventDefault();
+                })
+            });
+}
+
+var Anchor = {
+  make: AddToCalendar$Anchor
+};
+
 function AddToCalendar(props) {
+  var children = props.children;
   var viewer = GlobalQuery.useViewer();
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
@@ -77,22 +94,25 @@ function AddToCalendar(props) {
                                     return JsxRuntime.jsx("div", {
                                                 children: JsxRuntime.jsxs(React$1.Menu, {
                                                       children: [
-                                                        JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
-                                                              as: Navbar.NavbarItem.make,
-                                                              children: [
-                                                                JsxRuntime.jsx(LucideReact.CalendarPlus, {
-                                                                      className: "mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500",
-                                                                      "aria-hidden": "true"
-                                                                    }),
-                                                                t`sync calendar`
-                                                              ]
-                                                            }),
+                                                        children !== undefined ? JsxRuntime.jsx(Dropdown.DropdownButton.make, {
+                                                                as: Navbar.NavbarItem.make,
+                                                                children: Caml_option.valFromOption(children)
+                                                              }) : JsxRuntime.jsxs(Dropdown.DropdownButton.make, {
+                                                                as: Navbar.NavbarItem.make,
+                                                                children: [
+                                                                  JsxRuntime.jsx(LucideReact.CalendarPlus, {
+                                                                        className: "mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500",
+                                                                        "aria-hidden": "true"
+                                                                      }),
+                                                                  t`sync calendar`
+                                                                ]
+                                                              }),
                                                         JsxRuntime.jsx(AddToCalendar$ProvidersMenu, {
                                                               userId: user.id
                                                             })
                                                       ]
                                                     }),
-                                                className: "flex items-center lg:text-sm"
+                                                className: "items-center lg:text-sm inline-block"
                                               });
                                   })), null);
                 })
@@ -103,6 +123,7 @@ var make = AddToCalendar;
 
 export {
   ProvidersMenu ,
+  Anchor ,
   make ,
 }
 /*  Not a pure module */

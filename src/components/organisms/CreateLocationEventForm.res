@@ -105,7 +105,7 @@ module QueryFragment = %relay(`
   @argumentDefinitions(
     after: { type: "String" }
     before: { type: "String" }
-    first: { type: "Int", defaultValue: 20 }
+    first: { type: "Int", defaultValue: 100 }
   ) {
     activities {
       id

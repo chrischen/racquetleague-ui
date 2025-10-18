@@ -9,6 +9,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
+import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -179,7 +180,13 @@ function EventHeader(props) {
                                                                                               unit: "minute",
                                                                                               updateIntervalInSeconds: 1
                                                                                             });
-                                                                                })), null)
+                                                                                })), null),
+                                                                      JsxRuntime.jsx(AddToCalendar.make, {
+                                                                            children: Caml_option.some(JsxRuntime.jsx(LucideReact.CalendarPlus, {
+                                                                                      className: "mr-1.5 h-5 w-5 flex-shrink-0 text-gray-500",
+                                                                                      "aria-hidden": "true"
+                                                                                    }))
+                                                                          })
                                                                     ],
                                                                     className: "font-semibold text-gray-900"
                                                                   }),

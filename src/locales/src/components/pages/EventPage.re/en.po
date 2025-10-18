@@ -53,11 +53,11 @@ msgstr ""
 msgid "all level"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:53
+#: src/components/organisms/EventHeader.re.mjs:54
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:55
+#: src/components/organisms/EventHeader.re.mjs:56
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
@@ -74,6 +74,10 @@ msgstr ""
 msgid "Advanced players"
 msgstr ""
 
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:115
 msgid "Approve RSVP"
 msgstr ""
@@ -86,7 +90,7 @@ msgstr ""
 msgid "cancel event"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:78
+#: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr ""
 
@@ -108,6 +112,10 @@ msgstr ""
 
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
+msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:44
@@ -266,6 +274,10 @@ msgstr ""
 #~ msgid "submit matches"
 #~ msgstr ""
 
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr ""
+
 #: src/components/atoms/EventSignupButton.re.mjs:89
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
@@ -288,11 +300,11 @@ msgstr ""
 msgid "uncancel event"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:116
+#: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:236
+#: src/components/organisms/EventHeader.re.mjs:243
 msgid "Unknown location"
 msgstr ""
 

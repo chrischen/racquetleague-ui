@@ -1969,3 +1969,13 @@ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
 #: src/components/organisms/EventsList.re.mjs:260
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "隐藏 {0} {hiddenCountDesc}"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "隐藏 {0} {hiddenCountDesc}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"

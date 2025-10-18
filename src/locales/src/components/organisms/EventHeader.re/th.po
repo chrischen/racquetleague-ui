@@ -13,11 +13,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventHeader.re.mjs:53
+#: src/components/organisms/EventHeader.re.mjs:54
 msgid "{0} hours"
 msgstr "{0} ชั่วโมง"
 
-#: src/components/organisms/EventHeader.re.mjs:55
+#: src/components/organisms/EventHeader.re.mjs:56
 msgid "{0} hours and {1} minutes"
 msgstr "{0} ชั่วโมง {1} นาที"
 
@@ -25,13 +25,21 @@ msgstr "{0} ชั่วโมง {1} นาที"
 msgid "Advanced players"
 msgstr "ผู้เล่นระดับสูง"
 
-#: src/components/organisms/EventHeader.re.mjs:78
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
 #: src/components/atoms/EventTag.re.mjs:60
 msgid "Event tag: {tag}"
 msgstr "แท็กกิจกรรม: {tag}"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google Calendar"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "Highly skilled players"
@@ -66,17 +74,21 @@ msgstr "ผลการแข่งขันจะถูกส่งไปยั
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "ซิงค์ปฏิทิน"
+
 #: src/components/atoms/EventTag.re.mjs:58
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
 
-#: src/components/organisms/EventHeader.re.mjs:116
+#: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"
 msgstr "คลับที่ไม่ทราบ"
 
-#: src/components/organisms/EventHeader.re.mjs:236
+#: src/components/organisms/EventHeader.re.mjs:243
 msgid "Unknown location"
 msgstr "สถานที่ที่ไม่ทราบ"
 

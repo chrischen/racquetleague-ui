@@ -821,8 +821,7 @@ function AiTetsu(props) {
                     return x;
                   }), prevState, (function (state, p) {
                   return Session.update(state, p.id, (function (prev) {
-                                var playCount = Math.max(Session.get(sessionState, p.id).count, 1);
-                                var newPlayCount = avgCount > 0 && playCount === 0 ? Math.floor(avgCount) | 0 : prev.count + 1 | 0;
+                                var newPlayCount = avgCount > 3 && prev.count === 0 ? Math.floor(avgCount) | 0 : prev.count + 1 | 0;
                                 return {
                                         count: newPlayCount,
                                         paid: prev.paid

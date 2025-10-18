@@ -1969,3 +1969,17 @@ msgstr "隱藏 {0} {hiddenCountDesc}"
 #: src/components/organisms/EventsList.re.mjs:229
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
+
+#: src/components/organisms/EventsList.re.mjs:261
+msgid "{0} {hiddenCountDesc} hidden"
+msgstr "隱藏 {0} {hiddenCountDesc}"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "隱藏 {0} {hiddenCountDesc}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
