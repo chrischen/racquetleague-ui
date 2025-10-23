@@ -116,6 +116,47 @@ module Player = {
       gender,
     }
   }
+
+  // Serialize player data for TinyBase storage
+  let toDb = (player: t<'a>): TinyBase.row => {
+    let row = Js.Dict.empty()
+    row->Js.Dict.set("playerId", player.id->Js.Json.string)
+    row->Js.Dict.set("intId", player.intId->Int.toFloat->Js.Json.number)
+    row->Js.Dict.set("name", player.name->Js.Json.string)
+    row->Js.Dict.set("ratingMu", player.rating.mu->Js.Json.number)
+    row->Js.Dict.set("ratingSigma", player.rating.sigma->Js.Json.number)
+    row->Js.Dict.set("genderInt", player.gender->Gender.toInt->Int.toFloat->Js.Json.number)
+    row->Js.Dict.set("paid", player.paid->Js.Json.boolean)
+    row
+  }
+
+  // Deserialize player data from TinyBase storage
+  let fromDb = (row: TinyBase.row): option<t<'a>> => {
+    switch (
+      row->Js.Dict.get("playerId")->Option.flatMap(v => v->Js.Json.decodeString),
+      row->Js.Dict.get("intId")->Option.flatMap(v => v->Js.Json.decodeNumber),
+      row->Js.Dict.get("name")->Option.flatMap(v => v->Js.Json.decodeString),
+      row->Js.Dict.get("ratingMu")->Option.flatMap(v => v->Js.Json.decodeNumber),
+      row->Js.Dict.get("ratingSigma")->Option.flatMap(v => v->Js.Json.decodeNumber),
+      row->Js.Dict.get("genderInt")->Option.flatMap(v => v->Js.Json.decodeNumber),
+    ) {
+    | (Some(id), Some(intId), Some(name), Some(mu), Some(sigma), Some(genderInt)) =>
+      Some({
+        data: None,
+        id,
+        intId: intId->Float.toInt,
+        name,
+        rating: {mu, sigma},
+        ratingOrdinal: 0.,
+        paid: row
+        ->Js.Dict.get("paid")
+        ->Option.flatMap(v => v->Js.Json.decodeBoolean)
+        ->Option.getOr(false),
+        gender: Gender.fromInt(genderInt->Float.toInt),
+      })
+    | _ => None
+    }
+  }
 }
 
 module Team = {
@@ -139,6 +180,11 @@ module Team = {
 
   let toStableId = (t: t<'a>) => {
     t->Array.map(p => p.id)->Array.toSorted(String.compare)->Array.join("-")
+  }
+
+  // Serialize team to TinyBase - returns array of player rows
+  let toDb = (team: t<'a>): array<TinyBase.row> => {
+    team->Array.map(player => player->Player.toDb)
   }
 }
 
@@ -198,6 +244,62 @@ module Match = {
   }
 
   let players = ((t1, t2)) => [t1, t2]->Array.flatMap(x => x)
+
+  // Serialize match to TinyBase - returns array of all player rows
+  let toDb = (match: t<'a>): array<TinyBase.row> => {
+    let (team1, team2) = match
+    Array.concat(team1->Team.toDb, team2->Team.toDb)
+  }
+
+  // Load match from TinyBase relational tables
+  // This would be used to reconstruct a match from the database
+  let loadFromDb = (
+    _matchRow: TinyBase.row,
+    teamsTable: TinyBase.table,
+    playersTable: TinyBase.table,
+    matchId: string,
+  ): option<t<'a>> => {
+    // Get teams for this match
+    let teams =
+      teamsTable
+      ->Js.Dict.entries
+      ->Array.filterMap(((_, teamRow)) => {
+        switch (
+          teamRow->Js.Dict.get("matchId")->Option.map(v => v->Obj.magic),
+          teamRow->Js.Dict.get("teamIndex")->Option.map(v => v->Obj.magic),
+          teamRow->Js.Dict.get("playerIds")->Option.flatMap(v => v->Js.Json.decodeString),
+        ) {
+        | (Some(mId: string), Some(tIdx: float), Some(playerIdsStr)) if mId == matchId =>
+          // Parse JSON string to get array of player IDs
+          try {
+            let playerIds =
+              playerIdsStr
+              ->Js.Json.parseExn
+              ->Js.Json.decodeArray
+              ->Option.getOr([])
+              ->Array.filterMap(id => id->Js.Json.decodeString)
+
+            // Get players for this team using the stored player IDs
+            let players = playerIds->Array.filterMap(playerId => {
+              playersTable->Js.Dict.get(playerId)->Option.flatMap(Player.fromDb)
+            })
+
+            Some((tIdx, players))
+          } catch {
+          | _ => None
+          }
+        | _ => None
+        }
+      })
+      ->Array.toSorted(((idxA, _), (idxB, _)) => idxA < idxB ? -1. : 1.)
+      ->Array.map(((_, players)) => players)
+
+    // Reconstruct match as (team1, team2)
+    switch teams {
+    | [team1, team2] => Some((team1, team2))
+    | _ => None
+    }
+  }
 
   // let toDndItem = (t: t<'a>): MultipleContainers.Items.t
 }

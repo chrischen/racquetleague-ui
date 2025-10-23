@@ -11,7 +11,9 @@ import * as Js_math from "rescript/lib/es6/js_math.js";
 import * as Session from "../../lib/Session.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
+import * as Tinybase from "tinybase";
 import * as CompMatch from "./CompMatch.re.mjs";
+import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_int32 from "rescript/lib/es6/caml_int32.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -26,6 +28,7 @@ import * as DialogUiAction from "../molecules/DialogUiAction.re.mjs";
 import * as SessionAddPlayer from "./SessionAddPlayer.re.mjs";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as UiReact from "tinybase/ui-react";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as ReactHelmetAsync from "react-helmet-async";
 import * as SessionEvenPlayMode from "./SessionEvenPlayMode.re.mjs";
@@ -39,12 +42,21 @@ import * as Json_Decode$JsonCombinators from "@glennsl/rescript-json-combinators
 import * as AiTetsuRsvpsRefetchQuery_graphql from "../../__generated__/AiTetsuRsvpsRefetchQuery_graphql.re.mjs";
 import * as AiTetsuSubmitMatchMutation_graphql from "../../__generated__/AiTetsuSubmitMatchMutation_graphql.re.mjs";
 import * as AiTetsuCreateRatingMutation_graphql from "../../__generated__/AiTetsuCreateRatingMutation_graphql.re.mjs";
+import * as PersisterIndexedDb from "tinybase/persisters/persister-indexed-db";
 
 import { css, cx } from '@linaria/core'
 ;
 
 import { t, plural } from '@lingui/macro'
 ;
+
+var matchesStore = Tinybase.createStore();
+
+var matchesPersister = PersisterIndexedDb.createIndexedDbPersister(matchesStore, "pkuru-matches");
+
+matchesPersister.startAutoLoad(null).then(function (param) {
+      return matchesPersister.startAutoSave();
+    });
 
 var convertVariables = AiTetsuCreateRatingMutation_graphql.Internal.convertVariables;
 
@@ -532,81 +544,224 @@ function AiTetsu(props) {
   var commitMutationCreateRating = match$1[0];
   var match$2 = use$1();
   var commitMutationCreateLeagueMatch = match$2[0];
-  var match$3 = React.useState(function () {
-        return [];
-      });
-  var setMatches = match$3[1];
-  var matches = match$3[0];
-  var match$4 = React.useState(function () {
+  var matchesTableJson = UiReact.useTable("matches", matchesStore);
+  var match$3 = usePagination($$event);
+  var refetch = match$3.refetch;
+  var data = match$3.data;
+  var hydratePlayerWithRsvpData = function (player, rsvpMap) {
+    var rsvp = Js_dict.get(rsvpMap, player.id);
+    if (rsvp !== undefined) {
+      return {
+              data: rsvp,
+              id: player.id,
+              intId: player.intId,
+              name: player.name,
+              rating: player.rating,
+              ratingOrdinal: player.ratingOrdinal,
+              paid: player.paid,
+              gender: player.gender
+            };
+    } else {
+      return {
+              data: undefined,
+              id: player.id,
+              intId: player.intId,
+              name: player.name,
+              rating: player.rating,
+              ratingOrdinal: player.ratingOrdinal,
+              paid: player.paid,
+              gender: player.gender
+            };
+    }
+  };
+  var hydrateMatchWithRsvpData = function (match, rsvpMap) {
+    var hydratedTeam1 = match[0].map(function (player) {
+          return hydratePlayerWithRsvpData(player, rsvpMap);
+        });
+    var hydratedTeam2 = match[1].map(function (player) {
+          return hydratePlayerWithRsvpData(player, rsvpMap);
+        });
+    return [
+            hydratedTeam1,
+            hydratedTeam2
+          ];
+  };
+  var match$4 = React.useMemo((function () {
+          var rsvpMap = Js_dict.fromArray(Core__Array.filterMap(getConnectionNodes(data.rsvps), (function (rsvp) {
+                      return Core__Option.map(Core__Option.map(rsvp.user, (function (u) {
+                                        return u.id;
+                                      })), (function (userId) {
+                                    return [
+                                            userId,
+                                            rsvp
+                                          ];
+                                  }));
+                    })));
+          var teamsTable = matchesStore.getTable("teams");
+          var playersTable = matchesStore.getTable("players");
+          var matchesWithIds = Core__Array.filterMap(Js_dict.entries(matchesTableJson), (function (param) {
+                  var matchRow = param[1];
+                  var matchId = param[0];
+                  var mEventId = Core__Option.map(Js_dict.get(matchRow, "eventId"), (function (v) {
+                          return v;
+                        }));
+                  if (mEventId !== undefined && mEventId === eventId) {
+                    return Core__Option.map(Rating.Match.loadFromDb(matchRow, teamsTable, playersTable, matchId), (function (match) {
+                                  return [
+                                          hydrateMatchWithRsvpData(match, rsvpMap),
+                                          matchId
+                                        ];
+                                }));
+                  }
+                  
+                }));
+          var matches = matchesWithIds.map(function (param) {
+                return param[0];
+              });
+          var ids = matchesWithIds.map(function (param) {
+                return param[1];
+              });
+          return [
+                  matches,
+                  ids
+                ];
+        }), [
+        matchesTableJson,
+        data.rsvps
+      ]);
+  var matchIds = match$4[1];
+  var matches = match$4[0];
+  var setMatches = React.useCallback((function (updater) {
+          console.log("Updating matches in TinyBase store");
+          var newMatches = updater(matches);
+          var currentMatchesTable = matchesStore.getTable("matches");
+          var matchIdsToDelete = Core__Array.filterMap(Js_dict.entries(currentMatchesTable), (function (param) {
+                  var evId = Core__Option.map(Js_dict.get(param[1], "eventId"), (function (v) {
+                          return v;
+                        }));
+                  if (evId !== undefined && evId === eventId) {
+                    return param[0];
+                  }
+                  
+                }));
+          matchIdsToDelete.forEach(function (matchId) {
+                var teamsTable = matchesStore.getTable("teams");
+                var teamIdsToDelete = Core__Array.filterMap(Js_dict.entries(teamsTable), (function (param) {
+                        var mId = Core__Option.map(Js_dict.get(param[1], "matchId"), (function (v) {
+                                return v;
+                              }));
+                        if (mId !== undefined && mId === matchId) {
+                          return param[0];
+                        }
+                        
+                      }));
+                teamIdsToDelete.forEach(function (teamId) {
+                      matchesStore.delRow("teams", teamId);
+                    });
+                matchesStore.delRow("matches", matchId);
+              });
+          newMatches.forEach(function (match, matchIndex) {
+                var matchId = eventId + "-match-" + matchIndex.toString();
+                var matchRowData = {};
+                matchRowData["eventId"] = eventId;
+                matchRowData["createdAt"] = Date.now();
+                matchesStore.setRow("matches", matchId, matchRowData);
+                var teams = [
+                  match[0],
+                  match[1]
+                ];
+                teams.forEach(function (team, teamIndex) {
+                      var teamStableId = Rating.Team.toStableId(team);
+                      var teamId = matchId + "-team-" + teamStableId;
+                      var teamRowData = {};
+                      teamRowData["matchId"] = matchId;
+                      teamRowData["teamIndex"] = teamIndex;
+                      teamRowData["playerIds"] = Core__Option.getOr(JSON.stringify(team.map(function (p) {
+                                    return p.id;
+                                  })), "[]");
+                      matchesStore.setRow("teams", teamId, teamRowData);
+                      team.forEach(function (player) {
+                            var playerId = player.id;
+                            var existingPlayer = matchesStore.getRow("players", playerId);
+                            if (Object.keys(existingPlayer).length !== 0) {
+                              return ;
+                            }
+                            var playerData = Rating.Player.toDb(player);
+                            matchesStore.setRow("players", playerId, playerData);
+                          });
+                    });
+              });
+        }), [eventId]);
+  var match$5 = React.useState(function () {
         return false;
       });
-  var setManualTeamOpen = match$4[1];
-  var match$5 = React.useState(function () {
+  var setManualTeamOpen = match$5[1];
+  var match$6 = React.useState(function () {
         return "Advanced";
       });
-  var setScreen = match$5[1];
-  var match$6 = React.useState(function () {
-        return Util.NonEmptyArray.empty;
-      });
-  var setTeams = match$6[1];
-  var teams = match$6[0];
+  var setScreen = match$6[1];
   var match$7 = React.useState(function () {
         return Util.NonEmptyArray.empty;
       });
-  var setAntiTeams = match$7[1];
-  var antiTeams = match$7[0];
+  var setTeams = match$7[1];
+  var teams = match$7[0];
   var match$8 = React.useState(function () {
+        return Util.NonEmptyArray.empty;
+      });
+  var setAntiTeams = match$8[1];
+  var antiTeams = match$8[0];
+  var match$9 = React.useState(function () {
         
       });
-  var setSettingsPane = match$8[1];
-  var settingsPane = match$8[0];
-  var match$9 = React.useState(function () {
+  var setSettingsPane = match$9[1];
+  var settingsPane = match$9[0];
+  var match$10 = React.useState(function () {
         return [];
       });
-  var setQueue = match$9[1];
-  var match$10 = React.useState(function () {
+  var setQueue = match$10[1];
+  var match$11 = React.useState(function () {
         return new Set();
       });
-  var setDisabled = match$10[1];
-  var disabled = match$10[0];
-  var match$11 = React.useState(function () {
+  var setDisabled = match$11[1];
+  var disabled = match$11[0];
+  var match$12 = React.useState(function () {
         return Session.make();
       });
-  var setSessionState = match$11[1];
-  var sessionState = match$11[0];
-  var match$12 = React.useState(function () {
+  var setSessionState = match$12[1];
+  var sessionState = match$12[0];
+  var match$13 = React.useState(function () {
         return [];
       });
-  var setSessionPlayers = match$12[1];
-  var sessionPlayers = match$12[0];
-  var match$13 = React.useState(function () {
+  var setSessionPlayers = match$13[1];
+  var sessionPlayers = match$13[0];
+  var match$14 = React.useState(function () {
         return "Checkin";
       });
-  var setMatchesView = match$13[1];
-  var match$14 = React.useState(function () {
+  var setMatchesView = match$14[1];
+  var match$15 = React.useState(function () {
         return false;
       });
-  var setSessionMode = match$14[1];
-  var sessionMode = match$14[0];
-  var match$15 = React.useState(function () {
+  var setSessionMode = match$15[1];
+  var sessionMode = match$15[0];
+  var match$16 = React.useState(function () {
         return 0;
       });
-  var setCourts = match$15[1];
-  var courts = match$15[0];
-  var match$16 = React.useState(function () {
+  var setCourts = match$16[1];
+  var courts = match$16[0];
+  var match$17 = React.useState(function () {
         return "CompetitivePlus";
       });
-  var match$17 = React.useState(function () {
+  var match$18 = React.useState(function () {
         return [];
       });
-  var setMatchHistory = match$17[1];
-  var matchHistory = match$17[0];
-  var match$18 = React.useState(function () {
+  var setMatchHistory = match$18[1];
+  var matchHistory = match$18[0];
+  var match$19 = React.useState(function () {
         return {};
       });
-  var setLocallyCompletedMatches = match$18[1];
-  var locallyCompletedMatches = match$18[0];
-  var match$19 = React.useState(function () {
+  var setLocallyCompletedMatches = match$19[1];
+  var locallyCompletedMatches = match$19[0];
+  var match$20 = React.useState(function () {
         
       });
   var togglePlayer = Rating.OrderedQueue.toggle;
@@ -615,9 +770,6 @@ function AiTetsu(props) {
           return togglePlayer(queue, player.id);
         });
   };
-  var match$20 = usePagination($$event);
-  var refetch = match$20.refetch;
-  var data = match$20.data;
   var allPlayers = sessionMode || sessionPlayers.length >= getConnectionNodes(data.rsvps).length ? sessionPlayers : Core__Array.filterMap(getConnectionNodes(data.rsvps).map(function (rsvp, index) {
                 return [
                         rsvp,
@@ -744,7 +896,7 @@ function AiTetsu(props) {
         return !consumedPlayers.has(p.id);
       });
   var deprioritized = getDeprioritizedPlayers(matchHistory, players, sessionState, breakCount);
-  var queue = Rating.OrderedQueue.filter(match$9[0], disabled);
+  var queue = Rating.OrderedQueue.filter(match$10[0], disabled);
   var breakPlayersCount = queue.length;
   var queuedPlayers = Core__Array.filterMap(queue.map(function (id) {
             return Rating.PlayersCache.get(playersCache, id);
@@ -771,6 +923,7 @@ function AiTetsu(props) {
         }));
   var queueMatch = function (match, dequeueOpt) {
     var dequeue = dequeueOpt !== undefined ? dequeueOpt : true;
+    console.log("Queueing match:");
     var match$1 = Js_math.random_int(0, 2);
     var match$2 = match$1 !== 0 ? [
         match[1],
@@ -779,25 +932,63 @@ function AiTetsu(props) {
         match[0],
         match[1]
       ];
-    var matches$1 = matches.concat([match$2]);
+    var matchId = eventId + "-match-" + Date.now().toString();
+    var matchRowData = {};
+    matchRowData["eventId"] = eventId;
+    matchRowData["createdAt"] = Date.now();
+    matchesStore.setRow("matches", matchId, matchRowData);
+    var teams = [
+      match$2[0],
+      match$2[1]
+    ];
+    teams.forEach(function (team, teamIndex) {
+          var teamStableId = Rating.Team.toStableId(team);
+          var teamId = matchId + "-team-" + teamStableId;
+          var teamRowData = {};
+          teamRowData["matchId"] = matchId;
+          teamRowData["teamIndex"] = teamIndex;
+          teamRowData["playerIds"] = Core__Option.getOr(JSON.stringify(team.map(function (p) {
+                        return p.id;
+                      })), "[]");
+          matchesStore.setRow("teams", teamId, teamRowData);
+          team.forEach(function (player) {
+                var playerId = player.id;
+                var existingPlayer = matchesStore.getRow("players", playerId);
+                if (Object.keys(existingPlayer).length !== 0) {
+                  return ;
+                }
+                var playerData = Rating.Player.toDb(player);
+                matchesStore.setRow("players", playerId, playerData);
+              });
+        });
     if (dequeue) {
       Rating.Match.players(match$2).map(function (p) {
             setQueue(function (queue) {
                   return Rating.OrderedQueue.removeFromQueue(queue, p.id);
                 });
           });
+      return ;
     }
-    setMatches(function (param) {
-          return matches$1;
-        });
+    
   };
   var dequeueMatch = function (index) {
-    var matches$1 = matches.filter(function (param, i) {
-          return i.toString() !== index;
-        });
-    setMatches(function (param) {
-          return matches$1;
-        });
+    var matchIdToDelete = matchIds[Core__Option.getOr(Core__Int.fromString(index, undefined), 0)];
+    if (matchIdToDelete !== undefined) {
+      var teamsTable = matchesStore.getTable("teams");
+      var teamIdsToDelete = Core__Array.filterMap(Js_dict.entries(teamsTable), (function (param) {
+              var mId = Core__Option.map(Js_dict.get(param[1], "matchId"), (function (v) {
+                      return v;
+                    }));
+              if (mId !== undefined && mId === matchIdToDelete) {
+                return param[0];
+              }
+              
+            }));
+      teamIdsToDelete.forEach(function (teamId) {
+            matchesStore.delRow("teams", teamId);
+          });
+      matchesStore.delRow("matches", matchIdToDelete);
+    }
     setLocallyCompletedMatches(function (local) {
           return Js_dict.fromArray(Js_dict.entries(local).filter(function (param) {
                           return param[0] !== index;
@@ -805,11 +996,25 @@ function AiTetsu(props) {
         });
   };
   var dequeueMatches = function (indexes) {
-    var matches$1 = matches.filter(function (param, i) {
-          return indexes.indexOf(i.toString()) === -1;
-        });
-    setMatches(function (param) {
-          return matches$1;
+    indexes.forEach(function (index) {
+          var matchIdToDelete = matchIds[Core__Option.getOr(Core__Int.fromString(index, undefined), 0)];
+          if (matchIdToDelete === undefined) {
+            return ;
+          }
+          var teamsTable = matchesStore.getTable("teams");
+          var teamIdsToDelete = Core__Array.filterMap(Js_dict.entries(teamsTable), (function (param) {
+                  var mId = Core__Option.map(Js_dict.get(param[1], "matchId"), (function (v) {
+                          return v;
+                        }));
+                  if (mId !== undefined && mId === matchIdToDelete) {
+                    return param[0];
+                  }
+                  
+                }));
+          teamIdsToDelete.forEach(function (teamId) {
+                matchesStore.delRow("teams", teamId);
+              });
+          matchesStore.delRow("matches", matchIdToDelete);
         });
   };
   var updatePlayCounts = function (match) {
@@ -1055,9 +1260,9 @@ function AiTetsu(props) {
         ],
         className: "flex flex-col items-center justify-center p-4 rounded-lg shadow-md bg-white hover:bg-gray-50 border border-gray-200 cursor-pointer text-gray-700 h-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       });
-  if (match$5[0] !== "Advanced") {
+  if (match$6[0] !== "Advanced") {
     return JsxRuntime.jsx(MatchesView.make, {
-                view: match$13[0],
+                view: match$14[0],
                 setView: setMatchesView,
                 players: players,
                 availablePlayers: availablePlayers$1,
@@ -1109,7 +1314,7 @@ function AiTetsu(props) {
                           return players;
                         });
                   }),
-                setRequiredPlayers: match$19[1],
+                setRequiredPlayers: match$20[1],
                 matches: matches,
                 setMatches: setMatches,
                 minRating: minRating,
@@ -1154,8 +1359,8 @@ function AiTetsu(props) {
                       seenMatches: seenMatches,
                       lastRoundSeenTeams: lastRoundSeenTeams,
                       lastRoundSeenMatches: lastRoundSeenMatches,
-                      defaultStrategy: match$16[0],
-                      setDefaultStrategy: match$16[1],
+                      defaultStrategy: match$17[0],
+                      setDefaultStrategy: match$17[1],
                       priorityPlayers: match$21.prioritized,
                       avoidAllPlayers: antiTeams,
                       onSelectMatch: (function (match, dequeue) {
@@ -1164,7 +1369,7 @@ function AiTetsu(props) {
                               });
                           queueMatch(match, dequeue);
                         }),
-                      requiredPlayers: match$19[0],
+                      requiredPlayers: match$20[0],
                       courts: Util.NonZeroInt.make(courts - matches.length | 0)
                     }),
                 selectedPlayersActions: (function (selectedPlayers) {
@@ -1563,7 +1768,7 @@ function AiTetsu(props) {
                                   }),
                               className: "col-span-1"
                             }),
-                        match$4[0] ? JsxRuntime.jsx(SelectMatch.make, {
+                        match$5[0] ? JsxRuntime.jsx(SelectMatch.make, {
                                 players: queuedPlayers,
                                 onMatchQueued: (function (match) {
                                     queueMatch(match, undefined);

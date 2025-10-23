@@ -15049,6 +15049,7 @@ __metadata:
     tailwind-merge: "npm:^2.2.0"
     tailwindcss: "npm:^3.4.1"
     tailwindcss-animate: "npm:^1.0.7"
+    tinybase: "npm:^6.7.1"
     typescript: "npm:^5.4.5"
     use-long-press: "npm:^3.3.0"
     vite: "npm:5.2.8"
@@ -17324,6 +17325,78 @@ __metadata:
   version: 1.3.3
   resolution: "tiny-invariant@npm:1.3.3"
   checksum: 5e185c8cc2266967984ce3b352a4e57cb89dad5a8abb0dea21468a6ecaa67cd5bb47a3b7a85d08041008644af4f667fb8b6575ba38ba5fb00b3b5068306e59fe
+  languageName: node
+  linkType: hard
+
+"tinybase@npm:^6.7.1":
+  version: 6.7.1
+  resolution: "tinybase@npm:6.7.1"
+  peerDependencies:
+    "@automerge/automerge-repo": ^1.2.1
+    "@cloudflare/workers-types": ^4.20251011.0
+    "@electric-sql/pglite": ^0.3.10
+    "@libsql/client": ^0.15.15
+    "@powersync/common": ^1.40.0
+    "@sqlite.org/sqlite-wasm": ^3.50.4-build1
+    "@vlcn.io/crsqlite-wasm": ^0.16.0
+    bun: ^1.3.0
+    electric-sql: ^0.12.1
+    expo: ^54.0.10
+    expo-sqlite: ^16.0.8
+    partykit: ^0.0.115
+    partysocket: ^1.1.5
+    postgres: ^3.4.7
+    react: ^19.0.0
+    react-dom: ^19.0.0
+    react-native-mmkv: 3.3.0
+    react-native-sqlite-storage: ^6.0.1
+    sqlite3: ^5.1.7
+    ws: ^8.18.3
+    yjs: ^13.6.27
+  peerDependenciesMeta:
+    "@automerge/automerge-repo":
+      optional: true
+    "@cloudflare/workers-types":
+      optional: true
+    "@electric-sql/pglite":
+      optional: true
+    "@libsql/client":
+      optional: true
+    "@powersync/common":
+      optional: true
+    "@sqlite.org/sqlite-wasm":
+      optional: true
+    "@vlcn.io/crsqlite-wasm":
+      optional: true
+    bun:
+      optional: true
+    electric-sql:
+      optional: true
+    expo:
+      optional: true
+    expo-sqlite:
+      optional: true
+    partykit:
+      optional: true
+    partysocket:
+      optional: true
+    postgres:
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-native-mmkv:
+      optional: true
+    react-native-sqlite-storage:
+      optional: true
+    sqlite3:
+      optional: true
+    ws:
+      optional: true
+    yjs:
+      optional: true
+  checksum: 3a814f59b1e3ec7b647d7bf785453465047975a64132ee5ca7c866f5478a11c1c2e59a78133f987257ac02fdb509e8f5d7c1d2f951e7f80faf133f51637a88ca
   languageName: node
   linkType: hard
 

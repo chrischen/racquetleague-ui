@@ -118,8 +118,47 @@ function makeDefaultRatingPlayer(name, gender, intId) {
         };
 }
 
+function toDb(player) {
+  var row = {};
+  row["playerId"] = player.id;
+  row["intId"] = player.intId;
+  row["name"] = player.name;
+  row["ratingMu"] = player.rating.mu;
+  row["ratingSigma"] = player.rating.sigma;
+  row["genderInt"] = toInt(player.gender);
+  row["paid"] = player.paid;
+  return row;
+}
+
+function fromDb(row) {
+  var match = Core__Option.flatMap(Js_dict.get(row, "playerId"), Js_json.decodeString);
+  var match$1 = Core__Option.flatMap(Js_dict.get(row, "intId"), Js_json.decodeNumber);
+  var match$2 = Core__Option.flatMap(Js_dict.get(row, "name"), Js_json.decodeString);
+  var match$3 = Core__Option.flatMap(Js_dict.get(row, "ratingMu"), Js_json.decodeNumber);
+  var match$4 = Core__Option.flatMap(Js_dict.get(row, "ratingSigma"), Js_json.decodeNumber);
+  var match$5 = Core__Option.flatMap(Js_dict.get(row, "genderInt"), Js_json.decodeNumber);
+  if (match !== undefined && match$1 !== undefined && match$2 !== undefined && match$3 !== undefined && match$4 !== undefined && match$5 !== undefined) {
+    return {
+            data: undefined,
+            id: match,
+            intId: match$1 | 0,
+            name: match$2,
+            rating: {
+              mu: match$3,
+              sigma: match$4
+            },
+            ratingOrdinal: 0,
+            paid: Core__Option.getOr(Core__Option.flatMap(Js_dict.get(row, "paid"), Js_json.decodeBoolean), false),
+            gender: fromInt(match$5 | 0)
+          };
+  }
+  
+}
+
 var Player = {
-  makeDefaultRatingPlayer: makeDefaultRatingPlayer
+  makeDefaultRatingPlayer: makeDefaultRatingPlayer,
+  toDb: toDb,
+  fromDb: fromDb
 };
 
 function contains_player(players, player) {
@@ -151,11 +190,18 @@ function toStableId(t) {
                 }).toSorted(Core__String.compare).join("-");
 }
 
+function toDb$1(team) {
+  return team.map(function (player) {
+              return toDb(player);
+            });
+}
+
 var Team = {
   contains_player: contains_player,
   toSet: toSet,
   is_equal_to: is_equal_to,
-  toStableId: toStableId
+  toStableId: toStableId,
+  toDb: toDb$1
 };
 
 function is_equal_to$1(t1, t2) {
@@ -277,6 +323,65 @@ function players(param) {
             });
 }
 
+function toDb$2(match) {
+  return toDb$1(match[0]).concat(toDb$1(match[1]));
+}
+
+function loadFromDb(_matchRow, teamsTable, playersTable, matchId) {
+  var teams = Core__Array.filterMap(Js_dict.entries(teamsTable), (function (param) {
+              var teamRow = param[1];
+              var match = Core__Option.map(Js_dict.get(teamRow, "matchId"), (function (v) {
+                      return v;
+                    }));
+              var match$1 = Core__Option.map(Js_dict.get(teamRow, "teamIndex"), (function (v) {
+                      return v;
+                    }));
+              var match$2 = Core__Option.flatMap(Js_dict.get(teamRow, "playerIds"), Js_json.decodeString);
+              if (match === undefined) {
+                return ;
+              }
+              if (match$1 === undefined) {
+                return ;
+              }
+              if (match$2 === undefined) {
+                return ;
+              }
+              if (match !== matchId) {
+                return ;
+              }
+              try {
+                var playerIds = Core__Array.filterMap(Core__Option.getOr(Js_json.decodeArray(JSON.parse(match$2)), []), Js_json.decodeString);
+                var players = Core__Array.filterMap(playerIds, (function (playerId) {
+                        return Core__Option.flatMap(Js_dict.get(playersTable, playerId), fromDb);
+                      }));
+                return [
+                        match$1,
+                        players
+                      ];
+              }
+              catch (exn){
+                return ;
+              }
+            })).toSorted(function (param, param$1) {
+          if (param[0] < param$1[0]) {
+            return -1;
+          } else {
+            return 1;
+          }
+        }).map(function (param) {
+        return param[1];
+      });
+  if (teams.length !== 2) {
+    return ;
+  }
+  var team1 = teams[0];
+  var team2 = teams[1];
+  return [
+          team1,
+          team2
+        ];
+}
+
 var Match = {
   contains_player: contains_player$1,
   contains_any_players: contains_any_players,
@@ -284,7 +389,9 @@ var Match = {
   contains_more_than_1_players: contains_more_than_1_players,
   rate: rate,
   toStableId: toStableId$1,
-  players: players
+  players: players,
+  toDb: toDb$2,
+  loadFromDb: loadFromDb
 };
 
 function submit(param, activitySlug, submitMatch) {

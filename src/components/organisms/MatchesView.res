@@ -3,9 +3,15 @@ open Lingui.Util
 
 module PlayerView = {
   @react.component
-  let make = (~player: Rating.player, ~minRating, ~maxRating, ~status, ~sessionState: option<Session.t>=?) => {
+  let make = (
+    ~player: Rating.player,
+    ~minRating,
+    ~maxRating,
+    ~status,
+    ~sessionState: option<Session.t>=?,
+  ) => {
     let playCount = sessionState->Option.map(session => (session->Session.get(player.id)).count)
-    
+
     // <div className="rounded-lg bg-white shadow p-8">
     switch player.data {
     | Some(data) =>
