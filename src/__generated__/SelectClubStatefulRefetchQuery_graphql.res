@@ -109,7 +109,7 @@ var v0 = [
     "name": "before"
   },
   {
-    "defaultValue": 20,
+    "defaultValue": 100,
     "kind": "LocalArgument",
     "name": "first"
   }
@@ -296,12 +296,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "7dade1763a735d760ce928dac786ef1b",
+    "cacheID": "d69c748fc59e0dc917950d3bc008715e",
     "id": null,
     "metadata": {},
     "name": "SelectClubStatefulRefetchQuery",
     "operationKind": "query",
-    "text": "query SelectClubStatefulRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 20\n) {\n  ...SelectClubStateful_query_4uAqg1\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment SelectClubStateful_query_4uAqg1 on Query {\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(after: $after, first: $first, before: $before) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n"
+    "text": "query SelectClubStatefulRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 100\n) {\n  ...SelectClubStateful_query_4uAqg1\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment SelectClubStateful_query_4uAqg1 on Query {\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(after: $after, first: $first, before: $before) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -145,7 +145,7 @@ let make = (
   ~setDefaultStrategy: (strategy => strategy) => unit,
   ~priorityPlayers: array<Player.t<'a>>,
   ~avoidAllPlayers: option<array<array<Player.t<'a>>>>=?,
-  ~onSelectMatch: option<(Match.t<'a>, ~dequeue: bool=?) => unit>=?,
+  ~onSelectMatch: option<(Match.t<'a>, ~disablePlayers: bool=?) => unit>=?,
   ~requiredPlayers: option<Set.t<string>>=?,
   ~courts: NonZeroInt.t,
 ) => {
@@ -354,7 +354,13 @@ let make = (
     | _ => React.null
     }}
     {matches
-    ->RankedMatches.recommendMatch(seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teams)
+    ->RankedMatches.recommendMatch(
+      seenTeams,
+      seenMatches,
+      lastRoundSeenTeams,
+      lastRoundSeenMatches,
+      teams,
+    )
     ->Option.map(match => {
       let (team1, team2) = match
       let highlight2 = switch (
@@ -394,7 +400,7 @@ let make = (
           onSelect=?{onSelectMatch->Option.map(f => match => {
             f(
               match,
-              ~dequeue=switch strategy {
+              ~disablePlayers=switch strategy {
               | RoundRobin => false
               | _ => true
               },
@@ -448,7 +454,7 @@ let make = (
           onSelect=?{onSelectMatch->Option.map(f => match => {
             f(
               match,
-              ~dequeue=switch strategy {
+              ~disablePlayers=switch strategy {
               | RoundRobin => false
               | _ => true
               },

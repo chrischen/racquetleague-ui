@@ -477,7 +477,7 @@ let rsvpToPlayer = (
       decayedRating
     | _ => Rating.makeDefault()
     }
-    {
+    let p = {
       data: Some(rsvp),
       Player.id: userId,
       intId,
@@ -497,6 +497,7 @@ let rsvpToPlayer = (
       )
       ->Option.getOr(Male),
     }->Some
+    p
   | _ => None
   }
 }
@@ -922,7 +923,7 @@ let make = (~event, ~children) => {
   let minRating =
     players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
 
-  let queueMatch = (match, ~dequeue=true) => {
+  let queueMatch = (match, ~disablePlayers=true) => {
     Js.log("Queueing match:")
     // Randomize the team order displayed
     // Can be used to decide who starts the serve
@@ -967,16 +968,13 @@ let make = (~event, ~children) => {
         // Use player's ID directly as the TinyBase row ID
         let playerId = player.id
 
-        // Only create/update player if it doesn't exist yet
-        let existingPlayer = matchesStore->TinyBase.getRow("players", playerId)
-        if existingPlayer->Js.Dict.keys->Array.length == 0 {
-          let playerData = player->Player.toDb
-          matchesStore->TinyBase.setRow("players", playerId, playerData)
-        }
+        // Always update player data to ensure we have the latest from React state
+        let playerData = player->Player.toDb
+        matchesStore->TinyBase.setRow("players", playerId, playerData)
       })
     })
 
-    dequeue
+    disablePlayers
       ? match
         ->Match.players
         ->Array.map(p => setQueue(queue => queue->OrderedQueue.removeFromQueue(p.id)))
@@ -1244,21 +1242,17 @@ let make = (~event, ~children) => {
           activity.slug->Option.map(slug => {
             // Create an array of submission promises
             let submissionPromises = matches->Array.map(
-              ((_, completedMatch)) => {
+              ((matchId, completedMatch)) => {
                 completedMatch
                 ->CompletedMatch.submit(slug, submitMatch)
                 ->Promise.thenResolve(
-                  _ =>
-                    matches
-                    ->Array.map(
-                      ((matchId, (match, _))) => {
-                        let rated_match = match->Match.rate
-                        updateSessionPlayerRatings(rated_match->Array.flatMap(x => x))
-                        updatePlayCounts(match)
-                        matchId
-                      },
-                    )
-                    ->dequeueMatches,
+                  _ => {
+                    let (match, _) = completedMatch
+                    // let rated_match = completedMatch->Match.rate
+                    // updateSessionPlayerRatings(rated_match->Array.flatMap(x => x))
+                    updatePlayCounts(match)
+                    matchId->dequeueMatch
+                  },
                 )
               },
             )
@@ -1697,10 +1691,10 @@ let make = (~event, ~children) => {
         priorityPlayers
         avoidAllPlayers=?{antiTeams}
         ?requiredPlayers
-        onSelectMatch={(match, ~dequeue: option<bool>=?) => {
+        onSelectMatch={(match, ~disablePlayers: option<bool>=?) => {
           // setSelectedMatch(_ => Some(([p1'.data, p2'.data], [p3'.data, p4'.data])))
           setMatchesView(_ => MatchesView.Matches)
-          queueMatch(match, ~dequeue?)
+          queueMatch(match, ~disablePlayers?)
         }}
         courts={(courts - matches->Array.length)->NonZeroInt.make}
       />}

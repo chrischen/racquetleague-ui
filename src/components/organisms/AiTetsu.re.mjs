@@ -921,8 +921,8 @@ function AiTetsu(props) {
             return acc;
           }
         }));
-  var queueMatch = function (match, dequeueOpt) {
-    var dequeue = dequeueOpt !== undefined ? dequeueOpt : true;
+  var queueMatch = function (match, disablePlayersOpt) {
+    var disablePlayers = disablePlayersOpt !== undefined ? disablePlayersOpt : true;
     console.log("Queueing match:");
     var match$1 = Js_math.random_int(0, 2);
     var match$2 = match$1 !== 0 ? [
@@ -953,15 +953,11 @@ function AiTetsu(props) {
           matchesStore.setRow("teams", teamId, teamRowData);
           team.forEach(function (player) {
                 var playerId = player.id;
-                var existingPlayer = matchesStore.getRow("players", playerId);
-                if (Object.keys(existingPlayer).length !== 0) {
-                  return ;
-                }
                 var playerData = Rating.Player.toDb(player);
                 matchesStore.setRow("players", playerId, playerData);
               });
         });
-    if (dequeue) {
+    if (disablePlayers) {
       Rating.Match.players(match$2).map(function (p) {
             setQueue(function (queue) {
                   return Rating.OrderedQueue.removeFromQueue(queue, p.id);
@@ -1144,16 +1140,11 @@ function AiTetsu(props) {
                             })), Promise.resolve()) : Core__Option.getOr(Core__Option.flatMap(activity, (function (activity) {
                               return Core__Option.map(activity.slug, (function (slug) {
                                             var submissionPromises = matches.map(function (param) {
-                                                  return Rating.CompletedMatch.submit(param[1], slug, submitMatch).then(function () {
-                                                              dequeueMatches(matches.map(function (param) {
-                                                                        var match = param[1][0];
-                                                                        var rated_match = Rating.Match.rate(match);
-                                                                        updateSessionPlayerRatings(rated_match.flatMap(function (x) {
-                                                                                  return x;
-                                                                                }));
-                                                                        updatePlayCounts(match);
-                                                                        return param[0];
-                                                                      }));
+                                                  var completedMatch = param[1];
+                                                  var matchId = param[0];
+                                                  return Rating.CompletedMatch.submit(completedMatch, slug, submitMatch).then(function () {
+                                                              updatePlayCounts(completedMatch[0]);
+                                                              dequeueMatch(matchId);
                                                             });
                                                 });
                                             return Promise.all(submissionPromises).then(function (param) {
@@ -1363,11 +1354,11 @@ function AiTetsu(props) {
                       setDefaultStrategy: match$17[1],
                       priorityPlayers: match$21.prioritized,
                       avoidAllPlayers: antiTeams,
-                      onSelectMatch: (function (match, dequeue) {
+                      onSelectMatch: (function (match, disablePlayers) {
                           setMatchesView(function (param) {
                                 return "Matches";
                               });
-                          queueMatch(match, dequeue);
+                          queueMatch(match, disablePlayers);
                         }),
                       requiredPlayers: match$20[0],
                       courts: Util.NonZeroInt.make(courts - matches.length | 0)

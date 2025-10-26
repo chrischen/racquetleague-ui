@@ -1,4 +1,4 @@
-%%raw("import { css, cx } from '@linaria/core'")
+/* %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
 
@@ -605,3 +605,4 @@ let make = (~event, ~user) => {
     </UiAction>
   </div>
 }
+ */
