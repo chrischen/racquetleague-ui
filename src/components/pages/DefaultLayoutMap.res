@@ -37,9 +37,8 @@ module ActivityDropdownMenu = {
   @react.component
   let make = () => {
     let activities = [
-      {label: ts`All`, url: "/"},
-      {label: ts`Pickleball`, url: "/?activity=pickleball", initials: "P"},
-      {label: ts`Badminton`, url: "/?activity=badminton", initials: "B"},
+      {label: ts`Pickleball`, url: "/e/pickleball", initials: "P"},
+      {label: ts`Badminton`, url: "/e/badminton", initials: "B"},
     ]
     open Dropdown
     <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">

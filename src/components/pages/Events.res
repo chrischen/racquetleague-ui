@@ -37,9 +37,8 @@ module ActivityDropdownMenu = {
   let make = () => {
     open Dropdown
     let activities = [
-      {label: ts`All`, url: "/"},
-      {label: ts`Pickleball`, url: "/?activity=pickleball", initials: "P"},
-      {label: ts`Badminton`, url: "/?activity=badminton", initials: "B"},
+      {label: ts`Pickleball`, url: "/e/pickleball", initials: "P"},
+      {label: ts`Badminton`, url: "/e/badminton", initials: "B"},
     ]
     <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
       {activities
@@ -64,6 +63,9 @@ type loaderData = EventsQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
+// URL Params
+type params = {activitySlug: option<string>, lang: option<string>}
+
 @react.component
 let make = () => {
   open Router
@@ -71,11 +73,14 @@ let make = () => {
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
   let {fragmentRefs, viewer} = EventsQuery.usePreloaded(~queryRef=query.data)
+  let params: params = Router.useParams()
   let (searchParams, _) = Router.useSearchParamsFunc()
-  let activityFilter = searchParams->Router.SearchParams.get("activity")
+
+  let activityFilter = params.activitySlug->Option.getOr("pickleball")
+
   let title = switch activityFilter {
-  | Some("pickleball") => t`pickleball events`
-  | Some("badminton") => t`badminton events`
+  | "pickleball" => t`pickleball events`
+  | "badminton" => t`badminton events`
   | _ => t`all events`
   }
   let shadowFilter =
@@ -93,6 +98,9 @@ let make = () => {
       <>
         <EventsList
           events=fragmentRefs
+          context={{
+            activitySlug: activityFilter,
+          }}
           header={<Layout.Container>
             <Grid>
               <PageTitle>
@@ -109,7 +117,7 @@ let make = () => {
             </Grid>
             {viewer
             ->Option.map(viewer =>
-              <ViewerClubs viewer={viewer.fragmentRefs} activitySlug=?activityFilter />
+              <ViewerClubs viewer={viewer.fragmentRefs} activitySlug=?{Some(activityFilter)} />
             )
             ->Option.getOr(React.null)}
             <Grid>
@@ -164,7 +172,6 @@ let make = () => {
 
 let \"Component" = make
 
-type params = {...EventsQuery_graphql.Types.variables, lang: option<string>}
 module LoaderArgs = {
   type t = {
     context: RelayEnv.context,
@@ -192,7 +199,9 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
-  let activity = url.searchParams->Router.SearchParams.get("activity")
+
+  let activity = params.activitySlug->Option.getOr("pickleball")
+
   let shadow =
     url.searchParams
     ->Router.SearchParams.get("shadow")
@@ -216,7 +225,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         ?before,
         ?afterDate,
         filters: {
-          activitySlug: ?activity,
+          activitySlug: activity,
           shadow,
         },
       },

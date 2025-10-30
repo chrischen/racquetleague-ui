@@ -55,6 +55,25 @@ input AutocompleteLocationInput {
   plusCode: String
 }
 
+input ChatInput {
+  message: String!
+}
+
+type ChatMessage {
+  content: String!
+  createdAt: Datetime!
+  id: String!
+  messageType: MessageType!
+  toolCallId: String
+  toolCalls: String
+}
+
+type ChatResponse {
+  error: String
+  message: ChatMessage
+  suggestedEvents: [SuggestedEvent!]
+}
+
 type Club implements Node {
   defaultActivity: Activity
   description: String
@@ -126,8 +145,9 @@ input CreateEventInput {
 }
 
 input CreateEventsInput {
-  activityId: String!
-  clubId: String!
+  activityId: String
+  activitySlug: String
+  clubId: String
   input: String!
   listed: Boolean!
   timezone: String
@@ -402,11 +422,18 @@ type Message {
   topic: String!
 }
 
+enum MessageType {
+  Agent
+  Function
+  User
+}
+
 type Mutation {
   addRsvpToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   addUserToClub(input: AddUserToClubInput!): AddUserToClubResult!
   autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
   cancelEvent(eventId: ID!): MutationResult2!
+  chat(input: ChatInput!): ChatResponse!
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   createClub(input: CreateClubInput!): CreateClubResult!
   createEvent(input: CreateEventInput!): MutationResult2!
@@ -471,6 +498,7 @@ type PredictMatchOutcome {
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
+  chatMessages(limit: Int, sessionId: String!): [ChatMessage!]!
   club(id: ID, slug: String): Club
   clubMembers(after: String, first: Int, input: ClubMembersInput!): MembershipConnection!
   clubs(after: String, before: String, first: Int): ClubConnection!
@@ -542,6 +570,16 @@ type Rsvp implements Node {
 type Subscription {
   id: ID!
   topic: String
+}
+
+type SuggestedEvent {
+  address: String!
+  details: String
+  endDate: Datetime!
+  maxRsvps: Int
+  startDate: Datetime!
+  timezone: String
+  title: String!
 }
 
 enum T {

@@ -18,7 +18,9 @@ import * as ClubCalendar from "./ClubCalendar.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as React$1 from "@lingui/react";
+import * as AIAssistantModal from "./AIAssistantModal.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
@@ -322,20 +324,24 @@ var Day = {
 function ClubEventsList(props) {
   var viewer = props.viewer;
   var events = props.events;
-  var match = use(events);
-  var match$1 = usePagination(events);
-  var data = match$1.data;
+  var clubData = use(events);
+  var match = usePagination(events);
+  var data = match.data;
   var nodes = getConnectionNodes(data.events);
   var pageInfo = data.events.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
-  var match$2 = React.useState(function () {
+  var match$1 = React.useState(function () {
         return false;
       });
-  var setShareOpen = match$2[1];
-  var shareOpen = match$2[0];
-  var match$3 = React.useState(function () {
+  var setShareOpen = match$1[1];
+  var shareOpen = match$1[0];
+  var match$2 = React.useState(function () {
         
       });
+  var match$3 = React.useState(function () {
+        return false;
+      });
+  var setIsAiModalOpen = match$3[1];
   var navigate = ReactRouterDom.useNavigate();
   var match$4 = ReactRouterDom.useSearchParams();
   var setSearchParams = match$4[1];
@@ -356,8 +362,25 @@ function ClubEventsList(props) {
   var calendarDates = Object.keys(grouped).map(function (dateString) {
         return new Date(dateString);
       });
+  var aiContext_activitySlug = Core__Option.flatMap(clubData.defaultActivity, (function (a) {
+          return a.slug;
+        }));
+  var aiContext_clubId = clubData.id;
+  var aiContext = {
+    activitySlug: aiContext_activitySlug,
+    clubId: aiContext_clubId
+  };
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
+                JsxRuntime.jsx(AIAssistantModal.make, {
+                      open_: match$3[0],
+                      onOpenChange: (function (isOpen) {
+                          setIsAiModalOpen(function (param) {
+                                return isOpen;
+                              });
+                        }),
+                      context: aiContext
+                    }),
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx(LangProvider.DetectedLang.make, {}),
@@ -398,6 +421,23 @@ function ClubEventsList(props) {
                                                             });
                                                       })
                                                   }),
+                                              JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsxs("button", {
+                                                          children: [
+                                                            JsxRuntime.jsx(LucideReact.Sparkles, {
+                                                                  className: "w-5 h-5"
+                                                                }),
+                                                            t`Add an Event`
+                                                          ],
+                                                          className: "flex w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-2xl font-medium transition-all shadow-lg shadow-purple-500/25 items-center justify-center gap-2",
+                                                          onClick: (function (param) {
+                                                              setIsAiModalOpen(function (param) {
+                                                                    return true;
+                                                                  });
+                                                            })
+                                                        }),
+                                                    className: "mx-4 mb-4 mt-4"
+                                                  }),
                                               Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
                                                           return JsxRuntime.jsx(WarningAlert.make, {
                                                                       children: JsxRuntime.jsx(JsxRuntime.Fragment, {
@@ -409,7 +449,7 @@ function ClubEventsList(props) {
                                                                         })
                                                                     });
                                                         })), null),
-                                              !match$1.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
+                                              !match.isLoadingPrevious && hasPrevious ? Core__Option.getOr(Core__Option.map(pageInfo.startCursor, (function (startCursor) {
                                                             return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
                                                                         to: {
                                                                           pathname: "./",
@@ -451,7 +491,7 @@ function ClubEventsList(props) {
                                                         }),
                                                     role: "list"
                                                   }),
-                                              match$1.hasNext && !match$1.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
+                                              match.hasNext && !match.isLoadingNext ? JsxRuntime.jsx(Layout.Container.make, {
                                                       children: Core__Option.getOr(Core__Option.map(pageInfo.endCursor, (function (endCursor) {
                                                                   return JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
                                                                               to: {
@@ -484,11 +524,11 @@ function ClubEventsList(props) {
                             children: JsxRuntime.jsx("div", {
                                   children: JsxRuntime.jsx("div", {
                                         children: JsxRuntime.jsx(PinMap.make, {
-                                              connection: match.events.fragmentRefs,
+                                              connection: clubData.events.fragmentRefs,
                                               onLocationClick: (function ($$location) {
                                                   navigate("/locations/" + $$location.id, undefined);
                                                 }),
-                                              selected: match$3[0]
+                                              selected: match$2[0]
                                             }),
                                         className: "w-full lg:min-h-96 h-96 lg:h-[calc(100vh-50px)] lg:max-h-screen"
                                       }),

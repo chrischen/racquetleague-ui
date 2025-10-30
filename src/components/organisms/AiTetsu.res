@@ -1054,8 +1054,8 @@ let make = (~event, ~children) => {
   let updatePlayCounts = (match: match) => {
     setSessionState(prevState => {
       let nextState =
-        [match->fst, match->snd]
-        ->Array.flatMap(x => x)
+        (match->fst, match->snd)
+        ->Match.players
         ->Array.reduce(prevState, (state, p) => {
           state->Session.update(
             p.id,

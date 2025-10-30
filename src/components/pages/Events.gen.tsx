@@ -5,11 +5,7 @@
 
 import * as EventsJS from './Events.re.mjs';
 
-import type {Datetime_t as Util_Datetime_t} from '../../../src/components/shared/Util.gen';
-
 import type {RouterRequest_t as Router_RouterRequest_t} from '../../../src/components/shared/Router.gen';
-
-import type {Types_eventFilters as EventsQuery_graphql_Types_eventFilters} from '../../../src/__generated__/EventsQuery_graphql.gen';
 
 import type {context as RelayEnv_context} from '../../../src/entry/RelayEnv.gen';
 
@@ -19,14 +15,7 @@ import type {queryRef as EventsQuery_graphql_queryRef} from '../../../src/__gene
 
 export type props = {};
 
-export type params = {
-  readonly after?: string; 
-  readonly afterDate?: Util_Datetime_t; 
-  readonly before?: string; 
-  readonly filters?: EventsQuery_graphql_Types_eventFilters; 
-  readonly first?: number; 
-  readonly lang: (undefined | string)
-};
+export type params = { readonly activitySlug: (undefined | string); readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
   readonly context: RelayEnv_context; 

@@ -2323,6 +2323,100 @@ msgstr "{0}5件の{hiddenCountDesc}非表示"
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create All Events"
+msgstr "すべてのイベントを作成"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create This Event"
+msgstr "このイベントを作成"
+
+#: src/components/molecules/AIResponseCard.re.mjs:55
+#: src/components/molecules/AIResponseCard.re.mjs:152
+msgid "Date:"
+msgstr "日付:"
+
+#: src/components/molecules/AIResponseCard.re.mjs:97
+msgid "Description:"
+msgstr "説明:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+msgid "Error creating events. Please try again."
+msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:33
+msgid "Event Details"
+msgstr "イベント詳細"
+
+#: src/components/molecules/AIResponseCard.re.mjs:82
+#: src/components/molecules/AIResponseCard.re.mjs:166
+msgid "Location:"
+msgstr "場所:"
+
+#: src/components/molecules/AIResponseCard.re.mjs:130
+msgid "Suggested Events"
+msgstr "提案されたイベント"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+msgid "Time:"
+msgstr "時間:"
+
+#: src/components/molecules/AIResponseCard.re.mjs:42
+msgid "Title:"
+msgstr "タイトル:"
+
+#: src/components/organisms/ClubEventsList.re.mjs:430
+msgid "Add an Event"
+msgstr "イベントを追加"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:150
+msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
+msgstr "来月の毎週木曜日、赤羽小学校で19時から21時までバドミントン。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:149
+msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
+msgstr "明日18時から21時、KPIパークで5人必要。費用は割り勘。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:175
+msgid "AI Assistant"
+msgstr "AIアシスタント"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:120
+msgid "An error occurred. Please try again."
+msgstr "エラーが発生しました。もう一度お試しください。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:268
+msgid "Ask"
+msgstr "質問"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+msgid "Describe the event you want to create..."
+msgstr "作成したいイベントを説明してください..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:108
+msgid "I couldn't process that request. Please try again."
+msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid ""
+"Let me know when and where you'd like to play, and I'll help you create an "
+"event. You can continue talking to me in a conversation to refine any "
+"details."
+msgstr ""
+"いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会話を続けて詳細を調整することもできます。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:278
+msgid "New"
+msgstr "新規"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:264
+msgid "Processing..."
+msgstr "処理中..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:268
+msgid "Reply"
+msgstr "返信"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

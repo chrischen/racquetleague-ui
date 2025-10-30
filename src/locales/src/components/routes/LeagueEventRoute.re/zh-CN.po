@@ -17,7 +17,7 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "...加载之前的比赛"
 
-#: src/components/organisms/AiTetsu.re.mjs:1548
+#: src/components/organisms/AiTetsu.re.mjs:1741
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr "{0} {breakPlayersDesc} 没有参赛"
 
@@ -29,7 +29,7 @@ msgstr "已选择 {0} 位球员"
 msgid "{0} players selected"
 msgstr "已选择 {0} 位球员"
 
-#: src/components/organisms/AiTetsu.re.mjs:965
+#: src/components/organisms/AiTetsu.re.mjs:1158
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
 msgstr "位球员"
 
@@ -38,7 +38,7 @@ msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr "{0}"
 
 #: src/components/organisms/MatchesView.re.mjs:257
-#: src/components/organisms/AiTetsu.re.mjs:341
+#: src/components/organisms/AiTetsu.re.mjs:353
 msgid "# of courts"
 msgstr "球场数量"
 
@@ -46,7 +46,7 @@ msgstr "球场数量"
 msgid "Actions"
 msgstr "操作"
 
-#: src/components/organisms/AiTetsu.re.mjs:1053
+#: src/components/organisms/AiTetsu.re.mjs:1246
 msgid "Add Guest"
 msgstr "添加客人"
 
@@ -54,7 +54,7 @@ msgstr "添加客人"
 msgid "Add Guest Player"
 msgstr "添加客人球员"
 
-#: src/components/organisms/AiTetsu.re.mjs:1072
+#: src/components/organisms/AiTetsu.re.mjs:1265
 msgid "Add Player"
 msgstr "添加球员"
 
@@ -62,7 +62,7 @@ msgstr "添加球员"
 msgid "Add/Remove Players"
 msgstr "添加/移除球员"
 
-#: src/components/organisms/AiTetsu.re.mjs:1466
+#: src/components/organisms/AiTetsu.re.mjs:1659
 msgid "Advanced Options"
 msgstr "高级选项"
 
@@ -84,7 +84,7 @@ msgstr "取消"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/AiTetsu.re.mjs:1481
+#: src/components/organisms/AiTetsu.re.mjs:1674
 msgid "Checkin All Players"
 msgstr "所有球员签到"
 
@@ -96,7 +96,7 @@ msgstr "选择比赛"
 msgid "CHOOSE MATCH"
 msgstr "选择比赛"
 
-#: src/components/organisms/AiTetsu.re.mjs:1358
+#: src/components/organisms/AiTetsu.re.mjs:1551
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
 msgstr "清除会话（评分、比赛数量和客人球员）"
 
@@ -112,16 +112,16 @@ msgstr "竞技模式"
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "球场 {0}: {team1} 对战 {team2}"
 
-#: src/components/organisms/AiTetsu.re.mjs:1215
+#: src/components/organisms/AiTetsu.re.mjs:1408
 msgid "Create Anti-Team"
 msgstr "创建反对队"
 
-#: src/components/organisms/AiTetsu.re.mjs:210
-#: src/components/organisms/AiTetsu.re.mjs:1191
+#: src/components/organisms/AiTetsu.re.mjs:222
+#: src/components/organisms/AiTetsu.re.mjs:1384
 msgid "Create Team"
 msgstr "创建队伍"
 
-#: src/components/organisms/AiTetsu.re.mjs:1098
+#: src/components/organisms/AiTetsu.re.mjs:1291
 msgid "Done"
 msgstr "完成"
 
@@ -129,7 +129,7 @@ msgstr "完成"
 msgid "Enter Score"
 msgstr "输入分数"
 
-#: src/components/organisms/AiTetsu.re.mjs:1193
+#: src/components/organisms/AiTetsu.re.mjs:1386
 msgid "Fixed Pair"
 msgstr "固定搭档"
 
@@ -145,11 +145,11 @@ msgstr "返回"
 msgid "How many players should rest? (currently {0} players are resting)"
 msgstr "有多少球员应该休息？（目前有 {0} 名球员在休息）"
 
-#: src/components/organisms/AiTetsu.re.mjs:1352
+#: src/components/organisms/AiTetsu.re.mjs:1545
 msgid "Initialize Ratings"
 msgstr "初始化评分"
 
-#: src/components/organisms/AiTetsu.re.mjs:1432
+#: src/components/organisms/AiTetsu.re.mjs:1625
 msgid "Leaderboard"
 msgstr "排行榜"
 
@@ -163,7 +163,7 @@ msgstr "加载更多比赛..."
 
 #: src/components/organisms/SubmitMatch.re.mjs:413
 #: src/components/organisms/SortableSubmitMatch.re.mjs:453
-#: src/components/organisms/AiTetsu.re.mjs:1583
+#: src/components/organisms/AiTetsu.re.mjs:1776
 msgid "Loading"
 msgstr "加载中"
 
@@ -171,15 +171,15 @@ msgstr "加载中"
 msgid "Loading matches..."
 msgstr "加载比赛..."
 
-#: src/components/organisms/AiTetsu.re.mjs:1457
+#: src/components/organisms/AiTetsu.re.mjs:1650
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/organisms/AiTetsu.re.mjs:1563
+#: src/components/organisms/AiTetsu.re.mjs:1756
 msgid "manual team"
 msgstr "手动组队"
 
-#: src/components/organisms/AiTetsu.re.mjs:1600
+#: src/components/organisms/AiTetsu.re.mjs:1793
 msgid "Match History"
 msgstr "比赛历史"
 
@@ -209,8 +209,8 @@ msgid ""
 "the Queue tab."
 msgstr "队列中球员不足。请从“队列”选项卡中选择想要参赛的球员。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1399
-#: src/components/organisms/AiTetsu.re.mjs:1421
+#: src/components/organisms/AiTetsu.re.mjs:1592
+#: src/components/organisms/AiTetsu.re.mjs:1614
 msgid "Offline Mode"
 msgstr "离线模式"
 
@@ -226,18 +226,18 @@ msgstr "球员"
 msgid "Player Name"
 msgstr "球员姓名"
 
-#: src/components/organisms/AiTetsu.re.mjs:1197
+#: src/components/organisms/AiTetsu.re.mjs:1390
 msgid ""
 "Players in a team will always be placed in a match together on the same side."
 msgstr ""
 "队伍中的球员将始终安排在同一方一起比赛。队伍中的球员将始终安排在同一方一起比"
 "赛。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1218
+#: src/components/organisms/AiTetsu.re.mjs:1411
 msgid "Players in an anti-team will never be placed in a match together."
 msgstr "反对队中的球员永远不会被安排在一起比赛。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1274
+#: src/components/organisms/AiTetsu.re.mjs:1467
 msgid ""
 "Players in teams will always be placed in a match together on the same side."
 msgstr ""
@@ -270,7 +270,7 @@ msgstr "队列"
 msgid "Queue All"
 msgstr "全部入队"
 
-#: src/components/organisms/AiTetsu.re.mjs:1474
+#: src/components/organisms/AiTetsu.re.mjs:1667
 msgid "Queue All Players"
 msgstr "所有球员入队"
 
@@ -310,11 +310,11 @@ msgstr "选择"
 msgid "Select a tab"
 msgstr "选择一个标签页"
 
-#: src/components/organisms/AiTetsu.re.mjs:1257
+#: src/components/organisms/AiTetsu.re.mjs:1450
 msgid "Set as Female"
 msgstr "设为女性"
 
-#: src/components/organisms/AiTetsu.re.mjs:1238
+#: src/components/organisms/AiTetsu.re.mjs:1431
 msgid "Set as Male"
 msgstr "设为男性"
 
@@ -327,7 +327,7 @@ msgstr ""
 "设置为当前休息的球员数量，以启用比赛场次的均衡分配。设置为0可以禁用此功能并优"
 "化比赛质量，但这可能导致某些球员比其他球员参加更多比赛。"
 
-#: src/components/organisms/AiTetsu.re.mjs:1390
+#: src/components/organisms/AiTetsu.re.mjs:1583
 msgid "Start Session"
 msgstr "开始会话"
 
@@ -343,11 +343,11 @@ msgstr "提交评级比赛"
 msgid "SUBMIT RESULTS"
 msgstr "提交结果"
 
-#: src/components/organisms/AiTetsu.re.mjs:1591
+#: src/components/organisms/AiTetsu.re.mjs:1784
 msgid "Submitted Matches"
 msgstr "已提交比赛"
 
-#: src/components/organisms/AiTetsu.re.mjs:100
+#: src/components/organisms/AiTetsu.re.mjs:112
 msgid "Team {0}"
 msgstr "第 {0} 队"
 

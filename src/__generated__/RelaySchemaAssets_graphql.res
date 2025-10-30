@@ -15,6 +15,21 @@ type enum_Gender_input =
 
 
 @live @unboxed
+type enum_MessageType = 
+  | Agent
+  | Function
+  | User
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_MessageType_input = 
+  | Agent
+  | Function
+  | User
+
+
+@live @unboxed
 type enum_T = 
   | Active
   | Pending
@@ -76,6 +91,16 @@ and input_AutocompleteLocationInput_nullable = {
   mapsId: string,
   name: string,
   plusCode?: Js.Null.t<string>,
+}
+
+@live
+and input_ChatInput = {
+  message: string,
+}
+
+@live
+and input_ChatInput_nullable = {
+  message: string,
 }
 
 @live
@@ -148,8 +173,9 @@ and input_CreateEventInput_nullable = {
 
 @live
 and input_CreateEventsInput = {
-  activityId: string,
-  clubId: string,
+  activityId?: string,
+  activitySlug?: string,
+  clubId?: string,
   input: string,
   listed: bool,
   timezone?: string,
@@ -157,8 +183,9 @@ and input_CreateEventsInput = {
 
 @live
 and input_CreateEventsInput_nullable = {
-  activityId: string,
-  clubId: string,
+  activityId?: Js.Null.t<string>,
+  activitySlug?: Js.Null.t<string>,
+  clubId?: Js.Null.t<string>,
   input: string,
   listed: bool,
   timezone?: Js.Null.t<string>,

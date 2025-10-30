@@ -55,17 +55,13 @@ RescriptRelay_Query.retain(EventsQuery_graphql.node, convertVariables);
 function Events$ActivityDropdownMenu(props) {
   var activities = [
     {
-      label: t`All`,
-      url: "/"
-    },
-    {
       label: t`Pickleball`,
-      url: "/?activity=pickleball",
+      url: "/e/pickleball",
       initials: "P"
     },
     {
       label: t`Badminton`,
-      url: "/?activity=badminton",
+      url: "/e/badminton",
       initials: "B"
     }
   ];
@@ -102,23 +98,20 @@ function Events(props) {
   var match = usePreloaded(query.data);
   var fragmentRefs = match.fragmentRefs;
   var viewer = match.viewer;
+  var params = ReactRouterDom.useParams();
   var match$1 = ReactRouterDom.useSearchParams();
   var searchParams = match$1[0];
-  var activityFilter = Router.SearchParams.get(searchParams, "activity");
+  var activityFilter = Core__Option.getOr(params.activitySlug, "pickleball");
   var title;
-  if (activityFilter !== undefined) {
-    switch (activityFilter) {
-      case "badminton" :
-          title = t`badminton events`;
-          break;
-      case "pickleball" :
-          title = t`pickleball events`;
-          break;
-      default:
-        title = t`all events`;
-    }
-  } else {
-    title = t`all events`;
+  switch (activityFilter) {
+    case "badminton" :
+        title = t`badminton events`;
+        break;
+    case "pickleball" :
+        title = t`pickleball events`;
+        break;
+    default:
+      title = t`all events`;
   }
   var shadowFilter = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(searchParams, "shadow"), (function (v) {
               return v === "true";
@@ -197,7 +190,10 @@ function Events(props) {
                                                           })
                                                     })
                                               ]
-                                            })
+                                            }),
+                                        context: {
+                                          activitySlug: activityFilter
+                                        }
                                       }))
                             });
                 })
@@ -234,7 +230,7 @@ async function loader(param) {
   var url = new URL(param.request.url);
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
-  var activity = Router.SearchParams.get(url.searchParams, "activity");
+  var activity = Core__Option.getOr(params.activitySlug, "pickleball");
   var shadow = Core__Option.getOr(Core__Option.map(Router.SearchParams.get(url.searchParams, "shadow"), (function (v) {
               return v === "true";
             })), true);

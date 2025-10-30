@@ -4,7 +4,7 @@ module Dialog = {
     external make: (
       ~children: React.element,
       ~onOpenChange: bool => unit=?,
-      ~_open: bool=?,
+      ~\"open": bool=?,
     ) => React.element = "Root"
   }
 
@@ -33,6 +33,7 @@ module Dialog = {
       ~asChild: bool=?,
       ~className: string=?,
       ~children: React.element,
+      ~\"data-id": string=?,
     ) => React.element = "Content"
   }
 
@@ -61,7 +62,7 @@ module Popover = {
     @module("@radix-ui/react-popover") @react.component
     external make: (
       ~defaultOpen: bool=?,
-      ~_open: bool=?,
+      ~\"open": bool=?,
       ~onOpenChange: bool => unit=?,
       ~modal: bool=?,
       ~children: React.element,
@@ -246,7 +247,7 @@ module Tooltip = {
     @react.component @module("@radix-ui/react-tooltip")
     external make: (
       ~defaultOpen: bool=?,
-      ~_open: bool=?,
+      ~\"open": bool=?,
       ~onOpenChange: unit => unit=?,
       ~delayDuration: float=?,
       ~children: React.element,
@@ -337,7 +338,7 @@ module Accordion = {
     external make: (
       ~className: string=?,
       ~children: React.element,
-      ~_type: [#single | #multiple],
+      ~\"type": [#single | #multiple],
       ~value: string=?,
       ~collapsible: bool=?,
       ~defaultValue: string=?,
@@ -413,7 +414,7 @@ module Collapsible = {
     @module("@radix-ui/react-collapsible") @react.component
     external make: (
       ~children: React.element=?,
-      ~_open: bool=?,
+      ~\"open": bool=?,
       ~onOpenChange: bool => unit=?,
       ~disabled: bool=?,
       ~asChild: bool=?,

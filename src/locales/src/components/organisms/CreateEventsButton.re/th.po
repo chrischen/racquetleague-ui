@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-30 11:34+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:113
+msgid "{0} events created!"
+msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create All Events"
+msgstr "สร้างกิจกรรมทั้งหมด"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create This Event"
+msgstr "สร้างกิจกรรมนี้"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+msgid "Error creating events. Please try again."
+msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"

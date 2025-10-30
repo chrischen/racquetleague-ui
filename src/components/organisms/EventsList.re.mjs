@@ -18,8 +18,10 @@ import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as React$1 from "@lingui/react";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
+import * as AIAssistantModal from "./AIAssistantModal.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
@@ -277,7 +279,9 @@ function EventsList$Day(props) {
 }
 
 function EventsList(props) {
+  var __context = props.context;
   var events = props.events;
+  var context = __context !== undefined ? __context : ({});
   ReactExperimental.useTransition();
   var match = use(events);
   var viewer = match.viewer;
@@ -298,6 +302,10 @@ function EventsList(props) {
   var match$4 = ReactRouterDom.useSearchParams();
   var setSearchParams = match$4[1];
   var searchParams = Router.ImmSearchParams.fromSearchParams(match$4[0]);
+  var match$5 = React.useState(function () {
+        return false;
+      });
+  var setIsAiModalOpen = match$5[1];
   var filterByDate = Core__Option.map(Router.ImmSearchParams.get(searchParams, "selectedDate"), (function (date) {
           return new Date(date);
         }));
@@ -348,6 +356,15 @@ function EventsList(props) {
         }));
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
+                JsxRuntime.jsx(AIAssistantModal.make, {
+                      open_: match$5[0],
+                      onOpenChange: (function (isOpen) {
+                          setIsAiModalOpen(function (param) {
+                                return isOpen;
+                              });
+                        }),
+                      context: context
+                    }),
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx(LangProvider.DetectedLang.make, {}),
@@ -392,6 +409,23 @@ function EventsList(props) {
                                                     children: JsxRuntime.jsx(AddToCalendar.make, {}),
                                                     className: "mb-4 mt-4 flex justify-center items-center"
                                                   }),
+                                              JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsxs("button", {
+                                                          children: [
+                                                            JsxRuntime.jsx(LucideReact.Sparkles, {
+                                                                  className: "w-5 h-5"
+                                                                }),
+                                                            t`Add an Event`
+                                                          ],
+                                                          className: "flex w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-2xl font-medium transition-all shadow-lg shadow-purple-500/25 items-center justify-center gap-2",
+                                                          onClick: (function (param) {
+                                                              setIsAiModalOpen(function (param) {
+                                                                    return true;
+                                                                  });
+                                                            })
+                                                        }),
+                                                    className: "mx-4"
+                                                  }),
                                               Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
                                                           return JsxRuntime.jsx(WarningAlert.make, {
                                                                       children: JsxRuntime.jsx(JsxRuntime.Fragment, {
@@ -415,7 +449,7 @@ function EventsList(props) {
                                                                         children: JsxRuntime.jsx(Solid.ChevronUpIcon, {
                                                                               className: "inline w-7 h-7"
                                                                             }),
-                                                                        className: "hover:bg-gray-100 p-3 w-full text-center block"
+                                                                        className: "hover:bg-gray-100 p-3 text-center block"
                                                                       });
                                                           })), JsxRuntime.jsx(LangProvider.Router.LinkWithOpts.make, {
                                                           to: {
@@ -468,7 +502,7 @@ function EventsList(props) {
                                                                               children: JsxRuntime.jsx(Solid.ChevronDownIcon, {
                                                                                     className: "inline w-7 h-7"
                                                                                   }),
-                                                                              className: "hover:bg-gray-100 p-3 w-full text-center block"
+                                                                              className: "hover:bg-gray-100 p-3 text-center block"
                                                                             });
                                                                 })), null)
                                                     }) : null

@@ -4,7 +4,10 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_events_edges_node_location = {
+  type rec fragment_defaultActivity = {
+    slug: option<string>,
+  }
+  and fragment_events_edges_node_location = {
     @live id: string,
   }
   and fragment_events_edges_node_rsvps_edges_node = {
@@ -41,6 +44,7 @@ module Types = {
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #PinMap_eventConnection]>,
   }
   type fragment = {
+    defaultActivity: option<fragment_defaultActivity>,
     events: fragment_events,
     @live id: string,
   }
@@ -179,6 +183,25 @@ return {
   },
   "name": "ClubEventsListFragment",
   "selections": [
+    (v1/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Activity",
+      "kind": "LinkedField",
+      "name": "defaultActivity",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "slug",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
     {
       "alias": "events",
       "args": [
@@ -371,8 +394,7 @@ return {
         }
       ],
       "storageKey": null
-    },
-    (v1/*: any*/)
+    }
   ],
   "type": "Club",
   "abstractKey": null

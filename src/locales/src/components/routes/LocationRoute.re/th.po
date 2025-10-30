@@ -13,12 +13,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:428
+#: src/components/organisms/EventsList.re.mjs:462
 msgid "...load past events"
 msgstr "...โหลดกิจกรรมที่ผ่านมา"
 
 #: src/components/organisms/EventItem.re.mjs:423
-#: src/components/organisms/EventsList.re.mjs:142
+#: src/components/organisms/EventsList.re.mjs:144
 msgid "[location missing]"
 msgstr "[ไม่มีสถานที่]"
 
@@ -28,41 +28,45 @@ msgstr "[ไม่มีหัวข้อ]"
 
 #: src/components/organisms/EventItem.re.mjs:215
 #: src/components/organisms/EventItem.re.mjs:222
-#: src/components/organisms/EventsList.re.mjs:105
-#: src/components/organisms/EventsList.re.mjs:110
+#: src/components/organisms/EventsList.re.mjs:107
+#: src/components/organisms/EventsList.re.mjs:112
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/organisms/EventsList.re.mjs:261
+#: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:113
+msgid "{0} events created!"
+msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
+
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
-#: src/components/organisms/EventsList.re.mjs:106
-#: src/components/organisms/EventsList.re.mjs:111
+#: src/components/organisms/EventsList.re.mjs:108
+#: src/components/organisms/EventsList.re.mjs:113
 msgid "{0} hour"
 msgstr "{0} ชั่วโมง"
 
 #: src/components/organisms/EventItem.re.mjs:217
 #: src/components/organisms/EventItem.re.mjs:224
-#: src/components/organisms/EventsList.re.mjs:107
-#: src/components/organisms/EventsList.re.mjs:112
+#: src/components/organisms/EventsList.re.mjs:109
+#: src/components/organisms/EventsList.re.mjs:114
 msgid "{0} hours"
 msgstr "{0} ชั่วโมง"
 
 #: src/components/organisms/EventItem.re.mjs:228
-#: src/components/organisms/EventsList.re.mjs:114
+#: src/components/organisms/EventsList.re.mjs:116
 msgid "{0} minute"
 msgstr "{0} นาที"
 
 #: src/components/organisms/EventItem.re.mjs:229
-#: src/components/organisms/EventsList.re.mjs:115
+#: src/components/organisms/EventsList.re.mjs:117
 msgid "{0} minutes"
 msgstr "{0} นาที"
 
 #: src/components/organisms/EventItem.re.mjs:227
-#: src/components/organisms/EventsList.re.mjs:113
+#: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr "{0}"
 
@@ -70,29 +74,82 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/EventsList.re.mjs:230
+#: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
 
-#: src/components/organisms/EventsList.re.mjs:119
+#: src/components/organisms/EventsList.re.mjs:121
 msgid "🚫 CANCELED"
 msgstr "🚫 ยกเลิก"
+
+#: src/components/organisms/EventsList.re.mjs:418
+msgid "Add an Event"
+msgstr "เพิ่มกิจกรรม"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:175
+msgid "AI Assistant"
+msgstr "ผู้ช่วย AI"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:120
+msgid "An error occurred. Please try again."
+msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
 #: src/components/molecules/AddToCalendar.re.mjs:30
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/EventsList.re.mjs:400
+#: src/components/organisms/AIAssistantModal.re.mjs:268
+msgid "Ask"
+msgstr "ถาม"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:150
+msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
+msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
+
+#: src/components/organisms/EventsList.re.mjs:434
 msgid "clear filter"
 msgstr "ล้างตัวกรอง"
 
-#: src/components/organisms/EventsList.re.mjs:398
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create All Events"
+msgstr "สร้างกิจกรรมทั้งหมด"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create This Event"
+msgstr "สร้างกิจกรรมนี้"
+
+#: src/components/molecules/AIResponseCard.re.mjs:58
+#: src/components/molecules/AIResponseCard.re.mjs:162
+msgid "Date:"
+msgstr "วันที่:"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+msgid "Describe the event you want to create..."
+msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
+
+#: src/components/molecules/AIResponseCard.re.mjs:105
+msgid "Description:"
+msgstr "คำอธิบาย:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+msgid "Error creating events. Please try again."
+msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Event Details"
+msgstr "รายละเอียดกิจกรรม"
+
+#: src/components/organisms/EventsList.re.mjs:432
 msgid "filtering by date"
 msgstr "กรองตามวันที่"
 
 #: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
 msgstr "Google Calendar"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:108
+msgid "I couldn't process that request. Please try again."
+msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
 
 #: src/components/organisms/EventItem.re.mjs:313
 msgid "join event"
@@ -106,9 +163,31 @@ msgstr "เข้าร่วมแล้ว"
 msgid "leave event"
 msgstr "ออกจากกิจกรรม"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid ""
+"Let me know when and where you'd like to play, and I'll help you create an "
+"event. You can continue talking to me in a conversation to refine any "
+"details."
+msgstr ""
+"บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม "
+"คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
+
 #: src/components/pages/LocationPage.re.mjs:51
 msgid "location"
 msgstr "สถานที่"
+
+#: src/components/molecules/AIResponseCard.re.mjs:90
+#: src/components/molecules/AIResponseCard.re.mjs:194
+msgid "Location:"
+msgstr "สถานที่:"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:149
+msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
+msgstr "ต้องการ 5 คน สำหรับ KPI Park พรุ่งนี้ 18:00-21:00 แชร์ค่าใช้จ่าย"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:278
+msgid "New"
+msgstr "ใหม่"
 
 #: src/components/pages/LocationPage.re.mjs:68
 msgid "page not found"
@@ -122,17 +201,33 @@ msgstr "รอการอนุมัติ"
 msgid "players"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/EventsList.re.mjs:366
+#: src/components/organisms/AIAssistantModal.re.mjs:264
+msgid "Processing..."
+msgstr "กำลังประมวลผล..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:268
+msgid "Reply"
+msgstr "ตอบกลับ"
+
+#: src/components/organisms/EventsList.re.mjs:383
 msgid "share as text"
 msgstr "แชร์เป็นข้อความ"
 
-#: src/components/organisms/EventsList.re.mjs:269
+#: src/components/organisms/EventsList.re.mjs:271
 msgid "show"
 msgstr "แสดง"
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+msgid "Suggested Events"
+msgstr "กิจกรรมที่แนะนำ"
 
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+msgid "Title:"
+msgstr "ชื่อ:"
 
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
@@ -155,3 +250,7 @@ msgstr "รายชื่อคอย"
 #, fuzzy
 #~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
 #~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "เวลา:"

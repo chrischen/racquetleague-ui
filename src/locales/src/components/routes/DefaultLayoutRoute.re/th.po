@@ -17,22 +17,18 @@ msgstr ""
 msgid "(logout)"
 msgstr "(ออกจากระบบ)"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:97
-msgid "All"
-msgstr "ทั้งหมด"
-
-#: src/components/pages/DefaultLayoutMap.re.mjs:106
-#: src/components/pages/DefaultLayoutMap.re.mjs:159
+#: src/components/pages/DefaultLayoutMap.re.mjs:102
+#: src/components/pages/DefaultLayoutMap.re.mjs:155
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:230
-#: src/components/pages/DefaultLayoutMap.re.mjs:300
+#: src/components/pages/DefaultLayoutMap.re.mjs:226
+#: src/components/pages/DefaultLayoutMap.re.mjs:296
 msgid "Events"
 msgstr "กิจกรรม"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:257
-#: src/components/pages/DefaultLayoutMap.re.mjs:327
+#: src/components/pages/DefaultLayoutMap.re.mjs:253
+#: src/components/pages/DefaultLayoutMap.re.mjs:323
 msgid "Find Games"
 msgstr "ค้นหาเกม"
 
@@ -49,21 +45,25 @@ msgstr "คลับของฉัน"
 msgid "My Events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:101
-#: src/components/pages/DefaultLayoutMap.re.mjs:154
+#: src/components/pages/DefaultLayoutMap.re.mjs:97
+#: src/components/pages/DefaultLayoutMap.re.mjs:150
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:214
-#: src/components/pages/DefaultLayoutMap.re.mjs:286
+#: src/components/pages/DefaultLayoutMap.re.mjs:210
+#: src/components/pages/DefaultLayoutMap.re.mjs:282
 msgid "pkuru"
 msgstr "pkuru"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:245
-#: src/components/pages/DefaultLayoutMap.re.mjs:315
+#: src/components/pages/DefaultLayoutMap.re.mjs:241
+#: src/components/pages/DefaultLayoutMap.re.mjs:311
 msgid "Rankings"
 msgstr "อันดับ"
 
 #: src/components/organisms/NavViewer.re.mjs:77
 msgid "Settings"
 msgstr "การตั้งค่า"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:97
+#~ msgid "All"
+#~ msgstr "ทั้งหมด"

@@ -424,8 +424,9 @@ module Day = {
     </>
   }
 }
+
 @react.component
-let make = (~events, ~header: React.element) => {
+let make = (~events, ~header: React.element, ~context: AIAssistantModal.context={}) => {
   open Lingui.Util
   let (_isPending, _) = ReactExperimental.useTransition()
   let eventsFragment = events
@@ -442,6 +443,9 @@ let make = (~events, ~header: React.element) => {
 
   let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
   let searchParams = searchParams->Router.ImmSearchParams.fromSearchParams
+
+  // AI Assistant Modal state
+  let (isAiModalOpen, setIsAiModalOpen) = React.useState(() => false)
 
   // let afterCursor = searchParams->Router.ImmSearchParams.get("after")
   // let beforeCursor = searchParams->Router.ImmSearchParams.get("before")
@@ -465,6 +469,12 @@ let make = (~events, ~header: React.element) => {
   let eventsByDate = events->Array.reduce(Js.Dict.empty(), sortByDate(intl, filterByDate, ...))
 
   <>
+    <AIAssistantModal
+      open_=isAiModalOpen
+      // open_=true
+      onOpenChange={isOpen => setIsAiModalOpen(_ => isOpen)}
+      context
+    />
     <div
       className="grow p-0 z-10 lg:w-1/2 lg:h-[calc(100vh-50px)] lg:overflow-scroll lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
       <LangProvider.DetectedLang />
@@ -495,6 +505,14 @@ let make = (~events, ~header: React.element) => {
             <div className="mb-4 mt-4 flex justify-center items-center">
               <AddToCalendar />
             </div>
+            <div className="mx-4">
+              <button
+                onClick={_ => setIsAiModalOpen(_ => true)}
+                className="flex w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-2xl font-medium transition-all shadow-lg shadow-purple-500/25 items-center justify-center gap-2">
+                <Lucide.Sparkles className="w-5 h-5" />
+                {t`Add an Event`}
+              </button>
+            </div>
             {filterByDate
             ->Option.map(_ =>
               <WarningAlert cta={t`clear filter`} ctaClick={_ => clearFilterByDate()}>
@@ -506,7 +524,7 @@ let make = (~events, ~header: React.element) => {
               ? pageInfo.startCursor
                 ->Option.map(startCursor =>
                   <LinkWithOpts
-                    className="hover:bg-gray-100 p-3 w-full text-center block"
+                    className="hover:bg-gray-100 p-3 text-center block"
                     to={
                       pathname: "./",
                       search: Filter.ByBefore(startCursor)
@@ -570,7 +588,7 @@ let make = (~events, ~header: React.element) => {
                   {pageInfo.endCursor
                   ->Option.map(endCursor =>
                     <LinkWithOpts
-                      className="hover:bg-gray-100 p-3 w-full text-center block"
+                      className="hover:bg-gray-100 p-3 text-center block"
                       to={
                         pathname: "./",
                         search: Filter.ByAfter(endCursor)

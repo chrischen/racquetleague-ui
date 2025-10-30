@@ -166,3 +166,8 @@ module Search = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Search"
 }
+
+module Sparkles = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Sparkles"
+}

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"/QDRuL\":[[\"0\"],\" events created!\"],\"TuOWxe\":\"Create All Events\",\"VaoUnK\":\"Create This Event\",\"kVIyaR\":\"Error creating events. Please try again.\"}");

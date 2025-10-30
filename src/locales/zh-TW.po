@@ -1974,6 +1974,99 @@ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "隱藏 {0} {hiddenCountDesc}"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create All Events"
+msgstr "建立所有活動"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create This Event"
+msgstr "建立此活動"
+
+#: src/components/molecules/AIResponseCard.re.mjs:55
+#: src/components/molecules/AIResponseCard.re.mjs:152
+msgid "Date:"
+msgstr "日期："
+
+#: src/components/molecules/AIResponseCard.re.mjs:97
+msgid "Description:"
+msgstr "描述："
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+msgid "Error creating events. Please try again."
+msgstr "建立活動時發生錯誤。請重試。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:33
+msgid "Event Details"
+msgstr "活動詳情"
+
+#: src/components/molecules/AIResponseCard.re.mjs:82
+#: src/components/molecules/AIResponseCard.re.mjs:166
+msgid "Location:"
+msgstr "地點："
+
+#: src/components/molecules/AIResponseCard.re.mjs:130
+msgid "Suggested Events"
+msgstr "建議的活動"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+msgid "Time:"
+msgstr "時間："
+
+#: src/components/molecules/AIResponseCard.re.mjs:42
+msgid "Title:"
+msgstr "標題："
+
+#: src/components/organisms/ClubEventsList.re.mjs:430
+msgid "Add an Event"
+msgstr "新增活動"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:150
+msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
+msgstr "下個月每週四晚上7-9點在赤羽小學打羽毛球。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:149
+msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
+msgstr "明天下午6-9點KPI公園需要5個人。費用平攤。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:175
+msgid "AI Assistant"
+msgstr "AI助手"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:120
+msgid "An error occurred. Please try again."
+msgstr "發生錯誤，請重試。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:268
+msgid "Ask"
+msgstr "詢問"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+msgid "Describe the event you want to create..."
+msgstr "描述您想要建立的活動..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:108
+msgid "I couldn't process that request. Please try again."
+msgstr "無法處理該請求，請重試。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid ""
+"Let me know when and where you'd like to play, and I'll help you create an "
+"event. You can continue talking to me in a conversation to refine any "
+"details."
+msgstr "告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細節。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:278
+msgid "New"
+msgstr "新建"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:264
+msgid "Processing..."
+msgstr "處理中..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:268
+msgid "Reply"
+msgstr "回覆"
+
 #: src/components/organisms/EventsList.re.mjs:260
 #, fuzzy
 #~ msgid "{0} {hiddenCountDesc}"

@@ -23,12 +23,12 @@ msgstr ""
 #~ msgid "Futsal"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:428
+#: src/components/organisms/EventsList.re.mjs:462
 msgid "...load past events"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:423
-#: src/components/organisms/EventsList.re.mjs:142
+#: src/components/organisms/EventsList.re.mjs:144
 msgid "[location missing]"
 msgstr ""
 
@@ -46,8 +46,8 @@ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:215
 #: src/components/organisms/EventItem.re.mjs:222
-#: src/components/organisms/EventsList.re.mjs:105
-#: src/components/organisms/EventsList.re.mjs:110
+#: src/components/organisms/EventsList.re.mjs:107
+#: src/components/organisms/EventsList.re.mjs:112
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
@@ -55,31 +55,35 @@ msgstr ""
 #~ msgid "{0} {hiddenCountDesc}"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:261
+#: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:113
+msgid "{0} events created!"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
-#: src/components/organisms/EventsList.re.mjs:106
-#: src/components/organisms/EventsList.re.mjs:111
+#: src/components/organisms/EventsList.re.mjs:108
+#: src/components/organisms/EventsList.re.mjs:113
 msgid "{0} hour"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:217
 #: src/components/organisms/EventItem.re.mjs:224
-#: src/components/organisms/EventsList.re.mjs:107
-#: src/components/organisms/EventsList.re.mjs:112
+#: src/components/organisms/EventsList.re.mjs:109
+#: src/components/organisms/EventsList.re.mjs:114
 msgid "{0} hours"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:228
-#: src/components/organisms/EventsList.re.mjs:114
+#: src/components/organisms/EventsList.re.mjs:116
 msgid "{0} minute"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:229
-#: src/components/organisms/EventsList.re.mjs:115
+#: src/components/organisms/EventsList.re.mjs:117
 msgid "{0} minutes"
 msgstr ""
 
@@ -88,7 +92,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:227
-#: src/components/organisms/EventsList.re.mjs:113
+#: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -104,12 +108,20 @@ msgstr ""
 #~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:230
+#: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:119
+#: src/components/organisms/EventsList.re.mjs:121
 msgid "🚫 CANCELED"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:418
+msgid "Add an Event"
+msgstr ""
+
+#: src/components/organisms/AIAssistantModal.re.mjs:175
+msgid "AI Assistant"
 msgstr ""
 
 #: src/components/pages/Events.re.mjs:95
@@ -117,31 +129,42 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/Events.re.mjs:58
-msgid "All"
+#~ msgid "All"
+#~ msgstr ""
+
+#: src/components/pages/Events.re.mjs:114
+msgid "all events"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:118
-#: src/components/pages/Events.re.mjs:121
-msgid "all events"
+#: src/components/organisms/AIAssistantModal.re.mjs:120
+msgid "An error occurred. Please try again."
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:30
 msgid "Apple iCal"
 msgstr ""
 
+#: src/components/organisms/AIAssistantModal.re.mjs:268
+msgid "Ask"
+msgstr ""
+
 #: src/components/pages/Events.re.mjs:135
 #~ msgid "badminton"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:67
+#: src/components/pages/Events.re.mjs:63
 msgid "Badminton"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:112
+#: src/components/pages/Events.re.mjs:108
 msgid "badminton events"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:400
+#: src/components/organisms/AIAssistantModal.re.mjs:150
+msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:434
 msgid "clear filter"
 msgstr ""
 
@@ -149,11 +172,40 @@ msgstr ""
 #~ msgid "close"
 #~ msgstr ""
 
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create All Events"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create This Event"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:58
+#: src/components/molecules/AIResponseCard.re.mjs:162
+msgid "Date:"
+msgstr ""
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+msgid "Describe the event you want to create..."
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:105
+msgid "Description:"
+msgstr ""
+
 #: src/components/organisms/EventItem.re.mjs:469
 #~ msgid "details"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:398
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+msgid "Error creating events. Please try again."
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Event Details"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:432
 msgid "filtering by date"
 msgstr ""
 
@@ -161,7 +213,11 @@ msgstr ""
 msgid "Google Calendar"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:189
+#: src/components/organisms/AIAssistantModal.re.mjs:108
+msgid "I couldn't process that request. Please try again."
+msgstr ""
+
+#: src/components/pages/Events.re.mjs:182
 msgid "include private"
 msgstr ""
 
@@ -181,6 +237,10 @@ msgstr ""
 msgid "leave event"
 msgstr ""
 
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+msgstr ""
+
 #: src/components/organisms/EventsList.re.mjs:598
 #~ msgid "load more"
 #~ msgstr ""
@@ -193,6 +253,11 @@ msgstr ""
 #~ msgid "loading events..."
 #~ msgstr ""
 
+#: src/components/molecules/AIResponseCard.re.mjs:90
+#: src/components/molecules/AIResponseCard.re.mjs:194
+msgid "Location:"
+msgstr ""
+
 #: src/components/organisms/ViewerClubs.re.mjs:98
 msgid "my clubs"
 msgstr ""
@@ -200,6 +265,14 @@ msgstr ""
 #: src/components/pages/Events.re.mjs:153
 #~ msgid "my events"
 #~ msgstr ""
+
+#: src/components/organisms/AIAssistantModal.re.mjs:149
+msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
+msgstr ""
+
+#: src/components/organisms/AIAssistantModal.re.mjs:278
+msgid "New"
+msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
@@ -209,11 +282,11 @@ msgstr ""
 #~ msgid "pickleball"
 #~ msgstr ""
 
-#: src/components/pages/Events.re.mjs:62
+#: src/components/pages/Events.re.mjs:58
 msgid "Pickleball"
 msgstr ""
 
-#: src/components/pages/Events.re.mjs:115
+#: src/components/pages/Events.re.mjs:111
 msgid "pickleball events"
 msgstr ""
 
@@ -221,20 +294,40 @@ msgstr ""
 msgid "players"
 msgstr ""
 
+#: src/components/organisms/AIAssistantModal.re.mjs:264
+msgid "Processing..."
+msgstr ""
+
 #: src/components/pages/Events.re.mjs:83
 #~ msgid "public events"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:366
+#: src/components/organisms/AIAssistantModal.re.mjs:268
+msgid "Reply"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:383
 msgid "share as text"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:269
+#: src/components/organisms/EventsList.re.mjs:271
 msgid "show"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+msgid "Suggested Events"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+msgid "Title:"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:266

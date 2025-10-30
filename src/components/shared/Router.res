@@ -60,7 +60,18 @@ external useSearchParams: unit => (SearchParams.t, SearchParams.t => unit) = "us
 external useSearchParamsFunc: unit => (SearchParams.t, (SearchParams.t => SearchParams.t) => unit) =
   "useSearchParams"
 module URL = {
-  type t = {searchParams: SearchParams.t}
+  type t = {
+    searchParams: SearchParams.t,
+    pathname: string,
+    href: string,
+    origin: string,
+    protocol: string,
+    host: string,
+    hostname: string,
+    port: string,
+    search: string,
+    hash: string,
+  }
 
   @new external make: string => t = "URL"
 }

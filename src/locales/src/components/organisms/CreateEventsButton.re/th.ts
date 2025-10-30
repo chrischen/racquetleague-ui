@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"/QDRuL\":[\"สร้างกิจกรรมแล้ว \",[\"0\"],\" กิจกรรม!\"],\"TuOWxe\":\"สร้างกิจกรรมทั้งหมด\",\"VaoUnK\":\"สร้างกิจกรรมนี้\",\"kVIyaR\":\"เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง\"}");

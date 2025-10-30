@@ -12,6 +12,10 @@ module Fragment = %relay(`
     token: { type: "String" }
   )
   @refetchable(queryName: "ClubEventsListRefetchQuery") {
+    id
+    defaultActivity {
+      slug
+    }
     events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token)
       @connection(key: "ClubEventsListFragment_events") {
       edges {
@@ -332,13 +336,14 @@ let make = (
   ~viewer: option<ClubPageQuery_graphql.Types.response_viewer>,
   ~header: React.element,
 ) => {
-  let {events: eventsQuery} = Fragment.use(events)
+  let clubData = Fragment.use(events)
   let {data, isLoadingNext, hasNext, isLoadingPrevious} = Fragment.usePagination(events)
   let nodes = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
   let (shareOpen, setShareOpen) = React.useState(() => false)
   let (selectedEvent: option<string>, _) = React.useState(() => None)
+  let (isAiModalOpen, setIsAiModalOpen) = React.useState(() => false)
   let navigate = Router.useNavigate()
   let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
   let immParams = searchParams->Router.ImmSearchParams.fromSearchParams
@@ -359,7 +364,15 @@ let make = (
     ->Js.Dict.keys
     ->Array.map(dateString => Js.Date.fromString(dateString))
 
+  let aiContext: AIAssistantModal.context = {
+    activitySlug: ?clubData.defaultActivity->Option.flatMap(a => a.slug),
+    clubId: ?Some(clubData.id),
+  }
+
   <>
+    <AIAssistantModal
+      open_=isAiModalOpen onOpenChange={isOpen => setIsAiModalOpen(_ => isOpen)} context=aiContext
+    />
     <div
       className="grow p-0 z-10 lg:w-1/2 lg:h-[calc(100vh-50px)] lg:overflow-scroll lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
       <LangProvider.DetectedLang />
@@ -385,6 +398,14 @@ let make = (
                   ->Router.ImmSearchParams.toSearchParams
                 )}
             />
+            <div className="mx-4 mb-4 mt-4">
+              <button
+                onClick={_ => setIsAiModalOpen(_ => true)}
+                className="flex w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-2xl font-medium transition-all shadow-lg shadow-purple-500/25 items-center justify-center gap-2">
+                <Lucide.Sparkles className="w-5 h-5" />
+                {(Lingui.UtilString.t`Add an Event`)->React.string}
+              </button>
+            </div>
             {filterByDate
             ->Option.map(_ =>
               <WarningAlert
@@ -456,7 +477,7 @@ let make = (
         <div className="shrink-0 border-t border-gray-200 lg:border-l lg:border-t-0">
           <div className="w-full lg:min-h-96 h-96 lg:h-[calc(100vh-50px)] lg:max-h-screen">
             <PinMap
-              connection={eventsQuery.fragmentRefs}
+              connection={clubData.events.fragmentRefs}
               onLocationClick={location => navigate("/locations/" ++ location.id, None)}
               selected=?selectedEvent
             />

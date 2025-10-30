@@ -1015,12 +1015,10 @@ function AiTetsu(props) {
   };
   var updatePlayCounts = function (match) {
     setSessionState(function (prevState) {
-          var nextState = Core__Array.reduce([
-                  match[0],
-                  match[1]
-                ].flatMap(function (x) {
-                    return x;
-                  }), prevState, (function (state, p) {
+          var nextState = Core__Array.reduce(Rating.Match.players([
+                    match[0],
+                    match[1]
+                  ]), prevState, (function (state, p) {
                   return Session.update(state, p.id, (function (prev) {
                                 var newPlayCount = avgCount > 3 && prev.count === 0 ? Math.floor(avgCount) | 0 : prev.count + 1 | 0;
                                 return {

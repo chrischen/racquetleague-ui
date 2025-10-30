@@ -94,17 +94,13 @@ function ts(prim0, prim1) {
 function DefaultLayoutMap$ActivityDropdownMenu(props) {
   var activities = [
     {
-      label: t`All`,
-      url: "/"
-    },
-    {
       label: t`Pickleball`,
-      url: "/?activity=pickleball",
+      url: "/e/pickleball",
       initials: "P"
     },
     {
       label: t`Badminton`,
-      url: "/?activity=badminton",
+      url: "/e/badminton",
       initials: "B"
     }
   ];

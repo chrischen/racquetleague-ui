@@ -124,6 +124,25 @@ return {
   },
   "name": "ClubEventsListFragment",
   "selections": [
+    (v1/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Activity",
+      "kind": "LinkedField",
+      "name": "defaultActivity",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "slug",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
     {
       "alias": "events",
       "args": [
@@ -316,8 +335,7 @@ return {
         }
       ],
       "storageKey": null
-    },
-    (v1/*: any*/)
+    }
   ],
   "type": "Club",
   "abstractKey": null

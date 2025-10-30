@@ -5,11 +5,12 @@ let make: unit => React.element
 let \"Component": props => React.element
 
 type params = {
-  after?: string,
-  afterDate?: Util.Datetime.t,
-  before?: string,
-  filters?: EventsQuery_graphql.Types.eventFilters,
-  first?: int,
+  // after?: string,
+  // afterDate?: Util.Datetime.t,
+  // before?: string,
+  // filters?: EventsQuery_graphql.Types.eventFilters,
+  // first?: int,
+  activitySlug: option<string>,
   lang: option<string>,
 }
 

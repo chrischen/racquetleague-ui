@@ -14,4 +14,5 @@ module TextEventsList: {
 let make: (
   ~events: RescriptRelay.fragmentRefs<[> #CalendarEventsFragment | #EventsListFragment]>,
   ~header: React.element,
+  ~context: AIAssistantModal.context=?,
 ) => React.element
