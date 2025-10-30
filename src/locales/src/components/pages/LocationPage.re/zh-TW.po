@@ -98,7 +98,7 @@ msgstr "發生錯誤，請重試。"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:268
+#: src/components/organisms/AIAssistantModal.re.mjs:269
 msgid "Ask"
 msgstr "詢問"
 
@@ -123,10 +123,6 @@ msgstr "建立此活動"
 msgid "Date:"
 msgstr "日期："
 
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-msgid "Describe the event you want to create..."
-msgstr "描述您想要建立的活動..."
-
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "描述："
@@ -147,6 +143,10 @@ msgstr "按日期篩選"
 msgid "Google Calendar"
 msgstr "Google 日曆"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "I can create events for you. Just give me your schedule."
+msgstr "我可以為您建立活動。只需告訴我您的時間安排。"
+
 #: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "I couldn't process that request. Please try again."
 msgstr "無法處理該請求，請重試。"
@@ -163,14 +163,6 @@ msgstr "已加入"
 msgid "leave event"
 msgstr "退出活動"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-msgid ""
-"Let me know when and where you'd like to play, and I'll help you create an "
-"event. You can continue talking to me in a conversation to refine any "
-"details."
-msgstr ""
-"告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細節。"
-
 #: src/components/pages/LocationPage.re.mjs:51
 msgid "location"
 msgstr "地點"
@@ -184,7 +176,7 @@ msgstr "地點："
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "明天下午6-9點KPI公園需要5個人。費用平攤。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:278
+#: src/components/organisms/AIAssistantModal.re.mjs:279
 msgid "New"
 msgstr "新建"
 
@@ -200,11 +192,11 @@ msgstr "待審核"
 msgid "players"
 msgstr "球員"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:264
+#: src/components/organisms/AIAssistantModal.re.mjs:265
 msgid "Processing..."
 msgstr "處理中..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:268
+#: src/components/organisms/AIAssistantModal.re.mjs:269
 msgid "Reply"
 msgstr "回覆"
 
@@ -223,6 +215,14 @@ msgstr "建議的活動"
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
 msgstr "同步日曆"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細資"
+"訊，我甚至可以新增翻譯。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -249,6 +249,19 @@ msgstr "等待列表"
 #, fuzzy
 #~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
 #~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "描述您想要建立的活動..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid ""
+#~ "Let me know when and where you'd like to play, and I'll help you create "
+#~ "an event. You can continue talking to me in a conversation to refine any "
+#~ "details."
+#~ msgstr ""
+#~ "告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細"
+#~ "節。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:68
 #~ msgid "Time:"

@@ -2068,8 +2068,7 @@ msgid ""
 "event. You can continue talking to me in a conversation to refine any "
 "details."
 msgstr ""
-"บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน "
-"เราจะช่วยคุณสร้างกิจกรรม "
+"บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม "
 "คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:278
@@ -2083,6 +2082,19 @@ msgstr "กำลังประมวลผล..."
 #: src/components/organisms/AIAssistantModal.re.mjs:268
 msgid "Reply"
 msgstr "ตอบกลับ"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "I can create events for you. Just give me your schedule."
+msgstr "ฉันสามารถสร้างกิจกรรมให้คุณได้ เพียงแค่บอกตารางของคุณ"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
+"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ "
+"และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
 
 #: src/components/organisms/EventsList.re.mjs:260
 #, fuzzy

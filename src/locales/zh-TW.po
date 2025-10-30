@@ -2053,7 +2053,8 @@ msgid ""
 "Let me know when and where you'd like to play, and I'll help you create an "
 "event. You can continue talking to me in a conversation to refine any "
 "details."
-msgstr "告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細節。"
+msgstr ""
+"告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細節。"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:278
 msgid "New"
@@ -2066,6 +2067,16 @@ msgstr "處理中..."
 #: src/components/organisms/AIAssistantModal.re.mjs:268
 msgid "Reply"
 msgstr "回覆"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "I can create events for you. Just give me your schedule."
+msgstr "我可以為您建立活動。只需告訴我您的時間安排。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr "告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細資訊，我甚至可以新增翻譯。"
 
 #: src/components/organisms/EventsList.re.mjs:260
 #, fuzzy

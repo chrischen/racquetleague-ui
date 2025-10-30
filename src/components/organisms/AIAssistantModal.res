@@ -122,9 +122,9 @@ let make = (~open_: bool=false, ~onOpenChange: option<bool => unit>=?, ~context:
         className="fixed inset-0 bg-black/40 backdrop-blur-sm animate-in fade-in z-100"
       />
       <Radix.Dialog.Content
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-2xl max-h-[85vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-2xl max-h-[85vh] animate-in fade-in zoom-in-95 duration-200">
         <div
-          className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/30 flex flex-col max-h-[85vh]">
+          className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/30 flex flex-col max-h-[85vh] overflow-hidden">
           <div
             className="flex items-center justify-between p-6 border-b border-gray-200/50 dark:border-gray-700/50 flex-shrink-0">
             <div className="flex items-center gap-3">
@@ -138,12 +138,12 @@ let make = (~open_: bool=false, ~onOpenChange: option<bool => unit>=?, ~context:
                 </Radix.Dialog.Title>
                 <Radix.Dialog.Description>
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    {t`Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details.`}
+                    {t`I can create events for you. Just give me your schedule.`}
                   </span>
                 </Radix.Dialog.Description>
               </div>
             </div>
-            <Radix.Dialog.Close>
+            <Radix.Dialog.Close asChild=true>
               <button
                 className="w-8 h-8 rounded-full bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200/80 dark:hover:bg-gray-700/80 flex items-center justify-center transition-colors">
                 <Lucide.X className="w-4 h-4 text-gray-600 dark:text-gray-400" />
@@ -169,7 +169,7 @@ let make = (~open_: bool=false, ~onOpenChange: option<bool => unit>=?, ~context:
             ->Option.getOr(React.null)}
           </div>
           <div
-            className="p-6 border-t border-gray-200/50 dark:border-gray-700/50 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl flex-shrink-0">
+            className="p-6 border-t border-gray-200/50 dark:border-gray-700/50 bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl flex-shrink-0 rounded-b-3xl">
             <div className="space-y-3">
               <textarea
                 value=prompt
@@ -177,7 +177,7 @@ let make = (~open_: bool=false, ~onOpenChange: option<bool => unit>=?, ~context:
                   let value = ReactEvent.Form.target(e)["value"]
                   setPrompt(_ => value)
                 }}
-                placeholder={ts`Describe the event you want to create...`}
+                placeholder={ts`Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations.`}
                 rows=3
                 className="w-full px-4 py-3 bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 resize-none transition-all"
                 disabled=isLoading

@@ -114,7 +114,7 @@ msgstr ""
 msgid "An error occurred. Please try again."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:268
+#: src/components/organisms/AIAssistantModal.re.mjs:269
 msgid "Ask"
 msgstr ""
 
@@ -144,8 +144,8 @@ msgid "Date:"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:229
-msgid "Describe the event you want to create..."
-msgstr ""
+#~ msgid "Describe the event you want to create..."
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
@@ -167,6 +167,10 @@ msgstr ""
 msgid "filtering by date"
 msgstr ""
 
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "I can create events for you. Just give me your schedule."
+msgstr ""
+
 #: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "I couldn't process that request. Please try again."
 msgstr ""
@@ -184,8 +188,8 @@ msgid "leave event"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
-msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
-msgstr ""
+#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
@@ -196,7 +200,7 @@ msgstr ""
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:278
+#: src/components/organisms/AIAssistantModal.re.mjs:279
 msgid "New"
 msgstr ""
 
@@ -208,11 +212,11 @@ msgstr ""
 msgid "players"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:264
+#: src/components/organisms/AIAssistantModal.re.mjs:265
 msgid "Processing..."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:268
+#: src/components/organisms/AIAssistantModal.re.mjs:269
 msgid "Reply"
 msgstr ""
 
@@ -226,6 +230,10 @@ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:138
 msgid "Suggested Events"
+msgstr ""
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:68

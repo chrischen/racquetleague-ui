@@ -102,7 +102,7 @@ msgstr "AIアシスタント"
 msgid "An error occurred. Please try again."
 msgstr "エラーが発生しました。もう一度お試しください。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:268
+#: src/components/organisms/AIAssistantModal.re.mjs:269
 msgid "Ask"
 msgstr "質問"
 
@@ -127,10 +127,6 @@ msgstr "このイベントを作成"
 msgid "Date:"
 msgstr "日付:"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-msgid "Describe the event you want to create..."
-msgstr "作成したいイベントを説明してください..."
-
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "説明:"
@@ -146,6 +142,10 @@ msgstr "イベント詳細"
 #: src/components/organisms/ClubEventsList.re.mjs:444
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "I can create events for you. Just give me your schedule."
+msgstr "イベントを作成できます。スケジュールを教えてください。"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "I couldn't process that request. Please try again."
@@ -163,15 +163,6 @@ msgstr "参加"
 msgid "leave event"
 msgstr "離れる"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-msgid ""
-"Let me know when and where you'd like to play, and I'll help you create an "
-"event. You can continue talking to me in a conversation to refine any "
-"details."
-msgstr ""
-"いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会"
-"話を続けて詳細を調整することもできます。"
-
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
 msgid "Location:"
@@ -181,7 +172,7 @@ msgstr "場所:"
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "明日18時から21時、KPIパークで5人必要。費用は割り勘。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:278
+#: src/components/organisms/AIAssistantModal.re.mjs:279
 msgid "New"
 msgstr "新規"
 
@@ -193,11 +184,11 @@ msgstr "保留中"
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:264
+#: src/components/organisms/AIAssistantModal.re.mjs:265
 msgid "Processing..."
 msgstr "処理中..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:268
+#: src/components/organisms/AIAssistantModal.re.mjs:269
 msgid "Reply"
 msgstr "返信"
 
@@ -212,6 +203,14 @@ msgstr "表示"
 #: src/components/molecules/AIResponseCard.re.mjs:138
 msgid "Suggested Events"
 msgstr "提案されたイベント"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教え"
+"ていただければ、翻訳も追加できます。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -233,9 +232,22 @@ msgstr "ウェイトリスト"
 #~ msgid "{shadowCount, plural, one {event} other {events}}"
 #~ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "作成したいイベントを説明してください..."
+
 #: src/components/organisms/EventItem.re.mjs:469
 #~ msgid "details"
 #~ msgstr "詳細"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid ""
+#~ "Let me know when and where you'd like to play, and I'll help you create "
+#~ "an event. You can continue talking to me in a conversation to refine any "
+#~ "details."
+#~ msgstr ""
+#~ "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。"
+#~ "会話を続けて詳細を調整することもできます。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:68
 #~ msgid "Time:"

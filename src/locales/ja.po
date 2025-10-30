@@ -2403,7 +2403,8 @@ msgid ""
 "event. You can continue talking to me in a conversation to refine any "
 "details."
 msgstr ""
-"いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会話を続けて詳細を調整することもできます。"
+"いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会"
+"話を続けて詳細を調整することもできます。"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:278
 msgid "New"
@@ -2416,6 +2417,18 @@ msgstr "処理中..."
 #: src/components/organisms/AIAssistantModal.re.mjs:268
 msgid "Reply"
 msgstr "返信"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "I can create events for you. Just give me your schedule."
+msgstr "イベントを作成できます。スケジュールを教えてください。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教え"
+"ていただければ、翻訳も追加できます。"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

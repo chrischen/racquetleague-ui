@@ -2390,3 +2390,13 @@ msgstr ""
 #: src/components/organisms/AIAssistantModal.re.mjs:268
 msgid "Reply"
 msgstr ""
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "I can create events for you. Just give me your schedule."
+msgstr ""
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
