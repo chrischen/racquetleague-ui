@@ -171,3 +171,8 @@ module Sparkles = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Sparkles"
 }
+
+module Lock = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Lock"
+}

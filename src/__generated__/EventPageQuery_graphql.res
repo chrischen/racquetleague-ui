@@ -25,6 +25,7 @@ module Types = {
     details: option<string>,
     @live id: string,
     location: option<response_event_location>,
+    shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     title: option<string>,
     viewerHasRsvp: option<bool>,
@@ -236,17 +237,24 @@ v14 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "name",
+  "name": "shadow",
   "storageKey": null
 },
 v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "slug",
+  "name": "name",
   "storageKey": null
 },
 v16 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "slug",
+  "storageKey": null
+},
+v17 = {
   "alias": null,
   "args": null,
   "concreteType": "Activity",
@@ -255,32 +263,32 @@ v16 = {
   "plural": false,
   "selections": [
     (v5/*: any*/),
-    (v14/*: any*/),
-    (v15/*: any*/)
+    (v15/*: any*/),
+    (v16/*: any*/)
   ],
   "storageKey": null
 },
-v17 = {
+v18 = {
   "kind": "Variable",
   "name": "after",
   "variableName": "after"
 },
-v18 = {
+v19 = {
   "kind": "Variable",
   "name": "before",
   "variableName": "before"
 },
-v19 = {
+v20 = {
   "kind": "Variable",
   "name": "first",
   "variableName": "first"
 },
-v20 = [
-  (v17/*: any*/),
+v21 = [
   (v18/*: any*/),
-  (v19/*: any*/)
+  (v19/*: any*/),
+  (v20/*: any*/)
 ],
-v21 = {
+v22 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -292,24 +300,24 @@ v21 = {
     }
   ]
 },
-v22 = [
-  (v17/*: any*/),
+v23 = [
   (v18/*: any*/),
   (v19/*: any*/),
+  (v20/*: any*/),
   {
     "kind": "Variable",
     "name": "topic",
     "variableName": "topic"
   }
 ],
-v23 = {
+v24 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "lineUsername",
   "storageKey": null
 },
-v24 = [
+v25 = [
   {
     "alias": null,
     "args": null,
@@ -333,28 +341,28 @@ v24 = [
   },
   (v5/*: any*/)
 ],
-v25 = {
+v26 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v26 = {
+v27 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "cursor",
   "storageKey": null
 },
-v27 = {
+v28 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "hasNextPage",
   "storageKey": null
 },
-v28 = {
+v29 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -417,7 +425,8 @@ return {
           (v11/*: any*/),
           (v12/*: any*/),
           (v13/*: any*/),
-          (v16/*: any*/),
+          (v14/*: any*/),
+          (v17/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -426,7 +435,7 @@ return {
             "name": "location",
             "plural": false,
             "selections": [
-              (v14/*: any*/),
+              (v15/*: any*/),
               (v9/*: any*/),
               (v5/*: any*/)
             ],
@@ -440,7 +449,7 @@ return {
             "name": "club",
             "plural": false,
             "selections": [
-              (v14/*: any*/)
+              (v15/*: any*/)
             ],
             "storageKey": null
           },
@@ -450,7 +459,7 @@ return {
             "name": "EventDetails_event"
           },
           {
-            "args": (v20/*: any*/),
+            "args": (v21/*: any*/),
             "kind": "FragmentSpread",
             "name": "RSVPSection_event"
           },
@@ -459,12 +468,12 @@ return {
             "kind": "FragmentSpread",
             "name": "EventHeader_event"
           },
-          (v21/*: any*/)
+          (v22/*: any*/)
         ],
         "storageKey": null
       },
       {
-        "args": (v22/*: any*/),
+        "args": (v23/*: any*/),
         "kind": "FragmentSpread",
         "name": "EventMessages_query"
       }
@@ -501,7 +510,7 @@ return {
             "plural": false,
             "selections": [
               (v5/*: any*/),
-              (v23/*: any*/),
+              (v24/*: any*/),
               {
                 "alias": null,
                 "args": (v6/*: any*/),
@@ -509,7 +518,7 @@ return {
                 "kind": "LinkedField",
                 "name": "eventRating",
                 "plural": false,
-                "selections": (v24/*: any*/),
+                "selections": (v25/*: any*/),
                 "storageKey": null
               }
             ],
@@ -533,7 +542,8 @@ return {
           (v11/*: any*/),
           (v12/*: any*/),
           (v13/*: any*/),
-          (v16/*: any*/),
+          (v14/*: any*/),
+          (v17/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -542,7 +552,7 @@ return {
             "name": "location",
             "plural": false,
             "selections": [
-              (v14/*: any*/),
+              (v15/*: any*/),
               (v9/*: any*/),
               (v5/*: any*/),
               {
@@ -590,9 +600,9 @@ return {
             "name": "club",
             "plural": false,
             "selections": [
-              (v14/*: any*/),
+              (v15/*: any*/),
               (v5/*: any*/),
-              (v15/*: any*/)
+              (v16/*: any*/)
             ],
             "storageKey": null
           },
@@ -612,7 +622,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v20/*: any*/),
+            "args": (v21/*: any*/),
             "concreteType": "EventRsvpConnection",
             "kind": "LinkedField",
             "name": "rsvps",
@@ -651,7 +661,7 @@ return {
                             "name": "picture",
                             "storageKey": null
                           },
-                          (v23/*: any*/)
+                          (v24/*: any*/)
                         ],
                         "storageKey": null
                       },
@@ -669,7 +679,7 @@ return {
                         "kind": "LinkedField",
                         "name": "rating",
                         "plural": false,
-                        "selections": (v24/*: any*/),
+                        "selections": (v25/*: any*/),
                         "storageKey": null
                       },
                       {
@@ -679,11 +689,11 @@ return {
                         "name": "message",
                         "storageKey": null
                       },
-                      (v25/*: any*/)
+                      (v26/*: any*/)
                     ],
                     "storageKey": null
                   },
-                  (v26/*: any*/)
+                  (v27/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -695,7 +705,7 @@ return {
                 "name": "pageInfo",
                 "plural": false,
                 "selections": [
-                  (v27/*: any*/),
+                  (v28/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -703,7 +713,7 @@ return {
                     "name": "hasPreviousPage",
                     "storageKey": null
                   },
-                  (v28/*: any*/)
+                  (v29/*: any*/)
                 ],
                 "storageKey": null
               }
@@ -712,14 +722,14 @@ return {
           },
           {
             "alias": null,
-            "args": (v20/*: any*/),
+            "args": (v21/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "RSVPSection_event_rsvps",
             "kind": "LinkedHandle",
             "name": "rsvps"
           },
-          (v21/*: any*/),
+          (v22/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -753,7 +763,7 @@ return {
       },
       {
         "alias": null,
-        "args": (v22/*: any*/),
+        "args": (v23/*: any*/),
         "concreteType": "EventMessageConnection",
         "kind": "LinkedField",
         "name": "messagesByTopic",
@@ -797,11 +807,11 @@ return {
                     "name": "topic",
                     "storageKey": null
                   },
-                  (v25/*: any*/)
+                  (v26/*: any*/)
                 ],
                 "storageKey": null
               },
-              (v26/*: any*/)
+              (v27/*: any*/)
             ],
             "storageKey": null
           },
@@ -813,8 +823,8 @@ return {
             "name": "pageInfo",
             "plural": false,
             "selections": [
-              (v28/*: any*/),
-              (v27/*: any*/)
+              (v29/*: any*/),
+              (v28/*: any*/)
             ],
             "storageKey": null
           }
@@ -823,7 +833,7 @@ return {
       },
       {
         "alias": null,
-        "args": (v22/*: any*/),
+        "args": (v23/*: any*/),
         "filters": [
           "topic"
         ],
@@ -832,16 +842,16 @@ return {
         "kind": "LinkedHandle",
         "name": "messagesByTopic"
       },
-      (v21/*: any*/)
+      (v22/*: any*/)
     ]
   },
   "params": {
-    "cacheID": "6c9b43ebe37288e43537234ca5f05b6a",
+    "cacheID": "e988195c578cef47507445d836641304",
     "id": null,
     "metadata": {},
     "name": "EventPageQuery",
     "operationKind": "query",
-    "text": "query EventPageQuery(\n  $eventId: ID!\n  $topic: String!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  viewer {\n    user {\n      id\n      ...RSVPSection_user_32qNee\n    }\n  }\n  event(id: $eventId) {\n    id\n    title\n    details\n    startDate\n    viewerIsAdmin\n    viewerHasRsvp\n    deleted\n    activity {\n      id\n      name\n      slug\n    }\n    location {\n      name\n      details\n      id\n    }\n    club {\n      name\n      id\n    }\n    ...EventDetails_event\n    ...RSVPSection_event_4uAqg1\n    ...EventHeader_event\n  }\n  ...EventMessages_query_VpiI6\n}\n\nfragment EventDetails_event on Event {\n  details\n  location {\n    id\n    name\n    details\n    ...MediaList_location\n    ...EventLocation_location\n  }\n}\n\nfragment EventHeader_event on Event {\n  title\n  startDate\n  endDate\n  timezone\n  tags\n  listed\n  deleted\n  activity {\n    name\n    slug\n    id\n  }\n  club {\n    name\n    slug\n    id\n  }\n  location {\n    id\n    name\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventMessages_query_VpiI6 on Query {\n  messagesByTopic(topic: $topic, after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        createdAt\n        payload\n        topic\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvp_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  ...RsvpOptions_rsvp\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n}\n\nfragment GoingRsvps_event_4uAqg1 on Event {\n  id\n  maxRsvps\n  viewerIsAdmin\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          picture\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment MediaList_location on Location {\n  media {\n    id\n    title\n    url\n  }\n}\n\nfragment MiniEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment PendingRsvps_event_4uAqg1 on Event {\n  id\n  viewerIsAdmin\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          picture\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment RSVPSection_event_4uAqg1 on Event {\n  id\n  maxRsvps\n  minRating\n  viewerIsAdmin\n  activity {\n    slug\n    id\n  }\n  club {\n    id\n  }\n  ...RsvpWaitlist_event_4uAqg1\n  ...GoingRsvps_event_4uAqg1\n  ...PendingRsvps_event_4uAqg1\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          picture\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment RSVPSection_user_32qNee on User {\n  id\n  lineUsername\n  eventRating(eventId: $eventId) {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n\nfragment RsvpWaitlist_event_4uAqg1 on Event {\n  id\n  maxRsvps\n  viewerIsAdmin\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          picture\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n"
+    "text": "query EventPageQuery(\n  $eventId: ID!\n  $topic: String!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  viewer {\n    user {\n      id\n      ...RSVPSection_user_32qNee\n    }\n  }\n  event(id: $eventId) {\n    id\n    title\n    details\n    startDate\n    viewerIsAdmin\n    viewerHasRsvp\n    deleted\n    shadow\n    activity {\n      id\n      name\n      slug\n    }\n    location {\n      name\n      details\n      id\n    }\n    club {\n      name\n      id\n    }\n    ...EventDetails_event\n    ...RSVPSection_event_4uAqg1\n    ...EventHeader_event\n  }\n  ...EventMessages_query_VpiI6\n}\n\nfragment EventDetails_event on Event {\n  details\n  shadow\n  location {\n    id\n    name\n    details\n    ...MediaList_location\n    ...EventLocation_location\n  }\n}\n\nfragment EventHeader_event on Event {\n  title\n  startDate\n  endDate\n  timezone\n  tags\n  listed\n  deleted\n  shadow\n  activity {\n    name\n    slug\n    id\n  }\n  club {\n    name\n    slug\n    id\n  }\n  location {\n    id\n    name\n  }\n}\n\nfragment EventLocation_location on Location {\n  name\n  details\n  address\n  links\n}\n\nfragment EventMessages_query_VpiI6 on Query {\n  messagesByTopic(topic: $topic, after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        createdAt\n        payload\n        topic\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvp_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  ...RsvpOptions_rsvp\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n}\n\nfragment GoingRsvps_event_4uAqg1 on Event {\n  id\n  maxRsvps\n  viewerIsAdmin\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          picture\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment MediaList_location on Location {\n  media {\n    id\n    title\n    url\n  }\n}\n\nfragment MiniEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment PendingRsvps_event_4uAqg1 on Event {\n  id\n  viewerIsAdmin\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          picture\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment RSVPSection_event_4uAqg1 on Event {\n  id\n  maxRsvps\n  minRating\n  viewerIsAdmin\n  activity {\n    slug\n    id\n  }\n  club {\n    id\n  }\n  ...RsvpWaitlist_event_4uAqg1\n  ...GoingRsvps_event_4uAqg1\n  ...PendingRsvps_event_4uAqg1\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          picture\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment RSVPSection_user_32qNee on User {\n  id\n  lineUsername\n  eventRating(eventId: $eventId) {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n\nfragment RsvpWaitlist_event_4uAqg1 on Event {\n  id\n  maxRsvps\n  viewerIsAdmin\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        id\n        ...EventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          picture\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n        listType\n        message\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n"
   }
 };
 })() `)

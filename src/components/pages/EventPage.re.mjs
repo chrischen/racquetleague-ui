@@ -11,6 +11,7 @@ import * as EventHeader from "../organisms/EventHeader.re.mjs";
 import * as RSVPSection from "../organisms/RSVPSection.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventDetails from "../organisms/EventDetails.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as EventMessages from "../organisms/EventMessages.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -198,6 +199,83 @@ function EventPage(props) {
                                     } else {
                                       tmp$1 = null;
                                     }
+                                    var match$4 = $$event.shadow;
+                                    var tmp$2;
+                                    var exit$1 = 0;
+                                    if (match$4 !== undefined && match$4) {
+                                      tmp$2 = JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsx("div", {
+                                                                children: JsxRuntime.jsxs("div", {
+                                                                      children: [
+                                                                        JsxRuntime.jsx(LucideReact.Lock, {
+                                                                              className: "w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0"
+                                                                            }),
+                                                                        JsxRuntime.jsxs("div", {
+                                                                              children: [
+                                                                                JsxRuntime.jsx("h3", {
+                                                                                      children: t`Private Event`,
+                                                                                      className: "font-semibold text-yellow-900 dark:text-yellow-100"
+                                                                                    }),
+                                                                                JsxRuntime.jsx("p", {
+                                                                                      children: t`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`,
+                                                                                      className: "text-sm text-yellow-800 dark:text-yellow-200"
+                                                                                    })
+                                                                              ],
+                                                                              className: "space-y-1"
+                                                                            })
+                                                                      ],
+                                                                      className: "flex items-start gap-3"
+                                                                    }),
+                                                                className: "bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 rounded-lg p-4"
+                                                              }),
+                                                          className: "p-4"
+                                                        }),
+                                                    className: "md:hidden"
+                                                  }),
+                                              JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsxs("div", {
+                                                                children: [
+                                                                  JsxRuntime.jsx(LucideReact.Lock, {
+                                                                        className: "w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0"
+                                                                      }),
+                                                                  JsxRuntime.jsxs("div", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx("h3", {
+                                                                                children: t`Private Event`,
+                                                                                className: "font-semibold text-yellow-900 dark:text-yellow-100"
+                                                                              }),
+                                                                          JsxRuntime.jsx("p", {
+                                                                                children: t`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`,
+                                                                                className: "text-sm text-yellow-800 dark:text-yellow-200"
+                                                                              })
+                                                                        ],
+                                                                        className: "space-y-1"
+                                                                      })
+                                                                ],
+                                                                className: "flex items-start gap-3"
+                                                              }),
+                                                          className: "bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 rounded-lg p-4"
+                                                        }),
+                                                    className: "hidden md:block"
+                                                  })
+                                            ],
+                                            className: "fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t md:border-t-0 md:rounded-lg md:shadow-sm md:p-6 md:mt-4 md:sticky md:top-4 z-10"
+                                          });
+                                    } else {
+                                      exit$1 = 1;
+                                    }
+                                    if (exit$1 === 1) {
+                                      tmp$2 = JsxRuntime.jsx(RSVPSection.make, {
+                                            event: $$event.fragmentRefs,
+                                            user: Core__Option.map(viewerUser, (function (v) {
+                                                    return v.fragmentRefs;
+                                                  }))
+                                          });
+                                    }
                                     return JsxRuntime.jsxs("div", {
                                                 children: [
                                                   JsxRuntime.jsx(EventHeader.make, {
@@ -223,12 +301,7 @@ function EventPage(props) {
                                                                       className: "md:col-span-7 lg:col-span-8 pb-8 md:pb-0"
                                                                     }),
                                                                 JsxRuntime.jsx("div", {
-                                                                      children: JsxRuntime.jsx(RSVPSection.make, {
-                                                                            event: $$event.fragmentRefs,
-                                                                            user: Core__Option.map(viewerUser, (function (v) {
-                                                                                    return v.fragmentRefs;
-                                                                                  }))
-                                                                          }),
+                                                                      children: tmp$2,
                                                                       className: "md:col-span-5 lg:col-span-4"
                                                                     })
                                                               ],

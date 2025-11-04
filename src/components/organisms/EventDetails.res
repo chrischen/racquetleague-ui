@@ -1,6 +1,7 @@
 module Fragment = %relay(`
 	fragment EventDetails_event on Event {
 		details
+		shadow
 		location {
             id
             name
@@ -68,7 +69,7 @@ let make = (~event) => {
             ->Option.map(location => {
               let ref = location.fragmentRefs
               <>
-                <EventLocation location=ref />
+                <EventLocation location=ref hideAddress={event.shadow->Option.getOr(false)} />
                 <div className="mt-4">
                   <MediaList media=ref />
                 </div>

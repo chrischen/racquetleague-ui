@@ -2400,3 +2400,15 @@ msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."
 msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:219
+#: src/components/pages/EventPage.re.mjs:248
+msgid "Private Event"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:223
+#: src/components/pages/EventPage.re.mjs:252
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr ""

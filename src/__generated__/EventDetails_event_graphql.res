@@ -13,6 +13,7 @@ module Types = {
   type fragment = {
     details: option<string>,
     location: option<fragment_location>,
+    shadow: option<bool>,
   }
 }
 
@@ -62,6 +63,13 @@ return {
   "name": "EventDetails_event",
   "selections": [
     (v0/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "shadow",
+      "storageKey": null
+    },
     {
       "alias": null,
       "args": null,

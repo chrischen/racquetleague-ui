@@ -10,6 +10,7 @@ module Fragment = %relay(`
     tags
     listed
     deleted
+    shadow
     activity {
       name
       slug
@@ -185,7 +186,9 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
                   {data.location
                   ->Option.flatMap(location =>
                     location.name->Option.map(name =>
-                      <Link to={"/locations/" ++ location.id}> {name->React.string} </Link>
+                      data.shadow->Option.getOr(false)
+                        ? name->React.string
+                        : <Link to={"/locations/" ++ location.id}> {name->React.string} </Link>
                     )
                   )
                   ->Option.getOr((ts`Unknown location`)->React.string)}

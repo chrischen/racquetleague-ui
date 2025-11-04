@@ -88,7 +88,7 @@ msgstr "กิจกรรมนี้เป็นกิจกรรมส่ว
 msgid "Unknown club"
 msgstr "คลับที่ไม่ทราบ"
 
-#: src/components/organisms/EventHeader.re.mjs:243
+#: src/components/organisms/EventHeader.re.mjs:247
 msgid "Unknown location"
 msgstr "สถานที่ที่ไม่ทราบ"
 

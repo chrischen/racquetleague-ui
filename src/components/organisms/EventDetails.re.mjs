@@ -95,7 +95,8 @@ function EventDetails(props) {
                                             return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                         children: [
                                                           JsxRuntime.jsx(EventLocation.make, {
-                                                                location: ref
+                                                                location: ref,
+                                                                hideAddress: Core__Option.getOr($$event.shadow, false)
                                                               }),
                                                           JsxRuntime.jsx("div", {
                                                                 children: JsxRuntime.jsx($$MediaList.make, {

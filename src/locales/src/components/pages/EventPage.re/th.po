@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:280
+#: src/components/pages/EventPage.re.mjs:353
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:283
+#: src/components/pages/EventPage.re.mjs:356
 msgid "Table Tennis"
 msgstr "ปิงปอง"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:286
+#: src/components/pages/EventPage.re.mjs:359
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:289
+#: src/components/pages/EventPage.re.mjs:362
 msgid "Futsal"
 msgstr "ฟุตซอล"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:292
+#: src/components/pages/EventPage.re.mjs:365
 msgid "drill"
 msgstr "ฝึกซ้อม"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:295
+#: src/components/pages/EventPage.re.mjs:368
 msgid "comp"
 msgstr "แข่ง"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:298
+#: src/components/pages/EventPage.re.mjs:371
 msgid "rec"
 msgstr "บันเทิง"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:301
+#: src/components/pages/EventPage.re.mjs:374
 msgid "all level"
 msgstr "ทุกระดับ"
 
@@ -86,7 +86,7 @@ msgstr "อนุมัติ RSVP"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
-#: src/components/pages/EventPage.re.mjs:147
+#: src/components/pages/EventPage.re.mjs:148
 msgid "cancel event"
 msgstr "ยกเลิกกิจกรรม"
 
@@ -98,11 +98,11 @@ msgstr "ยกเลิก"
 msgid "Collapse"
 msgstr "ย่อ"
 
-#: src/components/pages/EventPage.re.mjs:130
+#: src/components/pages/EventPage.re.mjs:131
 msgid "edit event"
 msgstr "แก้ไขกิจกรรม"
 
-#: src/components/pages/EventPage.re.mjs:243
+#: src/components/pages/EventPage.re.mjs:316
 msgid "Event not found"
 msgstr "ไม่พบกิจกรรม"
 
@@ -158,7 +158,7 @@ msgstr "เข้าสู่ระบบเพื่อเข้าร่วม
 msgid "Lower intermediate and above"
 msgstr "ระดับกลางขั้นต้นขึ้นไป"
 
-#: src/components/pages/EventPage.re.mjs:186
+#: src/components/pages/EventPage.re.mjs:187
 msgid "Manage Event"
 msgstr "จัดการกิจกรรม"
 
@@ -187,6 +187,11 @@ msgstr "รอการอนุมัติ"
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "ผู้เล่น"
+
+#: src/components/pages/EventPage.re.mjs:219
+#: src/components/pages/EventPage.re.mjs:248
+msgid "Private Event"
+msgstr "กิจกรรมส่วนตัว"
 
 #: src/components/atoms/EventTag.re.mjs:46
 msgid "Professional players"
@@ -260,6 +265,15 @@ msgstr ""
 "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
 "คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
+#: src/components/pages/EventPage.re.mjs:223
+#: src/components/pages/EventPage.re.mjs:252
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr ""
+"กิจกรรมนี้เป็นกิจกรรมส่วนตัวและไม่สามารถเข้าร่วมผ่าน Pkuru.com ได้ "
+"ห้ามไปที่กิจกรรมโดยไม่ได้รับอนุญาต"
+
 #: src/components/atoms/EventTag.re.mjs:58
 msgid ""
 "This event is private. Please do not share this event without permission "
@@ -281,7 +295,7 @@ msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
-#: src/components/pages/EventPage.re.mjs:136
+#: src/components/pages/EventPage.re.mjs:137
 msgid "uncancel event"
 msgstr "เลิกยกเลิกกิจกรรม"
 
@@ -289,7 +303,7 @@ msgstr "เลิกยกเลิกกิจกรรม"
 msgid "Unknown club"
 msgstr "คลับที่ไม่ทราบ"
 
-#: src/components/organisms/EventHeader.re.mjs:243
+#: src/components/organisms/EventHeader.re.mjs:247
 msgid "Unknown location"
 msgstr "สถานที่ที่ไม่ทราบ"
 

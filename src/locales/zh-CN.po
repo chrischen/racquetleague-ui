@@ -2072,7 +2072,21 @@ msgstr "我可以为您创建活动。只需告诉我您的时间安排。"
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."
-msgstr "告诉我您活动的时间和地点，或其他任何详细信息。您还可以告诉我需要包含的详细信息，我甚至可以添加翻译。"
+msgstr ""
+"告诉我您活动的时间和地点，或其他任何详细信息。您还可以告诉我需要包含的详细信"
+"息，我甚至可以添加翻译。"
+
+#: src/components/pages/EventPage.re.mjs:219
+#: src/components/pages/EventPage.re.mjs:248
+msgid "Private Event"
+msgstr "私人活动"
+
+#: src/components/pages/EventPage.re.mjs:223
+#: src/components/pages/EventPage.re.mjs:252
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr "此活动为私人活动，无法通过 Pkuru.com 加入。未经许可请勿前往活动现场。"
 
 #: src/components/organisms/EventsList.re.mjs:260
 #, fuzzy

@@ -23,6 +23,7 @@ module Types = {
     endDate: option<Util.Datetime.t>,
     listed: option<bool>,
     location: option<fragment_location>,
+    shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     tags: option<array<string>>,
     timezone: option<string>,
@@ -134,6 +135,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "deleted",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "shadow",
       "storageKey": null
     },
     {

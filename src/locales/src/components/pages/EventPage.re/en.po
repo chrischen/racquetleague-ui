@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:280
+#: src/components/pages/EventPage.re.mjs:353
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:283
+#: src/components/pages/EventPage.re.mjs:356
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:286
+#: src/components/pages/EventPage.re.mjs:359
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:289
+#: src/components/pages/EventPage.re.mjs:362
 msgid "Futsal"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:292
+#: src/components/pages/EventPage.re.mjs:365
 msgid "drill"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:295
+#: src/components/pages/EventPage.re.mjs:368
 msgid "comp"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:298
+#: src/components/pages/EventPage.re.mjs:371
 msgid "rec"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:301
+#: src/components/pages/EventPage.re.mjs:374
 msgid "all level"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:147
+#: src/components/pages/EventPage.re.mjs:148
 msgid "cancel event"
 msgstr ""
 
@@ -98,11 +98,11 @@ msgstr ""
 msgid "Collapse"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:130
+#: src/components/pages/EventPage.re.mjs:131
 msgid "edit event"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:243
+#: src/components/pages/EventPage.re.mjs:316
 msgid "Event not found"
 msgstr ""
 
@@ -162,7 +162,7 @@ msgstr ""
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:186
+#: src/components/pages/EventPage.re.mjs:187
 msgid "Manage Event"
 msgstr ""
 
@@ -206,6 +206,11 @@ msgstr ""
 #: src/components/organisms/EventRsvp.re.mjs:61
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:219
+#: src/components/pages/EventPage.re.mjs:248
+msgid "Private Event"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:46
@@ -282,6 +287,11 @@ msgstr ""
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
 
+#: src/components/pages/EventPage.re.mjs:223
+#: src/components/pages/EventPage.re.mjs:252
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:58
 msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
@@ -296,7 +306,7 @@ msgstr ""
 msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:136
+#: src/components/pages/EventPage.re.mjs:137
 msgid "uncancel event"
 msgstr ""
 
@@ -304,7 +314,7 @@ msgstr ""
 msgid "Unknown club"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:243
+#: src/components/organisms/EventHeader.re.mjs:247
 msgid "Unknown location"
 msgstr ""
 

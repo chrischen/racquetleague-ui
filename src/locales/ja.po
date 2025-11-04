@@ -2430,6 +2430,19 @@ msgstr ""
 "イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教え"
 "ていただければ、翻訳も追加できます。"
 
+#: src/components/pages/EventPage.re.mjs:219
+#: src/components/pages/EventPage.re.mjs:248
+msgid "Private Event"
+msgstr "プライベートイベント"
+
+#: src/components/pages/EventPage.re.mjs:223
+#: src/components/pages/EventPage.re.mjs:252
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr ""
+"このイベントはプライベートイベントのため、Pkuru.comから参加することはできません。許可なくイベントに参加しないでください。"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"

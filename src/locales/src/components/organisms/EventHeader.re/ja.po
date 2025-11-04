@@ -88,7 +88,7 @@ msgstr "このイベントは非公開です。主催者の許可なく共有し
 msgid "Unknown club"
 msgstr "不明なクラブ"
 
-#: src/components/organisms/EventHeader.re.mjs:243
+#: src/components/organisms/EventHeader.re.mjs:247
 msgid "Unknown location"
 msgstr "不明な場所"
 

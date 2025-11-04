@@ -23,6 +23,7 @@ module EventPageQuery = %relay(`
       viewerIsAdmin
       viewerHasRsvp
       deleted
+      shadow
       activity {
         id
         name
@@ -159,9 +160,58 @@ let make = () => {
                 />
               </div>
               <div className="md:col-span-5 lg:col-span-4">
-                <RSVPSection
-                  event=event.fragmentRefs user={viewerUser->Option.map(v => v.fragmentRefs)}
-                />
+                {switch event.shadow {
+                | Some(true) =>
+                  <div
+                    className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t md:border-t-0 md:rounded-lg md:shadow-sm md:p-6 md:mt-4 md:sticky md:top-4 z-10">
+                    <div className="md:hidden">
+                      <div className="p-4">
+                        <div
+                          className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 rounded-lg p-4">
+                          <div className="flex items-start gap-3">
+                            <Lucide.Lock
+                              className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0"
+                            />
+                            <div className="space-y-1">
+                              <h3 className="font-semibold text-yellow-900 dark:text-yellow-100">
+                                {(ts`Private Event`)->React.string}
+                              </h3>
+                              <p className="text-sm text-yellow-800 dark:text-yellow-200">
+                                {(
+                                  ts`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`
+                                )->React.string}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="hidden md:block">
+                      <div
+                        className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 rounded-lg p-4">
+                        <div className="flex items-start gap-3">
+                          <Lucide.Lock
+                            className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0"
+                          />
+                          <div className="space-y-1">
+                            <h3 className="font-semibold text-yellow-900 dark:text-yellow-100">
+                              {(ts`Private Event`)->React.string}
+                            </h3>
+                            <p className="text-sm text-yellow-800 dark:text-yellow-200">
+                              {(
+                                ts`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`
+                              )->React.string}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                | _ =>
+                  <RSVPSection
+                    event=event.fragmentRefs user={viewerUser->Option.map(v => v.fragmentRefs)}
+                  />
+                }}
               </div>
             </div>
           </div>

@@ -88,7 +88,7 @@ msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下
 msgid "Unknown club"
 msgstr "未知俱乐部"
 
-#: src/components/organisms/EventHeader.re.mjs:243
+#: src/components/organisms/EventHeader.re.mjs:247
 msgid "Unknown location"
 msgstr "未知地点"
 

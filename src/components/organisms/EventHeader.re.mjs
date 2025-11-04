@@ -235,10 +235,14 @@ function EventHeader(props) {
                                                             children: JsxRuntime.jsx("div", {
                                                                   children: Core__Option.getOr(Core__Option.flatMap(data.location, (function ($$location) {
                                                                               return Core__Option.map($$location.name, (function (name) {
-                                                                                            return JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                        to: "/locations/" + $$location.id,
-                                                                                                        children: name
-                                                                                                      });
+                                                                                            if (Core__Option.getOr(data.shadow, false)) {
+                                                                                              return name;
+                                                                                            } else {
+                                                                                              return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                                                          to: "/locations/" + $$location.id,
+                                                                                                          children: name
+                                                                                                        });
+                                                                                            }
                                                                                           }));
                                                                             })), t`Unknown location`),
                                                                   className: "font-semibold text-gray-900"

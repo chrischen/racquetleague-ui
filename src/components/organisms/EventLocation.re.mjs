@@ -26,6 +26,8 @@ var Fragment = {
 };
 
 function EventLocation(props) {
+  var __hideAddress = props.hideAddress;
+  var hideAddress = __hideAddress !== undefined ? __hideAddress : false;
   var $$location = use(props.location);
   var defaultLink = Core__Option.flatMap($$location.links, (function (links) {
           return links[0];
@@ -38,34 +40,34 @@ function EventLocation(props) {
                                 })), null),
                       className: "font-bold flex items-center lg:text-xl leading-8 text-gray-700"
                     }),
-                Core__Option.getOr(Core__Option.map($$location.address, (function (address) {
-                            return JsxRuntime.jsx("p", {
-                                        children: Core__Option.getOr(Core__Option.map(defaultLink, (function (link) {
-                                                    return JsxRuntime.jsx("a", {
-                                                                children: address,
-                                                                href: link,
-                                                                rel: "noopener noreferrer",
-                                                                target: "_blank"
-                                                              });
-                                                  })), address),
-                                        className: "lg:text-sm leading-8 text-gray-700"
-                                      });
-                          })), ""),
-                JsxRuntime.jsx("p", {
-                      children: Core__Option.getOr(Core__Option.map($$location.links, (function (links) {
-                                  return links.map(function (link) {
-                                              var truncatedLink = link.length > 50 ? link.substring(0, 50) + "..." : link;
-                                              return JsxRuntime.jsx("a", {
-                                                          children: truncatedLink,
-                                                          className: "mt-4 lg:text-sm leading-8 italic text-gray-700 truncate",
-                                                          href: link,
-                                                          rel: "noopener noreferrer",
-                                                          target: "_blank"
-                                                        }, link);
-                                            });
-                                })), null),
-                      className: "truncate"
-                    }),
+                hideAddress ? null : Core__Option.getOr(Core__Option.map($$location.address, (function (address) {
+                              return JsxRuntime.jsx("p", {
+                                          children: Core__Option.getOr(Core__Option.map(defaultLink, (function (link) {
+                                                      return JsxRuntime.jsx("a", {
+                                                                  children: address,
+                                                                  href: link,
+                                                                  rel: "noopener noreferrer",
+                                                                  target: "_blank"
+                                                                });
+                                                    })), address),
+                                          className: "lg:text-sm leading-8 text-gray-700"
+                                        });
+                            })), ""),
+                hideAddress ? null : JsxRuntime.jsx("p", {
+                        children: Core__Option.getOr(Core__Option.map($$location.links, (function (links) {
+                                    return links.map(function (link) {
+                                                var truncatedLink = link.length > 50 ? link.substring(0, 50) + "..." : link;
+                                                return JsxRuntime.jsx("a", {
+                                                            children: truncatedLink,
+                                                            className: "mt-4 lg:text-sm leading-8 italic text-gray-700 truncate",
+                                                            href: link,
+                                                            rel: "noopener noreferrer",
+                                                            target: "_blank"
+                                                          }, link);
+                                              });
+                                  })), null),
+                        className: "truncate"
+                      }),
                 Core__Option.getOr(Core__Option.map($$location.details, (function (details) {
                             return JsxRuntime.jsx("div", {
                                         children: JsxRuntime.jsx(PreformattedParagraph.make, {

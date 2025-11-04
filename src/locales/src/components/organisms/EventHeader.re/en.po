@@ -85,7 +85,7 @@ msgstr ""
 msgid "Unknown club"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:243
+#: src/components/organisms/EventHeader.re.mjs:247
 msgid "Unknown location"
 msgstr ""
 

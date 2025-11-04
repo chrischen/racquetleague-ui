@@ -8,7 +8,7 @@ module Fragment = %relay(`
 `)
 
 @react.component
-let make = (~location) => {
+let make = (~location, ~hideAddress: bool=false) => {
   let location = Fragment.use(location)
   let defaultLink = location.links->Option.flatMap(links => links->Array.get(0))
   <>
@@ -20,39 +20,43 @@ let make = (~location) => {
     //     className="mr-2.5 h-5 w-5 flex-shrink-0 text-gray-500" \"aria-hidden"="true"
     //   />
     // </div>
-    {location.address
-    ->Option.map(address =>
-      <p className="lg:text-sm leading-8 text-gray-700">
-        {defaultLink
-        ->Option.map(link =>
-          <a href={link} target="_blank" rel="noopener noreferrer"> {address->React.string} </a>
+    {!hideAddress
+      ? location.address
+        ->Option.map(address =>
+          <p className="lg:text-sm leading-8 text-gray-700">
+            {defaultLink
+            ->Option.map(link =>
+              <a href={link} target="_blank" rel="noopener noreferrer"> {address->React.string} </a>
+            )
+            ->Option.getOr(address->React.string)}
+          </p>
         )
-        ->Option.getOr(address->React.string)}
-      </p>
-    )
-    ->Option.getOr(""->React.string)}
-    <p className="truncate">
-      {location.links
-      ->Option.map(links =>
-        links
-        ->Array.map(link => {
-          let truncatedLink =
-            link->Js.String2.length > 50
-              ? link->Js.String2.substring(~from=0, ~to_=50) ++ "..."
-              : link
-          <a
-            key={link}
-            href={link}
-            className="mt-4 lg:text-sm leading-8 italic text-gray-700 truncate"
-            target="_blank"
-            rel="noopener noreferrer">
-            {truncatedLink->React.string}
-          </a>
-        })
-        ->React.array
-      )
-      ->Option.getOr(React.null)}
-    </p>
+        ->Option.getOr(""->React.string)
+      : React.null}
+    {!hideAddress
+      ? <p className="truncate">
+          {location.links
+          ->Option.map(links =>
+            links
+            ->Array.map(link => {
+              let truncatedLink =
+                link->Js.String2.length > 50
+                  ? link->Js.String2.substring(~from=0, ~to_=50) ++ "..."
+                  : link
+              <a
+                key={link}
+                href={link}
+                className="mt-4 lg:text-sm leading-8 italic text-gray-700 truncate"
+                target="_blank"
+                rel="noopener noreferrer">
+                {truncatedLink->React.string}
+              </a>
+            })
+            ->React.array
+          )
+          ->Option.getOr(React.null)}
+        </p>
+      : React.null}
     {location.details
     ->Option.map(details =>
       <div className="mt-4">

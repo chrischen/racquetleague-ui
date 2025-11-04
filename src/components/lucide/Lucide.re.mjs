@@ -59,6 +59,8 @@ var Search = {};
 
 var Sparkles = {};
 
+var Lock = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -89,5 +91,6 @@ export {
   ChevronDown ,
   Search ,
   Sparkles ,
+  Lock ,
 }
 /* No side effect */

@@ -2093,8 +2093,21 @@ msgid ""
 "let me know the details to include and I can even add the translations."
 msgstr ""
 "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
-"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ "
-"และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+
+#: src/components/pages/EventPage.re.mjs:219
+#: src/components/pages/EventPage.re.mjs:248
+msgid "Private Event"
+msgstr "กิจกรรมส่วนตัว"
+
+#: src/components/pages/EventPage.re.mjs:223
+#: src/components/pages/EventPage.re.mjs:252
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr ""
+"กิจกรรมนี้เป็นกิจกรรมส่วนตัวและไม่สามารถเข้าร่วมผ่าน Pkuru.com ได้ "
+"ห้ามไปที่กิจกรรมโดยไม่ได้รับอนุญาต"
 
 #: src/components/organisms/EventsList.re.mjs:260
 #, fuzzy
