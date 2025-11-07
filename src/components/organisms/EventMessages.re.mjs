@@ -203,6 +203,14 @@ function EventMessages(props) {
                                       "bg-indigo-100"
                                     ];
                                     break;
+                                case "rsvp_added" :
+                                    match$1 = [
+                                      JsxRuntime.jsx(LucideReact.UserPlus, {
+                                            className: "size-4 text-green-600"
+                                          }),
+                                      "bg-green-100"
+                                    ];
+                                    break;
                                 case "rsvp_created" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.Check, {
@@ -225,6 +233,14 @@ function EventMessages(props) {
                                             className: "size-4 text-blue-600"
                                           }),
                                       "bg-blue-100"
+                                    ];
+                                    break;
+                                case "rsvp_removed" :
+                                    match$1 = [
+                                      JsxRuntime.jsx(LucideReact.X, {
+                                            className: "size-4 text-orange-600"
+                                          }),
+                                      "bg-orange-100"
                                     ];
                                     break;
                                 case "update" :
@@ -254,6 +270,9 @@ function EventMessages(props) {
                               var mainMessageText;
                               if (activityTypeOpt !== undefined) {
                                 switch (activityTypeOpt) {
+                                  case "rsvp_added" :
+                                      mainMessageText = Core__Option.getOr(detailsOpt, t`was added to the event by admin`);
+                                      break;
                                   case "rsvp_created" :
                                       mainMessageText = Core__Option.getOr(detailsOpt, t`joined the event`);
                                       break;
@@ -262,6 +281,9 @@ function EventMessages(props) {
                                       break;
                                   case "rsvp_promoted" :
                                       mainMessageText = Core__Option.getOr(detailsOpt, t`joined from waitlist`);
+                                      break;
+                                  case "rsvp_removed" :
+                                      mainMessageText = Core__Option.getOr(detailsOpt, t`was removed from the event by admin`);
                                       break;
                                   default:
                                     mainMessageText = Core__Option.getOr(detailsOpt, "");
@@ -286,14 +308,25 @@ function EventMessages(props) {
                                     });
                               }
                               var timeClassName;
-                              if (activityTypeOpt === "rsvp_deleted") {
+                              var exit$1 = 0;
+                              if (activityTypeOpt !== undefined) {
+                                switch (activityTypeOpt) {
+                                  case "rsvp_deleted" :
+                                  case "rsvp_removed" :
+                                      exit$1 = 1;
+                                      break;
+                                  default:
+                                    timeClassName = "text-gray-500";
+                                }
+                              } else {
+                                timeClassName = "text-gray-500";
+                              }
+                              if (exit$1 === 1) {
                                 var messageCreatedAtDate = Util.Datetime.toDate(Util.Datetime.parse(message.createdAt));
                                 var diffHours = DateFns.differenceInHours(eventStartDate, messageCreatedAtDate);
                                 timeClassName = diffHours < 24 ? "text-red-600 font-medium" : (
                                     diffHours < 48 ? "text-yellow-600 font-medium" : "text-gray-500"
                                   );
-                              } else {
-                                timeClassName = "text-gray-500";
                               }
                               var dt = Util.Datetime.toDate(Util.Datetime.parse(message.createdAt));
                               return JsxRuntime.jsxs("div", {

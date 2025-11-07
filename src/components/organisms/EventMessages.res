@@ -158,11 +158,16 @@ let make = (
                 "bg-slate-100",
               )
             | "rsvp_created" => (<Lucide.Check className="size-4 text-green-600" />, "bg-green-100")
+            | "rsvp_added" => (
+                <Lucide.UserPlus className="size-4 text-green-600" />,
+                "bg-green-100",
+              )
             | "rsvp_promoted" => (
                 <Lucide.ArrowUpCircle className="size-4 text-blue-600" />,
                 "bg-blue-100",
               )
             | "rsvp_deleted" => (<Lucide.X className="size-4 text-red-600" />, "bg-red-100")
+            | "rsvp_removed" => (<Lucide.X className="size-4 text-orange-600" />, "bg-orange-100")
             | "update" => (<Lucide.Bell className="size-4 text-blue-600" />, "bg-blue-100")
             | _ => (<Lucide.User className="size-4 text-gray-600" />, "bg-gray-100")
             }
@@ -170,8 +175,11 @@ let make = (
             let mainMessageText = switch activityTypeOpt {
             | Some("host_message") | Some("user_message") => detailsOpt->Option.getOr("")
             | Some("rsvp_created") => detailsOpt->Option.getOr(ts`joined the event`)
+            | Some("rsvp_added") => detailsOpt->Option.getOr(ts`was added to the event by admin`)
             | Some("rsvp_promoted") => detailsOpt->Option.getOr(ts`joined from waitlist`)
             | Some("rsvp_deleted") => detailsOpt->Option.getOr(ts`left the event`)
+            | Some("rsvp_removed") =>
+              detailsOpt->Option.getOr(ts`was removed from the event by admin`)
             | _ => detailsOpt->Option.getOr("")
             }
 
@@ -182,9 +190,9 @@ let make = (
               <span className="font-medium text-gray-900"> {React.string(actorUserName)} </span>
             }
 
-            // time color class (only varies for rsvp_deleted)
+            // time color class (only varies for rsvp_deleted and rsvp_removed)
             let timeClassName = switch activityTypeOpt {
-            | Some("rsvp_deleted") =>
+            | Some("rsvp_deleted") | Some("rsvp_removed") =>
               switch message.createdAt->Js.Json.string->Util.Datetime.parse->Util.Datetime.toDate {
               | messageCreatedAtDate =>
                 let diffHours = differenceInHours(eventStartDate, messageCreatedAtDate)
