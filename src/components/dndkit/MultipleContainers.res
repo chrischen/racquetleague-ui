@@ -1,6 +1,6 @@
 module Items = {
   // type t = Js.Dict.t<(array<string>, array<string>)>
-  type t = Js.Dict.t<(array<string>)>
+  type t = Js.Dict.t<array<string>>
 }
 type renderProps = {
   value: string,

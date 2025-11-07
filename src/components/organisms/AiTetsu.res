@@ -580,9 +580,11 @@ let make = (~event, ~children) => {
     (hydratedTeam1, hydratedTeam2)
   }
 
-  // Reconstruct matches array from relational data
-  // Also keep track of match IDs for deletion
-  let (matches: array<match>, matchIds: array<string>) = React.useMemo2(() => {
+  // Simple React state for matches
+  let (matches: array<match>, setMatches) = React.useState(() => [])
+
+  // Helper function to load matches from TinyBase
+  let loadMatchesFromDb = () => {
     // Create a map of userId -> rsvp for fast lookup
     let rsvpMap =
       data.rsvps
@@ -594,36 +596,39 @@ let make = (~event, ~children) => {
       )
       ->Js.Dict.fromArray
 
-    // Get the teams and players tables once
+    // Get the tables
+    let matchesTable = matchesStore->TinyBase.getTable("matches")
     let teamsTable = matchesStore->TinyBase.getTable("teams")
     let playersTable = matchesStore->TinyBase.getTable("players")
 
-    let matchesWithIds =
-      matchesTableJson
+    let loadedMatches =
+      matchesTable
       ->Js.Dict.entries
       ->Array.filterMap(((matchId, matchRow)) => {
         // Check if this match belongs to the current event
         switch matchRow->Js.Dict.get("eventId")->Option.map(v => v->Obj.magic) {
         | Some(mEventId: string) if mEventId == eventId =>
           // Load match from DB and hydrate with RSVP data
-          Match.loadFromDb(matchRow, teamsTable, playersTable, matchId)->Option.map(
-            match => (hydrateMatchWithRsvpData(match, rsvpMap), matchId),
+          Match.loadFromDb(matchRow, teamsTable, playersTable, matchId)->Option.map(match =>
+            hydrateMatchWithRsvpData(match, rsvpMap)
           )
         | _ => None
         }
       })
 
-    // Separate matches and IDs
-    let matches = matchesWithIds->Array.map(((match, _)) => match)
-    let ids = matchesWithIds->Array.map(((_, id)) => id)
+    loadedMatches
+  }
 
-    (matches, ids)
-  }, (matchesTableJson, data.rsvps))
+  // Load matches from TinyBase on initial mount
+  React.useEffect1(() => {
+    let loadedMatches = loadMatchesFromDb()
+    setMatches(_ => loadedMatches)
+    None
+  }, [matchesTableJson])
 
-  // Create setMatches wrapper that updates TinyBase store tables
-  let setMatches = React.useCallback1((updater: array<match> => array<match>) => {
-    Js.log("Updating matches in TinyBase store")
-    let newMatches = updater(matches)
+  // Sync matches to TinyBase - called whenever setMatches is called
+  let syncMatchesWithDb = (newMatches: array<match>) => {
+    Js.log("Syncing matches to TinyBase store")
 
     // First, delete all existing matches for this event from all tables
     let currentMatchesTable = matchesStore->TinyBase.getTable("matches")
@@ -644,21 +649,17 @@ let make = (~event, ~children) => {
       let teamIdsToDelete =
         teamsTable
         ->Js.Dict.entries
-        ->Array.filterMap(
-          ((teamId, teamRow)) => {
-            switch teamRow->Js.Dict.get("matchId")->Option.map(v => v->Obj.magic) {
-            | Some(mId: string) if mId == matchId => Some(teamId)
-            | _ => None
-            }
-          },
-        )
+        ->Array.filterMap(((teamId, teamRow)) => {
+          switch teamRow->Js.Dict.get("matchId")->Option.map(v => v->Obj.magic) {
+          | Some(mId: string) if mId == matchId => Some(teamId)
+          | _ => None
+          }
+        })
 
       // Delete team instances (players remain in the global players table)
-      teamIdsToDelete->Array.forEach(
-        teamId => {
-          matchesStore->TinyBase.delRow("teams", teamId)
-        },
-      )
+      teamIdsToDelete->Array.forEach(teamId => {
+        matchesStore->TinyBase.delRow("teams", teamId)
+      })
 
       matchesStore->TinyBase.delRow("matches", matchId)
     })
@@ -678,41 +679,49 @@ let make = (~event, ~children) => {
       let teams = [team1, team2]
 
       // Create team and player rows
-      teams->Array.forEachWithIndex(
-        (team, teamIndex) => {
-          // Use team's stable ID (based on player IDs) as part of the team ID
-          let teamStableId = team->Team.toStableId
-          let teamId = `${matchId}-team-${teamStableId}`
+      teams->Array.forEachWithIndex((team, teamIndex) => {
+        // Use team's stable ID (based on player IDs) as part of the team ID
+        let teamStableId = team->Team.toStableId
+        let teamId = `${matchId}-team-${teamStableId}`
 
-          // Create team row with matchId reference and player IDs
-          let teamRowData = Js.Dict.empty()
-          teamRowData->Js.Dict.set("matchId", matchId->Js.Json.string)
-          teamRowData->Js.Dict.set("teamIndex", teamIndex->Int.toFloat->Js.Json.number)
-          // Store player IDs as a JSON-stringified array (TinyBase only supports primitives)
-          teamRowData->Js.Dict.set(
-            "playerIds",
-            team->Array.map(p => p.id)->Js.Json.stringifyAny->Option.getOr("[]")->Js.Json.string,
-          )
-          matchesStore->TinyBase.setRow("teams", teamId, teamRowData)
+        // Create team row with matchId reference and player IDs
+        let teamRowData = Js.Dict.empty()
+        teamRowData->Js.Dict.set("matchId", matchId->Js.Json.string)
+        teamRowData->Js.Dict.set("teamIndex", teamIndex->Int.toFloat->Js.Json.number)
+        // Store player IDs as a JSON-stringified array (TinyBase only supports primitives)
+        teamRowData->Js.Dict.set(
+          "playerIds",
+          team->Array.map(p => p.id)->Js.Json.stringifyAny->Option.getOr("[]")->Js.Json.string,
+        )
+        matchesStore->TinyBase.setRow("teams", teamId, teamRowData)
 
-          // Create/update player rows (global, not tied to any specific match)
-          team->Array.forEach(
-            player => {
-              // Use player's ID directly as the TinyBase row ID
-              let playerId = player.id
+        // Create/update player rows (global, not tied to any specific match)
+        team->Array.forEach(
+          player => {
+            // Use player's ID directly as the TinyBase row ID
+            let playerId = player.id
 
-              // Only create/update player if it doesn't exist yet
-              let existingPlayer = matchesStore->TinyBase.getRow("players", playerId)
-              if existingPlayer->Js.Dict.keys->Array.length == 0 {
-                let playerData = player->Player.toDb
-                matchesStore->TinyBase.setRow("players", playerId, playerData)
-              }
-            },
-          )
-        },
-      )
+            // Only create/update player if it doesn't exist yet
+            let existingPlayer = matchesStore->TinyBase.getRow("players", playerId)
+            if existingPlayer->Js.Dict.keys->Array.length == 0 {
+              let playerData = player->Player.toDb
+              matchesStore->TinyBase.setRow("players", playerId, playerData)
+            }
+          },
+        )
+      })
     })
-  }, [eventId])
+  }
+
+  // Wrapper for setMatches that persists to TinyBase
+  // React state is authoritative, TinyBase is just for persistence
+  let updateMatches = (updater: array<match> => array<match>) => {
+    setMatches(currentMatches => {
+      let newMatches = updater(currentMatches)
+      syncMatchesWithDb(newMatches)
+      newMatches
+    })
+  }
 
   let (manualTeamOpen, setManualTeamOpen) = React.useState(() => false)
   let (screen, setScreen) = React.useState(() => Advanced)
@@ -932,47 +941,8 @@ let make = (~event, ~children) => {
     | _ => (match->snd, match->fst)
     }
 
-    // Directly add match to TinyBase store
-    // Use timestamp to ensure unique match IDs
-    let matchId = `${eventId}-match-${Js.Date.now()->Float.toString}`
-
-    // Create match row with metadata
-    let matchRowData = Js.Dict.empty()
-    matchRowData->Js.Dict.set("eventId", eventId->Js.Json.string)
-    matchRowData->Js.Dict.set("createdAt", Js.Date.now()->Js.Json.number)
-    matchesStore->TinyBase.setRow("matches", matchId, matchRowData)
-
-    // Get player data from the match
-    let (team1, team2) = match
-    let teams = [team1, team2]
-
-    // Create team and player rows
-    teams->Array.forEachWithIndex((team, teamIndex) => {
-      // Use team's stable ID (based on player IDs) as part of the team ID
-      let teamStableId = team->Team.toStableId
-      let teamId = `${matchId}-team-${teamStableId}`
-
-      // Create team row with matchId reference and player IDs
-      let teamRowData = Js.Dict.empty()
-      teamRowData->Js.Dict.set("matchId", matchId->Js.Json.string)
-      teamRowData->Js.Dict.set("teamIndex", teamIndex->Int.toFloat->Js.Json.number)
-      // Store player IDs as a JSON-stringified array (TinyBase only supports primitives)
-      teamRowData->Js.Dict.set(
-        "playerIds",
-        team->Array.map(p => p.id)->Js.Json.stringifyAny->Option.getOr("[]")->Js.Json.string,
-      )
-      matchesStore->TinyBase.setRow("teams", teamId, teamRowData)
-
-      // Create/update player rows (global, not tied to any specific match)
-      team->Array.forEach(player => {
-        // Use player's ID directly as the TinyBase row ID
-        let playerId = player.id
-
-        // Always update player data to ensure we have the latest from React state
-        let playerData = player->Player.toDb
-        matchesStore->TinyBase.setRow("players", playerId, playerData)
-      })
-    })
+    // Add match to React state (which will sync to TinyBase)
+    updateMatches(currentMatches => currentMatches->Array.concat([match]))
 
     disablePlayers
       ? match
@@ -983,32 +953,9 @@ let make = (~event, ~children) => {
   }
 
   let dequeueMatch = index => {
-    // Get the match ID from the matchIds array using the index
-    let matchIdToDelete = matchIds->Array.get(index->Int.fromString->Option.getOr(0))
-
-    switch matchIdToDelete {
-    | Some(matchIdToDelete) =>
-      // Delete teams for this match
-      let teamsTable = matchesStore->TinyBase.getTable("teams")
-      let teamIdsToDelete =
-        teamsTable
-        ->Js.Dict.entries
-        ->Array.filterMap(((teamId, teamRow)) => {
-          switch teamRow->Js.Dict.get("matchId")->Option.map(v => v->Obj.magic) {
-          | Some(mId: string) if mId == matchIdToDelete => Some(teamId)
-          | _ => None
-          }
-        })
-
-      // Delete team instances (players remain in the global players table)
-      teamIdsToDelete->Array.forEach(teamId => {
-        matchesStore->TinyBase.delRow("teams", teamId)
-      })
-
-      // Delete the match
-      matchesStore->TinyBase.delRow("matches", matchIdToDelete)
-    | None => ()
-    }
+    // Remove match from React state (which will sync to TinyBase)
+    let idx = index->Int.fromString->Option.getOr(0)
+    updateMatches(currentMatches => currentMatches->Array.filterWithIndex((_, i) => i != idx))
 
     setLocallyCompletedMatches(local => {
       local
@@ -1020,35 +967,15 @@ let make = (~event, ~children) => {
     })
   }
   let dequeueMatches = indexes => {
-    // Delete each match directly from TinyBase
-    indexes->Array.forEach(index => {
-      // Get the match ID from the matchIds array using the index
-      let matchIdToDelete = matchIds->Array.get(index->Int.fromString->Option.getOr(0))
+    // Convert indexes to ints and remove matches from React state
+    let indexesSet =
+      indexes
+      ->Array.map(idx => idx->Int.fromString->Option.getOr(0))
+      ->Set.fromArray
 
-      switch matchIdToDelete {
-      | Some(matchIdToDelete) =>
-        // Delete teams for this match
-        let teamsTable = matchesStore->TinyBase.getTable("teams")
-        let teamIdsToDelete =
-          teamsTable
-          ->Js.Dict.entries
-          ->Array.filterMap(((teamId, teamRow)) => {
-            switch teamRow->Js.Dict.get("matchId")->Option.map(v => v->Obj.magic) {
-            | Some(mId: string) if mId == matchIdToDelete => Some(teamId)
-            | _ => None
-            }
-          })
-
-        // Delete team instances (players remain in the global players table)
-        teamIdsToDelete->Array.forEach(teamId => {
-          matchesStore->TinyBase.delRow("teams", teamId)
-        })
-
-        // Delete the match
-        matchesStore->TinyBase.delRow("matches", matchIdToDelete)
-      | None => ()
-      }
-    })
+    updateMatches(currentMatches =>
+      currentMatches->Array.filterWithIndex((_, i) => !(indexesSet->Set.has(i)))
+    )
   }
   // @TODO: When play counts are updated, we can update deprioritized players
   let updatePlayCounts = (match: match) => {
@@ -1656,7 +1583,7 @@ let make = (~event, ~children) => {
       setRequiredPlayers
       togglePlayer={toggleQueuePlayer}
       matches
-      setMatches={setMatches}
+      setMatches={updateMatches}
       // activity
       minRating
       maxRating

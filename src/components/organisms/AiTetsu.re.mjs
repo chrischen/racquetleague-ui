@@ -574,124 +574,120 @@ function AiTetsu(props) {
             };
     }
   };
-  var hydrateMatchWithRsvpData = function (match, rsvpMap) {
-    var hydratedTeam1 = match[0].map(function (player) {
-          return hydratePlayerWithRsvpData(player, rsvpMap);
-        });
-    var hydratedTeam2 = match[1].map(function (player) {
-          return hydratePlayerWithRsvpData(player, rsvpMap);
-        });
-    return [
-            hydratedTeam1,
-            hydratedTeam2
-          ];
-  };
-  var match$4 = React.useMemo((function () {
-          var rsvpMap = Js_dict.fromArray(Core__Array.filterMap(getConnectionNodes(data.rsvps), (function (rsvp) {
-                      return Core__Option.map(Core__Option.map(rsvp.user, (function (u) {
-                                        return u.id;
-                                      })), (function (userId) {
-                                    return [
-                                            userId,
-                                            rsvp
-                                          ];
-                                  }));
-                    })));
-          var teamsTable = matchesStore.getTable("teams");
-          var playersTable = matchesStore.getTable("players");
-          var matchesWithIds = Core__Array.filterMap(Js_dict.entries(matchesTableJson), (function (param) {
+  var match$4 = React.useState(function () {
+        return [];
+      });
+  var setMatches = match$4[1];
+  var matches = match$4[0];
+  var loadMatchesFromDb = function () {
+    var rsvpMap = Js_dict.fromArray(Core__Array.filterMap(getConnectionNodes(data.rsvps), (function (rsvp) {
+                return Core__Option.map(Core__Option.map(rsvp.user, (function (u) {
+                                  return u.id;
+                                })), (function (userId) {
+                              return [
+                                      userId,
+                                      rsvp
+                                    ];
+                            }));
+              })));
+    var matchesTable = matchesStore.getTable("matches");
+    var teamsTable = matchesStore.getTable("teams");
+    var playersTable = matchesStore.getTable("players");
+    return Core__Array.filterMap(Js_dict.entries(matchesTable), (function (param) {
                   var matchRow = param[1];
-                  var matchId = param[0];
                   var mEventId = Core__Option.map(Js_dict.get(matchRow, "eventId"), (function (v) {
                           return v;
                         }));
                   if (mEventId !== undefined && mEventId === eventId) {
-                    return Core__Option.map(Rating.Match.loadFromDb(matchRow, teamsTable, playersTable, matchId), (function (match) {
+                    return Core__Option.map(Rating.Match.loadFromDb(matchRow, teamsTable, playersTable, param[0]), (function (match) {
+                                  var hydratedTeam1 = match[0].map(function (player) {
+                                        return hydratePlayerWithRsvpData(player, rsvpMap);
+                                      });
+                                  var hydratedTeam2 = match[1].map(function (player) {
+                                        return hydratePlayerWithRsvpData(player, rsvpMap);
+                                      });
                                   return [
-                                          hydrateMatchWithRsvpData(match, rsvpMap),
-                                          matchId
+                                          hydratedTeam1,
+                                          hydratedTeam2
                                         ];
                                 }));
                   }
                   
                 }));
-          var matches = matchesWithIds.map(function (param) {
-                return param[0];
+  };
+  React.useEffect((function () {
+          var loadedMatches = loadMatchesFromDb();
+          setMatches(function (param) {
+                return loadedMatches;
               });
-          var ids = matchesWithIds.map(function (param) {
-                return param[1];
-              });
-          return [
-                  matches,
-                  ids
-                ];
-        }), [
-        matchesTableJson,
-        data.rsvps
-      ]);
-  var matchIds = match$4[1];
-  var matches = match$4[0];
-  var setMatches = React.useCallback((function (updater) {
-          console.log("Updating matches in TinyBase store");
-          var newMatches = updater(matches);
-          var currentMatchesTable = matchesStore.getTable("matches");
-          var matchIdsToDelete = Core__Array.filterMap(Js_dict.entries(currentMatchesTable), (function (param) {
-                  var evId = Core__Option.map(Js_dict.get(param[1], "eventId"), (function (v) {
+        }), [matchesTableJson]);
+  var syncMatchesWithDb = function (newMatches) {
+    console.log("Syncing matches to TinyBase store");
+    var currentMatchesTable = matchesStore.getTable("matches");
+    var matchIdsToDelete = Core__Array.filterMap(Js_dict.entries(currentMatchesTable), (function (param) {
+            var evId = Core__Option.map(Js_dict.get(param[1], "eventId"), (function (v) {
+                    return v;
+                  }));
+            if (evId !== undefined && evId === eventId) {
+              return param[0];
+            }
+            
+          }));
+    matchIdsToDelete.forEach(function (matchId) {
+          var teamsTable = matchesStore.getTable("teams");
+          var teamIdsToDelete = Core__Array.filterMap(Js_dict.entries(teamsTable), (function (param) {
+                  var mId = Core__Option.map(Js_dict.get(param[1], "matchId"), (function (v) {
                           return v;
                         }));
-                  if (evId !== undefined && evId === eventId) {
+                  if (mId !== undefined && mId === matchId) {
                     return param[0];
                   }
                   
                 }));
-          matchIdsToDelete.forEach(function (matchId) {
-                var teamsTable = matchesStore.getTable("teams");
-                var teamIdsToDelete = Core__Array.filterMap(Js_dict.entries(teamsTable), (function (param) {
-                        var mId = Core__Option.map(Js_dict.get(param[1], "matchId"), (function (v) {
-                                return v;
-                              }));
-                        if (mId !== undefined && mId === matchId) {
-                          return param[0];
-                        }
-                        
-                      }));
-                teamIdsToDelete.forEach(function (teamId) {
-                      matchesStore.delRow("teams", teamId);
-                    });
-                matchesStore.delRow("matches", matchId);
+          teamIdsToDelete.forEach(function (teamId) {
+                matchesStore.delRow("teams", teamId);
               });
-          newMatches.forEach(function (match, matchIndex) {
-                var matchId = eventId + "-match-" + matchIndex.toString();
-                var matchRowData = {};
-                matchRowData["eventId"] = eventId;
-                matchRowData["createdAt"] = Date.now();
-                matchesStore.setRow("matches", matchId, matchRowData);
-                var teams = [
-                  match[0],
-                  match[1]
-                ];
-                teams.forEach(function (team, teamIndex) {
-                      var teamStableId = Rating.Team.toStableId(team);
-                      var teamId = matchId + "-team-" + teamStableId;
-                      var teamRowData = {};
-                      teamRowData["matchId"] = matchId;
-                      teamRowData["teamIndex"] = teamIndex;
-                      teamRowData["playerIds"] = Core__Option.getOr(JSON.stringify(team.map(function (p) {
-                                    return p.id;
-                                  })), "[]");
-                      matchesStore.setRow("teams", teamId, teamRowData);
-                      team.forEach(function (player) {
-                            var playerId = player.id;
-                            var existingPlayer = matchesStore.getRow("players", playerId);
-                            if (Object.keys(existingPlayer).length !== 0) {
-                              return ;
-                            }
-                            var playerData = Rating.Player.toDb(player);
-                            matchesStore.setRow("players", playerId, playerData);
-                          });
+          matchesStore.delRow("matches", matchId);
+        });
+    newMatches.forEach(function (match, matchIndex) {
+          var matchId = eventId + "-match-" + matchIndex.toString();
+          var matchRowData = {};
+          matchRowData["eventId"] = eventId;
+          matchRowData["createdAt"] = Date.now();
+          matchesStore.setRow("matches", matchId, matchRowData);
+          var teams = [
+            match[0],
+            match[1]
+          ];
+          teams.forEach(function (team, teamIndex) {
+                var teamStableId = Rating.Team.toStableId(team);
+                var teamId = matchId + "-team-" + teamStableId;
+                var teamRowData = {};
+                teamRowData["matchId"] = matchId;
+                teamRowData["teamIndex"] = teamIndex;
+                teamRowData["playerIds"] = Core__Option.getOr(JSON.stringify(team.map(function (p) {
+                              return p.id;
+                            })), "[]");
+                matchesStore.setRow("teams", teamId, teamRowData);
+                team.forEach(function (player) {
+                      var playerId = player.id;
+                      var existingPlayer = matchesStore.getRow("players", playerId);
+                      if (Object.keys(existingPlayer).length !== 0) {
+                        return ;
+                      }
+                      var playerData = Rating.Player.toDb(player);
+                      matchesStore.setRow("players", playerId, playerData);
                     });
               });
-        }), [eventId]);
+        });
+  };
+  var updateMatches = function (updater) {
+    setMatches(function (currentMatches) {
+          var newMatches = updater(currentMatches);
+          syncMatchesWithDb(newMatches);
+          return newMatches;
+        });
+  };
   var match$5 = React.useState(function () {
         return false;
       });
@@ -932,30 +928,8 @@ function AiTetsu(props) {
         match[0],
         match[1]
       ];
-    var matchId = eventId + "-match-" + Date.now().toString();
-    var matchRowData = {};
-    matchRowData["eventId"] = eventId;
-    matchRowData["createdAt"] = Date.now();
-    matchesStore.setRow("matches", matchId, matchRowData);
-    var teams = [
-      match$2[0],
-      match$2[1]
-    ];
-    teams.forEach(function (team, teamIndex) {
-          var teamStableId = Rating.Team.toStableId(team);
-          var teamId = matchId + "-team-" + teamStableId;
-          var teamRowData = {};
-          teamRowData["matchId"] = matchId;
-          teamRowData["teamIndex"] = teamIndex;
-          teamRowData["playerIds"] = Core__Option.getOr(JSON.stringify(team.map(function (p) {
-                        return p.id;
-                      })), "[]");
-          matchesStore.setRow("teams", teamId, teamRowData);
-          team.forEach(function (player) {
-                var playerId = player.id;
-                var playerData = Rating.Player.toDb(player);
-                matchesStore.setRow("players", playerId, playerData);
-              });
+    updateMatches(function (currentMatches) {
+          return currentMatches.concat([match$2]);
         });
     if (disablePlayers) {
       Rating.Match.players(match$2).map(function (p) {
@@ -968,23 +942,12 @@ function AiTetsu(props) {
     
   };
   var dequeueMatch = function (index) {
-    var matchIdToDelete = matchIds[Core__Option.getOr(Core__Int.fromString(index, undefined), 0)];
-    if (matchIdToDelete !== undefined) {
-      var teamsTable = matchesStore.getTable("teams");
-      var teamIdsToDelete = Core__Array.filterMap(Js_dict.entries(teamsTable), (function (param) {
-              var mId = Core__Option.map(Js_dict.get(param[1], "matchId"), (function (v) {
-                      return v;
-                    }));
-              if (mId !== undefined && mId === matchIdToDelete) {
-                return param[0];
-              }
-              
-            }));
-      teamIdsToDelete.forEach(function (teamId) {
-            matchesStore.delRow("teams", teamId);
-          });
-      matchesStore.delRow("matches", matchIdToDelete);
-    }
+    var idx = Core__Option.getOr(Core__Int.fromString(index, undefined), 0);
+    updateMatches(function (currentMatches) {
+          return currentMatches.filter(function (param, i) {
+                      return i !== idx;
+                    });
+        });
     setLocallyCompletedMatches(function (local) {
           return Js_dict.fromArray(Js_dict.entries(local).filter(function (param) {
                           return param[0] !== index;
@@ -992,25 +955,13 @@ function AiTetsu(props) {
         });
   };
   var dequeueMatches = function (indexes) {
-    indexes.forEach(function (index) {
-          var matchIdToDelete = matchIds[Core__Option.getOr(Core__Int.fromString(index, undefined), 0)];
-          if (matchIdToDelete === undefined) {
-            return ;
-          }
-          var teamsTable = matchesStore.getTable("teams");
-          var teamIdsToDelete = Core__Array.filterMap(Js_dict.entries(teamsTable), (function (param) {
-                  var mId = Core__Option.map(Js_dict.get(param[1], "matchId"), (function (v) {
-                          return v;
-                        }));
-                  if (mId !== undefined && mId === matchIdToDelete) {
-                    return param[0];
-                  }
-                  
-                }));
-          teamIdsToDelete.forEach(function (teamId) {
-                matchesStore.delRow("teams", teamId);
-              });
-          matchesStore.delRow("matches", matchIdToDelete);
+    var indexesSet = new Set(indexes.map(function (idx) {
+              return Core__Option.getOr(Core__Int.fromString(idx, undefined), 0);
+            }));
+    updateMatches(function (currentMatches) {
+          return currentMatches.filter(function (param, i) {
+                      return !indexesSet.has(i);
+                    });
         });
   };
   var updatePlayCounts = function (match) {
@@ -1305,7 +1256,7 @@ function AiTetsu(props) {
                   }),
                 setRequiredPlayers: match$20[1],
                 matches: matches,
-                setMatches: setMatches,
+                setMatches: updateMatches,
                 minRating: minRating,
                 maxRating: maxRating,
                 handleMatchCanceled: dequeueMatch,
