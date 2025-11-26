@@ -13,20 +13,20 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:305
+#: src/components/organisms/SortableSubmitMatch.re.mjs:301
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:323
+#: src/components/organisms/SortableSubmitMatch.re.mjs:319
 msgid "Enter Score"
 msgstr "ป้อนคะแนน"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:453
+#: src/components/organisms/SortableSubmitMatch.re.mjs:449
 msgid "Loading"
 msgstr "กำลังโหลด"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:357
-#: src/components/organisms/SortableSubmitMatch.re.mjs:407
+#: src/components/organisms/SortableSubmitMatch.re.mjs:353
+#: src/components/organisms/SortableSubmitMatch.re.mjs:403
 msgid "Points"
 msgstr "คะแนน"
 
@@ -35,11 +35,11 @@ msgstr "คะแนน"
 msgid "predicted winner"
 msgstr "ผู้ชนะที่คาดการณ์"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:443
+#: src/components/organisms/SortableSubmitMatch.re.mjs:439
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:372
-#: src/components/organisms/SortableSubmitMatch.re.mjs:422
+#: src/components/organisms/SortableSubmitMatch.re.mjs:368
+#: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "ผู้ชนะ"

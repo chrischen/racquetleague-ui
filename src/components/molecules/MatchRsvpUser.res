@@ -39,7 +39,7 @@ let make = (
   ~link: option<string>=?,
   ~rating as _: option<float>=?,
   ~ratingPercent as _: option<float>=?,
-  ~player: Rating.player,
+  ~player: Rating.player<'a>,
   ~playCount: option<int>=?,
 ) => {
   open LangProvider.Router

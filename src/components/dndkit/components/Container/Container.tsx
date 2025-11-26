@@ -54,6 +54,7 @@ export const Container = forwardRef<HTMLDivElement, Props>(
           } as React.CSSProperties
         }
         className={classNames(
+          "space-y-2",
           styles.Container,
           unstyled && styles.unstyled,
           horizontal && styles.horizontal,

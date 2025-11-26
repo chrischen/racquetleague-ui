@@ -1,0 +1,98 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-20 01:16+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:337
+msgid "Anti-Teams"
+msgstr "アンチチーム"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:152
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:302
+msgid "Create and manage player teams"
+msgstr "プレイヤーチームを作成・管理"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Anti-Team"
+msgstr "アンチチームを作成"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Team"
+msgstr "チームを作成"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first anti-team to prevent players from pairing"
+msgstr "プレイヤーがペアにならないように、最初のアンチチームを作成します"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first team to get started"
+msgstr "最初のチームを作成して始めましょう"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:402
+msgid "Delete team"
+msgstr "チームを削除"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:390
+msgid "Edit team"
+msgstr "チームを編集"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:42
+msgid "Edit Team"
+msgstr "チームを編集"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:71
+msgid "Enter team name"
+msgstr "チーム名を入力"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Anti-Team"
+msgstr "新しいアンチチーム"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Team"
+msgstr "新しいチーム"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No anti-teams yet"
+msgstr "アンチチームはまだありません"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No teams yet"
+msgstr "チームがまだありません"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:443
+msgid "Save & Close"
+msgstr "保存して閉じる"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:159
+msgid "Save Team"
+msgstr "チームを保存"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:298
+msgid "Team Management"
+msgstr "チーム管理"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:86
+msgid "Team Members ({0})"
+msgstr "チームメンバー（{0}人）"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:66
+msgid "Team Name"
+msgstr "チーム名"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:326
+msgid "Teams"
+msgstr "チーム"

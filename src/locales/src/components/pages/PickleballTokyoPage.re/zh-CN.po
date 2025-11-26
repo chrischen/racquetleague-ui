@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:208
+#: src/components/pages/PickleballTokyoPage.re.mjs:248
 msgid ""
 "As mentioned above, public games are not really a thing in Japan. However, "
 "you can find some public games on the home page of this website. They will "
@@ -26,17 +26,23 @@ msgstr ""
 "天会有5-6个位置，因为人们会在最后一分钟取消。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
-msgid "Book a court and find the players yourself."
-msgstr "自己预订球场并找到球员。"
+msgid ""
+"Book a court and post the event to Pkuru.com. Please mention the "
+"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
+"new to the community, we recommend you to offer the court for free."
+msgstr ""
+"预订球场并在 Pkuru.com 发布活动。请注明参加费用和预期水平（3.0、3.5、4.0"
+"等）。如果您是社群新成员，我们建议您免费提供球场。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:69
 #: src/components/pages/PickleballTokyoPage.re.mjs:98
 #: src/components/pages/PickleballTokyoPage.re.mjs:127
 #: src/components/pages/PickleballTokyoPage.re.mjs:156
+#: src/components/pages/PickleballTokyoPage.re.mjs:185
 msgid "Book the Court"
 msgstr "预订球场"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:149
+#: src/components/pages/PickleballTokyoPage.re.mjs:178
 msgid "Create an Event at Hilton Tokyo Tennis Courts"
 msgstr "在东京希尔顿网球场创建活动"
 
@@ -44,7 +50,7 @@ msgstr "在东京希尔顿网球场创建活动"
 msgid "Create an Event at KPI Park"
 msgstr "在 KPI 公园创建活动"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:176
+#: src/components/pages/PickleballTokyoPage.re.mjs:205
 msgid ""
 "Create an event at one of the locations above (use the buttons above). Make "
 "the event public so people can join you."
@@ -56,19 +62,23 @@ msgstr ""
 msgid "Create an Event at Pacific Pickle Club"
 msgstr "在太平洋匹克球俱乐部创建活动"
 
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Pickleball One"
+msgstr "在 Pickleball One 创建活动"
+
 #: src/components/pages/PickleballTokyoPage.re.mjs:120
 msgid "Create an Event at Tokyo Tower Pickleball"
 msgstr "在东京塔匹克球创建活动"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:139
+#: src/components/pages/PickleballTokyoPage.re.mjs:168
 msgid "Hilton Tokyo Tennis Courts (painted lines)"
 msgstr "东京希尔顿网球场（已绘制线条）"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:170
+#: src/components/pages/PickleballTokyoPage.re.mjs:199
 msgid "How to Find Players in Tokyo"
 msgstr "如何在东京找到球员"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:204
+#: src/components/pages/PickleballTokyoPage.re.mjs:244
 msgid "How to Find Public Games"
 msgstr "如何找到公开比赛"
 
@@ -106,11 +116,21 @@ msgstr "神奈川/横浜的 KPI 公园"
 msgid "Message @japanpickle on Instagram for referrals or questions"
 msgstr "在 Instagram 上给 @japanpickle 发私信进行推荐或提问"
 
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"One full court is available and one \\\"fun\\\" court (half-sized). The full "
+"court has narrow space on the sides."
+msgstr "有一个完整球场和一个「趣味」球场（半尺寸）可用。完整球场两侧空间较窄。"
+
 #: src/components/pages/PickleballTokyoPage.re.mjs:81
 msgid "Pacific Pickle Club at Ariake"
 msgstr "有明的太平洋匹克球俱乐部"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:217
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
+msgstr "Pickleball One 银座新桥（室内硬地球场）"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:257
 msgid ""
 "Please do not show up to any events without permission and only if you are "
 "in the confirmed going list. Indoor events always require a set of clean "
@@ -119,11 +139,15 @@ msgstr ""
 "请不要在未经允许的情况下出现在任何活动中，只有在您在确认参加名单中才可以。室"
 "内活动始终需要一双干净的室内专用球鞋。在日本，他们对这些事情非常认真。"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:191
+#: src/components/pages/PickleballTokyoPage.re.mjs:231
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
 msgstr "发布到 Facebook 上的 JPAA 群组（主要使用日语）"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:180
+#: src/components/pages/PickleballTokyoPage.re.mjs:209
+msgid "Post it to the Pickeball in Tokyo Facebook Group:"
+msgstr "发布到 Pickleball in Tokyo Facebook 群组："
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:220
 msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr "发布到 Facebook 上的横须贺（美国海军基地）匹克球群组："
 
@@ -133,7 +157,7 @@ msgid ""
 "transplant, or a beginner?"
 msgstr "那么，作为游客、新搬来的人或初学者，在东京怎么打匹克球呢？"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:212
+#: src/components/pages/PickleballTokyoPage.re.mjs:252
 msgid ""
 "Some events are restricted by level. If you are restricted, just type in "
 "your DUPR rating as a comment with your RSVP."
@@ -167,7 +191,7 @@ msgstr "东京塔匹克球"
 msgid "Two courts are available. Conditions may be windy."
 msgstr "有两个球场可用。条件可能有风。"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:141
+#: src/components/pages/PickleballTokyoPage.re.mjs:170
 msgid ""
 "Two courts are available. More expensive than other courts and the "
 "conditions can be windy."
@@ -176,3 +200,7 @@ msgstr "有两个球场可用。比其他球场更贵，条件可能有风。"
 #: src/components/pages/PickleballTokyoPage.re.mjs:45
 msgid "Where to Book Courts in Tokyo"
 msgstr "在东京哪里预订球场"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+#~ msgid "Book a court and find the players yourself."
+#~ msgstr "自己预订球场并找到球员。"

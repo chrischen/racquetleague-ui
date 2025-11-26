@@ -1,0 +1,288 @@
+/* @sourceLoc EventManager.res */
+/* @generated */
+%%raw("/* @generated */")
+module Types = {
+  @@warning("-30")
+
+  @live type leagueMatchInput = RelaySchemaAssets_graphql.input_LeagueMatchInput
+  @live type doublesMatchInput = RelaySchemaAssets_graphql.input_DoublesMatchInput
+  @live
+  type rec response_createMatch_errors = {
+    message: string,
+  }
+  @live
+  and response_createMatch_match_losers = {
+    @live id: string,
+    lineUsername: option<string>,
+  }
+  @live
+  and response_createMatch_match_winners = {
+    @live id: string,
+    lineUsername: option<string>,
+  }
+  @live
+  and response_createMatch_match = {
+    createdAt: option<Util.Datetime.t>,
+    @live id: string,
+    losers: option<array<response_createMatch_match_losers>>,
+    score: option<array<float>>,
+    winners: option<array<response_createMatch_match_winners>>,
+  }
+  @live
+  and response_createMatch_ratings = {
+    @live id: string,
+    mu: option<float>,
+    ordinal: option<float>,
+    sigma: option<float>,
+  }
+  @live
+  and response_createMatch = {
+    errors: option<array<response_createMatch_errors>>,
+    match: option<response_createMatch_match>,
+    ratings: option<array<response_createMatch_ratings>>,
+  }
+  @live
+  type response = {
+    createMatch: response_createMatch,
+  }
+  @live
+  type rawResponse = response
+  @live
+  type variables = {
+    matchInput: leagueMatchInput,
+  }
+}
+
+module Internal = {
+  @live
+  let variablesConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
+    json`{"leagueMatchInput":{"doublesMatch":{"r":"doublesMatchInput"}},"doublesMatchInput":{"createdAt":{"c":"Util.Datetime"}},"__root":{"matchInput":{"r":"leagueMatchInput"}}}`
+  )
+  @live
+  let variablesConverterMap = {
+    "Util.Datetime": Util.Datetime.serialize,
+  }
+  @live
+  let convertVariables = v => v->RescriptRelay.convertObj(
+    variablesConverter,
+    variablesConverterMap,
+    Js.undefined
+  )
+  @live
+  type wrapResponseRaw
+  @live
+  let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
+    json`{"__root":{"createMatch_match_createdAt":{"c":"Util.Datetime"}}}`
+  )
+  @live
+  let wrapResponseConverterMap = {
+    "Util.Datetime": Util.Datetime.serialize,
+  }
+  @live
+  let convertWrapResponse = v => v->RescriptRelay.convertObj(
+    wrapResponseConverter,
+    wrapResponseConverterMap,
+    Js.null
+  )
+  @live
+  type responseRaw
+  @live
+  let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
+    json`{"__root":{"createMatch_match_createdAt":{"c":"Util.Datetime"}}}`
+  )
+  @live
+  let responseConverterMap = {
+    "Util.Datetime": Util.Datetime.parse,
+  }
+  @live
+  let convertResponse = v => v->RescriptRelay.convertObj(
+    responseConverter,
+    responseConverterMap,
+    Js.undefined
+  )
+  type wrapRawResponseRaw = wrapResponseRaw
+  @live
+  let convertWrapRawResponse = convertWrapResponse
+  type rawResponseRaw = responseRaw
+  @live
+  let convertRawResponse = convertResponse
+}
+module Utils = {
+  @@warning("-33")
+  open Types
+}
+
+type relayOperationNode
+type operationType = RescriptRelay.mutationNode<relayOperationNode>
+
+
+let node: operationType = %raw(json` (function(){
+var v0 = [
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "matchInput"
+  }
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v2 = [
+  (v1/*: any*/),
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "lineUsername",
+    "storageKey": null
+  }
+],
+v3 = [
+  {
+    "alias": null,
+    "args": [
+      {
+        "kind": "Variable",
+        "name": "match",
+        "variableName": "matchInput"
+      }
+    ],
+    "concreteType": "CreateMatchResponse",
+    "kind": "LinkedField",
+    "name": "createMatch",
+    "plural": false,
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Match",
+        "kind": "LinkedField",
+        "name": "match",
+        "plural": false,
+        "selections": [
+          (v1/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "winners",
+            "plural": true,
+            "selections": (v2/*: any*/),
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "losers",
+            "plural": true,
+            "selections": (v2/*: any*/),
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "score",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "createdAt",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Error",
+        "kind": "LinkedField",
+        "name": "errors",
+        "plural": true,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "message",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Rating",
+        "kind": "LinkedField",
+        "name": "ratings",
+        "plural": true,
+        "selections": [
+          (v1/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "mu",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "sigma",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "ordinal",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      }
+    ],
+    "storageKey": null
+  }
+];
+return {
+  "fragment": {
+    "argumentDefinitions": (v0/*: any*/),
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "EventManagerSubmitMatchMutation",
+    "selections": (v3/*: any*/),
+    "type": "Mutation",
+    "abstractKey": null
+  },
+  "kind": "Request",
+  "operation": {
+    "argumentDefinitions": (v0/*: any*/),
+    "kind": "Operation",
+    "name": "EventManagerSubmitMatchMutation",
+    "selections": (v3/*: any*/)
+  },
+  "params": {
+    "cacheID": "18dafe73223601fb62bb43b1215b10cf",
+    "id": null,
+    "metadata": {},
+    "name": "EventManagerSubmitMatchMutation",
+    "operationKind": "mutation",
+    "text": "mutation EventManagerSubmitMatchMutation(\n  $matchInput: LeagueMatchInput!\n) {\n  createMatch(match: $matchInput) {\n    match {\n      id\n      winners {\n        id\n        lineUsername\n      }\n      losers {\n        id\n        lineUsername\n      }\n      score\n      createdAt\n    }\n    errors {\n      message\n    }\n    ratings {\n      id\n      mu\n      sigma\n      ordinal\n    }\n  }\n}\n"
+  }
+};
+})() `)
+
+

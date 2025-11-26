@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"cVG/qI\":[\"新增\",[\"0\"],\"訪客\",[\"1\"]],\"Wch7Uc\":\"新增訪客球員\",\"DSesC/\":\"亞歷克斯·約翰遜\",\"dEgA5A\":\"取消\",\"yz7wBu\":\"關閉\",\"oN5nZW\":\"每行輸入一個訪客球員的姓名\",\"+yOWrZ\":\"訪客姓名（每行一個）\",\"A1CyH/\":\"簡·多伊\",\"G0TMDv\":\"約翰·史密斯\",\"3QH5Lt\":[\"預覽（\",[\"0\"],\"位訪客\",[\"1\"],\"）\"]}");

@@ -198,19 +198,15 @@ function SubmitMatch(props) {
       alert("No ties allowed");
     } else {
       Core__Option.map(onComplete, (function (f) {
-              var winningSide = data.scoreLeft > data.scoreRight ? "Left" : "Right";
-              var score = winningSide === "Left" ? [
-                  data.scoreLeft,
-                  data.scoreRight
-                ] : [
-                  data.scoreRight,
-                  data.scoreLeft
-                ];
-              var match_0 = winningSide === "Left" ? team1 : team2;
-              var match_1 = winningSide === "Left" ? team2 : team1;
+              var score_0 = data.scoreLeft;
+              var score_1 = data.scoreRight;
+              var score = [
+                score_0,
+                score_1
+              ];
               var match = [
-                match_0,
-                match_1
+                team1,
+                team2
               ];
               f([
                     match,

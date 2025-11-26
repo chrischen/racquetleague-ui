@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-25 01:15+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:135
+msgid "Add {0}Guest{1}"
+msgstr "{0}ゲスト{1}を追加"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:47
+msgid "Add Guest Players"
+msgstr "ゲストプレイヤーを追加"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "Alex Johnson"
+msgstr "アレックス・ジョンソン"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:127
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:57
+msgid "Close"
+msgstr "閉じる"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:84
+msgid "Enter each guest player's name on a new line"
+msgstr "各ゲストプレイヤーの名前を1行ずつ入力してください"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:71
+msgid "Guest Names (one per line)"
+msgstr "ゲスト名（1行に1名）"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "Jane Doe"
+msgstr "ジェーン・ドゥ"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "John Smith"
+msgstr "ジョン・スミス"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+msgid "Preview ({0} guest{1})"
+msgstr "プレビュー（{0}名のゲスト{1}）"

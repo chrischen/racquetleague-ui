@@ -130,7 +130,7 @@ type view = Default | SubmitMatch
 
 module PlayerView = {
   @react.component
-  let make = (~player: player, ~minRating, ~maxRating) =>
+  let make = (~player: Player.t<rsvpNode>, ~minRating, ~maxRating) =>
     switch player.data {
     | Some(data) =>
       data.user
@@ -224,13 +224,8 @@ let make = (
   let onSubmit = (_rated: bool, data: inputsMatch) => {
     onUpdated
     ->Option.map(f => {
-      let winningSide = switch data.scoreLeft > data.scoreRight {
-      | true => Left
-      | false => Right
-      }
-      let score =
-        winningSide == Left ? (data.scoreLeft, data.scoreRight) : (data.scoreRight, data.scoreLeft)
-      let match = (winningSide == Left ? team1 : team2, winningSide == Left ? team2 : team1)
+      let score = (data.scoreLeft, data.scoreRight)
+      let match = (team1, team2)
 
       f((match, ratedMatch->Result.isOk ? Some(score) : None))->ignore
       // x->Promise.then(_ => {

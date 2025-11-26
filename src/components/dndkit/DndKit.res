@@ -15,25 +15,33 @@
 // }
 
 module DndContext = {
-
+  type active = {id: string}
+  type over = {id: string}
   type dropEvent = {
-    active: bool,
-    over: bool
+    active: active,
+    over: option<over>,
   }
-  type dropCb = (dropEvent) => unit;
+  type dropCb = dropEvent => unit
   @module("@dnd-kit/core") @react.component
   external make: (~children: React.element, ~onDragEnd: dropCb) => React.element = "DndContext"
 }
+
 module SortableContext = {
   type strategy
   @module("@dnd-kit/sortable")
   external rectSwappingStrategy: strategy = "rectSwappingStrategy"
+  @module("@dnd-kit/sortable")
+  external verticalListSortingStrategy: strategy = "verticalListSortingStrategy"
 
   @module("@dnd-kit/sortable") @react.component
-  external make: (~items: array<'a>, ~strategy: strategy=?, ~children: React.element) => React.element = "SortableContext"
+  external make: (
+    ~items: array<'a>,
+    ~strategy: strategy=?,
+    ~children: React.element,
+  ) => React.element = "SortableContext"
 }
 
 module SortableItem = {
   @module("./sortableItem.tsx") @react.component
-  external make: (~id: string, ~children: React.element) => React.element = "SortableItem"
+  external make: (~id: string, ~handle: bool=?, ~children: React.element) => React.element = "SortableItem"
 }

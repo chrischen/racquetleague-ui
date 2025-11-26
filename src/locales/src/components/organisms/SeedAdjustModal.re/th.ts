@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"GsQP9B\":\"ปรับซีดผู้เล่น\",\"dEgA5A\":\"ยกเลิก\",\"B2CXh/\":\"ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่\",\"60TdtF\":\"μ\",\"dQttgC\":\"บันทึกการปรับซีด\"}");

@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-14 01:51+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:143
+msgid "{0} of {1} checked in"
+msgstr "เช็คอินแล้ว {0} จาก {1} คน"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:161
+msgid "Add guest players"
+msgstr "เพิ่มผู้เล่นแขก"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:129
+msgid "Adjust Player Seeds"
+msgstr "ปรับซีดผู้เล่น"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:244
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+msgid "Drag players to reorder their initial seeding"
+msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:63
+msgid "mu"
+msgstr "μ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:139
+msgid "Player Check-in"
+msgstr "เช็คอินผู้เล่น"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:251
+msgid "Save Seed Adjustments"
+msgstr "บันทึกการปรับซีด"

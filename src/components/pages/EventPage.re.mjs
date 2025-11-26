@@ -183,9 +183,18 @@ function EventPage(props) {
                                         if (exit === 1) {
                                           tmp$1 = JsxRuntime.jsx("div", {
                                                 children: JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsx(Button.Button.make, {
-                                                            children: t`Manage Event`,
-                                                            href: "/league/events/" + $$event.id + "/" + Core__Option.getOr(match$2.slug, "")
+                                                      children: JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsx(Button.Button.make, {
+                                                                    children: t`Manage Event`,
+                                                                    href: "/league/events/" + $$event.id + "/" + Core__Option.getOr(match$2.slug, "")
+                                                                  }),
+                                                              JsxRuntime.jsx(Button.Button.make, {
+                                                                    children: t`Manage Event (Beta)`,
+                                                                    href: "/league/events/" + $$event.id + "/" + Core__Option.getOr(match$2.slug, "") + "/manager"
+                                                                  })
+                                                            ],
+                                                            className: "flex flex-row gap-2"
                                                           }),
                                                       className: "bg-gray-50 rounded-lg p-4 border"
                                                     }),

@@ -1,0 +1,287 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-11-21 23:43+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:210
+msgid ": Classic round-robin format where everyone plays with everyone."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:194
+msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:202
+msgid ": Teams are balanced by skill, but players are not strictly separated by level."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:141
+msgid "Adjust Seeds"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:165
+msgid "Blue dot indicates the team that has service in the match."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:368
+msgid "button at the bottom of the page to submit all results to the server."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:33
+#~ msgid "Check-in / Check-out"
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:313
+msgid "Click a player's name to toggle check-in status."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:192
+msgid "Competitive"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:412
+msgid "Complete guide to running events with the Event Manager."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:37
+#~ msgid "Court Management & Player Breaks"
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:105
+msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:231
+msgid "Each round has several management options:"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:125
+msgid "Edit player details like name, gender, or payment status."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:354
+msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:41
+#~ msgid "Entering Results"
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:350
+msgid "Entering Results & Syncing"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:408
+msgid "Event Manager Guide"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:25
+#~ msgid "Event Manager Icons"
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:61
+msgid "Generate / Rebalance"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+#~ msgid "Generate new draws or rebalance the current round."
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+msgid "Generate new draws or rebalance the round or match."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:181
+msgid "Generating Draws"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:29
+msgid "Here is a guide to the icons used in the Event Manager:"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:58
+#~ msgid "How to use Event Manager"
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:321
+msgid "icon to edit player details (Name, Gender, Paid status)."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:25
+msgid "Icons Guide"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:217
+msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:42
+#~ msgid "In the **Matches** screen:\\n          \\n1. Tap a match to open the result entry view.\\n          \\n2. Select the winning team or enter the specific score.\\n          \\n3. Once a winner is selected (green border), the result is ready.\\n          \\n4. Click **Submit** to save the result and update ratings."
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:50
+#~ msgid "In the Queue screen, select players to access special options:\\n          \\n• **Create Team**: Link two players who always want to play together (Fixed Pair).\\n          \\n• **Anti-Team**: Prevent two players from being paired together.\\n          \\n• **Set Gender**: Override gender for Mixed Doubles matchmaking."
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:308
+msgid "Manage players directly from the Check-in list:"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:101
+msgid "Manage Teams"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:145
+msgid "Manually adjust player ratings for the event."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:200
+msgid "Mixed"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:395
+msgid "Note: If you clear your browser data, local event data will be lost."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:385
+msgid "Offline Mode"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:358
+msgid "Once matches are complete, use the"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:41
+msgid "Player Check-in"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:304
+msgid "Player Management"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:49
+#~ msgid "Player Options (Teams & Anti-Teams)"
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:121
+msgid "Player Settings"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:241
+msgid "Rebalance"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:248
+msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:81
+msgid "Reset"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:286
+msgid "Reset (All)"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:265
+msgid "Reset (Mixed)"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:85
+msgid "Reset a round to the original draw if you changed something."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:272
+msgid "Resets the round and attempts to create mixed-gender pairs."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:293
+msgid "Resets the round to the original matches."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:227
+msgid "Round Management"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:208
+msgid "Round-Robin"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:376
+msgid "Scores are not saved permanently until you Sync."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:161
+msgid "Service Indicator"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:364
+msgid "Sync Scores"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:185
+msgid "The Draw Generator allows you to create matches based on different strategies:"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:26
+#~ msgid "The Event Manager uses several icons to help you navigate and manage your event:\\n          \\n• **Gear Icon**: Access settings to change the number of courts, match generation strategy, and view match history.\\n          \\n• **Checkmark/User Icon**: Used for checking players in and out of the session. Green indicates checked in.\\n          \\n• **List/Queue Icon**: View the list of available players and select them for the next round.\\n          \\n• **Play/Matches Icon**: View active matches and enter results.\\n          \\n• **Trash Icon**: Delete a match (careful, this cannot be undone in some modes)."
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:389
+msgid "The Event Manager works offline! All data is saved locally to your device."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:339
+msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:330
+msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:30
+#~ msgid "To generate matches:\\n          \\n1. Go to the **Queue** screen.\\n          \\n2. Select at least 4 players (highlighted in green). You can use the \\\"Queue All\\\" button to select everyone not on break.\\n          \\n3. Click the **Generate Matches** button.\\n          \\n4. The system will propose matches based on the selected strategy (e.g., Competitive, Mixed).\\n          \\n5. You can accept the recommended matches or manually select from the list of possibilities.\\n          \\n6. Quality indicators show how balanced a match is expected to be."
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:46
+#~ msgid "Toggle **Offline Mode** on the start screen if you don't have a stable internet connection or want to test without saving data to the server.\\n          \\n• Results are stored locally on your device.\\n          \\n• You can sync them later when you're back online."
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:45
+msgid "Toggle player attendance. Green means checked in."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:326
+#: src/components/pages/EventManagerGuidePage.re.mjs:335
+msgid "Use"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:317
+msgid "Use the"
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:34
+#~ msgid "Use the **Check-in** screen to manage player attendance. Tap a player to toggle their status.\\n          \\n• **Green**: Player is here and ready to play.\\n          \\n• **Gray**: Player is checked out (not available for matches).\\n          \\n• Useful for players arriving late or leaving early."
+#~ msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:220
+msgid "You can also adjust the number of courts. The system requires 4 players per court."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:392
+msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
+msgstr ""
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:38
+#~ msgid "You can set the number of available courts in the settings. The system tracks play counts and suggests breaks for players who have played the most.\\n          \\n• Players due for a break are highlighted in yellow in the Queue.\\n          \\n• This helps ensure equal playing time for everyone."
+#~ msgstr ""

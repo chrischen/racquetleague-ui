@@ -34,7 +34,7 @@ async function loader(param) {
                               activitySlug: "pickleball",
                               after: after,
                               before: before,
-                              namespace: "doubles:rec"
+                              namespace: "doubles:comp"
                             }, "store-or-network", undefined, undefined);
                 })(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR))
           },

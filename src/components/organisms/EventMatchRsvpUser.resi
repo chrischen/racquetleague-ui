@@ -5,6 +5,6 @@ let make: MatchRsvpUser.props<
   string,
   float,
   float,
-  Rating.player,
+  Rating.player<'a>,
   int,
 > => React.element

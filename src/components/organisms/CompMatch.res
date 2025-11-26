@@ -360,6 +360,8 @@ let make = (
       lastRoundSeenTeams,
       lastRoundSeenMatches,
       teams,
+      strategy,
+      Map.make(),
     )
     ->Option.map(match => {
       let (team1, team2) = match

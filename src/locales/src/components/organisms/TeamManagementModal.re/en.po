@@ -1,0 +1,98 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-11-20 01:16+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:337
+msgid "Anti-Teams"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:152
+msgid "Cancel"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:302
+msgid "Create and manage player teams"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Anti-Team"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Team"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first anti-team to prevent players from pairing"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first team to get started"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:402
+msgid "Delete team"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:390
+msgid "Edit team"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:42
+msgid "Edit Team"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:71
+msgid "Enter team name"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Anti-Team"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Team"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No anti-teams yet"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No teams yet"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:443
+msgid "Save & Close"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:159
+msgid "Save Team"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:298
+msgid "Team Management"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:86
+msgid "Team Members ({0})"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:66
+msgid "Team Name"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:326
+msgid "Teams"
+msgstr ""

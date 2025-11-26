@@ -61,6 +61,52 @@ var Sparkles = {};
 
 var Lock = {};
 
+var GripVertical = {};
+
+var Edit2 = {};
+
+var Play = {};
+
+var Circle = {};
+
+var ChevronLeft = {};
+
+var ChevronRight = {};
+
+var Shuffle = {};
+
+var AlertCircle = {};
+
+var UserCheck = {};
+
+var UserX = {};
+
+var ArrowDown = {};
+
+var Trash2 = {};
+
+var RotateCcw = {};
+
+var MinusCircle = {};
+
+var Minus = {};
+
+var Plus = {};
+
+var TrendingUp = {};
+
+var TrendingDown = {};
+
+var DollarSign = {};
+
+var Mars = {};
+
+var Venus = {};
+
+var AlertTriangle = {};
+
+var CircleHelp = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -92,5 +138,28 @@ export {
   Search ,
   Sparkles ,
   Lock ,
+  GripVertical ,
+  Edit2 ,
+  Play ,
+  Circle ,
+  ChevronLeft ,
+  ChevronRight ,
+  Shuffle ,
+  AlertCircle ,
+  UserCheck ,
+  UserX ,
+  ArrowDown ,
+  Trash2 ,
+  RotateCcw ,
+  MinusCircle ,
+  Minus ,
+  Plus ,
+  TrendingUp ,
+  TrendingDown ,
+  DollarSign ,
+  Mars ,
+  Venus ,
+  AlertTriangle ,
+  CircleHelp ,
 }
 /* No side effect */

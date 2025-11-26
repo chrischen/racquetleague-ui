@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"PwrU1F\":\"調整を削除\",\"O1VYeQ\":[\"レーティング調整 - ラウンド\",[\"0\"],\"前に適用\"]}");

@@ -4,7 +4,7 @@ open Lingui.Util
 module PlayerView = {
   @react.component
   let make = (
-    ~player: Rating.player,
+    ~player: Rating.Player.t<Rating.rsvpNode>,
     ~minRating,
     ~maxRating,
     ~status,
@@ -44,12 +44,12 @@ module PlayerView = {
 module Queue = {
   @react.component
   let make = (
-    ~players: array<Rating.player>,
+    ~players: array<Rating.player<Rating.rsvpNode>>,
     ~breakPlayers: Set.t<string>,
     ~consumedPlayers: Set.t<string>,
     ~queue: Set.t<string>,
-    ~togglePlayer: Rating.player => unit,
-    ~onToggleSelectedPlayer: Rating.player => unit,
+    ~togglePlayer: Rating.player<Rating.rsvpNode> => unit,
+    ~onToggleSelectedPlayer: Rating.player<Rating.rsvpNode> => unit,
     ~selectedPlayers: Set.t<string>,
     ~onGoToCheckin: unit => unit,
     ~sessionState: Session.t,
@@ -59,7 +59,10 @@ module Queue = {
     // let minRating =
     //   players->Array.reduce(maxRating, (acc, next) => next.rating.mu < acc ? next.rating.mu : acc)
     let handleLongPress = React.useCallback(
-      (event: ReactEvent.Synthetic.t, context: option<UseLongPress.meta<Rating.player>>) => {
+      (
+        event: ReactEvent.Synthetic.t,
+        context: option<UseLongPress.meta<Rating.player<Rating.rsvpNode>>>,
+      ) => {
         context
         ->Option.flatMap(ctx =>
           ctx.context->Option.map(
@@ -74,7 +77,7 @@ module Queue = {
       [selectedPlayers->Set.size],
     )
 
-    let options: UseLongPress.options<Rating.player> = {
+    let options: UseLongPress.options<Rating.player<Rating.rsvpNode>> = {
       // onStart: handleLongPress,
       threshold: 300,
       cancelOnMovement: true, // or Js.Any.fromInt(25) for pixel threshold
@@ -260,18 +263,20 @@ type view = Checkin | Matches | Queue
 let make = (
   ~view: view,
   ~setView: (view => view) => unit,
-  ~players: array<Rating.player>,
-  ~availablePlayers: array<Rating.player>,
-  ~playersCache: Rating.PlayersCache.t,
+  ~players: array<Rating.player<Rating.rsvpNode>>,
+  ~availablePlayers: array<Rating.player<Rating.rsvpNode>>,
+  ~playersCache: Rating.PlayersCache.t<Rating.rsvpNode>,
   ~checkin: React.element,
   ~queue: Set.t<string>,
   ~breakPlayers: Set.t<string>,
   ~consumedPlayers: Set.t<string>,
-  ~togglePlayer: Rating.player => unit,
+  ~togglePlayer: Rating.player<Rating.rsvpNode> => unit,
   ~setQueue: array<string> => unit,
   ~setRequiredPlayers: (option<Set.t<string>> => option<Set.t<string>>) => unit,
-  ~matches: array<Rating.match>,
-  ~setMatches: (array<Rating.match> => array<Rating.match>) => unit,
+  ~matches: array<Rating.matchEntity<Rating.rsvpNode>>,
+  ~setMatches: (
+    array<Rating.matchEntity<Rating.rsvpNode>> => array<Rating.matchEntity<Rating.rsvpNode>>
+  ) => unit,
   // ~activity,
   ~minRating,
   ~maxRating,
@@ -283,7 +288,7 @@ let make = (
   ~breakCount: int,
   ~onChangeBreakCount: int => unit,
   ~matchSelector: React.element,
-  ~selectedPlayersActions: array<Rating.player> => React.element,
+  ~selectedPlayersActions: array<Rating.player<Rating.rsvpNode>> => React.element,
   ~sessionState: Session.t,
 ) => {
   let ts = Lingui.UtilString.t
@@ -328,7 +333,7 @@ let make = (
         onClick={e => e->JsxEventU.Mouse.target->Form.Input.select}
         readOnly=true
         value={matches
-        ->Array.mapWithIndex(((team1, team2), i) => {
+        ->Array.mapWithIndex(({match: (team1, team2)}, i) => {
           let team1 =
             team1
             ->Array.map(p => p.name)
@@ -388,11 +393,11 @@ let make = (
                 renderContainer={(children, matchId) => {
                   // let team1 = children->Array.get(0)->Option.getOr(React.null)
                   // let team2 = children->Array.get(1)->Option.getOr(React.null)
-                  let match = matches->Array.get(matchId)
+                  let matchEntity = matches->Array.get(matchId)
 
                   {
-                    match
-                    ->Option.map(match =>
+                    matchEntity
+                    ->Option.map(({match}) =>
                       <SortableSubmitMatch
                         key={match->Rating.Match.toStableId}
                         match
@@ -406,11 +411,17 @@ let make = (
                     ->Option.getOr(React.null)
                   }
                 }}
-                items={matches->Rating.Matches.toDndItems}
+                items={matches->Array.map(m => m.match)->Rating.Matches.toDndItems}
                 setItems={updateFn => {
                   setMatches(matches => {
-                    let items = matches->Rating.Matches.toDndItems
-                    updateFn(items)->Rating.Matches.fromDndItems(playersCache)
+                    let matchesOnly = matches->Array.map(m => m.match)
+                    let items = matchesOnly->Rating.Matches.toDndItems
+                    let updatedMatches = updateFn(items)->Rating.Matches.fromDndItems(playersCache)
+                    // Preserve IDs when updating
+                    matches->Array.mapWithIndex((matchEntity, i) => {
+                      let newMatch = updatedMatches->Array.getUnsafe(i)
+                      {Rating.id: matchEntity.id, match: newMatch}
+                    })
                   })
                 }}
                 deleteContainer={i => handleMatchCanceled(i)}
@@ -434,9 +445,9 @@ let make = (
                   ->Option.map(((matchId, player)) =>
                     <UiAction
                       onClick={_ => {
-                        let match = matches->Array.get(matchId)
-                        match
-                        ->Option.map(match => {
+                        let matchEntity = matches->Array.get(matchId)
+                        matchEntity
+                        ->Option.map(({match}) => {
                           let matchPlayers =
                             match
                             ->Rating.Match.players

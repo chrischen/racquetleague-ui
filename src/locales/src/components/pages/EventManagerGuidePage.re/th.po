@@ -1,0 +1,273 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-22 00:40+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:210
+msgid ": Classic round-robin format where everyone plays with everyone."
+msgstr ": รูปแบบพบกันหมดแบบคลาสสิกที่ทุกคนเล่นกับทุกคน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:194
+msgid ""
+": Players are divided into similar skill levels. Teams are balanced to "
+"create close matches."
+msgstr ": ผู้เล่นจะถูกแบ่งออกเป็นระดับทักษะที่ใกล้เคียงกัน ทีมจะมีความสมดุลเพื่อสร้างการแข่งขันที่สูสี"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:202
+msgid ""
+": Teams are balanced by skill, but players are not strictly separated by "
+"level."
+msgstr ": ทีมมีความสมดุลตามทักษะ แต่ผู้เล่นไม่ได้ถูกแยกตามระดับอย่างเคร่งครัด"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:141
+msgid "Adjust Seeds"
+msgstr "ปรับอันดับ"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:165
+msgid "Blue dot indicates the team that has service in the match."
+msgstr "จุดสีน้ำเงินแสดงทีมที่มีสิทธิ์เสิร์ฟในการแข่งขัน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:368
+msgid "button at the bottom of the page to submit all results to the server."
+msgstr "ปุ่มที่ด้านล่างของหน้าเพื่อส่งผลลัพธ์ทั้งหมดไปยังเซิร์ฟเวอร์"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:313
+msgid "Click a player's name to toggle check-in status."
+msgstr "คลิกชื่อผู้เล่นเพื่อสลับสถานะเช็คอิน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:192
+msgid "Competitive"
+msgstr "แข่งขัน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:412
+msgid "Complete guide to running events with the Event Manager."
+msgstr "คู่มือฉบับสมบูรณ์สำหรับการจัดกิจกรรมด้วยตัวจัดการกิจกรรม"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:105
+msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
+msgstr "สร้างทีมถาวรหรือทีมตรงข้าม (ผู้เล่นที่ไม่ควรเล่นด้วยกัน)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:231
+msgid "Each round has several management options:"
+msgstr "แต่ละรอบมีตัวเลือกการจัดการหลายอย่าง:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:125
+msgid "Edit player details like name, gender, or payment status."
+msgstr "แก้ไขรายละเอียดผู้เล่น เช่น ชื่อ เพศ หรือสถานะการชำระเงิน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:354
+msgid ""
+"Enter scores directly on the match cards. Tap to select a winner, or press "
+"and hold to input the score as well."
+msgstr "ป้อนคะแนนโดยตรงบนการ์ดการแข่งขัน แตะเพื่อเลือกผู้ชนะ หรือกดค้างไว้เพื่อป้อนคะแนนด้วย"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:350
+msgid "Entering Results & Syncing"
+msgstr "การป้อนผลลัพธ์และการซิงค์"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:408
+msgid "Event Manager Guide"
+msgstr "คู่มือตัวจัดการกิจกรรม"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:61
+msgid "Generate / Rebalance"
+msgstr "สร้าง / ปรับสมดุลใหม่"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+msgid "Generate new draws or rebalance the round or match."
+msgstr "สร้างการจับสลากใหม่หรือปรับสมดุลรอบหรือการแข่งขัน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:181
+msgid "Generating Draws"
+msgstr "การสร้างการจับคู่"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:29
+msgid "Here is a guide to the icons used in the Event Manager:"
+msgstr "นี่คือคู่มือสำหรับไอคอนที่ใช้ในตัวจัดการกิจกรรม:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:321
+msgid "icon to edit player details (Name, Gender, Paid status)."
+msgstr "ไอคอนเพื่อแก้ไขรายละเอียดผู้เล่น (ชื่อ เพศ สถานะการชำระเงิน)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:25
+msgid "Icons Guide"
+msgstr "คู่มือไอคอน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:217
+msgid ""
+"In Competitive or Mixed mode, the system will regenerate future matches when "
+"you select the winner of the matches in the current or past rounds. This is "
+"recommended in order to optimize future rounds based on the new data. In "
+"Round-Robin mode, the future rounds will not change unless you manually "
+"change them."
+msgstr ""
+"ในโหมดแข่งขันหรือผสม "
+"ระบบจะสร้างการแข่งขันในอนาคตใหม่เมื่อคุณเลือกผู้ชนะของการแข่งขันในรอบปัจจุบันหรือรอบที่ผ่านมา "
+"แนะนำให้ทำเช่นนี้เพื่อปรับปรุงรอบในอนาคตให้เหมาะสมตามข้อมูลใหม่ ในโหมดพบกันหมด "
+"รอบในอนาคตจะไม่เปลี่ยนแปลงเว้นแต่คุณจะเปลี่ยนด้วยตนเอง"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:308
+msgid "Manage players directly from the Check-in list:"
+msgstr "จัดการผู้เล่นโดยตรงจากรายการเช็คอิน:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:101
+msgid "Manage Teams"
+msgstr "จัดการทีม"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:145
+msgid "Manually adjust player ratings for the event."
+msgstr "ปรับคะแนนผู้เล่นสำหรับกิจกรรมด้วยตนเอง"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:200
+msgid "Mixed"
+msgstr "ผสม"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:395
+msgid "Note: If you clear your browser data, local event data will be lost."
+msgstr "หมายเหตุ: หากคุณล้างข้อมูลเบราว์เซอร์ ข้อมูลกิจกรรมในเครื่องจะสูญหาย"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:385
+msgid "Offline Mode"
+msgstr "โหมดออฟไลน์"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:358
+msgid "Once matches are complete, use the"
+msgstr "เมื่อการแข่งขันเสร็จสิ้น ให้ใช้"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:41
+msgid "Player Check-in"
+msgstr "เช็คอินผู้เล่น"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:304
+msgid "Player Management"
+msgstr "การจัดการผู้เล่น"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:121
+msgid "Player Settings"
+msgstr "การตั้งค่าผู้เล่น"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:241
+msgid "Rebalance"
+msgstr "ปรับสมดุลใหม่"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:248
+msgid ""
+"Regenerates the current round with the same players but moves players around "
+"to balance the skill level of each court. This will aggressively optimize "
+"each court to have the highest chance of having a tie, but may not divide "
+"the court by level groups. Useful if you replace a player and need the "
+"matches to be balanced again."
+msgstr ""
+"สร้างรอบปัจจุบันใหม่ด้วยผู้เล่นคนเดิม แต่ย้ายผู้เล่นไปรอบๆ เพื่อปรับสมดุลระดับทักษะของแต่ละสนาม "
+"สิ่งนี้จะปรับให้แต่ละสนามมีโอกาสเสมอสูงสุด แต่ไม่อาจแบ่งสนามตามกลุ่มระดับ "
+"มีประโยชน์หากคุณเปลี่ยนผู้เล่นและต้องการให้การแข่งขันสมดุลอีกครั้ง"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:81
+msgid "Reset"
+msgstr "รีเซ็ต"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:286
+msgid "Reset (All)"
+msgstr "รีเซ็ต (ทั้งหมด)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:265
+msgid "Reset (Mixed)"
+msgstr "รีเซ็ต (ผสม)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:85
+msgid "Reset a round to the original draw if you changed something."
+msgstr "รีเซ็ตรอบกลับไปเป็นการจับคู่เดิมหากคุณเปลี่ยนแปลงบางอย่าง"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:272
+msgid "Resets the round and attempts to create mixed-gender pairs."
+msgstr "รีเซ็ตรอบและพยายามสร้างคู่ผสมชายหญิง"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:293
+msgid "Resets the round to the original matches."
+msgstr "รีเซ็ตรอบกลับไปเป็นการแข่งขันเดิม"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:227
+msgid "Round Management"
+msgstr "การจัดการรอบ"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:208
+msgid "Round-Robin"
+msgstr "รอบโรบิน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:376
+msgid "Scores are not saved permanently until you Sync."
+msgstr "คะแนนจะไม่ถูกบันทึกอย่างถาวรจนกว่าคุณจะซิงค์"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:161
+msgid "Service Indicator"
+msgstr "ตัวบอกสิทธิ์เสิร์ฟ"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:364
+msgid "Sync Scores"
+msgstr "ซิงค์คะแนน"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:185
+msgid ""
+"The Draw Generator allows you to create matches based on different "
+"strategies:"
+msgstr "ตัวสร้างการจับคู่ช่วยให้คุณสร้างการแข่งขันตามกลยุทธ์ต่างๆ:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:389
+msgid ""
+"The Event Manager works offline! All data is saved locally to your device."
+msgstr "ตัวจัดการกิจกรรมทำงานแบบออฟไลน์! ข้อมูลทั้งหมดจะถูกบันทึกไว้ในอุปกรณ์ของคุณ"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:339
+msgid ""
+"to adjust player ratings (seeds) for the event. This affects matchmaking but "
+"not their permanent rating."
+msgstr ""
+"เพื่อปรับคะแนนผู้เล่น (อันดับ) สำหรับกิจกรรม "
+"สิ่งนี้ส่งผลต่อการจับคู่แต่ไม่ส่งผลต่อคะแนนถาวรของพวกเขา"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:330
+msgid ""
+"to create Teams (always play together) or Anti-Teams (never play together on "
+"the same court)."
+msgstr "เพื่อสร้างทีม (เล่นด้วยกันเสมอ) หรือทีมตรงข้าม (ไม่เล่นด้วยกันในสนามเดียวกัน)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:45
+msgid "Toggle player attendance. Green means checked in."
+msgstr "สลับการเข้าร่วมของผู้เล่น สีเขียวหมายถึงเช็คอินแล้ว"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:326
+#: src/components/pages/EventManagerGuidePage.re.mjs:335
+msgid "Use"
+msgstr "ใช้"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:317
+msgid "Use the"
+msgstr "ใช้"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:220
+msgid ""
+"You can also adjust the number of courts. The system requires 4 players per "
+"court."
+msgstr "คุณยังสามารถปรับจำนวนสนามได้ ระบบต้องการผู้เล่น 4 คนต่อสนาม"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:392
+msgid ""
+"You can run an entire event without internet. Just make sure to Sync Scores "
+"when you have a connection again to save the results."
+msgstr ""
+"คุณสามารถจัดกิจกรรมทั้งหมดได้โดยไม่ต้องใช้อินเทอร์เน็ต "
+"เพียงตรวจสอบให้แน่ใจว่าได้ซิงค์คะแนนเมื่อคุณมีการเชื่อมต่ออีกครั้งเพื่อบันทึกผลลัพธ์"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+#~ msgid "Generate new draws or rebalance the current round."
+#~ msgstr "สร้างการจับคู่ใหม่หรือปรับสมดุลรอบปัจจุบัน"

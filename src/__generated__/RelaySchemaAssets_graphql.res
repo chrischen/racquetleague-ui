@@ -142,7 +142,7 @@ and input_CreateClubInput_nullable = {
 @live
 and input_CreateEventInput = {
   activity: string,
-  clubId: string,
+  clubId?: string,
   details?: string,
   endDate: Util.Datetime.t,
   listed?: bool,
@@ -158,7 +158,7 @@ and input_CreateEventInput = {
 @live
 and input_CreateEventInput_nullable = {
   activity: string,
-  clubId: string,
+  clubId?: Js.Null.t<string>,
   details?: Js.Null.t<string>,
   endDate: Util.Datetime.t,
   listed?: Js.Null.t<bool>,
@@ -282,6 +282,7 @@ and input_LeagueMatchInput = {
   activitySlug: string,
   doublesMatch: input_DoublesMatchInput,
   namespace: string,
+  syncId?: string,
 }
 
 @live
@@ -289,6 +290,7 @@ and input_LeagueMatchInput_nullable = {
   activitySlug: string,
   doublesMatch: input_DoublesMatchInput_nullable,
   namespace: string,
+  syncId?: Js.Null.t<string>,
 }
 
 @live

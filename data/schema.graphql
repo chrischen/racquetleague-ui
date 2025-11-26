@@ -131,7 +131,7 @@ type CreateClubResult implements HasErrors {
 
 input CreateEventInput {
   activity: ID!
-  clubId: ID!
+  clubId: ID
   details: String
   endDate: Datetime!
   listed: Boolean
@@ -311,6 +311,7 @@ input LeagueMatchInput {
   activitySlug: String!
   doublesMatch: DoublesMatchInput!
   namespace: String!
+  syncId: String
 }
 
 input LeagueRatingInput {

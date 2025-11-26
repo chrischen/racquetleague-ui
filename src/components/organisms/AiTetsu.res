@@ -278,9 +278,9 @@ module Leaderboard = {
 module Checkin = {
   @react.component
   let make = (
-    ~players: array<player>,
+    ~players: array<player<'a>>,
     ~disabled: Set.t<string>,
-    ~onToggleCheckin: (player, bool) => unit,
+    ~onToggleCheckin: (player<'a>, bool) => unit,
     ~addPlayer: option<React.element>=?,
     ~setCourts,
     ~courts,
@@ -496,6 +496,7 @@ let rsvpToPlayer = (
         )
       )
       ->Option.getOr(Male),
+      count: 0,
     }->Some
     p
   | _ => None
@@ -519,8 +520,8 @@ let rsvpToPlayer = (
 //   }
 // }
 
-let addGuestPlayer = (sessionPlayers, player: player) => {
-  let existingPlayer = sessionPlayers->Array.find((p: player) => p.id == player.id)
+let addGuestPlayer = (sessionPlayers, player: player<'a>) => {
+  let existingPlayer = sessionPlayers->Array.find((p: player<'a>) => p.id == player.id)
   switch existingPlayer {
   | Some(_) => sessionPlayers
   | None => sessionPlayers->Array.concat([player])
@@ -532,6 +533,10 @@ let _removeGuestPlayer = (sessionPlayers: array<Player.t<'a>>, player: Player.t<
 
 type playerSettings = TeamBuilder | AddPlayer | Settings
 type screen = Advanced | Matches
+
+// Generate UUID using Web Crypto API
+@val external randomUUID: unit => string = "crypto.randomUUID"
+
 @react.component
 let make = (~event, ~children) => {
   let ts = Lingui.UtilString.t
@@ -553,9 +558,6 @@ let make = (~event, ~children) => {
   // - Players are global and reused across all events
   // - Team player IDs are stored as JSON-stringified arrays in the teams table
 
-  // Get all matches for this event from TinyBase store
-  let matchesTableJson = TinyBase.React.useTable("matches", matchesStore)
-
   let {data, refetch} = Fragment.usePagination(event)
 
   // Helper function to hydrate a player with GraphQL RSVP data
@@ -573,15 +575,15 @@ let make = (~event, ~children) => {
   let hydrateMatchWithRsvpData = (
     match: Match.t<Js.Json.t>,
     rsvpMap: Js.Dict.t<AiTetsu_event_graphql.Types.fragment_rsvps_edges_node>,
-  ): match => {
+  ): match<'a> => {
     let (team1, team2) = match
     let hydratedTeam1 = team1->Array.map(player => hydratePlayerWithRsvpData(player, rsvpMap))
     let hydratedTeam2 = team2->Array.map(player => hydratePlayerWithRsvpData(player, rsvpMap))
     (hydratedTeam1, hydratedTeam2)
   }
 
-  // Simple React state for matches
-  let (matches: array<match>, setMatches) = React.useState(() => [])
+  // Simple React state for matches with UUIDs
+  let (matches: array<matchEntity<'a>>, setMatches) = React.useState(() => [])
 
   // Helper function to load matches from TinyBase
   let loadMatchesFromDb = () => {
@@ -609,9 +611,11 @@ let make = (~event, ~children) => {
         switch matchRow->Js.Dict.get("eventId")->Option.map(v => v->Obj.magic) {
         | Some(mEventId: string) if mEventId == eventId =>
           // Load match from DB and hydrate with RSVP data
-          Match.loadFromDb(matchRow, teamsTable, playersTable, matchId)->Option.map(match =>
-            hydrateMatchWithRsvpData(match, rsvpMap)
-          )
+          // The matchId IS the UUID
+          Match.loadFromDb(matchRow, teamsTable, playersTable, matchId)->Option.map(match => {
+            let hydratedMatch = hydrateMatchWithRsvpData(match, rsvpMap)
+            {id: matchId, match: hydratedMatch}
+          })
         | _ => None
         }
       })
@@ -620,14 +624,15 @@ let make = (~event, ~children) => {
   }
 
   // Load matches from TinyBase on initial mount
-  React.useEffect1(() => {
+  React.useEffect(() => {
+    Js.log("Loading matches from TinyBase store")
     let loadedMatches = loadMatchesFromDb()
     setMatches(_ => loadedMatches)
     None
-  }, [matchesTableJson])
+  }, [])
 
   // Sync matches to TinyBase - called whenever setMatches is called
-  let syncMatchesWithDb = (newMatches: array<match>) => {
+  let syncMatchesWithDb = (newMatches: array<matchEntity<'a>>) => {
     Js.log("Syncing matches to TinyBase store")
 
     // First, delete all existing matches for this event from all tables
@@ -665,8 +670,9 @@ let make = (~event, ~children) => {
     })
 
     // Add the new matches with proper relational structure
-    newMatches->Array.forEachWithIndex((match, matchIndex) => {
-      let matchId = `${eventId}-match-${matchIndex->Int.toString}`
+    newMatches->Array.forEach(matchEntity => {
+      // Use the UUID as the TinyBase row ID directly
+      let matchId = matchEntity.id
 
       // Create match row with metadata
       let matchRowData = Js.Dict.empty()
@@ -675,7 +681,7 @@ let make = (~event, ~children) => {
       matchesStore->TinyBase.setRow("matches", matchId, matchRowData)
 
       // Get player data from the match
-      let (team1, team2) = match
+      let (team1, team2) = matchEntity.match
       let teams = [team1, team2]
 
       // Create team and player rows
@@ -715,9 +721,10 @@ let make = (~event, ~children) => {
 
   // Wrapper for setMatches that persists to TinyBase
   // React state is authoritative, TinyBase is just for persistence
-  let updateMatches = (updater: array<match> => array<match>) => {
+  let updateMatches = (updater: array<matchEntity<'a>> => array<matchEntity<'a>>) => {
     setMatches(currentMatches => {
       let newMatches = updater(currentMatches)
+      // Sync entire match entities (including UUIDs) to DB
       syncMatchesWithDb(newMatches)
       newMatches
     })
@@ -726,8 +733,10 @@ let make = (~event, ~children) => {
   let (manualTeamOpen, setManualTeamOpen) = React.useState(() => false)
   let (screen, setScreen) = React.useState(() => Advanced)
   // Player team constraints
-  let (teams: NonEmptyArray.t<array<player>>, setTeams) = React.useState(() => NonEmptyArray.empty)
-  let (antiTeams: NonEmptyArray.t<array<player>>, setAntiTeams) = React.useState(() =>
+  let (teams: NonEmptyArray.t<array<player<'a>>>, setTeams) = React.useState(() =>
+    NonEmptyArray.empty
+  )
+  let (antiTeams: NonEmptyArray.t<array<player<'a>>>, setAntiTeams) = React.useState(() =>
     NonEmptyArray.empty
   )
   let (settingsPane: option<playerSettings>, setSettingsPane) = React.useState(() => None)
@@ -767,12 +776,12 @@ let make = (~event, ~children) => {
   //   queue->FIFOQueue.next(setQueue)
   // }
   //
-  // let pullPlayer = (player: player) => {
+  // let pullPlayer = (player: player<'a>)) => {
   //   setQueue(queue => FIFOQueue.pull(queue, p => p.id != player.id))
   // }
   //
   let togglePlayer = OrderedQueue.toggle
-  let toggleQueuePlayer = (player: player) => {
+  let toggleQueuePlayer = (player: player<'a>) => {
     setQueue(queue => queue->togglePlayer(player.id))
   }
 
@@ -788,7 +797,7 @@ let make = (~event, ~children) => {
       ->Array.filterMap(((rsvp, intId)) => rsvpToPlayer(rsvp, intId))
       ->Array.concat(sessionPlayers)
     }
-  } :> array<player>)
+  } :> array<player<'a>>)
 
   let players =
     allPlayers
@@ -901,10 +910,11 @@ let make = (~event, ~children) => {
 
   let consumedPlayers =
     matches
-    ->Array.flatMap(match => Array.concat(match->fst, match->snd)->Array.map(p => p.id))
+    ->Array.flatMap(({match}) => Array.concat(match->fst, match->snd)->Array.map(p => p.id))
     ->Set.fromArray
   let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
 
+  // This is used to get the final players who are on break and removed from the matchmaking
   let deprioritized = getDeprioritizedPlayers(matchHistory, players, sessionState, breakCount)
 
   let queue = queue->OrderedQueue.filter(disabled)
@@ -913,12 +923,13 @@ let make = (~event, ~children) => {
   // Force break players to be excluded from the queue
   // let queue = queue->OrderedQueue.filter(deprioritized)
 
-  // let queuedPlayers: array<player> = (players->Array.filter(p =>
+  // let queuedPlayers: array<player<'a>> = (players->Array.filter(p =>
   //   queue->Set.fromArray->Set.has(p.id)
-  // ) :> array<player>)
-  let queuedPlayers: array<player> =
+  // ) :> array<player<'a>>)
+  let queuedPlayers: array<player<'a>> =
     queue->Array.map(id => playersCache->PlayersCache.get(id))->Array.filterMap(x => x)
 
+  // We use this to pass priority players to the matchmaking algorithm. We ignore the deprioritized players it calculates
   let {prioritized: priorityPlayers, deprioritized: _} = getPriorityPlayers(
     matchHistory,
     queuedPlayers,
@@ -942,7 +953,7 @@ let make = (~event, ~children) => {
     }
 
     // Add match to React state (which will sync to TinyBase)
-    updateMatches(currentMatches => currentMatches->Array.concat([match]))
+    updateMatches(currentMatches => currentMatches->Array.concat([{id: randomUUID(), match}]))
 
     disablePlayers
       ? match
@@ -978,7 +989,7 @@ let make = (~event, ~children) => {
     )
   }
   // @TODO: When play counts are updated, we can update deprioritized players
-  let updatePlayCounts = (match: match) => {
+  let updatePlayCounts = (match: match<'a>) => {
     setSessionState(prevState => {
       let nextState =
         (match->fst, match->snd)
@@ -1003,7 +1014,7 @@ let make = (~event, ~children) => {
       nextState
     })
   }
-  let setPlayCount = (player: player, count: int) => {
+  let setPlayCount = (player: player<'a>, count: int) => {
     setSessionState(prevState => {
       let nextState = prevState->Session.update(player.id, prev => {count, paid: prev.paid})
 
@@ -1081,6 +1092,10 @@ let make = (~event, ~children) => {
       },
     )
 
+    // Get winners and losers with their scores using the new functions
+    let (winnerIds, winnerScore) = match->Match.getWinners(score)
+    let (loserIds, loserScore) = match->Match.getLosers(score)
+
     Promise.make((resolve, reject) => {
       commitMutationCreateLeagueMatch(
         ~variables={
@@ -1088,11 +1103,12 @@ let make = (~event, ~children) => {
             activitySlug,
             namespace,
             doublesMatch: {
-              winners: match->fst->Array.map(p => p.id),
-              losers: match->snd->Array.map(p => p.id),
-              score: [score->fst, score->snd],
+              winners: winnerIds,
+              losers: loserIds,
+              score: [winnerScore, loserScore],
               createdAt: Js.Date.make()->Util.Datetime.fromDate,
             },
+            syncId: ?None,
           },
           connections: [connectionId],
         },
@@ -1153,9 +1169,15 @@ let make = (~event, ~children) => {
       switch sessionMode {
       | true => {
           matches
-          ->Array.map(((matchId, (match, _))) => {
-            let rated_match = match->Match.rate
-            updateSessionPlayerRatings(rated_match->Array.flatMap(x => x))
+          ->Array.map(((matchId, (match, _) as completedMatch)) => {
+            // Only update ratings if there's a score
+            completedMatch
+            ->CompletedMatch.rate
+            ->Option.map(rated_match => {
+              updateSessionPlayerRatings(rated_match->Array.flatMap(x => x))
+            })
+            ->ignore
+
             updatePlayCounts(match)
             matchId
           })
@@ -1175,8 +1197,6 @@ let make = (~event, ~children) => {
                 ->Promise.thenResolve(
                   _ => {
                     let (match, _) = completedMatch
-                    // let rated_match = completedMatch->Match.rate
-                    // updateSessionPlayerRatings(rated_match->Array.flatMap(x => x))
                     updatePlayCounts(match)
                     matchId->dequeueMatch
                   },
@@ -1202,7 +1222,7 @@ let make = (~event, ~children) => {
     {one: "player", other: "players"},
   )
 
-  let createTeam = (teamType: Team.teamType, team: array<player>) => {
+  let createTeam = (teamType: Team.teamType, team: array<player<'a>>) => {
     switch teamType {
     | Anti =>
       setAntiTeams(teams => {
@@ -1256,7 +1276,7 @@ let make = (~event, ~children) => {
       })
     }
   }
-  let togglePlayerCheckin = (player: player, status: bool) => {
+  let togglePlayerCheckin = (player: player<'a>, status: bool) => {
     switch status {
     | true =>
       setDisabled(disabled => {
@@ -1458,7 +1478,7 @@ let make = (~event, ~children) => {
           ? <SelectMatch
               players={queuedPlayers}
               onMatchQueued={match => queueMatch(match)}
-              //   setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))}
+              //   setSelectedMatch(_ => Some((match :> (array<player<'a>>, array<player<'a>>))))}
             >
               {match =>
                 <React.Suspense fallback={<div> {t`Loading`} </div>}>

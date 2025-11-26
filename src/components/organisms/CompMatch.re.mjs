@@ -418,7 +418,7 @@ function CompMatch(props) {
                         className: "rounded-md bg-red-50 p-4 mt-2 mb-2 border-l-4 border-red-400",
                         role: "alert"
                       }),
-                Core__Option.getOr(Core__Option.map(Rating.RankedMatches.recommendMatch(matches$2, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teams), (function (match) {
+                Core__Option.getOr(Core__Option.map(Rating.RankedMatches.recommendMatch(matches$2, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teams, strategy, new Map()), (function (match) {
                             var team2 = match[1];
                             var team1 = match[0];
                             var match$1 = lastRoundSeenTeams.has(Rating.Team.toStableId(team1));

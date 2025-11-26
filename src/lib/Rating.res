@@ -1,6 +1,9 @@
 @send
 external intersection: (Js.Set.t<'a>, Js.Set.t<'a>) => Js.Set.t<'a> = "intersection"
 
+// Generate UUID using Web Crypto API
+@val external randomUUID: unit => string = "crypto.randomUUID"
+
 module RatingModel = {
   type t = string
   // @module("openskill/dist/models/index.js")
@@ -102,6 +105,7 @@ module Player = {
     ratingOrdinal: float,
     paid: bool,
     gender: Gender.t,
+    count: int,
   }
   let makeDefaultRatingPlayer = (name: string, gender: Gender.t, intId: int) => {
     let rating = Rating.makeDefault()
@@ -114,6 +118,7 @@ module Player = {
       ratingOrdinal: rating->Rating.ordinal,
       paid: false,
       gender,
+      count: 0,
     }
   }
 
@@ -127,6 +132,7 @@ module Player = {
     row->Js.Dict.set("ratingSigma", player.rating.sigma->Js.Json.number)
     row->Js.Dict.set("genderInt", player.gender->Gender.toInt->Int.toFloat->Js.Json.number)
     row->Js.Dict.set("paid", player.paid->Js.Json.boolean)
+    row->Js.Dict.set("count", player.count->Int.toFloat->Js.Json.number)
     row
   }
 
@@ -153,8 +159,95 @@ module Player = {
         ->Option.flatMap(v => v->Js.Json.decodeBoolean)
         ->Option.getOr(false),
         gender: Gender.fromInt(genderInt->Float.toInt),
+        count: row
+        ->Js.Dict.get("count")
+        ->Option.flatMap(v => v->Js.Json.decodeNumber)
+        ->Option.map(Float.toInt)
+        ->Option.getOr(0),
       })
     | _ => None
+    }
+  }
+
+  // JSON decoder for player objects (with rescript-json-combinators)
+  let decodePlayer = (): Json.Decode.t<t<'a>> =>
+    Json.Decode.object(field => {
+      let decodeRating = Json.Decode.object(field => {
+        let mu = field.required("mu", Json.Decode.float)
+        let sigma = field.required("sigma", Json.Decode.float)
+        Rating.make(mu, sigma)
+      })
+
+      let decodeGender = Json.Decode.int->Json.Decode.map(Gender.fromInt)
+
+      let id = field.required("id", Json.Decode.string)
+      let intId = field.required("intId", Json.Decode.int)
+      let name = field.required("name", Json.Decode.string)
+      let rating = field.required("rating", decodeRating)
+      let ratingOrdinal = field.required("ratingOrdinal", Json.Decode.float)
+      let paid = field.required("paid", Json.Decode.bool)
+      let gender = field.required("gender", decodeGender)
+      let count = field.optional("count", Json.Decode.int)->Option.getOr(0)
+
+      let player: t<'a> = {
+        data: None,
+        id,
+        intId,
+        name,
+        rating,
+        ratingOrdinal,
+        paid,
+        gender,
+        count,
+      }
+      player
+    })
+
+  // Convert player to JSON object (excluding data field, with gender as int)
+  let toJson = (player: t<'a>): Js.Json.t => {
+    let obj = Js.Dict.empty()
+    obj->Js.Dict.set("id", player.id->Js.Json.string)
+    obj->Js.Dict.set("intId", player.intId->Int.toFloat->Js.Json.number)
+    obj->Js.Dict.set("name", player.name->Js.Json.string)
+
+    let ratingObj = Js.Dict.empty()
+    ratingObj->Js.Dict.set("mu", player.rating.mu->Js.Json.number)
+    ratingObj->Js.Dict.set("sigma", player.rating.sigma->Js.Json.number)
+    obj->Js.Dict.set("rating", ratingObj->Js.Json.object_)
+
+    obj->Js.Dict.set("ratingOrdinal", player.ratingOrdinal->Js.Json.number)
+    obj->Js.Dict.set("paid", player.paid->Js.Json.boolean)
+    obj->Js.Dict.set("gender", player.gender->Gender.toInt->Int.toFloat->Js.Json.number)
+    obj->Js.Dict.set("count", player.count->Int.toFloat->Js.Json.number)
+    obj->Js.Json.object_
+  }
+
+  // Serialize player to JSON string (excluding data field)
+  let toJsonString = (player: t<'a>): string => {
+    player->toJson->Js.Json.stringifyAny->Option.getOr("{}")
+  }
+
+  // Deserialize player from JSON
+  let fromJson = (json: Js.Json.t): option<t<'a>> => {
+    switch json->Json.Decode.decode(decodePlayer()) {
+    | Ok(player) => Some(player)
+    | Error(msg) => {
+        Js.log2("[Player.fromJson] Decode error:", msg)
+        None
+      }
+    }
+  }
+
+  // Deserialize player from JSON string
+  let fromJsonString = (jsonStr: string): option<t<'a>> => {
+    try {
+      let json = jsonStr->Js.Json.parseExn
+      fromJson(json)
+    } catch {
+    | _ => {
+        Js.log2("[Player.fromJsonString] Failed to parse:", jsonStr)
+        None
+      }
     }
   }
 }
@@ -185,6 +278,51 @@ module Team = {
   // Serialize team to TinyBase - returns array of player rows
   let toDb = (team: t<'a>): array<TinyBase.row> => {
     team->Array.map(player => player->Player.toDb)
+  }
+}
+
+module TeamCountDict = {
+  type t = Map.t<string, int>
+
+  // Create an empty dictionary
+  let make = (): t => Map.make()
+
+  // Set the last round for a team
+  let setLastRound = (dict: t, teamId: string, roundNumber: int): unit => {
+    dict->Map.set(teamId, roundNumber)
+  }
+
+  // Set the last round for both teams in a match
+  let setMatchLastRound = (dict: t, team1Id: string, team2Id: string, roundNumber: int): unit => {
+    setLastRound(dict, team1Id, roundNumber)
+    setLastRound(dict, team2Id, roundNumber)
+  }
+
+  // Get the last round for a team (returns 0 if not found, meaning never played)
+  let getLastRound = (dict: t, teamId: string): int => {
+    dict->Map.get(teamId)->Option.getOr(0)
+  }
+
+  // Get the score for a match (sum of both team's last round numbers)
+  // Lower score means teams haven't played recently
+  let getMatchScore = (dict: t, team1Id: string, team2Id: string): int => {
+    getLastRound(dict, team1Id) + getLastRound(dict, team2Id)
+  }
+
+  // Build dictionary from match history with round numbers
+  let fromHistory = (
+    history: array<'match>,
+    getTeams: 'match => (string, string),
+    matchesPerRound: int,
+  ): t => {
+    let dict = make()
+    history->Array.forEachWithIndex((match, index) => {
+      let (team1Id, team2Id) = getTeams(match)
+      // Calculate round number (1-indexed)
+      let roundNumber = index / matchesPerRound + 1
+      setMatchLastRound(dict, team1Id, team2Id, roundNumber)
+    })
+    dict
   }
 }
 
@@ -244,6 +382,34 @@ module Match = {
   }
 
   let players = ((t1, t2)) => [t1, t2]->Array.flatMap(x => x)
+
+  // Map a function over all players in both teams
+  let mapPlayers = ((t1, t2): t<'a>, fn: Player.t<'a> => Player.t<'a>): t<'a> => {
+    (t1->Array.map(fn), t2->Array.map(fn))
+  }
+
+  // Increment play count for all players in the match
+  let incrementPlayCounts = (match: t<'a>): t<'a> => {
+    mapPlayers(match, player => {...player, count: player.count + 1})
+  }
+
+  // Get winners based on score - returns player IDs of the winning team and their score
+  let getWinners = (match: t<'a>, score: (float, float)): (array<string>, float) => {
+    let (team1, team2) = match
+    let (team1Score, team2Score) = score
+    let winningTeam = team1Score > team2Score ? team1 : team2
+    let winningScore = team1Score > team2Score ? team1Score : team2Score
+    (winningTeam->Array.map(p => p.id), winningScore)
+  }
+
+  // Get losers based on score - returns player IDs of the losing team and their score
+  let getLosers = (match: t<'a>, score: (float, float)): (array<string>, float) => {
+    let (team1, team2) = match
+    let (team1Score, team2Score) = score
+    let losingTeam = team1Score > team2Score ? team2 : team1
+    let losingScore = team1Score > team2Score ? team2Score : team1Score
+    (losingTeam->Array.map(p => p.id), losingScore)
+  }
 
   // Serialize match to TinyBase - returns array of all player rows
   let toDb = (match: t<'a>): array<TinyBase.row> => {
@@ -318,8 +484,30 @@ module CompletedMatch = {
     }
   }
   let toStableId: t<'a> => string = ((t, _)) => t->Match.toStableId
+
+  // Get winners based on score - returns player IDs of the winning team and their score
+  let getWinners = ((match, score): t<'a>): option<(array<string>, float)> => {
+    score->Option.map(s => match->Match.getWinners(s))
+  }
+
+  // Get losers based on score - returns player IDs of the losing team and their score
+  let getLosers = ((match, score): t<'a>): option<(array<string>, float)> => {
+    score->Option.map(s => match->Match.getLosers(s))
+  }
+
+  // Rate the match based on the score - returns updated teams with new ratings
+  let rate = ((match, score): t<'a>): option<array<array<Player.t<'a>>>> => {
+    score->Option.map(s => {
+      let (team1, team2) = match
+      let (team1Score, team2Score) = s
+      // Determine winner and loser teams based on scores
+      let (winners, losers) = team1Score > team2Score ? (team1, team2) : (team2, team1)
+      Match.rate((winners, losers))
+    })
+  }
 }
 type rsvpNode = AiTetsu_event_graphql.Types.fragment_rsvps_edges_node
+type eventManagerRsvpNode = EventManager_event_graphql.Types.fragment_rsvps_edges_node
 module CompletedMatches = {
   type t<'a> = array<CompletedMatch.t<'a>>
 
@@ -376,7 +564,7 @@ module CompletedMatches = {
       t->Js.Json.stringifyAny->Option.getOr("")->LzString.compress,
     )
   }
-  let loadMatches = (namespace: string, players: array<Player.t<rsvpNode>>): t<'a> => {
+  let loadMatches = (namespace: string, players: array<Player.t<'a>>): t<'a> => {
     let players = players->Array.reduce(Js.Dict.empty(), (acc, player) => {
       acc->Js.Dict.set(player.id, player)
       acc
@@ -429,6 +617,13 @@ module CompletedMatches = {
       }
     )
   }
+  let scored_matches = (t: t<'a>): t<'a> =>
+    t->Array.filterMap(((match, score)) =>
+      switch score {
+      | Some(_) => Some((match, score))
+      | None => None
+      }
+    )
 }
 
 module DoublesTeam = {
@@ -457,9 +652,210 @@ module DoublesMatch = {
   }
 }
 
-type player = Player.t<rsvpNode>
-type team = array<player>
-type match = (team, team)
+type player<'a> = Player.t<'a>
+type team<'a> = array<player<'a>>
+type match<'a> = (team<'a>, team<'a>)
+
+// Match entity with stable UUID for UI state tracking and persistence
+type matchEntity<'a> = {
+  id: string, // UUID for UI state tracking and server sync
+  match: match<'a>,
+}
+
+// Completed match entity for EventManager
+// Note: Round information is implicit from the array structure (array<array<completedMatchEntity>>)
+module CompletedMatchEntity = {
+  type t<'a> = {
+    id: string, // UUID for UI state tracking and server sync
+    match: match<'a>,
+    score: option<(float, float)>, // Optional score (team1's score, team2's score)
+    createdAt: Js.Date.t,
+  }
+
+  // Serialize completed match entity to TinyBase
+  // Returns a single row with match ID, player data, and score
+  let toDb = (entity: t<'a>): TinyBase.row => {
+    let row = Js.Dict.empty()
+    row->Js.Dict.set("matchId", entity.id->Js.Json.string)
+    row->Js.Dict.set("type", "completedMatchEntity"->Js.Json.string)
+
+    // Store the match as team data with player IDs
+    let (team1, team2) = entity.match
+    let team1Ids = team1->Array.map(p => p.id->Js.Json.string)->Js.Json.array
+    let team2Ids = team2->Array.map(p => p.id->Js.Json.string)->Js.Json.array
+    row->Js.Dict.set("team1PlayerIds", team1Ids)
+    row->Js.Dict.set("team2PlayerIds", team2Ids)
+
+    // Store score if available
+    switch entity.score {
+    | Some((team1Score, team2Score)) => {
+        row->Js.Dict.set("hasScore", true->Js.Json.boolean)
+        row->Js.Dict.set("team1Score", team1Score->Js.Json.number)
+        row->Js.Dict.set("team2Score", team2Score->Js.Json.number)
+      }
+    | None => row->Js.Dict.set("hasScore", false->Js.Json.boolean)
+    }
+
+    // Store createdAt timestamp
+    row->Js.Dict.set("createdAt", entity.createdAt->Js.Date.getTime->Js.Json.number)
+
+    row
+  }
+
+  // Load completed match entity from TinyBase with full player data
+  let loadFromDb = (row: TinyBase.row, playersTable: TinyBase.table): option<t<'a>> => {
+    switch (
+      row->Js.Dict.get("matchId")->Option.flatMap(v => v->Js.Json.decodeString),
+      row->Js.Dict.get("team1PlayerIds")->Option.flatMap(v => v->Js.Json.decodeArray),
+      row->Js.Dict.get("team2PlayerIds")->Option.flatMap(v => v->Js.Json.decodeArray),
+      row->Js.Dict.get("createdAt")->Option.flatMap(v => v->Js.Json.decodeNumber),
+    ) {
+    | (Some(id), Some(team1Ids), Some(team2Ids), createdAtOpt) => {
+        // Extract player IDs
+        let team1PlayerIds = team1Ids->Array.filterMap(v => v->Js.Json.decodeString)
+        let team2PlayerIds = team2Ids->Array.filterMap(v => v->Js.Json.decodeString)
+
+        // Load player data
+        let team1 = team1PlayerIds->Array.filterMap(playerId => {
+          playersTable->Js.Dict.get(playerId)->Option.flatMap(Player.fromDb)
+        })
+        let team2 = team2PlayerIds->Array.filterMap(playerId => {
+          playersTable->Js.Dict.get(playerId)->Option.flatMap(Player.fromDb)
+        })
+
+        // Extract score
+        let score = switch row
+        ->Js.Dict.get("hasScore")
+        ->Option.flatMap(v => v->Js.Json.decodeBoolean) {
+        | Some(true) =>
+          switch (
+            row->Js.Dict.get("team1Score")->Option.flatMap(v => v->Js.Json.decodeNumber),
+            row->Js.Dict.get("team2Score")->Option.flatMap(v => v->Js.Json.decodeNumber),
+          ) {
+          | (Some(team1Score), Some(team2Score)) => Some((team1Score, team2Score))
+          | _ => None
+          }
+        | _ => None
+        }
+
+        // Construct completed match entity
+        Some({
+          id,
+          match: (team1, team2),
+          score,
+          createdAt: createdAtOpt
+          ->Option.map(ts => Js.Date.fromFloat(ts))
+          ->Option.getOr(Js.Date.make()),
+        })
+      }
+    | _ => None
+    }
+  }
+}
+
+// Type alias for backward compatibility
+type completedMatchEntity<'a> = CompletedMatchEntity.t<'a>
+
+// Rating adjustment with metadata for historical tracking
+module RatingAdjustment = {
+  type t = {
+    playerId: string,
+    differential: float, // Amount to adjust mu by
+    appliedAtRound: int, // Which round this adjustment was applied (0 = before any matches)
+    timestamp: float, // When the adjustment was made (Js.Date.now())
+  }
+
+  // Serialize to JSON
+  let toJson = (adj: t): Js.Json.t => {
+    let dict = Js.Dict.empty()
+    dict->Js.Dict.set("playerId", adj.playerId->Js.Json.string)
+    dict->Js.Dict.set("differential", adj.differential->Js.Json.number)
+    dict->Js.Dict.set("appliedAtRound", adj.appliedAtRound->Int.toFloat->Js.Json.number)
+    dict->Js.Dict.set("timestamp", adj.timestamp->Js.Json.number)
+    dict->Js.Json.object_
+  }
+
+  // Deserialize from JSON
+  let fromJson = (json: Js.Json.t): option<t> => {
+    json
+    ->Js.Json.decodeObject
+    ->Option.flatMap(dict => {
+      switch (
+        dict->Js.Dict.get("playerId")->Option.flatMap(v => v->Js.Json.decodeString),
+        dict->Js.Dict.get("differential")->Option.flatMap(v => v->Js.Json.decodeNumber),
+        dict->Js.Dict.get("appliedAtRound")->Option.flatMap(v => v->Js.Json.decodeNumber),
+        dict->Js.Dict.get("timestamp")->Option.flatMap(v => v->Js.Json.decodeNumber),
+      ) {
+      | (Some(playerId), Some(differential), Some(appliedAtRound), Some(timestamp)) =>
+        Some({
+          playerId,
+          differential,
+          appliedAtRound: appliedAtRound->Float.toInt,
+          timestamp,
+        })
+      | _ => None
+      }
+    })
+  }
+}
+
+// Timeline event type for chronological processing of matches and adjustments
+module TimelineEvent = {
+  type t<'a> =
+    | Round(array<CompletedMatchEntity.t<'a>>) // A round of matches
+    | Adjustment(array<RatingAdjustment.t>) // One or more rating adjustments
+
+  // Build timeline from rounds and adjustments
+  // Timeline is ordered chronologically: seed adjustments, then alternating adjustments/rounds
+  let fromRoundsAndAdjustments = (
+    rounds: array<array<CompletedMatchEntity.t<'a>>>,
+    adjustments: array<RatingAdjustment.t>,
+  ): array<t<'a>> => {
+    // Group adjustments by appliedAtRound
+    let adjustmentsByRound = Map.make()
+    adjustments->Array.forEach(adj => {
+      let existing = adjustmentsByRound->Map.get(adj.appliedAtRound)->Option.getOr([])
+      adjustmentsByRound->Map.set(adj.appliedAtRound, Array.concat(existing, [adj]))
+    })
+
+    let timeline = []
+
+    // Add seed adjustments (appliedAtRound = -1, before any matches)
+    switch adjustmentsByRound->Map.get(-1) {
+    | None => ()
+    | Some(seedAdjustments) => timeline->Array.push(Adjustment(seedAdjustments))
+    }
+
+    // Process each round with its adjustments
+    rounds->Array.forEachWithIndex((roundMatches, roundIndex) => {
+      // Add adjustments for this round (applied before the round starts)
+      switch adjustmentsByRound->Map.get(roundIndex) {
+      | None => ()
+      | Some(roundAdjustments) => timeline->Array.push(Adjustment(roundAdjustments))
+      }
+
+      // Add the round's matches
+      timeline->Array.push(Round(roundMatches))
+    })
+
+    // Add any remaining adjustments for future rounds (rounds that don't exist yet)
+    // This ensures all provided adjustments are applied
+    adjustments
+    ->Array.filter(adj => adj.appliedAtRound >= rounds->Array.length)
+    ->Array.forEach(adj => {
+      switch adjustmentsByRound->Map.get(adj.appliedAtRound) {
+      | None => ()
+      | Some(futureAdjustments) => {
+          timeline->Array.push(Adjustment(futureAdjustments))
+          // Remove from map to avoid duplicates
+          adjustmentsByRound->Map.delete(adj.appliedAtRound)->ignore
+        }
+      }
+    })
+
+    timeline
+  }
+}
 
 module PlayerDecoder = {
   let decodeRating: Json.Decode.t<Rating.t> = Json.Decode.object(field => {
@@ -478,6 +874,7 @@ module PlayerDecoder = {
     let ratingOrdinal = field.required("ratingOrdinal", Json.Decode.float)
     let paid = field.required("paid", Json.Decode.bool)
     let gender = field.required("gender", decodeGender)
+    let count = field.optional("count", Json.Decode.int)->Option.getOr(0)
     {
       Player.data: None, // Always set to None when loading from storage
       id,
@@ -487,10 +884,34 @@ module PlayerDecoder = {
       ratingOrdinal,
       paid,
       gender,
+      count,
+    }
+  })
+  let decodeEventManagerPlayer: Json.Decode.t<
+    Player.t<eventManagerRsvpNode>,
+  > = Json.Decode.object(field => {
+    let id = field.required("id", Json.Decode.string)
+    let intId = field.required("intId", Json.Decode.int)
+    let name = field.required("name", Json.Decode.string)
+    let rating = field.required("rating", decodeRating)
+    let ratingOrdinal = field.required("ratingOrdinal", Json.Decode.float)
+    let paid = field.required("paid", Json.Decode.bool)
+    let gender = field.required("gender", decodeGender)
+    let count = field.optional("count", Json.Decode.int)->Option.getOr(0)
+    {
+      Player.data: None, // Always set to None when loading from storage
+      id,
+      intId,
+      name,
+      rating,
+      ratingOrdinal,
+      paid,
+      gender,
+      count,
     }
   })
 
-  let parsePlayersFromStorage = (jsonString: string): Js.Dict.t<Player.t<rsvpNode>> => {
+  let parsePlayersFromStorage = (jsonString: string): Js.Dict.t<Player.t<'a>> => {
     try {
       let json = jsonString->Js.Json.parseExn
       let resultDict = Js.Dict.empty()
@@ -508,6 +929,7 @@ module PlayerDecoder = {
         })
       | Error(_error) =>
         // If decoding as a dict of players fails, try decoding each player individually
+        Js.log(_error)
         Js.log("Failed to decode all players at once, trying individual decoding")
 
         // Try to decode as a dict of JSON values, then decode each individually
@@ -541,43 +963,43 @@ module PlayerDecoder = {
 }
 
 module Players = {
-  type t = array<player>
-  let sortByRatingDesc = (t: t) =>
+  type t<'a> = array<player<'a>>
+  let sortByRatingDesc = (t: t<'a>) =>
     t->Array.toSorted((a, b) => {
       let userA = a.rating.mu
       let userB = b.rating.mu
       userA < userB ? 1. : -1.
     })
 
-  let sortByPlayCountAsc = (t: t, session: Session.t) => {
+  let sortByPlayCountAsc = (t: t<'a>, session: Session.t) => {
     t->Array.toSorted((a, b) =>
       (session->Session.get(a.id)).count < (session->Session.get(b.id)).count ? -1. : 1.
     )
   }
-  let sortByPlayCountDesc = (t: t, session: Session.t) => {
+  let sortByPlayCountDesc = (t: t<'a>, session: Session.t) => {
     t->Array.toSorted((a, b) =>
       (session->Session.get(a.id)).count < (session->Session.get(b.id)).count ? 1. : -1.
     )
   }
 
-  let sortByOrdinalDesc = (t: t) =>
+  let sortByOrdinalDesc = (t: t<'a>) =>
     t->Array.toSorted((a, b) => a.ratingOrdinal < b.ratingOrdinal ? 1. : -1.)
 
-  let filterOut = (players: t, unavailable: TeamSet.t) =>
+  let filterOut = (players: t<'a>, unavailable: TeamSet.t) =>
     players->Array.filter(p => !(unavailable->Set.has(p.id)))
 
-  let mustInclude = (players: t, mustPlayers: TeamSet.t) => {
+  let mustInclude = (players: t<'a>, mustPlayers: TeamSet.t) => {
     players->Array.filter(p => mustPlayers->Set.has(p.id))
   }
 
-  let addBreakPlayersFrom = (breakPlayers: t, players: t, breakCount: int): t => {
+  let addBreakPlayersFrom = (breakPlayers: t<'a>, players: t<'a>, breakCount: int): t<'a> => {
     players
     ->filterOut(breakPlayers->Array.map(p => p.id)->Set.fromArray)
     ->Array.slice(~start=0, ~end=breakCount - breakPlayers->Array.length)
     // ->Array.map(p => p.id)
     ->Array.concat(breakPlayers)
   }
-  let savePlayers = (t: t, namespace: string) => {
+  let savePlayers = (t: t<'a>, namespace: string) => {
     let t = t->Array.map(p => {...p, data: None})
     let t = t->Array.reduce(Js.Dict.empty(), (acc, player) => {
       acc->Js.Dict.set(player.id, player)
@@ -589,9 +1011,7 @@ module Players = {
       t->Js.Json.stringifyAny->Option.getOr(""),
     )
   }
-  let loadPlayers = (players: array<Player.t<rsvpNode>>, namespace: string): array<
-    Player.t<rsvpNode>,
-  > => {
+  let loadPlayers = (players: array<Player.t<'a>>, namespace: string): array<Player.t<'a>> => {
     let storage = switch Dom.Storage2.localStorage->Dom.Storage2.getItem(
       namespace ++ "-playersState",
     ) {
@@ -616,7 +1036,7 @@ module Players = {
     })
     ->Array.concat(guests)
   }
-  let calculateMeanRating = (group: t): float => {
+  let calculateMeanRating = (group: t<'a>): float => {
     if group->Array.length == 0 {
       // This case should not be reached given the logic of clusterByRating,
       // as testGroup will always contain at least one player.
@@ -628,10 +1048,10 @@ module Players = {
     }
   }
 
-  let clusterByRating = (rankedPlayers_t: t, ~maxDiff: float): array<t> => {
+  let clusterByRating = (rankedPlayers_t: t<'a>, ~maxDiff: float): array<t<'a>> => {
     // rankedPlayers_t is already an array<player> due to `type t = Players.t`
-    let resultingClusters: array<t> = [] // Use Js.Array2.push for mutable addition
-    let currentGroup: ref<t> = ref([]) // currentGroup is array<player>
+    let resultingClusters: array<t<'a>> = [] // Use Js.Array2.push for mutable addition
+    let currentGroup: ref<t<'a>> = ref([]) // currentGroup is array<player>
 
     rankedPlayers_t->Array.forEach(player => {
       let testGroup = currentGroup.contents->Array.concat([player])
@@ -662,7 +1082,7 @@ module Players = {
     resultingClusters
   }
 
-  let toKMeansData = (players: t): Util.NonEmptyArray.t<array<float>> => {
+  let toKMeansData = (players: t<'a>): Util.NonEmptyArray.t<array<float>> => {
     players->Array.map(player => [player.rating.mu])->Util.NonEmptyArray.fromArray
   }
   let rec findOptimalClustersRecursive = (kMeansData, currentKValue: int): KMeans.kMeansOutput => {
@@ -674,16 +1094,16 @@ module Players = {
       KMeans.runKMeansWithOptimalInertia({
         data: kMeansData,
         k: 1,
-        numRuns: 10,
-        maxIterations: 100,
+        numRuns: 100, // Use 100 for stability - more runs converge to global optimum
+        maxIterations: 1000,
         tolerance: 1e-6,
       })
     } else {
       let currentRunOutput = KMeans.runKMeansWithOptimalInertia({
         data: kMeansData,
         k: currentKValue,
-        numRuns: 10,
-        maxIterations: 100,
+        numRuns: 100, // Use 100 for stability - more runs converge to global optimum
+        maxIterations: 1000,
         tolerance: 1e-6,
       })
 
@@ -756,8 +1176,8 @@ module Players = {
           KMeans.runKMeansWithOptimalInertia({
             data: kMeansData,
             k: 1,
-            numRuns: 10,
-            maxIterations: 100,
+            numRuns: 100, // Use 100 for stability - more runs converge to global optimum
+            maxIterations: 1000,
             tolerance: 1e-6,
           })
           ->KMeans.SortedClusters.make
@@ -776,27 +1196,29 @@ module Players = {
   }
 }
 module DoublesSet: {
-  type t = private Players.t
-  let make: Players.t => option<t>
+  type t<'a> = private Players.t<'a>
+  let make: Players.t<'a> => option<t<'a>>
+  let toPlayers: t<'a> => Players.t<'a>
 } = {
-  type t = Players.t
-  let make = (t: t) => {
+  type t<'a> = Players.t<'a>
+  let make = (t: t<'a>) => {
     t->Array.length >= 4 ? Some(t) : None
   }
+  let toPlayers = (t: t<'a>) => t
 }
 module RankedPlayers: {
-  type t = private Players.t
+  type t<'a> = private Players.t<'a>
   // Sorts the players by rating
-  let make: Players.t => t
-  let min_rating: (t, float) => t
-  let to_players: t => Players.t
-  let splitByGroups: (t, Util.NonZeroInt.t) => KMeans.SortedClusters.t
-  let findTopGroup: (t, Util.NonZeroInt.t) => t
-  let filter: (t, player => bool) => t
+  let make: Players.t<'a> => t<'a>
+  let min_rating: (t<'a>, float) => t<'a>
+  let to_players: t<'a> => Players.t<'a>
+  let splitByGroups: (t<'a>, Util.NonZeroInt.t) => KMeans.SortedClusters.t
+  let findTopGroup: (t<'a>, Util.NonZeroInt.t) => t<'a>
+  let filter: (t<'a>, player<'a> => bool) => t<'a>
 } = {
-  type t = Players.t
+  type t<'a> = Players.t<'a>
 
-  let make = (t: t) => {
+  let make = (t: t<'a>) => {
     t->Array.toSorted((a, b) => {
       let userA = a.rating.mu
       let userB = b.rating.mu
@@ -804,24 +1226,25 @@ module RankedPlayers: {
     })
   }
 
-  let min_rating = (playersArray: t, minRatingValue: float): t => {
+  let min_rating = (playersArray: t<'a>, minRatingValue: float): t<'a> => {
     playersArray->Array.filter(player => player.rating.mu >= minRatingValue)
   }
   let to_players = t => t
-  let splitByGroups = (players: t, _groups: Util.NonZeroInt.t) => {
+  let splitByGroups = (players: t<'a>, _groups: Util.NonZeroInt.t) => {
     // let groups =
     //   groups
     //   ->Util.NonZeroInt.toOption
     //   ->Option.getOr((players->Array.length->Int.toFloat /. 6.)->Js.Math.ceil_int)
 
+    // Groups is hard-coded to a 6 / court basis for doubles matchmaking
     let groups = (players->Array.length->Int.toFloat /. 6.)->Js.Math.ceil_int
-    let clusters = (players :> t)->Players.findPlayerClusters(groups->Util.NonZeroInt.make)
+    let clusters = (players :> t<'a>)->Players.findPlayerClusters(groups->Util.NonZeroInt.make)
 
     let sortedClusters = clusters->KMeans.SortedClusters.make
 
     sortedClusters
   }
-  let findTopGroup = (players: t, groups: Util.NonZeroInt.t): t => {
+  let findTopGroup = (players: t<'a>, groups: Util.NonZeroInt.t): t<'a> => {
     let sortedClusters = players->splitByGroups(groups)
     let minRating = sortedClusters->KMeans.SortedClusters.getMin
 
@@ -1059,8 +1482,10 @@ let rec uniform_shuffle_array = (arr: array<'a>, n: int, offset: int) => {
   }
 }
 
+type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR
+
 module RankedMatches = {
-  type t = array<(Match.t<rsvpNode>, float)>
+  type t<'a> = array<(Match.t<'a>, float)>
   let strategy_by_competitive = (
     players: array<Player.t<'a>>,
     _consumedPlayers: Set.t<string>,
@@ -1102,7 +1527,7 @@ module RankedMatches = {
     players
     ->RankedPlayers.make
     ->(
-      (sorted: RankedPlayers.t) => {
+      (sorted: RankedPlayers.t<'a>) => {
         let players = if genderMixed {
           let malePlayers =
             sorted
@@ -1122,12 +1547,12 @@ module RankedMatches = {
         players
         ->DoublesSet.make
         ->Option.map(playerSet => {
-          let players = (playerSet :> Players.t)
+          let players = playerSet->DoublesSet.toPlayers
           let matches =
             players
             ->Array.at(0)
             ->Option.map(topPlayer => {
-              (playerSet :> Players.t)
+              players
               ->find_all_match_combos([], avoidAllPlayers, teams, requiredPlayers)
               ->Array.filter(((match, _)) => match->Match.contains_player(topPlayer))
               ->Array.toSorted(
@@ -1251,12 +1676,14 @@ module RankedMatches = {
   }
   // Assumes matches are already sorted by quality descending
   let recommendMatch = (
-    matches: t, // t is array<(Match.t<rsvpNode>, float)>
+    matches: t<'a>, // t is array<(Match.t<'a>, float)>
     seenTeams: Set.t<string>,
     seenMatches: Set.t<string>,
     lastRoundSeenTeams: Set.t<string>,
     lastRoundSeenMatches: Set.t<string>,
     teamConstraints: NonEmptyArray.t<Team.t<'a>>,
+    strategy: strategy,
+    teamCountDict: Map.t<string, int>,
   ) => {
     // Remove teamConstraints teams from seenTeams
     teamConstraints
@@ -1305,8 +1732,12 @@ module RankedMatches = {
     let rec findResult = currentAvoidanceFilters => {
       // Apply current avoidance filters first
       let filteredByAvoidance = applyFilters(matches, currentAvoidanceFilters)
-      // Then apply the quality filter
-      let finalFiltered = filteredByAvoidance->Array.filter(qualityFilter)
+      // Then apply the quality filter (skip for Random strategy to allow truly random matches)
+      let finalFiltered = if strategy == Random {
+        filteredByAvoidance
+      } else {
+        filteredByAvoidance->Array.filter(qualityFilter)
+      }
 
       if finalFiltered->Array.length > 0 {
         // Found matches with current avoidance filters + quality filter
@@ -1335,20 +1766,83 @@ module RankedMatches = {
       }
     }
 
-    // Start the search with all avoidance filters
-    let bestMatches = findResult(avoidanceFilters)
+    // For Random strategy, sort by score instead of using quality filters
+    if strategy == Random {
+      // Sort matches by their score (ascending - lowest first)
+      let sortedByScore = matches->Array.toSorted(((matchA, _), (matchB, _)) => {
+        let scoreA = TeamCountDict.getMatchScore(
+          teamCountDict,
+          matchA->fst->Team.toStableId,
+          matchA->snd->Team.toStableId,
+        )
+        let scoreB = TeamCountDict.getMatchScore(
+          teamCountDict,
+          matchB->fst->Team.toStableId,
+          matchB->snd->Team.toStableId,
+        )
+        (scoreA - scoreB)->Belt.Int.toFloat
+      })
 
-    // Return the first match from the result (which should be the highest quality one due to initial sort)
-    bestMatches->Array.at(0)->Option.map(((match, _)) => match)
+      // Get the lowest score
+      let lowestScore = switch sortedByScore->Array.at(0) {
+      | Some((match, _)) =>
+        TeamCountDict.getMatchScore(
+          teamCountDict,
+          match->fst->Team.toStableId,
+          match->snd->Team.toStableId,
+        )
+      | None => 0
+      }
+
+      // Filter to only matches with the lowest score
+      let lowestScoreMatches = sortedByScore->Array.filter(((match, _)) => {
+        let score = TeamCountDict.getMatchScore(
+          teamCountDict,
+          match->fst->Team.toStableId,
+          match->snd->Team.toStableId,
+        )
+        score == lowestScore
+      })
+
+      // Randomly select from matches with the lowest score
+      let randomFloat = Math.random() *. lowestScoreMatches->Array.length->Int.toFloat
+      let randomIndex = randomFloat->Math.floor->Belt.Float.toInt
+      lowestScoreMatches->Array.at(randomIndex)->Option.map(((match, _)) => match)
+    } else if strategy == Mixed {
+      // For Mixed strategy, apply only quality filter (no avoidance filters) and choose match with lowest score
+      let qualityFiltered = matches->Array.filter(qualityFilter)
+
+      // Sort by match score (ascending - lowest first)
+      let sortedByScore = qualityFiltered->Array.toSorted(((matchA, _), (matchB, _)) => {
+        let scoreA = TeamCountDict.getMatchScore(
+          teamCountDict,
+          matchA->fst->Team.toStableId,
+          matchA->snd->Team.toStableId,
+        )
+        let scoreB = TeamCountDict.getMatchScore(
+          teamCountDict,
+          matchB->fst->Team.toStableId,
+          matchB->snd->Team.toStableId,
+        )
+        (scoreA - scoreB)->Belt.Int.toFloat
+      })
+
+      // Return the match with the lowest score
+      sortedByScore->Array.at(0)->Option.map(((match, _)) => match)
+    } else {
+      // For other strategies, use the findResult method with quality filters
+      let bestMatches = findResult(avoidanceFilters)
+      bestMatches->Array.at(0)->Option.map(((match, _)) => match)
+    }
   }
 }
-type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR
+
 let getMatches = (
-  players: Players.t,
+  players: Players.t<'a>,
   consumedPlayers,
   strategy,
   priorityPlayers,
-  avoidAllPlayers: array<array<Player.t<rsvpNode>>>,
+  avoidAllPlayers: array<array<Player.t<'a>>>,
   teamConstraints,
   requiredPlayers,
   courts,
@@ -1408,6 +1902,213 @@ let getMatches = (
     )
   }
   matches
+}
+
+// Generate N matches recursively based on completed match history
+// Calculates player ratings from scored matches and derives play counts
+let generateMatches = (
+  ~players: array<Player.t<'a>>,
+  ~history: array<completedMatchEntity<'a>>,
+  ~strategy: strategy,
+  ~numMatches: int,
+  ~avoidAllPlayers: array<array<Player.t<'a>>>=[],
+  ~teamConstraints: option<array<Set.t<string>>>=?,
+  ~courts: Util.NonZeroInt.t=Util.NonZeroInt.make(1),
+  ~genderMixed: bool=false,
+  (),
+): array<matchEntity<'a>> => {
+  // Initialize seen teams and matches from history
+  // Split history into: all history vs. just the last round (previous round)
+  // The last round is the last numMatches in the history array
+  let historyLength = history->Array.length
+  let lastRoundStartIndex = Math.Int.max(0, historyLength - numMatches)
+
+  // Build team last-round dictionary from history
+  let teamCountDict = TeamCountDict.fromHistory(
+    history,
+    completedMatch => {
+      let (team1, team2) = completedMatch.match
+      (team1->Team.toStableId, team2->Team.toStableId)
+    },
+    numMatches,
+  )
+
+  let (
+    seenTeamsFromHistory,
+    seenMatchesFromHistory,
+    lastRoundSeenTeams,
+    lastRoundSeenMatches,
+  ) = history->Array.reduceWithIndex((Set.make(), Set.make(), Set.make(), Set.make()), (
+    (allTeams, allMatches, lastTeams, lastMatches),
+    completedMatch,
+    index,
+  ) => {
+    let (team1, team2) = completedMatch.match
+    let team1Id = team1->Team.toStableId
+    let team2Id = team2->Team.toStableId
+    let matchId = completedMatch.match->Match.toStableId
+
+    // Add to all history
+    allTeams->Set.add(team1Id)->ignore
+    allTeams->Set.add(team2Id)->ignore
+    allMatches->Set.add(matchId)->ignore
+
+    // Also add to last round if this match is in the last round
+    if index >= lastRoundStartIndex {
+      lastTeams->Set.add(team1Id)->ignore
+      lastTeams->Set.add(team2Id)->ignore
+      lastMatches->Set.add(matchId)->ignore
+    }
+
+    (allTeams, allMatches, lastTeams, lastMatches)
+  })
+
+  // Step 3: Recursive function to generate matches
+  // Note: We only track consumedPlayers within a round - seenTeams/seenMatches come from history
+  @tailcall
+  let rec generateMatchesRec = (
+    consumedPlayers: Set.t<string>,
+    accumulated: array<matchEntity<'a>>,
+    remaining: int,
+  ): array<matchEntity<'a>> => {
+    if remaining <= 0 {
+      accumulated
+    } else {
+      // Convert teamConstraints from option<array> to NonEmptyArray.t
+      let teamConstraintsNonEmpty =
+        teamConstraints->Option.flatMap(arr => arr->Array.length > 0 ? Some(arr) : None)
+
+      // Remove consumed players from playersWithRatings before calling getMatches
+      let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+
+      // Convert Set.t<string> constraints to Team.t<'a> (array<Player.t<'a>>)
+      let teamConstraintsAsTeams = switch teamConstraintsNonEmpty {
+      | Some(constraints) =>
+        constraints
+        ->Array.map(constraintSet => {
+          players->Array.filter(p => constraintSet->Set.has(p.id))
+        })
+        ->NonEmptyArray.fromArray
+      | None => None // No team constraints
+      }
+
+      let getCandidateMatches = (useMixed: bool) => {
+        switch teamConstraintsNonEmpty {
+        | Some(_) => {
+            let matchesWithConstraints = getMatches(
+              availablePlayers,
+              consumedPlayers,
+              Mixed, // Use Mixed strategy with team constraints
+              [],
+              avoidAllPlayers,
+              teamConstraintsNonEmpty,
+              None,
+              courts,
+              useMixed,
+            )
+
+            // If no matches found with constraints, retry without constraints using original strategy
+            if matchesWithConstraints->Array.length == 0 {
+              getMatches(
+                availablePlayers,
+                consumedPlayers,
+                strategy, // Use original strategy
+                [],
+                avoidAllPlayers,
+                None, // Remove team constraints
+                None,
+                courts,
+                useMixed,
+              )
+            } else {
+              matchesWithConstraints
+            }
+          }
+        | None =>
+          // No team constraints, use original strategy
+          getMatches(
+            availablePlayers,
+            consumedPlayers,
+            strategy,
+            [],
+            avoidAllPlayers,
+            None,
+            None,
+            courts,
+            useMixed,
+          )
+        }
+      }
+
+      let matches = getCandidateMatches(genderMixed)
+
+      let selectedMatch = RankedMatches.recommendMatch(
+        matches,
+        seenTeamsFromHistory,
+        seenMatchesFromHistory,
+        lastRoundSeenTeams,
+        lastRoundSeenMatches,
+        teamConstraintsAsTeams,
+        strategy,
+        teamCountDict,
+      )
+
+      // Fallback: If mixed gender was requested but no match found, retry without mixed constraint
+      let selectedMatch = switch (selectedMatch, genderMixed) {
+      | (None, true) =>
+        let matches = getCandidateMatches(false)
+        RankedMatches.recommendMatch(
+          matches,
+          seenTeamsFromHistory,
+          seenMatchesFromHistory,
+          lastRoundSeenTeams,
+          lastRoundSeenMatches,
+          teamConstraintsAsTeams,
+          strategy,
+          teamCountDict,
+        )
+      | _ => selectedMatch
+      }
+
+      switch selectedMatch {
+      | Some(match) => {
+          // Update consumed players for this round
+          let matchPlayers = Match.players(match)
+          let newConsumedPlayers = matchPlayers->Array.reduce(consumedPlayers, (set, player) => {
+            set->Set.add(player.id)
+            set
+          })
+
+          // Update players in the match by incrementing their play count
+          let updatedMatch = Match.incrementPlayCounts(match)
+
+          // Randomize team order: 50% chance to swap teams
+          let randomizedMatch = if Math.random() > 0.5 {
+            let (team1, team2) = updatedMatch
+            (team2, team1)
+          } else {
+            updatedMatch
+          }
+
+          // Create match entity with updated player counts
+          let matchId = "match-" ++ Int.toString(accumulated->Array.length + 1)
+          let matchEntity = {id: matchId, match: randomizedMatch}
+
+          // Recursively generate remaining matches
+          // No need to update seenTeams/seenMatches - they stay constant from history
+          generateMatchesRec(
+            newConsumedPlayers,
+            accumulated->Array.concat([matchEntity]),
+            remaining - 1,
+          )
+        }
+      | None => accumulated // No more valid matches can be generated, return what we have
+      }
+    }
+  }
+
+  // Step 4: Start recursive generation
+  generateMatchesRec(Set.make(), [], numMatches)
 }
 
 module OrderedQueue = {
@@ -1477,13 +2178,13 @@ module UnorderedQueue = {
 }
 
 module PlayersCache = {
-  type t = Js.Dict.t<player>
+  type t<'a> = Js.Dict.t<player<'a>>
 
-  let fromPlayers: Players.t => t = players => {
+  let fromPlayers: Players.t<'a> => t<'a> = players => {
     players->Array.map(p => (p.id, p))->Js.Dict.fromArray
   }
 
-  let get: (t, string) => option<player> = (cache, pid) => cache->Js.Dict.get(pid)
+  let get: (t<'a>, string) => option<player<'a>> = (cache, pid) => cache->Js.Dict.get(pid)
 }
 module Matches = {
   type t<'a> = array<Match.t<'a>>
@@ -1501,7 +2202,7 @@ module Matches = {
     ->Js.Dict.fromArray
   }
 
-  let fromDndItems: (MultipleContainers.Items.t, PlayersCache.t) => t<'a> = (
+  let fromDndItems: (MultipleContainers.Items.t, PlayersCache.t<'a>) => t<'a> = (
     items,
     playersCache,
   ) => {
@@ -1537,4 +2238,392 @@ module Matches = {
 
 let guessDupr = (ratingMu: float): float => {
   0.05594 *. (ratingMu -. 25.) +. 3.5
+}
+
+// Calculate deprioritized players (those who should take a break)
+// based on play counts and match history
+let getDeprioritizedPlayers = (
+  rounds: array<array<completedMatchEntity<'a>>>,
+  players: array<Player.t<'a>>,
+  break: int,
+  strategy: strategy,
+) => {
+  // Return empty set if no rounds yet
+  if rounds->Array.length == 0 {
+    Set.make()
+  } else {
+    switch strategy {
+    | Competitive | CompetitivePlus =>
+      // Competitive strategy: prioritize players with highest play count
+      let lastRounds =
+        rounds->Array.slice(
+          ~start=Js.Math.max_int(0, rounds->Array.length - break),
+          ~end=rounds->Array.length,
+        )
+
+      let lastPlayed =
+        lastRounds
+        ->Array.flatMap(round => round)
+        ->Array.flatMap(({match: m}) => {
+          let (team1, team2) = m
+          Array.concat(team1, team2)
+        })
+
+      let maxCount = players->Array.reduce(0, (acc, next) => {
+        next.count > acc ? next.count : acc
+      })
+      let minCount = players->Array.reduce(maxCount, (acc, next) => {
+        next.count < acc ? next.count : acc
+      })
+
+      // Get the break players which are players with the highest play count, sorted by descending rating
+      let breakPlayers = []->Players.addBreakPlayersFrom(
+        players
+        ->Array.filter(p => {
+          p.count == maxCount && p.count != minCount
+        })
+        ->Players.sortByRatingDesc,
+        break,
+      )
+
+      switch breakPlayers->Array.length < break {
+      // Choose break players from players that played previously + designated break players
+      | true =>
+        let breakAndLastPlayed =
+          breakPlayers->Players.addBreakPlayersFrom(lastPlayed->Players.sortByRatingDesc, break)
+        switch breakAndLastPlayed->Array.length < break {
+        | true =>
+          breakAndLastPlayed
+          ->Players.addBreakPlayersFrom(players->Players.sortByRatingDesc, break)
+          ->Array.map(p => p.id)
+          ->Set.fromArray
+        | false => breakAndLastPlayed->Array.map(p => p.id)->Set.fromArray
+        }
+      | false => breakPlayers->Array.map(p => p.id)->Set.fromArray
+      }
+
+    | Mixed | RoundRobin | Random | DUPR =>
+      // Non-competitive strategy: prioritize players with most rounds since last break
+      // Calculate rounds since last break for each player
+      let playersWithRoundsSinceBreak = players->Array.map(player => {
+        // Find the most recent round where this player took a break (did not play)
+        let lastBreakRoundIndex = rounds->Array.reduceWithIndex(None, (acc, round, roundIndex) => {
+          let playedInRound = round->Array.some(
+            ({match: m}) => {
+              let (team1, team2) = m
+              Array.concat(team1, team2)->Array.some(p => p.id == player.id)
+            },
+          )
+          if !playedInRound {
+            Some(roundIndex)
+          } else {
+            acc
+          }
+        })
+
+        // Calculate rounds since last break
+        let roundsSinceLastBreak = switch lastBreakRoundIndex {
+        | None => rounds->Array.length // Never took a break, highest priority
+        | Some(lastIndex) => rounds->Array.length - lastIndex - 1 // Rounds since last break
+        }
+
+        (player, roundsSinceLastBreak)
+      })
+
+      // Sort by rounds since last break (descending), then take the top 'break' players
+      playersWithRoundsSinceBreak
+      ->Array.toSorted((a, b) => {
+        let (_, roundsA) = a
+        let (_, roundsB) = b
+        // Sort descending (higher rounds since last break first - players who need a break most)
+        Float.fromInt(roundsB - roundsA)
+      })
+      ->Array.slice(~start=0, ~end=break)
+      ->Array.map(((player, _)) => player.id)
+      ->Set.fromArray
+    }
+  }
+}
+
+// Process a single timeline event (either adjustments or a round of matches)
+// Returns updated player state after applying the event
+let processTimelineEvent = (players: array<Player.t<'a>>, event: TimelineEvent.t<'a>): array<
+  Player.t<'a>,
+> => {
+  switch event {
+  | Adjustment(adjustments) =>
+    // Apply rating adjustments (only adjust mu, keep sigma unchanged)
+    players->Array.map(player => {
+      let totalAdjustment =
+        adjustments
+        ->Array.filter(adj => adj.playerId == player.id)
+        ->Array.reduce(0.0, (sum, adj) => sum +. adj.differential)
+
+      if totalAdjustment != 0.0 {
+        let currentMu = player.rating.mu
+        let currentSigma = player.rating.sigma
+        let adjustedRating = Rating.make(currentMu +. totalAdjustment, currentSigma)
+        {
+          ...player,
+          rating: adjustedRating,
+          ratingOrdinal: adjustedRating->Rating.ordinal,
+        }
+      } else {
+        player
+      }
+    })
+
+  | Round(matches) =>
+    // Process a round of matches: update counts and ratings
+    let (countIncrements, ratingUpdates) = matches->Array.reduce((Map.make(), Map.make()), (
+      (counts, ratings),
+      {match: m, score},
+    ) => {
+      let (team1, team2) = m
+      let allPlayers = Array.concat(team1, team2)
+
+      // Count matches played in this round
+      let newCounts = allPlayers->Array.reduce(counts, (map, player) => {
+        let current = map->Map.get(player.id)->Option.getOr(0)
+        map->Map.set(player.id, current + 1)
+        map
+      })
+
+      // Update ratings if match was scored
+      let newRatings = switch (m, score)->CompletedMatch.rate {
+      | None => ratings
+      | Some(updatedTeams) =>
+        updatedTeams
+        ->Array.flat
+        ->Array.reduce(ratings, (map, player) => {
+          map->Map.set(player.id, player.rating)
+          map
+        })
+      }
+
+      (newCounts, newRatings)
+    })
+
+    // Apply incremental updates to players (accumulate counts, update ratings)
+    players->Array.map(player => {
+      // Increment count by the number of matches played in this round
+      let countIncrement = countIncrements->Map.get(player.id)->Option.getOr(0)
+      let newCount = player.count + countIncrement
+
+      // Update rating if it changed in this round
+      switch ratingUpdates->Map.get(player.id) {
+      | Some(rating) => {
+          ...player,
+          count: newCount,
+          rating,
+          ratingOrdinal: rating->Rating.ordinal,
+        }
+      | None => {...player, count: newCount}
+      }
+    })
+  }
+}
+
+// Update player state by processing a timeline of events
+// Timeline events are processed in order: adjustments and rounds of matches
+let updatePlayerState = (
+  ~players: array<Player.t<'a>>,
+  ~timeline: array<TimelineEvent.t<'a>>,
+): array<Player.t<'a>> => {
+  timeline->Array.reduce(players, (currentPlayers, event) => {
+    processTimelineEvent(currentPlayers, event)
+  })
+}
+
+// Update player state with rounds and rating adjustments applied chronologically
+// This is a pure function that processes the complete history (matches + adjustments) to derive final state
+// The state at any point is deterministic based on the history up to that point
+//
+// Timeline processing order:
+// 1. Seed adjustments (appliedAtRound = -1, before any matches)
+// 2. For each round N:
+//    a. Adjustments with appliedAtRound = N (before round N starts)
+//    b. Round N matches (rating changes from wins/losses)
+// 3. Final adjustments (appliedAtRound = rounds.length, after all rounds)
+let toPlayerStateWithAdjustments = (
+  rounds: array<array<CompletedMatchEntity.t<'a>>>,
+  ~players: array<Player.t<'a>>,
+  ~adjustments: array<RatingAdjustment.t>,
+): array<Player.t<'a>> => {
+  // Build timeline from rounds and adjustments
+  let timeline = TimelineEvent.fromRoundsAndAdjustments(rounds, adjustments)
+
+  // Process timeline events sequentially
+  let finalPlayers = updatePlayerState(~players, ~timeline)
+
+  finalPlayers
+}
+
+// Generate multiple rounds of matches recursively (tail-call optimized)
+let rec generateRoundsRec = (
+  ~roundNumber: int,
+  ~roundsToGenerate: int,
+  ~availablePlayers: array<Player.t<'a>>,
+  ~completedRounds: array<array<completedMatchEntity<'a>>>,
+  ~strategy: strategy,
+  ~courtCount: int,
+  ~teamConstraints: option<array<Set.t<string>>>=?,
+  ~avoidAllPlayers: array<array<Player.t<'a>>>=[],
+  ~accumulatedRounds: array<array<completedMatchEntity<'a>>>=[], // Accumulator for tail recursion
+  ~genderMixed: bool=false,
+  ~startTime: Js.Date.t,
+  ~currentRoundIndex: int=0, // Track which round we're generating (0-indexed)
+  (),
+): array<array<completedMatchEntity<'a>>> => {
+  // Base case: no more rounds to generate
+  if roundsToGenerate <= 0 {
+    accumulatedRounds
+  } // Check if we have enough players for this round
+  else if availablePlayers->Array.length < courtCount * 4 {
+    // Not enough players, stop generating
+    accumulatedRounds
+  } else {
+    Js.log("Generating round " ++ Int.toString(roundNumber))
+    // Calculate break count (number of players that should sit out)
+    let breakCount = courtCount == 0 ? 0 : availablePlayers->Array.length - courtCount * 4
+
+    let allRounds = Array.concat(completedRounds, accumulatedRounds)
+    // Get deprioritized players (those who should take a break)
+    let deprioritizedPlayerIds = getDeprioritizedPlayers(
+      allRounds,
+      availablePlayers,
+      breakCount,
+      strategy,
+    )
+
+    // Filter out deprioritized players from availablePlayers
+    let playersForMatches =
+      availablePlayers->Array.filter(p => !(deprioritizedPlayerIds->Set.has(p.id)))
+
+    // Convert court count to NonZeroInt.t
+    let courts = Util.NonZeroInt.make(courtCount)
+
+    // Flatten all rounds (completed + accumulated) to flat history for generateMatches
+    let flatHistory = allRounds->Array.flatMap(round => round)
+
+    // Generate matches for this round (using filtered players with pre-incremented counts)
+    let matchEntities = generateMatches(
+      ~players=playersForMatches,
+      ~history=flatHistory,
+      ~strategy,
+      ~numMatches=courtCount,
+      ~teamConstraints?,
+      ~avoidAllPlayers,
+      ~courts,
+      ~genderMixed,
+      (),
+    )
+
+    // Convert matchEntity to completedMatchEntity with proper UUIDs
+    // Calculate createdAt with 10-minute stagger: startTime + (currentRoundIndex + 1) * 10 minutes
+    let roundCreatedAt = {
+      let baseTime = startTime->Js.Date.getTime
+      let minutesOffset = Float.fromInt(currentRoundIndex + 1) *. 10.0 *. 60.0 *. 1000.0
+      Js.Date.fromFloat(baseTime +. minutesOffset)
+    }
+    let roundMatches = matchEntities->Array.mapWithIndex((matchEntity, _courtNum) => {
+      let entity: CompletedMatchEntity.t<'a> = {
+        id: randomUUID(),
+        match: matchEntity.match,
+        score: None,
+        createdAt: roundCreatedAt,
+      }
+      entity
+    })
+
+    // Update player state with only the current round's matches
+    // availablePlayers already has the correct state (including rating adjustments from history)
+    // so we only need to increment counts based on the newly generated round
+    let timeline = [TimelineEvent.Round(roundMatches)]
+    let updatedPlayers = updatePlayerState(~players=availablePlayers, ~timeline)
+
+    // Tail-recursive call with updated players and accumulated rounds
+    // completedRounds stays the same (immutable input history)
+    generateRoundsRec(
+      ~roundNumber=roundNumber + 1,
+      ~roundsToGenerate=roundsToGenerate - 1,
+      ~availablePlayers=updatedPlayers,
+      ~completedRounds,
+      ~strategy,
+      ~courtCount,
+      ~teamConstraints?,
+      ~avoidAllPlayers,
+      ~accumulatedRounds=Array.concat(accumulatedRounds, [roundMatches]),
+      ~genderMixed,
+      ~startTime,
+      ~currentRoundIndex=currentRoundIndex + 1,
+      (),
+    )
+  }
+}
+
+// Convenience wrapper for generating rounds
+let generateRounds = (
+  ~startRoundNumber: int=1,
+  ~numberOfRounds: int,
+  ~availablePlayers: array<Player.t<'a>>,
+  ~completedRounds: array<array<completedMatchEntity<'a>>>,
+  ~strategy: strategy,
+  ~courtCount: int,
+  ~teamConstraints: option<array<Set.t<string>>>=?,
+  ~avoidAllPlayers: array<array<Player.t<'a>>>=[],
+  ~genderMixed: bool=false,
+  ~startTime: Js.Date.t,
+  (),
+): array<array<completedMatchEntity<'a>>> => {
+  generateRoundsRec(
+    ~roundNumber=startRoundNumber,
+    ~roundsToGenerate=numberOfRounds,
+    ~availablePlayers,
+    ~completedRounds,
+    ~strategy,
+    ~courtCount,
+    ~teamConstraints?,
+    ~avoidAllPlayers,
+    ~genderMixed,
+    ~startTime,
+    ~currentRoundIndex=0,
+    (),
+  )
+}
+
+// Generate a single round for reset/regeneration purposes
+// Pure function that takes all necessary inputs and returns a new round
+let generateSingleRound = (
+  ~roundIndex: int,
+  ~rounds: array<array<completedMatchEntity<'a>>>,
+  ~availablePlayers: array<Player.t<'a>>,
+  ~strategy: strategy,
+  ~courtCount: int,
+  ~teamConstraints: option<array<Set.t<string>>>=?,
+  ~avoidAllPlayers: array<array<Player.t<'a>>>=[],
+  ~genderMixed: bool=false,
+  ~startTime: Js.Date.t,
+): option<array<completedMatchEntity<'a>>> => {
+  let roundsBeforeThis = if roundIndex == 0 {
+    []
+  } else {
+    rounds->Array.filterWithIndex((_, idx) => idx < roundIndex)
+  }
+
+  let newRound = generateRounds(
+    ~startRoundNumber=roundIndex + 1,
+    ~numberOfRounds=1,
+    ~availablePlayers,
+    ~completedRounds=roundsBeforeThis,
+    ~strategy,
+    ~courtCount,
+    ~teamConstraints?,
+    ~avoidAllPlayers,
+    ~genderMixed,
+    ~startTime,
+    (),
+  )
+
+  newRound->Array.get(0)
 }

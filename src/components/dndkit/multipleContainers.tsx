@@ -502,23 +502,25 @@ export function MultipleContainers({
               {/*   } */}
               {/* > */}
               <SortableContext items={items[containerId]} strategy={verticalListSortingStrategy}>
-                {items[containerId].map((value, index) => {
-                  return (
-                    <SortableItem
-                      disabled={isSortingContainer}
-                      key={value}
-                      id={value}
-                      value={renderValue ? renderValue(value) : value}
-                      index={index}
-                      handle={handle}
-                      style={getItemStyles}
-                      wrapperStyle={wrapperStyle}
-                      renderItem={renderItem}
-                      containerId={containerId}
-                      getIndex={getIndex}
-                    />
-                  );
-                })}
+                <div className="space-y-2">
+                  {items[containerId].map((value, index) => {
+                    return (
+                      <SortableItem
+                        disabled={isSortingContainer}
+                        key={value}
+                        id={value}
+                        value={renderValue ? renderValue(value) : value}
+                        index={index}
+                        handle={handle}
+                        style={getItemStyles}
+                        wrapperStyle={wrapperStyle}
+                        renderItem={renderItem}
+                        containerId={containerId}
+                        getIndex={getIndex}
+                      />
+                    );
+                  })}
+                </div>
               </SortableContext>
               {/* </SortableContext> */}
             </DroppableContainer>
@@ -536,7 +538,7 @@ export function MultipleContainers({
           </DroppableContainer>
         )}
       </SortableContext>
-      {createPortal(
+      {typeof document !== 'undefined' ? createPortal(
         <DragOverlay adjustScale={adjustScale} dropAnimation={dropAnimation}>
           {activeId
             ? containers.includes(activeId)
@@ -545,7 +547,7 @@ export function MultipleContainers({
             : null}
         </DragOverlay>,
         document.body
-      )}
+      ) : null}
       {trashable && activeId && !containers.includes(activeId) ? (
         <Trash id={TRASH_ID} />
       ) : null}

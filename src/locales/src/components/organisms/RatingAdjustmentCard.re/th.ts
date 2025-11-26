@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"PwrU1F\":\"ลบการปรับ\",\"O1VYeQ\":[\"การปรับเรตติ้ง - ใช้ก่อนรอบที่ \",[\"0\"]]}");

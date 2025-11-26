@@ -126,7 +126,7 @@ export const Item = React.memo(
         >
           <div
             className={classNames(
-               "flex flex-shrink",
+               "flex flex-shrink w-full",
                // styles.Item,
               dragging && styles.dragging,
               handle && styles.withHandle,

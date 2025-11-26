@@ -23,7 +23,9 @@ let make = () => {
               <li>
                 {t`Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and which has a join button, then you can join.`}
               </li>
-              <li> {t`Book a court and find the players yourself.`} </li>
+              <li>
+                {t`Book a court and post the event to Pkuru.com. Please mention the participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are new to the community, we recommend you to offer the court for free.`}
+              </li>
               <li> {t`Message @japanpickle on Instagram for referrals or questions`} </li>
             </ol>
             <h2 className="mt-8 text-2xl font-semibold"> {t`Where to Book Courts in Tokyo`} </h2>
@@ -81,7 +83,27 @@ let make = () => {
                   </Link>
                   <Link
                     className="ml-4 text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-                    to={"http://tokyotower-pickleball.jp/calendar.html"}
+                    to={"https://tokyotower-pickleball.jp/calendar-New/"}
+                    rel="noopener noreferrer"
+                    target="_blank">
+                    {t`Book the Court`}
+                  </Link>
+                </div>
+              </li>
+              <li>
+                {t`Pickleball One Ginza Shimbashi (indoor hard court)`}
+                <p className="mt-1 text-sm text-gray-500">
+                  {t`One full court is available and one "fun" court (half-sized). The full court has narrow space on the sides.`}
+                </p>
+                <div className="mt-4">
+                  <Link to={"/events/create/Location_efd6b790-c62e-11f0-8e63-731899f4b3a8"}>
+                    <Button.Button target="_blank" rel="noopener noreferrer">
+                      {t`Create an Event at Pickleball One`}
+                    </Button.Button>
+                  </Link>
+                  <Link
+                    className="ml-4 text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                    to={"https://reserva.be/pboneginza"}
                     rel="noopener noreferrer"
                     target="_blank">
                     {t`Book the Court`}
@@ -115,10 +137,17 @@ let make = () => {
                 {t`Create an event at one of the locations above (use the buttons above). Make the event public so people can join you.`}
               </li>
               <li>
+                {t`Post it to the Pickeball in Tokyo Facebook Group:`}
+                {" "->React.string}
+                <Link to="https://www.facebook.com/groups/tokyopickleball" target="_blank">
+                  {"https://www.facebook.com/groups/tokyopickleball"->React.string}
+                </Link>
+              </li>
+              <li>
                 {t`Post it to the Yokosuka (US navy base) pickleball group on Facebook:`}
                 {" "->React.string}
-                <Link to="https://www.facebook.com/groups/24408666593863959" target="_blank">
-                  {"https://www.facebook.com/groups/24408666593863959"->React.string}
+                <Link to="https://www.facebook.com/groups/2440866659386395" target="_blank">
+                  {"https://www.facebook.com/groups/2440866659386395"->React.string}
                 </Link>
               </li>
               <li>

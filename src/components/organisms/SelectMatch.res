@@ -18,10 +18,10 @@ module SelectEventPlayersList = {
   @react.component
   let make = (
     // ~event,
-    ~players: array<player>,
-    ~selected: array<Player.t<'a>>,
-    ~disabled: option<array<Player.t<'a>>>=?,
-    ~onSelectPlayer: option<Player.t<'a> => unit>=?,
+    ~players: array<Player.t<rsvpNode>>,
+    ~selected: array<Player.t<rsvpNode>>,
+    ~disabled: option<array<Player.t<rsvpNode>>>=?,
+    ~onSelectPlayer: option<Player.t<rsvpNode> => unit>=?,
     ~minRating=0.,
     ~maxRating=1.,
     ~playerNumberOffset=0,
@@ -124,26 +124,26 @@ let rot2 = (players, player) =>
 
 @react.component
 let make = (
-  ~players: array<player>,
+  ~players: array<Player.t<rsvpNode>>,
   ~onMatchQueued,
   // ~onMatchCompleted,
   ~children,
 ) => {
-  let (leftNodes: array<Player.t<'a>>, setLeftNodes) = React.useState(() => [])
-  let (rightNodes: array<Player.t<'a>>, setRightNodes) = React.useState(() => [])
-  let (selectedMatch: option<match>, setSelectedMatch) = React.useState(() => None)
+  let (leftNodes: array<Player.t<rsvpNode>>, setLeftNodes) = React.useState(() => [])
+  let (rightNodes: array<Player.t<rsvpNode>>, setRightNodes) = React.useState(() => [])
+  let (selectedMatch: option<match<rsvpNode>>, setSelectedMatch) = React.useState(() => None)
   // let {data} = Fragment.usePagination(event)
   // let players = data.rsvps->Fragment.getConnectionNodes
 
   let matchSelected = match => {
-    switch (match: (array<player>, array<player>)) {
+    switch (match: (array<Player.t<rsvpNode>>, array<Player.t<rsvpNode>>)) {
     | ([_, _], [_, _]) as match =>
       // onMatchSelected(match)
       // let match = (
       //   [players->Array.find(p => p.id == p1.id)->Option.getExn, players->Array.find(p => p.id == p2.id)->Option.getExn],
       //   [players->Array.find(p => p.id == p3.id)->Option.getExn, players->Array.find(p => p.id == p4.id)->Option.getExn],
       // )
-      setSelectedMatch(_ => Some((match :> (array<player>, array<player>))))
+      setSelectedMatch(_ => Some((match :> (array<Player.t<rsvpNode>>, array<Player.t<rsvpNode>>))))
     | _ => ()
     }
   }
@@ -164,12 +164,12 @@ let make = (
     let userB = b.rating.mu
     userA < userB ? 1. : -1.
   })
-  let onSelectLeftNode = (node: Player.t<'a>) => {
-    switch leftNodes->Array.findIndex((node': Player.t<'a>) => node'.id == node.id) >= 0 {
+  let onSelectLeftNode = (node: Player.t<rsvpNode>) => {
+    switch leftNodes->Array.findIndex((node': Player.t<rsvpNode>) => node'.id == node.id) >= 0 {
     | true => ()
     | false =>
       setLeftNodes(nodes => {
-        let nodes = nodes->rot2((node :> Player.t<'a>))
+        let nodes = nodes->rot2((node :> Player.t<rsvpNode>))
         // onSelectLeftNodes(nodes)->ignore
         matchSelected((nodes, rightNodes))
         nodes
@@ -177,12 +177,12 @@ let make = (
     }
   }
 
-  let onSelectRightNode = (node: Player.t<'a>) => {
-    switch rightNodes->Array.findIndex((node': Player.t<'a>) => node'.id == node.id) >= 0 {
+  let onSelectRightNode = (node: Player.t<rsvpNode>) => {
+    switch rightNodes->Array.findIndex((node': Player.t<rsvpNode>) => node'.id == node.id) >= 0 {
     | true => ()
     | false =>
       setRightNodes(nodes => {
-        let nodes = nodes->rot2((node :> Player.t<'a>))
+        let nodes = nodes->rot2((node :> Player.t<rsvpNode>))
         // onSelectRightNodes(nodes)->ignore
         matchSelected((leftNodes, nodes))
         nodes

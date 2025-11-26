@@ -1,0 +1,541 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-10 21:50+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/RoundSection.re.mjs:526
+#: src/components/organisms/RoundSection.re.mjs:636
+msgid "{0} {matchText}"
+msgstr "{0} {matchText}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:143
+msgid "{0} of {1} checked in"
+msgstr "{1} 人中有 {0} 人已报到"
+
+#: src/components/organisms/RoundSection.re.mjs:174
+msgid "{matchCount, plural, one {{0}} other {{1}}}"
+msgstr "{matchCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/RoundSection.re.mjs:522
+msgid "ACTIVE ROUND"
+msgstr "进行中的回合"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:135
+msgid "Add {0}Guest{1}"
+msgstr "添加{0}访客{1}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:161
+msgid "Add guest players"
+msgstr "添加访客球员"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:47
+msgid "Add Guest Players"
+msgstr "添加访客球员"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:129
+msgid "Adjust Player Seeds"
+msgstr "调整球员种子"
+
+#: src/components/molecules/RoundHeader.re.mjs:44
+msgid "Advance to Next Round"
+msgstr "前进至下一回合"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "Alex Johnson"
+msgstr "亚历克斯·约翰逊"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:103
+msgid "All checked-in players are already in this round"
+msgstr "所有已报到的球员都已在这个回合中"
+
+#: src/components/organisms/EventManager.re.mjs:1452
+msgid "Anti-Team {0}"
+msgstr "反对队 {0}"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:337
+msgid "Anti-Teams"
+msgstr "反对队"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:244
+#: src/components/organisms/PlayerSettingsModal.re.mjs:174
+#: src/components/organisms/TeamManagementModal.re.mjs:152
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:127
+msgid "Cancel"
+msgstr "取消"
+
+#: src/components/molecules/DrawGenerator.re.mjs:76
+msgid "Classic round-robin draws"
+msgstr "经典循环赛抽签"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:57
+msgid "Close"
+msgstr "关闭"
+
+#: src/components/molecules/DrawGenerator.re.mjs:65
+msgid "Competitive"
+msgstr "竞技模式"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "场地 {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "场地 {0} - 编辑中"
+
+#: src/components/molecules/DrawGenerator.re.mjs:170
+msgid "Courts:"
+msgstr "场地数："
+
+#: src/components/organisms/TeamManagementModal.re.mjs:302
+msgid "Create and manage player teams"
+msgstr "创建和管理球员队伍"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Anti-Team"
+msgstr "创建反对队"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Team"
+msgstr "创建队伍"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first anti-team to prevent players from pairing"
+msgstr "创建您的第一个反对队以防止球员配对"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first team to get started"
+msgstr "创建您的第一支队伍开始"
+
+#: src/components/molecules/RoundHeader.re.mjs:19
+msgid "Current Round:"
+msgstr "当前回合："
+
+#: src/components/organisms/EventManager.re.mjs:1629
+msgid "Debug: OFF"
+msgstr "调试：关闭"
+
+#: src/components/organisms/EventManager.re.mjs:1629
+msgid "Debug: ON"
+msgstr "调试：开启"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:160
+msgid "Delete Guest"
+msgstr "删除访客"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "删除比赛"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:402
+msgid "Delete team"
+msgstr "删除队伍"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "删除这场比赛？"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+msgid "Drag players to reorder their initial seeding"
+msgstr "拖动球员以重新排序他们的初始种子"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "编辑比赛"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:390
+msgid "Edit team"
+msgstr "编辑队伍"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:42
+msgid "Edit Team"
+msgstr "编辑队伍"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:84
+msgid "Enter each guest player's name on a new line"
+msgstr "每行输入一个访客球员的姓名"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "输入比赛比分"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:71
+msgid "Enter team name"
+msgstr "输入队伍名称"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:136
+msgid "Female"
+msgstr "女性"
+
+#: src/components/molecules/DrawGenerator.re.mjs:271
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
+msgstr "未来轮次已输入分数。重新生成将会删除这些分数。您确定吗？"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:120
+msgid "Gender"
+msgstr "性别"
+
+#: src/components/molecules/DrawGenerator.re.mjs:231
+msgid "Generate"
+msgstr "生成"
+
+#: src/components/molecules/DrawGenerator.re.mjs:130
+msgid "Generate Draws"
+msgstr "生成对战表"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:71
+msgid "Guest Names (one per line)"
+msgstr "访客姓名（每行一个）"
+
+#: src/components/organisms/EventManager.re.mjs:1617
+msgid "Help"
+msgstr "帮助"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "Jane Doe"
+msgstr "简·多伊"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "John Smith"
+msgstr "约翰·史密斯"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "上一轮"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "输球队（队伍 {0}）"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:126
+msgid "Male"
+msgstr "男性"
+
+#: src/components/organisms/RoundSection.re.mjs:175
+msgid "match"
+msgstr "场比赛"
+
+#: src/components/organisms/RoundSection.re.mjs:176
+msgid "matches"
+msgstr "场比赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:70
+msgid "Mixed"
+msgstr "混合"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:63
+msgid "mu"
+msgstr "μ"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:100
+msgid "Name"
+msgstr "名字"
+
+#: src/components/molecules/DrawGenerator.re.mjs:251
+msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
+msgstr "{1} 个{courtText}需要 {0} 名球员。目前已报到 {2} 人。"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Anti-Team"
+msgstr "新反对队"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Team"
+msgstr "新队伍"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No anti-teams yet"
+msgstr "尚无反对队"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:99
+msgid "No available players"
+msgstr "没有可用的球员"
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "无比分"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No teams yet"
+msgstr "还没有队伍"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:139
+msgid "Player Check-in"
+msgstr "球员报到"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:85
+msgid "Player ID"
+msgstr "球员ID"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:53
+msgid "Player Settings"
+msgstr "球员设置"
+
+#: src/components/molecules/DrawGenerator.re.mjs:66
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
+msgstr "球员将被分为技能水平相似的组别，以技能平衡的队伍进行循环赛。"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+msgid "Preview ({0} guest{1})"
+msgstr "预览（{0}位访客{1}）"
+
+#: src/components/molecules/RoundHeader.re.mjs:35
+msgid "Previous Round"
+msgstr "上一回合"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "重新平衡比赛"
+
+#: src/components/organisms/RoundSection.re.mjs:545
+msgid "Rebalance this round with current players"
+msgstr "用当前球员重新平衡这个回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:270
+msgid "Regenerate Rounds?"
+msgstr "重新生成轮次？"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "重复"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:61
+msgid "Replace Player"
+msgstr "替换球员"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:66
+msgid "Replacing:"
+msgstr "替换："
+
+#: src/components/organisms/EventManager.re.mjs:1604
+msgid "Reset Storage"
+msgstr "重置存储"
+
+#: src/components/organisms/RoundSection.re.mjs:602
+msgid "Reset this round with all checked-in players"
+msgstr "用所有已报到的球员重置这个回合"
+
+#: src/components/organisms/RoundSection.re.mjs:577
+msgid "Reset this round with mixed gender pairs"
+msgstr "使用混合性别配对重置此轮"
+
+#: src/components/organisms/RoundSection.re.mjs:518
+#: src/components/organisms/RoundSection.re.mjs:632
+msgid "Round {0}"
+msgstr "第 {0} 回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:75
+msgid "Round-Robin"
+msgstr "循环赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:71
+msgid "Round-Robin with teams balanced by skill."
+msgstr "技能平衡队伍的循环赛。"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:443
+msgid "Save & Close"
+msgstr "保存并关闭"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:182
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "保存比分"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:251
+msgid "Save Seed Adjustments"
+msgstr "保存种子调整"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:159
+msgid "Save Team"
+msgstr "保存队伍"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "比分"
+
+#: src/components/organisms/EventManager.re.mjs:1207
+msgid "Scores Synced!"
+msgstr "比分已同步！"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
+msgid "Seeds Adjusted"
+msgstr "种子已调整"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:174
+msgid "Skill: {0}"
+msgstr "技能：{0}"
+
+#: src/components/molecules/DrawGenerator.re.mjs:136
+msgid "strategy"
+msgstr "策略"
+
+#: src/components/molecules/DrawGenerator.re.mjs:206
+msgid "Strategy:"
+msgstr "策略："
+
+#: src/components/organisms/EventManager.re.mjs:1219
+msgid "Sync Failed"
+msgstr "同步失败"
+
+#: src/components/organisms/EventManager.re.mjs:1183
+msgid "Sync Scores"
+msgstr "同步比分"
+
+#: src/components/organisms/EventManager.re.mjs:1195
+msgid "Syncing... {0}%"
+msgstr "同步中... {0}%"
+
+#: src/components/organisms/EventManager.re.mjs:1161
+msgid "Team {0}"
+msgstr "第 {0} 队"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "队伍 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "队伍 2"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:298
+msgid "Team Management"
+msgstr "队伍管理"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:86
+msgid "Team Members ({0})"
+msgstr "队伍成员（{0}人）"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:66
+msgid "Team Name"
+msgstr "队伍名称"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:326
+msgid "Teams"
+msgstr "队伍"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:292
+msgid "This will delete all future rounds and generate new matches"
+msgstr "这将删除所有未来回合并生成新比赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:130
+msgid "Update Future Rounds"
+msgstr "更新未来回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:262
+#: src/components/molecules/DrawGenerator.re.mjs:280
+msgid "Update Rounds Below"
+msgstr "更新以下回合"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "获胜队（队伍 {0}）"
+
+#: src/components/organisms/EventManager.re.mjs:851
+#~ msgid "({0} players per round)"
+#~ msgstr "(每回合 {0} 名球员)"
+
+#: src/components/molecules/DrawGenerator.re.mjs:109
+#~ msgid "and generate new matches for {0} players"
+#~ msgstr "并为 {0} 名球员生成新比赛"
+
+#: src/components/organisms/EventManager.re.mjs:824
+#~ msgid "Available Courts:"
+#~ msgstr "可用场地数："
+
+#: src/components/molecules/DrawGenerator.re.mjs:68
+#~ msgid "Classic random round-robin draws"
+#~ msgstr "经典随机循环赛"
+
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "当前回合："
+
+#: src/components/molecules/DrawGenerator.re.mjs:107
+#~ msgid "delete all rounds below"
+#~ msgstr "删除以下所有回合"
+
+#: src/components/organisms/EventManager.re.mjs:198
+#, fuzzy
+#~ msgid "Event Manager"
+#~ msgstr "活动标签：{tag}"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Generate Initial Draws"
+#~ msgstr "生成初始对战表"
+
+#: src/components/molecules/DrawGenerator.re.mjs:111
+#~ msgid "Generate matches for {0} players across {1} {courtText}"
+#~ msgstr "为 {0} 名球员在 {1} 个{courtText}生成比赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:63
+#~ msgid ""
+#~ "Mix players of different levels in matches but still split stronger "
+#~ "players to balance teams."
+#~ msgstr "混合不同水平的球员，但仍然分散强队以平衡队伍。"
+
+#: src/components/organisms/EventManager.re.mjs:223
+#, fuzzy
+#~ msgid "Players"
+#~ msgstr "添加球员"
+
+#: src/components/molecules/DrawGenerator.re.mjs:58
+#~ msgid ""
+#~ "Players will be divided into similar skill level groups that round-robin."
+#~ msgstr "球员将按相似的技能水平分组进行循环赛。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:67
+#~ msgid "Random"
+#~ msgstr "随机"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Replace Future Rounds"
+#~ msgstr "替换未来回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:162
+#~ msgid "Replace Rounds Below"
+#~ msgstr "替换以下回合"
+
+#: src/components/organisms/EventManager.re.mjs:208
+#, fuzzy
+#~ msgid "Start Next Round"
+#~ msgstr "前进至下一回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:105
+#~ msgid "This will"
+#~ msgstr "这将会"

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"PwrU1F\":\"删除调整\",\"O1VYeQ\":[\"评分调整 - 在第\",[\"0\"],\"轮前应用\"]}");

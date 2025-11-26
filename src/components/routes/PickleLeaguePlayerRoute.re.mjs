@@ -33,7 +33,7 @@ async function loader(param) {
                 after: after,
                 before: before,
                 first: 5,
-                namespace: "doubles:rec",
+                namespace: "doubles:comp",
                 userId: params.userId
               }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))

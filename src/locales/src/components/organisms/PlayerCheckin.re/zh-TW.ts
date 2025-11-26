@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OvopWj\":[[\"1\"],\" 人中有 \",[\"0\"],\" 人已報到\"],\"7FUjUc\":\"新增訪客球員\",\"GsQP9B\":\"調整球員種子\",\"dEgA5A\":\"取消\",\"B2CXh/\":\"拖曳球員以重新排序他們的初始種子\",\"60TdtF\":\"μ\",\"oGBvWN\":\"球員報到\",\"dQttgC\":\"儲存種子調整\"}");

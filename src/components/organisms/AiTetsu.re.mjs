@@ -28,7 +28,6 @@ import * as DialogUiAction from "../molecules/DialogUiAction.re.mjs";
 import * as SessionAddPlayer from "./SessionAddPlayer.re.mjs";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as UiReact from "tinybase/ui-react";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as ReactHelmetAsync from "react-helmet-async";
 import * as SessionEvenPlayMode from "./SessionEvenPlayMode.re.mjs";
@@ -518,7 +517,8 @@ function rsvpToPlayer(rsvp, intId) {
                                       return "Male";
                                     }
                                   }));
-                    })), "Male")
+                    })), "Male"),
+          count: 0
         };
 }
 
@@ -544,7 +544,6 @@ function AiTetsu(props) {
   var commitMutationCreateRating = match$1[0];
   var match$2 = use$1();
   var commitMutationCreateLeagueMatch = match$2[0];
-  var matchesTableJson = UiReact.useTable("matches", matchesStore);
   var match$3 = usePagination($$event);
   var refetch = match$3.refetch;
   var data = match$3.data;
@@ -559,7 +558,8 @@ function AiTetsu(props) {
               rating: player.rating,
               ratingOrdinal: player.ratingOrdinal,
               paid: player.paid,
-              gender: player.gender
+              gender: player.gender,
+              count: player.count
             };
     } else {
       return {
@@ -570,9 +570,22 @@ function AiTetsu(props) {
               rating: player.rating,
               ratingOrdinal: player.ratingOrdinal,
               paid: player.paid,
-              gender: player.gender
+              gender: player.gender,
+              count: player.count
             };
     }
+  };
+  var hydrateMatchWithRsvpData = function (match, rsvpMap) {
+    var hydratedTeam1 = match[0].map(function (player) {
+          return hydratePlayerWithRsvpData(player, rsvpMap);
+        });
+    var hydratedTeam2 = match[1].map(function (player) {
+          return hydratePlayerWithRsvpData(player, rsvpMap);
+        });
+    return [
+            hydratedTeam1,
+            hydratedTeam2
+          ];
   };
   var match$4 = React.useState(function () {
         return [];
@@ -595,32 +608,29 @@ function AiTetsu(props) {
     var playersTable = matchesStore.getTable("players");
     return Core__Array.filterMap(Js_dict.entries(matchesTable), (function (param) {
                   var matchRow = param[1];
+                  var matchId = param[0];
                   var mEventId = Core__Option.map(Js_dict.get(matchRow, "eventId"), (function (v) {
                           return v;
                         }));
                   if (mEventId !== undefined && mEventId === eventId) {
-                    return Core__Option.map(Rating.Match.loadFromDb(matchRow, teamsTable, playersTable, param[0]), (function (match) {
-                                  var hydratedTeam1 = match[0].map(function (player) {
-                                        return hydratePlayerWithRsvpData(player, rsvpMap);
-                                      });
-                                  var hydratedTeam2 = match[1].map(function (player) {
-                                        return hydratePlayerWithRsvpData(player, rsvpMap);
-                                      });
-                                  return [
-                                          hydratedTeam1,
-                                          hydratedTeam2
-                                        ];
+                    return Core__Option.map(Rating.Match.loadFromDb(matchRow, teamsTable, playersTable, matchId), (function (match) {
+                                  var hydratedMatch = hydrateMatchWithRsvpData(match, rsvpMap);
+                                  return {
+                                          id: matchId,
+                                          match: hydratedMatch
+                                        };
                                 }));
                   }
                   
                 }));
   };
   React.useEffect((function () {
+          console.log("Loading matches from TinyBase store");
           var loadedMatches = loadMatchesFromDb();
           setMatches(function (param) {
                 return loadedMatches;
               });
-        }), [matchesTableJson]);
+        }), []);
   var syncMatchesWithDb = function (newMatches) {
     console.log("Syncing matches to TinyBase store");
     var currentMatchesTable = matchesStore.getTable("matches");
@@ -649,12 +659,13 @@ function AiTetsu(props) {
               });
           matchesStore.delRow("matches", matchId);
         });
-    newMatches.forEach(function (match, matchIndex) {
-          var matchId = eventId + "-match-" + matchIndex.toString();
+    newMatches.forEach(function (matchEntity) {
+          var matchId = matchEntity.id;
           var matchRowData = {};
           matchRowData["eventId"] = eventId;
           matchRowData["createdAt"] = Date.now();
           matchesStore.setRow("matches", matchId, matchRowData);
+          var match = matchEntity.match;
           var teams = [
             match[0],
             match[1]
@@ -883,7 +894,8 @@ function AiTetsu(props) {
                 return history;
               });
         }), [sessionPlayers]);
-  var consumedPlayers = new Set(matches.flatMap(function (match) {
+  var consumedPlayers = new Set(matches.flatMap(function (param) {
+            var match = param.match;
             return match[0].concat(match[1]).map(function (p) {
                         return p.id;
                       });
@@ -929,7 +941,10 @@ function AiTetsu(props) {
         match[1]
       ];
     updateMatches(function (currentMatches) {
-          return currentMatches.concat([match$2]);
+          return currentMatches.concat([{
+                        id: crypto.randomUUID(),
+                        match: match$2
+                      }]);
         });
     if (disablePlayers) {
       Rating.Match.players(match$2).map(function (p) {
@@ -1029,6 +1044,12 @@ function AiTetsu(props) {
           eventId: undefined,
           first: undefined
         });
+    var match$1 = Rating.Match.getWinners(match, score);
+    var winnerScore = match$1[1];
+    var winnerIds = match$1[0];
+    var match$2 = Rating.Match.getLosers(match, score);
+    var loserScore = match$2[1];
+    var loserIds = match$2[0];
     return new Promise((function (resolve, reject) {
                   commitMutationCreateLeagueMatch({
                         connections: [connectionId],
@@ -1036,16 +1057,12 @@ function AiTetsu(props) {
                           activitySlug: activitySlug,
                           doublesMatch: {
                             createdAt: Util.Datetime.fromDate(new Date()),
-                            losers: match[1].map(function (p) {
-                                  return p.id;
-                                }),
+                            losers: loserIds,
                             score: [
-                              score[0],
-                              score[1]
+                              winnerScore,
+                              loserScore
                             ],
-                            winners: match[0].map(function (p) {
-                                  return p.id;
-                                })
+                            winners: winnerIds
                           },
                           namespace: eventNamespace
                         }
@@ -1079,12 +1096,13 @@ function AiTetsu(props) {
             return updatedHistory;
           });
       return Core__Promise.$$catch(sessionMode ? (dequeueMatches(matches.map(function (param) {
-                              var match = param[1][0];
-                              var rated_match = Rating.Match.rate(match);
-                              updateSessionPlayerRatings(rated_match.flatMap(function (x) {
-                                        return x;
-                                      }));
-                              updatePlayCounts(match);
+                              var completedMatch = param[1];
+                              Core__Option.map(Rating.CompletedMatch.rate(completedMatch), (function (rated_match) {
+                                      updateSessionPlayerRatings(rated_match.flatMap(function (x) {
+                                                return x;
+                                              }));
+                                    }));
+                              updatePlayCounts(completedMatch[0]);
                               return param[0];
                             })), Promise.resolve()) : Core__Option.getOr(Core__Option.flatMap(activity, (function (activity) {
                               return Core__Option.map(activity.slug, (function (slug) {
@@ -1373,7 +1391,8 @@ function AiTetsu(props) {
                                                                     rating: p.rating,
                                                                     ratingOrdinal: p.ratingOrdinal,
                                                                     paid: p.paid,
-                                                                    gender: "Male"
+                                                                    gender: "Male",
+                                                                    count: p.count
                                                                   };
                                                           });
                                                       updateSessionPlayerRatings(updatedPlayers);
@@ -1392,7 +1411,8 @@ function AiTetsu(props) {
                                                                     rating: p.rating,
                                                                     ratingOrdinal: p.ratingOrdinal,
                                                                     paid: p.paid,
-                                                                    gender: "Female"
+                                                                    gender: "Female",
+                                                                    count: p.count
                                                                   };
                                                           });
                                                       updateSessionPlayerRatings(updatedPlayers);

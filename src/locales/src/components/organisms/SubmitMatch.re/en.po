@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SubmitMatch.re.mjs:257
+#: src/components/organisms/SubmitMatch.re.mjs:253
 msgid "Cancel"
 msgstr ""
 
@@ -21,11 +21,11 @@ msgstr ""
 #~ msgid "Completed"
 #~ msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:394
+#: src/components/organisms/SubmitMatch.re.mjs:390
 msgid "Go Back"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:413
+#: src/components/organisms/SubmitMatch.re.mjs:409
 msgid "Loading"
 msgstr ""
 
@@ -34,8 +34,8 @@ msgstr ""
 #~ msgid "points"
 #~ msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:315
-#: src/components/organisms/SubmitMatch.re.mjs:361
+#: src/components/organisms/SubmitMatch.re.mjs:311
+#: src/components/organisms/SubmitMatch.re.mjs:357
 msgid "Points"
 msgstr ""
 
@@ -44,11 +44,11 @@ msgstr ""
 msgid "predicted winner"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:401
+#: src/components/organisms/SubmitMatch.re.mjs:397
 msgid "Submit Rated"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:327
-#: src/components/organisms/SubmitMatch.re.mjs:373
+#: src/components/organisms/SubmitMatch.re.mjs:323
+#: src/components/organisms/SubmitMatch.re.mjs:369
 msgid "Winner"
 msgstr ""

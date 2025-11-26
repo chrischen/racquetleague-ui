@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"GsQP9B\":\"调整球员种子\",\"dEgA5A\":\"取消\",\"B2CXh/\":\"拖动球员以重新排序他们的初始种子\",\"60TdtF\":\"μ\",\"dQttgC\":\"保存种子调整\"}");

@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:353
+#: src/components/pages/EventPage.re.mjs:362
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:356
+#: src/components/pages/EventPage.re.mjs:365
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:359
+#: src/components/pages/EventPage.re.mjs:368
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:362
+#: src/components/pages/EventPage.re.mjs:371
 msgid "Futsal"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:365
+#: src/components/pages/EventPage.re.mjs:374
 msgid "drill"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:368
+#: src/components/pages/EventPage.re.mjs:377
 msgid "comp"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:371
+#: src/components/pages/EventPage.re.mjs:380
 msgid "rec"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:374
+#: src/components/pages/EventPage.re.mjs:383
 msgid "all level"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "edit event"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:316
+#: src/components/pages/EventPage.re.mjs:325
 msgid "Event not found"
 msgstr ""
 
@@ -134,15 +134,15 @@ msgstr ""
 msgid "Join Waitlist"
 msgstr ""
 
-#: src/components/organisms/EventMessages.re.mjs:264
+#: src/components/organisms/EventMessages.re.mjs:283
 msgid "joined from waitlist"
 msgstr ""
 
-#: src/components/organisms/EventMessages.re.mjs:258
+#: src/components/organisms/EventMessages.re.mjs:277
 msgid "joined the event"
 msgstr ""
 
-#: src/components/organisms/EventMessages.re.mjs:261
+#: src/components/organisms/EventMessages.re.mjs:280
 msgid "left the event"
 msgstr ""
 
@@ -162,8 +162,12 @@ msgstr ""
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:187
+#: src/components/pages/EventPage.re.mjs:189
 msgid "Manage Event"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:193
+msgid "Manage Event (Beta)"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:54
@@ -208,8 +212,8 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:219
-#: src/components/pages/EventPage.re.mjs:248
+#: src/components/pages/EventPage.re.mjs:228
+#: src/components/pages/EventPage.re.mjs:257
 msgid "Private Event"
 msgstr ""
 
@@ -287,8 +291,8 @@ msgstr ""
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:223
-#: src/components/pages/EventPage.re.mjs:252
+#: src/components/pages/EventPage.re.mjs:232
+#: src/components/pages/EventPage.re.mjs:261
 msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
 msgstr ""
 
@@ -337,6 +341,14 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:288
 #~ msgid "Waitlisted"
 #~ msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:274
+msgid "was added to the event by admin"
+msgstr ""
+
+#: src/components/organisms/EventMessages.re.mjs:286
+msgid "was removed from the event by admin"
+msgstr ""
 
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"

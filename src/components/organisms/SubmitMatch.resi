@@ -6,7 +6,7 @@ module PlayerView: {
     maxRating: 'maxRating,
   }
 
-  let make: props<Rating.player, float, float> => React.element
+  let make: props<Rating.Player.t<Rating.rsvpNode>, float, float> => React.element
 }
 
 @react.component

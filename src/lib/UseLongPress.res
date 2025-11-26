@@ -13,6 +13,13 @@ type eventCallback<'context> = (ReactEvent.Synthetic.t, option<meta<'context>>) 
 // Type for the filterEvents callback
 type filterEventsCallback = ReactEvent.Synthetic.t => bool
 
+// LongPressEventType enum values
+type longPressEventType = [
+  | #mouse
+  | #touch
+  | #pointer
+]
+
 // Options for the useLongPress hook
 type options<'context> = {
   onStart?: eventCallback<'context>,
@@ -21,9 +28,8 @@ type options<'context> = {
   threshold?: int,
   captureEvent?: bool,
   // cancelOnMovement accepts a boolean or a number (pixel threshold)
-  // Use Js.true_, Js.false, or Js.Any.fromInt(number)
   cancelOnMovement?: bool,
-  detect?: [#mouse | #touch | #both],
+  @as("detect") detect?: longPressEventType,
   filterEvents?: filterEventsCallback,
   cancelOutsideElement?: bool,
 }

@@ -23,7 +23,7 @@ let make = (
     string,
     'a,
     'b,
-    Rating.player,
+    Rating.player<'c>,
     int,
   >,
 ) => {

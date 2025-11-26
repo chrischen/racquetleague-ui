@@ -52,7 +52,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
               ?after,
               ?before,
               activitySlug: "pickleball",
-              namespace: "doubles:rec",
+              namespace: "doubles:comp",
             },
             ~fetchPolicy=RescriptRelay.StoreOrNetwork,
           )

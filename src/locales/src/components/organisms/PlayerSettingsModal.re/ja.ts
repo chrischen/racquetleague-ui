@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dEgA5A\":\"キャンセル\",\"3/oIjt\":\"ゲストを削除\",\"M9iqFS\":\"女性\",\"5iyJje\":\"性別\",\"CvCWBI\":\"男性\",\"6YtxFj\":\"名前\",\"S7OC4j\":\"プレイヤーID\",\"tlsYiU\":\"プレイヤー設定\",\"IUwGEM\":\"変更を保存\"}");

@@ -33,7 +33,7 @@ function PickleballTokyoPage(props) {
                                                           children: t`Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and which has a join button, then you can join.`
                                                         }),
                                                     JsxRuntime.jsx("li", {
-                                                          children: t`Book a court and find the players yourself.`
+                                                          children: t`Book a court and post the event to Pkuru.com. Please mention the participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are new to the community, we recommend you to offer the court for free.`
                                                         }),
                                                     JsxRuntime.jsx("li", {
                                                           children: t`Message @japanpickle on Instagram for referrals or questions`
@@ -123,7 +123,36 @@ function PickleballTokyoPage(props) {
                                                                               })
                                                                         }),
                                                                     JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                          to: "http://tokyotower-pickleball.jp/calendar.html",
+                                                                          to: "https://tokyotower-pickleball.jp/calendar-New/",
+                                                                          children: t`Book the Court`,
+                                                                          className: "ml-4 text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500",
+                                                                          rel: "noopener noreferrer",
+                                                                          target: "_blank"
+                                                                        })
+                                                                  ],
+                                                                  className: "mt-4"
+                                                                })
+                                                          ]
+                                                        }),
+                                                    JsxRuntime.jsxs("li", {
+                                                          children: [
+                                                            t`Pickleball One Ginza Shimbashi (indoor hard court)`,
+                                                            JsxRuntime.jsx("p", {
+                                                                  children: t`One full court is available and one \"fun\" court (half-sized). The full court has narrow space on the sides.`,
+                                                                  className: "mt-1 text-sm text-gray-500"
+                                                                }),
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                          to: "/events/create/Location_efd6b790-c62e-11f0-8e63-731899f4b3a8",
+                                                                          children: JsxRuntime.jsx(Button.Button.make, {
+                                                                                children: t`Create an Event at Pickleball One`,
+                                                                                target: "_blank",
+                                                                                rel: "noopener noreferrer"
+                                                                              })
+                                                                        }),
+                                                                    JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                          to: "https://reserva.be/pboneginza",
                                                                           children: t`Book the Court`,
                                                                           className: "ml-4 text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500",
                                                                           rel: "noopener noreferrer",
@@ -177,11 +206,22 @@ function PickleballTokyoPage(props) {
                                                         }),
                                                     JsxRuntime.jsxs("li", {
                                                           children: [
+                                                            t`Post it to the Pickeball in Tokyo Facebook Group:`,
+                                                            " ",
+                                                            JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                  to: "https://www.facebook.com/groups/tokyopickleball",
+                                                                  children: "https://www.facebook.com/groups/tokyopickleball",
+                                                                  target: "_blank"
+                                                                })
+                                                          ]
+                                                        }),
+                                                    JsxRuntime.jsxs("li", {
+                                                          children: [
                                                             t`Post it to the Yokosuka (US navy base) pickleball group on Facebook:`,
                                                             " ",
                                                             JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                  to: "https://www.facebook.com/groups/24408666593863959",
-                                                                  children: "https://www.facebook.com/groups/24408666593863959",
+                                                                  to: "https://www.facebook.com/groups/2440866659386395",
+                                                                  children: "https://www.facebook.com/groups/2440866659386395",
                                                                   target: "_blank"
                                                                 })
                                                           ]

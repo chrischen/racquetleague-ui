@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:353
+#: src/components/pages/EventPage.re.mjs:362
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:356
+#: src/components/pages/EventPage.re.mjs:365
 msgid "Table Tennis"
 msgstr "乒乓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:359
+#: src/components/pages/EventPage.re.mjs:368
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:362
+#: src/components/pages/EventPage.re.mjs:371
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:365
+#: src/components/pages/EventPage.re.mjs:374
 msgid "drill"
 msgstr "训练"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:368
+#: src/components/pages/EventPage.re.mjs:377
 msgid "comp"
 msgstr "竞赛"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:371
+#: src/components/pages/EventPage.re.mjs:380
 msgid "rec"
 msgstr "休闲"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:374
+#: src/components/pages/EventPage.re.mjs:383
 msgid "all level"
 msgstr "所有级别"
 
@@ -102,7 +102,7 @@ msgstr "折叠"
 msgid "edit event"
 msgstr "编辑活动"
 
-#: src/components/pages/EventPage.re.mjs:316
+#: src/components/pages/EventPage.re.mjs:325
 msgid "Event not found"
 msgstr "找不到活动"
 
@@ -130,15 +130,15 @@ msgstr "加入活动"
 msgid "Join Waitlist"
 msgstr "加入候补名单"
 
-#: src/components/organisms/EventMessages.re.mjs:264
+#: src/components/organisms/EventMessages.re.mjs:283
 msgid "joined from waitlist"
 msgstr "从等待列表加入"
 
-#: src/components/organisms/EventMessages.re.mjs:258
+#: src/components/organisms/EventMessages.re.mjs:277
 msgid "joined the event"
 msgstr "加入了活动"
 
-#: src/components/organisms/EventMessages.re.mjs:261
+#: src/components/organisms/EventMessages.re.mjs:280
 msgid "left the event"
 msgstr "退出了活动"
 
@@ -158,9 +158,13 @@ msgstr "登录加入"
 msgid "Lower intermediate and above"
 msgstr "中级初级及以上"
 
-#: src/components/pages/EventPage.re.mjs:187
+#: src/components/pages/EventPage.re.mjs:189
 msgid "Manage Event"
 msgstr "管理活动"
+
+#: src/components/pages/EventPage.re.mjs:193
+msgid "Manage Event (Beta)"
+msgstr "管理活动（测试版）"
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid "Matches will be submitted to DUPR."
@@ -188,8 +192,8 @@ msgstr "待审核"
 msgid "Player"
 msgstr "球员"
 
-#: src/components/pages/EventPage.re.mjs:219
-#: src/components/pages/EventPage.re.mjs:248
+#: src/components/pages/EventPage.re.mjs:228
+#: src/components/pages/EventPage.re.mjs:257
 msgid "Private Event"
 msgstr "私人活动"
 
@@ -265,8 +269,8 @@ msgstr ""
 "这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
 "加入等待列表。您确定要退出这个活动吗？"
 
-#: src/components/pages/EventPage.re.mjs:223
-#: src/components/pages/EventPage.re.mjs:252
+#: src/components/pages/EventPage.re.mjs:232
+#: src/components/pages/EventPage.re.mjs:261
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -316,6 +320,14 @@ msgstr "查看资料"
 #: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr "等待列表"
+
+#: src/components/organisms/EventMessages.re.mjs:274
+msgid "was added to the event by admin"
+msgstr "已被管理员添加至活动"
+
+#: src/components/organisms/EventMessages.re.mjs:286
+msgid "was removed from the event by admin"
+msgstr "已被管理员从活动中移除"
 
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"

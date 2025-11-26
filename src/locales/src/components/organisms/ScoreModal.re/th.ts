@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YIAAQf\":\"ป้อนคะแนนแมตช์\",\"VIlNWA\":[\"ทีมแพ้ (ทีม \",[\"0\"],\")\"],\"zCo4xa\":\"ไม่มีคะแนน\",\"27SfGh\":\"บันทึกคะแนน\",\"yxTTJj\":[\"ทีมชนะ (ทีม \",[\"0\"],\")\"]}");

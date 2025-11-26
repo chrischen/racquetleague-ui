@@ -556,6 +556,83 @@ msgstr "俱乐部"
 msgid "main activity"
 msgstr "主要活动"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:402
+msgid "Delete team"
+msgstr "删除队伍"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:390
+msgid "Edit team"
+msgstr "编辑队伍"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Anti-Team"
+msgstr "新反对队"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Team"
+msgstr "新队伍"
+
+#: src/components/pages/ClubMembersPage.re.mjs:183
+msgid "from the club?"
+msgstr "从俱乐部中移除吗？"
+
+#: src/components/molecules/DrawGenerator.re.mjs:68
+msgid "Classic round-robin draws"
+msgstr "经典循环赛抽签"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Last Round"
+msgstr "上一轮"
+
+#: src/components/molecules/DrawGenerator.re.mjs:58
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
+msgstr "球员将被分为技能水平相似的组别，以技能平衡的队伍进行循环赛。"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Repeat"
+msgstr "重复"
+
+#: src/components/organisms/RoundSection.re.mjs:563
+msgid "Reset this round with mixed gender pairs"
+msgstr "使用混合性别配对重置此轮"
+
+#: src/components/molecules/DrawGenerator.re.mjs:67
+msgid "Round-Robin"
+msgstr "循环赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:63
+msgid "Round-Robin with teams balanced by skill."
+msgstr "技能平衡队伍的循环赛。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid ""
+"Book a court and post the event to Pkuru.com. Please mention the "
+"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
+"new to the community, we recommend you to offer the court for free."
+msgstr ""
+"预订球场并在 Pkuru.com 发布活动。请注明参加费用和预期水平（3.0、3.5、4.0"
+"等）。如果您是社群新成员，我们建议您免费提供球场。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Pickleball One"
+msgstr "在 Pickleball One 创建活动"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"One full court is available and one \\\"fun\\\" court (half-sized). The full "
+"court has narrow space on the sides."
+msgstr "有一个完整球场和一个「趣味」球场（半尺寸）可用。完整球场两侧空间较窄。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
+msgstr "Pickleball One 银座新桥（室内硬地球场）"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:209
+msgid "Post it to the Pickeball in Tokyo Facebook Group:"
+msgstr "发布到 Pickleball in Tokyo Facebook 群组："
+
 #: src/components/organisms/CreateClubForm.re.mjs:85
 msgid "main activity is required"
 msgstr "必须填写主要活动"
@@ -2088,6 +2165,737 @@ msgid ""
 "the event without permission."
 msgstr "此活动为私人活动，无法通过 Pkuru.com 加入。未经许可请勿前往活动现场。"
 
+#: src/components/organisms/RoundSection.re.mjs:275
+msgid "{0} {matchText}"
+msgstr "{0} {matchText}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:123
+msgid "{0} of {1} checked in"
+msgstr "{1} 人中有 {0} 人已报到"
+
+#: src/components/organisms/RoundSection.re.mjs:71
+msgid "{matchCount, plural, one {{0}} other {{1}}}"
+msgstr "{matchCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/RoundSection.re.mjs:271
+msgid "ACTIVE ROUND"
+msgstr "进行中的回合"
+
+#: src/components/molecules/RoundHeader.re.mjs:44
+msgid "Advance to Next Round"
+msgstr "前进至下一回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:109
+msgid "and generate new matches for {0} players"
+msgstr "并为 {0} 名球员生成新比赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:82
+msgid "Available Courts:"
+msgstr "可用场地数："
+
+#: src/components/organisms/MatchCard.re.mjs:424
+msgid "Court {0}"
+msgstr "场地 {0}"
+
+#: src/components/organisms/MatchCard.re.mjs:585
+msgid "Court {0} - Editing"
+msgstr "场地 {0} - 编辑中"
+
+#: src/components/molecules/RoundHeader.re.mjs:19
+msgid "Current Round:"
+msgstr "当前回合："
+
+#: src/components/molecules/DrawGenerator.re.mjs:107
+msgid "delete all rounds below"
+msgstr "删除以下所有回合"
+
+#: src/components/organisms/MatchCard.re.mjs:437
+msgid "Edit match"
+msgstr "编辑比赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:130
+msgid "Generate Draws"
+msgstr "生成对战表"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+msgid "Generate Initial Draws"
+msgstr "生成初始对战表"
+
+#: src/components/molecules/DrawGenerator.re.mjs:111
+msgid "Generate matches for {0} players across {1} {courtText}"
+msgstr "为 {0} 名球员在 {1} 个{courtText}生成比赛"
+
+#: src/components/organisms/RoundSection.re.mjs:72
+msgid "match"
+msgstr "场比赛"
+
+#: src/components/organisms/RoundSection.re.mjs:73
+msgid "matches"
+msgstr "场比赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:120
+msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
+msgstr "{1} 个{courtText}需要 {0} 名球员。目前已报到 {2} 人。"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:119
+msgid "Player Check-in"
+msgstr "球员报到"
+
+#: src/components/molecules/RoundHeader.re.mjs:35
+msgid "Previous Round"
+msgstr "上一回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+msgid "Replace Future Rounds"
+msgstr "替换未来回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:130
+msgid "Replace Rounds Below"
+msgstr "替换以下回合"
+
+#: src/components/organisms/RoundSection.re.mjs:267
+msgid "Round {0}"
+msgstr "第 {0} 回合"
+
+#: src/components/organisms/MatchCard.re.mjs:617
+#: src/components/organisms/MatchCard.re.mjs:654
+msgid "Score"
+msgstr "比分"
+
+#: src/components/organisms/MatchCard.re.mjs:610
+msgid "TEAM 1"
+msgstr "队伍 1"
+
+#: src/components/organisms/MatchCard.re.mjs:647
+msgid "TEAM 2"
+msgstr "队伍 2"
+
+#: src/components/molecules/DrawGenerator.re.mjs:105
+msgid "This will"
+msgstr "这将会"
+
+#: src/components/organisms/MatchCard.re.mjs:524
+#: src/components/organisms/MatchCard.re.mjs:531
+#: src/components/organisms/MatchCard.re.mjs:635
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/EventMessages.re.mjs:274
+msgid "was added to the event by admin"
+msgstr "已被管理员添加至活动"
+
+#: src/components/organisms/EventMessages.re.mjs:286
+msgid "was removed from the event by admin"
+msgstr "已被管理员从活动中移除"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:359
+msgid "Delete match"
+msgstr "删除比赛"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:113
+msgid "TEAM {0}"
+msgstr "队伍 {0}"
+
+#: src/components/organisms/EventManager.re.mjs:851
+msgid "({0} players per round)"
+msgstr "(每回合 {0} 名球员)"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:103
+msgid "All checked-in players are already in this round"
+msgstr "所有已报到的球员都已在这个回合中"
+
+#: src/components/molecules/DrawGenerator.re.mjs:32
+msgid "Classic random round-robin draws"
+msgstr "经典随机循环赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:71
+msgid "Courts:"
+msgstr "场地数："
+
+#: src/components/organisms/EventManager.re.mjs:993
+msgid "Debug: OFF"
+msgstr "调试：关闭"
+
+#: src/components/organisms/EventManager.re.mjs:993
+msgid "Debug: ON"
+msgstr "调试：开启"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "输入比赛比分"
+
+#: src/components/molecules/DrawGenerator.re.mjs:132
+msgid "Generate"
+msgstr "生成"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "输球队（队伍 {0}）"
+
+#: src/components/molecules/DrawGenerator.re.mjs:27
+msgid ""
+"Mix players of different levels in matches but still split stronger players "
+"to balance teams."
+msgstr "混合不同水平的球员，但仍然分散强队以平衡队伍。"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:99
+msgid "No available players"
+msgstr "没有可用的球员"
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "无比分"
+
+#: src/components/molecules/DrawGenerator.re.mjs:22
+msgid ""
+"Players will be divided into similar skill level groups that round-robin."
+msgstr "球员将按相似的技能水平分组进行循环赛。"
+
+#: src/components/organisms/RoundSection.re.mjs:406
+msgid "Rebalance this round with current players"
+msgstr "用当前球员重新平衡这个回合"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:61
+msgid "Replace Player"
+msgstr "替换球员"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:66
+msgid "Replacing:"
+msgstr "替换："
+
+#: src/components/organisms/RoundSection.re.mjs:431
+msgid "Reset this round with all checked-in players"
+msgstr "用所有已报到的球员重置这个回合"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "保存比分"
+
+#: src/components/organisms/EventManager.re.mjs:758
+msgid "Scores Synced!"
+msgstr "比分已同步！"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:174
+msgid "Skill: {0}"
+msgstr "技能：{0}"
+
+#: src/components/molecules/DrawGenerator.re.mjs:107
+msgid "Strategy:"
+msgstr "策略："
+
+#: src/components/organisms/EventManager.re.mjs:770
+msgid "Sync Failed"
+msgstr "同步失败"
+
+#: src/components/organisms/EventManager.re.mjs:734
+msgid "Sync Scores"
+msgstr "同步比分"
+
+#: src/components/organisms/EventManager.re.mjs:746
+msgid "Syncing... {0}%"
+msgstr "同步中... {0}%"
+
+#: src/components/molecules/DrawGenerator.re.mjs:177
+msgid "This will delete all future rounds and generate new matches"
+msgstr "这将删除所有未来回合并生成新比赛"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "获胜队（队伍 {0}）"
+
+#: src/components/pages/EventPage.re.mjs:193
+msgid "Manage Event (Beta)"
+msgstr "管理活动（测试版）"
+
+#: src/components/molecules/DrawGenerator.re.mjs:92
+msgid "strategy"
+msgstr "策略"
+
+#: src/components/molecules/DrawGenerator.re.mjs:86
+msgid "Update Future Rounds"
+msgstr "更新未来回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:213
+msgid "Update Rounds Below"
+msgstr "更新以下回合"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:129
+msgid "Adjust Player Seeds"
+msgstr "调整球员种子"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:273
+msgid "Create and manage player teams"
+msgstr "创建和管理球员队伍"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:305
+msgid "Create your first team to get started"
+msgstr "创建您的第一支队伍开始"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+msgid "Drag players to reorder their initial seeding"
+msgstr "拖动球员以重新排序他们的初始种子"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:42
+msgid "Edit Team"
+msgstr "编辑队伍"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:71
+msgid "Enter team name"
+msgstr "输入队伍名称"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:117
+msgid "Gender"
+msgstr "性别"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:63
+msgid "mu"
+msgstr "μ"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:97
+msgid "Name"
+msgstr "名字"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:301
+msgid "No teams yet"
+msgstr "还没有队伍"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:82
+msgid "Player ID"
+msgstr "球员ID"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:50
+msgid "Player Settings"
+msgstr "球员设置"
+
+#: src/components/organisms/EventManager.re.mjs:1344
+msgid "Reset Storage"
+msgstr "重置存储"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:379
+msgid "Save & Close"
+msgstr "保存并关闭"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:161
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:251
+msgid "Save Seed Adjustments"
+msgstr "保存种子调整"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:159
+msgid "Save Team"
+msgstr "保存队伍"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
+msgid "Seeds Adjusted"
+msgstr "种子已调整"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:269
+msgid "Team Management"
+msgstr "队伍管理"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:86
+msgid "Team Members ({0})"
+msgstr "队伍成员（{0}人）"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:66
+msgid "Team Name"
+msgstr "队伍名称"
+
+#: src/components/organisms/RatingAdjustmentCard.re.mjs:48
+msgid "Delete adjustment"
+msgstr "删除调整"
+
+#: src/components/organisms/RatingAdjustmentCard.re.mjs:37
+msgid "Rating Adjustment - Applied Before Round {0}"
+msgstr "评分调整 - 在第{0}轮前应用"
+
+#: src/components/organisms/EventManager.re.mjs:1282
+msgid "Anti-Team {0}"
+msgstr "反对队 {0}"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:337
+msgid "Anti-Teams"
+msgstr "反对队"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first anti-team to prevent players from pairing"
+msgstr "创建您的第一个反对队以防止球员配对"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No anti-teams yet"
+msgstr "尚无反对队"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:326
+msgid "Teams"
+msgstr "队伍"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:33
+msgid "Check-in / Check-out"
+msgstr "签到 / 签退"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:37
+msgid "Court Management & Player Breaks"
+msgstr "球场管理与球员休息"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:25
+msgid "Event Manager Icons"
+msgstr "赛事管理器图标"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:58
+msgid "How to use Event Manager"
+msgstr "如何使用赛事管理器"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:42
+msgid ""
+"In the **Matches** screen:\\n          \\n1. Tap a match to open the result "
+"entry view.\\n          \\n2. Select the winning team or enter the specific "
+"score.\\n          \\n3. Once a winner is selected (green border), the "
+"result is ready.\\n          \\n4. Click **Submit** to save the result and "
+"update ratings."
+msgstr ""
+"在**比赛**界面中：\\n          \\n1. 点击比赛以打开结果输入视图。"
+"\\n          \\n2. 选择获胜队伍或输入具体分数。\\n          \\n3. 一旦选择了"
+"胜者（绿色边框），结果即准备就绪。\\n          \\n4. 点击**提交**以保存结果并"
+"更新评分。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:50
+msgid ""
+"In the Queue screen, select players to access special options:\\n          "
+"\\n• **Create Team**: Link two players who always want to play together "
+"(Fixed Pair).\\n          \\n• **Anti-Team**: Prevent two players from being "
+"paired together.\\n          \\n• **Set Gender**: Override gender for Mixed "
+"Doubles matchmaking."
+msgstr ""
+"在队列界面中，选择球员以访问特殊选项：\\n          \\n• **创建队伍**：链接两"
+"名总是想一起打球的球员（固定搭档）。\\n          \\n• **反对队**：防止两名球"
+"员被配对在一起。\\n          \\n• **设置性别**：为混合双打配对覆盖性别。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:49
+msgid "Player Options (Teams & Anti-Teams)"
+msgstr "球员选项（队伍与反对队）"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:26
+msgid ""
+"The Event Manager uses several icons to help you navigate and manage your "
+"event:\\n          \\n• **Gear Icon**: Access settings to change the number "
+"of courts, match generation strategy, and view match history.\\n          "
+"\\n• **Checkmark/User Icon**: Used for checking players in and out of the "
+"session. Green indicates checked in.\\n          \\n• **List/Queue Icon**: "
+"View the list of available players and select them for the next round."
+"\\n          \\n• **Play/Matches Icon**: View active matches and enter "
+"results.\\n          \\n• **Trash Icon**: Delete a match (careful, this "
+"cannot be undone in some modes)."
+msgstr ""
+"赛事管理器使用几个图标来帮助您导航和管理赛事：\\n          \\n• **齿轮图标"
+"**：访问设置以更改球场数量、比赛生成策略并查看比赛历史。\\n          \\n• **"
+"复选框/用户图标**：用于签到和签退球员。绿色表示已签到。\\n          \\n• **列"
+"表/队列图标**：查看可用球员列表并为下一轮选择他们。\\n          \\n• **播放/"
+"比赛图标**：查看活跃比赛并输入结果。\\n          \\n• **垃圾桶图标**：删除比"
+"赛（请注意，在某些模式中无法撤销）。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:30
+msgid ""
+"To generate matches:\\n          \\n1. Go to the **Queue** screen."
+"\\n          \\n2. Select at least 4 players (highlighted in green). You can "
+"use the \\\"Queue All\\\" button to select everyone not on break."
+"\\n          \\n3. Click the **Generate Matches** button.\\n          \\n4. "
+"The system will propose matches based on the selected strategy (e.g., "
+"Competitive, Mixed).\\n          \\n5. You can accept the recommended "
+"matches or manually select from the list of possibilities.\\n          \\n6. "
+"Quality indicators show how balanced a match is expected to be."
+msgstr ""
+"生成比赛：\\n          \\n1. 前往**队列**界面。\\n          \\n2. 选择至少 4 "
+"名球员（绿色高亮显示）。您可以使用\"全部入队列\"按钮来选择所有未休息的人。"
+"\\n          \\n3. 点击**生成比赛**按钮。\\n          \\n4. 系统将根据选定的"
+"策略（例如竞技、混合）提议比赛。\\n          \\n5. 您可以接受推荐的比赛，或从"
+"可能性列表中手动选择。\\n          \\n6. 质量指标显示比赛的平衡度。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:46
+msgid ""
+"Toggle **Offline Mode** on the start screen if you don't have a stable "
+"internet connection or want to test without saving data to the server."
+"\\n          \\n• Results are stored locally on your device.\\n          "
+"\\n• You can sync them later when you're back online."
+msgstr ""
+"如果没有稳定的网络连接或想在不保存数据到服务器的情况下进行测试，请在开始界面"
+"上切换**离线模式**。\\n          \\n• 结果会在您的设备上本地存储。"
+"\\n          \\n• 当您重新上线时，可以稍后同步它们。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:34
+msgid ""
+"Use the **Check-in** screen to manage player attendance. Tap a player to "
+"toggle their status.\\n          \\n• **Green**: Player is here and ready to "
+"play.\\n          \\n• **Gray**: Player is checked out (not available for "
+"matches).\\n          \\n• Useful for players arriving late or leaving early."
+msgstr ""
+"使用**签到**界面管理球员出勤。点击球员以切换其状态。\\n          \\n• **绿色"
+"**：球员已到场并准备好了。\\n          \\n• **灰色**：球员已签退（不可用于比"
+"赛）。\\n          \\n• 对于迟到或提早离开的球员很有用。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:38
+msgid ""
+"You can set the number of available courts in the settings. The system "
+"tracks play counts and suggests breaks for players who have played the most."
+"\\n          \\n• Players due for a break are highlighted in yellow in the "
+"Queue.\\n          \\n• This helps ensure equal playing time for everyone."
+msgstr ""
+"您可以在设置中设定可用球场的数量。系统会追踪比赛次数并为比赛次数最多的球员建"
+"议休息。\\n          \\n• 需要休息的球员会在队列中以黄色高亮显示。"
+"\\n          \\n• 这有助于确保每个人都有平等的比赛时间。"
+
+msgid "Icons Guide"
+msgstr "图标指南"
+
+msgid "Here is a guide to the icons used in the Event Manager:"
+msgstr "以下是赛事管理器中使用的图标指南："
+
+msgid "Toggle player attendance. Green means checked in."
+msgstr "切换球员出勤状态。绿色表示已签到。"
+
+msgid "Generate / Rebalance"
+msgstr "生成 / 重新平衡"
+
+msgid "Generate new draws or rebalance the current round."
+msgstr "生成新的抽签或重新平衡当前轮次。"
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "Reset a round to the original draw if you changed something."
+msgstr "如果您进行了更改，请将轮次重置为原始抽签。"
+
+msgid "Manage Teams"
+msgstr "管理团队"
+
+msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
+msgstr "创建固定团队或反团队（不应一起比赛的球员）。"
+
+msgid "Edit player details like name, gender, or payment status."
+msgstr "编辑球员详细信息，如姓名、性别或付款状态。"
+
+msgid "Adjust Seeds"
+msgstr "调整种子"
+
+msgid "Manually adjust player ratings for the event."
+msgstr "手动调整赛事的球员评分。"
+
+msgid ""
+"The Draw Generator allows you to create matches based on different "
+"strategies:"
+msgstr "抽签生成器允许您根据不同的策略创建比赛："
+
+msgid ""
+": Players are divided into similar skill levels. Teams are balanced to "
+"create close matches."
+msgstr "：球员被分为相似的技能水平。团队平衡以创建势均力敌的比赛。"
+
+msgid ""
+": Teams are balanced by skill, but players are not strictly separated by "
+"level."
+msgstr "：团队根据技能平衡，但球员不严格按级别分开。"
+
+msgid ": Classic round-robin format where everyone plays with everyone."
+msgstr "：每个人都与每个人比赛的经典循环赛格式。"
+
+msgid ""
+"In Competitive or Mixed mode, the system will regenerate future matches when "
+"you select the winner of the matches in the current or past rounds. This is "
+"recommended in order to optimize future rounds based on the new data. In "
+"Round-Robin mode, the future rounds will not change unless you manually "
+"change them."
+msgstr ""
+"在竞技或混合模式下，当您选择当前或过去轮次比赛的获胜者时，系统将重新生成未来"
+"的比赛。建议这样做是为了根据新数据优化未来的轮次。在循环赛模式下，除非您手动"
+"更改，否则未来的轮次不会改变。"
+
+msgid ""
+"You can also adjust the number of courts. The system requires 4 players per "
+"court."
+msgstr "您还可以调整场地数量。系统要求每个场地 4 名球员。"
+
+msgid "Round Management"
+msgstr "轮次管理"
+
+msgid "Each round has several management options:"
+msgstr "每一轮都有几个管理选项："
+
+msgid "Rebalance"
+msgstr "重新平衡"
+
+msgid ""
+"Regenerates the current round with the same players but moves players around "
+"to balance the skill level of each court. This will aggressively optimize "
+"each court to have the highest chance of having a tie, but may not divide "
+"the court by level groups. Useful if you replace a player and need the "
+"matches to be balanced again."
+msgstr ""
+"使用相同的球员重新生成当前轮次，但移动球员以平衡每个场地的技能水平。这将积极"
+"优化每个场地，使其最有可能出现平局，但可能不会按级别组划分场地。如果您更换了"
+"球员并需要再次平衡比赛，这将非常有用。"
+
+msgid "Reset (Mixed)"
+msgstr "重置（混合）"
+
+msgid "Resets the round and attempts to create mixed-gender pairs."
+msgstr "重置轮次并尝试创建混合性别配对。"
+
+msgid "Reset (All)"
+msgstr "重置（全部）"
+
+msgid "Resets the round to the original matches."
+msgstr "将轮次重置为原始比赛。"
+
+msgid "Player Management"
+msgstr "球员管理"
+
+msgid "Manage players directly from the Check-in list:"
+msgstr "直接从签到列表管理球员："
+
+msgid "Click a player's name to toggle check-in status."
+msgstr "点击球员姓名以切换签到状态。"
+
+msgid "Use the"
+msgstr "使用"
+
+msgid "icon to edit player details (Name, Gender, Paid status)."
+msgstr "图标编辑球员详细信息（姓名、性别、付款状态）。"
+
+msgid "Use"
+msgstr "使用"
+
+msgid ""
+"to create Teams (always play together) or Anti-Teams (never play together on "
+"the same court)."
+msgstr "创建团队（总是一起比赛）或反团队（从不在同一场地上一起比赛）。"
+
+msgid ""
+"to adjust player ratings (seeds) for the event. This affects matchmaking but "
+"not their permanent rating."
+msgstr "调整赛事的球员评分（种子）。这会影响匹配，但不会影响他们的永久评分。"
+
+msgid "Entering Results & Syncing"
+msgstr "输入结果和同步"
+
+msgid ""
+"Enter scores directly on the match cards. Tap to select a winner, or press "
+"and hold to input the score as well."
+msgstr "直接在比赛卡上输入分数。点击选择获胜者，或按住以输入分数。"
+
+msgid "Once matches are complete, use the"
+msgstr "比赛完成后，使用"
+
+msgid "button at the bottom of the page to submit all results to the server."
+msgstr "页面底部的按钮将所有结果提交到服务器。"
+
+msgid "Scores are not saved permanently until you Sync."
+msgstr "在同步之前，分数不会永久保存。"
+
+msgid ""
+"The Event Manager works offline! All data is saved locally to your device."
+msgstr "赛事管理器离线工作！所有数据都本地保存在您的设备上。"
+
+msgid ""
+"You can run an entire event without internet. Just make sure to Sync Scores "
+"when you have a connection again to save the results."
+msgstr ""
+"您可以在没有互联网的情况下运行整个赛事。只需确保在再次连接时同步分数以保存结"
+"果。"
+
+msgid "Note: If you clear your browser data, local event data will be lost."
+msgstr "注意：如果您清除浏览器数据，本地赛事数据将丢失。"
+
+msgid "Event Manager Guide"
+msgstr "赛事管理器指南"
+
+msgid "Complete guide to running events with the Event Manager."
+msgstr "使用赛事管理器运行赛事的完整指南。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:271
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
+msgstr "未来轮次已输入分数。重新生成将会删除这些分数。您确定吗？"
+
+#: src/components/molecules/DrawGenerator.re.mjs:270
+msgid "Regenerate Rounds?"
+msgstr "重新生成轮次？"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:135
+msgid "Add {0}Guest{1}"
+msgstr "添加{0}访客{1}"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:47
+msgid "Add Guest Players"
+msgstr "添加访客球员"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "Alex Johnson"
+msgstr "亚历克斯·约翰逊"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:57
+msgid "Close"
+msgstr "关闭"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:84
+msgid "Enter each guest player's name on a new line"
+msgstr "每行输入一个访客球员的姓名"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:71
+msgid "Guest Names (one per line)"
+msgstr "访客姓名（每行一个）"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "Jane Doe"
+msgstr "简·多伊"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "John Smith"
+msgstr "约翰·史密斯"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+msgid "Preview ({0} guest{1})"
+msgstr "预览（{0}位访客{1}）"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:161
+msgid "Add guest players"
+msgstr "添加访客球员"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:160
+msgid "Delete Guest"
+msgstr "删除访客"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "删除这场比赛？"
+
+#: src/components/organisms/EventManager.re.mjs:1617
+msgid "Help"
+msgstr "帮助"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "重新平衡比赛"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:165
+msgid "Blue dot indicates the team that has service in the match."
+msgstr "蓝点表示在比赛中拥有发球权的队伍。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+msgid "Generate new draws or rebalance the round or match."
+msgstr "生成新的抽签或重新平衡轮次或比赛。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:161
+msgid "Service Indicator"
+msgstr "发球指示器"
+
 #: src/components/organisms/EventsList.re.mjs:260
 #, fuzzy
 #~ msgid "{0} {hiddenCountDesc}"
@@ -2097,3 +2905,23 @@ msgstr "此活动为私人活动，无法通过 Pkuru.com 加入。未经许可�
 #, fuzzy
 #~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
 #~ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
+
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "当前回合："
+
+#: src/components/organisms/EventManager.re.mjs:198
+#, fuzzy
+#~ msgid "Event Manager"
+#~ msgstr "活动标签：{tag}"
+
+#: src/components/organisms/EventManager.re.mjs:223
+#, fuzzy
+#~ msgid "Players"
+#~ msgstr "添加球员"
+
+#: src/components/organisms/EventManager.re.mjs:208
+#, fuzzy
+#~ msgid "Start Next Round"
+#~ msgstr "前进至下一回合"

@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:353
+#: src/components/pages/EventPage.re.mjs:362
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:356
+#: src/components/pages/EventPage.re.mjs:365
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:359
+#: src/components/pages/EventPage.re.mjs:368
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:362
+#: src/components/pages/EventPage.re.mjs:371
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:365
+#: src/components/pages/EventPage.re.mjs:374
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:368
+#: src/components/pages/EventPage.re.mjs:377
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:371
+#: src/components/pages/EventPage.re.mjs:380
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:374
+#: src/components/pages/EventPage.re.mjs:383
 msgid "all level"
 msgstr "全レベル"
 
@@ -102,7 +102,7 @@ msgstr "折りたたむ"
 msgid "edit event"
 msgstr "イベントを編集"
 
-#: src/components/pages/EventPage.re.mjs:316
+#: src/components/pages/EventPage.re.mjs:325
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -130,15 +130,15 @@ msgstr "イベントに参加"
 msgid "Join Waitlist"
 msgstr "ウェイトリストに参加"
 
-#: src/components/organisms/EventMessages.re.mjs:264
+#: src/components/organisms/EventMessages.re.mjs:283
 msgid "joined from waitlist"
 msgstr "ウェイトリストから参加"
 
-#: src/components/organisms/EventMessages.re.mjs:258
+#: src/components/organisms/EventMessages.re.mjs:277
 msgid "joined the event"
 msgstr "参加しました"
 
-#: src/components/organisms/EventMessages.re.mjs:261
+#: src/components/organisms/EventMessages.re.mjs:280
 msgid "left the event"
 msgstr "離れました"
 
@@ -158,9 +158,13 @@ msgstr "ログインして参加"
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
-#: src/components/pages/EventPage.re.mjs:187
+#: src/components/pages/EventPage.re.mjs:189
 msgid "Manage Event"
 msgstr "イベント管理"
+
+#: src/components/pages/EventPage.re.mjs:193
+msgid "Manage Event (Beta)"
+msgstr "イベントを管理（ベータ）"
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid "Matches will be submitted to DUPR."
@@ -188,8 +192,8 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/pages/EventPage.re.mjs:219
-#: src/components/pages/EventPage.re.mjs:248
+#: src/components/pages/EventPage.re.mjs:228
+#: src/components/pages/EventPage.re.mjs:257
 msgid "Private Event"
 msgstr "プライベートイベント"
 
@@ -266,8 +270,8 @@ msgstr ""
 "の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
 "本当にこのイベントを離れますか？"
 
-#: src/components/pages/EventPage.re.mjs:223
-#: src/components/pages/EventPage.re.mjs:252
+#: src/components/pages/EventPage.re.mjs:232
+#: src/components/pages/EventPage.re.mjs:261
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -321,6 +325,14 @@ msgstr "プロフィールを表示"
 #: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr "キャンセル待ち"
+
+#: src/components/organisms/EventMessages.re.mjs:274
+msgid "was added to the event by admin"
+msgstr "管理者によってイベントに追加されました"
+
+#: src/components/organisms/EventMessages.re.mjs:286
+msgid "was removed from the event by admin"
+msgstr "管理者によってイベントから削除されました"
 
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"

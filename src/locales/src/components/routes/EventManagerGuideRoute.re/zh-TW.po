@@ -1,0 +1,274 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-21 23:43+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:210
+msgid ": Classic round-robin format where everyone plays with everyone."
+msgstr "：每個人都與每個人比賽的經典循環賽格式。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:194
+msgid ""
+": Players are divided into similar skill levels. Teams are balanced to "
+"create close matches."
+msgstr "：球員被分為相似的技能水平。團隊平衡以創建勢均力敵的比賽。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:202
+msgid ""
+": Teams are balanced by skill, but players are not strictly separated by "
+"level."
+msgstr "：團隊根據技能平衡，但球員不嚴格按級別分開。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:141
+msgid "Adjust Seeds"
+msgstr "調整種子"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:165
+msgid "Blue dot indicates the team that has service in the match."
+msgstr "藍點表示在比賽中擁有發球權的隊伍。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:368
+msgid "button at the bottom of the page to submit all results to the server."
+msgstr "頁面底部的按鈕將所有結果提交到服務器。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:313
+msgid "Click a player's name to toggle check-in status."
+msgstr "點擊球員姓名以切換簽到狀態。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:192
+msgid "Competitive"
+msgstr "競技模式"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:412
+msgid "Complete guide to running events with the Event Manager."
+msgstr "使用賽事管理器運行賽事的完整指南。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:105
+msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
+msgstr "創建固定團隊或反團隊（不應一起比賽的球員）。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:231
+msgid "Each round has several management options:"
+msgstr "每一輪都有幾個管理選項："
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:125
+msgid "Edit player details like name, gender, or payment status."
+msgstr "編輯球員詳細信息，如姓名、性別或付款狀態。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:354
+msgid ""
+"Enter scores directly on the match cards. Tap to select a winner, or press "
+"and hold to input the score as well."
+msgstr "直接在比賽卡上輸入分數。點擊選擇獲勝者，或按住以輸入分數。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:350
+msgid "Entering Results & Syncing"
+msgstr "輸入結果和同步"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:408
+msgid "Event Manager Guide"
+msgstr "賽事管理器指南"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:61
+msgid "Generate / Rebalance"
+msgstr "生成 / 重新平衡"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+msgid "Generate new draws or rebalance the round or match."
+msgstr "產生新的抽籤或重新平衡輪次或比賽。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:181
+msgid "Generating Draws"
+msgstr "生成籤表"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:29
+msgid "Here is a guide to the icons used in the Event Manager:"
+msgstr "以下是賽事管理器中使用的圖示指南："
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:321
+msgid "icon to edit player details (Name, Gender, Paid status)."
+msgstr "圖示編輯球員詳細信息（姓名、性別、付款狀態）。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:25
+msgid "Icons Guide"
+msgstr "圖示指南"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:217
+msgid ""
+"In Competitive or Mixed mode, the system will regenerate future matches when "
+"you select the winner of the matches in the current or past rounds. This is "
+"recommended in order to optimize future rounds based on the new data. In "
+"Round-Robin mode, the future rounds will not change unless you manually "
+"change them."
+msgstr ""
+"在競技或混合模式下，當您選擇當前或過去輪次比賽的獲勝者時，系統將重新生成未來"
+"的比賽。建議這樣做是為了根據新數據優化未來的輪次。在循環賽模式下，除非您手動"
+"更改，否則未來的輪次不會改變。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:308
+msgid "Manage players directly from the Check-in list:"
+msgstr "直接從簽到列表管理球員："
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:101
+msgid "Manage Teams"
+msgstr "管理團隊"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:145
+msgid "Manually adjust player ratings for the event."
+msgstr "手動調整賽事的球員評分。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:200
+msgid "Mixed"
+msgstr "混合"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:395
+msgid "Note: If you clear your browser data, local event data will be lost."
+msgstr "注意：如果您清除瀏覽器數據，本地賽事數據將丟失。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:385
+msgid "Offline Mode"
+msgstr "離線模式"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:358
+msgid "Once matches are complete, use the"
+msgstr "比賽完成後，使用"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:41
+msgid "Player Check-in"
+msgstr "球員報到"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:304
+msgid "Player Management"
+msgstr "球員管理"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:121
+msgid "Player Settings"
+msgstr "球員設定"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:241
+msgid "Rebalance"
+msgstr "重新平衡"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:248
+msgid ""
+"Regenerates the current round with the same players but moves players around "
+"to balance the skill level of each court. This will aggressively optimize "
+"each court to have the highest chance of having a tie, but may not divide "
+"the court by level groups. Useful if you replace a player and need the "
+"matches to be balanced again."
+msgstr ""
+"使用相同的球員重新生成當前輪次，但移動球員以平衡每個場地的技能水平。這將積極"
+"優化每個場地，使其最有可能出現平局，但可能不會按級別組劃分場地。如果您更換了"
+"球員並需要再次平衡比賽，這將非常有用。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:81
+msgid "Reset"
+msgstr "重置"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:286
+msgid "Reset (All)"
+msgstr "重置（全部）"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:265
+msgid "Reset (Mixed)"
+msgstr "重置（混合）"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:85
+msgid "Reset a round to the original draw if you changed something."
+msgstr "如果您進行了更改，請將輪次重置為原始抽籤。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:272
+msgid "Resets the round and attempts to create mixed-gender pairs."
+msgstr "重置輪次並嘗試創建混合性別配對。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:293
+msgid "Resets the round to the original matches."
+msgstr "將輪次重置為原始比賽。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:227
+msgid "Round Management"
+msgstr "輪次管理"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:208
+msgid "Round-Robin"
+msgstr "循環賽"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:376
+msgid "Scores are not saved permanently until you Sync."
+msgstr "在同步之前，分數不會永久保存。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:161
+msgid "Service Indicator"
+msgstr "發球指示器"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:364
+msgid "Sync Scores"
+msgstr "同步比分"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:185
+msgid ""
+"The Draw Generator allows you to create matches based on different "
+"strategies:"
+msgstr "抽籤生成器允許您根據不同的策略創建比賽："
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:389
+msgid ""
+"The Event Manager works offline! All data is saved locally to your device."
+msgstr "賽事管理器離線工作！所有數據都本地保存在您的設備上。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:339
+msgid ""
+"to adjust player ratings (seeds) for the event. This affects matchmaking but "
+"not their permanent rating."
+msgstr "調整賽事的球員評分（種子）。這會影響匹配，但不會影響他們的永久評分。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:330
+msgid ""
+"to create Teams (always play together) or Anti-Teams (never play together on "
+"the same court)."
+msgstr "創建團隊（總是一起比賽）或反團隊（從不在同一場地上一起比賽）。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:45
+msgid "Toggle player attendance. Green means checked in."
+msgstr "切換球員出勤狀態。綠色表示已簽到。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:326
+#: src/components/pages/EventManagerGuidePage.re.mjs:335
+msgid "Use"
+msgstr "使用"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:317
+msgid "Use the"
+msgstr "使用"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:220
+msgid ""
+"You can also adjust the number of courts. The system requires 4 players per "
+"court."
+msgstr "您還可以調整場地數量。系統要求每個場地 4 名球員。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:392
+msgid ""
+"You can run an entire event without internet. Just make sure to Sync Scores "
+"when you have a connection again to save the results."
+msgstr ""
+"您可以在沒有互聯網的情況下運行整個賽事。只需確保在再次連接時同步分數以保存結"
+"果。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:41
+#~ msgid "Entering Results"
+#~ msgstr "輸入結果"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+#~ msgid "Generate new draws or rebalance the current round."
+#~ msgstr "生成新的抽籤或重新平衡當前輪次。"

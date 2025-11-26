@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YIAAQf\":\"輸入比賽比分\",\"VIlNWA\":[\"輸球隊（隊伍 \",[\"0\"],\"）\"],\"zCo4xa\":\"無比分\",\"27SfGh\":\"保存比分\",\"yxTTJj\":[\"獲勝隊（隊伍 \",[\"0\"],\"）\"]}");

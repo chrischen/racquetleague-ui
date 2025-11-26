@@ -114,7 +114,8 @@ function makeDefaultRatingPlayer(name, gender, intId) {
           rating: rating,
           ratingOrdinal: Rating_ordinal(rating),
           paid: false,
-          gender: gender
+          gender: gender,
+          count: 0
         };
 }
 
@@ -127,6 +128,7 @@ function toDb(player) {
   row["ratingSigma"] = player.rating.sigma;
   row["genderInt"] = toInt(player.gender);
   row["paid"] = player.paid;
+  row["count"] = player.count;
   return row;
 }
 
@@ -149,16 +151,93 @@ function fromDb(row) {
             },
             ratingOrdinal: 0,
             paid: Core__Option.getOr(Core__Option.flatMap(Js_dict.get(row, "paid"), Js_json.decodeBoolean), false),
-            gender: fromInt(match$5 | 0)
+            gender: fromInt(match$5 | 0),
+            count: Core__Option.getOr(Core__Option.map(Core__Option.flatMap(Js_dict.get(row, "count"), Js_json.decodeNumber), (function (prim) {
+                        return prim | 0;
+                      })), 0)
           };
   }
   
 }
 
+function decodePlayer() {
+  return Json_Decode$JsonCombinators.object(function (field) {
+              var decodeRating = Json_Decode$JsonCombinators.object(function (field) {
+                    var mu = field.required("mu", Json_Decode$JsonCombinators.$$float);
+                    var sigma = field.required("sigma", Json_Decode$JsonCombinators.$$float);
+                    return make(mu, sigma);
+                  });
+              var decodeGender = Json_Decode$JsonCombinators.map(Json_Decode$JsonCombinators.$$int, fromInt);
+              var id = field.required("id", Json_Decode$JsonCombinators.string);
+              var intId = field.required("intId", Json_Decode$JsonCombinators.$$int);
+              var name = field.required("name", Json_Decode$JsonCombinators.string);
+              var rating = field.required("rating", decodeRating);
+              var ratingOrdinal = field.required("ratingOrdinal", Json_Decode$JsonCombinators.$$float);
+              var paid = field.required("paid", Json_Decode$JsonCombinators.bool);
+              var gender = field.required("gender", decodeGender);
+              var count = Core__Option.getOr(field.optional("count", Json_Decode$JsonCombinators.$$int), 0);
+              return {
+                      data: undefined,
+                      id: id,
+                      intId: intId,
+                      name: name,
+                      rating: rating,
+                      ratingOrdinal: ratingOrdinal,
+                      paid: paid,
+                      gender: gender,
+                      count: count
+                    };
+            });
+}
+
+function toJson(player) {
+  var obj = {};
+  obj["id"] = player.id;
+  obj["intId"] = player.intId;
+  obj["name"] = player.name;
+  var ratingObj = {};
+  ratingObj["mu"] = player.rating.mu;
+  ratingObj["sigma"] = player.rating.sigma;
+  obj["rating"] = ratingObj;
+  obj["ratingOrdinal"] = player.ratingOrdinal;
+  obj["paid"] = player.paid;
+  obj["gender"] = toInt(player.gender);
+  obj["count"] = player.count;
+  return obj;
+}
+
+function toJsonString(player) {
+  return Core__Option.getOr(JSON.stringify(toJson(player)), "{}");
+}
+
+function fromJson(json) {
+  var player = Json_Decode$JsonCombinators.decode(json, decodePlayer());
+  if (player.TAG === "Ok") {
+    return player._0;
+  }
+  console.log("[Player.fromJson] Decode error:", player._0);
+}
+
+function fromJsonString(jsonStr) {
+  try {
+    var json = JSON.parse(jsonStr);
+    return fromJson(json);
+  }
+  catch (exn){
+    console.log("[Player.fromJsonString] Failed to parse:", jsonStr);
+    return ;
+  }
+}
+
 var Player = {
   makeDefaultRatingPlayer: makeDefaultRatingPlayer,
   toDb: toDb,
-  fromDb: fromDb
+  fromDb: fromDb,
+  decodePlayer: decodePlayer,
+  toJson: toJson,
+  toJsonString: toJsonString,
+  fromJson: fromJson,
+  fromJsonString: fromJsonString
 };
 
 function contains_player(players, player) {
@@ -202,6 +281,46 @@ var Team = {
   is_equal_to: is_equal_to,
   toStableId: toStableId,
   toDb: toDb$1
+};
+
+function make$1() {
+  return new Map();
+}
+
+function setLastRound(dict, teamId, roundNumber) {
+  dict.set(teamId, roundNumber);
+}
+
+function setMatchLastRound(dict, team1Id, team2Id, roundNumber) {
+  setLastRound(dict, team1Id, roundNumber);
+  setLastRound(dict, team2Id, roundNumber);
+}
+
+function getLastRound(dict, teamId) {
+  return Core__Option.getOr(dict.get(teamId), 0);
+}
+
+function getMatchScore(dict, team1Id, team2Id) {
+  return getLastRound(dict, team1Id) + getLastRound(dict, team2Id) | 0;
+}
+
+function fromHistory(history, getTeams, matchesPerRound) {
+  var dict = new Map();
+  history.forEach(function (match, index) {
+        var match$1 = getTeams(match);
+        var roundNumber = Caml_int32.div(index, matchesPerRound) + 1 | 0;
+        setMatchLastRound(dict, match$1[0], match$1[1], roundNumber);
+      });
+  return dict;
+}
+
+var TeamCountDict = {
+  make: make$1,
+  setLastRound: setLastRound,
+  setMatchLastRound: setMatchLastRound,
+  getLastRound: getLastRound,
+  getMatchScore: getMatchScore,
+  fromHistory: fromHistory
 };
 
 function is_equal_to$1(t1, t2) {
@@ -301,7 +420,8 @@ function rate(param) {
                                       rating: new_rating,
                                       ratingOrdinal: old_player.ratingOrdinal,
                                       paid: old_player.paid,
-                                      gender: old_player.gender
+                                      gender: old_player.gender,
+                                      count: old_player.count
                                     };
                             }));
               }));
@@ -321,6 +441,55 @@ function players(param) {
           ].flatMap(function (x) {
               return x;
             });
+}
+
+function mapPlayers(param, fn) {
+  return [
+          param[0].map(fn),
+          param[1].map(fn)
+        ];
+}
+
+function incrementPlayCounts(match) {
+  return mapPlayers(match, (function (player) {
+                return {
+                        data: player.data,
+                        id: player.id,
+                        intId: player.intId,
+                        name: player.name,
+                        rating: player.rating,
+                        ratingOrdinal: player.ratingOrdinal,
+                        paid: player.paid,
+                        gender: player.gender,
+                        count: player.count + 1 | 0
+                      };
+              }));
+}
+
+function getWinners(match, score) {
+  var team2Score = score[1];
+  var team1Score = score[0];
+  var winningTeam = team1Score > team2Score ? match[0] : match[1];
+  var winningScore = team1Score > team2Score ? team1Score : team2Score;
+  return [
+          winningTeam.map(function (p) {
+                return p.id;
+              }),
+          winningScore
+        ];
+}
+
+function getLosers(match, score) {
+  var team2Score = score[1];
+  var team1Score = score[0];
+  var losingTeam = team1Score > team2Score ? match[1] : match[0];
+  var losingScore = team1Score > team2Score ? team2Score : team1Score;
+  return [
+          losingTeam.map(function (p) {
+                return p.id;
+              }),
+          losingScore
+        ];
 }
 
 function toDb$2(match) {
@@ -390,6 +559,10 @@ var Match = {
   rate: rate,
   toStableId: toStableId$1,
   players: players,
+  mapPlayers: mapPlayers,
+  incrementPlayCounts: incrementPlayCounts,
+  getWinners: getWinners,
+  getLosers: getLosers,
   toDb: toDb$2,
   loadFromDb: loadFromDb
 };
@@ -410,9 +583,45 @@ function toStableId$2(param) {
   return toStableId$1(param[0]);
 }
 
+function getWinners$1(param) {
+  var match = param[0];
+  return Core__Option.map(param[1], (function (s) {
+                return getWinners(match, s);
+              }));
+}
+
+function getLosers$1(param) {
+  var match = param[0];
+  return Core__Option.map(param[1], (function (s) {
+                return getLosers(match, s);
+              }));
+}
+
+function rate$1(param) {
+  var match = param[0];
+  return Core__Option.map(param[1], (function (s) {
+                var team2 = match[1];
+                var team1 = match[0];
+                var match$1 = s[0] > s[1] ? [
+                    team1,
+                    team2
+                  ] : [
+                    team2,
+                    team1
+                  ];
+                return rate([
+                            match$1[0],
+                            match$1[1]
+                          ]);
+              }));
+}
+
 var CompletedMatch = {
   submit: submit,
-  toStableId: toStableId$2
+  toStableId: toStableId$2,
+  getWinners: getWinners$1,
+  getLosers: getLosers$1,
+  rate: rate$1
 };
 
 function getLastPlayedPlayers(matches, restCount, availablePlayers) {
@@ -521,12 +730,26 @@ function loadMatches(namespace, players) {
               }));
 }
 
+function scored_matches(t) {
+  return Core__Array.filterMap(t, (function (param) {
+                var score = param[1];
+                if (score !== undefined) {
+                  return [
+                          param[0],
+                          score
+                        ];
+                }
+                
+              }));
+}
+
 var CompletedMatches = {
   getLastPlayedPlayers: getLastPlayedPlayers,
   getLastRoundMatches: getLastRoundMatches,
   getNumberOfRounds: getNumberOfRounds,
   saveMatches: saveMatches,
-  loadMatches: loadMatches
+  loadMatches: loadMatches,
+  scored_matches: scored_matches
 };
 
 function fromTeam(team) {
@@ -581,6 +804,163 @@ var DoublesMatch = {
   fromMatch: fromMatch
 };
 
+function toDb$3(entity) {
+  var row = {};
+  row["matchId"] = entity.id;
+  row["type"] = "completedMatchEntity";
+  var match = entity.match;
+  var team1Ids = match[0].map(function (p) {
+        return p.id;
+      });
+  var team2Ids = match[1].map(function (p) {
+        return p.id;
+      });
+  row["team1PlayerIds"] = team1Ids;
+  row["team2PlayerIds"] = team2Ids;
+  var match$1 = entity.score;
+  if (match$1 !== undefined) {
+    row["hasScore"] = true;
+    row["team1Score"] = match$1[0];
+    row["team2Score"] = match$1[1];
+  } else {
+    row["hasScore"] = false;
+  }
+  row["createdAt"] = entity.createdAt.getTime();
+  return row;
+}
+
+function loadFromDb$1(row, playersTable) {
+  var match = Core__Option.flatMap(Js_dict.get(row, "matchId"), Js_json.decodeString);
+  var match$1 = Core__Option.flatMap(Js_dict.get(row, "team1PlayerIds"), Js_json.decodeArray);
+  var match$2 = Core__Option.flatMap(Js_dict.get(row, "team2PlayerIds"), Js_json.decodeArray);
+  var match$3 = Core__Option.flatMap(Js_dict.get(row, "createdAt"), Js_json.decodeNumber);
+  if (match === undefined) {
+    return ;
+  }
+  if (match$1 === undefined) {
+    return ;
+  }
+  if (match$2 === undefined) {
+    return ;
+  }
+  var team1PlayerIds = Core__Array.filterMap(match$1, Js_json.decodeString);
+  var team2PlayerIds = Core__Array.filterMap(match$2, Js_json.decodeString);
+  var team1 = Core__Array.filterMap(team1PlayerIds, (function (playerId) {
+          return Core__Option.flatMap(Js_dict.get(playersTable, playerId), fromDb);
+        }));
+  var team2 = Core__Array.filterMap(team2PlayerIds, (function (playerId) {
+          return Core__Option.flatMap(Js_dict.get(playersTable, playerId), fromDb);
+        }));
+  var match$4 = Core__Option.flatMap(Js_dict.get(row, "hasScore"), Js_json.decodeBoolean);
+  var score;
+  if (match$4 !== undefined && match$4) {
+    var match$5 = Core__Option.flatMap(Js_dict.get(row, "team1Score"), Js_json.decodeNumber);
+    var match$6 = Core__Option.flatMap(Js_dict.get(row, "team2Score"), Js_json.decodeNumber);
+    score = match$5 !== undefined && match$6 !== undefined ? [
+        match$5,
+        match$6
+      ] : undefined;
+  } else {
+    score = undefined;
+  }
+  return {
+          id: match,
+          match: [
+            team1,
+            team2
+          ],
+          score: score,
+          createdAt: Core__Option.getOr(Core__Option.map(match$3, (function (ts) {
+                      return new Date(ts);
+                    })), new Date())
+        };
+}
+
+var CompletedMatchEntity = {
+  toDb: toDb$3,
+  loadFromDb: loadFromDb$1
+};
+
+function toJson$1(adj) {
+  var dict = {};
+  dict["playerId"] = adj.playerId;
+  dict["differential"] = adj.differential;
+  dict["appliedAtRound"] = adj.appliedAtRound;
+  dict["timestamp"] = adj.timestamp;
+  return dict;
+}
+
+function fromJson$1(json) {
+  return Core__Option.flatMap(Js_json.decodeObject(json), (function (dict) {
+                var match = Core__Option.flatMap(Js_dict.get(dict, "playerId"), Js_json.decodeString);
+                var match$1 = Core__Option.flatMap(Js_dict.get(dict, "differential"), Js_json.decodeNumber);
+                var match$2 = Core__Option.flatMap(Js_dict.get(dict, "appliedAtRound"), Js_json.decodeNumber);
+                var match$3 = Core__Option.flatMap(Js_dict.get(dict, "timestamp"), Js_json.decodeNumber);
+                if (match !== undefined && match$1 !== undefined && match$2 !== undefined && match$3 !== undefined) {
+                  return {
+                          playerId: match,
+                          differential: match$1,
+                          appliedAtRound: match$2 | 0,
+                          timestamp: match$3
+                        };
+                }
+                
+              }));
+}
+
+var RatingAdjustment = {
+  toJson: toJson$1,
+  fromJson: fromJson$1
+};
+
+function fromRoundsAndAdjustments(rounds, adjustments) {
+  var adjustmentsByRound = new Map();
+  adjustments.forEach(function (adj) {
+        var existing = Core__Option.getOr(adjustmentsByRound.get(adj.appliedAtRound), []);
+        adjustmentsByRound.set(adj.appliedAtRound, existing.concat([adj]));
+      });
+  var timeline = [];
+  var seedAdjustments = adjustmentsByRound.get(-1);
+  if (seedAdjustments !== undefined) {
+    timeline.push({
+          TAG: "Adjustment",
+          _0: seedAdjustments
+        });
+  }
+  rounds.forEach(function (roundMatches, roundIndex) {
+        var roundAdjustments = adjustmentsByRound.get(roundIndex);
+        if (roundAdjustments !== undefined) {
+          timeline.push({
+                TAG: "Adjustment",
+                _0: roundAdjustments
+              });
+        }
+        timeline.push({
+              TAG: "Round",
+              _0: roundMatches
+            });
+      });
+  adjustments.filter(function (adj) {
+          return adj.appliedAtRound >= rounds.length;
+        }).forEach(function (adj) {
+        var futureAdjustments = adjustmentsByRound.get(adj.appliedAtRound);
+        if (futureAdjustments !== undefined) {
+          timeline.push({
+                TAG: "Adjustment",
+                _0: futureAdjustments
+              });
+          adjustmentsByRound.delete(adj.appliedAtRound);
+          return ;
+        }
+        
+      });
+  return timeline;
+}
+
+var TimelineEvent = {
+  fromRoundsAndAdjustments: fromRoundsAndAdjustments
+};
+
 var decodeRating = Json_Decode$JsonCombinators.object(function (field) {
       var mu = field.required("mu", Json_Decode$JsonCombinators.$$float);
       var sigma = field.required("sigma", Json_Decode$JsonCombinators.$$float);
@@ -589,7 +969,7 @@ var decodeRating = Json_Decode$JsonCombinators.object(function (field) {
 
 var decodeGender = Json_Decode$JsonCombinators.map(Json_Decode$JsonCombinators.$$int, fromInt);
 
-var decodePlayer = Json_Decode$JsonCombinators.object(function (field) {
+var decodePlayer$1 = Json_Decode$JsonCombinators.object(function (field) {
       var id = field.required("id", Json_Decode$JsonCombinators.string);
       var intId = field.required("intId", Json_Decode$JsonCombinators.$$int);
       var name = field.required("name", Json_Decode$JsonCombinators.string);
@@ -597,6 +977,7 @@ var decodePlayer = Json_Decode$JsonCombinators.object(function (field) {
       var ratingOrdinal = field.required("ratingOrdinal", Json_Decode$JsonCombinators.$$float);
       var paid = field.required("paid", Json_Decode$JsonCombinators.bool);
       var gender = field.required("gender", decodeGender);
+      var count = Core__Option.getOr(field.optional("count", Json_Decode$JsonCombinators.$$int), 0);
       return {
               data: undefined,
               id: id,
@@ -605,7 +986,30 @@ var decodePlayer = Json_Decode$JsonCombinators.object(function (field) {
               rating: rating,
               ratingOrdinal: ratingOrdinal,
               paid: paid,
-              gender: gender
+              gender: gender,
+              count: count
+            };
+    });
+
+var decodeEventManagerPlayer = Json_Decode$JsonCombinators.object(function (field) {
+      var id = field.required("id", Json_Decode$JsonCombinators.string);
+      var intId = field.required("intId", Json_Decode$JsonCombinators.$$int);
+      var name = field.required("name", Json_Decode$JsonCombinators.string);
+      var rating = field.required("rating", decodeRating);
+      var ratingOrdinal = field.required("ratingOrdinal", Json_Decode$JsonCombinators.$$float);
+      var paid = field.required("paid", Json_Decode$JsonCombinators.bool);
+      var gender = field.required("gender", decodeGender);
+      var count = Core__Option.getOr(field.optional("count", Json_Decode$JsonCombinators.$$int), 0);
+      return {
+              data: undefined,
+              id: id,
+              intId: intId,
+              name: name,
+              rating: rating,
+              ratingOrdinal: ratingOrdinal,
+              paid: paid,
+              gender: gender,
+              count: count
             };
     });
 
@@ -613,13 +1017,14 @@ function parsePlayersFromStorage(jsonString) {
   try {
     var json = JSON.parse(jsonString);
     var resultDict = {};
-    var playersDecoder = Json_Decode$JsonCombinators.dict(decodePlayer);
+    var playersDecoder = Json_Decode$JsonCombinators.dict(decodePlayer$1);
     var playersDict = Json_Decode$JsonCombinators.decode(json, playersDecoder);
     if (playersDict.TAG === "Ok") {
       Js_dict.entries(playersDict._0).forEach(function (param) {
             resultDict[param[0]] = param[1];
           });
     } else {
+      console.log(playersDict._0);
       console.log("Failed to decode all players at once, trying individual decoding");
       var obj = Js_json.classify(json);
       if (typeof obj !== "object" || obj.TAG !== "JSONObject") {
@@ -627,7 +1032,7 @@ function parsePlayersFromStorage(jsonString) {
       } else {
         Js_dict.entries(obj._0).forEach(function (param) {
               var key = param[0];
-              var player = Json_Decode$JsonCombinators.decode(param[1], decodePlayer);
+              var player = Json_Decode$JsonCombinators.decode(param[1], decodePlayer$1);
               if (player.TAG === "Ok") {
                 resultDict[key] = player._0;
                 return ;
@@ -653,7 +1058,8 @@ function parsePlayersFromStorage(jsonString) {
 var PlayerDecoder = {
   decodeRating: decodeRating,
   decodeGender: decodeGender,
-  decodePlayer: decodePlayer,
+  decodePlayer: decodePlayer$1,
+  decodeEventManagerPlayer: decodeEventManagerPlayer,
   parsePlayersFromStorage: parsePlayersFromStorage
 };
 
@@ -727,7 +1133,8 @@ function savePlayers(t, namespace) {
                 rating: p.rating,
                 ratingOrdinal: p.ratingOrdinal,
                 paid: p.paid,
-                gender: p.gender
+                gender: p.gender,
+                count: p.count
               };
       });
   var t$2 = Core__Array.reduce(t$1, {}, (function (acc, player) {
@@ -760,7 +1167,8 @@ function loadPlayers(players, namespace) {
                   rating: player.rating,
                   ratingOrdinal: player.ratingOrdinal,
                   paid: player.paid,
-                  gender: player.gender
+                  gender: player.gender,
+                  count: player.count
                 };
         } else {
           return makeDefaultRatingPlayer(id, "Male", (maxPlayerIntId + index | 0) + 1 | 0);
@@ -776,7 +1184,8 @@ function loadPlayers(players, namespace) {
                                           rating: store.rating,
                                           ratingOrdinal: store.ratingOrdinal,
                                           paid: store.paid,
-                                          gender: store.gender
+                                          gender: store.gender,
+                                          count: store.count
                                         };
                                 })), p);
               }).concat(guests);
@@ -832,16 +1241,16 @@ function findOptimalClustersRecursive(kMeansData, _currentKValue) {
       return KMeansClusteringJs.runKMeansWithOptimalInertia({
                   data: kMeansData,
                   k: 1,
-                  numRuns: 10,
-                  maxIterations: 100,
+                  numRuns: 100,
+                  maxIterations: 1000,
                   tolerance: 1e-6
                 });
     }
     var currentRunOutput = KMeansClusteringJs.runKMeansWithOptimalInertia({
           data: kMeansData,
           k: currentKValue,
-          numRuns: 10,
-          maxIterations: 100,
+          numRuns: 100,
+          maxIterations: 1000,
           tolerance: 1e-6
         });
     var currentlySortedClusters = Util.NonEmptyArray.toArray(KMeans.SortedClusters.make(currentRunOutput));
@@ -873,8 +1282,8 @@ function findOptimalClustersRecursive(kMeansData, _currentKValue) {
       return Util.NonEmptyArray.toArray(KMeans.SortedClusters.make(KMeansClusteringJs.runKMeansWithOptimalInertia({
                           data: kMeansData,
                           k: 1,
-                          numRuns: 10,
-                          maxIterations: 100,
+                          numRuns: 100,
+                          maxIterations: 1000,
                           tolerance: 1e-6
                         })));
     }
@@ -906,18 +1315,23 @@ var Players = {
   findPlayerClusters: findPlayerClusters
 };
 
-function make$1(t) {
+function make$2(t) {
   if (t.length >= 4) {
     return t;
   }
   
 }
 
+function toPlayers(t) {
+  return t;
+}
+
 var DoublesSet = {
-  make: make$1
+  make: make$2,
+  toPlayers: toPlayers
 };
 
-function make$2(t) {
+function make$3(t) {
   return t.toSorted(function (a, b) {
               var userA = a.rating.mu;
               var userB = b.rating.mu;
@@ -956,7 +1370,7 @@ function filter(prim0, prim1) {
 }
 
 var RankedPlayers = {
-  make: make$2,
+  make: make$3,
   min_rating: min_rating,
   to_players: to_players,
   splitByGroups: splitByGroups,
@@ -1213,7 +1627,7 @@ function strategy_by_competitive(players, _consumedPlayers, priorityPlayers, avo
 }
 
 function strategy_by_competitive_plus(players, _consumedPlayers, _priorityPlayers, avoidAllPlayers, teams, requiredPlayers, courts, genderMixed) {
-  var sorted = make$2(players);
+  var sorted = make$3(players);
   var players$1;
   if (genderMixed) {
     var malePlayers = findTopGroup(sorted.filter(function (p) {
@@ -1226,7 +1640,7 @@ function strategy_by_competitive_plus(players, _consumedPlayers, _priorityPlayer
   } else {
     players$1 = findTopGroup(sorted, courts);
   }
-  return Core__Option.getOr(Core__Option.map(make$1(players$1), (function (playerSet) {
+  return Core__Option.getOr(Core__Option.map(make$2(players$1), (function (playerSet) {
                     var matches = Core__Option.getOr(Core__Option.map(playerSet.at(0), (function (topPlayer) {
                                 return find_all_match_combos(playerSet, [], avoidAllPlayers, teams, requiredPlayers).filter(function (param) {
                                               return contains_player$1(param[0], topPlayer);
@@ -1314,7 +1728,7 @@ function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers, re
             });
 }
 
-function recommendMatch(matches, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraints) {
+function recommendMatch(matches, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraints, strategy, teamCountDict) {
   Util.NonEmptyArray.toArray(teamConstraints).map(function (constr) {
           return toStableId(constr);
         }).map(function (teamId) {
@@ -1355,7 +1769,7 @@ function recommendMatch(matches, seenTeams, seenMatches, lastRoundSeenTeams, las
     while(true) {
       var currentAvoidanceFilters = _currentAvoidanceFilters;
       var filteredByAvoidance = applyFilters(matches, currentAvoidanceFilters);
-      var finalFiltered = filteredByAvoidance.filter(qualityFilter);
+      var finalFiltered = strategy === "Random" ? filteredByAvoidance : filteredByAvoidance.filter(qualityFilter);
       if (finalFiltered.length > 0) {
         return finalFiltered;
       }
@@ -1370,6 +1784,46 @@ function recommendMatch(matches, seenTeams, seenMatches, lastRoundSeenTeams, las
       continue ;
     };
   };
+  if (strategy === "Random") {
+    var sortedByScore = matches.toSorted(function (param, param$1) {
+          var matchB = param$1[0];
+          var matchA = param[0];
+          var scoreA = getMatchScore(teamCountDict, toStableId(matchA[0]), toStableId(matchA[1]));
+          var scoreB = getMatchScore(teamCountDict, toStableId(matchB[0]), toStableId(matchB[1]));
+          return scoreA - scoreB | 0;
+        });
+    var match = sortedByScore.at(0);
+    var lowestScore;
+    if (match !== undefined) {
+      var match$1 = match[0];
+      lowestScore = getMatchScore(teamCountDict, toStableId(match$1[0]), toStableId(match$1[1]));
+    } else {
+      lowestScore = 0;
+    }
+    var lowestScoreMatches = sortedByScore.filter(function (param) {
+          var match = param[0];
+          var score = getMatchScore(teamCountDict, toStableId(match[0]), toStableId(match[1]));
+          return score === lowestScore;
+        });
+    var randomFloat = Math.random() * lowestScoreMatches.length;
+    var randomIndex = Math.floor(randomFloat) | 0;
+    return Core__Option.map(lowestScoreMatches.at(randomIndex), (function (param) {
+                  return param[0];
+                }));
+  }
+  if (strategy === "Mixed") {
+    var qualityFiltered = matches.filter(qualityFilter);
+    var sortedByScore$1 = qualityFiltered.toSorted(function (param, param$1) {
+          var matchB = param$1[0];
+          var matchA = param[0];
+          var scoreA = getMatchScore(teamCountDict, toStableId(matchA[0]), toStableId(matchA[1]));
+          var scoreB = getMatchScore(teamCountDict, toStableId(matchB[0]), toStableId(matchB[1]));
+          return scoreA - scoreB | 0;
+        });
+    return Core__Option.map(sortedByScore$1.at(0), (function (param) {
+                  return param[0];
+                }));
+  }
   var bestMatches = findResult(avoidanceFilters);
   return Core__Option.map(bestMatches.at(0), (function (param) {
                 return param[0];
@@ -1402,6 +1856,125 @@ function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAl
         return strategy_by_dupr(players, priorityPlayers, avoidAllPlayers, requiredPlayers);
     
   }
+}
+
+function generateMatches(players$1, history, strategy, numMatches, avoidAllPlayersOpt, teamConstraints, courtsOpt, genderMixedOpt, param) {
+  var avoidAllPlayers = avoidAllPlayersOpt !== undefined ? avoidAllPlayersOpt : [];
+  var courts = courtsOpt !== undefined ? Caml_option.valFromOption(courtsOpt) : Util.NonZeroInt.make(1);
+  var genderMixed = genderMixedOpt !== undefined ? genderMixedOpt : false;
+  var historyLength = history.length;
+  var lastRoundStartIndex = Math.max(0, historyLength - numMatches | 0);
+  var teamCountDict = fromHistory(history, (function (completedMatch) {
+          var match = completedMatch.match;
+          return [
+                  toStableId(match[0]),
+                  toStableId(match[1])
+                ];
+        }), numMatches);
+  var match = Core__Array.reduceWithIndex(history, [
+        new Set(),
+        new Set(),
+        new Set(),
+        new Set()
+      ], (function (param, completedMatch, index) {
+          var lastMatches = param[3];
+          var lastTeams = param[2];
+          var allMatches = param[1];
+          var allTeams = param[0];
+          var match = completedMatch.match;
+          var team1Id = toStableId(match[0]);
+          var team2Id = toStableId(match[1]);
+          var matchId = toStableId$1(completedMatch.match);
+          allTeams.add(team1Id);
+          allTeams.add(team2Id);
+          allMatches.add(matchId);
+          if (index >= lastRoundStartIndex) {
+            lastTeams.add(team1Id);
+            lastTeams.add(team2Id);
+            lastMatches.add(matchId);
+          }
+          return [
+                  allTeams,
+                  allMatches,
+                  lastTeams,
+                  lastMatches
+                ];
+        }));
+  var lastRoundSeenMatches = match[3];
+  var lastRoundSeenTeams = match[2];
+  var seenMatchesFromHistory = match[1];
+  var seenTeamsFromHistory = match[0];
+  var _consumedPlayers = new Set();
+  var _accumulated = [];
+  var _remaining = numMatches;
+  while(true) {
+    var remaining = _remaining;
+    var accumulated = _accumulated;
+    var consumedPlayers = _consumedPlayers;
+    if (remaining <= 0) {
+      return accumulated;
+    }
+    var teamConstraintsNonEmpty = Core__Option.flatMap(teamConstraints, (function (arr) {
+            if (arr.length > 0) {
+              return arr;
+            }
+            
+          }));
+    var availablePlayers = players$1.filter((function(consumedPlayers){
+        return function (p) {
+          return !consumedPlayers.has(p.id);
+        }
+        }(consumedPlayers)));
+    var teamConstraintsAsTeams = teamConstraintsNonEmpty !== undefined ? Util.NonEmptyArray.fromArray(teamConstraintsNonEmpty.map(function (constraintSet) {
+                return players$1.filter(function (p) {
+                            return constraintSet.has(p.id);
+                          });
+              })) : undefined;
+    var getCandidateMatches = (function(consumedPlayers,teamConstraintsNonEmpty,availablePlayers){
+    return function getCandidateMatches(useMixed) {
+      if (teamConstraintsNonEmpty === undefined) {
+        return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
+      }
+      var matchesWithConstraints = getMatches(availablePlayers, consumedPlayers, "Mixed", [], avoidAllPlayers, teamConstraintsNonEmpty, undefined, courts, useMixed);
+      if (matchesWithConstraints.length === 0) {
+        return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
+      } else {
+        return matchesWithConstraints;
+      }
+    }
+    }(consumedPlayers,teamConstraintsNonEmpty,availablePlayers));
+    var matches = getCandidateMatches(genderMixed);
+    var selectedMatch = recommendMatch(matches, seenTeamsFromHistory, seenMatchesFromHistory, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraintsAsTeams, strategy, teamCountDict);
+    var selectedMatch$1;
+    if (selectedMatch !== undefined || !genderMixed) {
+      selectedMatch$1 = selectedMatch;
+    } else {
+      var matches$1 = getCandidateMatches(false);
+      selectedMatch$1 = recommendMatch(matches$1, seenTeamsFromHistory, seenMatchesFromHistory, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraintsAsTeams, strategy, teamCountDict);
+    }
+    if (selectedMatch$1 === undefined) {
+      return accumulated;
+    }
+    var matchPlayers = players(selectedMatch$1);
+    var newConsumedPlayers = Core__Array.reduce(matchPlayers, consumedPlayers, (function (set, player) {
+            set.add(player.id);
+            return set;
+          }));
+    var updatedMatch = incrementPlayCounts(selectedMatch$1);
+    var randomizedMatch = Math.random() > 0.5 ? [
+        updatedMatch[1],
+        updatedMatch[0]
+      ] : updatedMatch;
+    var matchId = "match-" + (accumulated.length + 1 | 0).toString();
+    var matchEntity = {
+      id: matchId,
+      match: randomizedMatch
+    };
+    _remaining = remaining - 1 | 0;
+    _accumulated = accumulated.concat([matchEntity]);
+    _consumedPlayers = newConsumedPlayers;
+    continue ;
+  };
 }
 
 function addToQueue(queue, player) {
@@ -1626,6 +2199,264 @@ function guessDupr(ratingMu) {
   return 0.05594 * (ratingMu - 25) + 3.5;
 }
 
+function getDeprioritizedPlayers(rounds, players, $$break, strategy) {
+  if (rounds.length === 0) {
+    return new Set();
+  }
+  switch (strategy) {
+    case "CompetitivePlus" :
+    case "Competitive" :
+        break;
+    default:
+      var playersWithRoundsSinceBreak = players.map(function (player) {
+            var lastBreakRoundIndex = Core__Array.reduceWithIndex(rounds, undefined, (function (acc, round, roundIndex) {
+                    var playedInRound = round.some(function (param) {
+                          var m = param.match;
+                          return m[0].concat(m[1]).some(function (p) {
+                                      return p.id === player.id;
+                                    });
+                        });
+                    if (playedInRound) {
+                      return acc;
+                    } else {
+                      return roundIndex;
+                    }
+                  }));
+            var roundsSinceLastBreak = lastBreakRoundIndex !== undefined ? (rounds.length - lastBreakRoundIndex | 0) - 1 | 0 : rounds.length;
+            return [
+                    player,
+                    roundsSinceLastBreak
+                  ];
+          });
+      return new Set(playersWithRoundsSinceBreak.toSorted(function (a, b) {
+                          return b[1] - a[1] | 0;
+                        }).slice(0, $$break).map(function (param) {
+                      return param[0].id;
+                    }));
+  }
+  var lastRounds = rounds.slice(Math.max(0, rounds.length - $$break | 0), rounds.length);
+  var lastPlayed = lastRounds.flatMap(function (round) {
+          return round;
+        }).flatMap(function (param) {
+        var m = param.match;
+        return m[0].concat(m[1]);
+      });
+  var maxCount = Core__Array.reduce(players, 0, (function (acc, next) {
+          if (next.count > acc) {
+            return next.count;
+          } else {
+            return acc;
+          }
+        }));
+  var minCount = Core__Array.reduce(players, maxCount, (function (acc, next) {
+          if (next.count < acc) {
+            return next.count;
+          } else {
+            return acc;
+          }
+        }));
+  var breakPlayers = addBreakPlayersFrom([], sortByRatingDesc(players.filter(function (p) {
+                if (p.count === maxCount) {
+                  return p.count !== minCount;
+                } else {
+                  return false;
+                }
+              })), $$break);
+  if (breakPlayers.length >= $$break) {
+    return new Set(breakPlayers.map(function (p) {
+                    return p.id;
+                  }));
+  }
+  var breakAndLastPlayed = addBreakPlayersFrom(breakPlayers, sortByRatingDesc(lastPlayed), $$break);
+  if (breakAndLastPlayed.length < $$break) {
+    return new Set(addBreakPlayersFrom(breakAndLastPlayed, sortByRatingDesc(players), $$break).map(function (p) {
+                    return p.id;
+                  }));
+  } else {
+    return new Set(breakAndLastPlayed.map(function (p) {
+                    return p.id;
+                  }));
+  }
+}
+
+function processTimelineEvent(players, $$event) {
+  if ($$event.TAG === "Round") {
+    var match = Core__Array.reduce($$event._0, [
+          new Map(),
+          new Map()
+        ], (function (param, param$1) {
+            var m = param$1.match;
+            var ratings = param[1];
+            var allPlayers = m[0].concat(m[1]);
+            var newCounts = Core__Array.reduce(allPlayers, param[0], (function (map, player) {
+                    var current = Core__Option.getOr(map.get(player.id), 0);
+                    map.set(player.id, current + 1 | 0);
+                    return map;
+                  }));
+            var updatedTeams = rate$1([
+                  m,
+                  param$1.score
+                ]);
+            var newRatings = updatedTeams !== undefined ? Core__Array.reduce(updatedTeams.flat(), ratings, (function (map, player) {
+                      map.set(player.id, player.rating);
+                      return map;
+                    })) : ratings;
+            return [
+                    newCounts,
+                    newRatings
+                  ];
+          }));
+    var ratingUpdates = match[1];
+    var countIncrements = match[0];
+    return players.map(function (player) {
+                var countIncrement = Core__Option.getOr(countIncrements.get(player.id), 0);
+                var newCount = player.count + countIncrement | 0;
+                var rating = ratingUpdates.get(player.id);
+                if (rating !== undefined) {
+                  return {
+                          data: player.data,
+                          id: player.id,
+                          intId: player.intId,
+                          name: player.name,
+                          rating: rating,
+                          ratingOrdinal: Rating_ordinal(rating),
+                          paid: player.paid,
+                          gender: player.gender,
+                          count: newCount
+                        };
+                } else {
+                  return {
+                          data: player.data,
+                          id: player.id,
+                          intId: player.intId,
+                          name: player.name,
+                          rating: player.rating,
+                          ratingOrdinal: player.ratingOrdinal,
+                          paid: player.paid,
+                          gender: player.gender,
+                          count: newCount
+                        };
+                }
+              });
+  }
+  var adjustments = $$event._0;
+  return players.map(function (player) {
+              var totalAdjustment = Core__Array.reduce(adjustments.filter(function (adj) {
+                        return adj.playerId === player.id;
+                      }), 0.0, (function (sum, adj) {
+                      return sum + adj.differential;
+                    }));
+              if (totalAdjustment === 0.0) {
+                return player;
+              }
+              var currentMu = player.rating.mu;
+              var currentSigma = player.rating.sigma;
+              var adjustedRating = make(currentMu + totalAdjustment, currentSigma);
+              return {
+                      data: player.data,
+                      id: player.id,
+                      intId: player.intId,
+                      name: player.name,
+                      rating: adjustedRating,
+                      ratingOrdinal: Rating_ordinal(adjustedRating),
+                      paid: player.paid,
+                      gender: player.gender,
+                      count: player.count
+                    };
+            });
+}
+
+function updatePlayerState(players, timeline) {
+  return Core__Array.reduce(timeline, players, (function (currentPlayers, $$event) {
+                return processTimelineEvent(currentPlayers, $$event);
+              }));
+}
+
+function toPlayerStateWithAdjustments(rounds, players, adjustments) {
+  var timeline = fromRoundsAndAdjustments(rounds, adjustments);
+  return updatePlayerState(players, timeline);
+}
+
+function generateRoundsRec(_roundNumber, _roundsToGenerate, _availablePlayers, completedRounds, strategy, courtCount, teamConstraints, _avoidAllPlayersOpt, _accumulatedRoundsOpt, _genderMixedOpt, startTime, _currentRoundIndexOpt, _param) {
+  while(true) {
+    var avoidAllPlayersOpt = _avoidAllPlayersOpt;
+    var accumulatedRoundsOpt = _accumulatedRoundsOpt;
+    var genderMixedOpt = _genderMixedOpt;
+    var currentRoundIndexOpt = _currentRoundIndexOpt;
+    var availablePlayers = _availablePlayers;
+    var roundsToGenerate = _roundsToGenerate;
+    var roundNumber = _roundNumber;
+    var avoidAllPlayers = avoidAllPlayersOpt !== undefined ? avoidAllPlayersOpt : [];
+    var accumulatedRounds = accumulatedRoundsOpt !== undefined ? accumulatedRoundsOpt : [];
+    var genderMixed = genderMixedOpt !== undefined ? genderMixedOpt : false;
+    var currentRoundIndex = currentRoundIndexOpt !== undefined ? currentRoundIndexOpt : 0;
+    if (roundsToGenerate <= 0) {
+      return accumulatedRounds;
+    }
+    if (availablePlayers.length < (courtCount << 2)) {
+      return accumulatedRounds;
+    }
+    console.log("Generating round " + roundNumber.toString());
+    var breakCount = courtCount === 0 ? 0 : availablePlayers.length - (courtCount << 2) | 0;
+    var allRounds = completedRounds.concat(accumulatedRounds);
+    var deprioritizedPlayerIds = getDeprioritizedPlayers(allRounds, availablePlayers, breakCount, strategy);
+    var playersForMatches = availablePlayers.filter((function(deprioritizedPlayerIds){
+        return function (p) {
+          return !deprioritizedPlayerIds.has(p.id);
+        }
+        }(deprioritizedPlayerIds)));
+    var courts = Util.NonZeroInt.make(courtCount);
+    var flatHistory = allRounds.flatMap(function (round) {
+          return round;
+        });
+    var matchEntities = generateMatches(playersForMatches, flatHistory, strategy, courtCount, avoidAllPlayers, teamConstraints, Caml_option.some(courts), genderMixed, undefined);
+    var baseTime = startTime.getTime();
+    var minutesOffset = (currentRoundIndex + 1 | 0) * 10.0 * 60.0 * 1000.0;
+    var roundCreatedAt = new Date(baseTime + minutesOffset);
+    var roundMatches = matchEntities.map((function(roundCreatedAt){
+        return function (matchEntity, _courtNum) {
+          return {
+                  id: crypto.randomUUID(),
+                  match: matchEntity.match,
+                  score: undefined,
+                  createdAt: roundCreatedAt
+                };
+        }
+        }(roundCreatedAt)));
+    var timeline = [{
+        TAG: "Round",
+        _0: roundMatches
+      }];
+    var updatedPlayers = updatePlayerState(availablePlayers, timeline);
+    _param = undefined;
+    _currentRoundIndexOpt = currentRoundIndex + 1 | 0;
+    _genderMixedOpt = genderMixed;
+    _accumulatedRoundsOpt = accumulatedRounds.concat([roundMatches]);
+    _avoidAllPlayersOpt = avoidAllPlayers;
+    _availablePlayers = updatedPlayers;
+    _roundsToGenerate = roundsToGenerate - 1 | 0;
+    _roundNumber = roundNumber + 1 | 0;
+    continue ;
+  };
+}
+
+function generateRounds(startRoundNumberOpt, numberOfRounds, availablePlayers, completedRounds, strategy, courtCount, teamConstraints, avoidAllPlayersOpt, genderMixedOpt, startTime, param) {
+  var startRoundNumber = startRoundNumberOpt !== undefined ? startRoundNumberOpt : 1;
+  var avoidAllPlayers = avoidAllPlayersOpt !== undefined ? avoidAllPlayersOpt : [];
+  var genderMixed = genderMixedOpt !== undefined ? genderMixedOpt : false;
+  return generateRoundsRec(startRoundNumber, numberOfRounds, availablePlayers, completedRounds, strategy, courtCount, teamConstraints, avoidAllPlayers, undefined, genderMixed, startTime, 0, undefined);
+}
+
+function generateSingleRound(roundIndex, rounds, availablePlayers, strategy, courtCount, teamConstraints, avoidAllPlayersOpt, genderMixedOpt, startTime) {
+  var avoidAllPlayers = avoidAllPlayersOpt !== undefined ? avoidAllPlayersOpt : [];
+  var genderMixed = genderMixedOpt !== undefined ? genderMixedOpt : false;
+  var roundsBeforeThis = roundIndex === 0 ? [] : rounds.filter(function (param, idx) {
+          return idx < roundIndex;
+        });
+  var newRound = generateRounds(roundIndex + 1 | 0, 1, availablePlayers, roundsBeforeThis, strategy, courtCount, teamConstraints, avoidAllPlayers, genderMixed, startTime, undefined);
+  return newRound[0];
+}
+
 export {
   RatingModel ,
   Gender ,
@@ -1633,12 +2464,16 @@ export {
   Rating ,
   Player ,
   Team ,
+  TeamCountDict ,
   TeamSet ,
   Match ,
   CompletedMatch ,
   CompletedMatches ,
   DoublesTeam ,
   DoublesMatch ,
+  CompletedMatchEntity ,
+  RatingAdjustment ,
+  TimelineEvent ,
   PlayerDecoder ,
   Players ,
   DoublesSet ,
@@ -1658,10 +2493,18 @@ export {
   uniform_shuffle_array ,
   RankedMatches ,
   getMatches ,
+  generateMatches ,
   OrderedQueue ,
   UnorderedQueue ,
   PlayersCache ,
   Matches ,
   guessDupr ,
+  getDeprioritizedPlayers ,
+  processTimelineEvent ,
+  updatePlayerState ,
+  toPlayerStateWithAdjustments ,
+  generateRoundsRec ,
+  generateRounds ,
+  generateSingleRound ,
 }
 /* plackettLuce Not a pure module */

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"FQZ+O6\":[\"สนาม \",[\"0\"]],\"dVOfnR\":[\"สนาม \",[\"0\"],\" - กำลังแก้ไข\"],\"8lPbOs\":\"ลบการแข่งขัน\",\"Umpivp\":\"แก้ไขการแข่งขัน\",\"tfDRzk\":\"บันทึก\",\"Eq6YVV\":\"คะแนน\",\"WJVghH\":[\"ทีม \",[\"0\"]],\"eDYecJ\":\"ทีม 1\",\"fGWgUv\":\"ทีม 2\",\"tP6Aw4\":\"VS\"}");

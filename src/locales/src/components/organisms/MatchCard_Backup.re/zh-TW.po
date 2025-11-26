@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-10 21:50+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:337
+msgid "Court {0}"
+msgstr "場地 {0}"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:337
+msgid "Court {0} - Editing"
+msgstr "場地 {0} - 編輯中"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:359
+msgid "Delete match"
+msgstr "刪除比賽"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:348
+msgid "Edit match"
+msgstr "編輯比賽"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:348
+msgid "Save"
+msgstr "儲存"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:120
+#: src/components/organisms/MatchCard_Backup.re.mjs:386
+#: src/components/organisms/MatchCard_Backup.re.mjs:423
+msgid "Score"
+msgstr "比分"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:113
+msgid "TEAM {0}"
+msgstr "隊伍 {0}"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:379
+msgid "TEAM 1"
+msgstr "隊伍 1"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:416
+msgid "TEAM 2"
+msgstr "隊伍 2"
+
+#: src/components/organisms/MatchCard_Backup.re.mjs:404
+#: src/components/organisms/MatchCard_Backup.re.mjs:466
+#: src/components/organisms/MatchCard_Backup.re.mjs:473
+msgid "VS"
+msgstr "VS"

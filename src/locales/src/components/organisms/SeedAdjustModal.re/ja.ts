@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"GsQP9B\":\"プレイヤーシードを調整\",\"dEgA5A\":\"キャンセル\",\"B2CXh/\":\"プレイヤーをドラッグして初期シードを並び替え\",\"60TdtF\":\"μ\",\"dQttgC\":\"シード調整を保存\"}");

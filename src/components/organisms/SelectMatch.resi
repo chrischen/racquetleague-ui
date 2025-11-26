@@ -7,30 +7,38 @@ module SortAction: {
   let make: props<sortDir, (sortDir => sortDir) => unit> => React.element
 }
 module SelectEventPlayersList: {
-  type props<'players, 'selected, 'disabled, 'onSelectPlayer, 'minRating, 'maxRating, 'playerNumberOffset> = {
+  type props<
+    'players,
+    'selected,
+    'disabled,
+    'onSelectPlayer,
+    'minRating,
+    'maxRating,
+    'playerNumberOffset,
+  > = {
     players: 'players,
     selected: 'selected,
     disabled?: 'disabled,
     onSelectPlayer?: 'onSelectPlayer,
     minRating?: 'minRating,
     maxRating?: 'maxRating,
-    playerNumberOffset?: 'playerNumberOffset
+    playerNumberOffset?: 'playerNumberOffset,
   }
   let make: props<
-    array<Rating.player>,
+    array<Rating.Player.t<Rating.rsvpNode>>,
     array<Rating.Player.t<Rating.rsvpNode>>,
     array<Rating.Player.t<Rating.rsvpNode>>,
     Rating.Player.t<Rating.rsvpNode> => unit,
     float,
     float,
-    int
+    int,
   > => Jsx.element
 }
 
 @react.component
 let make: (
-  ~players: array<Rating.player>,
-  ~onMatchQueued: Rating.match => unit,
+  ~players: array<Rating.Player.t<Rating.rsvpNode>>,
+  ~onMatchQueued: Rating.match<Rating.rsvpNode> => unit,
   // ~onMatchCompleted: Rating.CompletedMatch.t<Rating.rsvpNode> => unit,
-  ~children: Rating.match => React.element,
+  ~children: Rating.match<Rating.rsvpNode> => React.element,
 ) => React.element

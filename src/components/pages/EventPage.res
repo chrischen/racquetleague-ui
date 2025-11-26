@@ -76,7 +76,7 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 
 @react.component
 let make = () => {
-  let ts = Lingui.UtilString.t
+  open Lingui.Util
   let query = useLoaderData()
   let {event, viewer, fragmentRefs: queryFragmentRefs} = EventPageQuery.usePreloaded(
     ~queryRef=query.data,
@@ -108,20 +108,20 @@ let make = () => {
                     event.id ++
                     "/" ++
                     event.location->Option.map(l => l.id)->Option.getOr("")}>
-                    {(ts`edit event`)->React.string}
+                    {t`edit event`}
                   </Button.Button>
                   {switch event.deleted {
                   | Some(_) =>
                     <Button.Button
                       onClick={_ =>
                         !uncanceling ? uncancelEvent(~variables={eventId: event.id})->ignore : ()}>
-                      {(ts`uncancel event`)->React.string}
+                      {t`uncancel event`}
                     </Button.Button>
                   | None =>
                     <Button.Button
                       onClick={_ =>
                         !canceling ? cancelEvent(~variables={eventId: event.id})->ignore : ()}>
-                      {(ts`cancel event`)->React.string}
+                      {t`cancel event`}
                     </Button.Button>
                   }}
                 </div>
@@ -139,13 +139,22 @@ let make = () => {
                   | Some("pickleball" | "badminton") =>
                     <div className="mt-6">
                       <div className="bg-gray-50 rounded-lg p-4 border">
-                        <Button.Button
-                          href={"/league/events/" ++
-                          event.id ++
-                          "/" ++
-                          activity.slug->Option.getOr("")}>
-                          {(ts`Manage Event`)->React.string}
-                        </Button.Button>
+                        <div className="flex flex-row gap-2">
+                          <Button.Button
+                            href={"/league/events/" ++
+                            event.id ++
+                            "/" ++
+                            activity.slug->Option.getOr("")}>
+                            {t`Manage Event`}
+                          </Button.Button>
+                          <Button.Button
+                            href={"/league/events/" ++
+                            event.id ++
+                            "/" ++
+                            activity.slug->Option.getOr("") ++ "/manager"}>
+                            {t`Manage Event (Beta)`}
+                          </Button.Button>
+                        </div>
                       </div>
                     </div>
                   | _ => React.null
@@ -174,12 +183,10 @@ let make = () => {
                             />
                             <div className="space-y-1">
                               <h3 className="font-semibold text-yellow-900 dark:text-yellow-100">
-                                {(ts`Private Event`)->React.string}
+                                {t`Private Event`}
                               </h3>
                               <p className="text-sm text-yellow-800 dark:text-yellow-200">
-                                {(
-                                  ts`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`
-                                )->React.string}
+                                {t`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`}
                               </p>
                             </div>
                           </div>
@@ -195,12 +202,10 @@ let make = () => {
                           />
                           <div className="space-y-1">
                             <h3 className="font-semibold text-yellow-900 dark:text-yellow-100">
-                              {(ts`Private Event`)->React.string}
+                              {t`Private Event`}
                             </h3>
                             <p className="text-sm text-yellow-800 dark:text-yellow-200">
-                              {(
-                                ts`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`
-                              )->React.string}
+                              {t`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`}
                             </p>
                           </div>
                         </div>
@@ -217,11 +222,7 @@ let make = () => {
           </div>
         </div>
       })
-      ->Option.getOr(
-        <div className="p-6 text-center text-gray-600">
-          {(ts`Event not found`)->React.string}
-        </div>,
-      )}
+      ->Option.getOr(<div className="p-6 text-center text-gray-600"> {t`Event not found`} </div>)}
   </WaitForMessages>
 }
 

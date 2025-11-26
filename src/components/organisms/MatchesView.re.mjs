@@ -351,20 +351,33 @@ function MatchesView(props) {
         tmp = JsxRuntime.jsx(Core.DndContext, {
               children: JsxRuntime.jsx("div", {
                     children: JsxRuntime.jsx(MultipleContainers.make, {
-                          items: Rating.Matches.toDndItems(matches),
+                          items: Rating.Matches.toDndItems(matches.map(function (m) {
+                                    return m.match;
+                                  })),
                           minimal: true,
                           setItems: (function (updateFn) {
                               setMatches(function (matches) {
-                                    var items = Rating.Matches.toDndItems(matches);
-                                    return Rating.Matches.fromDndItems(updateFn(items), playersCache);
+                                    var matchesOnly = matches.map(function (m) {
+                                          return m.match;
+                                        });
+                                    var items = Rating.Matches.toDndItems(matchesOnly);
+                                    var updatedMatches = Rating.Matches.fromDndItems(updateFn(items), playersCache);
+                                    return matches.map(function (matchEntity, i) {
+                                                var newMatch = updatedMatches[i];
+                                                return {
+                                                        id: matchEntity.id,
+                                                        match: newMatch
+                                                      };
+                                              });
                                   });
                             }),
                           deleteContainer: (function (i) {
                               handleMatchCanceled(i);
                             }),
                           renderContainer: (function (children, matchId) {
-                              var match = matches[matchId];
-                              return Core__Option.getOr(Core__Option.map(match, (function (match) {
+                              var matchEntity = matches[matchId];
+                              return Core__Option.getOr(Core__Option.map(matchEntity, (function (param) {
+                                                var match = param.match;
                                                 return JsxRuntime.jsx(SortableSubmitMatch.make, {
                                                             children: children,
                                                             match: match,
@@ -414,9 +427,9 @@ function MatchesView(props) {
                                                 var matchId = param[0];
                                                 return JsxRuntime.jsx(UiAction.make, {
                                                             onClick: (function (param) {
-                                                                var match = matches[matchId];
-                                                                Core__Option.map(match, (function (match) {
-                                                                        var matchPlayers = Rating.Match.players(match).map(function (player) {
+                                                                var matchEntity = matches[matchId];
+                                                                Core__Option.map(matchEntity, (function (param) {
+                                                                        var matchPlayers = Rating.Match.players(param.match).map(function (player) {
                                                                                 return player.id;
                                                                               }).filter(function (p) {
                                                                               return p !== player.id;
@@ -603,10 +616,11 @@ function MatchesView(props) {
                               className: "w-10",
                               readOnly: true,
                               value: matches.map(function (param, i) {
-                                      var team1 = param[0].map(function (p) {
+                                      var match = param.match;
+                                      var team1 = match[0].map(function (p) {
                                               return p.name;
                                             }).join(" " + t`and` + " ");
-                                      var team2 = param[1].map(function (p) {
+                                      var team2 = match[1].map(function (p) {
                                               return p.name;
                                             }).join(" " + t`and` + " ");
                                       return t`Court ${(i + 1 | 0).toString()}: ${team1} versus ${team2}`;

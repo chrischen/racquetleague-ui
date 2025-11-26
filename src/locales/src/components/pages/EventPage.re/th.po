@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:353
+#: src/components/pages/EventPage.re.mjs:362
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:356
+#: src/components/pages/EventPage.re.mjs:365
 msgid "Table Tennis"
 msgstr "ปิงปอง"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:359
+#: src/components/pages/EventPage.re.mjs:368
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:362
+#: src/components/pages/EventPage.re.mjs:371
 msgid "Futsal"
 msgstr "ฟุตซอล"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:365
+#: src/components/pages/EventPage.re.mjs:374
 msgid "drill"
 msgstr "ฝึกซ้อม"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:368
+#: src/components/pages/EventPage.re.mjs:377
 msgid "comp"
 msgstr "แข่ง"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:371
+#: src/components/pages/EventPage.re.mjs:380
 msgid "rec"
 msgstr "บันเทิง"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:374
+#: src/components/pages/EventPage.re.mjs:383
 msgid "all level"
 msgstr "ทุกระดับ"
 
@@ -102,7 +102,7 @@ msgstr "ย่อ"
 msgid "edit event"
 msgstr "แก้ไขกิจกรรม"
 
-#: src/components/pages/EventPage.re.mjs:316
+#: src/components/pages/EventPage.re.mjs:325
 msgid "Event not found"
 msgstr "ไม่พบกิจกรรม"
 
@@ -130,15 +130,15 @@ msgstr "เข้าร่วมกิจกรรม"
 msgid "Join Waitlist"
 msgstr "เข้าร่วมรายชื่อคอย"
 
-#: src/components/organisms/EventMessages.re.mjs:264
+#: src/components/organisms/EventMessages.re.mjs:283
 msgid "joined from waitlist"
 msgstr "เข้าร่วมจากรายชื่อคอย"
 
-#: src/components/organisms/EventMessages.re.mjs:258
+#: src/components/organisms/EventMessages.re.mjs:277
 msgid "joined the event"
 msgstr "เข้าร่วมกิจกรรม"
 
-#: src/components/organisms/EventMessages.re.mjs:261
+#: src/components/organisms/EventMessages.re.mjs:280
 msgid "left the event"
 msgstr "ออกจากกิจกรรม"
 
@@ -158,9 +158,13 @@ msgstr "เข้าสู่ระบบเพื่อเข้าร่วม
 msgid "Lower intermediate and above"
 msgstr "ระดับกลางขั้นต้นขึ้นไป"
 
-#: src/components/pages/EventPage.re.mjs:187
+#: src/components/pages/EventPage.re.mjs:189
 msgid "Manage Event"
 msgstr "จัดการกิจกรรม"
+
+#: src/components/pages/EventPage.re.mjs:193
+msgid "Manage Event (Beta)"
+msgstr "จัดการกิจกรรม (เบต้า)"
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid "Matches will be submitted to DUPR."
@@ -188,8 +192,8 @@ msgstr "รอการอนุมัติ"
 msgid "Player"
 msgstr "ผู้เล่น"
 
-#: src/components/pages/EventPage.re.mjs:219
-#: src/components/pages/EventPage.re.mjs:248
+#: src/components/pages/EventPage.re.mjs:228
+#: src/components/pages/EventPage.re.mjs:257
 msgid "Private Event"
 msgstr "กิจกรรมส่วนตัว"
 
@@ -265,8 +269,8 @@ msgstr ""
 "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
 "คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
-#: src/components/pages/EventPage.re.mjs:223
-#: src/components/pages/EventPage.re.mjs:252
+#: src/components/pages/EventPage.re.mjs:232
+#: src/components/pages/EventPage.re.mjs:261
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -318,6 +322,14 @@ msgstr "ดูโปรไฟล์"
 #: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
+
+#: src/components/organisms/EventMessages.re.mjs:274
+msgid "was added to the event by admin"
+msgstr "ถูกเพิ่มเข้ากิจกรรมโดยผู้ดูแลระบบ"
+
+#: src/components/organisms/EventMessages.re.mjs:286
+msgid "was removed from the event by admin"
+msgstr "ถูกลบออกจากกิจกรรมโดยผู้ดูแลระบบ"
 
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"

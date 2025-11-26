@@ -48,7 +48,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         ?before,
         first: 5,
         activitySlug: "pickleball",
-        namespace: "doubles:rec",
+        namespace: "doubles:comp",
         userId: params.userId,
         // namespace: "doubles:rec"
       },
