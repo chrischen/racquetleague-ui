@@ -3220,3 +3220,15 @@ msgstr ""
 #: src/components/pages/EventManagerGuidePage.re.mjs:161
 msgid "Service Indicator"
 msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr ""

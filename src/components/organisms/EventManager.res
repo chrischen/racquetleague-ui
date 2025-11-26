@@ -1242,8 +1242,13 @@ let make = (
     }
   }
 
-  // Handle updating a player's settings
-  let handleUpdatePlayer = (updatedPlayer: Player.t<rsvpNode>) => {
+  // Internal function to update player overrides
+  let updatePlayerOverrides = (updatedPlayer: Player.t<rsvpNode>) => {
+    // Find the original player to check if gender changed
+    let originalPlayer = playersWithCounts->Array.find(p => p.id == updatedPlayer.id)
+    let genderChanged =
+      originalPlayer->Option.mapOr(false, original => original.gender != updatedPlayer.gender)
+
     // Save player overrides to TinyBase
     EventManagerPersistence.savePlayerOverride(
       data.id,
@@ -1269,18 +1274,35 @@ let make = (
       updated
     })
 
-    // Mark as dirty to trigger regeneration
-    setIsDirty(_ => true)
+    // Mark as dirty only if gender changed
+    // Gender changes affect match generation (e.g., for gender-mixed doubles)
+    if genderChanged {
+      setIsDirty(_ => true)
+    }
 
-    // Schedule round reset to regenerate matches with updated player data
-    // This ensures gender changes are reflected in match generation (e.g., for gender-mixed doubles)
-    if currentRoundInt > 0 {
+    // Schedule round reset to regenerate matches if gender changed
+    if genderChanged && currentRoundInt > 0 {
       // Regenerate the current round (currentRoundInt is 1-indexed, so currentRoundInt-1 is the array index)
       setPendingRoundReset(_ => Some(currentRoundInt - 1))
     }
+  }
 
+  // Handle updating a player's settings from modal
+  let handleUpdatePlayer = (updatedPlayer: Player.t<rsvpNode>) => {
+    updatePlayerOverrides(updatedPlayer)
     // Close modal
     setPlayerSettingsOpen(_ => None)
+  }
+
+  // Handle toggling a player's paid status
+  let handleTogglePaid = (playerId: string) => {
+    // Find the player and toggle their paid status
+    playersWithCounts->Array.forEach(player => {
+      if player.id == playerId {
+        let updatedPlayer = {...player, paid: !player.paid}
+        updatePlayerOverrides(updatedPlayer)
+      }
+    })
   }
 
   // Handle adding guest players from the modal
@@ -1499,6 +1521,7 @@ let make = (
         players={playersWithCounts}
         checkedInPlayerIds
         onToggleCheckin={handleToggleCheckin}
+        onTogglePaid={handleTogglePaid}
         onAdjustSeeds={adjustPlayerSeeds}
         onOpenTeamManagement={() => setTeamManagementOpen(_ => true)}
         onOpenPlayerSettings={player => setPlayerSettingsOpen(_ => Some(player))}

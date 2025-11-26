@@ -14,6 +14,7 @@ let make = (
   ~players: array<Rating.Player.t<'a>>,
   ~checkedInPlayerIds: Set.t<string>,
   ~onToggleCheckin: string => unit,
+  ~onTogglePaid: string => unit,
   ~onAdjustSeeds: array<(string, float)> => unit,
   ~onOpenTeamManagement: unit => unit,
   ~onOpenPlayerSettings: Rating.Player.t<'a> => unit,
@@ -213,15 +214,13 @@ let make = (
                       <button
                         onClick={e => {
                           e->ReactEvent.Mouse.stopPropagation
-                          // TODO: Implement payment toggle
+                          onTogglePaid(player.id)
                         }}
                         className={player.paid
-                          ? "p-1 rounded transition-all flex-shrink-0 ml-auto bg-green-600 hover:bg-green-700"
-                          : "p-1 rounded transition-all flex-shrink-0 ml-auto bg-slate-300 hover:bg-slate-400"}
-                        title={player.paid ? "Paid" : "Not paid"}>
-                        <Lucide.DollarSign
-                          className={player.paid ? "w-3 h-3 text-white" : "w-3 h-3 text-slate-600"}
-                        />
+                          ? "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-green-600 hover:bg-green-700 text-white text-xs font-bold"
+                          : "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-slate-300 hover:bg-slate-400 text-slate-600 text-xs font-bold"}
+                        title={player.paid ? ts`Paid` : ts`Not paid`}>
+                        {t`$`}
                       </button>
                     </div>
                   </div>

@@ -13,11 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:143
+#: src/components/organisms/PlayerCheckin.re.mjs:144
 msgid "{0} of {1} checked in"
 msgstr "{1} 人中有 {0} 人已報到"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:161
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
+msgstr "$"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:162
 msgid "Add guest players"
 msgstr "新增訪客球員"
 
@@ -37,7 +41,15 @@ msgstr "拖曳球員以重新排序他們的初始種子"
 msgid "mu"
 msgstr "μ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:139
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr "未付款"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr "已付款"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:140
 msgid "Player Check-in"
 msgstr "球員報到"
 

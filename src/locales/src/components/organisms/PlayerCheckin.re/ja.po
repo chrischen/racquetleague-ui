@@ -13,11 +13,15 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:143
+#: src/components/organisms/PlayerCheckin.re.mjs:144
 msgid "{0} of {1} checked in"
 msgstr "{1}人中{0}人がチェックイン済み"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:161
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
+msgstr "¥"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:162
 msgid "Add guest players"
 msgstr "ゲストプレイヤーを追加"
 
@@ -37,7 +41,15 @@ msgstr "プレイヤーをドラッグして初期シードを並び替え"
 msgid "mu"
 msgstr "μ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:139
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr "未払い"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr "支払い済み"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:140
 msgid "Player Check-in"
 msgstr "プレイヤーチェックイン"
 

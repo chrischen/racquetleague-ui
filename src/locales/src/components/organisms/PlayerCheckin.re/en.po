@@ -13,11 +13,15 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:143
+#: src/components/organisms/PlayerCheckin.re.mjs:144
 msgid "{0} of {1} checked in"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:161
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:162
 msgid "Add guest players"
 msgstr ""
 
@@ -37,7 +41,15 @@ msgstr ""
 msgid "mu"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:139
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:140
 msgid "Player Check-in"
 msgstr ""
 

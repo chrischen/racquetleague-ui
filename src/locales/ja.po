@@ -3283,7 +3283,9 @@ msgstr "試合を再調整"
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
-msgstr "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、元々予定されていた試合を復元できます。"
+msgstr ""
+"この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
+"元々予定されていた試合を復元できます。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:165
 msgid "Blue dot indicates the team that has service in the match."
@@ -3296,6 +3298,18 @@ msgstr "新しいドローを生成するか、ラウンドまたは試合を再
 #: src/components/pages/EventManagerGuidePage.re.mjs:161
 msgid "Service Indicator"
 msgstr "サービスインジケーター"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
+msgstr "¥"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr "未払い"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr "支払い済み"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy

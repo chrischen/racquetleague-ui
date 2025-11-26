@@ -1099,7 +1099,13 @@ function EventManager(props) {
     }
     
   };
-  var handleUpdatePlayer = function (updatedPlayer) {
+  var updatePlayerOverrides = function (updatedPlayer) {
+    var originalPlayer = playersWithCounts.find(function (p) {
+          return p.id === updatedPlayer.id;
+        });
+    var genderChanged = Core__Option.mapOr(originalPlayer, false, (function (original) {
+            return original.gender !== updatedPlayer.gender;
+          }));
     EventManagerPersistence.savePlayerOverride(data.id, updatedPlayer.id, updatedPlayer.name, updatedPlayer.gender, updatedPlayer.paid);
     setPlayerOverrides(function (prev) {
           var updated = {};
@@ -1114,16 +1120,50 @@ function EventManager(props) {
           };
           return updated;
         });
-    setIsDirty(function (param) {
-          return true;
-        });
-    if (currentRoundInt > 0) {
-      setPendingRoundReset(function (param) {
-            return currentRoundInt - 1 | 0;
+    if (genderChanged) {
+      setIsDirty(function (param) {
+            return true;
           });
     }
+    if (genderChanged && currentRoundInt > 0) {
+      return setPendingRoundReset(function (param) {
+                  return currentRoundInt - 1 | 0;
+                });
+    }
+    
+  };
+  var handleUpdatePlayer = function (updatedPlayer) {
+    updatePlayerOverrides(updatedPlayer);
     setPlayerSettingsOpen(function (param) {
           
+        });
+  };
+  var handleTogglePaid = function (playerId) {
+    playersWithCounts.forEach(function (player) {
+          if (player.id !== playerId) {
+            return ;
+          }
+          var updatedPlayer_data = player.data;
+          var updatedPlayer_id = player.id;
+          var updatedPlayer_intId = player.intId;
+          var updatedPlayer_name = player.name;
+          var updatedPlayer_rating = player.rating;
+          var updatedPlayer_ratingOrdinal = player.ratingOrdinal;
+          var updatedPlayer_paid = !player.paid;
+          var updatedPlayer_gender = player.gender;
+          var updatedPlayer_count = player.count;
+          var updatedPlayer = {
+            data: updatedPlayer_data,
+            id: updatedPlayer_id,
+            intId: updatedPlayer_intId,
+            name: updatedPlayer_name,
+            rating: updatedPlayer_rating,
+            ratingOrdinal: updatedPlayer_ratingOrdinal,
+            paid: updatedPlayer_paid,
+            gender: updatedPlayer_gender,
+            count: updatedPlayer_count
+          };
+          updatePlayerOverrides(updatedPlayer);
         });
   };
   var handleAddGuestPlayers = function (names) {
@@ -1649,6 +1689,7 @@ function EventManager(props) {
                               players: playersWithCounts,
                               checkedInPlayerIds: checkedInPlayerIds,
                               onToggleCheckin: handleToggleCheckin,
+                              onTogglePaid: handleTogglePaid,
                               onAdjustSeeds: adjustPlayerSeeds,
                               onOpenTeamManagement: (function () {
                                   setTeamManagementOpen(function (param) {

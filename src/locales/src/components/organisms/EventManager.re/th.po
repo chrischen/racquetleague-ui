@@ -18,13 +18,17 @@ msgstr ""
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:143
+#: src/components/organisms/PlayerCheckin.re.mjs:144
 msgid "{0} of {1} checked in"
 msgstr "เช็คอินแล้ว {0} จาก {1} คน"
 
 #: src/components/organisms/RoundSection.re.mjs:174
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
+msgstr "฿"
 
 #: src/components/organisms/RoundSection.re.mjs:522
 msgid "ACTIVE ROUND"
@@ -34,7 +38,7 @@ msgstr "รอบปัจจุบัน"
 msgid "Add {0}Guest{1}"
 msgstr "เพิ่ม{0}แขก{1}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:161
+#: src/components/organisms/PlayerCheckin.re.mjs:162
 msgid "Add guest players"
 msgstr "เพิ่มผู้เล่นแขก"
 
@@ -58,7 +62,7 @@ msgstr "อเล็กซ์ จอห์นสัน"
 msgid "All checked-in players are already in this round"
 msgstr "ผู้เล่นที่เช็คอินแล้วมีอยู่ในรอบนี้ทั้งหมดแล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:1452
+#: src/components/organisms/EventManager.re.mjs:1492
 msgid "Anti-Team {0}"
 msgstr "แอนตี้ทีม {0}"
 
@@ -121,11 +125,11 @@ msgstr "สร้างทีมแรกของคุณเพื่อเร
 msgid "Current Round:"
 msgstr "รอบปัจจุบัน:"
 
-#: src/components/organisms/EventManager.re.mjs:1629
+#: src/components/organisms/EventManager.re.mjs:1669
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
 
-#: src/components/organisms/EventManager.re.mjs:1629
+#: src/components/organisms/EventManager.re.mjs:1669
 msgid "Debug: ON"
 msgstr "ดีบัก: เปิด"
 
@@ -200,7 +204,7 @@ msgstr "สร้างคู่แข่ง"
 msgid "Guest Names (one per line)"
 msgstr "ชื่อแขก (หนึ่งชื่อต่อบรรทัด)"
 
-#: src/components/organisms/EventManager.re.mjs:1617
+#: src/components/organisms/EventManager.re.mjs:1657
 msgid "Help"
 msgstr "ช่วยเหลือ"
 
@@ -272,7 +276,15 @@ msgstr "ไม่มีคะแนน"
 msgid "No teams yet"
 msgstr "ยังไม่มีทีม"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:139
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr "ยังไม่ได้ชำระ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr "ชำระแล้ว"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:140
 msgid "Player Check-in"
 msgstr "เช็คอินผู้เล่น"
 
@@ -322,7 +334,7 @@ msgstr "เปลี่ยนผู้เล่น"
 msgid "Replacing:"
 msgstr "กำลังเปลี่ยน:"
 
-#: src/components/organisms/EventManager.re.mjs:1604
+#: src/components/organisms/EventManager.re.mjs:1644
 msgid "Reset Storage"
 msgstr "รีเซ็ตที่เก็บข้อมูล"
 
@@ -376,7 +388,7 @@ msgstr "บันทึกทีม"
 msgid "Score"
 msgstr "คะแนน"
 
-#: src/components/organisms/EventManager.re.mjs:1207
+#: src/components/organisms/EventManager.re.mjs:1247
 msgid "Scores Synced!"
 msgstr "ซิงค์คะแนนเรียบร้อยแล้ว!"
 
@@ -396,19 +408,19 @@ msgstr "กลยุทธ์"
 msgid "Strategy:"
 msgstr "กลยุทธ์:"
 
-#: src/components/organisms/EventManager.re.mjs:1219
+#: src/components/organisms/EventManager.re.mjs:1259
 msgid "Sync Failed"
 msgstr "ซิงค์ล้มเหลว"
 
-#: src/components/organisms/EventManager.re.mjs:1183
+#: src/components/organisms/EventManager.re.mjs:1223
 msgid "Sync Scores"
 msgstr "ซิงค์คะแนน"
 
-#: src/components/organisms/EventManager.re.mjs:1195
+#: src/components/organisms/EventManager.re.mjs:1235
 msgid "Syncing... {0}%"
 msgstr "กำลังซิงค์... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1161
+#: src/components/organisms/EventManager.re.mjs:1201
 msgid "Team {0}"
 msgstr "ทีม {0}"
 

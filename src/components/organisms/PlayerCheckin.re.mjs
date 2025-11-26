@@ -42,6 +42,7 @@ function PlayerCheckin(props) {
   var onOpenAddGuests = props.onOpenAddGuests;
   var onOpenPlayerSettings = props.onOpenPlayerSettings;
   var onOpenTeamManagement = props.onOpenTeamManagement;
+  var onTogglePaid = props.onTogglePaid;
   var onToggleCheckin = props.onToggleCheckin;
   var checkedInPlayerIds = props.checkedInPlayerIds;
   var players = props.players;
@@ -311,13 +312,12 @@ function PlayerCheckin(props) {
                                                                                                 });
                                                                                     })), null),
                                                                           JsxRuntime.jsx("button", {
-                                                                                children: JsxRuntime.jsx(LucideReact.DollarSign, {
-                                                                                      className: player.paid ? "w-3 h-3 text-white" : "w-3 h-3 text-slate-600"
-                                                                                    }),
-                                                                                className: player.paid ? "p-1 rounded transition-all flex-shrink-0 ml-auto bg-green-600 hover:bg-green-700" : "p-1 rounded transition-all flex-shrink-0 ml-auto bg-slate-300 hover:bg-slate-400",
-                                                                                title: player.paid ? "Paid" : "Not paid",
+                                                                                children: t`$`,
+                                                                                className: player.paid ? "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-green-600 hover:bg-green-700 text-white text-xs font-bold" : "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-slate-300 hover:bg-slate-400 text-slate-600 text-xs font-bold",
+                                                                                title: player.paid ? t`Paid` : t`Not paid`,
                                                                                 onClick: (function (e) {
                                                                                     e.stopPropagation();
+                                                                                    onTogglePaid(player.id);
                                                                                   })
                                                                               })
                                                                         ],

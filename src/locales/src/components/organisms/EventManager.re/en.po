@@ -22,12 +22,16 @@ msgstr ""
 msgid "{0} {matchText}"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:143
+#: src/components/organisms/PlayerCheckin.re.mjs:144
 msgid "{0} of {1} checked in"
 msgstr ""
 
 #: src/components/organisms/RoundSection.re.mjs:174
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
 msgstr ""
 
 #: src/components/organisms/RoundSection.re.mjs:522
@@ -38,7 +42,7 @@ msgstr ""
 msgid "Add {0}Guest{1}"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:161
+#: src/components/organisms/PlayerCheckin.re.mjs:162
 msgid "Add guest players"
 msgstr ""
 
@@ -66,7 +70,7 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1452
+#: src/components/organisms/EventManager.re.mjs:1492
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -141,11 +145,11 @@ msgstr ""
 #~ msgid "Current Round: {0}"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1629
+#: src/components/organisms/EventManager.re.mjs:1669
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1629
+#: src/components/organisms/EventManager.re.mjs:1669
 msgid "Debug: ON"
 msgstr ""
 
@@ -234,7 +238,7 @@ msgstr ""
 msgid "Guest Names (one per line)"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1617
+#: src/components/organisms/EventManager.re.mjs:1657
 msgid "Help"
 msgstr ""
 
@@ -310,7 +314,15 @@ msgstr ""
 msgid "No teams yet"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:139
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:140
 msgid "Player Check-in"
 msgstr ""
 
@@ -378,7 +390,7 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1604
+#: src/components/organisms/EventManager.re.mjs:1644
 msgid "Reset Storage"
 msgstr ""
 
@@ -432,7 +444,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1207
+#: src/components/organisms/EventManager.re.mjs:1247
 msgid "Scores Synced!"
 msgstr ""
 
@@ -456,19 +468,19 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1219
+#: src/components/organisms/EventManager.re.mjs:1259
 msgid "Sync Failed"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1183
+#: src/components/organisms/EventManager.re.mjs:1223
 msgid "Sync Scores"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1195
+#: src/components/organisms/EventManager.re.mjs:1235
 msgid "Syncing... {0}%"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1161
+#: src/components/organisms/EventManager.re.mjs:1201
 msgid "Team {0}"
 msgstr ""
 

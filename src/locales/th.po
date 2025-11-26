@@ -2909,7 +2909,8 @@ msgstr "ปรับสมดุลการแข่งขัน"
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
-msgstr "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
+msgstr ""
+"การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:165
 msgid "Blue dot indicates the team that has service in the match."
@@ -2922,6 +2923,18 @@ msgstr "สร้างการจับสลากใหม่หรือป
 #: src/components/pages/EventManagerGuidePage.re.mjs:161
 msgid "Service Indicator"
 msgstr "ตัวบอกสิทธิ์เสิร์ฟ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
+msgstr "฿"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr "ยังไม่ได้ชำระ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr "ชำระแล้ว"
 
 #: src/components/organisms/EventsList.re.mjs:260
 #, fuzzy

@@ -2900,6 +2900,18 @@ msgstr "產生新的抽籤或重新平衡輪次或比賽。"
 msgid "Service Indicator"
 msgstr "發球指示器"
 
+#: src/components/organisms/PlayerCheckin.re.mjs:315
+msgid "$"
+msgstr "$"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Not paid"
+msgstr "未付款"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "Paid"
+msgstr "已付款"
+
 #: src/components/organisms/EventsList.re.mjs:260
 #, fuzzy
 #~ msgid "{0} {hiddenCountDesc}"
