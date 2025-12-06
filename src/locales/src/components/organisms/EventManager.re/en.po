@@ -58,6 +58,10 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
+#: src/components/organisms/EventManager.re.mjs:1357
+msgid "Advance to Round {0}"
+msgstr ""
+
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:76
 msgid "Alex Johnson"
 msgstr ""
@@ -70,7 +74,7 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1492
+#: src/components/organisms/EventManager.re.mjs:1457
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -145,11 +149,11 @@ msgstr ""
 #~ msgid "Current Round: {0}"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1669
+#: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1669
+#: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: ON"
 msgstr ""
 
@@ -238,7 +242,7 @@ msgstr ""
 msgid "Guest Names (one per line)"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1657
+#: src/components/organisms/EventManager.re.mjs:1622
 msgid "Help"
 msgstr ""
 
@@ -390,7 +394,7 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1644
+#: src/components/organisms/EventManager.re.mjs:1609
 msgid "Reset Storage"
 msgstr ""
 
@@ -444,7 +448,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1247
+#: src/components/organisms/EventManager.re.mjs:1193
 msgid "Scores Synced!"
 msgstr ""
 
@@ -468,19 +472,19 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1259
+#: src/components/organisms/EventManager.re.mjs:1205
 msgid "Sync Failed"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1223
+#: src/components/organisms/EventManager.re.mjs:1169
 msgid "Sync Scores"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1235
+#: src/components/organisms/EventManager.re.mjs:1181
 msgid "Syncing... {0}%"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1201
+#: src/components/organisms/EventManager.re.mjs:1147
 msgid "Team {0}"
 msgstr ""
 

@@ -547,6 +547,38 @@ msgstr "พิมพ์กิจกรรมของคุณในรูปแ
 msgid "about"
 msgstr "เกี่ยวกับ"
 
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "คำอธิบายสั้นๆ เกี่ยวกับคลับ..."
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "ชื่อคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "URL คลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "ชื่อคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "สร้างคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "กิจกรรมเริ่มต้นของคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "เช่น คลับซิตี้บอลเลอร์"
+
 #: src/components/organisms/CreateClubForm.re.mjs:156
 msgid "club"
 msgstr "คลับ"
@@ -562,6 +594,169 @@ msgstr "ลบทีม"
 #: src/components/organisms/TeamManagementModal.re.mjs:390
 msgid "Edit team"
 msgstr "แก้ไขทีม"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1299
+msgid "Crossminton"
+msgstr "ครอสมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1303
+msgid "Padel"
+msgstr "ปาเดล"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:493
+msgid "+ Add new club..."
+msgstr "+ เพิ่มคลับใหม่..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:542
+msgid "Activity"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:833
+msgid "Add any additional information about the event..."
+msgstr "เพิ่มข้อมูลเพิ่มเติมเกี่ยวกับกิจกรรม..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:321
+msgid "at"
+msgstr "เวลา"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1036
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr "เล่นแบบสบายๆ เน้นความสนุกและการเข้าสังคม เหมาะกับทุกระดับทักษะ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:476
+msgid "Club"
+msgstr "คลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:880
+msgid "Club & Activity"
+msgstr "คลับและกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Create Event"
+msgstr "สร้างกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:340
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1073
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1103
+msgid "Drill session"
+msgstr "เซสชั่นฝึกซ้อม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:337
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1054
+msgid "DUPR rated"
+msgstr "ให้คะแนน DUPR"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:787
+msgid "End time"
+msgstr "เวลาสิ้นสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:829
+msgid "Event details (optional)"
+msgstr "รายละเอียดกิจกรรม (ไม่บังคับ)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "Event schedule"
+msgstr "กำหนดการกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:804
+msgid "Event title"
+msgstr "ชื่อกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:979
+msgid "Event type"
+msgstr "ประเภทกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1141
+msgid "Find Players"
+msgstr "หาผู้เล่น"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1187
+msgid "Find players for your event?"
+msgstr "หาผู้เล่นสำหรับกิจกรรมของคุณ?"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:944
+msgid "Format"
+msgstr "รูปแบบ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1047
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1098
+msgid "Format options"
+msgstr "ตัวเลือกรูปแบบ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:808
+msgid "Friday Night Pickleball"
+msgstr "พิคเคิลบอลคืนวันศุกร์"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+msgid "List your event publicly to help fill open spots"
+msgstr "แสดงกิจกรรมของคุณแบบสาธารณะเพื่อช่วยเติมที่ว่าง"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Max attendees (optional)"
+msgstr "ผู้เข้าร่วมสูงสุด (ไม่บังคับ)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:626
+msgid "No club"
+msgstr "ไม่มีคลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+msgid "No club / Independent event"
+msgstr "ไม่มีคลับ / กิจกรรมอิสระ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:820
+msgid "No limit"
+msgstr "ไม่จำกัด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:326
+#: src/components/organisms/CreateLocationEventForm.re.mjs:345
+msgid "Not set"
+msgstr "ยังไม่ได้ตั้งค่า"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:350
+msgid "Private event"
+msgstr "กิจกรรมส่วนตัว"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:363
+msgid "Public"
+msgstr "สาธารณะ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:365
+msgid "Public event"
+msgstr "กิจกรรมสาธารณะ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:861
+msgid "Read more..."
+msgstr "อ่านเพิ่มเติม..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:334
+#: src/components/organisms/CreateLocationEventForm.re.mjs:986
+msgid "Recreational"
+msgstr "นันทนาการ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1036
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "การเล่นจริงจังพร้อมอันดับและเรตติ้ง เกมอาจส่งผลต่อเรตติ้งผู้เล่นของคุณ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1203
+msgid "Skill level"
+msgstr "ระดับทักษะ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:776
+msgid "Start date and time"
+msgstr "วันที่และเวลาเริ่มต้น"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Update Event"
+msgstr "อัปเดตกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Max RSVPs (optional)"
+msgstr "RSVP สูงสุด (ไม่บังคับ)"
 
 #: src/components/organisms/TeamManagementModal.re.mjs:212
 msgid "New Anti-Team"
@@ -2936,15 +3131,223 @@ msgstr "ยังไม่ได้ชำระ"
 msgid "Paid"
 msgstr "ชำระแล้ว"
 
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
+#: src/components/pages/LoginPage.re.mjs:62
+msgid "Back to events"
+msgstr "กลับไปที่กิจกรรม"
 
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
+#: src/components/pages/LoginPage.re.mjs:110
+msgid "Continue with LINE"
+msgstr "ดำเนินการต่อด้วย LINE"
+
+#: src/components/pages/LoginPage.re.mjs:92
+msgid "New users will be automatically registered"
+msgstr "ผู้ใช้ใหม่จะถูกลงทะเบียนโดยอัตโนมัติ"
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "Sign in to Events"
+msgstr "ลงชื่อเข้าใช้กิจกรรม"
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "Sign in to Pkuru.com"
+msgstr "ลงชื่อเข้าใช้ Pkuru.com"
+
+#: src/components/pages/LoginPage.re.mjs:194
+msgid "Email address"
+msgstr "ที่อยู่อีเมล"
+
+#: src/components/pages/LoginPage.re.mjs:181
+msgid "or continue with email"
+msgstr "หรือดำเนินการต่อด้วยอีเมล"
+
+#: src/components/pages/LoginPage.re.mjs:235
+msgid "Send magic link"
+msgstr "ส่งลิงก์วิเศษ"
+
+#: src/components/pages/LoginPage.re.mjs:52
+#: src/components/pages/LoginPage.re.mjs:84
+msgid "An error occurred: {message}"
+msgstr "เกิดข้อผิดพลาด: {message}"
+
+#: src/components/pages/LoginPage.re.mjs:72
+#: src/components/pages/LoginPage.re.mjs:74
+msgid "Check your email for a magic link to sign in!"
+msgstr "ตรวจสอบอีเมลของคุณเพื่อรับลิงก์วิเศษสำหรับเข้าสู่ระบบ!"
+
+#: src/components/pages/LoginPage.re.mjs:70
+msgid "Failed to send magic link: {0}"
+msgstr "การส่งลิงก์วิเศษล้มเหลว: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:39
+msgid "Login failed: {0}"
+msgstr "เข้าสู่ระบบล้มเหลว: {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:240
+msgid "Complete your profile"
+msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:263
+msgid "Display name"
+msgstr "ชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr "ต้องกรอกชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:212
+msgid "Email cannot be changed"
+msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr "ต้องกรอกอีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:212
+msgid "For event updates and notifications"
+msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:295
+msgid "Save & Join Event"
+msgstr "บันทึกและเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:190
+msgid "This is how others will see you"
+msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:244
+msgid "We need a few details before you can join this event"
+msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "LOSS"
+msgstr "แพ้"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "DRAW"
+msgstr "เสมอ"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:575
+msgid "Even"
+msgstr "สมดุล"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:470
+msgid "Upset"
+msgstr "ผลลัพธ์ที่คาดไม่ถึง"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "WIN"
+msgstr "ชนะ"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "ประวัติเรตติ้ง"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr "พื้นที่แรเงาแสดงถึงความไม่แน่นอนของเรตติ้ง แถบที่แคบกว่าบ่งบอกถึงความมั่นใจที่สูงขึ้น"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:108
+msgid "Back to league"
+msgstr "กลับไปที่ลีก"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:146
+msgid "Current Rating"
+msgstr "เรตติ้งปัจจุบัน"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr "การแข่งขันล่าสุด"
+
+#: src/components/pages/LeaguePage.re.mjs:29
+msgid "Next Prize: December 31"
+msgstr "รางวัลถัดไป: 31 ธันวาคม"
+
+#: src/components/pages/LeaguePage.re.mjs:51
+msgid "Proton Flamingo Paddle"
+msgstr "ไม้ตีโปรตัน ฟลามิงโก้"
+
+#: src/components/pages/LeaguePage.re.mjs:65
+msgid "Second place female and male players will each receive the prize."
+msgstr "ผู้เล่นหญิงและชายที่ได้อันดับ 2 จะได้รับรางวัลคนละรางวัล"
+
+#: src/components/pages/LeaguePage.re.mjs:60
+msgid "Selkirk Labs Paddle Cover"
+msgstr "ปลอกไม้ตี Selkirk Labs"
+
+#: src/components/pages/LeaguePage.re.mjs:56
+msgid "Top female and top male players will each receive the prize."
+msgstr "ผู้เล่นหญิงและชายอันดับ 1 จะได้รับรางวัลคนละรางวัล"
+
+#: src/components/organisms/EventManager.re.mjs:1407
+msgid "Advance to Round {0}"
+msgstr "ไปยังรอบ {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid "An error occurred during sign in. Please try again."
+msgstr "เกิดข้อผิดพลาดในการเข้าสู่ระบบ กรุณาลองอีกครั้ง"
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"บัชชี LINE ของคุณไม่มีอีเมลเชื่อมโยง กรุณาตั้งค่าที่อยู่อีเมลสำหรับบัชชีของคุณจากแอป LINE "
+"แล้วลองอีกครั้ง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid "Answer the questions or provide more details..."
+msgstr "ตอบคำถามหรือให้รายละเอียดเพิ่มเติม..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Continue"
+msgstr "ดำเนินการต่อ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Continue the conversation"
+msgstr "ดำเนินการสนทนาต่อ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "Describe your event"
+msgstr "อธิบายกิจกรรมของคุณ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+"เช่น การพบปะพิคเคิลบอลรายสัปดาห์ที่เซ็นทรัลพาร์ค วันพฤหัสบดีเวลา 18:00 น. "
+"เล่นแบบแข่งขันสำหรับผู้เล่นระดับ 3.5+..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Fill with AI"
+msgstr "กรอกด้วย AI"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+msgid "Form filled • Click to expand"
+msgstr "กรอกแบบฟอร์มแล้ว • คลิกเพื่อขยาย"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+msgid "Generating..."
+msgstr "กำลังสร้าง..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Let AI help you fill out the details below"
+msgstr "ให้ AI ช่วยคุณกรอกรายละเอียดด้านล่าง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to continue"
+msgstr "กด ⌘+Enter เพื่อดำเนินการต่อ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to generate"
+msgstr "กด ⌘+Enter เพื่อสร้าง"
 
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
@@ -2954,7 +3357,7 @@ msgstr "ชำระแล้ว"
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"
-#~ msgstr "แท็กกิจกรรม: {tag}"
+#~ msgstr "ไอคอนตัวจัดการกิจกรรม"
 
 #: src/components/organisms/EventManager.re.mjs:223
 #, fuzzy
@@ -2965,3 +3368,13 @@ msgstr "ชำระแล้ว"
 #, fuzzy
 #~ msgid "Start Next Round"
 #~ msgstr "ไปยังรอบถัดไป"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"

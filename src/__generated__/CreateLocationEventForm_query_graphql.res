@@ -9,7 +9,11 @@ module Types = {
     name: option<string>,
     slug: option<string>,
   }
+  and fragment_viewer_adminClubs_edges_node_defaultActivity = {
+    @live id: string,
+  }
   and fragment_viewer_adminClubs_edges_node = {
+    defaultActivity: option<fragment_viewer_adminClubs_edges_node_defaultActivity>,
     @live id: string,
     name: option<string>,
   }
@@ -217,6 +221,18 @@ return {
                   "selections": [
                     (v0/*: any*/),
                     (v1/*: any*/),
+                    {
+                      "alias": null,
+                      "args": null,
+                      "concreteType": "Activity",
+                      "kind": "LinkedField",
+                      "name": "defaultActivity",
+                      "plural": false,
+                      "selections": [
+                        (v0/*: any*/)
+                      ],
+                      "storageKey": null
+                    },
                     {
                       "alias": null,
                       "args": null,

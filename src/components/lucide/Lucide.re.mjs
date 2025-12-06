@@ -107,6 +107,12 @@ var AlertTriangle = {};
 
 var CircleHelp = {};
 
+var Activity = {};
+
+var FileText = {};
+
+var Dumbbell = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -161,5 +167,8 @@ export {
   Venus ,
   AlertTriangle ,
   CircleHelp ,
+  Activity ,
+  FileText ,
+  Dumbbell ,
 }
 /* No side effect */

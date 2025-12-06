@@ -134,7 +134,7 @@ function SelectClubStateful(props) {
                                                           children: Caml_option.some(JsxRuntime.jsx(CreateClubForm.make, {
                                                                     connectionId: connectionId,
                                                                     query: fragments,
-                                                                    onCancel: (function (param) {
+                                                                    onCancel: (function () {
                                                                         setShowCreateclub(function (param) {
                                                                               return false;
                                                                             });

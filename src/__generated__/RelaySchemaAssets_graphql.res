@@ -370,6 +370,18 @@ and input_UpdateRsvpListTypeInput_nullable = {
 }
 
 @live
+and input_UpdateViewerContactInput = {
+  email?: string,
+  lineUsername?: string,
+}
+
+@live
+and input_UpdateViewerContactInput_nullable = {
+  email?: Js.Null.t<string>,
+  lineUsername?: Js.Null.t<string>,
+}
+
+@live
 and input_UpdateViewerRsvpMessageInput = {
   eventId: string,
   message: string,

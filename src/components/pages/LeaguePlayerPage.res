@@ -10,7 +10,15 @@ module Query = %relay(`
     $namespace: String
     $userId: ID!
   ) {
-    ...MatchListFragment
+    ...MatchHistoryListFragment
+      @arguments(
+        after: $after
+        first: $first
+        before: $before
+        activitySlug: $activitySlug
+        userId: $userId
+      )
+    ...RatingGraphWrapperFragment
       @arguments(
         after: $after
         first: $first
@@ -27,7 +35,7 @@ module Query = %relay(`
         ordinal
         mu
       }
-      ...MatchListUser_user
+      ...MatchHistoryListUser_user
     }
   }
 `)
@@ -55,106 +63,90 @@ let make = () => {
   user->Option.map(user =>
     <WaitForMessages>
       {() => {
-        <>
-          <div className="border-b border-black-500">
-            <Layout.Container>
-              <div className="overflow-hidden rounded-lg bg-white">
-                <h2 className="sr-only" id="profile-overview-title"> {t`Player Profile Page`} </h2>
-                <div className="bg-white p-6">
-                  <div className="sm:flex sm:items-center sm:justify-between">
-                    <div className="sm:flex sm:space-x-5 mx-auto">
-                      <div className="flex-shrink-0">
-                        {user.picture
-                        ->Option.map(picture =>
-                          <img className="mx-auto h-20 w-20 rounded-full" src={picture} alt="" />
-                        )
-                        ->Option.getOr(React.null)}
-                      </div>
-                      <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
-                        <p className="text-xl font-bold text-gray-900 sm:text-2xl">
-                          {user.lineUsername->Option.getOr("")->React.string}
-                        </p>
-                        <p className="text-sm font-medium text-gray-600">
-                          {user.gender
-                          ->Option.map(gender =>
-                            switch gender {
-                            | Male => t`Male`
-                            | Female => t`Female`
-                            | _ => "--"->React.string
-                            }
-                          )
-                          ->Option.getOr(React.null)}
-                        </p>
+        <div className="min-h-screen bg-gray-50 w-full">
+          // Header with back button
+          <div className="bg-white shadow-sm border-b">
+            <div className="max-w-6xl mx-auto px-4 py-4">
+              <LangProvider.Router.Link
+                to="../"
+                className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+                <Lucide.ChevronLeft className="w-5 h-5" />
+                <span className="font-medium"> {t`Back to league`} </span>
+              </LangProvider.Router.Link>
+            </div>
+          </div>
+          <div className="max-w-6xl mx-auto px-4 py-8">
+            // Player Info Card
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+              <div className="flex items-start gap-6">
+                {user.picture
+                ->Option.map(picture =>
+                  <img
+                    src={picture}
+                    alt={user.lineUsername->Option.getOr("")}
+                    className="w-24 h-24 rounded-full border-4 border-blue-100"
+                  />
+                )
+                ->Option.getOr(
+                  <div
+                    className="w-24 h-24 rounded-full border-4 border-blue-100 bg-gray-200 flex items-center justify-center text-gray-500 text-2xl font-bold">
+                    {user.lineUsername
+                    ->Option.flatMap(name => name->String.charAt(0)->String.toUpperCase->Some)
+                    ->Option.getOr("?")
+                    ->React.string}
+                  </div>,
+                )}
+                <div className="flex-1">
+                  <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                    {user.lineUsername->Option.getOr("")->React.string}
+                  </h1>
+                  <div className="flex flex-wrap gap-6 mt-4">
+                    // Current Rating
+                    <div>
+                      <div className="text-sm text-gray-500 mb-1"> {t`Current Rating`} </div>
+                      <div className="text-3xl font-bold text-blue-600">
+                        {user.rating
+                        ->Option.flatMap(r => r.ordinal->Option.map(Float.toFixed(_, ~digits=1)))
+                        ->Option.getOr("--")
+                        ->React.string}
                       </div>
                     </div>
+                    // Estimated DUPR (for pickleball only)
+                    {switch activitySlug {
+                    | "pickleball" =>
+                      user.rating
+                      ->Option.flatMap(r => r.mu)
+                      ->Option.map(mu => {
+                        let dupr = Rating.guessDupr(mu)
+                        <div>
+                          <div className="text-sm text-gray-500 mb-1"> {t`Estimated DUPR`} </div>
+                          <div className="text-2xl font-semibold text-gray-900">
+                            {dupr->Float.toFixed(~digits=2)->React.string}
+                          </div>
+                        </div>
+                      })
+                      ->Option.getOr(React.null)
+                    | _ => React.null
+                    }}
                   </div>
                 </div>
-                // <div
-                //   className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-                //   <div key={stat.label} className="px-6 py-5 text-center text-sm font-medium">
-                //     <span className="text-gray-900">{stat.value}</span> <span className="text-gray-600">{"label"->React.string}</span>
-                //   </div>
-                // </div>
-              </div>
-            </Layout.Container>
-          </div>
-          <Layout.Container className="mt-5">
-            // <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h1 className="sr-only"> {t`Player Profile Page`} </h1>
-            <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
-              <div className="grid grid-cols-1 gap-4 lg:col-span-2">
-                <section ariaLabelledby="section-1-title">
-                  <h2 className="sr-only" id="section-1-title"> {t`Match History`} </h2>
-                  <div className="overflow-hidden rounded-lg bg-white shadow">
-                    <div className="p-6">
-                      <h2 className="text-2xl font-semibold text-gray-900"> {t`Match History`} </h2>
-                      <React.Suspense
-                        fallback={<Layout.Container> {t`Loading rankings...`} </Layout.Container>}>
-                        <MatchList matches=fragmentRefs user=?userRefs />
-                      </React.Suspense>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <div className="grid grid-cols-1 gap-4">
-                <section ariaLabelledby="section-2-title">
-                  <h2 className="sr-only" id="section-2-title"> {t`Rating`} </h2>
-                  <div className="overflow-hidden rounded-lg bg-white shadow">
-                    <div className="p-6">
-                      <dt className="truncate text-sm font-medium text-gray-500"> {t`Rating`} </dt>
-                      <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-                        {user.rating
-                        ->Option.flatMap(r => r.ordinal->Option.map(Float.toFixed(_, ~digits=2)))
-                        ->Option.getOr("Unrated")
-                        ->React.string}
-                      </dd>
-                      {switch activitySlug {
-                      | "pickleball" =>
-                        user.rating
-                        ->Option.flatMap(r => r.mu)
-                        ->Option.map(mu => {
-                          let dupr = Rating.guessDupr(mu)
-                          <>
-                            <dt className="mt-4 truncate text-sm font-medium text-gray-500">
-                              {t`Estimated DUPR`}
-                            </dt>
-                            <dd
-                              className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-                              {dupr->Float.toFixed(~digits=2)->React.string}
-                            </dd>
-                          </>
-                        })
-                        ->Option.getOr(React.null)
-                      | _ => React.null
-                      }}
-                    </div>
-                  </div>
-                </section>
               </div>
             </div>
-          </Layout.Container>
-          // </div>
-        </>
+            // Rating Graph
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+              <React.Suspense fallback={React.null}>
+                <RatingGraphWrapper matches=fragmentRefs userId={user.id} />
+              </React.Suspense>
+            </div>
+            // Match History
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <h2 className="text-xl font-bold text-gray-900 mb-4"> {t`Recent Matches`} </h2>
+              <React.Suspense fallback={<div className="text-gray-500"> {t`Loading...`} </div>}>
+                <MatchHistoryList matches=fragmentRefs user=?userRefs />
+              </React.Suspense>
+            </div>
+          </div>
+        </div>
       }}
     </WaitForMessages>
   )

@@ -548,6 +548,38 @@ msgstr "按上述格式输入您的活动"
 msgid "about"
 msgstr "关于"
 
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "俱乐部的简要描述..."
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "俱乐部名称"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "俱乐部URL"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "俱乐部名称"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "创建俱乐部"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "默认俱乐部活动"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "描述"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "例如：城市球手俱乐部"
+
 #: src/components/organisms/CreateClubForm.re.mjs:156
 msgid "club"
 msgstr "俱乐部"
@@ -563,6 +595,169 @@ msgstr "删除队伍"
 #: src/components/organisms/TeamManagementModal.re.mjs:390
 msgid "Edit team"
 msgstr "编辑队伍"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1299
+msgid "Crossminton"
+msgstr "速羽球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1303
+msgid "Padel"
+msgstr "板式网球"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:493
+msgid "+ Add new club..."
+msgstr "+ 添加新俱乐部..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:542
+msgid "Activity"
+msgstr "活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:833
+msgid "Add any additional information about the event..."
+msgstr "添加有关活动的任何额外信息..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:321
+msgid "at"
+msgstr "于"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1036
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr "以乐趣和社交为主的休闲游戏。适合所有技能水平。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:476
+msgid "Club"
+msgstr "俱乐部"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:880
+msgid "Club & Activity"
+msgstr "俱乐部与活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Create Event"
+msgstr "创建活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:340
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1073
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1103
+msgid "Drill session"
+msgstr "训练课程"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:337
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1054
+msgid "DUPR rated"
+msgstr "DUPR评级"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:787
+msgid "End time"
+msgstr "结束时间"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:829
+msgid "Event details (optional)"
+msgstr "活动详情（可选）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "Event schedule"
+msgstr "活动日程"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:804
+msgid "Event title"
+msgstr "活动标题"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:979
+msgid "Event type"
+msgstr "活动类型"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1141
+msgid "Find Players"
+msgstr "寻找球员"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1187
+msgid "Find players for your event?"
+msgstr "为您的活动寻找球员？"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:944
+msgid "Format"
+msgstr "格式"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1047
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1098
+msgid "Format options"
+msgstr "格式选项"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:808
+msgid "Friday Night Pickleball"
+msgstr "周五晚上的匡克球"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+msgid "List your event publicly to help fill open spots"
+msgstr "公开列出您的活动以填补空位"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Max attendees (optional)"
+msgstr "最大参加人数（可选）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:626
+msgid "No club"
+msgstr "无俱乐部"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+msgid "No club / Independent event"
+msgstr "无俱乐部 / 独立活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:820
+msgid "No limit"
+msgstr "无限制"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:326
+#: src/components/organisms/CreateLocationEventForm.re.mjs:345
+msgid "Not set"
+msgstr "未设置"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:350
+msgid "Private event"
+msgstr "私人活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:363
+msgid "Public"
+msgstr "公开"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:365
+msgid "Public event"
+msgstr "公开活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:861
+msgid "Read more..."
+msgstr "阅读更多..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:334
+#: src/components/organisms/CreateLocationEventForm.re.mjs:986
+msgid "Recreational"
+msgstr "休闲"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1036
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "严肃的比赛，带有排名和评级。比赛可能影响您的球员评级。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1203
+msgid "Skill level"
+msgstr "技能水平"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:776
+msgid "Start date and time"
+msgstr "开始日期和时间"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Update Event"
+msgstr "更新活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Max RSVPs (optional)"
+msgstr "最大RSVP数（可选）"
 
 #: src/components/organisms/TeamManagementModal.re.mjs:212
 msgid "New Anti-Team"
@@ -2908,15 +3103,224 @@ msgstr "未支付"
 msgid "Paid"
 msgstr "已支付"
 
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "隐藏 {0} {hiddenCountDesc}"
+#: src/components/pages/LoginPage.re.mjs:62
+msgid "Back to events"
+msgstr "返回活动"
 
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
+#: src/components/pages/LoginPage.re.mjs:110
+msgid "Continue with LINE"
+msgstr "通过 LINE 继续"
+
+#: src/components/pages/LoginPage.re.mjs:92
+msgid "New users will be automatically registered"
+msgstr "新用户将自动注册"
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "Sign in to Events"
+msgstr "登录活动"
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "Sign in to Pkuru.com"
+msgstr "登录 Pkuru.com"
+
+#: src/components/pages/LoginPage.re.mjs:194
+msgid "Email address"
+msgstr "电子邮件地址"
+
+#: src/components/pages/LoginPage.re.mjs:181
+msgid "or continue with email"
+msgstr "或使用电子邮件继续"
+
+#: src/components/pages/LoginPage.re.mjs:235
+msgid "Send magic link"
+msgstr "发送魔术链接"
+
+#: src/components/pages/LoginPage.re.mjs:52
+#: src/components/pages/LoginPage.re.mjs:84
+msgid "An error occurred: {message}"
+msgstr "发生错误: {message}"
+
+#: src/components/pages/LoginPage.re.mjs:72
+#: src/components/pages/LoginPage.re.mjs:74
+msgid "Check your email for a magic link to sign in!"
+msgstr "请检查您的电子邮件以获取魔术链接登录！"
+
+#: src/components/pages/LoginPage.re.mjs:70
+msgid "Failed to send magic link: {0}"
+msgstr "发送魔术链接失败: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:39
+msgid "Login failed: {0}"
+msgstr "登录失败: {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:240
+msgid "Complete your profile"
+msgstr "完善个人资料"
+
+#: src/components/organisms/ProfileModal.re.mjs:263
+msgid "Display name"
+msgstr "显示名称"
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr "请输入显示名称"
+
+#: src/components/organisms/ProfileModal.re.mjs:212
+msgid "Email cannot be changed"
+msgstr "电子邮件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr "请输入电子邮件"
+
+#: src/components/organisms/ProfileModal.re.mjs:212
+msgid "For event updates and notifications"
+msgstr "用于活动更新和通知"
+
+#: src/components/organisms/ProfileModal.re.mjs:295
+msgid "Save & Join Event"
+msgstr "保存并参加活动"
+
+#: src/components/organisms/ProfileModal.re.mjs:190
+msgid "This is how others will see you"
+msgstr "这是其他人会看到的名字"
+
+#: src/components/organisms/ProfileModal.re.mjs:244
+msgid "We need a few details before you can join this event"
+msgstr "在您参加此活动之前，我们需要一些信息"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "LOSS"
+msgstr "负"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "DRAW"
+msgstr "平局"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:575
+msgid "Even"
+msgstr "势均力敌"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:470
+msgid "Upset"
+msgstr "爆冷"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "WIN"
+msgstr "胜"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "评分历史"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr "阴影区域表示评分的不确定性。较窄的带表示更高的置信度。"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:108
+msgid "Back to league"
+msgstr "返回联赛"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:146
+msgid "Current Rating"
+msgstr "当前评分"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr "最近比赛"
+
+#: src/components/pages/LeaguePage.re.mjs:29
+msgid "Next Prize: December 31"
+msgstr "下次奖品：12月31日"
+
+#: src/components/pages/LeaguePage.re.mjs:51
+msgid "Proton Flamingo Paddle"
+msgstr "Proton Flamingo 球拍"
+
+#: src/components/pages/LeaguePage.re.mjs:65
+msgid "Second place female and male players will each receive the prize."
+msgstr "第二名女选手和男选手将各获得该奖品。"
+
+#: src/components/pages/LeaguePage.re.mjs:60
+msgid "Selkirk Labs Paddle Cover"
+msgstr "Selkirk Labs 球拍套"
+
+#: src/components/pages/LeaguePage.re.mjs:56
+msgid "Top female and top male players will each receive the prize."
+msgstr "顶级女选手和顶级男选手将各获得该奖品。"
+
+#: src/components/organisms/EventManager.re.mjs:1407
+msgid "Advance to Round {0}"
+msgstr "前往第 {0} 轮"
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
+"件地址登录。"
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid "An error occurred during sign in. Please try again."
+msgstr "登录过程中发生错误。请重试。"
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"您的 LINE 账户没有关联电子邮件地址。请从 LINE 应用程序为您的账户设置电子邮件"
+"地址，然后重试。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid "Answer the questions or provide more details..."
+msgstr "回答问题或提供更多详细信息..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Continue"
+msgstr "继续"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Continue the conversation"
+msgstr "继续对话"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "Describe your event"
+msgstr "描述您的活动"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+"例如：每周四下午6点在中央公园举行的匹克球聚会，适合3.5+级别的竞技球员..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Fill with AI"
+msgstr "使用 AI 填写"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+msgid "Form filled • Click to expand"
+msgstr "表单已填写 • 点击展开"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+msgid "Generating..."
+msgstr "生成中..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Let AI help you fill out the details below"
+msgstr "让 AI 帮助您填写以下详细信息"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to continue"
+msgstr "按 ⌘+Enter 继续"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to generate"
+msgstr "按 ⌘+Enter 生成"
 
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
@@ -2926,7 +3330,7 @@ msgstr "已支付"
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"
-#~ msgstr "活动标签：{tag}"
+#~ msgstr "赛事管理器图标"
 
 #: src/components/organisms/EventManager.re.mjs:223
 #, fuzzy
@@ -2937,3 +3341,13 @@ msgstr "已支付"
 #, fuzzy
 #~ msgid "Start Next Round"
 #~ msgstr "前进至下一回合"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "隐藏 {0} {hiddenCountDesc}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"

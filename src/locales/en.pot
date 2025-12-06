@@ -3232,3 +3232,409 @@ msgstr ""
 #: src/components/organisms/PlayerCheckin.re.mjs:317
 msgid "Paid"
 msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:62
+msgid "Back to events"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:110
+msgid "Continue with LINE"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:92
+msgid "New users will be automatically registered"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "Sign in to Events"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "Sign in to Pkuru.com"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:194
+msgid "Email address"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:181
+msgid "or continue with email"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:235
+msgid "Send magic link"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:52
+#: src/components/pages/LoginPage.re.mjs:84
+msgid "An error occurred: {message}"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:72
+#: src/components/pages/LoginPage.re.mjs:74
+msgid "Check your email for a magic link to sign in!"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:70
+msgid "Failed to send magic link: {0}"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:39
+msgid "Login failed: {0}"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:240
+msgid "Complete your profile"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:263
+msgid "Display name"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:212
+msgid "Email cannot be changed"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:212
+msgid "For event updates and notifications"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:295
+msgid "Save & Join Event"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:190
+msgid "This is how others will see you"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:244
+msgid "We need a few details before you can join this event"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "LOSS"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:470
+msgid "Upset"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "WIN"
+msgstr ""
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr ""
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:108
+msgid "Back to league"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:146
+msgid "Current Rating"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:29
+msgid "Next Prize: December 31"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:51
+msgid "Proton Flamingo Paddle"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:65
+msgid "Second place female and male players will each receive the prize."
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:60
+msgid "Selkirk Labs Paddle Cover"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:56
+msgid "Top female and top male players will each receive the prize."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:1407
+msgid "Advance to Round {0}"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid "An error occurred during sign in. Please try again."
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1299
+msgid "Crossminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1303
+msgid "Padel"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:493
+msgid "+ Add new club..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:833
+msgid "Add any additional information about the event..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:321
+msgid "at"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1036
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:476
+msgid "Club"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:880
+msgid "Club & Activity"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Create Event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:340
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1073
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1103
+msgid "Drill session"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:337
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1054
+msgid "DUPR rated"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:787
+msgid "End time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:829
+msgid "Event details (optional)"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "Event schedule"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:804
+msgid "Event title"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:979
+msgid "Event type"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1141
+msgid "Find Players"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1187
+msgid "Find players for your event?"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:944
+msgid "Format"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1047
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1098
+msgid "Format options"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:808
+msgid "Friday Night Pickleball"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+msgid "List your event publicly to help fill open spots"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Max attendees (optional)"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:626
+msgid "No club"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+msgid "No club / Independent event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:820
+msgid "No limit"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:326
+#: src/components/organisms/CreateLocationEventForm.re.mjs:345
+msgid "Not set"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:350
+msgid "Private event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:363
+msgid "Public"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:365
+msgid "Public event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:861
+msgid "Read more..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:334
+#: src/components/organisms/CreateLocationEventForm.re.mjs:986
+msgid "Recreational"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1036
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1203
+msgid "Skill level"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:776
+msgid "Start date and time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Update Event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Max RSVPs (optional)"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid "Answer the questions or provide more details..."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Continue"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Continue the conversation"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "Describe your event"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Fill with AI"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+msgid "Form filled • Click to expand"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+msgid "Generating..."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Let AI help you fill out the details below"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to continue"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to generate"
+msgstr ""

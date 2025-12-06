@@ -133,6 +133,7 @@ return {
       "name": "defaultActivity",
       "plural": false,
       "selections": [
+        (v1/*: any*/),
         {
           "alias": null,
           "args": null,

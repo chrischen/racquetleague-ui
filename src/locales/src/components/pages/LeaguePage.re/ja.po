@@ -13,35 +13,39 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LeaguePage.re.mjs:122
+#: src/components/pages/LeaguePage.re.mjs:120
 msgid "japan pickle league"
 msgstr "日本ピックルリーグ"
 
-#: src/components/pages/LeaguePage.re.mjs:58
-msgid "Mach 2 Forza Paddle"
-msgstr "マッハ2フォルツァパドル"
+#: src/components/pages/LeaguePage.re.mjs:29
+msgid "Next Prize: December 31"
+msgstr "次の賞品：12月31日"
 
-#: src/components/pages/LeaguePage.re.mjs:64
-msgid "Multiple colors available."
-msgstr "複数の色が利用可能です。"
+#: src/components/pages/LeaguePage.re.mjs:51
+msgid "Proton Flamingo Paddle"
+msgstr "プロトン フラミンゴ パドル"
 
-#: src/components/pages/LeaguePage.re.mjs:31
-msgid "Next Prize: September 10"
-msgstr "次の賞品: 9月10日"
+#: src/components/pages/LeaguePage.re.mjs:65
+msgid "Second place female and male players will each receive the prize."
+msgstr "2位の女性および男性プレイヤーがそれぞれ賞品を受け取ります。"
 
-#: src/components/pages/LeaguePage.re.mjs:35
+#: src/components/pages/LeaguePage.re.mjs:60
+msgid "Selkirk Labs Paddle Cover"
+msgstr "セルカーク ラボ パドルカバー"
+
+#: src/components/pages/LeaguePage.re.mjs:33
 msgid ""
 "This prize will be awarded to the top male and female players on this day."
 msgstr ""
 "この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
 
-#: src/components/pages/LeaguePage.re.mjs:112
+#: src/components/pages/LeaguePage.re.mjs:111
 msgid "Tokyo Badminton League"
 msgstr "東京バドミントンリーグ"
 
-#: src/components/pages/LeaguePage.re.mjs:130
-msgid "volair pickleball"
-msgstr "ボレアピクルボール"
+#: src/components/pages/LeaguePage.re.mjs:56
+msgid "Top female and top male players will each receive the prize."
+msgstr "トップの女性およびトップの男性プレイヤーがそれぞれ賞品を受け取ります。"
 
 #: src/components/organisms/RatingList.re.mjs:204
 #~ msgid "--"
@@ -79,9 +83,17 @@ msgstr "ボレアピクルボール"
 #~ msgid "Loading rankings..."
 #~ msgstr "ランキングを読み込んでいます..."
 
+#: src/components/pages/LeaguePage.re.mjs:58
+#~ msgid "Mach 2 Forza Paddle"
+#~ msgstr "マッハ2フォルツァパドル"
+
 #: src/components/organisms/RatingList.re.mjs:206
 #~ msgid "Male"
 #~ msgstr "男性"
+
+#: src/components/pages/LeaguePage.re.mjs:64
+#~ msgid "Multiple colors available."
+#~ msgstr "複数の色が利用可能です。"
 
 #: src/components/pages/LeaguePage.re.mjs:57
 #: src/components/pages/LeaguePage.re.mjs:81
@@ -91,6 +103,10 @@ msgstr "ボレアピクルボール"
 #: src/components/pages/LeaguePage.re.mjs:53
 #~ msgid "Next Prize: June 10"
 #~ msgstr "次の賞品: 6月10日"
+
+#: src/components/pages/LeaguePage.re.mjs:31
+#~ msgid "Next Prize: September 10"
+#~ msgstr "次の賞品: 9月10日"
 
 #: src/components/pages/LeaguePage.re.mjs:140
 #~ msgid ""
@@ -115,3 +131,7 @@ msgstr "ボレアピクルボール"
 #: src/components/molecules/AddToCalendar.re.mjs:17
 #~ msgid "sync calendar"
 #~ msgstr "カレンダー同期"
+
+#: src/components/pages/LeaguePage.re.mjs:130
+#~ msgid "volair pickleball"
+#~ msgstr "ボレアピクルボール"

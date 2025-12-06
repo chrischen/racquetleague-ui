@@ -396,9 +396,6 @@ let make = (
   // Rating adjustment history (chronological list of adjustments with round metadata)
   let (ratingAdjustmentHistory, setRatingAdjustmentHistory) = React.useState(() => [])
 
-  // Track when adjustment was just made to trigger round reset in effect
-  let (pendingRoundReset, setPendingRoundReset) = React.useState(() => None)
-
   // Team constraints for matchmaking
   let (teams: NonEmptyArray.t<array<Player.t<rsvpNode>>>, setTeams) = React.useState(() =>
     NonEmptyArray.empty
@@ -436,16 +433,6 @@ let make = (
     })
   }, (rounds, currentRoundInt))
 
-  // Scroll to current round when it changes
-  React.useEffect1(() => {
-    currentRoundRef.current
-    ->Nullable.toOption
-    ->Option.forEach(element => {
-      element->scrollIntoView({"behavior": "smooth", "block": "center"})
-    })
-    None
-  }, [currentRoundInt])
-
   // === DERIVED DATA ===
 
   // Load matches from TinyBase on initial mount
@@ -453,6 +440,10 @@ let make = (
     // Load court count from TinyBase
     let storedCourtCount = EventManagerPersistence.loadCourtCount(data.id)
     setCourtCount(_ => storedCourtCount)
+
+    // Load match generation strategy from TinyBase
+    let storedStrategy = EventManagerPersistence.loadStrategy(data.id)
+    setStrategy(_ => storedStrategy)
 
     // Load checked-in player IDs from TinyBase
     let storedCheckedInIds = EventManagerPersistence.loadCheckedInPlayerIds(data.id)
@@ -616,59 +607,6 @@ let make = (
     playersWithCounts->Array.map(p => (p.id, p))->Js.Dict.fromArray
   }, [playersWithCounts])
 
-  // Effect to handle round reset after rating adjustments
-  // Only triggers when pendingRoundReset changes (not when rounds change)
-  React.useEffect(() => {
-    pendingRoundReset->Option.forEach(roundIndex => {
-      if roundIndex >= 0 {
-        Js.log("Regenerating round " ++ (roundIndex + 1)->Int.toString ++ " after seed adjustment")
-
-        // Use the current state via updater function to avoid depending on rounds
-        updateRounds(
-          currentRounds => {
-            // Get player state up to (but not including) the round being reset in terms of play counts
-            // But include rating adjustments for the current round (roundIndex)
-            let adjustmentsUpToCurrentRound =
-              ratingAdjustmentHistory->Array.filter(adj => adj.appliedAtRound <= roundIndex)
-            let playersForReset =
-              currentRounds
-              ->Array.slice(~start=0, ~end=roundIndex)
-              ->toPlayerStateWithAdjustments(~players, ~adjustments=adjustmentsUpToCurrentRound)
-              ->Array.filter(p => checkedInPlayerIds->Set.has(p.id))
-
-            // Generate new round with adjusted ratings
-            switch generateSingleRound(
-              ~roundIndex,
-              ~rounds=currentRounds,
-              ~availablePlayers=playersForReset,
-              ~strategy,
-              ~courtCount,
-              ~teamConstraints?,
-              ~avoidAllPlayers,
-              ~startTime=eventStartTime,
-            ) {
-            | Some(newRound) =>
-              currentRounds->Array.mapWithIndex(
-                (round, idx) => idx == roundIndex ? newRound : round,
-              )
-            | None => currentRounds
-            }
-          },
-        )
-      }
-      // Clear the pending reset
-      setPendingRoundReset(_ => None)
-    })
-    None
-  }, (
-    pendingRoundReset,
-    ratingAdjustmentHistory,
-    players,
-    checkedInPlayerIds,
-    strategy,
-    courtCount,
-  ))
-
   // Auto-regenerate future rounds when dirty for Competitive/Mixed strategies
   // Only triggers when isDirty changes (not when rounds change)
   React.useEffect1(() => {
@@ -822,17 +760,6 @@ let make = (
 
       updatedHistory
     })
-
-    // Schedule round reset to regenerate matches with adjusted player state
-    // targetRound is the round where adjustments are applied (0-indexed)
-    // We need to regenerate the round AFTER the adjustments (targetRound + 1 in 1-indexed terms)
-    // But targetRound is already the roundIndex we want to regenerate
-    // When on currentRoundInt=1, targetRound=0, and we want to regenerate round index 0
-    // The reset will happen in the useEffect after state has updated
-    if currentRoundInt > 0 {
-      // Regenerate the current round (currentRoundInt is 1-indexed, so currentRoundInt-1 is the array index)
-      setPendingRoundReset(_ => Some(currentRoundInt - 1))
-    }
   }
 
   // Handle match completion - update the match with score in current round
@@ -1111,6 +1038,13 @@ let make = (
     EventManagerPersistence.saveCourtCount(data.id, count)
   }
 
+  // Handle strategy change
+  let handleStrategyChange = (s: strategy) => {
+    setStrategy(_ => s)
+    setIsDirty(_ => true)
+    EventManagerPersistence.saveStrategy(data.id, s)
+  }
+
   // Handle advance to next round
   let handleAdvanceRound = () => {
     if currentRoundInt < rounds->Array.length {
@@ -1234,12 +1168,6 @@ let make = (
 
       updatedHistory
     })
-
-    // If we're in an active round, schedule round reset to regenerate without the deleted adjustment
-    // The reset will happen in the useEffect after state has updated
-    if currentRoundInt > 0 {
-      setPendingRoundReset(_ => Some(currentRoundInt - 1))
-    }
   }
 
   // Internal function to update player overrides
@@ -1278,12 +1206,6 @@ let make = (
     // Gender changes affect match generation (e.g., for gender-mixed doubles)
     if genderChanged {
       setIsDirty(_ => true)
-    }
-
-    // Schedule round reset to regenerate matches if gender changed
-    if genderChanged && currentRoundInt > 0 {
-      // Regenerate the current round (currentRoundInt is 1-indexed, so currentRoundInt-1 is the array index)
-      setPendingRoundReset(_ => Some(currentRoundInt - 1))
     }
   }
 
@@ -1536,7 +1458,7 @@ let make = (
             checkedInPlayerCount={checkedInPlayerIds->Set.size}
             hasExistingDraws={false}
             strategy
-            onStrategyChange={s => setStrategy(_ => s)}
+            onStrategyChange={handleStrategyChange}
             onGenerateDraws={handleGenerateDraws}
             isInitiallyExpanded={true}
             highlight={isDirty}
@@ -1563,7 +1485,7 @@ let make = (
                     checkedInPlayerCount={checkedInPlayerIds->Set.size}
                     hasExistingDraws={rounds->Array.length > 0}
                     strategy
-                    onStrategyChange={s => setStrategy(_ => s)}
+                    onStrategyChange={handleStrategyChange}
                     onGenerateDraws={handleGenerateDraws}
                     isInitiallyExpanded={true}
                     highlight={isDirty}
@@ -1655,6 +1577,34 @@ let make = (
                           debug={debugMode}
                           allRounds={rounds}
                         />
+                        // Advance Round Button - Below Current Round
+                        {canAdvance
+                          ? <div className="mt-6 flex justify-center">
+                              <button
+                                onClick={_ => {
+                                  handleAdvanceRound()
+                                  // Small delay to ensure state updates before scrolling
+                                  let _ = setTimeout(() => {
+                                    currentRoundRef.current
+                                    ->Nullable.toOption
+                                    ->Option.forEach(
+                                      element => {
+                                        element->scrollIntoView({
+                                          "behavior": "smooth",
+                                          "block": "center",
+                                        })
+                                      },
+                                    )
+                                  }, 100)
+                                }}
+                                className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">
+                                <span>
+                                  {t`Advance to Round ${(currentRoundInt + 1)->Int.toString}`}
+                                </span>
+                                <Lucide.ChevronRight className="w-6 h-6" />
+                              </button>
+                            </div>
+                          : React.null}
                       </div>
                     : <RoundSection
                         matches={roundMatches}
@@ -1696,7 +1646,7 @@ let make = (
                         checkedInPlayerCount={checkedInPlayerIds->Set.size}
                         hasExistingDraws={rounds->Array.length > roundNum}
                         strategy
-                        onStrategyChange={s => setStrategy(_ => s)}
+                        onStrategyChange={handleStrategyChange}
                         onGenerateDraws={handleGenerateDraws}
                         isInitiallyExpanded={currentRoundInt == 0}
                         highlight={isDirty}

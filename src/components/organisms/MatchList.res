@@ -47,8 +47,72 @@ module ItemFragment = %relay(`
     namespace
     score
     createdAt
+    playerMetadata
   }
 `)
+
+module PlayerRating = {
+  type t = {
+    mu: float,
+    sigma: float,
+    muDiff: option<float>,
+    sigmaDiff: option<float>,
+  }
+
+  let decode = (json: Js.Json.t): option<t> => {
+    try {
+      let dict = json->Js.Json.decodeObject
+      dict->Option.flatMap(d => {
+        let mu = d->Js.Dict.get("mu")->Option.flatMap(v => Js.Json.decodeNumber(v))
+        let sigma = d->Js.Dict.get("sigma")->Option.flatMap(v => Js.Json.decodeNumber(v))
+        let muDiff = d->Js.Dict.get("muDiff")->Option.flatMap(v => Js.Json.decodeNumber(v))
+        let sigmaDiff = d->Js.Dict.get("sigmaDiff")->Option.flatMap(v => Js.Json.decodeNumber(v))
+
+        switch (mu, sigma) {
+        | (Some(mu), Some(sigma)) => Some({mu, sigma, muDiff, sigmaDiff})
+        | _ => None
+        }
+      })
+    } catch {
+    | _ => None
+    }
+  }
+}
+
+module PlayerMetadata = {
+  type t = Js.Dict.t<PlayerRating.t>
+
+  let decode = (jsonString: option<string>): option<t> => {
+    jsonString->Option.flatMap(str => {
+      try {
+        let json = Js.Json.parseExn(str)
+        json
+        ->Js.Json.decodeObject
+        ->Option.flatMap(dict => {
+          let metadata = Js.Dict.empty()
+          dict
+          ->Js.Dict.entries
+          ->Array.forEach(
+            ((playerId, ratingJson)) => {
+              PlayerRating.decode(ratingJson)->Option.forEach(
+                rating => {
+                  metadata->Js.Dict.set(playerId, rating)
+                },
+              )
+            },
+          )
+          Some(metadata)
+        })
+      } catch {
+      | _ => None
+      }
+    })
+  }
+
+  let get = (metadata: option<t>, playerId: string): option<PlayerRating.t> => {
+    metadata->Option.flatMap(m => m->Js.Dict.get(playerId))
+  }
+}
 
 module NodeId: {
   type t
@@ -84,6 +148,34 @@ module MatchListTeamFragment = %relay(`
     gender
   }
 `)
+module RatingDisplay = {
+  @react.component
+  let make = (~rating: PlayerRating.t) => {
+    let ratingValue = rating.mu -. 3.0 *. rating.sigma
+    let ratingChange = rating.muDiff->Option.map(muDiff => {
+      let sign = muDiff >= 0.0 ? "+" : ""
+      sign ++ muDiff->Float.toFixed(~digits=1)
+    })
+
+    <span className="inline-flex items-center gap-1">
+      <span className="text-sm font-medium text-gray-700">
+        {ratingValue->Float.toFixed(~digits=0)->React.string}
+      </span>
+      {ratingChange
+      ->Option.map(change => {
+        let isPositive = rating.muDiff->Option.getOr(0.0) >= 0.0
+        <span
+          className={isPositive
+            ? "text-xs text-green-600 font-semibold"
+            : "text-xs text-red-600 font-semibold"}>
+          {change->React.string}
+        </span>
+      })
+      ->Option.getOr(React.null)}
+    </span>
+  }
+}
+
 module InlineTeam = {
   type player = {
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
@@ -93,23 +185,25 @@ module InlineTeam = {
   }
 
   @react.component
-  let make = (~players: array<RescriptRelay.fragmentRefs<[> #MatchListTeam_user]>>) => {
+  let make = (
+    ~players: array<RescriptRelay.fragmentRefs<[> #MatchListTeam_user]>>,
+    ~metadata: option<PlayerMetadata.t>=?,
+  ) => {
     players
-    ->Array.mapWithIndex(// {winner.picture
-    // ->Option.map(picture =>
-    //   <img
-    //     className="w-10 h-10 rounded-full inline"
-    //     src={picture}
-    //     alt={winner.lineUsername->Option.getOr("")}
-    //   />
-    // )
-    // ->Option.getOr(React.null)}
-    (player, i) => {
+    ->Array.mapWithIndex((player, i) => {
       let player = MatchListTeamFragment.use(player)
+      let rating = metadata->Option.flatMap(m => PlayerMetadata.get(Some(m), player.id))
+
       <React.Fragment key={player.id}>
         <Link to={"../p/" ++ player.id} key={player.id} className="font-medium text-gray-900">
           {player.lineUsername->Option.getOr("")->React.string}
         </Link>
+        {rating
+        ->Option.map(r => <>
+          {" "->React.string}
+          <RatingDisplay rating=r />
+        </>)
+        ->Option.getOr(React.null)}
         {i != players->Array.length - 1 ? " • "->React.string : React.null}
       </React.Fragment>
     })
@@ -133,7 +227,9 @@ module Match = {
     ~idx: int,
     ~length: int,
   ) => {
-    let {id, winners, losers, score, createdAt, namespace} = ItemFragment.use(match)
+    let {id, winners, losers, score, createdAt, namespace, playerMetadata} = ItemFragment.use(match)
+    Js.log(playerMetadata)
+    let metadata = PlayerMetadata.decode(playerMetadata)
 
     let isWinner =
       user
@@ -173,14 +269,14 @@ module Match = {
                   ? {
                       winners
                       ->Option.map(winners =>
-                        <InlineTeam players={winners->Array.map(x => x.fragmentRefs)} />
+                        <InlineTeam players={winners->Array.map(x => x.fragmentRefs)} ?metadata />
                       )
                       ->Option.getOr(React.null)
                     }
                   : {
                       losers
                       ->Option.map(winners =>
-                        <InlineTeam players={winners->Array.map(x => x.fragmentRefs)} />
+                        <InlineTeam players={winners->Array.map(x => x.fragmentRefs)} ?metadata />
                       )
                       ->Option.getOr(React.null)
                     }}
@@ -189,14 +285,14 @@ module Match = {
                   ? {
                       losers
                       ->Option.map(winners =>
-                        <InlineTeam players={winners->Array.map(x => x.fragmentRefs)} />
+                        <InlineTeam players={winners->Array.map(x => x.fragmentRefs)} ?metadata />
                       )
                       ->Option.getOr(React.null)
                     }
                   : {
                       winners
                       ->Option.map(winners =>
-                        <InlineTeam players={winners->Array.map(x => x.fragmentRefs)} />
+                        <InlineTeam players={winners->Array.map(x => x.fragmentRefs)} ?metadata />
                       )
                       ->Option.getOr(React.null)
                     }}

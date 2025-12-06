@@ -69,6 +69,55 @@ function saveCourtCount(eventId, courtCount) {
   eventStore.setRow("eventState", eventId, existingRow);
 }
 
+function strategyToString(strategy) {
+  switch (strategy) {
+    case "CompetitivePlus" :
+        return "competitive-plus";
+    case "Competitive" :
+        return "competitive";
+    case "Mixed" :
+        return "mixed";
+    case "RoundRobin" :
+        return "round-robin";
+    case "Random" :
+        return "random";
+    case "DUPR" :
+        return "dupr";
+    
+  }
+}
+
+function stringToStrategy(str) {
+  switch (str) {
+    case "competitive" :
+        return "Competitive";
+    case "dupr" :
+        return "DUPR";
+    case "mixed" :
+        return "Mixed";
+    case "random" :
+        return "Random";
+    case "round-robin" :
+        return "RoundRobin";
+    default:
+      return "CompetitivePlus";
+  }
+}
+
+function loadStrategy(eventId) {
+  var eventsTable = eventStore.getTable("eventState");
+  return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
+                            return Js_dict.get(row, "strategy");
+                          })), Js_json.decodeString), stringToStrategy), "CompetitivePlus");
+}
+
+function saveStrategy(eventId, strategy) {
+  var eventsTable = eventStore.getTable("eventState");
+  var existingRow = Core__Option.getOr(Js_dict.get(eventsTable, eventId), {});
+  existingRow["strategy"] = strategyToString(strategy);
+  eventStore.setRow("eventState", eventId, existingRow);
+}
+
 function loadCheckedInPlayerIds(eventId) {
   var eventsTable = eventStore.getTable("eventState");
   return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
@@ -522,6 +571,10 @@ export {
   clearEventData ,
   loadCourtCount ,
   saveCourtCount ,
+  strategyToString ,
+  stringToStrategy ,
+  loadStrategy ,
+  saveStrategy ,
   loadCheckedInPlayerIds ,
   saveCheckedInPlayerIds ,
   hydratePlayerWithRsvpData ,

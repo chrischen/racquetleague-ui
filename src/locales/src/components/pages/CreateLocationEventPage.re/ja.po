@@ -14,286 +14,518 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:508
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1302
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:512
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1306
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:516
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1310
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:520
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1314
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:524
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1318
 msgid "Basketball"
 msgstr "バスケットボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:528
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1322
 msgid "Volleyball"
 msgstr "バレーボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:532
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1326
+msgid "Crossminton"
+msgstr "クロスミントン"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Padel"
+msgstr "パデル"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1334
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1338
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:540
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1342
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:544
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1346
 msgid "all level"
 msgstr "全レベル"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:303
-msgid "{0} event details"
-msgstr "{0} イベント詳細"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+msgid "{0} hours"
+msgstr "{0}時間"
 
-#: src/components/organisms/CreateClubForm.re.mjs:213
-msgid "about"
-msgstr "約"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+msgid "{0} hours and {1} minutes"
+msgstr "{0}時間{1}分"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:325
-msgid "activity"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:414
+msgid "{0} minutes"
+msgstr "{0}分"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:509
+msgid "+ Add new club..."
+msgstr "+ 新しいクラブを追加..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:558
+msgid "Activity"
 msgstr "アクティビティ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:82
+#: src/components/organisms/CreateLocationEventForm.re.mjs:77
 msgid "activity is required"
 msgstr "アクティビティが必要です"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:108
-msgid "add new club"
-msgstr "新しいサークルを追加"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:851
+msgid "Add any additional information about the event..."
+msgstr "イベントに関する追加情報を入力してください..."
 
-#: src/components/atoms/EventTag.re.mjs:42
-msgid "Advanced players"
-msgstr "上級プレイヤー"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:337
+msgid "at"
+msgstr "時"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:313
-msgid "All Level"
-msgstr "すべてのレベル"
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "クラブの簡単な説明..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:452
-msgid ""
-"any details from the location will already be included. Mention any "
-"additional event-specific instructions, rules, or details."
-msgstr ""
-"ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
-"細」があれば記載してください。"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:82
-msgid "choose the club where this event will be held."
-msgstr "このイベントが開催されるサークルを選択してください。"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr ""
+"楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:492
+msgid "Club"
+msgstr "クラブ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:898
+msgid "Club & Activity"
+msgstr "クラブとアクティビティ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
-msgid "club"
-msgstr "サークル"
+msgid "Club Name"
+msgstr "クラブ名"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:344
-msgid "date and start time"
-msgstr "日付と開始時刻"
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "クラブURL"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:304
-msgid "details specific to this event on the specified date and time."
-msgstr "指定された日時のこのイベントに特有の詳細。"
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "クラブ名"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:440
-msgid "edit the location to edit the details for this location."
-msgstr "この場所の詳細を編集するには、場所を編集します。"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:348
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1014
+msgid "Competitive"
+msgstr "競争力"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:354
-msgid "end time"
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "クラブを作成"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1286
+msgid "Create Event"
+msgstr "イベントを作成"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "デフォルトのクラブアクティビティ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "説明"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:574
+msgid "Done"
+msgstr "完了"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:356
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1097
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1127
+msgid "Drill session"
+msgstr "練習セッション"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:353
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1078
+msgid "DUPR rated"
+msgstr "DUPRレーティング"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "例：シティボーラーズクラブ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:805
+msgid "End time"
 msgstr "終了時刻"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:94
+#: src/components/organisms/CreateLocationEventForm.re.mjs:89
 msgid "end time is required"
 msgstr "終了時刻が必要です"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:91
+#: src/components/organisms/CreateLocationEventForm.re.mjs:86
 msgid "event date is required"
 msgstr "イベント日付が必要です"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:449
-msgid "event details"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:916
+msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/atoms/EventTag.re.mjs:60
-msgid "Event tag: {tag}"
-msgstr "イベントタグ: {tag}"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:847
+msgid "Event details (optional)"
+msgstr "イベント詳細（オプション）"
 
-#: src/components/atoms/EventTag.re.mjs:44
-msgid "Highly skilled players"
-msgstr "高技能プレイヤー"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:701
+msgid "Event schedule"
+msgstr "イベントスケジュール"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:431
-msgid "level of play"
-msgstr "プレイレベル"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:822
+msgid "Event title"
+msgstr "イベントタイトル"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:478
-msgid "list publicly"
-msgstr "一般公開リスト"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1003
+msgid "Event type"
+msgstr "イベントタイプ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:435
-msgid "location details"
-msgstr "場所の詳細"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1165
+msgid "Find Players"
+msgstr "プレイヤーを探す"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1214
+msgid "Find players for your event?"
+msgstr "イベントのプレイヤーを募集しますか？"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:965
+msgid "Format"
+msgstr "形式"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1071
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1122
+msgid "Format options"
+msgstr "形式オプション"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Friday Night Pickleball"
+msgstr "金曜夜のピックルボール"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1219
+msgid "List your event publicly to help fill open spots"
+msgstr "空き枠を埋めるためにイベントを公開する"
 
 #: src/components/pages/CreateLocationEventPage.re.mjs:63
 msgid "location doesn't exist."
 msgstr "場所が存在しません。"
 
-#: src/components/atoms/EventTag.re.mjs:38
-msgid "Lower intermediate and above"
-msgstr "初中級以上"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:834
+msgid "Max RSVPs (optional)"
+msgstr "最大参加人数（オプション）"
 
-#: src/components/organisms/CreateClubForm.re.mjs:194
-msgid "main activity"
-msgstr "主なアクティビティ"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:642
+msgid "No club"
+msgstr "クラブなし"
 
-#: src/components/organisms/CreateClubForm.re.mjs:85
-msgid "main activity is required"
-msgstr "主なアクティビティが必要です"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:499
+msgid "No club / Independent event"
+msgstr "クラブなし / 個人イベント"
 
-#: src/components/atoms/EventTag.re.mjs:54
-msgid "Matches will be submitted to DUPR."
-msgstr "試合結果はDUPRに提出されます。"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:838
+msgid "No limit"
+msgstr "制限なし"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:377
-msgid "max participants"
-msgstr "最大参加者数"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:342
+#: src/components/organisms/CreateLocationEventForm.re.mjs:361
+msgid "Not set"
+msgstr "未設定"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:389
-msgid "minimum rating"
-msgstr "最低評価"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:366
+msgid "Private event"
+msgstr "プライベートイベント"
 
-#: src/components/organisms/CreateClubForm.re.mjs:162
-msgid "name"
-msgstr "場所名"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:379
+msgid "Public"
+msgstr "公開"
 
-#: src/components/organisms/CreateClubForm.re.mjs:79
-msgid "name is required"
-msgstr "場所名は必須"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:381
+msgid "Public event"
+msgstr "公開イベント"
 
-#: src/components/atoms/EventTag.re.mjs:48
-msgid "No restriction on skill level. Open to all players."
-msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+msgid "Read more..."
+msgstr "続きを読む..."
 
-#: src/components/atoms/EventTag.re.mjs:46
-msgid "Professional players"
-msgstr "プロプレイヤー"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:350
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1010
+msgid "Recreational"
+msgstr "レクリエーション"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
 msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
-msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
-
-#: src/components/atoms/EventTag.re.mjs:50
-msgid "Results will be submitted to competitive ratings."
-msgstr "結果は競技レーティングに提出されます。"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr "保存"
-
-#: src/components/organisms/SelectClubStateful.re.mjs:81
-msgid "select club"
-msgstr "サークルを選択"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:413
-msgid "Select tags that best describe this event"
-msgstr "このイベントを最もよく説明するタグを選択してください"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:483
-msgid ""
-"show your event publicly on our home page. Otherwise, only people with a "
-"link to your event will be able to find it."
+"Serious play with rankings and ratings. Games may affect your player rating."
 msgstr ""
-"ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
-"持っている人だけがイベントを見つけることができます。"
+"ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティン"
+"グに影響する場合があります。"
 
-#: src/components/atoms/EventTag.re.mjs:52
-msgid "Skills practice and drills focused on technique improvement"
-msgstr "技術向上に焦点を当てたスキル練習とドリル"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+msgid "Show less"
+msgstr "折りたたむ"
 
-#: src/components/organisms/CreateClubForm.re.mjs:177
-msgid "slug"
-msgstr "スラッグ"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1230
+msgid "Skill level"
+msgstr "スキルレベル"
 
-#: src/components/organisms/CreateClubForm.re.mjs:216
-msgid "tell people about your club"
-msgstr "あなたのサークルについて人々に伝える"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:794
+msgid "Start date and time"
+msgstr "開始日時"
 
-#: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
-msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:364
-msgid "timezone"
-msgstr "タイムゾーン"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:310
-msgid "title"
-msgstr "タイトル"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:79
+#: src/components/organisms/CreateLocationEventForm.re.mjs:74
 msgid "title is required"
 msgstr "タイトルが必要です"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:412
-msgid "type of event"
-msgstr "イベントタイプ"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1286
+msgid "Update Event"
+msgstr "イベントを更新"
 
-#: src/components/atoms/EventTag.re.mjs:40
-msgid "Upper intermediate and above"
-msgstr "中上級以上"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:303
+#~ msgid "{0} event details"
+#~ msgstr "{0} イベント詳細"
 
-#: src/components/organisms/CreateClubForm.re.mjs:82
-msgid "url slug is required"
-msgstr "URLスラッグが必要です"
+#: src/components/organisms/CreateClubForm.re.mjs:213
+#~ msgid "about"
+#~ msgstr "約"
 
-#: src/components/organisms/CreateClubForm.re.mjs:182
-msgid "yubibado"
-msgstr "ゆびバド"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:325
+#~ msgid "activity"
+#~ msgstr "アクティビティ"
 
-#: src/components/organisms/CreateClubForm.re.mjs:165
-msgid "ゆびバド"
-msgstr "ゆびバド"
+#: src/components/organisms/SelectClubStateful.re.mjs:108
+#~ msgid "add new club"
+#~ msgstr "新しいサークルを追加"
+
+#: src/components/atoms/EventTag.re.mjs:42
+#~ msgid "Advanced players"
+#~ msgstr "上級プレイヤー"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:313
+#~ msgid "All Level"
+#~ msgstr "すべてのレベル"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:198
 #~ msgid "All Level Badminton"
 #~ msgstr "すべてのレベルのバドミントン"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:452
+#~ msgid ""
+#~ "any details from the location will already be included. Mention any "
+#~ "additional event-specific instructions, rules, or details."
+#~ msgstr ""
+#~ "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、"
+#~ "詳細」があれば記載してください。"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "キャンセル"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:82
+#~ msgid "choose the club where this event will be held."
+#~ msgstr "このイベントが開催されるサークルを選択してください。"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+#~ msgid "club"
+#~ msgstr "サークル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:344
+#~ msgid "date and start time"
+#~ msgstr "日付と開始時刻"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:304
+#~ msgid "details specific to this event on the specified date and time."
+#~ msgstr "指定された日時のこのイベントに特有の詳細。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:440
+#~ msgid "edit the location to edit the details for this location."
+#~ msgstr "この場所の詳細を編集するには、場所を編集します。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:354
+#~ msgid "end time"
+#~ msgstr "終了時刻"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:449
+#~ msgid "event details"
+#~ msgstr "イベント詳細"
+
+#: src/components/atoms/EventTag.re.mjs:60
+#~ msgid "Event tag: {tag}"
+#~ msgstr "イベントタグ: {tag}"
+
+#: src/components/atoms/EventTag.re.mjs:44
+#~ msgid "Highly skilled players"
+#~ msgstr "高技能プレイヤー"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:431
+#~ msgid "level of play"
+#~ msgstr "プレイレベル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:478
+#~ msgid "list publicly"
+#~ msgstr "一般公開リスト"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:435
+#~ msgid "location details"
+#~ msgstr "場所の詳細"
+
 #: src/components/pages/CreateLocationEventPage.re.mjs:60
 #~ msgid "Location doesn't exist."
 #~ msgstr "場所が存在しません。"
+
+#: src/components/atoms/EventTag.re.mjs:38
+#~ msgid "Lower intermediate and above"
+#~ msgstr "初中級以上"
+
+#: src/components/organisms/CreateClubForm.re.mjs:194
+#~ msgid "main activity"
+#~ msgstr "主なアクティビティ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:85
+#~ msgid "main activity is required"
+#~ msgstr "主なアクティビティが必要です"
+
+#: src/components/atoms/EventTag.re.mjs:54
+#~ msgid "Matches will be submitted to DUPR."
+#~ msgstr "試合結果はDUPRに提出されます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+#~ msgid "Max attendees (optional)"
+#~ msgstr "最大参加人数（オプション）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:377
+#~ msgid "max participants"
+#~ msgstr "最大参加者数"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:389
+#~ msgid "minimum rating"
+#~ msgstr "最低評価"
+
+#: src/components/organisms/CreateClubForm.re.mjs:162
+#~ msgid "name"
+#~ msgstr "場所名"
+
+#: src/components/organisms/CreateClubForm.re.mjs:79
+#~ msgid "name is required"
+#~ msgstr "場所名は必須"
+
+#: src/components/atoms/EventTag.re.mjs:48
+#~ msgid "No restriction on skill level. Open to all players."
+#~ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
+
+#: src/components/atoms/EventTag.re.mjs:46
+#~ msgid "Professional players"
+#~ msgstr "プロプレイヤー"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:198
 #~ msgid "Recreational play suitable for all skill levels"
 #~ msgstr "すべてのスキルレベルに適したレクリエーションプレー"
 
+#: src/components/atoms/EventTag.re.mjs:56
+#~ msgid ""
+#~ "Recreational play that will not be submitted to competitive ratings nor "
+#~ "DUPR."
+#~ msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
+
+#: src/components/atoms/EventTag.re.mjs:50
+#~ msgid "Results will be submitted to competitive ratings."
+#~ msgstr "結果は競技レーティングに提出されます。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:194
 #~ msgid "Results will be submitted to the JPL rating system and/or DUPR."
 #~ msgstr "結果はJPLレーティングシステムやDUPRに提出されます。"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "保存"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:81
+#~ msgid "select club"
+#~ msgstr "サークルを選択"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:413
+#~ msgid "Select tags that best describe this event"
+#~ msgstr "このイベントを最もよく説明するタグを選択してください"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+#~ msgid ""
+#~ "show your event publicly on our home page. Otherwise, only people with a "
+#~ "link to your event will be able to find it."
+#~ msgstr ""
+#~ "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンク"
+#~ "を持っている人だけがイベントを見つけることができます。"
+
+#: src/components/atoms/EventTag.re.mjs:52
+#~ msgid "Skills practice and drills focused on technique improvement"
+#~ msgstr "技術向上に焦点を当てたスキル練習とドリル"
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+#~ msgid "slug"
+#~ msgstr "スラッグ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:216
+#~ msgid "tell people about your club"
+#~ msgstr "あなたのサークルについて人々に伝える"
+
+#: src/components/atoms/EventTag.re.mjs:58
+#~ msgid ""
+#~ "This event is private. Please do not share this event without permission "
+#~ "from the organizer."
+#~ msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:364
+#~ msgid "timezone"
+#~ msgstr "タイムゾーン"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:310
+#~ msgid "title"
+#~ msgstr "タイトル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+#~ msgid "type of event"
+#~ msgstr "イベントタイプ"
+
+#: src/components/atoms/EventTag.re.mjs:40
+#~ msgid "Upper intermediate and above"
+#~ msgstr "中上級以上"
+
+#: src/components/organisms/CreateClubForm.re.mjs:82
+#~ msgid "url slug is required"
+#~ msgstr "URLスラッグが必要です"
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+#~ msgid "yubibado"
+#~ msgstr "ゆびバド"
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+#~ msgid "ゆびバド"
+#~ msgstr "ゆびバド"

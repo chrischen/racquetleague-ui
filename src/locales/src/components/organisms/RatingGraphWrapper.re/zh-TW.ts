@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"IPmYm3\":\"評分歷史\",\"56ttmm\":\"陰影區域表示評分的不確定性。較窄的帶表示更高的置信度。\"}");

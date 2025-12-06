@@ -13,45 +13,94 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:372
+#: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:85
+#: src/components/pages/LeaguePlayerPage.re.mjs:108
+msgid "Back to league"
+msgstr "กลับไปที่ลีก"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:146
+msgid "Current Rating"
+msgstr "เรตติ้งปัจจุบัน"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "เสมอ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:87
 msgid "Estimated DUPR"
 msgstr "DUPR ที่คาดการณ์"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:130
-msgid "Female"
-msgstr "หญิง"
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "สมดุล"
 
-#: src/components/organisms/MatchList.re.mjs:395
+#: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:193
+msgid "Loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "แพ้"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "ประวัติเรตติ้ง"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr "การแข่งขันล่าสุด"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr "พื้นที่แรเงาแสดงถึงความไม่แน่นอนของเรตติ้ง แถบที่แคบกว่าบ่งบอกถึงความมั่นใจที่สูงขึ้น"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "ผลลัพธ์ที่คาดไม่ถึง"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "ชนะ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:131
+#~ msgid "Female"
+#~ msgstr "หญิง"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:194
+#~ msgid "Loading rankings..."
+#~ msgstr "กำลังโหลดการจัดอันดับ..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:133
+#~ msgid "Male"
+#~ msgstr "ชาย"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
 #: src/components/pages/LeaguePlayerPage.re.mjs:185
-msgid "Loading rankings..."
-msgstr "กำลังโหลดการจัดอันดับ..."
+#~ msgid "Match History"
+#~ msgstr "ประวัติแมทช์"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:132
-msgid "Male"
-msgstr "ชาย"
+#: src/components/pages/LeaguePlayerPage.re.mjs:103
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
+#~ msgid "Player Profile Page"
+#~ msgstr "หน้าโปรไฟล์ผู้เล่น"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:168
-#: src/components/pages/LeaguePlayerPage.re.mjs:176
-msgid "Match History"
-msgstr "ประวัติแมทช์"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:102
-#: src/components/pages/LeaguePlayerPage.re.mjs:159
-msgid "Player Profile Page"
-msgstr "หน้าโปรไฟล์ผู้เล่น"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:202
-#: src/components/pages/LeaguePlayerPage.re.mjs:210
-msgid "Rating"
-msgstr "เรตติ้ง"
+#: src/components/pages/LeaguePlayerPage.re.mjs:212
+#: src/components/pages/LeaguePlayerPage.re.mjs:220
+#~ msgid "Rating"
+#~ msgstr "เรตติ้ง"
 
 #: src/components/organisms/MatchList.re.mjs:292
-msgid "Score:"
-msgstr "คะแนน:"
+#~ msgid "Score:"
+#~ msgstr "คะแนน:"

@@ -49,151 +49,233 @@ type inputs = {
   description: Zod.optional<Zod.string_>,
 }
 
-let schema = Zod.z->Zod.object(
-  (
-    {
-      name: Zod.z->Zod.string({required_error: ts`name is required`})->Zod.String.min(1),
-      slug: Zod.z->Zod.string({required_error: ts`url slug is required`})->Zod.String.min(1),
-      activity: Zod.z
-      ->Zod.string({required_error: ts`main activity is required`})
-      ->Zod.String.min(1),
-      description: Zod.z->Zod.string({})->Zod.optional,
-    }: inputs
-  ),
-)
+type clubData = {
+  name: string,
+  slug: string,
+  description: string,
+  defaultActivity: string,
+}
+
 @react.component
 let make = (~connectionId=?, ~query, ~onCancel, ~onCreated, ~inline: bool=false) => {
   open Lingui.Util
-  open Form
+  let ts = Lingui.UtilString.t
   let td = Lingui.UtilString.dynamic
 
   let (commitMutationCreate, _) = Mutation.use()
   let {activities} = ActivitiesFragment.use(query)
 
-  let {register, handleSubmit, reset, formState: {errors}} = useFormOfInputs(
-    ~options={
-      resolver: Resolver.zodResolver(schema),
-      defaultValues: {},
-    },
-  )
-  let onSubmit = (data: inputs) => {
-    let connections =
-      connectionId
-      ->Option.map(connectionId => [
-        RescriptRelay.ConnectionHandler.getConnectionID(
-          connectionId,
-          // "client:root:viewer"->RescriptRelay.makeDataId,
-          "SelectClub_adminClubs",
-          (),
-        ),
-      ])
-      ->Option.getOr([])
+  // Find pickleball activity, fallback to first activity if not found
+  let defaultActivityId =
+    activities
+    ->Array.find(a =>
+      a.slug
+      ->Option.map(slug => slug == "pickleball")
+      ->Option.getOr(false)
+    )
+    ->Option.map(a => a.id)
+    ->Option.getOr(activities->Array.get(0)->Option.map(a => a.id)->Option.getOr(""))
 
-    commitMutationCreate(
-      ~variables={
-        input: {
-          name: data.name,
-          slug: data.slug,
-          activity: data.activity,
-          description: ?data.description,
-        },
-        connections,
-      },
-      ~onCompleted=(response, _errors) => {
-        response.createClub.club
-        ->Option.map(club => {
-          reset()
-          onCreated(club);
-        })
-        ->ignore
-      },
-    )->RescriptRelay.Disposable.ignore
+  let (newClubData, setNewClubData) = React.useState(() => {
+    name: "",
+    slug: "",
+    description: "",
+    defaultActivity: defaultActivityId,
+  })
+
+  // Track whether slug has been manually edited
+  let (slugManuallyEdited, setSlugManuallyEdited) = React.useState(() => false)
+
+  let handleClubNameChange = name => {
+    // Auto-generate slug from name if not manually edited
+    setNewClubData(prev => {
+      let newSlug = if !slugManuallyEdited {
+        name
+        ->Js.String2.toLowerCase
+        ->Js.String2.replaceByRe(%re("/[^a-z0-9-]/g"), "-")
+        ->Js.String2.replaceByRe(%re("/-+/g"), "-")
+        ->Js.String2.replaceByRe(%re("/^-|-$/g"), "")
+      } else {
+        prev.slug
+      }
+      {...prev, name, slug: newSlug}
+    })
   }
-  // let onSubmit = data => Js.log(data)
 
-  <WaitForMessages>
-    {() =>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid className="grid-cols-1">
-          <FormSection title={t`club`}>
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="col-span-full">
-                <Input
-                  label={t`name`}
-                  id="name"
-                  name="name"
-                  placeholder={ts`ゆびバド`}
-                  register={register(Name)}
-                />
-                <p>
-                  {switch errors.name {
-                  | Some({message: ?Some(message)}) => message
-                  | _ => ""
-                  }->React.string}
-                </p>
-              </div>
-              <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg">
-                <PrefixedInput
-                  prefix="www.pkuru.com/clubs/"
-                  label={t`slug`}
-                  id="slug"
-                  name="slug"
-                  placeholder={ts`yubibado`}
-                  className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                  register={register(Slug)}
-                />
-                <p>
-                  {switch errors.slug {
-                  | Some({message: ?Some(message)}) => message
-                  | _ => ""
-                  }->React.string}
-                </p>
-              </div>
-              <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg">
-                <Select
-                  label={t`main activity`}
-                  id="activity"
-                  name="activity"
-                  options={activities->Array.map(activity => (
-                    td(activity.name->Option.getOr("---")),
-                    activity.id,
-                  ))}
-                  register={register(Activity)}
-                />
-                <p>
-                  {switch errors.activity {
-                  | Some({message: ?Some(message)}) => message
-                  | _ => ""
-                  }->React.string}
-                </p>
-              </div>
-              <div className="col-span-full">
-                <TextArea
-                  label={t`about`}
-                  id="description"
-                  name="description"
-                  hint={t`tell people about your club`}
-                  register={register(Description)}
-                />
-              </div>
-            </div>
-          </FormSection>
-          <Form.Footer onCancel />
-        </Grid>
-      </form>}
-  </WaitForMessages>
+  let handleAddClub = () => {
+    // Validate that both name and slug are present
+    if newClubData.name->Js.String2.trim == "" || newClubData.slug->Js.String2.trim == "" {
+      ()
+    } else {
+      let connections =
+        connectionId
+        ->Option.map(connectionId => [
+          RescriptRelay.ConnectionHandler.getConnectionID(connectionId, "viewer_adminClubs", ()),
+        ])
+        ->Option.getOr([])
+
+      commitMutationCreate(
+        ~variables={
+          input: {
+            name: newClubData.name,
+            slug: newClubData.slug,
+            activity: newClubData.defaultActivity,
+            description: newClubData.description,
+          },
+          connections,
+        },
+        ~onCompleted=(response, _errors) => {
+          response.createClub.club
+          ->Option.map(club => {
+            setNewClubData(
+              _ => {
+                name: "",
+                slug: "",
+                description: "",
+                defaultActivity: defaultActivityId,
+              },
+            )
+            setSlugManuallyEdited(_ => false)
+            onCreated(club)
+          })
+          ->ignore
+        },
+      )->RescriptRelay.Disposable.ignore
+    }
+  }
+
+  let handleCancelAddClub = () => {
+    setNewClubData(_ => {
+      name: "",
+      slug: "",
+      description: "",
+      defaultActivity: defaultActivityId,
+    })
+    setSlugManuallyEdited(_ => false)
+    onCancel()
+  }
+
+  <div className="space-y-4 p-4 border-2 border-blue-200 rounded-lg bg-blue-50">
+    <div className="pt-1">
+      <label htmlFor="clubName" className="block text-xs font-medium text-gray-700 mb-1.5">
+        {t`Club Name`}
+      </label>
+      <input
+        id="clubName"
+        type_="text"
+        value={newClubData.name}
+        onChange={e => {
+          let value = ReactEvent.Form.target(e)["value"]
+          handleClubNameChange(value)
+        }}
+        onKeyDown={e => {
+          switch ReactEvent.Keyboard.key(e) {
+          | "Enter" => {
+              ReactEvent.Keyboard.preventDefault(e)
+              handleAddClub()
+            }
+          | "Escape" => handleCancelAddClub()
+          | _ => ()
+          }
+        }}
+        placeholder={ts`e.g., City Ballers Club`}
+        className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white"
+        autoFocus={true}
+      />
+    </div>
+    <div>
+      <label htmlFor="clubDescription" className="block text-xs font-medium text-gray-700 mb-1.5">
+        {t`Description`}
+      </label>
+      <textarea
+        id="clubDescription"
+        value={newClubData.description}
+        onChange={e => {
+          let value = ReactEvent.Form.target(e)["value"]
+          setNewClubData(prev => {...prev, description: value})
+        }}
+        placeholder={ts`Brief description of the club...`}
+        rows=3
+        className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none bg-white"
+      />
+    </div>
+    <div>
+      <label htmlFor="clubActivity" className="block text-xs font-medium text-gray-700 mb-1.5">
+        {t`Default club activity`}
+      </label>
+      <select
+        id="clubActivity"
+        value={newClubData.defaultActivity}
+        onChange={e => {
+          let value = ReactEvent.Form.target(e)["value"]
+          setNewClubData(prev => {...prev, defaultActivity: value})
+        }}
+        className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white">
+        {activities
+        ->Array.map(activity =>
+          <option key={activity.id} value={activity.id}>
+            {td(activity.name->Option.getOr("---"))->React.string}
+          </option>
+        )
+        ->React.array}
+      </select>
+    </div>
+    <div>
+      <label htmlFor="clubSlug" className="block text-xs font-medium text-gray-700 mb-1.5">
+        {t`Club URL`}
+      </label>
+      <div
+        className="flex items-center border border-gray-300 rounded-lg bg-white focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all">
+        <span className="px-3 text-sm text-gray-500 whitespace-nowrap">
+          {"https://www.pkuru.com/clubs/"->React.string}
+        </span>
+        <input
+          id="clubSlug"
+          type_="text"
+          value={newClubData.slug}
+          onChange={e => {
+            let value = ReactEvent.Form.target(e)["value"]
+            let slug =
+              value->Js.String2.toLowerCase->Js.String2.replaceByRe(%re("/[^a-z0-9-]/g"), "")
+            setSlugManuallyEdited(_ => true)
+            setNewClubData(prev => {...prev, slug})
+          }}
+          placeholder={ts`club-name`}
+          className="flex-1 px-0 py-2 text-sm border-0 focus:outline-none focus:ring-0 bg-transparent"
+        />
+      </div>
+    </div>
+    <div className="flex gap-2 pt-2">
+      <button
+        type_="button"
+        onClick={_ => handleAddClub()}
+        disabled={newClubData.name->Js.String2.trim->Js.String2.length == 0 ||
+          newClubData.slug->Js.String2.trim->Js.String2.length == 0}
+        className="flex items-center gap-1.5 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors">
+        <HeroIcons.CheckIcon className="h-4 w-4" />
+        {t`Create Club`}
+      </button>
+      <button
+        type_="button"
+        onClick={_ => handleCancelAddClub()}
+        className="flex items-center gap-1.5 px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 border border-gray-300 transition-colors">
+        <HeroIcons.XMarkIcon className="h-4 w-4" />
+        {t`Cancel`}
+      </button>
+    </div>
+  </div>
 }
 
-// let td = Lingui.UtilString.td
+// let td = lingui.utilstring.td
 // @live
-// td({id: "Badminton"})->ignore
+// td({id: "badminton"})->ignore
 // @live
-// td({id: "Table Tennis"})->ignore
+// td({id: "table tennis"})->ignore
 // @live
-// td({id: "Pickleball"})->ignore
+// td({id: "pickleball"})->ignore
 // @live
-// td({id: "Futsal"})->ignore
+// td({id: "futsal"})->ignore
 // @live
-// td({id: "Basketball"})->ignore
+// td({id: "basketball"})->ignore
 // @live
-// td({id: "Volleyball"})->ignore
+// td({id: "volleyball"})->ignore

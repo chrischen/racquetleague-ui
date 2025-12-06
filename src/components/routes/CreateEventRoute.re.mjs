@@ -35,7 +35,7 @@ async function loader(param) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   return ReactRouterDom.defer({
-              i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
+              i18nLoaders: Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
             });
 }
 

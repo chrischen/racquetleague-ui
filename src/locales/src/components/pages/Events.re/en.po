@@ -23,7 +23,7 @@ msgstr ""
 #~ msgid "Futsal"
 #~ msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:462
+#: src/components/organisms/EventsList.re.mjs:451
 msgid "...load past events"
 msgstr ""
 
@@ -116,7 +116,7 @@ msgstr ""
 msgid "🚫 CANCELED"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:418
+#: src/components/organisms/AddEventButton.re.mjs:35
 msgid "Add an Event"
 msgstr ""
 
@@ -164,7 +164,7 @@ msgstr ""
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:434
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "clear filter"
 msgstr ""
 
@@ -205,7 +205,7 @@ msgstr ""
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:432
+#: src/components/organisms/EventsList.re.mjs:421
 msgid "filtering by date"
 msgstr ""
 

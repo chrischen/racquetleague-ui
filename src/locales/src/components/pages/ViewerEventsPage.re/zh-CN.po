@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:462
+#: src/components/organisms/EventsList.re.mjs:451
 msgid "...load past events"
 msgstr "...加载历史活动"
 
@@ -82,7 +82,7 @@ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 已取消"
 
-#: src/components/organisms/EventsList.re.mjs:418
+#: src/components/organisms/AddEventButton.re.mjs:35
 msgid "Add an Event"
 msgstr "添加活动"
 
@@ -106,7 +106,7 @@ msgstr "询问"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "下个月每周四晚上7-9点在赤羽小学打羽毛球。"
 
-#: src/components/organisms/EventsList.re.mjs:434
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "clear filter"
 msgstr "清除筛选"
 
@@ -135,7 +135,7 @@ msgstr "创建活动时出错。请重试。"
 msgid "Event Details"
 msgstr "活动详情"
 
-#: src/components/organisms/EventsList.re.mjs:432
+#: src/components/organisms/EventsList.re.mjs:421
 msgid "filtering by date"
 msgstr "按日期筛选"
 

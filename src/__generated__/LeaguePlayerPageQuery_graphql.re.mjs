@@ -201,7 +201,11 @@ v17 = {
       "storageKey": null
     }
   ]
-};
+},
+v18 = [
+  "activitySlug",
+  "userId"
+];
 return {
   "fragment": {
     "argumentDefinitions": [
@@ -219,7 +223,12 @@ return {
       {
         "args": (v7/*: any*/),
         "kind": "FragmentSpread",
-        "name": "MatchListFragment"
+        "name": "MatchHistoryListFragment"
+      },
+      {
+        "args": (v7/*: any*/),
+        "kind": "FragmentSpread",
+        "name": "RatingGraphWrapperFragment"
       },
       {
         "alias": null,
@@ -249,7 +258,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MatchListUser_user"
+            "name": "MatchHistoryListUser_user"
           }
         ],
         "storageKey": null
@@ -341,6 +350,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "playerMetadata",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "__typename",
                     "storageKey": null
                   }
@@ -403,12 +419,18 @@ return {
       {
         "alias": null,
         "args": (v7/*: any*/),
-        "filters": [
-          "activitySlug",
-          "userId"
-        ],
+        "filters": (v18/*: any*/),
         "handle": "connection",
-        "key": "MatchListFragment_matches",
+        "key": "MatchHistoryListFragment_matches",
+        "kind": "LinkedHandle",
+        "name": "matches"
+      },
+      {
+        "alias": null,
+        "args": (v7/*: any*/),
+        "filters": (v18/*: any*/),
+        "handle": "connection",
+        "key": "RatingGraphWrapperFragment_matches",
         "kind": "LinkedHandle",
         "name": "matches"
       },
@@ -445,12 +467,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "cd727fb2850af0236e08953286e49bfa",
+    "cacheID": "31a7afd785692a7edda9e930e5f2c1fa",
     "id": null,
     "metadata": {},
     "name": "LeaguePlayerPageQuery",
     "operationKind": "query",
-    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n  $userId: ID!\n) {\n  ...MatchListFragment_32wNNd\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace) {\n      ordinal\n      mu\n      id\n    }\n    ...MatchListUser_user\n  }\n}\n\nfragment MatchListFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchListUser_user on User {\n  id\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  namespace\n  score\n  createdAt\n}\n"
+    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n  $userId: ID!\n) {\n  ...MatchHistoryListFragment_32wNNd\n  ...RatingGraphWrapperFragment_32wNNd\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace) {\n      ordinal\n      mu\n      id\n    }\n    ...MatchHistoryListUser_user\n  }\n}\n\nfragment MatchHistoryListFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchHistoryList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchHistoryListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchHistoryListUser_user on User {\n  id\n}\n\nfragment MatchHistoryList_match on Match {\n  id\n  winners {\n    id\n    ...MatchHistoryListTeam_user\n  }\n  losers {\n    id\n    ...MatchHistoryListTeam_user\n  }\n  namespace\n  score\n  createdAt\n  playerMetadata\n}\n\nfragment RatingGraphWrapperFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        createdAt\n        playerMetadata\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n"
   }
 };
 })());

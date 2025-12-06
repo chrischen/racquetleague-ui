@@ -221,7 +221,7 @@ module ViewerStatusMessage = {
 }
 
 @react.component
-let make = (~event, ~user) => {
+let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
   let (_isPending, startTransition) = ReactExperimental.useTransition()
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
   let {__id, maxRsvps, minRating, activity, viewerIsAdmin, club} = Fragment.use(event)
@@ -368,18 +368,26 @@ let make = (~event, ~user) => {
 
   // Action handlers
   let onJoin = _ => {
-    let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-      __id,
-      "RSVPSection_event_rsvps",
-      (),
-    )
-    commitMutationCreateRating(~variables=())->RescriptRelay.Disposable.ignore
-    commitMutationJoin(
-      ~variables={
-        id: __id->RescriptRelay.dataIdToString,
-        connections: [connectionId],
-      },
-    )->RescriptRelay.Disposable.ignore
+    let proceed = () => {
+      let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+        __id,
+        "RSVPSection_event_rsvps",
+        (),
+      )
+      commitMutationCreateRating(~variables=())->RescriptRelay.Disposable.ignore
+      commitMutationJoin(
+        ~variables={
+          id: __id->RescriptRelay.dataIdToString,
+          connections: [connectionId],
+        },
+      )->RescriptRelay.Disposable.ignore
+    }
+
+    // Check if profile is complete before joining
+    switch onBeforeJoin {
+    | Some(check) => check(proceed)
+    | None => proceed()
+    }
   }
 
   let onLeave = _ => {

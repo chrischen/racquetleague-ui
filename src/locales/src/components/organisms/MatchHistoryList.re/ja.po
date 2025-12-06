@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-02 03:39+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:697
+msgid "...load previous matches"
+msgstr "前のものを読み込む"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "引き分け"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "互角"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:714
+msgid "Load more matches..."
+msgstr "もっとプレイヤーを読み込む..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "負け"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "番狂わせ"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "勝ち"

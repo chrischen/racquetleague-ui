@@ -18,6 +18,7 @@ import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as ReactHelmetAsync from "react-helmet-async";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as Solid from "@heroicons/react/24/solid";
 import * as DefaultLayoutMapQuery_graphql from "../../__generated__/DefaultLayoutMapQuery_graphql.re.mjs";
@@ -346,9 +347,19 @@ var Layout = {
 function DefaultLayoutMap(props) {
   var query = ReactRouterDom.useLoaderData();
   var match = usePreloaded(query.data);
-  return JsxRuntime.jsx(DefaultLayoutMap$Layout, {
-              viewer: match.viewer,
-              children: JsxRuntime.jsx(ReactRouterDom.Outlet, {})
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                JsxRuntime.jsx(ReactHelmetAsync.Helmet, {
+                      children: JsxRuntime.jsx("meta", {
+                            content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+                            name: "viewport"
+                          })
+                    }),
+                JsxRuntime.jsx(DefaultLayoutMap$Layout, {
+                      viewer: match.viewer,
+                      children: JsxRuntime.jsx(ReactRouterDom.Outlet, {})
+                    })
+              ]
             });
 }
 

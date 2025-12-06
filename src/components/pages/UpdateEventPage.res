@@ -7,7 +7,7 @@ module Query = %relay(`
     }
     event(id: $eventId) {
       id
-      ...CreateLocationEventForm_event
+      ...UpdateLocationEventForm_event
     }
     ...CreateLocationEventForm_query
   }
@@ -30,13 +30,13 @@ let make = () => {
           query.event->Option.map(event =>
             <Grid>
               <SelectedLocation
-                key="selected_location"
+                // key="selected_location"
                 location={location.fragmentRefs}
                 onNewLocation={location =>
                   navigate("../update/" ++ event.id ++ "/" ++ location, None)}
               />
-              <CreateLocationEventForm
-                key="create_location_event_form"
+              <UpdateLocationEventForm
+                // key="update_location_event_form"
                 event=event.fragmentRefs
                 location=location.fragmentRefs
                 query=query.fragmentRefs

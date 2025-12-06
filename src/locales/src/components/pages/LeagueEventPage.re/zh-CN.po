@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:372
+#: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
 msgstr "...加载之前的比赛"
 
@@ -125,9 +125,18 @@ msgstr "创建队伍"
 msgid "Done"
 msgstr "完成"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "平局"
+
 #: src/components/organisms/SortableSubmitMatch.re.mjs:319
 msgid "Enter Score"
 msgstr "输入分数"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "势均力敌"
 
 #: src/components/organisms/AiTetsu.re.mjs:1355
 msgid "Fixed Pair"
@@ -157,7 +166,7 @@ msgstr "排行榜"
 msgid "left team players"
 msgstr "左队球员"
 
-#: src/components/organisms/MatchList.re.mjs:395
+#: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
 
@@ -174,6 +183,11 @@ msgstr "加载比赛..."
 #: src/components/organisms/AiTetsu.re.mjs:1621
 msgid "Loading..."
 msgstr "加载中..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "负"
 
 #: src/components/organisms/AiTetsu.re.mjs:1727
 msgid "manual team"
@@ -298,10 +312,6 @@ msgstr "保存"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/MatchList.re.mjs:292
-msgid "Score:"
-msgstr "比分："
-
 #: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
 msgstr "选择"
@@ -364,9 +374,22 @@ msgstr "完全随机的队伍。"
 msgid "Unqueue All"
 msgstr "全部移出队列"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "爆冷"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "胜"
+
 #: src/components/organisms/SubmitMatch.re.mjs:323
 #: src/components/organisms/SubmitMatch.re.mjs:369
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "胜者"
+
+#: src/components/organisms/MatchList.re.mjs:292
+#~ msgid "Score:"
+#~ msgstr "比分："

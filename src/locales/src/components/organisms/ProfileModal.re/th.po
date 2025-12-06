@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-30 22:00+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/ProfileModal.re.mjs:258
+msgid "Complete your profile"
+msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid "Display name"
+msgstr "ชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr "ต้องกรอกชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:298
+msgid "Email address"
+msgstr "ที่อยู่อีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "Email cannot be changed"
+msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr "ต้องกรอกอีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "For event updates and notifications"
+msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:313
+msgid "Save & Join Event"
+msgstr "บันทึกและเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:205
+msgid "This is how others will see you"
+msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:262
+msgid "We need a few details before you can join this event"
+msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"

@@ -78,6 +78,50 @@ let saveCourtCount = (eventId: string, courtCount: int) => {
   eventStore->TinyBase.setRow("eventState", eventId, existingRow)
 }
 
+// Helper to serialize strategy to string
+let strategyToString = (strategy: strategy): string => {
+  switch strategy {
+  | CompetitivePlus => "competitive-plus"
+  | Competitive => "competitive"
+  | Mixed => "mixed"
+  | RoundRobin => "round-robin"
+  | Random => "random"
+  | DUPR => "dupr"
+  }
+}
+
+// Helper to deserialize strategy from string
+let stringToStrategy = (str: string): strategy => {
+  switch str {
+  | "competitive-plus" => CompetitivePlus
+  | "competitive" => Competitive
+  | "mixed" => Mixed
+  | "round-robin" => RoundRobin
+  | "random" => Random
+  | "dupr" => DUPR
+  | _ => CompetitivePlus // Default fallback
+  }
+}
+
+// Load the match generation strategy for an event from TinyBase
+let loadStrategy = (eventId: string): strategy => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  eventsTable
+  ->Js.Dict.get(eventId)
+  ->Option.flatMap(row => row->Js.Dict.get("strategy"))
+  ->Option.flatMap(v => v->Js.Json.decodeString)
+  ->Option.map(stringToStrategy)
+  ->Option.getOr(CompetitivePlus) // Default to CompetitivePlus
+}
+
+// Save the match generation strategy for an event to TinyBase
+let saveStrategy = (eventId: string, strategy: strategy) => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  let existingRow = eventsTable->Js.Dict.get(eventId)->Option.getOr(Js.Dict.empty())
+  existingRow->Js.Dict.set("strategy", strategy->strategyToString->Js.Json.string)
+  eventStore->TinyBase.setRow("eventState", eventId, existingRow)
+}
+
 // Load checked-in player IDs for an event from TinyBase
 let loadCheckedInPlayerIds = (eventId: string): array<string> => {
   let eventsTable = eventStore->TinyBase.getTable("eventState")

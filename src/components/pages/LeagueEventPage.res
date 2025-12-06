@@ -13,7 +13,7 @@ module Query = %relay(`
       title
       ...AiTetsu_event @arguments(after: $after, first: 50, before: $before)
     }
-    ...MatchListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug)
+    ...MatchHistoryListFragment @arguments(after: $after, first: $first, before: $before, activitySlug: $activitySlug)
   }
 `)
 
@@ -37,7 +37,7 @@ let make = () => {
             ? <AiTetsu event=fragmentRefs>
                 <React.Suspense
                   fallback={<Layout.Container> {t`Loading matches...`} </Layout.Container>}>
-                  <MatchList matches=queryRefs />
+                  <MatchHistoryList matches=queryRefs />
                 </React.Suspense>
               </AiTetsu>
             : <Container>

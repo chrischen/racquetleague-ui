@@ -6,7 +6,7 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"startDate":{"c":"Util.Datetime"},"endDate":{"c":"Util.Datetime"}}};
+var fragmentConverter = {"__root":{"winners":{"f":""},"losers":{"f":""},"createdAt":{"c":"Util.Datetime"}}};
 
 var fragmentConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -31,117 +31,72 @@ var v0 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
-};
+},
+v1 = [
+  (v0/*: any*/),
+  {
+    "args": null,
+    "kind": "FragmentSpread",
+    "name": "MatchHistoryListTeam_user"
+  }
+];
 return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "CreateLocationEventForm_event",
+  "name": "MatchHistoryList_match",
   "selections": [
     (v0/*: any*/),
     {
       "alias": null,
       "args": null,
-      "kind": "ScalarField",
-      "name": "title",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "details",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "maxRsvps",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "minRating",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "Activity",
+      "concreteType": "User",
       "kind": "LinkedField",
-      "name": "activity",
-      "plural": false,
-      "selections": [
-        (v0/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "name",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "slug",
-          "storageKey": null
-        }
-      ],
+      "name": "winners",
+      "plural": true,
+      "selections": (v1/*: any*/),
       "storageKey": null
     },
     {
       "alias": null,
       "args": null,
-      "concreteType": "Club",
+      "concreteType": "User",
       "kind": "LinkedField",
-      "name": "club",
-      "plural": false,
-      "selections": [
-        (v0/*: any*/)
-      ],
+      "name": "losers",
+      "plural": true,
+      "selections": (v1/*: any*/),
       "storageKey": null
     },
     {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "startDate",
+      "name": "namespace",
       "storageKey": null
     },
     {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "endDate",
+      "name": "score",
       "storageKey": null
     },
     {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "listed",
+      "name": "createdAt",
       "storageKey": null
     },
     {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "timezone",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "tags",
+      "name": "playerMetadata",
       "storageKey": null
     }
   ],
-  "type": "Event",
+  "type": "Match",
   "abstractKey": null
 };
 })());

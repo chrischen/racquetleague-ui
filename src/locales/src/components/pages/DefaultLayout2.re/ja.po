@@ -41,7 +41,7 @@ msgstr "ランキング"
 #: src/components/pages/DefaultLayout2.re.mjs:144
 #, fuzzy
 #~ msgid "My Profile"
-#~ msgstr "あなたのプロフィール"
+#~ msgstr "私のプロフィールを見る"
 
 #: src/components/pages/DefaultLayout2.re.mjs:160
 #~ msgid "Privacy Policy"

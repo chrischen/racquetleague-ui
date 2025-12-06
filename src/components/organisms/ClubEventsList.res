@@ -14,6 +14,7 @@ module Fragment = %relay(`
   @refetchable(queryName: "ClubEventsListRefetchQuery") {
     id
     defaultActivity {
+      id
       slug
     }
     events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token)
@@ -399,12 +400,12 @@ let make = (
                 )}
             />
             <div className="mx-4 mb-4 mt-4">
-              <button
-                onClick={_ => setIsAiModalOpen(_ => true)}
-                className="flex w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-2xl font-medium transition-all shadow-lg shadow-purple-500/25 items-center justify-center gap-2">
-                <Lucide.Sparkles className="w-5 h-5" />
-                {(Lingui.UtilString.t`Add an Event`)->React.string}
-              </button>
+              <AddEventButton
+                context={
+                  clubId: ?Some(clubData.id),
+                  activitySlug: ?clubData.defaultActivity->Option.flatMap(a => a.slug),
+                }
+              />
             </div>
             {filterByDate
             ->Option.map(_ =>

@@ -3,6 +3,7 @@ type context = {
   activitySlug?: string,
   clubId?: string,
   locationAddress?: string,
+  locationId?: string,
 }
 
 module ChatMutation = %relay(`

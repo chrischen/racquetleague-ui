@@ -13,54 +13,120 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateClubForm.re.mjs:213
-msgid "about"
-msgstr "เกี่ยวกับ"
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "คำอธิบายสั้นๆ เกี่ยวกับคลับ..."
 
-#: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
 msgstr "ยกเลิก"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
-msgid "club"
-msgstr "คลับ"
+msgid "Club Name"
+msgstr "ชื่อคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "URL คลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "ชื่อคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "สร้างคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "กิจกรรมเริ่มต้นของคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "เช่น คลับซิตี้บอลเลอร์"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:334
+#~ msgid "Badminton"
+#~ msgstr "แบดมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:338
+#~ msgid "Table Tennis"
+#~ msgstr "ปิงปอง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:342
+#~ msgid "Pickleball"
+#~ msgstr "พิคเคิลบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:346
+#~ msgid "Futsal"
+#~ msgstr "ฟุตซอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:350
+#~ msgid "Basketball"
+#~ msgstr "บาสเก็ตบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:354
+#~ msgid "Volleyball"
+#~ msgstr "วอลเลย์บอล"
+
+#: src/components/organisms/CreateClubForm.re.mjs:213
+#~ msgid "about"
+#~ msgstr "เกี่ยวกับ"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "ยกเลิก"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+#~ msgid "club"
+#~ msgstr "คลับ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:194
-msgid "main activity"
-msgstr "กิจกรรมหลัก"
+#~ msgid "main activity"
+#~ msgstr "กิจกรรมหลัก"
 
 #: src/components/organisms/CreateClubForm.re.mjs:85
-msgid "main activity is required"
-msgstr "ต้องระบุกิจกรรมหลัก"
+#~ msgid "main activity is required"
+#~ msgstr "ต้องระบุกิจกรรมหลัก"
 
 #: src/components/organisms/CreateClubForm.re.mjs:162
-msgid "name"
-msgstr "ชื่อ"
+#~ msgid "name"
+#~ msgstr "ชื่อ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:79
-msgid "name is required"
-msgstr "ต้องระบุชื่อ"
+#~ msgid "name is required"
+#~ msgstr "ต้องระบุชื่อ"
 
 #: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr "บันทึก"
+#~ msgid "save"
+#~ msgstr "บันทึก"
 
 #: src/components/organisms/CreateClubForm.re.mjs:177
-msgid "slug"
-msgstr "สลัก"
+#~ msgid "slug"
+#~ msgstr "สลัก"
 
 #: src/components/organisms/CreateClubForm.re.mjs:216
-msgid "tell people about your club"
-msgstr "บอกคนอื่นเกี่ยวกับคลับของคุณ"
+#~ msgid "tell people about your club"
+#~ msgstr "บอกคนอื่นเกี่ยวกับคลับของคุณ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:82
-msgid "url slug is required"
-msgstr "ต้องระบุ URL slug"
+#~ msgid "url slug is required"
+#~ msgstr "ต้องระบุ URL slug"
 
 #: src/components/organisms/CreateClubForm.re.mjs:182
-msgid "yubibado"
-msgstr "yubibado"
+#~ msgid "yubibado"
+#~ msgstr "yubibado"
 
 #: src/components/organisms/CreateClubForm.re.mjs:165
-msgid "ゆびバド"
-msgstr "ゆびバド"
+#~ msgid "ゆびバド"
+#~ msgstr "ゆびバド"

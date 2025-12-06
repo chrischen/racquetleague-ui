@@ -1,6 +1,20 @@
+type prefilledValues = {
+  title?: string,
+  activitySlug?: string,
+  clubId?: string,
+  maxRsvps?: int,
+  minRating?: float,
+  startDate?: string,
+  endDate?: string,
+  details?: string,
+  listed?: bool,
+  timezone?: string,
+  tags?: array<string>,
+}
 @react.component
 let make: (
-  ~event: RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_event]> = ?,
+  ~eventId: string=?,
   ~location: RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_location]>,
   ~query: RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_query]>,
+  ~prefilledValues: prefilledValues=?,
 ) => React.element

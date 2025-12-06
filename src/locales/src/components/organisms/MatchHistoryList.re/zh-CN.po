@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-02 03:39+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:697
+msgid "...load previous matches"
+msgstr "...加载之前的比赛"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "平局"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "势均力敌"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:714
+msgid "Load more matches..."
+msgstr "加载更多比赛..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "负"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "爆冷"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "胜"

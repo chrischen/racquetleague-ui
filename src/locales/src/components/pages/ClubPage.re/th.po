@@ -70,7 +70,7 @@ msgstr "ผู้เล่น"
 msgid "🚫 CANCELED"
 msgstr "🚫 ยกเลิก"
 
-#: src/components/organisms/ClubEventsList.re.mjs:430
+#: src/components/organisms/AddEventButton.re.mjs:35
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"
 
@@ -94,7 +94,7 @@ msgstr "แบดมินตันทุกวันพฤหัสบดีเ
 msgid "Cancel Request"
 msgstr "ยกเลิกคำขอ"
 
-#: src/components/organisms/ClubEventsList.re.mjs:446
+#: src/components/organisms/ClubEventsList.re.mjs:440
 msgid "clear filter"
 msgstr "ล้างตัวกรอง"
 
@@ -135,7 +135,7 @@ msgstr "เกิดข้อผิดพลาดในการสร้าง
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/ClubEventsList.re.mjs:444
+#: src/components/organisms/ClubEventsList.re.mjs:438
 msgid "filtering by date"
 msgstr "กรองตามวันที่"
 

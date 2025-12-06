@@ -14,22 +14,22 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:546
+#: src/components/organisms/ClubEventsList.re.mjs:540
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:549
+#: src/components/organisms/ClubEventsList.re.mjs:543
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:552
+#: src/components/organisms/ClubEventsList.re.mjs:546
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:555
+#: src/components/organisms/ClubEventsList.re.mjs:549
 msgid "Futsal"
 msgstr "フットサル"
 
@@ -90,7 +90,7 @@ msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
-#: src/components/organisms/ClubEventsList.re.mjs:430
+#: src/components/organisms/AddEventButton.re.mjs:35
 msgid "Add an Event"
 msgstr "イベントを追加"
 
@@ -110,7 +110,7 @@ msgstr "質問"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "来月の毎週木曜日、赤羽小学校で19時から21時までバドミントン。"
 
-#: src/components/organisms/ClubEventsList.re.mjs:446
+#: src/components/organisms/ClubEventsList.re.mjs:440
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
@@ -139,7 +139,7 @@ msgstr "イベントの作成中にエラーが発生しました。もう一度
 msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/organisms/ClubEventsList.re.mjs:444
+#: src/components/organisms/ClubEventsList.re.mjs:438
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 

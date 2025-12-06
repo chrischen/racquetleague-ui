@@ -8,9 +8,12 @@ module EventPageQuery = %relay(`
     $first: Int
     $before: String
   ) {
+    ...ProfileModal_viewer
     viewer {
       user {
         id
+        lineUsername
+        email
         ...RSVPSection_user @arguments(eventId: $eventId)
       }
     }
@@ -82,6 +85,22 @@ let make = () => {
     ~queryRef=query.data,
   )
   let viewerUser = viewer->Option.flatMap(v => v.user)
+
+  // Profile modal state
+  let (isProfileModalOpen, setIsProfileModalOpen) = React.useState(() => false)
+  let (pendingJoinAction, setPendingJoinAction) = React.useState(() => None)
+
+  // Check if profile is complete
+  let hasCompleteProfile = () => {
+    switch viewerUser {
+    | Some(user) =>
+      switch (user.lineUsername, user.email) {
+      | (Some(username), Some(email)) => username != "" && email != ""
+      | _ => false
+      }
+    | None => false
+    }
+  }
 
   // Admin mutations
   let (cancelEvent, canceling) = EventCancelMutation.use()
@@ -214,12 +233,36 @@ let make = () => {
                   </div>
                 | _ =>
                   <RSVPSection
-                    event=event.fragmentRefs user={viewerUser->Option.map(v => v.fragmentRefs)}
+                    event=event.fragmentRefs
+                    user={viewerUser->Option.map(v => v.fragmentRefs)}
+                    onBeforeJoin={proceed => {
+                      if hasCompleteProfile() {
+                        proceed() // Allow join immediately
+                      } else {
+                        // Store the proceed action to execute after profile completion
+                        setPendingJoinAction(_ => Some(proceed))
+                        setIsProfileModalOpen(_ => true)
+                      }
+                    }}
                   />
                 }}
               </div>
             </div>
           </div>
+          // Profile Modal
+          <ProfileModal
+            isOpen=isProfileModalOpen
+            onClose={_ => {
+              setIsProfileModalOpen(_ => false)
+              setPendingJoinAction(_ => None)
+            }}
+            onProfileComplete={() => {
+              // Execute the pending join action if it exists
+              pendingJoinAction->Option.forEach(action => action())
+              setPendingJoinAction(_ => None)
+            }}
+            query=queryFragmentRefs
+          />
         </div>
       })
       ->Option.getOr(<div className="p-6 text-center text-gray-600"> {t`Event not found`} </div>)}

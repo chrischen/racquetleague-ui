@@ -108,7 +108,7 @@ function SelectClub(props) {
                                                                                     return v.__id;
                                                                                   })),
                                                                             query: data.fragmentRefs,
-                                                                            onCancel: (function (param) {
+                                                                            onCancel: (function () {
                                                                                 setShowCreateclub(function (param) {
                                                                                       return false;
                                                                                     });

@@ -13,48 +13,68 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:372
+#: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:85
+#: src/components/pages/LeaguePlayerPage.re.mjs:108
+msgid "Back to league"
+msgstr "リーグに戻る"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:146
+msgid "Current Rating"
+msgstr "現在のレーティング"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "引き分け"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:87
 msgid "Estimated DUPR"
 msgstr "推定DUPR"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:130
-msgid "Female"
-msgstr "女性"
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "互角"
 
-#: src/components/organisms/MatchList.re.mjs:395
+#: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:185
-msgid "Loading rankings..."
-msgstr "ランキングを読み込んでいます..."
+#: src/components/pages/LeaguePlayerPage.re.mjs:193
+msgid "Loading..."
+msgstr "読み込み中..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:132
-msgid "Male"
-msgstr "男性"
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "負け"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:168
-#: src/components/pages/LeaguePlayerPage.re.mjs:176
-msgid "Match History"
-msgstr "対戦履歴"
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "レーティング履歴"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:102
-#: src/components/pages/LeaguePlayerPage.re.mjs:159
-msgid "Player Profile Page"
-msgstr "プレイヤープロフィールページ"
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr "最近の試合"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:202
-#: src/components/pages/LeaguePlayerPage.re.mjs:210
-msgid "Rating"
-msgstr "評価"
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr ""
+"網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くな"
+"ります。"
 
-#: src/components/organisms/MatchList.re.mjs:292
-msgid "Score:"
-msgstr "スコア:"
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "番狂わせ"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "勝ち"
 
 #: src/components/organisms/MatchList.re.mjs:274
 #~ msgid "...load higher rated players"
@@ -68,9 +88,26 @@ msgstr "スコア:"
 #~ "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベント"
 #~ "に参加してください:"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:131
+#~ msgid "Female"
+#~ msgstr "女性"
+
 #: src/components/organisms/MatchList.re.mjs:290
 #~ msgid "Load more players..."
 #~ msgstr "もっとプレイヤーを読み込む..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:194
+#~ msgid "Loading rankings..."
+#~ msgstr "ランキングを読み込んでいます..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:133
+#~ msgid "Male"
+#~ msgstr "男性"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
+#: src/components/pages/LeaguePlayerPage.re.mjs:185
+#~ msgid "Match History"
+#~ msgstr "対戦履歴"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:78
 #~ msgid ""
@@ -80,6 +117,20 @@ msgstr "スコア:"
 #~ "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品"
 #~ "は毎月トッププレイヤーに授与されます。"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:103
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
+#~ msgid "Player Profile Page"
+#~ msgstr "プレイヤープロフィールページ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:212
+#: src/components/pages/LeaguePlayerPage.re.mjs:220
+#~ msgid "Rating"
+#~ msgstr "評価"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:73
 #~ msgid "Recreational Doubles"
 #~ msgstr "レクリエーショナルダブルス"
+
+#: src/components/organisms/MatchList.re.mjs:292
+#~ msgid "Score:"
+#~ msgstr "スコア:"

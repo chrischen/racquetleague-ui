@@ -11,7 +11,7 @@ type params = {activitySlug: option<string>, lang: option<string>}
 type loaderData = {}
 
 module PrizeInfo = {
-  @module("./prize.webp")
+  @module("./prize1225.png")
   external prizeImg: string = "default"
   open Lingui.Util
   open HeroIcons
@@ -24,7 +24,7 @@ module PrizeInfo = {
           className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-0">
           <div className="lg:row-start-2 lg:max-w-md">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              {t`Next Prize: September 10`}
+              {t`Next Prize: December 31`}
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               {t`This prize will be awarded to the top male and female players on this day.`}
@@ -41,14 +41,16 @@ module PrizeInfo = {
             className="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
             <dl className="max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
               <div className="relative">
-                <dt className="ml-9 inline-block font-semibold text-white">
-                  <CloudArrowUpIcon
-                    className="absolute left-1 top-1 h-5 w-5 text-indigo-500" \"aria-hidden"="true"
-                  />
-                  {t`Mach 2 Forza Paddle`}
-                </dt>
+                <dt className="font-semibold text-white"> {t`Proton Flamingo Paddle`} </dt>
                 {" "->React.string}
-                <dd className="inline"> {t`Multiple colors available.`} </dd>
+                <dd className="inline">
+                  {t`Top female and top male players will each receive the prize.`}
+                </dd>
+                <dt className="font-semibold text-white"> {t`Selkirk Labs Paddle Cover`} </dt>
+                {" "->React.string}
+                <dd className="inline">
+                  {t`Second place female and male players will each receive the prize.`}
+                </dd>
               </div>
             </dl>
           </div>
@@ -91,8 +93,6 @@ let make = () => {
               | Some("") =>
                 <div className="w-full flex items-center justify-center gap-4">
                   <img className="h-12 w-auto" src={jplLogo} alt={ts`japan pickle league`} />
-                  <HeroIcons.XMarkIcon className="h-8 w-8 text-gray-400" />
-                  <img className="h-12 w-auto" src={volairImg} alt={ts`volair pickleball`} />
                 </div>
               | _ => t`Tokyo Badminton League`
               }}

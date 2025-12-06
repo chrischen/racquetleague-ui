@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"KPrAat\":\"...โหลดแมทช์ก่อนหน้า\",\"/7GaO2\":\"เสมอ\",\"NmfVuZ\":\"สมดุล\",\"z/wCvw\":\"โหลดแมทช์เพิ่มเติม...\",\"DrEgwh\":\"แพ้\",\"3xGVNo\":\"ผลลัพธ์ที่คาดไม่ถึง\",\"bbQhk6\":\"ชนะ\"}");

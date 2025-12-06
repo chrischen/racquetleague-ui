@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:362
+#: src/components/pages/EventPage.re.mjs:418
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:365
+#: src/components/pages/EventPage.re.mjs:421
 msgid "Table Tennis"
 msgstr "乿乓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:368
+#: src/components/pages/EventPage.re.mjs:424
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:371
+#: src/components/pages/EventPage.re.mjs:427
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:374
+#: src/components/pages/EventPage.re.mjs:430
 msgid "drill"
 msgstr "訓練"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:377
+#: src/components/pages/EventPage.re.mjs:433
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:380
+#: src/components/pages/EventPage.re.mjs:436
 msgid "rec"
 msgstr "休閒"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:383
+#: src/components/pages/EventPage.re.mjs:439
 msgid "all level"
 msgstr "所有等級"
 
@@ -65,8 +65,8 @@ msgstr "{0} 小時 {1} 分鐘"
 msgid "+{0} more"
 msgstr "+{0} 更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:666
-#: src/components/organisms/RSVPSection.re.mjs:758
+#: src/components/organisms/RSVPSection.re.mjs:673
+#: src/components/organisms/RSVPSection.re.mjs:765
 msgid "Add Member"
 msgstr "新增成員"
 
@@ -86,7 +86,7 @@ msgstr "批准報名"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您確定要將此人從活動中移除嗎？"
 
-#: src/components/pages/EventPage.re.mjs:148
+#: src/components/pages/EventPage.re.mjs:172
 msgid "cancel event"
 msgstr "取消活動"
 
@@ -94,21 +94,57 @@ msgstr "取消活動"
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/organisms/RSVPSection.re.mjs:683
+#: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
 msgstr "收起"
 
-#: src/components/pages/EventPage.re.mjs:131
+#: src/components/organisms/ProfileModal.re.mjs:258
+msgid "Complete your profile"
+msgstr "完善個人資料"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid "Display name"
+msgstr "顯示名稱"
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr "請輸入顯示名稱"
+
+#: src/components/pages/EventPage.re.mjs:155
 msgid "edit event"
 msgstr "編輯活動"
 
-#: src/components/pages/EventPage.re.mjs:325
+#: src/components/organisms/ProfileModal.re.mjs:298
+msgid "Email address"
+msgstr "電子郵件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
+"件地址登入。"
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "Email cannot be changed"
+msgstr "電子郵件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr "請輸入電子郵件"
+
+#: src/components/pages/EventPage.re.mjs:381
 msgid "Event not found"
 msgstr "找不到活動"
 
 #: src/components/atoms/EventTag.re.mjs:60
 msgid "Event tag: {tag}"
 msgstr "活動標籤：{tag}"
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "For event updates and notifications"
+msgstr "用於活動更新和通知"
 
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
@@ -142,11 +178,11 @@ msgstr "加入了活動"
 msgid "left the event"
 msgstr "退出了活動"
 
-#: src/components/organisms/RSVPSection.re.mjs:774
+#: src/components/organisms/RSVPSection.re.mjs:781
 msgid "Load more"
 msgstr "載入更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:771
+#: src/components/organisms/RSVPSection.re.mjs:778
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -158,11 +194,11 @@ msgstr "登入以加入"
 msgid "Lower intermediate and above"
 msgstr "中下等級及以上"
 
-#: src/components/pages/EventPage.re.mjs:189
+#: src/components/pages/EventPage.re.mjs:213
 msgid "Manage Event"
 msgstr "管理活動"
 
-#: src/components/pages/EventPage.re.mjs:193
+#: src/components/pages/EventPage.re.mjs:217
 msgid "Manage Event (Beta)"
 msgstr "管理活動（測試版）"
 
@@ -192,8 +228,8 @@ msgstr "待審核"
 msgid "Player"
 msgstr "球員"
 
-#: src/components/pages/EventPage.re.mjs:228
-#: src/components/pages/EventPage.re.mjs:257
+#: src/components/pages/EventPage.re.mjs:252
+#: src/components/pages/EventPage.re.mjs:281
 msgid "Private Event"
 msgstr "私人活動"
 
@@ -214,7 +250,7 @@ msgstr "從活動中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/RSVPSection.re.mjs:430
+#: src/components/organisms/RSVPSection.re.mjs:431
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "所需評分：{0} (DUPR {1})"
 
@@ -222,9 +258,9 @@ msgstr "所需評分：{0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果將提交至競技評分。"
 
-#: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:584
-#: src/components/organisms/RSVPSection.re.mjs:705
+#: src/components/organisms/RSVPSection.re.mjs:552
+#: src/components/organisms/RSVPSection.re.mjs:591
+#: src/components/organisms/RSVPSection.re.mjs:712
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -235,6 +271,10 @@ msgstr "RSVP 待審核..."
 #: src/components/organisms/RSVPSection.re.mjs:260
 msgid "Save"
 msgstr "儲存"
+
+#: src/components/organisms/ProfileModal.re.mjs:313
+msgid "Save & Join Event"
+msgstr "儲存並參加活動"
 
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "See all"
@@ -269,8 +309,8 @@ msgstr ""
 "此活動已滿，所以退出活動將把您的名額給等待列表上的人。如果您重新加入，您將加"
 "入等待列表。您確定要退出此活動嗎？"
 
-#: src/components/pages/EventPage.re.mjs:232
-#: src/components/pages/EventPage.re.mjs:261
+#: src/components/pages/EventPage.re.mjs:256
+#: src/components/pages/EventPage.re.mjs:285
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -281,6 +321,10 @@ msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
+
+#: src/components/organisms/ProfileModal.re.mjs:205
+msgid "This is how others will see you"
+msgstr "這是其他人會看到的名字"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
 msgid ""
@@ -297,7 +341,7 @@ msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」。"
 
-#: src/components/pages/EventPage.re.mjs:137
+#: src/components/pages/EventPage.re.mjs:161
 msgid "uncancel event"
 msgstr "取消取消活動"
 
@@ -329,6 +373,10 @@ msgstr "已被管理員新增至活動"
 msgid "was removed from the event by admin"
 msgstr "已被管理員從活動中移除"
 
+#: src/components/organisms/ProfileModal.re.mjs:262
+msgid "We need a few details before you can join this event"
+msgstr "在您參加此活動之前，我們需要一些資訊"
+
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"
 msgstr "您將失去您的名額"
@@ -341,7 +389,7 @@ msgstr "您正在參加"
 msgid "You're Waitlisted"
 msgstr "您在等待列表"
 
-#: src/components/organisms/RSVPSection.re.mjs:432
+#: src/components/organisms/RSVPSection.re.mjs:433
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

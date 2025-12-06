@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-30 22:00+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/ProfileModal.re.mjs:258
+msgid "Complete your profile"
+msgstr "完善个人资料"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid "Display name"
+msgstr "显示名称"
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr "请输入显示名称"
+
+#: src/components/organisms/ProfileModal.re.mjs:298
+msgid "Email address"
+msgstr "电子邮件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
+"件地址登录。"
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "Email cannot be changed"
+msgstr "电子邮件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr "请输入电子邮件"
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "For event updates and notifications"
+msgstr "用于活动更新和通知"
+
+#: src/components/organisms/ProfileModal.re.mjs:313
+msgid "Save & Join Event"
+msgstr "保存并参加活动"
+
+#: src/components/organisms/ProfileModal.re.mjs:205
+msgid "This is how others will see you"
+msgstr "这是其他人会看到的名字"
+
+#: src/components/organisms/ProfileModal.re.mjs:262
+msgid "We need a few details before you can join this event"
+msgstr "在您参加此活动之前，我们需要一些信息"

@@ -360,6 +360,7 @@ type Match {
   id: ID!
   losers: [User!]
   namespace: String
+  playerMetadata: String
   score: [Float!]
   winners: [User!]
 }
@@ -453,6 +454,7 @@ type Mutation {
   updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
   updateRsvpListType(input: UpdateRsvpListTypeInput!): UpdateRsvpListTypeResult!
+  updateViewerContact(input: UpdateViewerContactInput!): UpdateViewerContactResult!
   updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): UpdateViewerRsvpMessageResult
 }
 
@@ -620,6 +622,16 @@ type UpdateRsvpListTypeResult implements HasErrors {
   rsvp: Rsvp
 }
 
+input UpdateViewerContactInput {
+  email: String
+  lineUsername: String
+}
+
+type UpdateViewerContactResult implements HasErrors {
+  errors: [Error!]
+  viewer: User
+}
+
 input UpdateViewerRsvpMessageInput {
   eventId: ID!
   message: String!
@@ -633,6 +645,7 @@ type UpdateViewerRsvpMessageResult implements HasErrors {
 
 type User implements Node {
   biography: String
+  email: String
   eventRating(eventId: ID!): Rating
   fullName: String
   gender: Gender

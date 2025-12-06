@@ -14,268 +14,498 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:508
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1302
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:512
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1306
 msgid "Table Tennis"
 msgstr "乿乓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:516
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1310
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:520
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1314
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:524
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1318
 msgid "Basketball"
 msgstr "籃球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:528
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1322
 msgid "Volleyball"
 msgstr "排球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:532
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1326
+msgid "Crossminton"
+msgstr "速羽球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Padel"
+msgstr "板式網球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1334
 msgid "drill"
 msgstr "訓練"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:536
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1338
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:540
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1342
 msgid "rec"
 msgstr "休閒"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:544
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1346
 msgid "all level"
 msgstr "所有等級"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:303
-msgid "{0} event details"
-msgstr "{0} 個活動詳情"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+msgid "{0} hours"
+msgstr "{0} 小時"
 
-#: src/components/organisms/CreateClubForm.re.mjs:213
-msgid "about"
-msgstr "關於"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+msgid "{0} hours and {1} minutes"
+msgstr "{0} 小時 {1} 分鐘"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:325
-msgid "activity"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:414
+msgid "{0} minutes"
+msgstr "{0} 分鐘"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:509
+msgid "+ Add new club..."
+msgstr "+ 新增俱樂部..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:558
+msgid "Activity"
 msgstr "活動"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:82
+#: src/components/organisms/CreateLocationEventForm.re.mjs:77
 msgid "activity is required"
 msgstr "活動是必填項目"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:108
-msgid "add new club"
-msgstr "新增俱樂部"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:851
+msgid "Add any additional information about the event..."
+msgstr "新增有關活動的任何額外資訊..."
 
-#: src/components/atoms/EventTag.re.mjs:42
-msgid "Advanced players"
-msgstr "進階球員"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:337
+msgid "at"
+msgstr "於"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:313
-msgid "All Level"
-msgstr "所有等級"
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "俱樂部的簡要描述..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:452
-msgid ""
-"any details from the location will already be included. Mention any "
-"additional event-specific instructions, rules, or details."
-msgstr ""
-"來自地點的任何詳細資料都已包含在內。請提及任何額外的活動特定指示、規則或詳細"
-"資料。"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:82
-msgid "choose the club where this event will be held."
-msgstr "選擇舉辦此活動的俱樂部。"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr "以樂趣和社交為主的休閒遊戲。適合所有技能水平。"
 
-#: src/components/organisms/CreateClubForm.re.mjs:156
-msgid "club"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:492
+msgid "Club"
 msgstr "俱樂部"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:344
-msgid "date and start time"
-msgstr "日期和開始時間"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:898
+msgid "Club & Activity"
+msgstr "俱樂部與活動"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:304
-msgid "details specific to this event on the specified date and time."
-msgstr "特定於指定日期和時間的此活動詳細資料。"
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "俱樂部名稱"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:440
-msgid "edit the location to edit the details for this location."
-msgstr "編輯地點以編輯此地點的詳細資料。"
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "俱樂部URL"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:354
-msgid "end time"
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "俱樂部名稱"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:348
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1014
+msgid "Competitive"
+msgstr "競技模式"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "建立俱樂部"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1286
+msgid "Create Event"
+msgstr "建立活動"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "預設俱樂部活動"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "描述"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:574
+msgid "Done"
+msgstr "完成"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:356
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1097
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1127
+msgid "Drill session"
+msgstr "練習課程"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:353
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1078
+msgid "DUPR rated"
+msgstr "DUPR評級"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "例如：城市球員俱樂部"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:805
+msgid "End time"
 msgstr "結束時間"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:94
+#: src/components/organisms/CreateLocationEventForm.re.mjs:89
 msgid "end time is required"
 msgstr "結束時間是必填項目"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:91
+#: src/components/organisms/CreateLocationEventForm.re.mjs:86
 msgid "event date is required"
 msgstr "活動日期是必填項目"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:449
-msgid "event details"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:916
+msgid "Event Details"
 msgstr "活動詳情"
 
-#: src/components/atoms/EventTag.re.mjs:60
-msgid "Event tag: {tag}"
-msgstr "活動標籤：{tag}"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:847
+msgid "Event details (optional)"
+msgstr "活動詳情（可選）"
 
-#: src/components/atoms/EventTag.re.mjs:44
-msgid "Highly skilled players"
-msgstr "高技能球員"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:701
+msgid "Event schedule"
+msgstr "活動時程"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:431
-msgid "level of play"
-msgstr "比賽等級"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:822
+msgid "Event title"
+msgstr "活動標題"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:478
-msgid "list publicly"
-msgstr "公開列出"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1003
+msgid "Event type"
+msgstr "活動類型"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:435
-msgid "location details"
-msgstr "地點詳情"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1165
+msgid "Find Players"
+msgstr "尋找球員"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1214
+msgid "Find players for your event?"
+msgstr "為您的活動尋找球員？"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:965
+msgid "Format"
+msgstr "格式"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1071
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1122
+msgid "Format options"
+msgstr "格式選項"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Friday Night Pickleball"
+msgstr "週五晚上的匡克球"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1219
+msgid "List your event publicly to help fill open spots"
+msgstr "公開列出您的活動以填補空位"
 
 #: src/components/pages/CreateLocationEventPage.re.mjs:63
 msgid "location doesn't exist."
 msgstr "地點不存在。"
 
-#: src/components/atoms/EventTag.re.mjs:38
-msgid "Lower intermediate and above"
-msgstr "中下等級及以上"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:834
+msgid "Max RSVPs (optional)"
+msgstr "最大RSVP數（可選）"
 
-#: src/components/organisms/CreateClubForm.re.mjs:194
-msgid "main activity"
-msgstr "主要活動"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:642
+msgid "No club"
+msgstr "無俱樂部"
 
-#: src/components/organisms/CreateClubForm.re.mjs:85
-msgid "main activity is required"
-msgstr "主要活動是必填項目"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:499
+msgid "No club / Independent event"
+msgstr "無俱樂部 / 獨立活動"
 
-#: src/components/atoms/EventTag.re.mjs:54
-msgid "Matches will be submitted to DUPR."
-msgstr "比賽將提交至 DUPR。"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:838
+msgid "No limit"
+msgstr "無限制"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:377
-msgid "max participants"
-msgstr "最大參與人數"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:342
+#: src/components/organisms/CreateLocationEventForm.re.mjs:361
+msgid "Not set"
+msgstr "未設定"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:389
-msgid "minimum rating"
-msgstr "最低評分"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:366
+msgid "Private event"
+msgstr "私人活動"
 
-#: src/components/organisms/CreateClubForm.re.mjs:162
-msgid "name"
-msgstr "名稱"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:379
+msgid "Public"
+msgstr "公開"
 
-#: src/components/organisms/CreateClubForm.re.mjs:79
-msgid "name is required"
-msgstr "名稱是必填項目"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:381
+msgid "Public event"
+msgstr "公開活動"
 
-#: src/components/atoms/EventTag.re.mjs:48
-msgid "No restriction on skill level. Open to all players."
-msgstr "技能等級無限制。對所有球員開放。"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+msgid "Read more..."
+msgstr "閱讀更多..."
 
-#: src/components/atoms/EventTag.re.mjs:46
-msgid "Professional players"
-msgstr "職業球員"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:350
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1010
+msgid "Recreational"
+msgstr "休閒"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
 msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
-msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "嚴肅的比賽，帶有排名和評級。比賽可能影響您的球員評級。"
 
-#: src/components/atoms/EventTag.re.mjs:50
-msgid "Results will be submitted to competitive ratings."
-msgstr "結果將提交至競技評分。"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+msgid "Show less"
+msgstr "顯示更少"
 
-#: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr "儲存"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1230
+msgid "Skill level"
+msgstr "技能水平"
 
-#: src/components/organisms/SelectClubStateful.re.mjs:81
-msgid "select club"
-msgstr "選擇俱樂部"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:794
+msgid "Start date and time"
+msgstr "開始日期和時間"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:413
-msgid "Select tags that best describe this event"
-msgstr "選擇最能描述此活動的標籤"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:483
-msgid ""
-"show your event publicly on our home page. Otherwise, only people with a "
-"link to your event will be able to find it."
-msgstr "在我們的首頁公開顯示您的活動。否則，只有擁有您活動連結的人才能找到它。"
-
-#: src/components/atoms/EventTag.re.mjs:52
-msgid "Skills practice and drills focused on technique improvement"
-msgstr "技能練習和訓練，專注於技術改進"
-
-#: src/components/organisms/CreateClubForm.re.mjs:177
-msgid "slug"
-msgstr "網址簡碼"
-
-#: src/components/organisms/CreateClubForm.re.mjs:216
-msgid "tell people about your club"
-msgstr "告訴大家您俱樂部的情況"
-
-#: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
-msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:364
-msgid "timezone"
-msgstr "時區"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:310
-msgid "title"
-msgstr "標題"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:79
+#: src/components/organisms/CreateLocationEventForm.re.mjs:74
 msgid "title is required"
 msgstr "標題是必填項目"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1286
+msgid "Update Event"
+msgstr "更新活動"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:303
+#~ msgid "{0} event details"
+#~ msgstr "{0} 個活動詳情"
+
+#: src/components/organisms/CreateClubForm.re.mjs:213
+#~ msgid "about"
+#~ msgstr "關於"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:325
+#~ msgid "activity"
+#~ msgstr "活動"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:108
+#~ msgid "add new club"
+#~ msgstr "新增俱樂部"
+
+#: src/components/atoms/EventTag.re.mjs:42
+#~ msgid "Advanced players"
+#~ msgstr "進階球員"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:313
+#~ msgid "All Level"
+#~ msgstr "所有等級"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:452
+#~ msgid ""
+#~ "any details from the location will already be included. Mention any "
+#~ "additional event-specific instructions, rules, or details."
+#~ msgstr ""
+#~ "來自地點的任何詳細資料都已包含在內。請提及任何額外的活動特定指示、規則或詳"
+#~ "細資料。"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "取消"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:82
+#~ msgid "choose the club where this event will be held."
+#~ msgstr "選擇舉辦此活動的俱樂部。"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+#~ msgid "club"
+#~ msgstr "俱樂部"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:344
+#~ msgid "date and start time"
+#~ msgstr "日期和開始時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:304
+#~ msgid "details specific to this event on the specified date and time."
+#~ msgstr "特定於指定日期和時間的此活動詳細資料。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:440
+#~ msgid "edit the location to edit the details for this location."
+#~ msgstr "編輯地點以編輯此地點的詳細資料。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:354
+#~ msgid "end time"
+#~ msgstr "結束時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:449
+#~ msgid "event details"
+#~ msgstr "活動詳情"
+
+#: src/components/atoms/EventTag.re.mjs:60
+#~ msgid "Event tag: {tag}"
+#~ msgstr "活動標籤：{tag}"
+
+#: src/components/atoms/EventTag.re.mjs:44
+#~ msgid "Highly skilled players"
+#~ msgstr "高技能球員"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:431
+#~ msgid "level of play"
+#~ msgstr "比賽等級"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:478
+#~ msgid "list publicly"
+#~ msgstr "公開列出"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:435
+#~ msgid "location details"
+#~ msgstr "地點詳情"
+
+#: src/components/atoms/EventTag.re.mjs:38
+#~ msgid "Lower intermediate and above"
+#~ msgstr "中下等級及以上"
+
+#: src/components/organisms/CreateClubForm.re.mjs:194
+#~ msgid "main activity"
+#~ msgstr "主要活動"
+
+#: src/components/organisms/CreateClubForm.re.mjs:85
+#~ msgid "main activity is required"
+#~ msgstr "主要活動是必填項目"
+
+#: src/components/atoms/EventTag.re.mjs:54
+#~ msgid "Matches will be submitted to DUPR."
+#~ msgstr "比賽將提交至 DUPR。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+#~ msgid "Max attendees (optional)"
+#~ msgstr "最大參加人數（可選）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:377
+#~ msgid "max participants"
+#~ msgstr "最大參與人數"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:389
+#~ msgid "minimum rating"
+#~ msgstr "最低評分"
+
+#: src/components/organisms/CreateClubForm.re.mjs:162
+#~ msgid "name"
+#~ msgstr "名稱"
+
+#: src/components/organisms/CreateClubForm.re.mjs:79
+#~ msgid "name is required"
+#~ msgstr "名稱是必填項目"
+
+#: src/components/atoms/EventTag.re.mjs:48
+#~ msgid "No restriction on skill level. Open to all players."
+#~ msgstr "技能等級無限制。對所有球員開放。"
+
+#: src/components/atoms/EventTag.re.mjs:46
+#~ msgid "Professional players"
+#~ msgstr "職業球員"
+
+#: src/components/atoms/EventTag.re.mjs:56
+#~ msgid ""
+#~ "Recreational play that will not be submitted to competitive ratings nor "
+#~ "DUPR."
+#~ msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
+
+#: src/components/atoms/EventTag.re.mjs:50
+#~ msgid "Results will be submitted to competitive ratings."
+#~ msgstr "結果將提交至競技評分。"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "儲存"
+
+#: src/components/organisms/SelectClubStateful.re.mjs:81
+#~ msgid "select club"
+#~ msgstr "選擇俱樂部"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:413
+#~ msgid "Select tags that best describe this event"
+#~ msgstr "選擇最能描述此活動的標籤"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+#~ msgid ""
+#~ "show your event publicly on our home page. Otherwise, only people with a "
+#~ "link to your event will be able to find it."
+#~ msgstr ""
+#~ "在我們的首頁公開顯示您的活動。否則，只有擁有您活動連結的人才能找到它。"
+
+#: src/components/atoms/EventTag.re.mjs:52
+#~ msgid "Skills practice and drills focused on technique improvement"
+#~ msgstr "技能練習和訓練，專注於技術改進"
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+#~ msgid "slug"
+#~ msgstr "網址簡碼"
+
+#: src/components/organisms/CreateClubForm.re.mjs:216
+#~ msgid "tell people about your club"
+#~ msgstr "告訴大家您俱樂部的情況"
+
+#: src/components/atoms/EventTag.re.mjs:58
+#~ msgid ""
+#~ "This event is private. Please do not share this event without permission "
+#~ "from the organizer."
+#~ msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:364
+#~ msgid "timezone"
+#~ msgstr "時區"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:310
+#~ msgid "title"
+#~ msgstr "標題"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:412
-msgid "type of event"
-msgstr "活動類型"
+#~ msgid "type of event"
+#~ msgstr "活動類型"
 
 #: src/components/atoms/EventTag.re.mjs:40
-msgid "Upper intermediate and above"
-msgstr "中上等級及以上"
+#~ msgid "Upper intermediate and above"
+#~ msgstr "中上等級及以上"
 
 #: src/components/organisms/CreateClubForm.re.mjs:82
-msgid "url slug is required"
-msgstr "網址簡碼是必填項目"
+#~ msgid "url slug is required"
+#~ msgstr "網址簡碼是必填項目"
 
 #: src/components/organisms/CreateClubForm.re.mjs:182
-msgid "yubibado"
-msgstr "yubibado"
+#~ msgid "yubibado"
+#~ msgstr "yubibado"
 
 #: src/components/organisms/CreateClubForm.re.mjs:165
-msgid "ゆびバド"
-msgstr "手指羽毛球"
+#~ msgid "ゆびバド"
+#~ msgstr "手指羽毛球"

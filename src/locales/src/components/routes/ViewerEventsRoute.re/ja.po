@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:462
+#: src/components/organisms/EventsList.re.mjs:451
 msgid "...load past events"
 msgstr "...過去のイベントを読み込む"
 
@@ -82,7 +82,7 @@ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 キャンセル"
 
-#: src/components/organisms/EventsList.re.mjs:418
+#: src/components/organisms/AddEventButton.re.mjs:35
 msgid "Add an Event"
 msgstr "イベントを追加"
 
@@ -106,7 +106,7 @@ msgstr "質問"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "来月の毎週木曜日、赤羽小学校で19時から21時までバドミントン。"
 
-#: src/components/organisms/EventsList.re.mjs:434
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
@@ -135,7 +135,7 @@ msgstr "イベントの作成中にエラーが発生しました。もう一度
 msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/organisms/EventsList.re.mjs:432
+#: src/components/organisms/EventsList.re.mjs:421
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 

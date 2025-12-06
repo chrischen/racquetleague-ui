@@ -16,6 +16,7 @@ module Types = {
     @live id: string,
     losers: option<array<fragment_losers>>,
     namespace: option<string>,
+    playerMetadata: option<string>,
     score: option<array<float>>,
     winners: option<array<fragment_winners>>,
   }
@@ -118,6 +119,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "createdAt",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "playerMetadata",
       "storageKey": null
     }
   ],

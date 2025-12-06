@@ -393,28 +393,23 @@ function EventManager(props) {
   var setRatingAdjustmentHistory = match$14[1];
   var ratingAdjustmentHistory = match$14[0];
   var match$15 = React.useState(function () {
-        
+        return Util.NonEmptyArray.empty;
       });
-  var setPendingRoundReset = match$15[1];
-  var pendingRoundReset = match$15[0];
+  var setTeams = match$15[1];
+  var teams = match$15[0];
   var match$16 = React.useState(function () {
         return Util.NonEmptyArray.empty;
       });
-  var setTeams = match$16[1];
-  var teams = match$16[0];
+  var setAntiTeams = match$16[1];
+  var antiTeams = match$16[0];
   var match$17 = React.useState(function () {
-        return Util.NonEmptyArray.empty;
-      });
-  var setAntiTeams = match$17[1];
-  var antiTeams = match$17[0];
-  var match$18 = React.useState(function () {
         return false;
       });
-  var setTeamManagementOpen = match$18[1];
-  var match$19 = React.useState(function () {
+  var setTeamManagementOpen = match$17[1];
+  var match$18 = React.useState(function () {
         
       });
-  var setPlayerSettingsOpen = match$19[1];
+  var setPlayerSettingsOpen = match$18[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -440,17 +435,13 @@ function EventManager(props) {
         currentRoundInt
       ]);
   React.useEffect((function () {
-          Core__Option.forEach(Caml_option.nullable_to_opt(currentRoundRef.current), (function (element) {
-                  element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                      });
-                }));
-        }), [currentRoundInt]);
-  React.useEffect((function () {
           var storedCourtCount = EventManagerPersistence.loadCourtCount(data.id);
           setCourtCount(function (param) {
                 return storedCourtCount;
+              });
+          var storedStrategy = EventManagerPersistence.loadStrategy(data.id);
+          setStrategy(function (param) {
+                return storedStrategy;
               });
           var storedCheckedInIds = EventManagerPersistence.loadCheckedInPlayerIds(data.id);
           if (storedCheckedInIds.length > 0) {
@@ -603,43 +594,6 @@ function EventManager(props) {
                         }));
         }), [playersWithCounts]);
   React.useEffect((function () {
-          Core__Option.forEach(pendingRoundReset, (function (roundIndex) {
-                  if (roundIndex >= 0) {
-                    console.log("Regenerating round " + (roundIndex + 1 | 0).toString() + " after seed adjustment");
-                    updateRounds(function (currentRounds) {
-                          var adjustmentsUpToCurrentRound = ratingAdjustmentHistory.filter(function (adj) {
-                                return adj.appliedAtRound <= roundIndex;
-                              });
-                          var playersForReset = Rating.toPlayerStateWithAdjustments(currentRounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound).filter(function (p) {
-                                return checkedInPlayerIds.has(p.id);
-                              });
-                          var newRound = Rating.generateSingleRound(roundIndex, currentRounds, playersForReset, strategy, courtCount, teamConstraints, avoidAllPlayers, undefined, eventStartTime);
-                          if (newRound !== undefined) {
-                            return currentRounds.map(function (round, idx) {
-                                        if (idx === roundIndex) {
-                                          return newRound;
-                                        } else {
-                                          return round;
-                                        }
-                                      });
-                          } else {
-                            return currentRounds;
-                          }
-                        });
-                  }
-                  setPendingRoundReset(function (param) {
-                        
-                      });
-                }));
-        }), [
-        pendingRoundReset,
-        ratingAdjustmentHistory,
-        players,
-        checkedInPlayerIds,
-        strategy,
-        courtCount
-      ]);
-  React.useEffect((function () {
           if (!(isDirty && currentRoundInt > -1)) {
             return ;
           }
@@ -729,12 +683,6 @@ function EventManager(props) {
               });
           return updatedHistory;
         });
-    if (currentRoundInt > 0) {
-      return setPendingRoundReset(function (param) {
-                  return currentRoundInt - 1 | 0;
-                });
-    }
-    
   };
   var handleMatchCompleted = function (matchId, completedMatch) {
     var score = completedMatch[1];
@@ -940,6 +888,15 @@ function EventManager(props) {
         });
     EventManagerPersistence.saveCourtCount(data.id, count);
   };
+  var handleStrategyChange = function (s) {
+    setStrategy(function (param) {
+          return s;
+        });
+    setIsDirty(function (param) {
+          return true;
+        });
+    EventManagerPersistence.saveStrategy(data.id, s);
+  };
   var handleAdvanceRound = function () {
     if (currentRoundInt >= rounds.length) {
       return ;
@@ -1092,12 +1049,6 @@ function EventManager(props) {
               });
           return updatedHistory;
         });
-    if (currentRoundInt > 0) {
-      return setPendingRoundReset(function (param) {
-                  return currentRoundInt - 1 | 0;
-                });
-    }
-    
   };
   var updatePlayerOverrides = function (updatedPlayer) {
     var originalPlayer = playersWithCounts.find(function (p) {
@@ -1121,13 +1072,8 @@ function EventManager(props) {
           return updated;
         });
     if (genderChanged) {
-      setIsDirty(function (param) {
-            return true;
-          });
-    }
-    if (genderChanged && currentRoundInt > 0) {
-      return setPendingRoundReset(function (param) {
-                  return currentRoundInt - 1 | 0;
+      return setIsDirty(function (param) {
+                  return true;
                 });
     }
     
@@ -1312,11 +1258,7 @@ function EventManager(props) {
                             checkedInPlayerCount: checkedInPlayerIds.size,
                             hasExistingDraws: rounds.length > 0,
                             strategy: strategy,
-                            onStrategyChange: (function (s) {
-                                setStrategy(function (param) {
-                                      return s;
-                                    });
-                              }),
+                            onStrategyChange: handleStrategyChange,
                             onGenerateDraws: handleGenerateDraws,
                             onCourtCountChange: handleCourtCountChange,
                             isInitiallyExpanded: true,
@@ -1360,53 +1302,80 @@ function EventManager(props) {
                                                           }));
                                                   })
                                               }) : null,
-                                        isCurrentRound ? JsxRuntime.jsx("div", {
-                                                children: JsxRuntime.jsx(RoundSection.make, {
-                                                      matches: roundMatches,
-                                                      roundNumber: roundNum,
-                                                      isCurrentRound: isCurrentRound,
-                                                      isPastRound: isPastRound,
-                                                      playersCache: playersCache,
-                                                      checkedInPlayerIds: checkedInPlayerIds,
-                                                      handleMatchCanceled: (function (matchId) {
-                                                          handleMatchCanceled(matchId);
-                                                        }),
-                                                      handleMatchUpdated: (function (completedMatch, matchId) {
-                                                          handleMatchCompleted(matchId, completedMatch);
-                                                        }),
-                                                      setMatches: (function (updateFn) {
-                                                          updateRounds(function (rounds) {
-                                                                return rounds.map(function (round, idx) {
-                                                                            if (idx === roundIndex) {
-                                                                              return updateFn(round);
-                                                                            } else {
-                                                                              return round;
-                                                                            }
-                                                                          });
-                                                              });
-                                                        }),
-                                                      setQueue: (function (param) {
-                                                          
-                                                        }),
-                                                      setRequiredPlayers: (function (param) {
-                                                          
-                                                        }),
-                                                      setShowMatchSelector: (function (param) {
-                                                          
-                                                        }),
-                                                      onRebalance: (function () {
-                                                          handleRebalanceRound(roundIndex);
-                                                        }),
-                                                      onRebalanceMatch: (function (matchId) {
-                                                          handleRebalanceMatch(roundIndex, matchId);
-                                                        }),
-                                                      onReset: (function (genderMixed) {
-                                                          handleResetRound(roundIndex, genderMixed);
-                                                        }),
-                                                      debug: debugMode,
-                                                      getUserFragmentRefs: getUserFragmentRefs,
-                                                      allRounds: rounds
-                                                    }),
+                                        isCurrentRound ? JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsx(RoundSection.make, {
+                                                        matches: roundMatches,
+                                                        roundNumber: roundNum,
+                                                        isCurrentRound: isCurrentRound,
+                                                        isPastRound: isPastRound,
+                                                        playersCache: playersCache,
+                                                        checkedInPlayerIds: checkedInPlayerIds,
+                                                        handleMatchCanceled: (function (matchId) {
+                                                            handleMatchCanceled(matchId);
+                                                          }),
+                                                        handleMatchUpdated: (function (completedMatch, matchId) {
+                                                            handleMatchCompleted(matchId, completedMatch);
+                                                          }),
+                                                        setMatches: (function (updateFn) {
+                                                            updateRounds(function (rounds) {
+                                                                  return rounds.map(function (round, idx) {
+                                                                              if (idx === roundIndex) {
+                                                                                return updateFn(round);
+                                                                              } else {
+                                                                                return round;
+                                                                              }
+                                                                            });
+                                                                });
+                                                          }),
+                                                        setQueue: (function (param) {
+                                                            
+                                                          }),
+                                                        setRequiredPlayers: (function (param) {
+                                                            
+                                                          }),
+                                                        setShowMatchSelector: (function (param) {
+                                                            
+                                                          }),
+                                                        onRebalance: (function () {
+                                                            handleRebalanceRound(roundIndex);
+                                                          }),
+                                                        onRebalanceMatch: (function (matchId) {
+                                                            handleRebalanceMatch(roundIndex, matchId);
+                                                          }),
+                                                        onReset: (function (genderMixed) {
+                                                            handleResetRound(roundIndex, genderMixed);
+                                                          }),
+                                                        debug: debugMode,
+                                                        getUserFragmentRefs: getUserFragmentRefs,
+                                                        allRounds: rounds
+                                                      }),
+                                                  canAdvance ? JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsxs("button", {
+                                                                children: [
+                                                                  JsxRuntime.jsx("span", {
+                                                                        children: t`Advance to Round ${(currentRoundInt + 1 | 0).toString()}`
+                                                                      }),
+                                                                  JsxRuntime.jsx(LucideReact.ChevronRight, {
+                                                                        className: "w-6 h-6"
+                                                                      })
+                                                                ],
+                                                                className: "flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl",
+                                                                onClick: (function (param) {
+                                                                    handleAdvanceRound();
+                                                                    setTimeout((function () {
+                                                                            Core__Option.forEach(Caml_option.nullable_to_opt(currentRoundRef.current), (function (element) {
+                                                                                    element.scrollIntoView({
+                                                                                          behavior: "smooth",
+                                                                                          block: "center"
+                                                                                        });
+                                                                                  }));
+                                                                          }), 100);
+                                                                  })
+                                                              }),
+                                                          className: "mt-6 flex justify-center"
+                                                        }) : null
+                                                ],
                                                 ref: Caml_option.some(currentRoundRef)
                                               }) : JsxRuntime.jsx(RoundSection.make, {
                                                 matches: roundMatches,
@@ -1459,11 +1428,7 @@ function EventManager(props) {
                                                 checkedInPlayerCount: checkedInPlayerIds.size,
                                                 hasExistingDraws: rounds.length > roundNum,
                                                 strategy: strategy,
-                                                onStrategyChange: (function (s) {
-                                                    setStrategy(function (param) {
-                                                          return s;
-                                                        });
-                                                  }),
+                                                onStrategyChange: handleStrategyChange,
                                                 onGenerateDraws: handleGenerateDraws,
                                                 onCourtCountChange: handleCourtCountChange,
                                                 isInitiallyExpanded: currentRoundInt === 0,
@@ -1484,7 +1449,7 @@ function EventManager(props) {
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                match$18[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
+                match$17[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
                         teams: teamsAsData,
                         antiTeams: Util.NonEmptyArray.toArray(antiTeams).map(function (team, index) {
                               return {
@@ -1540,7 +1505,7 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
-                Core__Option.getOr(Core__Option.map(match$19[0], (function (player) {
+                Core__Option.getOr(Core__Option.map(match$18[0], (function (player) {
                             var isGuest = Core__Option.isNone(player.data);
                             if (isGuest) {
                               return JsxRuntime.jsx(PlayerSettingsModal.make, {
@@ -1714,11 +1679,7 @@ function EventManager(props) {
                                 checkedInPlayerCount: checkedInPlayerIds.size,
                                 hasExistingDraws: false,
                                 strategy: strategy,
-                                onStrategyChange: (function (s) {
-                                    setStrategy(function (param) {
-                                          return s;
-                                        });
-                                  }),
+                                onStrategyChange: handleStrategyChange,
                                 onGenerateDraws: handleGenerateDraws,
                                 onCourtCountChange: handleCourtCountChange,
                                 isInitiallyExpanded: true,

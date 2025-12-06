@@ -5,6 +5,7 @@ module Types = {
   @@warning("-30")
 
   type rec fragment_defaultActivity = {
+    @live id: string,
     slug: option<string>,
   }
   and fragment_events_edges_node_location = {
@@ -192,6 +193,7 @@ return {
       "name": "defaultActivity",
       "plural": false,
       "selections": [
+        (v1/*: any*/),
         {
           "alias": null,
           "args": null,

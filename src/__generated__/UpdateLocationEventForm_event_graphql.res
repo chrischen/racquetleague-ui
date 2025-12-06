@@ -1,4 +1,4 @@
-/* @sourceLoc CreateLocationEventForm.res */
+/* @sourceLoc UpdateLocationEventForm.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -50,7 +50,7 @@ module Internal = {
 type t
 type fragmentRef
 external getFragmentRef:
-  RescriptRelay.fragmentRefs<[> | #CreateLocationEventForm_event]> => fragmentRef = "%identity"
+  RescriptRelay.fragmentRefs<[> | #UpdateLocationEventForm_event]> => fragmentRef = "%identity"
 
 module Utils = {
   @@warning("-33")
@@ -73,7 +73,7 @@ return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "CreateLocationEventForm_event",
+  "name": "UpdateLocationEventForm_event",
   "selections": [
     (v0/*: any*/),
     {

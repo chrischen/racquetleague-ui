@@ -2,6 +2,8 @@
 
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
+import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as Js_json from "rescript/lib/es6/js_json.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
@@ -88,6 +90,66 @@ var ItemFragment = {
   useOpt: useOpt$1
 };
 
+function decode(json) {
+  try {
+    var dict = Js_json.decodeObject(json);
+    return Core__Option.flatMap(dict, (function (d) {
+                  var mu = Core__Option.flatMap(Js_dict.get(d, "mu"), Js_json.decodeNumber);
+                  var sigma = Core__Option.flatMap(Js_dict.get(d, "sigma"), Js_json.decodeNumber);
+                  var muDiff = Core__Option.flatMap(Js_dict.get(d, "muDiff"), Js_json.decodeNumber);
+                  var sigmaDiff = Core__Option.flatMap(Js_dict.get(d, "sigmaDiff"), Js_json.decodeNumber);
+                  if (mu !== undefined && sigma !== undefined) {
+                    return {
+                            mu: mu,
+                            sigma: sigma,
+                            muDiff: muDiff,
+                            sigmaDiff: sigmaDiff
+                          };
+                  }
+                  
+                }));
+  }
+  catch (exn){
+    return ;
+  }
+}
+
+var PlayerRating = {
+  decode: decode
+};
+
+function decode$1(jsonString) {
+  return Core__Option.flatMap(jsonString, (function (str) {
+                try {
+                  var json = JSON.parse(str);
+                  return Core__Option.flatMap(Js_json.decodeObject(json), (function (dict) {
+                                var metadata = {};
+                                Js_dict.entries(dict).forEach(function (param) {
+                                      var playerId = param[0];
+                                      Core__Option.forEach(decode(param[1]), (function (rating) {
+                                              metadata[playerId] = rating;
+                                            }));
+                                    });
+                                return metadata;
+                              }));
+                }
+                catch (exn){
+                  return ;
+                }
+              }));
+}
+
+function get(metadata, playerId) {
+  return Core__Option.flatMap(metadata, (function (m) {
+                return Js_dict.get(m, playerId);
+              }));
+}
+
+var PlayerMetadata = {
+  decode: decode$1,
+  get: get
+};
+
 function make(key, id) {
   return [
           key,
@@ -151,10 +213,43 @@ var MatchListTeamFragment = {
   useOpt: useOpt$2
 };
 
+function MatchList$RatingDisplay(props) {
+  var rating = props.rating;
+  var ratingValue = rating.mu - 3.0 * rating.sigma;
+  var ratingChange = Core__Option.map(rating.muDiff, (function (muDiff) {
+          var sign = muDiff >= 0.0 ? "+" : "";
+          return sign + muDiff.toFixed(1);
+        }));
+  return JsxRuntime.jsxs("span", {
+              children: [
+                JsxRuntime.jsx("span", {
+                      children: ratingValue.toFixed(0),
+                      className: "text-sm font-medium text-gray-700"
+                    }),
+                Core__Option.getOr(Core__Option.map(ratingChange, (function (change) {
+                            var isPositive = Core__Option.getOr(rating.muDiff, 0.0) >= 0.0;
+                            return JsxRuntime.jsx("span", {
+                                        children: change,
+                                        className: isPositive ? "text-xs text-green-600 font-semibold" : "text-xs text-red-600 font-semibold"
+                                      });
+                          })), null)
+              ],
+              className: "inline-flex items-center gap-1"
+            });
+}
+
+var RatingDisplay = {
+  make: MatchList$RatingDisplay
+};
+
 function MatchList$InlineTeam(props) {
+  var metadata = props.metadata;
   var players = props.players;
   return players.map(function (player, i) {
               var player$1 = use$2(player);
+              var rating = Core__Option.flatMap(metadata, (function (m) {
+                      return get(m, player$1.id);
+                    }));
               return JsxRuntime.jsxs(React.Fragment, {
                           children: [
                             JsxRuntime.jsx(LangProvider.Router.Link.make, {
@@ -162,6 +257,16 @@ function MatchList$InlineTeam(props) {
                                   children: Core__Option.getOr(player$1.lineUsername, ""),
                                   className: "font-medium text-gray-900"
                                 }, player$1.id),
+                            Core__Option.getOr(Core__Option.map(rating, (function (r) {
+                                        return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                    children: [
+                                                      " ",
+                                                      JsxRuntime.jsx(MatchList$RatingDisplay, {
+                                                            rating: r
+                                                          })
+                                                    ]
+                                                  });
+                                      })), null),
                             i !== (players.length - 1 | 0) ? " • " : null
                           ]
                         }, player$1.id);
@@ -204,9 +309,12 @@ function ts(prim0, prim1) {
 function MatchList$Match(props) {
   var match = use$1(props.match);
   var winners = match.winners;
+  var playerMetadata = match.playerMetadata;
   var namespace = match.namespace;
   var losers = match.losers;
   var createdAt = match.createdAt;
+  console.log(playerMetadata);
+  var metadata = decode$1(playerMetadata);
   var isWinner = Core__Option.isSome(Core__Option.flatMap(props.user, (function (user) {
               var user$1 = use$3(user);
               return Core__Option.flatMap(winners, (function (__x) {
@@ -254,13 +362,15 @@ function MatchList$Match(props) {
                                                                     return JsxRuntime.jsx(MatchList$InlineTeam, {
                                                                                 players: winners.map(function (x) {
                                                                                       return x.fragmentRefs;
-                                                                                    })
+                                                                                    }),
+                                                                                metadata: metadata
                                                                               });
                                                                   })), null) : Core__Option.getOr(Core__Option.map(losers, (function (winners) {
                                                                     return JsxRuntime.jsx(MatchList$InlineTeam, {
                                                                                 players: winners.map(function (x) {
                                                                                       return x.fragmentRefs;
-                                                                                    })
+                                                                                    }),
+                                                                                metadata: metadata
                                                                               });
                                                                   })), null),
                                                       JsxRuntime.jsx("span", {
@@ -271,13 +381,15 @@ function MatchList$Match(props) {
                                                                     return JsxRuntime.jsx(MatchList$InlineTeam, {
                                                                                 players: winners.map(function (x) {
                                                                                       return x.fragmentRefs;
-                                                                                    })
+                                                                                    }),
+                                                                                metadata: metadata
                                                                               });
                                                                   })), null) : Core__Option.getOr(Core__Option.map(winners, (function (winners) {
                                                                     return JsxRuntime.jsx(MatchList$InlineTeam, {
                                                                                 players: winners.map(function (x) {
                                                                                       return x.fragmentRefs;
-                                                                                    })
+                                                                                    }),
+                                                                                metadata: metadata
                                                                               });
                                                                   })), null)
                                                     ],
@@ -408,9 +520,12 @@ var $$default = MatchList;
 export {
   Fragment ,
   ItemFragment ,
+  PlayerRating ,
+  PlayerMetadata ,
   NodeId ,
   NodeIdDto ,
   MatchListTeamFragment ,
+  RatingDisplay ,
   InlineTeam ,
   MatchListUserFragment ,
   Match ,

@@ -13,20 +13,46 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/pages/LoginPage.re.mjs:101
+msgid "An error occurred during sign in. Please try again."
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:53
+#: src/components/pages/LoginPage.re.mjs:85
+msgid "An error occurred: {message}"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:122
+msgid "Back to events"
+msgstr ""
+
 #: src/components/pages/LoginPage.re.mjs:91
-msgid "cancel login"
+#~ msgid "cancel login"
+#~ msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:73
+#: src/components/pages/LoginPage.re.mjs:75
+msgid "Check your email for a magic link to sign in!"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:185
+msgid "Continue with LINE"
 msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:64
-msgid "display name"
-msgstr ""
+#~ msgid "display name"
+#~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:54
 #~ msgid "Display Name"
 #~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:44
-msgid "email address"
+#~ msgid "email address"
+#~ msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:217
+msgid "Email address"
 msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:34
@@ -34,12 +60,16 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:55
-msgid "event organizers and other users cannot view your email"
-msgstr ""
+#~ msgid "event organizers and other users cannot view your email"
+#~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:45
 #~ msgid "Event organizers and other users cannot view your email"
 #~ msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:71
+msgid "Failed to send magic link: {0}"
+msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:87
 #~ msgid "It will not be shared with event organizers or sold to third parties"
@@ -49,30 +79,42 @@ msgstr ""
 #~ msgid "Login"
 #~ msgstr ""
 
+#: src/components/pages/LoginPage.re.mjs:40
+msgid "Login failed: {0}"
+msgstr ""
+
 #: src/components/pages/LoginPage.re.mjs:28
 #: src/components/pages/LoginPage.re.mjs:85
-msgid "login with Line"
-msgstr ""
+#~ msgid "login with Line"
+#~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:18
 #~ msgid "Login with Line"
 #~ msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:166
+msgid "New users will be automatically registered"
+msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:51
 #~ msgid "not"
 #~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:51
-msgid "notification of updates or cancellations to events (you can opt out)"
-msgstr ""
+#~ msgid "notification of updates or cancellations to events (you can opt out)"
+#~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:41
 #~ msgid "Notification of updates or cancellations to events (you can opt out)"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:32
-msgid "privacy disclosure"
+#: src/components/pages/LoginPage.re.mjs:204
+msgid "or continue with email"
 msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:32
+#~ msgid "privacy disclosure"
+#~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:64
 #~ msgid "Privacy disclosure"
@@ -83,8 +125,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:72
-msgid "profile picture"
-msgstr ""
+#~ msgid "profile picture"
+#~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:62
 #~ msgid "Profile Picture"
@@ -92,8 +134,8 @@ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:68
 #: src/components/pages/LoginPage.re.mjs:76
-msgid "publicly displayed on event attendance lists"
-msgstr ""
+#~ msgid "publicly displayed on event attendance lists"
+#~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:58
 #: src/components/pages/LoginPage.re.mjs:66
@@ -104,10 +146,26 @@ msgstr ""
 #~ msgid "Publicy displayed on event attendance lists"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:38
-msgid "we will collect the following information from your Line account"
+#: src/components/pages/LoginPage.re.mjs:258
+msgid "Send magic link"
 msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:88
+#~ msgid "Sign in to Events"
+#~ msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:162
+msgid "Sign in to Pkuru.com"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:38
+#~ msgid "we will collect the following information from your Line account"
+#~ msgstr ""
 
 #: src/components/pages/LoginPage.re.mjs:28
 #~ msgid "We will collect the following information from your Line account"
 #~ msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
+msgstr ""

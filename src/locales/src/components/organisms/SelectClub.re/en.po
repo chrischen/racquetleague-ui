@@ -14,45 +14,53 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:211
+#: src/components/organisms/CreateClubForm.re.mjs:334
 #~ msgid "Badminton"
 #~ msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:215
+#: src/components/organisms/CreateClubForm.re.mjs:338
 #~ msgid "Table Tennis"
 #~ msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:219
+#: src/components/organisms/CreateClubForm.re.mjs:342
 #~ msgid "Pickleball"
 #~ msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:223
+#: src/components/organisms/CreateClubForm.re.mjs:346
 #~ msgid "Futsal"
 #~ msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:227
+#: src/components/organisms/CreateClubForm.re.mjs:350
 #~ msgid "Basketball"
 #~ msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:231
+#: src/components/organisms/CreateClubForm.re.mjs:354
 #~ msgid "Volleyball"
 #~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:213
-msgid "about"
-msgstr ""
+#~ msgid "about"
+#~ msgstr ""
 
 #: src/components/organisms/SelectClub.re.mjs:74
 msgid "add new club"
 msgstr ""
 
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr ""
+
 #: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
+#~ msgid "cancel"
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
 msgstr ""
 
 #: src/components/organisms/SelectClub.re.mjs:51
@@ -60,49 +68,77 @@ msgid "choose the club where this event will be held."
 msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
-msgid "club"
+#~ msgid "club"
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
 msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:194
-msgid "main activity"
-msgstr ""
+#~ msgid "main activity"
+#~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:85
-msgid "main activity is required"
-msgstr ""
+#~ msgid "main activity is required"
+#~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:162
-msgid "name"
-msgstr ""
+#~ msgid "name"
+#~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:79
-msgid "name is required"
-msgstr ""
+#~ msgid "name is required"
+#~ msgstr ""
 
 #: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr ""
+#~ msgid "save"
+#~ msgstr ""
 
 #: src/components/organisms/SelectClub.re.mjs:50
 msgid "select club"
 msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:177
-msgid "slug"
-msgstr ""
+#~ msgid "slug"
+#~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:216
-msgid "tell people about your club"
-msgstr ""
+#~ msgid "tell people about your club"
+#~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:82
-msgid "url slug is required"
-msgstr ""
+#~ msgid "url slug is required"
+#~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:182
-msgid "yubibado"
-msgstr ""
+#~ msgid "yubibado"
+#~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:165
-msgid "ゆびバド"
-msgstr ""
+#~ msgid "ゆびバド"
+#~ msgstr ""

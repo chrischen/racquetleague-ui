@@ -13,45 +13,92 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchList.re.mjs:372
+#: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:85
+#: src/components/pages/LeaguePlayerPage.re.mjs:108
+msgid "Back to league"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:146
+msgid "Current Rating"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:87
 msgid "Estimated DUPR"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:130
-msgid "Female"
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
 msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:395
+#: src/components/pages/LeaguePlayerPage.re.mjs:131
+#~ msgid "Female"
+#~ msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr ""
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:194
+#~ msgid "Loading rankings..."
+#~ msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:193
+msgid "Loading..."
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:133
+#~ msgid "Male"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
 #: src/components/pages/LeaguePlayerPage.re.mjs:185
-msgid "Loading rankings..."
+#~ msgid "Match History"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:103
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
+#~ msgid "Player Profile Page"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:212
+#: src/components/pages/LeaguePlayerPage.re.mjs:220
+#~ msgid "Rating"
+#~ msgstr ""
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:132
-msgid "Male"
-msgstr ""
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:168
-#: src/components/pages/LeaguePlayerPage.re.mjs:176
-msgid "Match History"
-msgstr ""
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:102
-#: src/components/pages/LeaguePlayerPage.re.mjs:159
-msgid "Player Profile Page"
-msgstr ""
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:202
-#: src/components/pages/LeaguePlayerPage.re.mjs:210
-msgid "Rating"
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
 msgstr ""
 
 #: src/components/organisms/MatchList.re.mjs:292
-msgid "Score:"
+#~ msgid "Score:"
+#~ msgstr ""
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
 msgstr ""

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:372
+#: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
@@ -125,9 +125,18 @@ msgstr "สร้างทีม"
 msgid "Done"
 msgstr "เสร็จ"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "เสมอ"
+
 #: src/components/organisms/SortableSubmitMatch.re.mjs:319
 msgid "Enter Score"
 msgstr "ป้อนคะแนน"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "สมดุล"
 
 #: src/components/organisms/AiTetsu.re.mjs:1355
 msgid "Fixed Pair"
@@ -157,7 +166,7 @@ msgstr "กระดานผู้นำ"
 msgid "left team players"
 msgstr "ผู้เล่นทีมซ้าย"
 
-#: src/components/organisms/MatchList.re.mjs:395
+#: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
@@ -174,6 +183,11 @@ msgstr "กำลังโหลดแมทช์..."
 #: src/components/organisms/AiTetsu.re.mjs:1621
 msgid "Loading..."
 msgstr "กำลังโหลด..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "แพ้"
 
 #: src/components/organisms/AiTetsu.re.mjs:1727
 msgid "manual team"
@@ -295,10 +309,6 @@ msgstr "บันทึก"
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/MatchList.re.mjs:292
-msgid "Score:"
-msgstr "คะแนน:"
-
 #: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
 msgstr "เลือก"
@@ -361,9 +371,22 @@ msgstr "ทีมสุ่มสิ้นเชิง"
 msgid "Unqueue All"
 msgstr "ยกเลิกคิวทั้งหมด"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "ผลลัพธ์ที่คาดไม่ถึง"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "ชนะ"
+
 #: src/components/organisms/SubmitMatch.re.mjs:323
 #: src/components/organisms/SubmitMatch.re.mjs:369
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "ผู้ชนะ"
+
+#: src/components/organisms/MatchList.re.mjs:292
+#~ msgid "Score:"
+#~ msgstr "คะแนน:"

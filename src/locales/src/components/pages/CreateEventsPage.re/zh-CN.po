@@ -13,16 +13,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateClubForm.re.mjs:213
-msgid "about"
-msgstr "关于"
-
 #: src/components/organisms/SelectClub.re.mjs:74
 msgid "add new club"
 msgstr "添加新俱乐部"
 
-#: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "俱乐部的简要描述..."
+
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
 msgstr "取消"
 
 #: src/components/organisms/SelectClub.re.mjs:51
@@ -30,49 +30,115 @@ msgid "choose the club where this event will be held."
 msgstr "选择举办此活动的俱乐部。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
-msgid "club"
-msgstr "俱乐部"
+msgid "Club Name"
+msgstr "俱乐部名称"
 
-#: src/components/organisms/CreateClubForm.re.mjs:194
-msgid "main activity"
-msgstr "主要活动"
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "俱乐部URL"
 
-#: src/components/organisms/CreateClubForm.re.mjs:85
-msgid "main activity is required"
-msgstr "必须填写主要活动"
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "俱乐部名称"
 
-#: src/components/organisms/CreateClubForm.re.mjs:162
-msgid "name"
-msgstr "名称"
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "创建俱乐部"
 
-#: src/components/organisms/CreateClubForm.re.mjs:79
-msgid "name is required"
-msgstr "必须填写名称"
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "默认俱乐部活动"
 
-#: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr "保存"
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "描述"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "例如：城市球手俱乐部"
 
 #: src/components/organisms/SelectClub.re.mjs:50
 msgid "select club"
 msgstr "选择俱乐部"
 
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:334
+#~ msgid "Badminton"
+#~ msgstr "羽毛球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:338
+#~ msgid "Table Tennis"
+#~ msgstr "乒乓球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:342
+#~ msgid "Pickleball"
+#~ msgstr "匹克球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:346
+#~ msgid "Futsal"
+#~ msgstr "五人制足球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:350
+#~ msgid "Basketball"
+#~ msgstr "篮球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubForm.re.mjs:354
+#~ msgid "Volleyball"
+#~ msgstr "排球"
+
+#: src/components/organisms/CreateClubForm.re.mjs:213
+#~ msgid "about"
+#~ msgstr "关于"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "取消"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+#~ msgid "club"
+#~ msgstr "俱乐部"
+
+#: src/components/organisms/CreateClubForm.re.mjs:194
+#~ msgid "main activity"
+#~ msgstr "主要活动"
+
+#: src/components/organisms/CreateClubForm.re.mjs:85
+#~ msgid "main activity is required"
+#~ msgstr "必须填写主要活动"
+
+#: src/components/organisms/CreateClubForm.re.mjs:162
+#~ msgid "name"
+#~ msgstr "名称"
+
+#: src/components/organisms/CreateClubForm.re.mjs:79
+#~ msgid "name is required"
+#~ msgstr "必须填写名称"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "保存"
+
 #: src/components/organisms/CreateClubForm.re.mjs:177
-msgid "slug"
-msgstr "URL 简称"
+#~ msgid "slug"
+#~ msgstr "URL 简称"
 
 #: src/components/organisms/CreateClubForm.re.mjs:216
-msgid "tell people about your club"
-msgstr "告诉大家关于您的俱乐部"
+#~ msgid "tell people about your club"
+#~ msgstr "告诉大家关于您的俱乐部"
 
 #: src/components/organisms/CreateClubForm.re.mjs:82
-msgid "url slug is required"
-msgstr "必须填写 URL 简称"
+#~ msgid "url slug is required"
+#~ msgstr "必须填写 URL 简称"
 
 #: src/components/organisms/CreateClubForm.re.mjs:182
-msgid "yubibado"
-msgstr "yubibado"
+#~ msgid "yubibado"
+#~ msgstr "yubibado"
 
 #: src/components/organisms/CreateClubForm.re.mjs:165
-msgid "ゆびバド"
-msgstr "ゆびバド"
+#~ msgid "ゆびバド"
+#~ msgstr "ゆびバド"

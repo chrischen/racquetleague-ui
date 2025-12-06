@@ -3311,24 +3311,470 @@ msgstr "未払い"
 msgid "Paid"
 msgstr "支払い済み"
 
+#: src/components/pages/LoginPage.re.mjs:62
+msgid "Back to events"
+msgstr "イベントに戻る"
+
+#: src/components/pages/LoginPage.re.mjs:110
+msgid "Continue with LINE"
+msgstr "LINEで続ける"
+
+#: src/components/pages/LoginPage.re.mjs:92
+msgid "New users will be automatically registered"
+msgstr "新規ユーザーは自動的に登録されます"
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "Sign in to Events"
+msgstr "イベントにサインイン"
+
+#: src/components/pages/LoginPage.re.mjs:88
+msgid "Sign in to Pkuru.com"
+msgstr "Pkuru.comにサインイン"
+
+#: src/components/pages/LoginPage.re.mjs:194
+msgid "Email address"
+msgstr "メールアドレス"
+
+#: src/components/pages/LoginPage.re.mjs:181
+msgid "or continue with email"
+msgstr "またはメールで続ける"
+
+#: src/components/pages/LoginPage.re.mjs:235
+msgid "Send magic link"
+msgstr "マジックリンクを送信"
+
+#: src/components/pages/LoginPage.re.mjs:52
+#: src/components/pages/LoginPage.re.mjs:84
+msgid "An error occurred: {message}"
+msgstr "エラーが発生しました: {message}"
+
+#: src/components/pages/LoginPage.re.mjs:72
+#: src/components/pages/LoginPage.re.mjs:74
+msgid "Check your email for a magic link to sign in!"
+msgstr "メールでマジックリンクを確認してサインインしてください！"
+
+#: src/components/pages/LoginPage.re.mjs:70
+msgid "Failed to send magic link: {0}"
+msgstr "マジックリンクの送信に失敗しました: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:39
+msgid "Login failed: {0}"
+msgstr "ログインに失敗しました: {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:240
+msgid "Complete your profile"
+msgstr "プロフィールを完成させる"
+
+#: src/components/organisms/ProfileModal.re.mjs:263
+msgid "Display name"
+msgstr "表示名"
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr "表示名は必須です"
+
+#: src/components/organisms/ProfileModal.re.mjs:212
+msgid "Email cannot be changed"
+msgstr "メールアドレスは変更できません"
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr "メールアドレスは必須です"
+
+#: src/components/organisms/ProfileModal.re.mjs:212
+msgid "For event updates and notifications"
+msgstr "イベントの更新と通知用"
+
+#: src/components/organisms/ProfileModal.re.mjs:295
+msgid "Save & Join Event"
+msgstr "保存して参加する"
+
+#: src/components/organisms/ProfileModal.re.mjs:190
+msgid "This is how others will see you"
+msgstr "他の人に表示される名前です"
+
+#: src/components/organisms/ProfileModal.re.mjs:244
+msgid "We need a few details before you can join this event"
+msgstr "このイベントに参加する前にいくつかの情報が必要です"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "LOSS"
+msgstr "負け"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "DRAW"
+msgstr "引き分け"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:470
+msgid "Upset"
+msgstr "番狂わせ"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:579
+msgid "WIN"
+msgstr "勝ち"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:575
+msgid "Even"
+msgstr "互角"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "レーティング履歴"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr ""
+"網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くな"
+"ります。"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:108
+msgid "Back to league"
+msgstr "リーグに戻る"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:146
+msgid "Current Rating"
+msgstr "現在のレーティング"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr "最近の試合"
+
+#: src/components/pages/LeaguePage.re.mjs:29
+msgid "Next Prize: December 31"
+msgstr "次の賞品：12月31日"
+
+#: src/components/pages/LeaguePage.re.mjs:51
+msgid "Proton Flamingo Paddle"
+msgstr "プロトン フラミンゴ パドル"
+
+#: src/components/pages/LeaguePage.re.mjs:65
+msgid "Second place female and male players will each receive the prize."
+msgstr "2位の女性および男性プレイヤーがそれぞれ賞品を受け取ります。"
+
+#: src/components/pages/LeaguePage.re.mjs:60
+msgid "Selkirk Labs Paddle Cover"
+msgstr "セルカーク ラボ パドルカバー"
+
+#: src/components/pages/LeaguePage.re.mjs:56
+msgid "Top female and top male players will each receive the prize."
+msgstr "トップの女性およびトップの男性プレイヤーがそれぞれ賞品を受け取ります。"
+
+#: src/components/organisms/EventManager.re.mjs:1407
+msgid "Advance to Round {0}"
+msgstr "ラウンド{0}に進む"
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
+"用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid "An error occurred during sign in. Please try again."
+msgstr "サインイン中にエラーが発生しました。もう一度お試しください。"
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"LINEアカウントにメールアドレスが関連付けられていません。LINEアプリからアカウ"
+"ントのメールアドレスを設定してから、もう一度お試しください。"
+
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "クラブの簡単な説明..."
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "クラブ名"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "クラブURL"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "クラブ名"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "クラブを作成"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "デフォルトのクラブアクティビティ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "説明"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "例：シティボーラーズクラブ"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1299
+msgid "Crossminton"
+msgstr "クロスミントン"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1303
+msgid "Padel"
+msgstr "パデル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:493
+msgid "+ Add new club..."
+msgstr "+ 新しいクラブを追加..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:542
+msgid "Activity"
+msgstr "アクティビティ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:833
+msgid "Add any additional information about the event..."
+msgstr "イベントに関する追加情報を入力してください..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:321
+msgid "at"
+msgstr "時"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1036
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr ""
+"楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:476
+msgid "Club"
+msgstr "クラブ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:880
+msgid "Club & Activity"
+msgstr "クラブとアクティビティ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Create Event"
+msgstr "イベントを作成"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:340
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1073
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1103
+msgid "Drill session"
+msgstr "練習セッション"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:337
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1054
+msgid "DUPR rated"
+msgstr "DUPRレーティング"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:787
+msgid "End time"
+msgstr "終了時刻"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:829
+msgid "Event details (optional)"
+msgstr "イベント詳細（オプション）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "Event schedule"
+msgstr "イベントスケジュール"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:804
+msgid "Event title"
+msgstr "イベントタイトル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:979
+msgid "Event type"
+msgstr "イベントタイプ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1141
+msgid "Find Players"
+msgstr "プレイヤーを探す"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1187
+msgid "Find players for your event?"
+msgstr "イベントのプレイヤーを募集しますか？"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:944
+msgid "Format"
+msgstr "形式"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1047
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1098
+msgid "Format options"
+msgstr "形式オプション"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:808
+msgid "Friday Night Pickleball"
+msgstr "金曜夜のピックルボール"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+msgid "List your event publicly to help fill open spots"
+msgstr "空き枠を埋めるためにイベントを公開する"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Max attendees (optional)"
+msgstr "最大参加人数（オプション）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:626
+msgid "No club"
+msgstr "クラブなし"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+msgid "No club / Independent event"
+msgstr "クラブなし / 個人イベント"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:820
+msgid "No limit"
+msgstr "制限なし"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:326
+#: src/components/organisms/CreateLocationEventForm.re.mjs:345
+msgid "Not set"
+msgstr "未設定"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:350
+msgid "Private event"
+msgstr "プライベートイベント"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:363
+msgid "Public"
+msgstr "公開"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:365
+msgid "Public event"
+msgstr "公開イベント"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:861
+msgid "Read more..."
+msgstr "続きを読む..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:334
+#: src/components/organisms/CreateLocationEventForm.re.mjs:986
+msgid "Recreational"
+msgstr "レクリエーション"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1036
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr ""
+"ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティン"
+"グに影響する場合があります。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1203
+msgid "Skill level"
+msgstr "スキルレベル"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:776
+msgid "Start date and time"
+msgstr "開始日時"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Update Event"
+msgstr "イベントを更新"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Max RSVPs (optional)"
+msgstr "最大参加人数（オプション）"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid "Answer the questions or provide more details..."
+msgstr "質問に答えるか、詳細を追加してください..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Continue"
+msgstr "続ける"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Continue the conversation"
+msgstr "会話を続ける"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "Describe your event"
+msgstr "イベントを説明してください"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+"例: セントラルパークで毎週木曜日午後6時にピックルボール、競技レベル3.5以上の"
+"プレイヤー向け..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Fill with AI"
+msgstr "AIで入力"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+msgid "Form filled • Click to expand"
+msgstr "フォーム入力済み • クリックで展開"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+msgid "Generating..."
+msgstr "生成中..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Let AI help you fill out the details below"
+msgstr "AIに下記の詳細を入力してもらいましょう"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to continue"
+msgstr "⌘+Enterで続ける"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to generate"
+msgstr "⌘+Enterで生成"
+
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "現在のラウンド："
+
+#: src/components/organisms/EventManager.re.mjs:198
+#, fuzzy
+#~ msgid "Event Manager"
+#~ msgstr "イベントマネージャーアイコン"
+
+#: src/components/organisms/EventManager.re.mjs:208
+#, fuzzy
+#~ msgid "Start Next Round"
+#~ msgstr "次のラウンドへ進む"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "{0}5件の{hiddenCountDesc}非表示"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/pages/ClubMembersPage.re.mjs:179
+#, fuzzy
+#~ msgid "Are you sure you want to remove"
+#~ msgstr "本当に{0}をサークルから削除しますか？"
+
+#: src/components/pages/DefaultLayout2.re.mjs:144
+#, fuzzy
+#~ msgid "My Profile"
+#~ msgstr "私のプロフィールを見る"
+
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
 #~ msgid "add to calendar"
 #~ msgstr "カレンダー同期"
 
-#: src/components/organisms/EventsList.re.mjs:194
-#~ msgid "Joined"
-#~ msgstr "参加"
-
 #: src/components/pages/Event.re.mjs:195
 #, fuzzy
 #~ msgid "hosted by"
 #~ msgstr "{name}主催"
-
-#: src/components/pages/DefaultLayout2.re.mjs:144
-#, fuzzy
-#~ msgid "My Profile"
-#~ msgstr "あなたのプロフィール"
 
 #: src/components/pages/Event.re.mjs:234
 #, fuzzy
@@ -3347,6 +3793,11 @@ msgstr "支払い済み"
 #~ msgstr ""
 #~ "これはサークルのメンバーシップが必要なプライベートイベントです。このサーク"
 #~ "ルに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+
+#: src/components/organisms/EventsList.re.mjs:194
+#, fuzzy
+#~ msgid "Joined"
+#~ msgstr "参加"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
 #, fuzzy
@@ -3371,33 +3822,3 @@ msgstr "支払い済み"
 #, fuzzy
 #~ msgid "Where to find players in Tokyo"
 #~ msgstr "東京でプレイヤーを見つける方法"
-
-#: src/components/pages/ClubMembersPage.re.mjs:179
-#, fuzzy
-#~ msgid "Are you sure you want to remove"
-#~ msgstr "本当に{0}をサークルから削除しますか？"
-
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "{0}5件の{hiddenCountDesc}非表示"
-
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
-
-#: src/components/organisms/EventManager.re.mjs:204
-#, fuzzy
-#~ msgid "Current Round: {0}"
-#~ msgstr "現在のラウンド："
-
-#: src/components/organisms/EventManager.re.mjs:198
-#, fuzzy
-#~ msgid "Event Manager"
-#~ msgstr "イベントタグ: {tag}"
-
-#: src/components/organisms/EventManager.re.mjs:208
-#, fuzzy
-#~ msgid "Start Next Round"
-#~ msgstr "次のラウンドへ進む"

@@ -290,6 +290,18 @@ return {
                         "kind": "ScalarField",
                         "name": "__typename",
                         "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "Activity",
+                        "kind": "LinkedField",
+                        "name": "defaultActivity",
+                        "plural": false,
+                        "selections": [
+                          (v6/*: any*/)
+                        ],
+                        "storageKey": null
                       }
                     ],
                     "storageKey": null
@@ -368,12 +380,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "46afeb5a3b28f84a60f5c461308ef0a4",
+    "cacheID": "4da54fc33904af831b935cde206d655e",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventPageQuery",
     "operationKind": "query",
-    "text": "query CreateLocationEventPageQuery(\n  $locationId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  ...CreateLocationEventForm_query_4uAqg1\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment CreateLocationEventForm_query_4uAqg1 on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...SelectClubStateful_query_4uAqg1\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(after: $after, first: $first, before: $before) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment SelectClubStateful_query_4uAqg1 on Query {\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(after: $after, first: $first, before: $before) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n"
+    "text": "query CreateLocationEventPageQuery(\n  $locationId: ID!\n  $after: String\n  $first: Int\n  $before: String\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  ...CreateLocationEventForm_query_4uAqg1\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment CreateLocationEventForm_query_4uAqg1 on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...SelectClubStateful_query_4uAqg1\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(after: $after, first: $first, before: $before) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment SelectClubStateful_query_4uAqg1 on Query {\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(after: $after, first: $first, before: $before) {\n      edges {\n        node {\n          id\n          name\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

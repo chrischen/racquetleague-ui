@@ -291,6 +291,7 @@ var ViewerStatusMessage = {
 };
 
 function RSVPSection(props) {
+  var onBeforeJoin = props.onBeforeJoin;
   var $$event = props.event;
   var match = ReactExperimental.useTransition();
   var startTransition = match[1];
@@ -448,13 +449,19 @@ function RSVPSection(props) {
             }, undefined, undefined, undefined, undefined, undefined, undefined);
         return ;
       } else {
-        var connectionId$1 = RelayRuntime.ConnectionHandler.getConnectionID(__id, "RSVPSection_event_rsvps", undefined);
-        commitMutationCreateRating(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
-        commitMutationJoin({
-              connections: [connectionId$1],
-              id: __id
-            }, undefined, undefined, undefined, undefined, undefined, undefined);
-        return ;
+        var proceed = function () {
+          var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "RSVPSection_event_rsvps", undefined);
+          commitMutationCreateRating(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+          commitMutationJoin({
+                connections: [connectionId],
+                id: __id
+              }, undefined, undefined, undefined, undefined, undefined, undefined);
+        };
+        if (onBeforeJoin !== undefined) {
+          return onBeforeJoin(proceed);
+        } else {
+          return proceed();
+        }
       }
     }
     

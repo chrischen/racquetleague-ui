@@ -2,14 +2,12 @@
 
 import * as Layout from "../shared/Layout.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
-import PrizeWebp from "./prize.webp";
 import VolairPng from "./volair.png";
 import JplLogoPng from "./jpl-logo.png";
+import Prize1225Png from "./prize1225.png";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as Solid from "@heroicons/react/24/solid";
-import * as Outline from "@heroicons/react/24/outline";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -17,7 +15,7 @@ import { css, cx } from '@linaria/core'
 import { t } from '@lingui/macro'
 ;
 
-var prizeImg = PrizeWebp;
+var prizeImg = Prize1225Png;
 
 function LeaguePage$PrizeInfo(props) {
   return JsxRuntime.jsx("div", {
@@ -28,7 +26,7 @@ function LeaguePage$PrizeInfo(props) {
                               JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsx("h2", {
-                                            children: t`Next Prize: September 10`,
+                                            children: t`Next Prize: December 31`,
                                             className: "text-3xl font-bold tracking-tight text-white sm:text-4xl"
                                           }),
                                       JsxRuntime.jsx("p", {
@@ -49,19 +47,22 @@ function LeaguePage$PrizeInfo(props) {
                                     children: JsxRuntime.jsx("dl", {
                                           children: JsxRuntime.jsxs("div", {
                                                 children: [
-                                                  JsxRuntime.jsxs("dt", {
-                                                        children: [
-                                                          JsxRuntime.jsx(Solid.CloudArrowUpIcon, {
-                                                                className: "absolute left-1 top-1 h-5 w-5 text-indigo-500",
-                                                                "aria-hidden": "true"
-                                                              }),
-                                                          t`Mach 2 Forza Paddle`
-                                                        ],
-                                                        className: "ml-9 inline-block font-semibold text-white"
+                                                  JsxRuntime.jsx("dt", {
+                                                        children: t`Proton Flamingo Paddle`,
+                                                        className: "font-semibold text-white"
                                                       }),
                                                   " ",
                                                   JsxRuntime.jsx("dd", {
-                                                        children: t`Multiple colors available.`,
+                                                        children: t`Top female and top male players will each receive the prize.`,
+                                                        className: "inline"
+                                                      }),
+                                                  JsxRuntime.jsx("dt", {
+                                                        children: t`Selkirk Labs Paddle Cover`,
+                                                        className: "font-semibold text-white"
+                                                      }),
+                                                  " ",
+                                                  JsxRuntime.jsx("dd", {
+                                                        children: t`Second place female and male players will each receive the prize.`,
                                                         className: "inline"
                                                       })
                                                 ],
@@ -93,8 +94,6 @@ function LeaguePage$PrizeInfo(props) {
 
 var jplLogo = JplLogoPng;
 
-var volairImg = VolairPng;
-
 function LeaguePage(props) {
   var params = ReactRouterDom.useParams();
   return JsxRuntime.jsx(WaitForMessages.make, {
@@ -115,22 +114,12 @@ function LeaguePage(props) {
                     exit = 1;
                   }
                   if (exit === 1) {
-                    tmp = JsxRuntime.jsxs("div", {
-                          children: [
-                            JsxRuntime.jsx("img", {
-                                  className: "h-12 w-auto",
-                                  alt: t`japan pickle league`,
-                                  src: jplLogo
-                                }),
-                            JsxRuntime.jsx(Outline.XMarkIcon, {
-                                  className: "h-8 w-8 text-gray-400"
-                                }),
-                            JsxRuntime.jsx("img", {
-                                  className: "h-12 w-auto",
-                                  alt: t`volair pickleball`,
-                                  src: volairImg
-                                })
-                          ],
+                    tmp = JsxRuntime.jsx("div", {
+                          children: JsxRuntime.jsx("img", {
+                                className: "h-12 w-auto",
+                                alt: t`japan pickle league`,
+                                src: jplLogo
+                              }),
                           className: "w-full flex items-center justify-center gap-4"
                         });
                   }

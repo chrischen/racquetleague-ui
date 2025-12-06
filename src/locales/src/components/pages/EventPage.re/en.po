@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:362
+#: src/components/pages/EventPage.re.mjs:418
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:365
+#: src/components/pages/EventPage.re.mjs:421
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:368
+#: src/components/pages/EventPage.re.mjs:424
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:371
+#: src/components/pages/EventPage.re.mjs:427
 msgid "Futsal"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:374
+#: src/components/pages/EventPage.re.mjs:430
 msgid "drill"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:377
+#: src/components/pages/EventPage.re.mjs:433
 msgid "comp"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:380
+#: src/components/pages/EventPage.re.mjs:436
 msgid "rec"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:383
+#: src/components/pages/EventPage.re.mjs:439
 msgid "all level"
 msgstr ""
 
@@ -65,8 +65,8 @@ msgstr ""
 msgid "+{0} more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:666
-#: src/components/organisms/RSVPSection.re.mjs:758
+#: src/components/organisms/RSVPSection.re.mjs:673
+#: src/components/organisms/RSVPSection.re.mjs:765
 msgid "Add Member"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:148
+#: src/components/pages/EventPage.re.mjs:172
 msgid "cancel event"
 msgstr ""
 
@@ -94,20 +94,52 @@ msgstr ""
 msgid "CANCELED"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:683
+#: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:131
+#: src/components/organisms/ProfileModal.re.mjs:258
+msgid "Complete your profile"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid "Display name"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:155
 msgid "edit event"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:325
+#: src/components/organisms/ProfileModal.re.mjs:298
+msgid "Email address"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "Email cannot be changed"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr ""
+
+#: src/components/pages/EventPage.re.mjs:381
 msgid "Event not found"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:60
 msgid "Event tag: {tag}"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "For event updates and notifications"
 msgstr ""
 
 #: src/components/organisms/GoingRsvps.re.mjs:83
@@ -146,11 +178,11 @@ msgstr ""
 msgid "left the event"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:774
+#: src/components/organisms/RSVPSection.re.mjs:781
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:771
+#: src/components/organisms/RSVPSection.re.mjs:778
 msgid "Loading..."
 msgstr ""
 
@@ -162,11 +194,11 @@ msgstr ""
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:189
+#: src/components/pages/EventPage.re.mjs:213
 msgid "Manage Event"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:193
+#: src/components/pages/EventPage.re.mjs:217
 msgid "Manage Event (Beta)"
 msgstr ""
 
@@ -212,8 +244,8 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:228
-#: src/components/pages/EventPage.re.mjs:257
+#: src/components/pages/EventPage.re.mjs:252
+#: src/components/pages/EventPage.re.mjs:281
 msgid "Private Event"
 msgstr ""
 
@@ -233,7 +265,7 @@ msgstr ""
 msgid "Remove this RSVP"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:430
+#: src/components/organisms/RSVPSection.re.mjs:431
 msgid "Required rating: {0} (DUPR {1})"
 msgstr ""
 
@@ -241,9 +273,9 @@ msgstr ""
 msgid "Results will be submitted to competitive ratings."
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:584
-#: src/components/organisms/RSVPSection.re.mjs:705
+#: src/components/organisms/RSVPSection.re.mjs:552
+#: src/components/organisms/RSVPSection.re.mjs:591
+#: src/components/organisms/RSVPSection.re.mjs:712
 msgid "RSVP"
 msgstr ""
 
@@ -253,6 +285,10 @@ msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:260
 msgid "Save"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:313
+msgid "Save & Join Event"
 msgstr ""
 
 #: src/components/organisms/GoingRsvps.re.mjs:122
@@ -291,13 +327,17 @@ msgstr ""
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:232
-#: src/components/pages/EventPage.re.mjs:261
+#: src/components/pages/EventPage.re.mjs:256
+#: src/components/pages/EventPage.re.mjs:285
 msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:58
 msgid "This event is private. Please do not share this event without permission from the organizer."
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:205
+msgid "This is how others will see you"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
@@ -310,7 +350,7 @@ msgstr ""
 msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr ""
 
-#: src/components/pages/EventPage.re.mjs:137
+#: src/components/pages/EventPage.re.mjs:161
 msgid "uncancel event"
 msgstr ""
 
@@ -350,6 +390,10 @@ msgstr ""
 msgid "was removed from the event by admin"
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:262
+msgid "We need a few details before you can join this event"
+msgstr ""
+
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"
 msgstr ""
@@ -362,6 +406,6 @@ msgstr ""
 msgid "You're Waitlisted"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:432
+#: src/components/organisms/RSVPSection.re.mjs:433
 msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
 msgstr ""

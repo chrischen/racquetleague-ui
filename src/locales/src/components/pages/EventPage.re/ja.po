@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:362
+#: src/components/pages/EventPage.re.mjs:418
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:365
+#: src/components/pages/EventPage.re.mjs:421
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:368
+#: src/components/pages/EventPage.re.mjs:424
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:371
+#: src/components/pages/EventPage.re.mjs:427
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:374
+#: src/components/pages/EventPage.re.mjs:430
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:377
+#: src/components/pages/EventPage.re.mjs:433
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:380
+#: src/components/pages/EventPage.re.mjs:436
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:383
+#: src/components/pages/EventPage.re.mjs:439
 msgid "all level"
 msgstr "全レベル"
 
@@ -65,8 +65,8 @@ msgstr "{0}時間{1}分"
 msgid "+{0} more"
 msgstr "+{0}人他"
 
-#: src/components/organisms/RSVPSection.re.mjs:666
-#: src/components/organisms/RSVPSection.re.mjs:758
+#: src/components/organisms/RSVPSection.re.mjs:673
+#: src/components/organisms/RSVPSection.re.mjs:765
 msgid "Add Member"
 msgstr "メンバーを追加"
 
@@ -86,7 +86,7 @@ msgstr "参加申込を承認"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
-#: src/components/pages/EventPage.re.mjs:148
+#: src/components/pages/EventPage.re.mjs:172
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -94,21 +94,57 @@ msgstr "イベントをキャンセル"
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/organisms/RSVPSection.re.mjs:683
+#: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
 msgstr "折りたたむ"
 
-#: src/components/pages/EventPage.re.mjs:131
+#: src/components/organisms/ProfileModal.re.mjs:258
+msgid "Complete your profile"
+msgstr "プロフィールを完成させる"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid "Display name"
+msgstr "表示名"
+
+#: src/components/organisms/ProfileModal.re.mjs:71
+msgid "Display name is required"
+msgstr "表示名は必須です"
+
+#: src/components/pages/EventPage.re.mjs:155
 msgid "edit event"
 msgstr "イベントを編集"
 
-#: src/components/pages/EventPage.re.mjs:325
+#: src/components/organisms/ProfileModal.re.mjs:298
+msgid "Email address"
+msgstr "メールアドレス"
+
+#: src/components/organisms/ProfileModal.re.mjs:153
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
+"用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "Email cannot be changed"
+msgstr "メールアドレスは変更できません"
+
+#: src/components/organisms/ProfileModal.re.mjs:74
+msgid "Email is required"
+msgstr "メールアドレスは必須です"
+
+#: src/components/pages/EventPage.re.mjs:381
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
 #: src/components/atoms/EventTag.re.mjs:60
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
+
+#: src/components/organisms/ProfileModal.re.mjs:230
+msgid "For event updates and notifications"
+msgstr "イベントの更新と通知用"
 
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
@@ -142,11 +178,11 @@ msgstr "参加しました"
 msgid "left the event"
 msgstr "離れました"
 
-#: src/components/organisms/RSVPSection.re.mjs:774
+#: src/components/organisms/RSVPSection.re.mjs:781
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/RSVPSection.re.mjs:771
+#: src/components/organisms/RSVPSection.re.mjs:778
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -158,11 +194,11 @@ msgstr "ログインして参加"
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
-#: src/components/pages/EventPage.re.mjs:189
+#: src/components/pages/EventPage.re.mjs:213
 msgid "Manage Event"
 msgstr "イベント管理"
 
-#: src/components/pages/EventPage.re.mjs:193
+#: src/components/pages/EventPage.re.mjs:217
 msgid "Manage Event (Beta)"
 msgstr "イベントを管理（ベータ）"
 
@@ -192,8 +228,8 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/pages/EventPage.re.mjs:228
-#: src/components/pages/EventPage.re.mjs:257
+#: src/components/pages/EventPage.re.mjs:252
+#: src/components/pages/EventPage.re.mjs:281
 msgid "Private Event"
 msgstr "プライベートイベント"
 
@@ -214,7 +250,7 @@ msgstr "イベントから削除"
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
-#: src/components/organisms/RSVPSection.re.mjs:430
+#: src/components/organisms/RSVPSection.re.mjs:431
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
@@ -222,9 +258,9 @@ msgstr "必要レーティング: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/organisms/RSVPSection.re.mjs:545
-#: src/components/organisms/RSVPSection.re.mjs:584
-#: src/components/organisms/RSVPSection.re.mjs:705
+#: src/components/organisms/RSVPSection.re.mjs:552
+#: src/components/organisms/RSVPSection.re.mjs:591
+#: src/components/organisms/RSVPSection.re.mjs:712
 msgid "RSVP"
 msgstr "参加申込"
 
@@ -235,6 +271,10 @@ msgstr "参加申込 保留中..."
 #: src/components/organisms/RSVPSection.re.mjs:260
 msgid "Save"
 msgstr "保存"
+
+#: src/components/organisms/ProfileModal.re.mjs:313
+msgid "Save & Join Event"
+msgstr "保存して参加する"
 
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "See all"
@@ -270,8 +310,8 @@ msgstr ""
 "の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
 "本当にこのイベントを離れますか？"
 
-#: src/components/pages/EventPage.re.mjs:232
-#: src/components/pages/EventPage.re.mjs:261
+#: src/components/pages/EventPage.re.mjs:256
+#: src/components/pages/EventPage.re.mjs:285
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -284,6 +324,10 @@ msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:205
+msgid "This is how others will see you"
+msgstr "他の人に表示される名前です"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
 msgid ""
@@ -302,7 +346,7 @@ msgstr ""
 "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
 "ださい。"
 
-#: src/components/pages/EventPage.re.mjs:137
+#: src/components/pages/EventPage.re.mjs:161
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -334,6 +378,10 @@ msgstr "管理者によってイベントに追加されました"
 msgid "was removed from the event by admin"
 msgstr "管理者によってイベントから削除されました"
 
+#: src/components/organisms/ProfileModal.re.mjs:262
+msgid "We need a few details before you can join this event"
+msgstr "このイベントに参加する前にいくつかの情報が必要です"
+
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"
 msgstr "あなたのスポットを失います"
@@ -346,7 +394,7 @@ msgstr "参加中"
 msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 
-#: src/components/organisms/RSVPSection.re.mjs:432
+#: src/components/organisms/RSVPSection.re.mjs:433
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

@@ -17,18 +17,18 @@ msgstr ""
 msgid "(logout)"
 msgstr "（退出登录）"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:102
-#: src/components/pages/DefaultLayoutMap.re.mjs:155
+#: src/components/pages/DefaultLayoutMap.re.mjs:103
+#: src/components/pages/DefaultLayoutMap.re.mjs:156
 msgid "Badminton"
 msgstr "羽毛球"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:226
-#: src/components/pages/DefaultLayoutMap.re.mjs:296
+#: src/components/pages/DefaultLayoutMap.re.mjs:227
+#: src/components/pages/DefaultLayoutMap.re.mjs:297
 msgid "Events"
 msgstr "活动"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:253
-#: src/components/pages/DefaultLayoutMap.re.mjs:323
+#: src/components/pages/DefaultLayoutMap.re.mjs:254
+#: src/components/pages/DefaultLayoutMap.re.mjs:324
 msgid "Find Games"
 msgstr "寻找比赛"
 
@@ -45,18 +45,18 @@ msgstr "我的俱乐部"
 msgid "My Events"
 msgstr "我的活动"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:97
-#: src/components/pages/DefaultLayoutMap.re.mjs:150
+#: src/components/pages/DefaultLayoutMap.re.mjs:98
+#: src/components/pages/DefaultLayoutMap.re.mjs:151
 msgid "Pickleball"
 msgstr "匹克球"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:210
-#: src/components/pages/DefaultLayoutMap.re.mjs:282
+#: src/components/pages/DefaultLayoutMap.re.mjs:211
+#: src/components/pages/DefaultLayoutMap.re.mjs:283
 msgid "pkuru"
 msgstr "pkuru"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:241
-#: src/components/pages/DefaultLayoutMap.re.mjs:311
+#: src/components/pages/DefaultLayoutMap.re.mjs:242
+#: src/components/pages/DefaultLayoutMap.re.mjs:312
 msgid "Rankings"
 msgstr "排名"
 

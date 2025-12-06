@@ -31,17 +31,14 @@ let loadMessages = Lingui.loadMessages({
   zhCN: Lingui.import("../../locales/src/components/pages/CreateEventPage.re/zh-CN"),
 })
 
+type loaderData = unit
+
 @genType
 let loader = async ({params}: LoaderArgs.t) => {
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   Router.defer({
     WaitForMessages.data: (),
-    // Localized.i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
-    i18nLoaders: ?(
-      RelaySSRUtils.ssr ? None : Some(Localized.loadMessages(params.lang, loadMessages))
-    ),
-
-    // i18nData: ?(RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)): None)
+    i18nLoaders: Localized.loadMessages(params.lang, loadMessages),
   })
   // If ASYNC on BOTH, server will send fallback and hydrates immediately
   // on client with same fallback

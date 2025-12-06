@@ -89,6 +89,13 @@ return {
       "kind": "ScalarField",
       "name": "createdAt",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "playerMetadata",
+      "storageKey": null
     }
   ],
   "type": "Match",

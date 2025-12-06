@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"IPmYm3\":\"レーティング履歴\",\"56ttmm\":\"網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くなります。\"}");

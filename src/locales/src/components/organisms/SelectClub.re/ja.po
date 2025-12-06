@@ -13,16 +13,16 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateClubForm.re.mjs:213
-msgid "about"
-msgstr "約"
-
 #: src/components/organisms/SelectClub.re.mjs:74
 msgid "add new club"
 msgstr "新しいサークルを追加"
 
-#: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "クラブの簡単な説明..."
+
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
 msgstr "キャンセル"
 
 #: src/components/organisms/SelectClub.re.mjs:51
@@ -30,79 +30,115 @@ msgid "choose the club where this event will be held."
 msgstr "このイベントが開催されるサークルを選択してください。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:156
-msgid "club"
-msgstr "サークル"
+msgid "Club Name"
+msgstr "クラブ名"
 
-#: src/components/organisms/CreateClubForm.re.mjs:194
-msgid "main activity"
-msgstr "主なアクティビティ"
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "クラブURL"
 
-#: src/components/organisms/CreateClubForm.re.mjs:85
-msgid "main activity is required"
-msgstr "主なアクティビティが必要です"
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "クラブ名"
 
-#: src/components/organisms/CreateClubForm.re.mjs:162
-msgid "name"
-msgstr "場所名"
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "クラブを作成"
 
-#: src/components/organisms/CreateClubForm.re.mjs:79
-msgid "name is required"
-msgstr "場所名は必須"
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "デフォルトのクラブアクティビティ"
 
-#: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr "保存"
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "説明"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "例：シティボーラーズクラブ"
 
 #: src/components/organisms/SelectClub.re.mjs:50
 msgid "select club"
 msgstr "サークルを選択"
 
-#: src/components/organisms/CreateClubForm.re.mjs:177
-msgid "slug"
-msgstr "スラッグ"
-
-#: src/components/organisms/CreateClubForm.re.mjs:216
-msgid "tell people about your club"
-msgstr "あなたのサークルについて人々に伝える"
-
-#: src/components/organisms/CreateClubForm.re.mjs:82
-msgid "url slug is required"
-msgstr "URLスラッグが必要です"
-
-#: src/components/organisms/CreateClubForm.re.mjs:182
-msgid "yubibado"
-msgstr "ゆびバド"
-
-#: src/components/organisms/CreateClubForm.re.mjs:165
-msgid "ゆびバド"
-msgstr "ゆびバド"
-
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:211
+#: src/components/organisms/CreateClubForm.re.mjs:334
 #~ msgid "Badminton"
 #~ msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:215
+#: src/components/organisms/CreateClubForm.re.mjs:338
 #~ msgid "Table Tennis"
 #~ msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:219
+#: src/components/organisms/CreateClubForm.re.mjs:342
 #~ msgid "Pickleball"
 #~ msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:223
+#: src/components/organisms/CreateClubForm.re.mjs:346
 #~ msgid "Futsal"
 #~ msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:227
+#: src/components/organisms/CreateClubForm.re.mjs:350
 #~ msgid "Basketball"
 #~ msgstr "バスケットボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubForm.re.mjs:231
+#: src/components/organisms/CreateClubForm.re.mjs:354
 #~ msgid "Volleyball"
 #~ msgstr "バレーボール"
+
+#: src/components/organisms/CreateClubForm.re.mjs:213
+#~ msgid "about"
+#~ msgstr "約"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "キャンセル"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+#~ msgid "club"
+#~ msgstr "サークル"
+
+#: src/components/organisms/CreateClubForm.re.mjs:194
+#~ msgid "main activity"
+#~ msgstr "主なアクティビティ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:85
+#~ msgid "main activity is required"
+#~ msgstr "主なアクティビティが必要です"
+
+#: src/components/organisms/CreateClubForm.re.mjs:162
+#~ msgid "name"
+#~ msgstr "場所名"
+
+#: src/components/organisms/CreateClubForm.re.mjs:79
+#~ msgid "name is required"
+#~ msgstr "場所名は必須"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "保存"
+
+#: src/components/organisms/CreateClubForm.re.mjs:177
+#~ msgid "slug"
+#~ msgstr "スラッグ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:216
+#~ msgid "tell people about your club"
+#~ msgstr "あなたのサークルについて人々に伝える"
+
+#: src/components/organisms/CreateClubForm.re.mjs:82
+#~ msgid "url slug is required"
+#~ msgstr "URLスラッグが必要です"
+
+#: src/components/organisms/CreateClubForm.re.mjs:182
+#~ msgid "yubibado"
+#~ msgstr "ゆびバド"
+
+#: src/components/organisms/CreateClubForm.re.mjs:165
+#~ msgid "ゆびバド"
+#~ msgstr "ゆびバド"

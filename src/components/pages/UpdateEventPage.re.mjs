@@ -2,14 +2,13 @@
 
 import * as Grid from "../vanillaui/atoms/Grid.re.mjs";
 import * as Layout from "../shared/Layout.re.mjs";
-import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as SelectedLocation from "../organisms/SelectedLocation.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
-import * as CreateLocationEventForm from "../organisms/CreateLocationEventForm.re.mjs";
+import * as UpdateLocationEventForm from "../organisms/UpdateLocationEventForm.re.mjs";
 import * as UpdateEventPageQuery_graphql from "../../__generated__/UpdateEventPageQuery_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
@@ -51,12 +50,12 @@ function UpdateEventPage(props) {
                                                                             onNewLocation: (function ($$location) {
                                                                                 navigate("../update/" + $$event.id + "/" + $$location, undefined);
                                                                               })
-                                                                          }, "selected_location"),
-                                                                      JsxRuntime.jsx(CreateLocationEventForm.make, {
-                                                                            event: Caml_option.some($$event.fragmentRefs),
+                                                                          }),
+                                                                      JsxRuntime.jsx(UpdateLocationEventForm.make, {
+                                                                            event: $$event.fragmentRefs,
                                                                             location: $$location.fragmentRefs,
                                                                             query: query.fragmentRefs
-                                                                          }, "create_location_event_form")
+                                                                          })
                                                                     ]
                                                                   });
                                                       }));

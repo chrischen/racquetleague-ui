@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:372
+#: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
 
@@ -125,9 +125,18 @@ msgstr "チームを作成"
 msgid "Done"
 msgstr "完了"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "引き分け"
+
 #: src/components/organisms/SortableSubmitMatch.re.mjs:319
 msgid "Enter Score"
 msgstr "スコアを入力"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "互角"
 
 #: src/components/organisms/AiTetsu.re.mjs:1355
 msgid "Fixed Pair"
@@ -158,7 +167,7 @@ msgstr "リーダーボード"
 msgid "left team players"
 msgstr "左チームのプレイヤー"
 
-#: src/components/organisms/MatchList.re.mjs:395
+#: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "もっとプレイヤーを読み込む..."
 
@@ -175,6 +184,11 @@ msgstr "試合を読み込んでいます..."
 #: src/components/organisms/AiTetsu.re.mjs:1621
 msgid "Loading..."
 msgstr "読み込み中..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "負け"
 
 #: src/components/organisms/AiTetsu.re.mjs:1727
 msgid "manual team"
@@ -301,10 +315,6 @@ msgstr "保存"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/MatchList.re.mjs:292
-msgid "Score:"
-msgstr "スコア:"
-
 #: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
 msgstr "選択"
@@ -368,6 +378,15 @@ msgstr "完全にランダムなチーム。"
 msgid "Unqueue All"
 msgstr "すべてのキューを解除"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "番狂わせ"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "勝ち"
+
 #: src/components/organisms/SubmitMatch.re.mjs:323
 #: src/components/organisms/SubmitMatch.re.mjs:369
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
@@ -378,3 +397,7 @@ msgstr "勝者"
 #: src/components/organisms/MatchesView.re.mjs:481
 #~ msgid "Checkin"
 #~ msgstr "チェックイン"
+
+#: src/components/organisms/MatchList.re.mjs:292
+#~ msgid "Score:"
+#~ msgstr "スコア:"

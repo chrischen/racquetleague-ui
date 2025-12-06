@@ -1,7 +1,7 @@
 %%raw("import { t } from '@lingui/macro'")
-open Lingui.Util;
+open Lingui.Util
 
 @react.component
 let make = () => {
-	<a href="/logout"> {t`(logout)`} </a>
+  <a href="/signout"> {t`(logout)`} </a>
 }

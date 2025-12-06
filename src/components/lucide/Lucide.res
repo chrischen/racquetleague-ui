@@ -292,3 +292,18 @@ module CircleHelp = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CircleHelp"
 }
+
+module Activity = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Activity"
+}
+
+module FileText = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "FileText"
+}
+
+module Dumbbell = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Dumbbell"
+}

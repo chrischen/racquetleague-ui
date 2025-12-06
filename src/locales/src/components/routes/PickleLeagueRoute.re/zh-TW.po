@@ -13,31 +13,51 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LeaguePage.re.mjs:122
+#: src/components/pages/LeaguePage.re.mjs:120
 msgid "japan pickle league"
 msgstr "日本匹克球聯盟"
 
-#: src/components/pages/LeaguePage.re.mjs:58
-msgid "Mach 2 Forza Paddle"
-msgstr "Mach 2 Forza 球拍"
+#: src/components/pages/LeaguePage.re.mjs:29
+msgid "Next Prize: December 31"
+msgstr "下次獎品：12月31日"
 
-#: src/components/pages/LeaguePage.re.mjs:64
-msgid "Multiple colors available."
-msgstr "提供多種顏色。"
+#: src/components/pages/LeaguePage.re.mjs:51
+msgid "Proton Flamingo Paddle"
+msgstr "Proton Flamingo 球拍"
 
-#: src/components/pages/LeaguePage.re.mjs:31
-msgid "Next Prize: September 10"
-msgstr "下一次獎品：9月10日"
+#: src/components/pages/LeaguePage.re.mjs:65
+msgid "Second place female and male players will each receive the prize."
+msgstr "第二名女選手和男選手將各獲得該獎品。"
 
-#: src/components/pages/LeaguePage.re.mjs:35
+#: src/components/pages/LeaguePage.re.mjs:60
+msgid "Selkirk Labs Paddle Cover"
+msgstr "Selkirk Labs 球拍套"
+
+#: src/components/pages/LeaguePage.re.mjs:33
 msgid ""
 "This prize will be awarded to the top male and female players on this day."
 msgstr "這個獎品將在這一天頒發給最佳男女球員。"
 
-#: src/components/pages/LeaguePage.re.mjs:112
+#: src/components/pages/LeaguePage.re.mjs:111
 msgid "Tokyo Badminton League"
 msgstr "東京羽毛球聯盟"
 
+#: src/components/pages/LeaguePage.re.mjs:56
+msgid "Top female and top male players will each receive the prize."
+msgstr "頂級女選手和頂級男選手將各獲得該獎品。"
+
+#: src/components/pages/LeaguePage.re.mjs:58
+#~ msgid "Mach 2 Forza Paddle"
+#~ msgstr "Mach 2 Forza 球拍"
+
+#: src/components/pages/LeaguePage.re.mjs:64
+#~ msgid "Multiple colors available."
+#~ msgstr "提供多種顏色。"
+
+#: src/components/pages/LeaguePage.re.mjs:31
+#~ msgid "Next Prize: September 10"
+#~ msgstr "下一次獎品：9月10日"
+
 #: src/components/pages/LeaguePage.re.mjs:130
-msgid "volair pickleball"
-msgstr "volair 匹克球"
+#~ msgid "volair pickleball"
+#~ msgstr "volair 匹克球"

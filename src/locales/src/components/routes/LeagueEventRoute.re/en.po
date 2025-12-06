@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchList.re.mjs:372
+#: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
 msgstr ""
 
@@ -129,8 +129,17 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr ""
+
 #: src/components/organisms/SortableSubmitMatch.re.mjs:319
 msgid "Enter Score"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
 msgstr ""
 
 #: src/components/organisms/AiTetsu.re.mjs:1355
@@ -161,7 +170,7 @@ msgstr ""
 msgid "left team players"
 msgstr ""
 
-#: src/components/organisms/MatchList.re.mjs:395
+#: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr ""
 
@@ -177,6 +186,11 @@ msgstr ""
 
 #: src/components/organisms/AiTetsu.re.mjs:1621
 msgid "Loading..."
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
 msgstr ""
 
 #: src/components/organisms/AiTetsu.re.mjs:1727
@@ -296,8 +310,8 @@ msgid "Save"
 msgstr ""
 
 #: src/components/organisms/MatchList.re.mjs:292
-msgid "Score:"
-msgstr ""
+#~ msgid "Score:"
+#~ msgstr ""
 
 #: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
@@ -354,6 +368,15 @@ msgstr ""
 #: src/components/organisms/MatchesView.re.mjs:211
 #: src/components/organisms/MatchesView.re.mjs:290
 msgid "Unqueue All"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
 msgstr ""
 
 #: src/components/organisms/SubmitMatch.re.mjs:323

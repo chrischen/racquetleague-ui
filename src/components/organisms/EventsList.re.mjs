@@ -18,9 +18,9 @@ import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
-import * as LucideReact from "lucide-react";
 import * as React$1 from "@lingui/react";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
+import * as AddEventButton from "./AddEventButton.re.mjs";
 import * as AIAssistantModal from "./AIAssistantModal.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
@@ -410,21 +410,10 @@ function EventsList(props) {
                                                     className: "mb-4 mt-4 flex justify-center items-center"
                                                   }),
                                               JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsxs("button", {
-                                                          children: [
-                                                            JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                  className: "w-5 h-5"
-                                                                }),
-                                                            t`Add an Event`
-                                                          ],
-                                                          className: "flex w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-2xl font-medium transition-all shadow-lg shadow-purple-500/25 items-center justify-center gap-2",
-                                                          onClick: (function (param) {
-                                                              setIsAiModalOpen(function (param) {
-                                                                    return true;
-                                                                  });
-                                                            })
+                                                    children: JsxRuntime.jsx(AddEventButton.make, {
+                                                          context: context
                                                         }),
-                                                    className: "mx-4"
+                                                    className: "mx-4 mb-4 mt-4"
                                                   }),
                                               Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
                                                           return JsxRuntime.jsx(WarningAlert.make, {

@@ -8,7 +8,7 @@ import { t } from '@lingui/macro'
 function LogoutLink(props) {
   return JsxRuntime.jsx("a", {
               children: t`(logout)`,
-              href: "/logout"
+              href: "/signout"
             });
 }
 

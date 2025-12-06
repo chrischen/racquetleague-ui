@@ -230,8 +230,16 @@ let make = () => {
   // let lang = paramsJs->RouteParams.parse->Belt.Result.mapWithDefault(None, ({lang}) => lang)
   let {viewer} = Query.usePreloaded(~queryRef=query.data)
   // <Router.Await2 resolve=query.i18nLoaders errorElement={"Error"->React.string}>
-  <Layout viewer={viewer}>
-    <Router.Outlet />
-  </Layout>
+  <>
+    <Util.Helmet>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      />
+    </Util.Helmet>
+    <Layout viewer={viewer}>
+      <Router.Outlet />
+    </Layout>
+  </>
   // </Router.Await2>
 }

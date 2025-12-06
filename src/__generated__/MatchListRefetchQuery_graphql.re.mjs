@@ -243,6 +243,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "playerMetadata",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "__typename",
                     "storageKey": null
                   }
@@ -318,12 +325,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "31a1d239fd3bd9252074e4571f701957",
+    "cacheID": "11d55fc4b9dd27ad065e127e6fef7617",
     "id": null,
     "metadata": {},
     "name": "MatchListRefetchQuery",
     "operationKind": "query",
-    "text": "query MatchListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $userId: ID\n) {\n  ...MatchListFragment_32wNNd\n}\n\nfragment MatchListFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  namespace\n  score\n  createdAt\n}\n"
+    "text": "query MatchListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $userId: ID\n) {\n  ...MatchListFragment_32wNNd\n}\n\nfragment MatchListFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  namespace\n  score\n  createdAt\n  playerMetadata\n}\n"
   }
 };
 })());

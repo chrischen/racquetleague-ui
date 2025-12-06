@@ -4,10 +4,10 @@ import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
 import * as AiTetsu from "../organisms/AiTetsu.re.mjs";
 import * as Container from "../vanillaui/atoms/Container.re.mjs";
-import * as MatchList from "../organisms/MatchList.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
+import * as MatchHistoryList from "../organisms/MatchHistoryList.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
@@ -73,7 +73,7 @@ function LeagueEventPage(props) {
                                                               })), false) ? JsxRuntime.jsx(AiTetsu.make, {
                                                             event: $$event.fragmentRefs,
                                                             children: JsxRuntime.jsx(React.Suspense, {
-                                                                  children: Caml_option.some(JsxRuntime.jsx(MatchList.make, {
+                                                                  children: Caml_option.some(JsxRuntime.jsx(MatchHistoryList.make, {
                                                                             matches: queryRefs
                                                                           })),
                                                                   fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {

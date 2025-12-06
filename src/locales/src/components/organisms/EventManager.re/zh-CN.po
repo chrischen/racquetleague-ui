@@ -54,6 +54,10 @@ msgstr "调整球员种子"
 msgid "Advance to Next Round"
 msgstr "前进至下一回合"
 
+#: src/components/organisms/EventManager.re.mjs:1357
+msgid "Advance to Round {0}"
+msgstr "前往第 {0} 轮"
+
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:76
 msgid "Alex Johnson"
 msgstr "亚历克斯·约翰逊"
@@ -62,7 +66,7 @@ msgstr "亚历克斯·约翰逊"
 msgid "All checked-in players are already in this round"
 msgstr "所有已报到的球员都已在这个回合中"
 
-#: src/components/organisms/EventManager.re.mjs:1492
+#: src/components/organisms/EventManager.re.mjs:1457
 msgid "Anti-Team {0}"
 msgstr "反对队 {0}"
 
@@ -125,11 +129,11 @@ msgstr "创建您的第一支队伍开始"
 msgid "Current Round:"
 msgstr "当前回合："
 
-#: src/components/organisms/EventManager.re.mjs:1669
+#: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: OFF"
 msgstr "调试：关闭"
 
-#: src/components/organisms/EventManager.re.mjs:1669
+#: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: ON"
 msgstr "调试：开启"
 
@@ -204,7 +208,7 @@ msgstr "生成对战表"
 msgid "Guest Names (one per line)"
 msgstr "访客姓名（每行一个）"
 
-#: src/components/organisms/EventManager.re.mjs:1657
+#: src/components/organisms/EventManager.re.mjs:1622
 msgid "Help"
 msgstr "帮助"
 
@@ -334,7 +338,7 @@ msgstr "替换球员"
 msgid "Replacing:"
 msgstr "替换："
 
-#: src/components/organisms/EventManager.re.mjs:1644
+#: src/components/organisms/EventManager.re.mjs:1609
 msgid "Reset Storage"
 msgstr "重置存储"
 
@@ -388,7 +392,7 @@ msgstr "保存队伍"
 msgid "Score"
 msgstr "比分"
 
-#: src/components/organisms/EventManager.re.mjs:1247
+#: src/components/organisms/EventManager.re.mjs:1193
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
@@ -408,19 +412,19 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:1259
+#: src/components/organisms/EventManager.re.mjs:1205
 msgid "Sync Failed"
 msgstr "同步失败"
 
-#: src/components/organisms/EventManager.re.mjs:1223
+#: src/components/organisms/EventManager.re.mjs:1169
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:1235
+#: src/components/organisms/EventManager.re.mjs:1181
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1201
+#: src/components/organisms/EventManager.re.mjs:1147
 msgid "Team {0}"
 msgstr "第 {0} 队"
 
@@ -505,7 +509,7 @@ msgstr "获胜队（队伍 {0}）"
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"
-#~ msgstr "活动标签：{tag}"
+#~ msgstr "赛事管理器图标"
 
 #: src/components/molecules/DrawGenerator.re.mjs:62
 #~ msgid "Generate Initial Draws"

@@ -54,6 +54,10 @@ msgstr "プレイヤーシードを調整"
 msgid "Advance to Next Round"
 msgstr "次のラウンドへ進む"
 
+#: src/components/organisms/EventManager.re.mjs:1357
+msgid "Advance to Round {0}"
+msgstr "ラウンド{0}に進む"
+
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:76
 msgid "Alex Johnson"
 msgstr "アレックス・ジョンソン"
@@ -62,7 +66,7 @@ msgstr "アレックス・ジョンソン"
 msgid "All checked-in players are already in this round"
 msgstr "チェックイン済みのプレイヤーは全員このラウンドに参加しています"
 
-#: src/components/organisms/EventManager.re.mjs:1492
+#: src/components/organisms/EventManager.re.mjs:1457
 msgid "Anti-Team {0}"
 msgstr "アンチチーム {0}"
 
@@ -125,11 +129,11 @@ msgstr "最初のチームを作成して始めましょう"
 msgid "Current Round:"
 msgstr "現在のラウンド："
 
-#: src/components/organisms/EventManager.re.mjs:1669
+#: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: OFF"
 msgstr "デバッグ：オフ"
 
-#: src/components/organisms/EventManager.re.mjs:1669
+#: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: ON"
 msgstr "デバッグ：オン"
 
@@ -206,7 +210,7 @@ msgstr "組み合わせを生成"
 msgid "Guest Names (one per line)"
 msgstr "ゲスト名（1行に1名）"
 
-#: src/components/organisms/EventManager.re.mjs:1657
+#: src/components/organisms/EventManager.re.mjs:1622
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -340,7 +344,7 @@ msgstr "プレイヤーを交代"
 msgid "Replacing:"
 msgstr "交代するプレイヤー："
 
-#: src/components/organisms/EventManager.re.mjs:1644
+#: src/components/organisms/EventManager.re.mjs:1609
 msgid "Reset Storage"
 msgstr "ストレージをリセット"
 
@@ -394,7 +398,7 @@ msgstr "チームを保存"
 msgid "Score"
 msgstr "スコア"
 
-#: src/components/organisms/EventManager.re.mjs:1247
+#: src/components/organisms/EventManager.re.mjs:1193
 msgid "Scores Synced!"
 msgstr "スコアを同期しました！"
 
@@ -414,19 +418,19 @@ msgstr "戦略"
 msgid "Strategy:"
 msgstr "戦略："
 
-#: src/components/organisms/EventManager.re.mjs:1259
+#: src/components/organisms/EventManager.re.mjs:1205
 msgid "Sync Failed"
 msgstr "同期に失敗しました"
 
-#: src/components/organisms/EventManager.re.mjs:1223
+#: src/components/organisms/EventManager.re.mjs:1169
 msgid "Sync Scores"
 msgstr "スコアを同期"
 
-#: src/components/organisms/EventManager.re.mjs:1235
+#: src/components/organisms/EventManager.re.mjs:1181
 msgid "Syncing... {0}%"
 msgstr "同期中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1201
+#: src/components/organisms/EventManager.re.mjs:1147
 msgid "Team {0}"
 msgstr "チーム {0}"
 
@@ -513,7 +517,7 @@ msgstr "勝利チーム（チーム{0}）"
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"
-#~ msgstr "イベントタグ: {tag}"
+#~ msgstr "イベントマネージャーアイコン"
 
 #: src/components/molecules/DrawGenerator.re.mjs:62
 #~ msgid "Generate Initial Draws"
