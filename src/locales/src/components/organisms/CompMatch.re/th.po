@@ -38,9 +38,7 @@ msgid "Mixed"
 msgstr "ผสม"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid ""
-"Not enough players in the queue. Select the players who want to play from "
-"the Queue tab."
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
 msgstr "ผู้เล่นในคิวไม่เพียงพอ เลือกผู้เล่นที่ต้องการเล่นจาก แท็บคิว"
 
 #: src/components/organisms/CompMatch.re.mjs:386

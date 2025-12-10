@@ -332,8 +332,8 @@ function EventsList(props) {
                           var events = Js_dict.get(extra, startDateString);
                           if (events !== undefined) {
                             extra[startDateString] = Belt_Array.concatMany([
-                                  [extra$1],
-                                  events
+                                  events,
+                                  [extra$1]
                                 ]);
                           } else {
                             extra[startDateString] = [extra$1];
@@ -345,8 +345,8 @@ function EventsList(props) {
                   var events = Js_dict.get(extra, startDateString);
                   if (events !== undefined) {
                     extra[startDateString] = Belt_Array.concatMany([
-                          [extra$1],
-                          events
+                          events,
+                          [extra$1]
                         ]);
                   } else {
                     extra[startDateString] = [extra$1];
@@ -410,9 +410,12 @@ function EventsList(props) {
                                                     className: "mb-4 mt-4 flex justify-center items-center"
                                                   }),
                                               JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx(AddEventButton.make, {
-                                                          context: context
-                                                        }),
+                                                    children: Core__Option.getOr(Core__Option.map(viewer, (function (v) {
+                                                                return JsxRuntime.jsx(AddEventButton.make, {
+                                                                            context: context,
+                                                                            viewer: v.fragmentRefs
+                                                                          });
+                                                              })), null),
                                                     className: "mx-4 mb-4 mt-4"
                                                   }),
                                               Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {

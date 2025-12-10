@@ -62,8 +62,7 @@ msgid "Professional players"
 msgstr "職業球員"
 
 #: src/components/atoms/EventTag.re.mjs:56
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
 #: src/components/atoms/EventTag.re.mjs:50
@@ -79,9 +78,7 @@ msgid "sync calendar"
 msgstr "同步日曆"
 
 #: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
 #: src/components/organisms/EventHeader.re.mjs:117

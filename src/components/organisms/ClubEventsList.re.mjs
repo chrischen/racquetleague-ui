@@ -422,14 +422,17 @@ function ClubEventsList(props) {
                                                       })
                                                   }),
                                               JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx(AddEventButton.make, {
-                                                          context: {
-                                                            activitySlug: Core__Option.flatMap(clubData.defaultActivity, (function (a) {
-                                                                    return a.slug;
-                                                                  })),
-                                                            clubId: clubData.id
-                                                          }
-                                                        }),
+                                                    children: Core__Option.getOr(Core__Option.map(viewer, (function (v) {
+                                                                return JsxRuntime.jsx(AddEventButton.make, {
+                                                                            context: {
+                                                                              activitySlug: Core__Option.flatMap(clubData.defaultActivity, (function (a) {
+                                                                                      return a.slug;
+                                                                                    })),
+                                                                              clubId: clubData.id
+                                                                            },
+                                                                            viewer: v.fragmentRefs
+                                                                          });
+                                                              })), null),
                                                     className: "mx-4 mb-4 mt-4"
                                                   }),
                                               Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {

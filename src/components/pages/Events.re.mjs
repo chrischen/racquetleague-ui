@@ -137,11 +137,6 @@ function Events(props) {
                                                                           }),
                                                                       JsxRuntime.jsx(Events$ActivityDropdownMenu, {})
                                                                     ]
-                                                                  }),
-                                                              " ",
-                                                              JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                    to: "/events/create",
-                                                                    children: "+"
                                                                   })
                                                             ]
                                                           })

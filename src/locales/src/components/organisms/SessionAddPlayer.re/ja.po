@@ -17,13 +17,13 @@ msgstr ""
 msgid "Add Guest Player"
 msgstr "ゲストプレイヤーを追加"
 
-#: src/components/organisms/SessionAddPlayer.re.mjs:42
-msgid "Player Name"
-msgstr "プレイヤー名"
-
 #: src/components/molecules/forms/Form.re.mjs:300
 #~ msgid "cancel"
 #~ msgstr "キャンセル"
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:42
+msgid "Player Name"
+msgstr "プレイヤー名"
 
 #: src/components/molecules/forms/Form.re.mjs:307
 #~ msgid "save"

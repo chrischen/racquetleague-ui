@@ -68,7 +68,6 @@ type params = {activitySlug: option<string>, lang: option<string>}
 
 @react.component
 let make = () => {
-  open Router
   open Dropdown
   //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
@@ -111,8 +110,6 @@ let make = () => {
                   </DropdownButton>
                   <ActivityDropdownMenu />
                 </Dropdown>
-                {" "->React.string}
-                <Link to="/events/create"> {"+"->React.string} </Link>
               </PageTitle>
             </Grid>
             {viewer

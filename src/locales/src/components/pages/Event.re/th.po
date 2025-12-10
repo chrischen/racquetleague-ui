@@ -150,6 +150,10 @@ msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 msgid "hosted by {name}"
 msgstr "จัดโดย {name}"
 
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "เข้าร่วม"
+
 #: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
 msgstr "เข้าร่วมกิจกรรม"
@@ -237,8 +241,7 @@ msgid "Professional players"
 msgstr "ผู้เล่นมืออาชีพ"
 
 #: src/components/atoms/EventTag.re.mjs:56
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
 
 #: src/components/organisms/RsvpOptions.re.mjs:138
@@ -280,14 +283,16 @@ msgstr "ดูทั้งหมด"
 msgid "Send"
 msgstr ""
 
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "แสดงทั้งหมด"
+
 #: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
 #: src/components/pages/Event.re.mjs:312
-msgid ""
-"showing up without permission may result in a ban for failing to follow "
-"rules."
+msgid "showing up without permission may result in a ban for failing to follow rules."
 msgstr "การมาโดยไม่ได้รับอนุญาตอาจส่งผลให้ถูกแบนเนื่องจากการไม่ปฏิบัติตาม กฎ"
 
 #: src/components/atoms/EventTag.re.mjs:52
@@ -312,42 +317,26 @@ msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
-"คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
 #: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
 
 #: src/components/pages/Event.re.mjs:309
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first to get a referral."
-msgstr ""
-"นี่เป็นกิจกรรมส่วนตัวที่ต้องการสมาชิกภาพกับคลับ หากต้องการเข้าร่วม คลับนี้ กรุณาเข้าร่วมกิจกรรม "
-"Japan Pickleball League ก่อนเพื่อขอการแนะนำ"
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
+msgstr "นี่เป็นกิจกรรมส่วนตัวที่ต้องการสมาชิกภาพกับคลับ หากต้องการเข้าร่วม คลับนี้ กรุณาเข้าร่วมกิจกรรม Japan Pickleball League ก่อนเพื่อขอการแนะนำ"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
-"หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
 #: src/components/pages/Event.re.mjs:272
@@ -399,19 +388,5 @@ msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
-"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
-"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
-
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "เข้าร่วม"
-
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "แสดงทั้งหมด"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"

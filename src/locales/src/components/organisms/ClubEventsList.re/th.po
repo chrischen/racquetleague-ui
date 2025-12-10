@@ -14,22 +14,22 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:540
+#: src/components/organisms/ClubEventsList.re.mjs:543
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:543
+#: src/components/organisms/ClubEventsList.re.mjs:546
 msgid "Table Tennis"
 msgstr "ปิงปอง"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:546
+#: src/components/organisms/ClubEventsList.re.mjs:549
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:549
+#: src/components/organisms/ClubEventsList.re.mjs:552
 msgid "Futsal"
 msgstr "ฟุตซอล"
 
@@ -90,7 +90,7 @@ msgstr "ผู้เล่น"
 msgid "🚫 CANCELED"
 msgstr "🚫 ยกเลิก"
 
-#: src/components/organisms/AddEventButton.re.mjs:35
+#: src/components/organisms/AddEventButton.re.mjs:79
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"
 
@@ -110,7 +110,7 @@ msgstr "ถาม"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
 
-#: src/components/organisms/ClubEventsList.re.mjs:440
+#: src/components/organisms/ClubEventsList.re.mjs:443
 msgid "clear filter"
 msgstr "ล้างตัวกรอง"
 
@@ -127,6 +127,10 @@ msgstr "สร้างกิจกรรมนี้"
 msgid "Date:"
 msgstr "วันที่:"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
+
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "คำอธิบาย:"
@@ -139,7 +143,7 @@ msgstr "เกิดข้อผิดพลาดในการสร้าง
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/ClubEventsList.re.mjs:438
+#: src/components/organisms/ClubEventsList.re.mjs:441
 msgid "filtering by date"
 msgstr "กรองตามวันที่"
 
@@ -162,6 +166,10 @@ msgstr "เข้าร่วมแล้ว"
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+#~ msgstr "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
@@ -205,12 +213,12 @@ msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
-"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "เวลา:"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -219,20 +227,3 @@ msgstr "ชื่อ:"
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "รายชื่อคอย"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid ""
-#~ "Let me know when and where you'd like to play, and I'll help you create "
-#~ "an event. You can continue talking to me in a conversation to refine any "
-#~ "details."
-#~ msgstr ""
-#~ "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม "
-#~ "คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "เวลา:"

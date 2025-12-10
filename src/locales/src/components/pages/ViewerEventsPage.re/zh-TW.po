@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:451
+#: src/components/organisms/EventsList.re.mjs:454
 msgid "...load past events"
 msgstr "...載入過往活動"
 
@@ -32,6 +32,11 @@ msgstr "[標題缺失]"
 #: src/components/organisms/EventsList.re.mjs:112
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "隱藏 {0} {hiddenCountDesc}"
 
 #: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
@@ -65,6 +70,10 @@ msgstr "{0} 分鐘"
 msgid "{0} minutes"
 msgstr "{0} 分鐘"
 
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} 私人 {shadowCountDesc} 已隱藏"
+
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -74,6 +83,15 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "位球員"
 
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "個活動"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
+
 #: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
@@ -82,7 +100,7 @@ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 已取消"
 
-#: src/components/organisms/AddEventButton.re.mjs:35
+#: src/components/organisms/AddEventButton.re.mjs:79
 msgid "Add an Event"
 msgstr "新增活動"
 
@@ -106,7 +124,7 @@ msgstr "詢問"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "下個月每週四晚上7-9點在赤羽小學打羽毛球。"
 
-#: src/components/organisms/EventsList.re.mjs:423
+#: src/components/organisms/EventsList.re.mjs:426
 msgid "clear filter"
 msgstr "清除篩選"
 
@@ -123,6 +141,10 @@ msgstr "建立此活動"
 msgid "Date:"
 msgstr "日期："
 
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "描述您想要建立的活動..."
+
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "描述："
@@ -135,7 +157,7 @@ msgstr "建立活動時發生錯誤。請重試。"
 msgid "Event Details"
 msgstr "活動詳情"
 
-#: src/components/organisms/EventsList.re.mjs:421
+#: src/components/organisms/EventsList.re.mjs:424
 msgid "filtering by date"
 msgstr "按日期篩選"
 
@@ -162,6 +184,10 @@ msgstr "已加入"
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr "退出活動"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+#~ msgstr "告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細節。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
@@ -218,12 +244,12 @@ msgid "sync calendar"
 msgstr "同步日曆"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細資"
-"訊，我甚至可以新增翻譯。"
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細資訊，我甚至可以新增翻譯。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "時間："
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -232,38 +258,3 @@ msgstr "標題："
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "等待列表"
-
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "隱藏 {0} {hiddenCountDesc}"
-
-#: src/components/organisms/EventsList.re.mjs:231
-#~ msgid "{0} private {shadowCountDesc} hidden"
-#~ msgstr "{0} 私人 {shadowCountDesc} 已隱藏"
-
-#: src/components/organisms/EventsList.re.mjs:200
-#~ msgid "{shadowCount, plural, one {event} other {events}}"
-#~ msgstr "個活動"
-
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "描述您想要建立的活動..."
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid ""
-#~ "Let me know when and where you'd like to play, and I'll help you create "
-#~ "an event. You can continue talking to me in a conversation to refine any "
-#~ "details."
-#~ msgstr ""
-#~ "告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細"
-#~ "節。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "時間："

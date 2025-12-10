@@ -18,7 +18,5 @@ msgid "Rating History"
 msgstr "ประวัติเรตติ้ง"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
 msgstr "พื้นที่แรเงาแสดงถึงความไม่แน่นอนของเรตติ้ง แถบที่แคบกว่าบ่งบอกถึงความมั่นใจที่สูงขึ้น"

@@ -38,9 +38,17 @@ msgstr "预估 DUPR"
 msgid "Even"
 msgstr "势均力敌"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:131
+#~ msgid "Female"
+#~ msgstr "女性"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:194
+#~ msgid "Loading rankings..."
+#~ msgstr "加载排名..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:193
 msgid "Loading..."
@@ -50,37 +58,6 @@ msgstr "加载中..."
 #: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "LOSS"
 msgstr "负"
-
-#: src/components/organisms/RatingGraphWrapper.re.mjs:176
-msgid "Rating History"
-msgstr "评分历史"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:184
-msgid "Recent Matches"
-msgstr "最近比赛"
-
-#: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
-msgstr "阴影区域表示评分的不确定性。较窄的带表示更高的置信度。"
-
-#: src/components/organisms/MatchHistoryList.re.mjs:630
-msgid "Upset"
-msgstr "爆冷"
-
-#: src/components/organisms/MatchHistoryList.re.mjs:521
-#: src/components/organisms/MatchHistoryList.re.mjs:585
-msgid "WIN"
-msgstr "胜"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:131
-#~ msgid "Female"
-#~ msgstr "女性"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:194
-#~ msgid "Loading rankings..."
-#~ msgstr "加载排名..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:133
 #~ msgid "Male"
@@ -101,6 +78,27 @@ msgstr "胜"
 #~ msgid "Rating"
 #~ msgstr "评分"
 
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "评分历史"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr "最近比赛"
+
 #: src/components/organisms/MatchList.re.mjs:292
 #~ msgid "Score:"
 #~ msgstr "比分："
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr "阴影区域表示评分的不确定性。较窄的带表示更高的置信度。"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "爆冷"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "胜"

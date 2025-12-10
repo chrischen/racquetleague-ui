@@ -29,6 +29,10 @@ msgstr "離れました"
 msgid "No activity yet"
 msgstr "まだアクティビティがありません"
 
+#: src/components/organisms/EventMessages.re.mjs:125
+#~ msgid "Save"
+#~ msgstr "保存"
+
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "送信"
@@ -38,11 +42,8 @@ msgid "Status message"
 msgstr "ステータスメッセージ"
 
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr ""
-"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
-"ださい。"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してください。"
 
 #: src/components/organisms/EventMessages.re.mjs:274
 msgid "was added to the event by admin"
@@ -51,7 +52,3 @@ msgstr "管理者によってイベントに追加されました"
 #: src/components/organisms/EventMessages.re.mjs:286
 msgid "was removed from the event by admin"
 msgstr "管理者によってイベントから削除されました"
-
-#: src/components/organisms/EventMessages.re.mjs:125
-#~ msgid "Save"
-#~ msgstr "保存"

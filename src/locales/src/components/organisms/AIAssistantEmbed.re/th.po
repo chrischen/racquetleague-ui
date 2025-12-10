@@ -60,12 +60,8 @@ msgid "Description:"
 msgstr "คำอธิบาย:"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:309
-msgid ""
-"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-"competitive play for 3.5+ players..."
-msgstr ""
-"เช่น การพบปะพิคเคิลบอลรายสัปดาห์ที่เซ็นทรัลพาร์ค วันพฤหัสบดีเวลา 18:00 น. "
-"เล่นแบบแข่งขันสำหรับผู้เล่นระดับ 3.5+..."
+msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
+msgstr "เช่น การพบปะพิคเคิลบอลรายสัปดาห์ที่เซ็นทรัลพาร์ค วันพฤหัสบดีเวลา 18:00 น. เล่นแบบแข่งขันสำหรับผู้เล่นระดับ 3.5+..."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 msgid "Error creating events. Please try again."

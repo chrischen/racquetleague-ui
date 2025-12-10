@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/EventManager.re.mjs:851
+#~ msgid "({0} players per round)"
+#~ msgstr "(每回合 {0} 名球员)"
+
 #: src/components/organisms/RoundSection.re.mjs:526
 #: src/components/organisms/RoundSection.re.mjs:636
 msgid "{0} {matchText}"
@@ -66,6 +70,10 @@ msgstr "亚历克斯·约翰逊"
 msgid "All checked-in players are already in this round"
 msgstr "所有已报到的球员都已在这个回合中"
 
+#: src/components/molecules/DrawGenerator.re.mjs:109
+#~ msgid "and generate new matches for {0} players"
+#~ msgstr "并为 {0} 名球员生成新比赛"
+
 #: src/components/organisms/EventManager.re.mjs:1457
 msgid "Anti-Team {0}"
 msgstr "反对队 {0}"
@@ -74,12 +82,20 @@ msgstr "反对队 {0}"
 msgid "Anti-Teams"
 msgstr "反对队"
 
+#: src/components/organisms/EventManager.re.mjs:824
+#~ msgid "Available Courts:"
+#~ msgstr "可用场地数："
+
 #: src/components/organisms/SeedAdjustModal.re.mjs:244
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
 msgid "Cancel"
 msgstr "取消"
+
+#: src/components/molecules/DrawGenerator.re.mjs:68
+#~ msgid "Classic random round-robin draws"
+#~ msgstr "经典随机循环赛"
 
 #: src/components/molecules/DrawGenerator.re.mjs:76
 msgid "Classic round-robin draws"
@@ -129,6 +145,11 @@ msgstr "创建您的第一支队伍开始"
 msgid "Current Round:"
 msgstr "当前回合："
 
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "当前回合："
+
 #: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: OFF"
 msgstr "调试：关闭"
@@ -136,6 +157,10 @@ msgstr "调试：关闭"
 #: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: ON"
 msgstr "调试：开启"
+
+#: src/components/molecules/DrawGenerator.re.mjs:107
+#~ msgid "delete all rounds below"
+#~ msgstr "删除以下所有回合"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:160
 msgid "Delete Guest"
@@ -182,14 +207,17 @@ msgstr "输入比赛比分"
 msgid "Enter team name"
 msgstr "输入队伍名称"
 
+#: src/components/organisms/EventManager.re.mjs:198
+#, fuzzy
+#~ msgid "Event Manager"
+#~ msgstr "赛事管理器图标"
+
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
 msgstr "女性"
 
 #: src/components/molecules/DrawGenerator.re.mjs:271
-msgid ""
-"Future rounds have scores entered. Regenerating will delete these scores. "
-"Are you sure?"
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
 msgstr "未来轮次已输入分数。重新生成将会删除这些分数。您确定吗？"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
@@ -203,6 +231,14 @@ msgstr "生成"
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Generate Draws"
 msgstr "生成对战表"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Generate Initial Draws"
+#~ msgstr "生成初始对战表"
+
+#: src/components/molecules/DrawGenerator.re.mjs:111
+#~ msgid "Generate matches for {0} players across {1} {courtText}"
+#~ msgstr "为 {0} 名球员在 {1} 个{courtText}生成比赛"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -239,6 +275,10 @@ msgstr "场比赛"
 #: src/components/organisms/RoundSection.re.mjs:176
 msgid "matches"
 msgstr "场比赛"
+
+#: src/components/molecules/DrawGenerator.re.mjs:63
+#~ msgid "Mix players of different levels in matches but still split stronger players to balance teams."
+#~ msgstr "混合不同水平的球员，但仍然分散强队以平衡队伍。"
 
 #: src/components/molecules/DrawGenerator.re.mjs:70
 msgid "Mixed"
@@ -300,11 +340,18 @@ msgstr "球员ID"
 msgid "Player Settings"
 msgstr "球员设置"
 
+#: src/components/organisms/EventManager.re.mjs:223
+#, fuzzy
+#~ msgid "Players"
+#~ msgstr "添加球员"
+
 #: src/components/molecules/DrawGenerator.re.mjs:66
-msgid ""
-"Players will be divided into similar skill level groups that round-robin "
-"with teams balanced by skill."
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
 msgstr "球员将被分为技能水平相似的组别，以技能平衡的队伍进行循环赛。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:58
+#~ msgid "Players will be divided into similar skill level groups that round-robin."
+#~ msgstr "球员将按相似的技能水平分组进行循环赛。"
 
 #: src/components/pages/EventManagerPage.re.mjs:85
 msgid "please login before managing the session"
@@ -317,6 +364,10 @@ msgstr "预览（{0}位访客{1}）"
 #: src/components/molecules/RoundHeader.re.mjs:35
 msgid "Previous Round"
 msgstr "上一回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:67
+#~ msgid "Random"
+#~ msgstr "随机"
 
 #: src/components/organisms/MatchCard.re.mjs:395
 msgid "Rebalance match"
@@ -334,9 +385,17 @@ msgstr "重新生成轮次？"
 msgid "Repeat"
 msgstr "重复"
 
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Replace Future Rounds"
+#~ msgstr "替换未来回合"
+
 #: src/components/molecules/PlayerReplaceModal.re.mjs:61
 msgid "Replace Player"
 msgstr "替换球员"
+
+#: src/components/molecules/DrawGenerator.re.mjs:162
+#~ msgid "Replace Rounds Below"
+#~ msgstr "替换以下回合"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:66
 msgid "Replacing:"
@@ -408,6 +467,11 @@ msgstr "种子已调整"
 msgid "Skill: {0}"
 msgstr "技能：{0}"
 
+#: src/components/organisms/EventManager.re.mjs:208
+#, fuzzy
+#~ msgid "Start Next Round"
+#~ msgstr "前进至下一回合"
+
 #: src/components/molecules/DrawGenerator.re.mjs:136
 msgid "strategy"
 msgstr "策略"
@@ -457,10 +521,12 @@ msgid "Teams"
 msgstr "队伍"
 
 #: src/components/organisms/MatchCard.re.mjs:433
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:105
+#~ msgid "This will"
+#~ msgstr "这将会"
 
 #: src/components/molecules/DrawGenerator.re.mjs:292
 msgid "This will delete all future rounds and generate new matches"
@@ -484,78 +550,3 @@ msgstr "VS"
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
-
-#: src/components/organisms/EventManager.re.mjs:851
-#~ msgid "({0} players per round)"
-#~ msgstr "(每回合 {0} 名球员)"
-
-#: src/components/molecules/DrawGenerator.re.mjs:109
-#~ msgid "and generate new matches for {0} players"
-#~ msgstr "并为 {0} 名球员生成新比赛"
-
-#: src/components/organisms/EventManager.re.mjs:824
-#~ msgid "Available Courts:"
-#~ msgstr "可用场地数："
-
-#: src/components/molecules/DrawGenerator.re.mjs:68
-#~ msgid "Classic random round-robin draws"
-#~ msgstr "经典随机循环赛"
-
-#: src/components/organisms/EventManager.re.mjs:204
-#, fuzzy
-#~ msgid "Current Round: {0}"
-#~ msgstr "当前回合："
-
-#: src/components/molecules/DrawGenerator.re.mjs:107
-#~ msgid "delete all rounds below"
-#~ msgstr "删除以下所有回合"
-
-#: src/components/organisms/EventManager.re.mjs:198
-#, fuzzy
-#~ msgid "Event Manager"
-#~ msgstr "赛事管理器图标"
-
-#: src/components/molecules/DrawGenerator.re.mjs:62
-#~ msgid "Generate Initial Draws"
-#~ msgstr "生成初始对战表"
-
-#: src/components/molecules/DrawGenerator.re.mjs:111
-#~ msgid "Generate matches for {0} players across {1} {courtText}"
-#~ msgstr "为 {0} 名球员在 {1} 个{courtText}生成比赛"
-
-#: src/components/molecules/DrawGenerator.re.mjs:63
-#~ msgid ""
-#~ "Mix players of different levels in matches but still split stronger "
-#~ "players to balance teams."
-#~ msgstr "混合不同水平的球员，但仍然分散强队以平衡队伍。"
-
-#: src/components/organisms/EventManager.re.mjs:223
-#, fuzzy
-#~ msgid "Players"
-#~ msgstr "添加球员"
-
-#: src/components/molecules/DrawGenerator.re.mjs:58
-#~ msgid ""
-#~ "Players will be divided into similar skill level groups that round-robin."
-#~ msgstr "球员将按相似的技能水平分组进行循环赛。"
-
-#: src/components/molecules/DrawGenerator.re.mjs:67
-#~ msgid "Random"
-#~ msgstr "随机"
-
-#: src/components/molecules/DrawGenerator.re.mjs:62
-#~ msgid "Replace Future Rounds"
-#~ msgstr "替换未来回合"
-
-#: src/components/molecules/DrawGenerator.re.mjs:162
-#~ msgid "Replace Rounds Below"
-#~ msgstr "替换以下回合"
-
-#: src/components/organisms/EventManager.re.mjs:208
-#, fuzzy
-#~ msgid "Start Next Round"
-#~ msgstr "前进至下一回合"
-
-#: src/components/molecules/DrawGenerator.re.mjs:105
-#~ msgid "This will"
-#~ msgstr "这将会"

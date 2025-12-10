@@ -1,0 +1,263 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-12-10 02:50+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: th\n"
+
+#: src/components/organisms/RoundRobin.re.mjs:463
+msgid "{0, plural, one {player} other {players}}"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:526
+#: src/components/organisms/RoundSection.re.mjs:636
+msgid "{0} {matchText}"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:174
+msgid "{matchCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:522
+msgid "ACTIVE ROUND"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:619
+msgid "Add Guest Players"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:363
+msgid "Add Players"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:532
+msgid "Advance to Round {0}"
+msgstr ""
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:103
+msgid "All checked-in players are already in this round"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:610
+msgid "Check in at least 4 players to start generating matches"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:76
+msgid "Classic round-robin draws"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:627
+msgid "Close"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:65
+msgid "Competitive"
+msgstr ""
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:170
+msgid "Courts:"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:346
+msgid "Debug Mode"
+msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr ""
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr ""
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr ""
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:271
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:231
+msgid "Generate"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:130
+msgid "Generate Draws"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:623
+msgid "Guest player addition UI to be implemented"
+msgstr ""
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr ""
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:327
+msgid "Manage a round-robin tournament with guest players"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:175
+msgid "match"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:176
+msgid "matches"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:70
+msgid "Mixed"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:251
+msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
+msgstr ""
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:99
+msgid "No available players"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:451
+msgid "No players added yet"
+msgstr ""
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:359
+msgid "Players"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:66
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgstr ""
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:545
+msgid "Rebalance this round with current players"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:270
+msgid "Regenerate Rounds?"
+msgstr ""
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr ""
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:61
+msgid "Replace Player"
+msgstr ""
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:66
+msgid "Replacing:"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:602
+msgid "Reset this round with all checked-in players"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:577
+msgid "Reset this round with mixed gender pairs"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:518
+#: src/components/organisms/RoundSection.re.mjs:632
+msgid "Round {0}"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:323
+msgid "Round Robin Tournament"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:75
+msgid "Round-Robin"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:71
+msgid "Round-Robin with teams balanced by skill."
+msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr ""
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr ""
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:174
+msgid "Skill: {0}"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:136
+msgid "strategy"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:206
+msgid "Strategy:"
+msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr ""
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:292
+msgid "This will delete all future rounds and generate new matches"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:130
+msgid "Update Future Rounds"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:262
+#: src/components/molecules/DrawGenerator.re.mjs:280
+msgid "Update Rounds Below"
+msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr ""
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr ""

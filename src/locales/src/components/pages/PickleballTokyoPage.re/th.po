@@ -14,26 +14,16 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:248
-msgid ""
-"As mentioned above, public games are not really a thing in Japan. However, "
-"you can find some public games on the home page of this website. They will "
-"tend to be full with a waitlist so just join the waitlist and cross your "
-"fingers. 5-6 spots tend to open up the day of the event as people cancel "
-"last minute."
-msgstr ""
-"ดังที่กล่าวไว้ข้างต้น เกมสาธารณะไม่ใช่เรื่องทั่วไปในญี่ปุ่น อย่างไรก็ตาม "
-"คุณสามารถหาเกมสาธารณะบางเกมได้ที่หน้าแรกของเว็บไซต์นี้ มักจะเต็มและมีรายชื่อคอย "
-"แค่เข้าร่วมรายชื่อคอยและข้ามนิ้ว โดยทั่วไปจะมีที่ว่าง 5-6 ที่นั่งในวันกิจกรรม "
-"เนื่องจากมีคนยกเลิกในนาทีสุดท้าย"
+msgid "As mentioned above, public games are not really a thing in Japan. However, you can find some public games on the home page of this website. They will tend to be full with a waitlist so just join the waitlist and cross your fingers. 5-6 spots tend to open up the day of the event as people cancel last minute."
+msgstr "ดังที่กล่าวไว้ข้างต้น เกมสาธารณะไม่ใช่เรื่องทั่วไปในญี่ปุ่น อย่างไรก็ตาม คุณสามารถหาเกมสาธารณะบางเกมได้ที่หน้าแรกของเว็บไซต์นี้ มักจะเต็มและมีรายชื่อคอย แค่เข้าร่วมรายชื่อคอยและข้ามนิ้ว โดยทั่วไปจะมีที่ว่าง 5-6 ที่นั่งในวันกิจกรรม เนื่องจากมีคนยกเลิกในนาทีสุดท้าย"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
-msgid ""
-"Book a court and post the event to Pkuru.com. Please mention the "
-"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
-"new to the community, we recommend you to offer the court for free."
-msgstr ""
-"จองคอร์ตและโพสต์กิจกรรมบน Pkuru.com โปรดระบุค่าใช้จ่ายในการเข้าร่วมและระดับที่คาดหวัง "
-"(3.0, 3.5, 4.0 เป็นต้น) หากคุณเป็นคนใหม่ในชุมชน เราแนะนำให้เสนอคอร์ตฟรี"
+#~ msgid "Book a court and find the players yourself."
+#~ msgstr "จองสนามและหาผู้เล่นเอง"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid "Book a court and post the event to Pkuru.com. Please mention the participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are new to the community, we recommend you to offer the court for free."
+msgstr "จองคอร์ตและโพสต์กิจกรรมบน Pkuru.com โปรดระบุค่าใช้จ่ายในการเข้าร่วมและระดับที่คาดหวัง (3.0, 3.5, 4.0 เป็นต้น) หากคุณเป็นคนใหม่ในชุมชน เราแนะนำให้เสนอคอร์ตฟรี"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:69
 #: src/components/pages/PickleballTokyoPage.re.mjs:98
@@ -52,12 +42,8 @@ msgid "Create an Event at KPI Park"
 msgstr "สร้างกิจกรรมที่ KPI Park"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:205
-msgid ""
-"Create an event at one of the locations above (use the buttons above). Make "
-"the event public so people can join you."
-msgstr ""
-"สร้างกิจกรรมที่หนึ่งในสถานที่ข้างต้น (ใช้ปุ่มข้างต้น) ทำให้ "
-"กิจกรรมเป็นสาธารณะเพื่อให้คนอื่นเข้าร่วมกับคุณได้"
+msgid "Create an event at one of the locations above (use the buttons above). Make the event public so people can join you."
+msgstr "สร้างกิจกรรมที่หนึ่งในสถานที่ข้างต้น (ใช้ปุ่มข้างต้น) ทำให้ กิจกรรมเป็นสาธารณะเพื่อให้คนอื่นเข้าร่วมกับคุณได้"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:91
 msgid "Create an Event at Pacific Pickle Club"
@@ -88,27 +74,12 @@ msgid "How to Play Pickleball in Tokyo"
 msgstr "วิธีเล่นพิคเกิลบอลในโตกยว"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:23
-msgid ""
-"Japan does not really have public drop in courts or games. Most pickleball "
-"games happen indoors at community center and school gymnasiums (multi-use "
-"gyms) or on private tennis/pickleball courts and these all require "
-"reservations for court time, or reservations to join the events. Many of the "
-"public facilities do not allow groups to advertise to the public, which "
-"makes it difficult for new players or visitors to drop in on sessions."
-msgstr ""
-"ญี่ปุ่นไม่ค่อยมีสนามหรือเกมสาธารณะที่สามารถเข้าไปเล่นได้ เกมพิคเกิลบอลส่วนใหญ่ "
-"เกิดขึ้นในอาคารภายในศูนย์ชุมชนและโรงยิมโรงเรียน (โรงยิมอเนกประสงค์) หรือในสนามเทนนิส/"
-"พิคเกิลบอลส่วนตัว และทั้งหมดต้อง จองล่วงหน้าสำหรับเวลาสนาม หรือจองล่วงหน้าเข้าร่วมกิจกรรม "
-"สถานที่สาธารณะหลายแห่งไม่อนุญาตให้กลุ่มโฆษณาสู่สาธารณะ "
-"ทำให้ผู้เล่นใหม่หรือนักท่องเที่ยวยากที่จะเข้าร่วมเซสชั่น"
+msgid "Japan does not really have public drop in courts or games. Most pickleball games happen indoors at community center and school gymnasiums (multi-use gyms) or on private tennis/pickleball courts and these all require reservations for court time, or reservations to join the events. Many of the public facilities do not allow groups to advertise to the public, which makes it difficult for new players or visitors to drop in on sessions."
+msgstr "ญี่ปุ่นไม่ค่อยมีสนามหรือเกมสาธารณะที่สามารถเข้าไปเล่นได้ เกมพิคเกิลบอลส่วนใหญ่ เกิดขึ้นในอาคารภายในศูนย์ชุมชนและโรงยิมโรงเรียน (โรงยิมอเนกประสงค์) หรือในสนามเทนนิส/พิคเกิลบอลส่วนตัว และทั้งหมดต้อง จองล่วงหน้าสำหรับเวลาสนาม หรือจองล่วงหน้าเข้าร่วมกิจกรรม สถานที่สาธารณะหลายแห่งไม่อนุญาตให้กลุ่มโฆษณาสู่สาธารณะ ทำให้ผู้เล่นใหม่หรือนักท่องเที่ยวยากที่จะเข้าร่วมเซสชั่น"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:33
-msgid ""
-"Join any public events on Pkuru.com (this website). If you find an event "
-"without the 'lock' icon and which has a join button, then you can join."
-msgstr ""
-"เข้าร่วมกิจกรรมสาธารณะใดๆ ใน Pkuru.com (เว็บไซต์นี้) หากคุณพบกิจกรรม ที่ไม่มีไอคอน 'กุญแจ' "
-"และมีปุ่มเข้าร่วม คุณก็สามารถเข้าร่วมได้"
+msgid "Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and which has a join button, then you can join."
+msgstr "เข้าร่วมกิจกรรมสาธารณะใดๆ ใน Pkuru.com (เว็บไซต์นี้) หากคุณพบกิจกรรม ที่ไม่มีไอคอน 'กุญแจ' และมีปุ่มเข้าร่วม คุณก็สามารถเข้าร่วมได้"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:52
 msgid "KPI Park in Kanagawa/Yokohama"
@@ -119,9 +90,7 @@ msgid "Message @japanpickle on Instagram for referrals or questions"
 msgstr "ส่งข้อความไปที่ @japanpickle ใน Instagram สำหรับการแนะนำหรือคำถาม"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"One full court is available and one \\\"fun\\\" court (half-sized). The full "
-"court has narrow space on the sides."
+msgid "One full court is available and one \\\"fun\\\" court (half-sized). The full court has narrow space on the sides."
 msgstr "มีคอร์ตเต็ม 1 คอร์ตและคอร์ต \"สนุก\" (ขนาดครึ่ง) 1 คอร์ต คอร์ตเต็มมีพื้นที่ด้านข้างแคบ"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:81
@@ -133,13 +102,8 @@ msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
 msgstr "Pickleball One Ginza Shimbashi (คอร์ตแข็งในร่ม)"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:257
-msgid ""
-"Please do not show up to any events without permission and only if you are "
-"in the confirmed going list. Indoor events always require a set of clean "
-"indoor only court shoes. They are really serious about this stuff in Japan."
-msgstr ""
-"กรุณาอย่าไปกิจกรรมใดๆ โดยไม่ได้รับอนุญาต และเฉพาะเมื่อคุณ อยู่ในรายชื่อยืนยันที่จะเข้าร่วม "
-"กิจกรรมภายในอาคารต้องใช้ รองเท้าสะอาดเฉพาะสนามในอาคารเท่านั้น พวกเขาจริงจังเรื่องนี้ในญี่ปุ่น"
+msgid "Please do not show up to any events without permission and only if you are in the confirmed going list. Indoor events always require a set of clean indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr "กรุณาอย่าไปกิจกรรมใดๆ โดยไม่ได้รับอนุญาต และเฉพาะเมื่อคุณ อยู่ในรายชื่อยืนยันที่จะเข้าร่วม กิจกรรมภายในอาคารต้องใช้ รองเท้าสะอาดเฉพาะสนามในอาคารเท่านั้น พวกเขาจริงจังเรื่องนี้ในญี่ปุ่น"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:231
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
@@ -154,37 +118,20 @@ msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr "โพสต์ลงกลุ่มพิคเกิลบอล Yokosuka (ฐานทัพเรือสหรัฐฯ) ใน Facebook:"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:27
-msgid ""
-"So, how can one play pickleball in Tokyo then as a tourist, recent "
-"transplant, or a beginner?"
-msgstr ""
-"แล้วคนจะเล่นพิคเกิลบอลในโตกยวได้อย่างไร ในฐานะนักท่องเที่ยว คนย้ายมาใหม่ หรือผู้เริ่มต้น?"
+msgid "So, how can one play pickleball in Tokyo then as a tourist, recent transplant, or a beginner?"
+msgstr "แล้วคนจะเล่นพิคเกิลบอลในโตกยวได้อย่างไร ในฐานะนักท่องเที่ยว คนย้ายมาใหม่ หรือผู้เริ่มต้น?"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:252
-msgid ""
-"Some events are restricted by level. If you are restricted, just type in "
-"your DUPR rating as a comment with your RSVP."
-msgstr ""
-"กิจกรรมบางอย่างมีการจำกัดตามระดับ หากคุณถูกจำกัด ให้พิมพ์ เรตติ้ง DUPR "
-"ของคุณเป็นคำอธิบายในการ RSVP"
+msgid "Some events are restricted by level. If you are restricted, just type in your DUPR rating as a comment with your RSVP."
+msgstr "กิจกรรมบางอย่างมีการจำกัดตามระดับ หากคุณถูกจำกัด ให้พิมพ์ เรตติ้ง DUPR ของคุณเป็นคำอธิบายในการ RSVP"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:54
-msgid ""
-"The courts require reservations but there are 10 courts and it's generally "
-"available last minute. Therefore you can book the courts just-in-time once "
-"you've already gathered the players."
-msgstr ""
-"สนามต้องการจองล่วงหน้า แต่มี 10 สนามและโดยทั่วไปจะ มีให้ในนาทีสุดท้าย "
-"ดังนั้นคุณจึงสามารถจองสนามตอนที่ รวมตัวผู้เล่นแล้ว"
+msgid "The courts require reservations but there are 10 courts and it's generally available last minute. Therefore you can book the courts just-in-time once you've already gathered the players."
+msgstr "สนามต้องการจองล่วงหน้า แต่มี 10 สนามและโดยทั่วไปจะ มีให้ในนาทีสุดท้าย ดังนั้นคุณจึงสามารถจองสนามตอนที่ รวมตัวผู้เล่นแล้ว"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:83
-msgid ""
-"The courts require reservations but there are only 2 courts so you will need "
-"to book in advance. They also hold open play sessions but the level may be "
-"low to complete beginner."
-msgstr ""
-"สนามต้องการจองล่วงหน้า แต่มีเพียง 2 สนาม จึงต้องจองล่วงหน้า มีเซสชั่นเล่นเปิดด้วย "
-"แต่ระดับอาจต่ำถึงผู้เริ่มต้น"
+msgid "The courts require reservations but there are only 2 courts so you will need to book in advance. They also hold open play sessions but the level may be low to complete beginner."
+msgstr "สนามต้องการจองล่วงหน้า แต่มีเพียง 2 สนาม จึงต้องจองล่วงหน้า มีเซสชั่นเล่นเปิดด้วย แต่ระดับอาจต่ำถึงผู้เริ่มต้น"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:110
 msgid "Tokyo Tower Pickleball"
@@ -195,15 +142,9 @@ msgid "Two courts are available. Conditions may be windy."
 msgstr "มีสนาม 2 สนาม สภาพอาจมีลมแรง"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:170
-msgid ""
-"Two courts are available. More expensive than other courts and the "
-"conditions can be windy."
+msgid "Two courts are available. More expensive than other courts and the conditions can be windy."
 msgstr "มีสนาม 2 สนาม ราคาแพงกว่าสนามอื่น และ สภาพอาจมีลมแรง"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:45
 msgid "Where to Book Courts in Tokyo"
 msgstr "ที่จองสนามในโตกยว"
-
-#: src/components/pages/PickleballTokyoPage.re.mjs:36
-#~ msgid "Book a court and find the players yourself."
-#~ msgstr "จองสนามและหาผู้เล่นเอง"

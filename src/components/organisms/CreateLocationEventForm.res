@@ -268,6 +268,9 @@ let make = (
   let setFindPlayersExpanded = (expanded: bool) =>
     setExpandedSection(_ => expanded ? FindPlayersSection : None)
 
+  // Track if start date changes are user-initiated
+  let (isUserInitiatedChange, setIsUserInitiatedChange) = React.useState(() => false)
+
   // Club and Activity selector UI state
   let (isClubActivitySelectorActive, setIsClubActivitySelectorActive) = React.useState(() => false)
   let (showAddClub, setShowAddClub) = React.useState(() => false)
@@ -364,21 +367,64 @@ let make = (
     None
   }, [prefilledValues])
 
-  // Update end time when start date changes (+2 hours)
+  // Update end time when start date changes (+2 hours) - only for user-initiated changes
   React.useEffect(() => {
-    switch startDate {
-    | Some(String(dateStr)) if dateStr != "" => {
-        let newEndTime =
-          dateStr
-          ->DateFns.parseISO
-          ->DateFns.addHours(2.0)
-          ->DateFns.formatWithPattern("HH:mm")
-        setValue(EndTime, Value(newEndTime))
+    if isUserInitiatedChange {
+      switch startDate {
+      | Some(String(dateStr)) if dateStr != "" => {
+          let newEndTime =
+            dateStr
+            ->DateFns.parseISO
+            ->DateFns.addHours(2.0)
+            ->DateFns.formatWithPattern("HH:mm")
+          setValue(EndTime, Value(newEndTime))
+        }
+      | _ => ()
       }
-    | _ => ()
+      setIsUserInitiatedChange(_ => false)
     }
     None
   }, [startDate])
+
+  // Autofill minRating based on selected level tags
+  React.useEffect(() => {
+    // Map of level tags to rating values
+    let levelToRating = tag =>
+      switch tag {
+      | "3.0+" => Some(11.0)
+      | "3.5+" => Some(17.0)
+      | "4.0+" => Some(21.0)
+      | "4.5+" => Some(25.0)
+      | "5.0+" => Some(30.0)
+      | _ => None
+      }
+
+    // Check if "all level" is selected
+    if selectedTags->Array.includes("all level") {
+      // Clear the minRating value
+      setValue(MinRating, Value(""))
+    } else {
+      // Get all specific level tags that have rating mappings
+      let specificLevels = ["3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
+      let selectedSpecificLevels =
+        selectedTags->Array.filter(tag => specificLevels->Array.includes(tag))
+
+      // If we have specific level tags selected, use the lowest one
+      if selectedSpecificLevels->Array.length > 0 {
+        // Find the lowest level tag (earliest in the list)
+        let lowestLevel =
+          specificLevels->Array.find(level => selectedSpecificLevels->Array.includes(level))
+
+        lowestLevel
+        ->Option.flatMap(levelToRating)
+        ->Option.forEach(rating => {
+          setValue(MinRating, Value(rating->Float.toString))
+        })
+      }
+    }
+
+    None
+  }, [selectedTags])
 
   let onSubmit = (data: inputs) => {
     // Filter out "rec" since it's the default (represented by absence of type tags)
@@ -777,6 +823,11 @@ let make = (
                         {...register(StartDate)}
                         id="startDate"
                         type_="datetime-local"
+                        onChange={e => {
+                          setIsUserInitiatedChange(_ => true)
+                          let target = ReactEvent.Form.target(e)
+                          setValue(StartDate, Value(target["value"]))
+                        }}
                         className={Util.cx([
                           "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors",
                           formState.errors.startDate->Option.isSome
@@ -1153,7 +1204,9 @@ let make = (
 
                                   if isCurrentlySelected {
                                     // Deselect the tag
-                                    tags->Array.filter(t => t != tag)
+                                    let newTags = tags->Array.filter(t => t != tag)
+                                    // If no tags are selected, default to "all level"
+                                    newTags->Array.length == 0 ? ["all level"] : newTags
                                   } else if tag == "all level" {
                                     // Select "all level" and remove all specific level tags
                                     let specificLevels = ["3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
@@ -1175,6 +1228,26 @@ let make = (
                             </button>
                           )
                           ->React.array}
+                        </div>
+                        <div className="mt-4">
+                          <label
+                            htmlFor="minRating"
+                            className="block text-sm font-medium text-gray-700 mb-2">
+                            {t`Minimum rating (optional)`}
+                          </label>
+                          <input
+                            {...register(MinRating, ~options={required: false})}
+                            id="minRating"
+                            type_="number"
+                            step=0.1
+                            placeholder={ts`No minimum`}
+                            className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          />
+                          {switch formState.errors.minRating {
+                          | Some({message: ?Some(message)}) =>
+                            <p className="mt-1 text-sm text-red-600"> {message->React.string} </p>
+                          | _ => React.null
+                          }}
                         </div>
                       </div>
                     : React.null}

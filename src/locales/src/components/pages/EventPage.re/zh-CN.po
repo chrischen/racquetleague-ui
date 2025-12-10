@@ -119,12 +119,8 @@ msgid "Email address"
 msgstr "电子邮件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:153
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
-"件地址登录。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮件地址登录。"
 
 #: src/components/organisms/ProfileModal.re.mjs:230
 msgid "Email cannot be changed"
@@ -157,6 +153,10 @@ msgstr "谷歌日历"
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "Highly skilled players"
 msgstr "高技能球员"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "加入"
 
 #: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
@@ -215,6 +215,14 @@ msgstr "移至待审核列表"
 msgid "No activity yet"
 msgstr "尚无活动"
 
+#: src/components/pages/EventPage.re.mjs:121
+#~ msgid "No event details provided."
+#~ msgstr "未提供活动详情。"
+
+#: src/components/pages/EventPage.re.mjs:124
+#~ msgid "No location details provided."
+#~ msgstr "未提供地点详情。"
+
 #: src/components/atoms/EventTag.re.mjs:48
 msgid "No restriction on skill level. Open to all players."
 msgstr "没有技能等级限制。对所有球员开放。"
@@ -238,8 +246,7 @@ msgid "Professional players"
 msgstr "职业球员"
 
 #: src/components/atoms/EventTag.re.mjs:56
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:138
@@ -284,6 +291,10 @@ msgstr "查看全部"
 msgid "Send"
 msgstr "发送"
 
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "查看全部"
+
 #: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
 msgstr "收起"
@@ -296,30 +307,25 @@ msgstr "技能练习和专注于技术提高的训练"
 msgid "Status message"
 msgstr "状态信息"
 
+#: src/components/pages/EventPage.re.mjs:168
+#~ msgid "submit matches"
+#~ msgstr "提交比赛结果"
+
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
 msgstr "同步日历"
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
-"加入等待列表。您确定要退出这个活动吗？"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将加入等待列表。您确定要退出这个活动吗？"
 
 #: src/components/pages/EventPage.re.mjs:256
 #: src/components/pages/EventPage.re.mjs:285
-msgid ""
-"This event is private and cannot be joined on Pkuru.com. Do not show up to "
-"the event without permission."
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
 msgstr "此活动为私人活动，无法通过 Pkuru.com 加入。未经许可请勿前往活动现场。"
 
 #: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
 
 #: src/components/organisms/ProfileModal.re.mjs:205
@@ -327,18 +333,13 @@ msgid "This is how others will see you"
 msgstr "这是其他人会看到的名字"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
-"制其报名吗？"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限制其报名吗？"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 
 #: src/components/pages/EventPage.re.mjs:161
@@ -390,30 +391,5 @@ msgid "You're Waitlisted"
 msgstr "您在等待列表中"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
-"制降低。请参加其他 JPL 评级活动来提高您的评分。"
-
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "加入"
-
-#: src/components/pages/EventPage.re.mjs:121
-#~ msgid "No event details provided."
-#~ msgstr "未提供活动详情。"
-
-#: src/components/pages/EventPage.re.mjs:124
-#~ msgid "No location details provided."
-#~ msgstr "未提供地点详情。"
-
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "查看全部"
-
-#: src/components/pages/EventPage.re.mjs:168
-#~ msgid "submit matches"
-#~ msgstr "提交比赛结果"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限制降低。请参加其他 JPL 评级活动来提高您的评分。"

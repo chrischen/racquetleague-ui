@@ -18,8 +18,7 @@ msgstr ""
 #~ msgstr "イベント"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:88
-#~ msgid ""
-#~ "It looks like you may prefer English. Would you like to switch to English?"
+#~ msgid "It looks like you may prefer English. Would you like to switch to English?"
 #~ msgstr "日本語がお好きなようですね。日本語に変更しますか？"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:80

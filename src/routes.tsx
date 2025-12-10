@@ -218,6 +218,11 @@ const mainRoutes: RouteObject[] =
       ]
     },
     {
+      path: "round-robin",
+      lazy: () => import("./components/routes/RoundRobinRoute.gen"),
+      handle: "src/components/routes/RoundRobinRoute.gen.tsx",
+    },
+    {
       path: "*",
       lazy: () => import("./components/routes/NotFoundRoute.gen"),
       handle: "src/components/routes/NotFoundRoute.gen.tsx",

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:451
+#: src/components/organisms/EventsList.re.mjs:454
 msgid "...load past events"
 msgstr "...โหลดกิจกรรมที่ผ่านมา"
 
@@ -32,6 +32,11 @@ msgstr "[ไม่มีหัวข้อ]"
 #: src/components/organisms/EventsList.re.mjs:112
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
 
 #: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
@@ -65,6 +70,10 @@ msgstr "{0} นาที"
 msgid "{0} minutes"
 msgstr "{0} นาที"
 
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} ส่วนตัว {shadowCountDesc} ถูกซ่อน"
+
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -74,6 +83,15 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "ผู้เล่น"
 
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "กิจกรรม"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
+
 #: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
@@ -82,13 +100,17 @@ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}
 msgid "🚫 CANCELED"
 msgstr "🚫 ยกเลิก"
 
-#: src/components/organisms/AddEventButton.re.mjs:35
+#: src/components/organisms/AddEventButton.re.mjs:79
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:175
 msgid "AI Assistant"
 msgstr "ผู้ช่วย AI"
+
+#: src/components/pages/Events.re.mjs:58
+#~ msgid "All"
+#~ msgstr "ทั้งหมด"
 
 #: src/components/pages/Events.re.mjs:114
 msgid "all events"
@@ -118,7 +140,7 @@ msgstr "กิจกรรมแบดมินตัน"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
 
-#: src/components/organisms/EventsList.re.mjs:423
+#: src/components/organisms/EventsList.re.mjs:426
 msgid "clear filter"
 msgstr "ล้างตัวกรอง"
 
@@ -135,6 +157,10 @@ msgstr "สร้างกิจกรรมนี้"
 msgid "Date:"
 msgstr "วันที่:"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
+
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "คำอธิบาย:"
@@ -147,7 +173,7 @@ msgstr "เกิดข้อผิดพลาดในการสร้าง
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/EventsList.re.mjs:421
+#: src/components/organisms/EventsList.re.mjs:424
 msgid "filtering by date"
 msgstr "กรองตามวันที่"
 
@@ -163,7 +189,7 @@ msgstr "ฉันสามารถสร้างกิจกรรมให้
 msgid "I couldn't process that request. Please try again."
 msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
 
-#: src/components/pages/Events.re.mjs:182
+#: src/components/pages/Events.re.mjs:177
 msgid "include private"
 msgstr "รวมกิจกรรมส่วนตัว"
 
@@ -178,6 +204,10 @@ msgstr "เข้าร่วมแล้ว"
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+#~ msgstr "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
@@ -237,12 +267,12 @@ msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
-"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "เวลา:"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -251,42 +281,3 @@ msgstr "ชื่อ:"
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "รายชื่อคอย"
-
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
-
-#: src/components/organisms/EventsList.re.mjs:231
-#~ msgid "{0} private {shadowCountDesc} hidden"
-#~ msgstr "{0} ส่วนตัว {shadowCountDesc} ถูกซ่อน"
-
-#: src/components/organisms/EventsList.re.mjs:200
-#~ msgid "{shadowCount, plural, one {event} other {events}}"
-#~ msgstr "กิจกรรม"
-
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
-
-#: src/components/pages/Events.re.mjs:58
-#~ msgid "All"
-#~ msgstr "ทั้งหมด"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid ""
-#~ "Let me know when and where you'd like to play, and I'll help you create "
-#~ "an event. You can continue talking to me in a conversation to refine any "
-#~ "details."
-#~ msgstr ""
-#~ "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม "
-#~ "คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "เวลา:"

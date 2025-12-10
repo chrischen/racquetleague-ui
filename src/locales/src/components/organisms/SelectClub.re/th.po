@@ -13,54 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SelectClub.re.mjs:74
-msgid "add new club"
-msgstr "เพิ่มคลับใหม่"
-
-#: src/components/organisms/CreateClubForm.re.mjs:205
-msgid "Brief description of the club..."
-msgstr "คำอธิบายสั้นๆ เกี่ยวกับคลับ..."
-
-#: src/components/organisms/CreateClubForm.re.mjs:314
-msgid "Cancel"
-msgstr "ยกเลิก"
-
-#: src/components/organisms/SelectClub.re.mjs:51
-msgid "choose the club where this event will be held."
-msgstr "เลือกคลับที่จะจัดกิจกรรมนี้"
-
-#: src/components/organisms/CreateClubForm.re.mjs:156
-msgid "Club Name"
-msgstr "ชื่อคลับ"
-
-#: src/components/organisms/CreateClubForm.re.mjs:256
-msgid "Club URL"
-msgstr "URL คลับ"
-
-#: src/components/organisms/CreateClubForm.re.mjs:269
-msgid "club-name"
-msgstr "ชื่อคลับ"
-
-#: src/components/organisms/CreateClubForm.re.mjs:300
-msgid "Create Club"
-msgstr "สร้างคลับ"
-
-#: src/components/organisms/CreateClubForm.re.mjs:225
-msgid "Default club activity"
-msgstr "กิจกรรมเริ่มต้นของคลับ"
-
-#: src/components/organisms/CreateClubForm.re.mjs:198
-msgid "Description"
-msgstr "คำอธิบาย"
-
-#: src/components/organisms/CreateClubForm.re.mjs:164
-msgid "e.g., City Ballers Club"
-msgstr "เช่น คลับซิตี้บอลเลอร์"
-
-#: src/components/organisms/SelectClub.re.mjs:50
-msgid "select club"
-msgstr "เลือกคลับ"
-
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateClubForm.re.mjs:334
 #~ msgid "Badminton"
@@ -95,13 +47,57 @@ msgstr "เลือกคลับ"
 #~ msgid "about"
 #~ msgstr "เกี่ยวกับ"
 
+#: src/components/organisms/SelectClub.re.mjs:74
+msgid "add new club"
+msgstr "เพิ่มคลับใหม่"
+
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "คำอธิบายสั้นๆ เกี่ยวกับคลับ..."
+
 #: src/components/molecules/forms/Form.re.mjs:304
 #~ msgid "cancel"
 #~ msgstr "ยกเลิก"
 
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/SelectClub.re.mjs:51
+msgid "choose the club where this event will be held."
+msgstr "เลือกคลับที่จะจัดกิจกรรมนี้"
+
 #: src/components/organisms/CreateClubForm.re.mjs:156
 #~ msgid "club"
 #~ msgstr "คลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "ชื่อคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "URL คลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "ชื่อคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "สร้างคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "กิจกรรมเริ่มต้นของคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "เช่น คลับซิตี้บอลเลอร์"
 
 #: src/components/organisms/CreateClubForm.re.mjs:194
 #~ msgid "main activity"
@@ -122,6 +118,10 @@ msgstr "เลือกคลับ"
 #: src/components/molecules/forms/Form.re.mjs:311
 #~ msgid "save"
 #~ msgstr "บันทึก"
+
+#: src/components/organisms/SelectClub.re.mjs:50
+msgid "select club"
+msgstr "เลือกคลับ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:177
 #~ msgid "slug"

@@ -464,10 +464,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helper-string-parser@npm:^7.27.1":
+  version: 7.27.1
+  resolution: "@babel/helper-string-parser@npm:7.27.1"
+  checksum: 0ae29cc2005084abdae2966afdb86ed14d41c9c37db02c3693d5022fba9f5d59b011d039380b8e537c34daf117c549f52b452398f576e908fb9db3c7abbb3a00
+  languageName: node
+  linkType: hard
+
 "@babel/helper-validator-identifier@npm:^7.22.20":
   version: 7.22.20
   resolution: "@babel/helper-validator-identifier@npm:7.22.20"
   checksum: df882d2675101df2d507b95b195ca2f86a3ef28cb711c84f37e79ca23178e13b9f0d8b522774211f51e40168bf5142be4c1c9776a150cddb61a0d5bf3e95750b
+  languageName: node
+  linkType: hard
+
+"@babel/helper-validator-identifier@npm:^7.28.5":
+  version: 7.28.5
+  resolution: "@babel/helper-validator-identifier@npm:7.28.5"
+  checksum: 8e5d9b0133702cfacc7f368bf792f0f8ac0483794877c6dca5fcb73810ee138e27527701826fb58a40a004f3a5ec0a2f3c3dd5e326d262530b119918f3132ba7
   languageName: node
   linkType: hard
 
@@ -546,6 +560,17 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: 73c0172d2784c93455cb72a4669af5711a8f0421812d0c93e3be46bc7aee50e9215f61df90f94daf0555736ca2236f284462218f6bbc6bc804ebd94a59324f72
+  languageName: node
+  linkType: hard
+
+"@babel/parser@npm:^7.22.0":
+  version: 7.28.5
+  resolution: "@babel/parser@npm:7.28.5"
+  dependencies:
+    "@babel/types": "npm:^7.28.5"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: 8d9bfb437af6c97a7f6351840b9ac06b4529ba79d6d3def24d6c2996ab38ff7f1f9d301e868ca84a93a3050fadb3d09dbc5105b24634cd281671ac11eebe8df7
   languageName: node
   linkType: hard
 
@@ -1878,6 +1903,16 @@ __metadata:
     "@babel/helper-validator-identifier": "npm:^7.22.20"
     to-fast-properties: "npm:^2.0.0"
   checksum: a0b4875ce2e132f9daff0d5b27c7f4c4fcc97f2b084bdc5834e92c9d32592778489029e65d99d00c406da612d87b72d7a236c0afccaa1435c028d0c94c9b6da4
+  languageName: node
+  linkType: hard
+
+"@babel/types@npm:^7.28.5":
+  version: 7.28.5
+  resolution: "@babel/types@npm:7.28.5"
+  dependencies:
+    "@babel/helper-string-parser": "npm:^7.27.1"
+    "@babel/helper-validator-identifier": "npm:^7.28.5"
+  checksum: 4256bb9fb2298c4f9b320bde56e625b7091ea8d2433d98dcf524d4086150da0b6555aabd7d0725162670614a9ac5bf036d1134ca13dedc9707f988670f1362d7
   languageName: node
   linkType: hard
 
@@ -3598,10 +3633,56 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lingui/babel-plugin-extract-messages@npm:4.14.1":
+  version: 4.14.1
+  resolution: "@lingui/babel-plugin-extract-messages@npm:4.14.1"
+  checksum: 1f92f410f75dd8d6e7adc488070acb178f7375401cab9c7b2995936ca7cac9a99393809656f22cbd7fc2643de3a61594d7c72060d9ea80ea4cf139ecf8eedae5
+  languageName: node
+  linkType: hard
+
 "@lingui/babel-plugin-extract-messages@npm:^4.8.0-next.1":
   version: 4.8.0-next.1
   resolution: "@lingui/babel-plugin-extract-messages@npm:4.8.0-next.1"
   checksum: fffc1229c7e8e1f6632face727bf62f54d8a4916e4112e2305930e98571e5ae2ccb2ec70f7023fe04b7cf796f734616932dd75b4004db8fc0aa559b20bf707fc
+  languageName: node
+  linkType: hard
+
+"@lingui/cli@npm:4.14.1":
+  version: 4.14.1
+  resolution: "@lingui/cli@npm:4.14.1"
+  dependencies:
+    "@babel/core": "npm:^7.21.0"
+    "@babel/generator": "npm:^7.21.1"
+    "@babel/parser": "npm:^7.22.0"
+    "@babel/runtime": "npm:^7.21.0"
+    "@babel/types": "npm:^7.21.2"
+    "@lingui/babel-plugin-extract-messages": "npm:4.14.1"
+    "@lingui/conf": "npm:4.14.1"
+    "@lingui/core": "npm:4.14.1"
+    "@lingui/format-po": "npm:4.14.1"
+    "@lingui/message-utils": "npm:4.14.1"
+    babel-plugin-macros: "npm:^3.0.1"
+    chalk: "npm:^4.1.0"
+    chokidar: "npm:3.5.1"
+    cli-table: "npm:^0.3.11"
+    commander: "npm:^10.0.0"
+    convert-source-map: "npm:^2.0.0"
+    date-fns: "npm:^3.6.0"
+    esbuild: "npm:^0.17.10"
+    glob: "npm:^7.1.4"
+    inquirer: "npm:^7.3.3"
+    micromatch: "npm:^4.0.2"
+    normalize-path: "npm:^3.0.0"
+    ora: "npm:^5.1.0"
+    pathe: "npm:^1.1.0"
+    pkg-up: "npm:^3.1.0"
+    pofile: "npm:^1.1.4"
+    pseudolocale: "npm:^2.0.0"
+    ramda: "npm:^0.27.1"
+    source-map: "npm:^0.8.0-beta.0"
+  bin:
+    lingui: dist/lingui.js
+  checksum: 5602c884d699d3ce3e1a3f63166c5d95b6685693cdf8d8ffafe044eaa5bba911fc2564677baf8af8fe7305c69ad24a61ec70e3006d2a9e19a12557ffeb7283c2
   languageName: node
   linkType: hard
 
@@ -3645,6 +3726,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lingui/conf@npm:4.14.1":
+  version: 4.14.1
+  resolution: "@lingui/conf@npm:4.14.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.20.13"
+    chalk: "npm:^4.1.0"
+    cosmiconfig: "npm:^8.0.0"
+    jest-validate: "npm:^29.4.3"
+    jiti: "npm:^1.17.1"
+    lodash.get: "npm:^4.4.2"
+  checksum: 5444cea269c362c48052f1606bb33ebe2be3f37885d89b61a7a7e65d810d6534e516bf6d2596ba85bd7045991fa8284f40963bc849b029da6bd93d8112ee0efe
+  languageName: node
+  linkType: hard
+
 "@lingui/conf@npm:^4.8.0-next.1":
   version: 4.8.0-next.1
   resolution: "@lingui/conf@npm:4.8.0-next.1"
@@ -3656,6 +3751,17 @@ __metadata:
     jiti: "npm:^1.17.1"
     lodash.get: "npm:^4.4.2"
   checksum: fd584f12f49328136fc54c5ddb5649ad3dc1c8e357936bd923c0729c7bfdf06fb5c9d156d8affd71d19f137cd43d798b0977c3f186b9eff9e6281b2c6b5276a5
+  languageName: node
+  linkType: hard
+
+"@lingui/core@npm:4.14.1":
+  version: 4.14.1
+  resolution: "@lingui/core@npm:4.14.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.20.13"
+    "@lingui/message-utils": "npm:4.14.1"
+    unraw: "npm:^3.0.0"
+  checksum: 034fb98434ec65f4a5e58c80eb19e746bfb73270bf58e9e3390f344041179d0fe60722d2a2a5b2b850d4b2795f7aafd0ce62b7c952489f9c794fef111dc3a215
   languageName: node
   linkType: hard
 
@@ -3674,6 +3780,18 @@ __metadata:
   version: 4.14.0
   resolution: "@lingui/detect-locale@npm:4.14.0"
   checksum: 2e01b16566de48d8d1c3244f746fd790db1ddd56920dbfae04e97c621f2d1a9814cdf8605eb014ed251aff6cfe8a0bca3256df8b378d1155fc0aa544927cf45a
+  languageName: node
+  linkType: hard
+
+"@lingui/format-po@npm:4.14.1":
+  version: 4.14.1
+  resolution: "@lingui/format-po@npm:4.14.1"
+  dependencies:
+    "@lingui/conf": "npm:4.14.1"
+    "@lingui/message-utils": "npm:4.14.1"
+    date-fns: "npm:^3.6.0"
+    pofile: "npm:^1.1.4"
+  checksum: edaa35dbfefc1b08caa504d7f50ab1d27ceba9230260767979a1bc610b22fc4f4c8a556b041ecea6a58a6de8975be09f024d7f1b8a2f29d1e202b6e24c031ba4
   languageName: node
   linkType: hard
 
@@ -3709,6 +3827,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lingui/message-utils@npm:4.14.1":
+  version: 4.14.1
+  resolution: "@lingui/message-utils@npm:4.14.1"
+  dependencies:
+    "@messageformat/parser": "npm:^5.0.0"
+    js-sha256: "npm:^0.10.1"
+  checksum: d1bcca72e8eabbe2c526673662a3e8689be2752a142a41de0e7b2320b1de9fb025b9ce63baf41cbca887d3993efade720bfcf71c1d4260ed57819ca2f85b0c2b
+  languageName: node
+  linkType: hard
+
 "@lingui/message-utils@npm:^4.8.0-next.1":
   version: 4.8.0-next.1
   resolution: "@lingui/message-utils@npm:4.8.0-next.1"
@@ -3741,14 +3869,14 @@ __metadata:
   linkType: hard
 
 "@lingui/vite-plugin@npm:^4.8.0-next.1":
-  version: 4.8.0-next.1
-  resolution: "@lingui/vite-plugin@npm:4.8.0-next.1"
+  version: 4.14.1
+  resolution: "@lingui/vite-plugin@npm:4.14.1"
   dependencies:
-    "@lingui/cli": "npm:^4.8.0-next.1"
-    "@lingui/conf": "npm:^4.8.0-next.1"
+    "@lingui/cli": "npm:4.14.1"
+    "@lingui/conf": "npm:4.14.1"
   peerDependencies:
     vite: ^3 || ^4 || ^5.0.9
-  checksum: 6264fe4bb104dbe33775d4c6fe49dcadb1b2b684f74e76c87d0dd6bd2227b504bc6cb709ca93a95b6fda5b1ca7d172af337b3ae9ff1686a9d4879ed1f4d3ca1c
+  checksum: f16b1c92d213a0cc943102a0c1564d0b2f803e31eee7acbfea6284572cc4e917b5f6bded92feb78f6eef09c3a480424f158831f882d82c0e567e18ef3a81d5a4
   languageName: node
   linkType: hard
 
@@ -8791,6 +8919,15 @@ __metadata:
   dependencies:
     colors: "npm:1.0.3"
   checksum: 8cedcd30da4172986412d0b49f4e3d718aee4acadc48bc2f1c3b9269eafbb4bd03b4029559a77fd46e21d18734254b4b0e6b0e372924d4a6f3feee0004f25404
+  languageName: node
+  linkType: hard
+
+"cli-table@npm:^0.3.11":
+  version: 0.3.11
+  resolution: "cli-table@npm:0.3.11"
+  dependencies:
+    colors: "npm:1.0.3"
+  checksum: 1cf68fcc717cc7fa4a5fdac6722bcd756883201068a65a8a4550b800e9e6ae107c5b350821128d604cb3eb6a977619bc673e616ff402c3ddc179deb4d00626f7
   languageName: node
   linkType: hard
 
@@ -13838,6 +13975,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"micromatch@npm:^4.0.2, micromatch@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "micromatch@npm:4.0.8"
+  dependencies:
+    braces: "npm:^3.0.3"
+    picomatch: "npm:^2.3.1"
+  checksum: 6bf2a01672e7965eb9941d1f02044fad2bd12486b5553dc1116ff24c09a8723157601dc992e74c911d896175918448762df3b3fd0a6b61037dd1a9766ddfbf58
+  languageName: node
+  linkType: hard
+
 "micromatch@npm:^4.0.4, micromatch@npm:^4.0.5":
   version: 4.0.5
   resolution: "micromatch@npm:4.0.5"
@@ -13845,16 +13992,6 @@ __metadata:
     braces: "npm:^3.0.2"
     picomatch: "npm:^2.3.1"
   checksum: a749888789fc15cac0e03273844dbd749f9f8e8d64e70c564bcf06a033129554c789bb9e30d7566d7ff6596611a08e58ac12cf2a05f6e3c9c47c50c4c7e12fa2
-  languageName: node
-  linkType: hard
-
-"micromatch@npm:^4.0.8":
-  version: 4.0.8
-  resolution: "micromatch@npm:4.0.8"
-  dependencies:
-    braces: "npm:^3.0.3"
-    picomatch: "npm:^2.3.1"
-  checksum: 6bf2a01672e7965eb9941d1f02044fad2bd12486b5553dc1116ff24c09a8723157601dc992e74c911d896175918448762df3b3fd0a6b61037dd1a9766ddfbf58
   languageName: node
   linkType: hard
 

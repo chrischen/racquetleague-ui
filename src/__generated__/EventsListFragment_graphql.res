@@ -60,6 +60,7 @@ module Types = {
   and fragment_viewer = {
     clubs: fragment_viewer_clubs,
     user: option<fragment_viewer_user>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #AddEventButton_viewer]>,
   }
   type fragment = {
     events: fragment_events,
@@ -72,7 +73,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}}`
+    json`{"__root":{"viewer_user":{"f":""},"viewer":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = {
@@ -227,6 +228,11 @@ return {
             }
           ],
           "storageKey": null
+        },
+        {
+          "args": null,
+          "kind": "FragmentSpread",
+          "name": "AddEventButton_viewer"
         },
         {
           "alias": null,

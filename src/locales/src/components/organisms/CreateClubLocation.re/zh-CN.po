@@ -34,9 +34,7 @@ msgid "details"
 msgstr "详情"
 
 #: src/components/organisms/CreateClubLocation.re.mjs:170
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
+msgid "Instructions or information that will apply to all events held at this location."
 msgstr "适用于在此地点举办的所有活动的说明或信息。"
 
 #: src/components/organisms/CreateClubLocation.re.mjs:128

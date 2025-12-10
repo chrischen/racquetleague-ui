@@ -26,6 +26,7 @@ module Query = %relay(`
         )
     }
     viewer {
+      ...AddEventButton_viewer
       user {
         ...EventItem_user
         id

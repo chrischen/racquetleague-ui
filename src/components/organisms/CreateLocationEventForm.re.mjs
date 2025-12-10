@@ -174,34 +174,39 @@ function CreateLocationEventForm(props) {
   var match$4 = React.useState(function () {
         return false;
       });
-  var setIsClubActivitySelectorActive = match$4[1];
-  var isClubActivitySelectorActive = match$4[0];
+  var setIsUserInitiatedChange = match$4[1];
+  var isUserInitiatedChange = match$4[0];
   var match$5 = React.useState(function () {
         return false;
       });
-  var setShowAddClub = match$5[1];
-  var showAddClub = match$5[0];
+  var setIsClubActivitySelectorActive = match$5[1];
+  var isClubActivitySelectorActive = match$5[0];
   var match$6 = React.useState(function () {
         return false;
       });
-  var setIsLocationDetailsExpanded = match$6[1];
-  var isLocationDetailsExpanded = match$6[0];
+  var setShowAddClub = match$6[1];
+  var showAddClub = match$6[0];
   var match$7 = React.useState(function () {
+        return false;
+      });
+  var setIsLocationDetailsExpanded = match$7[1];
+  var isLocationDetailsExpanded = match$7[0];
+  var match$8 = React.useState(function () {
         return Core__Option.orElse(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.clubId;
                         })), Core__Option.map(clubs[0], (function (c) {
                           return c.id;
                         })));
       });
-  var setSelectedClub = match$7[1];
-  var selectedClub = match$7[0];
-  var match$8 = React.useState(function () {
+  var setSelectedClub = match$8[1];
+  var selectedClub = match$8[0];
+  var match$9 = React.useState(function () {
         return Core__Option.getOr(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.tags;
                         })), ["all level"]);
       });
-  var setSelectedTags = match$8[1];
-  var selectedTags = match$8[0];
+  var setSelectedTags = match$9[1];
+  var selectedTags = match$9[0];
   var eventType = selectedTags.includes("comp") ? "competitive" : "recreational";
   var isDrill = selectedTags.includes("drill");
   var isDupr = selectedTags.includes("dupr");
@@ -261,12 +266,58 @@ function CreateLocationEventForm(props) {
           
         }), [prefilledValues]);
   React.useEffect((function () {
-          if (startDate !== undefined && !(!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean") && typeof startDate === "string" && startDate !== "") {
-            var newEndTime = DateFns.format(DateFns.addHours(DateFns.parseISO(startDate), 2.0), "HH:mm");
-            setValue("endTime", newEndTime, undefined);
+          if (isUserInitiatedChange) {
+            if (startDate !== undefined && !(!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean") && typeof startDate === "string" && startDate !== "") {
+              var newEndTime = DateFns.format(DateFns.addHours(DateFns.parseISO(startDate), 2.0), "HH:mm");
+              setValue("endTime", newEndTime, undefined);
+            }
+            setIsUserInitiatedChange(function (param) {
+                  return false;
+                });
           }
           
         }), [startDate]);
+  React.useEffect((function () {
+          var levelToRating = function (tag) {
+            switch (tag) {
+              case "3.0+" :
+                  return 11.0;
+              case "3.5+" :
+                  return 17.0;
+              case "4.0+" :
+                  return 21.0;
+              case "4.5+" :
+                  return 25.0;
+              case "5.0+" :
+                  return 30.0;
+              default:
+                return ;
+            }
+          };
+          if (selectedTags.includes("all level")) {
+            setValue("minRating", "", undefined);
+          } else {
+            var specificLevels = [
+              "3.0+",
+              "3.5+",
+              "4.0+",
+              "4.5+",
+              "5.0+"
+            ];
+            var selectedSpecificLevels = selectedTags.filter(function (tag) {
+                  return specificLevels.includes(tag);
+                });
+            if (selectedSpecificLevels.length > 0) {
+              var lowestLevel = specificLevels.find(function (level) {
+                    return selectedSpecificLevels.includes(level);
+                  });
+              Core__Option.forEach(Core__Option.flatMap(lowestLevel, levelToRating), (function (rating) {
+                      setValue("minRating", rating.toString(), undefined);
+                    }));
+            }
+            
+          }
+        }), [selectedTags]);
   var onSubmit = function (data) {
     var tagsToSubmit = selectedTags.filter(function (tag) {
           return tag !== "rec";
@@ -795,7 +846,13 @@ function CreateLocationEventForm(props) {
                                                             className: "block text-sm font-semibold text-gray-900 mb-2",
                                                             htmlFor: "startDate"
                                                           }),
-                                                      JsxRuntime.jsx("input", (newrecord$1.type = "datetime-local", newrecord$1.id = "startDate", newrecord$1.className = Core$1.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", Core__Option.isSome(formState.errors.startDate) ? "border-red-300" : "border-gray-300"), newrecord$1)),
+                                                      JsxRuntime.jsx("input", (newrecord$1.onChange = (function (e) {
+                                                                setIsUserInitiatedChange(function (param) {
+                                                                      return true;
+                                                                    });
+                                                                var target = e.target;
+                                                                setValue("startDate", target.value, undefined);
+                                                              }), newrecord$1.type = "datetime-local", newrecord$1.id = "startDate", newrecord$1.className = Core$1.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", Core__Option.isSome(formState.errors.startDate) ? "border-red-300" : "border-gray-300"), newrecord$1)),
                                                       tmp$5
                                                     ]
                                                   }),
@@ -856,6 +913,131 @@ function CreateLocationEventForm(props) {
                                   });
                             } else {
                               tmp$4 = null;
+                            }
+                            var tmp$9;
+                            if (findPlayersExpanded) {
+                              var tmp$10;
+                              if (listed) {
+                                var newrecord$6 = Caml_obj.obj_dup(register("minRating", {
+                                          required: false
+                                        }));
+                                var match$3 = formState.errors.minRating;
+                                var tmp$11;
+                                if (match$3 !== undefined) {
+                                  var message$3 = match$3.message;
+                                  tmp$11 = message$3 !== undefined ? JsxRuntime.jsx("p", {
+                                          children: message$3,
+                                          className: "mt-1 text-sm text-red-600"
+                                        }) : null;
+                                } else {
+                                  tmp$11 = null;
+                                }
+                                tmp$10 = JsxRuntime.jsxs("div", {
+                                      children: [
+                                        JsxRuntime.jsx("label", {
+                                              children: t`Skill level`,
+                                              className: "block text-sm font-medium text-gray-700"
+                                            }),
+                                        JsxRuntime.jsx("div", {
+                                              children: [
+                                                  "all level",
+                                                  "3.0+",
+                                                  "3.5+",
+                                                  "4.0+",
+                                                  "4.5+",
+                                                  "5.0+"
+                                                ].map(function (tag) {
+                                                    return JsxRuntime.jsx("button", {
+                                                                children: tag,
+                                                                className: Core$1.cx("px-4 py-2 rounded-full text-sm font-medium transition-all", selectedTags.includes(tag) ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"),
+                                                                type: "button",
+                                                                onClick: (function (param) {
+                                                                    setSelectedTags(function (tags) {
+                                                                          var isCurrentlySelected = tags.includes(tag);
+                                                                          if (isCurrentlySelected) {
+                                                                            var newTags = tags.filter(function (t) {
+                                                                                  return t !== tag;
+                                                                                });
+                                                                            if (newTags.length === 0) {
+                                                                              return ["all level"];
+                                                                            } else {
+                                                                              return newTags;
+                                                                            }
+                                                                          }
+                                                                          if (tag !== "all level") {
+                                                                            return tags.filter(function (t) {
+                                                                                          return t !== "all level";
+                                                                                        }).concat([tag]);
+                                                                          }
+                                                                          var specificLevels = [
+                                                                            "3.0+",
+                                                                            "3.5+",
+                                                                            "4.0+",
+                                                                            "4.5+",
+                                                                            "5.0+"
+                                                                          ];
+                                                                          return tags.filter(function (t) {
+                                                                                        return !specificLevels.includes(t);
+                                                                                      }).concat([tag]);
+                                                                        });
+                                                                  })
+                                                              }, tag);
+                                                  }),
+                                              className: "flex flex-wrap gap-2"
+                                            }),
+                                        JsxRuntime.jsxs("div", {
+                                              children: [
+                                                JsxRuntime.jsx("label", {
+                                                      children: t`Minimum rating (optional)`,
+                                                      className: "block text-sm font-medium text-gray-700 mb-2",
+                                                      htmlFor: "minRating"
+                                                    }),
+                                                JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.step = 0.1, newrecord$6.placeholder = t`No minimum`, newrecord$6.id = "minRating", newrecord$6.className = "block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", newrecord$6)),
+                                                tmp$11
+                                              ],
+                                              className: "mt-4"
+                                            })
+                                      ],
+                                      className: "ml-8 space-y-3"
+                                    });
+                              } else {
+                                tmp$10 = null;
+                              }
+                              tmp$9 = JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("input", {
+                                                    className: "h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-0.5",
+                                                    id: "findPlayers",
+                                                    checked: listed,
+                                                    type: "checkbox",
+                                                    onChange: (function (param) {
+                                                        setValue("listed", !listed, undefined);
+                                                      })
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx("label", {
+                                                            children: t`Find players for your event?`,
+                                                            className: "block text-sm font-semibold text-gray-900",
+                                                            htmlFor: "findPlayers"
+                                                          }),
+                                                      JsxRuntime.jsx("p", {
+                                                            children: t`List your event publicly to help fill open spots`,
+                                                            className: "text-sm text-gray-600 mt-1"
+                                                          })
+                                                    ]
+                                                  })
+                                            ],
+                                            className: "flex items-start gap-3 mb-4"
+                                          }),
+                                      tmp$10
+                                    ],
+                                    className: "px-4 pb-4 pt-6 border-t border-gray-100"
+                                  });
+                            } else {
+                              tmp$9 = null;
                             }
                             return JsxRuntime.jsx(JsxRuntime.Fragment, {
                                         children: Caml_option.some(JsxRuntime.jsxs("form", {
@@ -1195,89 +1377,7 @@ function CreateLocationEventForm(props) {
                                                                           });
                                                                     })
                                                                 }),
-                                                            findPlayersExpanded ? JsxRuntime.jsxs("div", {
-                                                                    children: [
-                                                                      JsxRuntime.jsxs("div", {
-                                                                            children: [
-                                                                              JsxRuntime.jsx("input", {
-                                                                                    className: "h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-0.5",
-                                                                                    id: "findPlayers",
-                                                                                    checked: listed,
-                                                                                    type: "checkbox",
-                                                                                    onChange: (function (param) {
-                                                                                        setValue("listed", !listed, undefined);
-                                                                                      })
-                                                                                  }),
-                                                                              JsxRuntime.jsxs("div", {
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx("label", {
-                                                                                            children: t`Find players for your event?`,
-                                                                                            className: "block text-sm font-semibold text-gray-900",
-                                                                                            htmlFor: "findPlayers"
-                                                                                          }),
-                                                                                      JsxRuntime.jsx("p", {
-                                                                                            children: t`List your event publicly to help fill open spots`,
-                                                                                            className: "text-sm text-gray-600 mt-1"
-                                                                                          })
-                                                                                    ]
-                                                                                  })
-                                                                            ],
-                                                                            className: "flex items-start gap-3 mb-4"
-                                                                          }),
-                                                                      listed ? JsxRuntime.jsxs("div", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx("label", {
-                                                                                      children: t`Skill level`,
-                                                                                      className: "block text-sm font-medium text-gray-700"
-                                                                                    }),
-                                                                                JsxRuntime.jsx("div", {
-                                                                                      children: [
-                                                                                          "all level",
-                                                                                          "3.0+",
-                                                                                          "3.5+",
-                                                                                          "4.0+",
-                                                                                          "4.5+",
-                                                                                          "5.0+"
-                                                                                        ].map(function (tag) {
-                                                                                            return JsxRuntime.jsx("button", {
-                                                                                                        children: tag,
-                                                                                                        className: Core$1.cx("px-4 py-2 rounded-full text-sm font-medium transition-all", selectedTags.includes(tag) ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"),
-                                                                                                        type: "button",
-                                                                                                        onClick: (function (param) {
-                                                                                                            setSelectedTags(function (tags) {
-                                                                                                                  var isCurrentlySelected = tags.includes(tag);
-                                                                                                                  if (isCurrentlySelected) {
-                                                                                                                    return tags.filter(function (t) {
-                                                                                                                                return t !== tag;
-                                                                                                                              });
-                                                                                                                  }
-                                                                                                                  if (tag !== "all level") {
-                                                                                                                    return tags.filter(function (t) {
-                                                                                                                                  return t !== "all level";
-                                                                                                                                }).concat([tag]);
-                                                                                                                  }
-                                                                                                                  var specificLevels = [
-                                                                                                                    "3.0+",
-                                                                                                                    "3.5+",
-                                                                                                                    "4.0+",
-                                                                                                                    "4.5+",
-                                                                                                                    "5.0+"
-                                                                                                                  ];
-                                                                                                                  return tags.filter(function (t) {
-                                                                                                                                return !specificLevels.includes(t);
-                                                                                                                              }).concat([tag]);
-                                                                                                                });
-                                                                                                          })
-                                                                                                      }, tag);
-                                                                                          }),
-                                                                                      className: "flex flex-wrap gap-2"
-                                                                                    })
-                                                                              ],
-                                                                              className: "ml-8 space-y-3"
-                                                                            }) : null
-                                                                    ],
-                                                                    className: "px-4 pb-4 pt-6 border-t border-gray-100"
-                                                                  }) : null
+                                                            tmp$9
                                                           ],
                                                           className: "border border-gray-200 rounded-lg overflow-hidden bg-white"
                                                         }),

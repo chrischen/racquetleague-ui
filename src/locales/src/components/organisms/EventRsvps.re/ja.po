@@ -27,8 +27,7 @@ msgstr ""
 #~ msgstr "{waitlistCount, plural, one {プレイヤー} other {プレイヤー}}"
 
 #: src/components/organisms/EventRsvps.re.mjs:203
-#~ msgid ""
-#~ "{waitlistCount, plural, one {spot available} other {spots available}}"
+#~ msgid "{waitlistCount, plural, one {spot available} other {spots available}}"
 #~ msgstr "{waitlistCount, plural, one {枠空席あり} other {枠空席あり}}"
 
 #: src/components/organisms/RsvpOptions.re.mjs:102
@@ -124,23 +123,13 @@ msgstr ""
 #~ msgstr "利用可能なスポット"
 
 #: src/components/organisms/EventRsvps.re.mjs:391
-#~ msgid ""
-#~ "This event is full, so leaving the event will give your spot to someone "
-#~ "on the waitlist. If you rejoin, you will join the waitlist. Are you sure "
-#~ "you want to leave this event?"
-#~ msgstr ""
-#~ "このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリス"
-#~ "トの誰かに譲られます。再参加する場合、ウェイトリストに参加することになりま"
-#~ "す。本当にこのイベントを離れますか？"
+#~ msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+#~ msgstr "このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリストの誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。本当にこのイベントを離れますか？"
 
 #: src/components/organisms/EventRsvps.re.mjs:125
 #: src/components/organisms/EventRsvps.re.mjs:126
-#~ msgid ""
-#~ "Type a status message for people to see... such as 'I will arrive at "
-#~ "19:00.'"
-#~ msgstr ""
-#~ "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力し"
-#~ "てください。"
+#~ msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+#~ msgstr "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してください。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:82
 #~ msgid "View Profile"
@@ -164,39 +153,17 @@ msgstr ""
 #~ msgstr "あなたはウェイトリストに入っています :("
 
 #: src/components/organisms/EventRsvps.re.mjs:334
-#~ msgid ""
-#~ "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in "
-#~ "the pending list until the rating limit is lowered. Please join another "
-#~ "JPL rated event to boost your rating."
-#~ msgstr ""
-#~ "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの"
-#~ "上限が下がるまで保留リストに登録されます。レーティングを上げるために別の"
-#~ "JPL評価イベントに参加してください。"
+#~ msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+#~ msgstr "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:204
-#~ msgid ""
-#~ "your rating {0} is too low. please join a JPL open event to boost your "
-#~ "rating. the fastest way is to play and beat Jai a couple of times"
-#~ msgstr ""
-#~ "あなたの評価{0}が低すぎます。評価を上げるためにJPLオープンイベントに参加し"
-#~ "てください。最速の方法は、Jaiと何度かプレイして勝つことです"
+#~ msgid "your rating {0} is too low. please join a JPL open event to boost your rating. the fastest way is to play and beat Jai a couple of times"
+#~ msgstr "あなたの評価{0}が低すぎます。評価を上げるためにJPLオープンイベントに参加してください。最速の方法は、Jaiと何度かプレイして勝つことです"
 
 #: src/components/organisms/EventRsvps.re.mjs:225
-#~ msgid ""
-#~ "Your rating {0} is too low. You will be placed in the pending list until "
-#~ "the rating limit is lowered. Please join another JPL rated event to boost "
-#~ "your rating."
-#~ msgstr ""
-#~ "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リ"
-#~ "ストに登録されます。レーティングを上げるために別のJPL評価イベントに参加し"
-#~ "てください。"
+#~ msgid "Your rating {0} is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+#~ msgstr "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:225
-#~ msgid ""
-#~ "Your rating {0} is too low. You will be placed in the waitlist until the "
-#~ "rating limit is lowered. Please join a JPL open event to boost your "
-#~ "rating."
-#~ msgstr ""
-#~ "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイ"
-#~ "ティングリストに登録されます。レーティングを上げるためにJPLのオープンイベ"
-#~ "ントに参加してください。"
+#~ msgid "Your rating {0} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating."
+#~ msgstr "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイティングリストに登録されます。レーティングを上げるためにJPLのオープンイベントに参加してください。"

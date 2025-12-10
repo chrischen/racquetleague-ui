@@ -400,12 +400,17 @@ let make = (
                 )}
             />
             <div className="mx-4 mb-4 mt-4">
-              <AddEventButton
-                context={
-                  clubId: ?Some(clubData.id),
-                  activitySlug: ?clubData.defaultActivity->Option.flatMap(a => a.slug),
-                }
-              />
+              {viewer
+              ->Option.map(v =>
+                <AddEventButton
+                  context={
+                    clubId: ?Some(clubData.id),
+                    activitySlug: ?clubData.defaultActivity->Option.flatMap(a => a.slug),
+                  }
+                  viewer={v.fragmentRefs}
+                />
+              )
+              ->Option.getOr(React.null)}
             </div>
             {filterByDate
             ->Option.map(_ =>

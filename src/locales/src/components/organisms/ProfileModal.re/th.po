@@ -30,9 +30,7 @@ msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
 #: src/components/organisms/ProfileModal.re.mjs:153
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
 
 #: src/components/organisms/ProfileModal.re.mjs:230

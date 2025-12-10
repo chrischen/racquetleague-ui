@@ -46,9 +46,7 @@ msgid "seeking a doubles partner"
 msgstr "กำลังมองหาคู่คู่"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:176

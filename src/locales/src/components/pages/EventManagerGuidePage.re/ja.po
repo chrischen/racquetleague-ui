@@ -18,20 +18,12 @@ msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr "：全員が全員と対戦する古典的な総当たり形式です。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:194
-msgid ""
-": Players are divided into similar skill levels. Teams are balanced to "
-"create close matches."
-msgstr ""
-"：プレイヤーは同様のスキルレベルに分けられます。接戦になるようにチームバラン"
-"スが調整されます。"
+msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
+msgstr "：プレイヤーは同様のスキルレベルに分けられます。接戦になるようにチームバランスが調整されます。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:202
-msgid ""
-": Teams are balanced by skill, but players are not strictly separated by "
-"level."
-msgstr ""
-"：スキルによってチームバランスが調整されますが、プレイヤーはレベルによって厳"
-"密に分けられません。"
+msgid ": Teams are balanced by skill, but players are not strictly separated by level."
+msgstr "：スキルによってチームバランスが調整されますが、プレイヤーはレベルによって厳密に分けられません。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:141
 msgid "Adjust Seeds"
@@ -59,9 +51,7 @@ msgstr "イベントマネージャーでイベントを実行するための完
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:105
 msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
-msgstr ""
-"固定チームまたはアンチチーム（一緒にプレイすべきでないプレイヤー）を作成しま"
-"す。"
+msgstr "固定チームまたはアンチチーム（一緒にプレイすべきでないプレイヤー）を作成します。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:231
 msgid "Each round has several management options:"
@@ -72,12 +62,8 @@ msgid "Edit player details like name, gender, or payment status."
 msgstr "名前、性別、支払い状況などのプレイヤー詳細を編集します。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:354
-msgid ""
-"Enter scores directly on the match cards. Tap to select a winner, or press "
-"and hold to input the score as well."
-msgstr ""
-"マッチカードに直接スコアを入力します。タップして勝者を選択するか、長押しして"
-"スコアも入力します。"
+msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
+msgstr "マッチカードに直接スコアを入力します。タップして勝者を選択するか、長押ししてスコアも入力します。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:350
 msgid "Entering Results & Syncing"
@@ -90,6 +76,10 @@ msgstr "イベントマネージャーガイド"
 #: src/components/pages/EventManagerGuidePage.re.mjs:61
 msgid "Generate / Rebalance"
 msgstr "生成 / 再調整"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+#~ msgid "Generate new draws or rebalance the current round."
+#~ msgstr "新しいドローを生成するか、現在のラウンドを再調整します。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:65
 msgid "Generate new draws or rebalance the round or match."
@@ -105,25 +95,15 @@ msgstr "イベントマネージャーで使用されるアイコンのガイド
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:321
 msgid "icon to edit player details (Name, Gender, Paid status)."
-msgstr ""
-"アイコンを使用して、プレイヤーの詳細（名前、性別、支払い状況）を編集します。"
+msgstr "アイコンを使用して、プレイヤーの詳細（名前、性別、支払い状況）を編集します。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:25
 msgid "Icons Guide"
 msgstr "アイコンガイド"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:217
-msgid ""
-"In Competitive or Mixed mode, the system will regenerate future matches when "
-"you select the winner of the matches in the current or past rounds. This is "
-"recommended in order to optimize future rounds based on the new data. In "
-"Round-Robin mode, the future rounds will not change unless you manually "
-"change them."
-msgstr ""
-"競技モードまたはミックスモードでは、現在または過去のラウンドのマッチの勝者を"
-"選択すると、システムが将来のマッチを再生成します。新しいデータに基づいて将来"
-"のラウンドを最適化するために、これをお勧めします。総当たり戦モードでは、手動"
-"で変更しない限り、将来のラウンドは変更されません。"
+msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
+msgstr "競技モードまたはミックスモードでは、現在または過去のラウンドのマッチの勝者を選択すると、システムが将来のマッチを再生成します。新しいデータに基づいて将来のラウンドを最適化するために、これをお勧めします。総当たり戦モードでは、手動で変更しない限り、将来のラウンドは変更されません。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:308
 msgid "Manage players directly from the Check-in list:"
@@ -170,18 +150,8 @@ msgid "Rebalance"
 msgstr "再調整"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:248
-msgid ""
-"Regenerates the current round with the same players but moves players around "
-"to balance the skill level of each court. This will aggressively optimize "
-"each court to have the highest chance of having a tie, but may not divide "
-"the court by level groups. Useful if you replace a player and need the "
-"matches to be balanced again."
-msgstr ""
-"同じプレイヤーで現在のラウンドを再生成しますが、各コートのスキルレベルのバラ"
-"ンスをとるためにプレイヤーを移動させます。これは、各コートが引き分けになる可"
-"能性が最も高くなるように積極的に最適化しますが、レベルグループごとにコートを"
-"分割しない場合があります。プレイヤーを交代させ、マッチのバランスを再度とる必"
-"要がある場合に便利です。"
+msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
+msgstr "同じプレイヤーで現在のラウンドを再生成しますが、各コートのスキルレベルのバランスをとるためにプレイヤーを移動させます。これは、各コートが引き分けになる可能性が最も高くなるように積極的に最適化しますが、レベルグループごとにコートを分割しない場合があります。プレイヤーを交代させ、マッチのバランスを再度とる必要がある場合に便利です。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:81
 msgid "Reset"
@@ -228,35 +198,20 @@ msgid "Sync Scores"
 msgstr "スコアを同期"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:185
-msgid ""
-"The Draw Generator allows you to create matches based on different "
-"strategies:"
-msgstr ""
-"ドロージェネレーターを使用すると、さまざまな戦略に基づいてマッチを作成できま"
-"す："
+msgid "The Draw Generator allows you to create matches based on different strategies:"
+msgstr "ドロージェネレーターを使用すると、さまざまな戦略に基づいてマッチを作成できます："
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:389
-msgid ""
-"The Event Manager works offline! All data is saved locally to your device."
-msgstr ""
-"イベントマネージャーはオフラインで動作します！すべてのデータはデバイスにロー"
-"カルに保存されます。"
+msgid "The Event Manager works offline! All data is saved locally to your device."
+msgstr "イベントマネージャーはオフラインで動作します！すべてのデータはデバイスにローカルに保存されます。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:339
-msgid ""
-"to adjust player ratings (seeds) for the event. This affects matchmaking but "
-"not their permanent rating."
-msgstr ""
-"して、イベントのプレイヤーレーティング（シード）を調整します。これはマッチメ"
-"イキングに影響しますが、恒久的なレーティングには影響しません。"
+msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
+msgstr "して、イベントのプレイヤーレーティング（シード）を調整します。これはマッチメイキングに影響しますが、恒久的なレーティングには影響しません。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:330
-msgid ""
-"to create Teams (always play together) or Anti-Teams (never play together on "
-"the same court)."
-msgstr ""
-"して、チーム（常に一緒にプレイ）またはアンチチーム（同じコートで一緒にプレイ"
-"しない）を作成します。"
+msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
+msgstr "して、チーム（常に一緒にプレイ）またはアンチチーム（同じコートで一緒にプレイしない）を作成します。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:45
 msgid "Toggle player attendance. Green means checked in."
@@ -272,21 +227,9 @@ msgid "Use the"
 msgstr "を使用"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:220
-msgid ""
-"You can also adjust the number of courts. The system requires 4 players per "
-"court."
-msgstr ""
-"コート数を調整することもできます。システムにはコートごとに4人のプレイヤーが必"
-"要です。"
+msgid "You can also adjust the number of courts. The system requires 4 players per court."
+msgstr "コート数を調整することもできます。システムにはコートごとに4人のプレイヤーが必要です。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:392
-msgid ""
-"You can run an entire event without internet. Just make sure to Sync Scores "
-"when you have a connection again to save the results."
-msgstr ""
-"インターネットなしでイベント全体を実行できます。結果を保存するために、接続が"
-"復旧したら必ずスコアを同期してください。"
-
-#: src/components/pages/EventManagerGuidePage.re.mjs:65
-#~ msgid "Generate new draws or rebalance the current round."
-#~ msgstr "新しいドローを生成するか、現在のラウンドを再調整します。"
+msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
+msgstr "インターネットなしでイベント全体を実行できます。結果を保存するために、接続が復旧したら必ずスコアを同期してください。"

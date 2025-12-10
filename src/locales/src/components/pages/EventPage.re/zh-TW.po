@@ -119,12 +119,8 @@ msgid "Email address"
 msgstr "電子郵件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:153
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
-"件地址登入。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵件地址登入。"
 
 #: src/components/organisms/ProfileModal.re.mjs:230
 msgid "Email cannot be changed"
@@ -238,8 +234,7 @@ msgid "Professional players"
 msgstr "職業球員"
 
 #: src/components/atoms/EventTag.re.mjs:56
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:138
@@ -301,25 +296,16 @@ msgid "sync calendar"
 msgstr "同步日曆"
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"此活動已滿，所以退出活動將把您的名額給等待列表上的人。如果您重新加入，您將加"
-"入等待列表。您確定要退出此活動嗎？"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "此活動已滿，所以退出活動將把您的名額給等待列表上的人。如果您重新加入，您將加入等待列表。您確定要退出此活動嗎？"
 
 #: src/components/pages/EventPage.re.mjs:256
 #: src/components/pages/EventPage.re.mjs:285
-msgid ""
-"This event is private and cannot be joined on Pkuru.com. Do not show up to "
-"the event without permission."
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
 msgstr "此活動為私人活動，無法透過 Pkuru.com 加入。未經許可請勿前往活動現場。"
 
 #: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
 #: src/components/organisms/ProfileModal.re.mjs:205
@@ -327,18 +313,13 @@ msgid "This is how others will see you"
 msgstr "這是其他人會看到的名字"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
-"限制其報名嗎？"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要限制其報名嗎？"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」。"
 
 #: src/components/pages/EventPage.re.mjs:161
@@ -390,10 +371,5 @@ msgid "You're Waitlisted"
 msgstr "您在等待列表"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"您的評分 {0} ~ {1} (DUPR {2} ~ {3}) 太低。您將被放在待審核名單中，直到評分限"
-"制降低。請加入另一個 JPL 評級活動以提高您的評分。"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "您的評分 {0} ~ {1} (DUPR {2} ~ {3}) 太低。您將被放在待審核名單中，直到評分限制降低。請加入另一個 JPL 評級活動以提高您的評分。"

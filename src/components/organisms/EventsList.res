@@ -18,6 +18,7 @@ module Fragment = %relay(`
       user {
         ...EventItem_user
       }
+      ...AddEventButton_viewer
       clubs(first: 100) {
         edges {
           node {
@@ -280,7 +281,8 @@ let sortByDate = (
       | true =>
         switch dates->Js.Dict.get(startDateString) {
         | None => dates->Js.Dict.set(startDateString, [event])
-        | Some(events) => dates->Js.Dict.set(startDateString, [event, ...events])
+        | Some(events) => dates->Js.Dict.set(startDateString, [...events, event])
+        // | Some(events) => dates->Js.Dict.set(startDateString, Array.concat(events, [event]))
         }
       | false => ()
       }
@@ -290,7 +292,7 @@ let sortByDate = (
     | None =>
       switch dates->Js.Dict.get(startDateString) {
       | None => dates->Js.Dict.set(startDateString, [event])
-      | Some(events) => dates->Js.Dict.set(startDateString, [event, ...events])
+      | Some(events) => dates->Js.Dict.set(startDateString, [...events, event])
       }
     | _ => ()
     }
@@ -506,7 +508,9 @@ let make = (~events, ~header: React.element, ~context: AIAssistantModal.context=
               <AddToCalendar />
             </div>
             <div className="mx-4 mb-4 mt-4">
-              <AddEventButton context />
+              {viewer
+              ->Option.map(v => <AddEventButton context viewer={v.fragmentRefs} />)
+              ->Option.getOr(React.null)}
             </div>
             {filterByDate
             ->Option.map(_ =>

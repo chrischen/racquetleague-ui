@@ -26,6 +26,10 @@ msgstr "發生錯誤: {message}"
 msgid "Back to events"
 msgstr "返回活動"
 
+#: src/components/pages/LoginPage.re.mjs:91
+#~ msgid "cancel login"
+#~ msgstr "取消登入"
+
 #: src/components/pages/LoginPage.re.mjs:73
 #: src/components/pages/LoginPage.re.mjs:75
 msgid "Check your email for a magic link to sign in!"
@@ -35,9 +39,21 @@ msgstr "請檢查您的電子郵件以取得魔術連結登入！"
 msgid "Continue with LINE"
 msgstr "透過 LINE 繼續"
 
+#: src/components/pages/LoginPage.re.mjs:64
+#~ msgid "display name"
+#~ msgstr "顯示名稱"
+
+#: src/components/pages/LoginPage.re.mjs:44
+#~ msgid "email address"
+#~ msgstr "電子郵件地址"
+
 #: src/components/pages/LoginPage.re.mjs:217
 msgid "Email address"
 msgstr "電子郵件地址"
+
+#: src/components/pages/LoginPage.re.mjs:55
+#~ msgid "event organizers and other users cannot view your email"
+#~ msgstr "活動主辦單位和其他使用者無法查看您的電子郵件"
 
 #: src/components/pages/LoginPage.re.mjs:71
 msgid "Failed to send magic link: {0}"
@@ -47,54 +63,22 @@ msgstr "發送魔術連結失敗: {0}"
 msgid "Login failed: {0}"
 msgstr "登入失敗: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:166
-msgid "New users will be automatically registered"
-msgstr "新用戶將自動註冊"
-
-#: src/components/pages/LoginPage.re.mjs:204
-msgid "or continue with email"
-msgstr "或使用電子郵件繼續"
-
-#: src/components/pages/LoginPage.re.mjs:258
-msgid "Send magic link"
-msgstr "發送魔術連結"
-
-#: src/components/pages/LoginPage.re.mjs:162
-msgid "Sign in to Pkuru.com"
-msgstr "登入 Pkuru.com"
-
-#: src/components/pages/LoginPage.re.mjs:101
-msgid ""
-"Your LINE account does not have an email associated. Please set an email "
-"address for your account from the LINE app, and then try again."
-msgstr ""
-"您的 LINE 帳戶沒有關聯電子郵件地址。請從 LINE 應用程式為您的帳戶設定電子郵件"
-"地址，然後重試。"
-
-#: src/components/pages/LoginPage.re.mjs:91
-#~ msgid "cancel login"
-#~ msgstr "取消登入"
-
-#: src/components/pages/LoginPage.re.mjs:64
-#~ msgid "display name"
-#~ msgstr "顯示名稱"
-
-#: src/components/pages/LoginPage.re.mjs:44
-#~ msgid "email address"
-#~ msgstr "電子郵件地址"
-
-#: src/components/pages/LoginPage.re.mjs:55
-#~ msgid "event organizers and other users cannot view your email"
-#~ msgstr "活動主辦單位和其他使用者無法查看您的電子郵件"
-
 #: src/components/pages/LoginPage.re.mjs:28
 #: src/components/pages/LoginPage.re.mjs:85
 #~ msgid "login with Line"
 #~ msgstr "使用 Line 登入"
 
+#: src/components/pages/LoginPage.re.mjs:166
+msgid "New users will be automatically registered"
+msgstr "新用戶將自動註冊"
+
 #: src/components/pages/LoginPage.re.mjs:51
 #~ msgid "notification of updates or cancellations to events (you can opt out)"
 #~ msgstr "活動更新或取消的通知（您可以選擇退出）"
+
+#: src/components/pages/LoginPage.re.mjs:204
+msgid "or continue with email"
+msgstr "或使用電子郵件繼續"
 
 #: src/components/pages/LoginPage.re.mjs:32
 #~ msgid "privacy disclosure"
@@ -109,10 +93,22 @@ msgstr ""
 #~ msgid "publicly displayed on event attendance lists"
 #~ msgstr "在活動出席名單上公開顯示"
 
+#: src/components/pages/LoginPage.re.mjs:258
+msgid "Send magic link"
+msgstr "發送魔術連結"
+
 #: src/components/pages/LoginPage.re.mjs:88
 #~ msgid "Sign in to Events"
 #~ msgstr "登入活動"
 
+#: src/components/pages/LoginPage.re.mjs:162
+msgid "Sign in to Pkuru.com"
+msgstr "登入 Pkuru.com"
+
 #: src/components/pages/LoginPage.re.mjs:38
 #~ msgid "we will collect the following information from your Line account"
 #~ msgstr "我們將從您的 Line 帳戶收集以下資訊"
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
+msgstr "您的 LINE 帳戶沒有關聯電子郵件地址。請從 LINE 應用程式為您的帳戶設定電子郵件地址，然後重試。"

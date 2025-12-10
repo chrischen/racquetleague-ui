@@ -17,9 +17,21 @@ msgstr ""
 msgid "japan pickle league"
 msgstr "ลีกพิคเกิลบอลญี่ปุ่น"
 
+#: src/components/pages/LeaguePage.re.mjs:58
+#~ msgid "Mach 2 Forza Paddle"
+#~ msgstr "Mach 2 Forza Paddle"
+
+#: src/components/pages/LeaguePage.re.mjs:64
+#~ msgid "Multiple colors available."
+#~ msgstr "มีหลายสีให้เลือก"
+
 #: src/components/pages/LeaguePage.re.mjs:29
 msgid "Next Prize: December 31"
 msgstr "รางวัลถัดไป: 31 ธันวาคม"
+
+#: src/components/pages/LeaguePage.re.mjs:31
+#~ msgid "Next Prize: September 10"
+#~ msgstr "รางวัลครั้งต่อไป: 10 กันยายน"
 
 #: src/components/pages/LeaguePage.re.mjs:51
 msgid "Proton Flamingo Paddle"
@@ -34,8 +46,7 @@ msgid "Selkirk Labs Paddle Cover"
 msgstr "ปลอกไม้ตี Selkirk Labs"
 
 #: src/components/pages/LeaguePage.re.mjs:33
-msgid ""
-"This prize will be awarded to the top male and female players on this day."
+msgid "This prize will be awarded to the top male and female players on this day."
 msgstr "รางวัลนี้จะมอบให้กับผู้เล่นชายและหญิงอันดับต้นในวันนี้"
 
 #: src/components/pages/LeaguePage.re.mjs:111
@@ -45,18 +56,6 @@ msgstr "ลีกแบดมินตันโตกยว"
 #: src/components/pages/LeaguePage.re.mjs:56
 msgid "Top female and top male players will each receive the prize."
 msgstr "ผู้เล่นหญิงและชายอันดับ 1 จะได้รับรางวัลคนละรางวัล"
-
-#: src/components/pages/LeaguePage.re.mjs:58
-#~ msgid "Mach 2 Forza Paddle"
-#~ msgstr "Mach 2 Forza Paddle"
-
-#: src/components/pages/LeaguePage.re.mjs:64
-#~ msgid "Multiple colors available."
-#~ msgstr "มีหลายสีให้เลือก"
-
-#: src/components/pages/LeaguePage.re.mjs:31
-#~ msgid "Next Prize: September 10"
-#~ msgstr "รางวัลครั้งต่อไป: 10 กันยายน"
 
 #: src/components/pages/LeaguePage.re.mjs:130
 #~ msgid "volair pickleball"

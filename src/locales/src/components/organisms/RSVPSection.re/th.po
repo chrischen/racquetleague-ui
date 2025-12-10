@@ -38,6 +38,10 @@ msgstr "ย่อ"
 msgid "Going"
 msgstr "จะไป"
 
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "เข้าร่วม"
+
 #: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
 msgstr "เข้าร่วมกิจกรรม"
@@ -102,31 +106,25 @@ msgstr "บันทึก"
 msgid "See all"
 msgstr "ดูทั้งหมด"
 
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "แสดงทั้งหมด"
+
 #: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
-"คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
-"หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
 #: src/components/organisms/RsvpOptions.re.mjs:163
@@ -150,19 +148,5 @@ msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
-"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
-"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
-
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "เข้าร่วม"
-
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "แสดงทั้งหมด"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"

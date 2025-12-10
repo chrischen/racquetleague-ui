@@ -14,62 +14,62 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1302
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1318
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1306
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1322
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1310
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1326
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1314
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
 msgid "Futsal"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1318
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1334
 msgid "Basketball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1322
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1338
 msgid "Volleyball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1326
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1342
 msgid "Crossminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1346
 msgid "Padel"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1334
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1350
 msgid "drill"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1338
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1354
 msgid "comp"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1342
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1358
 msgid "rec"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1346
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1362
 msgid "all level"
 msgstr ""
 
@@ -77,19 +77,19 @@ msgstr ""
 #~ msgid "{0} event details"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+#: src/components/organisms/CreateLocationEventForm.re.mjs:422
 msgid "{0} hours"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:412
+#: src/components/organisms/CreateLocationEventForm.re.mjs:422
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:414
+#: src/components/organisms/CreateLocationEventForm.re.mjs:424
 msgid "{0} minutes"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:509
+#: src/components/organisms/CreateLocationEventForm.re.mjs:519
 msgid "+ Add new club..."
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 #~ msgid "activity"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:558
+#: src/components/organisms/CreateLocationEventForm.re.mjs:568
 msgid "Activity"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "activity is required"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:851
+#: src/components/organisms/CreateLocationEventForm.re.mjs:867
 msgid "Add any additional information about the event..."
 msgstr ""
 
@@ -145,7 +145,7 @@ msgstr ""
 #~ msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:337
+#: src/components/organisms/CreateLocationEventForm.re.mjs:347
 msgid "at"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1076
 msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
 msgstr ""
 
@@ -181,11 +181,11 @@ msgstr ""
 #~ msgid "club"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:492
+#: src/components/organisms/CreateLocationEventForm.re.mjs:502
 msgid "Club"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:898
+#: src/components/organisms/CreateLocationEventForm.re.mjs:914
 msgid "Club & Activity"
 msgstr ""
 
@@ -201,8 +201,8 @@ msgstr ""
 msgid "club-name"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:348
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1014
+#: src/components/organisms/CreateLocationEventForm.re.mjs:358
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
 msgid "Competitive"
 msgstr ""
 
@@ -210,7 +210,7 @@ msgstr ""
 msgid "Create Club"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1286
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1302
 msgid "Create Event"
 msgstr ""
 
@@ -234,18 +234,18 @@ msgstr ""
 #~ msgid "details specific to this event on the specified date and time."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:574
+#: src/components/organisms/CreateLocationEventForm.re.mjs:584
 msgid "Done"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:356
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1097
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1127
+#: src/components/organisms/CreateLocationEventForm.re.mjs:366
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1113
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1143
 msgid "Drill session"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:353
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1078
+#: src/components/organisms/CreateLocationEventForm.re.mjs:363
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1094
 msgid "DUPR rated"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 #~ msgid "end time"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:805
+#: src/components/organisms/CreateLocationEventForm.re.mjs:821
 msgid "End time"
 msgstr ""
 
@@ -277,11 +277,11 @@ msgstr ""
 #~ msgid "event details"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:916
+#: src/components/organisms/CreateLocationEventForm.re.mjs:932
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:847
+#: src/components/organisms/CreateLocationEventForm.re.mjs:863
 msgid "Event details (optional)"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgstr ""
 msgid "Event or Location doesn't exist."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:701
+#: src/components/organisms/CreateLocationEventForm.re.mjs:711
 msgid "Event schedule"
 msgstr ""
 
@@ -301,32 +301,32 @@ msgstr ""
 #~ msgid "Event tag: {tag}"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:822
+#: src/components/organisms/CreateLocationEventForm.re.mjs:838
 msgid "Event title"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1003
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1019
 msgid "Event type"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1165
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1181
 msgid "Find Players"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1214
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1230
 msgid "Find players for your event?"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:965
+#: src/components/organisms/CreateLocationEventForm.re.mjs:981
 msgid "Format"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1071
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1122
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1087
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1138
 msgid "Format options"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
 msgid "Friday Night Pickleball"
 msgstr ""
 
@@ -346,7 +346,7 @@ msgstr ""
 #~ msgid "list publicly"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1219
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1235
 msgid "List your event publicly to help fill open spots"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr ""
 #~ msgid "max participants"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:834
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
 msgid "Max RSVPs (optional)"
 msgstr ""
 
@@ -402,15 +402,15 @@ msgstr ""
 #~ msgid "name is required"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:642
+#: src/components/organisms/CreateLocationEventForm.re.mjs:652
 msgid "No club"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:499
+#: src/components/organisms/CreateLocationEventForm.re.mjs:509
 msgid "No club / Independent event"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:838
+#: src/components/organisms/CreateLocationEventForm.re.mjs:854
 msgid "No limit"
 msgstr ""
 
@@ -418,12 +418,12 @@ msgstr ""
 #~ msgid "No restriction on skill level. Open to all players."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:342
-#: src/components/organisms/CreateLocationEventForm.re.mjs:361
+#: src/components/organisms/CreateLocationEventForm.re.mjs:352
+#: src/components/organisms/CreateLocationEventForm.re.mjs:371
 msgid "Not set"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:366
+#: src/components/organisms/CreateLocationEventForm.re.mjs:376
 msgid "Private event"
 msgstr ""
 
@@ -431,20 +431,20 @@ msgstr ""
 #~ msgid "Professional players"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:379
+#: src/components/organisms/CreateLocationEventForm.re.mjs:389
 msgid "Public"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:381
+#: src/components/organisms/CreateLocationEventForm.re.mjs:391
 msgid "Public event"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+#: src/components/organisms/CreateLocationEventForm.re.mjs:895
 msgid "Read more..."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:350
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1010
+#: src/components/organisms/CreateLocationEventForm.re.mjs:360
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1026
 msgid "Recreational"
 msgstr ""
 
@@ -476,11 +476,11 @@ msgstr ""
 #~ msgid "Select tags that best describe this event"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1076
 msgid "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+#: src/components/organisms/CreateLocationEventForm.re.mjs:895
 msgid "Show less"
 msgstr ""
 
@@ -488,7 +488,7 @@ msgstr ""
 #~ msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1230
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1246
 msgid "Skill level"
 msgstr ""
 
@@ -500,7 +500,7 @@ msgstr ""
 #~ msgid "slug"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:794
+#: src/components/organisms/CreateLocationEventForm.re.mjs:804
 msgid "Start date and time"
 msgstr ""
 
@@ -528,7 +528,7 @@ msgstr ""
 #~ msgid "type of event"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1286
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1302
 msgid "Update Event"
 msgstr ""
 

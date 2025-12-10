@@ -38,9 +38,17 @@ msgstr "DUPR ที่คาดการณ์"
 msgid "Even"
 msgstr "สมดุล"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:131
+#~ msgid "Female"
+#~ msgstr "หญิง"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:194
+#~ msgid "Loading rankings..."
+#~ msgstr "กำลังโหลดการจัดอันดับ..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:193
 msgid "Loading..."
@@ -50,37 +58,6 @@ msgstr "กำลังโหลด..."
 #: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "LOSS"
 msgstr "แพ้"
-
-#: src/components/organisms/RatingGraphWrapper.re.mjs:176
-msgid "Rating History"
-msgstr "ประวัติเรตติ้ง"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:184
-msgid "Recent Matches"
-msgstr "การแข่งขันล่าสุด"
-
-#: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
-msgstr "พื้นที่แรเงาแสดงถึงความไม่แน่นอนของเรตติ้ง แถบที่แคบกว่าบ่งบอกถึงความมั่นใจที่สูงขึ้น"
-
-#: src/components/organisms/MatchHistoryList.re.mjs:630
-msgid "Upset"
-msgstr "ผลลัพธ์ที่คาดไม่ถึง"
-
-#: src/components/organisms/MatchHistoryList.re.mjs:521
-#: src/components/organisms/MatchHistoryList.re.mjs:585
-msgid "WIN"
-msgstr "ชนะ"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:131
-#~ msgid "Female"
-#~ msgstr "หญิง"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:194
-#~ msgid "Loading rankings..."
-#~ msgstr "กำลังโหลดการจัดอันดับ..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:133
 #~ msgid "Male"
@@ -101,6 +78,27 @@ msgstr "ชนะ"
 #~ msgid "Rating"
 #~ msgstr "เรตติ้ง"
 
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "ประวัติเรตติ้ง"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr "การแข่งขันล่าสุด"
+
 #: src/components/organisms/MatchList.re.mjs:292
 #~ msgid "Score:"
 #~ msgstr "คะแนน:"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr "พื้นที่แรเงาแสดงถึงความไม่แน่นอนของเรตติ้ง แถบที่แคบกว่าบ่งบอกถึงความมั่นใจที่สูงขึ้น"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "ผลลัพธ์ที่คาดไม่ถึง"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "ชนะ"

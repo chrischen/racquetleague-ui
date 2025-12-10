@@ -18,15 +18,11 @@ msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr "：每個人都與每個人比賽的經典循環賽格式。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:194
-msgid ""
-": Players are divided into similar skill levels. Teams are balanced to "
-"create close matches."
+msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
 msgstr "：球員被分為相似的技能水平。團隊平衡以創建勢均力敵的比賽。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:202
-msgid ""
-": Teams are balanced by skill, but players are not strictly separated by "
-"level."
+msgid ": Teams are balanced by skill, but players are not strictly separated by level."
 msgstr "：團隊根據技能平衡，但球員不嚴格按級別分開。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:141
@@ -66,10 +62,12 @@ msgid "Edit player details like name, gender, or payment status."
 msgstr "編輯球員詳細信息，如姓名、性別或付款狀態。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:354
-msgid ""
-"Enter scores directly on the match cards. Tap to select a winner, or press "
-"and hold to input the score as well."
+msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
 msgstr "直接在比賽卡上輸入分數。點擊選擇獲勝者，或按住以輸入分數。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:41
+#~ msgid "Entering Results"
+#~ msgstr "輸入結果"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:350
 msgid "Entering Results & Syncing"
@@ -82,6 +80,10 @@ msgstr "賽事管理器指南"
 #: src/components/pages/EventManagerGuidePage.re.mjs:61
 msgid "Generate / Rebalance"
 msgstr "生成 / 重新平衡"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+#~ msgid "Generate new draws or rebalance the current round."
+#~ msgstr "生成新的抽籤或重新平衡當前輪次。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:65
 msgid "Generate new draws or rebalance the round or match."
@@ -104,16 +106,8 @@ msgid "Icons Guide"
 msgstr "圖示指南"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:217
-msgid ""
-"In Competitive or Mixed mode, the system will regenerate future matches when "
-"you select the winner of the matches in the current or past rounds. This is "
-"recommended in order to optimize future rounds based on the new data. In "
-"Round-Robin mode, the future rounds will not change unless you manually "
-"change them."
-msgstr ""
-"在競技或混合模式下，當您選擇當前或過去輪次比賽的獲勝者時，系統將重新生成未來"
-"的比賽。建議這樣做是為了根據新數據優化未來的輪次。在循環賽模式下，除非您手動"
-"更改，否則未來的輪次不會改變。"
+msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
+msgstr "在競技或混合模式下，當您選擇當前或過去輪次比賽的獲勝者時，系統將重新生成未來的比賽。建議這樣做是為了根據新數據優化未來的輪次。在循環賽模式下，除非您手動更改，否則未來的輪次不會改變。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:308
 msgid "Manage players directly from the Check-in list:"
@@ -160,16 +154,8 @@ msgid "Rebalance"
 msgstr "重新平衡"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:248
-msgid ""
-"Regenerates the current round with the same players but moves players around "
-"to balance the skill level of each court. This will aggressively optimize "
-"each court to have the highest chance of having a tie, but may not divide "
-"the court by level groups. Useful if you replace a player and need the "
-"matches to be balanced again."
-msgstr ""
-"使用相同的球員重新生成當前輪次，但移動球員以平衡每個場地的技能水平。這將積極"
-"優化每個場地，使其最有可能出現平局，但可能不會按級別組劃分場地。如果您更換了"
-"球員並需要再次平衡比賽，這將非常有用。"
+msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
+msgstr "使用相同的球員重新生成當前輪次，但移動球員以平衡每個場地的技能水平。這將積極優化每個場地，使其最有可能出現平局，但可能不會按級別組劃分場地。如果您更換了球員並需要再次平衡比賽，這將非常有用。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:81
 msgid "Reset"
@@ -216,26 +202,19 @@ msgid "Sync Scores"
 msgstr "同步比分"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:185
-msgid ""
-"The Draw Generator allows you to create matches based on different "
-"strategies:"
+msgid "The Draw Generator allows you to create matches based on different strategies:"
 msgstr "抽籤生成器允許您根據不同的策略創建比賽："
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:389
-msgid ""
-"The Event Manager works offline! All data is saved locally to your device."
+msgid "The Event Manager works offline! All data is saved locally to your device."
 msgstr "賽事管理器離線工作！所有數據都本地保存在您的設備上。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:339
-msgid ""
-"to adjust player ratings (seeds) for the event. This affects matchmaking but "
-"not their permanent rating."
+msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
 msgstr "調整賽事的球員評分（種子）。這會影響匹配，但不會影響他們的永久評分。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:330
-msgid ""
-"to create Teams (always play together) or Anti-Teams (never play together on "
-"the same court)."
+msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
 msgstr "創建團隊（總是一起比賽）或反團隊（從不在同一場地上一起比賽）。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:45
@@ -252,23 +231,9 @@ msgid "Use the"
 msgstr "使用"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:220
-msgid ""
-"You can also adjust the number of courts. The system requires 4 players per "
-"court."
+msgid "You can also adjust the number of courts. The system requires 4 players per court."
 msgstr "您還可以調整場地數量。系統要求每個場地 4 名球員。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:392
-msgid ""
-"You can run an entire event without internet. Just make sure to Sync Scores "
-"when you have a connection again to save the results."
-msgstr ""
-"您可以在沒有互聯網的情況下運行整個賽事。只需確保在再次連接時同步分數以保存結"
-"果。"
-
-#: src/components/pages/EventManagerGuidePage.re.mjs:41
-#~ msgid "Entering Results"
-#~ msgstr "輸入結果"
-
-#: src/components/pages/EventManagerGuidePage.re.mjs:65
-#~ msgid "Generate new draws or rebalance the current round."
-#~ msgstr "生成新的抽籤或重新平衡當前輪次。"
+msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
+msgstr "您可以在沒有互聯網的情況下運行整個賽事。只需確保在再次連接時同步分數以保存結果。"

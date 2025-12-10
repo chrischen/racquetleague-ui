@@ -82,7 +82,7 @@ msgstr ""
 msgid "🚫 CANCELED"
 msgstr ""
 
-#: src/components/organisms/AddEventButton.re.mjs:35
+#: src/components/organisms/AddEventButton.re.mjs:79
 msgid "Add an Event"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Cancel Request"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:440
+#: src/components/organisms/ClubEventsList.re.mjs:443
 msgid "clear filter"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:438
+#: src/components/organisms/ClubEventsList.re.mjs:441
 msgid "filtering by date"
 msgstr ""
 
