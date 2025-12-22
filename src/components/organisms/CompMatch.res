@@ -267,7 +267,7 @@ let make = (
             strats
             ->Array.find(tab => tab.name == (e->ReactEvent.Form.target)["value"])
             ->Option.map(s => s.strategy)
-            ->Option.getOr(Competitive),
+            ->Option.getOr(CompetitivePlus),
           )
         }}
         defaultValue={strats

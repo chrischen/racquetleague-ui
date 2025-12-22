@@ -1914,35 +1914,63 @@ function generateMatches(players$1, history, strategy, numMatches, avoidAllPlaye
     if (remaining <= 0) {
       return accumulated;
     }
-    var teamConstraintsNonEmpty = Core__Option.flatMap(teamConstraints, (function (arr) {
-            if (arr.length > 0) {
-              return arr;
-            }
-            
-          }));
     var availablePlayers = players$1.filter((function(consumedPlayers){
         return function (p) {
           return !consumedPlayers.has(p.id);
         }
         }(consumedPlayers)));
+    var availablePlayerIds = new Set(availablePlayers.map(function (p) {
+              return p.id;
+            }));
+    var filteredTeamConstraints = Core__Option.map(teamConstraints, (function(availablePlayerIds){
+        return function (constraints) {
+          return constraints.filter(function (constraintSet) {
+                      var constraintPlayerIds = Array.from(constraintSet.values());
+                      return constraintPlayerIds.every(function (playerId) {
+                                  return availablePlayerIds.has(playerId);
+                                });
+                    });
+        }
+        }(availablePlayerIds)));
+    var teamConstraintsNonEmpty = Core__Option.flatMap(filteredTeamConstraints, (function (arr) {
+            if (arr.length > 0) {
+              return arr;
+            }
+            
+          }));
     var teamConstraintsAsTeams = teamConstraintsNonEmpty !== undefined ? Util.NonEmptyArray.fromArray(teamConstraintsNonEmpty.map(function (constraintSet) {
                 return players$1.filter(function (p) {
                             return constraintSet.has(p.id);
                           });
               })) : undefined;
-    var getCandidateMatches = (function(consumedPlayers,teamConstraintsNonEmpty,availablePlayers){
+    var getCandidateMatches = (function(consumedPlayers,availablePlayers,teamConstraintsNonEmpty){
     return function getCandidateMatches(useMixed) {
       if (teamConstraintsNonEmpty === undefined) {
         return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
       }
-      var matchesWithConstraints = getMatches(availablePlayers, consumedPlayers, "Mixed", [], avoidAllPlayers, teamConstraintsNonEmpty, undefined, courts, useMixed);
-      if (matchesWithConstraints.length === 0) {
-        return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
-      } else {
+      var matchesWithConstraints = getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, teamConstraintsNonEmpty, undefined, courts, useMixed);
+      if (matchesWithConstraints.length !== 0) {
         return matchesWithConstraints;
       }
+      var constraintPlayerIds = Core__Option.getOr(Core__Option.map(teamConstraintsNonEmpty, (function (constraints) {
+                  return Core__Array.reduce(constraints, new Set(), (function (acc, constraintSet) {
+                                Array.from(constraintSet.values()).forEach(function (id) {
+                                      acc.add(id);
+                                    });
+                                return acc;
+                              }));
+                })), new Set());
+      var availablePlayersWithoutConstraints = availablePlayers.filter(function (p) {
+            return !constraintPlayerIds.has(p.id);
+          });
+      var matchesWithoutConstraintPlayers = getMatches(availablePlayersWithoutConstraints, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
+      if (matchesWithoutConstraintPlayers.length === 0) {
+        return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
+      } else {
+        return matchesWithoutConstraintPlayers;
+      }
     }
-    }(consumedPlayers,teamConstraintsNonEmpty,availablePlayers));
+    }(consumedPlayers,availablePlayers,teamConstraintsNonEmpty));
     var matches = getCandidateMatches(genderMixed);
     var selectedMatch = recommendMatch(matches, seenTeamsFromHistory, seenMatchesFromHistory, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraintsAsTeams, strategy, teamCountDict);
     var selectedMatch$1;
@@ -2396,7 +2424,6 @@ function generateRoundsRec(_roundNumber, _roundsToGenerate, _availablePlayers, c
     if (availablePlayers.length < (courtCount << 2)) {
       return accumulatedRounds;
     }
-    console.log("Generating round " + roundNumber.toString());
     var breakCount = courtCount === 0 ? 0 : availablePlayers.length - (courtCount << 2) | 0;
     var allRounds = completedRounds.concat(accumulatedRounds);
     var deprioritizedPlayerIds = getDeprioritizedPlayers(allRounds, availablePlayers, breakCount, strategy);

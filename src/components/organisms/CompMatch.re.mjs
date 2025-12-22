@@ -319,7 +319,7 @@ function CompMatch(props) {
                                                     return tab.name === e.target.value;
                                                   }), (function (s) {
                                                   return s.strategy;
-                                                })), "Competitive"));
+                                                })), "CompetitivePlus"));
                                 })
                             })
                       ],

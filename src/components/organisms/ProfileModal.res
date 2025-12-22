@@ -39,7 +39,10 @@ let schema = Zod.z->Zod.object(
   (
     {
       lineUsername: Zod.z
-      ->Zod.string({required_error: ts`Display name is required`})
+      ->Zod.preprocess(
+        v => v->String.trim,
+        Zod.z->Zod.string({required_error: ts`Display name is required`}),
+      )
       ->Zod.String.min(1),
       email: Zod.z->Zod.string({required_error: ts`Email is required`})->Zod.String.min(1),
     }: inputs

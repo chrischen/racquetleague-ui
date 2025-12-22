@@ -93,6 +93,15 @@ var schema = Zod.z.object({
       listed: Zod.z.boolean({})
     });
 
+function calculateDurationHours(startDateTime, endDateTime) {
+  var diffInMillis = DateFns.getTime(endDateTime) - DateFns.getTime(startDateTime);
+  var durationHours = diffInMillis / (1000.0 * 60.0 * 60.0);
+  if (durationHours > 0.0) {
+    return durationHours;
+  }
+  
+}
+
 function CreateLocationEventForm(props) {
   var prefilledValues = props.prefilledValues;
   var eventId = props.eventId;
@@ -137,7 +146,6 @@ function CreateLocationEventForm(props) {
         activity: defaultActivityId,
         listed: false
       });
-  console.log(defaultFormValues);
   var match$2 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: defaultFormValues
@@ -177,36 +185,41 @@ function CreateLocationEventForm(props) {
   var setIsUserInitiatedChange = match$4[1];
   var isUserInitiatedChange = match$4[0];
   var match$5 = React.useState(function () {
-        return false;
+        return 2.0;
       });
-  var setIsClubActivitySelectorActive = match$5[1];
-  var isClubActivitySelectorActive = match$5[0];
+  var setEventDurationHours = match$5[1];
+  var eventDurationHours = match$5[0];
   var match$6 = React.useState(function () {
         return false;
       });
-  var setShowAddClub = match$6[1];
-  var showAddClub = match$6[0];
+  var setIsClubActivitySelectorActive = match$6[1];
+  var isClubActivitySelectorActive = match$6[0];
   var match$7 = React.useState(function () {
         return false;
       });
-  var setIsLocationDetailsExpanded = match$7[1];
-  var isLocationDetailsExpanded = match$7[0];
+  var setShowAddClub = match$7[1];
+  var showAddClub = match$7[0];
   var match$8 = React.useState(function () {
+        return false;
+      });
+  var setIsLocationDetailsExpanded = match$8[1];
+  var isLocationDetailsExpanded = match$8[0];
+  var match$9 = React.useState(function () {
         return Core__Option.orElse(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.clubId;
                         })), Core__Option.map(clubs[0], (function (c) {
                           return c.id;
                         })));
       });
-  var setSelectedClub = match$8[1];
-  var selectedClub = match$8[0];
-  var match$9 = React.useState(function () {
+  var setSelectedClub = match$9[1];
+  var selectedClub = match$9[0];
+  var match$10 = React.useState(function () {
         return Core__Option.getOr(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.tags;
                         })), ["all level"]);
       });
-  var setSelectedTags = match$9[1];
-  var selectedTags = match$9[0];
+  var setSelectedTags = match$10[1];
+  var selectedTags = match$10[0];
   var eventType = selectedTags.includes("comp") ? "competitive" : "recreational";
   var isDrill = selectedTags.includes("drill");
   var isDupr = selectedTags.includes("dupr");
@@ -231,14 +244,29 @@ function CreateLocationEventForm(props) {
           
         }), [formState.errors]);
   React.useEffect((function () {
-          if (!isUpdate && Core__Option.isNone(prefilledValues)) {
+          var hasPrefilledDates = Core__Option.isSome(Core__Option.flatMap(prefilledValues, (function (pf) {
+                      var match = pf.startDate;
+                      var match$1 = pf.endDate;
+                      if (match !== undefined && match$1 !== undefined && match !== "" && match$1 !== "") {
+                        return true;
+                      }
+                      
+                    })));
+          if (!isUpdate && !hasPrefilledDates) {
             var now = new Date();
             var currentISODate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
             var currentDate = DateFns.parseISO(currentISODate);
             var defaultStartDate = DateFns.format(currentDate, "yyyy-MM-dd'T'HH:00");
-            var defaultEndTime = DateFns.format(DateFns.addHours(DateFns.parseISO(defaultStartDate), 2.0), "HH:mm");
+            var defaultStartDateTime = DateFns.parseISO(defaultStartDate);
+            var defaultEndTime = DateFns.format(DateFns.addHours(defaultStartDateTime, 2.0), "HH:mm");
             setValue("startDate", defaultStartDate, undefined);
             setValue("endTime", defaultEndTime, undefined);
+            var defaultEndDateTime = DateFns.parse(defaultEndTime, "HH:mm", defaultStartDateTime);
+            Core__Option.map(calculateDurationHours(defaultStartDateTime, defaultEndDateTime), (function (duration) {
+                    setEventDurationHours(function (param) {
+                          return duration;
+                        });
+                  }));
           }
           
         }), []);
@@ -262,13 +290,37 @@ function CreateLocationEventForm(props) {
             Core__Option.map(prefilledValues.activitySlug, (function (slug) {
                     setValue("activity", activitySlugToId(slug), undefined);
                   }));
+            var match = prefilledValues.startDate;
+            var match$1 = prefilledValues.endDate;
+            if (match !== undefined && match$1 !== undefined && match !== "" && match$1 !== "") {
+              var startDateTime = DateFns.parseISO(match);
+              var endDateTime = DateFns.parse(match$1, "HH:mm", startDateTime);
+              Core__Option.map(calculateDurationHours(startDateTime, endDateTime), (function (duration) {
+                      setEventDurationHours(function (param) {
+                            return duration;
+                          });
+                    }));
+            }
+            
           }
           
         }), [prefilledValues]);
   React.useEffect((function () {
+          if (startDate !== undefined && !(!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean") && typeof startDate === "string" && endTime !== undefined && !(!Array.isArray(endTime) && (endTime === null || typeof endTime !== "object") && typeof endTime !== "string" && typeof endTime !== "number" && typeof endTime !== "boolean") && typeof endTime === "string" && startDate !== "" && endTime !== "") {
+            var startDateTime = DateFns.parseISO(startDate);
+            var endDateTime = DateFns.parse(endTime, "HH:mm", startDateTime);
+            Core__Option.map(calculateDurationHours(startDateTime, endDateTime), (function (duration) {
+                    setEventDurationHours(function (param) {
+                          return duration;
+                        });
+                  }));
+          }
+          
+        }), [endTime]);
+  React.useEffect((function () {
           if (isUserInitiatedChange) {
             if (startDate !== undefined && !(!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean") && typeof startDate === "string" && startDate !== "") {
-              var newEndTime = DateFns.format(DateFns.addHours(DateFns.parseISO(startDate), 2.0), "HH:mm");
+              var newEndTime = DateFns.format(DateFns.addHours(DateFns.parseISO(startDate), eventDurationHours), "HH:mm");
               setValue("endTime", newEndTime, undefined);
             }
             setIsUserInitiatedChange(function (param) {

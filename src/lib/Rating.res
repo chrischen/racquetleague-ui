@@ -1974,12 +1974,23 @@ let generateMatches = (
     if remaining <= 0 {
       accumulated
     } else {
-      // Convert teamConstraints from option<array> to NonEmptyArray.t
-      let teamConstraintsNonEmpty =
-        teamConstraints->Option.flatMap(arr => arr->Array.length > 0 ? Some(arr) : None)
-
       // Remove consumed players from playersWithRatings before calling getMatches
       let availablePlayers = players->Array.filter(p => !(consumedPlayers->Set.has(p.id)))
+      // @TODO: Move the "valid contraints" logic into a type
+      let availablePlayerIds = availablePlayers->Array.map(p => p.id)->Set.fromArray
+
+      // Filter out invalid team constraints (where at least one player is not available)
+      let filteredTeamConstraints = teamConstraints->Option.map(constraints => {
+        constraints->Array.filter(constraintSet => {
+          let constraintPlayerIds = constraintSet->Set.values->Array.fromIterator
+          // Keep constraint only if ALL players are in availablePlayers
+          constraintPlayerIds->Array.every(playerId => availablePlayerIds->Set.has(playerId))
+        })
+      })
+
+      // Convert teamConstraints from option<array> to NonEmptyArray.t
+      let teamConstraintsNonEmpty =
+        filteredTeamConstraints->Option.flatMap(arr => arr->Array.length > 0 ? Some(arr) : None)
 
       // Convert Set.t<string> constraints to Team.t<'a> (array<Player.t<'a>>)
       let teamConstraintsAsTeams = switch teamConstraintsNonEmpty {
@@ -1998,7 +2009,7 @@ let generateMatches = (
             let matchesWithConstraints = getMatches(
               availablePlayers,
               consumedPlayers,
-              Mixed, // Use Mixed strategy with team constraints
+              strategy, // Use original strategy with team constraints
               [],
               avoidAllPlayers,
               teamConstraintsNonEmpty,
@@ -2007,10 +2018,33 @@ let generateMatches = (
               useMixed,
             )
 
-            // If no matches found with constraints, retry without constraints using original strategy
+            // If no matches found with constraints, remove constraint players and try again
             if matchesWithConstraints->Array.length == 0 {
-              getMatches(
-                availablePlayers,
+              // Get all player IDs from all constraints
+              let constraintPlayerIds =
+                teamConstraintsNonEmpty
+                ->Option.map(constraints =>
+                  constraints->Array.reduce(Set.make(), (acc, constraintSet) => {
+                    constraintSet
+                    ->Set.values
+                    ->Array.fromIterator
+                    ->Array.forEach(
+                      id => {
+                        acc->Set.add(id)->ignore
+                      },
+                    )
+                    acc
+                  })
+                )
+                ->Option.getOr(Set.make())
+
+              // @TODO: Move player filtering logic in to an array<player> type
+              // Filter out constraint players from available players
+              let availablePlayersWithoutConstraints =
+                availablePlayers->Array.filter(p => !(constraintPlayerIds->Set.has(p.id)))
+
+              let matchesWithoutConstraintPlayers = getMatches(
+                availablePlayersWithoutConstraints,
                 consumedPlayers,
                 strategy, // Use original strategy
                 [],
@@ -2020,6 +2054,23 @@ let generateMatches = (
                 courts,
                 useMixed,
               )
+
+              // If still no matches, retry with all available players and no constraints
+              if matchesWithoutConstraintPlayers->Array.length == 0 {
+                getMatches(
+                  availablePlayers,
+                  consumedPlayers,
+                  strategy, // Use original strategy
+                  [],
+                  avoidAllPlayers,
+                  None, // Remove team constraints
+                  None,
+                  courts,
+                  useMixed,
+                )
+              } else {
+                matchesWithoutConstraintPlayers
+              }
             } else {
               matchesWithConstraints
             }
@@ -2483,7 +2534,6 @@ let rec generateRoundsRec = (
     // Not enough players, stop generating
     accumulatedRounds
   } else {
-    Js.log("Generating round " ++ Int.toString(roundNumber))
     // Calculate break count (number of players that should sit out)
     let breakCount = courtCount == 0 ? 0 : availablePlayers->Array.length - courtCount * 4
 

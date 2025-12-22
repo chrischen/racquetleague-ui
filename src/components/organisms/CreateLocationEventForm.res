@@ -167,6 +167,13 @@ type prefilledValues = {
   tags?: array<string>,
 }
 
+// Calculate duration in hours between start date and end time
+let calculateDurationHours = (startDateTime: Js.Date.t, endDateTime: Js.Date.t): option<float> => {
+  let diffInMillis = endDateTime->DateFns.getTime -. startDateTime->DateFns.getTime
+  let durationHours = diffInMillis /. (1000.0 *. 60.0 *. 60.0)
+  durationHours > 0.0 ? Some(durationHours) : None
+}
+
 @react.component
 let make = (
   ~eventId: option<string>=?,
@@ -227,7 +234,6 @@ let make = (
     }
   }
 
-  Js.log(defaultFormValues)
   let {register, handleSubmit, formState, setValue, watch} = useFormOfInputs(
     ~options={
       resolver: Resolver.zodResolver(schema),
@@ -270,6 +276,9 @@ let make = (
 
   // Track if start date changes are user-initiated
   let (isUserInitiatedChange, setIsUserInitiatedChange) = React.useState(() => false)
+
+  // Track event duration in hours to preserve it when start time changes
+  let (eventDurationHours, setEventDurationHours) = React.useState(() => 2.0)
 
   // Club and Activity selector UI state
   let (isClubActivitySelectorActive, setIsClubActivitySelectorActive) = React.useState(() => false)
@@ -325,8 +334,18 @@ let make = (
   }, [formState.errors])
 
   React.useEffect(() => {
-    // Only set default dates if creating new event without prefilled values
-    if !isUpdate && prefilledValues->Option.isNone {
+    // Only set default dates if creating new event without prefilled dates
+    let hasPrefilledDates =
+      prefilledValues
+      ->Option.flatMap(pf =>
+        switch (pf.startDate, pf.endDate) {
+        | (Some(sd), Some(ed)) if sd != "" && ed != "" => Some(true)
+        | _ => None
+        }
+      )
+      ->Option.isSome
+
+    if !isUpdate && !hasPrefilledDates {
       // @NOTE: Date.make runs an effect therefore cannot be part of the render
       let now = Js.Date.make()
       let currentISODate =
@@ -337,13 +356,19 @@ let make = (
       let currentDate = DateFns.parseISO(currentISODate)
       let defaultStartDate = currentDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:00")
 
+      let defaultStartDateTime = defaultStartDate->DateFns.parseISO
       let defaultEndTime =
-        defaultStartDate
-        ->DateFns.parseISO
+        defaultStartDateTime
         ->DateFns.addHours(2.0)
         ->DateFns.formatWithPattern("HH:mm")
       setValue(StartDate, Value(defaultStartDate))
       setValue(EndTime, Value(defaultEndTime))
+
+      // Calculate and store the duration from the default values
+      let defaultEndDateTime = DateFns2.parse(defaultEndTime, "HH:mm", defaultStartDateTime)
+      calculateDurationHours(defaultStartDateTime, defaultEndDateTime)
+      ->Option.map(duration => setEventDurationHours(_ => duration))
+      ->ignore
     }
 
     None
@@ -361,21 +386,49 @@ let make = (
         pf.activitySlug
         ->Option.map(slug => setValue(Activity, Value(activitySlugToId(slug))))
         ->ignore
+
+        // Calculate and store the duration from prefilled values
+        switch (pf.startDate, pf.endDate) {
+        | (Some(startDateStr), Some(endTimeStr)) if startDateStr != "" && endTimeStr != "" => {
+            let startDateTime = startDateStr->DateFns.parseISO
+            let endDateTime = DateFns2.parse(endTimeStr, "HH:mm", startDateTime)
+            calculateDurationHours(startDateTime, endDateTime)
+            ->Option.map(duration => setEventDurationHours(_ => duration))
+            ->ignore
+          }
+        | _ => ()
+        }
       }
     | None => ()
     }
     None
   }, [prefilledValues])
 
-  // Update end time when start date changes (+2 hours) - only for user-initiated changes
+  // Track duration when user manually changes end time
+  React.useEffect(() => {
+    switch (startDate, endTime) {
+    | (Some(String(startDateStr)), Some(String(endTimeStr)))
+      if startDateStr != "" && endTimeStr != "" => {
+        let startDateTime = startDateStr->DateFns.parseISO
+        let endDateTime = DateFns2.parse(endTimeStr, "HH:mm", startDateTime)
+        calculateDurationHours(startDateTime, endDateTime)
+        ->Option.map(duration => setEventDurationHours(_ => duration))
+        ->ignore
+      }
+    | _ => ()
+    }
+    None
+  }, [endTime])
+
+  // Update end time when start date changes, preserving the event duration
   React.useEffect(() => {
     if isUserInitiatedChange {
       switch startDate {
-      | Some(String(dateStr)) if dateStr != "" => {
+      | Some(String(startDateStr)) if startDateStr != "" => {
           let newEndTime =
-            dateStr
+            startDateStr
             ->DateFns.parseISO
-            ->DateFns.addHours(2.0)
+            ->DateFns.addHours(eventDurationHours)
             ->DateFns.formatWithPattern("HH:mm")
           setValue(EndTime, Value(newEndTime))
         }
