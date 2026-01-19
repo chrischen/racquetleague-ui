@@ -13,10 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventManager.re.mjs:851
-#~ msgid "({0} players per round)"
-#~ msgstr "({0} คนต่อรอบ)"
-
 #: src/components/organisms/RoundSection.re.mjs:526
 #: src/components/organisms/RoundSection.re.mjs:636
 msgid "{0} {matchText}"
@@ -70,10 +66,6 @@ msgstr "อเล็กซ์ จอห์นสัน"
 msgid "All checked-in players are already in this round"
 msgstr "ผู้เล่นที่เช็คอินแล้วมีอยู่ในรอบนี้ทั้งหมดแล้ว"
 
-#: src/components/molecules/DrawGenerator.re.mjs:109
-#~ msgid "and generate new matches for {0} players"
-#~ msgstr "และสร้างคู่แข่งใหม่สำหรับผู้เล่น {0} คน"
-
 #: src/components/organisms/EventManager.re.mjs:1457
 msgid "Anti-Team {0}"
 msgstr "แอนตี้ทีม {0}"
@@ -82,20 +74,12 @@ msgstr "แอนตี้ทีม {0}"
 msgid "Anti-Teams"
 msgstr "แอนตี้ทีม"
 
-#: src/components/organisms/EventManager.re.mjs:824
-#~ msgid "Available Courts:"
-#~ msgstr "สนามที่ใช้ได้:"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:244
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
 msgid "Cancel"
 msgstr "ยกเลิก"
-
-#: src/components/molecules/DrawGenerator.re.mjs:68
-#~ msgid "Classic random round-robin draws"
-#~ msgstr "จับคู่แบบสุ่มแบบราวน์โรบิน"
 
 #: src/components/molecules/DrawGenerator.re.mjs:76
 msgid "Classic round-robin draws"
@@ -145,11 +129,6 @@ msgstr "สร้างทีมแรกของคุณเพื่อเร
 msgid "Current Round:"
 msgstr "รอบปัจจุบัน:"
 
-#: src/components/organisms/EventManager.re.mjs:204
-#, fuzzy
-#~ msgid "Current Round: {0}"
-#~ msgstr "รอบปัจจุบัน:"
-
 #: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
@@ -157,10 +136,6 @@ msgstr "ดีบัก: ปิด"
 #: src/components/organisms/EventManager.re.mjs:1634
 msgid "Debug: ON"
 msgstr "ดีบัก: เปิด"
-
-#: src/components/molecules/DrawGenerator.re.mjs:107
-#~ msgid "delete all rounds below"
-#~ msgstr "ลบรอบด้านล่างทั้งหมด"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:160
 msgid "Delete Guest"
@@ -207,17 +182,14 @@ msgstr "ป้อนคะแนนแมตช์"
 msgid "Enter team name"
 msgstr "ป้อนชื่อทีม"
 
-#: src/components/organisms/EventManager.re.mjs:198
-#, fuzzy
-#~ msgid "Event Manager"
-#~ msgstr "ไอคอนตัวจัดการกิจกรรม"
-
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
 msgstr "หญิง"
 
 #: src/components/molecules/DrawGenerator.re.mjs:271
-msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
 msgstr "รอบในอนาคตมีคะแนนที่ป้อนแล้ว การสร้างใหม่จะลบคะแนนเหล่านี้ คุณแน่ใจหรือไม่?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
@@ -231,14 +203,6 @@ msgstr "สร้าง"
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Generate Draws"
 msgstr "สร้างคู่แข่ง"
-
-#: src/components/molecules/DrawGenerator.re.mjs:62
-#~ msgid "Generate Initial Draws"
-#~ msgstr "สร้างคู่แข่งเริ่มต้น"
-
-#: src/components/molecules/DrawGenerator.re.mjs:111
-#~ msgid "Generate matches for {0} players across {1} {courtText}"
-#~ msgstr "สร้างการแข่งขันสำหรับผู้เล่น {0} คนใน {1} {courtText}"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -275,10 +239,6 @@ msgstr "คู่แข่ง"
 #: src/components/organisms/RoundSection.re.mjs:176
 msgid "matches"
 msgstr "คู่แข่ง"
-
-#: src/components/molecules/DrawGenerator.re.mjs:63
-#~ msgid "Mix players of different levels in matches but still split stronger players to balance teams."
-#~ msgstr "ผสมผู้เล่นที่มีระดับต่างกัน แต่ยังแยกผู้เล่นที่แข็งกว่าเพื่อสมดุลทีม"
 
 #: src/components/molecules/DrawGenerator.re.mjs:70
 msgid "Mixed"
@@ -340,18 +300,11 @@ msgstr "รหัสผู้เล่น"
 msgid "Player Settings"
 msgstr "การตั้งค่าผู้เล่น"
 
-#: src/components/organisms/EventManager.re.mjs:223
-#, fuzzy
-#~ msgid "Players"
-#~ msgstr "เพิ่มผู้เล่น"
-
 #: src/components/molecules/DrawGenerator.re.mjs:66
-msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
 msgstr "ผู้เล่นจะถูกแบ่งเป็นกลุ่มระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบรอบโรบินโดยทีมจะสมดุลตามทักษะ"
-
-#: src/components/molecules/DrawGenerator.re.mjs:58
-#~ msgid "Players will be divided into similar skill level groups that round-robin."
-#~ msgstr "แบ่งผู้เล่นตามระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบราวน์โรบิน"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:97
 msgid "Preview ({0} guest{1})"
@@ -360,10 +313,6 @@ msgstr "ดูตัวอย่าง ({0}แขก{1})"
 #: src/components/molecules/RoundHeader.re.mjs:35
 msgid "Previous Round"
 msgstr "รอบก่อนหน้า"
-
-#: src/components/molecules/DrawGenerator.re.mjs:67
-#~ msgid "Random"
-#~ msgstr "สุ่ม"
 
 #: src/components/organisms/MatchCard.re.mjs:395
 msgid "Rebalance match"
@@ -381,17 +330,9 @@ msgstr "สร้างรอบใหม่?"
 msgid "Repeat"
 msgstr "ซ้ำ"
 
-#: src/components/molecules/DrawGenerator.re.mjs:62
-#~ msgid "Replace Future Rounds"
-#~ msgstr "แทนที่รอบถัดไป"
-
 #: src/components/molecules/PlayerReplaceModal.re.mjs:61
 msgid "Replace Player"
 msgstr "เปลี่ยนผู้เล่น"
-
-#: src/components/molecules/DrawGenerator.re.mjs:162
-#~ msgid "Replace Rounds Below"
-#~ msgstr "แทนที่รอบด้านล่าง"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:66
 msgid "Replacing:"
@@ -463,11 +404,6 @@ msgstr "ซีดที่ปรับแล้ว"
 msgid "Skill: {0}"
 msgstr "ทักษะ: {0}"
 
-#: src/components/organisms/EventManager.re.mjs:208
-#, fuzzy
-#~ msgid "Start Next Round"
-#~ msgstr "ไปยังรอบถัดไป"
-
 #: src/components/molecules/DrawGenerator.re.mjs:136
 msgid "strategy"
 msgstr "กลยุทธ์"
@@ -517,12 +453,11 @@ msgid "Teams"
 msgstr "ทีม"
 
 #: src/components/organisms/MatchCard.re.mjs:433
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
-msgstr "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
-
-#: src/components/molecules/DrawGenerator.re.mjs:105
-#~ msgid "This will"
-#~ msgstr "สิ่งนี้จะ"
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:292
 msgid "This will delete all future rounds and generate new matches"
@@ -546,3 +481,78 @@ msgstr "VS"
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
+
+#: src/components/organisms/EventManager.re.mjs:851
+#~ msgid "({0} players per round)"
+#~ msgstr "({0} คนต่อรอบ)"
+
+#: src/components/molecules/DrawGenerator.re.mjs:109
+#~ msgid "and generate new matches for {0} players"
+#~ msgstr "และสร้างคู่แข่งใหม่สำหรับผู้เล่น {0} คน"
+
+#: src/components/organisms/EventManager.re.mjs:824
+#~ msgid "Available Courts:"
+#~ msgstr "สนามที่ใช้ได้:"
+
+#: src/components/molecules/DrawGenerator.re.mjs:68
+#~ msgid "Classic random round-robin draws"
+#~ msgstr "จับคู่แบบสุ่มแบบราวน์โรบิน"
+
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "รอบปัจจุบัน:"
+
+#: src/components/molecules/DrawGenerator.re.mjs:107
+#~ msgid "delete all rounds below"
+#~ msgstr "ลบรอบด้านล่างทั้งหมด"
+
+#: src/components/organisms/EventManager.re.mjs:198
+#, fuzzy
+#~ msgid "Event Manager"
+#~ msgstr "ไอคอนตัวจัดการกิจกรรม"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Generate Initial Draws"
+#~ msgstr "สร้างคู่แข่งเริ่มต้น"
+
+#: src/components/molecules/DrawGenerator.re.mjs:111
+#~ msgid "Generate matches for {0} players across {1} {courtText}"
+#~ msgstr "สร้างการแข่งขันสำหรับผู้เล่น {0} คนใน {1} {courtText}"
+
+#: src/components/molecules/DrawGenerator.re.mjs:63
+#~ msgid ""
+#~ "Mix players of different levels in matches but still split stronger "
+#~ "players to balance teams."
+#~ msgstr "ผสมผู้เล่นที่มีระดับต่างกัน แต่ยังแยกผู้เล่นที่แข็งกว่าเพื่อสมดุลทีม"
+
+#: src/components/organisms/EventManager.re.mjs:223
+#, fuzzy
+#~ msgid "Players"
+#~ msgstr "เพิ่มผู้เล่น"
+
+#: src/components/molecules/DrawGenerator.re.mjs:58
+#~ msgid ""
+#~ "Players will be divided into similar skill level groups that round-robin."
+#~ msgstr "แบ่งผู้เล่นตามระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบราวน์โรบิน"
+
+#: src/components/molecules/DrawGenerator.re.mjs:67
+#~ msgid "Random"
+#~ msgstr "สุ่ม"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Replace Future Rounds"
+#~ msgstr "แทนที่รอบถัดไป"
+
+#: src/components/molecules/DrawGenerator.re.mjs:162
+#~ msgid "Replace Rounds Below"
+#~ msgstr "แทนที่รอบด้านล่าง"
+
+#: src/components/organisms/EventManager.re.mjs:208
+#, fuzzy
+#~ msgid "Start Next Round"
+#~ msgstr "ไปยังรอบถัดไป"
+
+#: src/components/molecules/DrawGenerator.re.mjs:105
+#~ msgid "This will"
+#~ msgstr "สิ่งนี้จะ"

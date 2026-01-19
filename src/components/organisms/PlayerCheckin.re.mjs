@@ -301,11 +301,13 @@ function PlayerCheckin(props) {
                                                                                       var changeText = change.toFixed(1);
                                                                                       return JsxRuntime.jsxs("div", {
                                                                                                   children: [
-                                                                                                    isPositive ? JsxRuntime.jsx(LucideReact.TrendingUp, {
-                                                                                                            className: "w-3 h-3"
-                                                                                                          }) : JsxRuntime.jsx(LucideReact.TrendingDown, {
-                                                                                                            className: "w-3 h-3"
-                                                                                                          }),
+                                                                                                    JsxRuntime.jsx("span", {
+                                                                                                          children: isPositive ? JsxRuntime.jsx(LucideReact.TrendingUp, {
+                                                                                                                  className: "w-3 h-3"
+                                                                                                                }) : JsxRuntime.jsx(LucideReact.TrendingDown, {
+                                                                                                                  className: "w-3 h-3"
+                                                                                                                })
+                                                                                                        }),
                                                                                                     changeText
                                                                                                   ],
                                                                                                   className: isPositive ? "flex items-center gap-0.5 text-xs font-bold text-green-600" : "flex items-center gap-0.5 text-xs font-bold text-red-600"

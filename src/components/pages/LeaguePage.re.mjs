@@ -4,7 +4,8 @@ import * as Layout from "../shared/Layout.re.mjs";
 import * as PageTitle from "../vanillaui/atoms/PageTitle.re.mjs";
 import VolairPng from "./volair.png";
 import JplLogoPng from "./jpl-logo.png";
-import Prize1225Png from "./prize1225.png";
+import PaddleupPng from "./paddleup.png";
+import Prize126Webp from "./prize126.webp";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -15,7 +16,9 @@ import { css, cx } from '@linaria/core'
 import { t } from '@lingui/macro'
 ;
 
-var prizeImg = Prize1225Png;
+var prizeImg = Prize126Webp;
+
+var sponsorImg = PaddleupPng;
 
 function LeaguePage$PrizeInfo(props) {
   return JsxRuntime.jsx("div", {
@@ -26,8 +29,20 @@ function LeaguePage$PrizeInfo(props) {
                               JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsx("h2", {
-                                            children: t`Next Prize: December 31`,
+                                            children: t`Next Prize: February 28`,
                                             className: "text-3xl font-bold tracking-tight text-white sm:text-4xl"
+                                          }),
+                                      JsxRuntime.jsx("h3", {
+                                            children: t`Prize Sponsor`,
+                                            className: "mt-4 text-lg leading-8 text-gray-300"
+                                          }),
+                                      JsxRuntime.jsx("a", {
+                                            children: JsxRuntime.jsx("img", {
+                                                  alt: "Prize sponsor logo",
+                                                  src: sponsorImg,
+                                                  width: "150"
+                                                }),
+                                            href: "https://paddleup.jp/"
                                           }),
                                       JsxRuntime.jsx("p", {
                                             children: t`This prize will be awarded to the top male and female players on this day.`,
@@ -48,21 +63,12 @@ function LeaguePage$PrizeInfo(props) {
                                           children: JsxRuntime.jsxs("div", {
                                                 children: [
                                                   JsxRuntime.jsx("dt", {
-                                                        children: t`Proton Flamingo Paddle`,
+                                                        children: t`Selkirk SLK Era Paddle`,
                                                         className: "font-semibold text-white"
                                                       }),
                                                   " ",
                                                   JsxRuntime.jsx("dd", {
                                                         children: t`Top female and top male players will each receive the prize.`,
-                                                        className: "inline"
-                                                      }),
-                                                  JsxRuntime.jsx("dt", {
-                                                        children: t`Selkirk Labs Paddle Cover`,
-                                                        className: "font-semibold text-white"
-                                                      }),
-                                                  " ",
-                                                  JsxRuntime.jsx("dd", {
-                                                        children: t`Second place female and male players will each receive the prize.`,
                                                         className: "inline"
                                                       })
                                                 ],

@@ -38,10 +38,6 @@ msgstr "折叠"
 msgid "Going"
 msgstr "将参加"
 
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "加入"
-
 #: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
 msgstr "加入活动"
@@ -106,25 +102,31 @@ msgstr "保存"
 msgid "See all"
 msgstr "查看全部"
 
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "查看全部"
-
 #: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
 msgstr "收起"
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
-msgstr "这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将加入等待列表。您确定要退出这个活动吗？"
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
+"加入等待列表。您确定要退出这个活动吗？"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限制其报名吗？"
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
+"制其报名吗？"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:163
@@ -148,5 +150,18 @@ msgid "You're Waitlisted"
 msgstr "您在等待列表中"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
-msgstr "您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限制降低。请参加其他 JPL 评级活动来提高您的评分。"
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
+"制降低。请参加其他 JPL 评级活动来提高您的评分。"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "加入"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "查看全部"

@@ -17,10 +17,6 @@ msgstr ""
 msgid "(logout)"
 msgstr "（登出）"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:97
-#~ msgid "All"
-#~ msgstr "全部"
-
 #: src/components/pages/DefaultLayoutMap.re.mjs:103
 #: src/components/pages/DefaultLayoutMap.re.mjs:156
 msgid "Badminton"
@@ -67,3 +63,7 @@ msgstr "排名"
 #: src/components/organisms/NavViewer.re.mjs:77
 msgid "Settings"
 msgstr "設定"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:97
+#~ msgid "All"
+#~ msgstr "全部"

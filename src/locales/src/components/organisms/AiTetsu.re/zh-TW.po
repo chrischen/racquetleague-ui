@@ -192,7 +192,9 @@ msgid "no players yet"
 msgstr "還沒有球員"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
 msgstr "隊列中球員不足。請從「隊列」選項卡中選擇想要參賽的球員。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1563
@@ -213,7 +215,8 @@ msgid "Player Name"
 msgstr "球員姓名"
 
 #: src/components/organisms/AiTetsu.re.mjs:1359
-msgid "Players in a team will always be placed in a match together on the same side."
+msgid ""
+"Players in a team will always be placed in a match together on the same side."
 msgstr "隊伍中的球員將始終安排在同一方一起比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1380
@@ -221,7 +224,8 @@ msgid "Players in an anti-team will never be placed in a match together."
 msgstr "反對隊中的球員永遠不會被安排在一起比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1438
-msgid "Players in teams will always be placed in a match together on the same side."
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
 msgstr "隊伍中的球員將始終在同一方一起比賽。"
 
 #: src/components/organisms/SubmitMatch.re.mjs:311
@@ -292,8 +296,13 @@ msgid "Set as Male"
 msgstr "設為男性"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
-msgstr "設置為目前休息的球員數量，以啟用比賽場次的均衡分配。設置為0可以禁用此功能並優化比賽品質，但這可能導致某些球員比其他球員參加更多比賽。"
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"設置為目前休息的球員數量，以啟用比賽場次的均衡分配。設置為0可以禁用此功能並優"
+"化比賽品質，但這可能導致某些球員比其他球員參加更多比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1554
 msgid "Start Session"

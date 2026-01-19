@@ -237,7 +237,8 @@ msgid "Professional players"
 msgstr "職業球員"
 
 #: src/components/atoms/EventTag.re.mjs:56
-msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:138
@@ -284,7 +285,9 @@ msgid "Show less"
 msgstr "顯示更少"
 
 #: src/components/pages/Event.re.mjs:312
-msgid "showing up without permission may result in a ban for failing to follow rules."
+msgid ""
+"showing up without permission may result in a ban for failing to follow "
+"rules."
 msgstr "未經許可而出現可能因未遵守規則而被禁止。"
 
 #: src/components/atoms/EventTag.re.mjs:52
@@ -309,26 +312,42 @@ msgid "sync calendar"
 msgstr "同步日曆"
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
-msgstr "此活動已滿，所以退出活動將把您的名額給等待列表上的人。如果您重新加入，您將加入等待列表。您確定要退出此活動嗎？"
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"此活動已滿，所以退出活動將把您的名額給等待列表上的人。如果您重新加入，您將加"
+"入等待列表。您確定要退出此活動嗎？"
 
 #: src/components/atoms/EventTag.re.mjs:58
-msgid "This event is private. Please do not share this event without permission from the organizer."
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
 #: src/components/pages/Event.re.mjs:309
-msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
-msgstr "這是一個私人活動，需要俱樂部成員資格。要加入此俱樂部，請先加入日本匹克球聯盟活動以獲得推薦。"
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first to get a referral."
+msgstr ""
+"這是一個私人活動，需要俱樂部成員資格。要加入此俱樂部，請先加入日本匹克球聯盟"
+"活動以獲得推薦。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要限制其報名嗎？"
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
+"限制其報名嗎？"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」。"
 
 #: src/components/pages/Event.re.mjs:272
@@ -380,5 +399,10 @@ msgid "You're Waitlisted"
 msgstr "您在等待列表"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
-msgstr "您的評分 {0} ~ {1} (DUPR {2} ~ {3}) 太低。您將被放在待審核名單中，直到評分限制降低。請加入另一個 JPL 評級活動以提高您的評分。"
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"您的評分 {0} ~ {1} (DUPR {2} ~ {3}) 太低。您將被放在待審核名單中，直到評分限"
+"制降低。請加入另一個 JPL 評級活動以提高您的評分。"

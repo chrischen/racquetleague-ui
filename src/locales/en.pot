@@ -3638,3 +3638,23 @@ msgstr ""
 #: src/components/organisms/AIAssistantEmbed.re.mjs:332
 msgid "Press ⌘+Enter to generate"
 msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1043
+msgid "Minimum rating (optional)"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1047
+msgid "No minimum"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:32
+msgid "Next Prize: February 28"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:36
+msgid "Prize Sponsor"
+msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:66
+msgid "Selkirk SLK Era Paddle"
+msgstr ""

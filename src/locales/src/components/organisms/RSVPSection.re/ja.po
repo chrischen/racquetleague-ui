@@ -38,10 +38,6 @@ msgstr "折りたたむ"
 msgid "Going"
 msgstr "参加"
 
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "参加"
-
 #: src/components/atoms/EventSignupButton.re.mjs:64
 msgid "Join Event"
 msgstr "イベントに参加"
@@ -106,26 +102,35 @@ msgstr "保存"
 msgid "See all"
 msgstr "すべて見る"
 
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "全て表示"
-
 #: src/components/organisms/GoingRsvps.re.mjs:139
 msgid "Show less"
 msgstr "折りたたむ"
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
-msgstr "このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリストの誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。本当にこのイベントを離れますか？"
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリスト"
+"の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
+"本当にこのイベントを離れますか？"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は失われます。本当にこのユーザーの参加申込を制限しますか？"
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
+"失われます。本当にこのユーザーの参加申込を制限しますか？"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してください。"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr ""
+"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
+"ださい。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:163
 msgid "View Profile"
@@ -148,5 +153,19 @@ msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
-msgstr "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
+"限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
+"イベントに参加してください。"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "参加"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "全て表示"

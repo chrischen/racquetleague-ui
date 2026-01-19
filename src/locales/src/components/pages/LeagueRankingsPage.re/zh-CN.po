@@ -39,7 +39,9 @@ msgid "Male"
 msgstr "男性"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:112
-msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+msgid ""
+"Play doubles games with different partners and receive an individual rating. "
+"Prizes are awarded monthly to top players."
 msgstr "与不同的搭档进行双打比赛，获得个人评分。每月向最优秀的球员颁发奖品。"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:51

@@ -17,10 +17,6 @@ msgstr ""
 msgid "(logout)"
 msgstr "(サインアウト)"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:97
-#~ msgid "All"
-#~ msgstr "すべて"
-
 #: src/components/pages/DefaultLayoutMap.re.mjs:103
 #: src/components/pages/DefaultLayoutMap.re.mjs:156
 msgid "Badminton"
@@ -35,10 +31,6 @@ msgstr "イベント"
 #: src/components/pages/DefaultLayoutMap.re.mjs:324
 msgid "Find Games"
 msgstr "ゲームを見つける"
-
-#: src/components/pages/DefaultLayoutMap.re.mjs:88
-#~ msgid "It looks like you may prefer English. Would you like to switch to English?"
-#~ msgstr "日本語がお好きなようですね。日本語に変更しますか？"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
@@ -63,11 +55,6 @@ msgstr "ピックルボール"
 msgid "pkuru"
 msgstr "ピックル"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:214
-#: src/components/pages/DefaultLayoutMap.re.mjs:279
-#~ msgid "Racquet League"
-#~ msgstr "ラケットリーグ"
-
 #: src/components/pages/DefaultLayoutMap.re.mjs:242
 #: src/components/pages/DefaultLayoutMap.re.mjs:312
 msgid "Rankings"
@@ -76,6 +63,20 @@ msgstr "ランキング"
 #: src/components/organisms/NavViewer.re.mjs:77
 msgid "Settings"
 msgstr "設定"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:97
+#~ msgid "All"
+#~ msgstr "すべて"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:88
+#~ msgid ""
+#~ "It looks like you may prefer English. Would you like to switch to English?"
+#~ msgstr "日本語がお好きなようですね。日本語に変更しますか？"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:214
+#: src/components/pages/DefaultLayoutMap.re.mjs:279
+#~ msgid "Racquet League"
+#~ msgstr "ラケットリーグ"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:89
 #~ msgid "Switch to English"

@@ -3349,6 +3349,26 @@ msgstr "กด ⌘+Enter เพื่อดำเนินการต่อ"
 msgid "Press ⌘+Enter to generate"
 msgstr "กด ⌘+Enter เพื่อสร้าง"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1043
+msgid "Minimum rating (optional)"
+msgstr "เรตติ้งขั้นต่ำ (ไม่บังคับ)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1047
+msgid "No minimum"
+msgstr "ไม่มีขั้นต่ำ"
+
+#: src/components/pages/LeaguePage.re.mjs:32
+msgid "Next Prize: February 28"
+msgstr "รางวัลถัดไป: 28 กุมภาพันธ์"
+
+#: src/components/pages/LeaguePage.re.mjs:36
+msgid "Prize Sponsor"
+msgstr "ผู้สนับสนุนรางวัล"
+
+#: src/components/pages/LeaguePage.re.mjs:66
+msgid "Selkirk SLK Era Paddle"
+msgstr "ไม้พาย Selkirk SLK Era"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

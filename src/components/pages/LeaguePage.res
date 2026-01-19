@@ -11,8 +11,11 @@ type params = {activitySlug: option<string>, lang: option<string>}
 type loaderData = {}
 
 module PrizeInfo = {
-  @module("./prize1225.png")
+  @module("./prize126.webp")
   external prizeImg: string = "default"
+  @module("./paddleup.png")
+  external sponsorImg: string = "default"
+
   open Lingui.Util
   open HeroIcons
   @react.component
@@ -24,8 +27,12 @@ module PrizeInfo = {
           className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-0">
           <div className="lg:row-start-2 lg:max-w-md">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              {t`Next Prize: December 31`}
+              {t`Next Prize: February 28`}
             </h2>
+            <h3 className="mt-4 text-lg leading-8 text-gray-300"> {t`Prize Sponsor`} </h3>
+            <a href="https://paddleup.jp/">
+              <img src={sponsorImg} alt="Prize sponsor logo" width="150" />
+            </a>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               {t`This prize will be awarded to the top male and female players on this day.`}
             </p>
@@ -41,15 +48,10 @@ module PrizeInfo = {
             className="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
             <dl className="max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
               <div className="relative">
-                <dt className="font-semibold text-white"> {t`Proton Flamingo Paddle`} </dt>
+                <dt className="font-semibold text-white"> {t`Selkirk SLK Era Paddle`} </dt>
                 {" "->React.string}
                 <dd className="inline">
                   {t`Top female and top male players will each receive the prize.`}
-                </dd>
-                <dt className="font-semibold text-white"> {t`Selkirk Labs Paddle Cover`} </dt>
-                {" "->React.string}
-                <dd className="inline">
-                  {t`Second place female and male players will each receive the prize.`}
                 </dd>
               </div>
             </dl>

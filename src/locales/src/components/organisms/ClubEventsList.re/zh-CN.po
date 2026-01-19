@@ -127,10 +127,6 @@ msgstr "创建此活动"
 msgid "Date:"
 msgstr "日期："
 
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "描述您想要创建的活动..."
-
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "描述："
@@ -166,10 +162,6 @@ msgstr "已加入"
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr "退出活动"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
-#~ msgstr "告诉我您想在何时何地比赛，我将帮助您创建活动。您可以继续与我对话来完善细节。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
@@ -213,12 +205,12 @@ msgid "Suggested Events"
 msgstr "建议的活动"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
-msgstr "告诉我您活动的时间和地点，或其他任何详细信息。您还可以告诉我需要包含的详细信息，我甚至可以添加翻译。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "时间："
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"告诉我您活动的时间和地点，或其他任何详细信息。您还可以告诉我需要包含的详细信"
+"息，我甚至可以添加翻译。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -227,3 +219,20 @@ msgstr "标题："
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "等待列表"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "描述您想要创建的活动..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid ""
+#~ "Let me know when and where you'd like to play, and I'll help you create "
+#~ "an event. You can continue talking to me in a conversation to refine any "
+#~ "details."
+#~ msgstr ""
+#~ "告诉我您想在何时何地比赛，我将帮助您创建活动。您可以继续与我对话来完善细"
+#~ "节。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "时间："

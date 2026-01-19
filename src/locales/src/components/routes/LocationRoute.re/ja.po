@@ -33,11 +33,6 @@ msgstr "[タイトルがありません]"
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "{0}5件の{hiddenCountDesc}非表示"
-
 #: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "{0}5件の{hiddenCountDesc}非表示"
@@ -70,10 +65,6 @@ msgstr "{0}分"
 msgid "{0} minutes"
 msgstr "{0}分"
 
-#: src/components/organisms/EventsList.re.mjs:231
-#~ msgid "{0} private {shadowCountDesc} hidden"
-#~ msgstr "{0} プライベート {shadowCountDesc} 隠された"
-
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -82,15 +73,6 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 #: src/components/organisms/EventItem.re.mjs:296
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
-
-#: src/components/organisms/EventsList.re.mjs:200
-#~ msgid "{shadowCount, plural, one {event} other {events}}"
-#~ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
-
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
 #: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
@@ -141,17 +123,9 @@ msgstr "このイベントを作成"
 msgid "Date:"
 msgstr "日付:"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "作成したいイベントを説明してください..."
-
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "説明:"
-
-#: src/components/organisms/EventItem.re.mjs:469
-#~ msgid "details"
-#~ msgstr "詳細"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 msgid "Error creating events. Please try again."
@@ -188,10 +162,6 @@ msgstr "参加"
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr "離れる"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
-#~ msgstr "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会話を続けて詳細を調整することもできます。"
 
 #: src/components/pages/LocationPage.re.mjs:51
 msgid "location"
@@ -247,12 +217,12 @@ msgid "sync calendar"
 msgstr "カレンダー同期"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
-msgstr "イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教えていただければ、翻訳も追加できます。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "時間:"
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教え"
+"ていただければ、翻訳も追加できます。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -261,3 +231,42 @@ msgstr "タイトル:"
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "ウェイトリスト"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "{0}5件の{hiddenCountDesc}非表示"
+
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} プライベート {shadowCountDesc} 隠された"
+
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "作成したいイベントを説明してください..."
+
+#: src/components/organisms/EventItem.re.mjs:469
+#~ msgid "details"
+#~ msgstr "詳細"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid ""
+#~ "Let me know when and where you'd like to play, and I'll help you create "
+#~ "an event. You can continue talking to me in a conversation to refine any "
+#~ "details."
+#~ msgstr ""
+#~ "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。"
+#~ "会話を続けて詳細を調整することもできます。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "時間:"

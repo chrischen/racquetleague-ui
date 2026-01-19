@@ -18,11 +18,15 @@ msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr "：每个人都与每个人比赛的经典循环赛格式。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:194
-msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
+msgid ""
+": Players are divided into similar skill levels. Teams are balanced to "
+"create close matches."
 msgstr "：球员被分为相似的技能水平。团队平衡以创建势均力敌的比赛。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:202
-msgid ": Teams are balanced by skill, but players are not strictly separated by level."
+msgid ""
+": Teams are balanced by skill, but players are not strictly separated by "
+"level."
 msgstr "：团队根据技能平衡，但球员不严格按级别分开。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:141
@@ -62,7 +66,9 @@ msgid "Edit player details like name, gender, or payment status."
 msgstr "编辑球员详细信息，如姓名、性别或付款状态。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:354
-msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
+msgid ""
+"Enter scores directly on the match cards. Tap to select a winner, or press "
+"and hold to input the score as well."
 msgstr "直接在比赛卡上输入分数。点击选择获胜者，或按住以输入分数。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:350
@@ -76,10 +82,6 @@ msgstr "赛事管理器指南"
 #: src/components/pages/EventManagerGuidePage.re.mjs:61
 msgid "Generate / Rebalance"
 msgstr "生成 / 重新平衡"
-
-#: src/components/pages/EventManagerGuidePage.re.mjs:65
-#~ msgid "Generate new draws or rebalance the current round."
-#~ msgstr "生成新的抽签或重新平衡当前轮次。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:65
 msgid "Generate new draws or rebalance the round or match."
@@ -102,8 +104,16 @@ msgid "Icons Guide"
 msgstr "图标指南"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:217
-msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
-msgstr "在竞技或混合模式下，当您选择当前或过去轮次比赛的获胜者时，系统将重新生成未来的比赛。建议这样做是为了根据新数据优化未来的轮次。在循环赛模式下，除非您手动更改，否则未来的轮次不会改变。"
+msgid ""
+"In Competitive or Mixed mode, the system will regenerate future matches when "
+"you select the winner of the matches in the current or past rounds. This is "
+"recommended in order to optimize future rounds based on the new data. In "
+"Round-Robin mode, the future rounds will not change unless you manually "
+"change them."
+msgstr ""
+"在竞技或混合模式下，当您选择当前或过去轮次比赛的获胜者时，系统将重新生成未来"
+"的比赛。建议这样做是为了根据新数据优化未来的轮次。在循环赛模式下，除非您手动"
+"更改，否则未来的轮次不会改变。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:308
 msgid "Manage players directly from the Check-in list:"
@@ -150,8 +160,16 @@ msgid "Rebalance"
 msgstr "重新平衡"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:248
-msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
-msgstr "使用相同的球员重新生成当前轮次，但移动球员以平衡每个场地的技能水平。这将积极优化每个场地，使其最有可能出现平局，但可能不会按级别组划分场地。如果您更换了球员并需要再次平衡比赛，这将非常有用。"
+msgid ""
+"Regenerates the current round with the same players but moves players around "
+"to balance the skill level of each court. This will aggressively optimize "
+"each court to have the highest chance of having a tie, but may not divide "
+"the court by level groups. Useful if you replace a player and need the "
+"matches to be balanced again."
+msgstr ""
+"使用相同的球员重新生成当前轮次，但移动球员以平衡每个场地的技能水平。这将积极"
+"优化每个场地，使其最有可能出现平局，但可能不会按级别组划分场地。如果您更换了"
+"球员并需要再次平衡比赛，这将非常有用。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:81
 msgid "Reset"
@@ -198,19 +216,26 @@ msgid "Sync Scores"
 msgstr "同步比分"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:185
-msgid "The Draw Generator allows you to create matches based on different strategies:"
+msgid ""
+"The Draw Generator allows you to create matches based on different "
+"strategies:"
 msgstr "抽签生成器允许您根据不同的策略创建比赛："
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:389
-msgid "The Event Manager works offline! All data is saved locally to your device."
+msgid ""
+"The Event Manager works offline! All data is saved locally to your device."
 msgstr "赛事管理器离线工作！所有数据都本地保存在您的设备上。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:339
-msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
+msgid ""
+"to adjust player ratings (seeds) for the event. This affects matchmaking but "
+"not their permanent rating."
 msgstr "调整赛事的球员评分（种子）。这会影响匹配，但不会影响他们的永久评分。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:330
-msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
+msgid ""
+"to create Teams (always play together) or Anti-Teams (never play together on "
+"the same court)."
 msgstr "创建团队（总是一起比赛）或反团队（从不在同一场地上一起比赛）。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:45
@@ -227,9 +252,19 @@ msgid "Use the"
 msgstr "使用"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:220
-msgid "You can also adjust the number of courts. The system requires 4 players per court."
+msgid ""
+"You can also adjust the number of courts. The system requires 4 players per "
+"court."
 msgstr "您还可以调整场地数量。系统要求每个场地 4 名球员。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:392
-msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
-msgstr "您可以在没有互联网的情况下运行整个赛事。只需确保在再次连接时同步分数以保存结果。"
+msgid ""
+"You can run an entire event without internet. Just make sure to Sync Scores "
+"when you have a connection again to save the results."
+msgstr ""
+"您可以在没有互联网的情况下运行整个赛事。只需确保在再次连接时同步分数以保存结"
+"果。"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+#~ msgid "Generate new draws or rebalance the current round."
+#~ msgstr "生成新的抽签或重新平衡当前轮次。"

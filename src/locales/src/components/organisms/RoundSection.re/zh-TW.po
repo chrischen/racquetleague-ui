@@ -138,7 +138,9 @@ msgid "TEAM 2"
 msgstr "隊伍 2"
 
 #: src/components/organisms/MatchCard.re.mjs:433
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198

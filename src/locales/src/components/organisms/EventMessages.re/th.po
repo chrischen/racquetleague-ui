@@ -29,10 +29,6 @@ msgstr "ออกจากกิจกรรม"
 msgid "No activity yet"
 msgstr "ยังไม่มีกิจกรรม"
 
-#: src/components/organisms/EventMessages.re.mjs:125
-#~ msgid "Save"
-#~ msgstr "บันทึก"
-
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr ""
@@ -42,7 +38,8 @@ msgid "Status message"
 msgstr "ข้อความสถานะ"
 
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
 #: src/components/organisms/EventMessages.re.mjs:274
@@ -52,3 +49,7 @@ msgstr "ถูกเพิ่มเข้ากิจกรรมโดยผู
 #: src/components/organisms/EventMessages.re.mjs:286
 msgid "was removed from the event by admin"
 msgstr "ถูกลบออกจากกิจกรรมโดยผู้ดูแลระบบ"
+
+#: src/components/organisms/EventMessages.re.mjs:125
+#~ msgid "Save"
+#~ msgstr "บันทึก"

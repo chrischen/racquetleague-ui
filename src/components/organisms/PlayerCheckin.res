@@ -204,9 +204,11 @@ let make = (
                           className={isPositive
                             ? "flex items-center gap-0.5 text-xs font-bold text-green-600"
                             : "flex items-center gap-0.5 text-xs font-bold text-red-600"}>
-                          {isPositive
-                            ? <Lucide.TrendingUp className="w-3 h-3" />
-                            : <Lucide.TrendingDown className="w-3 h-3" />}
+                          <span>
+                            {isPositive
+                              ? <Lucide.TrendingUp className="w-3 h-3" />
+                              : <Lucide.TrendingDown className="w-3 h-3" />}
+                          </span>
                           {changeText->React.string}
                         </div>
                       })

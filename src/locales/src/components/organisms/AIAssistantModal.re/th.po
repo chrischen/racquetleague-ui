@@ -46,10 +46,6 @@ msgstr "สร้างกิจกรรมนี้"
 msgid "Date:"
 msgstr "วันที่:"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
-
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "คำอธิบาย:"
@@ -69,10 +65,6 @@ msgstr "ฉันสามารถสร้างกิจกรรมให้
 #: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "I couldn't process that request. Please try again."
 msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
-#~ msgstr "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
@@ -100,13 +92,30 @@ msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
-msgstr "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "เวลา:"
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
+"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
 msgstr "ชื่อ:"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid ""
+#~ "Let me know when and where you'd like to play, and I'll help you create "
+#~ "an event. You can continue talking to me in a conversation to refine any "
+#~ "details."
+#~ msgstr ""
+#~ "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม "
+#~ "คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "เวลา:"

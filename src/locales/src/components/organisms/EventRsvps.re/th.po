@@ -103,12 +103,19 @@ msgstr ""
 #~ msgstr "ที่ว่าง"
 
 #: src/components/organisms/EventRsvps.re.mjs:391
-#~ msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
-#~ msgstr "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
+#~ msgid ""
+#~ "This event is full, so leaving the event will give your spot to someone "
+#~ "on the waitlist. If you rejoin, you will join the waitlist. Are you sure "
+#~ "you want to leave this event?"
+#~ msgstr ""
+#~ "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
+#~ "คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
 #: src/components/organisms/EventRsvps.re.mjs:125
 #: src/components/organisms/EventRsvps.re.mjs:126
-#~ msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+#~ msgid ""
+#~ "Type a status message for people to see... such as 'I will arrive at "
+#~ "19:00.'"
 #~ msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
 #: src/components/organisms/RsvpOptions.re.mjs:82
@@ -133,5 +140,11 @@ msgstr ""
 #~ msgstr "คุณอยู่ในรายชื่อคอย :("
 
 #: src/components/organisms/EventRsvps.re.mjs:334
-#~ msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
-#~ msgstr "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
+#~ msgid ""
+#~ "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in "
+#~ "the pending list until the rating limit is lowered. Please join another "
+#~ "JPL rated event to boost your rating."
+#~ msgstr ""
+#~ "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
+#~ "รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
+#~ "อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"

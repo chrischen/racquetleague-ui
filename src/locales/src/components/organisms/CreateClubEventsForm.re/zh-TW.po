@@ -96,7 +96,9 @@ msgid "save"
 msgstr "儲存"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:279
-msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+msgid ""
+"show your event publicly on our home page. Otherwise, only people with a "
+"link to your event will be able to find it."
 msgstr "在我們的首頁公開顯示您的活動。否則，只有擁有您活動連結的人才能找到它。"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:203

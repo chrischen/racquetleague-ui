@@ -26,10 +26,6 @@ msgstr "エラーが発生しました: {message}"
 msgid "Back to events"
 msgstr "イベントに戻る"
 
-#: src/components/pages/LoginPage.re.mjs:91
-#~ msgid "cancel login"
-#~ msgstr "ログインをキャンセル"
-
 #: src/components/pages/LoginPage.re.mjs:73
 #: src/components/pages/LoginPage.re.mjs:75
 msgid "Check your email for a magic link to sign in!"
@@ -39,21 +35,9 @@ msgstr "メールでマジックリンクを確認してサインインしてく
 msgid "Continue with LINE"
 msgstr "LINEで続ける"
 
-#: src/components/pages/LoginPage.re.mjs:64
-#~ msgid "display name"
-#~ msgstr "表示名"
-
-#: src/components/pages/LoginPage.re.mjs:44
-#~ msgid "email address"
-#~ msgstr "メールアドレス"
-
 #: src/components/pages/LoginPage.re.mjs:217
 msgid "Email address"
 msgstr "メールアドレス"
-
-#: src/components/pages/LoginPage.re.mjs:55
-#~ msgid "event organizers and other users cannot view your email"
-#~ msgstr "イベント主催者や他のユーザーはあなたのメールアドレスを見ることはできません"
 
 #: src/components/pages/LoginPage.re.mjs:71
 msgid "Failed to send magic link: {0}"
@@ -63,22 +47,55 @@ msgstr "マジックリンクの送信に失敗しました: {0}"
 msgid "Login failed: {0}"
 msgstr "ログインに失敗しました: {0}"
 
+#: src/components/pages/LoginPage.re.mjs:166
+msgid "New users will be automatically registered"
+msgstr "新規ユーザーは自動的に登録されます"
+
+#: src/components/pages/LoginPage.re.mjs:204
+msgid "or continue with email"
+msgstr "またはメールで続ける"
+
+#: src/components/pages/LoginPage.re.mjs:258
+msgid "Send magic link"
+msgstr "マジックリンクを送信"
+
+#: src/components/pages/LoginPage.re.mjs:162
+msgid "Sign in to Pkuru.com"
+msgstr "Pkuru.comにサインイン"
+
+#: src/components/pages/LoginPage.re.mjs:101
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"LINEアカウントにメールアドレスが関連付けられていません。LINEアプリからアカウ"
+"ントのメールアドレスを設定してから、もう一度お試しください。"
+
+#: src/components/pages/LoginPage.re.mjs:91
+#~ msgid "cancel login"
+#~ msgstr "ログインをキャンセル"
+
+#: src/components/pages/LoginPage.re.mjs:64
+#~ msgid "display name"
+#~ msgstr "表示名"
+
+#: src/components/pages/LoginPage.re.mjs:44
+#~ msgid "email address"
+#~ msgstr "メールアドレス"
+
+#: src/components/pages/LoginPage.re.mjs:55
+#~ msgid "event organizers and other users cannot view your email"
+#~ msgstr ""
+#~ "イベント主催者や他のユーザーはあなたのメールアドレスを見ることはできません"
+
 #: src/components/pages/LoginPage.re.mjs:28
 #: src/components/pages/LoginPage.re.mjs:85
 #~ msgid "login with Line"
 #~ msgstr "Lineでログイン"
 
-#: src/components/pages/LoginPage.re.mjs:166
-msgid "New users will be automatically registered"
-msgstr "新規ユーザーは自動的に登録されます"
-
 #: src/components/pages/LoginPage.re.mjs:51
 #~ msgid "notification of updates or cancellations to events (you can opt out)"
 #~ msgstr "イベントの更新やキャンセルの通知（オプトアウト可能）"
-
-#: src/components/pages/LoginPage.re.mjs:204
-msgid "or continue with email"
-msgstr "またはメールで続ける"
 
 #: src/components/pages/LoginPage.re.mjs:32
 #~ msgid "privacy disclosure"
@@ -93,22 +110,10 @@ msgstr "またはメールで続ける"
 #~ msgid "publicly displayed on event attendance lists"
 #~ msgstr "イベント出席リストに公開されます"
 
-#: src/components/pages/LoginPage.re.mjs:258
-msgid "Send magic link"
-msgstr "マジックリンクを送信"
-
 #: src/components/pages/LoginPage.re.mjs:88
 #~ msgid "Sign in to Events"
 #~ msgstr "イベントにサインイン"
 
-#: src/components/pages/LoginPage.re.mjs:162
-msgid "Sign in to Pkuru.com"
-msgstr "Pkuru.comにサインイン"
-
 #: src/components/pages/LoginPage.re.mjs:38
 #~ msgid "we will collect the following information from your Line account"
 #~ msgstr "Lineアカウントから以下の情報を収集します"
-
-#: src/components/pages/LoginPage.re.mjs:101
-msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
-msgstr "LINEアカウントにメールアドレスが関連付けられていません。LINEアプリからアカウントのメールアドレスを設定してから、もう一度お試しください。"

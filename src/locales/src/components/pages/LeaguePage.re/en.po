@@ -37,7 +37,7 @@ msgstr ""
 #~ msgid "Hesacore Grip"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:120
+#: src/components/pages/LeaguePage.re.mjs:126
 msgid "japan pickle league"
 msgstr ""
 
@@ -71,7 +71,11 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:29
-msgid "Next Prize: December 31"
+#~ msgid "Next Prize: December 31"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:32
+msgid "Next Prize: February 28"
 msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:53
@@ -86,9 +90,13 @@ msgstr ""
 #~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:51
-msgid "Proton Flamingo Paddle"
+#: src/components/pages/LeaguePage.re.mjs:36
+msgid "Prize Sponsor"
 msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:51
+#~ msgid "Proton Flamingo Paddle"
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:63
 #~ msgid "public events"
@@ -103,26 +111,30 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:65
-msgid "Second place female and male players will each receive the prize."
-msgstr ""
+#~ msgid "Second place female and male players will each receive the prize."
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:60
-msgid "Selkirk Labs Paddle Cover"
+#~ msgid "Selkirk Labs Paddle Cover"
+#~ msgstr ""
+
+#: src/components/pages/LeaguePage.re.mjs:66
+msgid "Selkirk SLK Era Paddle"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:17
 #~ msgid "sync calendar"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:33
+#: src/components/pages/LeaguePage.re.mjs:48
 msgid "This prize will be awarded to the top male and female players on this day."
 msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:111
+#: src/components/pages/LeaguePage.re.mjs:117
 msgid "Tokyo Badminton League"
 msgstr ""
 
-#: src/components/pages/LeaguePage.re.mjs:56
+#: src/components/pages/LeaguePage.re.mjs:71
 msgid "Top female and top male players will each receive the prize."
 msgstr ""
 

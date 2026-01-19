@@ -33,11 +33,6 @@ msgstr "[标题缺失]"
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "隐藏 {0} {hiddenCountDesc}"
-
 #: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "隐藏 {0} {hiddenCountDesc}"
@@ -70,10 +65,6 @@ msgstr "{0} 分钟"
 msgid "{0} minutes"
 msgstr "{0} 分钟"
 
-#: src/components/organisms/EventsList.re.mjs:231
-#~ msgid "{0} private {shadowCountDesc} hidden"
-#~ msgstr "{0} 个私人 {shadowCountDesc} 已隐藏"
-
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -82,15 +73,6 @@ msgstr "{0}"
 #: src/components/organisms/EventItem.re.mjs:296
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "位球员"
-
-#: src/components/organisms/EventsList.re.mjs:200
-#~ msgid "{shadowCount, plural, one {event} other {events}}"
-#~ msgstr "活动"
-
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
 
 #: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
@@ -141,10 +123,6 @@ msgstr "创建此活动"
 msgid "Date:"
 msgstr "日期："
 
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "描述您想要创建的活动..."
-
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "描述："
@@ -184,10 +162,6 @@ msgstr "已加入"
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr "退出活动"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
-#~ msgstr "告诉我您想在何时何地比赛，我将帮助您创建活动。您可以继续与我对话来完善细节。"
 
 #: src/components/pages/LocationPage.re.mjs:51
 msgid "location"
@@ -243,12 +217,12 @@ msgid "sync calendar"
 msgstr "同步日历"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
-msgstr "告诉我您活动的时间和地点，或其他任何详细信息。您还可以告诉我需要包含的详细信息，我甚至可以添加翻译。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "时间："
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"告诉我您活动的时间和地点，或其他任何详细信息。您还可以告诉我需要包含的详细信"
+"息，我甚至可以添加翻译。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -257,3 +231,38 @@ msgstr "标题："
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "等待列表"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "隐藏 {0} {hiddenCountDesc}"
+
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} 个私人 {shadowCountDesc} 已隐藏"
+
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "活动"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "描述您想要创建的活动..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid ""
+#~ "Let me know when and where you'd like to play, and I'll help you create "
+#~ "an event. You can continue talking to me in a conversation to refine any "
+#~ "details."
+#~ msgstr ""
+#~ "告诉我您想在何时何地比赛，我将帮助您创建活动。您可以继续与我对话来完善细"
+#~ "节。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "时间："

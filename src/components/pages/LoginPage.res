@@ -85,7 +85,10 @@ let make = () => {
     Some(
       t`Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again.`,
     )
-  | Some(_) => Some(t`An error occurred during sign in. Please try again.`)
+  | Some(x) =>
+    Js.log("LOGIN ERROR")
+    Js.log(x)
+    Some(t`An error occurred during sign in. Please try again.`)
   | None => None
   }
 

@@ -97,9 +97,18 @@ function LoginPage(props) {
       });
   var setEmail = match$1[1];
   var email = match$1[0];
-  var errorMessage = errorParam !== undefined ? (
-      errorParam === "email_not_found" ? Caml_option.some(t`Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again.`) : Caml_option.some(t`An error occurred during sign in. Please try again.`)
-    ) : undefined;
+  var errorMessage;
+  if (errorParam !== undefined) {
+    if (errorParam === "email_not_found") {
+      errorMessage = Caml_option.some(t`Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again.`);
+    } else {
+      console.log("LOGIN ERROR");
+      console.log(errorParam);
+      errorMessage = Caml_option.some(t`An error occurred during sign in. Please try again.`);
+    }
+  } else {
+    errorMessage = undefined;
+  }
   var handleSubmit = function (e) {
     e.preventDefault();
     if (email !== "") {

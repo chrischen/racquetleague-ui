@@ -29,10 +29,6 @@ msgstr "退出了活動"
 msgid "No activity yet"
 msgstr "尚無活動"
 
-#: src/components/organisms/EventMessages.re.mjs:125
-#~ msgid "Save"
-#~ msgstr "儲存"
-
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "傳送"
@@ -42,7 +38,8 @@ msgid "Status message"
 msgstr "狀態訊息"
 
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」。"
 
 #: src/components/organisms/EventMessages.re.mjs:274
@@ -52,3 +49,7 @@ msgstr "已被管理員新增至活動"
 #: src/components/organisms/EventMessages.re.mjs:286
 msgid "was removed from the event by admin"
 msgstr "已被管理員從活動中移除"
+
+#: src/components/organisms/EventMessages.re.mjs:125
+#~ msgid "Save"
+#~ msgstr "儲存"

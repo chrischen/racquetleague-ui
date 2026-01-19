@@ -3731,6 +3731,26 @@ msgstr "⌘+Enterで続ける"
 msgid "Press ⌘+Enter to generate"
 msgstr "⌘+Enterで生成"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1043
+msgid "Minimum rating (optional)"
+msgstr "最低レーティング（任意）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1047
+msgid "No minimum"
+msgstr "制限なし"
+
+#: src/components/pages/LeaguePage.re.mjs:32
+msgid "Next Prize: February 28"
+msgstr "次の賞品：2月28日"
+
+#: src/components/pages/LeaguePage.re.mjs:36
+msgid "Prize Sponsor"
+msgstr "賞スポンサー"
+
+#: src/components/pages/LeaguePage.re.mjs:66
+msgid "Selkirk SLK Era Paddle"
+msgstr "Selkirk SLK Era パドル"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

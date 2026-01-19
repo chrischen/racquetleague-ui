@@ -84,10 +84,6 @@ msgstr "キャンセル"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/MatchesView.re.mjs:481
-#~ msgid "Checkin"
-#~ msgstr "チェックイン"
-
 #: src/components/organisms/AiTetsu.re.mjs:1645
 msgid "Checkin All Players"
 msgstr "すべてのプレイヤーをチェックイン"
@@ -156,7 +152,8 @@ msgstr "戻る"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:38
 msgid "How many players should rest? (currently {0} players are resting)"
-msgstr "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
+msgstr ""
+"何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
 
 #: src/components/organisms/AiTetsu.re.mjs:1516
 msgid "Initialize Ratings"
@@ -207,11 +204,14 @@ msgstr "試合"
 
 #: src/components/organisms/CompMatch.re.mjs:232
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-msgstr "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
+msgstr ""
+"マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:237
 msgid "Matches are arranged by skill while mixing strong and weak players."
-msgstr "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されます。"
+msgstr ""
+"マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
+"す。"
 
 #: src/components/organisms/CompMatch.re.mjs:235
 msgid "Mixed"
@@ -222,8 +222,12 @@ msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
-msgstr "キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選択してください。"
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr ""
+"キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選"
+"択してください。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1563
 #: src/components/organisms/AiTetsu.re.mjs:1585
@@ -243,7 +247,8 @@ msgid "Player Name"
 msgstr "プレイヤー名"
 
 #: src/components/organisms/AiTetsu.re.mjs:1359
-msgid "Players in a team will always be placed in a match together on the same side."
+msgid ""
+"Players in a team will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1380
@@ -251,7 +256,8 @@ msgid "Players in an anti-team will never be placed in a match together."
 msgstr "アンチチームのプレイヤーは、試合で一緒に配置されることはありません。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1438
-msgid "Players in teams will always be placed in a match together on the same side."
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/pages/LeagueEventPage.re.mjs:96
@@ -309,10 +315,6 @@ msgstr "保存"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/MatchList.re.mjs:292
-#~ msgid "Score:"
-#~ msgstr "スコア:"
-
 #: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
 msgstr "選択"
@@ -330,8 +332,14 @@ msgid "Set as Male"
 msgstr "男性に設定"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
-msgstr "これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にします。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にしま"
+"す。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部"
+"のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1554
 msgid "Start Session"
@@ -385,3 +393,11 @@ msgstr "勝ち"
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "勝者"
+
+#: src/components/organisms/MatchesView.re.mjs:481
+#~ msgid "Checkin"
+#~ msgstr "チェックイン"
+
+#: src/components/organisms/MatchList.re.mjs:292
+#~ msgid "Score:"
+#~ msgstr "スコア:"

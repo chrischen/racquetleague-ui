@@ -13,10 +13,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:274
-#~ msgid "...load higher rated players"
-#~ msgstr "... より高い評価のプレイヤーを読み込む"
-
 #: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
 msgstr "前のものを読み込む"
@@ -28,10 +24,6 @@ msgstr "リーグに戻る"
 #: src/components/pages/LeaguePlayerPage.re.mjs:146
 msgid "Current Rating"
 msgstr "現在のレーティング"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:83
-#~ msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
-#~ msgstr "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに参加してください:"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:522
 #: src/components/organisms/MatchHistoryList.re.mjs:586
@@ -46,21 +38,9 @@ msgstr "推定DUPR"
 msgid "Even"
 msgstr "互角"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:131
-#~ msgid "Female"
-#~ msgstr "女性"
-
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "もっとプレイヤーを読み込む..."
-
-#: src/components/organisms/MatchList.re.mjs:290
-#~ msgid "Load more players..."
-#~ msgstr "もっとプレイヤーを読み込む..."
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:194
-#~ msgid "Loading rankings..."
-#~ msgstr "ランキングを読み込んでいます..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:193
 msgid "Loading..."
@@ -70,6 +50,55 @@ msgstr "読み込み中..."
 #: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "LOSS"
 msgstr "負け"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "レーティング履歴"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:184
+msgid "Recent Matches"
+msgstr "最近の試合"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr ""
+"網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くな"
+"ります。"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "番狂わせ"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "勝ち"
+
+#: src/components/organisms/MatchList.re.mjs:274
+#~ msgid "...load higher rated players"
+#~ msgstr "... より高い評価のプレイヤーを読み込む"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:83
+#~ msgid ""
+#~ "Currently the league is in testing mode. To participate, please join the "
+#~ "Pickleball events here:"
+#~ msgstr ""
+#~ "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベント"
+#~ "に参加してください:"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:131
+#~ msgid "Female"
+#~ msgstr "女性"
+
+#: src/components/organisms/MatchList.re.mjs:290
+#~ msgid "Load more players..."
+#~ msgstr "もっとプレイヤーを読み込む..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:194
+#~ msgid "Loading rankings..."
+#~ msgstr "ランキングを読み込んでいます..."
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:133
 #~ msgid "Male"
@@ -81,8 +110,12 @@ msgstr "負け"
 #~ msgstr "対戦履歴"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:78
-#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
-#~ msgstr "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は毎月トッププレイヤーに授与されます。"
+#~ msgid ""
+#~ "Play doubles games with different partners and receive an individual "
+#~ "rating. Prizes are awarded monthly to top players."
+#~ msgstr ""
+#~ "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品"
+#~ "は毎月トッププレイヤーに授与されます。"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:103
 #: src/components/pages/LeaguePlayerPage.re.mjs:160
@@ -94,14 +127,6 @@ msgstr "負け"
 #~ msgid "Rating"
 #~ msgstr "評価"
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:176
-msgid "Rating History"
-msgstr "レーティング履歴"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:184
-msgid "Recent Matches"
-msgstr "最近の試合"
-
 #: src/components/pages/LeaguePlayerPage.re.mjs:73
 #~ msgid "Recreational Doubles"
 #~ msgstr "レクリエーショナルダブルス"
@@ -109,16 +134,3 @@ msgstr "最近の試合"
 #: src/components/organisms/MatchList.re.mjs:292
 #~ msgid "Score:"
 #~ msgstr "スコア:"
-
-#: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
-msgstr "網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くなります。"
-
-#: src/components/organisms/MatchHistoryList.re.mjs:630
-msgid "Upset"
-msgstr "番狂わせ"
-
-#: src/components/organisms/MatchHistoryList.re.mjs:521
-#: src/components/organisms/MatchHistoryList.re.mjs:585
-msgid "WIN"
-msgstr "勝ち"

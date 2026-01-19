@@ -67,11 +67,11 @@ var Fragment = {
 var ControllerOfInputs = {};
 
 var schema = Zod.z.object({
-      lineUsername: Zod.z.preprocess((function (v) {
-                return v.trim();
-              }), Zod.z.string({
+      lineUsername: Zod.z.preprocess((function (s) {
+              return s.trim();
+            }), Zod.z.string({
                   required_error: t`Display name is required`
-                })).min(1),
+                }).min(1)),
       email: Zod.z.string({
               required_error: t`Email is required`
             }).min(1)
