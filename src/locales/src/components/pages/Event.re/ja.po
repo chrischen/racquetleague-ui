@@ -472,7 +472,7 @@ msgstr ""
 #: src/components/organisms/EventRsvps.re.mjs:384
 #: src/components/organisms/EventRsvps.re.mjs:389
 #~ msgid "leave event"
-#~ msgstr "離れる"
+#~ msgstr "参加取り消し"
 
 #: src/components/organisms/EventRsvps.re.mjs:609
 #: src/components/organisms/EventRsvps.re.mjs:661
@@ -548,11 +548,11 @@ msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:450
 #~ msgid "you're going :)"
-#~ msgstr "あなたは行く :)"
+#~ msgstr "参加確定！:)"
 
 #: src/components/organisms/EventRsvps.re.mjs:471
 #~ msgid "you're waitlisted :("
-#~ msgstr "あなたはウェイトリストに入っています :("
+#~ msgstr "キャンセル待ち :("
 
 #: src/components/organisms/EventRsvps.re.mjs:204
 #~ msgid ""

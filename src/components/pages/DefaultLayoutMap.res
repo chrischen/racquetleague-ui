@@ -236,6 +236,8 @@ let make = () => {
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
       />
+      <link rel="icon" type_="image/x-icon" href="/src/assets/favicon.ico" />
+      <link rel="apple-touch-icon" href="/src/assets/apple-touch-icon.png" />
     </Util.Helmet>
     <Layout viewer={viewer}>
       <Router.Outlet />

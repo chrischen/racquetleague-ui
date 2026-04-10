@@ -28,7 +28,7 @@ msgstr "読み込み中"
 #: src/components/organisms/SubmitMatch.re.mjs:311
 #: src/components/organisms/SubmitMatch.re.mjs:357
 msgid "Points"
-msgstr "何点"
+msgstr "ポイント"
 
 #: src/components/organisms/SubmitMatch.re.mjs:52
 #: src/components/organisms/SubmitMatch.re.mjs:64
@@ -51,4 +51,4 @@ msgstr "勝者"
 #: src/components/organisms/SubmitMatch.re.mjs:314
 #: src/components/organisms/SubmitMatch.re.mjs:327
 #~ msgid "points"
-#~ msgstr "何点"
+#~ msgstr "ポイント"

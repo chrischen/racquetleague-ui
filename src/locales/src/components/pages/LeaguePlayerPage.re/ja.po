@@ -15,13 +15,25 @@ msgstr ""
 
 #: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
-msgstr "前のものを読み込む"
+msgstr "前の試合を読み込む"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:108
+#: src/components/pages/LeaguePlayerPage.re.mjs:120
+msgid "All"
+msgstr "すべて"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:639
 msgid "Back to league"
 msgstr "リーグに戻る"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:146
+#: src/components/pages/LeaguePlayerPage.re.mjs:290
+msgid "Balanced partner tendency"
+msgstr "パートナー傾向が均衡"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:336
+msgid "Best Doubles Partners"
+msgstr "最高のダブルスパートナー"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:677
 msgid "Current Rating"
 msgstr "現在のレーティング"
 
@@ -30,7 +42,14 @@ msgstr "現在のレーティング"
 msgid "DRAW"
 msgstr "引き分け"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:87
+#: src/components/pages/LeaguePlayerPage.re.mjs:287
+msgid "Elevates weaker partners"
+msgstr "弱いパートナーを引き上げる"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:266
+#: src/components/pages/LeaguePlayerPage.re.mjs:710
+#: src/components/pages/LeaguePlayerPage.re.mjs:753
+#: src/components/pages/LeaguePlayerPage.re.mjs:796
 msgid "Estimated DUPR"
 msgstr "推定DUPR"
 
@@ -40,9 +59,9 @@ msgstr "互角"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
-msgstr "もっとプレイヤーを読み込む..."
+msgstr "もっと試合を読み込む..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:193
+#: src/components/pages/LeaguePlayerPage.re.mjs:860
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -51,15 +70,45 @@ msgstr "読み込み中..."
 msgid "LOSS"
 msgstr "負け"
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+#: src/components/pages/LeaguePlayerPage.re.mjs:723
+msgid "Men's Doubles"
+msgstr "男子ダブルス"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:766
+msgid "Mixed Doubles"
+msgstr "混合ダブルス"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:356
+#: src/components/pages/LeaguePlayerPage.re.mjs:430
+#: src/components/pages/LeaguePlayerPage.re.mjs:504
+#: src/components/pages/LeaguePlayerPage.re.mjs:578
+msgid "No data for this category"
+msgstr "このカテゴリのデータはありません"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:283
+msgid "Performs better with stronger partners"
+msgstr "強いパートナーと組むと成績が上がる"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:369
+#: src/components/pages/LeaguePlayerPage.re.mjs:443
+#: src/components/pages/LeaguePlayerPage.re.mjs:517
+#: src/components/pages/LeaguePlayerPage.re.mjs:591
+msgid "Predicted"
+msgstr "予測"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:177
 msgid "Rating History"
 msgstr "レーティング履歴"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:184
+#: src/components/pages/LeaguePlayerPage.re.mjs:851
 msgid "Recent Matches"
 msgstr "最近の試合"
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+#: src/components/pages/LeaguePlayerPage.re.mjs:484
+msgid "Strong Against"
+msgstr "得意な相手"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:181
 msgid ""
 "The shaded area represents rating uncertainty. Narrower bands indicate "
 "higher confidence."
@@ -71,10 +120,22 @@ msgstr ""
 msgid "Upset"
 msgstr "番狂わせ"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:558
+msgid "Weak Against"
+msgstr "苦手な相手"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:521
 #: src/components/organisms/MatchHistoryList.re.mjs:585
 msgid "WIN"
 msgstr "勝ち"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:809
+msgid "Women's Doubles"
+msgstr "女子ダブルス"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:410
+msgid "Worst Doubles Partners"
+msgstr "最悪のダブルスパートナー"
 
 #: src/components/organisms/MatchList.re.mjs:274
 #~ msgid "...load higher rated players"

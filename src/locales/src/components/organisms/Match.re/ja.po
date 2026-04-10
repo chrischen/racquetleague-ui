@@ -20,7 +20,7 @@ msgstr "削除"
 #: src/components/organisms/Match.re.mjs:292
 #: src/components/organisms/Match.re.mjs:313
 msgid "points"
-msgstr "何点"
+msgstr "ポイント"
 
 #: src/components/organisms/Match.re.mjs:99
 #: src/components/organisms/Match.re.mjs:111

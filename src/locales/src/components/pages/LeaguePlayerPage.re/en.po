@@ -21,11 +21,23 @@ msgstr ""
 msgid "...load previous matches"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:108
+#: src/components/pages/LeaguePlayerPage.re.mjs:120
+msgid "All"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:639
 msgid "Back to league"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:146
+#: src/components/pages/LeaguePlayerPage.re.mjs:290
+msgid "Balanced partner tendency"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:336
+msgid "Best Doubles Partners"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:677
 msgid "Current Rating"
 msgstr ""
 
@@ -38,7 +50,14 @@ msgstr ""
 msgid "DRAW"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:87
+#: src/components/pages/LeaguePlayerPage.re.mjs:287
+msgid "Elevates weaker partners"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:266
+#: src/components/pages/LeaguePlayerPage.re.mjs:710
+#: src/components/pages/LeaguePlayerPage.re.mjs:753
+#: src/components/pages/LeaguePlayerPage.re.mjs:796
 msgid "Estimated DUPR"
 msgstr ""
 
@@ -62,7 +81,7 @@ msgstr ""
 #~ msgid "Loading rankings..."
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:193
+#: src/components/pages/LeaguePlayerPage.re.mjs:860
 msgid "Loading..."
 msgstr ""
 
@@ -80,6 +99,25 @@ msgstr ""
 #~ msgid "Match History"
 #~ msgstr ""
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:723
+msgid "Men's Doubles"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:766
+msgid "Mixed Doubles"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:356
+#: src/components/pages/LeaguePlayerPage.re.mjs:430
+#: src/components/pages/LeaguePlayerPage.re.mjs:504
+#: src/components/pages/LeaguePlayerPage.re.mjs:578
+msgid "No data for this category"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:283
+msgid "Performs better with stronger partners"
+msgstr ""
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:78
 #~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 #~ msgstr ""
@@ -89,16 +127,23 @@ msgstr ""
 #~ msgid "Player Profile Page"
 #~ msgstr ""
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:369
+#: src/components/pages/LeaguePlayerPage.re.mjs:443
+#: src/components/pages/LeaguePlayerPage.re.mjs:517
+#: src/components/pages/LeaguePlayerPage.re.mjs:591
+msgid "Predicted"
+msgstr ""
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:212
 #: src/components/pages/LeaguePlayerPage.re.mjs:220
 #~ msgid "Rating"
 #~ msgstr ""
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+#: src/components/organisms/RatingGraphWrapper.re.mjs:177
 msgid "Rating History"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:184
+#: src/components/pages/LeaguePlayerPage.re.mjs:851
 msgid "Recent Matches"
 msgstr ""
 
@@ -110,7 +155,11 @@ msgstr ""
 #~ msgid "Score:"
 #~ msgstr ""
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+#: src/components/pages/LeaguePlayerPage.re.mjs:484
+msgid "Strong Against"
+msgstr ""
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:181
 msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
 msgstr ""
 
@@ -118,7 +167,19 @@ msgstr ""
 msgid "Upset"
 msgstr ""
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:558
+msgid "Weak Against"
+msgstr ""
+
 #: src/components/organisms/MatchHistoryList.re.mjs:521
 #: src/components/organisms/MatchHistoryList.re.mjs:585
 msgid "WIN"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:809
+msgid "Women's Doubles"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:410
+msgid "Worst Doubles Partners"
 msgstr ""

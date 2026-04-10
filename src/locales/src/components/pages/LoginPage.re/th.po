@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LoginPage.re.mjs:101
+#: src/components/pages/LoginPage.re.mjs:107
 msgid "An error occurred during sign in. Please try again."
 msgstr "เกิดข้อผิดพลาดในการเข้าสู่ระบบ กรุณาลองอีกครั้ง"
 
@@ -22,7 +22,7 @@ msgstr "เกิดข้อผิดพลาดในการเข้าส
 msgid "An error occurred: {message}"
 msgstr "เกิดข้อผิดพลาด: {message}"
 
-#: src/components/pages/LoginPage.re.mjs:122
+#: src/components/pages/LoginPage.re.mjs:131
 msgid "Back to events"
 msgstr "กลับไปที่กิจกรรม"
 
@@ -31,11 +31,11 @@ msgstr "กลับไปที่กิจกรรม"
 msgid "Check your email for a magic link to sign in!"
 msgstr "ตรวจสอบอีเมลของคุณเพื่อรับลิงก์วิเศษสำหรับเข้าสู่ระบบ!"
 
-#: src/components/pages/LoginPage.re.mjs:185
+#: src/components/pages/LoginPage.re.mjs:194
 msgid "Continue with LINE"
 msgstr "ดำเนินการต่อด้วย LINE"
 
-#: src/components/pages/LoginPage.re.mjs:217
+#: src/components/pages/LoginPage.re.mjs:226
 msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
@@ -47,23 +47,23 @@ msgstr "การส่งลิงก์วิเศษล้มเหลว: {
 msgid "Login failed: {0}"
 msgstr "เข้าสู่ระบบล้มเหลว: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:166
+#: src/components/pages/LoginPage.re.mjs:175
 msgid "New users will be automatically registered"
 msgstr "ผู้ใช้ใหม่จะถูกลงทะเบียนโดยอัตโนมัติ"
 
-#: src/components/pages/LoginPage.re.mjs:204
+#: src/components/pages/LoginPage.re.mjs:213
 msgid "or continue with email"
 msgstr "หรือดำเนินการต่อด้วยอีเมล"
 
-#: src/components/pages/LoginPage.re.mjs:258
+#: src/components/pages/LoginPage.re.mjs:267
 msgid "Send magic link"
 msgstr "ส่งลิงก์วิเศษ"
 
-#: src/components/pages/LoginPage.re.mjs:162
+#: src/components/pages/LoginPage.re.mjs:171
 msgid "Sign in to Pkuru.com"
 msgstr "ลงชื่อเข้าใช้ Pkuru.com"
 
-#: src/components/pages/LoginPage.re.mjs:101
+#: src/components/pages/LoginPage.re.mjs:103
 msgid ""
 "Your LINE account does not have an email associated. Please set an email "
 "address for your account from the LINE app, and then try again."

@@ -15,11 +15,11 @@ msgstr ""
 
 #: src/components/organisms/MatchList.re.mjs:484
 msgid "...load previous matches"
-msgstr "前のものを読み込む"
+msgstr "前の試合を読み込む"
 
 #: src/components/organisms/MatchList.re.mjs:507
 msgid "Load more matches..."
-msgstr "もっとプレイヤーを読み込む..."
+msgstr "もっと試合を読み込む..."
 
 #: src/components/organisms/MatchList.re.mjs:404
 msgid "Score:"

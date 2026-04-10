@@ -4,6 +4,7 @@ import path from "node:path";
 import cors from "cors";
 import { fileURLToPath } from "node:url";
 import express from "express";
+import favicon from "serve-favicon";
 
 // Needed to process node imports without file extensions
 import "extensionless/register";
@@ -50,6 +51,8 @@ export async function createServer(
     : "";
 
   const app = express();
+
+  app.use(favicon(path.join(__dirname, 'src', 'assets', 'favicon.ico')));
 
   var corsOptions = {
     origin: ['https://www.racquetleague.com', 'https://www.japanpickleleague.com', 'https://www.pkuru.com'],

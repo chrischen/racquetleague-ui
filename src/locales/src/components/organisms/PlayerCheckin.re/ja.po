@@ -17,7 +17,7 @@ msgstr ""
 msgid "{0} of {1} checked in"
 msgstr "{1}人中{0}人がチェックイン済み"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:317
 msgid "$"
 msgstr "¥"
 
@@ -41,11 +41,11 @@ msgstr "プレイヤーをドラッグして初期シードを並び替え"
 msgid "mu"
 msgstr "μ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Not paid"
 msgstr "未払い"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Paid"
 msgstr "支払い済み"
 

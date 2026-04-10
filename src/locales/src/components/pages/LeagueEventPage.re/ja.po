@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
-msgstr "前のものを読み込む"
+msgstr "前の試合を読み込む"
 
 #: src/components/organisms/AiTetsu.re.mjs:1712
 msgid "{0} {breakPlayersDesc} are not playing"
@@ -169,7 +169,7 @@ msgstr "左チームのプレイヤー"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
-msgstr "もっとプレイヤーを読み込む..."
+msgstr "もっと試合を読み込む..."
 
 #: src/components/organisms/SubmitMatch.re.mjs:409
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
@@ -269,7 +269,7 @@ msgstr "セッションを管理する前にログインしてください"
 #: src/components/organisms/SortableSubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:403
 msgid "Points"
-msgstr "何点"
+msgstr "ポイント"
 
 #: src/components/organisms/SubmitMatch.re.mjs:52
 #: src/components/organisms/SubmitMatch.re.mjs:64
@@ -297,7 +297,7 @@ msgstr "試合をキューに入れる"
 
 #: src/components/organisms/CompMatch.re.mjs:240
 msgid "Random"
-msgstr "ランダムで"
+msgstr "ランダム"
 
 #: src/components/organisms/CompMatch.re.mjs:498
 msgid "Recommended Match"
@@ -469,7 +469,7 @@ msgstr "勝者"
 #: src/components/organisms/EventRsvps.re.mjs:222
 #: src/components/organisms/EventRsvps.re.mjs:233
 #~ msgid "leave event"
-#~ msgstr "離れる"
+#~ msgstr "参加取り消し"
 
 #: src/components/organisms/SelectMatch.re.mjs:215
 #~ msgid "load More"
@@ -520,11 +520,11 @@ msgstr "勝者"
 #: src/components/organisms/SubmitMatch.re.mjs:314
 #: src/components/organisms/SubmitMatch.re.mjs:327
 #~ msgid "points"
-#~ msgstr "何点"
+#~ msgstr "ポイント"
 
 #: src/components/organisms/CompMatch.re.mjs:206
 #~ msgid "Quality"
-#~ msgstr "競争力で"
+#~ msgstr "競争力"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:427
 #~ msgid "queued matches"

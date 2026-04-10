@@ -17,7 +17,7 @@ msgstr ""
 msgid "{0} of {1} checked in"
 msgstr "{1} 人中有 {0} 人已报到"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:317
 msgid "$"
 msgstr "$"
 
@@ -41,11 +41,11 @@ msgstr "拖动球员以重新排序他们的初始种子"
 msgid "mu"
 msgstr "μ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Not paid"
 msgstr "未支付"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Paid"
 msgstr "已支付"
 

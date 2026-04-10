@@ -197,7 +197,7 @@ type syncState = Idle | Syncing | Success | Error
 @react.component
 let make = (
   ~event: RescriptRelay.fragmentRefs<[> #EventManager_event]>,
-  ~eventId as _: string,
+  ~eventId: string,
   ~debug: bool=false,
 ) => {
   let data = Fragment.use(event)
@@ -234,6 +234,7 @@ let make = (
         ~variables={
           matchInput: {
             activitySlug,
+            eventId: ?Some(eventId),
             namespace,
             doublesMatch: {
               winners: winnerIds,

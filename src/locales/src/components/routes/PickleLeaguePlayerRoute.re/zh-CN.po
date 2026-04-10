@@ -17,11 +17,23 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "...加载之前的比赛"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:108
+#: src/components/pages/LeaguePlayerPage.re.mjs:120
+msgid "All"
+msgstr "全部"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:639
 msgid "Back to league"
 msgstr "返回联赛"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:146
+#: src/components/pages/LeaguePlayerPage.re.mjs:290
+msgid "Balanced partner tendency"
+msgstr "搭档倾向均衡"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:336
+msgid "Best Doubles Partners"
+msgstr "最佳双打搭档"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:677
 msgid "Current Rating"
 msgstr "当前评分"
 
@@ -30,7 +42,14 @@ msgstr "当前评分"
 msgid "DRAW"
 msgstr "平局"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:87
+#: src/components/pages/LeaguePlayerPage.re.mjs:287
+msgid "Elevates weaker partners"
+msgstr "能提升较弱搭档的水平"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:266
+#: src/components/pages/LeaguePlayerPage.re.mjs:710
+#: src/components/pages/LeaguePlayerPage.re.mjs:753
+#: src/components/pages/LeaguePlayerPage.re.mjs:796
 msgid "Estimated DUPR"
 msgstr "预估 DUPR"
 
@@ -42,7 +61,7 @@ msgstr "势均力敌"
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:193
+#: src/components/pages/LeaguePlayerPage.re.mjs:860
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -51,15 +70,45 @@ msgstr "加载中..."
 msgid "LOSS"
 msgstr "负"
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+#: src/components/pages/LeaguePlayerPage.re.mjs:723
+msgid "Men's Doubles"
+msgstr "男子双打"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:766
+msgid "Mixed Doubles"
+msgstr "混合双打"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:356
+#: src/components/pages/LeaguePlayerPage.re.mjs:430
+#: src/components/pages/LeaguePlayerPage.re.mjs:504
+#: src/components/pages/LeaguePlayerPage.re.mjs:578
+msgid "No data for this category"
+msgstr "此类别没有数据"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:283
+msgid "Performs better with stronger partners"
+msgstr "与较强搭档配合时表现更佳"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:369
+#: src/components/pages/LeaguePlayerPage.re.mjs:443
+#: src/components/pages/LeaguePlayerPage.re.mjs:517
+#: src/components/pages/LeaguePlayerPage.re.mjs:591
+msgid "Predicted"
+msgstr "预测"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:177
 msgid "Rating History"
 msgstr "评分历史"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:184
+#: src/components/pages/LeaguePlayerPage.re.mjs:851
 msgid "Recent Matches"
 msgstr "最近比赛"
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+#: src/components/pages/LeaguePlayerPage.re.mjs:484
+msgid "Strong Against"
+msgstr "强势对阵"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:181
 msgid ""
 "The shaded area represents rating uncertainty. Narrower bands indicate "
 "higher confidence."
@@ -69,10 +118,22 @@ msgstr "阴影区域表示评分的不确定性。较窄的带表示更高的置
 msgid "Upset"
 msgstr "爆冷"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:558
+msgid "Weak Against"
+msgstr "弱势对阵"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:521
 #: src/components/organisms/MatchHistoryList.re.mjs:585
 msgid "WIN"
 msgstr "胜"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:809
+msgid "Women's Doubles"
+msgstr "女子双打"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:410
+msgid "Worst Doubles Partners"
+msgstr "最差双打搭档"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:131
 #~ msgid "Female"

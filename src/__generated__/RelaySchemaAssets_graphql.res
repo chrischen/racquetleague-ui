@@ -280,6 +280,7 @@ and input_JoinClubInput_nullable = {
 @live
 and input_LeagueMatchInput = {
   activitySlug: string,
+  eventId?: string,
   doublesMatch: input_DoublesMatchInput,
   namespace: string,
   syncId?: string,
@@ -288,6 +289,7 @@ and input_LeagueMatchInput = {
 @live
 and input_LeagueMatchInput_nullable = {
   activitySlug: string,
+  eventId?: Js.Null.t<string>,
   doublesMatch: input_DoublesMatchInput_nullable,
   namespace: string,
   syncId?: Js.Null.t<string>,

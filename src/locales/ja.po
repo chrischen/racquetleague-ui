@@ -23,7 +23,7 @@ msgstr "参加する"
 
 #: src/components/organisms/ViewerRsvpStatus.mjs:15
 msgid "leave event"
-msgstr "離れる"
+msgstr "参加取り消し"
 
 #: src/components/organisms/EventRsvps.mjs:233
 msgid "load More"
@@ -620,11 +620,11 @@ msgstr ""
 
 #: src/components/organisms/MatchList.re.mjs:352
 msgid "...load previous matches"
-msgstr "前のものを読み込む"
+msgstr "前の試合を読み込む"
 
 #: src/components/organisms/MatchList.re.mjs:374
 msgid "Load more matches..."
-msgstr "もっとプレイヤーを読み込む..."
+msgstr "もっと試合を読み込む..."
 
 #: src/components/organisms/MatchList.re.mjs:343
 msgid "Match History"
@@ -728,7 +728,7 @@ msgstr "一度に複数のイベントを作成"
 
 #: src/components/pages/CreateEvents.re.mjs:145
 msgid "events"
-msgstr "私のイベント"
+msgstr "イベント"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:92
 msgid "events preview"
@@ -748,7 +748,7 @@ msgstr "ここにイベントを入力してください"
 
 #: src/components/organisms/CreateClubForm.re.mjs:184
 msgid "about"
-msgstr "約"
+msgstr "概要"
 
 #: src/components/organisms/CreateClubForm.re.mjs:144
 msgid "club"
@@ -870,7 +870,7 @@ msgstr "手動チーム"
 #: src/components/organisms/Match.re.mjs:292
 #: src/components/organisms/Match.re.mjs:313
 msgid "points"
-msgstr "何点"
+msgstr "ポイント"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:211
 msgid "queued matches"
@@ -902,11 +902,11 @@ msgstr " プレイヤー"
 
 #: src/components/organisms/CompMatch.re.mjs:206
 msgid "Quality"
-msgstr "競争力で"
+msgstr "競争力"
 
 #: src/components/organisms/CompMatch.re.mjs:210
 msgid "Random"
-msgstr "ランダムで"
+msgstr "ランダム"
 
 #: src/components/organisms/CompMatch.re.mjs:286
 msgid "Select a tab"
@@ -1058,7 +1058,7 @@ msgstr "試合"
 #: src/components/organisms/SubmitMatch.re.mjs:328
 #: src/components/organisms/SubmitMatch.re.mjs:374
 msgid "Points"
-msgstr "何点"
+msgstr "ポイント"
 
 #: src/components/organisms/MatchesView.re.mjs:142
 msgid "Queue"
@@ -1115,15 +1115,15 @@ msgstr "ラケットリーグ"
 
 #: src/components/organisms/EventRsvps.re.mjs:284
 msgid "you're going :)"
-msgstr "あなたは行く :)"
+msgstr "参加確定！:)"
 
 #: src/components/organisms/EventRsvps.re.mjs:305
 msgid "you're waitlisted :("
-msgstr "あなたはウェイトリストに入っています :("
+msgstr "キャンセル待ち :("
 
 #: src/components/organisms/EventsList.re.mjs:406
 msgid "{0} private {shadowCountDesc} hidden"
-msgstr "{0} プライベート {shadowCountDesc} 隠された"
+msgstr "{0}件のプライベート{shadowCountDesc}が非表示"
 
 #: src/components/organisms/EventsList.re.mjs:380
 msgid "{shadowCount, plural, one {event} other {events}}"
@@ -1270,7 +1270,7 @@ msgstr "自己紹介をしてください"
 #: src/components/pages/DefaultLayoutMap.re.mjs:88
 msgid ""
 "It looks like you may prefer English. Would you like to switch to English?"
-msgstr "日本語がお好きなようですね。日本語に変更しますか？"
+msgstr "日本語をご希望ですか？日本語に切り替えますか？"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:89
 msgid "Switch to English"
@@ -3395,7 +3395,7 @@ msgstr "他の人に表示される名前です"
 
 #: src/components/organisms/ProfileModal.re.mjs:244
 msgid "We need a few details before you can join this event"
-msgstr "このイベントに参加する前にいくつかの情報が必要です"
+msgstr "イベント参加に必要な情報を入力してください"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:579
 msgid "LOSS"
@@ -3751,6 +3751,60 @@ msgstr "賞スポンサー"
 msgid "Selkirk SLK Era Paddle"
 msgstr "Selkirk SLK Era パドル"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
+msgid "Best Doubles Partners"
+msgstr "最高のダブルスパートナー"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:378
+msgid "Men's Doubles"
+msgstr "男子ダブルス"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:421
+msgid "Mixed Doubles"
+msgstr "混合ダブルス"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:233
+msgid "Strong Against"
+msgstr "得意な相手"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:261
+msgid "Weak Against"
+msgstr "苦手な相手"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:464
+msgid "Women's Doubles"
+msgstr "女子ダブルス"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:205
+msgid "Worst Doubles Partners"
+msgstr "最悪のダブルスパートナー"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:317
+#: src/components/pages/LeaguePlayerPage.re.mjs:367
+#: src/components/pages/LeaguePlayerPage.re.mjs:417
+#: src/components/pages/LeaguePlayerPage.re.mjs:467
+msgid "No data for this category"
+msgstr "このカテゴリのデータはありません"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:329
+#: src/components/pages/LeaguePlayerPage.re.mjs:403
+#: src/components/pages/LeaguePlayerPage.re.mjs:477
+#: src/components/pages/LeaguePlayerPage.re.mjs:551
+msgid "Predicted"
+msgstr "予測"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:290
+msgid "Balanced partner tendency"
+msgstr "パートナー傾向が均衡"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:287
+msgid "Elevates weaker partners"
+msgstr "弱いパートナーを引き上げる"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:283
+msgid "Performs better with stronger partners"
+msgstr "強いパートナーと組むと成績が上がる"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -3842,3 +3896,23 @@ msgstr "Selkirk SLK Era パドル"
 #, fuzzy
 #~ msgid "Where to find players in Tokyo"
 #~ msgstr "東京でプレイヤーを見つける方法"
+
+#: src/components/organisms/RoundRobin.re.mjs:363
+#, fuzzy
+#~ msgid "Add Players"
+#~ msgstr "プレイヤーを追加"
+
+#: src/components/organisms/RoundRobin.re.mjs:346
+#, fuzzy
+#~ msgid "Debug Mode"
+#~ msgstr "デバッグ：オン"
+
+#: src/components/organisms/RoundRobin.re.mjs:451
+#, fuzzy
+#~ msgid "No players added yet"
+#~ msgstr "まだプレーヤーがいません"
+
+#: src/components/organisms/RoundRobin.re.mjs:323
+#, fuzzy
+#~ msgid "Round Robin Tournament"
+#~ msgstr "総当たり戦"

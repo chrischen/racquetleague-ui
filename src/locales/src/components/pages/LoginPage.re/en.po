@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/LoginPage.re.mjs:101
+#: src/components/pages/LoginPage.re.mjs:107
 msgid "An error occurred during sign in. Please try again."
 msgstr ""
 
@@ -22,7 +22,7 @@ msgstr ""
 msgid "An error occurred: {message}"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:122
+#: src/components/pages/LoginPage.re.mjs:131
 msgid "Back to events"
 msgstr ""
 
@@ -35,7 +35,7 @@ msgstr ""
 msgid "Check your email for a magic link to sign in!"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:185
+#: src/components/pages/LoginPage.re.mjs:194
 msgid "Continue with LINE"
 msgstr ""
 
@@ -51,7 +51,7 @@ msgstr ""
 #~ msgid "email address"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:217
+#: src/components/pages/LoginPage.re.mjs:226
 msgid "Email address"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 #~ msgid "Login with Line"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:166
+#: src/components/pages/LoginPage.re.mjs:175
 msgid "New users will be automatically registered"
 msgstr ""
 
@@ -108,7 +108,7 @@ msgstr ""
 #~ msgid "Notification of updates or cancellations to events (you can opt out)"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:204
+#: src/components/pages/LoginPage.re.mjs:213
 msgid "or continue with email"
 msgstr ""
 
@@ -146,7 +146,7 @@ msgstr ""
 #~ msgid "Publicy displayed on event attendance lists"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:258
+#: src/components/pages/LoginPage.re.mjs:267
 msgid "Send magic link"
 msgstr ""
 
@@ -154,7 +154,7 @@ msgstr ""
 #~ msgid "Sign in to Events"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:162
+#: src/components/pages/LoginPage.re.mjs:171
 msgid "Sign in to Pkuru.com"
 msgstr ""
 
@@ -166,6 +166,6 @@ msgstr ""
 #~ msgid "We will collect the following information from your Line account"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:101
+#: src/components/pages/LoginPage.re.mjs:103
 msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
 msgstr ""

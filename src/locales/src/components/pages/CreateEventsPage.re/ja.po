@@ -93,7 +93,7 @@ msgstr "サークルを選択"
 
 #: src/components/organisms/CreateClubForm.re.mjs:213
 #~ msgid "about"
-#~ msgstr "約"
+#~ msgstr "概要"
 
 #: src/components/pages/CreateEvents.re.mjs:160
 #~ msgid "activity"
@@ -145,7 +145,7 @@ msgstr "サークルを選択"
 
 #: src/components/pages/CreateEvents.re.mjs:145
 #~ msgid "events"
-#~ msgstr "私のイベント"
+#~ msgstr "イベント"
 
 #: src/components/pages/CreateEvents.re.mjs:49
 #~ msgid "input is required"

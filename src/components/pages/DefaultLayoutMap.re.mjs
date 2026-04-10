@@ -349,11 +349,22 @@ function DefaultLayoutMap(props) {
   var match = usePreloaded(query.data);
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                JsxRuntime.jsx(ReactHelmetAsync.Helmet, {
-                      children: JsxRuntime.jsx("meta", {
-                            content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
-                            name: "viewport"
-                          })
+                JsxRuntime.jsxs(ReactHelmetAsync.Helmet, {
+                      children: [
+                        JsxRuntime.jsx("meta", {
+                              content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+                              name: "viewport"
+                            }),
+                        JsxRuntime.jsx("link", {
+                              href: "/src/assets/favicon.ico",
+                              rel: "icon",
+                              type: "image/x-icon"
+                            }),
+                        JsxRuntime.jsx("link", {
+                              href: "/src/assets/apple-touch-icon.png",
+                              rel: "apple-touch-icon"
+                            })
+                      ]
                     }),
                 JsxRuntime.jsx(DefaultLayoutMap$Layout, {
                       viewer: match.viewer,

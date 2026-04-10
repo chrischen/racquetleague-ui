@@ -239,7 +239,7 @@ msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置
 #: src/components/organisms/SortableSubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:403
 msgid "Points"
-msgstr "何点"
+msgstr "ポイント"
 
 #: src/components/organisms/SubmitMatch.re.mjs:52
 #: src/components/organisms/SubmitMatch.re.mjs:64
@@ -267,7 +267,7 @@ msgstr "試合をキューに入れる"
 
 #: src/components/organisms/CompMatch.re.mjs:240
 msgid "Random"
-msgstr "ランダムで"
+msgstr "ランダム"
 
 #: src/components/organisms/CompMatch.re.mjs:498
 msgid "Recommended Match"

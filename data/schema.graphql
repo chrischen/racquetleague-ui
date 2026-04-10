@@ -184,6 +184,11 @@ input DeleteActivitySubscriptionInput {
   subscriptionId: String!
 }
 
+type DisciplineRating {
+  mu: Float!
+  sigma: Float!
+}
+
 input DoublesMatchInput {
   createdAt: Datetime!
   losers: [String!]!
@@ -310,6 +315,7 @@ type JoinEventResult implements HasErrors {
 input LeagueMatchInput {
   activitySlug: String!
   doublesMatch: DoublesMatchInput!
+  eventId: String
   namespace: String!
   syncId: String
 }
@@ -318,6 +324,41 @@ input LeagueRatingInput {
   activitySlug: String!
   namespace: String!
   userId: String
+}
+
+type LeagueUserStat {
+  bestOpponents: [LeagueUserStatEntry!]!
+  bestPartners: [LeagueUserStatEntry!]!
+  mdBestOpponents: [LeagueUserStatEntry!]!
+  mdBestPartners: [LeagueUserStatEntry!]!
+  mdRating: DisciplineRating
+  mdWorstOpponents: [LeagueUserStatEntry!]!
+  mdWorstPartners: [LeagueUserStatEntry!]!
+  mfBestOpponents: [LeagueUserStatEntry!]!
+  mfBestPartners: [LeagueUserStatEntry!]!
+  mfPartnerTendency: Float
+  mfWorstOpponents: [LeagueUserStatEntry!]!
+  mfWorstPartners: [LeagueUserStatEntry!]!
+  user: User
+  userId: String!
+  wdBestOpponents: [LeagueUserStatEntry!]!
+  wdBestPartners: [LeagueUserStatEntry!]!
+  wdRating: DisciplineRating
+  wdWorstOpponents: [LeagueUserStatEntry!]!
+  wdWorstPartners: [LeagueUserStatEntry!]!
+  worstOpponents: [LeagueUserStatEntry!]!
+  worstPartners: [LeagueUserStatEntry!]!
+  xdBestOpponents: [LeagueUserStatEntry!]!
+  xdBestPartners: [LeagueUserStatEntry!]!
+  xdRating: DisciplineRating
+  xdWorstOpponents: [LeagueUserStatEntry!]!
+  xdWorstPartners: [LeagueUserStatEntry!]!
+}
+
+type LeagueUserStatEntry {
+  score: Float!
+  user: User
+  userId: String!
 }
 
 type LeaveEventResult implements HasErrors {
@@ -650,6 +691,7 @@ type User implements Node {
   fullName: String
   gender: Gender
   id: ID!
+  leagueUserStats(activity: String!, namespace: String!): LeagueUserStat
   lineUsername: String
   picture: String
   rating(activitySlug: String!, namespace: String): Rating

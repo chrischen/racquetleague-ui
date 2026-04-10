@@ -55,7 +55,7 @@ msgstr "一度に複数のイベントを作成"
 
 #: src/components/pages/CreateEvents.re.mjs:145
 msgid "events"
-msgstr "私のイベント"
+msgstr "イベント"
 
 #: src/components/pages/CreateEvents.re.mjs:49
 msgid "input is required"

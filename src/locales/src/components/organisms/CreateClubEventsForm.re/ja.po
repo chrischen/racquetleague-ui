@@ -69,7 +69,7 @@ msgstr "一度に複数のイベントを作成"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:200
 msgid "events"
-msgstr "私のイベント"
+msgstr "イベント"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:91
 msgid "events preview"

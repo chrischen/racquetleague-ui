@@ -113,6 +113,10 @@ var FileText = {};
 
 var Dumbbell = {};
 
+var Swords = {};
+
+var ShieldIcon = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -170,5 +174,7 @@ export {
   Activity ,
   FileText ,
   Dumbbell ,
+  Swords ,
+  ShieldIcon ,
 }
 /* No side effect */

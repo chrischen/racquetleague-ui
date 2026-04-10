@@ -57,12 +57,12 @@ msgstr "右チームのプレイヤー"
 #: src/components/organisms/SubmitMatch.re.mjs:314
 #: src/components/organisms/SubmitMatch.re.mjs:327
 #~ msgid "points"
-#~ msgstr "何点"
+#~ msgstr "ポイント"
 
 #: src/components/organisms/SubmitMatch.re.mjs:319
 #: src/components/organisms/SubmitMatch.re.mjs:365
 #~ msgid "Points"
-#~ msgstr "何点"
+#~ msgstr "ポイント"
 
 #: src/components/organisms/SubmitMatch.re.mjs:99
 #: src/components/organisms/SubmitMatch.re.mjs:111

@@ -19,7 +19,7 @@ msgstr "参加する"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:21
 msgid "leave event"
-msgstr "離れる"
+msgstr "参加取り消し"
 
 #: src/components/organisms/ViewerRsvpStatus.re.mjs:48
 msgid "login to join the event"

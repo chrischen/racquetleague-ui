@@ -26,7 +26,7 @@ msgstr "{1}人中{0}人がチェックイン済み"
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:317
 msgid "$"
 msgstr "¥"
 
@@ -284,11 +284,11 @@ msgstr "スコアなし"
 msgid "No teams yet"
 msgstr "チームがまだありません"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Not paid"
 msgstr "未払い"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Paid"
 msgstr "支払い済み"
 
@@ -546,7 +546,7 @@ msgstr "勝利チーム（チーム{0}）"
 
 #: src/components/molecules/DrawGenerator.re.mjs:67
 #~ msgid "Random"
-#~ msgstr "ランダムで"
+#~ msgstr "ランダム"
 
 #: src/components/molecules/DrawGenerator.re.mjs:62
 #~ msgid "Replace Future Rounds"

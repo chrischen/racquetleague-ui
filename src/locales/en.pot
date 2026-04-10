@@ -3658,3 +3658,57 @@ msgstr ""
 #: src/components/pages/LeaguePage.re.mjs:66
 msgid "Selkirk SLK Era Paddle"
 msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
+msgid "Best Doubles Partners"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:378
+msgid "Men's Doubles"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:421
+msgid "Mixed Doubles"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:233
+msgid "Strong Against"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:261
+msgid "Weak Against"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:464
+msgid "Women's Doubles"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:205
+msgid "Worst Doubles Partners"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:317
+#: src/components/pages/LeaguePlayerPage.re.mjs:367
+#: src/components/pages/LeaguePlayerPage.re.mjs:417
+#: src/components/pages/LeaguePlayerPage.re.mjs:467
+msgid "No data for this category"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:329
+#: src/components/pages/LeaguePlayerPage.re.mjs:403
+#: src/components/pages/LeaguePlayerPage.re.mjs:477
+#: src/components/pages/LeaguePlayerPage.re.mjs:551
+msgid "Predicted"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:290
+msgid "Balanced partner tendency"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:287
+msgid "Elevates weaker partners"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:283
+msgid "Performs better with stronger partners"
+msgstr ""

@@ -184,6 +184,7 @@ var OverallAverageQualityDebug = {
 
 function EventManager(props) {
   var __debug = props.debug;
+  var eventId = props.eventId;
   var debug = __debug !== undefined ? __debug : false;
   var data = use$1(props.event);
   var match = use();
@@ -202,6 +203,7 @@ function EventManager(props) {
                   commitMutationCreateLeagueMatch({
                         matchInput: {
                           activitySlug: activitySlug,
+                          eventId: eventId,
                           doublesMatch: {
                             createdAt: Util.Datetime.fromDate(createdAt),
                             losers: loserIds,

@@ -3342,6 +3342,60 @@ msgstr "奖品赞助商"
 msgid "Selkirk SLK Era Paddle"
 msgstr "Selkirk SLK Era 球拍"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
+msgid "Best Doubles Partners"
+msgstr "最佳双打搭档"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:378
+msgid "Men's Doubles"
+msgstr "男子双打"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:421
+msgid "Mixed Doubles"
+msgstr "混合双打"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:233
+msgid "Strong Against"
+msgstr "强势对阵"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:261
+msgid "Weak Against"
+msgstr "弱势对阵"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:464
+msgid "Women's Doubles"
+msgstr "女子双打"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:205
+msgid "Worst Doubles Partners"
+msgstr "最差双打搭档"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:317
+#: src/components/pages/LeaguePlayerPage.re.mjs:367
+#: src/components/pages/LeaguePlayerPage.re.mjs:417
+#: src/components/pages/LeaguePlayerPage.re.mjs:467
+msgid "No data for this category"
+msgstr "此类别没有数据"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:329
+#: src/components/pages/LeaguePlayerPage.re.mjs:403
+#: src/components/pages/LeaguePlayerPage.re.mjs:477
+#: src/components/pages/LeaguePlayerPage.re.mjs:551
+msgid "Predicted"
+msgstr "预测"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:290
+msgid "Balanced partner tendency"
+msgstr "搭档倾向均衡"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:287
+msgid "Elevates weaker partners"
+msgstr "能提升较弱搭档的水平"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:283
+msgid "Performs better with stronger partners"
+msgstr "与较强搭档配合时表现更佳"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -3371,3 +3425,23 @@ msgstr "Selkirk SLK Era 球拍"
 #, fuzzy
 #~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
 #~ msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
+
+#: src/components/organisms/RoundRobin.re.mjs:363
+#, fuzzy
+#~ msgid "Add Players"
+#~ msgstr "添加球员"
+
+#: src/components/organisms/RoundRobin.re.mjs:346
+#, fuzzy
+#~ msgid "Debug Mode"
+#~ msgstr "调试：开启"
+
+#: src/components/organisms/RoundRobin.re.mjs:451
+#, fuzzy
+#~ msgid "No players added yet"
+#~ msgstr "还没有球员"
+
+#: src/components/organisms/RoundRobin.re.mjs:323
+#, fuzzy
+#~ msgid "Round Robin Tournament"
+#~ msgstr "轮次管理"

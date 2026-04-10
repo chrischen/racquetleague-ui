@@ -49,7 +49,7 @@ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:213
 #~ msgid "about"
-#~ msgstr "約"
+#~ msgstr "概要"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:306
 #~ msgid "activity"

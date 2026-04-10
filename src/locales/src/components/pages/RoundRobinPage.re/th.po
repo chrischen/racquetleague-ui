@@ -26,7 +26,7 @@ msgstr "เช็คอินแล้ว {0} จาก {1} คน"
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:317
 msgid "$"
 msgstr "฿"
 
@@ -292,11 +292,11 @@ msgstr "ไม่มีคะแนน"
 msgid "No teams yet"
 msgstr "ยังไม่มีทีม"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Not paid"
 msgstr "ยังไม่ได้ชำระ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Paid"
 msgstr "ชำระแล้ว"
 

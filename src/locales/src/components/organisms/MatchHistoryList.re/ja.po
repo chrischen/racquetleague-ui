@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/components/organisms/MatchHistoryList.re.mjs:697
 msgid "...load previous matches"
-msgstr "前のものを読み込む"
+msgstr "前の試合を読み込む"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:522
 #: src/components/organisms/MatchHistoryList.re.mjs:586
@@ -28,7 +28,7 @@ msgstr "互角"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
-msgstr "もっとプレイヤーを読み込む..."
+msgstr "もっと試合を読み込む..."
 
 #: src/components/organisms/MatchHistoryList.re.mjs:522
 #: src/components/organisms/MatchHistoryList.re.mjs:586

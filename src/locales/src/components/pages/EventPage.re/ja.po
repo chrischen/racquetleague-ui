@@ -380,7 +380,7 @@ msgstr "管理者によってイベントから削除されました"
 
 #: src/components/organisms/ProfileModal.re.mjs:264
 msgid "We need a few details before you can join this event"
-msgstr "このイベントに参加する前にいくつかの情報が必要です"
+msgstr "イベント参加に必要な情報を入力してください"
 
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"

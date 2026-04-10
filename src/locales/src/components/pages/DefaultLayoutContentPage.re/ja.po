@@ -20,7 +20,7 @@ msgstr ""
 #: src/components/pages/DefaultLayoutMap.re.mjs:88
 #~ msgid ""
 #~ "It looks like you may prefer English. Would you like to switch to English?"
-#~ msgstr "日本語がお好きなようですね。日本語に変更しますか？"
+#~ msgstr "日本語をご希望ですか？日本語に切り替えますか？"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:80
 #~ msgid "Rankings"

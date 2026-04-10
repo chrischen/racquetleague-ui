@@ -30,7 +30,7 @@ msgstr ""
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:317
 msgid "$"
 msgstr ""
 
@@ -306,11 +306,11 @@ msgstr ""
 msgid "No teams yet"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Not paid"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Paid"
 msgstr ""
 

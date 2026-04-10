@@ -81,7 +81,7 @@ msgstr "例：シティボーラーズクラブ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:213
 #~ msgid "about"
-#~ msgstr "約"
+#~ msgstr "概要"
 
 #: src/components/molecules/forms/Form.re.mjs:304
 #~ msgid "cancel"

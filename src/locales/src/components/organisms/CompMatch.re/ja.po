@@ -54,7 +54,7 @@ msgstr "前回プレイした"
 
 #: src/components/organisms/CompMatch.re.mjs:240
 msgid "Random"
-msgstr "ランダムで"
+msgstr "ランダム"
 
 #: src/components/organisms/CompMatch.re.mjs:498
 msgid "Recommended Match"
@@ -96,7 +96,7 @@ msgstr "完全にランダムなチーム。"
 
 #: src/components/organisms/CompMatch.re.mjs:206
 #~ msgid "Quality"
-#~ msgstr "競争力で"
+#~ msgstr "競争力"
 
 #: src/components/organisms/CompMatch.re.mjs:229
 #~ msgid "Round Robin"

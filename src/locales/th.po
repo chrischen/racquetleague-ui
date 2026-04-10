@@ -3369,6 +3369,60 @@ msgstr "ผู้สนับสนุนรางวัล"
 msgid "Selkirk SLK Era Paddle"
 msgstr "ไม้พาย Selkirk SLK Era"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
+msgid "Best Doubles Partners"
+msgstr "คู่ดับเบิลที่ดีที่สุด"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:378
+msgid "Men's Doubles"
+msgstr "ดับเบิลชาย"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:421
+msgid "Mixed Doubles"
+msgstr "ดับเบิลผสม"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:233
+msgid "Strong Against"
+msgstr "ได้เปรียบ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:261
+msgid "Weak Against"
+msgstr "เสียเปรียบ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:464
+msgid "Women's Doubles"
+msgstr "ดับเบิลหญิง"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:205
+msgid "Worst Doubles Partners"
+msgstr "คู่ดับเบิลที่แย่ที่สุด"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:317
+#: src/components/pages/LeaguePlayerPage.re.mjs:367
+#: src/components/pages/LeaguePlayerPage.re.mjs:417
+#: src/components/pages/LeaguePlayerPage.re.mjs:467
+msgid "No data for this category"
+msgstr "ไม่มีข้อมูลสำหรับหมวดหมู่นี้"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:329
+#: src/components/pages/LeaguePlayerPage.re.mjs:403
+#: src/components/pages/LeaguePlayerPage.re.mjs:477
+#: src/components/pages/LeaguePlayerPage.re.mjs:551
+msgid "Predicted"
+msgstr "คาดการณ์"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:290
+msgid "Balanced partner tendency"
+msgstr "แนวโน้มความสมดุลกับคู่เล่น"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:287
+msgid "Elevates weaker partners"
+msgstr "ยกระดับคู่เล่นที่อ่อนแอกว่า"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:283
+msgid "Performs better with stronger partners"
+msgstr "เล่นได้ดีขึ้นเมื่อคู่เล่นเก่งกว่า"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -3398,3 +3452,23 @@ msgstr "ไม้พาย Selkirk SLK Era"
 #, fuzzy
 #~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
 #~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
+
+#: src/components/organisms/RoundRobin.re.mjs:363
+#, fuzzy
+#~ msgid "Add Players"
+#~ msgstr "เพิ่มผู้เล่น"
+
+#: src/components/organisms/RoundRobin.re.mjs:346
+#, fuzzy
+#~ msgid "Debug Mode"
+#~ msgstr "ดีบัก: เปิด"
+
+#: src/components/organisms/RoundRobin.re.mjs:451
+#, fuzzy
+#~ msgid "No players added yet"
+#~ msgstr "ยังไม่มีผู้เล่น"
+
+#: src/components/organisms/RoundRobin.re.mjs:323
+#, fuzzy
+#~ msgid "Round Robin Tournament"
+#~ msgstr "การจัดการรอบ"

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LoginPage.re.mjs:101
+#: src/components/pages/LoginPage.re.mjs:107
 msgid "An error occurred during sign in. Please try again."
 msgstr "登录过程中发生错误。请重试。"
 
@@ -22,7 +22,7 @@ msgstr "登录过程中发生错误。请重试。"
 msgid "An error occurred: {message}"
 msgstr "发生错误: {message}"
 
-#: src/components/pages/LoginPage.re.mjs:122
+#: src/components/pages/LoginPage.re.mjs:131
 msgid "Back to events"
 msgstr "返回活动"
 
@@ -31,11 +31,11 @@ msgstr "返回活动"
 msgid "Check your email for a magic link to sign in!"
 msgstr "请检查您的电子邮件以获取魔术链接登录！"
 
-#: src/components/pages/LoginPage.re.mjs:185
+#: src/components/pages/LoginPage.re.mjs:194
 msgid "Continue with LINE"
 msgstr "通过 LINE 继续"
 
-#: src/components/pages/LoginPage.re.mjs:217
+#: src/components/pages/LoginPage.re.mjs:226
 msgid "Email address"
 msgstr "电子邮件地址"
 
@@ -47,23 +47,23 @@ msgstr "发送魔术链接失败: {0}"
 msgid "Login failed: {0}"
 msgstr "登录失败: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:166
+#: src/components/pages/LoginPage.re.mjs:175
 msgid "New users will be automatically registered"
 msgstr "新用户将自动注册"
 
-#: src/components/pages/LoginPage.re.mjs:204
+#: src/components/pages/LoginPage.re.mjs:213
 msgid "or continue with email"
 msgstr "或使用电子邮件继续"
 
-#: src/components/pages/LoginPage.re.mjs:258
+#: src/components/pages/LoginPage.re.mjs:267
 msgid "Send magic link"
 msgstr "发送魔术链接"
 
-#: src/components/pages/LoginPage.re.mjs:162
+#: src/components/pages/LoginPage.re.mjs:171
 msgid "Sign in to Pkuru.com"
 msgstr "登录 Pkuru.com"
 
-#: src/components/pages/LoginPage.re.mjs:101
+#: src/components/pages/LoginPage.re.mjs:103
 msgid ""
 "Your LINE account does not have an email associated. Please set an email "
 "address for your account from the LINE app, and then try again."
