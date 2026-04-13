@@ -29,6 +29,11 @@ export const routes: RouteObject[] = [
                 handle: "src/components/routes/PickleLeagueRankingsRoute.gen.tsx",
               },
               {
+                path: "p/:userId/:clubSlug",
+                lazy: () => import("./components/routes/PickleLeaguePlayerRoute.gen"),
+                handle: "src/components/routes/PickleLeaguePlayerRoute.gen.tsx",
+              },
+              {
                 path: "p/:userId",
                 lazy: () => import("./components/routes/PickleLeaguePlayerRoute.gen"),
                 handle: "src/components/routes/PickleLeaguePlayerRoute.gen.tsx",

@@ -24,6 +24,7 @@ async function loader(param) {
   var url = new URL(param.request.url);
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
+  var clubSlug = params.clubSlug;
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
@@ -32,6 +33,7 @@ async function loader(param) {
                 activitySlug: params.activitySlug,
                 after: after,
                 before: before,
+                clubSlug: clubSlug,
                 first: 5,
                 namespace: "doubles:comp",
                 userId: params.userId

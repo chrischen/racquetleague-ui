@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -13,7 +14,10 @@ import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RatingGraphWrapper from "../organisms/RatingGraphWrapper.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as LeaguePlayerPageQuery_graphql from "../../__generated__/LeaguePlayerPageQuery_graphql.re.mjs";
+import * as LeaguePlayerPage_userStats_graphql from "../../__generated__/LeaguePlayerPage_userStats_graphql.re.mjs";
+import * as LeaguePlayerPageUserStatsRefetchQuery_graphql from "../../__generated__/LeaguePlayerPageUserStatsRefetchQuery_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -21,13 +25,48 @@ import { css, cx } from '@linaria/core'
 import { t } from '@lingui/macro'
 ;
 
+var convertFragment = LeaguePlayerPage_userStats_graphql.Internal.convertFragment;
+
+function use(fRef) {
+  return RescriptRelay_Fragment.useFragment(LeaguePlayerPage_userStats_graphql.node, convertFragment, fRef);
+}
+
+function useOpt(fRef) {
+  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, LeaguePlayerPage_userStats_graphql.node, convertFragment);
+}
+
+var makeRefetchVariables = LeaguePlayerPageUserStatsRefetchQuery_graphql.Types.makeRefetchVariables;
+
+var convertRefetchVariables = LeaguePlayerPageUserStatsRefetchQuery_graphql.Internal.convertVariables;
+
+function useRefetchable(fRef) {
+  return RescriptRelay_Fragment.useRefetchableFragment(LeaguePlayerPage_userStats_graphql.node, convertFragment, convertRefetchVariables, fRef);
+}
+
+var UserStatsFragment_gender_decode = LeaguePlayerPage_userStats_graphql.Utils.gender_decode;
+
+var UserStatsFragment_gender_fromString = LeaguePlayerPage_userStats_graphql.Utils.gender_fromString;
+
+var UserStatsFragment = {
+  gender_decode: UserStatsFragment_gender_decode,
+  gender_fromString: UserStatsFragment_gender_fromString,
+  Types: undefined,
+  Operation: undefined,
+  convertFragment: convertFragment,
+  use: use,
+  useOpt: useOpt,
+  makeRefetchVariables: makeRefetchVariables,
+  convertRefetchVariables: convertRefetchVariables,
+  useRefetchable: useRefetchable
+};
+
 var convertVariables = LeaguePlayerPageQuery_graphql.Internal.convertVariables;
 
 var convertResponse = LeaguePlayerPageQuery_graphql.Internal.convertResponse;
 
 var convertWrapRawResponse = LeaguePlayerPageQuery_graphql.Internal.convertWrapRawResponse;
 
-var use = RescriptRelay_Query.useQuery(convertVariables, LeaguePlayerPageQuery_graphql.node, convertResponse);
+var use$1 = RescriptRelay_Query.useQuery(convertVariables, LeaguePlayerPageQuery_graphql.node, convertResponse);
 
 var useLoader = RescriptRelay_Query.useLoader(convertVariables, LeaguePlayerPageQuery_graphql.node, (function (prim) {
         return prim;
@@ -55,7 +94,7 @@ var Query = {
   convertVariables: convertVariables,
   convertResponse: convertResponse,
   convertWrapRawResponse: convertWrapRawResponse,
-  use: use,
+  use: use$1,
   useLoader: useLoader,
   usePreloaded: usePreloaded,
   $$fetch: $$fetch,
@@ -149,15 +188,97 @@ var FilterTabs = {
   make: LeaguePlayerPage$FilterTabs
 };
 
-function LeaguePlayerPage(props) {
-  var query = ReactRouterDom.useLoaderData();
-  var match = usePreloaded(query.data);
-  var fragmentRefs = match.fragmentRefs;
-  var user = match.user;
-  var params = ReactRouterDom.useParams();
-  var activitySlug = params.activitySlug;
-  var userRefs = Core__Option.map(user, (function (user) {
-          return user.fragmentRefs;
+function ordinal(mu, sigma) {
+  return mu - 3.0 * sigma;
+}
+
+function renderStatEntry(score, id, name, picture, colorType, userId, predictedOpt) {
+  var predicted = predictedOpt !== undefined ? predictedOpt : false;
+  var textColor = colorType === "bad" ? "text-rose-700" : "text-emerald-700";
+  var progressColor = colorType === "bad" ? "bg-rose-500" : "bg-emerald-500";
+  var scorePercent = (score * 100.0).toFixed(0);
+  var rowClass = "flex items-center justify-between py-3 border-b border-gray-100 last:border-0" + (
+    predicted ? " opacity-75" : ""
+  );
+  var avatarEl = Core__Option.getOr(Core__Option.map(picture, (function (pic) {
+              return JsxRuntime.jsx("img", {
+                          className: "w-10 h-10 rounded-full",
+                          alt: Core__Option.getOr(name, ""),
+                          src: pic
+                        });
+            })), JsxRuntime.jsx("div", {
+            children: Core__Option.getOr(Core__Option.flatMap(name, (function (n) {
+                        return n.charAt(0).toUpperCase();
+                      })), "?"),
+            className: "w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm font-bold"
+          }));
+  var nameEl = JsxRuntime.jsx("div", {
+        children: JsxRuntime.jsx("div", {
+              children: Core__Option.getOr(name, "Unknown"),
+              className: "font-medium text-gray-900" + (
+                predicted ? " italic" : ""
+              )
+            })
+      });
+  var leftSection = JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+        to: "../p/" + userId,
+        children: [
+          avatarEl,
+          nameEl
+        ],
+        className: "flex items-center gap-3 hover:opacity-80 transition-opacity"
+      });
+  var barStyle = predicted ? ({
+        backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,0.5) 6px)",
+        width: scorePercent + "%"
+      }) : ({
+        width: scorePercent + "%"
+      });
+  var barClass = "h-full " + progressColor + (
+    predicted ? " opacity-50" : ""
+  );
+  var scoreClass = "text-sm font-bold " + textColor + (
+    predicted ? " italic" : ""
+  );
+  return JsxRuntime.jsxs("div", {
+              children: [
+                leftSection,
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx("div", {
+                              children: scorePercent + "%",
+                              className: scoreClass
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx("div", {
+                                    className: barClass,
+                                    style: barStyle
+                                  }),
+                              className: "w-16 h-1.5 bg-gray-100 rounded-full overflow-hidden"
+                            })
+                      ],
+                      className: "flex flex-col items-end gap-1"
+                    })
+              ],
+              className: rowClass
+            }, id);
+}
+
+function LeaguePlayerPage$PlayerContent(props) {
+  var mainFragmentRefs = props.mainFragmentRefs;
+  var clubSlug = props.clubSlug;
+  var activitySlug = props.activitySlug;
+  var clubs = props.clubs;
+  var lineUsername = props.lineUsername;
+  var userId = props.userId;
+  var navigate = ReactRouterDom.useNavigate();
+  var match = useRefetchable(props.userStats);
+  var refetch = match[1];
+  var statsData = match[0];
+  var selectedClub = Core__Option.flatMap(clubSlug, (function (slug) {
+          return clubs.find(function (c) {
+                      return Caml_obj.equal(c.slug, slug);
+                    });
         }));
   var match$1 = React.useState(function () {
         return "All";
@@ -179,696 +300,753 @@ function LeaguePlayerPage(props) {
       });
   var setWorstOpponentsFilter = match$4[1];
   var worstOpponentsFilter = match$4[0];
-  var ordinal = function (mu, sigma) {
-    return mu - 3.0 * sigma;
+  var prevClubSlugRef = React.useRef(clubSlug);
+  React.useEffect((function () {
+          var prevClubSlug = prevClubSlugRef.current;
+          if (Caml_obj.notequal(prevClubSlug, clubSlug)) {
+            prevClubSlugRef.current = clubSlug;
+            refetch(makeRefetchVariables(undefined, Caml_option.some(clubSlug), undefined, undefined), undefined, undefined).dispose();
+          }
+          
+        }), [clubSlug]);
+  var handleClubChange = function (slug) {
+    if (slug !== undefined) {
+      return navigate("../p/" + userId + "/" + slug, undefined);
+    } else {
+      return navigate("../p/" + userId, undefined);
+    }
   };
-  var renderStatEntry = function (score, id, name, picture, colorType, userId, predictedOpt) {
-    var predicted = predictedOpt !== undefined ? predictedOpt : false;
-    var textColor = colorType === "bad" ? "text-rose-700" : "text-emerald-700";
-    var progressColor = colorType === "bad" ? "bg-rose-500" : "bg-emerald-500";
-    var scorePercent = (score * 100.0).toFixed(0);
-    var rowClass = "flex items-center justify-between py-3 border-b border-gray-100 last:border-0" + (
-      predicted ? " opacity-75" : ""
-    );
-    var avatarEl = Core__Option.getOr(Core__Option.map(picture, (function (pic) {
-                return JsxRuntime.jsx("img", {
-                            className: "w-10 h-10 rounded-full",
-                            alt: Core__Option.getOr(name, ""),
-                            src: pic
+  var selectedClubName = Core__Option.map(selectedClub, (function (c) {
+          return c.name;
+        }));
+  var tmp = activitySlug === "pickleball" ? Core__Option.getOr(Core__Option.map(Core__Option.flatMap(statsData.rating, (function (r) {
+                    return r.mu;
+                  })), (function (mu) {
+                var dupr = Rating.guessDupr(mu);
+                return JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx("div", {
+                                    children: t`Estimated DUPR`,
+                                    className: "text-sm text-gray-500 mb-1"
+                                  }),
+                              JsxRuntime.jsx("div", {
+                                    children: dupr.toFixed(2),
+                                    className: "text-2xl font-semibold text-gray-900"
+                                  })
+                            ]
                           });
-              })), JsxRuntime.jsx("div", {
-              children: Core__Option.getOr(Core__Option.flatMap(name, (function (n) {
-                          return n.charAt(0).toUpperCase();
-                        })), "?"),
-              className: "w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm font-bold"
-            }));
-    var nameEl = JsxRuntime.jsx("div", {
-          children: JsxRuntime.jsx("div", {
-                children: Core__Option.getOr(name, "Unknown"),
-                className: "font-medium text-gray-900" + (
-                  predicted ? " italic" : ""
-                )
-              })
-        });
-    var leftSection = JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-          to: "../p/" + userId,
-          children: [
-            avatarEl,
-            nameEl
-          ],
-          className: "flex items-center gap-3 hover:opacity-80 transition-opacity"
-        });
-    var barStyle = predicted ? ({
-          backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,0.5) 6px)",
-          width: scorePercent + "%"
-        }) : ({
-          width: scorePercent + "%"
-        });
-    var barClass = "h-full " + progressColor + (
-      predicted ? " opacity-50" : ""
-    );
-    var scoreClass = "text-sm font-bold " + textColor + (
-      predicted ? " italic" : ""
-    );
-    return JsxRuntime.jsxs("div", {
-                children: [
-                  leftSection,
-                  JsxRuntime.jsxs("div", {
+              })), null) : null;
+  var stats = statsData.leagueUserStats;
+  var tmp$1;
+  if (stats !== undefined) {
+    var tendency = stats.mfPartnerTendency;
+    if (tendency !== undefined) {
+      var match$5 = tendency > 0.1 ? [
+          "💪",
+          t`Performs better with stronger partners`
+        ] : (
+          tendency < -0.1 ? [
+              "🤝",
+              t`Elevates weaker partners`
+            ] : [
+              "⚖️",
+              t`Balanced partner tendency`
+            ]
+        );
+      tmp$1 = JsxRuntime.jsx("div", {
+            children: JsxRuntime.jsx("div", {
+                  children: JsxRuntime.jsxs("div", {
                         children: [
-                          JsxRuntime.jsx("div", {
-                                children: scorePercent + "%",
-                                className: scoreClass
+                          JsxRuntime.jsx("span", {
+                                children: match$5[0]
                               }),
-                          JsxRuntime.jsx("div", {
-                                children: JsxRuntime.jsx("div", {
-                                      className: barClass,
-                                      style: barStyle
-                                    }),
-                                className: "w-16 h-1.5 bg-gray-100 rounded-full overflow-hidden"
+                          JsxRuntime.jsx("span", {
+                                children: match$5[1]
                               })
                         ],
-                        className: "flex flex-col items-end gap-1"
+                        className: "inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-gray-200 shadow-sm text-sm text-gray-700 whitespace-nowrap flex-shrink-0"
+                      }),
+                  className: "flex gap-2 overflow-x-auto pb-2 -mx-4 px-4"
+                }),
+            className: "relative mb-6"
+          });
+    } else {
+      tmp$1 = null;
+    }
+  } else {
+    tmp$1 = null;
+  }
+  var stats$1 = statsData.leagueUserStats;
+  var stats$2 = statsData.leagueUserStats;
+  var tmp$2;
+  if (stats$2 !== undefined) {
+    var match$6 = stats$2.bestPartners;
+    var tmp$3;
+    if (match$6.length !== 0) {
+      var filtered = pickEntries(stats$2.bestPartners, stats$2.mdBestPartners, stats$2.wdBestPartners, stats$2.xdBestPartners, bestPartnersFilter);
+      var mfEntries = stats$2.mfBestPartners.slice(0, 3);
+      tmp$3 = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx(LucideReact.Users, {
+                                  className: "w-5 h-5"
+                                }),
+                            className: "p-2 bg-emerald-50 text-emerald-600 rounded-lg"
+                          }),
+                      JsxRuntime.jsx("h2", {
+                            children: t`Best Doubles Partners`,
+                            className: "text-lg font-bold text-gray-900"
+                          })
+                    ],
+                    className: "flex items-center gap-2"
+                  }),
+              JsxRuntime.jsx(LeaguePlayerPage$FilterTabs, {
+                    value: bestPartnersFilter,
+                    onChange: (function (filter) {
+                        setBestPartnersFilter(function (param) {
+                              return filter;
+                            });
                       })
-                ],
-                className: rowClass
-              }, id);
-  };
-  return Core__Option.map(user, (function (user) {
-                return JsxRuntime.jsx(WaitForMessages.make, {
-                            children: (function () {
-                                var tmp = activitySlug === "pickleball" ? Core__Option.getOr(Core__Option.map(Core__Option.flatMap(user.rating, (function (r) {
-                                                  return r.mu;
-                                                })), (function (mu) {
-                                              var dupr = Rating.guessDupr(mu);
-                                              return JsxRuntime.jsxs("div", {
-                                                          children: [
-                                                            JsxRuntime.jsx("div", {
-                                                                  children: t`Estimated DUPR`,
-                                                                  className: "text-sm text-gray-500 mb-1"
-                                                                }),
-                                                            JsxRuntime.jsx("div", {
-                                                                  children: dupr.toFixed(2),
-                                                                  className: "text-2xl font-semibold text-gray-900"
-                                                                })
-                                                          ]
-                                                        });
-                                            })), null) : null;
-                                var stats = user.leagueUserStats;
-                                var tmp$1;
-                                if (stats !== undefined) {
-                                  var tendency = stats.mfPartnerTendency;
-                                  if (tendency !== undefined) {
-                                    var match = tendency > 0.1 ? [
-                                        "💪",
-                                        t`Performs better with stronger partners`
-                                      ] : (
-                                        tendency < -0.1 ? [
-                                            "🤝",
-                                            t`Elevates weaker partners`
-                                          ] : [
-                                            "⚖️",
-                                            t`Balanced partner tendency`
-                                          ]
-                                      );
-                                    tmp$1 = JsxRuntime.jsx("div", {
-                                          children: JsxRuntime.jsx("div", {
-                                                children: JsxRuntime.jsxs("div", {
+                  }),
+              JsxRuntime.jsx("div", {
+                    children: filtered.length !== 0 ? Core__Array.filterMap(filtered, (function (entry) {
+                              return Core__Option.map(entry.user, (function (u) {
+                                            return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "good", u.id, undefined);
+                                          }));
+                            })) : JsxRuntime.jsx("p", {
+                            children: t`No data for this category`,
+                            className: "text-sm text-gray-400 py-4 text-center"
+                          }),
+                    className: "flex flex-col mt-2"
+                  }),
+              mfEntries.length !== 0 ? JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.Sparkles, {
+                                      className: "w-3 h-3 text-amber-500"
+                                    }),
+                                JsxRuntime.jsx("span", {
+                                      children: t`Predicted`,
+                                      className: "text-[11px] font-medium text-amber-600 italic"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      className: "flex-1 h-px bg-amber-200"
+                                    })
+                              ],
+                              className: "flex items-center gap-2 pt-3 pb-1"
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: Core__Array.filterMap(mfEntries, (function (entry) {
+                                      return Core__Option.map(entry.user, (function (u) {
+                                                    return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "good", u.id, true);
+                                                  }));
+                                    })),
+                              className: "flex flex-col"
+                            })
+                      ]
+                    }) : null
+            ],
+            className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
+          });
+    } else {
+      tmp$3 = null;
+    }
+    var match$7 = stats$2.worstPartners;
+    var tmp$4;
+    if (match$7.length !== 0) {
+      var filtered$1 = pickEntries(stats$2.worstPartners, stats$2.mdWorstPartners, stats$2.wdWorstPartners, stats$2.xdWorstPartners, worstPartnersFilter);
+      var mfEntries$1 = stats$2.mfWorstPartners.slice(0, 3);
+      tmp$4 = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx(LucideReact.Users, {
+                                  className: "w-5 h-5"
+                                }),
+                            className: "p-2 bg-rose-50 text-rose-600 rounded-lg"
+                          }),
+                      JsxRuntime.jsx("h2", {
+                            children: t`Worst Doubles Partners`,
+                            className: "text-lg font-bold text-gray-900"
+                          })
+                    ],
+                    className: "flex items-center gap-2"
+                  }),
+              JsxRuntime.jsx(LeaguePlayerPage$FilterTabs, {
+                    value: worstPartnersFilter,
+                    onChange: (function (filter) {
+                        setWorstPartnersFilter(function (param) {
+                              return filter;
+                            });
+                      })
+                  }),
+              JsxRuntime.jsx("div", {
+                    children: filtered$1.length !== 0 ? Core__Array.filterMap(filtered$1, (function (entry) {
+                              return Core__Option.map(entry.user, (function (u) {
+                                            return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "bad", u.id, undefined);
+                                          }));
+                            })) : JsxRuntime.jsx("p", {
+                            children: t`No data for this category`,
+                            className: "text-sm text-gray-400 py-4 text-center"
+                          }),
+                    className: "flex flex-col mt-2"
+                  }),
+              mfEntries$1.length !== 0 ? JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.Sparkles, {
+                                      className: "w-3 h-3 text-amber-500"
+                                    }),
+                                JsxRuntime.jsx("span", {
+                                      children: t`Predicted`,
+                                      className: "text-[11px] font-medium text-amber-600 italic"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      className: "flex-1 h-px bg-amber-200"
+                                    })
+                              ],
+                              className: "flex items-center gap-2 pt-3 pb-1"
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: Core__Array.filterMap(mfEntries$1, (function (entry) {
+                                      return Core__Option.map(entry.user, (function (u) {
+                                                    return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "bad", u.id, true);
+                                                  }));
+                                    })),
+                              className: "flex flex-col"
+                            })
+                      ]
+                    }) : null
+            ],
+            className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
+          });
+    } else {
+      tmp$4 = null;
+    }
+    var match$8 = stats$2.bestOpponents;
+    var tmp$5;
+    if (match$8.length !== 0) {
+      var filtered$2 = pickEntries(stats$2.bestOpponents, stats$2.mdBestOpponents, stats$2.wdBestOpponents, stats$2.xdBestOpponents, bestOpponentsFilter);
+      var mfEntries$2 = stats$2.mfBestOpponents.slice(0, 3);
+      tmp$5 = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx(LucideReact.Swords, {
+                                  className: "w-5 h-5"
+                                }),
+                            className: "p-2 bg-emerald-50 text-emerald-600 rounded-lg"
+                          }),
+                      JsxRuntime.jsx("h2", {
+                            children: t`Strong Against`,
+                            className: "text-lg font-bold text-gray-900"
+                          })
+                    ],
+                    className: "flex items-center gap-2"
+                  }),
+              JsxRuntime.jsx(LeaguePlayerPage$FilterTabs, {
+                    value: bestOpponentsFilter,
+                    onChange: (function (filter) {
+                        setBestOpponentsFilter(function (param) {
+                              return filter;
+                            });
+                      })
+                  }),
+              JsxRuntime.jsx("div", {
+                    children: filtered$2.length !== 0 ? Core__Array.filterMap(filtered$2, (function (entry) {
+                              return Core__Option.map(entry.user, (function (u) {
+                                            return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "good", u.id, undefined);
+                                          }));
+                            })) : JsxRuntime.jsx("p", {
+                            children: t`No data for this category`,
+                            className: "text-sm text-gray-400 py-4 text-center"
+                          }),
+                    className: "flex flex-col mt-2"
+                  }),
+              mfEntries$2.length !== 0 ? JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.Sparkles, {
+                                      className: "w-3 h-3 text-amber-500"
+                                    }),
+                                JsxRuntime.jsx("span", {
+                                      children: t`Predicted`,
+                                      className: "text-[11px] font-medium text-amber-600 italic"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      className: "flex-1 h-px bg-amber-200"
+                                    })
+                              ],
+                              className: "flex items-center gap-2 pt-3 pb-1"
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: Core__Array.filterMap(mfEntries$2, (function (entry) {
+                                      return Core__Option.map(entry.user, (function (u) {
+                                                    return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "good", u.id, true);
+                                                  }));
+                                    })),
+                              className: "flex flex-col"
+                            })
+                      ]
+                    }) : null
+            ],
+            className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
+          });
+    } else {
+      tmp$5 = null;
+    }
+    var match$9 = stats$2.worstOpponents;
+    var tmp$6;
+    if (match$9.length !== 0) {
+      var filtered$3 = pickEntries(stats$2.worstOpponents, stats$2.mdWorstOpponents, stats$2.wdWorstOpponents, stats$2.xdWorstOpponents, worstOpponentsFilter);
+      var mfEntries$3 = stats$2.mfWorstOpponents.slice(0, 3);
+      tmp$6 = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx(LucideReact.Shield, {
+                                  className: "w-5 h-5"
+                                }),
+                            className: "p-2 bg-rose-50 text-rose-600 rounded-lg"
+                          }),
+                      JsxRuntime.jsx("h2", {
+                            children: t`Weak Against`,
+                            className: "text-lg font-bold text-gray-900"
+                          })
+                    ],
+                    className: "flex items-center gap-2"
+                  }),
+              JsxRuntime.jsx(LeaguePlayerPage$FilterTabs, {
+                    value: worstOpponentsFilter,
+                    onChange: (function (filter) {
+                        setWorstOpponentsFilter(function (param) {
+                              return filter;
+                            });
+                      })
+                  }),
+              JsxRuntime.jsx("div", {
+                    children: filtered$3.length !== 0 ? Core__Array.filterMap(filtered$3, (function (entry) {
+                              return Core__Option.map(entry.user, (function (u) {
+                                            return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "bad", u.id, undefined);
+                                          }));
+                            })) : JsxRuntime.jsx("p", {
+                            children: t`No data for this category`,
+                            className: "text-sm text-gray-400 py-4 text-center"
+                          }),
+                    className: "flex flex-col mt-2"
+                  }),
+              mfEntries$3.length !== 0 ? JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.Sparkles, {
+                                      className: "w-3 h-3 text-amber-500"
+                                    }),
+                                JsxRuntime.jsx("span", {
+                                      children: t`Predicted`,
+                                      className: "text-[11px] font-medium text-amber-600 italic"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      className: "flex-1 h-px bg-amber-200"
+                                    })
+                              ],
+                              className: "flex items-center gap-2 pt-3 pb-1"
+                            }),
+                        JsxRuntime.jsx("div", {
+                              children: Core__Array.filterMap(mfEntries$3, (function (entry) {
+                                      return Core__Option.map(entry.user, (function (u) {
+                                                    return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "bad", u.id, true);
+                                                  }));
+                                    })),
+                              className: "flex flex-col"
+                            })
+                      ]
+                    }) : null
+            ],
+            className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
+          });
+    } else {
+      tmp$6 = null;
+    }
+    tmp$2 = JsxRuntime.jsxs("div", {
+          children: [
+            tmp$3,
+            tmp$4,
+            tmp$5,
+            tmp$6
+          ],
+          className: "grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
+        });
+  } else {
+    tmp$2 = null;
+  }
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                                  to: "../",
+                                  children: [
+                                    JsxRuntime.jsx(LucideReact.ChevronLeft, {
+                                          className: "w-5 h-5"
+                                        }),
+                                    JsxRuntime.jsx("span", {
+                                          children: t`Back to league`,
+                                          className: "font-medium"
+                                        })
+                                  ],
+                                  className: "inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+                                }),
+                            className: "max-w-6xl mx-auto px-4 py-4"
+                          }),
+                      className: "bg-white shadow-sm border-b"
+                    }),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        clubs.length !== 0 ? JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("div", {
+                                        children: JsxRuntime.jsxs("div", {
+                                              children: [
+                                                JsxRuntime.jsxs("select", {
                                                       children: [
-                                                        JsxRuntime.jsx("span", {
-                                                              children: match[0]
+                                                        JsxRuntime.jsx("option", {
+                                                              children: t`All Clubs`,
+                                                              value: ""
                                                             }),
-                                                        JsxRuntime.jsx("span", {
-                                                              children: match[1]
-                                                            })
+                                                        Core__Array.filterMap(clubs, (function (club) {
+                                                                return Core__Option.map(club.slug, (function (slug) {
+                                                                              return JsxRuntime.jsx("option", {
+                                                                                          children: club.name,
+                                                                                          value: slug
+                                                                                        }, club.id);
+                                                                            }));
+                                                              }))
                                                       ],
-                                                      className: "inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-gray-200 shadow-sm text-sm text-gray-700 whitespace-nowrap flex-shrink-0"
+                                                      className: "appearance-none bg-white border border-gray-300 rounded-lg py-2 pl-10 pr-10 text-sm font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm cursor-pointer",
+                                                      value: Core__Option.getOr(clubSlug, ""),
+                                                      onChange: (function (e) {
+                                                          var value = e.target.value;
+                                                          handleClubChange(value === "" ? undefined : value);
+                                                        })
                                                     }),
-                                                className: "flex gap-2 overflow-x-auto pb-2 -mx-4 px-4"
-                                              }),
-                                          className: "relative mb-6"
-                                        });
-                                  } else {
-                                    tmp$1 = null;
-                                  }
-                                } else {
-                                  tmp$1 = null;
-                                }
-                                var stats$1 = user.leagueUserStats;
-                                var stats$2 = user.leagueUserStats;
-                                var tmp$2;
-                                if (stats$2 !== undefined) {
-                                  var match$1 = stats$2.bestPartners;
-                                  var tmp$3;
-                                  if (match$1.length !== 0) {
-                                    var filtered = pickEntries(stats$2.bestPartners, stats$2.mdBestPartners, stats$2.wdBestPartners, stats$2.xdBestPartners, bestPartnersFilter);
-                                    var mfEntries = stats$2.mfBestPartners.slice(0, 3);
-                                    tmp$3 = JsxRuntime.jsxs("div", {
+                                                JsxRuntime.jsx("div", {
+                                                      children: JsxRuntime.jsx(LucideReact.Building, {
+                                                            className: "w-4 h-4 text-gray-500"
+                                                          }),
+                                                      className: "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                                                    }),
+                                                JsxRuntime.jsx("div", {
+                                                      children: JsxRuntime.jsx(LucideReact.ChevronDown, {
+                                                            className: "w-4 h-4 text-gray-500"
+                                                          }),
+                                                      className: "absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+                                                    })
+                                              ],
+                                              className: "relative"
+                                            }),
+                                        className: "flex items-center gap-3"
+                                      }),
+                                  selectedClubName !== undefined ? JsxRuntime.jsxs("div", {
                                           children: [
                                             JsxRuntime.jsxs("div", {
                                                   children: [
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx(LucideReact.Users, {
-                                                                className: "w-5 h-5"
-                                                              }),
-                                                          className: "p-2 bg-emerald-50 text-emerald-600 rounded-lg"
+                                                    JsxRuntime.jsx(LucideReact.Info, {
+                                                          className: "w-4 h-4 text-blue-600 flex-shrink-0"
                                                         }),
-                                                    JsxRuntime.jsx("h2", {
-                                                          children: t`Best Doubles Partners`,
-                                                          className: "text-lg font-bold text-gray-900"
+                                                    JsxRuntime.jsx("span", {
+                                                          children: t`Showing stats from ${selectedClubName} only`,
+                                                          className: "font-medium"
                                                         })
                                                   ],
-                                                  className: "flex items-center gap-2"
+                                                  className: "flex items-center gap-2 text-blue-800 text-sm"
                                                 }),
-                                            JsxRuntime.jsx(LeaguePlayerPage$FilterTabs, {
-                                                  value: bestPartnersFilter,
-                                                  onChange: (function (filter) {
-                                                      setBestPartnersFilter(function (param) {
-                                                            return filter;
-                                                          });
+                                            JsxRuntime.jsx("button", {
+                                                  children: JsxRuntime.jsx(LucideReact.X, {
+                                                        className: "w-4 h-4"
+                                                      }),
+                                                  "aria-label": "Clear filter",
+                                                  className: "text-blue-600 hover:text-blue-800 p-1 rounded-md hover:bg-blue-100 transition-colors",
+                                                  onClick: (function (param) {
+                                                      handleClubChange(undefined);
                                                     })
-                                                }),
-                                            JsxRuntime.jsx("div", {
-                                                  children: filtered.length !== 0 ? Core__Array.filterMap(filtered, (function (entry) {
-                                                            return Core__Option.map(entry.user, (function (u) {
-                                                                          return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "good", u.id, undefined);
-                                                                        }));
-                                                          })) : JsxRuntime.jsx("p", {
-                                                          children: t`No data for this category`,
-                                                          className: "text-sm text-gray-400 py-4 text-center"
-                                                        }),
-                                                  className: "flex flex-col mt-2"
-                                                }),
-                                            mfEntries.length !== 0 ? JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                    className: "w-3 h-3 text-amber-500"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: t`Predicted`,
-                                                                    className: "text-[11px] font-medium text-amber-600 italic"
-                                                                  }),
-                                                              JsxRuntime.jsx("div", {
-                                                                    className: "flex-1 h-px bg-amber-200"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-center gap-2 pt-3 pb-1"
-                                                          }),
-                                                      JsxRuntime.jsx("div", {
-                                                            children: Core__Array.filterMap(mfEntries, (function (entry) {
-                                                                    return Core__Option.map(entry.user, (function (u) {
-                                                                                  return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "good", u.id, true);
-                                                                                }));
-                                                                  })),
-                                                            className: "flex flex-col"
-                                                          })
-                                                    ]
-                                                  }) : null
+                                                })
                                           ],
-                                          className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
-                                        });
-                                  } else {
-                                    tmp$3 = null;
-                                  }
-                                  var match$2 = stats$2.worstPartners;
-                                  var tmp$4;
-                                  if (match$2.length !== 0) {
-                                    var filtered$1 = pickEntries(stats$2.worstPartners, stats$2.mdWorstPartners, stats$2.wdWorstPartners, stats$2.xdWorstPartners, worstPartnersFilter);
-                                    var mfEntries$1 = stats$2.mfWorstPartners.slice(0, 3);
-                                    tmp$4 = JsxRuntime.jsxs("div", {
-                                          children: [
-                                            JsxRuntime.jsxs("div", {
-                                                  children: [
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx(LucideReact.Users, {
-                                                                className: "w-5 h-5"
-                                                              }),
-                                                          className: "p-2 bg-rose-50 text-rose-600 rounded-lg"
-                                                        }),
-                                                    JsxRuntime.jsx("h2", {
-                                                          children: t`Worst Doubles Partners`,
-                                                          className: "text-lg font-bold text-gray-900"
-                                                        })
-                                                  ],
-                                                  className: "flex items-center gap-2"
-                                                }),
-                                            JsxRuntime.jsx(LeaguePlayerPage$FilterTabs, {
-                                                  value: worstPartnersFilter,
-                                                  onChange: (function (filter) {
-                                                      setWorstPartnersFilter(function (param) {
-                                                            return filter;
-                                                          });
-                                                    })
-                                                }),
-                                            JsxRuntime.jsx("div", {
-                                                  children: filtered$1.length !== 0 ? Core__Array.filterMap(filtered$1, (function (entry) {
-                                                            return Core__Option.map(entry.user, (function (u) {
-                                                                          return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "bad", u.id, undefined);
-                                                                        }));
-                                                          })) : JsxRuntime.jsx("p", {
-                                                          children: t`No data for this category`,
-                                                          className: "text-sm text-gray-400 py-4 text-center"
-                                                        }),
-                                                  className: "flex flex-col mt-2"
-                                                }),
-                                            mfEntries$1.length !== 0 ? JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                    className: "w-3 h-3 text-amber-500"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: t`Predicted`,
-                                                                    className: "text-[11px] font-medium text-amber-600 italic"
-                                                                  }),
-                                                              JsxRuntime.jsx("div", {
-                                                                    className: "flex-1 h-px bg-amber-200"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-center gap-2 pt-3 pb-1"
-                                                          }),
-                                                      JsxRuntime.jsx("div", {
-                                                            children: Core__Array.filterMap(mfEntries$1, (function (entry) {
-                                                                    return Core__Option.map(entry.user, (function (u) {
-                                                                                  return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "bad", u.id, true);
-                                                                                }));
-                                                                  })),
-                                                            className: "flex flex-col"
-                                                          })
-                                                    ]
-                                                  }) : null
-                                          ],
-                                          className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
-                                        });
-                                  } else {
-                                    tmp$4 = null;
-                                  }
-                                  var match$3 = stats$2.bestOpponents;
-                                  var tmp$5;
-                                  if (match$3.length !== 0) {
-                                    var filtered$2 = pickEntries(stats$2.bestOpponents, stats$2.mdBestOpponents, stats$2.wdBestOpponents, stats$2.xdBestOpponents, bestOpponentsFilter);
-                                    var mfEntries$2 = stats$2.mfBestOpponents.slice(0, 3);
-                                    tmp$5 = JsxRuntime.jsxs("div", {
-                                          children: [
-                                            JsxRuntime.jsxs("div", {
-                                                  children: [
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx(LucideReact.Swords, {
-                                                                className: "w-5 h-5"
-                                                              }),
-                                                          className: "p-2 bg-emerald-50 text-emerald-600 rounded-lg"
-                                                        }),
-                                                    JsxRuntime.jsx("h2", {
-                                                          children: t`Strong Against`,
-                                                          className: "text-lg font-bold text-gray-900"
-                                                        })
-                                                  ],
-                                                  className: "flex items-center gap-2"
-                                                }),
-                                            JsxRuntime.jsx(LeaguePlayerPage$FilterTabs, {
-                                                  value: bestOpponentsFilter,
-                                                  onChange: (function (filter) {
-                                                      setBestOpponentsFilter(function (param) {
-                                                            return filter;
-                                                          });
-                                                    })
-                                                }),
-                                            JsxRuntime.jsx("div", {
-                                                  children: filtered$2.length !== 0 ? Core__Array.filterMap(filtered$2, (function (entry) {
-                                                            return Core__Option.map(entry.user, (function (u) {
-                                                                          return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "good", u.id, undefined);
-                                                                        }));
-                                                          })) : JsxRuntime.jsx("p", {
-                                                          children: t`No data for this category`,
-                                                          className: "text-sm text-gray-400 py-4 text-center"
-                                                        }),
-                                                  className: "flex flex-col mt-2"
-                                                }),
-                                            mfEntries$2.length !== 0 ? JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                    className: "w-3 h-3 text-amber-500"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: t`Predicted`,
-                                                                    className: "text-[11px] font-medium text-amber-600 italic"
-                                                                  }),
-                                                              JsxRuntime.jsx("div", {
-                                                                    className: "flex-1 h-px bg-amber-200"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-center gap-2 pt-3 pb-1"
-                                                          }),
-                                                      JsxRuntime.jsx("div", {
-                                                            children: Core__Array.filterMap(mfEntries$2, (function (entry) {
-                                                                    return Core__Option.map(entry.user, (function (u) {
-                                                                                  return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "good", u.id, true);
-                                                                                }));
-                                                                  })),
-                                                            className: "flex flex-col"
-                                                          })
-                                                    ]
-                                                  }) : null
-                                          ],
-                                          className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
-                                        });
-                                  } else {
-                                    tmp$5 = null;
-                                  }
-                                  var match$4 = stats$2.worstOpponents;
-                                  var tmp$6;
-                                  if (match$4.length !== 0) {
-                                    var filtered$3 = pickEntries(stats$2.worstOpponents, stats$2.mdWorstOpponents, stats$2.wdWorstOpponents, stats$2.xdWorstOpponents, worstOpponentsFilter);
-                                    var mfEntries$3 = stats$2.mfWorstOpponents.slice(0, 3);
-                                    tmp$6 = JsxRuntime.jsxs("div", {
-                                          children: [
-                                            JsxRuntime.jsxs("div", {
-                                                  children: [
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx(LucideReact.Shield, {
-                                                                className: "w-5 h-5"
-                                                              }),
-                                                          className: "p-2 bg-rose-50 text-rose-600 rounded-lg"
-                                                        }),
-                                                    JsxRuntime.jsx("h2", {
-                                                          children: t`Weak Against`,
-                                                          className: "text-lg font-bold text-gray-900"
-                                                        })
-                                                  ],
-                                                  className: "flex items-center gap-2"
-                                                }),
-                                            JsxRuntime.jsx(LeaguePlayerPage$FilterTabs, {
-                                                  value: worstOpponentsFilter,
-                                                  onChange: (function (filter) {
-                                                      setWorstOpponentsFilter(function (param) {
-                                                            return filter;
-                                                          });
-                                                    })
-                                                }),
-                                            JsxRuntime.jsx("div", {
-                                                  children: filtered$3.length !== 0 ? Core__Array.filterMap(filtered$3, (function (entry) {
-                                                            return Core__Option.map(entry.user, (function (u) {
-                                                                          return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "bad", u.id, undefined);
-                                                                        }));
-                                                          })) : JsxRuntime.jsx("p", {
-                                                          children: t`No data for this category`,
-                                                          className: "text-sm text-gray-400 py-4 text-center"
-                                                        }),
-                                                  className: "flex flex-col mt-2"
-                                                }),
-                                            mfEntries$3.length !== 0 ? JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                    className: "w-3 h-3 text-amber-500"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: t`Predicted`,
-                                                                    className: "text-[11px] font-medium text-amber-600 italic"
-                                                                  }),
-                                                              JsxRuntime.jsx("div", {
-                                                                    className: "flex-1 h-px bg-amber-200"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-center gap-2 pt-3 pb-1"
-                                                          }),
-                                                      JsxRuntime.jsx("div", {
-                                                            children: Core__Array.filterMap(mfEntries$3, (function (entry) {
-                                                                    return Core__Option.map(entry.user, (function (u) {
-                                                                                  return renderStatEntry(entry.score, u.id, u.lineUsername, u.picture, "bad", u.id, true);
-                                                                                }));
-                                                                  })),
-                                                            className: "flex flex-col"
-                                                          })
-                                                    ]
-                                                  }) : null
-                                          ],
-                                          className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
-                                        });
-                                  } else {
-                                    tmp$6 = null;
-                                  }
-                                  tmp$2 = JsxRuntime.jsxs("div", {
-                                        children: [
-                                          tmp$3,
-                                          tmp$4,
-                                          tmp$5,
-                                          tmp$6
-                                        ],
-                                        className: "grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
-                                      });
-                                } else {
-                                  tmp$2 = null;
-                                }
-                                return JsxRuntime.jsxs("div", {
+                                          className: "mt-3 flex items-center justify-between bg-blue-50 border border-blue-200 rounded-lg px-4 py-3"
+                                        }) : null
+                                ],
+                                className: "mb-6"
+                              }) : null,
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsxs("div", {
+                                    children: [
+                                      Core__Option.getOr(Core__Option.map(props.picture, (function (pic) {
+                                                  return JsxRuntime.jsx("img", {
+                                                              className: "w-24 h-24 rounded-full border-4 border-blue-100",
+                                                              alt: Core__Option.getOr(lineUsername, ""),
+                                                              src: pic
+                                                            });
+                                                })), JsxRuntime.jsx("div", {
+                                                children: Core__Option.getOr(Core__Option.flatMap(lineUsername, (function (name) {
+                                                            return name.charAt(0).toUpperCase();
+                                                          })), "?"),
+                                                className: "w-24 h-24 rounded-full border-4 border-blue-100 bg-gray-200 flex items-center justify-center text-gray-500 text-2xl font-bold"
+                                              })),
+                                      JsxRuntime.jsxs("div", {
                                             children: [
-                                              JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                                                                to: "../",
-                                                                children: [
-                                                                  JsxRuntime.jsx(LucideReact.ChevronLeft, {
-                                                                        className: "w-5 h-5"
-                                                                      }),
-                                                                  JsxRuntime.jsx("span", {
-                                                                        children: t`Back to league`,
-                                                                        className: "font-medium"
-                                                                      })
-                                                                ],
-                                                                className: "inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-                                                              }),
-                                                          className: "max-w-6xl mx-auto px-4 py-4"
-                                                        }),
-                                                    className: "bg-white shadow-sm border-b"
+                                              JsxRuntime.jsx("h1", {
+                                                    children: Core__Option.getOr(lineUsername, ""),
+                                                    className: "text-3xl font-bold text-gray-900 mb-2"
                                                   }),
                                               JsxRuntime.jsxs("div", {
                                                     children: [
-                                                      JsxRuntime.jsx("div", {
-                                                            children: JsxRuntime.jsxs("div", {
-                                                                  children: [
-                                                                    Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
-                                                                                return JsxRuntime.jsx("img", {
-                                                                                            className: "w-24 h-24 rounded-full border-4 border-blue-100",
-                                                                                            alt: Core__Option.getOr(user.lineUsername, ""),
-                                                                                            src: picture
-                                                                                          });
-                                                                              })), JsxRuntime.jsx("div", {
-                                                                              children: Core__Option.getOr(Core__Option.flatMap(user.lineUsername, (function (name) {
-                                                                                          return name.charAt(0).toUpperCase();
-                                                                                        })), "?"),
-                                                                              className: "w-24 h-24 rounded-full border-4 border-blue-100 bg-gray-200 flex items-center justify-center text-gray-500 text-2xl font-bold"
-                                                                            })),
-                                                                    JsxRuntime.jsxs("div", {
-                                                                          children: [
-                                                                            JsxRuntime.jsx("h1", {
-                                                                                  children: Core__Option.getOr(user.lineUsername, ""),
-                                                                                  className: "text-3xl font-bold text-gray-900 mb-2"
-                                                                                }),
-                                                                            JsxRuntime.jsxs("div", {
-                                                                                  children: [
-                                                                                    JsxRuntime.jsxs("div", {
-                                                                                          children: [
-                                                                                            JsxRuntime.jsx("div", {
-                                                                                                  children: t`Current Rating`,
-                                                                                                  className: "text-sm text-gray-500 mb-1"
-                                                                                                }),
-                                                                                            JsxRuntime.jsx("div", {
-                                                                                                  children: Core__Option.getOr(Core__Option.flatMap(user.rating, (function (r) {
-                                                                                                              return Core__Option.map(r.ordinal, (function (__x) {
-                                                                                                                            return __x.toFixed(1);
-                                                                                                                          }));
-                                                                                                            })), "--"),
-                                                                                                  className: "text-3xl font-bold text-blue-600"
-                                                                                                })
-                                                                                          ]
-                                                                                        }),
-                                                                                    tmp
-                                                                                  ],
-                                                                                  className: "flex flex-wrap gap-6 mt-4"
-                                                                                })
-                                                                          ],
-                                                                          className: "flex-1"
-                                                                        })
-                                                                  ],
-                                                                  className: "flex items-start gap-6"
-                                                                }),
-                                                            className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6"
-                                                          }),
-                                                      tmp$1,
-                                                      stats$1 !== undefined ? JsxRuntime.jsxs("div", {
-                                                              children: [
-                                                                Core__Option.getOr(Core__Option.map(stats$1.mdRating, (function (r) {
-                                                                            var ord = ordinal(r.mu, r.sigma);
-                                                                            var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx("div", {
-                                                                                            children: t`Estimated DUPR`,
-                                                                                            className: "text-sm text-gray-500 mb-1"
-                                                                                          }),
-                                                                                      JsxRuntime.jsx("div", {
-                                                                                            children: Rating.guessDupr(r.mu).toFixed(2),
-                                                                                            className: "text-2xl font-semibold text-gray-900"
-                                                                                          })
-                                                                                    ],
-                                                                                    className: "text-right self-start"
-                                                                                  }) : null;
-                                                                            return JsxRuntime.jsxs("div", {
-                                                                                        children: [
-                                                                                          JsxRuntime.jsx("div", {
-                                                                                                children: t`Men's Doubles`,
-                                                                                                className: "text-sm font-medium text-gray-600 mb-2"
-                                                                                              }),
-                                                                                          JsxRuntime.jsxs("div", {
-                                                                                                children: [
-                                                                                                  JsxRuntime.jsxs("div", {
-                                                                                                        children: [
-                                                                                                          JsxRuntime.jsx("div", {
-                                                                                                                children: ord.toFixed(0),
-                                                                                                                className: "text-3xl font-bold text-blue-600"
-                                                                                                              }),
-                                                                                                          JsxRuntime.jsx("div", {
-                                                                                                                children: "±" + r.sigma.toFixed(0),
-                                                                                                                className: "text-xs text-gray-500 mt-1"
-                                                                                                              })
-                                                                                                        ]
-                                                                                                      }),
-                                                                                                  tmp
-                                                                                                ],
-                                                                                                className: "flex items-start justify-between"
-                                                                                              })
-                                                                                        ],
-                                                                                        className: "rounded-xl p-5 border bg-blue-50 border-blue-100"
-                                                                                      }, "md");
-                                                                          })), null),
-                                                                Core__Option.getOr(Core__Option.map(stats$1.xdRating, (function (r) {
-                                                                            var ord = ordinal(r.mu, r.sigma);
-                                                                            var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx("div", {
-                                                                                            children: t`Estimated DUPR`,
-                                                                                            className: "text-sm text-gray-500 mb-1"
-                                                                                          }),
-                                                                                      JsxRuntime.jsx("div", {
-                                                                                            children: Rating.guessDupr(r.mu).toFixed(2),
-                                                                                            className: "text-2xl font-semibold text-gray-900"
-                                                                                          })
-                                                                                    ],
-                                                                                    className: "text-right self-start"
-                                                                                  }) : null;
-                                                                            return JsxRuntime.jsxs("div", {
-                                                                                        children: [
-                                                                                          JsxRuntime.jsx("div", {
-                                                                                                children: t`Mixed Doubles`,
-                                                                                                className: "text-sm font-medium text-gray-600 mb-2"
-                                                                                              }),
-                                                                                          JsxRuntime.jsxs("div", {
-                                                                                                children: [
-                                                                                                  JsxRuntime.jsxs("div", {
-                                                                                                        children: [
-                                                                                                          JsxRuntime.jsx("div", {
-                                                                                                                children: ord.toFixed(0),
-                                                                                                                className: "text-3xl font-bold text-purple-600"
-                                                                                                              }),
-                                                                                                          JsxRuntime.jsx("div", {
-                                                                                                                children: "±" + r.sigma.toFixed(0),
-                                                                                                                className: "text-xs text-gray-500 mt-1"
-                                                                                                              })
-                                                                                                        ]
-                                                                                                      }),
-                                                                                                  tmp
-                                                                                                ],
-                                                                                                className: "flex items-start justify-between"
-                                                                                              })
-                                                                                        ],
-                                                                                        className: "rounded-xl p-5 border bg-purple-50 border-purple-100"
-                                                                                      }, "xd");
-                                                                          })), null),
-                                                                Core__Option.getOr(Core__Option.map(stats$1.wdRating, (function (r) {
-                                                                            var ord = ordinal(r.mu, r.sigma);
-                                                                            var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx("div", {
-                                                                                            children: t`Estimated DUPR`,
-                                                                                            className: "text-sm text-gray-500 mb-1"
-                                                                                          }),
-                                                                                      JsxRuntime.jsx("div", {
-                                                                                            children: Rating.guessDupr(r.mu).toFixed(2),
-                                                                                            className: "text-2xl font-semibold text-gray-900"
-                                                                                          })
-                                                                                    ],
-                                                                                    className: "text-right self-start"
-                                                                                  }) : null;
-                                                                            return JsxRuntime.jsxs("div", {
-                                                                                        children: [
-                                                                                          JsxRuntime.jsx("div", {
-                                                                                                children: t`Women's Doubles`,
-                                                                                                className: "text-sm font-medium text-gray-600 mb-2"
-                                                                                              }),
-                                                                                          JsxRuntime.jsxs("div", {
-                                                                                                children: [
-                                                                                                  JsxRuntime.jsxs("div", {
-                                                                                                        children: [
-                                                                                                          JsxRuntime.jsx("div", {
-                                                                                                                children: ord.toFixed(0),
-                                                                                                                className: "text-3xl font-bold text-pink-600"
-                                                                                                              }),
-                                                                                                          JsxRuntime.jsx("div", {
-                                                                                                                children: "±" + r.sigma.toFixed(0),
-                                                                                                                className: "text-xs text-gray-500 mt-1"
-                                                                                                              })
-                                                                                                        ]
-                                                                                                      }),
-                                                                                                  tmp
-                                                                                                ],
-                                                                                                className: "flex items-start justify-between"
-                                                                                              })
-                                                                                        ],
-                                                                                        className: "rounded-xl p-5 border bg-pink-50 border-pink-100"
-                                                                                      }, "wd");
-                                                                          })), null)
-                                                              ],
-                                                              className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"
-                                                            }) : null,
-                                                      JsxRuntime.jsx("div", {
-                                                            children: JsxRuntime.jsx(React.Suspense, {
-                                                                  children: Caml_option.some(JsxRuntime.jsx(RatingGraphWrapper.make, {
-                                                                            matches: fragmentRefs,
-                                                                            userId: user.id
-                                                                          })),
-                                                                  fallback: Caml_option.some(null)
-                                                                }),
-                                                            className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6"
-                                                          }),
-                                                      tmp$2,
                                                       JsxRuntime.jsxs("div", {
                                                             children: [
-                                                              JsxRuntime.jsx("h2", {
-                                                                    children: t`Recent Matches`,
-                                                                    className: "text-xl font-bold text-gray-900 mb-4"
+                                                              JsxRuntime.jsx("div", {
+                                                                    children: t`Current Rating`,
+                                                                    className: "text-sm text-gray-500 mb-1"
                                                                   }),
-                                                              JsxRuntime.jsx(React.Suspense, {
-                                                                    children: Caml_option.some(JsxRuntime.jsx(MatchHistoryList.make, {
-                                                                              matches: fragmentRefs,
-                                                                              user: userRefs
-                                                                            })),
-                                                                    fallback: Caml_option.some(JsxRuntime.jsx("div", {
-                                                                              children: t`Loading...`,
-                                                                              className: "text-gray-500"
-                                                                            }))
+                                                              JsxRuntime.jsx("div", {
+                                                                    children: Core__Option.getOr(Core__Option.flatMap(statsData.rating, (function (r) {
+                                                                                return Core__Option.map(r.ordinal, (function (__x) {
+                                                                                              return __x.toFixed(1);
+                                                                                            }));
+                                                                              })), "--"),
+                                                                    className: "text-3xl font-bold text-blue-600"
                                                                   })
-                                                            ],
-                                                            className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
-                                                          })
+                                                            ]
+                                                          }),
+                                                      tmp
                                                     ],
-                                                    className: "max-w-6xl mx-auto px-4 py-8"
+                                                    className: "flex flex-wrap gap-6 mt-4"
                                                   })
                                             ],
-                                            className: "min-h-screen bg-gray-50 w-full"
+                                            className: "flex-1"
+                                          })
+                                    ],
+                                    className: "flex items-start gap-6"
+                                  }),
+                              className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6"
+                            }),
+                        tmp$1,
+                        stats$1 !== undefined ? JsxRuntime.jsxs("div", {
+                                children: [
+                                  Core__Option.getOr(Core__Option.map(stats$1.mdRating, (function (r) {
+                                              var ord = ordinal(r.mu, r.sigma);
+                                              var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {
+                                                      children: [
+                                                        JsxRuntime.jsx("div", {
+                                                              children: t`Estimated DUPR`,
+                                                              className: "text-sm text-gray-500 mb-1"
+                                                            }),
+                                                        JsxRuntime.jsx("div", {
+                                                              children: Rating.guessDupr(r.mu).toFixed(2),
+                                                              className: "text-2xl font-semibold text-gray-900"
+                                                            })
+                                                      ],
+                                                      className: "text-right self-start"
+                                                    }) : null;
+                                              return JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("div", {
+                                                                  children: t`Men's Doubles`,
+                                                                  className: "text-sm font-medium text-gray-600 mb-2"
+                                                                }),
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: ord.toFixed(0),
+                                                                                  className: "text-3xl font-bold text-blue-600"
+                                                                                }),
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: "±" + r.sigma.toFixed(0),
+                                                                                  className: "text-xs text-gray-500 mt-1"
+                                                                                })
+                                                                          ]
+                                                                        }),
+                                                                    tmp
+                                                                  ],
+                                                                  className: "flex items-start justify-between"
+                                                                })
+                                                          ],
+                                                          className: "rounded-xl p-5 border bg-blue-50 border-blue-100"
+                                                        }, "md");
+                                            })), null),
+                                  Core__Option.getOr(Core__Option.map(stats$1.xdRating, (function (r) {
+                                              var ord = ordinal(r.mu, r.sigma);
+                                              var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {
+                                                      children: [
+                                                        JsxRuntime.jsx("div", {
+                                                              children: t`Estimated DUPR`,
+                                                              className: "text-sm text-gray-500 mb-1"
+                                                            }),
+                                                        JsxRuntime.jsx("div", {
+                                                              children: Rating.guessDupr(r.mu).toFixed(2),
+                                                              className: "text-2xl font-semibold text-gray-900"
+                                                            })
+                                                      ],
+                                                      className: "text-right self-start"
+                                                    }) : null;
+                                              return JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("div", {
+                                                                  children: t`Mixed Doubles`,
+                                                                  className: "text-sm font-medium text-gray-600 mb-2"
+                                                                }),
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: ord.toFixed(0),
+                                                                                  className: "text-3xl font-bold text-purple-600"
+                                                                                }),
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: "±" + r.sigma.toFixed(0),
+                                                                                  className: "text-xs text-gray-500 mt-1"
+                                                                                })
+                                                                          ]
+                                                                        }),
+                                                                    tmp
+                                                                  ],
+                                                                  className: "flex items-start justify-between"
+                                                                })
+                                                          ],
+                                                          className: "rounded-xl p-5 border bg-purple-50 border-purple-100"
+                                                        }, "xd");
+                                            })), null),
+                                  Core__Option.getOr(Core__Option.map(stats$1.wdRating, (function (r) {
+                                              var ord = ordinal(r.mu, r.sigma);
+                                              var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {
+                                                      children: [
+                                                        JsxRuntime.jsx("div", {
+                                                              children: t`Estimated DUPR`,
+                                                              className: "text-sm text-gray-500 mb-1"
+                                                            }),
+                                                        JsxRuntime.jsx("div", {
+                                                              children: Rating.guessDupr(r.mu).toFixed(2),
+                                                              className: "text-2xl font-semibold text-gray-900"
+                                                            })
+                                                      ],
+                                                      className: "text-right self-start"
+                                                    }) : null;
+                                              return JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("div", {
+                                                                  children: t`Women's Doubles`,
+                                                                  className: "text-sm font-medium text-gray-600 mb-2"
+                                                                }),
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: ord.toFixed(0),
+                                                                                  className: "text-3xl font-bold text-pink-600"
+                                                                                }),
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: "±" + r.sigma.toFixed(0),
+                                                                                  className: "text-xs text-gray-500 mt-1"
+                                                                                })
+                                                                          ]
+                                                                        }),
+                                                                    tmp
+                                                                  ],
+                                                                  className: "flex items-start justify-between"
+                                                                })
+                                                          ],
+                                                          className: "rounded-xl p-5 border bg-pink-50 border-pink-100"
+                                                        }, "wd");
+                                            })), null)
+                                ],
+                                className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"
+                              }) : null,
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx(React.Suspense, {
+                                    children: Caml_option.some(JsxRuntime.jsx(RatingGraphWrapper.make, {
+                                              matches: mainFragmentRefs,
+                                              userId: userId
+                                            })),
+                                    fallback: Caml_option.some(null)
+                                  }),
+                              className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6"
+                            }),
+                        tmp$2,
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("h2", {
+                                      children: t`Recent Matches`,
+                                      className: "text-xl font-bold text-gray-900 mb-4"
+                                    }),
+                                JsxRuntime.jsx(React.Suspense, {
+                                      children: Caml_option.some(JsxRuntime.jsx(MatchHistoryList.make, {
+                                                matches: mainFragmentRefs,
+                                                user: props.userRefs
+                                              })),
+                                      fallback: Caml_option.some(JsxRuntime.jsx("div", {
+                                                children: t`Loading...`,
+                                                className: "text-gray-500"
+                                              }))
+                                    })
+                              ],
+                              className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6"
+                            })
+                      ],
+                      className: "max-w-6xl mx-auto px-4 py-8"
+                    })
+              ],
+              className: "min-h-screen bg-gray-50 w-full"
+            });
+}
+
+var PlayerContent = {
+  make: LeaguePlayerPage$PlayerContent
+};
+
+function LeaguePlayerPage(props) {
+  var query = ReactRouterDom.useLoaderData();
+  var match = usePreloaded(query.data);
+  var fragmentRefs = match.fragmentRefs;
+  var params = ReactRouterDom.useParams();
+  var activitySlug = params.activitySlug;
+  var clubSlug = params.clubSlug;
+  var clubs = Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(match.viewer, (function (v) {
+                  return v.clubs.edges;
+                })), []), (function (edge) {
+          return Core__Option.map(Core__Option.flatMap(edge, (function (e) {
+                            return e.node;
+                          })), (function (n) {
+                        return {
+                                id: n.id,
+                                name: Core__Option.getOr(n.name, ""),
+                                slug: n.slug
+                              };
+                      }));
+        }));
+  return Core__Option.map(match.user, (function (user) {
+                var userRefs = user.fragmentRefs;
+                return JsxRuntime.jsx(WaitForMessages.make, {
+                            children: (function () {
+                                return JsxRuntime.jsx(LeaguePlayerPage$PlayerContent, {
+                                            userStats: user.fragmentRefs,
+                                            userId: user.id,
+                                            picture: user.picture,
+                                            lineUsername: user.lineUsername,
+                                            clubs: clubs,
+                                            activitySlug: activitySlug,
+                                            clubSlug: clubSlug,
+                                            mainFragmentRefs: fragmentRefs,
+                                            userRefs: Caml_option.some(userRefs)
                                           });
                               })
                           });
@@ -878,10 +1056,14 @@ function LeaguePlayerPage(props) {
 var make = LeaguePlayerPage;
 
 export {
+  UserStatsFragment ,
   Query ,
   Params ,
   pickEntries ,
   FilterTabs ,
+  ordinal ,
+  renderStatEntry ,
+  PlayerContent ,
   make ,
 }
 /*  Not a pure module */

@@ -5,11 +5,12 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(activitySlug, after, before, first, namespace, userId) {
+function makeRefetchVariables(activitySlug, after, before, clubSlug, first, namespace, userId) {
   return {
           activitySlug: activitySlug,
           after: after,
           before: before,
+          clubSlug: clubSlug,
           first: first,
           namespace: namespace,
           userId: userId
@@ -87,25 +88,30 @@ v2 = {
 v3 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "first"
+  "name": "clubSlug"
 },
 v4 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "namespace"
+  "name": "first"
 },
 v5 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "userId"
+  "name": "namespace"
 },
 v6 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "userId"
+},
+v7 = {
   "kind": "Variable",
   "name": "activitySlug",
   "variableName": "activitySlug"
 },
-v7 = [
-  (v6/*: any*/),
+v8 = [
+  (v7/*: any*/),
   {
     "kind": "Variable",
     "name": "after",
@@ -127,13 +133,6 @@ v7 = [
     "variableName": "userId"
   }
 ],
-v8 = [
-  {
-    "kind": "Variable",
-    "name": "id",
-    "variableName": "userId"
-  }
-],
 v9 = {
   "alias": null,
   "args": null,
@@ -144,342 +143,124 @@ v9 = {
 v10 = {
   "alias": null,
   "args": null,
+  "concreteType": "Viewer",
+  "kind": "LinkedField",
+  "name": "viewer",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": [
+        {
+          "kind": "Literal",
+          "name": "first",
+          "value": 100
+        }
+      ],
+      "concreteType": "ClubConnection",
+      "kind": "LinkedField",
+      "name": "clubs",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "ClubEdge",
+          "kind": "LinkedField",
+          "name": "edges",
+          "plural": true,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "Club",
+              "kind": "LinkedField",
+              "name": "node",
+              "plural": false,
+              "selections": [
+                (v9/*: any*/),
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "name",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "slug",
+                  "storageKey": null
+                }
+              ],
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": "clubs(first:100)"
+    }
+  ],
+  "storageKey": null
+},
+v11 = [
+  {
+    "kind": "Variable",
+    "name": "id",
+    "variableName": "userId"
+  }
+],
+v12 = {
+  "alias": null,
+  "args": null,
   "kind": "ScalarField",
   "name": "picture",
   "storageKey": null
 },
-v11 = {
+v13 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "lineUsername",
   "storageKey": null
 },
-v12 = {
+v14 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "gender",
   "storageKey": null
 },
-v13 = [
-  (v6/*: any*/),
+v15 = {
+  "kind": "Variable",
+  "name": "clubSlug",
+  "variableName": "clubSlug"
+},
+v16 = [
+  (v7/*: any*/),
+  (v15/*: any*/),
   {
     "kind": "Variable",
     "name": "namespace",
     "variableName": "namespace"
   }
 ],
-v14 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "ordinal",
-  "storageKey": null
-},
-v15 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "mu",
-  "storageKey": null
-},
-v16 = [
-  (v15/*: any*/),
-  {
-    "alias": null,
-    "args": null,
-    "kind": "ScalarField",
-    "name": "sigma",
-    "storageKey": null
-  }
+v17 = [
+  (v9/*: any*/),
+  (v13/*: any*/),
+  (v12/*: any*/),
+  (v14/*: any*/)
 ],
-v17 = {
+v18 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "score",
   "storageKey": null
 },
-v18 = [
-  (v9/*: any*/),
-  (v11/*: any*/),
-  (v10/*: any*/),
-  (v12/*: any*/)
-],
-v19 = [
-  (v17/*: any*/),
-  {
-    "alias": null,
-    "args": null,
-    "concreteType": "User",
-    "kind": "LinkedField",
-    "name": "user",
-    "plural": false,
-    "selections": (v18/*: any*/),
-    "storageKey": null
-  }
-],
-v20 = {
-  "alias": null,
-  "args": [
-    {
-      "kind": "Variable",
-      "name": "activity",
-      "variableName": "activitySlug"
-    },
-    {
-      "kind": "Literal",
-      "name": "namespace",
-      "value": "doubles:comp"
-    }
-  ],
-  "concreteType": "LeagueUserStat",
-  "kind": "LinkedField",
-  "name": "leagueUserStats",
-  "plural": false,
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "DisciplineRating",
-      "kind": "LinkedField",
-      "name": "mdRating",
-      "plural": false,
-      "selections": (v16/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "DisciplineRating",
-      "kind": "LinkedField",
-      "name": "wdRating",
-      "plural": false,
-      "selections": (v16/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "DisciplineRating",
-      "kind": "LinkedField",
-      "name": "xdRating",
-      "plural": false,
-      "selections": (v16/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "bestPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "worstPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "bestOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "worstOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "mdBestPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "mdWorstPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "mdBestOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "mdWorstOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "wdBestPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "wdWorstPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "wdBestOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "wdWorstOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "xdBestPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "xdWorstPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "xdBestOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "xdWorstOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "mfBestPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "mfWorstPartners",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "mfBestOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "LeagueUserStatEntry",
-      "kind": "LinkedField",
-      "name": "mfWorstOpponents",
-      "plural": true,
-      "selections": (v19/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "mfPartnerTendency",
-      "storageKey": null
-    }
-  ],
-  "storageKey": null
-},
-v21 = {
+v19 = {
   "kind": "ClientExtension",
   "selections": [
     {
@@ -491,9 +272,39 @@ v21 = {
     }
   ]
 },
-v22 = [
+v20 = [
   "activitySlug",
   "userId"
+],
+v21 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "mu",
+  "storageKey": null
+},
+v22 = [
+  (v21/*: any*/),
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "sigma",
+    "storageKey": null
+  }
+],
+v23 = [
+  (v18/*: any*/),
+  {
+    "alias": null,
+    "args": null,
+    "concreteType": "User",
+    "kind": "LinkedField",
+    "name": "user",
+    "plural": false,
+    "selections": (v17/*: any*/),
+    "storageKey": null
+  }
 ];
 return {
   "fragment": {
@@ -503,48 +314,41 @@ return {
       (v2/*: any*/),
       (v3/*: any*/),
       (v4/*: any*/),
-      (v5/*: any*/)
+      (v5/*: any*/),
+      (v6/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
     "name": "LeaguePlayerPageQuery",
     "selections": [
       {
-        "args": (v7/*: any*/),
+        "args": (v8/*: any*/),
         "kind": "FragmentSpread",
         "name": "MatchHistoryListFragment"
       },
       {
-        "args": (v7/*: any*/),
+        "args": (v8/*: any*/),
         "kind": "FragmentSpread",
         "name": "RatingGraphWrapperFragment"
       },
+      (v10/*: any*/),
       {
         "alias": null,
-        "args": (v8/*: any*/),
+        "args": (v11/*: any*/),
         "concreteType": "User",
         "kind": "LinkedField",
         "name": "user",
         "plural": false,
         "selections": [
           (v9/*: any*/),
-          (v10/*: any*/),
-          (v11/*: any*/),
           (v12/*: any*/),
+          (v13/*: any*/),
+          (v14/*: any*/),
           {
-            "alias": null,
-            "args": (v13/*: any*/),
-            "concreteType": "Rating",
-            "kind": "LinkedField",
-            "name": "rating",
-            "plural": false,
-            "selections": [
-              (v14/*: any*/),
-              (v15/*: any*/)
-            ],
-            "storageKey": null
+            "args": (v16/*: any*/),
+            "kind": "FragmentSpread",
+            "name": "LeaguePlayerPage_userStats"
           },
-          (v20/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -561,18 +365,19 @@ return {
   "operation": {
     "argumentDefinitions": [
       (v1/*: any*/),
-      (v3/*: any*/),
+      (v4/*: any*/),
       (v2/*: any*/),
       (v0/*: any*/),
-      (v4/*: any*/),
-      (v5/*: any*/)
+      (v5/*: any*/),
+      (v6/*: any*/),
+      (v3/*: any*/)
     ],
     "kind": "Operation",
     "name": "LeaguePlayerPageQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v7/*: any*/),
+        "args": (v8/*: any*/),
         "concreteType": "MatchConnection",
         "kind": "LinkedField",
         "name": "matches",
@@ -602,7 +407,7 @@ return {
                     "kind": "LinkedField",
                     "name": "winners",
                     "plural": true,
-                    "selections": (v18/*: any*/),
+                    "selections": (v17/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -612,7 +417,7 @@ return {
                     "kind": "LinkedField",
                     "name": "losers",
                     "plural": true,
-                    "selections": (v18/*: any*/),
+                    "selections": (v17/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -622,7 +427,7 @@ return {
                     "name": "namespace",
                     "storageKey": null
                   },
-                  (v17/*: any*/),
+                  (v18/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -696,14 +501,14 @@ return {
             ],
             "storageKey": null
           },
-          (v21/*: any*/)
+          (v19/*: any*/)
         ],
         "storageKey": null
       },
       {
         "alias": null,
-        "args": (v7/*: any*/),
-        "filters": (v22/*: any*/),
+        "args": (v8/*: any*/),
+        "filters": (v20/*: any*/),
         "handle": "connection",
         "key": "MatchHistoryListFragment_matches",
         "kind": "LinkedHandle",
@@ -711,53 +516,319 @@ return {
       },
       {
         "alias": null,
-        "args": (v7/*: any*/),
-        "filters": (v22/*: any*/),
+        "args": (v8/*: any*/),
+        "filters": (v20/*: any*/),
         "handle": "connection",
         "key": "RatingGraphWrapperFragment_matches",
         "kind": "LinkedHandle",
         "name": "matches"
       },
-      (v21/*: any*/),
+      (v19/*: any*/),
+      (v10/*: any*/),
       {
         "alias": null,
-        "args": (v8/*: any*/),
+        "args": (v11/*: any*/),
         "concreteType": "User",
         "kind": "LinkedField",
         "name": "user",
         "plural": false,
         "selections": [
           (v9/*: any*/),
-          (v10/*: any*/),
-          (v11/*: any*/),
           (v12/*: any*/),
+          (v13/*: any*/),
+          (v14/*: any*/),
           {
             "alias": null,
-            "args": (v13/*: any*/),
+            "args": (v16/*: any*/),
             "concreteType": "Rating",
             "kind": "LinkedField",
             "name": "rating",
             "plural": false,
             "selections": [
-              (v14/*: any*/),
-              (v15/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "ordinal",
+                "storageKey": null
+              },
+              (v21/*: any*/),
               (v9/*: any*/)
             ],
             "storageKey": null
           },
-          (v20/*: any*/)
+          {
+            "alias": null,
+            "args": [
+              {
+                "kind": "Variable",
+                "name": "activity",
+                "variableName": "activitySlug"
+              },
+              (v15/*: any*/),
+              {
+                "kind": "Literal",
+                "name": "namespace",
+                "value": "doubles:comp"
+              }
+            ],
+            "concreteType": "LeagueUserStat",
+            "kind": "LinkedField",
+            "name": "leagueUserStats",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "DisciplineRating",
+                "kind": "LinkedField",
+                "name": "mdRating",
+                "plural": false,
+                "selections": (v22/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "DisciplineRating",
+                "kind": "LinkedField",
+                "name": "wdRating",
+                "plural": false,
+                "selections": (v22/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "DisciplineRating",
+                "kind": "LinkedField",
+                "name": "xdRating",
+                "plural": false,
+                "selections": (v22/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "bestPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "worstPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "bestOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "worstOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "mdBestPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "mdWorstPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "mdBestOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "mdWorstOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "wdBestPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "wdWorstPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "wdBestOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "wdWorstOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "xdBestPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "xdWorstPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "xdBestOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "xdWorstOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "mfBestPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "mfWorstPartners",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "mfBestOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "LeagueUserStatEntry",
+                "kind": "LinkedField",
+                "name": "mfWorstOpponents",
+                "plural": true,
+                "selections": (v23/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "mfPartnerTendency",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          }
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "9d33837ae903ce4d49fa0e0bb3e41492",
+    "cacheID": "687c450dc73df3b228fceeb3cad5aced",
     "id": null,
     "metadata": {},
     "name": "LeaguePlayerPageQuery",
     "operationKind": "query",
-    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n  $userId: ID!\n) {\n  ...MatchHistoryListFragment_32wNNd\n  ...RatingGraphWrapperFragment_32wNNd\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    rating(activitySlug: $activitySlug, namespace: $namespace) {\n      ordinal\n      mu\n      id\n    }\n    leagueUserStats(activity: $activitySlug, namespace: \"doubles:comp\") {\n      mdRating {\n        mu\n        sigma\n      }\n      wdRating {\n        mu\n        sigma\n      }\n      xdRating {\n        mu\n        sigma\n      }\n      bestPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      worstPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      bestOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      worstOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mdBestPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mdWorstPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mdBestOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mdWorstOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      wdBestPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      wdWorstPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      wdBestOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      wdWorstOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      xdBestPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      xdWorstPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      xdBestOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      xdWorstOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mfBestPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mfWorstPartners {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mfBestOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mfWorstOpponents {\n        score\n        user {\n          id\n          lineUsername\n          picture\n          gender\n        }\n      }\n      mfPartnerTendency\n    }\n    ...MatchHistoryListUser_user\n  }\n}\n\nfragment MatchHistoryListFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchHistoryList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchHistoryListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchHistoryListUser_user on User {\n  id\n}\n\nfragment MatchHistoryList_match on Match {\n  id\n  winners {\n    id\n    ...MatchHistoryListTeam_user\n  }\n  losers {\n    id\n    ...MatchHistoryListTeam_user\n  }\n  namespace\n  score\n  createdAt\n  playerMetadata\n}\n\nfragment RatingGraphWrapperFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        createdAt\n        playerMetadata\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n"
+    "text": "query LeaguePlayerPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String\n  $userId: ID!\n  $clubSlug: String\n) {\n  ...MatchHistoryListFragment_32wNNd\n  ...RatingGraphWrapperFragment_32wNNd\n  viewer {\n    clubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          slug\n        }\n      }\n    }\n  }\n  user(id: $userId) {\n    id\n    picture\n    lineUsername\n    gender\n    ...LeaguePlayerPage_userStats_1bIgST\n    ...MatchHistoryListUser_user\n  }\n}\n\nfragment LeaguePlayerPage_userStats_1bIgST on User {\n  rating(activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    ordinal\n    mu\n    id\n  }\n  leagueUserStats(activity: $activitySlug, namespace: \"doubles:comp\", clubSlug: $clubSlug) {\n    mdRating {\n      mu\n      sigma\n    }\n    wdRating {\n      mu\n      sigma\n    }\n    xdRating {\n      mu\n      sigma\n    }\n    bestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    worstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    bestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    worstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfPartnerTendency\n  }\n  id\n}\n\nfragment MatchHistoryListFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        ...MatchHistoryList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchHistoryListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchHistoryListUser_user on User {\n  id\n}\n\nfragment MatchHistoryList_match on Match {\n  id\n  winners {\n    id\n    ...MatchHistoryListTeam_user\n  }\n  losers {\n    id\n    ...MatchHistoryListTeam_user\n  }\n  namespace\n  score\n  createdAt\n  playerMetadata\n}\n\nfragment RatingGraphWrapperFragment_32wNNd on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug, userId: $userId) {\n    edges {\n      node {\n        id\n        createdAt\n        playerMetadata\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n"
   }
 };
 })());

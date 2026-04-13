@@ -203,7 +203,6 @@ function EventManager(props) {
                   commitMutationCreateLeagueMatch({
                         matchInput: {
                           activitySlug: activitySlug,
-                          eventId: eventId,
                           doublesMatch: {
                             createdAt: Util.Datetime.fromDate(createdAt),
                             losers: loserIds,
@@ -213,6 +212,7 @@ function EventManager(props) {
                             ],
                             winners: winnerIds
                           },
+                          eventId: eventId,
                           namespace: eventNamespace,
                           syncId: matchId
                         }

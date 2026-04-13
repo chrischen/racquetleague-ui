@@ -15,7 +15,10 @@
 @genType
 let \"Component" = LeaguePlayerPage.make
 
-type params = {...LeaguePlayerPageQuery_graphql.Types.variables, lang: option<string>}
+type params = {
+  ...LeaguePlayerPageQuery_graphql.Types.variables,
+  lang: option<string>,
+}
 module LoaderArgs = {
   type t = {
     context: RelayEnv.context,
@@ -37,6 +40,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
+  let clubSlug = params.clubSlug
 
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
@@ -50,6 +54,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         activitySlug: params.activitySlug,
         userId: params.userId,
         namespace: "doubles:comp",
+        ?clubSlug,
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),

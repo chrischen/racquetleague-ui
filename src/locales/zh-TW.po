@@ -3400,6 +3400,22 @@ msgstr "能提升較弱搭檔的水準"
 msgid "Performs better with stronger partners"
 msgstr "與較強搭檔配合時表現更佳"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:722
+msgid "All Clubs"
+msgstr "所有俱樂部"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:772
+msgid "only"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:767
+msgid "Showing stats from"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:766
+msgid "Showing stats from {selectedClubName} only"
+msgstr "僅顯示來自 {selectedClubName} 的統計數據"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -3805,6 +3805,14 @@ msgstr "弱いパートナーを引き上げる"
 msgid "Performs better with stronger partners"
 msgstr "強いパートナーと組むと成績が上がる"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:766
+msgid "Showing stats from {selectedClubName} only"
+msgstr "{selectedClubName} のみの統計を表示中"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:722
+msgid "All Clubs"
+msgstr "すべてのクラブ"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

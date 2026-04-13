@@ -13,10 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:177
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
 msgid "Rating History"
 msgstr ""
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:181
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
 msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
 msgstr ""

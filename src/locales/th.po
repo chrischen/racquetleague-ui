@@ -3423,6 +3423,22 @@ msgstr "ยกระดับคู่เล่นที่อ่อนแอก
 msgid "Performs better with stronger partners"
 msgstr "เล่นได้ดีขึ้นเมื่อคู่เล่นเก่งกว่า"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:722
+msgid "All Clubs"
+msgstr "ทุกสโมสร"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:772
+msgid "only"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:767
+msgid "Showing stats from"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:766
+msgid "Showing stats from {selectedClubName} only"
+msgstr "แสดงสถิติจาก {selectedClubName} เท่านั้น"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

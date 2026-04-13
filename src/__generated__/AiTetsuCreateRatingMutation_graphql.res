@@ -5,11 +5,16 @@ module Types = {
   @@warning("-30")
 
   @live
-  type rec response_createLeagueRating_rating = {
+  type rec response_createLeagueRating_errors = {
+    message: string,
+  }
+  @live
+  and response_createLeagueRating_rating = {
     @live id: string,
   }
   @live
   and response_createLeagueRating = {
+    errors: option<array<response_createLeagueRating_errors>>,
     rating: option<response_createLeagueRating_rating>,
   }
   @live
@@ -137,6 +142,24 @@ v1 = [
           }
         ],
         "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Error",
+        "kind": "LinkedField",
+        "name": "errors",
+        "plural": true,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "message",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
       }
     ],
     "storageKey": null
@@ -160,12 +183,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "da9520d1f3931583b0e261fd074cb343",
+    "cacheID": "26f89a6d9f9a0b02b9b5239d58a170a1",
     "id": null,
     "metadata": {},
     "name": "AiTetsuCreateRatingMutation",
     "operationKind": "mutation",
-    "text": "mutation AiTetsuCreateRatingMutation(\n  $userId: String\n) {\n  createLeagueRating(input: {activitySlug: \"pickleball\", namespace: \"doubles:rec\", userId: $userId}) {\n    rating {\n      id\n    }\n  }\n}\n"
+    "text": "mutation AiTetsuCreateRatingMutation(\n  $userId: String\n) {\n  createLeagueRating(input: {activitySlug: \"pickleball\", namespace: \"doubles:rec\", userId: $userId}) {\n    rating {\n      id\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

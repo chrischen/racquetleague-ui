@@ -322,6 +322,7 @@ input LeagueMatchInput {
 
 input LeagueRatingInput {
   activitySlug: String!
+  clubId: String
   namespace: String!
   userId: String
 }
@@ -397,6 +398,7 @@ type LocationEdge {
 }
 
 type Match {
+  club: MatchClub
   createdAt: Datetime
   id: ID!
   losers: [User!]
@@ -404,6 +406,12 @@ type Match {
   playerMetadata: String
   score: [Float!]
   winners: [User!]
+}
+
+type MatchClub {
+  id: ID!
+  name: String
+  slug: String
 }
 
 """A connection to users."""
@@ -691,10 +699,10 @@ type User implements Node {
   fullName: String
   gender: Gender
   id: ID!
-  leagueUserStats(activity: String!, namespace: String!): LeagueUserStat
+  leagueUserStats(activity: String!, clubId: ID, clubSlug: String, namespace: String!): LeagueUserStat
   lineUsername: String
   picture: String
-  rating(activitySlug: String!, namespace: String): Rating
+  rating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): Rating
 }
 
 type Viewer {

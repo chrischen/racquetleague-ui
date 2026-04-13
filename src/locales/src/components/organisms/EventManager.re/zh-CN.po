@@ -54,7 +54,7 @@ msgstr "调整球员种子"
 msgid "Advance to Next Round"
 msgstr "前进至下一回合"
 
-#: src/components/organisms/EventManager.re.mjs:1357
+#: src/components/organisms/EventManager.re.mjs:1359
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 轮"
 
@@ -66,7 +66,7 @@ msgstr "亚历克斯·约翰逊"
 msgid "All checked-in players are already in this round"
 msgstr "所有已报到的球员都已在这个回合中"
 
-#: src/components/organisms/EventManager.re.mjs:1457
+#: src/components/organisms/EventManager.re.mjs:1459
 msgid "Anti-Team {0}"
 msgstr "反对队 {0}"
 
@@ -129,11 +129,11 @@ msgstr "创建您的第一支队伍开始"
 msgid "Current Round:"
 msgstr "当前回合："
 
-#: src/components/organisms/EventManager.re.mjs:1634
+#: src/components/organisms/EventManager.re.mjs:1636
 msgid "Debug: OFF"
 msgstr "调试：关闭"
 
-#: src/components/organisms/EventManager.re.mjs:1634
+#: src/components/organisms/EventManager.re.mjs:1636
 msgid "Debug: ON"
 msgstr "调试：开启"
 
@@ -208,7 +208,7 @@ msgstr "生成对战表"
 msgid "Guest Names (one per line)"
 msgstr "访客姓名（每行一个）"
 
-#: src/components/organisms/EventManager.re.mjs:1622
+#: src/components/organisms/EventManager.re.mjs:1624
 msgid "Help"
 msgstr "帮助"
 
@@ -338,7 +338,7 @@ msgstr "替换球员"
 msgid "Replacing:"
 msgstr "替换："
 
-#: src/components/organisms/EventManager.re.mjs:1609
+#: src/components/organisms/EventManager.re.mjs:1611
 msgid "Reset Storage"
 msgstr "重置存储"
 
@@ -392,7 +392,7 @@ msgstr "保存队伍"
 msgid "Score"
 msgstr "比分"
 
-#: src/components/organisms/EventManager.re.mjs:1193
+#: src/components/organisms/EventManager.re.mjs:1195
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
@@ -412,19 +412,19 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:1205
+#: src/components/organisms/EventManager.re.mjs:1207
 msgid "Sync Failed"
 msgstr "同步失败"
 
-#: src/components/organisms/EventManager.re.mjs:1169
+#: src/components/organisms/EventManager.re.mjs:1171
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:1181
+#: src/components/organisms/EventManager.re.mjs:1183
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1147
+#: src/components/organisms/EventManager.re.mjs:1149
 msgid "Team {0}"
 msgstr "第 {0} 队"
 

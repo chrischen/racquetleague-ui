@@ -174,6 +174,11 @@ const mainRoutes: RouteObject[] =
               handle: "src/components/routes/LeagueRankingsRoute.gen.tsx",
             },
             {
+              path: "p/:userId/:clubSlug",
+              lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
+              handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",
+            },
+            {
               path: "p/:userId",
               lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
               handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",

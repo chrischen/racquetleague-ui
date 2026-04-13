@@ -50,6 +50,9 @@ module AiTetsuCreateRatingMutation = %relay(`
      rating {
        id
      }
+     errors {
+      message
+     }
    }
  }
 `)

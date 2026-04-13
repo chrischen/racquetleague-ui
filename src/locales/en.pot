@@ -3712,3 +3712,19 @@ msgstr ""
 #: src/components/pages/LeaguePlayerPage.re.mjs:283
 msgid "Performs better with stronger partners"
 msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:722
+msgid "All Clubs"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:772
+msgid "only"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:767
+msgid "Showing stats from"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:766
+msgid "Showing stats from {selectedClubName} only"
+msgstr ""

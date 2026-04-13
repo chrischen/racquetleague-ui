@@ -17,23 +17,27 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "...載入之前的比賽"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:120
+#: src/components/pages/LeaguePlayerPage.re.mjs:159
 msgid "All"
 msgstr "全部"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:639
+#: src/components/pages/LeaguePlayerPage.re.mjs:722
+msgid "All Clubs"
+msgstr "所有俱樂部"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:702
 msgid "Back to league"
 msgstr "返回聯賽"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:290
+#: src/components/pages/LeaguePlayerPage.re.mjs:353
 msgid "Balanced partner tendency"
 msgstr "搭檔傾向均衡"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:336
+#: src/components/pages/LeaguePlayerPage.re.mjs:399
 msgid "Best Doubles Partners"
 msgstr "最佳雙打搭檔"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:677
+#: src/components/pages/LeaguePlayerPage.re.mjs:814
 msgid "Current Rating"
 msgstr "當前評分"
 
@@ -42,14 +46,14 @@ msgstr "當前評分"
 msgid "DRAW"
 msgstr "平手"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:287
+#: src/components/pages/LeaguePlayerPage.re.mjs:350
 msgid "Elevates weaker partners"
 msgstr "能提升較弱搭檔的水準"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:266
-#: src/components/pages/LeaguePlayerPage.re.mjs:710
-#: src/components/pages/LeaguePlayerPage.re.mjs:753
-#: src/components/pages/LeaguePlayerPage.re.mjs:796
+#: src/components/pages/LeaguePlayerPage.re.mjs:329
+#: src/components/pages/LeaguePlayerPage.re.mjs:847
+#: src/components/pages/LeaguePlayerPage.re.mjs:890
+#: src/components/pages/LeaguePlayerPage.re.mjs:933
 msgid "Estimated DUPR"
 msgstr "預估 DUPR"
 
@@ -61,7 +65,7 @@ msgstr "勢均力敵"
 msgid "Load more matches..."
 msgstr "載入更多比賽..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:860
+#: src/components/pages/LeaguePlayerPage.re.mjs:997
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -70,45 +74,49 @@ msgstr "載入中..."
 msgid "LOSS"
 msgstr "負"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:723
+#: src/components/pages/LeaguePlayerPage.re.mjs:860
 msgid "Men's Doubles"
 msgstr "男子雙打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:766
+#: src/components/pages/LeaguePlayerPage.re.mjs:903
 msgid "Mixed Doubles"
 msgstr "混合雙打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:356
-#: src/components/pages/LeaguePlayerPage.re.mjs:430
-#: src/components/pages/LeaguePlayerPage.re.mjs:504
-#: src/components/pages/LeaguePlayerPage.re.mjs:578
+#: src/components/pages/LeaguePlayerPage.re.mjs:419
+#: src/components/pages/LeaguePlayerPage.re.mjs:493
+#: src/components/pages/LeaguePlayerPage.re.mjs:567
+#: src/components/pages/LeaguePlayerPage.re.mjs:641
 msgid "No data for this category"
 msgstr "此分類沒有資料"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:283
+#: src/components/pages/LeaguePlayerPage.re.mjs:346
 msgid "Performs better with stronger partners"
 msgstr "與較強搭檔配合時表現更佳"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:369
-#: src/components/pages/LeaguePlayerPage.re.mjs:443
-#: src/components/pages/LeaguePlayerPage.re.mjs:517
-#: src/components/pages/LeaguePlayerPage.re.mjs:591
+#: src/components/pages/LeaguePlayerPage.re.mjs:432
+#: src/components/pages/LeaguePlayerPage.re.mjs:506
+#: src/components/pages/LeaguePlayerPage.re.mjs:580
+#: src/components/pages/LeaguePlayerPage.re.mjs:654
 msgid "Predicted"
 msgstr "預測"
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:177
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
 msgid "Rating History"
 msgstr "評分歷史"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:851
+#: src/components/pages/LeaguePlayerPage.re.mjs:988
 msgid "Recent Matches"
 msgstr "最近比賽"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:484
+#: src/components/pages/LeaguePlayerPage.re.mjs:766
+msgid "Showing stats from {selectedClubName} only"
+msgstr "僅顯示來自 {selectedClubName} 的統計數據"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:547
 msgid "Strong Against"
 msgstr "強勢對陣"
 
-#: src/components/organisms/RatingGraphWrapper.re.mjs:181
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
 msgid ""
 "The shaded area represents rating uncertainty. Narrower bands indicate "
 "higher confidence."
@@ -118,7 +126,7 @@ msgstr "陰影區域表示評分的不確定性。較窄的帶表示更高的置
 msgid "Upset"
 msgstr "爆冷"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:558
+#: src/components/pages/LeaguePlayerPage.re.mjs:621
 msgid "Weak Against"
 msgstr "弱勢對陣"
 
@@ -127,11 +135,11 @@ msgstr "弱勢對陣"
 msgid "WIN"
 msgstr "勝"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:809
+#: src/components/pages/LeaguePlayerPage.re.mjs:946
 msgid "Women's Doubles"
 msgstr "女子雙打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:410
+#: src/components/pages/LeaguePlayerPage.re.mjs:473
 msgid "Worst Doubles Partners"
 msgstr "最差雙打搭檔"
 

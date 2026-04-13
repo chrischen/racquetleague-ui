@@ -280,8 +280,8 @@ and input_JoinClubInput_nullable = {
 @live
 and input_LeagueMatchInput = {
   activitySlug: string,
-  eventId?: string,
   doublesMatch: input_DoublesMatchInput,
+  eventId?: string,
   namespace: string,
   syncId?: string,
 }
@@ -289,8 +289,8 @@ and input_LeagueMatchInput = {
 @live
 and input_LeagueMatchInput_nullable = {
   activitySlug: string,
-  eventId?: Js.Null.t<string>,
   doublesMatch: input_DoublesMatchInput_nullable,
+  eventId?: Js.Null.t<string>,
   namespace: string,
   syncId?: Js.Null.t<string>,
 }
@@ -298,6 +298,7 @@ and input_LeagueMatchInput_nullable = {
 @live
 and input_LeagueRatingInput = {
   activitySlug: string,
+  clubId?: string,
   namespace: string,
   userId?: string,
 }
@@ -305,6 +306,7 @@ and input_LeagueRatingInput = {
 @live
 and input_LeagueRatingInput_nullable = {
   activitySlug: string,
+  clubId?: Js.Null.t<string>,
   namespace: string,
   userId?: Js.Null.t<string>,
 }

@@ -23,6 +23,8 @@ var MoveRight = {};
 
 var X = {};
 
+var Building = {};
+
 var Settings = {};
 
 var UserPlus = {};
@@ -129,6 +131,7 @@ export {
   MoveLeft ,
   MoveRight ,
   X ,
+  Building ,
   Settings ,
   UserPlus ,
   Clock ,

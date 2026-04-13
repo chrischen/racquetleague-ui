@@ -64,6 +64,11 @@ module X = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "X"
 }
 
+module Building = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Building"
+}
+
 module Settings = {
   @module("lucide-react") @react.component
   external make: (
