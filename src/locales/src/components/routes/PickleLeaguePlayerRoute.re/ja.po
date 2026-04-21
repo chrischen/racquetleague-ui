@@ -54,6 +54,7 @@ msgstr "弱いパートナーを引き上げる"
 #: src/components/pages/LeaguePlayerPage.re.mjs:847
 #: src/components/pages/LeaguePlayerPage.re.mjs:890
 #: src/components/pages/LeaguePlayerPage.re.mjs:933
+#: src/components/pages/LeaguePlayerPage.re.mjs:1024
 msgid "Estimated DUPR"
 msgstr "推定DUPR"
 
@@ -61,11 +62,23 @@ msgstr "推定DUPR"
 msgid "Even"
 msgstr "互角"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:980
+msgid "Hard Court"
+msgstr "ハードコート"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1006
+msgid "Indoor Court (Indoor Ball)"
+msgstr "インドアコート（インドアボール）"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:993
+msgid "Indoor Court (Outdoor Ball)"
+msgstr "インドアコート（アウトドアボール）"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "もっと試合を読み込む..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:997
+#: src/components/pages/LeaguePlayerPage.re.mjs:1089
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -108,7 +121,7 @@ msgstr "予測"
 msgid "Rating History"
 msgstr "レーティング履歴"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:988
+#: src/components/pages/LeaguePlayerPage.re.mjs:1080
 msgid "Recent Matches"
 msgstr "最近の試合"
 

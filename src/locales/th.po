@@ -3439,6 +3439,50 @@ msgstr ""
 msgid "Showing stats from {selectedClubName} only"
 msgstr "แสดงสถิติจาก {selectedClubName} เท่านั้น"
 
+#: src/components/pages/ClubPage.re.mjs:246
+msgid "47 Members"
+msgstr "47 สมาชิก"
+
+#: src/components/pages/ClubPage.re.mjs:207
+msgid "Join Club"
+msgstr "เข้าร่วมคลับ"
+
+#: src/components/pages/ClubPage.re.mjs:480
+msgid "No ratings yet"
+msgstr "ยังไม่มีเรตติ้ง"
+
+#: src/components/pages/ClubPage.re.mjs:388
+msgid "No upcoming events"
+msgstr "ไม่มีกิจกรรมที่กำลังจะมาถึง"
+
+#: src/components/pages/ClubPage.re.mjs:297
+msgid "Upcoming Events"
+msgstr "กิจกรรมที่กำลังจะมาถึง"
+
+#: src/components/pages/ClubPage.re.mjs:304
+msgid "View All"
+msgstr "ดูทั้งหมด"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "จับคู่แบบพบกันหมด"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "ดูการจับคู่ทั้งหมด"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:980
+msgid "Hard Court"
+msgstr "คอร์ตแข็ง"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1006
+msgid "Indoor Court (Indoor Ball)"
+msgstr "คอร์ตในร่ม (ลูกบอลในร่ม)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:993
+msgid "Indoor Court (Outdoor Ball)"
+msgstr "คอร์ตในร่ม (ลูกบอลกลางแจ้ง)"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

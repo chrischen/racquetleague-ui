@@ -32,6 +32,7 @@ let make = () => {
   <LocaleContext.Provider value=data>
     <Lingui.I18nProvider i18n=Lingui.i18n>
       <ReactIntl2.IntlProvider locale=data.lang timeZone=data.timezone>
+        <NavigationProgress />
         <Outlet />
       </ReactIntl2.IntlProvider>
     </Lingui.I18nProvider>

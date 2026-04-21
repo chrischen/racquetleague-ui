@@ -184,7 +184,7 @@ msgstr "退出活動"
 msgid "Location:"
 msgstr "地點："
 
-#: src/components/organisms/ViewerClubs.re.mjs:98
+#: src/components/organisms/ViewerClubs.re.mjs:99
 msgid "my clubs"
 msgstr "我的俱樂部"
 

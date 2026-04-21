@@ -3728,3 +3728,47 @@ msgstr ""
 #: src/components/pages/LeaguePlayerPage.re.mjs:766
 msgid "Showing stats from {selectedClubName} only"
 msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:246
+msgid "47 Members"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:207
+msgid "Join Club"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:480
+msgid "No ratings yet"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:388
+msgid "No upcoming events"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:297
+msgid "Upcoming Events"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:304
+msgid "View All"
+msgstr ""
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr ""
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:980
+msgid "Hard Court"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1006
+msgid "Indoor Court (Indoor Ball)"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:993
+msgid "Indoor Court (Outdoor Ball)"
+msgstr ""

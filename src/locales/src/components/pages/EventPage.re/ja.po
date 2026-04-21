@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:418
+#: src/components/pages/EventPage.re.mjs:420
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:421
+#: src/components/pages/EventPage.re.mjs:423
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:424
+#: src/components/pages/EventPage.re.mjs:426
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:427
+#: src/components/pages/EventPage.re.mjs:429
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:430
+#: src/components/pages/EventPage.re.mjs:432
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:433
+#: src/components/pages/EventPage.re.mjs:435
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:436
+#: src/components/pages/EventPage.re.mjs:438
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:439
+#: src/components/pages/EventPage.re.mjs:441
 msgid "all level"
 msgstr "全レベル"
 
@@ -86,7 +86,7 @@ msgstr "参加申込を承認"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
-#: src/components/pages/EventPage.re.mjs:172
+#: src/components/pages/EventPage.re.mjs:183
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -102,6 +102,27 @@ msgstr "折りたたむ"
 msgid "Complete your profile"
 msgstr "プロフィールを完成させる"
 
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "コート{0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "コート{0} - 編集中"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "コート数："
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "試合を削除"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "この試合を削除しますか？"
+
 #: src/components/organisms/ProfileModal.re.mjs:283
 msgid "Display name"
 msgstr "表示名"
@@ -110,9 +131,13 @@ msgstr "表示名"
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
-#: src/components/pages/EventPage.re.mjs:155
+#: src/components/pages/EventPage.re.mjs:166
 msgid "edit event"
 msgstr "イベントを編集"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "試合を編集"
 
 #: src/components/organisms/ProfileModal.re.mjs:300
 msgid "Email address"
@@ -134,7 +159,11 @@ msgstr "メールアドレスは変更できません"
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
 
-#: src/components/pages/EventPage.re.mjs:381
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "試合のスコアを入力"
+
+#: src/components/pages/EventPage.re.mjs:383
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -174,6 +203,10 @@ msgstr "ウェイトリストから参加"
 msgid "joined the event"
 msgstr "参加しました"
 
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "前回のラウンド"
+
 #: src/components/organisms/EventMessages.re.mjs:280
 msgid "left the event"
 msgstr "離れました"
@@ -190,17 +223,13 @@ msgstr "読み込み中..."
 msgid "Login to Join"
 msgstr "ログインして参加"
 
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "敗北チーム（チーム{0}）"
+
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
-
-#: src/components/pages/EventPage.re.mjs:213
-msgid "Manage Event"
-msgstr "イベント管理"
-
-#: src/components/pages/EventPage.re.mjs:217
-msgid "Manage Event (Beta)"
-msgstr "イベントを管理（ベータ）"
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid "Matches will be submitted to DUPR."
@@ -219,6 +248,10 @@ msgstr "まだアクティビティがありません"
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "スコアなし"
+
 #: src/components/organisms/PendingRsvps.re.mjs:58
 msgid "Pending"
 msgstr "保留中"
@@ -228,14 +261,18 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/pages/EventPage.re.mjs:252
-#: src/components/pages/EventPage.re.mjs:281
+#: src/components/pages/EventPage.re.mjs:254
+#: src/components/pages/EventPage.re.mjs:283
 msgid "Private Event"
 msgstr "プライベートイベント"
 
 #: src/components/atoms/EventTag.re.mjs:46
 msgid "Professional players"
 msgstr "プロプレイヤー"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "試合を再調整"
 
 #: src/components/atoms/EventTag.re.mjs:56
 msgid ""
@@ -250,6 +287,10 @@ msgstr "イベントから削除"
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "繰り返し"
+
 #: src/components/organisms/RSVPSection.re.mjs:431
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
@@ -257,6 +298,14 @@ msgstr "必要レーティング: {0} (DUPR {1})"
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "ラウンド{0}"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "ラウンドロビン組み合わせ"
 
 #: src/components/organisms/RSVPSection.re.mjs:552
 #: src/components/organisms/RSVPSection.re.mjs:591
@@ -269,12 +318,22 @@ msgid "RSVP Pending..."
 msgstr "参加申込 保留中..."
 
 #: src/components/organisms/RSVPSection.re.mjs:260
+#: src/components/organisms/MatchCardEdit.re.mjs:153
 msgid "Save"
 msgstr "保存"
 
 #: src/components/organisms/ProfileModal.re.mjs:315
 msgid "Save & Join Event"
 msgstr "保存して参加する"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "スコアを保存"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "スコア"
 
 #: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "See all"
@@ -300,6 +359,22 @@ msgstr "ステータスメッセージ"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "チーム1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "チーム2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
+"元々予定されていた試合を復元できます。"
+
 #: src/components/atoms/EventSignupButton.re.mjs:89
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
@@ -310,8 +385,8 @@ msgstr ""
 "の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
 "本当にこのイベントを離れますか？"
 
-#: src/components/pages/EventPage.re.mjs:256
-#: src/components/pages/EventPage.re.mjs:285
+#: src/components/pages/EventPage.re.mjs:258
+#: src/components/pages/EventPage.re.mjs:287
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -346,7 +421,7 @@ msgstr ""
 "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
 "ださい。"
 
-#: src/components/pages/EventPage.re.mjs:161
+#: src/components/pages/EventPage.re.mjs:172
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -362,9 +437,19 @@ msgstr "不明な場所"
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "組み合わせを見る"
+
 #: src/components/organisms/RsvpOptions.re.mjs:163
 msgid "View Profile"
 msgstr "プロフィールを表示"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
 
 #: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
@@ -381,6 +466,10 @@ msgstr "管理者によってイベントから削除されました"
 #: src/components/organisms/ProfileModal.re.mjs:264
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "勝利チーム（チーム{0}）"
 
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"
@@ -407,6 +496,14 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:424
 #~ msgid "Join"
 #~ msgstr "参加"
+
+#: src/components/pages/EventPage.re.mjs:213
+#~ msgid "Manage Event"
+#~ msgstr "イベント管理"
+
+#: src/components/pages/EventPage.re.mjs:217
+#~ msgid "Manage Event (Beta)"
+#~ msgstr "イベントを管理（ベータ）"
 
 #: src/components/pages/EventPage.re.mjs:121
 #~ msgid "No event details provided."

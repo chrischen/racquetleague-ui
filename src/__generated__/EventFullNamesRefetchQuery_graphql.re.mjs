@@ -265,6 +265,13 @@ return {
                             "name": "message",
                             "storageKey": null
                           },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "paid",
+                            "storageKey": null
+                          },
                           (v2/*: any*/)
                         ],
                         "storageKey": null
@@ -345,12 +352,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c7aeaffea9fe737c9b95c9f8f0e91298",
+    "cacheID": "aa4bf44a54e6be1cefa63377840ec703",
     "id": null,
     "metadata": {},
     "name": "EventFullNamesRefetchQuery",
     "operationKind": "query",
-    "text": "query EventFullNamesRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 80\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...EventFullNames_event_4uAqg1\n    id\n  }\n}\n\nfragment EventFullNames_event_4uAqg1 on Event {\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        ...EventRsvp_rsvp\n        user {\n          id\n          fullName\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvp_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  ...RsvpOptions_rsvp\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n"
+    "text": "query EventFullNamesRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 80\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...EventFullNames_event_4uAqg1\n    id\n  }\n}\n\nfragment EventFullNames_event_4uAqg1 on Event {\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        ...EventRsvp_rsvp\n        user {\n          id\n          fullName\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvp_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  ...RsvpOptions_rsvp\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  paid\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n"
   }
 };
 })());

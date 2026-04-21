@@ -330,11 +330,18 @@ input LeagueRatingInput {
 type LeagueUserStat {
   bestOpponents: [LeagueUserStatEntry!]!
   bestPartners: [LeagueUserStatEntry!]!
+  hardcourtRating: DisciplineRating
+  hardcourtZScore: Float
+  indoorIndoorBallRating: DisciplineRating
+  indoorIndoorBallZScore: Float
+  indoorOutdoorBallRating: DisciplineRating
+  indoorOutdoorBallZScore: Float
   mdBestOpponents: [LeagueUserStatEntry!]!
   mdBestPartners: [LeagueUserStatEntry!]!
   mdRating: DisciplineRating
   mdWorstOpponents: [LeagueUserStatEntry!]!
   mdWorstPartners: [LeagueUserStatEntry!]!
+  mdZScore: Float
   mfBestOpponents: [LeagueUserStatEntry!]!
   mfBestPartners: [LeagueUserStatEntry!]!
   mfPartnerTendency: Float
@@ -347,6 +354,7 @@ type LeagueUserStat {
   wdRating: DisciplineRating
   wdWorstOpponents: [LeagueUserStatEntry!]!
   wdWorstPartners: [LeagueUserStatEntry!]!
+  wdZScore: Float
   worstOpponents: [LeagueUserStatEntry!]!
   worstPartners: [LeagueUserStatEntry!]!
   xdBestOpponents: [LeagueUserStatEntry!]!
@@ -354,6 +362,7 @@ type LeagueUserStat {
   xdRating: DisciplineRating
   xdWorstOpponents: [LeagueUserStatEntry!]!
   xdWorstPartners: [LeagueUserStatEntry!]!
+  xdZScore: Float
 }
 
 type LeagueUserStatEntry {
@@ -570,7 +579,7 @@ type Query {
   node(id: ID!): Node
   parseBulkEvents(input: String!): String!
   predictMatchOutcome(input: PredictMatchInput!): PredictMatchOutcome
-  ratings(activitySlug: String!, after: String, before: String, first: Int, namespace: String!): RatingConnection!
+  ratings(activitySlug: String!, after: String, before: String, clubId: ID, clubSlug: String, first: Int, namespace: String!): RatingConnection!
   user(id: ID!): User
   viewer: Viewer
 }

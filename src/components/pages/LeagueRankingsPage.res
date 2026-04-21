@@ -8,6 +8,7 @@ module Query = %relay(`
     $before: String
     $activitySlug: String!
     $namespace: String!
+    $clubSlug: String
   ) {
     viewer {
       # Add viewer block
@@ -17,6 +18,9 @@ module Query = %relay(`
         picture
       }
     }
+    club(slug: $clubSlug) {
+      name
+    }
     ...RatingListFragment
       @arguments(
         after: $after
@@ -24,6 +28,7 @@ module Query = %relay(`
         before: $before
         activitySlug: $activitySlug
         namespace: $namespace
+        clubSlug: $clubSlug
       )
   }
 `)
@@ -41,12 +46,16 @@ let make = () => {
   let query = useLoaderData()
   let params: params = Router.useParams()
   // let viewer = GlobalQuery.useViewer()
-  let {viewer, fragmentRefs} = Query.usePreloaded(~queryRef=query.data.query)
+  let {viewer, club, fragmentRefs} = Query.usePreloaded(~queryRef=query.data.query)
 
-  // Determine title based on ns parameter
-  let title = switch params.ns {
-  | Some("doubles:rec") => t`Recreational Doubles`
-  | _ => t`Competitive Doubles` // Default for empty or other values
+  // Determine title based on club name or ns parameter
+  let title = switch club->Option.flatMap(c => c.name) {
+  | Some(clubName) => clubName->React.string
+  | None =>
+    switch params.ns {
+    | Some("singles:comp") => t`Competitive Singles`
+    | _ => t`Competitive Doubles`
+    }
   }
 
   <WaitForMessages>

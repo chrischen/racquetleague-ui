@@ -1,5 +1,6 @@
 %%raw("import { t } from '@lingui/macro'")
 open Lingui.Util
+open LangProvider.Router
 
 module Fragment = %relay(`
   fragment ViewerClubs_viewer on Viewer {
@@ -119,9 +120,9 @@ let make = (
           let initials = getClubInitials(club.name)
           let colorClass = getClubColor(club.name)
 
-          <a
+          <Link
             key={club.id}
-            href={`/clubs/${club.slug}`}
+            to={"/clubs/" ++ club.slug}
             className="flex flex-col items-center min-w-[80px] group">
             <div
               className={`w-16 h-16 rounded-full ${colorClass} flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:shadow-lg transition-shadow mb-2`}>
@@ -131,7 +132,7 @@ let make = (
               className="text-xs text-center text-gray-700 font-medium line-clamp-2 w-full px-1 group-hover:text-blue-600 transition-colors">
               {club.name->React.string}
             </span>
-          </a>
+          </Link>
         })
         ->React.array}
       </div>

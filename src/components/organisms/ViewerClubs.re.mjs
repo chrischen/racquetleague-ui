@@ -4,6 +4,7 @@ import * as Caml_int32 from "rescript/lib/es6/caml_int32.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as ViewerClubs_viewer_graphql from "../../__generated__/ViewerClubs_viewer_graphql.re.mjs";
@@ -102,7 +103,8 @@ function ViewerClubs(props) {
                         children: clubs.map(function (club) {
                               var initials = getClubInitials(club.name);
                               var colorClass = getClubColor(club.name);
-                              return JsxRuntime.jsxs("a", {
+                              return JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                                          to: "/clubs/" + club.slug,
                                           children: [
                                             JsxRuntime.jsx("div", {
                                                   children: initials,
@@ -113,8 +115,7 @@ function ViewerClubs(props) {
                                                   className: "text-xs text-center text-gray-700 font-medium line-clamp-2 w-full px-1 group-hover:text-blue-600 transition-colors"
                                                 })
                                           ],
-                                          className: "flex flex-col items-center min-w-[80px] group",
-                                          href: "/clubs/" + club.slug
+                                          className: "flex flex-col items-center min-w-[80px] group"
                                         }, club.id);
                             }),
                         className: "flex overflow-x-auto gap-3 pb-2 -mx-1 px-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"

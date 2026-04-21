@@ -189,6 +189,13 @@ return {
               {
                 "alias": null,
                 "args": null,
+                "kind": "ScalarField",
+                "name": "maxRsvps",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
                 "concreteType": "Activity",
                 "kind": "LinkedField",
                 "name": "activity",
@@ -229,6 +236,13 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "listType",
+                            "storageKey": null
+                          },
                           {
                             "alias": null,
                             "args": null,
@@ -366,12 +380,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "bc49fa955879b9c45875764e02ca5cd8",
+    "cacheID": "484d554563c9487e0bb161b62fb60241",
     "id": null,
     "metadata": {},
     "name": "EventManagerRsvpsRefetchQuery",
     "operationKind": "query",
-    "text": "query EventManagerRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 100\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...EventManager_event_4uAqg1\n    id\n  }\n}\n\nfragment EventManager_event_4uAqg1 on Event {\n  id\n  tags\n  startDate\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUserBar_user\n          ...EventMatchRsvpUser_user\n          ...PlayerCheckin_user\n          ...MatchCard_user\n          ...PlayerReplaceModal_user\n          ...PlayerRow_user\n          ...SeedAdjustmentTimeline_user\n          ...PlayerAvatar_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUserBar_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchCard_user on User {\n  ...PlayerRow_user\n  ...PlayerAvatar_user\n}\n\nfragment PlayerAvatar_user on User {\n  picture\n}\n\nfragment PlayerCheckin_user on User {\n  ...PlayerAvatar_user\n  lineUsername\n}\n\nfragment PlayerReplaceModal_user on User {\n  picture\n}\n\nfragment PlayerRow_user on User {\n  picture\n}\n\nfragment SeedAdjustmentTimeline_user on User {\n  picture\n}\n"
+    "text": "query EventManagerRsvpsRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 100\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...EventManager_event_4uAqg1\n    id\n  }\n}\n\nfragment EventManager_event_4uAqg1 on Event {\n  id\n  tags\n  startDate\n  maxRsvps\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        listType\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUserBar_user\n          ...EventMatchRsvpUser_user\n          ...PlayerCheckin_user\n          ...MatchCard_user\n          ...PlayerReplaceModal_user\n          ...PlayerRow_user\n          ...SeedAdjustmentTimeline_user\n          ...PlayerAvatar_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUserBar_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchCard_user on User {\n  ...PlayerRow_user\n  ...PlayerAvatar_user\n}\n\nfragment PlayerAvatar_user on User {\n  picture\n}\n\nfragment PlayerCheckin_user on User {\n  ...PlayerAvatar_user\n  lineUsername\n}\n\nfragment PlayerReplaceModal_user on User {\n  picture\n}\n\nfragment PlayerRow_user on User {\n  picture\n}\n\nfragment SeedAdjustmentTimeline_user on User {\n  picture\n}\n"
   }
 };
 })());

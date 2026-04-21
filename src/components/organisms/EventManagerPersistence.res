@@ -60,14 +60,13 @@ let clearEventData = (eventId: string) => {
 }
 
 // Load the court count for an event from TinyBase
-let loadCourtCount = (eventId: string): int => {
+let loadCourtCount = (eventId: string): option<int> => {
   let eventsTable = eventStore->TinyBase.getTable("eventState")
   eventsTable
   ->Js.Dict.get(eventId)
   ->Option.flatMap(row => row->Js.Dict.get("courtCount"))
   ->Option.flatMap(v => v->Js.Json.decodeNumber)
   ->Option.map(Float.toInt)
-  ->Option.getOr(3) // Default to 3 courts
 }
 
 // Save the court count for an event to TinyBase

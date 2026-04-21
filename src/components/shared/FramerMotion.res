@@ -8,6 +8,25 @@ type css = {
   x?: float,
   y?: float,
 }
+
+type transition = {
+  @as("type") type_?: string,
+  stiffness?: int,
+  damping?: int,
+  mass?: float,
+}
+
+type cssWithTransition = {
+  width?: string,
+  height?: string,
+  opacity?: float,
+  scale?: float,
+  originX?: float,
+  originY?: float,
+  x?: float,
+  y?: float,
+  transition?: transition,
+}
 module Div = {
   @module("framer-motion") @scope("motion") @react.component
   external make: (
@@ -96,11 +115,9 @@ module AnimatePresence = {
 type animationControls
 
 module AnimationControls = {
-  // Add methods you need to call on animationControls, e.g., start, stop
   @send external start: (animationControls, string) => Promise.t<unit> = "start"
+  @send external startCss: (animationControls, cssWithTransition) => Promise.t<unit> = "start"
   @send external stop: (animationControls, string) => unit = "stop"
-  // Add other methods like set, mount, etc., as needed
-  // e.g., @send external set: (animationControls, 'definition) => unit = "set"
 }
 
 // Binding for the useAnimation hook

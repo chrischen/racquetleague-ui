@@ -5,6 +5,7 @@ import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -188,6 +189,64 @@ var FilterTabs = {
   make: LeaguePlayerPage$FilterTabs
 };
 
+function LeaguePlayerPage$ZScoreBadge(props) {
+  var zScore = props.zScore;
+  if (zScore === undefined) {
+    return null;
+  }
+  Math.abs(Core__Option.getOr(Core__Float.fromString(zScore.toFixed(1)), 0.0));
+  var sign = zScore >= 0.0 ? "+" : "";
+  var formatted = sign + zScore.toFixed(1) + "σ";
+  var match = zScore >= 1.0 ? [
+      "bg-emerald-100",
+      "text-emerald-700",
+      JsxRuntime.jsx(LucideReact.TrendingUp, {
+            className: "w-3 h-3"
+          })
+    ] : (
+      zScore >= 0.3 ? [
+          "bg-emerald-50",
+          "text-emerald-600",
+          JsxRuntime.jsx(LucideReact.TrendingUp, {
+                className: "w-3 h-3"
+              })
+        ] : (
+          zScore > -0.3 ? [
+              "bg-gray-100",
+              "text-gray-600",
+              null
+            ] : (
+              zScore > -1.0 ? [
+                  "bg-rose-50",
+                  "text-rose-600",
+                  JsxRuntime.jsx(LucideReact.TrendingDown, {
+                        className: "w-3 h-3"
+                      })
+                ] : [
+                  "bg-rose-100",
+                  "text-rose-700",
+                  JsxRuntime.jsx(LucideReact.TrendingDown, {
+                        className: "w-3 h-3"
+                      })
+                ]
+            )
+        )
+    );
+  return JsxRuntime.jsxs("div", {
+              children: [
+                match[2],
+                JsxRuntime.jsx("span", {
+                      children: formatted
+                    })
+              ],
+              className: "inline-flex items-center gap-1 px-2 py-0.5 rounded-full " + match[0] + " " + match[1] + " text-xs font-semibold"
+            });
+}
+
+var ZScoreBadge = {
+  make: LeaguePlayerPage$ZScoreBadge
+};
+
 function ordinal(mu, sigma) {
   return mu - 3.0 * sigma;
 }
@@ -311,7 +370,7 @@ function LeaguePlayerPage$PlayerContent(props) {
         }), [clubSlug]);
   var handleClubChange = function (slug) {
     if (slug !== undefined) {
-      return navigate("../p/" + userId + "/" + slug, undefined);
+      return navigate("../" + slug + "/p/" + userId, undefined);
     } else {
       return navigate("../p/" + userId, undefined);
     }
@@ -856,9 +915,17 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                     }) : null;
                                               return JsxRuntime.jsxs("div", {
                                                           children: [
-                                                            JsxRuntime.jsx("div", {
-                                                                  children: t`Men's Doubles`,
-                                                                  className: "text-sm font-medium text-gray-600 mb-2"
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx("div", {
+                                                                          children: t`Men's Doubles`,
+                                                                          className: "text-sm font-medium text-gray-600"
+                                                                        }),
+                                                                    JsxRuntime.jsx(LeaguePlayerPage$ZScoreBadge, {
+                                                                          zScore: stats$1.mdZScore
+                                                                        })
+                                                                  ],
+                                                                  className: "flex items-center justify-between mb-2"
                                                                 }),
                                                             JsxRuntime.jsxs("div", {
                                                                   children: [
@@ -899,9 +966,17 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                     }) : null;
                                               return JsxRuntime.jsxs("div", {
                                                           children: [
-                                                            JsxRuntime.jsx("div", {
-                                                                  children: t`Mixed Doubles`,
-                                                                  className: "text-sm font-medium text-gray-600 mb-2"
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx("div", {
+                                                                          children: t`Mixed Doubles`,
+                                                                          className: "text-sm font-medium text-gray-600"
+                                                                        }),
+                                                                    JsxRuntime.jsx(LeaguePlayerPage$ZScoreBadge, {
+                                                                          zScore: stats$1.xdZScore
+                                                                        })
+                                                                  ],
+                                                                  className: "flex items-center justify-between mb-2"
                                                                 }),
                                                             JsxRuntime.jsxs("div", {
                                                                   children: [
@@ -942,9 +1017,17 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                     }) : null;
                                               return JsxRuntime.jsxs("div", {
                                                           children: [
-                                                            JsxRuntime.jsx("div", {
-                                                                  children: t`Women's Doubles`,
-                                                                  className: "text-sm font-medium text-gray-600 mb-2"
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx("div", {
+                                                                          children: t`Women's Doubles`,
+                                                                          className: "text-sm font-medium text-gray-600"
+                                                                        }),
+                                                                    JsxRuntime.jsx(LeaguePlayerPage$ZScoreBadge, {
+                                                                          zScore: stats$1.wdZScore
+                                                                        })
+                                                                  ],
+                                                                  className: "flex items-center justify-between mb-2"
                                                                 }),
                                                             JsxRuntime.jsxs("div", {
                                                                   children: [
@@ -967,7 +1050,111 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                           ],
                                                           className: "rounded-xl p-5 border bg-pink-50 border-pink-100"
                                                         }, "wd");
-                                            })), null)
+                                            })), null),
+                                  Core__Array.filterMap([
+                                        [
+                                          Core__Option.map(stats$1.hardcourtRating, (function (r) {
+                                                  return [
+                                                          r.mu,
+                                                          r.sigma
+                                                        ];
+                                                })),
+                                          stats$1.hardcourtZScore,
+                                          "hardcourt",
+                                          t`Hard Court`,
+                                          "bg-amber-50",
+                                          "border-amber-100",
+                                          "text-amber-600"
+                                        ],
+                                        [
+                                          Core__Option.map(stats$1.indoorOutdoorBallRating, (function (r) {
+                                                  return [
+                                                          r.mu,
+                                                          r.sigma
+                                                        ];
+                                                })),
+                                          stats$1.indoorOutdoorBallZScore,
+                                          "indoor-outdoor",
+                                          t`Indoor Court (Outdoor Ball)`,
+                                          "bg-teal-50",
+                                          "border-teal-100",
+                                          "text-teal-600"
+                                        ],
+                                        [
+                                          Core__Option.map(stats$1.indoorIndoorBallRating, (function (r) {
+                                                  return [
+                                                          r.mu,
+                                                          r.sigma
+                                                        ];
+                                                })),
+                                          stats$1.indoorIndoorBallZScore,
+                                          "indoor-indoor",
+                                          t`Indoor Court (Indoor Ball)`,
+                                          "bg-indigo-50",
+                                          "border-indigo-100",
+                                          "text-indigo-600"
+                                        ]
+                                      ], (function (param) {
+                                          var textColor = param[6];
+                                          var borderClass = param[5];
+                                          var bgClass = param[4];
+                                          var label = param[3];
+                                          var key = param[2];
+                                          var zScore = param[1];
+                                          return Core__Option.map(param[0], (function (param) {
+                                                        var sigma = param[1];
+                                                        var mu = param[0];
+                                                        var ord = ordinal(mu, sigma);
+                                                        var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {
+                                                                children: [
+                                                                  JsxRuntime.jsx("div", {
+                                                                        children: t`Estimated DUPR`,
+                                                                        className: "text-sm text-gray-500 mb-1"
+                                                                      }),
+                                                                  JsxRuntime.jsx("div", {
+                                                                        children: Rating.guessDupr(mu).toFixed(2),
+                                                                        className: "text-2xl font-semibold text-gray-900"
+                                                                      })
+                                                                ],
+                                                                className: "text-right self-start"
+                                                              }) : null;
+                                                        return JsxRuntime.jsxs("div", {
+                                                                    children: [
+                                                                      JsxRuntime.jsxs("div", {
+                                                                            children: [
+                                                                              JsxRuntime.jsx("div", {
+                                                                                    children: label,
+                                                                                    className: "text-sm font-medium text-gray-600"
+                                                                                  }),
+                                                                              JsxRuntime.jsx(LeaguePlayerPage$ZScoreBadge, {
+                                                                                    zScore: zScore
+                                                                                  })
+                                                                            ],
+                                                                            className: "flex items-center justify-between mb-2"
+                                                                          }),
+                                                                      JsxRuntime.jsxs("div", {
+                                                                            children: [
+                                                                              JsxRuntime.jsxs("div", {
+                                                                                    children: [
+                                                                                      JsxRuntime.jsx("div", {
+                                                                                            children: ord.toFixed(0),
+                                                                                            className: "text-3xl font-bold " + textColor
+                                                                                          }),
+                                                                                      JsxRuntime.jsx("div", {
+                                                                                            children: "±" + sigma.toFixed(0),
+                                                                                            className: "text-xs text-gray-500 mt-1"
+                                                                                          })
+                                                                                    ]
+                                                                                  }),
+                                                                              tmp
+                                                                            ],
+                                                                            className: "flex items-start justify-between"
+                                                                          })
+                                                                    ],
+                                                                    className: "rounded-xl p-5 border " + bgClass + " " + borderClass
+                                                                  }, key);
+                                                      }));
+                                        }))
                                 ],
                                 className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"
                               }) : null,
@@ -1061,6 +1248,7 @@ export {
   Params ,
   pickEntries ,
   FilterTabs ,
+  ZScoreBadge ,
   ordinal ,
   renderStatEntry ,
   PlayerContent ,

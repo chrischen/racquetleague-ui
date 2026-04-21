@@ -54,6 +54,7 @@ msgstr "能提升较弱搭档的水平"
 #: src/components/pages/LeaguePlayerPage.re.mjs:847
 #: src/components/pages/LeaguePlayerPage.re.mjs:890
 #: src/components/pages/LeaguePlayerPage.re.mjs:933
+#: src/components/pages/LeaguePlayerPage.re.mjs:1024
 msgid "Estimated DUPR"
 msgstr "预估 DUPR"
 
@@ -61,11 +62,23 @@ msgstr "预估 DUPR"
 msgid "Even"
 msgstr "势均力敌"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:980
+msgid "Hard Court"
+msgstr "硬地球场"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1006
+msgid "Indoor Court (Indoor Ball)"
+msgstr "室内球场（室内球）"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:993
+msgid "Indoor Court (Outdoor Ball)"
+msgstr "室内球场（室外球）"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:997
+#: src/components/pages/LeaguePlayerPage.re.mjs:1089
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -104,7 +117,7 @@ msgstr "预测"
 msgid "Rating History"
 msgstr "评分历史"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:988
+#: src/components/pages/LeaguePlayerPage.re.mjs:1080
 msgid "Recent Matches"
 msgstr "最近比赛"
 

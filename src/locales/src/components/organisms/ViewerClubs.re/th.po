@@ -13,6 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ViewerClubs.re.mjs:98
+#: src/components/organisms/ViewerClubs.re.mjs:99
 msgid "my clubs"
 msgstr "คลับของฉัน"

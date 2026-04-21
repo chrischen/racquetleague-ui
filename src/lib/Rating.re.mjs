@@ -2467,6 +2467,14 @@ function generateRoundsRec(_roundNumber, _roundsToGenerate, _availablePlayers, c
   };
 }
 
+function suggestedCourtCount(playerCount) {
+  if (playerCount < 4) {
+    return 0;
+  } else {
+    return (playerCount + 4 | 0) / 5 | 0;
+  }
+}
+
 function generateRounds(startRoundNumberOpt, numberOfRounds, availablePlayers, completedRounds, strategy, courtCount, teamConstraints, avoidAllPlayersOpt, genderMixedOpt, startTime, param) {
   var startRoundNumber = startRoundNumberOpt !== undefined ? startRoundNumberOpt : 1;
   var avoidAllPlayers = avoidAllPlayersOpt !== undefined ? avoidAllPlayersOpt : [];
@@ -2531,6 +2539,7 @@ export {
   updatePlayerState ,
   toPlayerStateWithAdjustments ,
   generateRoundsRec ,
+  suggestedCourtCount ,
   generateRounds ,
   generateSingleRound ,
 }

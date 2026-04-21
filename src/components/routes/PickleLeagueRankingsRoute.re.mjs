@@ -24,6 +24,7 @@ async function loader(param) {
   var url = new URL(param.request.url);
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
+  var clubSlug = params.clubSlug;
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
@@ -34,6 +35,7 @@ async function loader(param) {
                               activitySlug: "pickleball",
                               after: after,
                               before: before,
+                              clubSlug: clubSlug,
                               namespace: "doubles:comp"
                             }, "store-or-network", undefined, undefined);
                 })(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR))

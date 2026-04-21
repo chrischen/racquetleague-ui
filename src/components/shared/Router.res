@@ -11,6 +11,10 @@ type navigate = (string, option<navOpts>) => unit
 @module("react-router-dom")
 external useNavigate: unit => navigate = "useNavigate"
 
+type navigation = {state: string}
+@module("react-router-dom")
+external useNavigation: unit => navigation = "useNavigation"
+
 // @TODO: Binding to location type may be wrong
 type location<'a> = {pathname: string, search: string, hash?: string, state?: 'a}
 @module("react-router-dom") external useLocation: unit => location<'a> = "useLocation"

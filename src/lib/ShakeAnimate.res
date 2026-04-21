@@ -1,8 +1,8 @@
-let getRandomTransformOrigin = () => {
+let getRandomTransformOrigin = (): FramerMotion.css => {
   let value = (16. +. 40. *. Js.Math.random()) /. 100.
   let value2 = (15. +. 36. *. Js.Math.random()) /. 100.
   {
-    FramerMotion.originX: value,
+    originX: value,
     originY: value2,
   }
 }

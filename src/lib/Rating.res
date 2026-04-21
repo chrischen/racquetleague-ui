@@ -2612,6 +2612,16 @@ let rec generateRoundsRec = (
   }
 }
 
+// Suggest the number of courts based on player count.
+// Targets 4-6 players per court (5 avg). Returns 0 if fewer than 4 players.
+let suggestedCourtCount = (playerCount: int): int => {
+  if playerCount < 4 {
+    0
+  } else {
+    (playerCount + 4) / 5
+  }
+}
+
 // Convenience wrapper for generating rounds
 let generateRounds = (
   ~startRoundNumber: int=1,

@@ -58,7 +58,7 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1359
+#: src/components/organisms/EventManager.re.mjs:1377
 msgid "Advance to Round {0}"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1459
+#: src/components/organisms/EventManager.re.mjs:1477
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -149,11 +149,11 @@ msgstr ""
 #~ msgid "Current Round: {0}"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1636
+#: src/components/organisms/EventManager.re.mjs:1654
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1636
+#: src/components/organisms/EventManager.re.mjs:1654
 msgid "Debug: ON"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Guest Names (one per line)"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1624
+#: src/components/organisms/EventManager.re.mjs:1642
 msgid "Help"
 msgstr ""
 
@@ -398,7 +398,7 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1611
+#: src/components/organisms/EventManager.re.mjs:1629
 msgid "Reset Storage"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1195
+#: src/components/organisms/EventManager.re.mjs:1213
 msgid "Scores Synced!"
 msgstr ""
 
@@ -476,19 +476,19 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1207
+#: src/components/organisms/EventManager.re.mjs:1225
 msgid "Sync Failed"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1171
+#: src/components/organisms/EventManager.re.mjs:1189
 msgid "Sync Scores"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1183
+#: src/components/organisms/EventManager.re.mjs:1201
 msgid "Syncing... {0}%"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1149
+#: src/components/organisms/EventManager.re.mjs:1167
 msgid "Team {0}"
 msgstr ""
 

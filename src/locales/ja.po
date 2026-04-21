@@ -3813,6 +3813,50 @@ msgstr "{selectedClubName} のみの統計を表示中"
 msgid "All Clubs"
 msgstr "すべてのクラブ"
 
+#: src/components/pages/ClubPage.re.mjs:246
+msgid "47 Members"
+msgstr "47人のメンバー"
+
+#: src/components/pages/ClubPage.re.mjs:207
+msgid "Join Club"
+msgstr "サークルに参加"
+
+#: src/components/pages/ClubPage.re.mjs:480
+msgid "No ratings yet"
+msgstr "まだレーティングがありません"
+
+#: src/components/pages/ClubPage.re.mjs:388
+msgid "No upcoming events"
+msgstr "今後のイベントはありません"
+
+#: src/components/pages/ClubPage.re.mjs:297
+msgid "Upcoming Events"
+msgstr "今後のイベント"
+
+#: src/components/pages/ClubPage.re.mjs:304
+msgid "View All"
+msgstr "すべて表示"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "ラウンドロビン組み合わせ"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "組み合わせを見る"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:980
+msgid "Hard Court"
+msgstr "ハードコート"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1006
+msgid "Indoor Court (Indoor Ball)"
+msgstr "インドアコート（インドアボール）"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:993
+msgid "Indoor Court (Outdoor Ball)"
+msgstr "インドアコート（アウトドアボール）"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -3924,3 +3968,8 @@ msgstr "すべてのクラブ"
 #, fuzzy
 #~ msgid "Round Robin Tournament"
 #~ msgstr "総当たり戦"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:767
+#, fuzzy
+#~ msgid "Showing stats from"
+#~ msgstr "{selectedClubName} のみの統計を表示中"

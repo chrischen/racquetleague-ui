@@ -13,6 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/ViewerClubs.re.mjs:98
+#: src/components/organisms/ViewerClubs.re.mjs:99
 msgid "my clubs"
 msgstr ""

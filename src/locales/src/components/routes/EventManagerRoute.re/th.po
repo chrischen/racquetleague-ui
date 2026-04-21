@@ -54,7 +54,7 @@ msgstr "ปรับซีดผู้เล่น"
 msgid "Advance to Next Round"
 msgstr "ไปยังรอบถัดไป"
 
-#: src/components/organisms/EventManager.re.mjs:1359
+#: src/components/organisms/EventManager.re.mjs:1377
 msgid "Advance to Round {0}"
 msgstr "ไปยังรอบ {0}"
 
@@ -66,7 +66,7 @@ msgstr "อเล็กซ์ จอห์นสัน"
 msgid "All checked-in players are already in this round"
 msgstr "ผู้เล่นที่เช็คอินแล้วมีอยู่ในรอบนี้ทั้งหมดแล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:1459
+#: src/components/organisms/EventManager.re.mjs:1477
 msgid "Anti-Team {0}"
 msgstr "แอนตี้ทีม {0}"
 
@@ -129,11 +129,11 @@ msgstr "สร้างทีมแรกของคุณเพื่อเร
 msgid "Current Round:"
 msgstr "รอบปัจจุบัน:"
 
-#: src/components/organisms/EventManager.re.mjs:1636
+#: src/components/organisms/EventManager.re.mjs:1654
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
 
-#: src/components/organisms/EventManager.re.mjs:1636
+#: src/components/organisms/EventManager.re.mjs:1654
 msgid "Debug: ON"
 msgstr "ดีบัก: เปิด"
 
@@ -208,7 +208,7 @@ msgstr "สร้างคู่แข่ง"
 msgid "Guest Names (one per line)"
 msgstr "ชื่อแขก (หนึ่งชื่อต่อบรรทัด)"
 
-#: src/components/organisms/EventManager.re.mjs:1624
+#: src/components/organisms/EventManager.re.mjs:1642
 msgid "Help"
 msgstr "ช่วยเหลือ"
 
@@ -342,7 +342,7 @@ msgstr "เปลี่ยนผู้เล่น"
 msgid "Replacing:"
 msgstr "กำลังเปลี่ยน:"
 
-#: src/components/organisms/EventManager.re.mjs:1611
+#: src/components/organisms/EventManager.re.mjs:1629
 msgid "Reset Storage"
 msgstr "รีเซ็ตที่เก็บข้อมูล"
 
@@ -396,7 +396,7 @@ msgstr "บันทึกทีม"
 msgid "Score"
 msgstr "คะแนน"
 
-#: src/components/organisms/EventManager.re.mjs:1195
+#: src/components/organisms/EventManager.re.mjs:1213
 msgid "Scores Synced!"
 msgstr "ซิงค์คะแนนเรียบร้อยแล้ว!"
 
@@ -416,19 +416,19 @@ msgstr "กลยุทธ์"
 msgid "Strategy:"
 msgstr "กลยุทธ์:"
 
-#: src/components/organisms/EventManager.re.mjs:1207
+#: src/components/organisms/EventManager.re.mjs:1225
 msgid "Sync Failed"
 msgstr "ซิงค์ล้มเหลว"
 
-#: src/components/organisms/EventManager.re.mjs:1171
+#: src/components/organisms/EventManager.re.mjs:1189
 msgid "Sync Scores"
 msgstr "ซิงค์คะแนน"
 
-#: src/components/organisms/EventManager.re.mjs:1183
+#: src/components/organisms/EventManager.re.mjs:1201
 msgid "Syncing... {0}%"
 msgstr "กำลังซิงค์... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1149
+#: src/components/organisms/EventManager.re.mjs:1167
 msgid "Team {0}"
 msgstr "ทีม {0}"
 

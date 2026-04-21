@@ -21,6 +21,7 @@ import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as EventPageQuery_graphql from "../../__generated__/EventPageQuery_graphql.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as RoundRobinDrawsPreview from "../organisms/RoundRobinDrawsPreview.re.mjs";
 import * as EventPageCancelMutation_graphql from "../../__generated__/EventPageCancelMutation_graphql.re.mjs";
 import * as EventPageUncancelMutation_graphql from "../../__generated__/EventPageUncancelMutation_graphql.re.mjs";
 
@@ -114,13 +115,23 @@ function EventPage(props) {
   var match$1 = React.useState(function () {
         return false;
       });
-  var setIsProfileModalOpen = match$1[1];
-  var isProfileModalOpen = match$1[0];
+  var setMounted = match$1[1];
+  var mounted = match$1[0];
+  React.useEffect((function () {
+          setMounted(function (param) {
+                return true;
+              });
+        }), []);
   var match$2 = React.useState(function () {
+        return false;
+      });
+  var setIsProfileModalOpen = match$2[1];
+  var isProfileModalOpen = match$2[0];
+  var match$3 = React.useState(function () {
         
       });
-  var setPendingJoinAction = match$2[1];
-  var pendingJoinAction = match$2[0];
+  var setPendingJoinAction = match$3[1];
+  var pendingJoinAction = match$3[0];
   var hasCompleteProfile = function () {
     if (viewerUser === undefined) {
       return false;
@@ -133,12 +144,12 @@ function EventPage(props) {
       return false;
     }
   };
-  var match$3 = use$1();
-  var canceling = match$3[1];
-  var cancelEvent = match$3[0];
-  var match$4 = use$2();
-  var uncanceling = match$4[1];
-  var uncancelEvent = match$4[0];
+  var match$4 = use$1();
+  var canceling = match$4[1];
+  var cancelEvent = match$4[0];
+  var match$5 = use$2();
+  var uncanceling = match$5[1];
+  var uncancelEvent = match$5[0];
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map($$event, (function ($$event) {
@@ -190,13 +201,13 @@ function EventPage(props) {
                                     } else {
                                       tmp = null;
                                     }
-                                    var match$2 = $$event.activity;
+                                    var activity = $$event.activity;
                                     var tmp$1;
-                                    if (viewerUser !== undefined && match$2 !== undefined) {
-                                      var match$3 = match$2.slug;
-                                      if (match$3 !== undefined) {
+                                    if (activity !== undefined) {
+                                      var slug = activity.slug;
+                                      if (slug !== undefined) {
                                         var exit = 0;
-                                        switch (match$3) {
+                                        switch (slug) {
                                           case "badminton" :
                                           case "pickleball" :
                                               exit = 1;
@@ -205,24 +216,15 @@ function EventPage(props) {
                                             tmp$1 = null;
                                         }
                                         if (exit === 1) {
-                                          tmp$1 = JsxRuntime.jsx("div", {
-                                                children: JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsx(Button.Button.make, {
-                                                                    children: t`Manage Event`,
-                                                                    href: "/league/events/" + $$event.id + "/" + Core__Option.getOr(match$2.slug, "")
-                                                                  }),
-                                                              JsxRuntime.jsx(Button.Button.make, {
-                                                                    children: t`Manage Event (Beta)`,
-                                                                    href: "/league/events/" + $$event.id + "/" + Core__Option.getOr(match$2.slug, "") + "/manager"
-                                                                  })
-                                                            ],
-                                                            className: "flex flex-row gap-2"
-                                                          }),
-                                                      className: "bg-gray-50 rounded-lg p-4 border"
-                                                    }),
-                                                className: "mt-6"
+                                          var managerHref = "/league/events/" + $$event.id + "/" + slug + "/manager";
+                                          tmp$1 = JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                children: Caml_option.some(mounted ? JsxRuntime.jsx(React.Suspense, {
+                                                            children: Caml_option.some(JsxRuntime.jsx(RoundRobinDrawsPreview.make, {
+                                                                      eventId: $$event.id,
+                                                                      managerHref: managerHref
+                                                                    })),
+                                                            fallback: Caml_option.some(null)
+                                                          }) : null)
                                               });
                                         }
                                         
@@ -232,10 +234,10 @@ function EventPage(props) {
                                     } else {
                                       tmp$1 = null;
                                     }
-                                    var match$4 = $$event.shadow;
+                                    var match$2 = $$event.shadow;
                                     var tmp$2;
                                     var exit$1 = 0;
-                                    if (match$4 !== undefined && match$4) {
+                                    if (match$2 !== undefined && match$2) {
                                       tmp$2 = JsxRuntime.jsxs("div", {
                                             children: [
                                               JsxRuntime.jsx("div", {

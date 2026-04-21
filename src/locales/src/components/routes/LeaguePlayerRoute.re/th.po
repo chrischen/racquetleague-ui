@@ -54,6 +54,7 @@ msgstr "ยกระดับคู่เล่นที่อ่อนแอก
 #: src/components/pages/LeaguePlayerPage.re.mjs:847
 #: src/components/pages/LeaguePlayerPage.re.mjs:890
 #: src/components/pages/LeaguePlayerPage.re.mjs:933
+#: src/components/pages/LeaguePlayerPage.re.mjs:1024
 msgid "Estimated DUPR"
 msgstr "DUPR ที่คาดการณ์"
 
@@ -61,11 +62,23 @@ msgstr "DUPR ที่คาดการณ์"
 msgid "Even"
 msgstr "สมดุล"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:980
+msgid "Hard Court"
+msgstr "คอร์ตแข็ง"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1006
+msgid "Indoor Court (Indoor Ball)"
+msgstr "คอร์ตในร่ม (ลูกบอลในร่ม)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:993
+msgid "Indoor Court (Outdoor Ball)"
+msgstr "คอร์ตในร่ม (ลูกบอลกลางแจ้ง)"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:997
+#: src/components/pages/LeaguePlayerPage.re.mjs:1089
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -104,7 +117,7 @@ msgstr "คาดการณ์"
 msgid "Rating History"
 msgstr "ประวัติเรตติ้ง"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:988
+#: src/components/pages/LeaguePlayerPage.re.mjs:1080
 msgid "Recent Matches"
 msgstr "การแข่งขันล่าสุด"
 

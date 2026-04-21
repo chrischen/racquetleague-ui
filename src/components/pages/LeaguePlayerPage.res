@@ -19,14 +19,17 @@ module UserStatsFragment = %relay(`
         mu
         sigma
       }
+      mdZScore
       wdRating {
         mu
         sigma
       }
+      wdZScore
       xdRating {
         mu
         sigma
       }
+      xdZScore
       bestPartners {
         score
         user {
@@ -208,6 +211,21 @@ module UserStatsFragment = %relay(`
         }
       }
       mfPartnerTendency
+      hardcourtRating {
+        mu
+        sigma
+      }
+      hardcourtZScore
+      indoorIndoorBallRating {
+        mu
+        sigma
+      }
+      indoorIndoorBallZScore
+      indoorOutdoorBallRating {
+        mu
+        sigma
+      }
+      indoorOutdoorBallZScore
     }
   }
 `)
@@ -337,6 +355,35 @@ module FilterTabs = {
   }
 }
 
+module ZScoreBadge = {
+  @react.component
+  let make = (~zScore: option<float>) => {
+    switch zScore {
+    | Some(z) =>
+      let absZ = Float.fromString(z->Float.toFixed(~digits=1))->Option.getOr(0.0)->Math.abs
+      let sign = z >= 0.0 ? "+" : ""
+      let formatted = `${sign}${z->Float.toFixed(~digits=1)}σ`
+      let (bgColor, textColor, icon) = if z >= 1.0 {
+        ("bg-emerald-100", "text-emerald-700", <Lucide.TrendingUp className="w-3 h-3" />)
+      } else if z >= 0.3 {
+        ("bg-emerald-50", "text-emerald-600", <Lucide.TrendingUp className="w-3 h-3" />)
+      } else if z > -0.3 {
+        ("bg-gray-100", "text-gray-600", React.null)
+      } else if z > -1.0 {
+        ("bg-rose-50", "text-rose-600", <Lucide.TrendingDown className="w-3 h-3" />)
+      } else {
+        ("bg-rose-100", "text-rose-700", <Lucide.TrendingDown className="w-3 h-3" />)
+      }
+      <div
+        className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${bgColor} ${textColor} text-xs font-semibold`}>
+        {icon}
+        <span> {formatted->React.string} </span>
+      </div>
+    | None => React.null
+    }
+  }
+}
+
 let ordinal = (mu, sigma) => mu -. 3.0 *. sigma
 
 let renderStatEntry = (
@@ -448,7 +495,7 @@ module PlayerContent = {
 
     let handleClubChange = (slug: option<string>) => {
       switch slug {
-      | Some(s) => navigate(`../p/${userId}/${s}`, None)
+      | Some(s) => navigate(`../${s}/p/${userId}`, None)
       | None => navigate(`../p/${userId}`, None)
       }
     }
@@ -609,7 +656,10 @@ module PlayerContent = {
             ->Option.map(r => {
               let ord = ordinal(r.mu, r.sigma)
               <div key="md" className="rounded-xl p-5 border bg-blue-50 border-blue-100">
-                <div className="text-sm font-medium text-gray-600 mb-2"> {t`Men's Doubles`} </div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-medium text-gray-600"> {t`Men's Doubles`} </div>
+                  <ZScoreBadge zScore={stats.mdZScore} />
+                </div>
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="text-3xl font-bold text-blue-600">
@@ -637,7 +687,10 @@ module PlayerContent = {
             ->Option.map(r => {
               let ord = ordinal(r.mu, r.sigma)
               <div key="xd" className="rounded-xl p-5 border bg-purple-50 border-purple-100">
-                <div className="text-sm font-medium text-gray-600 mb-2"> {t`Mixed Doubles`} </div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-medium text-gray-600"> {t`Mixed Doubles`} </div>
+                  <ZScoreBadge zScore={stats.xdZScore} />
+                </div>
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="text-3xl font-bold text-purple-600">
@@ -665,7 +718,10 @@ module PlayerContent = {
             ->Option.map(r => {
               let ord = ordinal(r.mu, r.sigma)
               <div key="wd" className="rounded-xl p-5 border bg-pink-50 border-pink-100">
-                <div className="text-sm font-medium text-gray-600 mb-2"> {t`Women's Doubles`} </div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-medium text-gray-600"> {t`Women's Doubles`} </div>
+                  <ZScoreBadge zScore={stats.wdZScore} />
+                </div>
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="text-3xl font-bold text-pink-600">
@@ -689,6 +745,68 @@ module PlayerContent = {
               </div>
             })
             ->Option.getOr(React.null)}
+            // Court & Ball Type Ratings
+            {[
+              (
+                stats.hardcourtRating->Option.map(r => (r.mu, r.sigma)),
+                stats.hardcourtZScore,
+                "hardcourt",
+                t`Hard Court`,
+                "bg-amber-50",
+                "border-amber-100",
+                "text-amber-600",
+              ),
+              (
+                stats.indoorOutdoorBallRating->Option.map(r => (r.mu, r.sigma)),
+                stats.indoorOutdoorBallZScore,
+                "indoor-outdoor",
+                t`Indoor Court (Outdoor Ball)`,
+                "bg-teal-50",
+                "border-teal-100",
+                "text-teal-600",
+              ),
+              (
+                stats.indoorIndoorBallRating->Option.map(r => (r.mu, r.sigma)),
+                stats.indoorIndoorBallZScore,
+                "indoor-indoor",
+                t`Indoor Court (Indoor Ball)`,
+                "bg-indigo-50",
+                "border-indigo-100",
+                "text-indigo-600",
+              ),
+            ]
+            ->Array.filterMap(((rating, zScore, key, label, bgClass, borderClass, textColor)) =>
+              rating->Option.map(((mu, sigma)) => {
+                let ord = ordinal(mu, sigma)
+                <div key className={`rounded-xl p-5 border ${bgClass} ${borderClass}`}>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="text-sm font-medium text-gray-600"> {label} </div>
+                    <ZScoreBadge zScore />
+                  </div>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <div className={`text-3xl font-bold ${textColor}`}>
+                        {ord->Float.toFixed(~digits=0)->React.string}
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        {`±${sigma->Float.toFixed(~digits=0)}`->React.string}
+                      </div>
+                    </div>
+                    {switch activitySlug {
+                    | "pickleball" =>
+                      <div className="text-right self-start">
+                        <div className="text-sm text-gray-500 mb-1"> {t`Estimated DUPR`} </div>
+                        <div className="text-2xl font-semibold text-gray-900">
+                          {Rating.guessDupr(mu)->Float.toFixed(~digits=2)->React.string}
+                        </div>
+                      </div>
+                    | _ => React.null
+                    }}
+                  </div>
+                </div>
+              })
+            )
+            ->React.array}
           </div>
         | None => React.null
         }}

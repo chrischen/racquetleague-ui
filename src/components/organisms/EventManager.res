@@ -71,6 +71,7 @@ module Fragment = %relay(`
     id
     tags
     startDate
+    maxRsvps
     activity {
       id
       slug
@@ -80,6 +81,7 @@ module Fragment = %relay(`
       edges {
         node {
           __id
+          listType
           user {
             id
             lineUsername
@@ -112,6 +114,142 @@ module Fragment = %relay(`
 
 // Type alias for the rsvpNode used in this component
 type rsvpNode = EventManager_event_graphql.Types.fragment_rsvps_edges_node
+
+// Storage estimate bindings
+type storageEstimate = {usage: float, quota: float}
+
+@scope("navigator.storage") @val
+external estimate: unit => promise<storageEstimate> = "estimate"
+
+// Component to display IndexedDB / local storage usage in debug mode
+module StorageUsageDebug = {
+  @react.component
+  let make = () => {
+    let (estimate_data, setEstimate) = React.useState(() => None)
+
+    React.useEffect0(() => {
+      let _ =
+        estimate()
+        ->Promise.then(est => {
+          setEstimate(_ => Some(est))
+          Promise.resolve()
+        })
+        ->Promise.catch(_ => Promise.resolve())
+      None
+    })
+
+    switch estimate_data {
+    | None => React.null
+    | Some({usage, quota}) => {
+        let usageMB = usage /. (1024.0 *. 1024.0)
+        let quotaMB = quota /. (1024.0 *. 1024.0)
+        let percentage = if quota > 0.0 {
+          usage /. quota *. 100.0
+        } else {
+          0.0
+        }
+
+        let barColor = if percentage > 90.0 {
+          "bg-red-500"
+        } else if percentage > 70.0 {
+          "bg-amber-500"
+        } else {
+          "bg-blue-500"
+        }
+
+        <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-700 min-w-[180px]">
+          <span className="text-xs text-slate-300 whitespace-nowrap">
+            {React.string(
+              `${usageMB->Float.toFixed(~digits=1)}/${quotaMB->Float.toFixed(~digits=0)} MB`,
+            )}
+          </span>
+          <div className="flex-1 bg-slate-600 rounded-full h-2 overflow-hidden">
+            <div
+              className={`${barColor} h-2 rounded-full transition-all duration-300`}
+              style={ReactDOM.Style.make(~width=`${percentage->Float.toFixed(~digits=1)}%`, ())}
+            />
+          </div>
+          <span className="text-xs text-slate-300 whitespace-nowrap">
+            {React.string(`${percentage->Float.toFixed(~digits=1)}%`)}
+          </span>
+        </div>
+      }
+    }
+  }
+}
+
+// Popup warning when local storage usage is critically high
+module StorageLowWarning = {
+  @react.component
+  let make = (~onClearData: unit => unit) => {
+    let (storageInfo, setStorageInfo) = React.useState(() => None)
+    let (dismissed, setDismissed) = React.useState(() => false)
+
+    React.useEffect0(() => {
+      let _ =
+        estimate()
+        ->Promise.then(est => {
+          setStorageInfo(_ => Some(est))
+          Promise.resolve()
+        })
+        ->Promise.catch(_ => Promise.resolve())
+      None
+    })
+
+    let shouldShow = switch storageInfo {
+    | Some({usage, quota}) if quota > 0.0 => usage /. quota *. 100.0 > 90.0
+    | _ => false
+    }
+
+    if !shouldShow || dismissed {
+      React.null
+    } else {
+      let percentage = switch storageInfo {
+      | Some({usage, quota}) if quota > 0.0 => usage /. quota *. 100.0
+      | _ => 0.0
+      }
+
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div className="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+              <Lucide.AlertTriangle className="w-5 h-5 text-red-600" />
+            </div>
+            <h2 className="text-lg font-bold text-slate-900">
+              {React.string("Storage Almost Full")}
+            </h2>
+          </div>
+          <p className="text-sm text-slate-600 mb-4">
+            {React.string(
+              `Your browser storage is ${percentage->Float.toFixed(~digits=1)}% full. The app may lose data if storage runs out. Clear old event data to free up space.`,
+            )}
+          </p>
+          <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden mb-5">
+            <div
+              className="bg-red-500 h-3 rounded-full"
+              style={ReactDOM.Style.make(~width=`${percentage->Float.toFixed(~digits=1)}%`, ())}
+            />
+          </div>
+          <div className="flex justify-end gap-3">
+            <button
+              onClick={_ => setDismissed(_ => true)}
+              className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+              {React.string("Dismiss")}
+            </button>
+            <button
+              onClick={_ => {
+                onClearData()
+                setDismissed(_ => true)
+              }}
+              className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors">
+              {React.string("Clear Event Data")}
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  }
+}
 
 // Component to display overall average quality across all rounds
 module OverallAverageQualityDebug = {
@@ -387,9 +525,26 @@ let make = (
   // Ref for current round section to enable smooth scrolling
   let currentRoundRef = React.useRef(Nullable.null)
 
-  // Court count
-  // Will be loaded from TinyBase in useEffect
-  let (courtCount, setCourtCount) = React.useState(() => 3)
+  // Court count - initially suggested based on Going list player count (excludes waitlist)
+  // Will be loaded from TinyBase in useEffect if previously saved
+  let goingPlayerCount = {
+    let allGoingOrPending =
+      data.rsvps
+      ->Option.flatMap(rsvps => rsvps.edges)
+      ->Option.getOr([])
+      ->Array.filter(edge =>
+        edge
+        ->Option.flatMap(e => e.node)
+        ->Option.map(rsvp => rsvp.listType == Some(0) || rsvp.listType == None)
+        ->Option.getOr(false)
+      )
+      ->Array.length
+    switch data.maxRsvps {
+    | Some(max) => Math.Int.min(allGoingOrPending, max)
+    | None => allGoingOrPending
+    }
+  }
+  let (courtCount, setCourtCount) = React.useState(() => suggestedCourtCount(goingPlayerCount))
 
   // Match generation strategy
   let (strategy, setStrategy) = React.useState(() => CompetitivePlus)
@@ -438,9 +593,11 @@ let make = (
 
   // Load matches from TinyBase on initial mount
   React.useEffect1(() => {
-    // Load court count from TinyBase
-    let storedCourtCount = EventManagerPersistence.loadCourtCount(data.id)
-    setCourtCount(_ => storedCourtCount)
+    // Load court count from TinyBase (if previously saved)
+    switch EventManagerPersistence.loadCourtCount(data.id) {
+    | Some(stored) => setCourtCount(_ => stored)
+    | None => ()
+    }
 
     // Load match generation strategy from TinyBase
     let storedStrategy = EventManagerPersistence.loadStrategy(data.id)
@@ -1147,7 +1304,7 @@ let make = (
     // Reset all state to initial values
     setRounds(_ => [])
     setCurrentRoundInt(_ => 0)
-    setCourtCount(_ => 3)
+    setCourtCount(_ => suggestedCourtCount(players->Array.length))
     setCheckedInPlayerIds(_ => Set.make())
     setRatingAdjustmentHistory(_ => [])
     setIsDirty(_ => false)
@@ -1411,17 +1568,21 @@ let make = (
           onAdd={handleAddGuestPlayers} onClose={() => setShowAddGuestsModal(_ => false)}
         />
       : React.null}
+    <StorageLowWarning onClearData={handleResetStorage} />
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <div className="bg-slate-800 text-white px-6 py-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold"> {React.string("Sports Event Draws")} </h1>
           <div className="flex items-center gap-2">
             {debugMode
-              ? <button
-                  onClick={_ => handleResetStorage()}
-                  className="px-3 py-1 text-sm font-semibold rounded bg-red-600 hover:bg-red-700 transition-colors">
-                  {t`Reset Storage`}
-                </button>
+              ? <>
+                  <StorageUsageDebug />
+                  <button
+                    onClick={_ => handleResetStorage()}
+                    className="px-3 py-1 text-sm font-semibold rounded bg-red-600 hover:bg-red-700 transition-colors">
+                    {t`Reset Storage`}
+                  </button>
+                </>
               : React.null}
             <Link
               to="/event-manager-guide"
@@ -1453,18 +1614,20 @@ let make = (
         initialPlayers={players}
       />
       {!hasExistingDraws
-        ? <DrawGenerator
-            courtCount
-            onCourtCountChange={handleCourtCountChange}
-            checkedInPlayerCount={checkedInPlayerIds->Set.size}
-            hasExistingDraws={false}
-            strategy
-            onStrategyChange={handleStrategyChange}
-            onGenerateDraws={handleGenerateDraws}
-            isInitiallyExpanded={true}
-            highlight={isDirty}
-            futureRoundsHaveScores
-          />
+        ? <>
+            <DrawGenerator
+              courtCount
+              onCourtCountChange={handleCourtCountChange}
+              checkedInPlayerCount={checkedInPlayerIds->Set.size}
+              hasExistingDraws={false}
+              strategy
+              onStrategyChange={handleStrategyChange}
+              onGenerateDraws={handleGenerateDraws}
+              isInitiallyExpanded={true}
+              highlight={isDirty}
+              futureRoundsHaveScores
+            />
+          </>
         : React.null}
       {hasExistingDraws
         ? <>

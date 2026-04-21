@@ -285,7 +285,7 @@ module Day = {
   let make = (
     ~events: array<ClubEventsListFragment_graphql.Types.fragment_events_edges_node>,
     ~highlightedLocation,
-    ~viewer: option<ClubPageQuery_graphql.Types.response_viewer>,
+    ~viewer: option<ClubEventsPageQuery_graphql.Types.response_viewer>,
   ) => {
     let (showShadow, setShowShadow) = React.useState(() => false)
     let shadowEvents = events->Array.filter(e => e.shadow->Option.getOr(false))
@@ -334,7 +334,7 @@ module Day = {
 @react.component
 let make = (
   ~events: RescriptRelay.fragmentRefs<[> #ClubDetails_club | #ClubEventsListFragment]>,
-  ~viewer: option<ClubPageQuery_graphql.Types.response_viewer>,
+  ~viewer: option<ClubEventsPageQuery_graphql.Types.response_viewer>,
   ~header: React.element,
 ) => {
   let clubData = Fragment.use(events)

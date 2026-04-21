@@ -19,47 +19,47 @@ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/ClubEventsList.re.mjs:209
-msgid "[location missing]"
-msgstr ""
+#~ msgid "[location missing]"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:365
-msgid "[missing title]"
-msgstr ""
+#~ msgid "[missing title]"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:215
 #: src/components/organisms/EventItem.re.mjs:222
 #: src/components/organisms/ClubEventsList.re.mjs:172
 #: src/components/organisms/ClubEventsList.re.mjs:177
-msgid "{0, plural, one {{1}} other {{2}}}"
-msgstr ""
+#~ msgid "{0, plural, one {{1}} other {{2}}}"
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:113
-msgid "{0} events created!"
-msgstr ""
+#~ msgid "{0} events created!"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
 #: src/components/organisms/ClubEventsList.re.mjs:173
 #: src/components/organisms/ClubEventsList.re.mjs:178
-msgid "{0} hour"
-msgstr ""
+#~ msgid "{0} hour"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:217
 #: src/components/organisms/EventItem.re.mjs:224
 #: src/components/organisms/ClubEventsList.re.mjs:174
 #: src/components/organisms/ClubEventsList.re.mjs:179
-msgid "{0} hours"
-msgstr ""
+#~ msgid "{0} hours"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:228
 #: src/components/organisms/ClubEventsList.re.mjs:181
-msgid "{0} minute"
-msgstr ""
+#~ msgid "{0} minute"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:229
 #: src/components/organisms/ClubEventsList.re.mjs:182
-msgid "{0} minutes"
-msgstr ""
+#~ msgid "{0} minutes"
+#~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:552
 #~ msgid "{0} private {shadowCountDesc} hidden"
@@ -67,125 +67,137 @@ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/ClubEventsList.re.mjs:180
-msgid "{minutes, plural, one {{0}} other {{1}}}"
-msgstr ""
+#~ msgid "{minutes, plural, one {{0}} other {{1}}}"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:296
-msgid "{playersCount, plural, one {player} other {players}}"
-msgstr ""
+#~ msgid "{playersCount, plural, one {player} other {players}}"
+#~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:526
 #~ msgid "{shadowCount, plural, one {event} other {events}}"
 #~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:186
-msgid "🚫 CANCELED"
-msgstr ""
+#~ msgid "🚫 CANCELED"
+#~ msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:246
+#~ msgid "47 Members"
+#~ msgstr ""
 
 #: src/components/organisms/AddEventButton.re.mjs:79
-msgid "Add an Event"
-msgstr ""
+#~ msgid "Add an Event"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:175
-msgid "AI Assistant"
-msgstr ""
+#~ msgid "AI Assistant"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:120
-msgid "An error occurred. Please try again."
-msgstr ""
+#~ msgid "An error occurred. Please try again."
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:269
-msgid "Ask"
-msgstr ""
+#~ msgid "Ask"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:150
-msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
-msgstr ""
+#~ msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
+#~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:203
+#: src/components/pages/ClubPage.re.mjs:178
 msgid "Cancel Request"
 msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:443
-msgid "clear filter"
-msgstr ""
+#~ msgid "clear filter"
+#~ msgstr ""
 
 #: src/components/pages/ClubPage.re.mjs:93
-msgid "Click the link to select it for easy copying."
-msgstr ""
+#~ msgid "Click the link to select it for easy copying."
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:433
 #~ msgid "close"
 #~ msgstr ""
 
 #: src/components/pages/ClubPage.re.mjs:250
-msgid "club"
-msgstr ""
+#~ msgid "club"
+#~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:284
+#: src/components/pages/ClubPage.re.mjs:495
 msgid "club not found"
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
-msgid "Create All Events"
-msgstr ""
+#~ msgid "Create All Events"
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
-msgid "Create This Event"
-msgstr ""
+#~ msgid "Create This Event"
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
 #: src/components/molecules/AIResponseCard.re.mjs:162
-msgid "Date:"
-msgstr ""
+#~ msgid "Date:"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:229
 #~ msgid "Describe the event you want to create..."
 #~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:105
-msgid "Description:"
-msgstr ""
+#~ msgid "Description:"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:469
 #~ msgid "details"
 #~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr ""
+#~ msgid "Error creating events. Please try again."
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:36
-msgid "Event Details"
-msgstr ""
+#~ msgid "Event Details"
+#~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:441
-msgid "filtering by date"
-msgstr ""
+#~ msgid "filtering by date"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
-msgid "I can create events for you. Just give me your schedule."
-msgstr ""
+#~ msgid "I can create events for you. Just give me your schedule."
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:108
-msgid "I couldn't process that request. Please try again."
+#~ msgid "I couldn't process that request. Please try again."
+#~ msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:207
+msgid "Join Club"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:313
-msgid "join event"
-msgstr ""
+#~ msgid "join event"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:260
-msgid "joined"
+#~ msgid "joined"
+#~ msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:403
+msgid "Leaderboard"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:193
+#: src/components/pages/ClubPage.re.mjs:168
 msgid "Leave club"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:307
-msgid "leave event"
-msgstr ""
+#~ msgid "leave event"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
@@ -193,69 +205,85 @@ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
-msgid "Location:"
-msgstr ""
+#~ msgid "Location:"
+#~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:233
+#: src/components/pages/ClubPage.re.mjs:267
 msgid "Manage Members"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:149
-msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
-msgstr ""
+#~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:279
-msgid "New"
+#~ msgid "New"
+#~ msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:475
+msgid "No ratings yet"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:383
+msgid "No upcoming events"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:272
-msgid "pending"
-msgstr ""
+#~ msgid "pending"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:292
-msgid "players"
-msgstr ""
+#~ msgid "players"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:265
-msgid "Processing..."
-msgstr ""
+#~ msgid "Processing..."
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:269
-msgid "Reply"
-msgstr ""
+#~ msgid "Reply"
+#~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:221
+#: src/components/pages/ClubPage.re.mjs:196
 msgid "Request to join"
 msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:399
-msgid "share as text"
-msgstr ""
+#~ msgid "share as text"
+#~ msgstr ""
 
 #: src/components/pages/ClubPage.re.mjs:75
-msgid "Shareable Link"
-msgstr ""
+#~ msgid "Shareable Link"
+#~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:310
-msgid "show"
-msgstr ""
+#~ msgid "show"
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:138
-msgid "Suggested Events"
-msgstr ""
+#~ msgid "Suggested Events"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
-msgstr ""
+#~ msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:68
 #~ msgid "Time:"
 #~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
-msgid "Title:"
+#~ msgid "Title:"
+#~ msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:292
+msgid "Upcoming Events"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:299
+msgid "View All"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:266
-msgid "waitlist"
-msgstr ""
+#~ msgid "waitlist"
+#~ msgstr ""

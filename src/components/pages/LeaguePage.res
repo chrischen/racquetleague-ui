@@ -103,7 +103,7 @@ let make = () => {
         </div>
       </header>
       <main>
-        <PrizeInfo />
+        // <PrizeInfo />
         <Router.Outlet />
       </main>
     </>}

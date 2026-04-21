@@ -11,6 +11,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as React$1 from "@lingui/react";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as NavigationProgress from "./NavigationProgress.re.mjs";
 import * as AppContext from "../layouts/appContext";
 
 function parseLang(loc) {
@@ -39,10 +40,13 @@ function LangProvider(props) {
   return JsxRuntime.jsx(make, {
               children: JsxRuntime.jsx(React$1.I18nProvider, {
                     i18n: Lingui.i18n,
-                    children: JsxRuntime.jsx(ReactIntl.IntlProvider, {
+                    children: JsxRuntime.jsxs(ReactIntl.IntlProvider, {
                           locale: data.lang,
                           timeZone: data.timezone,
-                          children: JsxRuntime.jsx(ReactRouterDom.Outlet, {})
+                          children: [
+                            JsxRuntime.jsx(NavigationProgress.make, {}),
+                            JsxRuntime.jsx(ReactRouterDom.Outlet, {})
+                          ]
                         })
                   }),
               value: data

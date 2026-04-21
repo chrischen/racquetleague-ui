@@ -86,6 +86,13 @@ let make = () => {
   )
   let viewerUser = viewer->Option.flatMap(v => v.user)
 
+  // Client-side mount flag for components that cannot render during SSR
+  let (mounted, setMounted) = React.useState(() => false)
+  React.useEffect0(() => {
+    setMounted(_ => true)
+    None
+  })
+
   // Profile modal state
   let (isProfileModalOpen, setIsProfileModalOpen) = React.useState(() => false)
   let (pendingJoinAction, setPendingJoinAction) = React.useState(() => None)
@@ -152,33 +159,21 @@ let make = () => {
             <div className="md:grid md:grid-cols-12 md:gap-8">
               <div className="md:col-span-7 lg:col-span-8 pb-8 md:pb-0">
                 <EventDetails event=event.fragmentRefs />
-                {switch (viewerUser, event.activity) {
-                | (Some(_), Some(activity)) =>
+                {switch event.activity {
+                | Some(activity) =>
                   switch activity.slug {
-                  | Some("pickleball" | "badminton") =>
-                    <div className="mt-6">
-                      <div className="bg-gray-50 rounded-lg p-4 border">
-                        <div className="flex flex-row gap-2">
-                          <Button.Button
-                            href={"/league/events/" ++
-                            event.id ++
-                            "/" ++
-                            activity.slug->Option.getOr("")}>
-                            {t`Manage Event`}
-                          </Button.Button>
-                          <Button.Button
-                            href={"/league/events/" ++
-                            event.id ++
-                            "/" ++
-                            activity.slug->Option.getOr("") ++ "/manager"}>
-                            {t`Manage Event (Beta)`}
-                          </Button.Button>
-                        </div>
-                      </div>
-                    </div>
+                  | Some(("pickleball" | "badminton") as slug) =>
+                    let managerHref = "/league/events/" ++ event.id ++ "/" ++ slug ++ "/manager"
+                    <>
+                      {mounted
+                        ? <React.Suspense fallback=React.null>
+                            <RoundRobinDrawsPreview eventId=event.id managerHref />
+                          </React.Suspense>
+                        : React.null}
+                    </>
                   | _ => React.null
                   }
-                | _ => React.null
+                | None => React.null
                 }}
                 <EventMessages
                   queryRef=queryFragmentRefs

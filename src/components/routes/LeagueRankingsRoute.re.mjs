@@ -5,7 +5,6 @@ import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as LeagueRankingsPage from "../pages/LeagueRankingsPage.re.mjs";
 import * as LeagueRankingsPageQuery_graphql from "../../__generated__/LeagueRankingsPageQuery_graphql.re.mjs";
@@ -25,7 +24,31 @@ async function loader(param) {
   var url = new URL(param.request.url);
   var after = Router.SearchParams.get(url.searchParams, "after");
   var before = Router.SearchParams.get(url.searchParams, "before");
-  var namespace = Core__Option.getOr(params.ns, "doubles:comp");
+  var knownNamespaces = [
+    "doubles:comp",
+    "singles:comp"
+  ];
+  var match = params.ns;
+  var match$1 = params.clubSlug;
+  var match$2 = match !== undefined ? (
+      match$1 !== undefined ? [
+          match,
+          match$1
+        ] : (
+          knownNamespaces.includes(match) ? [
+              match,
+              undefined
+            ] : [
+              "doubles:comp",
+              match
+            ]
+        )
+    ) : [
+      "doubles:comp",
+      undefined
+    ];
+  var clubSlug = match$2[1];
+  var namespace = match$2[0];
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
@@ -36,6 +59,7 @@ async function loader(param) {
                               activitySlug: params.activitySlug,
                               after: after,
                               before: before,
+                              clubSlug: clubSlug,
                               namespace: namespace
                             }, "store-or-network", undefined, undefined);
                 })(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR))

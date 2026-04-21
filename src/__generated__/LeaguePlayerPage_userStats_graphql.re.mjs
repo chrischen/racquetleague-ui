@@ -205,6 +205,13 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "mdZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "wdRating",
@@ -215,11 +222,25 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "wdZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "xdRating",
           "plural": false,
           "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "xdZScore",
           "storageKey": null
         },
         {
@@ -427,6 +448,57 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "mfPartnerTendency",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DisciplineRating",
+          "kind": "LinkedField",
+          "name": "hardcourtRating",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "hardcourtZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DisciplineRating",
+          "kind": "LinkedField",
+          "name": "indoorIndoorBallRating",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "indoorIndoorBallZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DisciplineRating",
+          "kind": "LinkedField",
+          "name": "indoorOutdoorBallRating",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "indoorOutdoorBallZScore",
           "storageKey": null
         }
       ],

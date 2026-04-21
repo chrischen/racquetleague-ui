@@ -49,6 +49,11 @@ const mainRoutes: RouteObject[] =
           handle: "src/components/routes/ClubRoute.gen.tsx",
         },
         {
+          path: ":slug/events",
+          lazy: () => import("./components/routes/ClubEventsRoute.gen"),
+          handle: "src/components/routes/ClubEventsRoute.gen.tsx",
+        },
+        {
           path: ":slug/members",
           lazy: () => import("./components/routes/ClubMembersRoute.gen"),
           handle: "src/components/routes/ClubMembersRoute.gen.tsx",
@@ -174,7 +179,12 @@ const mainRoutes: RouteObject[] =
               handle: "src/components/routes/LeagueRankingsRoute.gen.tsx",
             },
             {
-              path: "p/:userId/:clubSlug",
+              path: ":clubSlug/:ns",
+              lazy: () => import("./components/routes/LeagueRankingsRoute.gen"),
+              handle: "src/components/routes/LeagueRankingsRoute.gen.tsx",
+            },
+            {
+              path: ":clubSlug/p/:userId",
               lazy: () => import("./components/routes/LeaguePlayerRoute.gen"),
               handle: "src/components/routes/LeaguePlayerRoute.gen.tsx",
             },

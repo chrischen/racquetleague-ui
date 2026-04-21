@@ -20,6 +20,7 @@ export type params = {
   readonly activitySlug: string; 
   readonly after?: string; 
   readonly before?: string; 
+  readonly clubSlug?: string; 
   readonly first?: number; 
   readonly namespace: string; 
   readonly lang: (undefined | string)

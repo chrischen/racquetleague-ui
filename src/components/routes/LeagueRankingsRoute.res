@@ -43,7 +43,19 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let url = request.url->Router.URL.make
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
-  let namespace = params.ns->Option.getOr("doubles:comp")
+
+  // When only :ns is matched, it could be a namespace or a club slug
+  let knownNamespaces = ["doubles:comp", "singles:comp"]
+  let (namespace, clubSlug) = switch (params.ns, params.clubSlug) {
+  | (Some(ns), Some(club)) => (ns, Some(club))
+  | (Some(value), None) =>
+    if knownNamespaces->Array.includes(value) {
+      (value, None)
+    } else {
+      ("doubles:comp", Some(value))
+    }
+  | (None, _) => ("doubles:comp", None)
+  }
 
   // await Promise.make((resolve, _) => setTimeout(_ => {Js.log("Delay loader");resolve()}, 200)->ignore)
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
@@ -58,6 +70,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
               ?before,
               activitySlug: params.activitySlug,
               namespace,
+              ?clubSlug,
             },
             ~fetchPolicy=RescriptRelay.StoreOrNetwork,
           )

@@ -22,6 +22,7 @@ module Types = {
   }
   and fragment_rsvps_edges_node = {
     @live __id: RescriptRelay.dataId,
+    listType: option<int>,
     rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
   }
@@ -41,6 +42,7 @@ module Types = {
     @live __id: RescriptRelay.dataId,
     activity: option<fragment_activity>,
     @live id: string,
+    maxRsvps: option<int>,
     rsvps: option<fragment_rsvps>,
     startDate: option<Util.Datetime.t>,
     tags: option<array<string>>,
@@ -218,6 +220,13 @@ return {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "maxRsvps",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Activity",
       "kind": "LinkedField",
       "name": "activity",
@@ -258,6 +267,13 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "listType",
+                  "storageKey": null
+                },
                 {
                   "alias": null,
                   "args": null,

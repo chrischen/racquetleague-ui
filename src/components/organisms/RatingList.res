@@ -10,10 +10,11 @@ module Fragment = %relay(`
     first: { type: "Int", defaultValue: 20 }
     activitySlug: { type: "String!" }
     namespace: { type: "String!" }
+    clubSlug: { type: "String" }
   )
   @refetchable(queryName: "RatingListRefetchQuery")
   {
-    ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace)
+    ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug)
     @connection(key: "RatingListFragment_ratings") {
       edges {
         node {

@@ -55,11 +55,11 @@ function clearEventData(eventId) {
 
 function loadCourtCount(eventId) {
   var eventsTable = eventStore.getTable("eventState");
-  return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
-                            return Js_dict.get(row, "courtCount");
-                          })), Js_json.decodeNumber), (function (prim) {
-                    return prim | 0;
-                  })), 3);
+  return Core__Option.map(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
+                        return Js_dict.get(row, "courtCount");
+                      })), Js_json.decodeNumber), (function (prim) {
+                return prim | 0;
+              }));
 }
 
 function saveCourtCount(eventId, courtCount) {

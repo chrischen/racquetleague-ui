@@ -24,6 +24,18 @@ module Types = {
     score: float,
     user: option<fragment_leagueUserStats_bestPartners_user>,
   }
+  and fragment_leagueUserStats_hardcourtRating = {
+    mu: float,
+    sigma: float,
+  }
+  and fragment_leagueUserStats_indoorIndoorBallRating = {
+    mu: float,
+    sigma: float,
+  }
+  and fragment_leagueUserStats_indoorOutdoorBallRating = {
+    mu: float,
+    sigma: float,
+  }
   and fragment_leagueUserStats_mdBestOpponents_user = {
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
@@ -219,11 +231,18 @@ module Types = {
   and fragment_leagueUserStats = {
     bestOpponents: array<fragment_leagueUserStats_bestOpponents>,
     bestPartners: array<fragment_leagueUserStats_bestPartners>,
+    hardcourtRating: option<fragment_leagueUserStats_hardcourtRating>,
+    hardcourtZScore: option<float>,
+    indoorIndoorBallRating: option<fragment_leagueUserStats_indoorIndoorBallRating>,
+    indoorIndoorBallZScore: option<float>,
+    indoorOutdoorBallRating: option<fragment_leagueUserStats_indoorOutdoorBallRating>,
+    indoorOutdoorBallZScore: option<float>,
     mdBestOpponents: array<fragment_leagueUserStats_mdBestOpponents>,
     mdBestPartners: array<fragment_leagueUserStats_mdBestPartners>,
     mdRating: option<fragment_leagueUserStats_mdRating>,
     mdWorstOpponents: array<fragment_leagueUserStats_mdWorstOpponents>,
     mdWorstPartners: array<fragment_leagueUserStats_mdWorstPartners>,
+    mdZScore: option<float>,
     mfBestOpponents: array<fragment_leagueUserStats_mfBestOpponents>,
     mfBestPartners: array<fragment_leagueUserStats_mfBestPartners>,
     mfPartnerTendency: option<float>,
@@ -234,6 +253,7 @@ module Types = {
     wdRating: option<fragment_leagueUserStats_wdRating>,
     wdWorstOpponents: array<fragment_leagueUserStats_wdWorstOpponents>,
     wdWorstPartners: array<fragment_leagueUserStats_wdWorstPartners>,
+    wdZScore: option<float>,
     worstOpponents: array<fragment_leagueUserStats_worstOpponents>,
     worstPartners: array<fragment_leagueUserStats_worstPartners>,
     xdBestOpponents: array<fragment_leagueUserStats_xdBestOpponents>,
@@ -241,6 +261,7 @@ module Types = {
     xdRating: option<fragment_leagueUserStats_xdRating>,
     xdWorstOpponents: array<fragment_leagueUserStats_xdWorstOpponents>,
     xdWorstPartners: array<fragment_leagueUserStats_xdWorstPartners>,
+    xdZScore: option<float>,
   }
   and fragment_rating = {
     mu: option<float>,
@@ -471,6 +492,13 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "mdZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "wdRating",
@@ -481,11 +509,25 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "wdZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "xdRating",
           "plural": false,
           "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "xdZScore",
           "storageKey": null
         },
         {
@@ -693,6 +735,57 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "mfPartnerTendency",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DisciplineRating",
+          "kind": "LinkedField",
+          "name": "hardcourtRating",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "hardcourtZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DisciplineRating",
+          "kind": "LinkedField",
+          "name": "indoorIndoorBallRating",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "indoorIndoorBallZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DisciplineRating",
+          "kind": "LinkedField",
+          "name": "indoorOutdoorBallRating",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "indoorOutdoorBallZScore",
           "storageKey": null
         }
       ],

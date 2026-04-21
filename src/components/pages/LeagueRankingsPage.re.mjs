@@ -46,10 +46,18 @@ function LeagueRankingsPage(props) {
   var match = usePreloaded(query.data.query);
   var fragmentRefs = match.fragmentRefs;
   var viewer = match.viewer;
-  var match$1 = params.ns;
-  var title = match$1 !== undefined ? (
-      match$1 === "doubles:rec" ? t`Recreational Doubles` : t`Competitive Doubles`
-    ) : t`Competitive Doubles`;
+  var clubName = Core__Option.flatMap(match.club, (function (c) {
+          return c.name;
+        }));
+  var title;
+  if (clubName !== undefined) {
+    title = clubName;
+  } else {
+    var match$1 = params.ns;
+    title = match$1 !== undefined ? (
+        match$1 === "singles:comp" ? t`Competitive Singles` : t`Competitive Doubles`
+      ) : t`Competitive Doubles`;
+  }
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {

@@ -54,6 +54,7 @@ msgstr ""
 #: src/components/pages/LeaguePlayerPage.re.mjs:847
 #: src/components/pages/LeaguePlayerPage.re.mjs:890
 #: src/components/pages/LeaguePlayerPage.re.mjs:933
+#: src/components/pages/LeaguePlayerPage.re.mjs:1024
 msgid "Estimated DUPR"
 msgstr ""
 
@@ -65,6 +66,18 @@ msgstr ""
 #~ msgid "Female"
 #~ msgstr ""
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:980
+msgid "Hard Court"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1006
+msgid "Indoor Court (Indoor Ball)"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:993
+msgid "Indoor Court (Outdoor Ball)"
+msgstr ""
+
 #: src/components/organisms/MatchHistoryList.re.mjs:714
 msgid "Load more matches..."
 msgstr ""
@@ -73,7 +86,7 @@ msgstr ""
 #~ msgid "Loading rankings..."
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:997
+#: src/components/pages/LeaguePlayerPage.re.mjs:1089
 msgid "Loading..."
 msgstr ""
 
@@ -135,7 +148,7 @@ msgstr ""
 msgid "Rating History"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:988
+#: src/components/pages/LeaguePlayerPage.re.mjs:1080
 msgid "Recent Matches"
 msgstr ""
 
