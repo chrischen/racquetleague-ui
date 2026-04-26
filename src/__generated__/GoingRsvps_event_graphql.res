@@ -18,6 +18,7 @@ module Types = {
     @live id: string,
     listType: option<int>,
     message: option<string>,
+    paid: option<int>,
     rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvp_rsvp | #MiniEventRsvp_rsvp]>,
@@ -37,6 +38,7 @@ module Types = {
   type fragment = {
     @live id: string,
     maxRsvps: option<int>,
+    price: option<int>,
     rsvps: option<fragment_rsvps>,
     viewerIsAdmin: bool,
   }
@@ -157,6 +159,13 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "price",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "viewerIsAdmin",
       "storageKey": null
     },
@@ -265,6 +274,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "message",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "paid",
                   "storageKey": null
                 },
                 {

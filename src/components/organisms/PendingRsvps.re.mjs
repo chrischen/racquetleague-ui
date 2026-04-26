@@ -67,7 +67,8 @@ function PendingRsvps(props) {
                                           activitySlug: activitySlug,
                                           maxRating: maxRating,
                                           eventId: eventData.id,
-                                          isAdmin: eventData.viewerIsAdmin
+                                          isAdmin: eventData.viewerIsAdmin,
+                                          eventPrice: eventData.price
                                         }, edge.id);
                             }),
                         className: "flex flex-wrap gap-3"

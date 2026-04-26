@@ -17,7 +17,7 @@ msgstr ""
 msgid "Cancel Request"
 msgstr "リクエストをキャンセル"
 
-#: src/components/pages/ClubPage.re.mjs:495
+#: src/components/pages/ClubPage.re.mjs:510
 msgid "club not found"
 msgstr "サークルが見つかりません"
 
@@ -25,7 +25,7 @@ msgstr "サークルが見つかりません"
 msgid "Join Club"
 msgstr "サークルに参加"
 
-#: src/components/pages/ClubPage.re.mjs:403
+#: src/components/pages/ClubPage.re.mjs:407
 msgid "Leaderboard"
 msgstr "リーダーボード"
 
@@ -33,15 +33,15 @@ msgstr "リーダーボード"
 msgid "Leave club"
 msgstr "サークルを退会"
 
-#: src/components/pages/ClubPage.re.mjs:267
+#: src/components/pages/ClubPage.re.mjs:266
 msgid "Manage Members"
 msgstr "メンバー管理"
 
-#: src/components/pages/ClubPage.re.mjs:475
+#: src/components/pages/ClubPage.re.mjs:490
 msgid "No ratings yet"
 msgstr "まだレーティングがありません"
 
-#: src/components/pages/ClubPage.re.mjs:383
+#: src/components/pages/ClubPage.re.mjs:386
 msgid "No upcoming events"
 msgstr "今後のイベントはありません"
 
@@ -49,11 +49,12 @@ msgstr "今後のイベントはありません"
 msgid "Request to join"
 msgstr "参加をリクエスト"
 
-#: src/components/pages/ClubPage.re.mjs:292
+#: src/components/pages/ClubPage.re.mjs:291
 msgid "Upcoming Events"
 msgstr "今後のイベント"
 
-#: src/components/pages/ClubPage.re.mjs:299
+#: src/components/pages/ClubPage.re.mjs:298
+#: src/components/pages/ClubPage.re.mjs:414
 msgid "View All"
 msgstr "すべて表示"
 

@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 02:59+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/LogoutLink.re.mjs:10
+msgid "(logout)"
+msgstr "(ออกจากระบบ)"
+
+#: src/components/pages/PkuruLayout.re.mjs:146
+#: src/components/pages/PkuruLayout.re.mjs:176
+msgid "Badminton"
+msgstr "แบดมินตัน"
+
+#: src/components/pages/PkuruLayout.re.mjs:89
+msgid "Browse"
+msgstr "เรียกดู"
+
+#: src/components/pages/PkuruLayout.re.mjs:99
+#: src/components/pages/PkuruLayout.re.mjs:372
+msgid "Discover"
+msgstr "ค้นพบ"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+msgid "Host"
+msgstr "ผู้จัด"
+
+#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+msgid "Load more"
+msgstr "โหลดเพิ่มเติม"
+
+#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+msgid "Loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+msgid "login with Line"
+msgstr "เข้าสู่ระบบด้วย Line"
+
+#: src/components/pages/PkuruLayout.re.mjs:382
+msgid "Map"
+msgstr "แผนที่"
+
+#: src/components/pages/PkuruLayout.re.mjs:107
+msgid "Map view"
+msgstr "มุมมองแผนที่"
+
+#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+msgid "My clubs"
+msgstr "คลับของฉัน"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "My Clubs"
+msgstr "คลับของฉัน"
+
+#: src/components/pages/PkuruLayout.re.mjs:115
+msgid "My events"
+msgstr "กิจกรรมของฉัน"
+
+#: src/components/pages/PkuruLayout.re.mjs:392
+msgid "My Events"
+msgstr "กิจกรรมของฉัน"
+
+#: src/components/pages/PkuruLayout.re.mjs:140
+#: src/components/pages/PkuruLayout.re.mjs:168
+msgid "Pickleball"
+msgstr "พิคเคิลบอล"
+
+#: src/components/pages/PkuruLayout.re.mjs:123
+#: src/components/pages/PkuruLayout.re.mjs:402
+msgid "Profile"
+msgstr "โปรไฟล์"
+
+#: src/components/pages/PkuruLayout.re.mjs:159
+msgid "Rankings"
+msgstr "อันดับ"
+
+#: src/components/pages/PkuruLayout.re.mjs:134
+msgid "Sports"
+msgstr "กีฬา"
+
+#: src/components/pages/PkuruLayout.re.mjs:353
+#~ msgid "Events"
+#~ msgstr "กิจกรรม"
+
+#: src/components/pages/PkuruLayout.re.mjs:250
+#~ msgid "Search events, venues, hosts..."
+#~ msgstr "ค้นหากิจกรรม สถานที่ ผู้จัด..."
+
+#: src/components/organisms/NavViewer.re.mjs:77
+#~ msgid "Settings"
+#~ msgstr "การตั้งค่า"

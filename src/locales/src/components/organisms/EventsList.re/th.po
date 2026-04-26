@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:454
+#: src/components/organisms/EventsList.re.mjs:452
 msgid "...load past events"
 msgstr "...โหลดกิจกรรมที่ผ่านมา"
 
@@ -82,7 +82,7 @@ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}
 msgid "🚫 CANCELED"
 msgstr "🚫 ยกเลิก"
 
-#: src/components/organisms/AddEventButton.re.mjs:79
+#: src/components/organisms/AddEventButton.re.mjs:68
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"
 
@@ -106,7 +106,7 @@ msgstr "ถาม"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
 
-#: src/components/organisms/EventsList.re.mjs:426
+#: src/components/organisms/EventsList.re.mjs:424
 msgid "clear filter"
 msgstr "ล้างตัวกรอง"
 
@@ -135,7 +135,7 @@ msgstr "เกิดข้อผิดพลาดในการสร้าง
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/EventsList.re.mjs:424
+#: src/components/organisms/EventsList.re.mjs:422
 msgid "filtering by date"
 msgstr "กรองตามวันที่"
 
@@ -192,7 +192,7 @@ msgstr "กำลังประมวลผล..."
 msgid "Reply"
 msgstr "ตอบกลับ"
 
-#: src/components/organisms/EventsList.re.mjs:383
+#: src/components/organisms/EventsList.re.mjs:381
 msgid "share as text"
 msgstr "แชร์เป็นข้อความ"
 

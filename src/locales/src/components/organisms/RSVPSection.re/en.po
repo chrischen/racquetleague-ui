@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/GoingRsvps.re.mjs:104
+#: src/components/organisms/GoingRsvps.re.mjs:105
 msgid "+{0} more"
 msgstr ""
 
@@ -22,11 +22,11 @@ msgstr ""
 msgid "Add Member"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:115
+#: src/components/organisms/RsvpOptions.re.mjs:118
 msgid "Approve RSVP"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:177
+#: src/components/organisms/RsvpOptions.re.mjs:181
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
@@ -70,9 +70,17 @@ msgstr ""
 #~ msgid "more"
 #~ msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:125
-#: src/components/organisms/RsvpOptions.re.mjs:192
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
 msgid "Move to Pending List"
+msgstr ""
+
+#: src/components/organisms/EventRsvp.re.mjs:110
+msgid "Not paid"
+msgstr ""
+
+#: src/components/organisms/EventRsvp.re.mjs:102
+msgid "Paid"
 msgstr ""
 
 #: src/components/organisms/PendingRsvps.re.mjs:58
@@ -84,11 +92,11 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:138
+#: src/components/organisms/RsvpOptions.re.mjs:141
 msgid "Remove from event"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:176
+#: src/components/organisms/RsvpOptions.re.mjs:180
 msgid "Remove this RSVP"
 msgstr ""
 
@@ -110,7 +118,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/components/organisms/GoingRsvps.re.mjs:122
+#: src/components/organisms/GoingRsvps.re.mjs:123
 msgid "See all"
 msgstr ""
 
@@ -118,7 +126,7 @@ msgstr ""
 #~ msgid "Show all"
 #~ msgstr ""
 
-#: src/components/organisms/GoingRsvps.re.mjs:139
+#: src/components/organisms/GoingRsvps.re.mjs:140
 msgid "Show less"
 msgstr ""
 
@@ -126,7 +134,7 @@ msgstr ""
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:193
+#: src/components/organisms/RsvpOptions.re.mjs:197
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
@@ -135,7 +143,7 @@ msgstr ""
 msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:163
+#: src/components/organisms/RsvpOptions.re.mjs:167
 msgid "View Profile"
 msgstr ""
 

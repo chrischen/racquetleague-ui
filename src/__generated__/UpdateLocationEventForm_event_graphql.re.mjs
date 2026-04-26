@@ -139,6 +139,13 @@ return {
       "kind": "ScalarField",
       "name": "tags",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "price",
+      "storageKey": null
     }
   ],
   "type": "Event",

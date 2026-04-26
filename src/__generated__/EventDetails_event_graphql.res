@@ -4,13 +4,18 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_location = {
+  type rec fragment_club = {
+    name: option<string>,
+    slug: option<string>,
+  }
+  and fragment_location = {
     details: option<string>,
     @live id: string,
     name: option<string>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventLocation_location | #MediaList_location]>,
   }
   type fragment = {
+    club: option<fragment_club>,
     details: option<string>,
     location: option<fragment_location>,
     shadow: option<bool>,
@@ -55,6 +60,13 @@ var v0 = {
   "kind": "ScalarField",
   "name": "details",
   "storageKey": null
+},
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
 };
 return {
   "argumentDefinitions": [],
@@ -73,6 +85,25 @@ return {
     {
       "alias": null,
       "args": null,
+      "concreteType": "Club",
+      "kind": "LinkedField",
+      "name": "club",
+      "plural": false,
+      "selections": [
+        (v1/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "slug",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Location",
       "kind": "LinkedField",
       "name": "location",
@@ -85,13 +116,7 @@ return {
           "name": "id",
           "storageKey": null
         },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "name",
-          "storageKey": null
-        },
+        (v1/*: any*/),
         (v0/*: any*/),
         {
           "args": null,

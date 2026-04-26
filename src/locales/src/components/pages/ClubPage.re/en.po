@@ -126,7 +126,7 @@ msgstr ""
 #~ msgid "club"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:495
+#: src/components/pages/ClubPage.re.mjs:510
 msgid "club not found"
 msgstr ""
 
@@ -187,7 +187,7 @@ msgstr ""
 #~ msgid "joined"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:403
+#: src/components/pages/ClubPage.re.mjs:407
 msgid "Leaderboard"
 msgstr ""
 
@@ -212,7 +212,7 @@ msgstr ""
 #~ msgid "Location:"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:267
+#: src/components/pages/ClubPage.re.mjs:266
 msgid "Manage Members"
 msgstr ""
 
@@ -224,11 +224,11 @@ msgstr ""
 #~ msgid "New"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:475
+#: src/components/pages/ClubPage.re.mjs:490
 msgid "No ratings yet"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:383
+#: src/components/pages/ClubPage.re.mjs:386
 msgid "No upcoming events"
 msgstr ""
 
@@ -284,11 +284,12 @@ msgstr ""
 #~ msgid "Title:"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:292
+#: src/components/pages/ClubPage.re.mjs:291
 msgid "Upcoming Events"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:299
+#: src/components/pages/ClubPage.re.mjs:298
+#: src/components/pages/ClubPage.re.mjs:414
 msgid "View All"
 msgstr ""
 

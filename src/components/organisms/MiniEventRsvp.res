@@ -40,17 +40,16 @@ let make = (~rsvp, ~maxRating) => {
 
   rsvp.user
   ->Option.map(user => {
-    let progress =
-      rsvp.rating
-      ->Option.flatMap(rating => rating.mu)
-      ->Option.map(mu => Int.fromFloat(mu /. maxRating *. 100.))
-      ->Option.getOr(100)
+    let mu = rsvp.rating->Option.flatMap(rating => rating.mu)->Option.getOr(25.)
+    let progress = Int.fromFloat(mu /. maxRating *. 100.)
 
     <ListItem key={user.id}>
       <AvatarWithProgress
         src={user.picture->Option.getOr("")}
         alt={user.lineUsername->Option.getOr("[Line username missing]")}
         progress
+        size=36
+        strokeWidth=2.
       />
     </ListItem>
   })

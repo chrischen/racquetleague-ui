@@ -11,6 +11,10 @@ type navigate = (string, option<navOpts>) => unit
 @module("react-router-dom")
 external useNavigate: unit => navigate = "useNavigate"
 
+type navigateDelta = int => unit
+@module("react-router-dom")
+external useNavigateDelta: unit => navigateDelta = "useNavigate"
+
 type navigation = {state: string}
 @module("react-router-dom")
 external useNavigation: unit => navigation = "useNavigation"
@@ -56,6 +60,13 @@ module ImmSearchParams = {
 
   let toSearchParams: t => SearchParams.t = t => t->entries->SearchParams.fromEntries
 }
+
+@module("react-router-dom")
+external useMatch: string => option<'a> = "useMatch"
+
+type routeMatch = {id: string, pathname: string, handle: option<string>}
+@module("react-router-dom")
+external useMatches: unit => array<routeMatch> = "useMatches"
 
 @module("react-router-dom")
 external useSearchParams: unit => (SearchParams.t, SearchParams.t => unit) = "useSearchParams"

@@ -1,0 +1,440 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 02:59+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1540
+msgid "Badminton"
+msgstr "แบดมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1544
+msgid "Table Tennis"
+msgstr "ปิงปอง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1548
+msgid "Pickleball"
+msgstr "พิคเคิลบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1552
+msgid "Futsal"
+msgstr "ฟุตซอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1556
+msgid "Basketball"
+msgstr "บาสเก็ตบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1560
+msgid "Volleyball"
+msgstr "วอลเลย์บอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1564
+msgid "Crossminton"
+msgstr "ครอสมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1568
+msgid "Padel"
+msgstr "ปาเดล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1572
+msgid "drill"
+msgstr "ฝึกซ้อม"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1576
+msgid "comp"
+msgstr "แข่ง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1580
+msgid "rec"
+msgstr "บันเทิง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1584
+msgid "all level"
+msgstr "ทุกระดับ"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:113
+msgid "{0} events created!"
+msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:529
+msgid "{0} hours"
+msgstr "{0} ชั่วโมง"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:529
+msgid "{0} hours and {1} minutes"
+msgstr "{0} ชั่วโมง {1} นาที"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:531
+msgid "{0} minutes"
+msgstr "{0} นาที"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:626
+msgid "+ Add new club..."
+msgstr "+ เพิ่มคลับใหม่..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:675
+msgid "Activity"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:77
+msgid "activity is required"
+msgstr "ต้องระบุกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:974
+msgid "Add any additional information about the event..."
+msgstr "เพิ่มข้อมูลเพิ่มเติมเกี่ยวกับกิจกรรม..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:184
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "AI Assistant"
+msgstr "ผู้ช่วย AI"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:149
+msgid "An error occurred. Please try again."
+msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid "Answer the questions or provide more details..."
+msgstr "ตอบคำถามหรือให้รายละเอียดเพิ่มเติม..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:454
+msgid "at"
+msgstr "เวลา"
+
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "คำอธิบายสั้นๆ เกี่ยวกับคลับ..."
+
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1380
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr "เล่นแบบสบายๆ เน้นความสนุกและการเข้าสังคม เหมาะกับทุกระดับทักษะ"
+
+#: src/components/pages/CreateEventPage.re.mjs:136
+msgid "choose the location where this event will be held."
+msgstr "เลือกสถานที่ที่จะจัดกิจกรรมนี้"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:609
+msgid "Club"
+msgstr "คลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1174
+msgid "Club & Activity"
+msgstr "คลับและกิจกรรม"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "ชื่อคลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "URL คลับ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "ชื่อคลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:465
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1334
+msgid "Competitive"
+msgstr "แข่งขัน"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Continue"
+msgstr "ดำเนินการต่อ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Continue the conversation"
+msgstr "ดำเนินการสนทนาต่อ"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create All Events"
+msgstr "สร้างกิจกรรมทั้งหมด"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "สร้างคลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1524
+msgid "Create Event"
+msgstr "สร้างกิจกรรม"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create This Event"
+msgstr "สร้างกิจกรรมนี้"
+
+#: src/components/molecules/AIResponseCard.re.mjs:58
+#: src/components/molecules/AIResponseCard.re.mjs:162
+msgid "Date:"
+msgstr "วันที่:"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "กิจกรรมเริ่มต้นของคลับ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "Describe your event"
+msgstr "อธิบายกิจกรรมของคุณ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: src/components/molecules/AIResponseCard.re.mjs:105
+msgid "Description:"
+msgstr "คำอธิบาย:"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:691
+msgid "Done"
+msgstr "เสร็จ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:473
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1417
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1447
+msgid "Drill session"
+msgstr "เซสชั่นฝึกซ้อม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:470
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1398
+msgid "DUPR rated"
+msgstr "ให้คะแนน DUPR"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "เช่น คลับซิตี้บอลเลอร์"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+"เช่น การพบปะพิคเคิลบอลรายสัปดาห์ที่เซ็นทรัลพาร์ค วันพฤหัสบดีเวลา 18:00 น. "
+"เล่นแบบแข่งขันสำหรับผู้เล่นระดับ 3.5+..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:928
+msgid "End time"
+msgstr "เวลาสิ้นสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:89
+msgid "end time is required"
+msgstr "ต้องระบุเวลาสิ้นสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1001
+msgid "Enter price"
+msgstr "ใส่ราคา"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+msgid "Error creating events. Please try again."
+msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:86
+msgid "event date is required"
+msgstr "ต้องระบุวันที่กิจกรรม"
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+msgid "Event Details"
+msgstr "รายละเอียดกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:970
+msgid "Event details (optional)"
+msgstr "รายละเอียดกิจกรรม (ไม่บังคับ)"
+
+#: src/components/pages/CreateEventPage.re.mjs:135
+msgid "event location"
+msgstr "สถานที่จัดกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:818
+msgid "Event schedule"
+msgstr "กำหนดการกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:945
+msgid "Event title"
+msgstr "ชื่อกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1323
+msgid "Event type"
+msgstr "ประเภทกิจกรรม"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Fill with AI"
+msgstr "กรอกด้วย AI"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1485
+msgid "Find Players"
+msgstr "หาผู้เล่น"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1116
+msgid "Find players for your event?"
+msgstr "หาผู้เล่นสำหรับกิจกรรมของคุณ?"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+msgid "Form filled • Click to expand"
+msgstr "กรอกแบบฟอร์มแล้ว • คลิกเพื่อขยาย"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1285
+msgid "Format"
+msgstr "รูปแบบ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1442
+msgid "Format options"
+msgstr "ตัวเลือกรูปแบบ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:949
+msgid "Friday Night Pickleball"
+msgstr "พิคเคิลบอลคืนวันศุกร์"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+msgid "Generating..."
+msgstr "กำลังสร้าง..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:137
+msgid "I couldn't process that request. Please try again."
+msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Let AI help you fill out the details below"
+msgstr "ให้ AI ช่วยคุณกรอกรายละเอียดด้านล่าง"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
+msgid "List your event publicly to help fill open spots"
+msgstr "แสดงกิจกรรมของคุณแบบสาธารณะเพื่อช่วยเติมที่ว่าง"
+
+#: src/components/molecules/AIResponseCard.re.mjs:90
+#: src/components/molecules/AIResponseCard.re.mjs:194
+msgid "Location:"
+msgstr "สถานที่:"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:957
+msgid "Max RSVPs (optional)"
+msgstr "RSVP สูงสุด (ไม่บังคับ)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1085
+msgid "Minimum rating (optional)"
+msgstr "เรตติ้งขั้นต่ำ (ไม่บังคับ)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:759
+msgid "No club"
+msgstr "ไม่มีคลับ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:616
+msgid "No club / Independent event"
+msgstr "ไม่มีคลับ / กิจกรรมอิสระ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:961
+msgid "No limit"
+msgstr "ไม่จำกัด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1089
+msgid "No minimum"
+msgstr "ไม่มีขั้นต่ำ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:459
+#: src/components/organisms/CreateLocationEventForm.re.mjs:478
+msgid "Not set"
+msgstr "ยังไม่ได้ตั้งค่า"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1253
+msgid "Paid event"
+msgstr "กิจกรรมมีค่าใช้จ่าย"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to continue"
+msgstr "กด ⌘+Enter เพื่อดำเนินการต่อ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to generate"
+msgstr "กด ⌘+Enter เพื่อสร้าง"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:991
+msgid "Price"
+msgstr "ราคา"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:483
+msgid "Private event"
+msgstr "กิจกรรมส่วนตัว"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:496
+msgid "Public"
+msgstr "สาธารณะ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:498
+msgid "Public event"
+msgstr "กิจกรรมสาธารณะ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
+msgid "Read more..."
+msgstr "อ่านเพิ่มเติม..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:467
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Recreational"
+msgstr "นันทนาการ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1258
+msgid "Require payment from attendees"
+msgstr "ต้องการการชำระเงินจากผู้เข้าร่วม"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:338
+msgid "Reset"
+msgstr "รีเซ็ต"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1380
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "การเล่นจริงจังพร้อมอันดับและเรตติ้ง เกมอาจส่งผลต่อเรตติ้งผู้เล่นของคุณ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1155
+msgid "Show less"
+msgstr "แสดงน้อยลง"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1032
+msgid "Skill level"
+msgstr "ระดับทักษะ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:911
+msgid "Start date and time"
+msgstr "วันที่และเวลาเริ่มต้น"
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+msgid "Suggested Events"
+msgstr "กิจกรรมที่แนะนำ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:74
+msgid "title is required"
+msgstr "ต้องระบุหัวข้อ"
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+msgid "Title:"
+msgstr "ชื่อ:"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1524
+msgid "Update Event"
+msgstr "อัปเดตกิจกรรม"

@@ -36,7 +36,7 @@ module ProvidersMenu = {
 }
 module Anchor = {
   @react.component
-  let make = (~href: string, ~children: React.element) => {
+  let make = (~children: React.element) => {
     <a href="#" onClick={e => e->JsxEventU.Mouse.preventDefault} className=""> {children} </a>
   }
 }

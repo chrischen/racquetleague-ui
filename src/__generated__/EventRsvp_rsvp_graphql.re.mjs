@@ -91,6 +91,13 @@ var node = {
       "kind": "ScalarField",
       "name": "message",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "paid",
+      "storageKey": null
     }
   ],
   "type": "Rsvp",

@@ -1,6 +1,10 @@
 module APIProvider = {
   @react.component @module("@vis.gl/react-google-maps")
-  external make: (~apiKey: string, ~libraries: array<string>=?, ~children: React.element) => React.element = "APIProvider"
+  external make: (
+    ~apiKey: string,
+    ~libraries: array<string>=?,
+    ~children: React.element,
+  ) => React.element = "APIProvider"
 }
 module Map = {
   type coords = {
@@ -14,6 +18,7 @@ module Map = {
     ~zoom: int=?,
     ~defaultCenter: coords=?,
     ~center: coords=?,
+    ~gestureHandling: string=?,
     ~children: React.element=?,
   ) => React.element = "Map"
 }
@@ -25,14 +30,12 @@ module Marker = {
 }
 
 module AdvancedMarker = {
-  type markerRef;
-  type clickTarget = {
-    position: Map.coords
-  }
+  type markerRef
+  type clickTarget = {position: Map.coords}
   type clickEvent = {
     target: clickTarget,
-    url: string
-  };
+    url: string,
+  }
   @react.component @module("@vis.gl/react-google-maps")
   external make: (
     ~key: Map.coords=?,
@@ -41,10 +44,15 @@ module AdvancedMarker = {
     ~ref: markerRef=?,
     ~position: Map.coords=?,
     ~children: React.element=?,
-    ~onClick: (clickEvent => unit)=?,
+    ~onClick: clickEvent => unit=?,
     ~gmpClickable: bool=?,
   ) => React.element = "AdvancedMarker"
 }
+module CooperativeGestureHandler = {
+  @react.component @module("./CooperativeGestureHandler")
+  external make: unit => React.element = "CooperativeGestureHandler"
+}
+
 module Pin = {
   @react.component @module("@vis.gl/react-google-maps")
   external make: (
@@ -52,6 +60,5 @@ module Pin = {
     ~glyphColor: string=?,
     ~borderColor: string=?,
     ~scale: float=?,
-
   ) => React.element = "Pin"
 }

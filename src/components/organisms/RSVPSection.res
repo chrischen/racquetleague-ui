@@ -16,6 +16,7 @@ module Fragment = %relay(`
     id
     maxRsvps
     minRating
+    price
     viewerIsAdmin
     activity {
       slug
@@ -45,6 +46,7 @@ module Fragment = %relay(`
           }
           listType
           message
+          paid
         }
       }
       pageInfo {
@@ -224,7 +226,7 @@ module ViewerStatusMessage = {
 let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
   let (_isPending, startTransition) = ReactExperimental.useTransition()
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
-  let {__id, maxRsvps, minRating, activity, viewerIsAdmin, club} = Fragment.use(event)
+  let {__id, maxRsvps, minRating, price, activity, viewerIsAdmin, club} = Fragment.use(event)
   let viewer = user->Option.map(user => UserFragment.use(user))
   let rsvps = data.rsvps->Fragment.getConnectionNodes
 

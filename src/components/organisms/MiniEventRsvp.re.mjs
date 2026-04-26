@@ -72,16 +72,17 @@ function MiniEventRsvp(props) {
   var maxRating = props.maxRating;
   var rsvp = use(props.rsvp);
   return Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
-                    var progress = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(rsvp.rating, (function (rating) {
-                                    return rating.mu;
-                                  })), (function (mu) {
-                                return mu / maxRating * 100 | 0;
-                              })), 100);
+                    var mu = Core__Option.getOr(Core__Option.flatMap(rsvp.rating, (function (rating) {
+                                return rating.mu;
+                              })), 25);
+                    var progress = mu / maxRating * 100 | 0;
                     return JsxRuntime.jsx(MiniEventRsvp$ListItem, {
                                 children: JsxRuntime.jsx(AvatarWithProgress.make, {
                                       src: Core__Option.getOr(user.picture, ""),
                                       alt: Core__Option.getOr(user.lineUsername, "[Line username missing]"),
-                                      progress: progress
+                                      progress: progress,
+                                      size: 36,
+                                      strokeWidth: 2
                                     })
                               }, user.id);
                   })), null);

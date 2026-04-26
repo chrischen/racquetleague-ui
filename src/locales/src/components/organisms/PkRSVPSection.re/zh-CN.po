@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 02:59+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:259
+msgid "· {0} pending"
+msgstr "· {0} 待处理"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:257
+msgid "· +{0} waitlist"
+msgstr "· +{0} 候补"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:254
+msgid "{0} joined"
+msgstr "{0} 已参加"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "批准报名"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "您确定要将这个人从活动中移除吗？"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "Confirmed · {0}"
+msgstr "已确认 · {0}"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "移至待审核列表"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:250
+msgid "Participants"
+msgstr "参与者"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:486
+msgid "Pending · {0}"
+msgstr "待处理 · {0}"
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "从活动中移除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "移除此 RSVP"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:212
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "需要: DUPR {minDuprStr}以上"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:233
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "参加需要 DUPR {minDuprStr}以上"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
+"制其报名吗？"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "查看资料"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:422
+msgid "Waitlist · {0}"
+msgstr "候补名单 · {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:216
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"您的评分 {viewerOrdinalStr} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}）低于最低要求。您将被添加到待处理列表。"
+
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "球员"

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"yQ2kGp\":\"Load more\",\"Z3FXyt\":\"Loading...\",\"sh9hqq\":\"My clubs\"}");

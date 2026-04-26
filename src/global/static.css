@@ -81,8 +81,8 @@
 		color: #8d6ba6;
 	}
 	html {
-		font-size: 1.15em;
 		font-family: monospace;
+		font-size: 16px;
 		-webkit-font-smoothing: antialiased;
 		/* font-weight: 400; */
 		overscroll-behavior: none;

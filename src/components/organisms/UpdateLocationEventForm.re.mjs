@@ -51,6 +51,7 @@ function UpdateLocationEventForm(props) {
   var prefilledValues_listed = eventData.listed;
   var prefilledValues_timezone = eventData.timezone;
   var prefilledValues_tags = eventData.tags;
+  var prefilledValues_price = eventData.price;
   var prefilledValues = {
     title: prefilledValues_title,
     activitySlug: prefilledValues_activitySlug,
@@ -62,7 +63,8 @@ function UpdateLocationEventForm(props) {
     details: prefilledValues_details,
     listed: prefilledValues_listed,
     timezone: prefilledValues_timezone,
-    tags: prefilledValues_tags
+    tags: prefilledValues_tags,
+    price: prefilledValues_price
   };
   return JsxRuntime.jsx(CreateLocationEventForm.make, {
               eventId: eventData.id,

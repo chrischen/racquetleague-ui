@@ -126,6 +126,7 @@ type inputs = {
   timezone: Zod.optional<Zod.string_>,
   details: Zod.optional<Zod.string_>,
   listed: bool,
+  price?: int,
 }
 
 let schema = Zod.z->Zod.object(
@@ -147,6 +148,10 @@ let schema = Zod.z->Zod.object(
       timezone: Zod.z->Zod.string({})->Zod.optional,
       details: Zod.z->Zod.string({})->Zod.optional,
       listed: Zod.z->Zod.boolean({}),
+      price: ?Zod.z->Zod.preprocess(
+        v => Int.fromString(v),
+        Zod.z->Zod.numberInt({})->Zod.optional,
+      ),
     }: inputs
   ),
 )
@@ -165,6 +170,7 @@ type prefilledValues = {
   listed?: bool,
   timezone?: string,
   tags?: array<string>,
+  price?: int,
 }
 
 // Calculate duration in hours between start date and end time
@@ -227,6 +233,7 @@ let make = (
       startDate: pf.startDate->Option.getOr(""),
       endTime: pf.endDate->Option.getOr(""),
       listed: pf.listed->Option.getOr(false),
+      price: ?pf.price,
     }
   | None => {
       listed: false,
@@ -250,6 +257,10 @@ let make = (
       }
     )
     ->Option.getOr(false)
+
+  let (isPaidEvent, setIsPaidEvent) = React.useState(() =>
+    prefilledValues->Option.flatMap(pf => pf.price)->Option.isSome
+  )
 
   let startDate = watch(StartDate)
   let endTime = watch(EndTime)
@@ -486,6 +497,8 @@ let make = (
     let startDate = data.startDate->DateFns.parseISO
     let endDate = DateFns2.parse(data.endTime, "HH:mm", startDate)
 
+    let priceValue = isPaidEvent ? data.price : None
+
     if isUpdate {
       // Update existing event
       switch eventId {
@@ -506,6 +519,7 @@ let make = (
               listed: data.listed,
               timezone: ?data.timezone,
               tags: tagsToSubmit,
+              price: ?priceValue,
             },
           },
           ~onCompleted=(_response, _errors) => {
@@ -537,6 +551,7 @@ let make = (
             listed: data.listed,
             timezone: ?data.timezone,
             tags: tagsToSubmit,
+            price: ?priceValue,
           },
           connections: [connectionId],
         },
@@ -1026,6 +1041,57 @@ let make = (
                   </div>
                 </div>
               : React.null}
+          </div>
+          // Paid Event Section
+          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
+            <div className="px-4 py-4">
+              <div className="flex items-start gap-3">
+                <input
+                  id="paidEvent"
+                  type_="checkbox"
+                  checked={isPaidEvent}
+                  onChange={_ => {
+                    let newValue = !isPaidEvent
+                    setIsPaidEvent(_ => newValue)
+                    if !newValue {
+                      setValue(Price, Value(""))
+                    }
+                  }}
+                  className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-0.5"
+                />
+                <div className="flex-1">
+                  <label
+                    htmlFor="paidEvent" className="block text-sm font-semibold text-gray-900">
+                    {t`Paid event`}
+                  </label>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {t`Require payment from attendees`}
+                  </p>
+                </div>
+              </div>
+              {isPaidEvent
+                ? <div className="mt-4 ml-8">
+                    <label
+                      htmlFor="price"
+                      className="block text-sm font-semibold text-gray-900 mb-2">
+                      {t`Price`}
+                    </label>
+                    <div className="relative">
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-sm">
+                        {"¥"->React.string}
+                      </span>
+                      <input
+                        {...register(Price, ~options={required: false})}
+                        id="price"
+                        type_="number"
+                        min="1"
+                        placeholder={ts`Enter price`}
+                        className="block w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      />
+                    </div>
+                  </div>
+                : React.null}
+            </div>
           </div>
           // Activity & Format Section - Collapsible
           <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">

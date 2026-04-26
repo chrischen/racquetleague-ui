@@ -59,9 +59,29 @@ module MoveRight = {
 }
 
 module X = {
-  // Add binding for X icon
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "X"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "X"
+}
+
+module Lock = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~className: string=?,
+    ~strokeWidth: float=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Lock"
+}
+
+module Trophy = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~className: string=?,
+    ~strokeWidth: float=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Trophy"
 }
 
 module Building = {
@@ -72,6 +92,7 @@ module Building = {
 module Settings = {
   @module("lucide-react") @react.component
   external make: (
+    ~size: int=?,
     ~className: string=?,
     ~\"aria-hidden": string=?,
     ~color: string=?,
@@ -95,7 +116,8 @@ module Clock = {
 }
 module User = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "User"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "User"
 }
 module List = {
   // Add binding for List icon
@@ -103,9 +125,15 @@ module List = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "List"
 }
 
+module Maximize2 = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Maximize2"
+}
+
 module Calendar = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Calendar"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Calendar"
 }
 
 module Users = {
@@ -134,14 +162,14 @@ module Share = {
   ) => React.element = "Share2"
 }
 
+module Send = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Send"
+}
+
 module Pencil = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Pencil"
-}
-
-module Trophy = {
-  @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Trophy"
 }
 
 module MessageCircle = {
@@ -157,8 +185,22 @@ module Bell = {
 
 module ChevronUp = {
   @module("lucide-react") @react.component
-  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
-    "ChevronUp"
+  external make: (
+    ~size: int=?,
+    ~className: string=?,
+    ~strokeWidth: float=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "ChevronUp"
+}
+
+module ChevronsUp = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~className: string=?,
+    ~strokeWidth: float=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "ChevronsUp"
 }
 
 module ChevronDown = {
@@ -169,17 +211,13 @@ module ChevronDown = {
 
 module Search = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Search"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Search"
 }
 
 module Sparkles = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Sparkles"
-}
-
-module Lock = {
-  @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Lock"
 }
 
 module GripVertical = {
@@ -204,7 +242,8 @@ module Circle = {
 
 module ChevronLeft = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "ChevronLeft"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ChevronLeft"
 }
 
 module ChevronRight = {
@@ -254,12 +293,14 @@ module MinusCircle = {
 
 module Minus = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Minus"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Minus"
 }
 
 module Plus = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Plus"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Plus"
 }
 
 module TrendingUp = {
@@ -321,4 +362,39 @@ module Swords = {
 module ShieldIcon = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Shield"
+}
+
+module Home = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Home"
+}
+
+module Map = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Map"
+}
+
+module Menu = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Menu"
+}
+
+module Globe = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Globe"
+}
+
+module CalendarDays = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "CalendarDays"
+}
+
+module Crosshair = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Crosshair"
 }

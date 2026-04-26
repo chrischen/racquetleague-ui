@@ -17,18 +17,18 @@ msgstr ""
 msgid "(logout)"
 msgstr "（退出登录）"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:103
-#: src/components/pages/DefaultLayoutMap.re.mjs:156
+#: src/components/pages/DefaultLayoutMap.re.mjs:99
+#: src/components/pages/DefaultLayoutMap.re.mjs:152
 msgid "Badminton"
 msgstr "羽毛球"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:227
-#: src/components/pages/DefaultLayoutMap.re.mjs:297
+#: src/components/pages/DefaultLayoutMap.re.mjs:223
+#: src/components/pages/DefaultLayoutMap.re.mjs:293
 msgid "Events"
 msgstr "活动"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:254
-#: src/components/pages/DefaultLayoutMap.re.mjs:324
+#: src/components/pages/DefaultLayoutMap.re.mjs:250
+#: src/components/pages/DefaultLayoutMap.re.mjs:320
 msgid "Find Games"
 msgstr "寻找比赛"
 
@@ -37,33 +37,33 @@ msgstr "寻找比赛"
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
-#: src/components/organisms/NavViewer.re.mjs:71
+#: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Clubs"
 msgstr "我的俱乐部"
 
-#: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Events"
-msgstr "我的活动"
-
-#: src/components/pages/DefaultLayoutMap.re.mjs:98
-#: src/components/pages/DefaultLayoutMap.re.mjs:151
+#: src/components/pages/DefaultLayoutMap.re.mjs:94
+#: src/components/pages/DefaultLayoutMap.re.mjs:147
 msgid "Pickleball"
 msgstr "匹克球"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:211
-#: src/components/pages/DefaultLayoutMap.re.mjs:283
+#: src/components/pages/DefaultLayoutMap.re.mjs:207
+#: src/components/pages/DefaultLayoutMap.re.mjs:279
 msgid "pkuru"
 msgstr "pkuru"
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:242
-#: src/components/pages/DefaultLayoutMap.re.mjs:312
+#: src/components/pages/DefaultLayoutMap.re.mjs:238
+#: src/components/pages/DefaultLayoutMap.re.mjs:308
 msgid "Rankings"
 msgstr "排名"
-
-#: src/components/organisms/NavViewer.re.mjs:77
-msgid "Settings"
-msgstr "设置"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:97
 #~ msgid "All"
 #~ msgstr "全部"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Events"
+#~ msgstr "我的活动"
+
+#: src/components/organisms/NavViewer.re.mjs:77
+#~ msgid "Settings"
+#~ msgstr "设置"

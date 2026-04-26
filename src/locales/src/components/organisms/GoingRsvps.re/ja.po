@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/GoingRsvps.re.mjs:104
+#: src/components/organisms/GoingRsvps.re.mjs:105
 msgid "+{0} more"
 msgstr "+{0}人他"
 
-#: src/components/organisms/RsvpOptions.re.mjs:115
+#: src/components/organisms/RsvpOptions.re.mjs:118
 msgid "Approve RSVP"
 msgstr "参加申込を承認"
 
-#: src/components/organisms/RsvpOptions.re.mjs:177
+#: src/components/organisms/RsvpOptions.re.mjs:181
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
@@ -29,32 +29,40 @@ msgstr "この人をイベントから削除してもよろしいですか？"
 msgid "Going"
 msgstr "参加"
 
-#: src/components/organisms/RsvpOptions.re.mjs:125
-#: src/components/organisms/RsvpOptions.re.mjs:192
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
+
+#: src/components/organisms/EventRsvp.re.mjs:110
+msgid "Not paid"
+msgstr "未払い"
+
+#: src/components/organisms/EventRsvp.re.mjs:102
+msgid "Paid"
+msgstr "支払い済み"
 
 #: src/components/organisms/EventRsvp.re.mjs:61
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/RsvpOptions.re.mjs:138
+#: src/components/organisms/RsvpOptions.re.mjs:141
 msgid "Remove from event"
 msgstr "イベントから削除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:176
+#: src/components/organisms/RsvpOptions.re.mjs:180
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
-#: src/components/organisms/GoingRsvps.re.mjs:122
+#: src/components/organisms/GoingRsvps.re.mjs:123
 msgid "See all"
 msgstr "すべて見る"
 
-#: src/components/organisms/GoingRsvps.re.mjs:139
+#: src/components/organisms/GoingRsvps.re.mjs:140
 msgid "Show less"
 msgstr "折りたたむ"
 
-#: src/components/organisms/RsvpOptions.re.mjs:193
+#: src/components/organisms/RsvpOptions.re.mjs:197
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -62,6 +70,6 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/RsvpOptions.re.mjs:163
+#: src/components/organisms/RsvpOptions.re.mjs:167
 msgid "View Profile"
 msgstr "プロフィールを表示"

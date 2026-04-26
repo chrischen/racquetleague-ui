@@ -13,216 +13,662 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:543
-msgid "Badminton"
-msgstr "แบดมินตัน"
+#: src/components/pages/PkEventPage.re.mjs:627
+msgid "...more"
+msgstr "...เพิ่มเติม"
 
-#. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:546
-msgid "Table Tennis"
-msgstr "ปิงปอง"
+#: src/components/organisms/PkRSVPSection.re.mjs:259
+msgid "· {0} pending"
+msgstr "· {0} รอดำเนินการ"
 
-#. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:549
-msgid "Pickleball"
-msgstr "พิคเคิลบอล"
+#: src/components/organisms/PkRSVPSection.re.mjs:257
+msgid "· +{0} waitlist"
+msgstr "· +{0} รายชื่อคอย"
 
-#. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:552
-msgid "Futsal"
-msgstr "ฟุตซอล"
-
-#: src/components/organisms/EventItem.re.mjs:423
-#: src/components/organisms/ClubEventsList.re.mjs:209
-msgid "[location missing]"
-msgstr "[ไม่มีสถานที่]"
-
-#: src/components/organisms/EventItem.re.mjs:365
+#: src/components/pkuru/PkEventRow.re.mjs:595
 msgid "[missing title]"
 msgstr "[ไม่มีหัวข้อ]"
 
-#: src/components/organisms/EventItem.re.mjs:215
-#: src/components/organisms/EventItem.re.mjs:222
-#: src/components/organisms/ClubEventsList.re.mjs:172
-#: src/components/organisms/ClubEventsList.re.mjs:177
+#: src/components/organisms/ClubEventsList.re.mjs:92
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
+#: src/components/organisms/PkRSVPSection.re.mjs:254
+msgid "{0} joined"
+msgstr "{0} เข้าร่วมแล้ว"
+
+#: src/components/shared/EventsListView.re.mjs:106
+msgid "{totalEvents, plural, one {{0}} other {{1}}}"
+msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
+
+#: src/components/shared/EventsListView.re.mjs:119
+msgid "← previous"
+msgstr "← ก่อนหน้า"
+
+#: src/components/organisms/PkEventMessages.re.mjs:146
+msgid "Activity"
+msgstr "กิจกรรม"
+
+#: src/components/organisms/PkEventMessages.re.mjs:433
+msgid "Add a message..."
+msgstr "เพิ่มข้อความ..."
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "ผู้เล่นระดับสูง"
+
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "อนุมัติ RSVP"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
+
+#: src/components/pages/PkEventPage.re.mjs:275
+msgid "cancel event"
+msgstr "ยกเลิกกิจกรรม"
+
+#: src/components/pkuru/PkEventRow.re.mjs:681
+msgid "Canceled"
+msgstr "ยกเลิกแล้ว"
+
+#: src/components/pages/PkEventPage.re.mjs:520
+msgid "CANCELED"
+msgstr "ยกเลิก"
+
+#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:463
+msgid "Claim spot"
+msgstr "จองที่"
+
+#: src/components/organisms/ProfileModal.re.mjs:260
+msgid "Complete your profile"
+msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "Confirmed · {0}"
+msgstr "⊡ยืนยันแล้ว · {0}"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "สนาม {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "สนาม {0} - กำลังแก้ไข"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "คอร์ท:"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "ลบการแข่งขัน"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "ลบการแข่งขันนี้หรือไม่?"
+
+#: src/components/organisms/ProfileModal.re.mjs:283
+msgid "Display name"
+msgstr "ชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:73
+msgid "Display name is required"
+msgstr "ต้องกรอกชื่อที่แสดง"
+
+#: src/components/pages/PkEventPage.re.mjs:258
+msgid "edit event"
+msgstr "แก้ไขกิจกรรม"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "แก้ไขการแข่งขัน"
+
+#: src/components/organisms/ProfileModal.re.mjs:300
+msgid "Email address"
+msgstr "ที่อยู่อีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:155
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/organisms/ProfileModal.re.mjs:232
+msgid "Email cannot be changed"
+msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/ProfileModal.re.mjs:76
+msgid "Email is required"
+msgstr "ต้องกรอกอีเมล"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "ป้อนคะแนนแมตช์"
+
+#: src/components/shared/EventsListView.re.mjs:107
+#: src/components/organisms/ClubEventsList.re.mjs:95
+msgid "event"
+msgstr "กิจกรรม"
+
+#: src/components/pages/PkEventPage.re.mjs:753
+msgid "Event not found"
+msgstr "ไม่พบกิจกรรม"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "แท็กกิจกรรม: {tag}"
+
+#: src/components/organisms/PkEventMessages.re.mjs:294
+msgid "Event updated"
+msgstr "อัปเดตกิจกรรมแล้ว"
+
+#: src/components/shared/EventsListView.re.mjs:108
+#: src/components/organisms/ClubEventsList.re.mjs:96
+msgid "events"
+msgstr "กิจกรรม"
+
+#: src/components/shared/EventsListView.re.mjs:83
+msgid "Filtered by date"
+msgstr "กรองตามวันที่"
+
+#: src/components/organisms/ProfileModal.re.mjs:232
+msgid "For event updates and notifications"
+msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
+#: src/components/pages/PkEventPage.re.mjs:585
+msgid "Free"
+msgstr "ฟรี"
+
+#: src/components/organisms/ClubEventsList.re.mjs:206
+msgid "Friday"
+msgstr "วันศุกร์"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "ผู้เล่นที่มีทักษะสูงมาก"
+
+#: src/components/pkuru/PkEventRow.re.mjs:524
+msgid "Join"
+msgstr "เข้าร่วม"
+
+#: src/components/pages/PkEventPage.re.mjs:463
+msgid "Join waitlist"
+msgstr "เข้าร่วมรายการรอ"
+
+#: src/components/pages/PkEventPage.re.mjs:389
+msgid "Join waitlist (#{0})"
+msgstr "เข้าร่วมรายชื่อคอย (#{0})"
+
+#: src/components/pkuru/PkEventRow.re.mjs:218
+msgid "Joined"
+msgstr "เข้าร่วมแล้ว"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "รอบที่แล้ว"
+
+#: src/components/pkuru/PkEventRow.re.mjs:523
+#: src/components/pages/PkEventPage.re.mjs:370
+msgid "Leave"
+msgstr "ออก"
+
+#: src/components/pkuru/PkEventRow.re.mjs:806
+#: src/components/pages/PkEventPage.re.mjs:714
+msgid "Leave event"
+msgstr "ออกจากกิจกรรม"
+
+#: src/components/pages/PkEventPage.re.mjs:627
+msgid "less"
+msgstr "ย่อ"
+
+#: src/components/pages/PkEventPage.re.mjs:603
+msgid "Location"
+msgstr "สถานที่"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "ทีมแพ้ (ทีม {0})"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "ระดับกลางขั้นต้นขึ้นไป"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "การแข่งขันจะถูกส่งไปยัง DUPR"
+
+#: src/components/organisms/ClubEventsList.re.mjs:194
+msgid "Monday"
+msgstr "วันจันทร์"
+
+#: src/components/shared/EventsListView.re.mjs:142
+msgid "more →"
+msgstr "เพิ่มเติม →"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "ย้ายไปรายชื่อรอ"
+
+#: src/components/organisms/ClubEventsList.re.mjs:215
+msgid "Next {dayName}"
+msgstr "สัปดาห์หน้า{dayName}"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "ไม่มีคะแนน"
+
+#: src/components/pages/PkEventPage.re.mjs:667
+msgid "Notes from the host"
+msgstr "หมายเหตุจากผู้จัด"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:250
+msgid "Participants"
+msgstr "ผู้เข้าร่วม"
+
+#: src/components/pkuru/PkEventRow.re.mjs:257
+msgid "Pending"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:486
+msgid "Pending · {0}"
+msgstr "รอดำเนินการ · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:133
+#: src/components/pkuru/PkEventRow.re.mjs:187
+msgid "players"
+msgstr "ผู้เล่น"
+
+#: src/components/pkuru/PkEventRow.re.mjs:639
+#: src/components/pages/PkEventPage.re.mjs:550
+msgid "Private"
+msgstr "ไม่เปิดเผย"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "ผู้เล่นมืออาชีพ"
+
+#: src/components/pkuru/PkEventRow.re.mjs:655
+#: src/components/pages/PkEventPage.re.mjs:565
+msgid "Rated"
+msgstr "มีการจัดอันดับ"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "ปรับสมดุลการแข่งขัน"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "ลบจากกิจกรรม"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "ลบการยืนยันนี้"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "ซ้ำ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:212
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "ต้องการ: DUPR {minDuprStr} ขึ้นไป"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:233
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "ต้องมี DUPR {minDuprStr} ขึ้นไปจึงเข้าร่วมได้"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "รอบ {0}"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "จับคู่แบบพบกันหมด"
+
+#: src/components/organisms/ClubEventsList.re.mjs:209
+msgid "Saturday"
+msgstr "วันเสาร์"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "บันทึก"
+
+#: src/components/organisms/ProfileModal.re.mjs:315
+msgid "Save & Join Event"
+msgstr "บันทึกและเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "บันทึกคะแนน"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "คะแนน"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show all {0} items"
+msgstr "แสดงทั้งหมด {0} รายการ"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show less"
+msgstr "แสดงน้อยลง"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
+
+#: src/components/shared/EventsListView.re.mjs:109
+msgid "SORTED BY START TIME"
+msgstr "เรียงตามเวลาเริ่มต้น"
+
+#: src/components/organisms/ClubEventsList.re.mjs:191
+msgid "Sunday"
+msgstr "วันอาทิตย์"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "ซิงค์ปฏิทิน"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "ทีม 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "ทีม 2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
+
+#: src/components/pkuru/PkEventRow.re.mjs:807
+#: src/components/pages/PkEventPage.re.mjs:715
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr "มีผู้เล่นในรายชื่อคอย ถ้าคุณออก ที่ของคุณจะถูกให้กับคนถัดไป คุณแน่ใจหรือไม่?"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
+
+#: src/components/organisms/ProfileModal.re.mjs:207
+msgid "This is how others will see you"
+msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
+"หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+
+#: src/components/organisms/ClubEventsList.re.mjs:203
+msgid "Thursday"
+msgstr "วันพฤหัสบดี"
+
+#: src/components/shared/EventsListView.re.mjs:53
+#: src/components/organisms/ClubEventsList.re.mjs:177
+msgid "Today"
+msgstr "วันนี้"
+
+#: src/components/shared/EventsListView.re.mjs:57
+#: src/components/organisms/ClubEventsList.re.mjs:182
+msgid "Tomorrow"
+msgstr "พรุ่งนี้"
+
+#: src/components/organisms/ClubEventsList.re.mjs:197
+msgid "Tuesday"
+msgstr "วันอังคาร"
+
+#: src/components/pages/PkEventPage.re.mjs:264
+msgid "uncancel event"
+msgstr "เลิกยกเลิกกิจกรรม"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "ระดับกลางขั้นบนขึ้นไป"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "ดูการจับคู่ทั้งหมด"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "ดูโปรไฟล์"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/pkuru/PkEventRow.re.mjs:524
+msgid "Waitlist"
+msgstr "รายชื่อคอย"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:422
+msgid "Waitlist · {0}"
+msgstr "รายชื่อคอย · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:250
+msgid "Waitlisted"
+msgstr "อยู่ในรายชื่อคอย"
+
+#: src/components/organisms/ProfileModal.re.mjs:264
+msgid "We need a few details before you can join this event"
+msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
+
+#: src/components/organisms/ClubEventsList.re.mjs:200
+msgid "Wednesday"
+msgstr "วันพุธ"
+
+#: src/components/shared/EventsListView.re.mjs:61
+msgid "Weekend"
+msgstr "สุดสัปดาห์"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "ทีมชนะ (ทีม {0})"
+
+#: src/components/organisms/ClubEventsList.re.mjs:214
+msgid "Yesterday"
+msgstr "เมื่อวาน"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:216
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"คะแนนของคุณ {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) ต่ำกว่าเกณฑ์ขั้นต่ำสุด คุณจะถูกเพิ่มในรายชื่อรอดำเนินการ"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:543
+#~ msgid "Badminton"
+#~ msgstr "แบดมินตัน"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:546
+#~ msgid "Table Tennis"
+#~ msgstr "ปิงปอง"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:549
+#~ msgid "Pickleball"
+#~ msgstr "พิคเคิลบอล"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:552
+#~ msgid "Futsal"
+#~ msgstr "ฟุตซอล"
+
+#: src/components/organisms/EventItem.re.mjs:423
+#: src/components/organisms/ClubEventsList.re.mjs:209
+#~ msgid "[location missing]"
+#~ msgstr "[ไม่มีสถานที่]"
+
+#: src/components/organisms/ClubEventsList.re.mjs:178
+#~ msgid "{0} {hiddenDesc} hidden — show"
+#~ msgstr "{0} {hiddenDesc} ซ่อนอยู่ — แสดง"
+
 #: src/components/organisms/CreateEventsButton.re.mjs:113
-msgid "{0} events created!"
-msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
+#~ msgid "{0} events created!"
+#~ msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
 
 #: src/components/organisms/EventItem.re.mjs:216
 #: src/components/organisms/EventItem.re.mjs:223
 #: src/components/organisms/ClubEventsList.re.mjs:173
 #: src/components/organisms/ClubEventsList.re.mjs:178
-msgid "{0} hour"
-msgstr "{0} ชั่วโมง"
+#~ msgid "{0} hour"
+#~ msgstr "{0} ชั่วโมง"
 
 #: src/components/organisms/EventItem.re.mjs:217
 #: src/components/organisms/EventItem.re.mjs:224
 #: src/components/organisms/ClubEventsList.re.mjs:174
 #: src/components/organisms/ClubEventsList.re.mjs:179
-msgid "{0} hours"
-msgstr "{0} ชั่วโมง"
+#~ msgid "{0} hours"
+#~ msgstr "{0} ชั่วโมง"
 
 #: src/components/organisms/EventItem.re.mjs:228
 #: src/components/organisms/ClubEventsList.re.mjs:181
-msgid "{0} minute"
-msgstr "{0} นาที"
+#~ msgid "{0} minute"
+#~ msgstr "{0} นาที"
 
 #: src/components/organisms/EventItem.re.mjs:229
 #: src/components/organisms/ClubEventsList.re.mjs:182
-msgid "{0} minutes"
-msgstr "{0} นาที"
+#~ msgid "{0} minutes"
+#~ msgstr "{0} นาที"
 
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/ClubEventsList.re.mjs:180
-msgid "{minutes, plural, one {{0}} other {{1}}}"
-msgstr "{0}"
+#~ msgid "{minutes, plural, one {{0}} other {{1}}}"
+#~ msgstr "{0}"
 
 #: src/components/organisms/EventItem.re.mjs:296
-msgid "{playersCount, plural, one {player} other {players}}"
-msgstr "ผู้เล่น"
+#~ msgid "{playersCount, plural, one {player} other {players}}"
+#~ msgstr "ผู้เล่น"
+
+#: src/components/organisms/ClubEventsList.re.mjs:111
+#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
+#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
 
 #: src/components/organisms/ClubEventsList.re.mjs:186
-msgid "🚫 CANCELED"
-msgstr "🚫 ยกเลิก"
+#~ msgid "🚫 CANCELED"
+#~ msgstr "🚫 ยกเลิก"
 
 #: src/components/organisms/AddEventButton.re.mjs:79
-msgid "Add an Event"
-msgstr "เพิ่มกิจกรรม"
+#~ msgid "Add an Event"
+#~ msgstr "เพิ่มกิจกรรม"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:175
-msgid "AI Assistant"
-msgstr "ผู้ช่วย AI"
+#~ msgid "AI Assistant"
+#~ msgstr "ผู้ช่วย AI"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:120
-msgid "An error occurred. Please try again."
-msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
+#~ msgid "An error occurred. Please try again."
+#~ msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:269
-msgid "Ask"
-msgstr "ถาม"
+#~ msgid "Ask"
+#~ msgstr "ถาม"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:150
-msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
-msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
+#~ msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
+#~ msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
 
 #: src/components/organisms/ClubEventsList.re.mjs:443
-msgid "clear filter"
-msgstr "ล้างตัวกรอง"
+#~ msgid "clear filter"
+#~ msgstr "ล้างตัวกรอง"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
-msgid "Create All Events"
-msgstr "สร้างกิจกรรมทั้งหมด"
+#~ msgid "Create All Events"
+#~ msgstr "สร้างกิจกรรมทั้งหมด"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
-msgid "Create This Event"
-msgstr "สร้างกิจกรรมนี้"
+#~ msgid "Create This Event"
+#~ msgstr "สร้างกิจกรรมนี้"
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
 #: src/components/molecules/AIResponseCard.re.mjs:162
-msgid "Date:"
-msgstr "วันที่:"
-
-#: src/components/molecules/AIResponseCard.re.mjs:105
-msgid "Description:"
-msgstr "คำอธิบาย:"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
-
-#: src/components/molecules/AIResponseCard.re.mjs:36
-msgid "Event Details"
-msgstr "รายละเอียดกิจกรรม"
-
-#: src/components/organisms/ClubEventsList.re.mjs:441
-msgid "filtering by date"
-msgstr "กรองตามวันที่"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-msgid "I can create events for you. Just give me your schedule."
-msgstr "ฉันสามารถสร้างกิจกรรมให้คุณได้ เพียงแค่บอกตารางของคุณ"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:108
-msgid "I couldn't process that request. Please try again."
-msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
-
-#: src/components/organisms/EventItem.re.mjs:313
-msgid "join event"
-msgstr "เข้าร่วมกิจกรรม"
-
-#: src/components/organisms/EventItem.re.mjs:260
-msgid "joined"
-msgstr "เข้าร่วมแล้ว"
-
-#: src/components/organisms/EventItem.re.mjs:307
-msgid "leave event"
-msgstr "ออกจากกิจกรรม"
-
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
-msgid "Location:"
-msgstr "สถานที่:"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:149
-msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
-msgstr "ต้องการ 5 คน สำหรับ KPI Park พรุ่งนี้ 18:00-21:00 แชร์ค่าใช้จ่าย"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:279
-msgid "New"
-msgstr "ใหม่"
-
-#: src/components/organisms/EventItem.re.mjs:272
-msgid "pending"
-msgstr "รอการอนุมัติ"
-
-#: src/components/organisms/EventItem.re.mjs:292
-msgid "players"
-msgstr "ผู้เล่น"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:265
-msgid "Processing..."
-msgstr "กำลังประมวลผล..."
-
-#: src/components/organisms/AIAssistantModal.re.mjs:269
-msgid "Reply"
-msgstr "ตอบกลับ"
-
-#: src/components/organisms/ClubEventsList.re.mjs:399
-msgid "share as text"
-msgstr "แชร์เป็นข้อความ"
-
-#: src/components/organisms/ClubEventsList.re.mjs:310
-msgid "show"
-msgstr "แสดง"
-
-#: src/components/molecules/AIResponseCard.re.mjs:138
-msgid "Suggested Events"
-msgstr "กิจกรรมที่แนะนำ"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
-"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
-
-#: src/components/molecules/AIResponseCard.re.mjs:45
-msgid "Title:"
-msgstr "ชื่อ:"
-
-#: src/components/organisms/EventItem.re.mjs:266
-msgid "waitlist"
-msgstr "รายชื่อคอย"
+#~ msgid "Date:"
+#~ msgstr "วันที่:"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:229
 #~ msgid "Describe the event you want to create..."
 #~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
+
+#: src/components/molecules/AIResponseCard.re.mjs:105
+#~ msgid "Description:"
+#~ msgstr "คำอธิบาย:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+#~ msgid "Event Details"
+#~ msgstr "รายละเอียดกิจกรรม"
+
+#: src/components/organisms/ClubEventsList.re.mjs:441
+#~ msgid "filtering by date"
+#~ msgstr "กรองตามวันที่"
+
+#: src/components/pages/PkEventPage.re.mjs:691
+#~ msgid "Host"
+#~ msgstr "ผู้จัด"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "I can create events for you. Just give me your schedule."
+#~ msgstr "ฉันสามารถสร้างกิจกรรมให้คุณได้ เพียงแค่บอกตารางของคุณ"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:108
+#~ msgid "I couldn't process that request. Please try again."
+#~ msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
+
+#: src/components/organisms/EventItem.re.mjs:313
+#~ msgid "join event"
+#~ msgstr "เข้าร่วมกิจกรรม"
+
+#: src/components/organisms/EventItem.re.mjs:260
+#~ msgid "joined"
+#~ msgstr "เข้าร่วมแล้ว"
+
+#: src/components/organisms/EventItem.re.mjs:307
+#~ msgid "leave event"
+#~ msgstr "ออกจากกิจกรรม"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid ""
@@ -233,6 +679,68 @@ msgstr "รายชื่อคอย"
 #~ "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม "
 #~ "คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
 
+#: src/components/molecules/AIResponseCard.re.mjs:90
+#: src/components/molecules/AIResponseCard.re.mjs:194
+#~ msgid "Location:"
+#~ msgstr "สถานที่:"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:149
+#~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
+#~ msgstr "ต้องการ 5 คน สำหรับ KPI Park พรุ่งนี้ 18:00-21:00 แชร์ค่าใช้จ่าย"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:279
+#~ msgid "New"
+#~ msgstr "ใหม่"
+
+#: src/components/organisms/EventItem.re.mjs:272
+#~ msgid "pending"
+#~ msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "ผู้เล่น"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:265
+#~ msgid "Processing..."
+#~ msgstr "กำลังประมวลผล..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:269
+#~ msgid "Reply"
+#~ msgstr "ตอบกลับ"
+
+#: src/components/organisms/ClubEventsList.re.mjs:399
+#~ msgid "share as text"
+#~ msgstr "แชร์เป็นข้อความ"
+
+#: src/components/organisms/ClubEventsList.re.mjs:310
+#~ msgid "show"
+#~ msgstr "แสดง"
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+#~ msgid "Suggested Events"
+#~ msgstr "กิจกรรมที่แนะนำ"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+#~ msgid ""
+#~ "Tell me the time and place of your event, or any other details. You can "
+#~ "also let me know the details to include and I can even add the "
+#~ "translations."
+#~ msgstr ""
+#~ "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
+#~ "คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+
 #: src/components/molecules/AIResponseCard.re.mjs:68
 #~ msgid "Time:"
 #~ msgstr "เวลา:"
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+#~ msgid "Title:"
+#~ msgstr "ชื่อ:"
+
+#: src/components/organisms/EventItem.re.mjs:266
+#~ msgid "waitlist"
+#~ msgstr "รายชื่อคอย"
+
+#: src/components/pkuru/PkEventRow.re.mjs:215
+#~ msgid "You're in"
+#~ msgstr "คุณเข้าร่วมแล้ว"

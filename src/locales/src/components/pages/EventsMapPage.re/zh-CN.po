@@ -1,0 +1,537 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 02:59+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/PkEventPage.re.mjs:627
+msgid "...more"
+msgstr "...更多"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:259
+msgid "· {0} pending"
+msgstr "· {0} 待处理"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:257
+msgid "· +{0} waitlist"
+msgstr "· +{0} 候补"
+
+#: src/components/pkuru/PkEventRow.re.mjs:595
+msgid "[missing title]"
+msgstr "[标题缺失]"
+
+#: src/components/pkuru/PkEventsList.re.mjs:115
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/pkuru/PkEventsList.re.mjs:168
+msgid "{0} {hiddenDesc} hidden — show"
+msgstr "{0} {hiddenDesc} 条已隐藏 — 显示"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:254
+msgid "{0} joined"
+msgstr "{0} 已参加"
+
+#: src/components/shared/EventsListView.re.mjs:106
+msgid "{totalEvents, plural, one {{0}} other {{1}}}"
+msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
+
+#: src/components/pkuru/PkEventsList.re.mjs:93
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
+msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
+
+#: src/components/shared/EventsListView.re.mjs:119
+msgid "← previous"
+msgstr "← 上一页"
+
+#: src/components/organisms/PkEventMessages.re.mjs:146
+msgid "Activity"
+msgstr "活动"
+
+#: src/components/organisms/PkEventMessages.re.mjs:433
+msgid "Add a message..."
+msgstr "添加消息..."
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "高级球员"
+
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "批准报名"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "您确定要将这个人从活动中移除吗？"
+
+#: src/components/pages/PkEventPage.re.mjs:275
+msgid "cancel event"
+msgstr "取消活动"
+
+#: src/components/pkuru/PkEventRow.re.mjs:681
+msgid "Canceled"
+msgstr "已取消"
+
+#: src/components/pages/PkEventPage.re.mjs:520
+msgid "CANCELED"
+msgstr "已取消"
+
+#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:463
+msgid "Claim spot"
+msgstr "报名参加"
+
+#: src/components/organisms/ProfileModal.re.mjs:260
+msgid "Complete your profile"
+msgstr "完善个人资料"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "Confirmed · {0}"
+msgstr "已确认 · {0}"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "场地 {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "场地 {0} - 编辑中"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "场地数："
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "删除比赛"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "删除这场比赛？"
+
+#: src/components/organisms/ProfileModal.re.mjs:283
+msgid "Display name"
+msgstr "显示名称"
+
+#: src/components/organisms/ProfileModal.re.mjs:73
+msgid "Display name is required"
+msgstr "请输入显示名称"
+
+#: src/components/pages/PkEventPage.re.mjs:258
+msgid "edit event"
+msgstr "编辑活动"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "编辑比赛"
+
+#: src/components/organisms/ProfileModal.re.mjs:300
+msgid "Email address"
+msgstr "电子邮件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:155
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
+"件地址登录。"
+
+#: src/components/organisms/ProfileModal.re.mjs:232
+msgid "Email cannot be changed"
+msgstr "电子邮件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:76
+msgid "Email is required"
+msgstr "请输入电子邮件"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "输入比赛比分"
+
+#: src/components/shared/EventsListView.re.mjs:107
+#: src/components/pkuru/PkEventsList.re.mjs:118
+msgid "event"
+msgstr "活动"
+
+#: src/components/pages/PkEventPage.re.mjs:753
+msgid "Event not found"
+msgstr "找不到活动"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "活动标签：{tag}"
+
+#: src/components/organisms/PkEventMessages.re.mjs:294
+msgid "Event updated"
+msgstr "活动已更新"
+
+#: src/components/shared/EventsListView.re.mjs:108
+#: src/components/pkuru/PkEventsList.re.mjs:119
+msgid "events"
+msgstr "活动"
+
+#: src/components/shared/EventsListView.re.mjs:83
+msgid "Filtered by date"
+msgstr "按日期筛选"
+
+#: src/components/organisms/ProfileModal.re.mjs:232
+msgid "For event updates and notifications"
+msgstr "用于活动更新和通知"
+
+#: src/components/pages/PkEventPage.re.mjs:585
+msgid "Free"
+msgstr "免费"
+
+#: src/components/pkuru/PkEventsList.re.mjs:241
+msgid "Friday"
+msgstr "星期五"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "谷歌日历"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "高技能球员"
+
+#: src/components/pkuru/PkEventRow.re.mjs:524
+msgid "Join"
+msgstr "加入"
+
+#: src/components/pages/PkEventPage.re.mjs:463
+msgid "Join waitlist"
+msgstr "加入候补名单"
+
+#: src/components/pages/PkEventPage.re.mjs:389
+msgid "Join waitlist (#{0})"
+msgstr "加入候补名单 (#{0})"
+
+#: src/components/pkuru/PkEventRow.re.mjs:218
+msgid "Joined"
+msgstr "已加入"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "上一轮"
+
+#: src/components/pkuru/PkEventRow.re.mjs:523
+#: src/components/pages/PkEventPage.re.mjs:370
+msgid "Leave"
+msgstr "退出"
+
+#: src/components/pkuru/PkEventRow.re.mjs:806
+#: src/components/pages/PkEventPage.re.mjs:714
+msgid "Leave event"
+msgstr "退出活动"
+
+#: src/components/pages/PkEventPage.re.mjs:627
+msgid "less"
+msgstr "收起"
+
+#: src/components/pages/PkEventPage.re.mjs:603
+msgid "Location"
+msgstr "地点"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "输球队（队伍 {0}）"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "中级初级及以上"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "比赛结果将提交至 DUPR。"
+
+#: src/components/pkuru/PkEventsList.re.mjs:229
+msgid "Monday"
+msgstr "星期一"
+
+#: src/components/shared/EventsListView.re.mjs:142
+msgid "more →"
+msgstr "更多 →"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "移至待审核列表"
+
+#: src/components/pkuru/PkEventsList.re.mjs:250
+msgid "Next {dayName}"
+msgstr "下周{dayName}"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "没有技能等级限制。对所有球员开放。"
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "无比分"
+
+#: src/components/pages/PkEventPage.re.mjs:667
+msgid "Notes from the host"
+msgstr "主持人的备注"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:250
+msgid "Participants"
+msgstr "参与者"
+
+#: src/components/pkuru/PkEventRow.re.mjs:257
+msgid "Pending"
+msgstr "待审核"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:486
+msgid "Pending · {0}"
+msgstr "待处理 · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:133
+#: src/components/pkuru/PkEventRow.re.mjs:187
+msgid "players"
+msgstr "球员"
+
+#: src/components/pkuru/PkEventRow.re.mjs:639
+#: src/components/pages/PkEventPage.re.mjs:550
+msgid "Private"
+msgstr "非公开"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "职业球员"
+
+#: src/components/pkuru/PkEventRow.re.mjs:655
+#: src/components/pages/PkEventPage.re.mjs:565
+msgid "Rated"
+msgstr "计分赛"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "重新平衡比赛"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "从活动中移除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "移除此 RSVP"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "重复"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:212
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "需要: DUPR {minDuprStr}以上"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:233
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "参加需要 DUPR {minDuprStr}以上"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "比赛结果将提交至竞技评分系统。"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "第 {0} 回合"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "循环赛抽签"
+
+#: src/components/pkuru/PkEventsList.re.mjs:244
+msgid "Saturday"
+msgstr "星期六"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/ProfileModal.re.mjs:315
+msgid "Save & Join Event"
+msgstr "保存并参加活动"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "保存比分"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "比分"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show all {0} items"
+msgstr "显示全部 {0} 条"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show less"
+msgstr "收起"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "技能练习和专注于技术提高的训练"
+
+#: src/components/shared/EventsListView.re.mjs:109
+msgid "SORTED BY START TIME"
+msgstr "按开始时间排序"
+
+#: src/components/pkuru/PkEventsList.re.mjs:226
+msgid "Sunday"
+msgstr "星期日"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "同步日历"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "队伍 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "队伍 2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
+
+#: src/components/pkuru/PkEventRow.re.mjs:807
+#: src/components/pages/PkEventPage.re.mjs:715
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
+
+#: src/components/organisms/ProfileModal.re.mjs:207
+msgid "This is how others will see you"
+msgstr "这是其他人会看到的名字"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
+"制其报名吗？"
+
+#: src/components/pkuru/PkEventsList.re.mjs:238
+msgid "Thursday"
+msgstr "星期四"
+
+#: src/components/shared/EventsListView.re.mjs:53
+#: src/components/pkuru/PkEventsList.re.mjs:212
+msgid "Today"
+msgstr "今天"
+
+#: src/components/shared/EventsListView.re.mjs:57
+#: src/components/pkuru/PkEventsList.re.mjs:217
+msgid "Tomorrow"
+msgstr "明天"
+
+#: src/components/pkuru/PkEventsList.re.mjs:232
+msgid "Tuesday"
+msgstr "星期二"
+
+#: src/components/pages/PkEventPage.re.mjs:264
+msgid "uncancel event"
+msgstr "取消取消活动"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "中高级及以上"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "查看完整抽签"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "查看资料"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/pkuru/PkEventRow.re.mjs:524
+msgid "Waitlist"
+msgstr "等待列表"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:422
+msgid "Waitlist · {0}"
+msgstr "候补名单 · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:250
+msgid "Waitlisted"
+msgstr "已在候补名单"
+
+#: src/components/organisms/ProfileModal.re.mjs:264
+msgid "We need a few details before you can join this event"
+msgstr "在您参加此活动之前，我们需要一些信息"
+
+#: src/components/pkuru/PkEventsList.re.mjs:235
+msgid "Wednesday"
+msgstr "星期三"
+
+#: src/components/shared/EventsListView.re.mjs:61
+msgid "Weekend"
+msgstr "周末"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "获胜队（队伍 {0}）"
+
+#: src/components/pkuru/PkEventsList.re.mjs:249
+msgid "Yesterday"
+msgstr "昨天"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:216
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"您的评分 {viewerOrdinalStr} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}）低于最低要求。您将被添加到待处理列表。"
+
+#: src/components/pages/PkEventPage.re.mjs:691
+#~ msgid "Host"
+#~ msgstr "主持人"
+
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "球员"
+
+#: src/components/pkuru/PkEventRow.re.mjs:215
+#~ msgid "You're in"
+#~ msgstr "已报名"

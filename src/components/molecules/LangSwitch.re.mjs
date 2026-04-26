@@ -114,7 +114,7 @@ function LangSwitch(props) {
                       ]
                     }),
                 JsxRuntime.jsx(make$1, {
-                      className: "min-w-48",
+                      className: "min-w-48 z-[100]",
                       anchor: "bottom start",
                       children: locales.map(function (loc) {
                             var isActive = loc.lang === locale;

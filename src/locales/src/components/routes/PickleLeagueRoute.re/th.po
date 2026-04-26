@@ -13,34 +13,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LeaguePage.re.mjs:126
+#: src/components/pages/LeaguePage.re.mjs:44
 msgid "japan pickle league"
 msgstr "ลีกพิคเกิลบอลญี่ปุ่น"
 
-#: src/components/pages/LeaguePage.re.mjs:32
-msgid "Next Prize: February 28"
-msgstr "รางวัลถัดไป: 28 กุมภาพันธ์"
-
-#: src/components/pages/LeaguePage.re.mjs:36
-msgid "Prize Sponsor"
-msgstr "ผู้สนับสนุนรางวัล"
-
-#: src/components/pages/LeaguePage.re.mjs:66
-msgid "Selkirk SLK Era Paddle"
-msgstr "ไม้พาย Selkirk SLK Era"
-
-#: src/components/pages/LeaguePage.re.mjs:48
-msgid ""
-"This prize will be awarded to the top male and female players on this day."
-msgstr "รางวัลนี้จะมอบให้กับผู้เล่นชายและหญิงอันดับต้นในวันนี้"
-
-#: src/components/pages/LeaguePage.re.mjs:117
+#: src/components/pages/LeaguePage.re.mjs:35
 msgid "Tokyo Badminton League"
 msgstr "ลีกแบดมินตันโตกยว"
-
-#: src/components/pages/LeaguePage.re.mjs:71
-msgid "Top female and top male players will each receive the prize."
-msgstr "ผู้เล่นหญิงและชายอันดับ 1 จะได้รับรางวัลคนละรางวัล"
 
 #: src/components/pages/LeaguePage.re.mjs:58
 #~ msgid "Mach 2 Forza Paddle"
@@ -54,9 +33,17 @@ msgstr "ผู้เล่นหญิงและชายอันดับ 1 
 #~ msgid "Next Prize: December 31"
 #~ msgstr "รางวัลถัดไป: 31 ธันวาคม"
 
+#: src/components/pages/LeaguePage.re.mjs:32
+#~ msgid "Next Prize: February 28"
+#~ msgstr "รางวัลถัดไป: 28 กุมภาพันธ์"
+
 #: src/components/pages/LeaguePage.re.mjs:31
 #~ msgid "Next Prize: September 10"
 #~ msgstr "รางวัลครั้งต่อไป: 10 กันยายน"
+
+#: src/components/pages/LeaguePage.re.mjs:36
+#~ msgid "Prize Sponsor"
+#~ msgstr "ผู้สนับสนุนรางวัล"
 
 #: src/components/pages/LeaguePage.re.mjs:51
 #~ msgid "Proton Flamingo Paddle"
@@ -69,6 +56,19 @@ msgstr "ผู้เล่นหญิงและชายอันดับ 1 
 #: src/components/pages/LeaguePage.re.mjs:60
 #~ msgid "Selkirk Labs Paddle Cover"
 #~ msgstr "ปลอกไม้ตี Selkirk Labs"
+
+#: src/components/pages/LeaguePage.re.mjs:66
+#~ msgid "Selkirk SLK Era Paddle"
+#~ msgstr "ไม้พาย Selkirk SLK Era"
+
+#: src/components/pages/LeaguePage.re.mjs:48
+#~ msgid ""
+#~ "This prize will be awarded to the top male and female players on this day."
+#~ msgstr "รางวัลนี้จะมอบให้กับผู้เล่นชายและหญิงอันดับต้นในวันนี้"
+
+#: src/components/pages/LeaguePage.re.mjs:71
+#~ msgid "Top female and top male players will each receive the prize."
+#~ msgstr "ผู้เล่นหญิงและชายอันดับ 1 จะได้รับรางวัลคนละรางวัล"
 
 #: src/components/pages/LeaguePage.re.mjs:130
 #~ msgid "volair pickleball"

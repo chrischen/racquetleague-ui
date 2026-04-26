@@ -22,14 +22,14 @@ msgstr "(ออกจากระบบ)"
 msgid "login with Line"
 msgstr "เข้าสู่ระบบด้วย Line"
 
-#: src/components/organisms/NavViewer.re.mjs:71
+#: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Clubs"
 msgstr "คลับของฉัน"
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Events"
-msgstr "กิจกรรมของฉัน"
+#~ msgid "My Events"
+#~ msgstr "กิจกรรมของฉัน"
 
 #: src/components/organisms/NavViewer.re.mjs:77
-msgid "Settings"
-msgstr "การตั้งค่า"
+#~ msgid "Settings"
+#~ msgstr "การตั้งค่า"

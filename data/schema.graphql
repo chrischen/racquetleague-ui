@@ -138,6 +138,7 @@ input CreateEventInput {
   locationId: ID!
   maxRsvps: Int
   minRating: Float
+  price: Int
   startDate: Datetime!
   tags: [String!]
   timezone: String
@@ -212,6 +213,7 @@ type Event implements Node {
   maxRsvps: Int
   minRating: Float
   owner: User
+  price: Int
   rsvps(after: String, before: String, first: Int): EventRsvpConnection
   shadow: Boolean
   startDate: Datetime
@@ -406,6 +408,11 @@ type LocationEdge {
   node: Location
 }
 
+type MarkRsvpPaidResult implements HasErrors {
+  errors: [Error!]
+  rsvp: Rsvp
+}
+
 type Match {
   club: MatchClub
   createdAt: Datetime
@@ -506,6 +513,8 @@ type Mutation {
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
+  markRsvpPaid(eventId: ID!, userId: ID!): MarkRsvpPaidResult!
+  processEventPayment(eventId: ID!): ProcessEventPaymentResult!
   removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
   uncancelEvent(eventId: ID!): MutationResult2!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
@@ -554,6 +563,10 @@ input PredictMatchInput {
 type PredictMatchOutcome {
   team1: Float
   team2: Float
+}
+
+type ProcessEventPaymentResult implements HasErrors {
+  errors: [Error!]
 }
 
 type Query {
@@ -623,6 +636,7 @@ type Rsvp implements Node {
   leaveDate: Datetime
   listType: Int
   message: String
+  paid: Int
   rating: Rating
   rsvpId: Int
   user: User

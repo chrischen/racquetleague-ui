@@ -1,0 +1,96 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 02:59+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:259
+msgid "· {0} pending"
+msgstr "· {0} 保留中"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:257
+msgid "· +{0} waitlist"
+msgstr "· +{0} 補欠"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:254
+msgid "{0} joined"
+msgstr "{0} 参加済み"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "参加申込を承認"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "この人をイベントから削除してもよろしいですか？"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "Confirmed · {0}"
+msgstr "確定 · {0}"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "保留リストに移動"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:250
+msgid "Participants"
+msgstr "参加者"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:486
+msgid "Pending · {0}"
+msgstr "保留中 · {0}"
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "イベントから削除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "このRSVPを削除"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:212
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "必要なDUPR: {minDuprStr}以上"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:233
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "参加にはDUPR {minDuprStr}以上が必要です"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
+"失われます。本当にこのユーザーの参加申込を制限しますか？"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "プロフィールを表示"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:422
+msgid "Waitlist · {0}"
+msgstr "キャンセル待ち · {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:216
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
+"{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追"
+"加されます。"
+
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "プレイヤー"

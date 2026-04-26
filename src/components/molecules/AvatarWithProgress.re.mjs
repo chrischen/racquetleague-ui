@@ -4,10 +4,14 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
 function AvatarWithProgress(props) {
+  var __strokeWidth = props.strokeWidth;
+  var __size = props.size;
   var sigmaProgress = props.sigmaProgress;
+  var size = __size !== undefined ? __size : 32;
+  var strokeWidth = __strokeWidth !== undefined ? __strokeWidth : 2;
   var progressVal = Core__Option.getOr(props.progress, 100);
   var sigmaProgressVal = Core__Option.getOr(sigmaProgress, 0);
-  var radius = (32 - 2) / 2;
+  var radius = (size - strokeWidth) / 2;
   var circumference = radius * 2 * 3.141592653589793;
   var strokeDashoffset = circumference - progressVal / 100 * circumference;
   var sigmaArcLength = sigmaProgressVal / 100 * circumference;
@@ -19,12 +23,12 @@ function AvatarWithProgress(props) {
                       children: [
                         JsxRuntime.jsx("circle", {
                               className: "text-gray-200",
-                              cx: String(32 / 2),
-                              cy: String(32 / 2),
+                              cx: String(size / 2),
+                              cy: String(size / 2),
                               fill: "transparent",
                               r: String(radius),
                               stroke: "currentColor",
-                              strokeWidth: String(2)
+                              strokeWidth: String(strokeWidth)
                             }),
                         Core__Option.getOr(Core__Option.map(sigmaProgress, (function (param) {
                                     return JsxRuntime.jsx("circle", {
@@ -32,38 +36,38 @@ function AvatarWithProgress(props) {
                                                 style: {
                                                   opacity: "0.7"
                                                 },
-                                                cx: String(32 / 2),
-                                                cy: String(32 / 2),
+                                                cx: String(size / 2),
+                                                cy: String(size / 2),
                                                 fill: "transparent",
                                                 r: String(radius),
                                                 stroke: "currentColor",
                                                 strokeDasharray: String(circumference),
                                                 strokeDashoffset: String(sigmaStrokeDashoffset),
                                                 strokeLinecap: "round",
-                                                strokeWidth: String(2),
-                                                transform: "rotate(" + String(sigmaRotationAngle) + " " + String(32 / 2) + " " + String(32 / 2) + ")"
+                                                strokeWidth: String(strokeWidth),
+                                                transform: "rotate(" + String(sigmaRotationAngle) + " " + String(size / 2) + " " + String(size / 2) + ")"
                                               });
                                   })), null),
                         JsxRuntime.jsx("circle", {
                               className: "text-red-500",
-                              cx: String(32 / 2),
-                              cy: String(32 / 2),
+                              cx: String(size / 2),
+                              cy: String(size / 2),
                               fill: "transparent",
                               r: String(radius),
                               stroke: "currentColor",
                               strokeDasharray: String(circumference),
                               strokeDashoffset: String(strokeDashoffset),
                               strokeLinecap: "round",
-                              strokeWidth: String(2)
+                              strokeWidth: String(strokeWidth)
                             })
                       ],
                       className: "absolute inset-0 w-full h-full -rotate-90",
-                      viewBox: "0 0 " + (32).toString() + " " + (32).toString()
+                      viewBox: "0 0 " + size.toString() + " " + size.toString()
                     }),
                 JsxRuntime.jsx("img", {
                       className: "rounded-full w-full h-full object-cover",
                       style: {
-                        padding: String(2) + "px"
+                        padding: String(strokeWidth) + "px"
                       },
                       alt: props.alt,
                       src: props.src
@@ -71,8 +75,8 @@ function AvatarWithProgress(props) {
               ],
               className: "relative flex-shrink-0",
               style: {
-                height: String(32) + "px",
-                width: String(32) + "px"
+                height: String(size) + "px",
+                width: String(size) + "px"
               }
             });
 }

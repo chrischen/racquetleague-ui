@@ -21,8 +21,10 @@ let make = (
   ~connection: RescriptRelay.fragmentRefs<[#PinMap_eventConnection]>,
   ~onLocationClick,
   ~selected: option<string>=?,
+  ~navigateOnClick: bool=true,
 ) => {
   // let navigate = Router.useNavigate()
+  let navigate = LangProvider.Router.useNavigate()
   let connection = Fragment.use(connection)
   let locations =
     connection.edges
@@ -37,7 +39,8 @@ let make = (
 
   <GoogleMap.APIProvider
     apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk" libraries=["maps", "places"]>
-    <GoogleMap.Map mapId="eventsListMap" defaultZoom=12 defaultCenter={lat: 35.6495, lng: 139.7417}>
+    <GoogleMap.Map mapId="eventsListMap" defaultZoom=12 defaultCenter={lat: 35.6495, lng: 139.7417} gestureHandling="cooperative">
+      <GoogleMap.CooperativeGestureHandler.make />
       {locations
       ->Array.mapWithIndex((location, i) => {
         location
@@ -52,7 +55,9 @@ let make = (
                 position={(coords :> GoogleMap.Map.coords)}
                 onClick={_ => {
                   onLocationClick(location)
-                  // navigate("/events/" ++ id, None)
+                  if navigateOnClick {
+                    navigate("/locations/" ++ location.id, None)
+                  }
                 }}>
                 {selected->Option.map(s => s == location.id)->Option.getOr(false)
                   ? <GoogleMap.Pin

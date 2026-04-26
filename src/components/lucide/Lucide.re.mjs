@@ -23,6 +23,10 @@ var MoveRight = {};
 
 var X = {};
 
+var Lock = {};
+
+var Trophy = {};
+
 var Building = {};
 
 var Settings = {};
@@ -35,6 +39,8 @@ var User = {};
 
 var List = {};
 
+var Maximize2 = {};
+
 var Calendar = {};
 
 var Users = {};
@@ -45,9 +51,9 @@ var ArrowUpCircle = {};
 
 var Share = {};
 
-var Pencil = {};
+var Send = {};
 
-var Trophy = {};
+var Pencil = {};
 
 var MessageCircle = {};
 
@@ -55,13 +61,13 @@ var Bell = {};
 
 var ChevronUp = {};
 
+var ChevronsUp = {};
+
 var ChevronDown = {};
 
 var Search = {};
 
 var Sparkles = {};
-
-var Lock = {};
 
 var GripVertical = {};
 
@@ -119,6 +125,18 @@ var Swords = {};
 
 var ShieldIcon = {};
 
+var Home = {};
+
+var $$Map = {};
+
+var Menu = {};
+
+var Globe = {};
+
+var CalendarDays = {};
+
+var Crosshair = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -131,26 +149,29 @@ export {
   MoveLeft ,
   MoveRight ,
   X ,
+  Lock ,
+  Trophy ,
   Building ,
   Settings ,
   UserPlus ,
   Clock ,
   User ,
   List ,
+  Maximize2 ,
   Calendar ,
   Users ,
   Check ,
   ArrowUpCircle ,
   Share ,
+  Send ,
   Pencil ,
-  Trophy ,
   MessageCircle ,
   Bell ,
   ChevronUp ,
+  ChevronsUp ,
   ChevronDown ,
   Search ,
   Sparkles ,
-  Lock ,
   GripVertical ,
   Edit2 ,
   Play ,
@@ -179,5 +200,11 @@ export {
   Dumbbell ,
   Swords ,
   ShieldIcon ,
+  Home ,
+  $$Map ,
+  Menu ,
+  Globe ,
+  CalendarDays ,
+  Crosshair ,
 }
 /* No side effect */

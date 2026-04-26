@@ -7,14 +7,14 @@ let make = (
   ~alt: string,
   ~progress: option<int>=?,
   ~sigmaProgress: option<int>=?,
+  ~size: int=32,
+  ~strokeWidth: float=2.,
   (),
 ) => {
   // Defaults
   let progressVal = progress->Option.getOr(100)
   let sigmaProgressVal = sigmaProgress->Option.getOr(0)
   // Core dimensions
-  let size = 32
-  let strokeWidth = 2.
   let radius = (size->Int.toFloat -. strokeWidth) /. 2.
   let pi = 3.141592653589793
   let circumference = radius *. 2. *. pi

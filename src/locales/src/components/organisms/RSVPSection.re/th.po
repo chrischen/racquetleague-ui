@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/GoingRsvps.re.mjs:104
+#: src/components/organisms/GoingRsvps.re.mjs:105
 msgid "+{0} more"
 msgstr "+{0} คน"
 
@@ -22,11 +22,11 @@ msgstr "+{0} คน"
 msgid "Add Member"
 msgstr "เพิ่มสมาชิก"
 
-#: src/components/organisms/RsvpOptions.re.mjs:115
+#: src/components/organisms/RsvpOptions.re.mjs:118
 msgid "Approve RSVP"
 msgstr "อนุมัติ RSVP"
 
-#: src/components/organisms/RsvpOptions.re.mjs:177
+#: src/components/organisms/RsvpOptions.re.mjs:181
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
@@ -58,10 +58,18 @@ msgstr "กำลังโหลด..."
 msgid "Login to Join"
 msgstr "เข้าสู่ระบบเพื่อเข้าร่วม"
 
-#: src/components/organisms/RsvpOptions.re.mjs:125
-#: src/components/organisms/RsvpOptions.re.mjs:192
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
 msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
+
+#: src/components/organisms/EventRsvp.re.mjs:110
+msgid "Not paid"
+msgstr "ยังไม่ได้ชำระ"
+
+#: src/components/organisms/EventRsvp.re.mjs:102
+msgid "Paid"
+msgstr "ชำระแล้ว"
 
 #: src/components/organisms/PendingRsvps.re.mjs:58
 msgid "Pending"
@@ -72,11 +80,11 @@ msgstr "รอการอนุมัติ"
 msgid "Player"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/RsvpOptions.re.mjs:138
+#: src/components/organisms/RsvpOptions.re.mjs:141
 msgid "Remove from event"
 msgstr "ลบจากกิจกรรม"
 
-#: src/components/organisms/RsvpOptions.re.mjs:176
+#: src/components/organisms/RsvpOptions.re.mjs:180
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
@@ -98,11 +106,11 @@ msgstr "กำลังรอการอนุมัติ..."
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/GoingRsvps.re.mjs:122
+#: src/components/organisms/GoingRsvps.re.mjs:123
 msgid "See all"
 msgstr "ดูทั้งหมด"
 
-#: src/components/organisms/GoingRsvps.re.mjs:139
+#: src/components/organisms/GoingRsvps.re.mjs:140
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
@@ -115,7 +123,7 @@ msgstr ""
 "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
 "คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
-#: src/components/organisms/RsvpOptions.re.mjs:193
+#: src/components/organisms/RsvpOptions.re.mjs:197
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -129,7 +137,7 @@ msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
-#: src/components/organisms/RsvpOptions.re.mjs:163
+#: src/components/organisms/RsvpOptions.re.mjs:167
 msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 

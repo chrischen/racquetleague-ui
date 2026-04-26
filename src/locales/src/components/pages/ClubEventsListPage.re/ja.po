@@ -1,0 +1,546 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 02:59+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/PkEventPage.re.mjs:627
+msgid "...more"
+msgstr "...もっと見る"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:259
+msgid "· {0} pending"
+msgstr "· {0} 保留中"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:257
+msgid "· +{0} waitlist"
+msgstr "· +{0} 補欠"
+
+#: src/components/pkuru/PkEventRow.re.mjs:595
+msgid "[missing title]"
+msgstr "[タイトルがありません]"
+
+#: src/components/organisms/ClubEventsList.re.mjs:92
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{0, plural, one {{1}} other {{2}}}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:254
+msgid "{0} joined"
+msgstr "{0} 参加済み"
+
+#: src/components/shared/EventsListView.re.mjs:106
+msgid "{totalEvents, plural, one {{0}} other {{1}}}"
+msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
+
+#: src/components/shared/EventsListView.re.mjs:119
+msgid "← previous"
+msgstr "← 前へ"
+
+#: src/components/organisms/PkEventMessages.re.mjs:146
+msgid "Activity"
+msgstr "アクティビティ"
+
+#: src/components/organisms/PkEventMessages.re.mjs:433
+msgid "Add a message..."
+msgstr "メッセージを追加..."
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "上級プレイヤー"
+
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "参加申込を承認"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "この人をイベントから削除してもよろしいですか？"
+
+#: src/components/pages/PkEventPage.re.mjs:275
+msgid "cancel event"
+msgstr "イベントをキャンセル"
+
+#: src/components/pkuru/PkEventRow.re.mjs:681
+msgid "Canceled"
+msgstr "キャンセル済み"
+
+#: src/components/pages/PkEventPage.re.mjs:520
+msgid "CANCELED"
+msgstr "キャンセル"
+
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "Casual"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:463
+msgid "Claim spot"
+msgstr "参加する"
+
+#: src/components/organisms/ProfileModal.re.mjs:260
+msgid "Complete your profile"
+msgstr "プロフィールを完成させる"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "Confirmed · {0}"
+msgstr "確定 · {0}"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "コート{0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "コート{0} - 編集中"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "コート数："
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "試合を削除"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "この試合を削除しますか？"
+
+#: src/components/organisms/ProfileModal.re.mjs:283
+msgid "Display name"
+msgstr "表示名"
+
+#: src/components/organisms/ProfileModal.re.mjs:73
+msgid "Display name is required"
+msgstr "表示名は必須です"
+
+#: src/components/pages/PkEventPage.re.mjs:258
+msgid "edit event"
+msgstr "イベントを編集"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "試合を編集"
+
+#: src/components/organisms/ProfileModal.re.mjs:300
+msgid "Email address"
+msgstr "メールアドレス"
+
+#: src/components/organisms/ProfileModal.re.mjs:155
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
+"用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:232
+msgid "Email cannot be changed"
+msgstr "メールアドレスは変更できません"
+
+#: src/components/organisms/ProfileModal.re.mjs:76
+msgid "Email is required"
+msgstr "メールアドレスは必須です"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "試合のスコアを入力"
+
+#: src/components/shared/EventsListView.re.mjs:107
+#: src/components/organisms/ClubEventsList.re.mjs:95
+msgid "event"
+msgstr "イベント"
+
+#: src/components/pages/PkEventPage.re.mjs:753
+msgid "Event not found"
+msgstr "イベントが見つかりません"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "イベントタグ: {tag}"
+
+#: src/components/organisms/PkEventMessages.re.mjs:294
+msgid "Event updated"
+msgstr "イベントを更新しました"
+
+#: src/components/shared/EventsListView.re.mjs:108
+#: src/components/organisms/ClubEventsList.re.mjs:96
+msgid "events"
+msgstr "イベント"
+
+#: src/components/shared/EventsListView.re.mjs:83
+msgid "Filtered by date"
+msgstr "日付でフィルター中"
+
+#: src/components/organisms/ProfileModal.re.mjs:232
+msgid "For event updates and notifications"
+msgstr "イベントの更新と通知用"
+
+#: src/components/pages/PkEventPage.re.mjs:585
+msgid "Free"
+msgstr "無料"
+
+#: src/components/organisms/ClubEventsList.re.mjs:206
+msgid "Friday"
+msgstr "金曜日"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google カレンダー"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "高技能プレイヤー"
+
+#: src/components/pkuru/PkEventRow.re.mjs:524
+msgid "Join"
+msgstr "参加"
+
+#: src/components/pages/PkEventPage.re.mjs:463
+msgid "Join waitlist"
+msgstr "キャンセル待ちに登録"
+
+#: src/components/pages/PkEventPage.re.mjs:389
+msgid "Join waitlist (#{0})"
+msgstr "キャンセル待ちに参加 (#{0})"
+
+#: src/components/pkuru/PkEventRow.re.mjs:218
+msgid "Joined"
+msgstr "参加"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "前回のラウンド"
+
+#: src/components/pkuru/PkEventRow.re.mjs:523
+#: src/components/pages/PkEventPage.re.mjs:370
+msgid "Leave"
+msgstr "退出"
+
+#: src/components/pkuru/PkEventRow.re.mjs:806
+#: src/components/pages/PkEventPage.re.mjs:714
+msgid "Leave event"
+msgstr "イベントを退出"
+
+#: src/components/pages/PkEventPage.re.mjs:627
+msgid "less"
+msgstr "閉じる"
+
+#: src/components/pages/PkEventPage.re.mjs:603
+msgid "Location"
+msgstr "場所"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "敗北チーム（チーム{0}）"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "初中級以上"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "試合結果はDUPRに提出されます。"
+
+#: src/components/organisms/ClubEventsList.re.mjs:194
+msgid "Monday"
+msgstr "月曜日"
+
+#: src/components/shared/EventsListView.re.mjs:142
+msgid "more →"
+msgstr "もっと見る →"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "保留リストに移動"
+
+#: src/components/organisms/ClubEventsList.re.mjs:215
+msgid "Next {dayName}"
+msgstr "来週{dayName}"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "スコアなし"
+
+#: src/components/pages/PkEventPage.re.mjs:667
+msgid "Notes from the host"
+msgstr "ホストからのメモ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:250
+msgid "Participants"
+msgstr "参加者"
+
+#: src/components/pkuru/PkEventRow.re.mjs:257
+msgid "Pending"
+msgstr "保留中"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:486
+msgid "Pending · {0}"
+msgstr "保留中 · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:133
+#: src/components/pkuru/PkEventRow.re.mjs:187
+msgid "players"
+msgstr "プレイヤー"
+
+#: src/components/pkuru/PkEventRow.re.mjs:639
+#: src/components/pages/PkEventPage.re.mjs:550
+msgid "Private"
+msgstr "非公開"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "プロプレイヤー"
+
+#: src/components/pkuru/PkEventRow.re.mjs:655
+#: src/components/pages/PkEventPage.re.mjs:565
+msgid "Rated"
+msgstr "レーティング戦"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "試合を再調整"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "イベントから削除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "このRSVPを削除"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "繰り返し"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:212
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "必要なDUPR: {minDuprStr}以上"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:233
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "参加にはDUPR {minDuprStr}以上が必要です"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "結果は競技レーティングに提出されます。"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "ラウンド{0}"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "ラウンドロビン組み合わせ"
+
+#: src/components/organisms/ClubEventsList.re.mjs:209
+msgid "Saturday"
+msgstr "土曜日"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/ProfileModal.re.mjs:315
+msgid "Save & Join Event"
+msgstr "保存して参加する"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "スコアを保存"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "スコア"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show all {0} items"
+msgstr "{0} 件すべて表示"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show less"
+msgstr "折りたたむ"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "技術向上に焦点を当てたスキル練習とドリル"
+
+#: src/components/shared/EventsListView.re.mjs:109
+msgid "SORTED BY START TIME"
+msgstr "開始時間順"
+
+#: src/components/organisms/ClubEventsList.re.mjs:191
+msgid "Sunday"
+msgstr "日曜日"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "カレンダー同期"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "チーム1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "チーム2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
+"元々予定されていた試合を復元できます。"
+
+#: src/components/pkuru/PkEventRow.re.mjs:807
+#: src/components/pages/PkEventPage.re.mjs:715
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr ""
+"キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されま"
+"す。よろしいですか？"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:207
+msgid "This is how others will see you"
+msgstr "他の人に表示される名前です"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
+"失われます。本当にこのユーザーの参加申込を制限しますか？"
+
+#: src/components/organisms/ClubEventsList.re.mjs:203
+msgid "Thursday"
+msgstr "木曜日"
+
+#: src/components/shared/EventsListView.re.mjs:53
+#: src/components/organisms/ClubEventsList.re.mjs:177
+msgid "Today"
+msgstr "今日"
+
+#: src/components/shared/EventsListView.re.mjs:57
+#: src/components/organisms/ClubEventsList.re.mjs:182
+msgid "Tomorrow"
+msgstr "明日"
+
+#: src/components/organisms/ClubEventsList.re.mjs:197
+msgid "Tuesday"
+msgstr "火曜日"
+
+#: src/components/pages/PkEventPage.re.mjs:264
+msgid "uncancel event"
+msgstr "イベントをキャンセル解除"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "中上級以上"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "組み合わせを見る"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "プロフィールを表示"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/pkuru/PkEventRow.re.mjs:524
+msgid "Waitlist"
+msgstr "キャンセル待ち"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:422
+msgid "Waitlist · {0}"
+msgstr "キャンセル待ち · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:250
+msgid "Waitlisted"
+msgstr "キャンセル待ち中"
+
+#: src/components/organisms/ProfileModal.re.mjs:264
+msgid "We need a few details before you can join this event"
+msgstr "イベント参加に必要な情報を入力してください"
+
+#: src/components/organisms/ClubEventsList.re.mjs:200
+msgid "Wednesday"
+msgstr "水曜日"
+
+#: src/components/shared/EventsListView.re.mjs:61
+msgid "Weekend"
+msgstr "週末"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "勝利チーム（チーム{0}）"
+
+#: src/components/organisms/ClubEventsList.re.mjs:214
+msgid "Yesterday"
+msgstr "昨日"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:216
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
+"{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追"
+"加されます。"
+
+#: src/components/organisms/ClubEventsList.re.mjs:178
+#~ msgid "{0} {hiddenDesc} hidden — show"
+#~ msgstr "{0} {hiddenDesc} 件非表示 — 表示する"
+
+#: src/components/organisms/ClubEventsList.re.mjs:111
+#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
+#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/pages/PkEventPage.re.mjs:691
+#~ msgid "Host"
+#~ msgstr "ホスト"
+
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "プレイヤー"
+
+#: src/components/pkuru/PkEventRow.re.mjs:215
+#~ msgid "You're in"
+#~ msgstr "参加済み"

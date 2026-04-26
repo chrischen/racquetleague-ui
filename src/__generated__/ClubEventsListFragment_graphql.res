@@ -4,9 +4,8 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_defaultActivity = {
+  type rec fragment_events_edges_node_club = {
     @live id: string,
-    slug: option<string>,
   }
   and fragment_events_edges_node_location = {
     @live id: string,
@@ -22,13 +21,17 @@ module Types = {
     edges: option<array<option<fragment_events_edges_node_rsvps_edges>>>,
   }
   and fragment_events_edges_node = {
+    club: option<fragment_events_edges_node_club>,
+    deleted: option<Util.Datetime.t>,
     @live id: string,
+    listed: option<bool>,
     location: option<fragment_events_edges_node_location>,
+    maxRsvps: option<int>,
     rsvps: option<fragment_events_edges_node_rsvps>,
     shadow: option<bool>,
     startDate: option<Util.Datetime.t>,
     timezone: option<string>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #ClubEventsListText_event | #EventItem_event]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PkEventRow_event]>,
   }
   and fragment_events_edges = {
     node: option<fragment_events_edges_node>,
@@ -42,10 +45,8 @@ module Types = {
   and fragment_events = {
     edges: option<array<option<fragment_events_edges>>>,
     pageInfo: fragment_events_pageInfo,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PinMap_eventConnection]>,
   }
   type fragment = {
-    defaultActivity: option<fragment_defaultActivity>,
     events: fragment_events,
     @live id: string,
   }
@@ -56,7 +57,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}}`
+    json`{"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = {
@@ -124,7 +125,10 @@ v1 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
-};
+},
+v2 = [
+  (v1/*: any*/)
+];
 return {
   "argumentDefinitions": [
     {
@@ -184,26 +188,6 @@ return {
   },
   "name": "ClubEventsListFragment",
   "selections": [
-    (v1/*: any*/),
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "Activity",
-      "kind": "LinkedField",
-      "name": "defaultActivity",
-      "plural": false,
-      "selections": [
-        (v1/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "slug",
-          "storageKey": null
-        }
-      ],
-      "storageKey": null
-    },
     {
       "alias": "events",
       "args": [
@@ -256,6 +240,54 @@ return {
                 },
                 {
                   "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "maxRsvps",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "listed",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "shadow",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "deleted",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "Club",
+                  "kind": "LinkedField",
+                  "name": "club",
+                  "plural": false,
+                  "selections": (v2/*: any*/),
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "Location",
+                  "kind": "LinkedField",
+                  "name": "location",
+                  "plural": false,
+                  "selections": (v2/*: any*/),
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
                   "args": [
                     {
                       "kind": "Literal",
@@ -302,33 +334,9 @@ return {
                   "storageKey": "rsvps(first:100)"
                 },
                 {
-                  "alias": null,
-                  "args": null,
-                  "concreteType": "Location",
-                  "kind": "LinkedField",
-                  "name": "location",
-                  "plural": false,
-                  "selections": [
-                    (v1/*: any*/)
-                  ],
-                  "storageKey": null
-                },
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "shadow",
-                  "storageKey": null
-                },
-                {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "EventItem_event"
-                },
-                {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "ClubEventsListText_event"
+                  "name": "PkEventRow_event"
                 },
                 {
                   "alias": null,
@@ -349,11 +357,6 @@ return {
             }
           ],
           "storageKey": null
-        },
-        {
-          "args": null,
-          "kind": "FragmentSpread",
-          "name": "PinMap_eventConnection"
         },
         {
           "alias": null,
@@ -396,7 +399,8 @@ return {
         }
       ],
       "storageKey": null
-    }
+    },
+    (v1/*: any*/)
   ],
   "type": "Club",
   "abstractKey": null

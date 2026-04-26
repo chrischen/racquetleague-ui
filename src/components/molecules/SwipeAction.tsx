@@ -23,6 +23,8 @@ export interface SwipeActionProps {
   actionsClassName?: string
   /** Disable the full swipe behavior */
   disableFullSwipe?: boolean
+  /** Disable drag entirely (e.g. on non-touch devices) */
+  disableDrag?: boolean
   /** Called when the partial state changes (left | right | null) */
   onPartialStateChange?: (state: 'left' | 'right' | null) => void
   /** Fired when the user performs a simple tap (mouse click / touch) without swiping */
@@ -50,6 +52,7 @@ export const SwipeAction: React.FC<SwipeActionProps> = ({
   contentClassName = '',
   actionsClassName = '',
   disableFullSwipe = false,
+  disableDrag = false,
   onPartialStateChange,
   onTapped,
   hoverPartialSide,
@@ -255,7 +258,7 @@ export const SwipeAction: React.FC<SwipeActionProps> = ({
         return (
       <div className="relative overflow-hidden">
       <motion.div
-        drag="x"
+        drag={disableDrag ? false : 'x'}
         dragElastic={0.05}
         dragConstraints={{left: rightActions ? -((rightWidth || fullThreshold) * 1.25) : 0, right: leftActions ? (leftWidth || fullThreshold) * 1.25 : 0}}
         onDragEnd={handleDragEnd}
@@ -276,10 +279,23 @@ export const SwipeAction: React.FC<SwipeActionProps> = ({
             tapMovedRef.current = true
           }
         }}
-        onPointerUp={() => {
+        onPointerUp={(e) => {
           if (onTapped && tapStartRef.current) {
             // Treat as tap if we didn't move beyond slop & not during an active full swipe
             if (!tapMovedRef.current && !fullTriggeredRef.current) {
+              // Android Chrome synthesizes a `click` event ~300ms after pointerup. If a drawer
+              // or overlay has been mounted by `onTapped()`, that click lands on the new backdrop
+              // and immediately closes it. We suppress the next click by capturing it at the
+              // document level (capture phase runs before any element handler, including portals).
+              e.preventDefault()
+              const suppressNextClick = (clickEvent: Event) => {
+                clickEvent.stopPropagation()
+                clickEvent.preventDefault()
+                document.removeEventListener('click', suppressNextClick, true)
+              }
+              document.addEventListener('click', suppressNextClick, true)
+              // Safety cleanup in case the click never fires (e.g. desktop)
+              setTimeout(() => document.removeEventListener('click', suppressNextClick, true), 600)
               onTapped()
             }
           }

@@ -95,7 +95,8 @@ function GoingRsvps(props) {
                                           activitySlug: activitySlug,
                                           maxRating: maxRating,
                                           eventId: eventData.id,
-                                          isAdmin: eventData.viewerIsAdmin
+                                          isAdmin: eventData.viewerIsAdmin,
+                                          eventPrice: eventData.price
                                         }, edge.id);
                             }),
                         !expanded && confirmedRsvps.length > 3 ? JsxRuntime.jsxs("div", {

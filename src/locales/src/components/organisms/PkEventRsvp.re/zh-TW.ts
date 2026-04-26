@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"yUyhXu\":\"批准報名\",\"3Dqptb\":\"您確定要將此人從活動中移除嗎？\",\"gsZ8q6\":\"移至待審核名單\",\"dhWUjC\":\"從活動中移除\",\"vj0eGy\":\"移除此 RSVP\",\"KL1L2j\":\"此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要限制其報名嗎？\",\"YURQaF\":\"查看個人資料\"}");

@@ -11,6 +11,7 @@ module Fragment = %relay(`
   {
     id
     maxRsvps
+    price
     viewerIsAdmin
     rsvps(after: $after, first: $first, before: $before)
       @connection(key: "RSVPSection_event_rsvps") {
@@ -31,6 +32,7 @@ module Fragment = %relay(`
           }
           listType
           message
+          paid
         }
       }
       pageInfo {
@@ -94,6 +96,7 @@ let make = (
           activitySlug
           maxRating
           isAdmin=eventData.viewerIsAdmin
+          eventPrice=?eventData.price
         />
       )
       ->React.array}

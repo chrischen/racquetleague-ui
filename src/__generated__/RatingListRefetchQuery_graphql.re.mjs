@@ -5,11 +5,12 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(activitySlug, after, before, first, namespace) {
+function makeRefetchVariables(activitySlug, after, before, clubSlug, first, namespace) {
   return {
           activitySlug: activitySlug,
           after: after,
           before: before,
+          clubSlug: clubSlug,
           first: first,
           namespace: namespace
         };
@@ -71,6 +72,11 @@ var v0 = [
     "name": "before"
   },
   {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "clubSlug"
+  },
+  {
     "defaultValue": 20,
     "kind": "LocalArgument",
     "name": "first"
@@ -96,6 +102,11 @@ v1 = [
     "kind": "Variable",
     "name": "before",
     "variableName": "before"
+  },
+  {
+    "kind": "Variable",
+    "name": "clubSlug",
+    "variableName": "clubSlug"
   },
   {
     "kind": "Variable",
@@ -269,7 +280,8 @@ return {
         "args": (v1/*: any*/),
         "filters": [
           "activitySlug",
-          "namespace"
+          "namespace",
+          "clubSlug"
         ],
         "handle": "connection",
         "key": "RatingListFragment_ratings",
@@ -279,12 +291,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "14accb23cafc9a6bdcebcd68c28e8bb1",
+    "cacheID": "13e2576a4e14e5860b7a44465e5b8cb7",
     "id": null,
     "metadata": {},
     "name": "RatingListRefetchQuery",
     "operationKind": "query",
-    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_2Xn26q\n}\n\nfragment RatingListFragment_2Xn26q on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace) {\n    edges {\n      node {\n        id\n        ordinal\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
+    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $clubSlug: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_3A4j3C\n}\n\nfragment RatingListFragment_3A4j3C on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    edges {\n      node {\n        id\n        ordinal\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
   }
 };
 })());

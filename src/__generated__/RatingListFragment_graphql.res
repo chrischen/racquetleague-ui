@@ -59,10 +59,10 @@ let connectionKey = "RatingListFragment_ratings"
 )
 
 @live
-let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~activitySlug: string, ~namespace: string) => {
+let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~activitySlug: string, ~namespace: string, ~clubSlug: option<string>=?) => {
   let activitySlug = Some(activitySlug)
   let namespace = Some(namespace)
-  let args = {"activitySlug": activitySlug, "namespace": namespace}
+  let args = {"activitySlug": activitySlug, "namespace": namespace, "clubSlug": clubSlug}
   internal_makeConnectionId(connectionParentDataId, args)
 }
 module Utils = {
@@ -111,6 +111,11 @@ return {
       "name": "before"
     },
     {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "clubSlug"
+    },
+    {
       "defaultValue": 20,
       "kind": "LocalArgument",
       "name": "first"
@@ -153,6 +158,11 @@ return {
           "kind": "Variable",
           "name": "activitySlug",
           "variableName": "activitySlug"
+        },
+        {
+          "kind": "Variable",
+          "name": "clubSlug",
+          "variableName": "clubSlug"
         },
         {
           "kind": "Variable",

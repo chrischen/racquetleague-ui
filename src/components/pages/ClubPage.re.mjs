@@ -205,10 +205,9 @@ function ClubPage(props) {
                                       tmp = JsxRuntime.jsx(Button.Button.make, {
                                             color: "indigo",
                                             children: t`Join Club`,
-                                            onClick: (function (param) {
-                                                handleJoinClub();
-                                              }),
-                                            disabled: isJoinInFlight
+                                            href: "/oauth-login?return=" + Core__Option.getOr(Core__Option.map(club.slug, (function (slug) {
+                                                        return "/clubs/" + slug;
+                                                      })), "/clubs")
                                           });
                                     }
                                     return JsxRuntime.jsxs("div", {
@@ -323,7 +322,9 @@ function ClubPage(props) {
                                                                                                                 children: [
                                                                                                                   JsxRuntime.jsx("div", {
                                                                                                                         children: Core__Option.getOr($$event.title, ""),
-                                                                                                                        className: "font-semibold text-gray-900 truncate"
+                                                                                                                        className: "font-semibold truncate " + (
+                                                                                                                          Core__Option.isSome($$event.deleted) ? "line-through text-gray-400" : "text-gray-900"
+                                                                                                                        )
                                                                                                                       }),
                                                                                                                   JsxRuntime.jsxs("div", {
                                                                                                                         children: [
@@ -376,7 +377,9 @@ function ClubPage(props) {
                                                                                                                 className: "flex items-center gap-1 text-sm text-gray-500 ml-4"
                                                                                                               })
                                                                                                         ],
-                                                                                                        className: "flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors"
+                                                                                                        className: "flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors" + (
+                                                                                                          Core__Option.isSome($$event.deleted) ? " opacity-60" : ""
+                                                                                                        )
                                                                                                       }, $$event.id);
                                                                                           }),
                                                                                       Core__Option.getOr(club.events.edges, []).length === 0 ? JsxRuntime.jsx("div", {

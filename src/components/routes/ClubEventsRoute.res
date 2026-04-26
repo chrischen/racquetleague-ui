@@ -19,30 +19,12 @@ let loadMessages = Lingui.loadMessages({
 })
 
 @genType
-let loader = async ({context, params, request}: LoaderArgs.t) => {
-  let url = request.url->Router.URL.make
-  let after = url.searchParams->Router.SearchParams.get("after")
-  let before = url.searchParams->Router.SearchParams.get("before")
-  let token = url.searchParams->Router.SearchParams.get("token")
-
-  let afterDate =
-    url.searchParams
-    ->Router.SearchParams.get("afterDate")
-    ->Option.map(d => {
-      d->Js.Date.fromString->Util.Datetime.fromDate
-    })
-
+let loader = async ({context, params}: LoaderArgs.t) => {
   let environment = RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)
 
   let query = ClubEventsPageQuery_graphql.load(
     ~environment,
-    ~variables={
-      slug: params.slug,
-      ?before,
-      ?after,
-      ?afterDate,
-      ?token,
-    },
+    ~variables={slug: params.slug},
     ~fetchPolicy=RescriptRelay.StoreOrNetwork,
   )
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore

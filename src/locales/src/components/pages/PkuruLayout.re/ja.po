@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 02:59+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/LogoutLink.re.mjs:10
+msgid "(logout)"
+msgstr "(サインアウト)"
+
+#: src/components/pages/PkuruLayout.re.mjs:146
+#: src/components/pages/PkuruLayout.re.mjs:176
+msgid "Badminton"
+msgstr "バドミントン"
+
+#: src/components/pages/PkuruLayout.re.mjs:89
+msgid "Browse"
+msgstr "ブラウズ"
+
+#: src/components/pages/PkuruLayout.re.mjs:99
+#: src/components/pages/PkuruLayout.re.mjs:372
+msgid "Discover"
+msgstr "探す"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+msgid "Host"
+msgstr "ホスト"
+
+#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+msgid "Load more"
+msgstr "もっと読み込む"
+
+#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+msgid "Loading..."
+msgstr "読み込み中..."
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+msgid "login with Line"
+msgstr "Lineでログイン"
+
+#: src/components/pages/PkuruLayout.re.mjs:382
+msgid "Map"
+msgstr "マップ"
+
+#: src/components/pages/PkuruLayout.re.mjs:107
+msgid "Map view"
+msgstr "マップ表示"
+
+#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+msgid "My clubs"
+msgstr "マイクラブ"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "My Clubs"
+msgstr "私のサークル"
+
+#: src/components/pages/PkuruLayout.re.mjs:115
+msgid "My events"
+msgstr "マイイベント"
+
+#: src/components/pages/PkuruLayout.re.mjs:392
+msgid "My Events"
+msgstr "私のイベント"
+
+#: src/components/pages/PkuruLayout.re.mjs:140
+#: src/components/pages/PkuruLayout.re.mjs:168
+msgid "Pickleball"
+msgstr "ピックルボール"
+
+#: src/components/pages/PkuruLayout.re.mjs:123
+#: src/components/pages/PkuruLayout.re.mjs:402
+msgid "Profile"
+msgstr "プロフィール"
+
+#: src/components/pages/PkuruLayout.re.mjs:159
+msgid "Rankings"
+msgstr "ランキング"
+
+#: src/components/pages/PkuruLayout.re.mjs:134
+msgid "Sports"
+msgstr "スポーツ"
+
+#: src/components/pages/PkuruLayout.re.mjs:353
+#~ msgid "Events"
+#~ msgstr "イベント"
+
+#: src/components/pages/PkuruLayout.re.mjs:250
+#~ msgid "Search events, venues, hosts..."
+#~ msgstr "イベント、会場、ホストを検索..."
+
+#: src/components/organisms/NavViewer.re.mjs:77
+#~ msgid "Settings"
+#~ msgstr "設定"

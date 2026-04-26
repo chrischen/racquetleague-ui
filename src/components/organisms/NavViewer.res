@@ -36,22 +36,10 @@ let make = (~viewer) => {
             <Avatar src=?user.picture square=true />
           </DropdownButton>
           <DropdownMenu className="min-w-64" anchor="bottom end">
-            <DropdownItem href="/events">
-              // <HeroIcons.UserIcon />
-              <DropdownLabel> {t`My Events`} </DropdownLabel>
-            </DropdownItem>
             <DropdownItem href="/clubs">
               // <HeroIcons.UserIcon />
               <DropdownLabel> {t`My Clubs`} </DropdownLabel>
             </DropdownItem>
-            <DropdownItem href="/settings/profile">
-              // <HeroIcons.UserIcon />
-              <DropdownLabel> {t`Settings`} </DropdownLabel>
-            </DropdownItem>
-            // <DropdownItem href="/settings">
-            //   <HeroIcons.Cog6Tooth />
-            //   <DropdownLabel> {t`Settings`} </DropdownLabel>
-            // </DropdownItem>
             <DropdownDivider />
             // <DropdownItem href="/privacy-policy">
             //   // <ShieldCheckIcon />

@@ -1,123 +1,92 @@
 %%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
+
+@val @scope(("navigator", "clipboard"))
+external writeText: string => Js.Promise.t<unit> = "writeText"
+@val @scope(("window", "location")) external locationOrigin: string = "origin"
 
 module Query = %relay(`
-  query ClubEventsPageQuery(
-    $slug: String!
-    $after: String
-    $first: Int
-    $before: String
-    $afterDate: Datetime
-    $token: String
-  ) {
+  query ClubEventsPageQuery($slug: String!) {
     club(slug: $slug) {
       id
-      slug
       name
+      description
       shareLink
-      viewerMembership { status isAdmin }
+      viewerMembership { isAdmin }
       ...ClubDetails_club
-      ...ClubEventsListFragment
-        @arguments(
-          after: $after
-          first: $first
-          before: $before
-          afterDate: $afterDate
-          token: $token
-        )
     }
     viewer {
       ...AddEventButton_viewer
-      user {
-        ...EventItem_user
-        id
-      }
     }
   }
-  `)
+`)
 
 type loaderData = ClubEventsPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
-@send external select: Dom.element => unit = "select"
-module ShareLink = {
-  @react.component
-  let make = (~link: string) => {
-    open Lingui.Util
-
-    let inputRef = React.useRef(Js.Nullable.null)
-
-    let handleClickToSelect = (_event: ReactEvent.Mouse.t) => {
-      inputRef.current
-      ->Js.Nullable.toOption
-      ->Option.forEach(inputElement => {
-        inputElement->select
-      })
-    }
-
-    <div className="my-4">
-      <label htmlFor="share-club-link" className="block text-sm font-medium text-gray-700">
-        {t`Shareable Link`}
-      </label>
-      <div className="mt-1">
-        <input
-          ref={inputRef->ReactDOM.Ref.domRef}
-          type_="text"
-          name="share-club-link"
-          id="share-club-link"
-          className="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md bg-gray-50 cursor-pointer"
-          value=link
-          readOnly=true
-          onClick=handleClickToSelect
-        />
-      </div>
-      <p className="mt-2 text-sm text-gray-500">
-        {t`Click the link to select it for easy copying.`}
-      </p>
-    </div>
-  }
-}
+type urlParams = {slug: string}
 
 @react.component
 let make = () => {
-  open Lingui.Util
+  let ts = Lingui.UtilString.t
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
-  let {i18n: {locale}} = Lingui.useLingui()
-  let (isShareLinkOpen, setIsShareLinkOpen) = React.useState(() => false)
-
-  let toggleShareLink = React.useCallback1(() => {
-    setIsShareLinkOpen(prev => !prev)
-  }, [setIsShareLinkOpen])
+  let {club, viewer} = query
+  let (shareCopied, setShareCopied) = React.useState(() => false)
+  let urlParams: urlParams = Router.useParams()
 
   <WaitForMessages>
-    {_ => {
-      query.club
-      ->Option.map(club => {
-        <ClubEventsList
-          events={club.fragmentRefs}
-          viewer={query.viewer}
-          header={<Layout.Container>
-            <h1>
-              <div className="text-base leading-6 text-gray-500"> {t`club`} </div>
-              <div
-                className="flex items-center mt-1 text-2xl font-semibold leading-6 text-gray-900">
-                {club.name->Option.getOr("?")->React.string}
-                <button className="ml-2" onClick={_ => toggleShareLink()}>
-                  <Lucide.Share color="#6B7280" />
-                </button>
-              </div>
+    {() =>
+      club
+      ->Option.map(c =>
+        <div className="flex flex-col h-full overflow-y-auto">
+          <div className="px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30]">
+            <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
+              {c.name->Option.getOr("?")->React.string}
             </h1>
-            {isShareLinkOpen
-              ? <ShareLink
-                  link={"https://www.pkuru.com/" ++ locale ++ club.shareLink->Option.getOr("")}
+            {c.description
+            ->Option.map(d =>
+              <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-1">
+                {d->React.string}
+              </p>
+            )
+            ->Option.getOr(React.null)}
+            <div className="flex items-center gap-2 mt-2">
+              {c.viewerMembership
+              ->Option.flatMap(m => m.isAdmin)
+              ->Option.getOr(false)
+                ? c.shareLink
+                  ->Option.map(link =>
+                    <button
+                      className="text-xs font-mono px-2 py-1 rounded border border-gray-200 dark:border-[#3a3b40] text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors"
+                      onClick={_ => {
+                        writeText(locationOrigin ++ link)->ignore
+                        setShareCopied(_ => true)
+                        let _ = Js.Global.setTimeout(() => setShareCopied(_ => false), 2000)
+                      }}>
+                      {(shareCopied ? ts`Copied!` : ts`Share link`)->React.string}
+                    </button>
+                  )
+                  ->Option.getOr(React.null)
+                : React.null}
+              {viewer
+              ->Option.map(v =>
+                <AddEventButton
+                  context={clubId: ?Some(c.id)}
+                  createBasePath={"/clubs/" ++ urlParams.slug ++ "/events/create"}
+                  viewer={v.fragmentRefs}
                 />
-              : React.null}
-            <ClubDetails club={club.fragmentRefs} />
-          </Layout.Container>}
-        />
-      })
-      ->Option.getOr(<Layout.Container> {t`club not found`} </Layout.Container>)
-    }}
+              )
+              ->Option.getOr(React.null)}
+            </div>
+          </div>
+          <React.Suspense
+            fallback={<div className="p-6 text-gray-500"> {t`Loading events...`} </div>}>
+            <Router.Outlet />
+          </React.Suspense>
+        </div>
+      )
+      ->Option.getOr(<div className="p-6 text-gray-500"> {t`Club not found`} </div>)}
   </WaitForMessages>
 }

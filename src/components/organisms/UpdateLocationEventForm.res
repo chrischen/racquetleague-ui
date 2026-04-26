@@ -20,6 +20,7 @@ module EventFragment = %relay(`
     listed
     timezone
     tags
+    price
   }
 `)
 
@@ -44,6 +45,7 @@ let make = (~event, ~location, ~query) => {
     listed: ?eventData.listed,
     timezone: ?eventData.timezone,
     tags: ?eventData.tags,
+    price: ?eventData.price,
   }
 
   <CreateLocationEventForm eventId=eventData.id location query prefilledValues />

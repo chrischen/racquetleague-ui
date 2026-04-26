@@ -13,34 +13,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LeaguePage.re.mjs:126
+#: src/components/pages/LeaguePage.re.mjs:44
 msgid "japan pickle league"
 msgstr "日本匹克球联盟"
 
-#: src/components/pages/LeaguePage.re.mjs:32
-msgid "Next Prize: February 28"
-msgstr "下一次奖品：2月28日"
-
-#: src/components/pages/LeaguePage.re.mjs:36
-msgid "Prize Sponsor"
-msgstr "奖品赞助商"
-
-#: src/components/pages/LeaguePage.re.mjs:66
-msgid "Selkirk SLK Era Paddle"
-msgstr "Selkirk SLK Era 球拍"
-
-#: src/components/pages/LeaguePage.re.mjs:48
-msgid ""
-"This prize will be awarded to the top male and female players on this day."
-msgstr "此奖品将在这一天颁发给最优秀的男性和女性球员。"
-
-#: src/components/pages/LeaguePage.re.mjs:117
+#: src/components/pages/LeaguePage.re.mjs:35
 msgid "Tokyo Badminton League"
 msgstr "东京羽毛球联盟"
-
-#: src/components/pages/LeaguePage.re.mjs:71
-msgid "Top female and top male players will each receive the prize."
-msgstr "顶级女选手和顶级男选手将各获得该奖品。"
 
 #: src/components/pages/LeaguePage.re.mjs:58
 #~ msgid "Mach 2 Forza Paddle"
@@ -54,9 +33,17 @@ msgstr "顶级女选手和顶级男选手将各获得该奖品。"
 #~ msgid "Next Prize: December 31"
 #~ msgstr "下次奖品：12月31日"
 
+#: src/components/pages/LeaguePage.re.mjs:32
+#~ msgid "Next Prize: February 28"
+#~ msgstr "下一次奖品：2月28日"
+
 #: src/components/pages/LeaguePage.re.mjs:31
 #~ msgid "Next Prize: September 10"
 #~ msgstr "下一个奖品：9月10日"
+
+#: src/components/pages/LeaguePage.re.mjs:36
+#~ msgid "Prize Sponsor"
+#~ msgstr "奖品赞助商"
 
 #: src/components/pages/LeaguePage.re.mjs:51
 #~ msgid "Proton Flamingo Paddle"
@@ -69,6 +56,19 @@ msgstr "顶级女选手和顶级男选手将各获得该奖品。"
 #: src/components/pages/LeaguePage.re.mjs:60
 #~ msgid "Selkirk Labs Paddle Cover"
 #~ msgstr "Selkirk Labs 球拍套"
+
+#: src/components/pages/LeaguePage.re.mjs:66
+#~ msgid "Selkirk SLK Era Paddle"
+#~ msgstr "Selkirk SLK Era 球拍"
+
+#: src/components/pages/LeaguePage.re.mjs:48
+#~ msgid ""
+#~ "This prize will be awarded to the top male and female players on this day."
+#~ msgstr "此奖品将在这一天颁发给最优秀的男性和女性球员。"
+
+#: src/components/pages/LeaguePage.re.mjs:71
+#~ msgid "Top female and top male players will each receive the prize."
+#~ msgstr "顶级女选手和顶级男选手将各获得该奖品。"
 
 #: src/components/pages/LeaguePage.re.mjs:130
 #~ msgid "volair pickleball"

@@ -3402,11 +3402,11 @@ msgstr "所有俱乐部"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:772
 msgid "only"
-msgstr ""
+msgstr "仅"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:767
 msgid "Showing stats from"
-msgstr ""
+msgstr "显示统计数据来自"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:766
 msgid "Showing stats from {selectedClubName} only"
@@ -3456,10 +3456,301 @@ msgstr "室内球场（室内球）"
 msgid "Indoor Court (Outdoor Ball)"
 msgstr "室内球场（室外球）"
 
-#: src/components/organisms/EventManager.re.mjs:204
-#, fuzzy
-#~ msgid "Current Round: {0}"
-#~ msgstr "当前回合："
+#: src/components/pages/PkEventPage.re.mjs:650
+msgid "...more"
+msgstr "...更多"
+
+#: src/components/organisms/ClubEventsList.re.mjs:173
+msgid "{0} {hiddenDesc} hidden — show"
+msgstr "{0} {hiddenDesc} 条已隐藏 — 显示"
+
+#: src/components/shared/EventsListView.re.mjs:101
+msgid "{totalEvents, plural, one {{0}} other {{1}}}"
+msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
+
+#: src/components/shared/EventsListView.re.mjs:114
+msgid "← previous"
+msgstr "← 上一页"
+
+#: src/components/pages/PkEventPage.re.mjs:957
+msgid "Add a message..."
+msgstr "添加消息..."
+
+#: src/components/pages/PkEventPage.re.mjs:503
+msgid "Claim spot"
+msgstr "报名参加"
+
+#: src/components/shared/EventsListView.re.mjs:102
+#: src/components/organisms/ClubEventsList.re.mjs:127
+msgid "event"
+msgstr "活动"
+
+#: src/components/pages/PkEventPage.re.mjs:788
+msgid "Event updated"
+msgstr "活动已更新"
+
+#: src/components/shared/EventsListView.re.mjs:78
+msgid "Filtered by date"
+msgstr "按日期筛选"
+
+#: src/components/pages/PkEventPage.re.mjs:691
+msgid "Host"
+msgstr "主持人"
+
+#: src/components/pages/PkEventPage.re.mjs:503
+msgid "Join waitlist (#{0})"
+msgstr "加入候补名单 (#{0})"
+
+#: src/components/pkuru/PkEventRow.re.mjs:416
+#: src/components/pages/PkEventPage.re.mjs:484
+msgid "Leave"
+msgstr "退出"
+
+#: src/components/pkuru/PkEventRow.re.mjs:610
+#: src/components/pages/PkEventPage.re.mjs:1012
+msgid "Leave event"
+msgstr "退出活动"
+
+#: src/components/pages/PkEventPage.re.mjs:650
+msgid "less"
+msgstr "收起"
+
+#: src/components/pages/PkEventPage.re.mjs:626
+msgid "Location"
+msgstr "地点"
+
+#: src/components/shared/EventsListView.re.mjs:137
+msgid "more →"
+msgstr "更多 →"
+
+#: src/components/pages/PkEventPage.re.mjs:719
+msgid "Notes from the host"
+msgstr "主持人的备注"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:142
+msgid "Participants"
+msgstr "参与者"
+
+#: src/components/pages/PkEventPage.re.mjs:945
+msgid "Show all {0} items"
+msgstr "显示全部 {0} 条"
+
+#: src/components/shared/EventsListView.re.mjs:104
+msgid "SORTED BY START TIME"
+msgstr "按开始时间排序"
+
+#: src/components/pkuru/PkEventRow.re.mjs:611
+#: src/components/pages/PkEventPage.re.mjs:1013
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
+
+#: src/components/shared/EventsListView.re.mjs:48
+#: src/components/organisms/ClubEventsList.re.mjs:217
+msgid "Today"
+msgstr "今天"
+
+#: src/components/shared/EventsListView.re.mjs:52
+#: src/components/organisms/ClubEventsList.re.mjs:222
+msgid "Tomorrow"
+msgstr "明天"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:269
+msgid "Waitlist · {0}"
+msgstr "候补名单 · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:224
+msgid "Waitlisted"
+msgstr "已在候补名单"
+
+#: src/components/shared/EventsListView.re.mjs:56
+msgid "Weekend"
+msgstr "周末"
+
+#: src/components/organisms/ClubEventsList.re.mjs:228
+msgid "Yesterday"
+msgstr "昨天"
+
+#: src/components/pkuru/PkEventRow.re.mjs:215
+msgid "You're in"
+msgstr "已报名"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1001
+msgid "Enter price"
+msgstr "输入价格"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1253
+msgid "Paid event"
+msgstr "付费活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:991
+msgid "Price"
+msgstr "价格"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1258
+msgid "Require payment from attendees"
+msgstr "要求参与者付款"
+
+#: src/components/pages/ClubEventsPage.re.mjs:120
+msgid "Club not found"
+msgstr "找不到俧乐部"
+
+#: src/components/pages/ClubEventsPage.re.mjs:85
+msgid "Copied!"
+msgstr "已复制！"
+
+#: src/components/pages/ClubEventsPage.re.mjs:85
+msgid "Share link"
+msgstr "分享链接"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:58
+msgid "Competitive Singles"
+msgstr "竞技单打"
+
+#: src/components/pages/PkLocationPage.re.mjs:105
+msgid "Location not found"
+msgstr "找不到地点"
+
+#: src/components/pages/PkuruLayout.re.mjs:74
+msgid "Browse"
+msgstr "浏览"
+
+#: src/components/pages/PkuruLayout.re.mjs:84
+#: src/components/pages/PkuruLayout.re.mjs:333
+msgid "Discover"
+msgstr "发现"
+
+#: src/components/pages/PkuruLayout.re.mjs:343
+msgid "Map"
+msgstr "地图"
+
+#: src/components/pages/PkuruLayout.re.mjs:92
+msgid "Map view"
+msgstr "地图视图"
+
+#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+msgid "My clubs"
+msgstr "我的俧乐部"
+
+#: src/components/pages/PkuruLayout.re.mjs:100
+msgid "My events"
+msgstr "我的活动"
+
+#: src/components/pages/PkuruLayout.re.mjs:108
+#: src/components/pages/PkuruLayout.re.mjs:363
+msgid "Profile"
+msgstr "个人资料"
+
+#: src/components/pages/PkuruLayout.re.mjs:214
+msgid "Search events, venues, hosts..."
+msgstr "搜索活动、场馆、主持人..."
+
+#: src/components/pages/PkuruLayout.re.mjs:119
+msgid "Sports"
+msgstr "运动"
+
+#: src/components/pages/PkEventPage.re.mjs:501
+msgid "Casual"
+msgstr "休闲"
+
+#: src/components/pages/PkEventPage.re.mjs:505
+msgid "Free"
+msgstr "免费"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:149
+msgid "· +{0} waitlist"
+msgstr "· +{0} 候补"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:146
+msgid "{0} joined"
+msgstr "{0} 已参加"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:159
+msgid "· {0} pending"
+msgstr "· {0} 待处理"
+
+#: src/components/pkuru/PkEventRow.re.mjs:544
+msgid "Canceled"
+msgstr "已取消"
+
+#: src/components/pages/PkEventPage.re.mjs:465
+msgid "Join waitlist"
+msgstr "加入候补名单"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:314
+msgid "Pending · {0}"
+msgstr "待处理 · {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "Confirmed · {0}"
+msgstr "已确认 · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:217
+msgid "Joined"
+msgstr "已加入"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:212
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "需要: DUPR {minDuprStr}以上"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:233
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "参加需要 DUPR {minDuprStr}以上"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:216
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"您的评分 {viewerOrdinalStr} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}）低于最低要求。您将被添加到待处理列表。"
+
+#: src/components/pages/ClubEventsPage.re.mjs:119
+msgid "Loading events..."
+msgstr "正在加载活动..."
+
+#: src/components/organisms/ClubEventsList.re.mjs:206
+msgid "Friday"
+msgstr "星期五"
+
+#: src/components/organisms/ClubEventsList.re.mjs:194
+msgid "Monday"
+msgstr "星期一"
+
+#: src/components/organisms/ClubEventsList.re.mjs:215
+msgid "Next {dayName}"
+msgstr "下周{dayName}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:639
+#: src/components/pages/PkEventPage.re.mjs:550
+msgid "Private"
+msgstr "非公开"
+
+#: src/components/pkuru/PkEventRow.re.mjs:655
+#: src/components/pages/PkEventPage.re.mjs:565
+msgid "Rated"
+msgstr "计分赛"
+
+#: src/components/organisms/ClubEventsList.re.mjs:209
+msgid "Saturday"
+msgstr "星期六"
+
+#: src/components/organisms/ClubEventsList.re.mjs:191
+msgid "Sunday"
+msgstr "星期日"
+
+#: src/components/organisms/ClubEventsList.re.mjs:203
+msgid "Thursday"
+msgstr "星期四"
+
+#: src/components/organisms/ClubEventsList.re.mjs:197
+msgid "Tuesday"
+msgstr "星期二"
+
+#: src/components/organisms/ClubEventsList.re.mjs:200
+msgid "Wednesday"
+msgstr "星期三"
 
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
@@ -3505,3 +3796,8 @@ msgstr "室内球场（室外球）"
 #, fuzzy
 #~ msgid "Round Robin Tournament"
 #~ msgstr "轮次管理"
+
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "当前回合："

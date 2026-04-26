@@ -32,43 +32,32 @@ var ViewerFragment = {
 };
 
 function AddEventButton(props) {
+  var createBasePath = props.createBasePath;
   var __context = props.context;
   var context = __context !== undefined ? __context : ({});
   var viewerData = use(props.viewer);
   var isLoggedIn = Core__Option.isSome(viewerData.user);
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
+                  var searchParamsObj = {};
+                  Core__Option.map(context.clubId, (function (clubId) {
+                          searchParamsObj["clubId"] = clubId;
+                        }));
+                  Core__Option.map(context.locationId, (function (locationId) {
+                          searchParamsObj["locationId"] = locationId;
+                        }));
+                  Core__Option.map(context.activitySlug, (function (activitySlug) {
+                          searchParamsObj["activitySlug"] = activitySlug;
+                        }));
+                  var base = Core__Option.getOr(createBasePath, "/events/create");
+                  var targetUrl = base + "?" + ReactRouterDom.createSearchParams(searchParamsObj).toString();
                   var tmp;
                   if (isLoggedIn) {
-                    var searchParamsObj = {};
-                    Core__Option.map(context.clubId, (function (clubId) {
-                            searchParamsObj["clubId"] = clubId;
-                          }));
-                    Core__Option.map(context.locationId, (function (locationId) {
-                            searchParamsObj["locationId"] = locationId;
-                          }));
-                    Core__Option.map(context.activitySlug, (function (activitySlug) {
-                            searchParamsObj["activitySlug"] = activitySlug;
-                          }));
-                    var searchParams = ReactRouterDom.createSearchParams(searchParamsObj).toString();
-                    tmp = "/events/create?" + searchParams;
+                    tmp = targetUrl;
                   } else {
-                    var targetSearchParamsObj = {};
-                    Core__Option.map(context.clubId, (function (clubId) {
-                            targetSearchParamsObj["clubId"] = clubId;
-                          }));
-                    Core__Option.map(context.locationId, (function (locationId) {
-                            targetSearchParamsObj["locationId"] = locationId;
-                          }));
-                    Core__Option.map(context.activitySlug, (function (activitySlug) {
-                            targetSearchParamsObj["activitySlug"] = activitySlug;
-                          }));
-                    var targetSearchParams = ReactRouterDom.createSearchParams(targetSearchParamsObj).toString();
-                    var targetUrl = "/events/create?" + targetSearchParams;
                     var loginSearchParamsObj = {};
                     loginSearchParamsObj["return"] = targetUrl;
-                    var loginSearchParams = ReactRouterDom.createSearchParams(loginSearchParamsObj).toString();
-                    tmp = "/oauth-login?" + loginSearchParams;
+                    tmp = "/oauth-login?" + ReactRouterDom.createSearchParams(loginSearchParamsObj).toString();
                   }
                   return JsxRuntime.jsxs(LangProvider.Router.Link.make, {
                               to: tmp,

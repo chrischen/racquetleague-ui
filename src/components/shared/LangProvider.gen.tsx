@@ -11,4 +11,6 @@ export const make: React.ComponentType<{}> = LangProviderJS.make as any;
 
 export const Router_NavLink_make: <a>(props:Router_NavLink_props<string,JSX.Element,((_1:Router_NavLink_linkState) => string),string,((_1:a) => void),boolean,boolean>) => JSX.Element = LangProviderJS.Router.NavLink.make as any;
 
-export const Router: { NavLink: { make: <a>(props:Router_NavLink_props<string,JSX.Element,((_1:Router_NavLink_linkState) => string),string,((_1:a) => void),boolean,boolean>) => JSX.Element } } = LangProviderJS.Router as any;
+export const Router_useLocalePath: () => (_1:string) => string = LangProviderJS.Router.useLocalePath as any;
+
+export const Router: { NavLink: { make: <a>(props:Router_NavLink_props<string,JSX.Element,((_1:Router_NavLink_linkState) => string),string,((_1:a) => void),boolean,boolean>) => JSX.Element }; useLocalePath: () => (_1:string) => string } = LangProviderJS.Router as any;

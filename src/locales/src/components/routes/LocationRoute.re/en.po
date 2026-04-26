@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventsList.re.mjs:454
+#: src/components/organisms/EventsList.re.mjs:452
 msgid "...load past events"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "🚫 CANCELED"
 msgstr ""
 
-#: src/components/organisms/AddEventButton.re.mjs:79
+#: src/components/organisms/AddEventButton.re.mjs:68
 msgid "Add an Event"
 msgstr ""
 
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:426
+#: src/components/organisms/EventsList.re.mjs:424
 msgid "clear filter"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:424
+#: src/components/organisms/EventsList.re.mjs:422
 msgid "filtering by date"
 msgstr ""
 
@@ -232,7 +232,7 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:383
+#: src/components/organisms/EventsList.re.mjs:381
 msgid "share as text"
 msgstr ""
 

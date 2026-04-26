@@ -17,7 +17,7 @@ msgstr ""
 msgid "Cancel Request"
 msgstr "取消申请"
 
-#: src/components/pages/ClubPage.re.mjs:495
+#: src/components/pages/ClubPage.re.mjs:510
 msgid "club not found"
 msgstr "俱乐部未找到"
 
@@ -25,7 +25,7 @@ msgstr "俱乐部未找到"
 msgid "Join Club"
 msgstr "加入俱乐部"
 
-#: src/components/pages/ClubPage.re.mjs:403
+#: src/components/pages/ClubPage.re.mjs:407
 msgid "Leaderboard"
 msgstr "排行榜"
 
@@ -33,15 +33,15 @@ msgstr "排行榜"
 msgid "Leave club"
 msgstr "退出俱乐部"
 
-#: src/components/pages/ClubPage.re.mjs:267
+#: src/components/pages/ClubPage.re.mjs:266
 msgid "Manage Members"
 msgstr "管理成员"
 
-#: src/components/pages/ClubPage.re.mjs:475
+#: src/components/pages/ClubPage.re.mjs:490
 msgid "No ratings yet"
 msgstr "暂无评分"
 
-#: src/components/pages/ClubPage.re.mjs:383
+#: src/components/pages/ClubPage.re.mjs:386
 msgid "No upcoming events"
 msgstr "没有即将举行的活动"
 
@@ -49,11 +49,12 @@ msgstr "没有即将举行的活动"
 msgid "Request to join"
 msgstr "申请加入"
 
-#: src/components/pages/ClubPage.re.mjs:292
+#: src/components/pages/ClubPage.re.mjs:291
 msgid "Upcoming Events"
 msgstr "即将举行的活动"
 
-#: src/components/pages/ClubPage.re.mjs:299
+#: src/components/pages/ClubPage.re.mjs:298
+#: src/components/pages/ClubPage.re.mjs:414
 msgid "View All"
 msgstr "查看全部"
 

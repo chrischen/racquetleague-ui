@@ -4,6 +4,7 @@ import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
@@ -13,6 +14,7 @@ import * as Core__String from "@rescript/core/src/Core__String.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as RoundSection from "./RoundSection.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as DrawGenerator from "../molecules/DrawGenerator.re.mjs";
 import * as PlayerCheckin from "./PlayerCheckin.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -97,6 +99,165 @@ var Fragment = {
   useRefetchable: useRefetchable,
   usePagination: usePagination,
   useBlockingPagination: useBlockingPagination
+};
+
+function EventManager$StorageUsageDebug(props) {
+  var match = React.useState(function () {
+        
+      });
+  var setEstimate = match[1];
+  var estimate_data = match[0];
+  React.useEffect((function () {
+          Core__Promise.$$catch(navigator.storage.estimate().then(function (est) {
+                    setEstimate(function (param) {
+                          return est;
+                        });
+                    return Promise.resolve();
+                  }), (function (param) {
+                  return Promise.resolve();
+                }));
+        }), []);
+  if (estimate_data === undefined) {
+    return null;
+  }
+  var quota = estimate_data.quota;
+  var usage = estimate_data.usage;
+  var usageMB = usage / (1024.0 * 1024.0);
+  var quotaMB = quota / (1024.0 * 1024.0);
+  var percentage = quota > 0.0 ? usage / quota * 100.0 : 0.0;
+  var barColor = percentage > 90.0 ? "bg-red-500" : (
+      percentage > 70.0 ? "bg-amber-500" : "bg-blue-500"
+    );
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("span", {
+                      children: usageMB.toFixed(1) + "/" + quotaMB.toFixed(0) + " MB",
+                      className: "text-xs text-slate-300 whitespace-nowrap"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx("div", {
+                            className: barColor + " h-2 rounded-full transition-all duration-300",
+                            style: {
+                              width: percentage.toFixed(1) + "%"
+                            }
+                          }),
+                      className: "flex-1 bg-slate-600 rounded-full h-2 overflow-hidden"
+                    }),
+                JsxRuntime.jsx("span", {
+                      children: percentage.toFixed(1) + "%",
+                      className: "text-xs text-slate-300 whitespace-nowrap"
+                    })
+              ],
+              className: "flex items-center gap-2 px-3 py-1 rounded bg-slate-700 min-w-[180px]"
+            });
+}
+
+var StorageUsageDebug = {
+  make: EventManager$StorageUsageDebug
+};
+
+function EventManager$StorageLowWarning(props) {
+  var onClearData = props.onClearData;
+  var match = React.useState(function () {
+        
+      });
+  var setStorageInfo = match[1];
+  var storageInfo = match[0];
+  var match$1 = React.useState(function () {
+        return false;
+      });
+  var setDismissed = match$1[1];
+  React.useEffect((function () {
+          Core__Promise.$$catch(navigator.storage.estimate().then(function (est) {
+                    setStorageInfo(function (param) {
+                          return est;
+                        });
+                    return Promise.resolve();
+                  }), (function (param) {
+                  return Promise.resolve();
+                }));
+        }), []);
+  var shouldShow;
+  if (storageInfo !== undefined) {
+    var quota = storageInfo.quota;
+    shouldShow = quota > 0.0 ? storageInfo.usage / quota * 100.0 > 90.0 : false;
+  } else {
+    shouldShow = false;
+  }
+  if (!shouldShow || match$1[0]) {
+    return null;
+  }
+  var percentage;
+  if (storageInfo !== undefined) {
+    var quota$1 = storageInfo.quota;
+    percentage = quota$1 > 0.0 ? storageInfo.usage / quota$1 * 100.0 : 0.0;
+  } else {
+    percentage = 0.0;
+  }
+  return JsxRuntime.jsx("div", {
+              children: JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx("div", {
+                                    children: JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                          className: "w-5 h-5 text-red-600"
+                                        }),
+                                    className: "flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center"
+                                  }),
+                              JsxRuntime.jsx("h2", {
+                                    children: "Storage Almost Full",
+                                    className: "text-lg font-bold text-slate-900"
+                                  })
+                            ],
+                            className: "flex items-center gap-3 mb-4"
+                          }),
+                      JsxRuntime.jsx("p", {
+                            children: "Your browser storage is " + percentage.toFixed(1) + "% full. The app may lose data if storage runs out. Clear old event data to free up space.",
+                            className: "text-sm text-slate-600 mb-4"
+                          }),
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx("div", {
+                                  className: "bg-red-500 h-3 rounded-full",
+                                  style: {
+                                    width: percentage.toFixed(1) + "%"
+                                  }
+                                }),
+                            className: "w-full bg-slate-200 rounded-full h-3 overflow-hidden mb-5"
+                          }),
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx("button", {
+                                    children: "Dismiss",
+                                    className: "px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors",
+                                    onClick: (function (param) {
+                                        setDismissed(function (param) {
+                                              return true;
+                                            });
+                                      })
+                                  }),
+                              JsxRuntime.jsx("button", {
+                                    children: "Clear Event Data",
+                                    className: "px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors",
+                                    onClick: (function (param) {
+                                        onClearData();
+                                        setDismissed(function (param) {
+                                              return true;
+                                            });
+                                      })
+                                  })
+                            ],
+                            className: "flex justify-end gap-3"
+                          })
+                    ],
+                    className: "bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-6"
+                  }),
+              className: "fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+            });
+}
+
+var StorageLowWarning = {
+  make: EventManager$StorageLowWarning
 };
 
 function EventManager$OverallAverageQualityDebug(props) {
@@ -379,8 +540,23 @@ function EventManager(props) {
   var setCurrentRoundInt = match$11[1];
   var currentRoundInt = match$11[0];
   var currentRoundRef = React.useRef(null);
+  var allGoingOrPending = Core__Option.getOr(Core__Option.flatMap(data.rsvps, (function (rsvps) {
+                return rsvps.edges;
+              })), []).filter(function (edge) {
+        return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(edge, (function (e) {
+                              return e.node;
+                            })), (function (rsvp) {
+                          if (Caml_obj.equal(rsvp.listType, 0)) {
+                            return true;
+                          } else {
+                            return rsvp.listType === undefined;
+                          }
+                        })), false);
+      }).length;
+  var max = data.maxRsvps;
+  var goingPlayerCount = max !== undefined ? Math.min(allGoingOrPending, max) : allGoingOrPending;
   var match$12 = React.useState(function () {
-        return 3;
+        return Rating.suggestedCourtCount(goingPlayerCount);
       });
   var setCourtCount = match$12[1];
   var courtCount = match$12[0];
@@ -437,10 +613,12 @@ function EventManager(props) {
         currentRoundInt
       ]);
   React.useEffect((function () {
-          var storedCourtCount = EventManagerPersistence.loadCourtCount(data.id);
-          setCourtCount(function (param) {
-                return storedCourtCount;
-              });
+          var stored = EventManagerPersistence.loadCourtCount(data.id);
+          if (stored !== undefined) {
+            setCourtCount(function (param) {
+                  return stored;
+                });
+          }
           var storedStrategy = EventManagerPersistence.loadStrategy(data.id);
           setStrategy(function (param) {
                 return storedStrategy;
@@ -1019,7 +1197,7 @@ function EventManager(props) {
           return 0;
         });
     setCourtCount(function (param) {
-          return 3;
+          return Rating.suggestedCourtCount(players.length);
         });
     setCheckedInPlayerIds(function (param) {
           return new Set();
@@ -1596,6 +1774,9 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
+                JsxRuntime.jsx(EventManager$StorageLowWarning, {
+                      onClearData: handleResetStorage
+                    }),
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("div", {
@@ -1607,12 +1788,17 @@ function EventManager(props) {
                                           }),
                                       JsxRuntime.jsxs("div", {
                                             children: [
-                                              debugMode ? JsxRuntime.jsx("button", {
-                                                      children: t`Reset Storage`,
-                                                      className: "px-3 py-1 text-sm font-semibold rounded bg-red-600 hover:bg-red-700 transition-colors",
-                                                      onClick: (function (param) {
-                                                          handleResetStorage();
-                                                        })
+                                              debugMode ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                      children: [
+                                                        JsxRuntime.jsx(EventManager$StorageUsageDebug, {}),
+                                                        JsxRuntime.jsx("button", {
+                                                              children: t`Reset Storage`,
+                                                              className: "px-3 py-1 text-sm font-semibold rounded bg-red-600 hover:bg-red-700 transition-colors",
+                                                              onClick: (function (param) {
+                                                                  handleResetStorage();
+                                                                })
+                                                            })
+                                                      ]
                                                     }) : null,
                                               JsxRuntime.jsxs(LangProvider.Router.Link.make, {
                                                     to: "/event-manager-guide",
@@ -1676,17 +1862,19 @@ function EventManager(props) {
                               getUserFragmentRefs: getUserFragmentRefs,
                               initialPlayers: players
                             }),
-                        hasExistingDraws ? null : JsxRuntime.jsx(DrawGenerator.make, {
-                                courtCount: courtCount,
-                                checkedInPlayerCount: checkedInPlayerIds.size,
-                                hasExistingDraws: false,
-                                strategy: strategy,
-                                onStrategyChange: handleStrategyChange,
-                                onGenerateDraws: handleGenerateDraws,
-                                onCourtCountChange: handleCourtCountChange,
-                                isInitiallyExpanded: true,
-                                highlight: isDirty,
-                                futureRoundsHaveScores: futureRoundsHaveScores
+                        hasExistingDraws ? null : JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                children: Caml_option.some(JsxRuntime.jsx(DrawGenerator.make, {
+                                          courtCount: courtCount,
+                                          checkedInPlayerCount: checkedInPlayerIds.size,
+                                          hasExistingDraws: false,
+                                          strategy: strategy,
+                                          onStrategyChange: handleStrategyChange,
+                                          onGenerateDraws: handleGenerateDraws,
+                                          onCourtCountChange: handleCourtCountChange,
+                                          isInitiallyExpanded: true,
+                                          highlight: isDirty,
+                                          futureRoundsHaveScores: futureRoundsHaveScores
+                                        }))
                               }),
                         tmp
                       ],
@@ -1701,6 +1889,8 @@ var make = EventManager;
 export {
   CreateLeagueMatchMutation ,
   Fragment ,
+  StorageUsageDebug ,
+  StorageLowWarning ,
   OverallAverageQualityDebug ,
   make ,
 }

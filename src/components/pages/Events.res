@@ -4,17 +4,13 @@ open Lingui.Util
 
 module EventsQuery = %relay(`
   query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
-    viewer {
-      ...ViewerClubs_viewer
-    }
-    ... EventsListFragment @arguments(
+    ...PkEventsListFragment @arguments(
       after: $after,
       first: $first,
       before: $before,
       afterDate: $afterDate,
       filters: $filters
     )
-    ... CalendarEventsFragment @arguments(after: $after, first: $first, before: $before, afterDate: $afterDate, filters: $filters)
   }
 `)
 /* module Fragment = %relay(`
@@ -68,105 +64,41 @@ type params = {activitySlug: option<string>, lang: option<string>}
 
 @react.component
 let make = () => {
-  open Dropdown
-  //let { fragmentRefs } = Fragment.use(events)
   let query = useLoaderData()
-  let {fragmentRefs, viewer} = EventsQuery.usePreloaded(~queryRef=query.data)
-  let params: params = Router.useParams()
-  let (searchParams, _) = Router.useSearchParamsFunc()
+  let {fragmentRefs} = EventsQuery.usePreloaded(~queryRef=query.data)
 
-  let activityFilter = params.activitySlug->Option.getOr("pickleball")
+  let shouldHideEvent = (
+    event: PkEventsListFragment_graphql.Types.fragment_events_edges_node,
+    viewer: option<PkEventsListFragment_graphql.Types.fragment_viewer>,
+  ) => {
+    let userClubIds =
+      viewer
+      ->Option.flatMap(v => v.clubs.edges)
+      ->Option.map(edges =>
+        edges
+        ->Array.filterMap(edge => edge)
+        ->Array.filterMap(edge => edge.node)
+        ->Array.map(node => node.id)
+        ->Set.fromArray
+      )
+      ->Option.getOr(Set.make())
 
-  let title = switch activityFilter {
-  | "pickleball" => t`pickleball events`
-  | "badminton" => t`badminton events`
-  | _ => t`all events`
+    let hasClubs = Set.size(userClubIds) > 0
+
+    let isPrivate = event.shadow->Option.getOr(false)
+    let isFromNonMemberClub = switch viewer {
+    | None => false
+    | Some(_) if !hasClubs => false
+    | Some(_) =>
+      event.club
+      ->Option.map(club => !Set.has(userClubIds, club.id))
+      ->Option.getOr(false)
+    }
+    isPrivate || isFromNonMemberClub
   }
-  let shadowFilter =
-    searchParams
-    ->Router.SearchParams.get("shadow")
-    ->Option.map(v => v == "true")
-    ->Option.getOr(true)
-  // let viewer = GlobalQuery.useViewer()
-  let navigate = Router.useNavigate()
 
-  let searchParams = searchParams->Router.ImmSearchParams.fromSearchParams
-
-  <WaitForMessages>
-    {() => {
-      <>
-        <EventsList
-          events=fragmentRefs
-          context={{
-            activitySlug: activityFilter,
-          }}
-          header={<Layout.Container>
-            <Grid>
-              <PageTitle>
-                {title}
-                <Dropdown>
-                  <DropdownButton \"as"={Navbar.NavbarItem.make}>
-                    <HeroIcons.ChevronDownIcon />
-                  </DropdownButton>
-                  <ActivityDropdownMenu />
-                </Dropdown>
-              </PageTitle>
-            </Grid>
-            {viewer
-            ->Option.map(viewer =>
-              <ViewerClubs viewer={viewer.fragmentRefs} activitySlug=?{Some(activityFilter)} />
-            )
-            ->Option.getOr(React.null)}
-            <Grid>
-              <div>
-                <HeadlessUi.Switch.Group \"as"="div" className="flex items-center">
-                  <HeadlessUi.Switch
-                    checked={shadowFilter}
-                    onChange={v => {
-                      v
-                        ? navigate(
-                            "./?" ++
-                            searchParams
-                            ->Router.ImmSearchParams.set("shadow", "true")
-                            ->Router.ImmSearchParams.toString,
-                            None,
-                          )->ignore
-                        : navigate(
-                            "./?" ++
-                            searchParams
-                            ->Router.ImmSearchParams.set("shadow", "false")
-                            ->Router.ImmSearchParams.toString,
-                            None,
-                          )
-                    }}
-                    className={Util.cx([
-                      shadowFilter ? "bg-indigo-600" : "bg-gray-200",
-                      "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2",
-                    ])}>
-                    <span
-                      ariaHidden=true
-                      className={Util.cx([
-                        shadowFilter ? "translate-x-5" : "translate-x-0",
-                        "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out",
-                      ])}
-                    />
-                  </HeadlessUi.Switch>
-                  <HeadlessUi.Switch.Label \"as"="span" className="ml-3 text-sm">
-                    <span className="font-medium text-gray-900"> {t`include private`} </span>
-                    {" "->React.string}
-                  </HeadlessUi.Switch.Label>
-                </HeadlessUi.Switch.Group>
-              </div>
-            </Grid>
-          </Layout.Container>}
-        />
-
-        // <Router.Outlet context={fragmentRefs} />
-      </>
-    }}
-  </WaitForMessages>
+  <WaitForMessages> {() => <PkEventsList events=fragmentRefs shouldHideEvent />} </WaitForMessages>
 }
-
 let \"Component" = make
 
 module LoaderArgs = {
@@ -197,8 +129,6 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   let after = url.searchParams->Router.SearchParams.get("after")
   let before = url.searchParams->Router.SearchParams.get("before")
 
-  let activity = params.activitySlug->Option.getOr("pickleball")
-
   let shadow =
     url.searchParams
     ->Router.SearchParams.get("shadow")
@@ -222,7 +152,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         ?before,
         ?afterDate,
         filters: {
-          activitySlug: activity,
+          activitySlug: ?params.activitySlug,
           shadow,
         },
       },

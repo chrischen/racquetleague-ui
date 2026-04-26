@@ -36,6 +36,7 @@ module Div = {
     ~animate: 'animate=?, // Can be cssAnimate, variantAnimate, or any other type
     ~initial: css=?,
     ~exit: css=?,
+    ~transition: transition=?,
     ~onMouseDown: ReactEvent.Mouse.t => unit=?,
     ~onMouseUp: ReactEvent.Mouse.t => unit=?,
     ~onPointerUp: ReactEvent.Pointer.t => unit=?,

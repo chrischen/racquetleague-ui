@@ -10,7 +10,7 @@ import * as ClubEventsListRefetchQuery_graphql from "./ClubEventsListRefetchQuer
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}};
+var fragmentConverter = {"__root":{"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""}}};
 
 var fragmentConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -64,7 +64,10 @@ v1 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
-};
+},
+v2 = [
+  (v1/*: any*/)
+];
 return {
   "argumentDefinitions": [
     {
@@ -124,26 +127,6 @@ return {
   },
   "name": "ClubEventsListFragment",
   "selections": [
-    (v1/*: any*/),
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "Activity",
-      "kind": "LinkedField",
-      "name": "defaultActivity",
-      "plural": false,
-      "selections": [
-        (v1/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "slug",
-          "storageKey": null
-        }
-      ],
-      "storageKey": null
-    },
     {
       "alias": "events",
       "args": [
@@ -196,6 +179,54 @@ return {
                 },
                 {
                   "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "maxRsvps",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "listed",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "shadow",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "deleted",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "Club",
+                  "kind": "LinkedField",
+                  "name": "club",
+                  "plural": false,
+                  "selections": (v2/*: any*/),
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "Location",
+                  "kind": "LinkedField",
+                  "name": "location",
+                  "plural": false,
+                  "selections": (v2/*: any*/),
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
                   "args": [
                     {
                       "kind": "Literal",
@@ -242,33 +273,9 @@ return {
                   "storageKey": "rsvps(first:100)"
                 },
                 {
-                  "alias": null,
-                  "args": null,
-                  "concreteType": "Location",
-                  "kind": "LinkedField",
-                  "name": "location",
-                  "plural": false,
-                  "selections": [
-                    (v1/*: any*/)
-                  ],
-                  "storageKey": null
-                },
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "shadow",
-                  "storageKey": null
-                },
-                {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "EventItem_event"
-                },
-                {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "ClubEventsListText_event"
+                  "name": "PkEventRow_event"
                 },
                 {
                   "alias": null,
@@ -289,11 +296,6 @@ return {
             }
           ],
           "storageKey": null
-        },
-        {
-          "args": null,
-          "kind": "FragmentSpread",
-          "name": "PinMap_eventConnection"
         },
         {
           "alias": null,
@@ -336,7 +338,8 @@ return {
         }
       ],
       "storageKey": null
-    }
+    },
+    (v1/*: any*/)
   ],
   "type": "Club",
   "abstractKey": null

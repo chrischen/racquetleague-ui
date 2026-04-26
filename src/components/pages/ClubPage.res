@@ -58,6 +58,7 @@ module Query = %relay(`
             startDate
             endDate
             timezone
+            deleted
             location { id name }
             maxRsvps
             rsvps(first: 100) {
@@ -275,7 +276,9 @@ let make = () => {
                   }
                 | None =>
                   <Button.Button
-                    color=#indigo disabled={isJoinInFlight} onClick={_ => handleJoinClub()}>
+                    href={"/oauth-login?return=" ++
+                    club.slug->Option.map(slug => "/clubs/" ++ slug)->Option.getOr("/clubs")}
+                    color=#indigo>
                     {t`Join Club`}
                   </Button.Button>
                 }}
@@ -342,9 +345,14 @@ let make = () => {
                       <Link
                         key={event.id}
                         to={"/events/" ++ event.id}
-                        className="flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors">
+                        className={"flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors" ++
+                        (event.deleted->Option.isSome ? " opacity-60" : "")}>
                         <div className="flex-1 min-w-0">
-                          <div className="font-semibold text-gray-900 truncate">
+                          <div
+                            className={"font-semibold truncate " ++
+                            (event.deleted->Option.isSome
+                              ? "line-through text-gray-400"
+                              : "text-gray-900")}>
                             {event.title->Option.getOr("")->React.string}
                           </div>
                           <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">

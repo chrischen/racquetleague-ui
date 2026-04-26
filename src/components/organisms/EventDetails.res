@@ -2,6 +2,10 @@ module Fragment = %relay(`
 	fragment EventDetails_event on Event {
 		details
 		shadow
+		club {
+			name
+			slug
+		}
 		location {
             id
             name

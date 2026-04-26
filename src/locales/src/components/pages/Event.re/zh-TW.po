@@ -65,7 +65,7 @@ msgstr "{0} 小時"
 msgid "{0} hours and {1} minutes"
 msgstr "{0} 小時 {1} 分鐘"
 
-#: src/components/organisms/GoingRsvps.re.mjs:104
+#: src/components/organisms/GoingRsvps.re.mjs:105
 msgid "+{0} more"
 msgstr "+{0} 更多"
 
@@ -86,11 +86,11 @@ msgstr "進階球員"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:115
+#: src/components/organisms/RsvpOptions.re.mjs:118
 msgid "Approve RSVP"
 msgstr "批准報名"
 
-#: src/components/organisms/RsvpOptions.re.mjs:177
+#: src/components/organisms/RsvpOptions.re.mjs:181
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您確定要將此人從活動中移除嗎？"
 
@@ -202,8 +202,8 @@ msgstr "比賽將提交至 DUPR。"
 msgid "media"
 msgstr "媒體"
 
-#: src/components/organisms/RsvpOptions.re.mjs:125
-#: src/components/organisms/RsvpOptions.re.mjs:192
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
 msgid "Move to Pending List"
 msgstr "移至待審核名單"
 
@@ -219,9 +219,17 @@ msgstr "還沒有球員"
 msgid "No restriction on skill level. Open to all players."
 msgstr "技能等級無限制。對所有球員開放。"
 
+#: src/components/organisms/EventRsvp.re.mjs:110
+msgid "Not paid"
+msgstr "未付款"
+
 #: src/components/pages/Event.re.mjs:652
 msgid "notes"
 msgstr "備註"
+
+#: src/components/organisms/EventRsvp.re.mjs:102
+msgid "Paid"
+msgstr "已付款"
 
 #: src/components/organisms/PendingRsvps.re.mjs:58
 msgid "Pending"
@@ -241,11 +249,11 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:138
+#: src/components/organisms/RsvpOptions.re.mjs:141
 msgid "Remove from event"
 msgstr "從活動中移除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:176
+#: src/components/organisms/RsvpOptions.re.mjs:180
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
@@ -272,7 +280,7 @@ msgstr "RSVP 待審核..."
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/GoingRsvps.re.mjs:122
+#: src/components/organisms/GoingRsvps.re.mjs:123
 msgid "See all"
 msgstr "查看全部"
 
@@ -280,7 +288,7 @@ msgstr "查看全部"
 msgid "Send"
 msgstr "傳送"
 
-#: src/components/organisms/GoingRsvps.re.mjs:139
+#: src/components/organisms/GoingRsvps.re.mjs:140
 msgid "Show less"
 msgstr "顯示更少"
 
@@ -334,7 +342,7 @@ msgstr ""
 "這是一個私人活動，需要俱樂部成員資格。要加入此俱樂部，請先加入日本匹克球聯盟"
 "活動以獲得推薦。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:193
+#: src/components/organisms/RsvpOptions.re.mjs:197
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -366,7 +374,7 @@ msgstr "中上等級及以上"
 msgid "view events"
 msgstr "查看活動"
 
-#: src/components/organisms/RsvpOptions.re.mjs:163
+#: src/components/organisms/RsvpOptions.re.mjs:167
 msgid "View Profile"
 msgstr "查看個人資料"
 

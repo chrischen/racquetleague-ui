@@ -60,21 +60,9 @@ function NavViewer(props) {
                                                         anchor: "bottom end",
                                                         children: [
                                                           JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-                                                                href: "/events",
-                                                                children: JsxRuntime.jsx(Dropdown.DropdownLabel.make, {
-                                                                      children: t`My Events`
-                                                                    })
-                                                              }),
-                                                          JsxRuntime.jsx(Dropdown.DropdownItem.make, {
                                                                 href: "/clubs",
                                                                 children: JsxRuntime.jsx(Dropdown.DropdownLabel.make, {
                                                                       children: t`My Clubs`
-                                                                    })
-                                                              }),
-                                                          JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-                                                                href: "/settings/profile",
-                                                                children: JsxRuntime.jsx(Dropdown.DropdownLabel.make, {
-                                                                      children: t`Settings`
                                                                     })
                                                               }),
                                                           JsxRuntime.jsx(Dropdown.DropdownDivider.make, {}),

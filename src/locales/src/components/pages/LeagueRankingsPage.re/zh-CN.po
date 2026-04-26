@@ -17,10 +17,14 @@ msgstr ""
 msgid "...load higher rated players"
 msgstr "...加载更高评分的球员"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:51
-#: src/components/pages/LeagueRankingsPage.re.mjs:52
+#: src/components/pages/LeagueRankingsPage.re.mjs:58
+#: src/components/pages/LeagueRankingsPage.re.mjs:59
 msgid "Competitive Doubles"
 msgstr "竞技双打"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:58
+msgid "Competitive Singles"
+msgstr "竞技单打"
 
 #: src/components/organisms/RatingList.re.mjs:202
 msgid "Female"
@@ -30,7 +34,7 @@ msgstr "女性"
 msgid "Load more players..."
 msgstr "加载更多球员..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:135
+#: src/components/pages/LeagueRankingsPage.re.mjs:143
 msgid "Loading rankings..."
 msgstr "加载排名..."
 
@@ -38,20 +42,20 @@ msgstr "加载排名..."
 msgid "Male"
 msgstr "男性"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:112
+#: src/components/pages/LeagueRankingsPage.re.mjs:120
 msgid ""
 "Play doubles games with different partners and receive an individual rating. "
 "Prizes are awarded monthly to top players."
 msgstr "与不同的搭档进行双打比赛，获得个人评分。每月向最优秀的球员颁发奖品。"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:51
-msgid "Recreational Doubles"
-msgstr "休闲双打"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:117
+#: src/components/pages/LeagueRankingsPage.re.mjs:125
 msgid "To participate, please join the events here:"
 msgstr "要参与，请在此加入活动："
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:92
+#: src/components/pages/LeagueRankingsPage.re.mjs:100
 msgid "View My Profile"
 msgstr "查看我的资料"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+#~ msgid "Recreational Doubles"
+#~ msgstr "休闲双打"

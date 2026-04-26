@@ -13,6 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AddEventButton.re.mjs:79
+#: src/components/organisms/AddEventButton.re.mjs:68
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"

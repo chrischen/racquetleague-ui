@@ -15,6 +15,7 @@ module Types = {
   }
   type fragment = {
     message: option<string>,
+    paid: option<int>,
     rating: option<fragment_rating>,
     user: option<fragment_user>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #RsvpOptions_rsvp]>,
@@ -123,6 +124,13 @@ let node: operationType = %raw(json` {
       "args": null,
       "kind": "ScalarField",
       "name": "message",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "paid",
       "storageKey": null
     }
   ],

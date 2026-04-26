@@ -22,14 +22,14 @@ msgstr "（登出）"
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
-#: src/components/organisms/NavViewer.re.mjs:71
+#: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Clubs"
 msgstr "我的俱樂部"
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Events"
-msgstr "我的活動"
+#~ msgid "My Events"
+#~ msgstr "我的活動"
 
 #: src/components/organisms/NavViewer.re.mjs:77
-msgid "Settings"
-msgstr "設定"
+#~ msgid "Settings"
+#~ msgstr "設定"

@@ -97,6 +97,13 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "price",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "viewerIsAdmin",
       "storageKey": null
     },
@@ -205,6 +212,13 @@ return {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "message",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "paid",
                   "storageKey": null
                 },
                 {

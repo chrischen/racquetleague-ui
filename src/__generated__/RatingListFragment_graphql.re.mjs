@@ -20,12 +20,13 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-function makeConnectionId(connectionParentDataId, activitySlug, namespace) {
+function makeConnectionId(connectionParentDataId, activitySlug, namespace, clubSlug) {
   var activitySlug$1 = activitySlug;
   var namespace$1 = namespace;
   var args = {
     activitySlug: activitySlug$1,
-    namespace: namespace$1
+    namespace: namespace$1,
+    clubSlug: clubSlug
   };
   return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "RatingListFragment_ratings", args);
 }
@@ -71,6 +72,11 @@ return {
       "name": "before"
     },
     {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "clubSlug"
+    },
+    {
       "defaultValue": 20,
       "kind": "LocalArgument",
       "name": "first"
@@ -113,6 +119,11 @@ return {
           "kind": "Variable",
           "name": "activitySlug",
           "variableName": "activitySlug"
+        },
+        {
+          "kind": "Variable",
+          "name": "clubSlug",
+          "variableName": "clubSlug"
         },
         {
           "kind": "Variable",

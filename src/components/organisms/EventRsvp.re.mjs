@@ -73,20 +73,48 @@ var ListItem = {
 };
 
 function EventRsvp(props) {
+  var __connectionKey = props.connectionKey;
+  var waitlistPosition = props.waitlistPosition;
+  var eventPrice = props.eventPrice;
   var __isAdmin = props.isAdmin;
   var eventId = props.eventId;
   var maxRating = props.maxRating;
   var activitySlug = props.activitySlug;
   var viewer = props.viewer;
   var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
+  var connectionKey = __connectionKey !== undefined ? __connectionKey : "RSVPSection_event_rsvps";
   var rsvp = use(props.rsvp);
   return Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
                     var tmp;
-                    tmp = activitySlug === "pickleball" ? Core__Option.getOr(Core__Option.map(Core__Option.flatMap(rsvp.rating, (function (r) {
-                                      return r.mu;
-                                    })), (function (mu) {
-                                  return Rating.guessDupr(mu).toFixed(2);
-                                })), "") : "";
+                    tmp = waitlistPosition !== undefined ? "#" + waitlistPosition.toString() : (
+                        activitySlug === "pickleball" ? Core__Option.getOr(Core__Option.map(Core__Option.flatMap(rsvp.rating, (function (r) {
+                                          return r.mu;
+                                        })), (function (mu) {
+                                      return Rating.guessDupr(mu).toFixed(2);
+                                    })), "") : ""
+                      );
+                    var tmp$1;
+                    if (eventPrice !== undefined) {
+                      var match = rsvp.paid;
+                      var exit = 0;
+                      if (match === 1) {
+                        tmp$1 = JsxRuntime.jsx("span", {
+                              children: t`Paid`,
+                              className: "ml-2 inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700"
+                            });
+                      } else {
+                        exit = 1;
+                      }
+                      if (exit === 1) {
+                        tmp$1 = JsxRuntime.jsx("span", {
+                              children: t`Not paid`,
+                              className: "ml-2 inline-flex items-center rounded-full bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800"
+                            });
+                      }
+                      
+                    } else {
+                      tmp$1 = null;
+                    }
                     return JsxRuntime.jsx(EventRsvp$ListItem, {
                                 children: JsxRuntime.jsxs("div", {
                                       children: [
@@ -95,6 +123,7 @@ function EventRsvp(props) {
                                               eventId: eventId,
                                               eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
                                               isAdmin: isAdmin,
+                                              connectionKey: connectionKey,
                                               children: JsxRuntime.jsx(EventRsvpUser.make, {
                                                     user: user.fragmentRefs,
                                                     highlight: Core__Option.getOr(Core__Option.map(viewer, (function (viewer) {
@@ -130,7 +159,8 @@ function EventRsvp(props) {
                                                                       side: "bottom"
                                                                     })
                                                               });
-                                                  })), null)
+                                                  })), null),
+                                        tmp$1
                                       ],
                                       className: "flex items-center"
                                     })

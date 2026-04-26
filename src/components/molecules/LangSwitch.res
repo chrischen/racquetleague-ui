@@ -81,7 +81,7 @@ let make = () => {
       <span> {currentLocale.display->React.string} </span>
       <HeroIcons.ChevronDownIcon className="w-4 h-4" />
     </DropdownButton>
-    <DropdownMenu className="min-w-48" anchor="bottom start">
+    <DropdownMenu className="min-w-48 z-[100]" anchor="bottom start">
       {locales
       ->Array.map(loc => {
         let isActive = loc.lang == locale

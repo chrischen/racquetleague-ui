@@ -22,7 +22,7 @@ function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
 }
 
-var wrapResponseConverter = {"__root":{"club_events_edges_node_startDate":{"c":"Util.Datetime"},"club_events_edges_node_endDate":{"c":"Util.Datetime"},"":{"f":""}}};
+var wrapResponseConverter = {"__root":{"club_events_edges_node_startDate":{"c":"Util.Datetime"},"club_events_edges_node_endDate":{"c":"Util.Datetime"},"club_events_edges_node_deleted":{"c":"Util.Datetime"},"":{"f":""}}};
 
 var wrapResponseConverterMap = {
   "Util.Datetime": Util.Datetime.serialize
@@ -32,7 +32,7 @@ function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, wrapResponseConverterMap, null);
 }
 
-var responseConverter = {"__root":{"club_events_edges_node_startDate":{"c":"Util.Datetime"},"club_events_edges_node_endDate":{"c":"Util.Datetime"},"":{"f":""}}};
+var responseConverter = {"__root":{"club_events_edges_node_startDate":{"c":"Util.Datetime"},"club_events_edges_node_endDate":{"c":"Util.Datetime"},"club_events_edges_node_deleted":{"c":"Util.Datetime"},"":{"f":""}}};
 
 var responseConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -215,6 +215,13 @@ v12 = {
               "args": null,
               "kind": "ScalarField",
               "name": "timezone",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "deleted",
               "storageKey": null
             },
             {
@@ -474,12 +481,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1dd661e0ed368002c00980d6517a9a34",
+    "cacheID": "774b8a735a5ff8677d158076b4994dd2",
     "id": null,
     "metadata": {},
     "name": "ClubPageQuery",
     "operationKind": "query",
-    "text": "query ClubPageQuery(\n  $slug: String!\n) {\n  ...ClubPage_leaderboard_1i3p82\n  club(slug: $slug) {\n    id\n    slug\n    name\n    description\n    shareLink\n    viewerMembership {\n      status\n      isAdmin\n      id\n    }\n    events(first: 5) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n          location {\n            id\n            name\n          }\n          maxRsvps\n          rsvps(first: 100) {\n            edges {\n              node {\n                id\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n  }\n}\n\nfragment ClubPage_leaderboard_1i3p82 on Query {\n  ratings(activitySlug: \"pickleball\", namespace: \"doubles:comp\", clubSlug: $slug, first: 5) {\n    edges {\n      node {\n        id\n        ordinal\n        mu\n        user {\n          id\n          fullName\n          lineUsername\n          picture\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query ClubPageQuery(\n  $slug: String!\n) {\n  ...ClubPage_leaderboard_1i3p82\n  club(slug: $slug) {\n    id\n    slug\n    name\n    description\n    shareLink\n    viewerMembership {\n      status\n      isAdmin\n      id\n    }\n    events(first: 5) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n          deleted\n          location {\n            id\n            name\n          }\n          maxRsvps\n          rsvps(first: 100) {\n            edges {\n              node {\n                id\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n  }\n}\n\nfragment ClubPage_leaderboard_1i3p82 on Query {\n  ratings(activitySlug: \"pickleball\", namespace: \"doubles:comp\", clubSlug: $slug, first: 5) {\n    edges {\n      node {\n        id\n        ordinal\n        mu\n        user {\n          id\n          fullName\n          lineUsername\n          picture\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })());

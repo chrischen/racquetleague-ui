@@ -31,7 +31,7 @@ msgstr "ยังไม่มีกิจกรรม"
 
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
-msgstr ""
+msgstr "ส่ง"
 
 #: src/components/organisms/EventMessages.re.mjs:118
 msgid "Status message"

@@ -13,35 +13,13 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LeaguePage.re.mjs:126
+#: src/components/pages/LeaguePage.re.mjs:44
 msgid "japan pickle league"
 msgstr "日本ピックルリーグ"
 
-#: src/components/pages/LeaguePage.re.mjs:32
-msgid "Next Prize: February 28"
-msgstr "次の賞品：2月28日"
-
-#: src/components/pages/LeaguePage.re.mjs:36
-msgid "Prize Sponsor"
-msgstr "賞スポンサー"
-
-#: src/components/pages/LeaguePage.re.mjs:66
-msgid "Selkirk SLK Era Paddle"
-msgstr "Selkirk SLK Era パドル"
-
-#: src/components/pages/LeaguePage.re.mjs:48
-msgid ""
-"This prize will be awarded to the top male and female players on this day."
-msgstr ""
-"この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
-
-#: src/components/pages/LeaguePage.re.mjs:117
+#: src/components/pages/LeaguePage.re.mjs:35
 msgid "Tokyo Badminton League"
 msgstr "東京バドミントンリーグ"
-
-#: src/components/pages/LeaguePage.re.mjs:71
-msgid "Top female and top male players will each receive the prize."
-msgstr "トップの女性およびトップの男性プレイヤーがそれぞれ賞品を受け取ります。"
 
 #: src/components/organisms/RatingList.re.mjs:204
 #~ msgid "--"
@@ -100,6 +78,10 @@ msgstr "トップの女性およびトップの男性プレイヤーがそれぞ
 #~ msgid "Next Prize: December 31"
 #~ msgstr "次の賞品：12月31日"
 
+#: src/components/pages/LeaguePage.re.mjs:32
+#~ msgid "Next Prize: February 28"
+#~ msgstr "次の賞品：2月28日"
+
 #: src/components/pages/LeaguePage.re.mjs:53
 #~ msgid "Next Prize: June 10"
 #~ msgstr "次の賞品: 6月10日"
@@ -115,6 +97,10 @@ msgstr "トップの女性およびトップの男性プレイヤーがそれぞ
 #~ msgstr ""
 #~ "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品"
 #~ "は毎月トッププレイヤーに授与されます。"
+
+#: src/components/pages/LeaguePage.re.mjs:36
+#~ msgid "Prize Sponsor"
+#~ msgstr "賞スポンサー"
 
 #: src/components/pages/LeaguePage.re.mjs:51
 #~ msgid "Proton Flamingo Paddle"
@@ -140,9 +126,24 @@ msgstr "トップの女性およびトップの男性プレイヤーがそれぞ
 #~ msgid "Selkirk Labs Paddle Cover"
 #~ msgstr "セルカーク ラボ パドルカバー"
 
+#: src/components/pages/LeaguePage.re.mjs:66
+#~ msgid "Selkirk SLK Era Paddle"
+#~ msgstr "Selkirk SLK Era パドル"
+
 #: src/components/molecules/AddToCalendar.re.mjs:17
 #~ msgid "sync calendar"
 #~ msgstr "カレンダー同期"
+
+#: src/components/pages/LeaguePage.re.mjs:48
+#~ msgid ""
+#~ "This prize will be awarded to the top male and female players on this day."
+#~ msgstr ""
+#~ "この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
+
+#: src/components/pages/LeaguePage.re.mjs:71
+#~ msgid "Top female and top male players will each receive the prize."
+#~ msgstr ""
+#~ "トップの女性およびトップの男性プレイヤーがそれぞれ賞品を受け取ります。"
 
 #: src/components/pages/LeaguePage.re.mjs:130
 #~ msgid "volair pickleball"

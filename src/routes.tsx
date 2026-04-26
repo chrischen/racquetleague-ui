@@ -11,8 +11,13 @@ const mainRoutes: RouteObject[] =
     },
     {
       path: "events",
-      lazy: () => import("./components/routes/ViewerEventsRoute.gen"),
-      handle: "src/components/routes/ViewerEventsRoute.gen.tsx",
+      lazy: () => import("./components/routes/PkViewerEventsRoute.gen"),
+      handle: "src/components/routes/PkViewerEventsRoute.gen.tsx",
+    },
+    {
+      path: "e/:activitySlug/map",
+      lazy: () => import("./components/routes/EventsMapRoute.gen"),
+      handle: "src/components/routes/EventsMapRoute.gen.tsx",
     },
     {
       path: "e/:activitySlug",
@@ -22,8 +27,8 @@ const mainRoutes: RouteObject[] =
     },
     {
       path: "locations/:locationId",
-      lazy: () => import("./components/routes/LocationRoute.gen"),
-      handle: "src/components/routes/LocationRoute.gen.tsx"
+      lazy: () => import("./components/routes/PkLocationRoute.gen"),
+      handle: "src/components/routes/PkLocationRoute.gen.tsx"
     },
     // {
     //   path: "locations",
@@ -52,6 +57,18 @@ const mainRoutes: RouteObject[] =
           path: ":slug/events",
           lazy: () => import("./components/routes/ClubEventsRoute.gen"),
           handle: "src/components/routes/ClubEventsRoute.gen.tsx",
+          children: [
+            {
+              index: true,
+              lazy: () => import("./components/routes/ClubEventsListRoute.gen"),
+              handle: "src/components/routes/ClubEventsListRoute.gen.tsx",
+            },
+            {
+              path: "create",
+              lazy: () => import("./components/routes/ClubCreateEventRoute.gen"),
+              handle: "src/components/routes/ClubCreateEventRoute.gen.tsx",
+            },
+          ],
         },
         {
           path: ":slug/members",
@@ -104,8 +121,8 @@ const mainRoutes: RouteObject[] =
     // },
     {
       path: "events/:eventId",
-      lazy: () => import("./components/pages/EventPage.gen"),
-      handle: "src/components/pages/EventPage.gen.tsx",
+      lazy: () => import("./components/routes/PkEventRoute.gen"),
+      handle: "src/components/routes/PkEventRoute.gen.tsx",
       HydrateFallbackElement: <>Loading Fallback...</>
     },
     {
@@ -270,8 +287,8 @@ export const routes: RouteObject[] = [
         // path: "",
         // Declaring handle allows the server to pull the scripts needed based on
         // the entrypoint to avoid waterfall loading of dependencies
-        lazy: () => import("./components/routes/DefaultLayoutRoute.gen"),
-        handle: "src/components/routes/DefaultLayoutRoute.gen.tsx",
+        lazy: () => import("./components/routes/PkuruLayoutRoute.gen"),
+        handle: "src/components/routes/PkuruLayoutRoute.gen.tsx",
         // HydrateFallbackElement: <>Loading Fallback...</>,
         children: mainRoutes
       },

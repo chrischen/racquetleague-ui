@@ -21,6 +21,7 @@ module Types = {
     listed: option<bool>,
     maxRsvps: option<int>,
     minRating: option<float>,
+    price: option<int>,
     startDate: option<Util.Datetime.t>,
     tags: option<array<string>>,
     timezone: option<string>,
@@ -175,6 +176,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "tags",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "price",
       "storageKey": null
     }
   ],

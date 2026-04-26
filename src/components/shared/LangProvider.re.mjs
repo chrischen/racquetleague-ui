@@ -94,12 +94,22 @@ var LinkWithOpts = {
   make: make$3
 };
 
+function useLocalePath() {
+  var locale = React.useContext(context);
+  return function (path) {
+    if (path.startsWith("/")) {
+      return "/" + locale.lang + path;
+    } else {
+      return path;
+    }
+  };
+}
+
 function useNavigate() {
   var navigate = ReactRouterDom.useNavigate();
-  var locale = React.useContext(context);
+  var localePath = useLocalePath();
   return function (target, opts) {
-    var prefixed = target.startsWith("/") ? "/" + locale.lang + target : target;
-    navigate(prefixed, opts);
+    navigate(localePath(target), opts);
   };
 }
 
@@ -115,6 +125,7 @@ var Router = {
   Link: Link,
   NavLink: NavLink,
   LinkWithOpts: LinkWithOpts,
+  useLocalePath: useLocalePath,
   useNavigate: useNavigate,
   useOriginalNavigate: useOriginalNavigate,
   useLocation: useLocation

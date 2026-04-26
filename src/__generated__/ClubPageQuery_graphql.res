@@ -18,6 +18,7 @@ module Types = {
     edges: option<array<option<response_club_events_edges_node_rsvps_edges>>>,
   }
   and response_club_events_edges_node = {
+    deleted: option<Util.Datetime.t>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
     location: option<response_club_events_edges_node_location>,
@@ -95,7 +96,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"club_events_edges_node_startDate":{"c":"Util.Datetime"},"club_events_edges_node_endDate":{"c":"Util.Datetime"},"":{"f":""}}}`
+    json`{"__root":{"club_events_edges_node_startDate":{"c":"Util.Datetime"},"club_events_edges_node_endDate":{"c":"Util.Datetime"},"club_events_edges_node_deleted":{"c":"Util.Datetime"},"":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = {
@@ -111,7 +112,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"club_events_edges_node_startDate":{"c":"Util.Datetime"},"club_events_edges_node_endDate":{"c":"Util.Datetime"},"":{"f":""}}}`
+    json`{"__root":{"club_events_edges_node_startDate":{"c":"Util.Datetime"},"club_events_edges_node_endDate":{"c":"Util.Datetime"},"club_events_edges_node_deleted":{"c":"Util.Datetime"},"":{"f":""}}}`
   )
   @live
   let responseConverterMap = {
@@ -299,6 +300,13 @@ v12 = {
               "args": null,
               "kind": "ScalarField",
               "name": "timezone",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "deleted",
               "storageKey": null
             },
             {
@@ -558,12 +566,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1dd661e0ed368002c00980d6517a9a34",
+    "cacheID": "774b8a735a5ff8677d158076b4994dd2",
     "id": null,
     "metadata": {},
     "name": "ClubPageQuery",
     "operationKind": "query",
-    "text": "query ClubPageQuery(\n  $slug: String!\n) {\n  ...ClubPage_leaderboard_1i3p82\n  club(slug: $slug) {\n    id\n    slug\n    name\n    description\n    shareLink\n    viewerMembership {\n      status\n      isAdmin\n      id\n    }\n    events(first: 5) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n          location {\n            id\n            name\n          }\n          maxRsvps\n          rsvps(first: 100) {\n            edges {\n              node {\n                id\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n  }\n}\n\nfragment ClubPage_leaderboard_1i3p82 on Query {\n  ratings(activitySlug: \"pickleball\", namespace: \"doubles:comp\", clubSlug: $slug, first: 5) {\n    edges {\n      node {\n        id\n        ordinal\n        mu\n        user {\n          id\n          fullName\n          lineUsername\n          picture\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query ClubPageQuery(\n  $slug: String!\n) {\n  ...ClubPage_leaderboard_1i3p82\n  club(slug: $slug) {\n    id\n    slug\n    name\n    description\n    shareLink\n    viewerMembership {\n      status\n      isAdmin\n      id\n    }\n    events(first: 5) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n          deleted\n          location {\n            id\n            name\n          }\n          maxRsvps\n          rsvps(first: 100) {\n            edges {\n              node {\n                id\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n  }\n}\n\nfragment ClubPage_leaderboard_1i3p82 on Query {\n  ratings(activitySlug: \"pickleball\", namespace: \"doubles:comp\", clubSlug: $slug, first: 5) {\n    edges {\n      node {\n        id\n        ordinal\n        mu\n        user {\n          id\n          fullName\n          lineUsername\n          picture\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

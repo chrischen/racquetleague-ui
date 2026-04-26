@@ -8,16 +8,19 @@
 
 import * as Headless from '@headlessui/react'
 import React, { forwardRef } from 'react'
-// import { NavLink } from 'react-router-dom'
-import { Router_NavLink_make as NavLink } from '../shared/LangProvider.gen'
+import { NavLink } from 'react-router-dom'
+import { Router_useLocalePath } from '../shared/LangProvider.gen'
 
 export const Link = forwardRef(function Link(
   props: { href: string } & React.ComponentPropsWithoutRef<'a'>,
   ref: React.ForwardedRef<HTMLAnchorElement>
 ) {
+  const localePath = Router_useLocalePath()
+  const { href, ...rest } = props
+
   return (
     <Headless.DataInteractive>
-      <NavLink to={props.href} {...props} ref={ref} />
+      <NavLink to={localePath(href)} {...rest} ref={ref} />
     </Headless.DataInteractive>
   )
 })

@@ -90,7 +90,10 @@ var schema = Zod.z.object({
             }).min(5),
       timezone: Zod.z.string({}).optional(),
       details: Zod.z.string({}).optional(),
-      listed: Zod.z.boolean({})
+      listed: Zod.z.boolean({}),
+      price: Zod.z.preprocess((function (v) {
+              return Core__Int.fromString(v, undefined);
+            }), Zod.z.number({}).optional())
     });
 
 function calculateDurationHours(startDateTime, endDateTime) {
@@ -141,7 +144,8 @@ function CreateLocationEventForm(props) {
         minRating: prefilledValues.minRating,
         startDate: Core__Option.getOr(prefilledValues.startDate, ""),
         endTime: Core__Option.getOr(prefilledValues.endDate, ""),
-        listed: Core__Option.getOr(prefilledValues.listed, false)
+        listed: Core__Option.getOr(prefilledValues.listed, false),
+        price: prefilledValues.price
       }) : ({
         activity: defaultActivityId,
         listed: false
@@ -162,64 +166,71 @@ function CreateLocationEventForm(props) {
                 return listed;
               }
             })), false);
+  var match$3 = React.useState(function () {
+        return Core__Option.isSome(Core__Option.flatMap(prefilledValues, (function (pf) {
+                          return pf.price;
+                        })));
+      });
+  var setIsPaidEvent = match$3[1];
+  var isPaidEvent = match$3[0];
   var startDate = watch("startDate");
   var endTime = watch("endTime");
   var title = watch("title");
   var activityId = watch("activity");
   var hasPreloadedValues = Core__Option.isSome(eventId) || Core__Option.isSome(prefilledValues);
-  var match$3 = React.useState(function () {
+  var match$4 = React.useState(function () {
         if (hasPreloadedValues) {
           return "None";
         } else {
           return "EventDetailsSection";
         }
       });
-  var setExpandedSection = match$3[1];
-  var expandedSection = match$3[0];
+  var setExpandedSection = match$4[1];
+  var expandedSection = match$4[0];
   var eventDetailsExpanded = expandedSection === "EventDetailsSection";
   var activityFormatExpanded = expandedSection === "ActivityFormatSection";
   var findPlayersExpanded = expandedSection === "FindPlayersSection";
-  var match$4 = React.useState(function () {
+  var match$5 = React.useState(function () {
         return false;
       });
-  var setIsUserInitiatedChange = match$4[1];
-  var isUserInitiatedChange = match$4[0];
-  var match$5 = React.useState(function () {
+  var setIsUserInitiatedChange = match$5[1];
+  var isUserInitiatedChange = match$5[0];
+  var match$6 = React.useState(function () {
         return 2.0;
       });
-  var setEventDurationHours = match$5[1];
-  var eventDurationHours = match$5[0];
-  var match$6 = React.useState(function () {
-        return false;
-      });
-  var setIsClubActivitySelectorActive = match$6[1];
-  var isClubActivitySelectorActive = match$6[0];
+  var setEventDurationHours = match$6[1];
+  var eventDurationHours = match$6[0];
   var match$7 = React.useState(function () {
         return false;
       });
-  var setShowAddClub = match$7[1];
-  var showAddClub = match$7[0];
+  var setIsClubActivitySelectorActive = match$7[1];
+  var isClubActivitySelectorActive = match$7[0];
   var match$8 = React.useState(function () {
         return false;
       });
-  var setIsLocationDetailsExpanded = match$8[1];
-  var isLocationDetailsExpanded = match$8[0];
+  var setShowAddClub = match$8[1];
+  var showAddClub = match$8[0];
   var match$9 = React.useState(function () {
+        return false;
+      });
+  var setIsLocationDetailsExpanded = match$9[1];
+  var isLocationDetailsExpanded = match$9[0];
+  var match$10 = React.useState(function () {
         return Core__Option.orElse(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.clubId;
                         })), Core__Option.map(clubs[0], (function (c) {
                           return c.id;
                         })));
       });
-  var setSelectedClub = match$9[1];
-  var selectedClub = match$9[0];
-  var match$10 = React.useState(function () {
+  var setSelectedClub = match$10[1];
+  var selectedClub = match$10[0];
+  var match$11 = React.useState(function () {
         return Core__Option.getOr(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.tags;
                         })), ["all level"]);
       });
-  var setSelectedTags = match$10[1];
-  var selectedTags = match$10[0];
+  var setSelectedTags = match$11[1];
+  var selectedTags = match$11[0];
   var eventType = selectedTags.includes("comp") ? "competitive" : "recreational";
   var isDrill = selectedTags.includes("drill");
   var isDupr = selectedTags.includes("dupr");
@@ -376,6 +387,7 @@ function CreateLocationEventForm(props) {
         });
     var startDate = DateFns.parseISO(data.startDate);
     var endDate = DateFns.parse(data.endTime, "HH:mm", startDate);
+    var priceValue = isPaidEvent ? data.price : undefined;
     if (isUpdate) {
       if (eventId !== undefined) {
         commitMutationUpdate({
@@ -389,6 +401,7 @@ function CreateLocationEventForm(props) {
                 locationId: $$location.id,
                 maxRsvps: data.maxRsvps,
                 minRating: data.minRating,
+                price: priceValue,
                 startDate: Util.Datetime.fromDate(startDate),
                 tags: tagsToSubmit,
                 timezone: data.timezone,
@@ -414,6 +427,7 @@ function CreateLocationEventForm(props) {
             locationId: $$location.id,
             maxRsvps: data.maxRsvps,
             minRating: data.minRating,
+            price: priceValue,
             startDate: Util.Datetime.fromDate(startDate),
             tags: tagsToSubmit,
             timezone: data.timezone,
@@ -967,24 +981,52 @@ function CreateLocationEventForm(props) {
                               tmp$4 = null;
                             }
                             var tmp$9;
+                            if (isPaidEvent) {
+                              var newrecord$6 = Caml_obj.obj_dup(register("price", {
+                                        required: false
+                                      }));
+                              tmp$9 = JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsx("label", {
+                                            children: t`Price`,
+                                            className: "block text-sm font-semibold text-gray-900 mb-2",
+                                            htmlFor: "price"
+                                          }),
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("span", {
+                                                    children: "¥",
+                                                    className: "absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-sm"
+                                                  }),
+                                              JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.placeholder = t`Enter price`, newrecord$6.min = "1", newrecord$6.id = "price", newrecord$6.className = "block w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", newrecord$6))
+                                            ],
+                                            className: "relative"
+                                          })
+                                    ],
+                                    className: "mt-4 ml-8"
+                                  });
+                            } else {
+                              tmp$9 = null;
+                            }
+                            var tmp$10;
                             if (findPlayersExpanded) {
-                              var tmp$10;
+                              var tmp$11;
                               if (listed) {
-                                var newrecord$6 = Caml_obj.obj_dup(register("minRating", {
+                                var newrecord$7 = Caml_obj.obj_dup(register("minRating", {
                                           required: false
                                         }));
                                 var match$3 = formState.errors.minRating;
-                                var tmp$11;
+                                var tmp$12;
                                 if (match$3 !== undefined) {
                                   var message$3 = match$3.message;
-                                  tmp$11 = message$3 !== undefined ? JsxRuntime.jsx("p", {
+                                  tmp$12 = message$3 !== undefined ? JsxRuntime.jsx("p", {
                                           children: message$3,
                                           className: "mt-1 text-sm text-red-600"
                                         }) : null;
                                 } else {
-                                  tmp$11 = null;
+                                  tmp$12 = null;
                                 }
-                                tmp$10 = JsxRuntime.jsxs("div", {
+                                tmp$11 = JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("label", {
                                               children: t`Skill level`,
@@ -1044,8 +1086,8 @@ function CreateLocationEventForm(props) {
                                                       className: "block text-sm font-medium text-gray-700 mb-2",
                                                       htmlFor: "minRating"
                                                     }),
-                                                JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.step = 0.1, newrecord$6.placeholder = t`No minimum`, newrecord$6.id = "minRating", newrecord$6.className = "block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", newrecord$6)),
-                                                tmp$11
+                                                JsxRuntime.jsx("input", (newrecord$7.type = "number", newrecord$7.step = 0.1, newrecord$7.placeholder = t`No minimum`, newrecord$7.id = "minRating", newrecord$7.className = "block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", newrecord$7)),
+                                                tmp$12
                                               ],
                                               className: "mt-4"
                                             })
@@ -1053,9 +1095,9 @@ function CreateLocationEventForm(props) {
                                       className: "ml-8 space-y-3"
                                     });
                               } else {
-                                tmp$10 = null;
+                                tmp$11 = null;
                               }
-                              tmp$9 = JsxRuntime.jsxs("div", {
+                              tmp$10 = JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsxs("div", {
                                             children: [
@@ -1084,12 +1126,12 @@ function CreateLocationEventForm(props) {
                                             ],
                                             className: "flex items-start gap-3 mb-4"
                                           }),
-                                      tmp$10
+                                      tmp$11
                                     ],
                                     className: "px-4 pb-4 pt-6 border-t border-gray-100"
                                   });
                             } else {
-                              tmp$9 = null;
+                              tmp$10 = null;
                             }
                             return JsxRuntime.jsx(JsxRuntime.Fragment, {
                                         children: Caml_option.some(JsxRuntime.jsxs("form", {
@@ -1182,6 +1224,50 @@ function CreateLocationEventForm(props) {
                                                                 }),
                                                             tmp$4
                                                           ],
+                                                          className: "border border-gray-200 rounded-lg overflow-hidden bg-white"
+                                                        }),
+                                                    JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsxs("div", {
+                                                                children: [
+                                                                  JsxRuntime.jsxs("div", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx("input", {
+                                                                                className: "h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-0.5",
+                                                                                id: "paidEvent",
+                                                                                checked: isPaidEvent,
+                                                                                type: "checkbox",
+                                                                                onChange: (function (param) {
+                                                                                    var newValue = !isPaidEvent;
+                                                                                    setIsPaidEvent(function (param) {
+                                                                                          return newValue;
+                                                                                        });
+                                                                                    if (!newValue) {
+                                                                                      return setValue("price", "", undefined);
+                                                                                    }
+                                                                                    
+                                                                                  })
+                                                                              }),
+                                                                          JsxRuntime.jsxs("div", {
+                                                                                children: [
+                                                                                  JsxRuntime.jsx("label", {
+                                                                                        children: t`Paid event`,
+                                                                                        className: "block text-sm font-semibold text-gray-900",
+                                                                                        htmlFor: "paidEvent"
+                                                                                      }),
+                                                                                  JsxRuntime.jsx("p", {
+                                                                                        children: t`Require payment from attendees`,
+                                                                                        className: "text-sm text-gray-600 mt-1"
+                                                                                      })
+                                                                                ],
+                                                                                className: "flex-1"
+                                                                              })
+                                                                        ],
+                                                                        className: "flex items-start gap-3"
+                                                                      }),
+                                                                  tmp$9
+                                                                ],
+                                                                className: "px-4 py-4"
+                                                              }),
                                                           className: "border border-gray-200 rounded-lg overflow-hidden bg-white"
                                                         }),
                                                     JsxRuntime.jsxs("div", {
@@ -1429,7 +1515,7 @@ function CreateLocationEventForm(props) {
                                                                           });
                                                                     })
                                                                 }),
-                                                            tmp$9
+                                                            tmp$10
                                                           ],
                                                           className: "border border-gray-200 rounded-lg overflow-hidden bg-white"
                                                         }),

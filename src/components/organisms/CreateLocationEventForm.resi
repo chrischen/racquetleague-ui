@@ -10,6 +10,7 @@ type prefilledValues = {
   listed?: bool,
   timezone?: string,
   tags?: array<string>,
+  price?: int,
 }
 @react.component
 let make: (

@@ -7,7 +7,6 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as RelayRuntime from "relay-runtime";
-import * as ReactRouterDom from "react-router-dom";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -78,10 +77,14 @@ var RsvpOptionsUpdateListTypeMutation = {
 };
 
 function RsvpOptions(props) {
+  var __triggerClassName = props.triggerClassName;
+  var __connectionKey = props.connectionKey;
   var __isAdmin = props.isAdmin;
   var eventActivitySlug = props.eventActivitySlug;
   var eventId = props.eventId;
   var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
+  var connectionKey = __connectionKey !== undefined ? __connectionKey : "RSVPSection_event_rsvps";
+  var triggerClassName = __triggerClassName !== undefined ? __triggerClassName : "w-full text-left";
   var match = use$1();
   var commitMutationDeleteRsvp = match[0];
   var match$1 = use$2();
@@ -152,11 +155,12 @@ function RsvpOptions(props) {
               children: [
                 JsxRuntime.jsxs(React$1.Menu, {
                       children: [
-                        JsxRuntime.jsx(Dropdown.DropdownButton.make, {
-                              as: ReactRouterDom.Link,
+                        JsxRuntime.jsx(React$1.MenuButton, {
+                              className: triggerClassName,
                               children: props.children
                             }),
                         JsxRuntime.jsxs(Dropdown.DropdownMenu.make, {
+                              className: "z-[60]",
                               children: [
                                 Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
                                             return JsxRuntime.jsx(Dropdown.DropdownItem.make, {
@@ -177,7 +181,7 @@ function RsvpOptions(props) {
                                         description: t`Are you sure you want to remove this person from the event?`,
                                         onConfirmed: (function () {
                                             var userId = user.id;
-                                            var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventId, "RSVPSection_event_rsvps", undefined);
+                                            var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventId, connectionKey, undefined);
                                             commitMutationDeleteRsvp({
                                                   connections: [connectionId],
                                                   id: eventId,

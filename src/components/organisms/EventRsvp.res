@@ -14,6 +14,7 @@ module Fragment = %relay(`
       sigma
     }
     message
+    paid
   }
 `)
 
@@ -43,6 +44,9 @@ let make = (
   ~maxRating,
   ~eventId,
   ~isAdmin=false,
+  ~eventPrice: option<int>=?,
+  ~waitlistPosition: option<int>=?,
+  ~connectionKey: string="RSVPSection_event_rsvps",
 ) => {
   let rsvp = Fragment.use(rsvp)
 
@@ -54,13 +58,15 @@ let make = (
           rsvp={rsvp.fragmentRefs}
           eventId
           eventActivitySlug={activitySlug->Option.getOr("badminton")}
-          isAdmin>
+          isAdmin
+          connectionKey>
           <EventRsvpUser
             user={user.fragmentRefs}
             isAdmin
             link={"/league/" ++ activitySlug->Option.getOr("badminton") ++ "/p/" ++ user.id}
-            secondaryText={switch activitySlug {
-            | Some("pickleball") =>
+            secondaryText={switch (activitySlug, waitlistPosition) {
+            | (_, Some(pos)) => "#" ++ Int.toString(pos)
+            | (Some("pickleball"), None) =>
               rsvp.rating
               ->Option.flatMap(r => r.mu)
               ->Option.map(mu => Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2))
@@ -95,6 +101,22 @@ let make = (
           </ResponsiveTooltip.Provider>
         )
         ->Option.getOr(React.null)}
+        {switch eventPrice {
+        | Some(_) =>
+          switch rsvp.paid {
+          | Some(1) =>
+            <span
+              className="ml-2 inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
+              {t`Paid`}
+            </span>
+          | _ =>
+            <span
+              className="ml-2 inline-flex items-center rounded-full bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">
+              {t`Not paid`}
+            </span>
+          }
+        | None => React.null
+        }}
       </div>
     </ListItem>
   })

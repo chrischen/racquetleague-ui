@@ -21,18 +21,18 @@ msgstr ""
 #~ msgid "All"
 #~ msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:103
-#: src/components/pages/DefaultLayoutMap.re.mjs:156
+#: src/components/pages/DefaultLayoutMap.re.mjs:99
+#: src/components/pages/DefaultLayoutMap.re.mjs:152
 msgid "Badminton"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:227
-#: src/components/pages/DefaultLayoutMap.re.mjs:297
+#: src/components/pages/DefaultLayoutMap.re.mjs:223
+#: src/components/pages/DefaultLayoutMap.re.mjs:293
 msgid "Events"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:254
-#: src/components/pages/DefaultLayoutMap.re.mjs:324
+#: src/components/pages/DefaultLayoutMap.re.mjs:250
+#: src/components/pages/DefaultLayoutMap.re.mjs:320
 msgid "Find Games"
 msgstr ""
 
@@ -45,21 +45,21 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/organisms/NavViewer.re.mjs:71
+#: src/components/organisms/NavViewer.re.mjs:65
 msgid "My Clubs"
 msgstr ""
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Events"
-msgstr ""
+#~ msgid "My Events"
+#~ msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:98
-#: src/components/pages/DefaultLayoutMap.re.mjs:151
+#: src/components/pages/DefaultLayoutMap.re.mjs:94
+#: src/components/pages/DefaultLayoutMap.re.mjs:147
 msgid "Pickleball"
 msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:211
-#: src/components/pages/DefaultLayoutMap.re.mjs:283
+#: src/components/pages/DefaultLayoutMap.re.mjs:207
+#: src/components/pages/DefaultLayoutMap.re.mjs:279
 msgid "pkuru"
 msgstr ""
 
@@ -68,14 +68,14 @@ msgstr ""
 #~ msgid "Racquet League"
 #~ msgstr ""
 
-#: src/components/pages/DefaultLayoutMap.re.mjs:242
-#: src/components/pages/DefaultLayoutMap.re.mjs:312
+#: src/components/pages/DefaultLayoutMap.re.mjs:238
+#: src/components/pages/DefaultLayoutMap.re.mjs:308
 msgid "Rankings"
 msgstr ""
 
 #: src/components/organisms/NavViewer.re.mjs:77
-msgid "Settings"
-msgstr ""
+#~ msgid "Settings"
+#~ msgstr ""
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:89
 #~ msgid "Switch to English"

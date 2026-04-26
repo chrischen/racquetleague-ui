@@ -70,7 +70,8 @@ function RsvpWaitlist(props) {
                                         activitySlug: activitySlug,
                                         maxRating: 0.0,
                                         eventId: eventData.id,
-                                        isAdmin: eventData.viewerIsAdmin
+                                        isAdmin: eventData.viewerIsAdmin,
+                                        eventPrice: eventData.price
                                       });
                           })
                       })

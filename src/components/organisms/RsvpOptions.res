@@ -37,7 +37,7 @@ module RsvpOptionsUpdateListTypeMutation = %relay(`
 `)
 
 @react.component
-let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~children) => {
+let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~connectionKey="RSVPSection_event_rsvps", ~triggerClassName="w-full text-left", ~children) => {
   let (commitMutationDeleteRsvp, _isMutationInFlight) = RsvpOptionsDeleteMutation.use()
   let (
     commitMutationUpdateListType,
@@ -49,7 +49,7 @@ let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~children) => {
   let onDeleteRsvp = userId => {
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
       eventId->RescriptRelay.makeDataId,
-      "RSVPSection_event_rsvps",
+      connectionKey,
       (),
     )
     commitMutationDeleteRsvp(
@@ -78,8 +78,8 @@ let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~children) => {
   open Dropdown
   <>
     <Dropdown>
-      <DropdownButton \"as"={Router.Link.make}> {children} </DropdownButton>
-      <DropdownMenu>
+      <HeadlessUi.MenuButton className={triggerClassName}> {children} </HeadlessUi.MenuButton>
+      <DropdownMenu className="z-[60]">
         {rsvp.user
         ->Option.map(user =>
           <DropdownItem

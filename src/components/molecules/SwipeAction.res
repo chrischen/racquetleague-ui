@@ -10,6 +10,7 @@ external make: (
   ~contentClassName: string=?,
   ~actionsClassName: string=?,
   ~disableFullSwipe: bool=?,
+  ~disableDrag: bool=?,
   ~onPartialStateChange: string => unit=?,
   ~onTapped: unit => unit=?,
   ~hoverPartialSide: string=?,
