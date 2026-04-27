@@ -13,15 +13,15 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:259
+#: src/components/organisms/PkRSVPSection.re.mjs:349
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:347
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:254
+#: src/components/organisms/PkRSVPSection.re.mjs:344
 msgid "{0} joined"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:357
+#: src/components/organisms/PkRSVPSection.re.mjs:450
 msgid "Confirmed · {0}"
 msgstr ""
 
@@ -42,11 +42,11 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:250
+#: src/components/organisms/PkRSVPSection.re.mjs:327
 msgid "Participants"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:486
+#: src/components/organisms/PkRSVPSection.re.mjs:579
 msgid "Pending · {0}"
 msgstr ""
 
@@ -62,11 +62,11 @@ msgstr ""
 msgid "Remove this RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:212
+#: src/components/organisms/PkRSVPSection.re.mjs:253
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:233
+#: src/components/organisms/PkRSVPSection.re.mjs:274
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
@@ -78,10 +78,10 @@ msgstr ""
 msgid "View Profile"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:422
+#: src/components/organisms/PkRSVPSection.re.mjs:515
 msgid "Waitlist · {0}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:216
+#: src/components/organisms/PkRSVPSection.re.mjs:257
 msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""

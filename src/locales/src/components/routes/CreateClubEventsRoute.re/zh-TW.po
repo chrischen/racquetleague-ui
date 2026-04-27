@@ -14,97 +14,141 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:303
+#: src/components/organisms/CreateClubEventsForm.re.mjs:311
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:307
+#: src/components/organisms/CreateClubEventsForm.re.mjs:315
 msgid "Table Tennis"
 msgstr "乿乓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:311
+#: src/components/organisms/CreateClubEventsForm.re.mjs:319
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:315
+#: src/components/organisms/CreateClubEventsForm.re.mjs:323
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:319
+#: src/components/organisms/CreateClubEventsForm.re.mjs:327
 msgid "Basketball"
 msgstr "籃球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateClubEventsForm.re.mjs:323
+#: src/components/organisms/CreateClubEventsForm.re.mjs:331
 msgid "Volleyball"
 msgstr "排球"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:193
-msgid "{0} event details"
-msgstr "{0} 個活動詳情"
-
-#: src/components/organisms/CreateClubEventsForm.re.mjs:146
+#: src/components/organisms/CreateClubEventsForm.re.mjs:156
 msgid "{0} events created!"
 msgstr "已建立 {0} 個活動！"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:236
-msgid "activity"
+#: src/components/organisms/CreateClubEventsForm.re.mjs:115
+msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr "{0}/{1} 10:00-12:00\\n場地\\n自由打\\n最多18人"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:116
+msgid ""
+"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
+"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr ""
+"3/2 10:00-12:00\\n場地\\n自由打\\n最多18人\\n\\n3/5 10:00-12:00\\n場地\\n自由"
+"打\\n最多18人"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:253
+msgid "Activity"
 msgstr "活動"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:61
+#: src/components/organisms/CreateClubEventsForm.re.mjs:60
 msgid "activity is required"
 msgstr "活動是必填項目"
 
-#: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
-msgstr "取消"
-
-#: src/components/pages/CreateClubEventsPage.re.mjs:60
+#: src/components/pages/CreateClubEventsPage.re.mjs:65
 msgid "club doesn't exist."
 msgstr "俱樂部不存在。"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:194
-msgid "create multiple events at one time"
+#: src/components/organisms/CreateClubEventsForm.re.mjs:211
+#: src/components/organisms/CreateClubEventsForm.re.mjs:295
+msgid "Create Events"
+msgstr "建立活動"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:215
+msgid "Create multiple events at once"
 msgstr "一次建立多個活動"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:200
-msgid "events"
+#: src/components/organisms/CreateClubEventsForm.re.mjs:223
+msgid "Events"
 msgstr "活動"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:91
+#: src/components/organisms/CreateClubEventsForm.re.mjs:90
 msgid "events preview"
 msgstr "活動預覽"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:58
+#: src/components/organisms/CreateClubEventsForm.re.mjs:57
 msgid "input is required"
 msgstr "輸入是必填項目"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:274
-msgid "list publicly"
-msgstr "公開列出"
+#: src/components/organisms/CreateClubEventsForm.re.mjs:280
+msgid "List events publicly"
+msgstr "公開列出活動"
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:227
+#: src/components/organisms/CreateClubEventsForm.re.mjs:245
 msgid "loading..."
 msgstr "載入中..."
 
-#: src/components/organisms/CreateClubEventsForm.re.mjs:212
-msgid "preview events"
+#: src/components/organisms/CreateClubEventsForm.re.mjs:230
+msgid "Preview events"
 msgstr "預覽活動"
 
+#: src/components/organisms/CreateClubEventsForm.re.mjs:285
+msgid ""
+"Show events on the home page. Otherwise only people with a direct link can "
+"find them."
+msgstr "在首頁公開顯示活動。否則，只有擁有直接連結的人才能找到它們。"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:193
+#~ msgid "{0} event details"
+#~ msgstr "{0} 個活動詳情"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:236
+#~ msgid "activity"
+#~ msgstr "活動"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "取消"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:194
+#~ msgid "create multiple events at one time"
+#~ msgstr "一次建立多個活動"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:200
+#~ msgid "events"
+#~ msgstr "活動"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:274
+#~ msgid "list publicly"
+#~ msgstr "公開列出"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:212
+#~ msgid "preview events"
+#~ msgstr "預覽活動"
+
 #: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr "儲存"
+#~ msgid "save"
+#~ msgstr "儲存"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:279
-msgid ""
-"show your event publicly on our home page. Otherwise, only people with a "
-"link to your event will be able to find it."
-msgstr "在我們的首頁公開顯示您的活動。否則，只有擁有您活動連結的人才能找到它。"
+#~ msgid ""
+#~ "show your event publicly on our home page. Otherwise, only people with a "
+#~ "link to your event will be able to find it."
+#~ msgstr ""
+#~ "在我們的首頁公開顯示您的活動。否則，只有擁有您活動連結的人才能找到它。"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:203
-msgid "type your events in the format above"
-msgstr "以上方格式輸入您的活動"
+#~ msgid "type your events in the format above"
+#~ msgstr "以上方格式輸入您的活動"

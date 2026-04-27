@@ -7,6 +7,7 @@ module Query = %relay(`
     $afterDate: Datetime
     $token: String
   ) {
+    ...PkEventRow_query
     club(slug: $slug) {
       ...ClubEventsListFragment @arguments(
         after: $after
@@ -45,7 +46,7 @@ let make = () => {
   <WaitForMessages>
     {() =>
       query.club
-      ->Option.map(club => <ClubEventsList events=club.fragmentRefs ?viewerUser />)
+      ->Option.map(club => <ClubEventsList events=club.fragmentRefs query=query.fragmentRefs ?viewerUser />)
       ->Option.getOr(React.null)}
   </WaitForMessages>
 }

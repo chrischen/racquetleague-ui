@@ -9,13 +9,11 @@ import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
-import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
-import * as Core$1 from "@linaria/core";
+import * as Core from "@linaria/core";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
-import * as CreateClubForm from "./CreateClubForm.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
 import * as ReactRouterDom from "react-router-dom";
@@ -24,7 +22,6 @@ import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
-import * as CreateLocationEventForm_query_graphql from "../../__generated__/CreateLocationEventForm_query_graphql.re.mjs";
 import * as CreateLocationEventFormMutation_graphql from "../../__generated__/CreateLocationEventFormMutation_graphql.re.mjs";
 import * as CreateLocationEventForm_location_graphql from "../../__generated__/CreateLocationEventForm_location_graphql.re.mjs";
 import * as CreateLocationEventFormUpdateMutation_graphql from "../../__generated__/CreateLocationEventFormUpdateMutation_graphql.re.mjs";
@@ -59,14 +56,6 @@ var convertFragment = CreateLocationEventForm_location_graphql.Internal.convertF
 
 function use$2(fRef) {
   return RescriptRelay_Fragment.useFragment(CreateLocationEventForm_location_graphql.node, convertFragment, fRef);
-}
-
-var getConnectionNodes = CreateLocationEventForm_query_graphql.Utils.getConnectionNodes;
-
-var convertFragment$1 = CreateLocationEventForm_query_graphql.Internal.convertFragment;
-
-function use$3(fRef) {
-  return RescriptRelay_Fragment.useFragment(CreateLocationEventForm_query_graphql.node, convertFragment$1, fRef);
 }
 
 var schema = Zod.z.object({
@@ -106,40 +95,23 @@ function calculateDurationHours(startDateTime, endDateTime) {
 }
 
 function CreateLocationEventForm(props) {
+  var onClubFormSubmitBlocked = props.onClubFormSubmitBlocked;
+  var __isClubFormOpen = props.isClubFormOpen;
+  var selectedActivity = props.selectedActivity;
+  var selectedClub = props.selectedClub;
   var prefilledValues = props.prefilledValues;
   var eventId = props.eventId;
+  var isClubFormOpen = __isClubFormOpen !== undefined ? __isClubFormOpen : false;
   var $$location = use$2(props.location);
-  var query = use$3(props.query);
-  var clubs = Core__Option.getOr(Core__Option.map(query.viewer, (function (viewer) {
-              return getConnectionNodes(viewer.adminClubs);
-            })), []);
   var match = use();
   var commitMutationCreate = match[0];
   var match$1 = use$1();
   var commitMutationUpdate = match$1[0];
   var navigate = ReactRouterDom.useNavigate();
   var isUpdate = Core__Option.isSome(eventId);
-  var defaultActivityId = Core__Option.getOr(Core__Option.map(query.activities.find(function (a) {
-                return Core__Option.getOr(Core__Option.map(a.slug, (function (slug) {
-                                  return slug === "pickleball";
-                                })), false);
-              }), (function (a) {
-              return a.id;
-            })), Core__Option.getOr(Core__Option.map(query.activities[0], (function (a) {
-                  return a.id;
-                })), ""));
-  var activitySlugToId = function (slug) {
-    return Core__Option.getOr(Core__Option.map(query.activities.find(function (a) {
-                        return Core__Option.getOr(Core__Option.map(a.slug, (function (s) {
-                                          return s === slug;
-                                        })), false);
-                      }), (function (a) {
-                      return a.id;
-                    })), defaultActivityId);
-  };
   var defaultFormValues = prefilledValues !== undefined ? ({
         title: Core__Option.getOr(prefilledValues.title, ""),
-        activity: Core__Option.getOr(Core__Option.map(prefilledValues.activitySlug, activitySlugToId), defaultActivityId),
+        activity: Core__Option.getOr(selectedActivity, ""),
         maxRsvps: prefilledValues.maxRsvps,
         minRating: prefilledValues.minRating,
         startDate: Core__Option.getOr(prefilledValues.startDate, ""),
@@ -147,7 +119,7 @@ function CreateLocationEventForm(props) {
         listed: Core__Option.getOr(prefilledValues.listed, false),
         price: prefilledValues.price
       }) : ({
-        activity: defaultActivityId,
+        activity: Core__Option.getOr(selectedActivity, ""),
         listed: false
       });
   var match$2 = ReactHookForm.useForm({
@@ -176,7 +148,6 @@ function CreateLocationEventForm(props) {
   var startDate = watch("startDate");
   var endTime = watch("endTime");
   var title = watch("title");
-  var activityId = watch("activity");
   var hasPreloadedValues = Core__Option.isSome(eventId) || Core__Option.isSome(prefilledValues);
   var match$4 = React.useState(function () {
         if (hasPreloadedValues) {
@@ -203,34 +174,15 @@ function CreateLocationEventForm(props) {
   var match$7 = React.useState(function () {
         return false;
       });
-  var setIsClubActivitySelectorActive = match$7[1];
-  var isClubActivitySelectorActive = match$7[0];
+  var setIsLocationDetailsExpanded = match$7[1];
+  var isLocationDetailsExpanded = match$7[0];
   var match$8 = React.useState(function () {
-        return false;
-      });
-  var setShowAddClub = match$8[1];
-  var showAddClub = match$8[0];
-  var match$9 = React.useState(function () {
-        return false;
-      });
-  var setIsLocationDetailsExpanded = match$9[1];
-  var isLocationDetailsExpanded = match$9[0];
-  var match$10 = React.useState(function () {
-        return Core__Option.orElse(Core__Option.flatMap(prefilledValues, (function (pf) {
-                          return pf.clubId;
-                        })), Core__Option.map(clubs[0], (function (c) {
-                          return c.id;
-                        })));
-      });
-  var setSelectedClub = match$10[1];
-  var selectedClub = match$10[0];
-  var match$11 = React.useState(function () {
         return Core__Option.getOr(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.tags;
                         })), ["all level"]);
       });
-  var setSelectedTags = match$11[1];
-  var selectedTags = match$11[0];
+  var setSelectedTags = match$8[1];
+  var selectedTags = match$8[0];
   var eventType = selectedTags.includes("comp") ? "competitive" : "recreational";
   var isDrill = selectedTags.includes("drill");
   var isDupr = selectedTags.includes("dupr");
@@ -297,9 +249,6 @@ function CreateLocationEventForm(props) {
                   }));
             Core__Option.map(prefilledValues.maxRsvps, (function (v) {
                     setValue("maxRsvps", v.toString(), undefined);
-                  }));
-            Core__Option.map(prefilledValues.activitySlug, (function (slug) {
-                    setValue("activity", activitySlugToId(slug), undefined);
                   }));
             var match = prefilledValues.startDate;
             var match$1 = prefilledValues.endDate;
@@ -381,7 +330,17 @@ function CreateLocationEventForm(props) {
             
           }
         }), [selectedTags]);
+  React.useEffect((function () {
+          Core__Option.forEach(selectedActivity, (function (id) {
+                  setValue("activity", id, undefined);
+                }));
+        }), [selectedActivity]);
   var onSubmit = function (data) {
+    if (isClubFormOpen) {
+      return Core__Option.forEach(onClubFormSubmitBlocked, (function (cb) {
+                    cb();
+                  }));
+    }
     var tagsToSubmit = selectedTags.filter(function (tag) {
           return tag !== "rec";
         });
@@ -560,263 +519,45 @@ function CreateLocationEventForm(props) {
               children: Caml_option.some(JsxRuntime.jsx(WaitForMessages.make, {
                         children: (function () {
                             var tmp;
-                            if (isClubActivitySelectorActive) {
-                              if (showAddClub) {
-                                var connectionId = Core__Option.map(query.viewer, (function (v) {
-                                        return v.__id;
-                                      }));
-                                tmp = connectionId !== undefined ? JsxRuntime.jsx(CreateClubForm.make, {
-                                        connectionId: Caml_option.some(Caml_option.valFromOption(connectionId)),
-                                        query: query.fragmentRefs,
-                                        onCancel: (function () {
-                                            setShowAddClub(function (param) {
-                                                  return false;
-                                                });
-                                            setIsClubActivitySelectorActive(function (param) {
-                                                  return false;
-                                                });
-                                          }),
-                                        onCreated: (function (club) {
-                                            setSelectedClub(function (param) {
-                                                  return club.id;
-                                                });
-                                            var activity = club.defaultActivity;
-                                            if (activity !== undefined) {
-                                              setValue("activity", activity.id, {
-                                                    shouldValidate: true,
-                                                    shouldDirty: true,
-                                                    shouldTouch: true
-                                                  });
-                                            }
-                                            setShowAddClub(function (param) {
-                                                  return false;
-                                                });
-                                            setIsClubActivitySelectorActive(function (param) {
-                                                  return false;
-                                                });
-                                          }),
-                                        inline: true
-                                      }) : null;
-                              } else {
-                                var newrecord = Caml_obj.obj_dup(register("activity", undefined));
-                                tmp = JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsxs("div", {
-                                                      children: [
-                                                        JsxRuntime.jsx("label", {
-                                                              children: t`Club`,
-                                                              className: "block text-xs font-medium text-gray-700 mb-1.5",
-                                                              htmlFor: "club"
-                                                            }),
-                                                        JsxRuntime.jsxs("select", {
-                                                              children: [
-                                                                JsxRuntime.jsx("option", {
-                                                                      children: t`No club / Independent event`,
-                                                                      value: ""
-                                                                    }),
-                                                                clubs.map(function (club) {
-                                                                      return JsxRuntime.jsx("option", {
-                                                                                  children: Core__Option.getOr(club.name, ""),
-                                                                                  value: club.id
-                                                                                }, club.id);
-                                                                    }),
-                                                                JsxRuntime.jsx("option", {
-                                                                      children: t`+ Add new club...`,
-                                                                      className: "text-blue-600 font-medium",
-                                                                      value: "__add_new__"
-                                                                    })
-                                                              ],
-                                                              className: "block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white",
-                                                              id: "club",
-                                                              value: Core__Option.getOr(selectedClub, ""),
-                                                              onChange: (function (e) {
-                                                                  var value = e.target.value;
-                                                                  if (value === "__add_new__") {
-                                                                    setShowAddClub(function (param) {
-                                                                          return true;
-                                                                        });
-                                                                    return setSelectedClub(function (param) {
-                                                                                
-                                                                              });
-                                                                  } else {
-                                                                    setSelectedClub(function (param) {
-                                                                          if (value === "") {
-                                                                            return ;
-                                                                          } else {
-                                                                            return value;
-                                                                          }
-                                                                        });
-                                                                    if (value !== "") {
-                                                                      Core__Option.map(Core__Option.flatMap(clubs.find(function (c) {
-                                                                                    return c.id === value;
-                                                                                  }), (function (club) {
-                                                                                  return club.defaultActivity;
-                                                                                })), (function (activity) {
-                                                                              setValue("activity", activity.id, {
-                                                                                    shouldValidate: true,
-                                                                                    shouldDirty: true,
-                                                                                    shouldTouch: true
-                                                                                  });
-                                                                            }));
-                                                                    }
-                                                                    return setShowAddClub(function (param) {
-                                                                                return false;
-                                                                              });
-                                                                  }
-                                                                })
-                                                            })
-                                                      ]
-                                                    }),
-                                                JsxRuntime.jsxs("div", {
-                                                      children: [
-                                                        JsxRuntime.jsx("label", {
-                                                              children: t`Activity`,
-                                                              className: "block text-xs font-medium text-gray-700 mb-1.5",
-                                                              htmlFor: "activity"
-                                                            }),
-                                                        JsxRuntime.jsx("select", (newrecord.id = "activity", newrecord.className = "block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white", newrecord.children = query.activities.map(function (activity) {
-                                                                    return JsxRuntime.jsx("option", {
-                                                                                children: Core.i18n._(Core__Option.getOr(activity.name, "---")),
-                                                                                value: activity.id
-                                                                              }, activity.id);
-                                                                  }), newrecord))
-                                                      ]
-                                                    })
-                                              ],
-                                              className: "grid grid-cols-1 md:grid-cols-2 gap-4"
-                                            }),
-                                        JsxRuntime.jsx("button", {
-                                              children: t`Done`,
-                                              className: "text-sm text-gray-600 hover:text-gray-900 transition-colors",
-                                              type: "button",
-                                              onClick: (function (param) {
-                                                  setIsClubActivitySelectorActive(function (param) {
-                                                        return false;
-                                                      });
-                                                })
-                                            })
-                                      ],
-                                      className: "space-y-4 p-4 border-2 border-blue-200 rounded-lg bg-blue-50"
-                                    });
-                              }
-                            } else {
-                              var name = Core__Option.flatMap(Core__Option.flatMap(selectedClub, (function (id) {
-                                          return clubs.find(function (c) {
-                                                      return c.id === id;
-                                                    });
-                                        })), (function (c) {
-                                      return c.name;
-                                    }));
-                              var tmp$1;
-                              if (name !== undefined) {
-                                var tmp$2;
-                                tmp$2 = activityId !== undefined && !(!Array.isArray(activityId) && (activityId === null || typeof activityId !== "object") && typeof activityId !== "string" && typeof activityId !== "number" && typeof activityId !== "boolean" || typeof activityId !== "string") ? Core__Option.getOr(Core__Option.map(Core__Option.flatMap(query.activities.find(function (a) {
-                                                    return a.id === activityId;
-                                                  }), (function (a) {
-                                                  return a.name;
-                                                })), (function (name) {
-                                              return JsxRuntime.jsx("span", {
-                                                          children: Core.i18n._(name)
-                                                        });
-                                            })), null) : null;
-                                tmp$1 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              children: name,
-                                              className: "font-medium"
-                                            }),
-                                        JsxRuntime.jsx("span", {
-                                              children: "•",
-                                              className: "text-gray-400"
-                                            }),
-                                        tmp$2
-                                      ]
-                                    });
-                              } else {
-                                var tmp$3;
-                                tmp$3 = activityId !== undefined && !(!Array.isArray(activityId) && (activityId === null || typeof activityId !== "object") && typeof activityId !== "string" && typeof activityId !== "number" && typeof activityId !== "boolean" || !(typeof activityId === "string" && activityId !== "")) ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                        children: [
-                                          JsxRuntime.jsx("span", {
-                                                children: "•",
-                                                className: "text-gray-400"
-                                              }),
-                                          Core__Option.getOr(Core__Option.map(Core__Option.flatMap(query.activities.find(function (a) {
-                                                            return a.id === activityId;
-                                                          }), (function (a) {
-                                                          return a.name;
-                                                        })), (function (name) {
-                                                      return JsxRuntime.jsx("span", {
-                                                                  children: Core.i18n._(name)
-                                                                });
-                                                    })), null)
-                                        ]
-                                      }) : null;
-                                tmp$1 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              children: t`No club`,
-                                              className: "text-gray-500"
-                                            }),
-                                        tmp$3
-                                      ]
-                                    });
-                              }
-                              tmp = JsxRuntime.jsx("button", {
-                                    children: JsxRuntime.jsx("div", {
-                                          children: tmp$1,
-                                          className: "flex items-center gap-2 text-gray-900"
-                                        }),
-                                    className: "w-full px-4 py-3 border border-gray-300 rounded-lg text-left hover:border-gray-400 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
-                                    type: "button",
-                                    onClick: (function (param) {
-                                        setIsClubActivitySelectorActive(function (param) {
-                                              return true;
-                                            });
-                                      })
-                                  });
-                            }
-                            var tmp$4;
                             if (eventDetailsExpanded) {
-                              var newrecord$1 = Caml_obj.obj_dup(register("startDate", undefined));
+                              var newrecord = Caml_obj.obj_dup(register("startDate", undefined));
                               var match = formState.errors.startDate;
-                              var tmp$5;
+                              var tmp$1;
                               if (match !== undefined) {
                                 var message = match.message;
-                                tmp$5 = message !== undefined ? JsxRuntime.jsx("p", {
+                                tmp$1 = message !== undefined ? JsxRuntime.jsx("p", {
                                         children: message,
-                                        className: "mt-1 text-sm text-red-600"
+                                        className: "mt-1 text-sm text-red-600 dark:text-red-400"
                                       }) : null;
                               } else {
-                                tmp$5 = null;
+                                tmp$1 = null;
                               }
-                              var newrecord$2 = Caml_obj.obj_dup(register("endTime", undefined));
+                              var newrecord$1 = Caml_obj.obj_dup(register("endTime", undefined));
                               var match$1 = formState.errors.endTime;
-                              var tmp$6;
+                              var tmp$2;
                               if (match$1 !== undefined) {
                                 var message$1 = match$1.message;
-                                tmp$6 = message$1 !== undefined ? JsxRuntime.jsx("p", {
+                                tmp$2 = message$1 !== undefined ? JsxRuntime.jsx("p", {
                                         children: message$1,
-                                        className: "mt-1 text-sm text-red-600"
+                                        className: "mt-1 text-sm text-red-600 dark:text-red-400"
                                       }) : null;
                               } else {
-                                tmp$6 = null;
+                                tmp$2 = null;
                               }
-                              var tmp$7;
+                              var tmp$3;
                               if (formattedEventDateTime !== undefined) {
                                 var dateTime = Caml_option.valFromOption(formattedEventDateTime);
-                                tmp$7 = JsxRuntime.jsx("div", {
+                                tmp$3 = JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsxs("div", {
                                             children: [
                                               JsxRuntime.jsx(LucideReact.Calendar, {
-                                                    className: "w-5 h-5 text-blue-600 mt-1 flex-shrink-0"
+                                                    className: "w-5 h-5 text-gray-400 dark:text-gray-500 mt-1 flex-shrink-0"
                                                   }),
                                               JsxRuntime.jsxs("div", {
                                                     children: [
                                                       JsxRuntime.jsx("p", {
                                                             children: t`Event schedule`,
-                                                            className: "text-sm font-medium text-gray-700 mb-1"
+                                                            className: "text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1"
                                                           }),
                                                       JsxRuntime.jsx("p", {
                                                             children: JsxRuntime.jsx(ReactIntl.FormattedDate, {
@@ -827,21 +568,21 @@ function CreateLocationEventForm(props) {
                                                                   month: "long",
                                                                   day: "numeric"
                                                                 }),
-                                                            className: "text-base font-semibold text-gray-900 mb-2 break-words"
+                                                            className: "text-base font-medium text-gray-900 dark:text-gray-100 mb-2 break-words"
                                                           }),
                                                       JsxRuntime.jsxs("div", {
                                                             children: [
                                                               JsxRuntime.jsxs("div", {
                                                                     children: [
                                                                       JsxRuntime.jsx(LucideReact.Clock, {
-                                                                            className: "w-4 h-4 text-blue-600 flex-shrink-0"
+                                                                            className: "w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0"
                                                                           }),
                                                                       JsxRuntime.jsx("span", {
                                                                             children: JsxRuntime.jsx(ReactIntl.FormattedTime, {
                                                                                   value: dateTime.startDate,
                                                                                   timeZone: "Asia/Tokyo"
                                                                                 }),
-                                                                            className: "text-base font-semibold text-blue-700 whitespace-nowrap"
+                                                                            className: "text-base font-bold text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap"
                                                                           })
                                                                     ],
                                                                     className: "flex items-center gap-1.5"
@@ -855,7 +596,7 @@ function CreateLocationEventForm(props) {
                                                                           value: dateTime.endDate,
                                                                           timeZone: "Asia/Tokyo"
                                                                         }),
-                                                                    className: "text-base font-semibold text-blue-700 whitespace-nowrap"
+                                                                    className: "text-base font-bold text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap"
                                                                   }),
                                                               dateTime.duration !== "" ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                                       children: [
@@ -865,7 +606,7 @@ function CreateLocationEventForm(props) {
                                                                             }),
                                                                         JsxRuntime.jsx("span", {
                                                                               children: dateTime.duration,
-                                                                              className: "text-sm text-gray-600 whitespace-nowrap"
+                                                                              className: "text-gray-600 dark:text-gray-400 whitespace-nowrap"
                                                                             })
                                                                       ]
                                                                     }) : null
@@ -878,30 +619,30 @@ function CreateLocationEventForm(props) {
                                             ],
                                             className: "flex items-start gap-3"
                                           }),
-                                      className: "p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100"
+                                      className: "p-4 bg-gray-50 dark:bg-[#222222] rounded-lg border border-gray-200 dark:border-gray-700"
                                     });
                               } else {
-                                tmp$7 = null;
+                                tmp$3 = null;
                               }
-                              var newrecord$3 = Caml_obj.obj_dup(register("title", undefined));
+                              var newrecord$2 = Caml_obj.obj_dup(register("title", undefined));
                               var match$2 = formState.errors.title;
-                              var tmp$8;
+                              var tmp$4;
                               if (match$2 !== undefined) {
                                 var message$2 = match$2.message;
-                                tmp$8 = message$2 !== undefined ? JsxRuntime.jsx("p", {
+                                tmp$4 = message$2 !== undefined ? JsxRuntime.jsx("p", {
                                         children: message$2,
-                                        className: "mt-1 text-sm text-red-600"
+                                        className: "mt-1 text-sm text-red-600 dark:text-red-400"
                                       }) : null;
                               } else {
-                                tmp$8 = null;
+                                tmp$4 = null;
                               }
-                              var newrecord$4 = Caml_obj.obj_dup(register("maxRsvps", {
+                              var newrecord$3 = Caml_obj.obj_dup(register("maxRsvps", {
                                         required: false
                                       }));
-                              var newrecord$5 = Caml_obj.obj_dup(register("details", {
+                              var newrecord$4 = Caml_obj.obj_dup(register("details", {
                                         required: false
                                       }));
-                              tmp$4 = JsxRuntime.jsxs("div", {
+                              tmp = JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsxs("div", {
                                             children: [
@@ -909,45 +650,45 @@ function CreateLocationEventForm(props) {
                                                     children: [
                                                       JsxRuntime.jsx("label", {
                                                             children: t`Start date and time`,
-                                                            className: "block text-sm font-semibold text-gray-900 mb-2",
+                                                            className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                             htmlFor: "startDate"
                                                           }),
-                                                      JsxRuntime.jsx("input", (newrecord$1.onChange = (function (e) {
+                                                      JsxRuntime.jsx("input", (newrecord.onChange = (function (e) {
                                                                 setIsUserInitiatedChange(function (param) {
                                                                       return true;
                                                                     });
                                                                 var target = e.target;
                                                                 setValue("startDate", target.value, undefined);
-                                                              }), newrecord$1.type = "datetime-local", newrecord$1.id = "startDate", newrecord$1.className = Core$1.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", Core__Option.isSome(formState.errors.startDate) ? "border-red-300" : "border-gray-300"), newrecord$1)),
-                                                      tmp$5
+                                                              }), newrecord.type = "datetime-local", newrecord.id = "startDate", newrecord.className = Core.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", Core__Option.isSome(formState.errors.startDate) ? "border-red-300 dark:border-red-700" : "border-gray-300 dark:border-gray-700"), newrecord)),
+                                                      tmp$1
                                                     ]
                                                   }),
                                               JsxRuntime.jsxs("div", {
                                                     children: [
                                                       JsxRuntime.jsx("label", {
                                                             children: t`End time`,
-                                                            className: "block text-sm font-semibold text-gray-900 mb-2",
+                                                            className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                             htmlFor: "endTime"
                                                           }),
-                                                      JsxRuntime.jsx("input", (newrecord$2.type = "time", newrecord$2.id = "endTime", newrecord$2.className = Core$1.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", Core__Option.isSome(formState.errors.endTime) ? "border-red-300" : "border-gray-300"), newrecord$2)),
-                                                      tmp$6
+                                                      JsxRuntime.jsx("input", (newrecord$1.type = "time", newrecord$1.id = "endTime", newrecord$1.className = Core.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", Core__Option.isSome(formState.errors.endTime) ? "border-red-300 dark:border-red-700" : "border-gray-300 dark:border-gray-700"), newrecord$1)),
+                                                      tmp$2
                                                     ]
                                                   })
                                             ],
                                             className: "grid grid-cols-1 md:grid-cols-2 gap-6"
                                           }),
-                                      tmp$7,
+                                      tmp$3,
                                       JsxRuntime.jsxs("div", {
                                             children: [
                                               JsxRuntime.jsxs("div", {
                                                     children: [
                                                       JsxRuntime.jsx("label", {
                                                             children: t`Event title`,
-                                                            className: "block text-sm font-semibold text-gray-900 mb-2",
+                                                            className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                             htmlFor: "title"
                                                           }),
-                                                      JsxRuntime.jsx("input", (newrecord$3.type = "text", newrecord$3.placeholder = t`Friday Night Pickleball`, newrecord$3.id = "title", newrecord$3.className = Core$1.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", Core__Option.isSome(formState.errors.title) ? "border-red-300" : "border-gray-300"), newrecord$3)),
-                                                      tmp$8
+                                                      JsxRuntime.jsx("input", (newrecord$2.type = "text", newrecord$2.placeholder = t`Friday Night Pickleball`, newrecord$2.id = "title", newrecord$2.className = Core.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", Core__Option.isSome(formState.errors.title) ? "border-red-300 dark:border-red-700" : "border-gray-300 dark:border-gray-700"), newrecord$2)),
+                                                      tmp$4
                                                     ],
                                                     className: "md:col-span-2"
                                                   }),
@@ -955,10 +696,10 @@ function CreateLocationEventForm(props) {
                                                     children: [
                                                       JsxRuntime.jsx("label", {
                                                             children: t`Max RSVPs (optional)`,
-                                                            className: "block text-sm font-semibold text-gray-900 mb-2",
+                                                            className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                             htmlFor: "maxRsvps"
                                                           }),
-                                                      JsxRuntime.jsx("input", (newrecord$4.type = "number", newrecord$4.placeholder = t`No limit`, newrecord$4.id = "maxRsvps", newrecord$4.className = "block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", newrecord$4))
+                                                      JsxRuntime.jsx("input", (newrecord$3.type = "number", newrecord$3.placeholder = t`No limit`, newrecord$3.id = "maxRsvps", newrecord$3.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$3))
                                                     ]
                                                   })
                                             ],
@@ -968,24 +709,24 @@ function CreateLocationEventForm(props) {
                                             children: [
                                               JsxRuntime.jsx("label", {
                                                     children: t`Event details (optional)`,
-                                                    className: "block text-sm font-semibold text-gray-900 mb-2",
+                                                    className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                     htmlFor: "details"
                                                   }),
-                                              JsxRuntime.jsx("textarea", (newrecord$5.rows = 3, newrecord$5.placeholder = t`Add any additional information about the event...`, newrecord$5.id = "details", newrecord$5.className = "block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none", newrecord$5.defaultValue = "", newrecord$5))
+                                              JsxRuntime.jsx("textarea", (newrecord$4.rows = 3, newrecord$4.placeholder = t`Add any additional information about the event...`, newrecord$4.id = "details", newrecord$4.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$4.defaultValue = "", newrecord$4))
                                             ]
                                           })
                                     ],
-                                    className: "px-4 pb-4 pt-6 space-y-6 border-t border-gray-100"
+                                    className: "px-4 pb-4 pt-6 space-y-6 border-t border-gray-100 dark:border-gray-800"
                                   });
                             } else {
-                              tmp$4 = null;
+                              tmp = null;
                             }
-                            var tmp$9;
+                            var tmp$5;
                             if (isPaidEvent) {
-                              var newrecord$6 = Caml_obj.obj_dup(register("price", {
+                              var newrecord$5 = Caml_obj.obj_dup(register("price", {
                                         required: false
                                       }));
-                              tmp$9 = JsxRuntime.jsxs("div", {
+                              tmp$5 = JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsx("label", {
                                             children: t`Price`,
@@ -998,7 +739,7 @@ function CreateLocationEventForm(props) {
                                                     children: "¥",
                                                     className: "absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-sm"
                                                   }),
-                                              JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.placeholder = t`Enter price`, newrecord$6.min = "1", newrecord$6.id = "price", newrecord$6.className = "block w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", newrecord$6))
+                                              JsxRuntime.jsx("input", (newrecord$5.type = "number", newrecord$5.placeholder = t`Enter price`, newrecord$5.min = "1", newrecord$5.id = "price", newrecord$5.className = "block w-full pl-8 pr-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$5))
                                             ],
                                             className: "relative"
                                           })
@@ -1006,31 +747,31 @@ function CreateLocationEventForm(props) {
                                     className: "mt-4 ml-8"
                                   });
                             } else {
-                              tmp$9 = null;
+                              tmp$5 = null;
                             }
-                            var tmp$10;
+                            var tmp$6;
                             if (findPlayersExpanded) {
-                              var tmp$11;
+                              var tmp$7;
                               if (listed) {
-                                var newrecord$7 = Caml_obj.obj_dup(register("minRating", {
+                                var newrecord$6 = Caml_obj.obj_dup(register("minRating", {
                                           required: false
                                         }));
                                 var match$3 = formState.errors.minRating;
-                                var tmp$12;
+                                var tmp$8;
                                 if (match$3 !== undefined) {
                                   var message$3 = match$3.message;
-                                  tmp$12 = message$3 !== undefined ? JsxRuntime.jsx("p", {
+                                  tmp$8 = message$3 !== undefined ? JsxRuntime.jsx("p", {
                                           children: message$3,
-                                          className: "mt-1 text-sm text-red-600"
+                                          className: "mt-1 text-sm text-red-600 dark:text-red-400"
                                         }) : null;
                                 } else {
-                                  tmp$12 = null;
+                                  tmp$8 = null;
                                 }
-                                tmp$11 = JsxRuntime.jsxs("div", {
+                                tmp$7 = JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("label", {
                                               children: t`Skill level`,
-                                              className: "block text-sm font-medium text-gray-700"
+                                              className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400"
                                             }),
                                         JsxRuntime.jsx("div", {
                                               children: [
@@ -1043,7 +784,7 @@ function CreateLocationEventForm(props) {
                                                 ].map(function (tag) {
                                                     return JsxRuntime.jsx("button", {
                                                                 children: tag,
-                                                                className: Core$1.cx("px-4 py-2 rounded-full text-sm font-medium transition-all", selectedTags.includes(tag) ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"),
+                                                                className: Core.cx("px-3 py-1.5 rounded-full text-xs font-medium transition-all border", selectedTags.includes(tag) ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 border-gray-900 dark:border-gray-100" : "bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"),
                                                                 type: "button",
                                                                 onClick: (function (param) {
                                                                     setSelectedTags(function (tags) {
@@ -1083,11 +824,11 @@ function CreateLocationEventForm(props) {
                                               children: [
                                                 JsxRuntime.jsx("label", {
                                                       children: t`Minimum rating (optional)`,
-                                                      className: "block text-sm font-medium text-gray-700 mb-2",
+                                                      className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                       htmlFor: "minRating"
                                                     }),
-                                                JsxRuntime.jsx("input", (newrecord$7.type = "number", newrecord$7.step = 0.1, newrecord$7.placeholder = t`No minimum`, newrecord$7.id = "minRating", newrecord$7.className = "block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", newrecord$7)),
-                                                tmp$12
+                                                JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.step = 0.1, newrecord$6.placeholder = t`No minimum`, newrecord$6.id = "minRating", newrecord$6.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$6)),
+                                                tmp$8
                                               ],
                                               className: "mt-4"
                                             })
@@ -1095,14 +836,14 @@ function CreateLocationEventForm(props) {
                                       className: "ml-8 space-y-3"
                                     });
                               } else {
-                                tmp$11 = null;
+                                tmp$7 = null;
                               }
-                              tmp$10 = JsxRuntime.jsxs("div", {
+                              tmp$6 = JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsxs("div", {
                                             children: [
                                               JsxRuntime.jsx("input", {
-                                                    className: "h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-0.5",
+                                                    className: "h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]",
                                                     id: "findPlayers",
                                                     checked: listed,
                                                     type: "checkbox",
@@ -1114,24 +855,24 @@ function CreateLocationEventForm(props) {
                                                     children: [
                                                       JsxRuntime.jsx("label", {
                                                             children: t`Find players for your event?`,
-                                                            className: "block text-sm font-semibold text-gray-900",
+                                                            className: "block text-sm font-semibold text-gray-900 dark:text-gray-100",
                                                             htmlFor: "findPlayers"
                                                           }),
                                                       JsxRuntime.jsx("p", {
                                                             children: t`List your event publicly to help fill open spots`,
-                                                            className: "text-sm text-gray-600 mt-1"
+                                                            className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
                                                           })
                                                     ]
                                                   })
                                             ],
                                             className: "flex items-start gap-3 mb-4"
                                           }),
-                                      tmp$11
+                                      tmp$7
                                     ],
-                                    className: "px-4 pb-4 pt-6 border-t border-gray-100"
+                                    className: "px-4 pb-4 pt-6 border-t border-gray-100 dark:border-gray-800"
                                   });
                             } else {
-                              tmp$10 = null;
+                              tmp$6 = null;
                             }
                             return JsxRuntime.jsx(JsxRuntime.Fragment, {
                                         children: Caml_option.some(JsxRuntime.jsxs("form", {
@@ -1140,7 +881,7 @@ function CreateLocationEventForm(props) {
                                                           children: [
                                                             JsxRuntime.jsx("p", {
                                                                   children: Core__Option.getOr($$location.name, ""),
-                                                                  className: "text-gray-900 font-medium break-words overflow-wrap-anywhere"
+                                                                  className: "text-gray-900 dark:text-gray-100 font-medium break-words overflow-wrap-anywhere"
                                                                 }),
                                                             Core__Option.getOr(Core__Option.map($$location.details, (function (details) {
                                                                         var shouldTruncate = details.length > 100;
@@ -1153,7 +894,7 @@ function CreateLocationEventForm(props) {
                                                                                           }),
                                                                                       shouldTruncate ? JsxRuntime.jsx("button", {
                                                                                               children: isLocationDetailsExpanded ? t`Show less` : t`Read more...`,
-                                                                                              className: "ml-1 text-blue-600 hover:text-blue-800 font-medium inline whitespace-nowrap",
+                                                                                              className: "ml-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium inline whitespace-nowrap",
                                                                                               type: "button",
                                                                                               onClick: (function (param) {
                                                                                                   setIsLocationDetailsExpanded(function (prev) {
@@ -1162,20 +903,11 @@ function CreateLocationEventForm(props) {
                                                                                                 })
                                                                                             }) : null
                                                                                     ],
-                                                                                    className: "text-sm text-gray-600 mt-1"
+                                                                                    className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
                                                                                   });
                                                                       })), null)
                                                           ],
-                                                          className: "px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
-                                                        }),
-                                                    JsxRuntime.jsxs("div", {
-                                                          children: [
-                                                            JsxRuntime.jsx("label", {
-                                                                  children: t`Club & Activity`,
-                                                                  className: "block text-sm font-semibold text-gray-900 mb-2"
-                                                                }),
-                                                            tmp
-                                                          ]
+                                                          className: "px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-[#222222]"
                                                         }),
                                                     JsxRuntime.jsxs("div", {
                                                           children: [
@@ -1184,17 +916,17 @@ function CreateLocationEventForm(props) {
                                                                     JsxRuntime.jsxs("div", {
                                                                           children: [
                                                                             JsxRuntime.jsx(LucideReact.FileText, {
-                                                                                  className: "w-5 h-5 text-blue-600 flex-shrink-0"
+                                                                                  className: "w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
                                                                                 }),
                                                                             JsxRuntime.jsxs("div", {
                                                                                   children: [
                                                                                     JsxRuntime.jsx("div", {
                                                                                           children: t`Event Details`,
-                                                                                          className: "text-sm font-semibold text-gray-900"
+                                                                                          className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
                                                                                         }),
                                                                                     eventDetailsExpanded ? null : JsxRuntime.jsx("div", {
                                                                                             children: getEventDetailsSummary(),
-                                                                                            className: "text-xs text-gray-600 mt-0.5 line-clamp-2 break-words",
+                                                                                            className: "text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words",
                                                                                             style: {
                                                                                               overflowWrap: "anywhere"
                                                                                             }
@@ -1206,10 +938,10 @@ function CreateLocationEventForm(props) {
                                                                           className: "flex items-center gap-3"
                                                                         }),
                                                                     JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                                                          className: Core$1.cx("w-5 h-5 text-gray-600 transform transition-transform flex-shrink-0", eventDetailsExpanded ? "rotate-180" : "")
+                                                                          className: Core.cx("w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0", eventDetailsExpanded ? "rotate-180" : "")
                                                                         })
                                                                   ],
-                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 transition-colors flex items-center justify-between",
+                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between",
                                                                   type: "button",
                                                                   onClick: (function (param) {
                                                                       var expanded = !eventDetailsExpanded;
@@ -1222,9 +954,9 @@ function CreateLocationEventForm(props) {
                                                                           });
                                                                     })
                                                                 }),
-                                                            tmp$4
+                                                            tmp
                                                           ],
-                                                          className: "border border-gray-200 rounded-lg overflow-hidden bg-white"
+                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
                                                         }),
                                                     JsxRuntime.jsx("div", {
                                                           children: JsxRuntime.jsxs("div", {
@@ -1251,12 +983,12 @@ function CreateLocationEventForm(props) {
                                                                                 children: [
                                                                                   JsxRuntime.jsx("label", {
                                                                                         children: t`Paid event`,
-                                                                                        className: "block text-sm font-semibold text-gray-900",
+                                                                                        className: "block text-sm font-semibold text-gray-900 dark:text-gray-100",
                                                                                         htmlFor: "paidEvent"
                                                                                       }),
                                                                                   JsxRuntime.jsx("p", {
                                                                                         children: t`Require payment from attendees`,
-                                                                                        className: "text-sm text-gray-600 mt-1"
+                                                                                        className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
                                                                                       })
                                                                                 ],
                                                                                 className: "flex-1"
@@ -1264,11 +996,11 @@ function CreateLocationEventForm(props) {
                                                                         ],
                                                                         className: "flex items-start gap-3"
                                                                       }),
-                                                                  tmp$9
+                                                                  tmp$5
                                                                 ],
                                                                 className: "px-4 py-4"
                                                               }),
-                                                          className: "border border-gray-200 rounded-lg overflow-hidden bg-white"
+                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
                                                         }),
                                                     JsxRuntime.jsxs("div", {
                                                           children: [
@@ -1277,17 +1009,17 @@ function CreateLocationEventForm(props) {
                                                                     JsxRuntime.jsxs("div", {
                                                                           children: [
                                                                             JsxRuntime.jsx(LucideReact.Dumbbell, {
-                                                                                  className: "w-5 h-5 text-blue-600 flex-shrink-0"
+                                                                                  className: "w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
                                                                                 }),
                                                                             JsxRuntime.jsxs("div", {
                                                                                   children: [
                                                                                     JsxRuntime.jsx("div", {
                                                                                           children: t`Format`,
-                                                                                          className: "text-sm font-semibold text-gray-900"
+                                                                                          className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
                                                                                         }),
                                                                                     activityFormatExpanded ? null : JsxRuntime.jsx("div", {
                                                                                             children: getFormatSummary(),
-                                                                                            className: "text-xs text-gray-600 mt-0.5 line-clamp-2 break-words",
+                                                                                            className: "text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words",
                                                                                             style: {
                                                                                               overflowWrap: "anywhere"
                                                                                             }
@@ -1299,10 +1031,10 @@ function CreateLocationEventForm(props) {
                                                                           className: "flex items-center gap-3"
                                                                         }),
                                                                     JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                                                          className: Core$1.cx("w-5 h-5 text-gray-600 transform transition-transform flex-shrink-0", activityFormatExpanded ? "rotate-180" : "")
+                                                                          className: Core.cx("w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0", activityFormatExpanded ? "rotate-180" : "")
                                                                         })
                                                                   ],
-                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 transition-colors flex items-center justify-between",
+                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between",
                                                                   type: "button",
                                                                   onClick: (function (param) {
                                                                       var expanded = !activityFormatExpanded;
@@ -1321,7 +1053,7 @@ function CreateLocationEventForm(props) {
                                                                             children: [
                                                                               JsxRuntime.jsx("label", {
                                                                                     children: t`Event type`,
-                                                                                    className: "block text-sm font-semibold text-gray-900 mb-3"
+                                                                                    className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3"
                                                                                   }),
                                                                               JsxRuntime.jsx("div", {
                                                                                     children: [
@@ -1363,10 +1095,10 @@ function CreateLocationEventForm(props) {
                                                                                                             }),
                                                                                                         JsxRuntime.jsx("span", {
                                                                                                               children: param[1],
-                                                                                                              className: Core$1.cx("text-sm font-medium", eventType === value ? "text-blue-700" : "text-gray-700")
+                                                                                                              className: Core.cx("text-sm font-medium", eventType === value ? "text-[#4d7c0f] dark:text-[#a3e635]" : "text-gray-700 dark:text-gray-300")
                                                                                                             })
                                                                                                       ],
-                                                                                                      className: Core$1.cx("relative flex items-center justify-center px-4 py-3 border-2 rounded-lg cursor-pointer transition-all", eventType === value ? "border-blue-600 bg-blue-50" : "border-gray-300 hover:border-gray-400")
+                                                                                                      className: Core.cx("relative flex items-center justify-center px-4 py-3 border-2 rounded-lg cursor-pointer transition-all", eventType === value ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20" : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]")
                                                                                                     }, value);
                                                                                         }),
                                                                                     className: "grid grid-cols-2 gap-3"
@@ -1374,14 +1106,14 @@ function CreateLocationEventForm(props) {
                                                                               JsxRuntime.jsxs("div", {
                                                                                     children: [
                                                                                       JsxRuntime.jsx(LucideReact.Info, {
-                                                                                            className: "w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0"
+                                                                                            className: "w-4 h-4 text-gray-500 dark:text-gray-400 mt-0.5 flex-shrink-0"
                                                                                           }),
                                                                                       JsxRuntime.jsx("p", {
                                                                                             children: eventType === "competitive" ? t`Serious play with rankings and ratings. Games may affect your player rating.` : t`Casual play focused on fun and social interaction. Perfect for all skill levels.`,
-                                                                                            className: "text-sm text-blue-900"
+                                                                                            className: "text-sm text-gray-700 dark:text-gray-300"
                                                                                           })
                                                                                     ],
-                                                                                    className: "mt-3 flex items-start gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100"
+                                                                                    className: "mt-3 flex items-start gap-2 p-3 bg-gray-50 dark:bg-[#222222] rounded-lg border border-gray-200 dark:border-gray-700"
                                                                                   })
                                                                             ]
                                                                           }),
@@ -1389,16 +1121,16 @@ function CreateLocationEventForm(props) {
                                                                               children: [
                                                                                 JsxRuntime.jsx("label", {
                                                                                       children: t`Format options`,
-                                                                                      className: "block text-sm font-medium text-gray-700 mb-3"
+                                                                                      className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3"
                                                                                     }),
                                                                                 JsxRuntime.jsxs("div", {
                                                                                       children: [
                                                                                         JsxRuntime.jsx("button", {
                                                                                               children: JsxRuntime.jsx("span", {
                                                                                                     children: t`DUPR rated`,
-                                                                                                    className: Core$1.cx("text-sm font-medium", isDupr ? "text-blue-700" : "text-gray-700")
+                                                                                                    className: Core.cx("text-sm font-medium", isDupr ? "text-[#4d7c0f] dark:text-[#a3e635]" : "text-gray-700 dark:text-gray-300")
                                                                                                   }),
-                                                                                              className: Core$1.cx("relative flex items-center justify-center px-4 py-3 border-2 rounded-lg transition-all", isDupr ? "border-blue-600 bg-blue-50" : "border-gray-300 hover:border-gray-400"),
+                                                                                              className: Core.cx("relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all", isDupr ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20" : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]"),
                                                                                               type: "button",
                                                                                               onClick: (function (param) {
                                                                                                   setSelectedTags(function (tags) {
@@ -1415,9 +1147,9 @@ function CreateLocationEventForm(props) {
                                                                                         JsxRuntime.jsx("button", {
                                                                                               children: JsxRuntime.jsx("span", {
                                                                                                     children: t`Drill session`,
-                                                                                                    className: Core$1.cx("text-sm font-medium", isDrill ? "text-blue-700" : "text-gray-700")
+                                                                                                    className: Core.cx("text-sm font-medium", isDrill ? "text-[#4d7c0f] dark:text-[#a3e635]" : "text-gray-700 dark:text-gray-300")
                                                                                                   }),
-                                                                                              className: Core$1.cx("relative flex items-center justify-center px-4 py-3 border-2 rounded-lg transition-all", isDrill ? "border-blue-600 bg-blue-50" : "border-gray-300 hover:border-gray-400"),
+                                                                                              className: Core.cx("relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all", isDrill ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20" : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]"),
                                                                                               type: "button",
                                                                                               onClick: (function (param) {
                                                                                                   setSelectedTags(function (tags) {
@@ -1435,19 +1167,19 @@ function CreateLocationEventForm(props) {
                                                                                       className: "grid grid-cols-2 gap-3"
                                                                                     })
                                                                               ],
-                                                                              className: "pl-4 border-l-2 border-blue-200 space-y-3"
+                                                                              className: "pl-4 border-l-2 border-gray-200 dark:border-gray-700 space-y-3"
                                                                             }) : JsxRuntime.jsxs("div", {
                                                                               children: [
                                                                                 JsxRuntime.jsx("label", {
                                                                                       children: t`Format options`,
-                                                                                      className: "block text-sm font-medium text-gray-700 mb-3"
+                                                                                      className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3"
                                                                                     }),
                                                                                 JsxRuntime.jsx("button", {
                                                                                       children: JsxRuntime.jsx("span", {
                                                                                             children: t`Drill session`,
-                                                                                            className: Core$1.cx("text-sm font-medium", isDrill ? "text-blue-700" : "text-gray-700")
+                                                                                            className: Core.cx("text-sm font-medium", isDrill ? "text-[#4d7c0f] dark:text-[#a3e635]" : "text-gray-700 dark:text-gray-300")
                                                                                           }),
-                                                                                      className: Core$1.cx("relative flex items-center justify-center px-4 py-3 border-2 rounded-lg transition-all", isDrill ? "border-blue-600 bg-blue-50" : "border-gray-300 hover:border-gray-400"),
+                                                                                      className: Core.cx("relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all", isDrill ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20" : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]"),
                                                                                       type: "button",
                                                                                       onClick: (function (param) {
                                                                                           setSelectedTags(function (tags) {
@@ -1462,13 +1194,13 @@ function CreateLocationEventForm(props) {
                                                                                         })
                                                                                     })
                                                                               ],
-                                                                              className: "pl-4 border-l-2 border-blue-200"
+                                                                              className: "pl-4 border-l-2 border-gray-200 dark:border-gray-700"
                                                                             })
                                                                     ],
-                                                                    className: "px-4 pb-4 pt-6 space-y-6 border-t border-gray-100"
+                                                                    className: "px-4 pb-4 pt-6 space-y-6 border-t border-gray-100 dark:border-gray-800"
                                                                   }) : null
                                                           ],
-                                                          className: "border border-gray-200 rounded-lg overflow-hidden bg-white"
+                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
                                                         }),
                                                     JsxRuntime.jsxs("div", {
                                                           children: [
@@ -1477,17 +1209,17 @@ function CreateLocationEventForm(props) {
                                                                     JsxRuntime.jsxs("div", {
                                                                           children: [
                                                                             JsxRuntime.jsx(LucideReact.Users, {
-                                                                                  className: "w-5 h-5 text-blue-600 flex-shrink-0"
+                                                                                  className: "w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
                                                                                 }),
                                                                             JsxRuntime.jsxs("div", {
                                                                                   children: [
                                                                                     JsxRuntime.jsx("div", {
                                                                                           children: t`Find Players`,
-                                                                                          className: "text-sm font-semibold text-gray-900"
+                                                                                          className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
                                                                                         }),
                                                                                     findPlayersExpanded ? null : JsxRuntime.jsx("div", {
                                                                                             children: getFindPlayersSummary(),
-                                                                                            className: "text-xs text-gray-600 mt-0.5 line-clamp-2 break-words",
+                                                                                            className: "text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words",
                                                                                             style: {
                                                                                               overflowWrap: "anywhere"
                                                                                             }
@@ -1499,10 +1231,10 @@ function CreateLocationEventForm(props) {
                                                                           className: "flex items-center gap-3"
                                                                         }),
                                                                     JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                                                          className: Core$1.cx("w-5 h-5 text-gray-600 transform transition-transform flex-shrink-0", findPlayersExpanded ? "rotate-180" : "")
+                                                                          className: Core.cx("w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0", findPlayersExpanded ? "rotate-180" : "")
                                                                         })
                                                                   ],
-                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 transition-colors flex items-center justify-between",
+                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between",
                                                                   type: "button",
                                                                   onClick: (function (param) {
                                                                       var expanded = !findPlayersExpanded;
@@ -1515,14 +1247,14 @@ function CreateLocationEventForm(props) {
                                                                           });
                                                                     })
                                                                 }),
-                                                            tmp$10
+                                                            tmp$6
                                                           ],
-                                                          className: "border border-gray-200 rounded-lg overflow-hidden bg-white"
+                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
                                                         }),
                                                     JsxRuntime.jsx("div", {
                                                           children: JsxRuntime.jsx("button", {
                                                                 children: isUpdate ? t`Update Event` : t`Create Event`,
-                                                                className: "w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors shadow-sm",
+                                                                className: "w-full bg-[#a3e635] text-gray-900 py-4 px-6 rounded-lg font-bold hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] transition-colors shadow-sm",
                                                                 type: "submit"
                                                               }),
                                                           className: "pt-6"

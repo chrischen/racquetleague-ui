@@ -78,38 +78,6 @@ module Fragment = %relay(`
     details
   }
 `)
-module QueryFragment = %relay(`
-  fragment CreateLocationEventForm_query on Query
-  @argumentDefinitions(
-    after: { type: "String" }
-    before: { type: "String" }
-    first: { type: "Int", defaultValue: 100 }
-  ) {
-    activities {
-      id
-      name
-      slug
-    }
-    ...SelectClubStateful_query
-      @arguments(after: $after, first: $first, before: $before)
-    ...CreateClubForm_activities
-    viewer {
-      __id
-      adminClubs(after: $after, first: $first, before: $before)
-        @connection(key: "viewer_adminClubs") {
-        edges {
-          node {
-            id
-            name
-            defaultActivity {
-              id
-            }
-          }
-        }
-      }
-    }
-  }
-`)
 
 @module("../layouts/appContext")
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
@@ -148,10 +116,7 @@ let schema = Zod.z->Zod.object(
       timezone: Zod.z->Zod.string({})->Zod.optional,
       details: Zod.z->Zod.string({})->Zod.optional,
       listed: Zod.z->Zod.boolean({}),
-      price: ?Zod.z->Zod.preprocess(
-        v => Int.fromString(v),
-        Zod.z->Zod.numberInt({})->Zod.optional,
-      ),
+      price: ?Zod.z->Zod.preprocess(v => Int.fromString(v), Zod.z->Zod.numberInt({})->Zod.optional),
     }: inputs
   ),
 )
@@ -184,50 +149,28 @@ let calculateDurationHours = (startDateTime: Js.Date.t, endDateTime: Js.Date.t):
 let make = (
   ~eventId: option<string>=?,
   ~location,
-  ~query,
   ~prefilledValues: option<prefilledValues>=?,
+  ~selectedClub: option<string>=?,
+  ~selectedActivity: option<string>=?,
+  ~isClubFormOpen: bool=false,
+  ~onClubFormSubmitBlocked: option<unit => unit>=?,
 ) => {
   open Lingui.Util
   let ts = Lingui.UtilString.t
   let td = Lingui.UtilString.dynamic
 
   let location = Fragment.use(location)
-  let query = QueryFragment.use(query)
-  let clubs =
-    query.viewer
-    ->Option.map(viewer => viewer.adminClubs->QueryFragment.getConnectionNodes)
-    ->Option.getOr([])
-
   let (commitMutationCreate, _) = Mutation.use()
   let (commitMutationUpdate, _) = UpdateMutation.use()
   let navigate = Router.useNavigate()
 
   let isUpdate = eventId->Option.isSome
 
-  // Find pickleball activity for default, fallback to first activity
-  let defaultActivityId =
-    query.activities
-    ->Array.find(a =>
-      a.slug
-      ->Option.map(slug => slug == "pickleball")
-      ->Option.getOr(false)
-    )
-    ->Option.map(a => a.id)
-    ->Option.getOr(query.activities->Array.get(0)->Option.map(a => a.id)->Option.getOr(""))
-
-  // Helper to convert activity slug to ID
-  let activitySlugToId = (slug: string) => {
-    query.activities
-    ->Array.find(a => a.slug->Option.map(s => s == slug)->Option.getOr(false))
-    ->Option.map(a => a.id)
-    ->Option.getOr(defaultActivityId) // Fallback to default if slug not found
-  }
-
   // Determine default values from prefilledValues or use defaults
   let defaultFormValues: defaultValuesOfInputs = switch prefilledValues {
   | Some(pf) => {
       title: pf.title->Option.getOr(""),
-      activity: pf.activitySlug->Option.map(activitySlugToId)->Option.getOr(defaultActivityId),
+      activity: selectedActivity->Option.getOr(""),
       maxRsvps: ?pf.maxRsvps,
       minRating: ?pf.minRating,
       startDate: pf.startDate->Option.getOr(""),
@@ -237,7 +180,7 @@ let make = (
     }
   | None => {
       listed: false,
-      activity: defaultActivityId,
+      activity: selectedActivity->Option.getOr(""),
     }
   }
 
@@ -265,7 +208,6 @@ let make = (
   let startDate = watch(StartDate)
   let endTime = watch(EndTime)
   let title = watch(Title)
-  let activityId = watch(Activity)
 
   // Collapsible sections state - accordion behavior (only one section open at a time)
   // Collapsed if editing existing event or has prefilled values, expanded if creating new
@@ -291,18 +233,8 @@ let make = (
   // Track event duration in hours to preserve it when start time changes
   let (eventDurationHours, setEventDurationHours) = React.useState(() => 2.0)
 
-  // Club and Activity selector UI state
-  let (isClubActivitySelectorActive, setIsClubActivitySelectorActive) = React.useState(() => false)
-  let (showAddClub, setShowAddClub) = React.useState(() => false)
-
   // Location details expansion state
   let (isLocationDetailsExpanded, setIsLocationDetailsExpanded) = React.useState(() => false)
-
-  let (selectedClub, setSelectedClub) = React.useState(() =>
-    prefilledValues
-    ->Option.flatMap(pf => pf.clubId)
-    ->Option.orElse(clubs->Array.get(0)->Option.map(c => c.id))
-  )
 
   let (selectedTags, setSelectedTags) = React.useState(() =>
     prefilledValues
@@ -394,9 +326,6 @@ let make = (
         pf.endDate->Option.map(v => setValue(EndTime, Value(v)))->ignore
         pf.details->Option.map(v => setValue(Details, Value(v)))->ignore
         pf.maxRsvps->Option.map(v => setValue(MaxRsvps, Value(v->Int.toString)))->ignore
-        pf.activitySlug
-        ->Option.map(slug => setValue(Activity, Value(activitySlugToId(slug))))
-        ->ignore
 
         // Calculate and store the duration from prefilled values
         switch (pf.startDate, pf.endDate) {
@@ -490,22 +419,64 @@ let make = (
     None
   }, [selectedTags])
 
+  // Sync selectedActivity prop → form activity field
+  React.useEffect(() => {
+    selectedActivity->Option.forEach(id => setValue(Activity, Value(id)))
+    None
+  }, [selectedActivity])
+
   let onSubmit = (data: inputs) => {
-    // Filter out "rec" since it's the default (represented by absence of type tags)
-    let tagsToSubmit = selectedTags->Array.filter(tag => tag !== "rec")
+    // Block submission if the new club form is open (unsaved club)
+    if isClubFormOpen {
+      onClubFormSubmitBlocked->Option.forEach(cb => cb())
+    } else {
+      // Filter out "rec" since it's the default (represented by absence of type tags)
+      let tagsToSubmit = selectedTags->Array.filter(tag => tag !== "rec")
 
-    let startDate = data.startDate->DateFns.parseISO
-    let endDate = DateFns2.parse(data.endTime, "HH:mm", startDate)
+      let startDate = data.startDate->DateFns.parseISO
+      let endDate = DateFns2.parse(data.endTime, "HH:mm", startDate)
 
-    let priceValue = isPaidEvent ? data.price : None
+      let priceValue = isPaidEvent ? data.price : None
 
-    if isUpdate {
-      // Update existing event
-      switch eventId {
-      | Some(id) =>
-        commitMutationUpdate(
+      if isUpdate {
+        // Update existing event
+        switch eventId {
+        | Some(id) =>
+          commitMutationUpdate(
+            ~variables={
+              eventId: id,
+              input: {
+                title: data.title,
+                activity: data.activity,
+                maxRsvps: ?data.maxRsvps,
+                minRating: ?data.minRating,
+                details: data.details->Option.getOr(""),
+                locationId: location.id,
+                clubId: selectedClub->Option.getOr(""),
+                startDate: startDate->Util.Datetime.fromDate,
+                endDate: endDate->Util.Datetime.fromDate,
+                listed: data.listed,
+                timezone: ?data.timezone,
+                tags: tagsToSubmit,
+                price: ?priceValue,
+              },
+            },
+            ~onCompleted=(_response, _errors) => {
+              navigate("/events/" ++ id, None)
+            },
+          )->RescriptRelay.Disposable.ignore
+        | None => () // Should never happen
+        }
+      } else {
+        // Create new event
+        let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+          "client:root"->RescriptRelay.makeDataId,
+          "EventsListFragment_events",
+          (),
+        )
+
+        commitMutationCreate(
           ~variables={
-            eventId: id,
             input: {
               title: data.title,
               activity: data.activity,
@@ -521,50 +492,17 @@ let make = (
               tags: tagsToSubmit,
               price: ?priceValue,
             },
+            connections: [connectionId],
           },
-          ~onCompleted=(_response, _errors) => {
-            navigate("/events/" ++ id, None)
+          ~onCompleted=(response, _errors) => {
+            response.createEvent.event
+            ->Option.map(event => navigate("/events/" ++ event.id, None))
+            ->ignore
           },
         )->RescriptRelay.Disposable.ignore
-      | None => () // Should never happen
       }
-    } else {
-      // Create new event
-      let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-        "client:root"->RescriptRelay.makeDataId,
-        "EventsListFragment_events",
-        (),
-      )
-
-      commitMutationCreate(
-        ~variables={
-          input: {
-            title: data.title,
-            activity: data.activity,
-            maxRsvps: ?data.maxRsvps,
-            minRating: ?data.minRating,
-            details: data.details->Option.getOr(""),
-            locationId: location.id,
-            clubId: selectedClub->Option.getOr(""),
-            startDate: startDate->Util.Datetime.fromDate,
-            endDate: endDate->Util.Datetime.fromDate,
-            listed: data.listed,
-            timezone: ?data.timezone,
-            tags: tagsToSubmit,
-            price: ?priceValue,
-          },
-          connections: [connectionId],
-        },
-        ~onCompleted=(response, _errors) => {
-          response.createEvent.event
-          ->Option.map(event => navigate("/events/" ++ event.id, None))
-          ->ignore
-        },
-      )->RescriptRelay.Disposable.ignore
-    }
+    } // end isClubFormOpen guard
   }
-  // let onSubmit = data => Js.log(data)
-
   // Helper functions for summaries
   let getEventDetailsSummary = () => {
     let parts = []
@@ -661,8 +599,10 @@ let make = (
       {() => <>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           // Location display
-          <div className="px-4 py-3 border border-gray-300 rounded-lg bg-gray-50">
-            <p className="text-gray-900 font-medium break-words overflow-wrap-anywhere">
+          <div
+            className="px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-[#222222]">
+            <p
+              className="text-gray-900 dark:text-gray-100 font-medium break-words overflow-wrap-anywhere">
               {location.name->Option.getOr("")->React.string}
             </p>
             {location.details
@@ -674,7 +614,7 @@ let make = (
               } else {
                 details
               }
-              <div className="text-sm text-gray-600 mt-1">
+              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                 <p className="inline break-words overflow-wrap-anywhere">
                   {displayText->React.string}
                 </p>
@@ -682,7 +622,7 @@ let make = (
                   ? <button
                       type_="button"
                       onClick={_ => setIsLocationDetailsExpanded(prev => !prev)}
-                      className="ml-1 text-blue-600 hover:text-blue-800 font-medium inline whitespace-nowrap">
+                      className="ml-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium inline whitespace-nowrap">
                       {(isLocationDetailsExpanded ? ts`Show less` : ts`Read more...`)->React.string}
                     </button>
                   : React.null}
@@ -690,180 +630,24 @@ let make = (
             })
             ->Option.getOr(React.null)}
           </div>
-          // Club & Activity - Compact display with edit mode
-          <div>
-            <label className="block text-sm font-semibold text-gray-900 mb-2">
-              {t`Club & Activity`}
-            </label>
-            {!isClubActivitySelectorActive
-              ? <button
-                  type_="button"
-                  onClick={_ => setIsClubActivitySelectorActive(_ => true)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-left hover:border-gray-400 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                  <div className="flex items-center gap-2 text-gray-900">
-                    {switch selectedClub
-                    ->Option.flatMap(id => clubs->Array.find(c => c.id == id))
-                    ->Option.flatMap(c => c.name) {
-                    | Some(name) =>
-                      <>
-                        <span className="font-medium"> {name->React.string} </span>
-                        <span className="text-gray-400"> {"•"->React.string} </span>
-                        {switch activityId {
-                        | Some(String(id)) =>
-                          query.activities
-                          ->Array.find(a => a.id == id)
-                          ->Option.flatMap(a => a.name)
-                          ->Option.map(name => <span> {td(name)->React.string} </span>)
-                          ->Option.getOr(React.null)
-                        | _ => React.null
-                        }}
-                      </>
-                    | None =>
-                      <>
-                        <span className="text-gray-500"> {t`No club`} </span>
-                        {switch activityId {
-                        | Some(String(id)) if id != "" =>
-                          <>
-                            <span className="text-gray-400"> {"•"->React.string} </span>
-                            {query.activities
-                            ->Array.find(a => a.id == id)
-                            ->Option.flatMap(a => a.name)
-                            ->Option.map(name => <span> {td(name)->React.string} </span>)
-                            ->Option.getOr(React.null)}
-                          </>
-                        | _ => React.null
-                        }}
-                      </>
-                    }}
-                  </div>
-                </button>
-              : showAddClub
-              ? {
-                switch query.viewer->Option.map(v => v.__id) {
-                | Some(connectionId) =>
-                  <CreateClubForm
-                    connectionId
-                    query={query.fragmentRefs}
-                    onCancel={_ => {
-                      setShowAddClub(_ => false)
-                      setIsClubActivitySelectorActive(_ => false)
-                    }}
-                    onCreated={club => {
-                      // Set both the selected club and activity
-                      setSelectedClub(_ => Some(club.id))
-                      switch club.defaultActivity {
-                      | Some(activity) =>
-                        setValue(
-                          Activity,
-                          Value(activity.id),
-                          ~options={shouldValidate: true, shouldDirty: true, shouldTouch: true},
-                        )
-                      | None => ()
-                      }
-                      setShowAddClub(_ => false)
-                      setIsClubActivitySelectorActive(_ => false)
-                    }}
-                    inline=true
-                  />
-                | None => React.null
-                }
-              }
-              : <div className="space-y-4 p-4 border-2 border-blue-200 rounded-lg bg-blue-50">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    // Club selector
-                    <div>
-                      <label
-                        htmlFor="club" className="block text-xs font-medium text-gray-700 mb-1.5">
-                        {t`Club`}
-                      </label>
-                      <select
-                        id="club"
-                        value={selectedClub->Option.getOr("")}
-                        onChange={e => {
-                          let value = ReactEvent.Form.target(e)["value"]
-                          if value == "__add_new__" {
-                            setShowAddClub(_ => true)
-                            setSelectedClub(_ => None)
-                          } else {
-                            setSelectedClub(_ => value == "" ? None : Some(value))
-
-                            // Set activity to club's default activity if available
-                            if value != "" {
-                              clubs
-                              ->Array.find(c => c.id == value)
-                              ->Option.flatMap(club => club.defaultActivity)
-                              ->Option.map(activity =>
-                                setValue(
-                                  Activity,
-                                  Value(activity.id),
-                                  ~options={
-                                    shouldValidate: true,
-                                    shouldDirty: true,
-                                    shouldTouch: true,
-                                  },
-                                )
-                              )
-                              ->ignore
-                            }
-                            setShowAddClub(_ => false)
-                          }
-                        }}
-                        className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white">
-                        <option value=""> {t`No club / Independent event`} </option>
-                        {clubs
-                        ->Array.map(club =>
-                          <option key={club.id} value={club.id}>
-                            {club.name->Option.getOr("")->React.string}
-                          </option>
-                        )
-                        ->React.array}
-                        <option value="__add_new__" className="text-blue-600 font-medium">
-                          {t`+ Add new club...`}
-                        </option>
-                      </select>
-                    </div>
-                    // Activity selector
-                    <div>
-                      <label
-                        htmlFor="activity"
-                        className="block text-xs font-medium text-gray-700 mb-1.5">
-                        {t`Activity`}
-                      </label>
-                      <select
-                        {...register(Activity)}
-                        id="activity"
-                        className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white">
-                        {query.activities
-                        ->Array.map(activity =>
-                          <option key={activity.id} value={activity.id}>
-                            {td(activity.name->Option.getOr("---"))->React.string}
-                          </option>
-                        )
-                        ->React.array}
-                      </select>
-                    </div>
-                  </div>
-                  <button
-                    type_="button"
-                    onClick={_ => setIsClubActivitySelectorActive(_ => false)}
-                    className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                    {t`Done`}
-                  </button>
-                </div>}
-          </div>
           // Event Details Section - Collapsible (merged with Date & Time)
-          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
+          <div
+            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
             <button
               type_="button"
               onClick={_ => setEventDetailsExpanded(!eventDetailsExpanded)}
-              className="w-full px-4 py-4 hover:bg-gray-50 transition-colors flex items-center justify-between">
+              className="w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Lucide.FileText className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <Lucide.FileText
+                  className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
+                />
                 <div className="text-left flex-1 min-w-0">
-                  <div className="text-sm font-semibold text-gray-900"> {t`Event Details`} </div>
+                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                    {t`Event Details`}
+                  </div>
                   {!eventDetailsExpanded
                     ? <div
-                        className="text-xs text-gray-600 mt-0.5 line-clamp-2 break-words"
+                        className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words"
                         style={ReactDOM.Style.make(~overflowWrap="anywhere", ())}>
                         {getEventDetailsSummary()->React.string}
                       </div>
@@ -872,19 +656,20 @@ let make = (
               </div>
               <Lucide.ChevronDown
                 className={Util.cx([
-                  "w-5 h-5 text-gray-600 transform transition-transform flex-shrink-0",
+                  "w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0",
                   eventDetailsExpanded ? "rotate-180" : "",
                 ])}
               />
             </button>
             {eventDetailsExpanded
-              ? <div className="px-4 pb-4 pt-6 space-y-6 border-t border-gray-100">
+              ? <div
+                  className="px-4 pb-4 pt-6 space-y-6 border-t border-gray-100 dark:border-gray-800">
                   // Date & Time
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label
                         htmlFor="startDate"
-                        className="block text-sm font-semibold text-gray-900 mb-2">
+                        className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
                         {t`Start date and time`}
                       </label>
                       <input
@@ -897,22 +682,24 @@ let make = (
                           setValue(StartDate, Value(target["value"]))
                         }}
                         className={Util.cx([
-                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors",
+                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono",
                           formState.errors.startDate->Option.isSome
-                            ? "border-red-300"
-                            : "border-gray-300",
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-gray-300 dark:border-gray-700",
                         ])}
                       />
                       {switch formState.errors.startDate {
                       | Some({message: ?Some(message)}) =>
-                        <p className="mt-1 text-sm text-red-600"> {message->React.string} </p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                          {message->React.string}
+                        </p>
                       | _ => React.null
                       }}
                     </div>
                     <div>
                       <label
                         htmlFor="endTime"
-                        className="block text-sm font-semibold text-gray-900 mb-2">
+                        className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
                         {t`End time`}
                       </label>
                       <input
@@ -920,15 +707,17 @@ let make = (
                         id="endTime"
                         type_="time"
                         className={Util.cx([
-                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors",
+                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono",
                           formState.errors.endTime->Option.isSome
-                            ? "border-red-300"
-                            : "border-gray-300",
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-gray-300 dark:border-gray-700",
                         ])}
                       />
                       {switch formState.errors.endTime {
                       | Some({message: ?Some(message)}) =>
-                        <p className="mt-1 text-sm text-red-600"> {message->React.string} </p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                          {message->React.string}
+                        </p>
                       | _ => React.null
                       }}
                     </div>
@@ -936,14 +725,18 @@ let make = (
                   {switch formattedEventDateTime {
                   | Some(dateTime) =>
                     <div
-                      className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
+                      className="p-4 bg-gray-50 dark:bg-[#222222] rounded-lg border border-gray-200 dark:border-gray-700">
                       <div className="flex items-start gap-3">
-                        <Lucide.Calendar className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+                        <Lucide.Calendar
+                          className="w-5 h-5 text-gray-400 dark:text-gray-500 mt-1 flex-shrink-0"
+                        />
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-700 mb-1">
+                          <p
+                            className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1">
                             {t`Event schedule`}
                           </p>
-                          <p className="text-base font-semibold text-gray-900 mb-2 break-words">
+                          <p
+                            className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2 break-words">
                             <ReactIntl.FormattedDate
                               weekday=#long
                               month=#long
@@ -955,9 +748,11 @@ let make = (
                           </p>
                           <div className="flex items-center gap-2 flex-wrap">
                             <div className="flex items-center gap-1.5">
-                              <Lucide.Clock className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                              <Lucide.Clock
+                                className="w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0"
+                              />
                               <span
-                                className="text-base font-semibold text-blue-700 whitespace-nowrap">
+                                className="text-base font-bold text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap">
                                 <ReactIntl.FormattedTime
                                   value={dateTime["startDate"]} timeZone="Asia/Tokyo"
                                 />
@@ -965,7 +760,7 @@ let make = (
                             </div>
                             <span className="text-gray-400"> {"→"->React.string} </span>
                             <span
-                              className="text-base font-semibold text-blue-700 whitespace-nowrap">
+                              className="text-base font-bold text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap">
                               <ReactIntl.FormattedTime
                                 value={dateTime["endDate"]} timeZone="Asia/Tokyo"
                               />
@@ -973,7 +768,8 @@ let make = (
                             {dateTime["duration"] != ""
                               ? <>
                                   <span className="text-gray-400"> {"•"->React.string} </span>
-                                  <span className="text-sm text-gray-600 whitespace-nowrap">
+                                  <span
+                                    className="text-gray-600 dark:text-gray-400 whitespace-nowrap">
                                     {dateTime["duration"]->React.string}
                                   </span>
                                 </>
@@ -988,7 +784,8 @@ let make = (
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="md:col-span-2">
                       <label
-                        htmlFor="title" className="block text-sm font-semibold text-gray-900 mb-2">
+                        htmlFor="title"
+                        className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
                         {t`Event title`}
                       </label>
                       <input
@@ -997,22 +794,24 @@ let make = (
                         type_="text"
                         placeholder={ts`Friday Night Pickleball`}
                         className={Util.cx([
-                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors",
+                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100",
                           formState.errors.title->Option.isSome
-                            ? "border-red-300"
-                            : "border-gray-300",
+                            ? "border-red-300 dark:border-red-700"
+                            : "border-gray-300 dark:border-gray-700",
                         ])}
                       />
                       {switch formState.errors.title {
                       | Some({message: ?Some(message)}) =>
-                        <p className="mt-1 text-sm text-red-600"> {message->React.string} </p>
+                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                          {message->React.string}
+                        </p>
                       | _ => React.null
                       }}
                     </div>
                     <div>
                       <label
                         htmlFor="maxRsvps"
-                        className="block text-sm font-semibold text-gray-900 mb-2">
+                        className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
                         {t`Max RSVPs (optional)`}
                       </label>
                       <input
@@ -1020,14 +819,15 @@ let make = (
                         id="maxRsvps"
                         type_="number"
                         placeholder={ts`No limit`}
-                        className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
                       />
                     </div>
                   </div>
                   // Event Details
                   <div>
                     <label
-                      htmlFor="details" className="block text-sm font-semibold text-gray-900 mb-2">
+                      htmlFor="details"
+                      className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
                       {t`Event details (optional)`}
                     </label>
                     <textarea
@@ -1036,14 +836,15 @@ let make = (
                       rows=3
                       defaultValue=""
                       placeholder={ts`Add any additional information about the event...`}
-                      className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                      className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100"
                     />
                   </div>
                 </div>
               : React.null}
           </div>
           // Paid Event Section
-          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
+          <div
+            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
             <div className="px-4 py-4">
               <div className="flex items-start gap-3">
                 <input
@@ -1061,10 +862,11 @@ let make = (
                 />
                 <div className="flex-1">
                   <label
-                    htmlFor="paidEvent" className="block text-sm font-semibold text-gray-900">
+                    htmlFor="paidEvent"
+                    className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
                     {t`Paid event`}
                   </label>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                     {t`Require payment from attendees`}
                   </p>
                 </div>
@@ -1072,12 +874,12 @@ let make = (
               {isPaidEvent
                 ? <div className="mt-4 ml-8">
                     <label
-                      htmlFor="price"
-                      className="block text-sm font-semibold text-gray-900 mb-2">
+                      htmlFor="price" className="block text-sm font-semibold text-gray-900 mb-2">
                       {t`Price`}
                     </label>
                     <div className="relative">
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-sm">
+                      <span
+                        className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-sm">
                         {"¥"->React.string}
                       </span>
                       <input
@@ -1086,7 +888,7 @@ let make = (
                         type_="number"
                         min="1"
                         placeholder={ts`Enter price`}
-                        className="block w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        className="block w-full pl-8 pr-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
                       />
                     </div>
                   </div>
@@ -1094,18 +896,23 @@ let make = (
             </div>
           </div>
           // Activity & Format Section - Collapsible
-          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
+          <div
+            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
             <button
               type_="button"
               onClick={_ => setActivityFormatExpanded(!activityFormatExpanded)}
-              className="w-full px-4 py-4 hover:bg-gray-50 transition-colors flex items-center justify-between">
+              className="w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Lucide.Dumbbell className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <Lucide.Dumbbell
+                  className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
+                />
                 <div className="text-left flex-1 min-w-0">
-                  <div className="text-sm font-semibold text-gray-900"> {t`Format`} </div>
+                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                    {t`Format`}
+                  </div>
                   {!activityFormatExpanded
                     ? <div
-                        className="text-xs text-gray-600 mt-0.5 line-clamp-2 break-words"
+                        className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words"
                         style={ReactDOM.Style.make(~overflowWrap="anywhere", ())}>
                         {getFormatSummary()->React.string}
                       </div>
@@ -1114,16 +921,18 @@ let make = (
               </div>
               <Lucide.ChevronDown
                 className={Util.cx([
-                  "w-5 h-5 text-gray-600 transform transition-transform flex-shrink-0",
+                  "w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0",
                   activityFormatExpanded ? "rotate-180" : "",
                 ])}
               />
             </button>
             {activityFormatExpanded
-              ? <div className="px-4 pb-4 pt-6 space-y-6 border-t border-gray-100">
+              ? <div
+                  className="px-4 pb-4 pt-6 space-y-6 border-t border-gray-100 dark:border-gray-800">
                   // Event type
                   <div>
-                    <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    <label
+                      className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
                       {t`Event type`}
                     </label>
                     <div className="grid grid-cols-2 gap-3">
@@ -1134,8 +943,8 @@ let make = (
                           className={Util.cx([
                             "relative flex items-center justify-center px-4 py-3 border-2 rounded-lg cursor-pointer transition-all",
                             eventType == value
-                              ? "border-blue-600 bg-blue-50"
-                              : "border-gray-300 hover:border-gray-400",
+                              ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20"
+                              : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]",
                           ])}>
                           <input
                             type_="radio"
@@ -1160,7 +969,9 @@ let make = (
                           <span
                             className={Util.cx([
                               "text-sm font-medium",
-                              eventType == value ? "text-blue-700" : "text-gray-700",
+                              eventType == value
+                                ? "text-[#4d7c0f] dark:text-[#a3e635]"
+                                : "text-gray-700 dark:text-gray-300",
                             ])}>
                             {label}
                           </span>
@@ -1169,9 +980,11 @@ let make = (
                       ->React.array}
                     </div>
                     <div
-                      className="mt-3 flex items-start gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100">
-                      <Lucide.Info className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                      <p className="text-sm text-blue-900">
+                      className="mt-3 flex items-start gap-2 p-3 bg-gray-50 dark:bg-[#222222] rounded-lg border border-gray-200 dark:border-gray-700">
+                      <Lucide.Info
+                        className="w-4 h-4 text-gray-500 dark:text-gray-400 mt-0.5 flex-shrink-0"
+                      />
+                      <p className="text-sm text-gray-700 dark:text-gray-300">
                         {eventType == "competitive"
                           ? t`Serious play with rankings and ratings. Games may affect your player rating.`
                           : t`Casual play focused on fun and social interaction. Perfect for all skill levels.`}
@@ -1179,8 +992,10 @@ let make = (
                     </div>
                   </div>
                   {eventType == "competitive"
-                    ? <div className="pl-4 border-l-2 border-blue-200 space-y-3">
-                        <label className="block text-sm font-medium text-gray-700 mb-3">
+                    ? <div
+                        className="pl-4 border-l-2 border-gray-200 dark:border-gray-700 space-y-3">
+                        <label
+                          className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
                           {t`Format options`}
                         </label>
                         <div className="grid grid-cols-2 gap-3">
@@ -1193,15 +1008,17 @@ let make = (
                                   : tags->Array.concat(["dupr"])
                               )}
                             className={Util.cx([
-                              "relative flex items-center justify-center px-4 py-3 border-2 rounded-lg transition-all",
+                              "relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all",
                               isDupr
-                                ? "border-blue-600 bg-blue-50"
-                                : "border-gray-300 hover:border-gray-400",
+                                ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20"
+                                : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]",
                             ])}>
                             <span
                               className={Util.cx([
                                 "text-sm font-medium",
-                                isDupr ? "text-blue-700" : "text-gray-700",
+                                isDupr
+                                  ? "text-[#4d7c0f] dark:text-[#a3e635]"
+                                  : "text-gray-700 dark:text-gray-300",
                               ])}>
                               {t`DUPR rated`}
                             </span>
@@ -1215,23 +1032,26 @@ let make = (
                                   : tags->Array.concat(["drill"])
                               )}
                             className={Util.cx([
-                              "relative flex items-center justify-center px-4 py-3 border-2 rounded-lg transition-all",
+                              "relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all",
                               isDrill
-                                ? "border-blue-600 bg-blue-50"
-                                : "border-gray-300 hover:border-gray-400",
+                                ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20"
+                                : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]",
                             ])}>
                             <span
                               className={Util.cx([
                                 "text-sm font-medium",
-                                isDrill ? "text-blue-700" : "text-gray-700",
+                                isDrill
+                                  ? "text-[#4d7c0f] dark:text-[#a3e635]"
+                                  : "text-gray-700 dark:text-gray-300",
                               ])}>
                               {t`Drill session`}
                             </span>
                           </button>
                         </div>
                       </div>
-                    : <div className="pl-4 border-l-2 border-blue-200">
-                        <label className="block text-sm font-medium text-gray-700 mb-3">
+                    : <div className="pl-4 border-l-2 border-gray-200 dark:border-gray-700">
+                        <label
+                          className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
                           {t`Format options`}
                         </label>
                         <button
@@ -1243,15 +1063,17 @@ let make = (
                                 : tags->Array.concat(["drill"])
                             )}
                           className={Util.cx([
-                            "relative flex items-center justify-center px-4 py-3 border-2 rounded-lg transition-all",
+                            "relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all",
                             isDrill
-                              ? "border-blue-600 bg-blue-50"
-                              : "border-gray-300 hover:border-gray-400",
+                              ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20"
+                              : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]",
                           ])}>
                           <span
                             className={Util.cx([
                               "text-sm font-medium",
-                              isDrill ? "text-blue-700" : "text-gray-700",
+                              isDrill
+                                ? "text-[#4d7c0f] dark:text-[#a3e635]"
+                                : "text-gray-700 dark:text-gray-300",
                             ])}>
                             {t`Drill session`}
                           </span>
@@ -1261,18 +1083,21 @@ let make = (
               : React.null}
           </div>
           // Find Players Section - Collapsible
-          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
+          <div
+            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
             <button
               type_="button"
               onClick={_ => setFindPlayersExpanded(!findPlayersExpanded)}
-              className="w-full px-4 py-4 hover:bg-gray-50 transition-colors flex items-center justify-between">
+              className="w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Lucide.Users className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <Lucide.Users className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0" />
                 <div className="text-left flex-1 min-w-0">
-                  <div className="text-sm font-semibold text-gray-900"> {t`Find Players`} </div>
+                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                    {t`Find Players`}
+                  </div>
                   {!findPlayersExpanded
                     ? <div
-                        className="text-xs text-gray-600 mt-0.5 line-clamp-2 break-words"
+                        className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words"
                         style={ReactDOM.Style.make(~overflowWrap="anywhere", ())}>
                         {getFindPlayersSummary()->React.string}
                       </div>
@@ -1281,34 +1106,36 @@ let make = (
               </div>
               <Lucide.ChevronDown
                 className={Util.cx([
-                  "w-5 h-5 text-gray-600 transform transition-transform flex-shrink-0",
+                  "w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0",
                   findPlayersExpanded ? "rotate-180" : "",
                 ])}
               />
             </button>
             {findPlayersExpanded
-              ? <div className="px-4 pb-4 pt-6 border-t border-gray-100">
+              ? <div className="px-4 pb-4 pt-6 border-t border-gray-100 dark:border-gray-800">
                   <div className="flex items-start gap-3 mb-4">
                     <input
                       id="findPlayers"
                       type_="checkbox"
                       checked={listed}
                       onChange={_ => setValue(Listed, Value(!listed))}
-                      className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-0.5"
+                      className="h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]"
                     />
                     <div>
                       <label
-                        htmlFor="findPlayers" className="block text-sm font-semibold text-gray-900">
+                        htmlFor="findPlayers"
+                        className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
                         {t`Find players for your event?`}
                       </label>
-                      <p className="text-sm text-gray-600 mt-1">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                         {t`List your event publicly to help fill open spots`}
                       </p>
                     </div>
                   </div>
                   {listed
                     ? <div className="ml-8 space-y-3">
-                        <label className="block text-sm font-medium text-gray-700">
+                        <label
+                          className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                           {t`Skill level`}
                         </label>
                         <div className="flex flex-wrap gap-2">
@@ -1338,10 +1165,10 @@ let make = (
                                   }
                                 })}
                               className={Util.cx([
-                                "px-4 py-2 rounded-full text-sm font-medium transition-all",
+                                "px-3 py-1.5 rounded-full text-xs font-medium transition-all border",
                                 selectedTags->Array.includes(tag)
-                                  ? "bg-blue-600 text-white"
-                                  : "bg-gray-100 text-gray-700 hover:bg-gray-200",
+                                  ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 border-gray-900 dark:border-gray-100"
+                                  : "bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600",
                               ])}>
                               {tag->React.string}
                             </button>
@@ -1351,7 +1178,7 @@ let make = (
                         <div className="mt-4">
                           <label
                             htmlFor="minRating"
-                            className="block text-sm font-medium text-gray-700 mb-2">
+                            className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
                             {t`Minimum rating (optional)`}
                           </label>
                           <input
@@ -1360,11 +1187,13 @@ let make = (
                             type_="number"
                             step=0.1
                             placeholder={ts`No minimum`}
-                            className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
                           />
                           {switch formState.errors.minRating {
                           | Some({message: ?Some(message)}) =>
-                            <p className="mt-1 text-sm text-red-600"> {message->React.string} </p>
+                            <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                              {message->React.string}
+                            </p>
                           | _ => React.null
                           }}
                         </div>
@@ -1376,7 +1205,7 @@ let make = (
           <div className="pt-6">
             <button
               type_="submit"
-              className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors shadow-sm">
+              className="w-full bg-[#a3e635] text-gray-900 py-4 px-6 rounded-lg font-bold hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] transition-colors shadow-sm">
               {isUpdate ? t`Update Event` : t`Create Event`}
             </button>
           </div>

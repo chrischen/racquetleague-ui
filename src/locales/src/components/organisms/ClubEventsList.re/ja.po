@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr "...もっと見る"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:259
+#: src/components/organisms/PkRSVPSection.re.mjs:349
 msgid "· {0} pending"
 msgstr "· {0} 保留中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:347
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
@@ -29,11 +29,11 @@ msgstr "· +{0} 補欠"
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/organisms/ClubEventsList.re.mjs:92
+#: src/components/organisms/ClubEventsList.re.mjs:103
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:254
+#: src/components/organisms/PkRSVPSection.re.mjs:344
 msgid "{0} joined"
 msgstr "{0} 参加済み"
 
@@ -52,6 +52,10 @@ msgstr "アクティビティ"
 #: src/components/organisms/PkEventMessages.re.mjs:433
 msgid "Add a message..."
 msgstr "メッセージを追加..."
+
+#: src/components/organisms/ClubEventsList.re.mjs:121
+msgid "Add to {0}"
+msgstr "{0}に追加"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
@@ -94,7 +98,7 @@ msgstr "参加する"
 msgid "Complete your profile"
 msgstr "プロフィールを完成させる"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:357
+#: src/components/organisms/PkRSVPSection.re.mjs:450
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
 
@@ -160,7 +164,7 @@ msgid "Enter Match Score"
 msgstr "試合のスコアを入力"
 
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/organisms/ClubEventsList.re.mjs:95
+#: src/components/organisms/ClubEventsList.re.mjs:106
 msgid "event"
 msgstr "イベント"
 
@@ -177,7 +181,7 @@ msgid "Event updated"
 msgstr "イベントを更新しました"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/organisms/ClubEventsList.re.mjs:96
+#: src/components/organisms/ClubEventsList.re.mjs:107
 msgid "events"
 msgstr "イベント"
 
@@ -193,7 +197,7 @@ msgstr "イベントの更新と通知用"
 msgid "Free"
 msgstr "無料"
 
-#: src/components/organisms/ClubEventsList.re.mjs:206
+#: src/components/organisms/ClubEventsList.re.mjs:242
 msgid "Friday"
 msgstr "金曜日"
 
@@ -255,7 +259,7 @@ msgstr "初中級以上"
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
 
-#: src/components/organisms/ClubEventsList.re.mjs:194
+#: src/components/organisms/ClubEventsList.re.mjs:230
 msgid "Monday"
 msgstr "月曜日"
 
@@ -268,7 +272,7 @@ msgstr "もっと見る →"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/organisms/ClubEventsList.re.mjs:215
+#: src/components/organisms/ClubEventsList.re.mjs:251
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
 
@@ -284,7 +288,7 @@ msgstr "スコアなし"
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:250
+#: src/components/organisms/PkRSVPSection.re.mjs:327
 msgid "Participants"
 msgstr "参加者"
 
@@ -292,7 +296,7 @@ msgstr "参加者"
 msgid "Pending"
 msgstr "保留中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:486
+#: src/components/organisms/PkRSVPSection.re.mjs:579
 msgid "Pending · {0}"
 msgstr "保留中 · {0}"
 
@@ -336,11 +340,11 @@ msgstr "このRSVPを削除"
 msgid "Repeat"
 msgstr "繰り返し"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:212
+#: src/components/organisms/PkRSVPSection.re.mjs:253
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "必要なDUPR: {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:233
+#: src/components/organisms/PkRSVPSection.re.mjs:274
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加にはDUPR {minDuprStr}以上が必要です"
 
@@ -356,7 +360,7 @@ msgstr "ラウンド{0}"
 msgid "Round Robin Draws"
 msgstr "ラウンドロビン組み合わせ"
 
-#: src/components/organisms/ClubEventsList.re.mjs:209
+#: src/components/organisms/ClubEventsList.re.mjs:245
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -393,7 +397,7 @@ msgstr "技術向上に焦点を当てたスキル練習とドリル"
 msgid "SORTED BY START TIME"
 msgstr "開始時間順"
 
-#: src/components/organisms/ClubEventsList.re.mjs:191
+#: src/components/organisms/ClubEventsList.re.mjs:227
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -444,21 +448,21 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/ClubEventsList.re.mjs:203
+#: src/components/organisms/ClubEventsList.re.mjs:239
 msgid "Thursday"
 msgstr "木曜日"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/organisms/ClubEventsList.re.mjs:177
+#: src/components/organisms/ClubEventsList.re.mjs:210
 msgid "Today"
 msgstr "今日"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/organisms/ClubEventsList.re.mjs:182
+#: src/components/organisms/ClubEventsList.re.mjs:216
 msgid "Tomorrow"
 msgstr "明日"
 
-#: src/components/organisms/ClubEventsList.re.mjs:197
+#: src/components/organisms/ClubEventsList.re.mjs:233
 msgid "Tuesday"
 msgstr "火曜日"
 
@@ -488,7 +492,7 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:422
+#: src/components/organisms/PkRSVPSection.re.mjs:515
 msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
@@ -500,7 +504,7 @@ msgstr "キャンセル待ち中"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/organisms/ClubEventsList.re.mjs:200
+#: src/components/organisms/ClubEventsList.re.mjs:236
 msgid "Wednesday"
 msgstr "水曜日"
 
@@ -512,11 +516,11 @@ msgstr "週末"
 msgid "Winning Team (Team {0})"
 msgstr "勝利チーム（チーム{0}）"
 
-#: src/components/organisms/ClubEventsList.re.mjs:214
+#: src/components/organisms/ClubEventsList.re.mjs:250
 msgid "Yesterday"
 msgstr "昨日"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:216
+#: src/components/organisms/PkRSVPSection.re.mjs:257
 msgid ""
 "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

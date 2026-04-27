@@ -16,10 +16,16 @@ let make = () => {
   open Lingui.Util
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
-  <WaitForMessages>
-    {() =>
-      query.club
-      ->Option.map(club => <CreateClubEventsForm club=club.fragmentRefs query=query.fragmentRefs />)
-      ->Option.getOr(t`club doesn't exist.`)}
-  </WaitForMessages>
+  let (searchParams, _) = Router.useSearchParams()
+  let prefillDate = searchParams->Router.SearchParams.get("date")
+  <div className="max-w-2xl mx-auto px-4 py-8 space-y-6 w-full">
+    <WaitForMessages>
+      {() =>
+        query.club
+        ->Option.map(club =>
+          <CreateClubEventsForm club=club.fragmentRefs query=query.fragmentRefs ?prefillDate />
+        )
+        ->Option.getOr(t`club doesn't exist.`)}
+    </WaitForMessages>
+  </div>
 }

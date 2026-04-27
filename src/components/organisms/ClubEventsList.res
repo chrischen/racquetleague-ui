@@ -47,25 +47,43 @@ module Day = {
   let make = (
     ~label: string,
     ~dateDetails: string,
+    ~date: Js.Date.t,
     ~events: array<ClubEventsListFragment_graphql.Types.fragment_events_edges_node>,
     ~viewerUser: option<RescriptRelay.fragmentRefs<[> #PkEventRow_user]>>,
+    ~query: RescriptRelay.fragmentRefs<[> #PkEventRow_query]>,
     ~onEventClick: option<string => unit>=?,
     ~onHoverLocation: option<option<string> => unit>=?,
     ~selectedLocationId: option<string>=?,
   ) => {
+    let isoDate = {
+      let y = date->Js.Date.getFullYear->Float.toInt->Int.toString
+      let m = (date->Js.Date.getMonth->Float.toInt + 1)->Int.toString->String.padStart(2, "0")
+      let d = date->Js.Date.getDate->Float.toInt->Int.toString->String.padStart(2, "0")
+      y ++ "-" ++ m ++ "-" ++ d
+    }
     <>
-      <div className="px-4 md:px-6 py-3 flex items-baseline gap-3">
-        <h3 className="font-semibold text-gray-900 dark:text-gray-100"> {label->React.string} </h3>
-        <span className="font-mono text-xs text-gray-400 dark:text-gray-500">
-          {(dateDetails ++
-          " · " ++
-          Int.toString(events->Array.filter(e => e.deleted->Option.isNone)->Array.length) ++
-          " " ++
-          Lingui.UtilString.plural(
-            events->Array.filter(e => e.deleted->Option.isNone)->Array.length,
-            {one: ts`event`, other: ts`events`},
-          ))->React.string}
-        </span>
+      <div className="px-4 md:px-6 py-3 flex items-center justify-between">
+        <div className="flex items-baseline gap-3">
+          <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+            {label->React.string}
+          </h3>
+          <span className="font-mono text-xs text-gray-400 dark:text-gray-500">
+            {(dateDetails ++
+            " · " ++
+            Int.toString(events->Array.filter(e => e.deleted->Option.isNone)->Array.length) ++
+            " " ++
+            Lingui.UtilString.plural(
+              events->Array.filter(e => e.deleted->Option.isNone)->Array.length,
+              {one: ts`event`, other: ts`events`},
+            ))->React.string}
+          </span>
+        </div>
+        <LangProvider.Router.Link
+          to={"/events/create?date=" ++ isoDate}
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors">
+          <Lucide.Plus size=11 />
+          <span> {(ts`Add to ${label->String.toLowerCase}`)->React.string} </span>
+        </LangProvider.Router.Link>
       </div>
       {events
       ->Array.mapWithIndex((edge, idx) => {
@@ -87,6 +105,7 @@ module Day = {
           user=viewerUser
           isLastInGroup={idx == Array.length(events) - 1}
           waitlistCount
+          query
           ?onEventClick
           ?onHoverLocation
           dimmed={selectedLocationId
@@ -107,6 +126,7 @@ module Day = {
 @react.component
 let make = (
   ~events: RescriptRelay.fragmentRefs<[> #ClubEventsListFragment]>,
+  ~query: RescriptRelay.fragmentRefs<[> #PkEventRow_query]>,
   ~viewerUser: option<RescriptRelay.fragmentRefs<[> #PkEventRow_user]>>=?,
   ~onHoverLocation: option<option<string> => unit>=?,
   ~selectedLocationId: option<string>=?,
@@ -142,10 +162,18 @@ let make = (
       ReactIntl.dateTimeFormatOptions(~month=#short, ~day=#numeric, ()),
     )
 
-  let getBucketMeta = (key: string): (string, string) =>
+  let getBucketMeta = (key: string): (string, string, Js.Date.t) =>
     switch key {
-    | "today" => (ts`Today`, formatDate(bucketSetup.dateFromOffset(0.)))
-    | "tomorrow" => (ts`Tomorrow`, formatDate(bucketSetup.dateFromOffset(1.)))
+    | "today" => (
+        ts`Today`,
+        formatDate(bucketSetup.dateFromOffset(0.)),
+        bucketSetup.dateFromOffset(0.),
+      )
+    | "tomorrow" => (
+        ts`Tomorrow`,
+        formatDate(bucketSetup.dateFromOffset(1.)),
+        bucketSetup.dateFromOffset(1.),
+      )
     | _ =>
       let (isNextWeek, dayIndex, date) = EventsListUtils.getBucketDateDetails(
         ~setup=bucketSetup,
@@ -169,7 +197,7 @@ let make = (
       } else {
         dayName
       }
-      (label, formatDate(date))
+      (label, formatDate(date), date)
     }
 
   let bucketEventsDict = EventsListUtils.bucketEvents(
@@ -187,14 +215,16 @@ let make = (
     bucketEventsDict
     ->Js.Dict.get(key)
     ->Option.map(bucketEvents => {
-      let (label, dateDetails) = getBucketMeta(key)
+      let (label, dateDetails, date) = getBucketMeta(key)
       (
         key,
         <Day
           label
           dateDetails
+          date
           events=bucketEvents
           viewerUser
+          query
           onEventClick={id => ctx.openDrawer(<PkEventDrawer eventId=id />, "/events/" ++ id)}
           ?onHoverLocation
           ?selectedLocationId

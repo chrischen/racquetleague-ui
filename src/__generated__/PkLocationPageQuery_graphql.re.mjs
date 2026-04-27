@@ -160,47 +160,37 @@ v11 = {
   "storageKey": null
 },
 v12 = [
-  (v11/*: any*/)
-],
-v13 = {
-  "alias": null,
-  "args": null,
-  "concreteType": "User",
-  "kind": "LinkedField",
-  "name": "user",
-  "plural": false,
-  "selections": (v12/*: any*/),
-  "storageKey": null
-},
-v14 = [
   {
     "kind": "Literal",
     "name": "first",
     "value": 100
   }
 ],
-v15 = {
+v13 = [
+  (v11/*: any*/)
+],
+v14 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v16 = {
+v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "cursor",
   "storageKey": null
 },
-v17 = {
+v16 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "endCursor",
   "storageKey": null
 },
-v18 = {
+v17 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -296,10 +286,35 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
-          (v13/*: any*/),
           {
             "alias": null,
-            "args": (v14/*: any*/),
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v11/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "lineUsername",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "email",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": (v12/*: any*/),
             "concreteType": "ClubConnection",
             "kind": "LinkedField",
             "name": "clubs",
@@ -320,7 +335,7 @@ return {
                     "kind": "LinkedField",
                     "name": "node",
                     "plural": false,
-                    "selections": (v12/*: any*/),
+                    "selections": (v13/*: any*/),
                     "storageKey": null
                   }
                 ],
@@ -453,7 +468,7 @@ return {
                   },
                   {
                     "alias": null,
-                    "args": (v14/*: any*/),
+                    "args": (v12/*: any*/),
                     "concreteType": "EventRsvpConnection",
                     "kind": "LinkedField",
                     "name": "rsvps",
@@ -483,7 +498,16 @@ return {
                                 "name": "listType",
                                 "storageKey": null
                               },
-                              (v13/*: any*/),
+                              {
+                                "alias": null,
+                                "args": null,
+                                "concreteType": "User",
+                                "kind": "LinkedField",
+                                "name": "user",
+                                "plural": false,
+                                "selections": (v13/*: any*/),
+                                "storageKey": null
+                              },
                               {
                                 "alias": null,
                                 "args": null,
@@ -503,11 +527,11 @@ return {
                                 ],
                                 "storageKey": null
                               },
-                              (v15/*: any*/)
+                              (v14/*: any*/)
                             ],
                             "storageKey": null
                           },
-                          (v16/*: any*/)
+                          (v15/*: any*/)
                         ],
                         "storageKey": null
                       },
@@ -519,8 +543,8 @@ return {
                         "name": "pageInfo",
                         "plural": false,
                         "selections": [
-                          (v17/*: any*/),
-                          (v18/*: any*/)
+                          (v16/*: any*/),
+                          (v17/*: any*/)
                         ],
                         "storageKey": null
                       }
@@ -529,7 +553,7 @@ return {
                   },
                   {
                     "alias": null,
-                    "args": (v14/*: any*/),
+                    "args": (v12/*: any*/),
                     "filters": null,
                     "handle": "connection",
                     "key": "PkEventRow_event_rsvps",
@@ -569,11 +593,11 @@ return {
                       }
                     ]
                   },
-                  (v15/*: any*/)
+                  (v14/*: any*/)
                 ],
                 "storageKey": null
               },
-              (v16/*: any*/)
+              (v15/*: any*/)
             ],
             "storageKey": null
           },
@@ -585,7 +609,7 @@ return {
             "name": "pageInfo",
             "plural": false,
             "selections": [
-              (v18/*: any*/),
+              (v17/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -593,7 +617,7 @@ return {
                 "name": "hasPreviousPage",
                 "storageKey": null
               },
-              (v17/*: any*/),
+              (v16/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -622,12 +646,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "5734c248047144ac510d6e1e8ea3d948",
+    "cacheID": "6b181e8d6511016c736029cc099eb668",
     "id": null,
     "metadata": {},
     "name": "PkLocationPageQuery",
     "operationKind": "query",
-    "text": "query PkLocationPageQuery(\n  $id: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n) {\n  location(id: $id) {\n    name\n    details\n    address\n    links\n    id\n  }\n  ...PkEventsListFragment_3T4uGA\n  events(after: $after, first: $first, before: $before, filters: {locationId: $id}, afterDate: $afterDate) {\n    ...PinMap_eventConnection\n  }\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n}\n\nfragment PkEventRow_user on User {\n  id\n}\n\nfragment PkEventsListFragment_3T4uGA on Query {\n  viewer {\n    user {\n      ...PkEventRow_user\n      id\n    }\n    clubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n  events(after: $after, first: $first, before: $before, filters: {locationId: $id}, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        listed\n        deleted\n        club {\n          id\n        }\n        maxRsvps\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n"
+    "text": "query PkLocationPageQuery(\n  $id: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n) {\n  location(id: $id) {\n    name\n    details\n    address\n    links\n    id\n  }\n  ...PkEventsListFragment_3T4uGA\n  events(after: $after, first: $first, before: $before, filters: {locationId: $id}, afterDate: $afterDate) {\n    ...PinMap_eventConnection\n  }\n}\n\nfragment PinMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n}\n\nfragment PkEventRow_query on Query {\n  ...ProfileModal_viewer\n}\n\nfragment PkEventRow_user on User {\n  id\n  lineUsername\n  email\n}\n\nfragment PkEventsListFragment_3T4uGA on Query {\n  ...PkEventRow_query\n  viewer {\n    user {\n      ...PkEventRow_user\n      id\n    }\n    clubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n  events(after: $after, first: $first, before: $before, filters: {locationId: $id}, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        listed\n        deleted\n        club {\n          id\n        }\n        maxRsvps\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    user {\n      id\n      lineUsername\n      email\n    }\n  }\n}\n"
   }
 };
 })());

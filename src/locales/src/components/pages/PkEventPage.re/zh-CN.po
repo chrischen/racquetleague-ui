@@ -57,15 +57,15 @@ msgstr "所有级别"
 msgid "...more"
 msgstr "...更多"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:259
+#: src/components/organisms/PkRSVPSection.re.mjs:349
 msgid "· {0} pending"
 msgstr "· {0} 待处理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:347
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候补"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:254
+#: src/components/organisms/PkRSVPSection.re.mjs:344
 msgid "{0} joined"
 msgstr "{0} 已参加"
 
@@ -106,7 +106,7 @@ msgstr "报名参加"
 msgid "Complete your profile"
 msgstr "完善个人资料"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:357
+#: src/components/organisms/PkRSVPSection.re.mjs:450
 msgid "Confirmed · {0}"
 msgstr "已确认 · {0}"
 
@@ -253,11 +253,11 @@ msgstr "无比分"
 msgid "Notes from the host"
 msgstr "主持人的备注"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:250
+#: src/components/organisms/PkRSVPSection.re.mjs:327
 msgid "Participants"
 msgstr "参与者"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:486
+#: src/components/organisms/PkRSVPSection.re.mjs:579
 msgid "Pending · {0}"
 msgstr "待处理 · {0}"
 
@@ -294,11 +294,11 @@ msgstr "移除此 RSVP"
 msgid "Repeat"
 msgstr "重复"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:212
+#: src/components/organisms/PkRSVPSection.re.mjs:253
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:233
+#: src/components/organisms/PkRSVPSection.re.mjs:274
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加需要 DUPR {minDuprStr}以上"
 
@@ -403,7 +403,7 @@ msgstr "查看资料"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:422
+#: src/components/organisms/PkRSVPSection.re.mjs:515
 msgid "Waitlist · {0}"
 msgstr "候补名单 · {0}"
 
@@ -415,7 +415,7 @@ msgstr "在您参加此活动之前，我们需要一些信息"
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:216
+#: src/components/organisms/PkRSVPSection.re.mjs:257
 msgid ""
 "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

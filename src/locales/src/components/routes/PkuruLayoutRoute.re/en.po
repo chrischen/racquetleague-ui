@@ -36,8 +36,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:265
-msgid "Host"
-msgstr ""
+#~ msgid "Host"
+#~ msgstr ""
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
@@ -72,8 +72,16 @@ msgstr ""
 msgid "My events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:392
+#: src/components/pages/PkuruLayout.re.mjs:409
 msgid "My Events"
+msgstr ""
+
+#: src/components/pages/PkuruLayout.re.mjs:397
+msgid "New"
+msgstr ""
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+msgid "New event"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:140
@@ -82,7 +90,7 @@ msgid "Pickleball"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:123
-#: src/components/pages/PkuruLayout.re.mjs:402
+#: src/components/pages/PkuruLayout.re.mjs:419
 msgid "Profile"
 msgstr ""
 

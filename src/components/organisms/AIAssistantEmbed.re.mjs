@@ -174,19 +174,19 @@ function AIAssistantEmbed(props) {
                               children: [
                                 JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsx(LucideReact.Sparkles, {
-                                            className: "w-4 h-4 text-white"
+                                            className: "w-4 h-4 text-gray-900"
                                           }),
-                                      className: "w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-md"
+                                      className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
                                     }),
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("p", {
                                               children: t`AI Assistant`,
-                                              className: "text-sm font-semibold text-gray-900"
+                                              className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
                                             }),
                                         JsxRuntime.jsx("p", {
                                               children: t`Form filled • Click to expand`,
-                                              className: "text-xs text-gray-600"
+                                              className: "text-xs text-gray-600 dark:text-gray-400"
                                             })
                                       ],
                                       className: "text-left"
@@ -198,7 +198,7 @@ function AIAssistantEmbed(props) {
                               className: "w-5 h-5 text-gray-600"
                             })
                       ],
-                      className: "w-full p-4 hover:bg-blue-50/50 transition-colors flex items-center justify-between",
+                      className: "w-full p-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between",
                       type: "button",
                       onClick: (function (param) {
                           setIsCollapsed(function (param) {
@@ -212,9 +212,9 @@ function AIAssistantEmbed(props) {
                                 JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsx("div", {
                                             children: JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                  className: "w-5 h-5 text-white"
+                                                  className: "w-5 h-5 text-gray-900"
                                                 }),
-                                            className: "w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-md"
+                                            className: "w-10 h-10 rounded-full bg-[#a3e635] flex items-center justify-center"
                                           }),
                                       className: "flex-shrink-0"
                                     }),
@@ -222,11 +222,11 @@ function AIAssistantEmbed(props) {
                                       children: [
                                         JsxRuntime.jsx("h3", {
                                               children: hasHistory ? t`AI Assistant` : t`Describe your event`,
-                                              className: "text-base font-semibold text-gray-900 mb-1"
+                                              className: "text-base font-semibold text-gray-900 dark:text-gray-100 mb-1"
                                             }),
                                         JsxRuntime.jsx("p", {
                                               children: hasHistory ? t`Continue the conversation` : t`Let AI help you fill out the details below`,
-                                              className: "text-sm text-gray-600"
+                                              className: "text-sm text-gray-600 dark:text-gray-400"
                                             })
                                       ],
                                       className: "flex-1 min-w-0"
@@ -261,9 +261,9 @@ function AIAssistantEmbed(props) {
                                                             JsxRuntime.jsx("div", {
                                                                   children: JsxRuntime.jsx("div", {
                                                                         children: JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                              className: "w-3.5 h-3.5 text-white"
+                                                                              className: "w-3.5 h-3.5 text-gray-900"
                                                                             }),
-                                                                        className: "w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center"
+                                                                        className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
                                                                       }),
                                                                   className: "flex-shrink-0 mr-3"
                                                                 }),
@@ -271,19 +271,19 @@ function AIAssistantEmbed(props) {
                                                                   children: JsxRuntime.jsxs("div", {
                                                                         children: [
                                                                           JsxRuntime.jsx("div", {
-                                                                                className: "w-2 h-2 bg-gray-400 rounded-full animate-bounce",
+                                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
                                                                                 style: {
                                                                                   animationDelay: "0ms"
                                                                                 }
                                                                               }),
                                                                           JsxRuntime.jsx("div", {
-                                                                                className: "w-2 h-2 bg-gray-400 rounded-full animate-bounce",
+                                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
                                                                                 style: {
                                                                                   animationDelay: "150ms"
                                                                                 }
                                                                               }),
                                                                           JsxRuntime.jsx("div", {
-                                                                                className: "w-2 h-2 bg-gray-400 rounded-full animate-bounce",
+                                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
                                                                                 style: {
                                                                                   animationDelay: "300ms"
                                                                                 }
@@ -291,20 +291,20 @@ function AIAssistantEmbed(props) {
                                                                         ],
                                                                         className: "flex items-center gap-2"
                                                                       }),
-                                                                  className: "bg-white border border-gray-200 rounded-lg p-4"
+                                                                  className: "bg-white dark:bg-[#222222] border border-gray-200 dark:border-gray-700 rounded-lg p-4"
                                                                 })
                                                           ],
                                                           className: "flex justify-start"
                                                         }) : null
                                                 ],
                                                 ref: Caml_option.some(chatContainerRef),
-                                                className: "max-h-48 overflow-y-auto mb-4 space-y-3 pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
+                                                className: "max-h-48 overflow-y-auto mb-4 space-y-3 pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent"
                                               });
                                   })), null),
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("textarea", {
-                                      className: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none bg-white text-gray-900 placeholder-gray-400",
+                                      className: "w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500",
                                       disabled: isLoading,
                                       placeholder: hasHistory ? t`Answer the questions or provide more details...` : t`e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players...`,
                                       rows: hasHistory ? 2 : 3,
@@ -330,13 +330,13 @@ function AIAssistantEmbed(props) {
                                       children: [
                                         JsxRuntime.jsx("span", {
                                               children: hasHistory ? t`Press ⌘+Enter to continue` : t`Press ⌘+Enter to generate`,
-                                              className: "text-xs text-gray-500"
+                                              className: "text-xs text-gray-500 dark:text-gray-400"
                                             }),
                                         JsxRuntime.jsxs("div", {
                                               children: [
                                                 hasHistory ? JsxRuntime.jsx("button", {
                                                         children: t`Reset`,
-                                                        className: "px-3 py-2 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors",
+                                                        className: "px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 text-sm font-medium transition-colors",
                                                         type: "button",
                                                         onClick: (function (param) {
                                                             handleReset();
@@ -346,7 +346,7 @@ function AIAssistantEmbed(props) {
                                                       children: isLoading ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                               children: [
                                                                 JsxRuntime.jsx("div", {
-                                                                      className: "w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"
+                                                                      className: "w-4 h-4 border-2 border-gray-900 border-t-transparent rounded-full animate-spin"
                                                                     }),
                                                                 JsxRuntime.jsx("span", {
                                                                       children: t`Generating...`
@@ -362,7 +362,7 @@ function AIAssistantEmbed(props) {
                                                                     })
                                                               ]
                                                             }),
-                                                      className: "inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm",
+                                                      className: "inline-flex items-center gap-2 px-4 py-2 bg-[#a3e635] text-gray-900 rounded-lg font-medium hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#1a1a1a] disabled:opacity-50 disabled:cursor-not-allowed transition-all",
                                                       disabled: prompt.trim() === "" || isLoading,
                                                       type: "button",
                                                       onClick: (function (param) {
@@ -380,7 +380,7 @@ function AIAssistantEmbed(props) {
                       ],
                       className: "p-6"
                     }),
-              className: "relative overflow-hidden rounded-xl border-2 border-blue-100 bg-gradient-to-br from-blue-50 via-white to-purple-50 shadow-sm"
+              className: "relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#1a1a1a] transition-colors"
             });
 }
 

@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr "...更多"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:259
+#: src/components/organisms/PkRSVPSection.re.mjs:349
 msgid "· {0} pending"
 msgstr "· {0} 待处理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:347
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候补"
 
@@ -29,15 +29,15 @@ msgstr "· +{0} 候补"
 msgid "[missing title]"
 msgstr "[标题缺失]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:115
+#: src/components/pkuru/PkEventsList.re.mjs:126
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/pkuru/PkEventsList.re.mjs:168
+#: src/components/pkuru/PkEventsList.re.mjs:194
 msgid "{0} {hiddenDesc} hidden — show"
 msgstr "{0} {hiddenDesc} 条已隐藏 — 显示"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:254
+#: src/components/organisms/PkRSVPSection.re.mjs:344
 msgid "{0} joined"
 msgstr "{0} 已参加"
 
@@ -45,7 +45,7 @@ msgstr "{0} 已参加"
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/pkuru/PkEventsList.re.mjs:93
+#: src/components/pkuru/PkEventsList.re.mjs:102
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {个活动} other {个活动}}"
 
@@ -60,6 +60,10 @@ msgstr "活动"
 #: src/components/organisms/PkEventMessages.re.mjs:433
 msgid "Add a message..."
 msgstr "添加消息..."
+
+#: src/components/pkuru/PkEventsList.re.mjs:144
+msgid "Add to {0}"
+msgstr "添加到{0}"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
@@ -98,7 +102,7 @@ msgstr "报名参加"
 msgid "Complete your profile"
 msgstr "完善个人资料"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:357
+#: src/components/organisms/PkRSVPSection.re.mjs:450
 msgid "Confirmed · {0}"
 msgstr "已确认 · {0}"
 
@@ -164,7 +168,7 @@ msgid "Enter Match Score"
 msgstr "输入比赛比分"
 
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:118
+#: src/components/pkuru/PkEventsList.re.mjs:129
 msgid "event"
 msgstr "活动"
 
@@ -181,7 +185,7 @@ msgid "Event updated"
 msgstr "活动已更新"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:119
+#: src/components/pkuru/PkEventsList.re.mjs:130
 msgid "events"
 msgstr "活动"
 
@@ -197,7 +201,7 @@ msgstr "用于活动更新和通知"
 msgid "Free"
 msgstr "免费"
 
-#: src/components/pkuru/PkEventsList.re.mjs:241
+#: src/components/pkuru/PkEventsList.re.mjs:277
 msgid "Friday"
 msgstr "星期五"
 
@@ -263,7 +267,7 @@ msgstr "中级初级及以上"
 msgid "Matches will be submitted to DUPR."
 msgstr "比赛结果将提交至 DUPR。"
 
-#: src/components/pkuru/PkEventsList.re.mjs:229
+#: src/components/pkuru/PkEventsList.re.mjs:265
 msgid "Monday"
 msgstr "星期一"
 
@@ -276,7 +280,7 @@ msgstr "更多 →"
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
-#: src/components/pkuru/PkEventsList.re.mjs:250
+#: src/components/pkuru/PkEventsList.re.mjs:286
 msgid "Next {dayName}"
 msgstr "下周{dayName}"
 
@@ -292,7 +296,7 @@ msgstr "无比分"
 msgid "Notes from the host"
 msgstr "主持人的备注"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:250
+#: src/components/organisms/PkRSVPSection.re.mjs:327
 msgid "Participants"
 msgstr "参与者"
 
@@ -300,7 +304,7 @@ msgstr "参与者"
 msgid "Pending"
 msgstr "待审核"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:486
+#: src/components/organisms/PkRSVPSection.re.mjs:579
 msgid "Pending · {0}"
 msgstr "待处理 · {0}"
 
@@ -344,11 +348,11 @@ msgstr "移除此 RSVP"
 msgid "Repeat"
 msgstr "重复"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:212
+#: src/components/organisms/PkRSVPSection.re.mjs:253
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:233
+#: src/components/organisms/PkRSVPSection.re.mjs:274
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加需要 DUPR {minDuprStr}以上"
 
@@ -364,7 +368,7 @@ msgstr "第 {0} 回合"
 msgid "Round Robin Draws"
 msgstr "循环赛抽签"
 
-#: src/components/pkuru/PkEventsList.re.mjs:244
+#: src/components/pkuru/PkEventsList.re.mjs:280
 msgid "Saturday"
 msgstr "星期六"
 
@@ -401,7 +405,7 @@ msgstr "技能练习和专注于技术提高的训练"
 msgid "SORTED BY START TIME"
 msgstr "按开始时间排序"
 
-#: src/components/pkuru/PkEventsList.re.mjs:226
+#: src/components/pkuru/PkEventsList.re.mjs:262
 msgid "Sunday"
 msgstr "星期日"
 
@@ -448,21 +452,21 @@ msgstr ""
 "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
 "制其报名吗？"
 
-#: src/components/pkuru/PkEventsList.re.mjs:238
+#: src/components/pkuru/PkEventsList.re.mjs:274
 msgid "Thursday"
 msgstr "星期四"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:212
+#: src/components/pkuru/PkEventsList.re.mjs:245
 msgid "Today"
 msgstr "今天"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:217
+#: src/components/pkuru/PkEventsList.re.mjs:251
 msgid "Tomorrow"
 msgstr "明天"
 
-#: src/components/pkuru/PkEventsList.re.mjs:232
+#: src/components/pkuru/PkEventsList.re.mjs:268
 msgid "Tuesday"
 msgstr "星期二"
 
@@ -492,7 +496,7 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "等待列表"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:422
+#: src/components/organisms/PkRSVPSection.re.mjs:515
 msgid "Waitlist · {0}"
 msgstr "候补名单 · {0}"
 
@@ -504,7 +508,7 @@ msgstr "已在候补名单"
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
 
-#: src/components/pkuru/PkEventsList.re.mjs:235
+#: src/components/pkuru/PkEventsList.re.mjs:271
 msgid "Wednesday"
 msgstr "星期三"
 
@@ -516,11 +520,11 @@ msgstr "周末"
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
 
-#: src/components/pkuru/PkEventsList.re.mjs:249
+#: src/components/pkuru/PkEventsList.re.mjs:285
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:216
+#: src/components/organisms/PkRSVPSection.re.mjs:257
 msgid ""
 "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

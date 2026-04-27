@@ -3779,6 +3779,54 @@ msgstr "วันอังคาร"
 msgid "Wednesday"
 msgstr "วันพุธ"
 
+#: src/components/organisms/CreateClubEventsForm.re.mjs:199
+#: src/components/organisms/CreateClubEventsForm.re.mjs:283
+msgid "Create Events"
+msgstr "สร้างกิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+msgid "Create multiple events at once"
+msgstr "สร้างหลายกิจกรรมพร้อมกัน"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:268
+msgid "List events publicly"
+msgstr "แสดงกิจกรรมต่อสาธารณะ"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:218
+msgid "Preview events"
+msgstr "ดูตัวอย่างกิจกรรม"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:273
+msgid ""
+"Show events on the home page. Otherwise only people with a direct link can "
+"find them."
+msgstr "แสดงกิจกรรมบนหน้าหลัก หากไม่แสดง เฉพาะผู้ที่มีลิงก์โดยตรงเท่านั้นที่จะค้นหาได้"
+
+#: src/components/pages/CreateEventPage.re.mjs:135
+msgid "Bulk create"
+msgstr "สร้างแบบกลุ่ม"
+
+#: src/components/organisms/ClubEventsList.re.mjs:121
+msgid "Add to {0}"
+msgstr "เพิ่มไปยัง{0}"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:115
+msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr "{0}/{1} 10:00-12:00\\nสถานที่\\nเปิดเล่น\\nสูงสุด 18 คน"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:116
+msgid ""
+"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
+"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr ""
+"3/2 10:00-12:00\\nสถานที่\\nเปิดเล่น\\nสูงสุด 18 คน\\n\\n3/5 "
+"10:00-12:00\\nสถานที่\\nเปิดเล่น\\nสูงสุด 18 คน"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+#: src/components/pages/PkuruLayout.re.mjs:599
+msgid "New event"
+msgstr "กิจกรรมใหม่"
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"

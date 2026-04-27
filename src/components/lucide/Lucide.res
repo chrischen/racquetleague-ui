@@ -398,3 +398,9 @@ module Crosshair = {
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "Crosshair"
 }
+
+module ArrowLeft = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ArrowLeft"
+}

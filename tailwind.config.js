@@ -69,6 +69,15 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        shake: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "15%": { transform: "translateX(-6px)" },
+          "30%": { transform: "translateX(6px)" },
+          "45%": { transform: "translateX(-6px)" },
+          "60%": { transform: "translateX(6px)" },
+          "75%": { transform: "translateX(-4px)" },
+          "90%": { transform: "translateX(4px)" },
+        },
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -79,6 +88,7 @@ export default {
         },
       },
       animation: {
+        shake: "shake 0.5s ease-in-out",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },

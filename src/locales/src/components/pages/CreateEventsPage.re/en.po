@@ -55,7 +55,7 @@ msgstr ""
 #~ msgid "activity is required"
 #~ msgstr ""
 
-#: src/components/organisms/SelectClub.re.mjs:74
+#: src/components/organisms/SelectClub.re.mjs:83
 msgid "add new club"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/SelectClub.re.mjs:51
+#: src/components/organisms/SelectClub.re.mjs:60
 msgid "choose the club where this event will be held."
 msgstr ""
 
@@ -187,7 +187,7 @@ msgstr ""
 #~ msgid "save"
 #~ msgstr ""
 
-#: src/components/organisms/SelectClub.re.mjs:50
+#: src/components/organisms/SelectClub.re.mjs:59
 msgid "select club"
 msgstr ""
 

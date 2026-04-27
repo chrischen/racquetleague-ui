@@ -31,6 +31,8 @@ module UserFragment = %relay(`
   fragment PkEventRow_user on User
   {
     id
+    lineUsername
+    email
   }
 `)
 
@@ -57,6 +59,12 @@ module LeaveEventMutation = %relay(`
       eventIds @deleteEdge(connections: $connections)
       errors { message }
     }
+  }
+`)
+
+module QueryFragment = %relay(`
+  fragment PkEventRow_query on Query {
+    ...ProfileModal_viewer
   }
 `)
 
@@ -208,7 +216,9 @@ let make = (
   ~onHoverLocation: option<option<string> => unit>=?,
   ~dimmed: bool=false,
   ~waitlistCount: int=0,
+  ~query: RescriptRelay.fragmentRefs<[> #PkEventRow_query]>,
 ) => {
+  let queryData = QueryFragment.use(query)
   let {
     __id,
     id,
@@ -342,11 +352,13 @@ let make = (
   let (commitJoin, _) = JoinEventMutation.use()
   let (commitLeave, _) = LeaveEventMutation.use()
   let (showLeaveConfirm, setShowLeaveConfirm) = React.useState(() => false)
+  let (isProfileModalOpen, setIsProfileModalOpen) = React.useState(() => false)
+  let (pendingJoinAction, setPendingJoinAction) = React.useState(() => (None: option<unit => unit>))
 
   let getConnectionId = () =>
     RescriptRelay.ConnectionHandler.getConnectionID(__id, "PkEventRow_event_rsvps", ())
 
-  let onJoin = _ => {
+  let proceed = () => {
     commitJoin(
       ~variables={
         id: __id->RescriptRelay.dataIdToString,
@@ -355,6 +367,8 @@ let make = (
     )->RescriptRelay.Disposable.ignore
   }
 
+  let onJoin = _ => proceed()
+
   let onLeave = _ => {
     commitLeave(
       ~variables={
@@ -362,6 +376,25 @@ let make = (
         connections: [getConnectionId()],
       },
     )->RescriptRelay.Disposable.ignore
+  }
+
+  let hasCompleteProfile = () =>
+    switch viewer {
+    | Some(v) =>
+      switch (v.lineUsername, v.email) {
+      | (Some(u), Some(e)) => u != "" && e != ""
+      | _ => false
+      }
+    | None => false
+    }
+
+  let doJoinWithProfileCheck = () => {
+    if hasCompleteProfile() {
+      proceed()
+    } else {
+      setPendingJoinAction(_ => Some(proceed))
+      setIsProfileModalOpen(_ => true)
+    }
   }
 
   let confirmedRsvpNodes =
@@ -421,7 +454,7 @@ let make = (
     | None =>
       switch viewer {
       | None => navigate(loginHref, None)
-      | Some(_) => onJoin()
+      | Some(_) => doJoinWithProfileCheck()
       }
     }
   }
@@ -501,7 +534,7 @@ let make = (
             | None =>
               switch viewer {
               | None => navigate(loginHref, None)
-              | Some(_) => onJoin()
+              | Some(_) => doJoinWithProfileCheck()
               }
             }
           }
@@ -681,6 +714,18 @@ let make = (
       setIsOpen={setShowLeaveConfirm}
       isOpen={showLeaveConfirm}
       onConfirmed={_ => onLeave()}
+    />
+    <ProfileModal
+      isOpen=isProfileModalOpen
+      onClose={() => {
+        setIsProfileModalOpen(_ => false)
+        setPendingJoinAction(_ => None)
+      }}
+      onProfileComplete={() => {
+        pendingJoinAction->Option.forEach(action => action())
+        setPendingJoinAction(_ => None)
+      }}
+      query=queryData.fragmentRefs
     />
   </div>
 }

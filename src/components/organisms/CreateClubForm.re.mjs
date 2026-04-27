@@ -154,11 +154,11 @@ function CreateClubForm(props) {
                       children: [
                         JsxRuntime.jsx("label", {
                               children: t`Club Name`,
-                              className: "block text-xs font-medium text-gray-700 mb-1.5",
+                              className: "block text-xs font-medium text-gray-700 dark:text-gray-400 mb-1.5",
                               htmlFor: "clubName"
                             }),
                         JsxRuntime.jsx("input", {
-                              className: "block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white",
+                              className: "block w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600",
                               id: "clubName",
                               autoFocus: true,
                               placeholder: t`e.g., City Ballers Club`,
@@ -196,11 +196,11 @@ function CreateClubForm(props) {
                       children: [
                         JsxRuntime.jsx("label", {
                               children: t`Description`,
-                              className: "block text-xs font-medium text-gray-700 mb-1.5",
+                              className: "block text-xs font-medium text-gray-700 dark:text-gray-400 mb-1.5",
                               htmlFor: "clubDescription"
                             }),
                         JsxRuntime.jsx("textarea", {
-                              className: "block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none bg-white",
+                              className: "block w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600",
                               id: "clubDescription",
                               placeholder: t`Brief description of the club...`,
                               rows: 3,
@@ -223,7 +223,7 @@ function CreateClubForm(props) {
                       children: [
                         JsxRuntime.jsx("label", {
                               children: t`Default club activity`,
-                              className: "block text-xs font-medium text-gray-700 mb-1.5",
+                              className: "block text-xs font-medium text-gray-700 dark:text-gray-400 mb-1.5",
                               htmlFor: "clubActivity"
                             }),
                         JsxRuntime.jsx("select", {
@@ -233,7 +233,7 @@ function CreateClubForm(props) {
                                                 value: activity.id
                                               }, activity.id);
                                   }),
-                              className: "block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white",
+                              className: "block w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100",
                               id: "clubActivity",
                               value: newClubData.defaultActivity,
                               onChange: (function (e) {
@@ -254,17 +254,17 @@ function CreateClubForm(props) {
                       children: [
                         JsxRuntime.jsx("label", {
                               children: t`Club URL`,
-                              className: "block text-xs font-medium text-gray-700 mb-1.5",
+                              className: "block text-xs font-medium text-gray-700 dark:text-gray-400 mb-1.5",
                               htmlFor: "clubSlug"
                             }),
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("span", {
-                                      children: "https://www.pkuru.com/clubs/",
-                                      className: "px-3 text-sm text-gray-500 whitespace-nowrap"
+                                      children: "pkuru.com/clubs/",
+                                      className: "px-3 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap select-none"
                                     }),
                                 JsxRuntime.jsx("input", {
-                                      className: "flex-1 px-0 py-2 text-sm border-0 focus:outline-none focus:ring-0 bg-transparent",
+                                      className: "flex-1 min-w-0 px-0 py-2 text-sm border-0 focus:outline-none focus:ring-0 bg-transparent text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600",
                                       id: "clubSlug",
                                       placeholder: t`club-name`,
                                       type: "text",
@@ -286,7 +286,7 @@ function CreateClubForm(props) {
                                         })
                                     })
                               ],
-                              className: "flex items-center border border-gray-300 rounded-lg bg-white focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all"
+                              className: "flex items-center border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-[#222222] focus-within:ring-2 focus-within:ring-[#a3e635] focus-within:border-[#a3e635] transition-all"
                             })
                       ]
                     }),
@@ -299,7 +299,7 @@ function CreateClubForm(props) {
                                     }),
                                 t`Create Club`
                               ],
-                              className: "flex items-center gap-1.5 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors",
+                              className: "flex items-center gap-1.5 px-4 py-2 bg-[#a3e635] text-gray-900 rounded-lg text-sm font-medium hover:bg-[#84cc16] disabled:bg-gray-200 dark:disabled:bg-gray-700 disabled:text-gray-400 dark:disabled:text-gray-500 disabled:cursor-not-allowed transition-colors",
                               disabled: newClubData.name.trim().length === 0 || newClubData.slug.trim().length === 0,
                               type: "button",
                               onClick: (function (param) {
@@ -313,7 +313,7 @@ function CreateClubForm(props) {
                                     }),
                                 t`Cancel`
                               ],
-                              className: "flex items-center gap-1.5 px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 border border-gray-300 transition-colors",
+                              className: "flex items-center gap-1.5 px-4 py-2 bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-[#2a2a2a] border border-gray-300 dark:border-gray-700 transition-colors",
                               type: "button",
                               onClick: (function (param) {
                                   handleCancelAddClub();
@@ -323,7 +323,7 @@ function CreateClubForm(props) {
                       className: "flex gap-2 pt-2"
                     })
               ],
-              className: "space-y-4 p-4 border-2 border-blue-200 rounded-lg bg-blue-50"
+              className: "space-y-4 p-4 border-2 border-[#a3e635] rounded-lg bg-[#f7fee7] dark:bg-[#3f6212]/10 transition-colors"
             });
 }
 

@@ -65,6 +65,7 @@ module Types = {
   type fragment = {
     events: fragment_events,
     viewer: option<fragment_viewer>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PkEventRow_query]>,
   }
 }
 
@@ -73,7 +74,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""}}}`
+    json`{"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = {
@@ -205,6 +206,11 @@ return {
   },
   "name": "PkEventsListFragment",
   "selections": [
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "PkEventRow_query"
+    },
     {
       "alias": null,
       "args": null,

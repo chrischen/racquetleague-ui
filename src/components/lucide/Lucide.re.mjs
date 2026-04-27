@@ -137,6 +137,8 @@ var CalendarDays = {};
 
 var Crosshair = {};
 
+var ArrowLeft = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -206,5 +208,6 @@ export {
   Globe ,
   CalendarDays ,
   Crosshair ,
+  ArrowLeft ,
 }
 /* No side effect */

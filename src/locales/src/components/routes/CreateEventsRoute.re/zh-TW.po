@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SelectClub.re.mjs:74
+#: src/components/organisms/SelectClub.re.mjs:83
 msgid "add new club"
 msgstr "新增俱樂部"
 
@@ -25,7 +25,7 @@ msgstr "俱樂部的簡要描述..."
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/SelectClub.re.mjs:51
+#: src/components/organisms/SelectClub.re.mjs:60
 msgid "choose the club where this event will be held."
 msgstr "選擇舉辦此活動的俱樂部。"
 
@@ -57,7 +57,7 @@ msgstr "描述"
 msgid "e.g., City Ballers Club"
 msgstr "例如：城市球員俱樂部"
 
-#: src/components/organisms/SelectClub.re.mjs:50
+#: src/components/organisms/SelectClub.re.mjs:59
 msgid "select club"
 msgstr "選擇俱樂部"
 

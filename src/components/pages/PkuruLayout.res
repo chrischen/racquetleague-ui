@@ -33,7 +33,9 @@ module SidebarContent = {
     let params: {"activitySlug": option<string>} = Router.useParams()
     let matches = Router.useMatches()
     let lastHandle = matches->Array.get(Array.length(matches) - 1)->Option.flatMap(m => m.handle)
-    let isIndexRoute = lastHandle == Some("src/components/pages/Events.gen.tsx") && params["activitySlug"]->Option.isNone
+    let isIndexRoute =
+      lastHandle == Some("src/components/pages/Events.gen.tsx") &&
+        params["activitySlug"]->Option.isNone
     let activeSlug = switch params["activitySlug"] {
     | Some("badminton") => "badminton"
     | Some(_) => "pickleball"
@@ -165,7 +167,7 @@ module Topbar = {
     }
 
     <div
-      className="h-14 border-b border-gray-200 dark:border-[#2a2b30] flex items-center justify-between px-4 bg-white dark:bg-[#1e1f23] flex-shrink-0">
+      className="h-14 border-b border-gray-200 dark:border-[#2a2b30] flex items-center justify-between px-4 bg-white dark:bg-[#1e1f23] flex-shrink-0 touch-none">
       // Mobile: hamburger + logo
       <div className="flex items-center gap-3 md:hidden">
         <button
@@ -188,9 +190,9 @@ module Topbar = {
       <div className="flex items-center gap-3 md:gap-4 text-gray-600 dark:text-gray-400 ml-auto">
         <LangProvider.Router.Link
           to=hostHref
-          className="hidden md:flex items-center gap-1 text-sm hover:text-black dark:hover:text-white">
-          <Lucide.Plus size=16 />
-          <span> {(ts`Host`)->React.string} </span>
+          className="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black rounded-md transition-colors shadow-sm">
+          <Lucide.CalendarDays size=14 />
+          <span> {(ts`New event`)->React.string} </span>
         </LangProvider.Router.Link>
         <LangProvider.Router.Link to="/events" className="hover:text-black dark:hover:text-white">
           <Lucide.Calendar size=18 />
@@ -249,14 +251,14 @@ module MobileSidebar = {
 
 module MobileTabs = {
   @react.component
-  let make = () => {
+  let make = (~hostHref: string) => {
     let ts = Lingui.UtilString.t
     let location = Router.useLocation()
     let pathname = location.pathname
 
     let tabClass = active =>
       Util.cx([
-        "flex flex-col items-center justify-center gap-1 py-2 text-[10px]",
+        "flex flex-col items-center gap-0.5 py-2 px-3 text-[10px]",
         active ? "text-black dark:text-white" : "text-gray-400 dark:text-gray-500",
       ])
 
@@ -267,20 +269,30 @@ module MobileTabs = {
     }
 
     <nav
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 grid grid-cols-4 border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23]"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex items-center justify-around px-2 touch-none"
       style={ReactDOM.Style.make(~paddingBottom="env(safe-area-inset-bottom, 0)", ())}>
       <LangProvider.Router.Link className={tabClass(pathname == "/")} to="/">
-        <Lucide.Home size=18 />
+        <Lucide.Home size=20 />
         {(ts`Discover`)->React.string}
       </LangProvider.Router.Link>
       <LangProvider.Router.Link
         className={tabClass(pathname->String.includes("/map"))} to={"/e/" ++ activeSlug ++ "/map"}>
-        <Lucide.Map size=18 />
+        <Lucide.Map size=20 />
         {(ts`Map`)->React.string}
       </LangProvider.Router.Link>
       <LangProvider.Router.Link
+        to=hostHref className="flex flex-col items-center justify-center -mt-3">
+        <div
+          className="w-11 h-11 rounded-full bg-[#bdf25d] hover:bg-[#aee050] flex items-center justify-center shadow-md active:scale-95 transition-transform">
+          <Lucide.Plus size=20 className="text-black" />
+        </div>
+        <span className="text-[10px] font-medium text-gray-400 dark:text-gray-500 mt-0.5">
+          {(ts`New`)->React.string}
+        </span>
+      </LangProvider.Router.Link>
+      <LangProvider.Router.Link
         className={tabClass(pathname->String.includes("/events"))} to="/events">
-        <Lucide.CalendarDays size=18 />
+        <Lucide.CalendarDays size=20 />
         {(ts`My Events`)->React.string}
       </LangProvider.Router.Link>
       <LangProvider.Router.Link
@@ -288,7 +300,7 @@ module MobileTabs = {
           pathname->String.includes("/profile") || pathname->String.includes("/settings"),
         )}
         to="/settings/profile">
-        <Lucide.User size=18 />
+        <Lucide.User size=20 />
         {(ts`Profile`)->React.string}
       </LangProvider.Router.Link>
     </nav>
@@ -301,6 +313,12 @@ module Layout = {
     ~viewer: option<PkuruLayoutQuery_graphql.Types.response_viewer>,
     ~children: React.element,
   ) => {
+    let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
+    let hostHref = if isLoggedIn {
+      "/events/create"
+    } else {
+      "/oauth-login?return=/events/create"
+    }
     let (sidebarOpen, setSidebarOpen) = React.useState(() => false)
     let (drawerContent, setDrawerContent) = React.useState((): option<React.element> => None)
     let (drawerUrl, setDrawerUrl) = React.useState((): option<string> => None)
@@ -313,7 +331,8 @@ module Layout = {
     let gviewer = viewer->Option.map(v => v.fragmentRefs)
 
     React.useEffect0(() => {
-      setDarkMode(_ => Js.Date.getHours(Js.Date.make()) >= 18.)
+      let h = Js.Date.getHours(Js.Date.make())
+      setDarkMode(_ => h >= 18. || h < 6.)
       setMounted(_ => true)
       None
     })
@@ -366,7 +385,7 @@ module Layout = {
           {() =>
             <div className={darkMode ? "dark" : ""}>
               <div
-                className="flex h-screen w-full bg-white dark:bg-[#1a1a1e] text-gray-900 dark:text-gray-100 font-sans overflow-hidden transition-colors duration-200">
+                className="flex h-[100dvh] w-full bg-white dark:bg-[#1a1a1e] text-gray-900 dark:text-gray-100 font-sans overflow-hidden overscroll-none transition-colors duration-200">
                 // Mobile sidebar overlay
                 <MobileSidebar
                   isOpen=sidebarOpen
@@ -383,76 +402,86 @@ module Layout = {
                   <SidebarContent isLoggedIn={viewer->Option.flatMap(v => v.user)->Option.isSome} />
                 </div>
                 // Main content + top bar wrapper
-                <div className="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#222326]">
+                <div
+                  className="flex-1 flex flex-col min-w-0 overflow-hidden bg-white dark:bg-[#222326]">
                   <Topbar onToggleSidebar={() => setSidebarOpen(prev => !prev)} viewer />
-                  <div className="flex-1 overflow-y-auto pb-16 md:pb-0">
+                  <div className="flex-1 overflow-y-auto overscroll-contain">
                     <React.Suspense fallback={React.null}> {children} </React.Suspense>
+                    <div
+                      className="md:hidden"
+                      style={ReactDOM.Style.make(
+                        ~height="calc(4rem + env(safe-area-inset-bottom, 0px))",
+                        (),
+                      )}
+                    />
                   </div>
-                  <MobileTabs />
+                  <MobileTabs hostHref />
                 </div>
                 {mounted
                   ? ReactDOM.createPortal(
-                      <FramerMotion.AnimatePresence>
-                        {drawerContent
-                        ->Option.map(content =>
-                          <React.Fragment key="drawer">
-                            <FramerMotion.Div
-                              key="drawer-backdrop"
-                              className="fixed inset-0 bg-black/40 z-40"
-                              initial={FramerMotion.opacity: 0.}
-                              animate={FramerMotion.opacity: 1.}
-                              exit={FramerMotion.opacity: 0.}
-                              onClick={_ => closeDrawer()}
-                            />
-                            <FramerMotion.Div
-                              key="drawer-panel"
-                              className="fixed inset-y-0 right-0 w-full max-w-2xl bg-white dark:bg-[#1e1f23] shadow-2xl z-50 flex flex-col overflow-hidden"
-                              initial={FramerMotion.x: 700.}
-                              animate={FramerMotion.x: 0.}
-                              exit={FramerMotion.x: 700.}
-                              transition={
-                                FramerMotion.type_: "spring",
-                                stiffness: 900,
-                                damping: 35,
-                                mass: 0.4,
-                              }>
-                              <div
-                                className="flex items-center justify-between px-4 md:px-6 py-4 border-b border-gray-200 dark:border-[#3a3b40] flex-shrink-0">
+                      <div className={darkMode ? "dark" : ""}>
+                        <FramerMotion.AnimatePresence>
+                          {drawerContent
+                          ->Option.map(content =>
+                            <React.Fragment key="drawer">
+                              <FramerMotion.Div
+                                key="drawer-backdrop"
+                                className="fixed inset-0 bg-black/40 z-40"
+                                initial={FramerMotion.opacity: 0.}
+                                animate={FramerMotion.opacity: 1.}
+                                exit={FramerMotion.opacity: 0.}
+                                onClick={_ => closeDrawer()}
+                              />
+                              <FramerMotion.Div
+                                key="drawer-panel"
+                                className="fixed inset-y-0 right-0 w-full max-w-2xl bg-white dark:bg-[#1e1f23] shadow-2xl z-50 flex flex-col overflow-hidden"
+                                initial={FramerMotion.x: 700.}
+                                animate={FramerMotion.x: 0.}
+                                exit={FramerMotion.x: 700.}
+                                transition={
+                                  FramerMotion.type_: "spring",
+                                  stiffness: 900,
+                                  damping: 35,
+                                  mass: 0.4,
+                                }>
                                 <div
-                                  className="flex items-center gap-2 text-gray-400 dark:text-gray-500">
-                                  {drawerUrl
-                                  ->Option.map(url =>
-                                    <button
-                                      onClick={_ => {
-                                        dismissDrawer()
-                                        navigate(localePath(url), None)
-                                      }}
-                                      className="p-1 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#2a2b30] transition-colors">
-                                      <Lucide.Maximize2 className="w-4 h-4" />
-                                    </button>
-                                  )
-                                  ->Option.getOr(React.null)}
+                                  className="flex items-center justify-between px-4 md:px-6 py-4 border-b border-gray-200 dark:border-[#3a3b40] flex-shrink-0">
+                                  <div
+                                    className="flex items-center gap-2 text-gray-400 dark:text-gray-500">
+                                    {drawerUrl
+                                    ->Option.map(url =>
+                                      <button
+                                        onClick={_ => {
+                                          dismissDrawer()
+                                          navigate(localePath(url), None)
+                                        }}
+                                        className="p-1 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#2a2b30] transition-colors">
+                                        <Lucide.Maximize2 className="w-4 h-4" />
+                                      </button>
+                                    )
+                                    ->Option.getOr(React.null)}
+                                  </div>
+                                  <button
+                                    onClick={_ => closeDrawer()}
+                                    className="p-1 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a2b30] transition-colors">
+                                    <Lucide.X size=20 />
+                                  </button>
                                 </div>
-                                <button
-                                  onClick={_ => closeDrawer()}
-                                  className="p-1 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a2b30] transition-colors">
-                                  <Lucide.X size=20 />
-                                </button>
-                              </div>
-                              <div className="flex-1 overflow-y-auto">
-                                <React.Suspense
-                                  fallback={<div
-                                    className="flex items-center justify-center h-32 text-gray-400 dark:text-gray-500 text-sm font-mono">
-                                    {"Loading..."->React.string}
-                                  </div>}>
-                                  {content}
-                                </React.Suspense>
-                              </div>
-                            </FramerMotion.Div>
-                          </React.Fragment>
-                        )
-                        ->Option.getOr(React.null)}
-                      </FramerMotion.AnimatePresence>,
+                                <div className="flex-1 overflow-y-auto">
+                                  <React.Suspense
+                                    fallback={<div
+                                      className="flex items-center justify-center h-32 text-gray-400 dark:text-gray-500 text-sm font-mono">
+                                      {"Loading..."->React.string}
+                                    </div>}>
+                                    {content}
+                                  </React.Suspense>
+                                </div>
+                              </FramerMotion.Div>
+                            </React.Fragment>
+                          )
+                          ->Option.getOr(React.null)}
+                        </FramerMotion.AnimatePresence>
+                      </div>,
                       documentBody,
                     )
                   : React.null}

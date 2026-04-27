@@ -106,7 +106,7 @@ msgstr ""
 #~ msgid "club not found"
 #~ msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:127
+#: src/components/pages/ClubEventsPage.re.mjs:126
 msgid "Club not found"
 msgstr ""
 

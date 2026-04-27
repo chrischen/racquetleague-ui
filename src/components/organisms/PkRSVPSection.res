@@ -8,6 +8,9 @@ module Fragment = %relay(`
     price
     minRating
     viewerIsAdmin
+    club {
+      id
+    }
     activity {
       slug
     }
@@ -16,6 +19,30 @@ module Fragment = %relay(`
     }
     rsvps(first: 100) @connection(key: "PkRSVPSection_event_rsvps") {
       edges {
+        node {
+          id
+          listType
+          ...PkEventRsvp_rsvp
+          ...MiniEventRsvp_rsvp
+          user {
+            id
+            lineUsername
+          }
+          rating {
+            ordinal
+            mu
+            sigma
+          }
+        }
+      }
+    }
+  }
+`)
+
+module PkRSVPSectionAddUserMutation = %relay(`
+  mutation PkRSVPSectionAddUserMutation($connections: [ID!]!, $eventId: ID!, $userId: ID!) {
+    addRsvpToEvent(eventId: $eventId, userId: $userId) {
+      edge @appendEdge(connections: $connections) {
         node {
           id
           listType
@@ -56,6 +83,24 @@ let make = (
   let ts = Lingui.UtilString.t
   let eventData = Fragment.use(event)
   let viewerUser = user->Option.map(u => UserFragment.use(u))
+
+  let (isAddingPlayer, setIsAddingPlayer) = React.useState(() => false)
+  let (commitMutationAddUser, _addUserInFlight) = PkRSVPSectionAddUserMutation.use()
+
+  let handleAddUser = (user: AutocompleteUser.user) => {
+    let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
+      eventData.id->RescriptRelay.makeDataId,
+      "PkRSVPSection_event_rsvps",
+      None,
+    )
+    commitMutationAddUser(
+      ~variables={
+        connections: [connectionId],
+        eventId: eventData.id,
+        userId: user.id,
+      },
+    )->RescriptRelay.Disposable.ignore
+  }
 
   let rsvps = eventData.rsvps->Fragment.getConnectionNodes
   let maxRsvps = eventData.maxRsvps->Option.getOr(0)
@@ -188,8 +233,17 @@ let make = (
     {ratingWarning}
     /* Header */
     <div className="flex items-center justify-between mb-3">
-      <h2 className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase">
+      <h2
+        className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase flex items-center gap-2">
         {(ts`Participants`)->React.string}
+        {eventData.viewerIsAdmin && eventData.club->Option.isSome
+          ? <button
+              onClick={_ => setIsAddingPlayer(_ => true)}
+              className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              title="Add player">
+              <Lucide.UserPlus className="w-3 h-3" />
+            </button>
+          : React.null}
       </h2>
       <span className="font-mono text-xs text-gray-600 dark:text-gray-400">
         {((
@@ -202,6 +256,29 @@ let make = (
         ))->React.string}
       </span>
     </div>
+    /* Add player autocomplete */
+    <FramerMotion.AnimatePresence>
+      {isAddingPlayer
+        ? {
+            switch eventData.club->Option.flatMap(c => Some(c.id)) {
+            | Some(clubId) =>
+              <FramerMotion.Div
+                key="add-player"
+                className="mb-3"
+                initial={FramerMotion.opacity: 0., y: -4.}
+                animate={FramerMotion.opacity: 1., y: 0.}
+                exit={FramerMotion.opacity: 0., y: -4.}>
+                <React.Suspense fallback={React.null}>
+                  <AutocompleteUser
+                    clubId onSelected={handleAddUser} onClose={_ => setIsAddingPlayer(_ => false)}
+                  />
+                </React.Suspense>
+              </FramerMotion.Div>
+            | None => React.null
+            }
+          }
+        : React.null}
+    </FramerMotion.AnimatePresence>
     /* Progress bar */
     <div className="mb-1">
       <div className="h-1 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">

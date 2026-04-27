@@ -14,6 +14,7 @@ import * as SwipeAction from "../molecules/SwipeAction.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as ProfileModal from "../organisms/ProfileModal.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
@@ -26,6 +27,7 @@ import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragme
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as PkEventRow_user_graphql from "../../__generated__/PkEventRow_user_graphql.re.mjs";
 import * as PkEventRow_event_graphql from "../../__generated__/PkEventRow_event_graphql.re.mjs";
+import * as PkEventRow_query_graphql from "../../__generated__/PkEventRow_query_graphql.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 import * as PkEventRowJoinEventMutation_graphql from "../../__generated__/PkEventRowJoinEventMutation_graphql.re.mjs";
 import * as PkEventRowLeaveEventMutation_graphql from "../../__generated__/PkEventRowLeaveEventMutation_graphql.re.mjs";
@@ -112,6 +114,24 @@ var LeaveEventMutation = {
   convertWrapRawResponse: convertWrapRawResponse$1,
   commitMutation: commitMutation$1,
   use: use$3
+};
+
+var convertFragment$2 = PkEventRow_query_graphql.Internal.convertFragment;
+
+function use$4(fRef) {
+  return RescriptRelay_Fragment.useFragment(PkEventRow_query_graphql.node, convertFragment$2, fRef);
+}
+
+function useOpt$2(fRef) {
+  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, PkEventRow_query_graphql.node, convertFragment$2);
+}
+
+var QueryFragment = {
+  Types: undefined,
+  Operation: undefined,
+  convertFragment: convertFragment$2,
+  use: use$4,
+  useOpt: useOpt$2
 };
 
 function td(prim) {
@@ -315,6 +335,7 @@ function PkEventRow(props) {
   var isLastInGroup = __isLastInGroup !== undefined ? __isLastInGroup : false;
   var dimmed = __dimmed !== undefined ? __dimmed : false;
   var waitlistCount = __waitlistCount !== undefined ? __waitlistCount : 0;
+  var queryData = use$4(props.query);
   var match = use(props.event);
   var timezone = match.timezone;
   var startDate = match.startDate;
@@ -436,7 +457,16 @@ function PkEventRow(props) {
         return false;
       });
   var setShowLeaveConfirm = match$5[1];
-  var onJoin = function (param) {
+  var match$6 = React.useState(function () {
+        return false;
+      });
+  var setIsProfileModalOpen = match$6[1];
+  var match$7 = React.useState(function () {
+        
+      });
+  var setPendingJoinAction = match$7[1];
+  var pendingJoinAction = match$7[0];
+  var proceed = function () {
     commitJoin({
           connections: [RelayRuntime.ConnectionHandler.getConnectionID(__id, "PkEventRow_event_rsvps", undefined)],
           id: __id
@@ -447,6 +477,30 @@ function PkEventRow(props) {
           connections: [RelayRuntime.ConnectionHandler.getConnectionID(__id, "PkEventRow_event_rsvps", undefined)],
           id: __id
         }, undefined, undefined, undefined, undefined, undefined, undefined);
+  };
+  var hasCompleteProfile = function () {
+    if (viewer === undefined) {
+      return false;
+    }
+    var match = viewer.lineUsername;
+    var match$1 = viewer.email;
+    if (match !== undefined && match$1 !== undefined && match !== "") {
+      return match$1 !== "";
+    } else {
+      return false;
+    }
+  };
+  var doJoinWithProfileCheck = function () {
+    if (hasCompleteProfile()) {
+      return proceed();
+    } else {
+      setPendingJoinAction(function (param) {
+            return proceed;
+          });
+      return setIsProfileModalOpen(function (param) {
+                  return true;
+                });
+    }
   };
   var confirmedRsvpNodes = Core__Array.filterMap(Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(rsvps, (function (r) {
                         return r.edges;
@@ -508,7 +562,7 @@ function PkEventRow(props) {
         return onLeave();
       }
     } else if (viewer !== undefined) {
-      return onJoin();
+      return doJoinWithProfileCheck();
     } else {
       return navigate(loginHref, undefined);
     }
@@ -549,7 +603,7 @@ function PkEventRow(props) {
                                 return onLeave();
                               }
                             } else if (viewer !== undefined) {
-                              return onJoin();
+                              return doJoinWithProfileCheck();
                             } else {
                               return navigate(loginHref, undefined);
                             }
@@ -810,6 +864,26 @@ function PkEventRow(props) {
                         }),
                       setIsOpen: setShowLeaveConfirm,
                       isOpen: match$5[0]
+                    }),
+                JsxRuntime.jsx(ProfileModal.make, {
+                      isOpen: match$6[0],
+                      onClose: (function () {
+                          setIsProfileModalOpen(function (param) {
+                                return false;
+                              });
+                          setPendingJoinAction(function (param) {
+                                
+                              });
+                        }),
+                      onProfileComplete: (function () {
+                          Core__Option.forEach(pendingJoinAction, (function (action) {
+                                  action();
+                                }));
+                          setPendingJoinAction(function (param) {
+                                
+                              });
+                        }),
+                      query: queryData.fragmentRefs
                     })
               ],
               className: Core$1.cx(isLastInGroup ? "relative overflow-hidden" : "relative overflow-hidden border-b border-gray-100 dark:border-[#2a2b30]", dimmed ? "opacity-30" : "", isCanceled ? "opacity-60" : ""),
@@ -848,6 +922,7 @@ export {
   UserFragment ,
   JoinEventMutation ,
   LeaveEventMutation ,
+  QueryFragment ,
   td ,
   ts ,
   ProgressBar ,

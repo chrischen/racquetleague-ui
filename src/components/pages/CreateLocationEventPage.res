@@ -4,7 +4,7 @@ module Query = %relay(`
     location(id: $locationId) {
       ...CreateLocationEventForm_location
     }
-    ...CreateLocationEventForm_query @arguments(after: $after, first: $first, before: $before)
+    ...ClubActivitySelector_query @arguments(after: $after, first: $first, before: $before)
   }
   `)
 type loaderData = CreateLocationEventPageQuery_graphql.queryRef
@@ -20,7 +20,7 @@ let make = () => {
     {() =>
       query.location
       ->Option.map(location => <>
-        <CreateLocationEventForm location=location.fragmentRefs query=query.fragmentRefs />
+        <CreateLocationEventForm location=location.fragmentRefs />
       </>)
       ->Option.getOr(t`location doesn't exist.`)}
   </WaitForMessages>

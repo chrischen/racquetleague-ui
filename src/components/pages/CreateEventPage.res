@@ -5,7 +5,7 @@ module Query = %relay(`
     location(id: $locationId) {
       ...CreateLocationEventForm_location
     }
-    ...CreateLocationEventForm_query @arguments(after: $after, first: $first, before: $before)
+    ...ClubActivitySelector_query @arguments(after: $after, first: $first, before: $before)
   }
   `)
 @react.component
@@ -15,6 +15,7 @@ let make = () => {
   let locationParam = params->Router.SearchParams.get("locationId")
   let clubIdParam = params->Router.SearchParams.get("clubId")
   let activitySlugParam = params->Router.SearchParams.get("activitySlug")
+  let dateParam = params->Router.SearchParams.get("date")
 
   let queryData = Query.use(
     ~variables={
@@ -22,36 +23,36 @@ let make = () => {
     },
   )
 
+  let (clubSelection, setClubSelection) = React.useState(() =>
+    ({
+      clubId: clubIdParam,
+      activityId: None,
+      isAddingClub: false,
+    }: ClubActivitySelector.selection)
+  )
+  let (shakeCounter, setShakeCounter) = React.useState(() => 0)
+
   // State to hold prefilled event values from AI
   let (prefilledValues, setPrefilledValues) = React.useState(() => None)
   // State to hold AI-suggested location address for auto-search
   let (aiLocationAddress, setAiLocationAddress) = React.useState(() => None)
 
-  // Create initial prefilled values with clubId and activitySlug from URL if present
-  let initialPrefilledValues = React.useMemo2(() => {
-    // Build prefilled values if we have clubId or activitySlug
-    switch (clubIdParam, activitySlugParam) {
-    | (Some(clubId), Some(activitySlug)) =>
+  // Create initial prefilled values with clubId, activitySlug, and date from URL if present
+  let initialPrefilledValues = React.useMemo3(() => {
+    let startDate = dateParam->Option.map(isoDate => isoDate ++ "T10:00")
+    switch (clubIdParam, activitySlugParam, startDate) {
+    | (None, None, None) => None
+    | _ =>
       Some({
         let initial: CreateLocationEventForm.prefilledValues = {
-          clubId: ?Some(clubId),
-          activitySlug: ?Some(activitySlug),
+          clubId: ?clubIdParam,
+          activitySlug: ?activitySlugParam,
+          ?startDate,
         }
         initial
       })
-    | (Some(clubId), None) =>
-      Some({
-        let initial: CreateLocationEventForm.prefilledValues = {clubId: ?Some(clubId)}
-        initial
-      })
-    | (None, Some(activitySlug)) =>
-      Some({
-        let initial: CreateLocationEventForm.prefilledValues = {activitySlug: ?Some(activitySlug)}
-        initial
-      })
-    | (None, None) => None
     }
-  }, (clubIdParam, activitySlugParam))
+  }, (clubIdParam, activitySlugParam, dateParam))
 
   let handleSingleEventSuggested = (eventDetails: AITypes.eventDetails) => {
     // Convert AITypes.eventDetails to CreateLocationEventForm.prefilledValues
@@ -82,11 +83,36 @@ let make = () => {
   }
 
   open LangProvider.Router
-  <Layout.Container>
-    <Link to={"/events/create-bulk"}> {React.string("Create Bulk Events")} </Link>
-    <Grid>
+  <div
+    className="min-h-screen bg-gray-50 dark:bg-[#111111] w-full text-gray-900 dark:text-gray-100 transition-colors">
+    <div
+      className="bg-white dark:bg-[#1a1a1a] shadow-sm border-b border-gray-200 dark:border-gray-800 transition-colors">
+      <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
+        <Link
+          to={".."}
+          relative="path"
+          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-medium">
+          <Lucide.ArrowLeft className="w-5 h-5" />
+          {t`Cancel`}
+        </Link>
+        <h1 className="text-lg font-bold"> {t`Create Event`} </h1>
+        <Link
+          to={"/events/create-bulk"}
+          className="text-xs text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors w-20 text-right">
+          {t`Bulk create`}
+        </Link>
+      </div>
+    </div>
+    <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
       <WaitForMessages>
         {() => <>
+          <ClubActivitySelector
+            query=queryData.fragmentRefs
+            initialClubId=?clubIdParam
+            initialActivitySlug=?activitySlugParam
+            onChange={sel => setClubSelection(_ => sel)}
+            triggerShake=shakeCounter
+          />
           <AIAssistantEmbed
             context={{
               activitySlug: ?Some("pickleball"),
@@ -95,52 +121,58 @@ let make = () => {
             }}
             onSingleEventSuggested=handleSingleEventSuggested
           />
-          <FormSection
-            title={t`event location`}
-            description={t`choose the location where this event will be held.`}>
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
-              <AutocompleteLocation
-                onSelected={location => {
-                  setParams(prevParams => {
-                    prevParams->Router.SearchParams.set("locationId", location)
-                    prevParams
-                  })
-                  // Clear the AI location after selection
-                  setAiLocationAddress(_ => None)
-                }}
-                autoSearchAddress=?aiLocationAddress
-              />
-            </div>
-          </FormSection>
+          <div>
+            <label
+              className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              {t`Location`}
+            </label>
+            <AutocompleteLocation
+              onSelected={location => {
+                setParams(prevParams => {
+                  prevParams->Router.SearchParams.set("locationId", location)
+                  prevParams
+                })
+                setAiLocationAddress(_ => None)
+              }}
+              autoSearchAddress=?aiLocationAddress
+            />
+          </div>
           <FramerMotion.AnimatePresence mode="wait">
             {queryData.location
-            ->Option.map(location => <>
-              {switch (prefilledValues, initialPrefilledValues) {
+            ->Option.map(location =>
+              switch (prefilledValues, initialPrefilledValues) {
               | (Some(aiValues), _) =>
-                // AI suggestions take precedence
                 <CreateLocationEventForm
                   location=location.fragmentRefs
-                  query=queryData.fragmentRefs
                   prefilledValues=aiValues
+                  selectedClub=?clubSelection.clubId
+                  selectedActivity=?clubSelection.activityId
+                  isClubFormOpen=clubSelection.isAddingClub
+                  onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
                 />
               | (None, Some(initial)) =>
-                // Use initial values (clubId from URL)
                 <CreateLocationEventForm
                   location=location.fragmentRefs
-                  query=queryData.fragmentRefs
                   prefilledValues=initial
+                  selectedClub=?clubSelection.clubId
+                  selectedActivity=?clubSelection.activityId
+                  isClubFormOpen=clubSelection.isAddingClub
+                  onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
                 />
               | (None, None) =>
-                // No prefilled values
                 <CreateLocationEventForm
-                  location=location.fragmentRefs query=queryData.fragmentRefs
+                  location=location.fragmentRefs
+                  selectedClub=?clubSelection.clubId
+                  selectedActivity=?clubSelection.activityId
+                  isClubFormOpen=clubSelection.isAddingClub
+                  onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
                 />
-              }}
-            </>)
+              }
+            )
             ->Option.getOr(React.null)}
           </FramerMotion.AnimatePresence>
         </>}
       </WaitForMessages>
-    </Grid>
-  </Layout.Container>
+    </div>
+  </div>
 }

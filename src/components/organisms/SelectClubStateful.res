@@ -29,7 +29,7 @@ module Fragment = %relay(`
 
 @react.component
 let make = (
-  ~clubs: array<CreateLocationEventForm_query_graphql.Types.fragment_viewer_adminClubs_edges_node>,
+  ~clubs: array<SelectClubStateful_query_graphql.Types.fragment_viewer_adminClubs_edges_node>,
   ~onSelected: string => unit,
   ~value=None,
   ~connectionId=?,

@@ -88,13 +88,25 @@ module ParseEventsPreview = {
 
 external alert: string => unit = "alert"
 @react.component
-let make = (~query, ~club) => {
+let make = (~query, ~club, ~prefillDate: option<string>=?) => {
   open Lingui.Util
   let td = Lingui.UtilString.dynamic
-  open Form
   let (queryPreview, setQueryPreview) = React.useState(() => None)
   let query = QueryFragment.use(query)
   let club = Fragment.use(club)
+
+  let textareaDefault = prefillDate->Option.map(isoDate => {
+    let parts = isoDate->String.split("-")
+    switch parts {
+    | [_year, month, day] =>
+      let m = month->Int.fromString->Option.getOr(1)
+      let d = day->Int.fromString->Option.getOr(1)
+      ts`${m->Int.toString}/${d->Int.toString} 10:00-12:00\nVenue\nOpen Play\nMax 18 people`
+    | _ => ""
+    }
+  })->Option.getOr(
+    ts`3/2 10:00-12:00\nVenue\nOpen Play\nMax 18 people\n\n3/5 10:00-12:00\nVenue\nOpen Play\nMax 18 people`,
+  )
 
   let (commitMutationCreate, _) = Mutation.use()
 
@@ -164,97 +176,110 @@ let make = (~query, ~club) => {
     exit={opacity: 0., scale: 1., y: -50.}>
     <WaitForMessages>
       {() => <>
-        <Grid className="grid-cols-1">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <FormSection
-              title={t`${club.name->Option.getOr("?")} event details`}
-              description={t`create multiple events at one time`}>
-              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <div className="sm:col-span-4 md:col-span-3">
-                  <TextArea
-                    label={t`events`}
-                    rows=10
-                    id="input"
-                    name="input"
-                    defaultValue="3/2 10:00-12:00\n港区立赤羽小学校\nOpen Play\nMax 18 people\n\n3/5 10:00-12:00\n港区立赤羽小学校\nOpen Play\nMax 18 people"
-                    hint={t`type your events in the format above`}
-                    register={register(Input)}
-                  />
-                  <p>
-                    {switch formState.errors.input {
-                    | Some({message: ?Some(message)}) => message
-                    | _ => ""
-                    }->React.string}
-                  </p>
-                  <button
-                    type_="button"
-                    onClick={e => {
-                      e->JsxEventU.Mouse.preventDefault
-                      previewEvents()
-                    }}
-                    className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                    {t`preview events`}
-                  </button>
-                  {queryPreview
-                  ->Option.map(preview =>
-                    <React.Suspense fallback={t`loading...`}>
-                      <ParseEventsPreview.make input=preview />
-                    </React.Suspense>
-                  )
-                  ->Option.getOr(React.null)}
-                </div>
-                <div className="sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg">
-                  <Select
-                    label={t`activity`}
-                    id="activity"
-                    name="activity"
-                    options={query.activities->Array.map(activity => (
-                      td(activity.name->Option.getOr("---")),
-                      activity.id,
-                    ))}
-                    register={register(Activity)}
-                  />
-                  <p>
-                    {switch formState.errors.activity {
-                    | Some({message: ?Some(message)}) => message
-                    | _ => ""
-                    }->React.string}
-                  </p>
-                </div>
-                <div className="col-span-full">
-                  <HeadlessUi.Switch.Group \"as"="div" className="flex items-center">
-                    <HeadlessUi.Switch
-                      checked={listed}
-                      onChange={_ => {
-                        // Set in React Hook Form
-                        setValue(Listed, Value(!listed))
-                      }}
-                      className={Util.cx([
-                        listed ? "bg-indigo-600" : "bg-gray-200",
-                        "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2",
-                      ])}>
-                      <span
-                        ariaHidden=true
-                        className={Util.cx([
-                          listed ? "translate-x-5" : "translate-x-0",
-                          "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out",
-                        ])}
-                      />
-                    </HeadlessUi.Switch>
-                    <HeadlessUi.Switch.Label \"as"="span" className="ml-3 text-sm">
-                      <span className="font-medium text-gray-900"> {t`list publicly`} </span>
-                      {" "->React.string}
-                      <span className="text-gray-500">
-                        {t`show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`}
-                      </span>
-                    </HeadlessUi.Switch.Label>
-                  </HeadlessUi.Switch.Group>
-                </div>
-              </div>
-            </FormSection>
-            <Form.Footer />
-          </form>
-        </Grid>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div>
+            <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+              {React.string(club.name->Option.getOr("?") ++ " — " ++ (ts`Create Events`))}
+            </h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              {t`Create multiple events at once`}
+            </p>
+          </div>
+          <div>
+            <label
+              htmlFor="input"
+              className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              {t`Events`}
+            </label>
+            <textarea
+              {...register(Input)}
+              id="input"
+              rows=10
+              className={Util.cx([
+                "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono text-sm",
+                formState.errors.input->Option.isSome
+                  ? "border-red-300 dark:border-red-700"
+                  : "border-gray-300 dark:border-gray-700",
+              ])}
+              defaultValue=textareaDefault
+            />
+            {switch formState.errors.input {
+            | Some({message: ?Some(message)}) =>
+              <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                {message->React.string}
+              </p>
+            | _ => React.null
+            }}
+            <button
+              type_="button"
+              onClick={e => {
+                e->JsxEventU.Mouse.preventDefault
+                previewEvents()
+              }}
+              className="mt-2 inline-flex items-center px-3 py-2 text-sm font-medium border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors">
+              {t`Preview events`}
+            </button>
+            {queryPreview
+            ->Option.map(preview =>
+              <React.Suspense fallback={t`loading...`}>
+                <ParseEventsPreview.make input=preview />
+              </React.Suspense>
+            )
+            ->Option.getOr(React.null)}
+          </div>
+          <div>
+            <label
+              htmlFor="activity"
+              className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              {t`Activity`}
+            </label>
+            <select
+              {...register(Activity)}
+              id="activity"
+              className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100">
+              {query.activities
+              ->Array.map(activity =>
+                <option key={activity.id} value={activity.id}>
+                  {td(activity.name->Option.getOr("---"))->React.string}
+                </option>
+              )
+              ->React.array}
+            </select>
+            {switch formState.errors.activity {
+            | Some({message: ?Some(message)}) =>
+              <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                {message->React.string}
+              </p>
+            | _ => React.null
+            }}
+          </div>
+          <div className="flex items-start gap-3">
+            <input
+              id="listed"
+              type_="checkbox"
+              checked={listed}
+              onChange={_ => setValue(Listed, Value(!listed))}
+              className="h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]"
+            />
+            <div>
+              <label
+                htmlFor="listed"
+                className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+                {t`List events publicly`}
+              </label>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                {t`Show events on the home page. Otherwise only people with a direct link can find them.`}
+              </p>
+            </div>
+          </div>
+          <div className="pt-2">
+            <button
+              type_="submit"
+              className="w-full bg-[#a3e635] text-gray-900 py-4 px-6 rounded-lg font-bold hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] transition-colors shadow-sm">
+              {t`Create Events`}
+            </button>
+          </div>
+        </form>
       </>}
     </WaitForMessages>
   </FramerMotion.Div>

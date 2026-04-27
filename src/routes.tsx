@@ -126,54 +126,33 @@ const mainRoutes: RouteObject[] =
       HydrateFallbackElement: <>Loading Fallback...</>
     },
     {
-      path: "events",
-      // Declaring handle allows the server to pull the scripts needed based on
-      // the entrypoint to avoid waterfall loading of dependencies
-      lazy: () => import("./components/routes/DefaultLayoutContentRoute.gen"),
-      handle: "src/components/routes/DefaultLayoutContentRoute.gen.tsx",
+      path: "events/create-bulk",
+      lazy: () => import("./components/routes/CreateEventsRoute.gen"),
+      handle: "src/components/routes/CreateEventsRoute.gen.tsx",
       children: [
         {
-          path: "create-bulk",
-          lazy: () => import("./components/routes/CreateEventsRoute.gen"),
-          handle: "src/components/routes/CreateEventsRoute.gen.tsx",
-          children: [
-            {
-              path: ":clubId",
-              lazy: () => import("./components/routes/CreateClubEventsRoute.gen"),
-              handle: "src/components/routes/CreateClubEventsRoute.gen.tsx",
-            },
-
-          ]
-        },
-        {
-          path: "create",
-          lazy: () => import("./components/routes/CreateEventRoute.gen"),
-          handle: "src/components/routes/CreateEventRoute.gen.tsx",
-          children: [
-            {
-              path: ":locationId",
-              lazy: () => import("./components/routes/CreateLocationEventRoute.gen"),
-              handle: "src/components/routes/CreateLocationEventRoute.gen.tsx",
-            },
-
-          ]
-
-        },
-        {
-          path: "update/:eventId/:locationId",
-          lazy: () => import("./components/routes/UpdateEventRoute.gen"),
-          handle: "src/components/routes/UpdateEventRoute.gen.tsx",
-          // children: [
-          //   {
-          //     path: ":locationId",
-          //     lazy: () => import("./components/routes/UpdateLocationEventRoute.gen"),
-          //     handle: "src/components/routes/UpdateLocationEventRoute.gen.tsx",
-          //   },
-          //
-          // ]
-
+          path: ":clubId",
+          lazy: () => import("./components/routes/CreateClubEventsRoute.gen"),
+          handle: "src/components/routes/CreateClubEventsRoute.gen.tsx",
         },
       ]
+    },
+    {
+      path: "events/create",
+      lazy: () => import("./components/routes/CreateEventRoute.gen"),
+      handle: "src/components/routes/CreateEventRoute.gen.tsx",
+      children: [
+        {
+          path: ":locationId",
+          lazy: () => import("./components/routes/CreateLocationEventRoute.gen"),
+          handle: "src/components/routes/CreateLocationEventRoute.gen.tsx",
+        },
+      ]
+    },
+    {
+      path: "events/update/:eventId/:locationId",
+      lazy: () => import("./components/routes/UpdateEventRoute.gen"),
+      handle: "src/components/routes/UpdateEventRoute.gen.tsx",
     },
     {
       path: "league",

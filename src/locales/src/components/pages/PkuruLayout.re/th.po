@@ -31,10 +31,6 @@ msgstr "เรียกดู"
 msgid "Discover"
 msgstr "ค้นพบ"
 
-#: src/components/pages/PkuruLayout.re.mjs:265
-msgid "Host"
-msgstr "ผู้จัด"
-
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
@@ -68,9 +64,17 @@ msgstr "คลับของฉัน"
 msgid "My events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/pages/PkuruLayout.re.mjs:392
+#: src/components/pages/PkuruLayout.re.mjs:409
 msgid "My Events"
 msgstr "กิจกรรมของฉัน"
+
+#: src/components/pages/PkuruLayout.re.mjs:397
+msgid "New"
+msgstr "ใหม่"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+msgid "New event"
+msgstr "กิจกรรมใหม่"
 
 #: src/components/pages/PkuruLayout.re.mjs:140
 #: src/components/pages/PkuruLayout.re.mjs:168
@@ -78,7 +82,7 @@ msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
 #: src/components/pages/PkuruLayout.re.mjs:123
-#: src/components/pages/PkuruLayout.re.mjs:402
+#: src/components/pages/PkuruLayout.re.mjs:419
 msgid "Profile"
 msgstr "โปรไฟล์"
 
@@ -93,6 +97,10 @@ msgstr "กีฬา"
 #: src/components/pages/PkuruLayout.re.mjs:353
 #~ msgid "Events"
 #~ msgstr "กิจกรรม"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+#~ msgid "Host"
+#~ msgstr "ผู้จัด"
 
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."

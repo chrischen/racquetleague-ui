@@ -9,6 +9,8 @@ import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as PkEventDrawer from "../pkuru/PkEventDrawer.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
@@ -77,29 +79,53 @@ function ClubEventsList$Day(props) {
   var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
   var onEventClick = props.onEventClick;
+  var query = props.query;
   var viewerUser = props.viewerUser;
   var events = props.events;
+  var date = props.date;
+  var label = props.label;
+  var y = (date.getFullYear() | 0).toString();
+  var m = ((date.getMonth() | 0) + 1 | 0).toString().padStart(2, "0");
+  var d = (date.getDate() | 0).toString().padStart(2, "0");
+  var isoDate = y + "-" + m + "-" + d;
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
                 JsxRuntime.jsxs("div", {
                       children: [
-                        JsxRuntime.jsx("h3", {
-                              children: props.label,
-                              className: "font-semibold text-gray-900 dark:text-gray-100"
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("h3", {
+                                      children: label,
+                                      className: "font-semibold text-gray-900 dark:text-gray-100"
+                                    }),
+                                JsxRuntime.jsx("span", {
+                                      children: props.dateDetails + " · " + events.filter(function (e) {
+                                              return Core__Option.isNone(e.deleted);
+                                            }).length.toString() + " " + plural(events.filter(function (e) {
+                                                return Core__Option.isNone(e.deleted);
+                                              }).length, {
+                                            one: t`event`,
+                                            other: t`events`
+                                          }),
+                                      className: "font-mono text-xs text-gray-400 dark:text-gray-500"
+                                    })
+                              ],
+                              className: "flex items-baseline gap-3"
                             }),
-                        JsxRuntime.jsx("span", {
-                              children: props.dateDetails + " · " + events.filter(function (e) {
-                                      return Core__Option.isNone(e.deleted);
-                                    }).length.toString() + " " + plural(events.filter(function (e) {
-                                        return Core__Option.isNone(e.deleted);
-                                      }).length, {
-                                    one: t`event`,
-                                    other: t`events`
-                                  }),
-                              className: "font-mono text-xs text-gray-400 dark:text-gray-500"
+                        JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                              to: "/events/create?date=" + isoDate,
+                              children: [
+                                JsxRuntime.jsx(LucideReact.Plus, {
+                                      size: 11
+                                    }),
+                                JsxRuntime.jsx("span", {
+                                      children: t`Add to ${label.toLowerCase()}`
+                                    })
+                              ],
+                              className: "flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors"
                             })
                       ],
-                      className: "px-4 md:px-6 py-3 flex items-baseline gap-3"
+                      className: "px-4 md:px-6 py-3 flex items-center justify-between"
                     }),
                 events.map(function (edge, idx) {
                       var max = edge.maxRsvps;
@@ -135,7 +161,8 @@ function ClubEventsList$Day(props) {
                                                                 return lid !== selId;
                                                               })), false);
                                             })), false),
-                                  waitlistCount: waitlistCount
+                                  waitlistCount: waitlistCount,
+                                  query: query
                                 }, edge.id);
                     })
               ]
@@ -150,6 +177,7 @@ function ClubEventsList(props) {
   var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
   var viewerUser = props.viewerUser;
+  var query = props.query;
   var match = usePagination(props.events);
   var isLoadingPrevious = match.isLoadingPrevious;
   var hasNext = match.hasNext;
@@ -183,15 +211,18 @@ function ClubEventsList(props) {
       case "today" :
           return [
                   t`Today`,
-                  formatDate(bucketSetup.dateFromOffset(0))
+                  formatDate(bucketSetup.dateFromOffset(0)),
+                  bucketSetup.dateFromOffset(0)
                 ];
       case "tomorrow" :
           return [
                   t`Tomorrow`,
-                  formatDate(bucketSetup.dateFromOffset(1))
+                  formatDate(bucketSetup.dateFromOffset(1)),
+                  bucketSetup.dateFromOffset(1)
                 ];
       default:
         var match = EventsListUtils.getBucketDateDetails(bucketSetup, key);
+        var date = match[2];
         var n = Core__Option.getOr(Core__Int.fromString(key, undefined), 0);
         var dayName;
         switch (match[1]) {
@@ -224,7 +255,8 @@ function ClubEventsList(props) {
           );
         return [
                 label,
-                formatDate(match[2])
+                formatDate(date),
+                date
               ];
     }
   };
@@ -239,8 +271,10 @@ function ClubEventsList(props) {
                                 JsxRuntime.jsx(ClubEventsList$Day, {
                                       label: match[0],
                                       dateDetails: match[1],
+                                      date: match[2],
                                       events: bucketEvents,
                                       viewerUser: viewerUser,
+                                      query: query,
                                       onEventClick: (function (id) {
                                           ctx.openDrawer(JsxRuntime.jsx(PkEventDrawer.make, {
                                                     eventId: id

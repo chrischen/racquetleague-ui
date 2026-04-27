@@ -87,6 +87,11 @@ module JoinEventMutation = %relay(`
             id
             lineUsername
           }
+          rating {
+            ordinal
+            mu
+            sigma
+          }
         }
       }
       errors { message }

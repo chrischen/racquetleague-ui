@@ -3752,6 +3752,54 @@ msgstr "星期二"
 msgid "Wednesday"
 msgstr "星期三"
 
+#: src/components/organisms/CreateClubEventsForm.re.mjs:199
+#: src/components/organisms/CreateClubEventsForm.re.mjs:283
+msgid "Create Events"
+msgstr "创建活动"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+msgid "Create multiple events at once"
+msgstr "一次创建多个活动"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:268
+msgid "List events publicly"
+msgstr "公开列出活动"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:218
+msgid "Preview events"
+msgstr "预览活动"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:273
+msgid ""
+"Show events on the home page. Otherwise only people with a direct link can "
+"find them."
+msgstr "在首页公开显示活动。否则，只有拥有直接链接的人才能找到它们。"
+
+#: src/components/pages/CreateEventPage.re.mjs:135
+msgid "Bulk create"
+msgstr "批量创建"
+
+#: src/components/organisms/ClubEventsList.re.mjs:121
+msgid "Add to {0}"
+msgstr "添加到{0}"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:115
+msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr "{0}/{1} 10:00-12:00\\n场地\\n自由打\\n最多18人"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:116
+msgid ""
+"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
+"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr ""
+"3/2 10:00-12:00\\n场地\\n自由打\\n最多18人\\n\\n3/5 10:00-12:00\\n场地\\n自由"
+"打\\n最多18人"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+#: src/components/pages/PkuruLayout.re.mjs:599
+msgid "New event"
+msgstr "新建活动"
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"

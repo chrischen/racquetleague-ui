@@ -108,6 +108,18 @@ return {
     {
       "alias": null,
       "args": null,
+      "concreteType": "Club",
+      "kind": "LinkedField",
+      "name": "club",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/)
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Activity",
       "kind": "LinkedField",
       "name": "activity",

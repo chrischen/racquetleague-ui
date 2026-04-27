@@ -120,8 +120,7 @@ function ClubEventsPage(props) {
                                                                   className: "p-6 text-gray-500"
                                                                 }))
                                                       })
-                                                ],
-                                                className: "flex flex-col h-full overflow-y-auto"
+                                                ]
                                               });
                                   })), JsxRuntime.jsx("div", {
                                   children: t`Club not found`,

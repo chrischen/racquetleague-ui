@@ -4148,6 +4148,56 @@ msgstr "水曜日"
 msgid "Friday"
 msgstr "金曜日"
 
+#: src/components/organisms/CreateClubEventsForm.re.mjs:199
+#: src/components/organisms/CreateClubEventsForm.re.mjs:283
+msgid "Create Events"
+msgstr "イベントを作成"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:203
+msgid "Create multiple events at once"
+msgstr "複数のイベントを一度に作成"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:268
+msgid "List events publicly"
+msgstr "イベントを公開する"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:218
+msgid "Preview events"
+msgstr "イベントをプレビュー"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:273
+msgid ""
+"Show events on the home page. Otherwise only people with a direct link can "
+"find them."
+msgstr ""
+"ホームページにイベントを表示します。それ以外は、直接リンクを持つ人だけが見つ"
+"けられます。"
+
+#: src/components/pages/CreateEventPage.re.mjs:135
+msgid "Bulk create"
+msgstr "一括作成"
+
+#: src/components/organisms/ClubEventsList.re.mjs:121
+msgid "Add to {0}"
+msgstr "{0}に追加"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:115
+msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr "{0}/{1} 10:00-12:00\\n会場\\nオープンプレー\\n最大18人"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:116
+msgid ""
+"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
+"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr ""
+"3/2 10:00-12:00\\n会場\\nオープンプレー\\n最大18人\\n\\n3/5 10:00-12:00\\n会"
+"場\\nオープンプレー\\n最大18人"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+#: src/components/pages/PkuruLayout.re.mjs:599
+msgid "New event"
+msgstr "新しいイベント"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

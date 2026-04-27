@@ -40,7 +40,7 @@ let make = () => {
     {() =>
       club
       ->Option.map(c =>
-        <div className="flex flex-col h-full overflow-y-auto">
+        <div>
           <div className="px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30]">
             <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
               {c.name->Option.getOr("?")->React.string}

@@ -17,7 +17,7 @@ msgstr ""
 msgid "Add an Event"
 msgstr "イベントを追加"
 
-#: src/components/pages/ClubEventsPage.re.mjs:127
+#: src/components/pages/ClubEventsPage.re.mjs:126
 msgid "Club not found"
 msgstr "クラブが見つかりません"
 

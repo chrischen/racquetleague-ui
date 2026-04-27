@@ -129,8 +129,8 @@ function AutocompleteLocation(props) {
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsx(LucideReact.MapPin, {
-                                    className: "h-5 w-5 text-gray-400"
+                              children: JsxRuntime.jsx(LucideReact.Search, {
+                                    className: "h-5 w-5 text-gray-400 dark:text-gray-500"
                                   }),
                               className: "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                             }),
@@ -147,7 +147,7 @@ function AutocompleteLocation(props) {
                                   "plus_code"
                                 ]
                               },
-                              className: Core.cx("block w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors", Core__Option.isSome(error) ? "border-red-300" : "border-gray-300"),
+                              className: Core.cx("block w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500", Core__Option.isSome(error) ? "border-red-300 dark:border-red-700" : "border-gray-300 dark:border-gray-700"),
                               placeholder: "Search for a location..."
                             })
                       ],
@@ -156,7 +156,7 @@ function AutocompleteLocation(props) {
                 Core__Option.getOr(Core__Option.map(error, (function (errorMessage) {
                             return JsxRuntime.jsx("p", {
                                         children: errorMessage,
-                                        className: "mt-1 text-sm text-red-600"
+                                        className: "mt-1 text-sm text-red-600 dark:text-red-400"
                                       });
                           })), null)
               ]

@@ -10,7 +10,7 @@ import * as PkEventsListRefetchQuery_graphql from "./PkEventsListRefetchQuery_gr
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""}}};
+var fragmentConverter = {"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"":{"f":""}}};
 
 var fragmentConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -128,6 +128,11 @@ return {
   },
   "name": "PkEventsListFragment",
   "selections": [
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "PkEventRow_query"
+    },
     {
       "alias": null,
       "args": null,

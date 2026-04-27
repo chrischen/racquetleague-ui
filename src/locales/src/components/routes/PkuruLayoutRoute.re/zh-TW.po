@@ -31,10 +31,6 @@ msgstr "瀏覽"
 msgid "Discover"
 msgstr "探索"
 
-#: src/components/pages/PkuruLayout.re.mjs:265
-msgid "Host"
-msgstr "主持人"
-
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
 msgstr "載入更多"
@@ -68,9 +64,17 @@ msgstr "我的俱樂部"
 msgid "My events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:392
+#: src/components/pages/PkuruLayout.re.mjs:409
 msgid "My Events"
 msgstr "我的活動"
+
+#: src/components/pages/PkuruLayout.re.mjs:397
+msgid "New"
+msgstr "新建"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+msgid "New event"
+msgstr "新增活動"
 
 #: src/components/pages/PkuruLayout.re.mjs:140
 #: src/components/pages/PkuruLayout.re.mjs:168
@@ -78,7 +82,7 @@ msgid "Pickleball"
 msgstr "匹克球"
 
 #: src/components/pages/PkuruLayout.re.mjs:123
-#: src/components/pages/PkuruLayout.re.mjs:402
+#: src/components/pages/PkuruLayout.re.mjs:419
 msgid "Profile"
 msgstr "個人資料"
 
@@ -93,6 +97,10 @@ msgstr "遐動"
 #: src/components/pages/PkuruLayout.re.mjs:353
 #~ msgid "Events"
 #~ msgstr "活動"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+#~ msgid "Host"
+#~ msgstr "主持人"
 
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."

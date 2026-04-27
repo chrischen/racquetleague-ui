@@ -1,5 +1,3 @@
-%%raw("import { t } from '@lingui/macro'")
-
 module EventFragment = %relay(`
   fragment UpdateLocationEventForm_event on Event {
     id
@@ -28,6 +26,15 @@ module EventFragment = %relay(`
 let make = (~event, ~location, ~query) => {
   let eventData = EventFragment.use(event)
 
+  let (clubSelection, setClubSelection) = React.useState(() =>
+    ({
+      clubId: eventData.club->Option.map(c => c.id),
+      activityId: eventData.activity->Option.map(a => a.id),
+      isAddingClub: false,
+    }: ClubActivitySelector.selection)
+  )
+  let (shakeCounter, setShakeCounter) = React.useState(() => 0)
+
   // Convert event data to prefilled values for CreateLocationEventForm
   let prefilledValues: CreateLocationEventForm.prefilledValues = {
     title: ?eventData.title,
@@ -48,5 +55,23 @@ let make = (~event, ~location, ~query) => {
     price: ?eventData.price,
   }
 
-  <CreateLocationEventForm eventId=eventData.id location query prefilledValues />
+  <>
+    <ClubActivitySelector
+      query
+      initialClubId=?{eventData.club->Option.map(c => c.id)}
+      initialActivityId=?{eventData.activity->Option.map(a => a.id)}
+      onChange={sel => setClubSelection(_ => sel)}
+      triggerShake=shakeCounter
+    />
+    <CreateLocationEventForm
+      eventId=eventData.id
+      location
+      prefilledValues
+      selectedClub=?clubSelection.clubId
+      selectedActivity=?clubSelection.activityId
+      isClubFormOpen=clubSelection.isAddingClub
+      onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
+    />
+  </>
 }
+

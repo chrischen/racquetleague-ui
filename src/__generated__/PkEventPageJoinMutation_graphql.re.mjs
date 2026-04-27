@@ -69,53 +69,51 @@ v2 = {
 v3 = {
   "alias": null,
   "args": null,
-  "concreteType": "EventRsvpEdge",
+  "kind": "ScalarField",
+  "name": "listType",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "User",
   "kind": "LinkedField",
-  "name": "edge",
+  "name": "user",
   "plural": false,
   "selections": [
+    (v2/*: any*/),
     {
       "alias": null,
       "args": null,
-      "concreteType": "Rsvp",
-      "kind": "LinkedField",
-      "name": "node",
-      "plural": false,
-      "selections": [
-        (v2/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "listType",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "User",
-          "kind": "LinkedField",
-          "name": "user",
-          "plural": false,
-          "selections": [
-            (v2/*: any*/),
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "lineUsername",
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
-        }
-      ],
+      "kind": "ScalarField",
+      "name": "lineUsername",
       "storageKey": null
     }
   ],
   "storageKey": null
 },
-v4 = {
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "ordinal",
+  "storageKey": null
+},
+v6 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "mu",
+  "storageKey": null
+},
+v7 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "sigma",
+  "storageKey": null
+},
+v8 = {
   "alias": null,
   "args": null,
   "concreteType": "Error",
@@ -148,8 +146,46 @@ return {
         "name": "joinEvent",
         "plural": false,
         "selections": [
-          (v3/*: any*/),
-          (v4/*: any*/)
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "EventRsvpEdge",
+            "kind": "LinkedField",
+            "name": "edge",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Rsvp",
+                "kind": "LinkedField",
+                "name": "node",
+                "plural": false,
+                "selections": [
+                  (v2/*: any*/),
+                  (v3/*: any*/),
+                  (v4/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Rating",
+                    "kind": "LinkedField",
+                    "name": "rating",
+                    "plural": false,
+                    "selections": [
+                      (v5/*: any*/),
+                      (v6/*: any*/),
+                      (v7/*: any*/)
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          (v8/*: any*/)
         ],
         "storageKey": null
       }
@@ -171,7 +207,46 @@ return {
         "name": "joinEvent",
         "plural": false,
         "selections": [
-          (v3/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "EventRsvpEdge",
+            "kind": "LinkedField",
+            "name": "edge",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Rsvp",
+                "kind": "LinkedField",
+                "name": "node",
+                "plural": false,
+                "selections": [
+                  (v2/*: any*/),
+                  (v3/*: any*/),
+                  (v4/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Rating",
+                    "kind": "LinkedField",
+                    "name": "rating",
+                    "plural": false,
+                    "selections": [
+                      (v5/*: any*/),
+                      (v6/*: any*/),
+                      (v7/*: any*/),
+                      (v2/*: any*/)
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
           {
             "alias": null,
             "args": null,
@@ -188,19 +263,19 @@ return {
               }
             ]
           },
-          (v4/*: any*/)
+          (v8/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "1589c5c2f3c43a5d471411b1eddca2d0",
+    "cacheID": "daf493e66161f372da156a08475e0f65",
     "id": null,
     "metadata": {},
     "name": "PkEventPageJoinMutation",
     "operationKind": "mutation",
-    "text": "mutation PkEventPageJoinMutation(\n  $eventId: ID!\n) {\n  joinEvent(eventId: $eventId) {\n    edge {\n      node {\n        id\n        listType\n        user {\n          id\n          lineUsername\n        }\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation PkEventPageJoinMutation(\n  $eventId: ID!\n) {\n  joinEvent(eventId: $eventId) {\n    edge {\n      node {\n        id\n        listType\n        user {\n          id\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })());

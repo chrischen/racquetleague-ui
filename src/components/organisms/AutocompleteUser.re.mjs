@@ -45,26 +45,28 @@ var Query = {
   retain: retain
 };
 
+function getInitials(fullName) {
+  if (fullName !== undefined && fullName !== "") {
+    return fullName.split(" ").slice(0, 2).map(function (p) {
+                  return p.slice(0, 1).toUpperCase();
+                }).join("");
+  } else {
+    return "?";
+  }
+}
+
 function AutocompleteUser(props) {
+  var onClose = props.onClose;
   var onSelected = props.onSelected;
   var match = React.useState(function () {
         return "";
       });
   var setSearchQuery = match[1];
   var searchQuery = match[0];
-  var match$1 = React.useState(function () {
-        return false;
-      });
-  var setIsOpen = match$1[1];
-  var isOpen = match$1[0];
-  var match$2 = React.useState(function () {
-        
-      });
-  var setSelectedUser = match$2[1];
   var inputRef = React.useRef(null);
   var queryData = use({
         clubId: props.clubId,
-        first: 10
+        first: 20
       }, undefined, undefined, undefined);
   var users = React.useMemo((function () {
           return Core__Option.getOr(Core__Option.map(queryData.clubMembers.edges, (function (edges) {
@@ -86,7 +88,7 @@ function AutocompleteUser(props) {
         }), [queryData]);
   var filteredUsers = React.useMemo((function () {
           if (searchQuery.length === 0) {
-            return users;
+            return [];
           }
           var query = searchQuery.toLowerCase();
           return users.filter(function (user) {
@@ -107,101 +109,106 @@ function AutocompleteUser(props) {
     setSearchQuery(function (param) {
           return value;
         });
-    setIsOpen(function (param) {
-          return true;
-        });
-    setSelectedUser(function (param) {
-          
-        });
   };
-  var handleInputFocus = function (_evt) {
-    setIsOpen(function (param) {
-          return true;
-        });
+  var handleKeyDown = function (evt) {
+    if (evt.key === "Escape") {
+      if (onClose !== undefined) {
+        return onClose();
+      } else {
+        return setSearchQuery(function (param) {
+                    return "";
+                  });
+      }
+    }
+    
   };
-  var handleInputBlur = function (_evt) {
-    setTimeout((function () {
-            setIsOpen(function (param) {
-                  return false;
-                });
-          }), 200);
+  var handleBlur = function (_evt) {
+    if (onClose !== undefined) {
+      setTimeout((function () {
+              onClose();
+            }), 150);
+      return ;
+    }
+    
   };
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
                       children: [
+                        JsxRuntime.jsx(LucideReact.Search, {
+                              size: 14,
+                              className: "text-gray-400 flex-shrink-0"
+                            }),
                         JsxRuntime.jsx("input", {
                               ref: Caml_option.some(inputRef),
-                              className: "block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
-                              placeholder: Core__Option.getOr(props.placeholder, "Search users..."),
+                              className: "flex-1 bg-transparent text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none",
+                              autoFocus: true,
+                              placeholder: Core__Option.getOr(props.placeholder, "Search players..."),
                               type: "text",
                               value: searchQuery,
-                              onFocus: handleInputFocus,
-                              onBlur: handleInputBlur,
+                              onKeyDown: handleKeyDown,
+                              onBlur: handleBlur,
                               onChange: handleInputChange
                             }),
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsx(LucideReact.Search, {
-                                    className: "h-5 w-5 text-gray-400",
-                                    "aria-hidden": "true"
-                                  }),
-                              className: "pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
-                            })
+                        Core__Option.getOr(Core__Option.map(onClose, (function (close) {
+                                    return JsxRuntime.jsx("button", {
+                                                children: JsxRuntime.jsx(LucideReact.X, {
+                                                      size: 14
+                                                    }),
+                                                className: "text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 flex-shrink-0",
+                                                type: "button",
+                                                onClick: (function (param) {
+                                                    close();
+                                                  })
+                                              });
+                                  })), null)
                       ],
-                      className: "relative"
+                      className: "flex items-center gap-2 border border-gray-300 dark:border-[#4a4b50] rounded-lg px-3 py-2 bg-white dark:bg-[#1e1f23] shadow-sm focus-within:border-gray-400 dark:focus-within:border-gray-500 transition-colors"
                     }),
-                isOpen && filteredUsers.length > 0 ? JsxRuntime.jsx("div", {
-                        children: filteredUsers.map(function (user) {
-                              return JsxRuntime.jsx("button", {
-                                          children: JsxRuntime.jsxs("div", {
-                                                children: [
-                                                  JsxRuntime.jsx("img", {
-                                                        className: "h-8 w-8 rounded-full flex-shrink-0",
-                                                        alt: Core__Option.getOr(user.fullName, "User"),
-                                                        src: Core__Option.getOr(user.picture, "/default-avatar.png")
-                                                      }),
-                                                  JsxRuntime.jsxs("div", {
-                                                        children: [
-                                                          JsxRuntime.jsx("p", {
-                                                                children: Core__Option.getOr(user.fullName, "Unknown User"),
-                                                                className: "text-sm font-medium truncate"
-                                                              }),
-                                                          Core__Option.getOr(Core__Option.map(user.lineUsername, (function (username) {
-                                                                      return JsxRuntime.jsx("p", {
-                                                                                  children: "@" + username,
-                                                                                  className: "text-sm opacity-75 truncate"
-                                                                                });
-                                                                    })), null)
-                                                        ],
-                                                        className: "flex-1 min-w-0"
-                                                      })
-                                                ],
-                                                className: "flex items-center space-x-3"
-                                              }),
-                                          className: "relative cursor-pointer select-none py-2 pl-3 pr-9 text-gray-900 hover:bg-indigo-600 hover:text-white w-full text-left",
-                                          type: "button",
-                                          onClick: (function (param) {
-                                              setSelectedUser(function (param) {
-                                                    return user;
-                                                  });
-                                              setSearchQuery(function (param) {
-                                                    return Core__Option.getOr(user.fullName, Core__Option.getOr(user.lineUsername, "Unknown"));
-                                                  });
-                                              setIsOpen(function (param) {
-                                                    return false;
-                                                  });
-                                              onSelected(user);
-                                            })
-                                        }, user.id);
-                            }),
-                        className: "absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-                      }) : null,
-                isOpen && searchQuery.length > 0 && filteredUsers.length === 0 ? JsxRuntime.jsx("div", {
-                        children: "No users found",
-                        className: "absolute z-10 mt-1 w-full rounded-md bg-white py-3 text-center text-sm text-gray-500 shadow-lg ring-1 ring-black ring-opacity-5"
+                searchQuery.length > 0 ? JsxRuntime.jsx("div", {
+                        children: filteredUsers.length > 0 ? filteredUsers.map(function (user) {
+                                var initials = getInitials(user.fullName);
+                                var displayName = Core__Option.getOr(user.fullName, Core__Option.getOr(user.lineUsername, "Unknown"));
+                                return JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("div", {
+                                                    children: initials,
+                                                    className: "w-6 h-6 rounded-full bg-gray-200 dark:bg-[#3a3b40] flex items-center justify-center text-[10px] font-medium text-gray-700 dark:text-gray-300 flex-shrink-0"
+                                                  }),
+                                              JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsx("div", {
+                                                          children: displayName,
+                                                          className: "text-xs font-medium text-gray-900 dark:text-gray-100 truncate"
+                                                        }),
+                                                    className: "flex-1 min-w-0"
+                                                  }),
+                                              Core__Option.getOr(Core__Option.map(user.lineUsername, (function (un) {
+                                                          return JsxRuntime.jsx("div", {
+                                                                      children: "@" + un,
+                                                                      className: "font-mono text-[10px] text-gray-500 dark:text-gray-400"
+                                                                    });
+                                                        })), null)
+                                            ],
+                                            className: "flex items-center gap-2.5 px-3 py-2 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#353640] transition-colors",
+                                            onClick: (function (param) {
+                                                onSelected(user);
+                                                if (onClose !== undefined) {
+                                                  return onClose();
+                                                } else {
+                                                  return setSearchQuery(function (param) {
+                                                              return "";
+                                                            });
+                                                }
+                                              })
+                                          }, user.id);
+                              }) : JsxRuntime.jsx("div", {
+                                children: "No players found",
+                                className: "px-3 py-4 text-center text-xs text-gray-500 dark:text-gray-400"
+                              }),
+                        className: "absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#2a2b30] border border-gray-200 dark:border-[#3a3b40] rounded-lg shadow-lg z-50 py-1 max-h-48 overflow-y-auto"
                       }) : null
               ],
-              className: Core__Option.getOr(props.className, "relative")
+              className: "relative"
             });
 }
 
@@ -209,6 +216,7 @@ var make = AutocompleteUser;
 
 export {
   Query ,
+  getInitials ,
   make ,
 }
 /* use Not a pure module */

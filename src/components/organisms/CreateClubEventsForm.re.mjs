@@ -2,10 +2,10 @@
 
 import * as Zod from "zod";
 import * as Form from "../molecules/forms/Form.re.mjs";
-import * as Grid from "../vanillaui/atoms/Grid.re.mjs";
 import * as React from "react";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as FormSection from "../molecules/forms/FormSection.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core$1 from "@linaria/core";
@@ -13,7 +13,6 @@ import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
-import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as AppContext from "../layouts/appContext";
@@ -104,6 +103,17 @@ function CreateClubEventsForm(props) {
   var queryPreview = match[0];
   var query = use$2(props.query);
   var club = use$1(props.club);
+  var textareaDefault = Core__Option.getOr(Core__Option.map(props.prefillDate, (function (isoDate) {
+              var parts = isoDate.split("-");
+              if (parts.length !== 3) {
+                return "";
+              }
+              var month = parts[1];
+              var day = parts[2];
+              var m = Core__Option.getOr(Core__Int.fromString(month, undefined), 1);
+              var d = Core__Option.getOr(Core__Int.fromString(day, undefined), 1);
+              return t`${m.toString()}/${d.toString()} 10:00-12:00\nVenue\nOpen Play\nMax 18 people`;
+            })), t`3/2 10:00-12:00\nVenue\nOpen Play\nMax 18 people\n\n3/5 10:00-12:00\nVenue\nOpen Play\nMax 18 people`);
   var match$1 = use();
   var commitMutationCreate = match$1[0];
   var match$2 = ReactHookForm.useForm({
@@ -168,131 +178,129 @@ function CreateClubEventsForm(props) {
               },
               children: Caml_option.some(JsxRuntime.jsx(WaitForMessages.make, {
                         children: (function () {
+                            var newrecord = Caml_obj.obj_dup(register("input", undefined));
                             var match = formState.errors.input;
                             var tmp;
                             if (match !== undefined) {
                               var message = match.message;
-                              tmp = message !== undefined ? message : "";
+                              tmp = message !== undefined ? JsxRuntime.jsx("p", {
+                                      children: message,
+                                      className: "mt-1 text-sm text-red-600 dark:text-red-400"
+                                    }) : null;
                             } else {
-                              tmp = "";
+                              tmp = null;
                             }
+                            var newrecord$1 = Caml_obj.obj_dup(register("activity", undefined));
                             var match$1 = formState.errors.activity;
                             var tmp$1;
                             if (match$1 !== undefined) {
                               var message$1 = match$1.message;
-                              tmp$1 = message$1 !== undefined ? message$1 : "";
+                              tmp$1 = message$1 !== undefined ? JsxRuntime.jsx("p", {
+                                      children: message$1,
+                                      className: "mt-1 text-sm text-red-600 dark:text-red-400"
+                                    }) : null;
                             } else {
-                              tmp$1 = "";
+                              tmp$1 = null;
                             }
                             return JsxRuntime.jsx(JsxRuntime.Fragment, {
-                                        children: Caml_option.some(JsxRuntime.jsx(Grid.make, {
-                                                  className: "grid-cols-1",
-                                                  children: JsxRuntime.jsxs("form", {
-                                                        children: [
-                                                          JsxRuntime.jsx(FormSection.make, {
-                                                                title: t`${Core__Option.getOr(club.name, "?")} event details`,
-                                                                description: Caml_option.some(t`create multiple events at one time`),
-                                                                children: JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsxs("div", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx(Form.TextArea.make, {
-                                                                                      label: t`events`,
-                                                                                      name: "input",
-                                                                                      id: "input",
-                                                                                      hint: Caml_option.some(t`type your events in the format above`),
-                                                                                      rows: 10,
-                                                                                      defaultValue: "3/2 10:00-12:00\n港区立赤羽小学校\nOpen Play\nMax 18 people\n\n3/5 10:00-12:00\n港区立赤羽小学校\nOpen Play\nMax 18 people",
-                                                                                      register: register("input", undefined)
-                                                                                    }),
-                                                                                JsxRuntime.jsx("p", {
-                                                                                      children: tmp
-                                                                                    }),
-                                                                                JsxRuntime.jsx("button", {
-                                                                                      children: t`preview events`,
-                                                                                      className: "rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50",
-                                                                                      type: "button",
-                                                                                      onClick: (function (e) {
-                                                                                          e.preventDefault();
-                                                                                          setQueryPreview(function (param) {
-                                                                                                return eventsInput;
-                                                                                              });
-                                                                                        })
-                                                                                    }),
-                                                                                Core__Option.getOr(Core__Option.map(queryPreview, (function (preview) {
-                                                                                            return JsxRuntime.jsx(React.Suspense, {
-                                                                                                        children: Caml_option.some(JsxRuntime.jsx(CreateClubEventsForm$ParseEventsPreview, {
-                                                                                                                  input: preview
-                                                                                                                })),
-                                                                                                        fallback: Caml_option.some(t`loading...`)
-                                                                                                      });
-                                                                                          })), null)
-                                                                              ],
-                                                                              className: "sm:col-span-4 md:col-span-3"
-                                                                            }),
-                                                                        JsxRuntime.jsxs("div", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx(Form.Select.make, {
-                                                                                      label: t`activity`,
-                                                                                      name: "activity",
-                                                                                      id: "activity",
-                                                                                      options: query.activities.map(function (activity) {
-                                                                                            return [
-                                                                                                    Core.i18n._(Core__Option.getOr(activity.name, "---")),
-                                                                                                    activity.id
-                                                                                                  ];
-                                                                                          }),
-                                                                                      register: register("activity", undefined)
-                                                                                    }),
-                                                                                JsxRuntime.jsx("p", {
-                                                                                      children: tmp$1
-                                                                                    })
-                                                                              ],
-                                                                              className: "sm:col-span-2 md:col-span-3 lg:col-span-2 lg:max-w-lg"
-                                                                            }),
-                                                                        JsxRuntime.jsx("div", {
-                                                                              children: JsxRuntime.jsxs(React$1.Switch.Group, {
-                                                                                    as: "div",
-                                                                                    className: "flex items-center",
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx(React$1.Switch, {
-                                                                                            className: Core$1.cx(listed ? "bg-indigo-600" : "bg-gray-200", "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"),
-                                                                                            children: JsxRuntime.jsx("span", {
-                                                                                                  "aria-hidden": true,
-                                                                                                  className: Core$1.cx(listed ? "translate-x-5" : "translate-x-0", "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out")
-                                                                                                }),
-                                                                                            checked: listed,
-                                                                                            onChange: (function (param) {
-                                                                                                setValue("listed", !listed, undefined);
-                                                                                              })
-                                                                                          }),
-                                                                                      JsxRuntime.jsxs(React$1.Switch.Label, {
-                                                                                            as: "span",
-                                                                                            className: "ml-3 text-sm",
-                                                                                            children: [
-                                                                                              JsxRuntime.jsx("span", {
-                                                                                                    children: t`list publicly`,
-                                                                                                    className: "font-medium text-gray-900"
-                                                                                                  }),
-                                                                                              " ",
-                                                                                              JsxRuntime.jsx("span", {
-                                                                                                    children: t`show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it.`,
-                                                                                                    className: "text-gray-500"
-                                                                                                  })
-                                                                                            ]
-                                                                                          })
-                                                                                    ]
-                                                                                  }),
-                                                                              className: "col-span-full"
-                                                                            })
-                                                                      ],
-                                                                      className: "mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+                                        children: Caml_option.some(JsxRuntime.jsxs("form", {
+                                                  children: [
+                                                    JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("h2", {
+                                                                  children: Core__Option.getOr(club.name, "?") + " — " + t`Create Events`,
+                                                                  className: "text-lg font-bold text-gray-900 dark:text-gray-100"
+                                                                }),
+                                                            JsxRuntime.jsx("p", {
+                                                                  children: t`Create multiple events at once`,
+                                                                  className: "text-sm text-gray-500 dark:text-gray-400 mt-1"
+                                                                })
+                                                          ]
+                                                        }),
+                                                    JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("label", {
+                                                                  children: t`Events`,
+                                                                  className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
+                                                                  htmlFor: "input"
+                                                                }),
+                                                            JsxRuntime.jsx("textarea", (newrecord.rows = 10, newrecord.id = "input", newrecord.className = Core$1.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono text-sm", Core__Option.isSome(formState.errors.input) ? "border-red-300 dark:border-red-700" : "border-gray-300 dark:border-gray-700"), newrecord.defaultValue = textareaDefault, newrecord)),
+                                                            tmp,
+                                                            JsxRuntime.jsx("button", {
+                                                                  children: t`Preview events`,
+                                                                  className: "mt-2 inline-flex items-center px-3 py-2 text-sm font-medium border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors",
+                                                                  type: "button",
+                                                                  onClick: (function (e) {
+                                                                      e.preventDefault();
+                                                                      setQueryPreview(function (param) {
+                                                                            return eventsInput;
+                                                                          });
                                                                     })
+                                                                }),
+                                                            Core__Option.getOr(Core__Option.map(queryPreview, (function (preview) {
+                                                                        return JsxRuntime.jsx(React.Suspense, {
+                                                                                    children: Caml_option.some(JsxRuntime.jsx(CreateClubEventsForm$ParseEventsPreview, {
+                                                                                              input: preview
+                                                                                            })),
+                                                                                    fallback: Caml_option.some(t`loading...`)
+                                                                                  });
+                                                                      })), null)
+                                                          ]
+                                                        }),
+                                                    JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("label", {
+                                                                  children: t`Activity`,
+                                                                  className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
+                                                                  htmlFor: "activity"
+                                                                }),
+                                                            JsxRuntime.jsx("select", (newrecord$1.id = "activity", newrecord$1.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$1.children = query.activities.map(function (activity) {
+                                                                        return JsxRuntime.jsx("option", {
+                                                                                    children: Core.i18n._(Core__Option.getOr(activity.name, "---")),
+                                                                                    value: activity.id
+                                                                                  }, activity.id);
+                                                                      }), newrecord$1)),
+                                                            tmp$1
+                                                          ]
+                                                        }),
+                                                    JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("input", {
+                                                                  className: "h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]",
+                                                                  id: "listed",
+                                                                  checked: listed,
+                                                                  type: "checkbox",
+                                                                  onChange: (function (param) {
+                                                                      setValue("listed", !listed, undefined);
+                                                                    })
+                                                                }),
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx("label", {
+                                                                          children: t`List events publicly`,
+                                                                          className: "block text-sm font-semibold text-gray-900 dark:text-gray-100",
+                                                                          htmlFor: "listed"
+                                                                        }),
+                                                                    JsxRuntime.jsx("p", {
+                                                                          children: t`Show events on the home page. Otherwise only people with a direct link can find them.`,
+                                                                          className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
+                                                                        })
+                                                                  ]
+                                                                })
+                                                          ],
+                                                          className: "flex items-start gap-3"
+                                                        }),
+                                                    JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsx("button", {
+                                                                children: t`Create Events`,
+                                                                className: "w-full bg-[#a3e635] text-gray-900 py-4 px-6 rounded-lg font-bold hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] transition-colors shadow-sm",
+                                                                type: "submit"
                                                               }),
-                                                          JsxRuntime.jsx(Form.Footer.make, {})
-                                                        ],
-                                                        onSubmit: handleSubmit(onSubmit)
-                                                      })
+                                                          className: "pt-2"
+                                                        })
+                                                  ],
+                                                  className: "space-y-6",
+                                                  onSubmit: handleSubmit(onSubmit)
                                                 }))
                                       });
                           })

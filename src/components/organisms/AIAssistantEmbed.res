@@ -136,20 +136,23 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
   let hasHistory = response->Option.isSome
 
   <div
-    className="relative overflow-hidden rounded-xl border-2 border-blue-100 bg-gradient-to-br from-blue-50 via-white to-purple-50 shadow-sm">
+    className="relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#1a1a1a] transition-colors">
     {if isCollapsed {
       <button
         type_="button"
         onClick={_ => setIsCollapsed(_ => false)}
-        className="w-full p-4 hover:bg-blue-50/50 transition-colors flex items-center justify-between">
+        className="w-full p-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div
-            className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-md">
-            <Lucide.Sparkles className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center">
+            <Lucide.Sparkles className="w-4 h-4 text-gray-900" />
           </div>
           <div className="text-left">
-            <p className="text-sm font-semibold text-gray-900"> {t`AI Assistant`} </p>
-            <p className="text-xs text-gray-600"> {t`Form filled • Click to expand`} </p>
+            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+              {t`AI Assistant`}
+            </p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">
+              {t`Form filled • Click to expand`}
+            </p>
           </div>
         </div>
         <Lucide.ChevronDown className="w-5 h-5 text-gray-600" />
@@ -158,20 +161,19 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
       <div className="p-6">
         <div className="flex items-start gap-4 mb-4">
           <div className="flex-shrink-0">
-            <div
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-md">
-              <Lucide.Sparkles className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-full bg-[#a3e635] flex items-center justify-center">
+              <Lucide.Sparkles className="w-5 h-5 text-gray-900" />
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="text-base font-semibold text-gray-900 mb-1">
+            <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-1">
               {if hasHistory {
                 t`AI Assistant`
               } else {
                 t`Describe your event`
               }}
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               {if hasHistory {
                 t`Continue the conversation`
               } else {
@@ -193,7 +195,7 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
         ->Option.map(resp => {
           <div
             ref={ReactDOM.Ref.domRef(chatContainerRef)}
-            className="max-h-48 overflow-y-auto mb-4 space-y-3 pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+            className="max-h-48 overflow-y-auto mb-4 space-y-3 pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
             <AIResponseCard
               response=resp
               activitySlug={context.activitySlug->Option.getOr("pickleball")}
@@ -204,22 +206,23 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
               ? <div className="flex justify-start">
                   <div className="flex-shrink-0 mr-3">
                     <div
-                      className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                      <Lucide.Sparkles className="w-3.5 h-3.5 text-white" />
+                      className="w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center">
+                      <Lucide.Sparkles className="w-3.5 h-3.5 text-gray-900" />
                     </div>
                   </div>
-                  <div className="bg-white border border-gray-200 rounded-lg p-4">
+                  <div
+                    className="bg-white dark:bg-[#222222] border border-gray-200 dark:border-gray-700 rounded-lg p-4">
                     <div className="flex items-center gap-2">
                       <div
-                        className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
                         style={ReactDOM.Style.make(~animationDelay="0ms", ())}
                       />
                       <div
-                        className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
                         style={ReactDOM.Style.make(~animationDelay="150ms", ())}
                       />
                       <div
-                        className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
                         style={ReactDOM.Style.make(~animationDelay="300ms", ())}
                       />
                     </div>
@@ -251,11 +254,11 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
               ts`e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players...`
             }}
             rows={hasHistory ? 2 : 3}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none bg-white text-gray-900 placeholder-gray-400"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
             disabled=isLoading
           />
           <div className="flex items-center justify-between mt-3">
-            <span className="text-xs text-gray-500">
+            <span className="text-xs text-gray-500 dark:text-gray-400">
               {if hasHistory {
                 t`Press ⌘+Enter to continue`
               } else {
@@ -267,7 +270,7 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
                 ? <button
                     type_="button"
                     onClick={_ => handleReset()}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+                    className="px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 text-sm font-medium transition-colors">
                     {t`Reset`}
                   </button>
                 : React.null}
@@ -275,11 +278,11 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
                 type_="button"
                 onClick={_ => handleAsk()}
                 disabled={String.trim(prompt) == "" || isLoading}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm">
+                className="inline-flex items-center gap-2 px-4 py-2 bg-[#a3e635] text-gray-900 rounded-lg font-medium hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#1a1a1a] disabled:opacity-50 disabled:cursor-not-allowed transition-all">
                 {if isLoading {
                   <>
                     <div
-                      className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"
+                      className="w-4 h-4 border-2 border-gray-900 border-t-transparent rounded-full animate-spin"
                     />
                     <span> {t`Generating...`} </span>
                   </>

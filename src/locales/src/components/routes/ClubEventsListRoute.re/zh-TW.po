@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr "...更多"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:259
+#: src/components/organisms/PkRSVPSection.re.mjs:349
 msgid "· {0} pending"
 msgstr "· {0} 待處理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:347
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候補"
 
@@ -29,11 +29,11 @@ msgstr "· +{0} 候補"
 msgid "[missing title]"
 msgstr "[標題缺失]"
 
-#: src/components/organisms/ClubEventsList.re.mjs:92
+#: src/components/organisms/ClubEventsList.re.mjs:103
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:254
+#: src/components/organisms/PkRSVPSection.re.mjs:344
 msgid "{0} joined"
 msgstr "{0} 已參加"
 
@@ -52,6 +52,10 @@ msgstr "活動"
 #: src/components/organisms/PkEventMessages.re.mjs:433
 msgid "Add a message..."
 msgstr "新增訊息..."
+
+#: src/components/organisms/ClubEventsList.re.mjs:121
+msgid "Add to {0}"
+msgstr "新增到{0}"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
@@ -90,7 +94,7 @@ msgstr "報名參加"
 msgid "Complete your profile"
 msgstr "完善個人資料"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:357
+#: src/components/organisms/PkRSVPSection.re.mjs:450
 msgid "Confirmed · {0}"
 msgstr "已確認 · {0}"
 
@@ -156,7 +160,7 @@ msgid "Enter Match Score"
 msgstr "輸入比賽比分"
 
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/organisms/ClubEventsList.re.mjs:95
+#: src/components/organisms/ClubEventsList.re.mjs:106
 msgid "event"
 msgstr "活動"
 
@@ -173,7 +177,7 @@ msgid "Event updated"
 msgstr "活動已更新"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/organisms/ClubEventsList.re.mjs:96
+#: src/components/organisms/ClubEventsList.re.mjs:107
 msgid "events"
 msgstr "活動"
 
@@ -189,7 +193,7 @@ msgstr "用於活動更新和通知"
 msgid "Free"
 msgstr "免費"
 
-#: src/components/organisms/ClubEventsList.re.mjs:206
+#: src/components/organisms/ClubEventsList.re.mjs:242
 msgid "Friday"
 msgstr "星期五"
 
@@ -251,7 +255,7 @@ msgstr "中下等級及以上"
 msgid "Matches will be submitted to DUPR."
 msgstr "比賽將提交至 DUPR。"
 
-#: src/components/organisms/ClubEventsList.re.mjs:194
+#: src/components/organisms/ClubEventsList.re.mjs:230
 msgid "Monday"
 msgstr "星期一"
 
@@ -264,7 +268,7 @@ msgstr "更多 →"
 msgid "Move to Pending List"
 msgstr "移至待審核名單"
 
-#: src/components/organisms/ClubEventsList.re.mjs:215
+#: src/components/organisms/ClubEventsList.re.mjs:251
 msgid "Next {dayName}"
 msgstr "下週{dayName}"
 
@@ -280,7 +284,7 @@ msgstr "無比分"
 msgid "Notes from the host"
 msgstr "主持人的備註"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:250
+#: src/components/organisms/PkRSVPSection.re.mjs:327
 msgid "Participants"
 msgstr "參與者"
 
@@ -288,7 +292,7 @@ msgstr "參與者"
 msgid "Pending"
 msgstr "待審核"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:486
+#: src/components/organisms/PkRSVPSection.re.mjs:579
 msgid "Pending · {0}"
 msgstr "待處理 · {0}"
 
@@ -332,11 +336,11 @@ msgstr "移除此 RSVP"
 msgid "Repeat"
 msgstr "重複"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:212
+#: src/components/organisms/PkRSVPSection.re.mjs:253
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:233
+#: src/components/organisms/PkRSVPSection.re.mjs:274
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "參加需要 DUPR {minDuprStr}以上"
 
@@ -352,7 +356,7 @@ msgstr "第 {0} 回合"
 msgid "Round Robin Draws"
 msgstr "循環賽抽籤"
 
-#: src/components/organisms/ClubEventsList.re.mjs:209
+#: src/components/organisms/ClubEventsList.re.mjs:245
 msgid "Saturday"
 msgstr "星期六"
 
@@ -389,7 +393,7 @@ msgstr "技能練習和訓練，專注於技術改進"
 msgid "SORTED BY START TIME"
 msgstr "按開始時間排序"
 
-#: src/components/organisms/ClubEventsList.re.mjs:191
+#: src/components/organisms/ClubEventsList.re.mjs:227
 msgid "Sunday"
 msgstr "星期日"
 
@@ -436,21 +440,21 @@ msgstr ""
 "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
 "限制其報名嗎？"
 
-#: src/components/organisms/ClubEventsList.re.mjs:203
+#: src/components/organisms/ClubEventsList.re.mjs:239
 msgid "Thursday"
 msgstr "星期四"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/organisms/ClubEventsList.re.mjs:177
+#: src/components/organisms/ClubEventsList.re.mjs:210
 msgid "Today"
 msgstr "今天"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/organisms/ClubEventsList.re.mjs:182
+#: src/components/organisms/ClubEventsList.re.mjs:216
 msgid "Tomorrow"
 msgstr "明天"
 
-#: src/components/organisms/ClubEventsList.re.mjs:197
+#: src/components/organisms/ClubEventsList.re.mjs:233
 msgid "Tuesday"
 msgstr "星期二"
 
@@ -480,7 +484,7 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "等待列表"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:422
+#: src/components/organisms/PkRSVPSection.re.mjs:515
 msgid "Waitlist · {0}"
 msgstr "候補名單 · {0}"
 
@@ -492,7 +496,7 @@ msgstr "已在候補名單"
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
 
-#: src/components/organisms/ClubEventsList.re.mjs:200
+#: src/components/organisms/ClubEventsList.re.mjs:236
 msgid "Wednesday"
 msgstr "星期三"
 
@@ -504,11 +508,11 @@ msgstr "週末"
 msgid "Winning Team (Team {0})"
 msgstr "獲勝隊（隊伍 {0}）"
 
-#: src/components/organisms/ClubEventsList.re.mjs:214
+#: src/components/organisms/ClubEventsList.re.mjs:250
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:216
+#: src/components/organisms/PkRSVPSection.re.mjs:257
 msgid ""
 "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

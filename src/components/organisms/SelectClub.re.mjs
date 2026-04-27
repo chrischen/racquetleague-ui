@@ -3,6 +3,7 @@
 import * as Grid from "../vanillaui/atoms/Grid.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
+import * as Router from "../shared/Router.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as FormSection from "../molecules/forms/FormSection.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -32,15 +33,23 @@ function use(fRef) {
 
 function SelectClub(props) {
   var navigate = ReactRouterDom.useNavigate();
+  var match = ReactRouterDom.useSearchParams();
+  var dateParam = Router.SearchParams.get(match[0], "date");
   var data = use(props.clubs);
   var clubs = Core__Option.getOr(Core__Option.map(data.viewer, (function (viewer) {
               return getConnectionNodes(viewer.adminClubs);
             })), []);
-  var match = React.useState(function () {
+  var match$1 = React.useState(function () {
         return false;
       });
-  var setShowCreateclub = match[1];
-  var showCreateclub = match[0];
+  var setShowCreateclub = match$1[1];
+  var showCreateclub = match$1[0];
+  var clubHref = function (clubId) {
+    var base = encodeURIComponent(clubId);
+    return Core__Option.getOr(Core__Option.map(dateParam, (function (d) {
+                      return base + "?date=" + d;
+                    })), base);
+  };
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsx(Layout.Container.make, {
@@ -55,7 +64,7 @@ function SelectClub(props) {
                                                           children: clubs.map(function (node) {
                                                                 return JsxRuntime.jsx("li", {
                                                                             children: JsxRuntime.jsx(ReactRouterDom.NavLink, {
-                                                                                  to: encodeURIComponent(node.id),
+                                                                                  to: clubHref(node.id),
                                                                                   children: Core__Option.getOr(node.name, "?"),
                                                                                   className: (function (param) {
                                                                                       if (param.isActive) {
@@ -117,7 +126,7 @@ function SelectClub(props) {
                                                                                 setShowCreateclub(function (param) {
                                                                                       return false;
                                                                                     });
-                                                                                navigate(encodeURIComponent(club.id), undefined);
+                                                                                navigate(clubHref(club.id), undefined);
                                                                               })
                                                                           }))
                                                                 }) : null

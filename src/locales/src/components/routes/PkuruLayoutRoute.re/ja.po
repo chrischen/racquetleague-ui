@@ -31,10 +31,6 @@ msgstr "ブラウズ"
 msgid "Discover"
 msgstr "探す"
 
-#: src/components/pages/PkuruLayout.re.mjs:265
-msgid "Host"
-msgstr "ホスト"
-
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
 msgstr "もっと読み込む"
@@ -68,9 +64,17 @@ msgstr "私のサークル"
 msgid "My events"
 msgstr "マイイベント"
 
-#: src/components/pages/PkuruLayout.re.mjs:392
+#: src/components/pages/PkuruLayout.re.mjs:409
 msgid "My Events"
 msgstr "私のイベント"
+
+#: src/components/pages/PkuruLayout.re.mjs:397
+msgid "New"
+msgstr "新規"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+msgid "New event"
+msgstr "新しいイベント"
 
 #: src/components/pages/PkuruLayout.re.mjs:140
 #: src/components/pages/PkuruLayout.re.mjs:168
@@ -78,7 +82,7 @@ msgid "Pickleball"
 msgstr "ピックルボール"
 
 #: src/components/pages/PkuruLayout.re.mjs:123
-#: src/components/pages/PkuruLayout.re.mjs:402
+#: src/components/pages/PkuruLayout.re.mjs:419
 msgid "Profile"
 msgstr "プロフィール"
 
@@ -93,6 +97,10 @@ msgstr "スポーツ"
 #: src/components/pages/PkuruLayout.re.mjs:353
 #~ msgid "Events"
 #~ msgstr "イベント"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+#~ msgid "Host"
+#~ msgstr "ホスト"
 
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."

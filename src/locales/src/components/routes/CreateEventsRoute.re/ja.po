@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SelectClub.re.mjs:74
+#: src/components/organisms/SelectClub.re.mjs:83
 msgid "add new club"
 msgstr "新しいサークルを追加"
 
@@ -25,7 +25,7 @@ msgstr "クラブの簡単な説明..."
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SelectClub.re.mjs:51
+#: src/components/organisms/SelectClub.re.mjs:60
 msgid "choose the club where this event will be held."
 msgstr "このイベントが開催されるサークルを選択してください。"
 
@@ -57,7 +57,7 @@ msgstr "説明"
 msgid "e.g., City Ballers Club"
 msgstr "例：シティボーラーズクラブ"
 
-#: src/components/organisms/SelectClub.re.mjs:50
+#: src/components/organisms/SelectClub.re.mjs:59
 msgid "select club"
 msgstr "サークルを選択"
 

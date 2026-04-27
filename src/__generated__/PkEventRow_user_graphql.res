@@ -5,7 +5,9 @@ module Types = {
   @@warning("-30")
 
   type fragment = {
+    email: option<string>,
     @live id: string,
+    lineUsername: option<string>,
   }
 }
 
@@ -51,6 +53,20 @@ let node: operationType = %raw(json` {
       "args": null,
       "kind": "ScalarField",
       "name": "id",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "lineUsername",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "email",
       "storageKey": null
     }
   ],

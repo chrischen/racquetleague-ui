@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr "...เพิ่มเติม"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:259
+#: src/components/organisms/PkRSVPSection.re.mjs:349
 msgid "· {0} pending"
 msgstr "· {0} รอดำเนินการ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:347
 msgid "· +{0} waitlist"
 msgstr "· +{0} รายชื่อคอย"
 
@@ -29,15 +29,15 @@ msgstr "· +{0} รายชื่อคอย"
 msgid "[missing title]"
 msgstr "[ไม่มีหัวข้อ]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:115
+#: src/components/pkuru/PkEventsList.re.mjs:126
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/pkuru/PkEventsList.re.mjs:168
+#: src/components/pkuru/PkEventsList.re.mjs:194
 msgid "{0} {hiddenDesc} hidden — show"
 msgstr "{0} {hiddenDesc} ซ่อนอยู่ — แสดง"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:254
+#: src/components/organisms/PkRSVPSection.re.mjs:344
 msgid "{0} joined"
 msgstr "{0} เข้าร่วมแล้ว"
 
@@ -45,7 +45,7 @@ msgstr "{0} เข้าร่วมแล้ว"
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/pkuru/PkEventsList.re.mjs:93
+#: src/components/pkuru/PkEventsList.re.mjs:102
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
 
@@ -60,6 +60,10 @@ msgstr "กิจกรรม"
 #: src/components/organisms/PkEventMessages.re.mjs:433
 msgid "Add a message..."
 msgstr "เพิ่มข้อความ..."
+
+#: src/components/pkuru/PkEventsList.re.mjs:144
+msgid "Add to {0}"
+msgstr "เพิ่มไปยัง{0}"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Advanced players"
@@ -98,7 +102,7 @@ msgstr "จองที่"
 msgid "Complete your profile"
 msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:357
+#: src/components/organisms/PkRSVPSection.re.mjs:450
 msgid "Confirmed · {0}"
 msgstr "⊡ยืนยันแล้ว · {0}"
 
@@ -162,7 +166,7 @@ msgid "Enter Match Score"
 msgstr "ป้อนคะแนนแมตช์"
 
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:118
+#: src/components/pkuru/PkEventsList.re.mjs:129
 msgid "event"
 msgstr "กิจกรรม"
 
@@ -179,7 +183,7 @@ msgid "Event updated"
 msgstr "อัปเดตกิจกรรมแล้ว"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:119
+#: src/components/pkuru/PkEventsList.re.mjs:130
 msgid "events"
 msgstr "กิจกรรม"
 
@@ -195,7 +199,7 @@ msgstr "สำหรับการอัปเดตและการแจ้
 msgid "Free"
 msgstr "ฟรี"
 
-#: src/components/pkuru/PkEventsList.re.mjs:241
+#: src/components/pkuru/PkEventsList.re.mjs:277
 msgid "Friday"
 msgstr "วันศุกร์"
 
@@ -261,7 +265,7 @@ msgstr "ระดับกลางขั้นต้นขึ้นไป"
 msgid "Matches will be submitted to DUPR."
 msgstr "การแข่งขันจะถูกส่งไปยัง DUPR"
 
-#: src/components/pkuru/PkEventsList.re.mjs:229
+#: src/components/pkuru/PkEventsList.re.mjs:265
 msgid "Monday"
 msgstr "วันจันทร์"
 
@@ -274,7 +278,7 @@ msgstr "เพิ่มเติม →"
 msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
 
-#: src/components/pkuru/PkEventsList.re.mjs:250
+#: src/components/pkuru/PkEventsList.re.mjs:286
 msgid "Next {dayName}"
 msgstr "สัปดาห์หน้า{dayName}"
 
@@ -290,7 +294,7 @@ msgstr "ไม่มีคะแนน"
 msgid "Notes from the host"
 msgstr "หมายเหตุจากผู้จัด"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:250
+#: src/components/organisms/PkRSVPSection.re.mjs:327
 msgid "Participants"
 msgstr "ผู้เข้าร่วม"
 
@@ -298,7 +302,7 @@ msgstr "ผู้เข้าร่วม"
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:486
+#: src/components/organisms/PkRSVPSection.re.mjs:579
 msgid "Pending · {0}"
 msgstr "รอดำเนินการ · {0}"
 
@@ -342,11 +346,11 @@ msgstr "ลบการยืนยันนี้"
 msgid "Repeat"
 msgstr "ซ้ำ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:212
+#: src/components/organisms/PkRSVPSection.re.mjs:253
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "ต้องการ: DUPR {minDuprStr} ขึ้นไป"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:233
+#: src/components/organisms/PkRSVPSection.re.mjs:274
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "ต้องมี DUPR {minDuprStr} ขึ้นไปจึงเข้าร่วมได้"
 
@@ -362,7 +366,7 @@ msgstr "รอบ {0}"
 msgid "Round Robin Draws"
 msgstr "จับคู่แบบพบกันหมด"
 
-#: src/components/pkuru/PkEventsList.re.mjs:244
+#: src/components/pkuru/PkEventsList.re.mjs:280
 msgid "Saturday"
 msgstr "วันเสาร์"
 
@@ -399,7 +403,7 @@ msgstr "การฝึกฝนทักษะและการซ้อมเ
 msgid "SORTED BY START TIME"
 msgstr "เรียงตามเวลาเริ่มต้น"
 
-#: src/components/pkuru/PkEventsList.re.mjs:226
+#: src/components/pkuru/PkEventsList.re.mjs:262
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
@@ -447,21 +451,21 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/pkuru/PkEventsList.re.mjs:238
+#: src/components/pkuru/PkEventsList.re.mjs:274
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:212
+#: src/components/pkuru/PkEventsList.re.mjs:245
 msgid "Today"
 msgstr "วันนี้"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:217
+#: src/components/pkuru/PkEventsList.re.mjs:251
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
 
-#: src/components/pkuru/PkEventsList.re.mjs:232
+#: src/components/pkuru/PkEventsList.re.mjs:268
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
@@ -491,7 +495,7 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:422
+#: src/components/organisms/PkRSVPSection.re.mjs:515
 msgid "Waitlist · {0}"
 msgstr "รายชื่อคอย · {0}"
 
@@ -503,7 +507,7 @@ msgstr "อยู่ในรายชื่อคอย"
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/pkuru/PkEventsList.re.mjs:235
+#: src/components/pkuru/PkEventsList.re.mjs:271
 msgid "Wednesday"
 msgstr "วันพุธ"
 
@@ -515,11 +519,11 @@ msgstr "สุดสัปดาห์"
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
 
-#: src/components/pkuru/PkEventsList.re.mjs:249
+#: src/components/pkuru/PkEventsList.re.mjs:285
 msgid "Yesterday"
 msgstr "เมื่อวาน"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:216
+#: src/components/organisms/PkRSVPSection.re.mjs:257
 msgid ""
 "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

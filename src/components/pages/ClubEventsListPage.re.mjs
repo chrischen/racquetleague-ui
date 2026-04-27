@@ -57,6 +57,7 @@ function ClubEventsListPage(props) {
                   return Core__Option.getOr(Core__Option.map(query.club, (function (club) {
                                     return JsxRuntime.jsx(ClubEventsList.make, {
                                                 events: club.fragmentRefs,
+                                                query: query.fragmentRefs,
                                                 viewerUser: viewerUser
                                               });
                                   })), null);

@@ -34,6 +34,8 @@ external sessionContext: React.Context.t<UserProvider.session> = "SessionContext
 let make = (~clubs) => {
   open Lingui.Util
   let navigate = Router.useNavigate()
+  let (searchParams, _) = Router.useSearchParams()
+  let dateParam = searchParams->Router.SearchParams.get("date")
   let data = Fragment.use(clubs)
   let clubs =
     data.viewer
@@ -41,6 +43,11 @@ let make = (~clubs) => {
     ->Option.getOr([])
 
   let (showCreateclub, setShowCreateclub) = React.useState(() => false)
+
+  let clubHref = (clubId: string) => {
+    let base = clubId->Util.encodeURIComponent
+    dateParam->Option.map(d => base ++ "?date=" ++ d)->Option.getOr(base)
+  }
 
   <WaitForMessages>
     {() =>
@@ -54,7 +61,7 @@ let make = (~clubs) => {
                 ->Array.map(node =>
                   <li key={node.id}>
                     <Router.NavLink
-                      to={node.id->Util.encodeURIComponent}
+                      to={clubHref(node.id)}
                       className={({isActive}) => isActive ? "font-extrabold" : ""}>
                       {node.name->Option.getOr("?")->React.string}
                     </Router.NavLink>
@@ -80,7 +87,7 @@ let make = (~clubs) => {
                         onCancel={_ => setShowCreateclub(_ => false)}
                         onCreated={club => {
                           setShowCreateclub(_ => false)
-                          navigate(Util.encodeURIComponent(club.id), None)
+                          navigate(clubHref(club.id), None)
                         }}
                       />
                     </FramerMotion.Div>

@@ -11,17 +11,17 @@ function FormSection(props) {
               children: [
                 JsxRuntime.jsx("h2", {
                       children: props.title,
-                      className: "text-base font-semibold leading-7 text-gray-900"
+                      className: "text-base font-semibold leading-7 text-gray-900 dark:text-gray-100"
                     }),
                 Core__Option.getOr(Core__Option.map(props.description, (function (description) {
                             return JsxRuntime.jsx("p", {
                                         children: description,
-                                        className: "mt-1 text-sm leading-6 text-gray-600"
+                                        className: "mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400"
                                       });
                           })), null),
                 props.children
               ],
-              className: "border-b border-gray-900/10 pb-12"
+              className: "border-b border-gray-900/10 dark:border-gray-700 pb-12"
             });
 }
 

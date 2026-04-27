@@ -12,10 +12,14 @@ type prefilledValues = {
   tags?: array<string>,
   price?: int,
 }
+
 @react.component
 let make: (
   ~eventId: string=?,
   ~location: RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_location]>,
-  ~query: RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_query]>,
   ~prefilledValues: prefilledValues=?,
+  ~selectedClub: string=?,
+  ~selectedActivity: string=?,
+  ~isClubFormOpen: bool=?,
+  ~onClubFormSubmitBlocked: unit => unit=?,
 ) => React.element
