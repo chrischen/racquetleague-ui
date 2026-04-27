@@ -16,6 +16,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/RoundRobinPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/RoundRobinPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/RoundRobinPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/RoundRobinPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/RoundRobinPage.re/vi"),
 })
 
 @genType

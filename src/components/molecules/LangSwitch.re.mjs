@@ -6,24 +6,42 @@ import * as React from "@lingui/react";
 import * as ReactRouterDom from "react-router-dom";
 import * as React$1 from "@headlessui/react";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as DropdownTsx from "../catalyst/dropdown.tsx";
 import * as Solid from "@heroicons/react/24/solid";
+import * as LangSwitchUpdateLocaleMutation_graphql from "../../__generated__/LangSwitchUpdateLocaleMutation_graphql.re.mjs";
+
+var convertVariables = LangSwitchUpdateLocaleMutation_graphql.Internal.convertVariables;
+
+var convertResponse = LangSwitchUpdateLocaleMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse = LangSwitchUpdateLocaleMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, LangSwitchUpdateLocaleMutation_graphql.node, convertResponse, convertWrapRawResponse);
+
+var use = RescriptRelay_Mutation.useMutation(convertVariables, LangSwitchUpdateLocaleMutation_graphql.node, convertResponse, convertWrapRawResponse);
+
+var UpdateLocaleMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables,
+  convertResponse: convertResponse,
+  convertWrapRawResponse: convertWrapRawResponse,
+  commitMutation: commitMutation,
+  use: use
+};
 
 function LangSwitch$LocaleButton(props) {
   var locale = props.locale;
-  var locPath = I18n.getLangPath(locale.lang);
   if (props.active) {
     return JsxRuntime.jsx("span", {
                 children: locale.display,
                 className: "font-semibold text-gray-900"
               });
   } else {
-    return JsxRuntime.jsx(ReactRouterDom.Link, {
-                to: locPath + props.path,
-                children: JsxRuntime.jsx("span", {
-                      children: locale.display,
-                      className: "text-gray-700"
-                    })
+    return JsxRuntime.jsx("span", {
+                children: locale.display,
+                className: "text-gray-700"
               });
   }
 }
@@ -57,6 +75,16 @@ var locales = [
     lang: "zh-CN",
     display: "简体中文",
     flag: "🇨🇳"
+  },
+  {
+    lang: "ko",
+    display: "한국어",
+    flag: "🇰🇷"
+  },
+  {
+    lang: "vi",
+    display: "Tiếng Việt",
+    flag: "🇻🇳"
   }
 ];
 
@@ -88,6 +116,9 @@ function LangSwitch(props) {
   var match = React.useLingui();
   var locale = match.i18n.locale;
   var match$1 = ReactRouterDom.useLocation();
+  var navigate = ReactRouterDom.useNavigate();
+  var match$2 = use();
+  var commitUpdateLocale = match$2[0];
   var basePath = I18n.getBasePath(locale, match$1.pathname);
   var basePathWithQuery = basePath + match$1.search;
   var currentLocale = Core__Option.getOr(locales.find(function (loc) {
@@ -118,6 +149,7 @@ function LangSwitch(props) {
                       anchor: "bottom start",
                       children: locales.map(function (loc) {
                             var isActive = loc.lang === locale;
+                            var locPath = I18n.getLangPath(loc.lang) + basePathWithQuery;
                             return JsxRuntime.jsx(make$2, {
                                         className: isActive ? "bg-gray-50" : "",
                                         children: JsxRuntime.jsxs("div", {
@@ -129,13 +161,20 @@ function LangSwitch(props) {
                                                 JsxRuntime.jsx(make$3, {
                                                       children: JsxRuntime.jsx(LangSwitch$LocaleButton, {
                                                             locale: loc,
-                                                            path: basePathWithQuery,
                                                             active: isActive
                                                           })
                                                     })
                                               ],
                                               className: "flex items-center gap-3"
-                                            })
+                                            }),
+                                        onClick: (function (param) {
+                                            navigate(locPath, undefined);
+                                            commitUpdateLocale({
+                                                  input: {
+                                                    locale: loc.lang
+                                                  }
+                                                }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                          })
                                       }, loc.lang);
                           })
                     })
@@ -150,6 +189,7 @@ var make$4 = LangSwitch;
 var $$default = LangSwitch;
 
 export {
+  UpdateLocaleMutation ,
   LocaleButton ,
   locales ,
   Dropdown ,
@@ -160,4 +200,4 @@ export {
   make$4 as make,
   $$default as default,
 }
-/* make Not a pure module */
+/* commitMutation Not a pure module */

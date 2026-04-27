@@ -37,7 +37,21 @@ var Internal = {
   convertRawResponse: convertResponse
 };
 
-var Utils = {};
+function gender_decode($$enum) {
+  if ($$enum === "female" || $$enum === "male") {
+    return $$enum;
+  }
+  
+}
+
+function gender_fromString(str) {
+  return gender_decode(str);
+}
+
+var Utils = {
+  gender_decode: gender_decode,
+  gender_fromString: gender_fromString
+};
 
 var node = ((function(){
 var v0 = [
@@ -94,17 +108,24 @@ v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "ordinal",
+  "name": "gender",
   "storageKey": null
 },
 v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "mu",
+  "name": "ordinal",
   "storageKey": null
 },
 v7 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "mu",
+  "storageKey": null
+},
+v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -163,7 +184,8 @@ return {
                     "plural": false,
                     "selections": [
                       (v2/*: any*/),
-                      (v4/*: any*/)
+                      (v4/*: any*/),
+                      (v5/*: any*/)
                     ],
                     "storageKey": null
                   },
@@ -175,9 +197,9 @@ return {
                     "name": "rating",
                     "plural": false,
                     "selections": [
-                      (v5/*: any*/),
                       (v6/*: any*/),
-                      (v7/*: any*/)
+                      (v7/*: any*/),
+                      (v8/*: any*/)
                     ],
                     "storageKey": null
                   }
@@ -242,7 +264,8 @@ return {
                         "name": "picture",
                         "storageKey": null
                       },
-                      (v4/*: any*/)
+                      (v4/*: any*/),
+                      (v5/*: any*/)
                     ],
                     "storageKey": null
                   },
@@ -254,9 +277,9 @@ return {
                     "name": "rating",
                     "plural": false,
                     "selections": [
-                      (v5/*: any*/),
                       (v6/*: any*/),
                       (v7/*: any*/),
+                      (v8/*: any*/),
                       (v2/*: any*/)
                     ],
                     "storageKey": null
@@ -296,12 +319,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "371fb423c331a69f7271c338afc45ff1",
+    "cacheID": "d5e94d1e81d0c2cf23df8a47101a3f80",
     "id": null,
     "metadata": {},
     "name": "PkRSVPSectionAddUserMutation",
     "operationKind": "mutation",
-    "text": "mutation PkRSVPSectionAddUserMutation(\n  $eventId: ID!\n  $userId: ID!\n) {\n  addRsvpToEvent(eventId: $eventId, userId: $userId) {\n    edge {\n      node {\n        id\n        listType\n        ...PkEventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n  }\n}\n\nfragment MiniEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment PkEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  ...RsvpOptions_rsvp\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n"
+    "text": "mutation PkRSVPSectionAddUserMutation(\n  $eventId: ID!\n  $userId: ID!\n) {\n  addRsvpToEvent(eventId: $eventId, userId: $userId) {\n    edge {\n      node {\n        id\n        listType\n        ...PkEventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          lineUsername\n          gender\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n  }\n}\n\nfragment MiniEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment PkEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n    gender\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  ...RsvpOptions_rsvp\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n"
   }
 };
 })());

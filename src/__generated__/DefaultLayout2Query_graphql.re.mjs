@@ -137,6 +137,13 @@ return {
                 "storageKey": null
               },
               (v0/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "locale",
+                "storageKey": null
+              },
               (v1/*: any*/)
             ],
             "storageKey": null
@@ -147,12 +154,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a61bcd18a03f7b943084f035bce23cd9",
+    "cacheID": "9829981a4947279137a9f1a273276085",
     "id": null,
     "metadata": {},
     "name": "DefaultLayout2Query",
     "operationKind": "query",
-    "text": "query DefaultLayout2Query {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    user {\n      lineUsername\n      picture\n      id\n    }\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query DefaultLayout2Query {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    user {\n      lineUsername\n      picture\n      id\n    }\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
 };
 })());

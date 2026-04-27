@@ -63,6 +63,8 @@ type srcMap = {
   th: promise<messageBundle>,
   zhTW: promise<messageBundle>,
   zhCN: promise<messageBundle>,
+  ko: promise<messageBundle>,
+  vi: promise<messageBundle>,
 }
 let loadMessages = src => lang => {
   let messages = switch lang {
@@ -71,6 +73,8 @@ let loadMessages = src => lang => {
   | "th" => src.th
   | "zh-TW" => src.zhTW
   | "zh-CN" => src.zhCN
+  | "ko" => src.ko
+  | "vi" => src.vi
   | _ => src.en
   }->Promise.thenResolve(messages => {
     Util.startTransition(() => i18n.load(lang, messages.messages))
@@ -86,6 +90,8 @@ let loadMessagesForDetected = src => lang => {
   | "th" => src.th
   | "zh-TW" => src.zhTW
   | "zh-CN" => src.zhCN
+  | "ko" => src.ko
+  | "vi" => src.vi
   | _ => src.en
   }->Promise.thenResolve(messages => {
     Util.startTransition(() => detectedI18n.load(lang, messages.messages))

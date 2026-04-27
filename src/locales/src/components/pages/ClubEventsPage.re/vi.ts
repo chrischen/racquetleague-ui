@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RHXPYf\":\"Thêm sự kiện\",\"L1a7FJ\":\"Không tìm thấy câu lạc bộ\",\"PiH3UR\":\"Đã sao chép!\",\"ARXLj+\":\"Đang tải sự kiện...\",\"uIZ2tg\":\"Chia sẻ liên kết\"}");

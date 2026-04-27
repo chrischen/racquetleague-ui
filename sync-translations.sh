@@ -4,3 +4,5 @@ find src/locales/src/components -name "ja.po" -type f -exec msgmerge --compendiu
 find src/locales/src/components -name "th.po" -type f -exec msgmerge --compendium src/locales/th.po /dev/null {} -o {} \;
 find src/locales/src/components -name "zh-TW.po" -type f -exec msgmerge --compendium src/locales/zh-TW.po /dev/null {} -o {} \;
 find src/locales/src/components -name "zh-CN.po" -type f -exec msgmerge --compendium src/locales/zh-CN.po /dev/null {} -o {} \;
+find src/locales/src/components -name "ko.po" -type f -exec msgmerge --compendium src/locales/ko.po /dev/null {} -o {} \;
+find src/locales/src/components -name "vi.po" -type f -exec msgmerge --compendium src/locales/vi.po /dev/null {} -o {} \;

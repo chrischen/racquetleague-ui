@@ -1,0 +1,215 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:248
+msgid ""
+"As mentioned above, public games are not really a thing in Japan. However, "
+"you can find some public games on the home page of this website. They will "
+"tend to be full with a waitlist so just join the waitlist and cross your "
+"fingers. 5-6 spots tend to open up the day of the event as people cancel "
+"last minute."
+msgstr ""
+"Như đã đề cập ở trên, các trận đấu công khai không thực sự phổ biến ở Nhật "
+"Bản. Tuy nhiên, bạn có thể tìm thấy một số trận đấu công khai trên trang chủ "
+"của trang web này. Chúng thường sẽ đầy với danh sách chờ, vì vậy hãy tham "
+"gia danh sách chờ và hy vọng may mắn. 5-6 chỗ thường mở ra vào ngày sự kiện "
+"khi mọi người hủy vào phút cuối."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid ""
+"Book a court and post the event to Pkuru.com. Please mention the "
+"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
+"new to the community, we recommend you to offer the court for free."
+msgstr ""
+"Đặt sân và đăng sự kiện lên Pkuru.com. Vui lòng đề cập đến chi phí tham gia "
+"và trình độ dự kiến (3.0, 3.5, 4.0, v.v.). Nếu bạn mới tham gia cộng đồng, "
+"chúng tôi khuyến nghị bạn cung cấp sân miễn phí."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:69
+#: src/components/pages/PickleballTokyoPage.re.mjs:98
+#: src/components/pages/PickleballTokyoPage.re.mjs:127
+#: src/components/pages/PickleballTokyoPage.re.mjs:156
+#: src/components/pages/PickleballTokyoPage.re.mjs:185
+msgid "Book the Court"
+msgstr "Đặt sân"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:178
+msgid "Create an Event at Hilton Tokyo Tennis Courts"
+msgstr "Tạo sự kiện tại Sân tennis Hilton Tokyo"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:62
+msgid "Create an Event at KPI Park"
+msgstr "Tạo sự kiện tại KPI Park"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:205
+msgid ""
+"Create an event at one of the locations above (use the buttons above). Make "
+"the event public so people can join you."
+msgstr ""
+"Tạo sự kiện tại một trong các địa điểm trên (sử dụng các nút ở trên). Đặt sự "
+"kiện ở chế độ công khai để mọi người có thể tham gia."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:91
+msgid "Create an Event at Pacific Pickle Club"
+msgstr "Tạo sự kiện tại Pacific Pickle Club"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Pickleball One"
+msgstr "Tạo sự kiện tại Pickleball One"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:120
+msgid "Create an Event at Tokyo Tower Pickleball"
+msgstr "Tạo sự kiện tại Tokyo Tower Pickleball"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:168
+msgid "Hilton Tokyo Tennis Courts (painted lines)"
+msgstr "Sân tennis Hilton Tokyo (vẽ đường kẻ)"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:199
+msgid "How to Find Players in Tokyo"
+msgstr "Cách tìm người chơi ở Tokyo"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:244
+msgid "How to Find Public Games"
+msgstr "Cách tìm trận đấu công khai"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:19
+msgid "How to Play Pickleball in Tokyo"
+msgstr "Cách chơi Pickleball ở Tokyo"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:23
+msgid ""
+"Japan does not really have public drop in courts or games. Most pickleball "
+"games happen indoors at community center and school gymnasiums (multi-use "
+"gyms) or on private tennis/pickleball courts and these all require "
+"reservations for court time, or reservations to join the events. Many of the "
+"public facilities do not allow groups to advertise to the public, which "
+"makes it difficult for new players or visitors to drop in on sessions."
+msgstr ""
+"Nhật Bản không thực sự có sân công khai hoặc trận đấu tự do. Hầu hết các "
+"trận pickleball diễn ra trong nhà tại các trung tâm cộng đồng và nhà thể "
+"chất trường học hoặc trên sân tennis/pickleball tư nhân và tất cả đều yêu "
+"cầu đặt chỗ trước. Nhiều cơ sở công cộng không cho phép các nhóm quảng cáo "
+"ra ngoài, khiến người chơi mới hoặc du khách khó có thể tham gia các buổi "
+"tập."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:33
+msgid ""
+"Join any public events on Pkuru.com (this website). If you find an event "
+"without the 'lock' icon and which has a join button, then you can join."
+msgstr ""
+"Tham gia bất kỳ sự kiện công khai nào trên Pkuru.com (trang web này). Nếu "
+"bạn tìm thấy sự kiện không có biểu tượng 'khóa' và có nút tham gia, thì bạn "
+"có thể tham gia."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:52
+msgid "KPI Park in Kanagawa/Yokohama"
+msgstr "KPI Park ở Kanagawa/Yokohama"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:39
+msgid "Message @japanpickle on Instagram for referrals or questions"
+msgstr ""
+"Nhắn tin @japanpickle trên Instagram để được giới thiệu hoặc đặt câu hỏi"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"One full court is available and one \\\"fun\\\" court (half-sized). The full "
+"court has narrow space on the sides."
+msgstr ""
+"Có một sân đầy đủ và một sân \"vui\" (nửa kích thước). Sân đầy đủ có không "
+"gian hẹp ở các cạnh."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:81
+msgid "Pacific Pickle Club at Ariake"
+msgstr "Pacific Pickle Club tại Ariake"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
+msgstr "Pickleball One Ginza Shimbashi (sân cứng trong nhà)"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:257
+msgid ""
+"Please do not show up to any events without permission and only if you are "
+"in the confirmed going list. Indoor events always require a set of clean "
+"indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr ""
+"Vui lòng không đến bất kỳ sự kiện nào mà không có sự cho phép và chỉ khi bạn "
+"trong danh sách xác nhận tham dự. Các sự kiện trong nhà luôn yêu cầu đôi "
+"giày sân trong nhà sạch. Họ rất nghiêm túc về điều này ở Nhật Bản."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:231
+msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
+msgstr "Đăng lên nhóm JPAA trên Facebook (chủ yếu tiếng Nhật)"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:209
+msgid "Post it to the Pickeball in Tokyo Facebook Group:"
+msgstr "Đăng lên nhóm Pickleball in Tokyo trên Facebook:"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:220
+msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
+msgstr "Đăng lên nhóm pickleball Yokosuka (căn cứ hải quân Mỹ) trên Facebook:"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:27
+msgid ""
+"So, how can one play pickleball in Tokyo then as a tourist, recent "
+"transplant, or a beginner?"
+msgstr ""
+"Vậy, làm thế nào để chơi pickleball ở Tokyo với tư cách là khách du lịch, "
+"người mới đến, hoặc người mới bắt đầu?"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:252
+msgid ""
+"Some events are restricted by level. If you are restricted, just type in "
+"your DUPR rating as a comment with your RSVP."
+msgstr ""
+"Một số sự kiện bị giới hạn theo trình độ. Nếu bạn bị giới hạn, chỉ cần nhập "
+"xếp hạng DUPR của bạn dưới dạng bình luận với RSVP của bạn."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:54
+msgid ""
+"The courts require reservations but there are 10 courts and it's generally "
+"available last minute. Therefore you can book the courts just-in-time once "
+"you've already gathered the players."
+msgstr ""
+"Các sân yêu cầu đặt trước nhưng có 10 sân và thường có sẵn vào phút cuối. Vì "
+"vậy, bạn có thể đặt sân ngay khi đã tập hợp đủ người chơi."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:83
+msgid ""
+"The courts require reservations but there are only 2 courts so you will need "
+"to book in advance. They also hold open play sessions but the level may be "
+"low to complete beginner."
+msgstr ""
+"Các sân yêu cầu đặt trước nhưng chỉ có 2 sân, vì vậy bạn cần đặt trước. Họ "
+"cũng tổ chức các buổi chơi tự do nhưng trình độ có thể thấp đến người mới "
+"hoàn toàn."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:110
+msgid "Tokyo Tower Pickleball"
+msgstr "Tokyo Tower Pickleball"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:112
+msgid "Two courts are available. Conditions may be windy."
+msgstr "Có hai sân. Điều kiện có thể có gió."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:170
+msgid ""
+"Two courts are available. More expensive than other courts and the "
+"conditions can be windy."
+msgstr "Có hai sân. Đắt hơn các sân khác và điều kiện có thể có gió."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:45
+msgid "Where to Book Courts in Tokyo"
+msgstr "Nơi đặt sân ở Tokyo"

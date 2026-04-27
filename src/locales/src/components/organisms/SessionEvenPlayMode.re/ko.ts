@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"d8/6/v\":\"취소\",\"+iFi9C\":[\"몇 명이 쉬어야 하나요? (현재 \",[\"0\"],\"명 휴식 중)\"],\"lMpZmf\":\"저장\",\"BL2t/n\":\"현재 쉬고 있는 플레이어 수로 설정하면 경기 횟수를 균등하게 조정합니다. 0으로 설정하면 비활성화하고 경기 품질을 최적화하지만, 일부 플레이어가 더 많은 경기를 할 수 있습니다.\"}");

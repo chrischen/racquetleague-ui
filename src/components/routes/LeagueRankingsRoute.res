@@ -34,6 +34,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/LeagueRankingsPage.re/vi"),
 })
 
 type loaderData = LeagueRankingsPage.loaderData

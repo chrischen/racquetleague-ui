@@ -8,7 +8,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/organisms/Calendar.re/ja"),
       th: import("../../locales/src/components/organisms/Calendar.re/th"),
       zhTW: import("../../locales/src/components/organisms/Calendar.re/zh-TW"),
-      zhCN: import("../../locales/src/components/organisms/Calendar.re/zh-CN")
+      zhCN: import("../../locales/src/components/organisms/Calendar.re/zh-CN"),
+      ko: import("../../locales/src/components/organisms/Calendar.re/ko"),
+      vi: import("../../locales/src/components/organisms/Calendar.re/vi")
     });
 
 var Component = Calendar.make;

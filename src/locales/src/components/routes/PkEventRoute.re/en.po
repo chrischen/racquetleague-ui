@@ -13,20 +13,24 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "...more"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:349
+#: src/components/organisms/PkRSVPSection.re.mjs:407
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:347
+#: src/components/organisms/PkRSVPSection.re.mjs:405
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:344
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "{0} joined"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
 msgstr ""
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
@@ -37,7 +41,7 @@ msgstr ""
 msgid "Add a message..."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr ""
 
@@ -49,11 +53,15 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "cancel event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "CANCELED"
 msgstr ""
 
@@ -61,16 +69,16 @@ msgstr ""
 #~ msgid "Casual"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:388
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Claim spot"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:260
+#: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:552
 msgid "Confirmed · {0}"
 msgstr ""
 
@@ -95,15 +103,20 @@ msgstr ""
 msgid "Delete this match?"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:283
+#: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:73
+#: src/components/organisms/ProfileModal.re.mjs:106
 msgid "Display name is required"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:257
 msgid "edit event"
 msgstr ""
 
@@ -111,19 +124,19 @@ msgstr ""
 msgid "Edit match"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:300
+#: src/components/organisms/ProfileModal.re.mjs:375
 msgid "Email address"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:226
 msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "Email cannot be changed"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:76
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Email is required"
 msgstr ""
 
@@ -131,11 +144,15 @@ msgstr ""
 msgid "Enter Match Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:777
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:752
 msgid "Event not found"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr ""
 
@@ -143,15 +160,23 @@ msgstr ""
 msgid "Event updated"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:585
+#: src/components/pages/PkEventPage.re.mjs:560
 msgid "Free"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr ""
 
@@ -159,11 +184,11 @@ msgstr ""
 #~ msgid "Host"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Join waitlist"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:388
 msgid "Join waitlist (#{0})"
 msgstr ""
 
@@ -171,19 +196,19 @@ msgstr ""
 msgid "Last Round"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pages/PkEventPage.re.mjs:369
 msgid "Leave"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:714
+#: src/components/pages/PkEventPage.re.mjs:689
 msgid "Leave event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "less"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:603
+#: src/components/pages/PkEventPage.re.mjs:578
 msgid "Location"
 msgstr ""
 
@@ -191,12 +216,24 @@ msgstr ""
 msgid "Losing Team (Team {0})"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:128
@@ -204,7 +241,7 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr ""
 
@@ -212,15 +249,15 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:667
+#: src/components/pages/PkEventPage.re.mjs:642
 msgid "Notes from the host"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:327
+#: src/components/organisms/PkRSVPSection.re.mjs:385
 msgid "Participants"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:579
+#: src/components/organisms/PkRSVPSection.re.mjs:681
 msgid "Pending · {0}"
 msgstr ""
 
@@ -228,15 +265,21 @@ msgstr ""
 #~ msgid "Player"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:550
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:565
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
 msgstr ""
 
@@ -244,7 +287,7 @@ msgstr ""
 msgid "Rebalance match"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:52
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
@@ -260,15 +303,15 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:253
+#: src/components/organisms/PkRSVPSection.re.mjs:311
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr ""
 
@@ -284,7 +327,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:429
 msgid "Save & Join Event"
 msgstr ""
 
@@ -305,8 +348,12 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:173
@@ -321,15 +368,15 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:715
+#: src/components/pages/PkEventPage.re.mjs:690
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:207
+#: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr ""
 
@@ -337,11 +384,15 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:263
 msgid "uncancel event"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr ""
 
@@ -359,11 +410,11 @@ msgstr ""
 msgid "VS"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:515
+#: src/components/organisms/PkRSVPSection.re.mjs:617
 msgid "Waitlist · {0}"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:264
+#: src/components/organisms/ProfileModal.re.mjs:339
 msgid "We need a few details before you can join this event"
 msgstr ""
 
@@ -371,6 +422,6 @@ msgstr ""
 msgid "Winning Team (Team {0})"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""

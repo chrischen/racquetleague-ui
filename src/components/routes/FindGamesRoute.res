@@ -30,6 +30,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/FindGamesPage.re/vi"),
 })
 // Debug code to delay client message bundle loading
 // ->Promise.then(messages =>

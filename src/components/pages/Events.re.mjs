@@ -88,7 +88,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/Events.re/ja"),
       th: import("../../locales/src/components/pages/Events.re/th"),
       zhTW: import("../../locales/src/components/pages/Events.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/Events.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/Events.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/Events.re/ko"),
+      vi: import("../../locales/src/components/pages/Events.re/vi")
     });
 
 async function loader(param) {
@@ -98,7 +100,9 @@ async function loader(param) {
     "ja",
     "th",
     "zh-TW",
-    "zh-CN"
+    "zh-CN",
+    "ko",
+    "vi"
   ];
   var lang = params.lang;
   if (lang !== undefined && !validLangs.includes(lang)) {

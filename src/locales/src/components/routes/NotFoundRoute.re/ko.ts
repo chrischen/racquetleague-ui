@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"aUpomp\":\"페이지를 찾을 수 없습니다.\"}");

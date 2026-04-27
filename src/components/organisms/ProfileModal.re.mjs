@@ -14,6 +14,7 @@ import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragme
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as Zod$1 from "@hookform/resolvers/zod";
 import * as ProfileModal_viewer_graphql from "../../__generated__/ProfileModal_viewer_graphql.re.mjs";
+import * as ProfileModalUpdateProfileMutation_graphql from "../../__generated__/ProfileModalUpdateProfileMutation_graphql.re.mjs";
 import * as ProfileModalUpdateViewerContactMutation_graphql from "../../__generated__/ProfileModalUpdateViewerContactMutation_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
@@ -46,9 +47,35 @@ var UpdateViewerContactMutation = {
   use: use
 };
 
+var convertVariables$1 = ProfileModalUpdateProfileMutation_graphql.Internal.convertVariables;
+
+var convertResponse$1 = ProfileModalUpdateProfileMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = ProfileModalUpdateProfileMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, ProfileModalUpdateProfileMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, ProfileModalUpdateProfileMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var UpdateProfileMutation_gender_decode = ProfileModalUpdateProfileMutation_graphql.Utils.gender_decode;
+
+var UpdateProfileMutation_gender_fromString = ProfileModalUpdateProfileMutation_graphql.Utils.gender_fromString;
+
+var UpdateProfileMutation = {
+  gender_decode: UpdateProfileMutation_gender_decode,
+  gender_fromString: UpdateProfileMutation_gender_fromString,
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  commitMutation: commitMutation$1,
+  use: use$1
+};
+
 var convertFragment = ProfileModal_viewer_graphql.Internal.convertFragment;
 
-function use$1(fRef) {
+function use$2(fRef) {
   return RescriptRelay_Fragment.useFragment(ProfileModal_viewer_graphql.node, convertFragment, fRef);
 }
 
@@ -56,11 +83,17 @@ function useOpt(fRef) {
   return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, ProfileModal_viewer_graphql.node, convertFragment);
 }
 
+var Fragment_gender_decode = ProfileModal_viewer_graphql.Utils.gender_decode;
+
+var Fragment_gender_fromString = ProfileModal_viewer_graphql.Utils.gender_fromString;
+
 var Fragment = {
+  gender_decode: Fragment_gender_decode,
+  gender_fromString: Fragment_gender_fromString,
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment,
-  use: use$1,
+  use: use$2,
   useOpt: useOpt
 };
 
@@ -81,7 +114,7 @@ function ProfileModal(props) {
   var onProfileComplete = props.onProfileComplete;
   var onClose = props.onClose;
   var isOpen = props.isOpen;
-  var data = use$1(props.query);
+  var fragmentData = use$2(props.query);
   var match = React.useState(function () {
         return false;
       });
@@ -95,32 +128,52 @@ function ProfileModal(props) {
   var match$2 = use();
   var isMutationInFlight = match$2[1];
   var commitMutation = match$2[0];
-  var existingEmail = Core__Option.flatMap(Core__Option.flatMap(data.viewer, (function (v) {
-              return v.user;
+  var match$3 = use$1();
+  var commitUpdateProfile = match$3[0];
+  var match$4 = React.useState(function () {
+        return Core__Option.flatMap(Core__Option.flatMap(Core__Option.flatMap(fragmentData.viewer, (function (v) {
+                              return v.profile;
+                            })), (function (u) {
+                          return u.gender;
+                        })), (function (g) {
+                      if (g === "female" || g === "male") {
+                        if (g === "female") {
+                          return "female";
+                        } else {
+                          return "male";
+                        }
+                      }
+                      
+                    }));
+      });
+  var setGender = match$4[1];
+  var gender = match$4[0];
+  var existingEmail = Core__Option.flatMap(Core__Option.flatMap(fragmentData.viewer, (function (v) {
+              return v.profile;
             })), (function (u) {
           return u.email;
         }));
   var emailExists = Core__Option.getOr(Core__Option.map(existingEmail, (function (email) {
               return email !== "";
             })), false);
-  var match$3 = ReactHookForm.useForm({
+  var match$5 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: {
-          lineUsername: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(data.viewer, (function (v) {
-                          return v.user;
+          lineUsername: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(fragmentData.viewer, (function (v) {
+                          return v.profile;
                         })), (function (u) {
                       return u.lineUsername;
                     })), ""),
-          email: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(data.viewer, (function (v) {
-                          return v.user;
+          email: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(fragmentData.viewer, (function (v) {
+                          return v.profile;
                         })), (function (u) {
                       return u.email;
                     })), "")
         }
       });
-  var formState = match$3.formState;
-  var handleSubmit = match$3.handleSubmit;
-  var register = match$3.register;
+  var formState = match$5.formState;
+  var handleSubmit = match$5.handleSubmit;
+  var register = match$5.register;
   React.useEffect((function () {
           if (isOpen) {
             setIsAnimating(function (param) {
@@ -141,6 +194,24 @@ function ProfileModal(props) {
     setEmailError(function (param) {
           
         });
+    if (gender !== undefined) {
+      commitUpdateProfile({
+            input: {
+              biography: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(fragmentData.viewer, (function (v) {
+                              return v.profile;
+                            })), (function (u) {
+                          return u.biography;
+                        })), ""),
+              fullName: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(fragmentData.viewer, (function (v) {
+                              return v.profile;
+                            })), (function (u) {
+                          return u.fullName;
+                        })), ""),
+              gender: gender,
+              username: data.lineUsername
+            }
+          }, undefined, undefined, undefined, undefined, undefined, undefined);
+    }
     commitMutation({
           input: {
             email: data.email,
@@ -233,6 +304,10 @@ function ProfileModal(props) {
                               className: "text-xs text-gray-500 mt-1"
                             });
                     }
+                    var tmp$2;
+                    tmp$2 = gender !== undefined ? (
+                        gender === "female" ? "female" : "male"
+                      ) : "";
                     return JsxRuntime.jsxs("div", {
                                 children: [
                                   JsxRuntime.jsx("div", {
@@ -310,6 +385,45 @@ function ProfileModal(props) {
                                                           tmp$1
                                                         ]
                                                       }),
+                                                  JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsx("label", {
+                                                                children: t`Gender`,
+                                                                className: "block text-sm font-medium text-gray-700 mb-2"
+                                                              }),
+                                                          JsxRuntime.jsxs("select", {
+                                                                children: [
+                                                                  JsxRuntime.jsx("option", {
+                                                                        children: t`Prefer not to say`,
+                                                                        value: ""
+                                                                      }),
+                                                                  JsxRuntime.jsx("option", {
+                                                                        children: t`Male`,
+                                                                        value: "male"
+                                                                      }),
+                                                                  JsxRuntime.jsx("option", {
+                                                                        children: t`Female`,
+                                                                        value: "female"
+                                                                      })
+                                                                ],
+                                                                className: "block w-full rounded-lg border border-gray-200 py-2.5 pl-3 pr-10 text-gray-900 focus:ring-2 focus:ring-blue-500 sm:text-sm",
+                                                                value: tmp$2,
+                                                                onChange: (function (e) {
+                                                                    var value = e.target.value;
+                                                                    setGender(function (param) {
+                                                                          switch (value) {
+                                                                            case "female" :
+                                                                                return "female";
+                                                                            case "male" :
+                                                                                return "male";
+                                                                            default:
+                                                                              return ;
+                                                                          }
+                                                                        });
+                                                                  })
+                                                              })
+                                                        ]
+                                                      }),
                                                   JsxRuntime.jsx("div", {
                                                         children: JsxRuntime.jsx("button", {
                                                               children: t`Save & Join Event`,
@@ -348,6 +462,7 @@ var make = ProfileModal;
 export {
   ts ,
   UpdateViewerContactMutation ,
+  UpdateProfileMutation ,
   Fragment ,
   ControllerOfInputs ,
   schema ,

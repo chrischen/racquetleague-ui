@@ -15,45 +15,45 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:762
+#: src/components/pages/Event.re.mjs:764
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:765
+#: src/components/pages/Event.re.mjs:767
 msgid "Table Tennis"
 msgstr "ปิงปอง"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:768
+#: src/components/pages/Event.re.mjs:770
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:771
+#: src/components/pages/Event.re.mjs:773
 msgid "Futsal"
 msgstr "ฟุตซอล"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:774
+#: src/components/pages/Event.re.mjs:776
 msgid "drill"
 msgstr "ฝึกซ้อม"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:777
+#: src/components/pages/Event.re.mjs:779
 msgid "comp"
 msgstr "แข่ง"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:780
+#: src/components/pages/Event.re.mjs:782
 msgid "rec"
 msgstr "บันเทิง"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:783
+#: src/components/pages/Event.re.mjs:785
 msgid "all level"
 msgstr "ทุกระดับ"
 
@@ -78,7 +78,7 @@ msgstr "กิจกรรม"
 msgid "Add Member"
 msgstr "เพิ่มสมาชิก"
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "ผู้เล่นระดับสูง"
 
@@ -122,7 +122,7 @@ msgstr "กิจกรรม @"
 msgid "event doesn't exist"
 msgstr "ไม่มีกิจกรรมนี้"
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "แท็กกิจกรรม: {tag}"
 
@@ -142,7 +142,7 @@ msgstr "Google Calendar"
 msgid "guest list"
 msgstr "รายชื่อแขก"
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 
@@ -190,11 +190,11 @@ msgstr "เข้าสู่ระบบเพื่อเข้าร่วม
 msgid "login to subscribe to {activityName} events"
 msgstr "เข้าสู่ระบบเพื่อติดตามกิจกรรม {activityName}"
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "ระดับกลางขั้นต้นขึ้นไป"
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "การแข่งขันจะถูกส่งไปยัง DUPR"
 
@@ -215,7 +215,7 @@ msgstr "ยังไม่มีกิจกรรม"
 msgid "no players yet"
 msgstr "ยังไม่มีผู้เล่น"
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
 
@@ -240,11 +240,21 @@ msgstr "รอการอนุมัติ"
 msgid "Player"
 msgstr "ผู้เล่น"
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr "ไม่เปิดเผย"
+
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr "ผู้เล่นมืออาชีพ"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
+msgstr "มีการจัดอันดับ"
+
+#: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
@@ -261,7 +271,7 @@ msgstr "ลบการยืนยันนี้"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
 
@@ -298,7 +308,7 @@ msgid ""
 "rules."
 msgstr "การมาโดยไม่ได้รับอนุญาตอาจส่งผลให้ถูกแบนเนื่องจากการไม่ปฏิบัติตาม กฎ"
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
@@ -328,7 +338,7 @@ msgstr ""
 "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
 "คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
@@ -366,7 +376,7 @@ msgstr "เลิกยกเลิกกิจกรรม"
 msgid "unsubscribe from {activityName} events"
 msgstr "ยกเลิกการติดตามกิจกรรม {activityName}"
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "ระดับกลางขั้นบนขึ้นไป"
 

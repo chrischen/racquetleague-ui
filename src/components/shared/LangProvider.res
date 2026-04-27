@@ -157,6 +157,8 @@ module DetectedLang = {
               th: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/th"),
               zhTW: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-TW"),
               zhCN: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-CN"),
+              ko: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/ko"),
+              vi: Lingui.import("../../locales/src/components/pages/DefaultLayoutMap.re/vi"),
             }),
           )->Promise.thenResolve(
             _ => {

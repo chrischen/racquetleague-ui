@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"GsQP9B\":\"Điều chỉnh hạt giống người chơi\",\"dEgA5A\":\"Hủy\",\"B2CXh/\":\"Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu\",\"60TdtF\":\"mu\",\"dQttgC\":\"Lưu điều chỉnh hạt giống\"}");

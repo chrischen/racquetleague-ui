@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"dVOfnR\":[\"코트 \",[\"0\"],\" - 편집 중\"],\"8lPbOs\":\"경기 삭제\",\"tfDRzk\":\"저장\",\"Eq6YVV\":\"점수\",\"eDYecJ\":\"팀 1\",\"fGWgUv\":\"팀 2\",\"tP6Aw4\":\"VS\"}");

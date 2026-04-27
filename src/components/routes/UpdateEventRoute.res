@@ -29,6 +29,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/UpdateEventPage.re/vi"),
 })
 
 @genType

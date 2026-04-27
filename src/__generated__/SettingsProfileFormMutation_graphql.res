@@ -12,7 +12,10 @@ module Types = {
   @live
   and response_updateProfile_viewer = {
     biography: option<string>,
+    email: option<string>,
     fullName: option<string>,
+    gender: option<RelaySchemaAssets_graphql.enum_Gender>,
+    @live id: string,
     lineUsername: option<string>,
   }
   @live
@@ -83,6 +86,21 @@ module Internal = {
 module Utils = {
   @@warning("-33")
   open Types
+  @live
+  external gender_toString: RelaySchemaAssets_graphql.enum_Gender => string = "%identity"
+  @live
+  external gender_input_toString: RelaySchemaAssets_graphql.enum_Gender_input => string = "%identity"
+  @live
+  let gender_decode = (enum: RelaySchemaAssets_graphql.enum_Gender): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let gender_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    gender_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode
@@ -99,84 +117,101 @@ var v0 = [
 ],
 v1 = [
   {
-    "kind": "Variable",
-    "name": "input",
-    "variableName": "input"
+    "alias": null,
+    "args": [
+      {
+        "kind": "Variable",
+        "name": "input",
+        "variableName": "input"
+      }
+    ],
+    "concreteType": "UpdateProfileResult",
+    "kind": "LinkedField",
+    "name": "updateProfile",
+    "plural": false,
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "User",
+        "kind": "LinkedField",
+        "name": "viewer",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "id",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "lineUsername",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "fullName",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "biography",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "gender",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "email",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Error",
+        "kind": "LinkedField",
+        "name": "errors",
+        "plural": true,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "message",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      }
+    ],
+    "storageKey": null
   }
-],
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "fullName",
-  "storageKey": null
-},
-v3 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "biography",
-  "storageKey": null
-},
-v4 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "lineUsername",
-  "storageKey": null
-},
-v5 = {
-  "alias": null,
-  "args": null,
-  "concreteType": "Error",
-  "kind": "LinkedField",
-  "name": "errors",
-  "plural": true,
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "message",
-      "storageKey": null
-    }
-  ],
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "SettingsProfileFormMutation",
-    "selections": [
-      {
-        "alias": null,
-        "args": (v1/*: any*/),
-        "concreteType": "UpdateProfileResult",
-        "kind": "LinkedField",
-        "name": "updateProfile",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
-            "name": "viewer",
-            "plural": false,
-            "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/),
-              (v4/*: any*/)
-            ],
-            "storageKey": null
-          },
-          (v5/*: any*/)
-        ],
-        "storageKey": null
-      }
-    ],
+    "selections": (v1/*: any*/),
     "type": "Mutation",
     "abstractKey": null
   },
@@ -185,49 +220,15 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "SettingsProfileFormMutation",
-    "selections": [
-      {
-        "alias": null,
-        "args": (v1/*: any*/),
-        "concreteType": "UpdateProfileResult",
-        "kind": "LinkedField",
-        "name": "updateProfile",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
-            "name": "viewer",
-            "plural": false,
-            "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/),
-              (v4/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          },
-          (v5/*: any*/)
-        ],
-        "storageKey": null
-      }
-    ]
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "f1bc27c3bc07f96281642c2824618ccc",
+    "cacheID": "0ad82d0c3e8551a67d1fe2f9a29fb4b4",
     "id": null,
     "metadata": {},
     "name": "SettingsProfileFormMutation",
     "operationKind": "mutation",
-    "text": "mutation SettingsProfileFormMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      fullName\n      biography\n      lineUsername\n      id\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation SettingsProfileFormMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      id\n      lineUsername\n      fullName\n      biography\n      gender\n      email\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

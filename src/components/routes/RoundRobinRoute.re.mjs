@@ -13,7 +13,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/RoundRobinPage.re/ja"),
       th: import("../../locales/src/components/pages/RoundRobinPage.re/th"),
       zhTW: import("../../locales/src/components/pages/RoundRobinPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/RoundRobinPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/RoundRobinPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/RoundRobinPage.re/ko"),
+      vi: import("../../locales/src/components/pages/RoundRobinPage.re/vi")
     });
 
 async function loader(param) {

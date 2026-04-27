@@ -68,7 +68,6 @@ module QueryFragment = %relay(`
   }
 `)
 
-let td = Lingui.UtilString.dynamic
 let ts = Lingui.UtilString.t
 
 type viewerRsvpStatus = Confirmed | Waitlist | Pending
@@ -79,7 +78,9 @@ module ProgressBar = {
     switch total {
     | None =>
       <span className="font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
-        {(Int.toString(filled) ++ " " ++ (ts`players`))->React.string}
+        {(Int.toString(filled) ++
+        " " ++
+        Lingui.UtilString.plural(filled, {one: ts`player`, other: ts`players`}))->React.string}
       </span>
     | Some(total) =>
       let pct = Js.Math.min_int(
@@ -115,7 +116,10 @@ module CapacityCount = {
     | _ => "text-emerald-500 dark:text-emerald-400"
     }
     let label = switch total {
-    | None => Int.toString(filled) ++ " " ++ (ts`players`)
+    | None =>
+      Int.toString(filled) ++
+      " " ++
+      Lingui.UtilString.plural(filled, {one: ts`player`, other: ts`players`})
     | Some(total) => Int.toString(filled) ++ "/" ++ Int.toString(total)
     }
     <span className={"font-mono text-sm font-medium whitespace-nowrap " ++ textColor}>
@@ -353,7 +357,7 @@ let make = (
   let (commitLeave, _) = LeaveEventMutation.use()
   let (showLeaveConfirm, setShowLeaveConfirm) = React.useState(() => false)
   let (isProfileModalOpen, setIsProfileModalOpen) = React.useState(() => false)
-  let (pendingJoinAction, setPendingJoinAction) = React.useState(() => (None: option<unit => unit>))
+  let (pendingJoinAction, setPendingJoinAction) = React.useState((): option<unit => unit> => None)
 
   let getConnectionId = () =>
     RescriptRelay.ConnectionHandler.getConnectionID(__id, "PkEventRow_event_rsvps", ())
@@ -596,32 +600,11 @@ let make = (
             let otherTags = tagsArr->Array.filter(t => t->String.toLowerCase != "comp")
             <ResponsiveTooltip.Provider>
               <div className="flex flex-wrap gap-1.5 mt-0.5">
-                {secret
-                  ? <ResponsiveTooltip content={EventTag.getTagTooltip("unlisted")}>
-                      <span
-                        className="inline-flex items-center gap-1 px-1.5 md:px-2 py-0.5 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-[10px] font-medium whitespace-nowrap">
-                        <Lucide.Lock size=10 strokeWidth={2.5} />
-                        <span className="hidden md:inline"> {(ts`Private`)->React.string} </span>
-                      </span>
-                    </ResponsiveTooltip>
-                  : React.null}
-                {hasComp
-                  ? <ResponsiveTooltip content={EventTag.getTagTooltip("comp")}>
-                      <span
-                        className="inline-flex items-center gap-1 px-1.5 md:px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap">
-                        <Lucide.Trophy size=10 strokeWidth={2.5} />
-                        <span className="hidden md:inline"> {(ts`Rated`)->React.string} </span>
-                      </span>
-                    </ResponsiveTooltip>
-                  : React.null}
+                {secret ? <EventTag tag="unlisted" responsive=true /> : React.null}
+                {hasComp ? <EventTag tag="comp" responsive=true /> : React.null}
                 {otherTags
                 ->Array.mapWithIndex((tag, i) =>
-                  <ResponsiveTooltip key={Int.toString(i)} content={EventTag.getTagTooltip(tag)}>
-                    <span
-                      className="px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap">
-                      {tag->React.string}
-                    </span>
-                  </ResponsiveTooltip>
+                  <EventTag key={Int.toString(i)} tag responsive=true />
                 )
                 ->React.array}
               </div>

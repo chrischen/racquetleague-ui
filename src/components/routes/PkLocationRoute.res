@@ -16,6 +16,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/PkLocationPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/PkLocationPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/PkLocationPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/PkLocationPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/PkLocationPage.re/vi"),
 })
 
 @genType

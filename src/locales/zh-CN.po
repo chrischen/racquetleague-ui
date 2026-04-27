@@ -3800,6 +3800,77 @@ msgstr ""
 msgid "New event"
 msgstr "新建活动"
 
+#: src/components/pkuru/PkEventRow.re.mjs:153
+#: src/components/pkuru/PkEventRow.re.mjs:210
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:154
+#: src/components/pkuru/PkEventRow.re.mjs:211
+msgid "player"
+msgstr "玩家"
+
+#: src/components/organisms/RoundRobin.re.mjs:610
+msgid "Check in at least 4 players to start generating matches"
+msgstr "至少需要4名玩家签到才能开始生成比赛"
+
+#: src/components/organisms/RoundRobin.re.mjs:623
+msgid "Guest player addition UI to be implemented"
+msgstr "访客球员添加界面待实现"
+
+#: src/components/organisms/RoundRobin.re.mjs:327
+msgid "Manage a round-robin tournament with guest players"
+msgstr "管理含访客球员的循环赛"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "不愿透露"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+msgid "gender"
+msgstr "性别"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ 技术"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "平衡"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "均衡"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "中位数"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "混合"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "分布"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "前6均值"
+
+#: src/components/organisms/RoundRobin.re.mjs:679
+msgid "Please update to a recent version of Chrome, Firefox, or Safari."
+msgstr "请更新至最新版本的 Chrome、Firefox 或 Safari。"
+
+#: src/components/organisms/RoundRobin.re.mjs:675
+msgid "Your browser is too old to use this feature."
+msgstr "您的浏览器版本过低，无法使用此功能。"
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"

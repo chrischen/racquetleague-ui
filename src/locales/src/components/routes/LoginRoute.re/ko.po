@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/LoginPage.re.mjs:107
+msgid "An error occurred during sign in. Please try again."
+msgstr "로그인 중 오류가 발생했습니다. 다시 시도하세요."
+
+#: src/components/pages/LoginPage.re.mjs:53
+#: src/components/pages/LoginPage.re.mjs:85
+msgid "An error occurred: {message}"
+msgstr "오류 발생: {message}"
+
+#: src/components/pages/LoginPage.re.mjs:131
+msgid "Back to events"
+msgstr "이벤트로 돌아가기"
+
+#: src/components/pages/LoginPage.re.mjs:73
+#: src/components/pages/LoginPage.re.mjs:75
+msgid "Check your email for a magic link to sign in!"
+msgstr "이메일에서 로그인 마법 링크를 확인하세요!"
+
+#: src/components/pages/LoginPage.re.mjs:194
+msgid "Continue with LINE"
+msgstr "LINE으로 계속"
+
+#: src/components/pages/LoginPage.re.mjs:226
+msgid "Email address"
+msgstr "이메일 주소"
+
+#: src/components/pages/LoginPage.re.mjs:71
+msgid "Failed to send magic link: {0}"
+msgstr "마법 링크 전송 실패: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:40
+msgid "Login failed: {0}"
+msgstr "로그인 실패: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:175
+msgid "New users will be automatically registered"
+msgstr "새 사용자는 자동으로 등록됩니다"
+
+#: src/components/pages/LoginPage.re.mjs:213
+msgid "or continue with email"
+msgstr "또는 이메일로 계속"
+
+#: src/components/pages/LoginPage.re.mjs:267
+msgid "Send magic link"
+msgstr "마법 링크 보내기"
+
+#: src/components/pages/LoginPage.re.mjs:171
+msgid "Sign in to Pkuru.com"
+msgstr "Pkuru.com에 로그인"
+
+#: src/components/pages/LoginPage.re.mjs:103
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"LINE 계정에 연결된 이메일이 없습니다. LINE 앱에서 계정의 이메일 주소를 설정"
+"한 다음 다시 시도하세요."

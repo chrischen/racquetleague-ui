@@ -1,0 +1,156 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/RoundSection.re.mjs:526
+#: src/components/organisms/RoundSection.re.mjs:636
+msgid "{0} {matchText}"
+msgstr "{0} {matchText}"
+
+#: src/components/organisms/RoundSection.re.mjs:174
+msgid "{matchCount, plural, one {{0}} other {{1}}}"
+msgstr "{matchCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/RoundSection.re.mjs:522
+msgid "ACTIVE ROUND"
+msgstr "VÒNG ĐANG DIỄN RA"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:103
+msgid "All checked-in players are already in this round"
+msgstr "Tất cả người chơi đã check-in đều ở trong vòng này"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "Sân {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "Sân {0} - Đang chỉnh sửa"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "Xóa trận đấu"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "Xóa trận đấu này?"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "Chỉnh sửa trận đấu"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "Nhập điểm số trận đấu"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "Vòng cuối"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "Đội thua (Đội {0})"
+
+#: src/components/organisms/RoundSection.re.mjs:175
+msgid "match"
+msgstr "trận đấu"
+
+#: src/components/organisms/RoundSection.re.mjs:176
+msgid "matches"
+msgstr "trận đấu"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:99
+msgid "No available players"
+msgstr "Không có người chơi khả dụng"
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "Không có điểm"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "Cân bằng lại trận đấu"
+
+#: src/components/organisms/RoundSection.re.mjs:545
+msgid "Rebalance this round with current players"
+msgstr "Cân bằng lại vòng này với người chơi hiện tại"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "Lặp lại"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:61
+msgid "Replace Player"
+msgstr "Thay thế người chơi"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:66
+msgid "Replacing:"
+msgstr "Đang thay thế:"
+
+#: src/components/organisms/RoundSection.re.mjs:602
+msgid "Reset this round with all checked-in players"
+msgstr "Đặt lại vòng này với tất cả người chơi đã check-in"
+
+#: src/components/organisms/RoundSection.re.mjs:577
+msgid "Reset this round with mixed gender pairs"
+msgstr "Đặt lại vòng này với các cặp nam nữ hỗn hợp"
+
+#: src/components/organisms/RoundSection.re.mjs:518
+#: src/components/organisms/RoundSection.re.mjs:632
+msgid "Round {0}"
+msgstr "Vòng {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "Lưu"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "Lưu điểm số"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "Điểm số"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:174
+msgid "Skill: {0}"
+msgstr "Kỹ năng: {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "ĐỘI 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "ĐỘI 2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
+"lịch ban đầu bằng biểu tượng đặt lại vòng."
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "Đội thắng (Đội {0})"

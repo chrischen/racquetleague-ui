@@ -1,0 +1,98 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:337
+msgid "Anti-Teams"
+msgstr "Các đội phản"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:152
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:302
+msgid "Create and manage player teams"
+msgstr "Tạo và quản lý các đội người chơi"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Anti-Team"
+msgstr "Tạo đội phản"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Team"
+msgstr "Tạo đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first anti-team to prevent players from pairing"
+msgstr "Tạo đội phản đầu tiên của bạn để ngăn người chơi ghép đôi"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first team to get started"
+msgstr "Tạo đội đầu tiên của bạn để bắt đầu"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:402
+msgid "Delete team"
+msgstr "Xóa đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:390
+msgid "Edit team"
+msgstr "Chỉnh sửa đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:42
+msgid "Edit Team"
+msgstr "Chỉnh sửa đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:71
+msgid "Enter team name"
+msgstr "Nhập tên đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Anti-Team"
+msgstr "Đội phản mới"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Team"
+msgstr "Đội mới"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No anti-teams yet"
+msgstr "Chưa có đội phản"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No teams yet"
+msgstr "Chưa có đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:443
+msgid "Save & Close"
+msgstr "Lưu & Đóng"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:159
+msgid "Save Team"
+msgstr "Lưu đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:298
+msgid "Team Management"
+msgstr "Quản lý đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:86
+msgid "Team Members ({0})"
+msgstr "Thành viên đội ({0})"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:66
+msgid "Team Name"
+msgstr "Tên đội"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:326
+msgid "Teams"
+msgstr "Các đội"

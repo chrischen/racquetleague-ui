@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+msgid "cancel"
+msgstr "hủy"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:38
+msgid "How many players should rest? (currently {0} players are resting)"
+msgstr "Bao nhiêu người chơi nên nghỉ? (hiện có {0} người đang nghỉ)"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+msgid "save"
+msgstr "lưu"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:53
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"Đặt số này bằng số người chơi đang nghỉ để cân bằng số lần thi đấu. Đặt 0 để "
+"tắt và tối ưu hóa chất lượng trận đấu thay thế, nhưng điều này có thể dẫn "
+"đến một số người chơi thi đấu nhiều hơn người khác."

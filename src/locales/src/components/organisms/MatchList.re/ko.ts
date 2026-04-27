@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"KPrAat\":\"...이전 경기 불러오기\",\"z/wCvw\":\"경기 더 불러오기...\",\"HvRBc1\":\"점수:\"}");

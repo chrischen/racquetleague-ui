@@ -7,3 +7,5 @@ msgcat --use-first -o src/locales/ja.po src/locales/ja.po src/locales/src/**/ja.
 msgcat --use-first -o src/locales/th.po src/locales/th.po src/locales/src/**/th.po
 msgcat --use-first -o src/locales/zh-TW.po src/locales/zh-TW.po src/locales/src/**/zh-TW.po
 msgcat --use-first -o src/locales/zh-CN.po src/locales/zh-CN.po src/locales/src/**/zh-CN.po
+msgcat --use-first -o src/locales/ko.po src/locales/ko.po src/locales/src/**/ko.po
+msgcat --use-first -o src/locales/vi.po src/locales/vi.po src/locales/src/**/vi.po

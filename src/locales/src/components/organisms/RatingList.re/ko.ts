@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"k9aPnD\":\"...상위 레이팅 플레이어 불러오기\",\"M9iqFS\":\"여성\",\"UqCm6U\":\"플레이어 더 불러오기...\",\"CvCWBI\":\"남성\"}");

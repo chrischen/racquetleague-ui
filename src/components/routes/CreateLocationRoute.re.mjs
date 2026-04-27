@@ -26,7 +26,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/organisms/CreateLocationForm.re/ja"),
       th: import("../../locales/src/components/organisms/CreateLocationForm.re/th"),
       zhTW: import("../../locales/src/components/organisms/CreateLocationForm.re/zh-TW"),
-      zhCN: import("../../locales/src/components/organisms/CreateLocationForm.re/zh-CN")
+      zhCN: import("../../locales/src/components/organisms/CreateLocationForm.re/zh-CN"),
+      ko: import("../../locales/src/components/organisms/CreateLocationForm.re/ko"),
+      vi: import("../../locales/src/components/organisms/CreateLocationForm.re/vi")
     });
 
 async function loader(param) {

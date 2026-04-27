@@ -16,6 +16,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/LocationPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/LocationPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/LocationPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/LocationPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/LocationPage.re/vi"),
 })
 
 @genType

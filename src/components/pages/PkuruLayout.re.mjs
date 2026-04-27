@@ -762,7 +762,7 @@ function PkuruLayout(props) {
                 JsxRuntime.jsxs(PkuruLayout$Layout, {
                       viewer: match.viewer,
                       children: [
-                        JsxRuntime.jsx(LangProvider.DetectedLang.make, {}),
+                        JsxRuntime.jsx(GlobalQuery.DetectedLang.make, {}),
                         JsxRuntime.jsx(ReactRouterDom.Outlet, {})
                       ]
                     })

@@ -13,7 +13,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/CreateEventPage.re/ja"),
       th: import("../../locales/src/components/pages/CreateEventPage.re/th"),
       zhTW: import("../../locales/src/components/pages/CreateEventPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/CreateEventPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/CreateEventPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/CreateEventPage.re/ko"),
+      vi: import("../../locales/src/components/pages/CreateEventPage.re/vi")
     });
 
 async function loader(param) {

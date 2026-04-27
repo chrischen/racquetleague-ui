@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"vxHMzr\":\"주소\",\"FTtysD\":\"주소가 필요합니다\",\"MEvVfp\":\"아카바네 초등학교\",\"d8/6/v\":\"취소\",\"Px+rYS\":\"세부 정보\",\"ZwC8OW\":\"이 장소에서 열리는 모든 이벤트에 적용될 지침 또는 정보.\",\"vCYnNv\":\"장소\",\"lmnGGX\":\"지도 링크\",\"XmJfZT\":\"이름\",\"26Gms/\":\"이름이 필요합니다\",\"lMpZmf\":\"저장\"}");

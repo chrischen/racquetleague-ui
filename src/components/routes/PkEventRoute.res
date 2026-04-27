@@ -20,6 +20,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/PkEventPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/PkEventPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/PkEventPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/PkEventPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/PkEventPage.re/vi"),
 })
 
 @genType

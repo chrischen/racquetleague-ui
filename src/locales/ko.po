@@ -1,0 +1,3395 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ko\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/AddEventButton.re.mjs:68
+msgid "Add an Event"
+msgstr "이벤트 추가"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:135
+msgid "Add {0}Guest{1}"
+msgstr "{0}게스트{1} 추가"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:47
+msgid "Add Guest Players"
+msgstr "게스트 플레이어 추가"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "Alex Johnson"
+msgstr "Alex Johnson"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:127
+msgid "Cancel"
+msgstr "취소"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:57
+msgid "Close"
+msgstr "닫기"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:84
+msgid "Enter each guest player's name on a new line"
+msgstr "각 게스트 플레이어 이름을 새 줄에 입력하세요"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:71
+msgid "Guest Names (one per line)"
+msgstr "게스트 이름 (줄당 하나)"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "Jane Doe"
+msgstr "Jane Doe"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:76
+msgid "John Smith"
+msgstr "John Smith"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+msgid "Preview ({0} guest{1})"
+msgstr "미리보기 ({0} 게스트{1})"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:113
+msgid "{0} events created!"
+msgstr "{0}개 이벤트가 생성되었습니다!"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:184
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "AI Assistant"
+msgstr "AI 어시스턴트"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:149
+msgid "An error occurred. Please try again."
+msgstr "오류가 발생했습니다. 다시 시도하세요."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid "Answer the questions or provide more details..."
+msgstr "질문에 답하거나 세부 정보를 제공하세요..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Continue"
+msgstr "계속"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Continue the conversation"
+msgstr "대화 계속하기"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create All Events"
+msgstr "모든 이벤트 만들기"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create This Event"
+msgstr "이 이벤트 만들기"
+
+#: src/components/molecules/AIResponseCard.re.mjs:58
+#: src/components/molecules/AIResponseCard.re.mjs:162
+msgid "Date:"
+msgstr "날짜:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "Describe your event"
+msgstr "이벤트를 설명하세요"
+
+#: src/components/molecules/AIResponseCard.re.mjs:105
+msgid "Description:"
+msgstr "설명:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+"예: 센트럴파크에서 매주 목요일 오후 6시 피클볼 모임, 3.5+ 플레이어 대상..."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+msgid "Error creating events. Please try again."
+msgstr "이벤트 생성 오류. 다시 시도하세요."
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Event Details"
+msgstr "이벤트 세부 정보"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Fill with AI"
+msgstr "AI로 채우기"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+msgid "Form filled • Click to expand"
+msgstr "양식 완성 • 클릭하여 펼치기"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+msgid "Generating..."
+msgstr "생성 중..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:137
+msgid "I couldn't process that request. Please try again."
+msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Let AI help you fill out the details below"
+msgstr "AI가 아래 세부 정보를 채우도록 도와드립니다"
+
+#: src/components/molecules/AIResponseCard.re.mjs:90
+#: src/components/molecules/AIResponseCard.re.mjs:194
+msgid "Location:"
+msgstr "장소:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to continue"
+msgstr "⌘+Enter를 눌러 계속"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to generate"
+msgstr "⌘+Enter를 눌러 생성"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:338
+msgid "Reset"
+msgstr "초기화"
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+msgid "Suggested Events"
+msgstr "추천 이벤트"
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+msgid "Title:"
+msgstr "제목:"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:269
+msgid "Ask"
+msgstr "질문"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:150
+msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
+msgstr "다음 달 매주 목요일 아카바네 초등학교에서 오후 7-9시 배드민턴."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+msgid "I can create events for you. Just give me your schedule."
+msgstr "이벤트를 만들어 드릴 수 있습니다. 일정을 알려주세요."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:149
+msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
+msgstr "내일 오후 6-9시 KPI 파크에 5명 필요합니다. 비용 분담."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:279
+msgid "New"
+msgstr "새로 만들기"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:265
+msgid "Processing..."
+msgstr "처리 중..."
+
+#: src/components/organisms/AIAssistantModal.re.mjs:269
+msgid "Reply"
+msgstr "답장"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"이벤트의 시간과 장소 또는 기타 세부 정보를 알려주세요. 포함할 세부 정보를 알"
+"려주시면 번역도 추가할 수 있습니다."
+
+#: src/components/organisms/AiTetsu.re.mjs:1712
+msgid "{0} {breakPlayersDesc} are not playing"
+msgstr "{0} {breakPlayersDesc} 경기 없음"
+
+#: src/components/organisms/MatchesView.re.mjs:232
+msgid "{0} player selected"
+msgstr "{0}명 선택됨"
+
+#: src/components/organisms/MatchesView.re.mjs:233
+msgid "{0} players selected"
+msgstr "{0}명 선택됨"
+
+#: src/components/organisms/AiTetsu.re.mjs:1127
+msgid "{breakPlayersCount, plural, one {player} other {players}}"
+msgstr "{breakPlayersCount, plural, one {플레이어} other {플레이어}}"
+
+#: src/components/organisms/MatchesView.re.mjs:231
+msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
+msgstr "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/MatchesView.re.mjs:257
+#: src/components/organisms/AiTetsu.re.mjs:352
+msgid "# of courts"
+msgstr "코트 수"
+
+#: src/components/organisms/MatchesView.re.mjs:656
+msgid "Actions"
+msgstr "작업"
+
+#: src/components/organisms/AiTetsu.re.mjs:1215
+msgid "Add Guest"
+msgstr "게스트 추가"
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:50
+msgid "Add Guest Player"
+msgstr "게스트 플레이어 추가"
+
+#: src/components/organisms/AiTetsu.re.mjs:1234
+msgid "Add Player"
+msgstr "플레이어 추가"
+
+#: src/components/organisms/MatchesView.re.mjs:133
+msgid "Add/Remove Players"
+msgstr "플레이어 추가/제거"
+
+#: src/components/organisms/AiTetsu.re.mjs:1630
+msgid "Advanced Options"
+msgstr "고급 옵션"
+
+#: src/components/organisms/CompMatch.re.mjs:365
+msgid "Analyzed {0} matches."
+msgstr "{0}경기를 분석했습니다."
+
+#: src/components/organisms/MatchesView.re.mjs:622
+#: src/components/organisms/MatchesView.re.mjs:625
+msgid "and"
+msgstr "및"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+msgid "cancel"
+msgstr "취소"
+
+#: src/components/organisms/AiTetsu.re.mjs:1645
+msgid "Checkin All Players"
+msgstr "모든 플레이어 체크인"
+
+#: src/components/organisms/MatchesView.re.mjs:645
+msgid "Choose Match"
+msgstr "경기 선택"
+
+#: src/components/organisms/MatchesView.re.mjs:553
+msgid "CHOOSE MATCH"
+msgstr "경기 선택"
+
+#: src/components/organisms/AiTetsu.re.mjs:1522
+msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
+msgstr "세션 초기화 (레이팅, 경기 수, 게스트 플레이어)"
+
+#: src/components/ui/ModalDrawer.re.mjs:43
+msgid "Close panel"
+msgstr "패널 닫기"
+
+#: src/components/organisms/CompMatch.re.mjs:230
+msgid "Competitive"
+msgstr "경쟁"
+
+#: src/components/organisms/MatchesView.re.mjs:626
+msgid "Court {0}: {team1} versus {team2}"
+msgstr "코트 {0}: {team1} 대 {team2}"
+
+#: src/components/organisms/AiTetsu.re.mjs:1377
+msgid "Create Anti-Team"
+msgstr "안티팀 만들기"
+
+#: src/components/organisms/AiTetsu.re.mjs:221
+#: src/components/organisms/AiTetsu.re.mjs:1353
+msgid "Create Team"
+msgstr "팀 만들기"
+
+#: src/components/organisms/AiTetsu.re.mjs:1260
+msgid "Done"
+msgstr "완료"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:319
+msgid "Enter Score"
+msgstr "점수 입력"
+
+#: src/components/organisms/AiTetsu.re.mjs:1355
+msgid "Fixed Pair"
+msgstr "고정 페어"
+
+#: src/components/organisms/CompMatch.re.mjs:359
+msgid "Gender Mixed Doubles"
+msgstr "혼합 복식"
+
+#: src/components/organisms/SubmitMatch.re.mjs:390
+msgid "Go Back"
+msgstr "돌아가기"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:38
+msgid "How many players should rest? (currently {0} players are resting)"
+msgstr "몇 명이 쉬어야 하나요? (현재 {0}명 휴식 중)"
+
+#: src/components/organisms/AiTetsu.re.mjs:1516
+msgid "Initialize Ratings"
+msgstr "레이팅 초기화"
+
+#: src/components/organisms/AiTetsu.re.mjs:1596
+msgid "Leaderboard"
+msgstr "리더보드"
+
+#: src/components/organisms/SelectMatch.re.mjs:279
+msgid "left team players"
+msgstr "왼쪽 팀 플레이어"
+
+#: src/components/organisms/SubmitMatch.re.mjs:409
+#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+#: src/components/organisms/AiTetsu.re.mjs:1747
+msgid "Loading"
+msgstr "로딩 중"
+
+#: src/components/organisms/RSVPSection.re.mjs:778
+msgid "Loading..."
+msgstr "로딩 중..."
+
+#: src/components/organisms/AiTetsu.re.mjs:1727
+msgid "manual team"
+msgstr "수동 팀"
+
+#: src/components/organisms/AiTetsu.re.mjs:1764
+msgid "Match History"
+msgstr "경기 기록"
+
+#: src/components/organisms/MatchesView.re.mjs:612
+msgid "Matches"
+msgstr "경기"
+
+#: src/components/organisms/CompMatch.re.mjs:232
+msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
+msgstr "경기는 최대 ±1명의 실력 차이로 배정됩니다."
+
+#: src/components/organisms/CompMatch.re.mjs:237
+msgid "Matches are arranged by skill while mixing strong and weak players."
+msgstr "강한 플레이어와 약한 플레이어를 섞으면서 실력별로 경기를 배정합니다."
+
+#: src/components/organisms/CompMatch.re.mjs:235
+msgid "Mixed"
+msgstr "혼합"
+
+#: src/components/organisms/EventFullNames.re.mjs:97
+msgid "no players yet"
+msgstr "아직 플레이어가 없습니다"
+
+#: src/components/organisms/CompMatch.re.mjs:410
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr ""
+"대기열에 플레이어가 부족합니다. 대기열 탭에서 경기할 플레이어를 선택하세요."
+
+#: src/components/organisms/AiTetsu.re.mjs:1563
+#: src/components/organisms/AiTetsu.re.mjs:1585
+msgid "Offline Mode"
+msgstr "오프라인 모드"
+
+#: src/components/organisms/CompMatch.re.mjs:386
+msgid "Played last round"
+msgstr "지난 라운드 참여"
+
+#: src/components/organisms/EventRsvp.re.mjs:61
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+msgid "Player"
+msgstr "플레이어"
+
+#: src/components/organisms/SessionAddPlayer.re.mjs:42
+msgid "Player Name"
+msgstr "플레이어 이름"
+
+#: src/components/organisms/AiTetsu.re.mjs:1359
+msgid ""
+"Players in a team will always be placed in a match together on the same side."
+msgstr "팀의 플레이어는 항상 같은 편으로 함께 경기에 배정됩니다."
+
+#: src/components/organisms/AiTetsu.re.mjs:1380
+msgid "Players in an anti-team will never be placed in a match together."
+msgstr "안티팀의 플레이어는 절대 함께 경기에 배정되지 않습니다."
+
+#: src/components/organisms/AiTetsu.re.mjs:1438
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
+msgstr "팀의 플레이어는 항상 같은 편으로 함께 경기에 배정됩니다."
+
+#: src/components/organisms/SubmitMatch.re.mjs:311
+#: src/components/organisms/SubmitMatch.re.mjs:357
+#: src/components/organisms/SortableSubmitMatch.re.mjs:353
+#: src/components/organisms/SortableSubmitMatch.re.mjs:403
+msgid "Points"
+msgstr "점수"
+
+#: src/components/organisms/SubmitMatch.re.mjs:52
+#: src/components/organisms/SubmitMatch.re.mjs:64
+#: src/components/organisms/SortableSubmitMatch.re.mjs:57
+#: src/components/organisms/SortableSubmitMatch.re.mjs:69
+msgid "predicted winner"
+msgstr "예상 승자"
+
+#: src/components/organisms/MatchesView.re.mjs:597
+msgid "Queue"
+msgstr "대기열"
+
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
+msgid "Queue All"
+msgstr "모두 대기열에 추가"
+
+#: src/components/organisms/AiTetsu.re.mjs:1638
+msgid "Queue All Players"
+msgstr "모든 플레이어 대기열에 추가"
+
+#: src/components/organisms/SelectMatch.re.mjs:328
+msgid "Queue Match"
+msgstr "경기 대기열에 추가"
+
+#: src/components/organisms/CompMatch.re.mjs:240
+msgid "Random"
+msgstr "랜덤"
+
+#: src/components/organisms/CompMatch.re.mjs:498
+msgid "Recommended Match"
+msgstr "추천 경기"
+
+#: src/components/organisms/SelectMatch.re.mjs:303
+msgid "right team players"
+msgstr "오른쪽 팀 플레이어"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+msgid "save"
+msgstr "저장"
+
+#: src/components/organisms/RSVPSection.re.mjs:260
+#: src/components/pages/Event.re.mjs:179
+msgid "Save"
+msgstr "저장"
+
+#: src/components/organisms/CompMatch.re.mjs:130
+msgid "Select"
+msgstr "선택"
+
+#: src/components/organisms/CompMatch.re.mjs:298
+msgid "Select a tab"
+msgstr "탭 선택"
+
+#: src/components/organisms/AiTetsu.re.mjs:1421
+msgid "Set as Female"
+msgstr "여성으로 설정"
+
+#: src/components/organisms/AiTetsu.re.mjs:1401
+msgid "Set as Male"
+msgstr "남성으로 설정"
+
+#: src/components/organisms/SessionEvenPlayMode.re.mjs:53
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"현재 쉬고 있는 플레이어 수로 설정하면 경기 횟수를 균등하게 조정합니다. 0으로 "
+"설정하면 비활성화하고 경기 품질을 최적화하지만, 일부 플레이어가 더 많은 경기"
+"를 할 수 있습니다."
+
+#: src/components/organisms/AiTetsu.re.mjs:1554
+msgid "Start Session"
+msgstr "세션 시작"
+
+#: src/components/organisms/MatchesView.re.mjs:500
+msgid "START SESSION"
+msgstr "세션 시작"
+
+#: src/components/organisms/SubmitMatch.re.mjs:397
+msgid "Submit Rated"
+msgstr "레이팅 등록 제출"
+
+#: src/components/organisms/MatchesView.re.mjs:519
+msgid "SUBMIT RESULTS"
+msgstr "결과 제출"
+
+#: src/components/organisms/AiTetsu.re.mjs:1755
+msgid "Submitted Matches"
+msgstr "제출된 경기"
+
+#: src/components/organisms/AiTetsu.re.mjs:111
+msgid "Team {0}"
+msgstr "팀 {0}"
+
+#: src/components/organisms/CompMatch.re.mjs:380
+msgid "This team has played before"
+msgstr "이 팀은 이전에 경기했습니다"
+
+#: src/components/organisms/CompMatch.re.mjs:242
+msgid "Totally random teams."
+msgstr "완전 랜덤 팀."
+
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
+msgid "Unqueue All"
+msgstr "모두 대기열에서 제거"
+
+#: src/components/organisms/SubmitMatch.re.mjs:323
+#: src/components/organisms/SubmitMatch.re.mjs:369
+#: src/components/organisms/SortableSubmitMatch.re.mjs:368
+#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+msgid "Winner"
+msgstr "승자"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:191
+msgid "+ Add new club..."
+msgstr "+ 새 클럽 추가..."
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:243
+msgid "Activity"
+msgstr "종목"
+
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "클럽에 대한 간단한 설명..."
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:174
+msgid "Club"
+msgstr "클럽"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:362
+msgid "Club & Activity"
+msgstr "클럽 & 종목"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "클럽 이름"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "클럽 URL"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "클럽명"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "클럽 만들기"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "기본 클럽 종목"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "설명"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "예: City Ballers 클럽"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:324
+msgid "No club"
+msgstr "클럽 없음"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:181
+msgid "No club / Independent event"
+msgstr "클럽 없음 / 독립 이벤트"
+
+#: src/components/pages/PkEventPage.re.mjs:627
+msgid "...more"
+msgstr "...더 보기"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:349
+msgid "· {0} pending"
+msgstr "· {0} 대기 중"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:347
+msgid "· +{0} waitlist"
+msgstr "· +{0} 대기자"
+
+#: src/components/pkuru/PkEventRow.re.mjs:655
+msgid "[missing title]"
+msgstr "[제목 없음]"
+
+#: src/components/organisms/ClubEventsList.re.mjs:104
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{0, plural, one {{1}} other {{2}}}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:344
+msgid "{0} joined"
+msgstr "{0} 참가함"
+
+#: src/components/pkuru/PkEventRow.re.mjs:153
+#: src/components/pkuru/PkEventRow.re.mjs:210
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/shared/EventsListView.re.mjs:106
+msgid "{totalEvents, plural, one {{0}} other {{1}}}"
+msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
+
+#: src/components/shared/EventsListView.re.mjs:119
+msgid "← previous"
+msgstr "← 이전"
+
+#: src/components/organisms/PkEventMessages.re.mjs:433
+msgid "Add a message..."
+msgstr "메시지 추가..."
+
+#: src/components/organisms/ClubEventsList.re.mjs:122
+msgid "Add to {0}"
+msgstr "{0}에 추가"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Advanced players"
+msgstr "상급자"
+
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "참가 승인"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
+
+#: src/components/pages/Event.re.mjs:283
+msgid "cancel event"
+msgstr "이벤트 취소"
+
+#: src/components/pkuru/PkEventRow.re.mjs:741
+msgid "Canceled"
+msgstr "취소됨"
+
+#: src/components/pages/Event.re.mjs:388
+msgid "CANCELED"
+msgstr "취소됨"
+
+#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:463
+msgid "Claim spot"
+msgstr "자리 확보"
+
+#: src/components/organisms/ProfileModal.re.mjs:260
+msgid "Complete your profile"
+msgstr "프로필 완성하기"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:450
+msgid "Confirmed · {0}"
+msgstr "확인됨 · {0}"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "코트 {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "코트 {0} - 편집 중"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "코트:"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "경기 삭제"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "이 경기를 삭제하시겠습니까?"
+
+#: src/components/organisms/ProfileModal.re.mjs:283
+msgid "Display name"
+msgstr "표시 이름"
+
+#: src/components/organisms/ProfileModal.re.mjs:73
+msgid "Display name is required"
+msgstr "표시 이름이 필요합니다"
+
+#: src/components/pages/Event.re.mjs:266
+msgid "edit event"
+msgstr "이벤트 편집"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "경기 편집"
+
+#: src/components/organisms/ProfileModal.re.mjs:300
+msgid "Email address"
+msgstr "이메일 주소"
+
+#: src/components/organisms/ProfileModal.re.mjs:155
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그"
+"인하세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:232
+msgid "Email cannot be changed"
+msgstr "이메일은 변경할 수 없습니다"
+
+#: src/components/organisms/ProfileModal.re.mjs:76
+msgid "Email is required"
+msgstr "이메일이 필요합니다"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "경기 점수 입력"
+
+#: src/components/shared/EventsListView.re.mjs:107
+#: src/components/organisms/ClubEventsList.re.mjs:107
+msgid "event"
+msgstr "이벤트"
+
+#: src/components/pages/PkEventPage.re.mjs:753
+msgid "Event not found"
+msgstr "이벤트를 찾을 수 없습니다"
+
+#: src/components/atoms/EventTag.re.mjs:60
+msgid "Event tag: {tag}"
+msgstr "이벤트 태그: {tag}"
+
+#: src/components/organisms/PkEventMessages.re.mjs:294
+msgid "Event updated"
+msgstr "이벤트가 업데이트되었습니다"
+
+#: src/components/shared/EventsListView.re.mjs:108
+#: src/components/organisms/ClubEventsList.re.mjs:108
+msgid "events"
+msgstr "이벤트"
+
+#: src/components/shared/EventsListView.re.mjs:83
+msgid "Filtered by date"
+msgstr "날짜별 필터"
+
+#: src/components/organisms/ProfileModal.re.mjs:232
+msgid "For event updates and notifications"
+msgstr "이벤트 업데이트 및 알림용"
+
+#: src/components/pages/PkEventPage.re.mjs:585
+msgid "Free"
+msgstr "무료"
+
+#: src/components/organisms/ClubEventsList.re.mjs:245
+msgid "Friday"
+msgstr "금요일"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google 캘린더"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "Highly skilled players"
+msgstr "고급 플레이어"
+
+#: src/components/pkuru/PkEventRow.re.mjs:584
+msgid "Join"
+msgstr "참가"
+
+#: src/components/pages/PkEventPage.re.mjs:463
+msgid "Join waitlist"
+msgstr "대기자 명단 등록"
+
+#: src/components/pages/PkEventPage.re.mjs:389
+msgid "Join waitlist (#{0})"
+msgstr "대기자 명단 등록 (#{0})"
+
+#: src/components/pkuru/PkEventRow.re.mjs:244
+msgid "Joined"
+msgstr "참가함"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "지난 라운드"
+
+#: src/components/pkuru/PkEventRow.re.mjs:583
+#: src/components/pages/PkEventPage.re.mjs:370
+msgid "Leave"
+msgstr "나가기"
+
+#: src/components/pkuru/PkEventRow.re.mjs:866
+#: src/components/pages/PkEventPage.re.mjs:714
+msgid "Leave event"
+msgstr "이벤트 나가기"
+
+#: src/components/pages/PkEventPage.re.mjs:627
+msgid "less"
+msgstr "간략히"
+
+#: src/components/pages/PkEventPage.re.mjs:603
+msgid "Location"
+msgstr "장소"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "패배 팀 (팀 {0})"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Lower intermediate and above"
+msgstr "중하급 이상"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid "Matches will be submitted to DUPR."
+msgstr "경기 결과가 DUPR에 제출됩니다."
+
+#: src/components/organisms/ClubEventsList.re.mjs:233
+msgid "Monday"
+msgstr "월요일"
+
+#: src/components/shared/EventsListView.re.mjs:142
+msgid "more →"
+msgstr "더 보기 →"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "대기 목록으로 이동"
+
+#: src/components/organisms/ClubEventsList.re.mjs:254
+msgid "Next {dayName}"
+msgstr "다음 {dayName}"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "No restriction on skill level. Open to all players."
+msgstr "실력 제한 없음. 모든 플레이어 환영."
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "점수 없음"
+
+#: src/components/pages/PkEventPage.re.mjs:667
+msgid "Notes from the host"
+msgstr "주최자 메모"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:327
+msgid "Participants"
+msgstr "참가자"
+
+#: src/components/organisms/PendingRsvps.re.mjs:58
+msgid "Pending"
+msgstr "대기 중"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:579
+msgid "Pending · {0}"
+msgstr "대기 중 · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:154
+#: src/components/pkuru/PkEventRow.re.mjs:211
+msgid "player"
+msgstr "플레이어"
+
+#: src/components/pkuru/PkEventRow.re.mjs:155
+#: src/components/pkuru/PkEventRow.re.mjs:212
+msgid "players"
+msgstr "플레이어"
+
+#: src/components/pkuru/PkEventRow.re.mjs:699
+#: src/components/pages/PkEventPage.re.mjs:550
+msgid "Private"
+msgstr "비공개"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Professional players"
+msgstr "프로 플레이어"
+
+#: src/components/pkuru/PkEventRow.re.mjs:715
+#: src/components/pages/PkEventPage.re.mjs:565
+msgid "Rated"
+msgstr "레이팅"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "경기 재조정"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "이벤트에서 제거"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "이 RSVP 제거"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "반복"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:253
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "필수: DUPR {minDuprStr}+"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:274
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "참가하려면 DUPR {minDuprStr}+ 필요"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Results will be submitted to competitive ratings."
+msgstr "결과가 경쟁 레이팅에 제출됩니다."
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "라운드 {0}"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "라운드 로빈 대진"
+
+#: src/components/organisms/ClubEventsList.re.mjs:248
+msgid "Saturday"
+msgstr "토요일"
+
+#: src/components/organisms/ProfileModal.re.mjs:315
+msgid "Save & Join Event"
+msgstr "저장 & 이벤트 참가"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "점수 저장"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "점수"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show all {0} items"
+msgstr "전체 {0}개 항목 보기"
+
+#: src/components/organisms/GoingRsvps.re.mjs:140
+msgid "Show less"
+msgstr "간략히 보기"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "기술 향상을 위한 스킬 연습 및 드릴"
+
+#: src/components/shared/EventsListView.re.mjs:109
+msgid "SORTED BY START TIME"
+msgstr "시작 시간 순 정렬"
+
+#: src/components/organisms/ClubEventsList.re.mjs:230
+msgid "Sunday"
+msgstr "일요일"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "캘린더 동기화"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "팀 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "팀 2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
+"복원할 수 있습니다."
+
+#: src/components/pkuru/PkEventRow.re.mjs:867
+#: src/components/pages/PkEventPage.re.mjs:715
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr ""
+"대기자 명단에 플레이어가 있습니다. 나가면 자리가 다음 사람에게 넘어갑니다. 확"
+"실합니까?"
+
+#: src/components/atoms/EventTag.re.mjs:58
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유하지 마세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:207
+msgid "This is how others will see you"
+msgstr "다른 사람들에게 이렇게 보입니다"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
+"다. RSVP를 제한하시겠습니까?"
+
+#: src/components/organisms/ClubEventsList.re.mjs:242
+msgid "Thursday"
+msgstr "목요일"
+
+#: src/components/shared/EventsListView.re.mjs:53
+#: src/components/organisms/ClubEventsList.re.mjs:213
+msgid "Today"
+msgstr "오늘"
+
+#: src/components/shared/EventsListView.re.mjs:57
+#: src/components/organisms/ClubEventsList.re.mjs:219
+msgid "Tomorrow"
+msgstr "내일"
+
+#: src/components/organisms/ClubEventsList.re.mjs:236
+msgid "Tuesday"
+msgstr "화요일"
+
+#: src/components/pages/Event.re.mjs:272
+msgid "uncancel event"
+msgstr "이벤트 취소 해제"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Upper intermediate and above"
+msgstr "중상급 이상"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "전체 대진 보기"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "프로필 보기"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/RsvpWaitlist.re.mjs:60
+msgid "Waitlist"
+msgstr "대기자 명단"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:515
+msgid "Waitlist · {0}"
+msgstr "대기자 명단 · {0}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:276
+msgid "Waitlisted"
+msgstr "대기자 명단 등록됨"
+
+#: src/components/organisms/ProfileModal.re.mjs:264
+msgid "We need a few details before you can join this event"
+msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
+
+#: src/components/organisms/ClubEventsList.re.mjs:239
+msgid "Wednesday"
+msgstr "수요일"
+
+#: src/components/shared/EventsListView.re.mjs:61
+msgid "Weekend"
+msgstr "주말"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "승리 팀 (팀 {0})"
+
+#: src/components/organisms/ClubEventsList.re.mjs:253
+msgid "Yesterday"
+msgstr "어제"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:257
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"레이팅 {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi})이 최소값보다 낮습니다. 대기 목록에 배치됩니다."
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:132
+#: src/components/pages/Event.re.mjs:764
+msgid "Badminton"
+msgstr "배드민턴"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:136
+#: src/components/pages/Event.re.mjs:767
+msgid "Table Tennis"
+msgstr "탁구"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:140
+#: src/components/pages/Event.re.mjs:770
+msgid "Pickleball"
+msgstr "피클볼"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:144
+#: src/components/pages/Event.re.mjs:773
+msgid "Futsal"
+msgstr "풋살"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:327
+msgid "Basketball"
+msgstr "농구"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:331
+msgid "Volleyball"
+msgstr "배구"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:115
+msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:116
+msgid ""
+"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
+"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:60
+msgid "activity is required"
+msgstr "종목이 필요합니다"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:211
+#: src/components/organisms/CreateClubEventsForm.re.mjs:295
+msgid "Create Events"
+msgstr "이벤트 만들기"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:215
+msgid "Create multiple events at once"
+msgstr "여러 이벤트를 한 번에 만들기"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:223
+msgid "Events"
+msgstr "이벤트"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:90
+msgid "events preview"
+msgstr "이벤트 미리보기"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:57
+msgid "input is required"
+msgstr "입력이 필요합니다"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:280
+msgid "List events publicly"
+msgstr "이벤트를 공개로 나열"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:245
+msgid "loading..."
+msgstr "로딩 중..."
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:230
+msgid "Preview events"
+msgstr "이벤트 미리보기"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:285
+msgid ""
+"Show events on the home page. Otherwise only people with a direct link can "
+"find them."
+msgstr ""
+"홈페이지에 이벤트를 표시합니다. 그렇지 않으면 직접 링크가 있는 사람만 찾을 "
+"수 있습니다."
+
+#: src/components/organisms/CreateClubLocation.re.mjs:148
+msgid "address"
+msgstr "주소"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:75
+msgid "address is required"
+msgstr "주소가 필요합니다"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:137
+msgid "Akabane Elementary School"
+msgstr "아카바네 초등학교"
+
+#: src/components/pages/Event.re.mjs:584
+msgid "details"
+msgstr "세부 정보"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:170
+msgid ""
+"Instructions or information that will apply to all events held at this "
+"location."
+msgstr "이 장소에서 열리는 모든 이벤트에 적용될 지침 또는 정보."
+
+#: src/components/organisms/CreateClubLocation.re.mjs:128
+msgid "location"
+msgstr "장소"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:157
+msgid "maps link"
+msgstr "지도 링크"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:134
+msgid "name"
+msgstr "이름"
+
+#: src/components/organisms/CreateClubLocation.re.mjs:72
+msgid "name is required"
+msgstr "이름이 필요합니다"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1296
+msgid "Crossminton"
+msgstr "크로스민턴"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1300
+msgid "Padel"
+msgstr "파델"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:776
+msgid "drill"
+msgstr "훈련"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:779
+msgid "comp"
+msgstr "경쟁"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:782
+msgid "rec"
+msgstr "친선"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:785
+msgid "all level"
+msgstr "모든 레벨"
+
+#: src/components/pages/Event.re.mjs:238
+msgid "{0} hours"
+msgstr "{0}시간"
+
+#: src/components/pages/Event.re.mjs:240
+msgid "{0} hours and {1} minutes"
+msgstr "{0}시간 {1}분"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:490
+msgid "{0} minutes"
+msgstr "{0}분"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:715
+msgid "Add any additional information about the event..."
+msgstr "이벤트에 대한 추가 정보를 입력하세요..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:413
+msgid "at"
+msgstr "에"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1112
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr "즐거움과 사교에 집중한 캐주얼 플레이. 모든 실력 수준에 적합합니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1256
+msgid "Create Event"
+msgstr "이벤트 만들기"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:432
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1149
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1179
+msgid "Drill session"
+msgstr "드릴 세션"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:429
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1130
+msgid "DUPR rated"
+msgstr "DUPR 레이팅"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:669
+msgid "End time"
+msgstr "종료 시간"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:78
+msgid "end time is required"
+msgstr "종료 시간이 필요합니다"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:742
+msgid "Enter price"
+msgstr "가격 입력"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:75
+msgid "event date is required"
+msgstr "이벤트 날짜가 필요합니다"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:711
+msgid "Event details (optional)"
+msgstr "이벤트 세부 정보 (선택 사항)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:559
+msgid "Event schedule"
+msgstr "이벤트 일정"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:686
+msgid "Event title"
+msgstr "이벤트 제목"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1055
+msgid "Event type"
+msgstr "이벤트 유형"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1217
+msgid "Find Players"
+msgstr "플레이어 찾기"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:857
+msgid "Find players for your event?"
+msgstr "이벤트를 위한 플레이어를 찾으시겠습니까?"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1017
+msgid "Format"
+msgstr "형식"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1123
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1174
+msgid "Format options"
+msgstr "형식 옵션"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:690
+msgid "Friday Night Pickleball"
+msgstr "금요일 밤 피클볼"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:862
+msgid "List your event publicly to help fill open spots"
+msgstr "빈 자리를 채우기 위해 이벤트를 공개로 나열하세요"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:698
+msgid "Max RSVPs (optional)"
+msgstr "최대 RSVP (선택 사항)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Minimum rating (optional)"
+msgstr "최소 레이팅 (선택 사항)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:702
+msgid "No limit"
+msgstr "제한 없음"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:830
+msgid "No minimum"
+msgstr "최소값 없음"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:418
+#: src/components/organisms/CreateLocationEventForm.re.mjs:437
+msgid "Not set"
+msgstr "설정 안 됨"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+msgid "Paid event"
+msgstr "유료 이벤트"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:732
+msgid "Price"
+msgstr "가격"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:442
+msgid "Private event"
+msgstr "비공개 이벤트"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:455
+msgid "Public"
+msgstr "공개"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:457
+msgid "Public event"
+msgstr "공개 이벤트"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:896
+msgid "Read more..."
+msgstr "더 읽기..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:426
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1062
+msgid "Recreational"
+msgstr "레크리에이션"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:990
+msgid "Require payment from attendees"
+msgstr "참가자에게 결제 요구"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1112
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr ""
+"순위와 레이팅이 있는 진지한 경기. 게임이 플레이어 레이팅에 영향을 줄 수 있습"
+"니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+msgid "Skill level"
+msgstr "실력 수준"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:652
+msgid "Start date and time"
+msgstr "시작 날짜 및 시간"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:63
+msgid "title is required"
+msgstr "제목이 필요합니다"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1256
+msgid "Update Event"
+msgstr "이벤트 업데이트"
+
+#: src/components/organisms/EventFullNames.re.mjs:78
+msgid "guest list"
+msgstr "게스트 목록"
+
+#: src/components/organisms/EventHeader.re.mjs:117
+msgid "Unknown club"
+msgstr "알 수 없는 클럽"
+
+#: src/components/organisms/EventHeader.re.mjs:247
+msgid "Unknown location"
+msgstr "알 수 없는 장소"
+
+#: src/components/organisms/EventItem.re.mjs:423
+msgid "[location missing]"
+msgstr "[장소 없음]"
+
+#: src/components/organisms/EventItem.re.mjs:216
+#: src/components/organisms/EventItem.re.mjs:223
+msgid "{0} hour"
+msgstr "{0}시간"
+
+#: src/components/organisms/EventItem.re.mjs:228
+msgid "{0} minute"
+msgstr "{0}분"
+
+#: src/components/organisms/EventItem.re.mjs:227
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{minutes, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventItem.re.mjs:296
+msgid "{playersCount, plural, one {player} other {players}}"
+msgstr "{playersCount, plural, one {플레이어} other {플레이어}}"
+
+#: src/components/organisms/EventItem.re.mjs:313
+msgid "join event"
+msgstr "이벤트 참가"
+
+#: src/components/organisms/EventItem.re.mjs:260
+msgid "joined"
+msgstr "참가함"
+
+#: src/components/organisms/EventItem.re.mjs:307
+msgid "leave event"
+msgstr "이벤트 나가기"
+
+#: src/components/organisms/EventItem.re.mjs:272
+msgid "pending"
+msgstr "대기 중"
+
+#: src/components/organisms/EventItem.re.mjs:266
+msgid "waitlist"
+msgstr "대기자 명단"
+
+#: src/components/organisms/RoundSection.re.mjs:526
+#: src/components/organisms/RoundSection.re.mjs:636
+msgid "{0} {matchText}"
+msgstr "{0} {matchText}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:144
+msgid "{0} of {1} checked in"
+msgstr "{0}/{1} 체크인"
+
+#: src/components/organisms/RoundSection.re.mjs:174
+msgid "{matchCount, plural, one {{0}} other {{1}}}"
+msgstr "{matchCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:317
+msgid "$"
+msgstr "$"
+
+#: src/components/organisms/RoundSection.re.mjs:522
+msgid "ACTIVE ROUND"
+msgstr "진행 중 라운드"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:162
+msgid "Add guest players"
+msgstr "게스트 플레이어 추가"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:129
+msgid "Adjust Player Seeds"
+msgstr "플레이어 시드 조정"
+
+#: src/components/molecules/RoundHeader.re.mjs:44
+msgid "Advance to Next Round"
+msgstr "다음 라운드로 진행"
+
+#: src/components/organisms/EventManager.re.mjs:1537
+msgid "Advance to Round {0}"
+msgstr "라운드 {0}으로 진행"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:103
+msgid "All checked-in players are already in this round"
+msgstr "체크인한 모든 플레이어가 이미 이 라운드에 있습니다"
+
+#: src/components/organisms/EventManager.re.mjs:1637
+msgid "Anti-Team {0}"
+msgstr "안티팀 {0}"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:337
+msgid "Anti-Teams"
+msgstr "안티팀"
+
+#: src/components/molecules/DrawGenerator.re.mjs:76
+msgid "Classic round-robin draws"
+msgstr "클래식 라운드 로빈 대진"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:302
+msgid "Create and manage player teams"
+msgstr "플레이어 팀 만들기 및 관리"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first anti-team to prevent players from pairing"
+msgstr "플레이어 페어링을 방지하기 위해 첫 번째 안티팀을 만드세요"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first team to get started"
+msgstr "시작하려면 첫 번째 팀을 만드세요"
+
+#: src/components/molecules/RoundHeader.re.mjs:19
+msgid "Current Round:"
+msgstr "현재 라운드:"
+
+#: src/components/organisms/EventManager.re.mjs:1822
+msgid "Debug: OFF"
+msgstr "디버그: 끄기"
+
+#: src/components/organisms/EventManager.re.mjs:1822
+msgid "Debug: ON"
+msgstr "디버그: 켜기"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:160
+msgid "Delete Guest"
+msgstr "게스트 삭제"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:402
+msgid "Delete team"
+msgstr "팀 삭제"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+msgid "Drag players to reorder their initial seeding"
+msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:390
+msgid "Edit team"
+msgstr "팀 편집"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:42
+msgid "Edit Team"
+msgstr "팀 편집"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:71
+msgid "Enter team name"
+msgstr "팀 이름 입력"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:136
+msgid "Female"
+msgstr "여성"
+
+#: src/components/molecules/DrawGenerator.re.mjs:271
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
+msgstr ""
+"향후 라운드에 점수가 입력되어 있습니다. 재생성하면 이 점수가 삭제됩니다. 확실"
+"합니까?"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:120
+msgid "Gender"
+msgstr "성별"
+
+#: src/components/molecules/DrawGenerator.re.mjs:231
+msgid "Generate"
+msgstr "생성"
+
+#: src/components/molecules/DrawGenerator.re.mjs:130
+msgid "Generate Draws"
+msgstr "대진 생성"
+
+#: src/components/organisms/EventManager.re.mjs:1810
+msgid "Help"
+msgstr "도움말"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:126
+msgid "Male"
+msgstr "남성"
+
+#: src/components/organisms/RoundSection.re.mjs:175
+msgid "match"
+msgstr "경기"
+
+#: src/components/organisms/RoundSection.re.mjs:176
+msgid "matches"
+msgstr "경기"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:63
+msgid "mu"
+msgstr "뮤"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:100
+msgid "Name"
+msgstr "이름"
+
+#: src/components/molecules/DrawGenerator.re.mjs:251
+msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
+msgstr "{1} {courtText}에 {0}명의 플레이어가 필요합니다. 현재 {2}명 체크인."
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Anti-Team"
+msgstr "새 안티팀"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Team"
+msgstr "새 팀"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No anti-teams yet"
+msgstr "아직 안티팀이 없습니다"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:99
+msgid "No available players"
+msgstr "가능한 플레이어 없음"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No teams yet"
+msgstr "아직 팀이 없습니다"
+
+#: src/components/organisms/EventRsvp.re.mjs:110
+msgid "Not paid"
+msgstr "미납"
+
+#: src/components/organisms/EventRsvp.re.mjs:102
+msgid "Paid"
+msgstr "납부됨"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:140
+msgid "Player Check-in"
+msgstr "플레이어 체크인"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:85
+msgid "Player ID"
+msgstr "플레이어 ID"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:53
+msgid "Player Settings"
+msgstr "플레이어 설정"
+
+#: src/components/molecules/DrawGenerator.re.mjs:66
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
+msgstr ""
+"플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 "
+"나뉩니다."
+
+#: src/components/molecules/RoundHeader.re.mjs:35
+msgid "Previous Round"
+msgstr "이전 라운드"
+
+#: src/components/organisms/RoundSection.re.mjs:545
+msgid "Rebalance this round with current players"
+msgstr "현재 플레이어로 이 라운드 재조정"
+
+#: src/components/molecules/DrawGenerator.re.mjs:270
+msgid "Regenerate Rounds?"
+msgstr "라운드를 재생성하시겠습니까?"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:61
+msgid "Replace Player"
+msgstr "플레이어 교체"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:66
+msgid "Replacing:"
+msgstr "교체 중:"
+
+#: src/components/organisms/EventManager.re.mjs:1795
+msgid "Reset Storage"
+msgstr "저장소 초기화"
+
+#: src/components/organisms/RoundSection.re.mjs:602
+msgid "Reset this round with all checked-in players"
+msgstr "체크인한 모든 플레이어로 이 라운드 초기화"
+
+#: src/components/organisms/RoundSection.re.mjs:577
+msgid "Reset this round with mixed gender pairs"
+msgstr "혼합 성별 페어로 이 라운드 초기화"
+
+#: src/components/molecules/DrawGenerator.re.mjs:75
+msgid "Round-Robin"
+msgstr "라운드 로빈"
+
+#: src/components/molecules/DrawGenerator.re.mjs:71
+msgid "Round-Robin with teams balanced by skill."
+msgstr "실력이 균형잡힌 팀으로 라운드 로빈."
+
+#: src/components/organisms/TeamManagementModal.re.mjs:443
+msgid "Save & Close"
+msgstr "저장 & 닫기"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:182
+msgid "Save Changes"
+msgstr "변경 사항 저장"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:251
+msgid "Save Seed Adjustments"
+msgstr "시드 조정 저장"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:159
+msgid "Save Team"
+msgstr "팀 저장"
+
+#: src/components/organisms/EventManager.re.mjs:1373
+msgid "Scores Synced!"
+msgstr "점수 동기화됨!"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
+msgid "Seeds Adjusted"
+msgstr "시드 조정됨"
+
+#: src/components/molecules/PlayerReplaceModal.re.mjs:174
+msgid "Skill: {0}"
+msgstr "실력: {0}"
+
+#: src/components/molecules/DrawGenerator.re.mjs:136
+msgid "strategy"
+msgstr "전략"
+
+#: src/components/molecules/DrawGenerator.re.mjs:206
+msgid "Strategy:"
+msgstr "전략:"
+
+#: src/components/organisms/EventManager.re.mjs:1385
+msgid "Sync Failed"
+msgstr "동기화 실패"
+
+#: src/components/organisms/EventManager.re.mjs:1349
+msgid "Sync Scores"
+msgstr "점수 동기화"
+
+#: src/components/organisms/EventManager.re.mjs:1361
+msgid "Syncing... {0}%"
+msgstr "동기화 중... {0}%"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:298
+msgid "Team Management"
+msgstr "팀 관리"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:86
+msgid "Team Members ({0})"
+msgstr "팀 멤버 ({0})"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:66
+msgid "Team Name"
+msgstr "팀 이름"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:326
+msgid "Teams"
+msgstr "팀"
+
+#: src/components/molecules/DrawGenerator.re.mjs:292
+msgid "This will delete all future rounds and generate new matches"
+msgstr "향후 모든 라운드가 삭제되고 새 경기가 생성됩니다"
+
+#: src/components/molecules/DrawGenerator.re.mjs:130
+msgid "Update Future Rounds"
+msgstr "향후 라운드 업데이트"
+
+#: src/components/molecules/DrawGenerator.re.mjs:262
+#: src/components/molecules/DrawGenerator.re.mjs:280
+msgid "Update Rounds Below"
+msgstr "아래 라운드 업데이트"
+
+#: src/components/organisms/EventMessages.re.mjs:283
+msgid "joined from waitlist"
+msgstr "대기자 명단에서 참가"
+
+#: src/components/organisms/EventMessages.re.mjs:277
+msgid "joined the event"
+msgstr "이벤트에 참가했습니다"
+
+#: src/components/organisms/EventMessages.re.mjs:280
+msgid "left the event"
+msgstr "이벤트에서 나갔습니다"
+
+#: src/components/organisms/EventMessages.re.mjs:178
+msgid "No activity yet"
+msgstr "아직 활동이 없습니다"
+
+#: src/components/organisms/EventMessages.re.mjs:132
+msgid "Send"
+msgstr "전송"
+
+#: src/components/organisms/EventMessages.re.mjs:118
+#: src/components/pages/Event.re.mjs:165
+msgid "Status message"
+msgstr "상태 메시지"
+
+#: src/components/organisms/RSVPSection.re.mjs:244
+#: src/components/organisms/RSVPSection.re.mjs:245
+#: src/components/organisms/EventMessages.re.mjs:125
+#: src/components/pages/Event.re.mjs:172
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'"
+
+#: src/components/organisms/EventMessages.re.mjs:274
+msgid "was added to the event by admin"
+msgstr "관리자에 의해 이벤트에 추가되었습니다"
+
+#: src/components/organisms/EventMessages.re.mjs:286
+msgid "was removed from the event by admin"
+msgstr "관리자에 의해 이벤트에서 제거되었습니다"
+
+#: src/components/organisms/EventsList.re.mjs:452
+msgid "...load past events"
+msgstr "...이전 이벤트 불러오기"
+
+#: src/components/organisms/EventsList.re.mjs:263
+msgid "{0} {hiddenCountDesc} hidden"
+msgstr "{0} {hiddenCountDesc} 숨김"
+
+#: src/components/organisms/EventsList.re.mjs:232
+msgid "{totalHiddenCount, plural, one {event} other {events}}"
+msgstr "{totalHiddenCount, plural, one {이벤트} other {이벤트}}"
+
+#: src/components/organisms/EventsList.re.mjs:121
+msgid "🚫 CANCELED"
+msgstr "🚫 취소됨"
+
+#: src/components/organisms/EventsList.re.mjs:424
+msgid "clear filter"
+msgstr "필터 지우기"
+
+#: src/components/organisms/EventsList.re.mjs:422
+msgid "filtering by date"
+msgstr "날짜로 필터링"
+
+#: src/components/organisms/EventsList.re.mjs:381
+msgid "share as text"
+msgstr "텍스트로 공유"
+
+#: src/components/organisms/EventsList.re.mjs:271
+msgid "show"
+msgstr "표시"
+
+#: src/components/organisms/Footer.re.mjs:19
+msgid "copyright the racquet league contributors"
+msgstr "저작권 racquet league 기여자"
+
+#: src/components/organisms/GoingRsvps.re.mjs:105
+msgid "+{0} more"
+msgstr "+{0}명 더"
+
+#: src/components/organisms/GoingRsvps.re.mjs:83
+msgid "Going"
+msgstr "참가"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+msgid "See all"
+msgstr "전체 보기"
+
+#: src/components/molecules/LogoutLink.re.mjs:10
+msgid "(logout)"
+msgstr "(로그아웃)"
+
+#: src/components/organisms/LeagueNav.re.mjs:114
+msgid "About"
+msgstr "소개"
+
+#: src/components/organisms/LeagueNav.re.mjs:110
+msgid "Find Games"
+msgstr "게임 찾기"
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+msgid "login with Line"
+msgstr "Line으로 로그인"
+
+#: src/components/organisms/LeagueNav.re.mjs:126
+msgid "Logout"
+msgstr "로그아웃"
+
+#: src/components/organisms/LeagueNav.re.mjs:253
+msgid "Open main menu"
+msgstr "메인 메뉴 열기"
+
+#: src/components/organisms/LeagueNav.re.mjs:200
+msgid "Open user menu"
+msgstr "사용자 메뉴 열기"
+
+#: src/components/organisms/LeagueNav.re.mjs:206
+#: src/components/organisms/LeagueNav.re.mjs:301
+msgid "Profile picture"
+msgstr "프로필 사진"
+
+#: src/components/organisms/LeagueNav.re.mjs:106
+msgid "Rankings"
+msgstr "순위"
+
+#: src/components/organisms/LeagueNav.re.mjs:175
+#: src/components/organisms/LeagueNav.re.mjs:326
+msgid "View notifications"
+msgstr "알림 보기"
+
+#: src/components/organisms/LeagueNav.re.mjs:122
+msgid "Your Profile"
+msgstr "내 프로필"
+
+#: src/components/organisms/MatchCard.re.mjs:91
+msgid "TEAM {0}"
+msgstr "팀 {0}"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:697
+msgid "...load previous matches"
+msgstr "...이전 경기 불러오기"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "무승부"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "균등"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:714
+msgid "Load more matches..."
+msgstr "경기 더 불러오기..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "패"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "이변"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "승"
+
+#: src/components/organisms/MatchList.re.mjs:404
+msgid "Score:"
+msgstr "점수:"
+
+#: src/components/organisms/Nav.re.mjs:98
+msgid "racquet league"
+msgstr "라켓 리그"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "My Clubs"
+msgstr "내 클럽"
+
+#: src/components/organisms/RatingAdjustmentCard.re.mjs:48
+msgid "Delete adjustment"
+msgstr "조정 삭제"
+
+#: src/components/organisms/RatingAdjustmentCard.re.mjs:37
+msgid "Rating Adjustment - Applied Before Round {0}"
+msgstr "레이팅 조정 - 라운드 {0} 전 적용"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "레이팅 기록"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr ""
+"음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "...load higher rated players"
+msgstr "...상위 레이팅 플레이어 불러오기"
+
+#: src/components/organisms/RatingList.re.mjs:295
+msgid "Load more players..."
+msgstr "플레이어 더 불러오기..."
+
+#: src/components/organisms/RSVPSection.re.mjs:673
+#: src/components/organisms/RSVPSection.re.mjs:765
+msgid "Add Member"
+msgstr "멤버 추가"
+
+#: src/components/organisms/RSVPSection.re.mjs:690
+msgid "Collapse"
+msgstr "접기"
+
+#: src/components/atoms/EventSignupButton.re.mjs:64
+msgid "Join Event"
+msgstr "이벤트 참가"
+
+#: src/components/atoms/EventSignupButton.re.mjs:61
+msgid "Join Waitlist"
+msgstr "대기자 명단 등록"
+
+#: src/components/organisms/RSVPSection.re.mjs:781
+msgid "Load more"
+msgstr "더 불러오기"
+
+#: src/components/atoms/EventSignupButton.re.mjs:67
+msgid "Login to Join"
+msgstr "로그인하여 참가"
+
+#: src/components/organisms/RSVPSection.re.mjs:431
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "필요 레이팅: {0} (DUPR {1})"
+
+#: src/components/organisms/RSVPSection.re.mjs:552
+#: src/components/organisms/RSVPSection.re.mjs:591
+#: src/components/organisms/RSVPSection.re.mjs:712
+msgid "RSVP"
+msgstr "RSVP"
+
+#: src/components/atoms/EventSignupButton.re.mjs:48
+msgid "RSVP Pending..."
+msgstr "RSVP 처리 중..."
+
+#: src/components/atoms/EventSignupButton.re.mjs:89
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기"
+"자 명단에 들어갑니다. 정말 나가시겠습니까?"
+
+#: src/components/atoms/EventSignupButton.re.mjs:88
+msgid "You will lose your spot"
+msgstr "자리를 잃게 됩니다"
+
+#: src/components/atoms/EventSignupButton.re.mjs:51
+msgid "You're Going"
+msgstr "참가 중"
+
+#: src/components/atoms/EventSignupButton.re.mjs:54
+msgid "You're Waitlisted"
+msgstr "대기 중"
+
+#: src/components/organisms/RSVPSection.re.mjs:433
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"레이팅 {0} ~ {1} (DUPR {2} ~ {3})이(가) 너무 낮습니다. 레이팅 제한이 낮아질 "
+"때까지 대기 목록에 배치됩니다. JPL 레이팅 이벤트에 참가하여 레이팅을 높이세"
+"요."
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:36
+msgid "seeking a doubles partner"
+msgstr "복식 파트너 구함"
+
+#: src/components/organisms/SeekingPartnerInput.re.mjs:41
+msgid ""
+"shows a badge next to your name in RSVP lists to tell people you are looking "
+"for a partner"
+msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
+
+#: src/components/organisms/SelectClub.re.mjs:83
+msgid "add new club"
+msgstr "새 클럽 추가"
+
+#: src/components/organisms/SelectClub.re.mjs:60
+msgid "choose the club where this event will be held."
+msgstr "이 이벤트가 열릴 클럽을 선택하세요."
+
+#: src/components/organisms/SelectClub.re.mjs:59
+msgid "select club"
+msgstr "클럽 선택"
+
+#: src/components/organisms/SelectedLocation.re.mjs:69
+msgid "change location"
+msgstr "장소 변경"
+
+#: src/components/organisms/SelectedLocation.re.mjs:53
+msgid "choose the location where this event will be held."
+msgstr "이 이벤트가 열릴 장소를 선택하세요."
+
+#: src/components/organisms/SelectedLocation.re.mjs:52
+msgid "event location"
+msgstr "이벤트 장소"
+
+#: src/components/organisms/SelectLocation.re.mjs:71
+msgid "add new location"
+msgstr "새 장소 추가"
+
+#: src/components/organisms/SelectPlayersList.re.mjs:98
+msgid "Match Count"
+msgstr "경기 횟수"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:201
+msgid "biography"
+msgstr "자기소개"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:166
+msgid "details about yourself"
+msgstr "자신에 대한 세부 정보"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:178
+msgid "Doe John"
+msgstr "Doe John"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:174
+msgid "full name"
+msgstr "성명"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:165
+msgid "profile"
+msgstr "프로필"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:176
+msgid "Some events require your legal name as shown on an ID card."
+msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:204
+msgid "tell us a little about yourself"
+msgstr "자신에 대해 간단히 알려주세요"
+
+#: src/components/organisms/ViewerClubs.re.mjs:99
+msgid "my clubs"
+msgstr "내 클럽"
+
+#: src/components/organisms/ViewerRsvpStatus.re.mjs:48
+msgid "login to join the event"
+msgstr "이벤트에 참가하려면 로그인하세요"
+
+#: src/components/pages/ClubEventsPage.re.mjs:126
+msgid "Club not found"
+msgstr "클럽을 찾을 수 없습니다"
+
+#: src/components/pages/ClubEventsPage.re.mjs:86
+msgid "Copied!"
+msgstr "복사됨!"
+
+#: src/components/pages/ClubEventsPage.re.mjs:119
+msgid "Loading events..."
+msgstr "이벤트 로딩 중..."
+
+#: src/components/pages/ClubEventsPage.re.mjs:86
+msgid "Share link"
+msgstr "링크 공유"
+
+#: src/components/pages/ClubMembersPage.re.mjs:165
+msgid "Approve"
+msgstr "승인"
+
+#: src/components/pages/ClubMembersPage.re.mjs:179
+msgid "Are you sure you want to remove {0} from the club?"
+msgstr "{0}을(를) 클럽에서 제거하시겠습니까?"
+
+#: src/components/pages/ClubMembersPage.re.mjs:432
+msgid "club not found"
+msgstr "클럽을 찾을 수 없습니다"
+
+#: src/components/pages/ClubMembersPage.re.mjs:412
+msgid "Members"
+msgstr "멤버"
+
+#: src/components/pages/ClubMembersPage.re.mjs:361
+msgid "No members found"
+msgstr "멤버를 찾을 수 없습니다"
+
+#: src/components/pages/ClubMembersPage.re.mjs:176
+msgid "Remove"
+msgstr "제거"
+
+#: src/components/pages/ClubMembersPage.re.mjs:178
+msgid "Remove member?"
+msgstr "멤버를 제거하시겠습니까?"
+
+#: src/components/pages/ClubPage.re.mjs:178
+msgid "Cancel Request"
+msgstr "요청 취소"
+
+#: src/components/pages/ClubPage.re.mjs:207
+msgid "Join Club"
+msgstr "클럽 가입"
+
+#: src/components/pages/ClubPage.re.mjs:168
+msgid "Leave club"
+msgstr "클럽 나가기"
+
+#: src/components/pages/ClubPage.re.mjs:266
+msgid "Manage Members"
+msgstr "멤버 관리"
+
+#: src/components/pages/ClubPage.re.mjs:490
+msgid "No ratings yet"
+msgstr "아직 레이팅이 없습니다"
+
+#: src/components/pages/ClubPage.re.mjs:386
+msgid "No upcoming events"
+msgstr "예정된 이벤트 없음"
+
+#: src/components/pages/ClubPage.re.mjs:196
+msgid "Request to join"
+msgstr "가입 요청"
+
+#: src/components/pages/ClubPage.re.mjs:291
+msgid "Upcoming Events"
+msgstr "예정된 이벤트"
+
+#: src/components/pages/ClubPage.re.mjs:298
+#: src/components/pages/ClubPage.re.mjs:414
+msgid "View All"
+msgstr "전체 보기"
+
+#: src/components/pages/CreateClubEventsPage.re.mjs:65
+msgid "club doesn't exist."
+msgstr "클럽이 존재하지 않습니다."
+
+#: src/components/pages/CreateEventPage.re.mjs:145
+msgid "Bulk create"
+msgstr "일괄 생성"
+
+#: src/components/pages/CreateLocationEventPage.re.mjs:62
+msgid "location doesn't exist."
+msgstr "장소가 존재하지 않습니다."
+
+#: src/components/pages/DefaultLayout2.re.mjs:182
+msgid "Racquet League"
+msgstr "라켓 리그"
+
+#: src/components/pages/DefaultLayoutMap.re.mjs:207
+#: src/components/pages/DefaultLayoutMap.re.mjs:279
+msgid "pkuru"
+msgstr "pkuru"
+
+#: src/components/pages/Event.re.mjs:672
+msgid "activity"
+msgstr "활동"
+
+#: src/components/pages/Event.re.mjs:367
+msgid "event @"
+msgstr "이벤트 @"
+
+#: src/components/pages/Event.re.mjs:728
+msgid "event doesn't exist"
+msgstr "이벤트가 존재하지 않습니다"
+
+#: src/components/pages/Event.re.mjs:642
+msgid "good luck, have fun"
+msgstr "행운을 빌어요, 즐거운 시간 보내세요"
+
+#: src/components/pages/Event.re.mjs:434
+msgid "hosted by {name}"
+msgstr "{name} 주최"
+
+#: src/components/pages/Event.re.mjs:558
+msgid "league"
+msgstr "리그"
+
+#: src/components/pages/Event.re.mjs:529
+msgid "login to subscribe to {activityName} events"
+msgstr "{activityName} 이벤트를 구독하려면 로그인하세요"
+
+#: src/components/pages/Event.re.mjs:703
+msgid "media"
+msgstr "미디어"
+
+#: src/components/pages/Event.re.mjs:652
+msgid "notes"
+msgstr "메모"
+
+#: src/components/pages/Event.re.mjs:312
+msgid ""
+"showing up without permission may result in a ban for failing to follow "
+"rules."
+msgstr "허가 없이 나타나면 규칙 위반으로 참가 금지될 수 있습니다."
+
+#: src/components/pages/Event.re.mjs:563
+msgid "submit matches"
+msgstr "경기 결과 제출"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:112
+msgid "subscribe to all {activityName} events"
+msgstr "모든 {activityName} 이벤트 구독"
+
+#: src/components/pages/Event.re.mjs:309
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first to get a referral."
+msgstr ""
+"이 이벤트는 클럽 멤버십이 필요한 비공개 이벤트입니다. 클럽에 가입하려면 먼저 "
+"Japan Pickleball League 이벤트에 참가하여 추천을 받으세요."
+
+#: src/components/molecules/SubscribeActivity.re.mjs:91
+msgid "unsubscribe from {activityName} events"
+msgstr "{activityName} 이벤트 구독 취소"
+
+#: src/components/pages/Event.re.mjs:316
+msgid "view events"
+msgstr "이벤트 보기"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:104
+msgid "you will receive email notifications for new events"
+msgstr "새 이벤트에 대한 이메일 알림을 받게 됩니다"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:210
+msgid ": Classic round-robin format where everyone plays with everyone."
+msgstr ": 모든 사람이 서로 경기하는 클래식 라운드 로빈 형식."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:194
+msgid ""
+": Players are divided into similar skill levels. Teams are balanced to "
+"create close matches."
+msgstr ""
+": 플레이어는 비슷한 실력 수준으로 나뉩니다. 팀은 치열한 경기를 위해 균형잡힙"
+"니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:202
+msgid ""
+": Teams are balanced by skill, but players are not strictly separated by "
+"level."
+msgstr ""
+": 팀은 실력으로 균형잡히지만, 플레이어가 수준에 따라 엄격히 분리되지는 않습니"
+"다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:141
+msgid "Adjust Seeds"
+msgstr "시드 조정"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:165
+msgid "Blue dot indicates the team that has service in the match."
+msgstr "파란 점은 경기에서 서비스권을 가진 팀을 나타냅니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:368
+msgid "button at the bottom of the page to submit all results to the server."
+msgstr "페이지 하단의 버튼으로 모든 결과를 서버에 제출합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:313
+msgid "Click a player's name to toggle check-in status."
+msgstr "플레이어 이름을 클릭하여 체크인 상태를 전환합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:412
+msgid "Complete guide to running events with the Event Manager."
+msgstr "이벤트 관리자로 이벤트를 진행하는 완전 가이드."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:105
+msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
+msgstr "고정 팀 또는 안티팀(함께 경기하면 안 되는 플레이어)을 만드세요."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:231
+msgid "Each round has several management options:"
+msgstr "각 라운드에는 여러 관리 옵션이 있습니다:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:125
+msgid "Edit player details like name, gender, or payment status."
+msgstr "이름, 성별 또는 결제 상태와 같은 플레이어 세부 정보를 편집합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:354
+msgid ""
+"Enter scores directly on the match cards. Tap to select a winner, or press "
+"and hold to input the score as well."
+msgstr ""
+"경기 카드에 직접 점수를 입력하세요. 탭하여 승자를 선택하거나, 길게 눌러 점수"
+"도 입력합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:350
+msgid "Entering Results & Syncing"
+msgstr "결과 입력 & 동기화"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:408
+msgid "Event Manager Guide"
+msgstr "이벤트 관리자 가이드"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:61
+msgid "Generate / Rebalance"
+msgstr "생성 / 재조정"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+msgid "Generate new draws or rebalance the round or match."
+msgstr "새 대진을 생성하거나 라운드 또는 경기를 재조정합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:181
+msgid "Generating Draws"
+msgstr "대진 생성 중"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:29
+msgid "Here is a guide to the icons used in the Event Manager:"
+msgstr "이벤트 관리자에서 사용되는 아이콘 가이드입니다:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:321
+msgid "icon to edit player details (Name, Gender, Paid status)."
+msgstr "플레이어 세부 정보(이름, 성별, 결제 상태) 편집 아이콘."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:25
+msgid "Icons Guide"
+msgstr "아이콘 가이드"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:217
+msgid ""
+"In Competitive or Mixed mode, the system will regenerate future matches when "
+"you select the winner of the matches in the current or past rounds. This is "
+"recommended in order to optimize future rounds based on the new data. In "
+"Round-Robin mode, the future rounds will not change unless you manually "
+"change them."
+msgstr ""
+"경쟁 또는 혼합 모드에서 현재 또는 이전 라운드의 경기 승자를 선택하면 시스템"
+"이 향후 경기를 재생성합니다. 새 데이터를 기반으로 향후 라운드를 최적화하기 위"
+"해 권장됩니다. 라운드 로빈 모드에서는 수동으로 변경하지 않는 한 향후 라운드"
+"가 변경되지 않습니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:308
+msgid "Manage players directly from the Check-in list:"
+msgstr "체크인 목록에서 직접 플레이어를 관리합니다:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:101
+msgid "Manage Teams"
+msgstr "팀 관리"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:145
+msgid "Manually adjust player ratings for the event."
+msgstr "이벤트를 위한 플레이어 레이팅을 수동으로 조정합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:395
+msgid "Note: If you clear your browser data, local event data will be lost."
+msgstr "참고: 브라우저 데이터를 지우면 로컬 이벤트 데이터가 손실됩니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:358
+msgid "Once matches are complete, use the"
+msgstr "경기가 완료되면"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:304
+msgid "Player Management"
+msgstr "플레이어 관리"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:241
+msgid "Rebalance"
+msgstr "재조정"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:248
+msgid ""
+"Regenerates the current round with the same players but moves players around "
+"to balance the skill level of each court. This will aggressively optimize "
+"each court to have the highest chance of having a tie, but may not divide "
+"the court by level groups. Useful if you replace a player and need the "
+"matches to be balanced again."
+msgstr ""
+"같은 플레이어로 현재 라운드를 재생성하되, 각 코트의 실력 수준을 균형잡기 위"
+"해 플레이어를 이동합니다. 각 코트의 무승부 가능성을 최대화하도록 적극적으로 "
+"최적화하지만, 수준 그룹으로 코트를 나누지 않을 수 있습니다. 플레이어를 교체하"
+"고 경기를 다시 균형잡아야 할 때 유용합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:286
+msgid "Reset (All)"
+msgstr "초기화 (전체)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:265
+msgid "Reset (Mixed)"
+msgstr "초기화 (혼합)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:85
+msgid "Reset a round to the original draw if you changed something."
+msgstr "변경한 경우 라운드를 원래 대진으로 초기화합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:272
+msgid "Resets the round and attempts to create mixed-gender pairs."
+msgstr "라운드를 초기화하고 혼합 성별 페어를 만들려고 시도합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:293
+msgid "Resets the round to the original matches."
+msgstr "라운드를 원래 경기로 초기화합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:227
+msgid "Round Management"
+msgstr "라운드 관리"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:376
+msgid "Scores are not saved permanently until you Sync."
+msgstr "동기화하기 전까지 점수는 영구적으로 저장되지 않습니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:161
+msgid "Service Indicator"
+msgstr "서비스 표시"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:185
+msgid ""
+"The Draw Generator allows you to create matches based on different "
+"strategies:"
+msgstr "대진 생성기를 사용하면 다양한 전략을 기반으로 경기를 만들 수 있습니다:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:389
+msgid ""
+"The Event Manager works offline! All data is saved locally to your device."
+msgstr ""
+"이벤트 관리자는 오프라인에서 작동합니다! 모든 데이터가 기기에 로컬로 저장됩니"
+"다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:339
+msgid ""
+"to adjust player ratings (seeds) for the event. This affects matchmaking but "
+"not their permanent rating."
+msgstr ""
+"이벤트를 위한 플레이어 레이팅(시드)을 조정합니다. 이것은 매치메이킹에 영향을 "
+"주지만 영구 레이팅에는 영향을 주지 않습니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:330
+msgid ""
+"to create Teams (always play together) or Anti-Teams (never play together on "
+"the same court)."
+msgstr ""
+"팀(항상 함께 경기) 또는 안티팀(같은 코트에서 절대 함께 경기하지 않음)을 만들"
+"려면."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:45
+msgid "Toggle player attendance. Green means checked in."
+msgstr "플레이어 참석 여부를 전환합니다. 초록색은 체크인을 의미합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:326
+#: src/components/pages/EventManagerGuidePage.re.mjs:335
+msgid "Use"
+msgstr "사용"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:317
+msgid "Use the"
+msgstr "사용"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:220
+msgid ""
+"You can also adjust the number of courts. The system requires 4 players per "
+"court."
+msgstr ""
+"코트 수도 조정할 수 있습니다. 시스템은 코트당 4명의 플레이어가 필요합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:392
+msgid ""
+"You can run an entire event without internet. Just make sure to Sync Scores "
+"when you have a connection again to save the results."
+msgstr ""
+"인터넷 없이 전체 이벤트를 진행할 수 있습니다. 결과를 저장하려면 연결이 다시 "
+"되면 점수를 동기화하세요."
+
+#: src/components/pages/EventManagerPage.re.mjs:85
+msgid "please login before managing the session"
+msgstr "세션을 관리하기 전에 로그인하세요"
+
+#: src/components/pages/EventPage.re.mjs:254
+#: src/components/pages/EventPage.re.mjs:283
+msgid "Private Event"
+msgstr "비공개 이벤트"
+
+#: src/components/pages/EventPage.re.mjs:258
+#: src/components/pages/EventPage.re.mjs:287
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr ""
+"이 이벤트는 비공개이며 Pkuru.com에서 참가할 수 없습니다. 허가 없이 이벤트에 "
+"나타나지 마세요."
+
+#: src/components/pkuru/PkEventsList.re.mjs:196
+msgid "{0} {hiddenDesc} hidden — show"
+msgstr "{0} {hiddenDesc} 숨김 — 표시"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:110
+msgid ""
+"By clicking on the Gear icon in the top left, you can go back to the start "
+"screen. At the bottom of this screen will be the match history."
+msgstr ""
+"왼쪽 상단의 기어 아이콘을 클릭하면 시작 화면으로 돌아갈 수 있습니다. 이 화면 "
+"하단에 경기 기록이 있습니다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:74
+msgid "Checkin Screen"
+msgstr "체크인 화면"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:99
+msgid "Editing Matches"
+msgstr "경기 편집"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:104
+msgid "Entering Results"
+msgstr "결과 입력"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:120
+msgid ""
+"From the Queue screen you can select some players (highlighted in green) and "
+"take some special actions for them such as creating a team, anti-team, or "
+"setting their genders. The team feature is important if you have a group of "
+"players (2 minimum) who always want to play together, often called a 'fixed-"
+"pair.' The gender is important if you want to use the Gender-Mixed doubles "
+"option when choosing matches."
+msgstr ""
+"대기열 화면에서 일부 플레이어(초록색으로 강조됨)를 선택하고 팀 만들기, 안티"
+"팀 만들기, 성별 설정 등의 특별 작업을 수행할 수 있습니다. 팀 기능은 항상 함"
+"께 경기하고 싶은 플레이어 그룹(최소 2명)이 있을 때 중요하며, 종종 '고정 페"
+"어'라고 합니다. 경기 선택 시 혼합 성별 복식 옵션을 사용하려면 성별이 중요합니"
+"다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:132
+msgid "How to use FairPlay"
+msgstr "FairPlay 사용 방법"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:115
+msgid ""
+"If you enabled offline mode, you can go down this list and submit the "
+"results to Pkuru.com. Simply tap on the match, then click on the Submit "
+"button. Once the score shows 0 and 0 then it has successfully submitted. "
+"This step is not necessary if you did not enable offline mode. In normal "
+"Online Mode matches will be submitted as soon as you complete them from the "
+"Matches screen."
+msgstr ""
+"오프라인 모드를 활성화했다면 이 목록에서 결과를 Pkuru.com에 제출할 수 있습니"
+"다. 경기를 탭한 다음 제출 버튼을 클릭하세요. 점수가 0 대 0으로 표시되면 성공"
+"적으로 제출된 것입니다. 오프라인 모드를 활성화하지 않은 경우 이 단계는 필요하"
+"지 않습니다. 일반 온라인 모드에서는 경기 화면에서 완료하는 즉시 경기가 제출됩"
+"니다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:64
+msgid "Launching FairPlay"
+msgstr "FairPlay 시작하기"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:79
+msgid "Manage Courts and Player Breaks"
+msgstr "코트 및 플레이어 휴식 관리"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:94
+msgid "Matches Screen"
+msgstr "경기 화면"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:80
+msgid ""
+"On the bottom left you can select the number of courts under management by "
+"the app. When it is set to a value greater than 0, the app will "
+"automatically track the number of times everyone has played and determine "
+"who should be taking a break. Players who should be taking a break will be "
+"highlighted in yellow. This is a suggestion, so you can still tap on them to "
+"select them for the next match."
+msgstr ""
+"왼쪽 하단에서 앱이 관리하는 코트 수를 선택할 수 있습니다. 0보다 큰 값으로 설"
+"정하면 앱이 모든 사람이 플레이한 횟수를 자동으로 추적하고 누가 휴식을 취해야 "
+"하는지 결정합니다. 휴식을 취해야 하는 플레이어는 노란색으로 강조됩니다. 이것"
+"은 제안이므로 다음 경기를 위해 탭하여 선택할 수 있습니다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:90
+msgid ""
+"Once at least 4 players are selected (highlighted in green) from the Queue "
+"screen, you can generate draws with the blue button on the bottom right. The "
+"system will generate all possible combinations of matches for the given "
+"players based on the matchmaking strategy selected. Additionally it will "
+"show you the relative 'quality' of the matches and sort them from highest to "
+"lowest. Quality of the match means whether the match is going to be close or "
+"one-sided. The green highlighted match at the top is the 'recommended match' "
+"which uses some heuristics to select a match that balances quality while "
+"avoiding repeated teams or matches. The list of matches will also highlight "
+"previously played matches or pairs in yellow or red. This allows you as the "
+"organizer to determine whether to avoid repeated matches. Use the blue "
+"button to select a match which will then update the draws for the remaining "
+"players that were selected. Keep selecting matches until all players are in "
+"a match."
+msgstr ""
+"대기열 화면에서 최소 4명의 플레이어가 선택(초록색으로 강조)되면 오른쪽 하단"
+"의 파란 버튼으로 대진을 생성할 수 있습니다. 시스템은 선택된 매치메이킹 전략"
+"을 기반으로 주어진 플레이어에 대한 모든 가능한 경기 조합을 생성합니다. 또한 "
+"경기의 상대적인 '품질'을 표시하고 높은 순서에서 낮은 순서로 정렬합니다. 경기 "
+"품질은 경기가 치열할지 일방적일지를 의미합니다. 상단의 초록색 강조 경기는 반"
+"복되는 팀이나 경기를 피하면서 품질을 균형잡는 경기를 선택하기 위해 일부 휴리"
+"스틱을 사용하는 '추천 경기'입니다. 경기 목록은 이전에 플레이한 경기나 페어를 "
+"노란색 또는 빨간색으로 강조합니다. 이를 통해 주최자가 반복 경기를 피할지 여부"
+"를 결정할 수 있습니다. 파란 버튼을 사용하여 경기를 선택하면 선택된 나머지 플"
+"레이어의 대진이 업데이트됩니다. 모든 플레이어가 경기에 있을 때까지 경기를 계"
+"속 선택하세요."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:119
+msgid "Player Options"
+msgstr "플레이어 옵션"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:70
+msgid ""
+"Press the large blue button to launch the system. The 'Offline Mode' toggle "
+"should be used if there is no internet connection or if you want to test the "
+"system out without saving any results. In Offline mode, no submissions are "
+"made to Pkuru.com and if you delete the matches or close the web page there "
+"will be no permanent effects of your actions using the system. Additionally "
+"this screen shows the relative strengths of the players and at the bottom of "
+"the page there is a history of all the matches played."
+msgstr ""
+"큰 파란 버튼을 눌러 시스템을 시작합니다. '오프라인 모드' 토글은 인터넷 연결"
+"이 없거나 결과를 저장하지 않고 시스템을 테스트하려는 경우에 사용합니다. 오프"
+"라인 모드에서는 Pkuru.com에 제출이 이루어지지 않으며 경기를 삭제하거나 웹 페"
+"이지를 닫아도 영구적인 효과가 없습니다. 또한 이 화면은 플레이어의 상대적인 강"
+"도를 표시하며 페이지 하단에는 플레이한 모든 경기의 기록이 있습니다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:84
+msgid "Queue Screen"
+msgstr "대기열 화면"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:69
+msgid "Start Screen"
+msgstr "시작 화면"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:105
+msgid ""
+"Tapping on the names on the left side can select the winner without entering "
+"scores. Optionally, the exact score can be entered into the number field on "
+"the right side of each match. Once the green border is around the winner, "
+"the entry is complete and you can leave it as it is. Once results are "
+"entered for all matches, you can use the blue button on the bottom right to "
+"submit all the results at once.If you enabled offline mode, no results are "
+"submitted to Pkuru.com, but ratings will still be updated locally on your "
+"device. Additionally the predicted winner is shown in the red bar at the "
+"bottom."
+msgstr ""
+"왼쪽 이름을 탭하면 점수를 입력하지 않고 승자를 선택할 수 있습니다. 선택적으"
+"로 각 경기 오른쪽의 숫자 필드에 정확한 점수를 입력할 수 있습니다. 승자 주위"
+"에 초록색 테두리가 생기면 입력이 완료된 것입니다. 모든 경기 결과가 입력되면 "
+"오른쪽 하단의 파란 버튼으로 모든 결과를 한 번에 제출할 수 있습니다. 오프라인 "
+"모드를 활성화한 경우 Pkuru.com에 결과가 제출되지 않지만 레이팅은 기기에 로컬"
+"로 업데이트됩니다. 또한 예상 승자가 하단의 빨간 막대에 표시됩니다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:65
+msgid ""
+"The FairPlay system can be launched from any event page on Pkuru.com. The "
+"system will automatically load all signed up players, including those in the "
+"waitlist. Players who did not join the event can be added as a guest, but "
+"their ratings and results cannot be saved to Pkuru.com."
+msgstr ""
+"FairPlay 시스템은 Pkuru.com의 모든 이벤트 페이지에서 시작할 수 있습니다. 시스"
+"템은 대기자 명단에 있는 플레이어를 포함하여 등록된 모든 플레이어를 자동으로 "
+"로드합니다. 이벤트에 참가하지 않은 플레이어는 게스트로 추가할 수 있지만, 레이"
+"팅과 결과를 Pkuru.com에 저장할 수 없습니다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:100
+msgid ""
+"The handlebars on the left side of each name can be used to drag and drop "
+"the players into a different match or re-arrange the teams. If you press the "
+"Enter Score button you can select the winner and/or enter the score. If you "
+"want to cancel the match you can press the '...' button."
+msgstr ""
+"각 이름 왼쪽의 핸들을 사용하여 플레이어를 다른 경기로 드래그 앤 드롭하거나 팀"
+"을 재배치할 수 있습니다. 점수 입력 버튼을 누르면 승자를 선택하거나 점수를 입"
+"력할 수 있습니다. 경기를 취소하려면 '...' 버튼을 누르세요."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:85
+msgid ""
+"The second screen is the Queue screen. This is where you can select players "
+"who want to play a match. On the bottom is a button to queue all players. "
+"This button will automatically select everyone and exclude the players who "
+"should be on break (highlighted in yellow). If you play matches in timed "
+"rounds, this is an easy way to select everyone who should participate in the "
+"next round of matches."
+msgstr ""
+"두 번째 화면은 대기열 화면입니다. 경기를 원하는 플레이어를 선택할 수 있는 곳"
+"입니다. 하단에는 모든 플레이어를 대기열에 추가하는 버튼이 있습니다. 이 버튼"
+"은 모든 사람을 자동으로 선택하고 휴식을 취해야 하는 플레이어(노란색으로 강조)"
+"를 제외합니다. 시간 제한 라운드로 경기를 진행하는 경우, 다음 라운드에 참여해"
+"야 하는 모든 사람을 쉽게 선택할 수 있습니다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:75
+msgid ""
+"The system is composed of 3 main screns. The first is the checkin screen "
+"where you can enable/disable players for the session. Tap on a player's name "
+"to check them in. Green means the player is checked in. Check a player in if "
+"they are ready to play, and check them out if they are leaving early. If a "
+"player wants to take a break and it's not their turn yet, it's easiest to "
+"check them out and then check them back in next round."
+msgstr ""
+"시스템은 3개의 주요 화면으로 구성됩니다. 첫 번째는 세션에서 플레이어를 활성"
+"화/비활성화할 수 있는 체크인 화면입니다. 플레이어 이름을 탭하여 체크인합니"
+"다. 초록색은 플레이어가 체크인되었음을 의미합니다. 플레이할 준비가 된 경우 체"
+"크인하고, 일찍 떠나는 경우 체크아웃합니다. 플레이어가 휴식을 원하지만 아직 차"
+"례가 아닌 경우, 체크아웃한 다음 다음 라운드에 다시 체크인하는 것이 가장 쉽습"
+"니다."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:95
+msgid ""
+"The third and final screen shows the active matches that are being played. "
+"The ordering of the teams is randomized, so you can use this to determine "
+"the serving team (usually the team on top)."
+msgstr ""
+"세 번째이자 마지막 화면은 진행 중인 활성 경기를 보여줍니다. 팀의 순서는 무작"
+"위이므로 서비스 팀(보통 상단 팀)을 결정하는 데 사용할 수 있습니다."
+
+#: src/components/pages/FindGamesPage.re.mjs:33
+msgid "Find League Games"
+msgstr "리그 게임 찾기"
+
+#: src/components/pages/FindGamesPage.re.mjs:30
+msgid ""
+"To participate in the league and win prizes, please join the league events."
+msgstr "리그에 참가하고 상을 받으려면 리그 이벤트에 참가하세요."
+
+#: src/components/pages/FindGamesPage.re.mjs:24
+msgid "Where to Play"
+msgstr "어디서 플레이하나요"
+
+#: src/components/pages/LeagueAboutPage.re.mjs:40
+msgid "About the League"
+msgstr "리그 소개"
+
+#: src/components/pages/LeagueAboutPage.re.mjs:51
+msgid ""
+"Ratings are assigned to individual players just by playing doubles games, "
+"even with different partners each game. For doubles ratings we use OpenSkill "
+"(a derivative of TrueSkill), and for singles ratings we use Glicko2."
+msgstr ""
+"매 게임마다 다른 파트너와 함께하더라도 복식 게임을 플레이하는 것만으로 개별 "
+"플레이어에게 레이팅이 부여됩니다. 복식 레이팅에는 OpenSkill(TrueSkill 파생)"
+"을, 단식 레이팅에는 Glicko2를 사용합니다."
+
+#: src/components/pages/LeagueAboutPage.re.mjs:29
+msgid ""
+"The Japan Pickleball League is an open-source non-profit project to help "
+"improve the quality of community recreational pickleball games and events."
+msgstr ""
+"Japan Pickleball League는 커뮤니티 레크리에이션 피클볼 게임과 이벤트의 품질"
+"을 향상시키기 위한 오픈 소스 비영리 프로젝트입니다."
+
+#: src/components/pages/LeagueAboutPage.re.mjs:22
+msgid ""
+"The Tokyo Badminton League is an open-source non-profit project to help "
+"improve the quality of community recreational pickleball games and events."
+msgstr ""
+"Tokyo Badminton League는 커뮤니티 레크리에이션 배드민턴 게임과 이벤트의 품질"
+"을 향상시키기 위한 오픈 소스 비영리 프로젝트입니다."
+
+#: src/components/pages/LeagueEventPage.re.mjs:80
+msgid "Loading matches..."
+msgstr "경기 로딩 중..."
+
+#: src/components/pages/LeaguePage.re.mjs:44
+msgid "japan pickle league"
+msgstr "재팬 피클 리그"
+
+#: src/components/pages/LeaguePage.re.mjs:35
+msgid "Tokyo Badminton League"
+msgstr "도쿄 배드민턴 리그"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
+msgid "All"
+msgstr "전체"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:781
+msgid "All Clubs"
+msgstr "전체 클럽"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:761
+msgid "Back to league"
+msgstr "리그로 돌아가기"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:412
+msgid "Balanced partner tendency"
+msgstr "균형잡힌 파트너 경향"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:458
+msgid "Best Doubles Partners"
+msgstr "최고의 복식 파트너"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:873
+msgid "Current Rating"
+msgstr "현재 레이팅"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:409
+msgid "Elevates weaker partners"
+msgstr "약한 파트너를 끌어올림"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:388
+#: src/components/pages/LeaguePlayerPage.re.mjs:906
+#: src/components/pages/LeaguePlayerPage.re.mjs:957
+#: src/components/pages/LeaguePlayerPage.re.mjs:1008
+#: src/components/pages/LeaguePlayerPage.re.mjs:1111
+msgid "Estimated DUPR"
+msgstr "예상 DUPR"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1064
+msgid "Hard Court"
+msgstr "하드 코트"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1092
+msgid "Indoor Court (Indoor Ball)"
+msgstr "실내 코트 (실내 공)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1078
+msgid "Indoor Court (Outdoor Ball)"
+msgstr "실내 코트 (실외 공)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:921
+msgid "Men's Doubles"
+msgstr "남자 복식"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:972
+msgid "Mixed Doubles"
+msgstr "혼합 복식"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:478
+#: src/components/pages/LeaguePlayerPage.re.mjs:552
+#: src/components/pages/LeaguePlayerPage.re.mjs:626
+#: src/components/pages/LeaguePlayerPage.re.mjs:700
+msgid "No data for this category"
+msgstr "이 카테고리의 데이터 없음"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:405
+msgid "Performs better with stronger partners"
+msgstr "강한 파트너와 더 잘 수행함"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:491
+#: src/components/pages/LeaguePlayerPage.re.mjs:565
+#: src/components/pages/LeaguePlayerPage.re.mjs:639
+#: src/components/pages/LeaguePlayerPage.re.mjs:713
+msgid "Predicted"
+msgstr "예측"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1175
+msgid "Recent Matches"
+msgstr "최근 경기"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:825
+msgid "Showing stats from {selectedClubName} only"
+msgstr "{selectedClubName}의 통계만 표시"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:606
+msgid "Strong Against"
+msgstr "강점 상대"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:680
+msgid "Weak Against"
+msgstr "약점 상대"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1023
+msgid "Women's Doubles"
+msgstr "여자 복식"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:532
+msgid "Worst Doubles Partners"
+msgstr "최악의 복식 파트너"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:58
+#: src/components/pages/LeagueRankingsPage.re.mjs:59
+msgid "Competitive Doubles"
+msgstr "경쟁 복식"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:58
+msgid "Competitive Singles"
+msgstr "경쟁 단식"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:143
+msgid "Loading rankings..."
+msgstr "순위 로딩 중..."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:120
+msgid ""
+"Play doubles games with different partners and receive an individual rating. "
+"Prizes are awarded monthly to top players."
+msgstr ""
+"다양한 파트너와 복식 게임을 플레이하고 개인 레이팅을 받으세요. 매월 상위 플레"
+"이어에게 상이 수여됩니다."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:125
+msgid "To participate, please join the events here:"
+msgstr "참가하려면 여기서 이벤트에 참가하세요:"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:100
+msgid "View My Profile"
+msgstr "내 프로필 보기"
+
+#: src/components/pages/LocationPage.re.mjs:68
+msgid "page not found"
+msgstr "페이지를 찾을 수 없습니다"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:33
+msgid "are you in a private browsing mode?"
+msgstr "비공개 브라우징 모드입니까?"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:27
+msgid "login failed"
+msgstr "로그인 실패"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:37
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem persists, you can try the safe-mode login button below."
+msgstr ""
+"비공개 브라우징이 Line 로그인을 방해할 수 있으므로 비공개 브라우징 외부에서 "
+"다시 시도하세요. 문제가 계속되면 아래의 안전 모드 로그인 버튼을 사용해 보세"
+"요."
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:41
+msgid "safe-mode login with Line"
+msgstr "Line으로 안전 모드 로그인"
+
+#: src/components/pages/LoginPage.re.mjs:107
+msgid "An error occurred during sign in. Please try again."
+msgstr "로그인 중 오류가 발생했습니다. 다시 시도하세요."
+
+#: src/components/pages/LoginPage.re.mjs:53
+#: src/components/pages/LoginPage.re.mjs:85
+msgid "An error occurred: {message}"
+msgstr "오류 발생: {message}"
+
+#: src/components/pages/LoginPage.re.mjs:131
+msgid "Back to events"
+msgstr "이벤트로 돌아가기"
+
+#: src/components/pages/LoginPage.re.mjs:73
+#: src/components/pages/LoginPage.re.mjs:75
+msgid "Check your email for a magic link to sign in!"
+msgstr "이메일에서 로그인 마법 링크를 확인하세요!"
+
+#: src/components/pages/LoginPage.re.mjs:194
+msgid "Continue with LINE"
+msgstr "LINE으로 계속"
+
+#: src/components/pages/LoginPage.re.mjs:71
+msgid "Failed to send magic link: {0}"
+msgstr "마법 링크 전송 실패: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:40
+msgid "Login failed: {0}"
+msgstr "로그인 실패: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:175
+msgid "New users will be automatically registered"
+msgstr "새 사용자는 자동으로 등록됩니다"
+
+#: src/components/pages/LoginPage.re.mjs:213
+msgid "or continue with email"
+msgstr "또는 이메일로 계속"
+
+#: src/components/pages/LoginPage.re.mjs:267
+msgid "Send magic link"
+msgstr "마법 링크 보내기"
+
+#: src/components/pages/LoginPage.re.mjs:171
+msgid "Sign in to Pkuru.com"
+msgstr "Pkuru.com에 로그인"
+
+#: src/components/pages/LoginPage.re.mjs:103
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"LINE 계정에 연결된 이메일이 없습니다. LINE 앱에서 계정의 이메일 주소를 설정"
+"한 다음 다시 시도하세요."
+
+#: src/components/pages/NotFound.re.mjs:14
+msgid "page not found."
+msgstr "페이지를 찾을 수 없습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:248
+msgid ""
+"As mentioned above, public games are not really a thing in Japan. However, "
+"you can find some public games on the home page of this website. They will "
+"tend to be full with a waitlist so just join the waitlist and cross your "
+"fingers. 5-6 spots tend to open up the day of the event as people cancel "
+"last minute."
+msgstr ""
+"위에서 언급했듯이, 일본에서는 공개 게임이 일반적이지 않습니다. 그러나 이 웹사"
+"이트 홈페이지에서 일부 공개 게임을 찾을 수 있습니다. 대기자 명단이 있을 정도"
+"로 꽉 찰 경향이 있으므로 대기자 명단에 등록하고 행운을 빌어보세요. 이벤트 당"
+"일에 사람들이 마지막 순간에 취소하면서 5-6자리가 열리는 경향이 있습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:36
+msgid ""
+"Book a court and post the event to Pkuru.com. Please mention the "
+"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
+"new to the community, we recommend you to offer the court for free."
+msgstr ""
+"코트를 예약하고 Pkuru.com에 이벤트를 게시하세요. 참가 비용과 예상 수준(3.0, "
+"3.5, 4.0 등)을 언급해 주세요. 커뮤니티에 새로 온 경우 코트를 무료로 제공하는 "
+"것을 권장합니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:69
+#: src/components/pages/PickleballTokyoPage.re.mjs:98
+#: src/components/pages/PickleballTokyoPage.re.mjs:127
+#: src/components/pages/PickleballTokyoPage.re.mjs:156
+#: src/components/pages/PickleballTokyoPage.re.mjs:185
+msgid "Book the Court"
+msgstr "코트 예약"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:178
+msgid "Create an Event at Hilton Tokyo Tennis Courts"
+msgstr "힐튼 도쿄 테니스 코트에서 이벤트 만들기"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:62
+msgid "Create an Event at KPI Park"
+msgstr "KPI 파크에서 이벤트 만들기"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:205
+msgid ""
+"Create an event at one of the locations above (use the buttons above). Make "
+"the event public so people can join you."
+msgstr ""
+"위 장소 중 하나에서 이벤트를 만드세요 (위의 버튼 사용). 사람들이 참가할 수 있"
+"도록 이벤트를 공개로 설정하세요."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:91
+msgid "Create an Event at Pacific Pickle Club"
+msgstr "Pacific Pickle Club에서 이벤트 만들기"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:149
+msgid "Create an Event at Pickleball One"
+msgstr "Pickleball One에서 이벤트 만들기"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:120
+msgid "Create an Event at Tokyo Tower Pickleball"
+msgstr "Tokyo Tower Pickleball에서 이벤트 만들기"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:168
+msgid "Hilton Tokyo Tennis Courts (painted lines)"
+msgstr "힐튼 도쿄 테니스 코트 (페인트 라인)"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:199
+msgid "How to Find Players in Tokyo"
+msgstr "도쿄에서 플레이어 찾는 방법"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:244
+msgid "How to Find Public Games"
+msgstr "공개 게임 찾는 방법"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:19
+msgid "How to Play Pickleball in Tokyo"
+msgstr "도쿄에서 피클볼 하는 방법"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:23
+msgid ""
+"Japan does not really have public drop in courts or games. Most pickleball "
+"games happen indoors at community center and school gymnasiums (multi-use "
+"gyms) or on private tennis/pickleball courts and these all require "
+"reservations for court time, or reservations to join the events. Many of the "
+"public facilities do not allow groups to advertise to the public, which "
+"makes it difficult for new players or visitors to drop in on sessions."
+msgstr ""
+"일본에는 공개 드롭인 코트나 게임이 거의 없습니다. 대부분의 피클볼 게임은 커뮤"
+"니티 센터나 학교 체육관(다목적 체육관) 또는 사설 테니스/피클볼 코트에서 실내"
+"로 진행되며, 모두 코트 시간 예약이나 이벤트 참가 예약이 필요합니다. 많은 공"
+"공 시설이 단체의 공개 광고를 허용하지 않아 새 플레이어나 방문자가 세션에 드롭"
+"인하기 어렵습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:33
+msgid ""
+"Join any public events on Pkuru.com (this website). If you find an event "
+"without the 'lock' icon and which has a join button, then you can join."
+msgstr ""
+"Pkuru.com(이 웹사이트)의 모든 공개 이벤트에 참가하세요. '잠금' 아이콘이 없고 "
+"참가 버튼이 있는 이벤트를 찾으면 참가할 수 있습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:52
+msgid "KPI Park in Kanagawa/Yokohama"
+msgstr "가나가와/요코하마의 KPI 파크"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:39
+msgid "Message @japanpickle on Instagram for referrals or questions"
+msgstr "소개나 질문은 Instagram @japanpickle에 메시지 보내세요"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"One full court is available and one \"fun\" court (half-sized). The full "
+"court has narrow space on the sides."
+msgstr ""
+"풀 코트 1면과 \"펀\" 코트(절반 크기) 1면을 이용할 수 있습니다. 풀 코트는 양"
+"쪽 옆 공간이 좁습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:81
+msgid "Pacific Pickle Club at Ariake"
+msgstr "아리아케의 Pacific Pickle Club"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:139
+msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
+msgstr "Pickleball One 긴자 신바시 (실내 하드 코트)"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:257
+msgid ""
+"Please do not show up to any events without permission and only if you are "
+"in the confirmed going list. Indoor events always require a set of clean "
+"indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr ""
+"허가 없이, 그리고 확인된 참가 목록에 있을 때만 이벤트에 참석하세요. 실내 이벤"
+"트에는 항상 깨끗한 실내 전용 코트 신발이 필요합니다. 일본에서는 이것에 대해 "
+"정말 엄격합니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:231
+msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
+msgstr "Facebook의 JPAA 그룹에 게시하세요 (주로 일본어)"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:209
+msgid "Post it to the Pickeball in Tokyo Facebook Group:"
+msgstr "Facebook의 Pickleball in Tokyo 그룹에 게시하세요:"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:220
+msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
+msgstr "Facebook의 요코스카(미 해군 기지) 피클볼 그룹에 게시하세요:"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:27
+msgid ""
+"So, how can one play pickleball in Tokyo then as a tourist, recent "
+"transplant, or a beginner?"
+msgstr ""
+"그렇다면 관광객, 이주민, 또는 초보자로서 도쿄에서 피클볼을 어떻게 할 수 있을"
+"까요?"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:252
+msgid ""
+"Some events are restricted by level. If you are restricted, just type in "
+"your DUPR rating as a comment with your RSVP."
+msgstr ""
+"일부 이벤트는 수준에 따라 제한됩니다. 제한이 있는 경우 RSVP와 함께 댓글로 "
+"DUPR 레이팅을 입력하세요."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:54
+msgid ""
+"The courts require reservations but there are 10 courts and it's generally "
+"available last minute. Therefore you can book the courts just-in-time once "
+"you've already gathered the players."
+msgstr ""
+"코트는 예약이 필요하지만 10개의 코트가 있어 일반적으로 마지막 순간에도 이용 "
+"가능합니다. 따라서 플레이어를 모은 후 적시에 코트를 예약할 수 있습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:83
+msgid ""
+"The courts require reservations but there are only 2 courts so you will need "
+"to book in advance. They also hold open play sessions but the level may be "
+"low to complete beginner."
+msgstr ""
+"코트는 예약이 필요하지만 2개뿐이므로 미리 예약해야 합니다. 오픈 플레이 세션"
+"도 진행하지만 수준이 낮을 수 있습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:110
+msgid "Tokyo Tower Pickleball"
+msgstr "도쿄 타워 피클볼"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:112
+msgid "Two courts are available. Conditions may be windy."
+msgstr "두 개의 코트를 이용할 수 있습니다. 바람이 불 수 있습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:170
+msgid ""
+"Two courts are available. More expensive than other courts and the "
+"conditions can be windy."
+msgstr ""
+"두 개의 코트를 이용할 수 있습니다. 다른 코트보다 비싸며 바람이 불 수 있습니"
+"다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:45
+msgid "Where to Book Courts in Tokyo"
+msgstr "도쿄에서 코트 예약하는 곳"
+
+#: src/components/pages/PkLocationPage.re.mjs:105
+msgid "Location not found"
+msgstr "장소를 찾을 수 없습니다"
+
+#: src/components/pages/PkuruLayout.re.mjs:89
+msgid "Browse"
+msgstr "둘러보기"
+
+#: src/components/pages/PkuruLayout.re.mjs:99
+#: src/components/pages/PkuruLayout.re.mjs:372
+msgid "Discover"
+msgstr "탐색"
+
+#: src/components/pages/PkuruLayout.re.mjs:382
+msgid "Map"
+msgstr "지도"
+
+#: src/components/pages/PkuruLayout.re.mjs:107
+msgid "Map view"
+msgstr "지도 보기"
+
+#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+msgid "My clubs"
+msgstr "내 클럽"
+
+#: src/components/pages/PkuruLayout.re.mjs:115
+msgid "My events"
+msgstr "내 이벤트"
+
+#: src/components/pages/PkuruLayout.re.mjs:409
+msgid "My Events"
+msgstr "내 이벤트"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+msgid "New event"
+msgstr "새 이벤트"
+
+#: src/components/pages/PkuruLayout.re.mjs:123
+#: src/components/pages/PkuruLayout.re.mjs:419
+msgid "Profile"
+msgstr "프로필"
+
+#: src/components/pages/PkuruLayout.re.mjs:134
+msgid "Sports"
+msgstr "스포츠"
+
+#: src/components/pages/UpdateEventPage.re.mjs:92
+msgid "Event or Location doesn't exist."
+msgstr "이벤트 또는 장소가 존재하지 않습니다."
+
+#: src/components/pages/ViewerClubsPage.re.mjs:95
+msgid "You are not an admin of any clubs."
+msgstr "어떤 클럽의 관리자도 아닙니다."
+
+#: src/components/pages/ViewerEventsPage.re.mjs:59
+#: src/components/pages/ViewerEventsPage.re.mjs:83
+msgid "my events"
+msgstr "내 이벤트"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:65
+msgid "public events"
+msgstr "공개 이벤트"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "밝히지 않음"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+msgid "gender"
+msgstr "성별"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ 스킬"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "균형"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "균등"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "중간값"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "혼합"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "분산"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "상위6평균"
+
+#: src/components/organisms/RoundRobin.re.mjs:679
+msgid "Please update to a recent version of Chrome, Firefox, or Safari."
+msgstr "Chrome, Firefox 또는 Safari의 최신 버전으로 업데이트해 주세요."
+
+#: src/components/organisms/RoundRobin.re.mjs:675
+msgid "Your browser is too old to use this feature."
+msgstr "이 기능을 사용하기에는 브라우저가 너무 오래되었습니다."
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"One full court is available and one \\\"fun\\\" court (half-sized). The full "
+"court has narrow space on the sides."
+msgstr ""
+"풀 코트 1면과 \"펀\" 코트(절반 크기) 1면을 이용할 수 있습니다. 풀 코트는 양"
+"쪽 옆 공간이 좁습니다."

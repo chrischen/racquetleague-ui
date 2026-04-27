@@ -13,7 +13,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/LeagueAboutPage.re/ja"),
       th: import("../../locales/src/components/pages/LeagueAboutPage.re/th"),
       zhTW: import("../../locales/src/components/pages/LeagueAboutPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/LeagueAboutPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/LeagueAboutPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/LeagueAboutPage.re/ko"),
+      vi: import("../../locales/src/components/pages/LeagueAboutPage.re/vi")
     });
 
 async function loader(param) {

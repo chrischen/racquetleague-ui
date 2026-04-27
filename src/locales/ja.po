@@ -2880,14 +2880,6 @@ msgstr ""
 msgid "Create an Event at Pickleball One"
 msgstr "ピクルボールワンでイベントを作成"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"One full court is available and one \\\"fun\\\" court (half-sized). The full "
-"court has narrow space on the sides."
-msgstr ""
-"フルコート1面と「ファン」コート（ハーフサイズ）1面が利用可能です。フルコート"
-"は両側のスペースが狭くなっています。"
-
 #: src/components/pages/PickleballTokyoPage.re.mjs:139
 msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
 msgstr "ピクルボールワン銀座新橋（室内ハードコート）"
@@ -4197,6 +4189,88 @@ msgstr ""
 #: src/components/pages/PkuruLayout.re.mjs:599
 msgid "New event"
 msgstr "新しいイベント"
+
+#: src/components/pkuru/PkEventRow.re.mjs:153
+#: src/components/pkuru/PkEventRow.re.mjs:210
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:154
+#: src/components/pkuru/PkEventRow.re.mjs:211
+msgid "player"
+msgstr "プレイヤー"
+
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "Casual"
+msgstr "カジュアル"
+
+#: src/components/organisms/RoundRobin.re.mjs:610
+msgid "Check in at least 4 players to start generating matches"
+msgstr "マッチを生成するには、少なくとも4名のプレイヤーをチェックインしてください"
+
+#: src/components/organisms/RoundRobin.re.mjs:623
+msgid "Guest player addition UI to be implemented"
+msgstr "ゲストプレイヤー追加UIは実装予定です"
+
+#: src/components/organisms/RoundRobin.re.mjs:327
+msgid "Manage a round-robin tournament with guest players"
+msgstr "ゲストプレイヤーとのラウンドロビントーナメントを管理する"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:772
+msgid "only"
+msgstr "のみ"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "回答しない"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+msgid "gender"
+msgstr "性別"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ スキル"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "バランス"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "均等"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "中央値"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "混合"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "ばらつき"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "上位6平均"
+
+#: src/components/organisms/RoundRobin.re.mjs:679
+msgid "Please update to a recent version of Chrome, Firefox, or Safari."
+msgstr "Chrome、Firefox、またはSafariの最新バージョンに更新してください。"
+
+#: src/components/organisms/RoundRobin.re.mjs:675
+msgid "Your browser is too old to use this feature."
+msgstr "この機能を使用するには、ブラウザが古すぎます。"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:141
+msgid ""
+"One full court is available and one \\\"fun\\\" court (half-sized). The full "
+"court has narrow space on the sides."
+msgstr ""
+"フルコート1面と「ファン」コート（ハーフサイズ）1面が利用可能です。フルコート"
+"は両側のスペースが狭くなっています。"
 
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy

@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:407
+msgid "· {0} pending"
+msgstr "· {0} 대기 중"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:405
+msgid "· +{0} waitlist"
+msgstr "· +{0} 대기자"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:402
+msgid "{0} joined"
+msgstr "{0} 참가함"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ 스킬"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "참가 승인"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "균형"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:552
+msgid "Confirmed · {0}"
+msgstr "확인됨 · {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "균등"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "중간값"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "혼합"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "대기 목록으로 이동"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:385
+msgid "Participants"
+msgstr "참가자"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:681
+msgid "Pending · {0}"
+msgstr "대기 중 · {0}"
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "이벤트에서 제거"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "이 RSVP 제거"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:311
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "필수: DUPR {minDuprStr}+"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:332
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "참가하려면 DUPR {minDuprStr}+ 필요"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "분산"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
+"다. RSVP를 제한하시겠습니까?"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "상위6평균"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "프로필 보기"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:617
+msgid "Waitlist · {0}"
+msgstr "대기자 명단 · {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"레이팅 {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi})이 최소값보다 낮습니다. 대기 목록에 배치됩니다."

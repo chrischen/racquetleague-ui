@@ -13,45 +13,54 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "...more"
 msgstr "...更多"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:349
+#: src/components/organisms/PkRSVPSection.re.mjs:407
 msgid "· {0} pending"
 msgstr "· {0} 待處理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:347
+#: src/components/organisms/PkRSVPSection.re.mjs:405
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候補"
 
-#: src/components/pkuru/PkEventRow.re.mjs:595
+#: src/components/pkuru/PkEventRow.re.mjs:650
 msgid "[missing title]"
 msgstr "[標題缺失]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:126
+#: src/components/pkuru/PkEventsList.re.mjs:131
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/pkuru/PkEventsList.re.mjs:194
+#: src/components/pkuru/PkEventsList.re.mjs:200
 msgid "{0} {hiddenDesc} hidden — show"
 msgstr "{0} {hiddenDesc} 條已隱藏 — 顯示"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:344
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "{0} joined"
 msgstr "{0} 已參加"
+
+#: src/components/pkuru/PkEventRow.re.mjs:148
+#: src/components/pkuru/PkEventRow.re.mjs:205
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr "{filled, plural, one {{0}} other {{1}}}"
 
 #: src/components/shared/EventsListView.re.mjs:106
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/pkuru/PkEventsList.re.mjs:102
+#: src/components/pkuru/PkEventsList.re.mjs:105
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
 
 #: src/components/shared/EventsListView.re.mjs:119
 msgid "← previous"
 msgstr "← 上一頁"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ 技術"
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
@@ -61,11 +70,11 @@ msgstr "活動"
 msgid "Add a message..."
 msgstr "新增訊息..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:144
+#: src/components/pkuru/PkEventsList.re.mjs:149
 msgid "Add to {0}"
 msgstr "新增到{0}"
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "進階球員"
 
@@ -81,28 +90,32 @@ msgstr "批准報名"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您確定要將此人從活動中移除嗎？"
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "平衡"
+
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "cancel event"
 msgstr "取消活動"
 
-#: src/components/pkuru/PkEventRow.re.mjs:681
+#: src/components/pkuru/PkEventRow.re.mjs:709
 msgid "Canceled"
 msgstr "已取消"
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:388
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Claim spot"
 msgstr "報名參加"
 
-#: src/components/organisms/ProfileModal.re.mjs:260
+#: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "完善個人資料"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:552
 msgid "Confirmed · {0}"
 msgstr "已確認 · {0}"
 
@@ -127,15 +140,20 @@ msgstr "刪除比賽"
 msgid "Delete this match?"
 msgstr "刪除這場比賽？"
 
-#: src/components/organisms/ProfileModal.re.mjs:283
+#: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
 msgstr "顯示名稱"
 
-#: src/components/organisms/ProfileModal.re.mjs:73
+#: src/components/organisms/ProfileModal.re.mjs:106
 msgid "Display name is required"
 msgstr "請輸入顯示名稱"
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/PkEventPage.re.mjs:257
 msgid "edit event"
 msgstr "編輯活動"
 
@@ -143,11 +161,11 @@ msgstr "編輯活動"
 msgid "Edit match"
 msgstr "編輯比賽"
 
-#: src/components/organisms/ProfileModal.re.mjs:300
+#: src/components/organisms/ProfileModal.re.mjs:375
 msgid "Email address"
 msgstr "電子郵件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:226
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -155,11 +173,11 @@ msgstr ""
 "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
 "件地址登入。"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "Email cannot be changed"
 msgstr "電子郵件不能更改"
 
-#: src/components/organisms/ProfileModal.re.mjs:76
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Email is required"
 msgstr "請輸入電子郵件"
 
@@ -167,16 +185,20 @@ msgstr "請輸入電子郵件"
 msgid "Enter Match Score"
 msgstr "輸入比賽比分"
 
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "均衡"
+
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:129
+#: src/components/pkuru/PkEventsList.re.mjs:134
 msgid "event"
 msgstr "活動"
 
-#: src/components/pages/PkEventPage.re.mjs:753
+#: src/components/pages/PkEventPage.re.mjs:728
 msgid "Event not found"
 msgstr "找不到活動"
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "活動標籤：{tag}"
 
@@ -185,47 +207,55 @@ msgid "Event updated"
 msgstr "活動已更新"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:130
+#: src/components/pkuru/PkEventsList.re.mjs:135
 msgid "events"
 msgstr "活動"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "女性"
 
 #: src/components/shared/EventsListView.re.mjs:83
 msgid "Filtered by date"
 msgstr "按日期篩選"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "For event updates and notifications"
 msgstr "用於活動更新和通知"
 
-#: src/components/pages/PkEventPage.re.mjs:585
+#: src/components/pages/PkEventPage.re.mjs:560
 msgid "Free"
 msgstr "免費"
 
-#: src/components/pkuru/PkEventsList.re.mjs:277
+#: src/components/pkuru/PkEventsList.re.mjs:285
 msgid "Friday"
 msgstr "星期五"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "性別"
 
 #: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
 msgstr "Google 日曆"
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "高技能球員"
 
-#: src/components/pkuru/PkEventRow.re.mjs:524
+#: src/components/pkuru/PkEventRow.re.mjs:579
 msgid "Join"
 msgstr "加入"
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Join waitlist"
 msgstr "加入候補名單"
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:388
 msgid "Join waitlist (#{0})"
 msgstr "加入候補名單 (#{0})"
 
-#: src/components/pkuru/PkEventRow.re.mjs:218
+#: src/components/pkuru/PkEventRow.re.mjs:239
 msgid "Joined"
 msgstr "已加入"
 
@@ -233,21 +263,21 @@ msgstr "已加入"
 msgid "Last Round"
 msgstr "上一輪"
 
-#: src/components/pkuru/PkEventRow.re.mjs:523
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pkuru/PkEventRow.re.mjs:578
+#: src/components/pages/PkEventPage.re.mjs:369
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/pkuru/PkEventRow.re.mjs:806
-#: src/components/pages/PkEventPage.re.mjs:714
+#: src/components/pkuru/PkEventRow.re.mjs:834
+#: src/components/pages/PkEventPage.re.mjs:689
 msgid "Leave event"
 msgstr "退出活動"
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "less"
 msgstr "收起"
 
-#: src/components/pages/PkEventPage.re.mjs:603
+#: src/components/pages/PkEventPage.re.mjs:578
 msgid "Location"
 msgstr "地點"
 
@@ -255,15 +285,27 @@ msgstr "地點"
 msgid "Losing Team (Team {0})"
 msgstr "輸球隊（隊伍 {0}）"
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "中下等級及以上"
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "男性"
+
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "比賽將提交至 DUPR。"
 
-#: src/components/pkuru/PkEventsList.re.mjs:265
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "中位數"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "混合"
+
+#: src/components/pkuru/PkEventsList.re.mjs:273
 msgid "Monday"
 msgstr "星期一"
 
@@ -276,11 +318,11 @@ msgstr "更多 →"
 msgid "Move to Pending List"
 msgstr "移至待審核名單"
 
-#: src/components/pkuru/PkEventsList.re.mjs:286
+#: src/components/pkuru/PkEventsList.re.mjs:294
 msgid "Next {dayName}"
 msgstr "下週{dayName}"
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "技能等級無限制。對所有球員開放。"
 
@@ -288,38 +330,47 @@ msgstr "技能等級無限制。對所有球員開放。"
 msgid "No Score"
 msgstr "無比分"
 
-#: src/components/pages/PkEventPage.re.mjs:667
+#: src/components/pages/PkEventPage.re.mjs:642
 msgid "Notes from the host"
 msgstr "主持人的備註"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:327
+#: src/components/organisms/PkRSVPSection.re.mjs:385
 msgid "Participants"
 msgstr "參與者"
 
-#: src/components/pkuru/PkEventRow.re.mjs:257
+#: src/components/pkuru/PkEventRow.re.mjs:278
 msgid "Pending"
 msgstr "待審核"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:579
+#: src/components/organisms/PkRSVPSection.re.mjs:681
 msgid "Pending · {0}"
 msgstr "待處理 · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:133
-#: src/components/pkuru/PkEventRow.re.mjs:187
+#: src/components/pkuru/PkEventRow.re.mjs:149
+#: src/components/pkuru/PkEventRow.re.mjs:206
+msgid "player"
+msgstr "玩家"
+
+#: src/components/pkuru/PkEventRow.re.mjs:150
+#: src/components/pkuru/PkEventRow.re.mjs:207
 msgid "players"
 msgstr "球員"
 
-#: src/components/pkuru/PkEventRow.re.mjs:639
-#: src/components/pages/PkEventPage.re.mjs:550
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "不願透露"
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "非公開"
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr "職業球員"
 
-#: src/components/pkuru/PkEventRow.re.mjs:655
-#: src/components/pages/PkEventPage.re.mjs:565
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
 msgstr "計分賽"
 
@@ -327,7 +378,7 @@ msgstr "計分賽"
 msgid "Rebalance match"
 msgstr "重新平衡比賽"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
@@ -344,15 +395,15 @@ msgstr "移除此 RSVP"
 msgid "Repeat"
 msgstr "重複"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:253
+#: src/components/organisms/PkRSVPSection.re.mjs:311
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "參加需要 DUPR {minDuprStr}以上"
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果將提交至競技評分。"
 
@@ -364,7 +415,7 @@ msgstr "第 {0} 回合"
 msgid "Round Robin Draws"
 msgstr "循環賽抽籤"
 
-#: src/components/pkuru/PkEventsList.re.mjs:280
+#: src/components/pkuru/PkEventsList.re.mjs:288
 msgid "Saturday"
 msgstr "星期六"
 
@@ -372,7 +423,7 @@ msgstr "星期六"
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:429
 msgid "Save & Join Event"
 msgstr "儲存並參加活動"
 
@@ -393,7 +444,7 @@ msgstr "顯示全部 {0} 條"
 msgid "Show less"
 msgstr "顯示更少"
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能練習和訓練，專注於技術改進"
 
@@ -401,7 +452,11 @@ msgstr "技能練習和訓練，專注於技術改進"
 msgid "SORTED BY START TIME"
 msgstr "按開始時間排序"
 
-#: src/components/pkuru/PkEventsList.re.mjs:262
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "分布"
+
+#: src/components/pkuru/PkEventsList.re.mjs:270
 msgid "Sunday"
 msgstr "星期日"
 
@@ -423,20 +478,20 @@ msgid ""
 "scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
-#: src/components/pkuru/PkEventRow.re.mjs:807
-#: src/components/pages/PkEventPage.re.mjs:715
+#: src/components/pkuru/PkEventRow.re.mjs:835
+#: src/components/pages/PkEventPage.re.mjs:690
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
 msgstr "候補名單中有球員。如果您退出，您的位置將會給下一位。確定嗎？"
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
-#: src/components/organisms/ProfileModal.re.mjs:207
+#: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "這是其他人會看到的名字"
 
@@ -448,29 +503,33 @@ msgstr ""
 "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
 "限制其報名嗎？"
 
-#: src/components/pkuru/PkEventsList.re.mjs:274
+#: src/components/pkuru/PkEventsList.re.mjs:282
 msgid "Thursday"
 msgstr "星期四"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:245
+#: src/components/pkuru/PkEventsList.re.mjs:253
 msgid "Today"
 msgstr "今天"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:251
+#: src/components/pkuru/PkEventsList.re.mjs:259
 msgid "Tomorrow"
 msgstr "明天"
 
-#: src/components/pkuru/PkEventsList.re.mjs:268
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "前6均值"
+
+#: src/components/pkuru/PkEventsList.re.mjs:276
 msgid "Tuesday"
 msgstr "星期二"
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/pages/PkEventPage.re.mjs:263
 msgid "uncancel event"
 msgstr "取消取消活動"
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中上等級及以上"
 
@@ -488,23 +547,23 @@ msgstr "查看個人資料"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:524
+#: src/components/pkuru/PkEventRow.re.mjs:579
 msgid "Waitlist"
 msgstr "等待列表"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:515
+#: src/components/organisms/PkRSVPSection.re.mjs:617
 msgid "Waitlist · {0}"
 msgstr "候補名單 · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:250
+#: src/components/pkuru/PkEventRow.re.mjs:271
 msgid "Waitlisted"
 msgstr "已在候補名單"
 
-#: src/components/organisms/ProfileModal.re.mjs:264
+#: src/components/organisms/ProfileModal.re.mjs:339
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
 
-#: src/components/pkuru/PkEventsList.re.mjs:271
+#: src/components/pkuru/PkEventsList.re.mjs:279
 msgid "Wednesday"
 msgstr "星期三"
 
@@ -516,11 +575,11 @@ msgstr "週末"
 msgid "Winning Team (Team {0})"
 msgstr "獲勝隊（隊伍 {0}）"
 
-#: src/components/pkuru/PkEventsList.re.mjs:285
+#: src/components/pkuru/PkEventsList.re.mjs:293
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid ""
 "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

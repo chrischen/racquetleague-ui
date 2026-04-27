@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/ClubMembersPage.re.mjs:165
+msgid "Approve"
+msgstr "Chấp thuận"
+
+#: src/components/pages/ClubMembersPage.re.mjs:179
+msgid "Are you sure you want to remove {0} from the club?"
+msgstr "Bạn có chắc muốn xóa {0} khỏi câu lạc bộ không?"
+
+#: src/components/pages/ClubMembersPage.re.mjs:432
+msgid "club not found"
+msgstr "không tìm thấy câu lạc bộ"
+
+#: src/components/pages/ClubMembersPage.re.mjs:412
+msgid "Members"
+msgstr "Thành viên"
+
+#: src/components/pages/ClubMembersPage.re.mjs:361
+msgid "No members found"
+msgstr "Không tìm thấy thành viên"
+
+#: src/components/pages/ClubMembersPage.re.mjs:336
+msgid "Pending"
+msgstr "Đang chờ"
+
+#: src/components/pages/ClubMembersPage.re.mjs:176
+msgid "Remove"
+msgstr "Xóa"
+
+#: src/components/pages/ClubMembersPage.re.mjs:178
+msgid "Remove member?"
+msgstr "Xóa thành viên?"

@@ -23,9 +23,9 @@ let make = (~seekingPartner: option<int>, ~onChange) => {
         />
       </HeadlessUi.Switch>
       <HeadlessUi.Switch.Label \"as"="span" className="ml-3 text-sm">
-        <span className="font-medium text-gray-900"> {t`seeking a doubles partner`} </span>
+        <span className="font-medium text-gray-900 dark:text-gray-100"> {t`seeking a doubles partner`} </span>
         {" "->React.string}
-        <span className="text-gray-500">
+        <span className="text-gray-500 dark:text-gray-400">
           {t`shows a badge next to your name in RSVP lists to tell people you are looking for a partner`}
         </span>
       </HeadlessUi.Switch.Label>

@@ -15,45 +15,45 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:762
+#: src/components/pages/Event.re.mjs:764
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:765
+#: src/components/pages/Event.re.mjs:767
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:768
+#: src/components/pages/Event.re.mjs:770
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:771
+#: src/components/pages/Event.re.mjs:773
 msgid "Futsal"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:774
+#: src/components/pages/Event.re.mjs:776
 msgid "drill"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:777
+#: src/components/pages/Event.re.mjs:779
 msgid "comp"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:780
+#: src/components/pages/Event.re.mjs:782
 msgid "rec"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:783
+#: src/components/pages/Event.re.mjs:785
 msgid "all level"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 #~ msgid "add to calendar"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 #~ msgid "Event Location"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgstr ""
 msgid "guest list"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr ""
 
@@ -288,11 +288,11 @@ msgstr ""
 #~ msgid "login with Line"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr ""
 
@@ -321,7 +321,7 @@ msgstr ""
 msgid "no players yet"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr ""
 
@@ -350,15 +350,25 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
 msgstr ""
 
 #: src/components/pages/Event.re.mjs:198
 #~ msgid "Recreational play suitable for all skill levels"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:52
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
@@ -386,7 +396,7 @@ msgstr ""
 #~ msgid "restricted by level"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr ""
 
@@ -433,7 +443,7 @@ msgstr ""
 msgid "showing up without permission may result in a ban for failing to follow rules."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
@@ -467,7 +477,7 @@ msgstr ""
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
 
@@ -498,7 +508,7 @@ msgstr ""
 msgid "unsubscribe from {activityName} events"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr ""
 

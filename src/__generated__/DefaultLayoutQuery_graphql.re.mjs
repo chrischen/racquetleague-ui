@@ -124,6 +124,13 @@ var node = {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
+                "name": "locale",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "picture",
                 "storageKey": null
               }
@@ -136,12 +143,12 @@ var node = {
     ]
   },
   "params": {
-    "cacheID": "51f37d3aeca271a2aba4316b7ce6150a",
+    "cacheID": "cb8cc492bb22aaf9e18b320136b266f0",
     "id": null,
     "metadata": {},
     "name": "DefaultLayoutQuery",
     "operationKind": "query",
-    "text": "query DefaultLayoutQuery {\n  ...Nav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment Nav_query on Query {\n  viewer {\n    user {\n      lineUsername\n      id\n    }\n    ...Nav_viewer\n  }\n}\n\nfragment Nav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n"
+    "text": "query DefaultLayoutQuery {\n  ...Nav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment Nav_query on Query {\n  viewer {\n    user {\n      lineUsername\n      id\n    }\n    ...Nav_viewer\n  }\n}\n\nfragment Nav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n"
   }
 };
 

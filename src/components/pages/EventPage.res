@@ -288,6 +288,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/EventPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/EventPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/EventPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/EventPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/EventPage.re/vi"),
 })
 
 @genType

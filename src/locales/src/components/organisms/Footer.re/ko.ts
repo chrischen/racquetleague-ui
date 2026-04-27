@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"hOdM7G\":\"저작권 racquet league 기여자\"}");

@@ -1,6 +1,16 @@
 @send
 external intersection: (Js.Set.t<'a>, Js.Set.t<'a>) => Js.Set.t<'a> = "intersection"
 
+// Check that all modern browser APIs used by this module are available
+let isSupported: unit => bool = %raw(`function() {
+  return (
+    typeof Set.prototype.intersection === 'function' &&
+    typeof Array.prototype.toSorted === 'function' &&
+    typeof crypto !== 'undefined' &&
+    typeof crypto.randomUUID === 'function'
+  )
+}`)
+
 // Generate UUID using Web Crypto API
 @val external randomUUID: unit => string = "crypto.randomUUID"
 

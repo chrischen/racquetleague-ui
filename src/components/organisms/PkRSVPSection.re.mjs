@@ -34,8 +34,14 @@ function useOpt(fRef) {
   return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, PkRSVPSection_event_graphql.node, convertFragment);
 }
 
+var Fragment_gender_decode = PkRSVPSection_event_graphql.Utils.gender_decode;
+
+var Fragment_gender_fromString = PkRSVPSection_event_graphql.Utils.gender_fromString;
+
 var Fragment = {
   getConnectionNodes: getConnectionNodes,
+  gender_decode: Fragment_gender_decode,
+  gender_fromString: Fragment_gender_fromString,
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment,
@@ -53,7 +59,13 @@ var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, PkR
 
 var use$1 = RescriptRelay_Mutation.useMutation(convertVariables, PkRSVPSectionAddUserMutation_graphql.node, convertResponse, convertWrapRawResponse);
 
+var PkRSVPSectionAddUserMutation_gender_decode = PkRSVPSectionAddUserMutation_graphql.Utils.gender_decode;
+
+var PkRSVPSectionAddUserMutation_gender_fromString = PkRSVPSectionAddUserMutation_graphql.Utils.gender_fromString;
+
 var PkRSVPSectionAddUserMutation = {
+  gender_decode: PkRSVPSectionAddUserMutation_gender_decode,
+  gender_fromString: PkRSVPSectionAddUserMutation_gender_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables,
@@ -156,37 +168,26 @@ function PkRSVPSection(props) {
           }
         }));
   var maxRating$1 = maxRating === 0 ? 1 : maxRating;
-  var avgDuprStr;
-  if (mus.length > 0) {
-    var sorted = mus.toSorted(function (a, b) {
-          return a - b;
-        });
-    var n = sorted.length;
-    var median = n % 2 === 1 ? sorted[n / 2 | 0] : (sorted[(n / 2 | 0) - 1 | 0] + sorted[n / 2 | 0]) / 2;
-    avgDuprStr = Rating.guessDupr(median).toFixed(1);
-  } else {
-    avgDuprStr = "—";
-  }
   var match$2;
   if (mus.length >= 2) {
     var duprVals = mus.map(Rating.guessDupr);
-    var n$1 = duprVals.length;
+    var n = duprVals.length;
     var mean = Core__Array.reduce(duprVals, 0, (function (a, b) {
             return a + b;
-          })) / n$1;
+          })) / n;
     var variance = Core__Array.reduce(duprVals, 0, (function (acc, v) {
             return acc + (v - mean) * (v - mean);
-          })) / n$1;
+          })) / n;
     var stdDev = Math.sqrt(variance);
     var match$3 = stdDev < 0.3 ? [
-        "even",
+        t`even`,
         "text-emerald-500 dark:text-emerald-400"
       ] : (
         stdDev < 0.6 ? [
-            "balanced",
+            t`balanced`,
             "text-gray-400 dark:text-gray-500"
           ] : [
-            "mixed",
+            t`mixed`,
             "text-amber-500 dark:text-amber-400"
           ]
       );
@@ -214,6 +215,22 @@ function PkRSVPSection(props) {
   } else {
     top6AvgDuprStr = "—";
   }
+  var medianMu = function (arr) {
+    var sorted = arr.toSorted(function (a, b) {
+          return a - b;
+        });
+    var n = sorted.length;
+    if (n === 0) {
+      return ;
+    } else if (n % 2 === 1) {
+      return sorted[n / 2 | 0];
+    } else {
+      return (sorted[(n / 2 | 0) - 1 | 0] + sorted[n / 2 | 0]) / 2;
+    }
+  };
+  var overallMedianDuprStr = Core__Option.getOr(Core__Option.map(medianMu(mus), (function (mu) {
+              return Rating.guessDupr(mu).toFixed(1);
+            })), "—");
   var isFull = maxRsvps > 0 && confirmedRsvps.length >= maxRsvps;
   if (maxRsvps > 0) {
     Math.max(0, maxRsvps - confirmedRsvps.length | 0);
@@ -222,6 +239,47 @@ function PkRSVPSection(props) {
   var colorClass = isFull ? "bg-[#ef4444]" : (
       percentage >= 75 ? "bg-[#ffb042]" : "bg-[#4ade80]"
     );
+  var maleMus = Core__Array.filterMap(confirmedRsvps, (function (node) {
+          return Core__Option.flatMap(Core__Option.flatMap(node.user, (function (u) {
+                            return u.gender;
+                          })), (function (g) {
+                        if (g === "male") {
+                          return Core__Option.flatMap(node.rating, (function (r) {
+                                        return r.mu;
+                                      }));
+                        }
+                        
+                      }));
+        }));
+  var femaleMus = Core__Array.filterMap(confirmedRsvps, (function (node) {
+          return Core__Option.flatMap(Core__Option.flatMap(node.user, (function (u) {
+                            return u.gender;
+                          })), (function (g) {
+                        if (g === "female") {
+                          return Core__Option.flatMap(node.rating, (function (r) {
+                                        return r.mu;
+                                      }));
+                        }
+                        
+                      }));
+        }));
+  var maleMedianMu = medianMu(maleMus);
+  var femaleMedianMu = medianMu(femaleMus);
+  var maleMedianDuprStr = Core__Option.getOr(Core__Option.map(maleMedianMu, (function (mu) {
+              return Rating.guessDupr(mu).toFixed(1);
+            })), "—");
+  var femaleMedianDuprStr = Core__Option.getOr(Core__Option.map(femaleMedianMu, (function (mu) {
+              return Rating.guessDupr(mu).toFixed(1);
+            })), "—");
+  var totalWithGender = maleMus.length + femaleMus.length | 0;
+  var malePct = totalWithGender > 0 ? Math.round(maleMus.length / totalWithGender * 100) | 0 : 50;
+  var genderGapStr;
+  if (maleMedianMu !== undefined && femaleMedianMu !== undefined) {
+    var gap = Rating.guessDupr(Math.abs(maleMedianMu - femaleMedianMu));
+    genderGapStr = gap < 0.1 ? "even" : "Δ" + gap.toFixed(1);
+  } else {
+    genderGapStr = "—";
+  }
   var viewerRating = Core__Option.flatMap(viewerUser, (function (v) {
           return v.eventRating;
         }));
@@ -373,7 +431,7 @@ function PkRSVPSection(props) {
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("div", {
-                                      children: "TOP 6 AVG",
+                                      children: t`TOP 6 AVG`,
                                       className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
                                     }),
                                 JsxRuntime.jsx("div", {
@@ -381,25 +439,69 @@ function PkRSVPSection(props) {
                                       className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: "DUPR",
+                                      children: t`DUPR`,
                                       className: "font-mono text-[11px] text-gray-400 mt-0.5"
                                     })
                               ],
-                              className: "px-3 py-2.5 border-r border-gray-200 dark:border-[#3a3b40]"
+                              className: "px-3 py-2.5 border-r border-b sm:border-b-0 border-gray-200 dark:border-[#3a3b40]"
                             }),
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("div", {
-                                      children: "MEDIAN SKILL",
+                                      children: t`MEDIAN`,
                                       className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: avgDuprStr,
+                                      children: overallMedianDuprStr,
                                       className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: "DUPR",
+                                      children: t`DUPR`,
                                       className: "font-mono text-[11px] text-gray-400 mt-0.5"
+                                    })
+                              ],
+                              className: "px-3 py-2.5 border-b sm:border-r sm:border-b-0 border-gray-200 dark:border-[#3a3b40]"
+                            }),
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("div", {
+                                      children: t`♂/♀ SKILL`,
+                                      className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
+                                    }),
+                                JsxRuntime.jsxs("div", {
+                                      children: [
+                                        JsxRuntime.jsx("span", {
+                                              children: maleMedianDuprStr,
+                                              className: "text-blue-400"
+                                            }),
+                                        JsxRuntime.jsx("span", {
+                                              children: "/",
+                                              className: "text-gray-300 dark:text-gray-600 text-sm"
+                                            }),
+                                        JsxRuntime.jsx("span", {
+                                              children: femaleMedianDuprStr,
+                                              className: "text-pink-400"
+                                            })
+                                      ],
+                                      className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5 flex items-baseline gap-0.5"
+                                    }),
+                                JsxRuntime.jsxs("div", {
+                                      children: [
+                                        JsxRuntime.jsx("div", {
+                                              children: JsxRuntime.jsx("div", {
+                                                    className: "h-full rounded-full bg-blue-400",
+                                                    style: {
+                                                      width: malePct.toString() + "%"
+                                                    }
+                                                  }),
+                                              className: "flex-1 h-1 rounded-full bg-pink-300/40 dark:bg-pink-400/20 overflow-hidden"
+                                            }),
+                                        JsxRuntime.jsx("span", {
+                                              children: genderGapStr,
+                                              className: "font-mono text-[9px] text-gray-400"
+                                            })
+                                      ],
+                                      className: "flex items-center gap-1.5 mt-1"
                                     })
                               ],
                               className: "px-3 py-2.5 border-r border-gray-200 dark:border-[#3a3b40]"
@@ -407,7 +509,7 @@ function PkRSVPSection(props) {
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("div", {
-                                      children: "SPREAD",
+                                      children: t`SPREAD`,
                                       className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
                                     }),
                                 JsxRuntime.jsx("div", {
@@ -422,7 +524,7 @@ function PkRSVPSection(props) {
                               className: "px-3 py-2.5"
                             })
                       ],
-                      className: "grid grid-cols-3 border border-gray-200 dark:border-[#3a3b40] rounded-lg overflow-hidden mb-4"
+                      className: "grid grid-cols-2 sm:grid-cols-4 border border-gray-200 dark:border-[#3a3b40] rounded-lg overflow-hidden mb-4"
                     }),
                 confirmedRsvps.length > 0 ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                         children: [

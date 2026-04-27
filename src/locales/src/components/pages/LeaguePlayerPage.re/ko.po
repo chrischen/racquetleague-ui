@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:697
+msgid "...load previous matches"
+msgstr "...이전 경기 불러오기"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
+msgid "All"
+msgstr "전체"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:781
+msgid "All Clubs"
+msgstr "전체 클럽"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:761
+msgid "Back to league"
+msgstr "리그로 돌아가기"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:412
+msgid "Balanced partner tendency"
+msgstr "균형잡힌 파트너 경향"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:458
+msgid "Best Doubles Partners"
+msgstr "최고의 복식 파트너"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:873
+msgid "Current Rating"
+msgstr "현재 레이팅"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "무승부"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:409
+msgid "Elevates weaker partners"
+msgstr "약한 파트너를 끌어올림"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:388
+#: src/components/pages/LeaguePlayerPage.re.mjs:906
+#: src/components/pages/LeaguePlayerPage.re.mjs:957
+#: src/components/pages/LeaguePlayerPage.re.mjs:1008
+#: src/components/pages/LeaguePlayerPage.re.mjs:1111
+msgid "Estimated DUPR"
+msgstr "예상 DUPR"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "균등"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1064
+msgid "Hard Court"
+msgstr "하드 코트"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1092
+msgid "Indoor Court (Indoor Ball)"
+msgstr "실내 코트 (실내 공)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1078
+msgid "Indoor Court (Outdoor Ball)"
+msgstr "실내 코트 (실외 공)"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:714
+msgid "Load more matches..."
+msgstr "경기 더 불러오기..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1184
+msgid "Loading..."
+msgstr "로딩 중..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "패"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:921
+msgid "Men's Doubles"
+msgstr "남자 복식"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:972
+msgid "Mixed Doubles"
+msgstr "혼합 복식"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:478
+#: src/components/pages/LeaguePlayerPage.re.mjs:552
+#: src/components/pages/LeaguePlayerPage.re.mjs:626
+#: src/components/pages/LeaguePlayerPage.re.mjs:700
+msgid "No data for this category"
+msgstr "이 카테고리의 데이터 없음"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:405
+msgid "Performs better with stronger partners"
+msgstr "강한 파트너와 더 잘 수행함"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:491
+#: src/components/pages/LeaguePlayerPage.re.mjs:565
+#: src/components/pages/LeaguePlayerPage.re.mjs:639
+#: src/components/pages/LeaguePlayerPage.re.mjs:713
+msgid "Predicted"
+msgstr "예측"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "레이팅 기록"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1175
+msgid "Recent Matches"
+msgstr "최근 경기"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:825
+msgid "Showing stats from {selectedClubName} only"
+msgstr "{selectedClubName}의 통계만 표시"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:606
+msgid "Strong Against"
+msgstr "강점 상대"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr ""
+"음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "이변"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:680
+msgid "Weak Against"
+msgstr "약점 상대"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "승"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1023
+msgid "Women's Doubles"
+msgstr "여자 복식"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:532
+msgid "Worst Doubles Partners"
+msgstr "최악의 복식 파트너"

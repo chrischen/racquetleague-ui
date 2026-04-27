@@ -13,61 +13,25 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:785
-msgid "Badminton"
-msgstr "バドミントン"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:788
-msgid "Table Tennis"
-msgstr "卓球"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:791
-msgid "Pickleball"
-msgstr "ピックルボール"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:794
-msgid "Futsal"
-msgstr "フットサル"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:797
-msgid "drill"
-msgstr "ドリル"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:800
-msgid "comp"
-msgstr "競技"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:803
-msgid "rec"
-msgstr "練習試合"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:806
-msgid "all level"
-msgstr "全レベル"
-
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "...more"
 msgstr "...もっと見る"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:349
+#: src/components/organisms/PkRSVPSection.re.mjs:407
 msgid "· {0} pending"
 msgstr "· {0} 保留中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:347
+#: src/components/organisms/PkRSVPSection.re.mjs:405
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:344
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "{0} joined"
 msgstr "{0} 参加済み"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ スキル"
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
@@ -77,7 +41,7 @@ msgstr "アクティビティ"
 msgid "Add a message..."
 msgstr "メッセージを追加..."
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
@@ -89,28 +53,28 @@ msgstr "参加申込を承認"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "バランス"
+
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:500
-msgid "Casual"
-msgstr ""
-
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:388
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Claim spot"
 msgstr "参加する"
 
-#: src/components/organisms/ProfileModal.re.mjs:260
+#: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "プロフィールを完成させる"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:552
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
 
@@ -135,15 +99,20 @@ msgstr "試合を削除"
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
-#: src/components/organisms/ProfileModal.re.mjs:283
+#: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
 msgstr "表示名"
 
-#: src/components/organisms/ProfileModal.re.mjs:73
+#: src/components/organisms/ProfileModal.re.mjs:106
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/PkEventPage.re.mjs:257
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -151,11 +120,11 @@ msgstr "イベントを編集"
 msgid "Edit match"
 msgstr "試合を編集"
 
-#: src/components/organisms/ProfileModal.re.mjs:300
+#: src/components/organisms/ProfileModal.re.mjs:375
 msgid "Email address"
 msgstr "メールアドレス"
 
-#: src/components/organisms/ProfileModal.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:226
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -163,11 +132,11 @@ msgstr ""
 "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
 "用しようとしているメールアドレスでログインしてください。"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "Email cannot be changed"
 msgstr "メールアドレスは変更できません"
 
-#: src/components/organisms/ProfileModal.re.mjs:76
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
 
@@ -175,12 +144,16 @@ msgstr "メールアドレスは必須です"
 msgid "Enter Match Score"
 msgstr "試合のスコアを入力"
 
-#: src/components/pages/PkEventPage.re.mjs:753
-#: src/components/pages/PkEventPage.re.mjs:777
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "均等"
+
+#: src/components/pages/PkEventPage.re.mjs:728
+#: src/components/pages/PkEventPage.re.mjs:752
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
 
@@ -188,23 +161,31 @@ msgstr "イベントタグ: {tag}"
 msgid "Event updated"
 msgstr "イベントを更新しました"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
 
-#: src/components/pages/PkEventPage.re.mjs:585
+#: src/components/pages/PkEventPage.re.mjs:560
 msgid "Free"
 msgstr "無料"
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "性別"
+
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Join waitlist"
 msgstr "キャンセル待ちに登録"
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:388
 msgid "Join waitlist (#{0})"
 msgstr "キャンセル待ちに参加 (#{0})"
 
@@ -212,19 +193,19 @@ msgstr "キャンセル待ちに参加 (#{0})"
 msgid "Last Round"
 msgstr "前回のラウンド"
 
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pages/PkEventPage.re.mjs:369
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/pages/PkEventPage.re.mjs:714
+#: src/components/pages/PkEventPage.re.mjs:689
 msgid "Leave event"
 msgstr "イベントを退出"
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "less"
 msgstr "閉じる"
 
-#: src/components/pages/PkEventPage.re.mjs:603
+#: src/components/pages/PkEventPage.re.mjs:578
 msgid "Location"
 msgstr "場所"
 
@@ -232,20 +213,32 @@ msgstr "場所"
 msgid "Losing Team (Team {0})"
 msgstr "敗北チーム（チーム{0}）"
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "男性"
+
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "中央値"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "混合"
 
 #: src/components/organisms/RsvpOptions.re.mjs:128
 #: src/components/organisms/RsvpOptions.re.mjs:196
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
@@ -253,27 +246,33 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/pages/PkEventPage.re.mjs:667
+#: src/components/pages/PkEventPage.re.mjs:642
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:327
+#: src/components/organisms/PkRSVPSection.re.mjs:385
 msgid "Participants"
 msgstr "参加者"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:579
+#: src/components/organisms/PkRSVPSection.re.mjs:681
 msgid "Pending · {0}"
 msgstr "保留中 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:550
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "回答しない"
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "非公開"
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr "プロプレイヤー"
 
-#: src/components/pages/PkEventPage.re.mjs:565
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
 msgstr "レーティング戦"
 
@@ -281,7 +280,7 @@ msgstr "レーティング戦"
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
@@ -298,15 +297,15 @@ msgstr "このRSVPを削除"
 msgid "Repeat"
 msgstr "繰り返し"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:253
+#: src/components/organisms/PkRSVPSection.re.mjs:311
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "必要なDUPR: {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加にはDUPR {minDuprStr}以上が必要です"
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
@@ -322,7 +321,7 @@ msgstr "ラウンドロビン組み合わせ"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:429
 msgid "Save & Join Event"
 msgstr "保存して参加する"
 
@@ -343,9 +342,13 @@ msgstr "{0} 件すべて表示"
 msgid "Show less"
 msgstr "折りたたむ"
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "ばらつき"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:173
 msgid "TEAM 1"
@@ -363,7 +366,7 @@ msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
 
-#: src/components/pages/PkEventPage.re.mjs:715
+#: src/components/pages/PkEventPage.re.mjs:690
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -371,13 +374,13 @@ msgstr ""
 "キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されま"
 "す。よろしいですか？"
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
 
-#: src/components/organisms/ProfileModal.re.mjs:207
+#: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "他の人に表示される名前です"
 
@@ -389,11 +392,15 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "上位6平均"
+
+#: src/components/pages/PkEventPage.re.mjs:263
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 
@@ -411,11 +418,11 @@ msgstr "プロフィールを表示"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:515
+#: src/components/organisms/PkRSVPSection.re.mjs:617
 msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
-#: src/components/organisms/ProfileModal.re.mjs:264
+#: src/components/organisms/ProfileModal.re.mjs:339
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
@@ -423,7 +430,7 @@ msgstr "イベント参加に必要な情報を入力してください"
 msgid "Winning Team (Team {0})"
 msgstr "勝利チーム（チーム{0}）"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid ""
 "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -431,6 +438,46 @@ msgstr ""
 "あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
 "{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追"
 "加されます。"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:785
+#~ msgid "Badminton"
+#~ msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:788
+#~ msgid "Table Tennis"
+#~ msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:791
+#~ msgid "Pickleball"
+#~ msgstr "ピックルボール"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:794
+#~ msgid "Futsal"
+#~ msgstr "フットサル"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:797
+#~ msgid "drill"
+#~ msgstr "ドリル"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:800
+#~ msgid "comp"
+#~ msgstr "競技"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:803
+#~ msgid "rec"
+#~ msgstr "練習試合"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:806
+#~ msgid "all level"
+#~ msgstr "全レベル"
 
 #: src/components/pages/PkEventPage.re.mjs:691
 #~ msgid "Host"

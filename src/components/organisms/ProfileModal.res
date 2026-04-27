@@ -17,13 +17,30 @@ module UpdateViewerContactMutation = %relay(`
   }
 `)
 
+module UpdateProfileMutation = %relay(`
+  mutation ProfileModalUpdateProfileMutation($input: UpdateProfileInput!) {
+    updateProfile(input: $input) {
+      viewer {
+        id
+        gender
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
 module Fragment = %relay(`
   fragment ProfileModal_viewer on Query {
     viewer {
-      user {
+      profile {
         id
         lineUsername
         email
+        fullName
+        biography
+        gender
       }
     }
   }
@@ -56,15 +73,30 @@ let make = (
 ) => {
   open Form
   let ts = Lingui.UtilString.t
-  let data = Fragment.use(query)
+  let fragmentData = Fragment.use(query)
   let (isAnimating, setIsAnimating) = React.useState(() => false)
   let (emailError, setEmailError) = React.useState(() => None)
   let (commitMutation, isMutationInFlight) = UpdateViewerContactMutation.use()
+  let (commitUpdateProfile, _) = UpdateProfileMutation.use()
+
+  let (gender, setGender) = React.useState(() =>
+    fragmentData.viewer
+    ->Option.flatMap(v => v.profile)
+    ->Option.flatMap(u => u.gender)
+    ->Option.flatMap(g =>
+      switch g {
+      | RelaySchemaAssets_graphql.Female =>
+        Some((RelaySchemaAssets_graphql.Female: RelaySchemaAssets_graphql.enum_Gender_input))
+      | Male => Some(Male)
+      | FutureAddedValue(_) => None
+      }
+    )
+  )
 
   // Check if email already exists and is non-empty
   let existingEmail =
-    data.viewer
-    ->Option.flatMap(v => v.user)
+    fragmentData.viewer
+    ->Option.flatMap(v => v.profile)
     ->Option.flatMap(u => u.email)
   let emailExists =
     existingEmail
@@ -75,12 +107,12 @@ let make = (
     ~options={
       resolver: Resolver.zodResolver(schema),
       defaultValues: {
-        lineUsername: data.viewer
-        ->Option.flatMap(v => v.user)
+        lineUsername: fragmentData.viewer
+        ->Option.flatMap(v => v.profile)
         ->Option.flatMap(u => u.lineUsername)
         ->Option.getOr(""),
-        email: data.viewer
-        ->Option.flatMap(v => v.user)
+        email: fragmentData.viewer
+        ->Option.flatMap(v => v.profile)
         ->Option.flatMap(u => u.email)
         ->Option.getOr(""),
       },
@@ -104,6 +136,28 @@ let make = (
   let onSubmit = (data: inputs) => {
     // Clear any previous email errors
     setEmailError(_ => None)
+
+    // Update gender via updateProfile if gender is set
+    switch gender {
+    | Some(g) =>
+      commitUpdateProfile(
+        ~variables={
+          input: {
+            fullName: fragmentData.viewer
+            ->Option.flatMap(v => v.profile)
+            ->Option.flatMap(u => u.fullName)
+            ->Option.getOr(""),
+            biography: fragmentData.viewer
+            ->Option.flatMap(v => v.profile)
+            ->Option.flatMap(u => u.biography)
+            ->Option.getOr(""),
+            username: data.lineUsername,
+            gender: g,
+          },
+        },
+      )->ignore
+    | None => ()
+    }
 
     commitMutation(
       ~variables={
@@ -237,6 +291,33 @@ let make = (
                       : (ts`For event updates and notifications`)->React.string}
                   </p>
                 }}
+              </div>
+              // Gender
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {(ts`Gender`)->React.string}
+                </label>
+                <select
+                  className="block w-full rounded-lg border border-gray-200 py-2.5 pl-3 pr-10 text-gray-900 focus:ring-2 focus:ring-blue-500 sm:text-sm"
+                  value={switch gender {
+                  | Some(RelaySchemaAssets_graphql.Female) => "female"
+                  | Some(Male) => "male"
+                  | None => ""
+                  }}
+                  onChange={e => {
+                    let value = (e->ReactEvent.Form.target)["value"]
+                    setGender(_ =>
+                      switch value {
+                      | "female" => Some(RelaySchemaAssets_graphql.Female)
+                      | "male" => Some(Male)
+                      | _ => None
+                      }
+                    )
+                  }}>
+                  <option value=""> {(ts`Prefer not to say`)->React.string} </option>
+                  <option value="male"> {(ts`Male`)->React.string} </option>
+                  <option value="female"> {(ts`Female`)->React.string} </option>
+                </select>
               </div>
               // Submit Button
               <div className="pt-2">

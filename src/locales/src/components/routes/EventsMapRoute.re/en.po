@@ -13,44 +13,53 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "...more"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:349
+#: src/components/organisms/PkRSVPSection.re.mjs:407
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:347
+#: src/components/organisms/PkRSVPSection.re.mjs:405
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:595
+#: src/components/pkuru/PkEventRow.re.mjs:650
 msgid "[missing title]"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:126
+#: src/components/pkuru/PkEventsList.re.mjs:131
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:194
+#: src/components/pkuru/PkEventsList.re.mjs:200
 msgid "{0} {hiddenDesc} hidden — show"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:344
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "{0} joined"
+msgstr ""
+
+#: src/components/pkuru/PkEventRow.re.mjs:148
+#: src/components/pkuru/PkEventRow.re.mjs:205
+msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:106
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:102
+#: src/components/pkuru/PkEventsList.re.mjs:105
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:119
 msgid "← previous"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
 msgstr ""
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
@@ -61,11 +70,11 @@ msgstr ""
 msgid "Add a message..."
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:144
+#: src/components/pkuru/PkEventsList.re.mjs:149
 msgid "Add to {0}"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr ""
 
@@ -81,15 +90,19 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "cancel event"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:681
+#: src/components/pkuru/PkEventRow.re.mjs:709
 msgid "Canceled"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "CANCELED"
 msgstr ""
 
@@ -97,16 +110,16 @@ msgstr ""
 #~ msgid "Casual"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:388
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Claim spot"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:260
+#: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:552
 msgid "Confirmed · {0}"
 msgstr ""
 
@@ -131,15 +144,20 @@ msgstr ""
 msgid "Delete this match?"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:283
+#: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:73
+#: src/components/organisms/ProfileModal.re.mjs:106
 msgid "Display name is required"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:257
 msgid "edit event"
 msgstr ""
 
@@ -147,19 +165,19 @@ msgstr ""
 msgid "Edit match"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:300
+#: src/components/organisms/ProfileModal.re.mjs:375
 msgid "Email address"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:226
 msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "Email cannot be changed"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:76
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Email is required"
 msgstr ""
 
@@ -167,16 +185,20 @@ msgstr ""
 msgid "Enter Match Score"
 msgstr ""
 
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr ""
+
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:129
+#: src/components/pkuru/PkEventsList.re.mjs:134
 msgid "event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:753
+#: src/components/pages/PkEventPage.re.mjs:728
 msgid "Event not found"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr ""
 
@@ -185,31 +207,39 @@ msgid "Event updated"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:130
+#: src/components/pkuru/PkEventsList.re.mjs:135
 msgid "events"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:83
 msgid "Filtered by date"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:585
+#: src/components/pages/PkEventPage.re.mjs:560
 msgid "Free"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:277
+#: src/components/pkuru/PkEventsList.re.mjs:285
 msgid "Friday"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr ""
 
@@ -217,19 +247,19 @@ msgstr ""
 #~ msgid "Host"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:524
+#: src/components/pkuru/PkEventRow.re.mjs:579
 msgid "Join"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Join waitlist"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:388
 msgid "Join waitlist (#{0})"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:218
+#: src/components/pkuru/PkEventRow.re.mjs:239
 msgid "Joined"
 msgstr ""
 
@@ -237,21 +267,21 @@ msgstr ""
 msgid "Last Round"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:523
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pkuru/PkEventRow.re.mjs:578
+#: src/components/pages/PkEventPage.re.mjs:369
 msgid "Leave"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:806
-#: src/components/pages/PkEventPage.re.mjs:714
+#: src/components/pkuru/PkEventRow.re.mjs:834
+#: src/components/pages/PkEventPage.re.mjs:689
 msgid "Leave event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "less"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:603
+#: src/components/pages/PkEventPage.re.mjs:578
 msgid "Location"
 msgstr ""
 
@@ -259,15 +289,27 @@ msgstr ""
 msgid "Losing Team (Team {0})"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:265
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr ""
+
+#: src/components/pkuru/PkEventsList.re.mjs:273
 msgid "Monday"
 msgstr ""
 
@@ -280,11 +322,11 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:286
+#: src/components/pkuru/PkEventsList.re.mjs:294
 msgid "Next {dayName}"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr ""
 
@@ -292,42 +334,51 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:667
+#: src/components/pages/PkEventPage.re.mjs:642
 msgid "Notes from the host"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:327
+#: src/components/organisms/PkRSVPSection.re.mjs:385
 msgid "Participants"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:257
+#: src/components/pkuru/PkEventRow.re.mjs:278
 msgid "Pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:579
+#: src/components/organisms/PkRSVPSection.re.mjs:681
 msgid "Pending · {0}"
+msgstr ""
+
+#: src/components/pkuru/PkEventRow.re.mjs:149
+#: src/components/pkuru/PkEventRow.re.mjs:206
+msgid "player"
 msgstr ""
 
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 #~ msgid "Player"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:133
-#: src/components/pkuru/PkEventRow.re.mjs:187
+#: src/components/pkuru/PkEventRow.re.mjs:150
+#: src/components/pkuru/PkEventRow.re.mjs:207
 msgid "players"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:639
-#: src/components/pages/PkEventPage.re.mjs:550
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:655
-#: src/components/pages/PkEventPage.re.mjs:565
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
 msgstr ""
 
@@ -335,7 +386,7 @@ msgstr ""
 msgid "Rebalance match"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:52
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
@@ -351,15 +402,15 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:253
+#: src/components/organisms/PkRSVPSection.re.mjs:311
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr ""
 
@@ -371,7 +422,7 @@ msgstr ""
 msgid "Round Robin Draws"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:280
+#: src/components/pkuru/PkEventsList.re.mjs:288
 msgid "Saturday"
 msgstr ""
 
@@ -379,7 +430,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:429
 msgid "Save & Join Event"
 msgstr ""
 
@@ -400,7 +451,7 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
@@ -408,7 +459,11 @@ msgstr ""
 msgid "SORTED BY START TIME"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:262
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr ""
+
+#: src/components/pkuru/PkEventsList.re.mjs:270
 msgid "Sunday"
 msgstr ""
 
@@ -428,16 +483,16 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:807
-#: src/components/pages/PkEventPage.re.mjs:715
+#: src/components/pkuru/PkEventRow.re.mjs:835
+#: src/components/pages/PkEventPage.re.mjs:690
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:207
+#: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr ""
 
@@ -445,29 +500,33 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:274
+#: src/components/pkuru/PkEventsList.re.mjs:282
 msgid "Thursday"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:245
+#: src/components/pkuru/PkEventsList.re.mjs:253
 msgid "Today"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:251
+#: src/components/pkuru/PkEventsList.re.mjs:259
 msgid "Tomorrow"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:268
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr ""
+
+#: src/components/pkuru/PkEventsList.re.mjs:276
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/pages/PkEventPage.re.mjs:263
 msgid "uncancel event"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr ""
 
@@ -485,23 +544,23 @@ msgstr ""
 msgid "VS"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:524
+#: src/components/pkuru/PkEventRow.re.mjs:579
 msgid "Waitlist"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:515
+#: src/components/organisms/PkRSVPSection.re.mjs:617
 msgid "Waitlist · {0}"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:250
+#: src/components/pkuru/PkEventRow.re.mjs:271
 msgid "Waitlisted"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:264
+#: src/components/organisms/ProfileModal.re.mjs:339
 msgid "We need a few details before you can join this event"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:271
+#: src/components/pkuru/PkEventsList.re.mjs:279
 msgid "Wednesday"
 msgstr ""
 
@@ -513,7 +572,7 @@ msgstr ""
 msgid "Winning Team (Team {0})"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:285
+#: src/components/pkuru/PkEventsList.re.mjs:293
 msgid "Yesterday"
 msgstr ""
 
@@ -521,6 +580,6 @@ msgstr ""
 #~ msgid "You're in"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""

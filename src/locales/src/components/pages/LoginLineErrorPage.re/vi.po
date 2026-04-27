@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:33
+msgid "are you in a private browsing mode?"
+msgstr "bạn có đang ở chế độ duyệt web riêng tư không?"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:27
+msgid "login failed"
+msgstr "đăng nhập thất bại"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:23
+msgid "login with Line"
+msgstr "đăng nhập bằng Line"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:37
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem persists, you can try the safe-mode login button below."
+msgstr ""
+"vui lòng thử lại bên ngoài chế độ duyệt web riêng tư vì nó có thể ảnh hưởng "
+"đến đăng nhập Line. nếu vấn đề vẫn tiếp tục, bạn có thể thử nút đăng nhập "
+"chế độ an toàn bên dưới."
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:41
+msgid "safe-mode login with Line"
+msgstr "đăng nhập chế độ an toàn với Line"

@@ -1,0 +1,525 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:422
+msgid "Badminton"
+msgstr "배드민턴"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:425
+msgid "Table Tennis"
+msgstr "탁구"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:428
+msgid "Pickleball"
+msgstr "피클볼"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:431
+msgid "Futsal"
+msgstr "풋살"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:434
+msgid "drill"
+msgstr "훈련"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:437
+msgid "comp"
+msgstr "경쟁"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:440
+msgid "rec"
+msgstr "친선"
+
+#. js-lingui-explicit-id
+#: src/components/pages/EventPage.re.mjs:443
+msgid "all level"
+msgstr "모든 레벨"
+
+#: src/components/organisms/EventHeader.re.mjs:54
+msgid "{0} hours"
+msgstr "{0}시간"
+
+#: src/components/organisms/EventHeader.re.mjs:56
+msgid "{0} hours and {1} minutes"
+msgstr "{0}시간 {1}분"
+
+#: src/components/organisms/GoingRsvps.re.mjs:105
+msgid "+{0} more"
+msgstr "+{0}명 더"
+
+#: src/components/organisms/RSVPSection.re.mjs:673
+#: src/components/organisms/RSVPSection.re.mjs:765
+msgid "Add Member"
+msgstr "멤버 추가"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Advanced players"
+msgstr "상급자"
+
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "참가 승인"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
+
+#: src/components/pages/EventPage.re.mjs:183
+msgid "cancel event"
+msgstr "이벤트 취소"
+
+#: src/components/organisms/EventHeader.re.mjs:79
+msgid "CANCELED"
+msgstr "취소됨"
+
+#: src/components/organisms/RSVPSection.re.mjs:690
+msgid "Collapse"
+msgstr "접기"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+msgid "Complete your profile"
+msgstr "프로필 완성하기"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "코트 {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "코트 {0} - 편집 중"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "코트:"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "경기 삭제"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "이 경기를 삭제하시겠습니까?"
+
+#: src/components/organisms/ProfileModal.re.mjs:358
+msgid "Display name"
+msgstr "표시 이름"
+
+#: src/components/organisms/ProfileModal.re.mjs:106
+msgid "Display name is required"
+msgstr "표시 이름이 필요합니다"
+
+#: src/components/pages/EventPage.re.mjs:166
+msgid "edit event"
+msgstr "이벤트 편집"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "경기 편집"
+
+#: src/components/organisms/ProfileModal.re.mjs:375
+msgid "Email address"
+msgstr "이메일 주소"
+
+#: src/components/organisms/ProfileModal.re.mjs:226
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그"
+"인하세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "Email cannot be changed"
+msgstr "이메일은 변경할 수 없습니다"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Email is required"
+msgstr "이메일이 필요합니다"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "경기 점수 입력"
+
+#: src/components/pages/EventPage.re.mjs:383
+msgid "Event not found"
+msgstr "이벤트를 찾을 수 없습니다"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Event tag: {tag}"
+msgstr "이벤트 태그: {tag}"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "여성"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "For event updates and notifications"
+msgstr "이벤트 업데이트 및 알림용"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "성별"
+
+#: src/components/organisms/GoingRsvps.re.mjs:83
+msgid "Going"
+msgstr "참가"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google 캘린더"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Highly skilled players"
+msgstr "고급 플레이어"
+
+#: src/components/atoms/EventSignupButton.re.mjs:64
+msgid "Join Event"
+msgstr "이벤트 참가"
+
+#: src/components/atoms/EventSignupButton.re.mjs:61
+msgid "Join Waitlist"
+msgstr "대기자 명단 등록"
+
+#: src/components/organisms/EventMessages.re.mjs:283
+msgid "joined from waitlist"
+msgstr "대기자 명단에서 참가"
+
+#: src/components/organisms/EventMessages.re.mjs:277
+msgid "joined the event"
+msgstr "이벤트에 참가했습니다"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "지난 라운드"
+
+#: src/components/organisms/EventMessages.re.mjs:280
+msgid "left the event"
+msgstr "이벤트에서 나갔습니다"
+
+#: src/components/organisms/RSVPSection.re.mjs:781
+msgid "Load more"
+msgstr "더 불러오기"
+
+#: src/components/organisms/RSVPSection.re.mjs:778
+msgid "Loading..."
+msgstr "로딩 중..."
+
+#: src/components/atoms/EventSignupButton.re.mjs:67
+msgid "Login to Join"
+msgstr "로그인하여 참가"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "패배 팀 (팀 {0})"
+
+#: src/components/atoms/EventTag.re.mjs:34
+msgid "Lower intermediate and above"
+msgstr "중하급 이상"
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "남성"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Matches will be submitted to DUPR."
+msgstr "경기 결과가 DUPR에 제출됩니다."
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "대기 목록으로 이동"
+
+#: src/components/organisms/EventMessages.re.mjs:178
+msgid "No activity yet"
+msgstr "아직 활동이 없습니다"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "No restriction on skill level. Open to all players."
+msgstr "실력 제한 없음. 모든 플레이어 환영."
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "점수 없음"
+
+#: src/components/organisms/EventRsvp.re.mjs:110
+msgid "Not paid"
+msgstr "미납"
+
+#: src/components/organisms/EventRsvp.re.mjs:102
+msgid "Paid"
+msgstr "납부됨"
+
+#: src/components/organisms/PendingRsvps.re.mjs:58
+msgid "Pending"
+msgstr "대기 중"
+
+#: src/components/organisms/EventRsvp.re.mjs:61
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+msgid "Player"
+msgstr "플레이어"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "밝히지 않음"
+
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr "비공개"
+
+#: src/components/pages/EventPage.re.mjs:254
+#: src/components/pages/EventPage.re.mjs:283
+msgid "Private Event"
+msgstr "비공개 이벤트"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Professional players"
+msgstr "프로 플레이어"
+
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
+msgstr "레이팅"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "경기 재조정"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "이벤트에서 제거"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "이 RSVP 제거"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "반복"
+
+#: src/components/organisms/RSVPSection.re.mjs:431
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "필요 레이팅: {0} (DUPR {1})"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr "결과가 경쟁 레이팅에 제출됩니다."
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "라운드 {0}"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "라운드 로빈 대진"
+
+#: src/components/organisms/RSVPSection.re.mjs:552
+#: src/components/organisms/RSVPSection.re.mjs:591
+#: src/components/organisms/RSVPSection.re.mjs:712
+msgid "RSVP"
+msgstr "RSVP"
+
+#: src/components/atoms/EventSignupButton.re.mjs:48
+msgid "RSVP Pending..."
+msgstr "RSVP 처리 중..."
+
+#: src/components/organisms/RSVPSection.re.mjs:260
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "저장"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+msgid "Save & Join Event"
+msgstr "저장 & 이벤트 참가"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "점수 저장"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "점수"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+msgid "See all"
+msgstr "전체 보기"
+
+#: src/components/organisms/EventMessages.re.mjs:132
+msgid "Send"
+msgstr "전송"
+
+#: src/components/organisms/GoingRsvps.re.mjs:140
+msgid "Show less"
+msgstr "간략히 보기"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "기술 향상을 위한 스킬 연습 및 드릴"
+
+#: src/components/organisms/EventMessages.re.mjs:118
+msgid "Status message"
+msgstr "상태 메시지"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "캘린더 동기화"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "팀 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "팀 2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
+"복원할 수 있습니다."
+
+#: src/components/atoms/EventSignupButton.re.mjs:89
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기"
+"자 명단에 들어갑니다. 정말 나가시겠습니까?"
+
+#: src/components/pages/EventPage.re.mjs:258
+#: src/components/pages/EventPage.re.mjs:287
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr ""
+"이 이벤트는 비공개이며 Pkuru.com에서 참가할 수 없습니다. 허가 없이 이벤트에 "
+"나타나지 마세요."
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유하지 마세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+msgid "This is how others will see you"
+msgstr "다른 사람들에게 이렇게 보입니다"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
+"다. RSVP를 제한하시겠습니까?"
+
+#: src/components/organisms/RSVPSection.re.mjs:244
+#: src/components/organisms/RSVPSection.re.mjs:245
+#: src/components/organisms/EventMessages.re.mjs:125
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'"
+
+#: src/components/pages/EventPage.re.mjs:172
+msgid "uncancel event"
+msgstr "이벤트 취소 해제"
+
+#: src/components/organisms/EventHeader.re.mjs:117
+msgid "Unknown club"
+msgstr "알 수 없는 클럽"
+
+#: src/components/organisms/EventHeader.re.mjs:247
+msgid "Unknown location"
+msgstr "알 수 없는 장소"
+
+#: src/components/atoms/EventTag.re.mjs:36
+msgid "Upper intermediate and above"
+msgstr "중상급 이상"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "전체 대진 보기"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "프로필 보기"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/RsvpWaitlist.re.mjs:60
+msgid "Waitlist"
+msgstr "대기자 명단"
+
+#: src/components/organisms/EventMessages.re.mjs:274
+msgid "was added to the event by admin"
+msgstr "관리자에 의해 이벤트에 추가되었습니다"
+
+#: src/components/organisms/EventMessages.re.mjs:286
+msgid "was removed from the event by admin"
+msgstr "관리자에 의해 이벤트에서 제거되었습니다"
+
+#: src/components/organisms/ProfileModal.re.mjs:339
+msgid "We need a few details before you can join this event"
+msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "승리 팀 (팀 {0})"
+
+#: src/components/atoms/EventSignupButton.re.mjs:88
+msgid "You will lose your spot"
+msgstr "자리를 잃게 됩니다"
+
+#: src/components/atoms/EventSignupButton.re.mjs:51
+msgid "You're Going"
+msgstr "참가 중"
+
+#: src/components/atoms/EventSignupButton.re.mjs:54
+msgid "You're Waitlisted"
+msgstr "대기 중"
+
+#: src/components/organisms/RSVPSection.re.mjs:433
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"레이팅 {0} ~ {1} (DUPR {2} ~ {3})이(가) 너무 낮습니다. 레이팅 제한이 낮아질 "
+"때까지 대기 목록에 배치됩니다. JPL 레이팅 이벤트에 참가하여 레이팅을 높이세"
+"요."

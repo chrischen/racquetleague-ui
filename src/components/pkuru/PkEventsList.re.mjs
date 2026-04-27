@@ -16,6 +16,7 @@ import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as PkEventDrawer from "./PkEventDrawer.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
 import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
+import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -83,6 +84,7 @@ function PkEventsList$Day(props) {
   var viewer = props.viewer;
   var events = props.events;
   var date = props.date;
+  var dateDetails = props.dateDetails;
   var label = props.label;
   var y = (date.getFullYear() | 0).toString();
   var m = ((date.getMonth() | 0) + 1 | 0).toString().padStart(2, "0");
@@ -111,97 +113,101 @@ function PkEventsList$Day(props) {
           return true;
         }
       });
-  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-              children: [
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
+  return JsxRuntime.jsx(WaitForMessages.make, {
+              children: (function () {
+                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                               children: [
-                                JsxRuntime.jsx("h3", {
-                                      children: label,
-                                      className: "font-semibold text-gray-900 dark:text-gray-100"
+                                JsxRuntime.jsxs("div", {
+                                      children: [
+                                        JsxRuntime.jsxs("div", {
+                                              children: [
+                                                JsxRuntime.jsx("h3", {
+                                                      children: label,
+                                                      className: "font-semibold text-gray-900 dark:text-gray-100"
+                                                    }),
+                                                JsxRuntime.jsx("span", {
+                                                      children: dateDetails + " · " + events.filter(function (e) {
+                                                              return Core__Option.isNone(e.deleted);
+                                                            }).length.toString() + " " + plural(events.filter(function (e) {
+                                                                return Core__Option.isNone(e.deleted);
+                                                              }).length, {
+                                                            one: t`event`,
+                                                            other: t`events`
+                                                          }),
+                                                      className: "font-mono text-xs text-gray-400 dark:text-gray-500"
+                                                    })
+                                              ],
+                                              className: "flex items-baseline gap-3"
+                                            }),
+                                        JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                                              to: "/events/create?date=" + isoDate,
+                                              children: [
+                                                JsxRuntime.jsx(LucideReact.Plus, {
+                                                      size: 11
+                                                    }),
+                                                JsxRuntime.jsx("span", {
+                                                      children: t`Add to ${label.toLowerCase()}`
+                                                    })
+                                              ],
+                                              className: "flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors"
+                                            })
+                                      ],
+                                      className: "px-4 md:px-6 py-3 flex items-center justify-between"
                                     }),
-                                JsxRuntime.jsx("span", {
-                                      children: props.dateDetails + " · " + events.filter(function (e) {
-                                              return Core__Option.isNone(e.deleted);
-                                            }).length.toString() + " " + plural(events.filter(function (e) {
-                                                return Core__Option.isNone(e.deleted);
-                                              }).length, {
-                                            one: t`event`,
-                                            other: t`events`
-                                          }),
-                                      className: "font-mono text-xs text-gray-400 dark:text-gray-500"
-                                    })
-                              ],
-                              className: "flex items-baseline gap-3"
-                            }),
-                        JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                              to: "/events/create?date=" + isoDate,
-                              children: [
-                                JsxRuntime.jsx(LucideReact.Plus, {
-                                      size: 11
+                                visibleEvents.map(function (edge, idx) {
+                                      var max = edge.maxRsvps;
+                                      var waitlistCount;
+                                      if (max !== undefined) {
+                                        var mainList = Core__Array.filterMap(Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(edge.rsvps, (function (r) {
+                                                              return r.edges;
+                                                            })), []), (function (e) {
+                                                      return e;
+                                                    })), (function (e) {
+                                                  return e.node;
+                                                })).filter(function (n) {
+                                              if (n.listType === undefined) {
+                                                return true;
+                                              } else {
+                                                return Caml_obj.equal(n.listType, 0);
+                                              }
+                                            });
+                                        waitlistCount = Math.max(0, mainList.length - max | 0);
+                                      } else {
+                                        waitlistCount = 0;
+                                      }
+                                      return JsxRuntime.jsx(PkEventRow.make, {
+                                                  event: edge.fragmentRefs,
+                                                  user: Core__Option.flatMap(viewer, (function (v) {
+                                                          return Core__Option.map(v.user, (function (u) {
+                                                                        return u.fragmentRefs;
+                                                                      }));
+                                                        })),
+                                                  isLastInGroup: idx === (visibleEvents.length - 1 | 0),
+                                                  onEventClick: onEventClick,
+                                                  onHoverLocation: onHoverLocation,
+                                                  dimmed: Core__Option.getOr(Core__Option.map(selectedLocationId, (function (selId) {
+                                                              return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(edge.location, (function (l) {
+                                                                                    return l.id;
+                                                                                  })), (function (lid) {
+                                                                                return lid !== selId;
+                                                                              })), false);
+                                                            })), false),
+                                                  waitlistCount: waitlistCount,
+                                                  query: query
+                                                }, edge.id);
                                     }),
-                                JsxRuntime.jsx("span", {
-                                      children: t`Add to ${label.toLowerCase()}`
-                                    })
-                              ],
-                              className: "flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors"
-                            })
-                      ],
-                      className: "px-4 md:px-6 py-3 flex items-center justify-between"
-                    }),
-                visibleEvents.map(function (edge, idx) {
-                      var max = edge.maxRsvps;
-                      var waitlistCount;
-                      if (max !== undefined) {
-                        var mainList = Core__Array.filterMap(Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(edge.rsvps, (function (r) {
-                                              return r.edges;
-                                            })), []), (function (e) {
-                                      return e;
-                                    })), (function (e) {
-                                  return e.node;
-                                })).filter(function (n) {
-                              if (n.listType === undefined) {
-                                return true;
-                              } else {
-                                return Caml_obj.equal(n.listType, 0);
-                              }
+                                totalHiddenCount > 0 && !showShadow ? JsxRuntime.jsx("button", {
+                                        children: t`${totalHiddenCount.toString()} ${hiddenDesc} hidden — show`,
+                                        className: "w-full py-3 text-center text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors border-b border-gray-100 dark:border-[#2a2b30]",
+                                        onClick: (function (param) {
+                                            setShowShadow(function (param) {
+                                                  return true;
+                                                });
+                                          })
+                                      }) : null
+                              ]
                             });
-                        waitlistCount = Math.max(0, mainList.length - max | 0);
-                      } else {
-                        waitlistCount = 0;
-                      }
-                      return JsxRuntime.jsx(PkEventRow.make, {
-                                  event: edge.fragmentRefs,
-                                  user: Core__Option.flatMap(viewer, (function (v) {
-                                          return Core__Option.map(v.user, (function (u) {
-                                                        return u.fragmentRefs;
-                                                      }));
-                                        })),
-                                  isLastInGroup: idx === (visibleEvents.length - 1 | 0),
-                                  onEventClick: onEventClick,
-                                  onHoverLocation: onHoverLocation,
-                                  dimmed: Core__Option.getOr(Core__Option.map(selectedLocationId, (function (selId) {
-                                              return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(edge.location, (function (l) {
-                                                                    return l.id;
-                                                                  })), (function (lid) {
-                                                                return lid !== selId;
-                                                              })), false);
-                                            })), false),
-                                  waitlistCount: waitlistCount,
-                                  query: query
-                                }, edge.id);
-                    }),
-                totalHiddenCount > 0 && !showShadow ? JsxRuntime.jsx("button", {
-                        children: t`${totalHiddenCount.toString()} ${hiddenDesc} hidden — show`,
-                        className: "w-full py-3 text-center text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors border-b border-gray-100 dark:border-[#2a2b30]",
-                        onClick: (function (param) {
-                            setShowShadow(function (param) {
-                                  return true;
-                                });
-                          })
-                      }) : null
-              ]
+                })
             });
 }
 

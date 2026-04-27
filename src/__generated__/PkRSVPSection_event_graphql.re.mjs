@@ -40,8 +40,21 @@ function getConnectionNodes(connection) {
   }
 }
 
+function gender_decode($$enum) {
+  if ($$enum === "female" || $$enum === "male") {
+    return $$enum;
+  }
+  
+}
+
+function gender_fromString(str) {
+  return gender_decode(str);
+}
+
 var Utils = {
-  getConnectionNodes: getConnectionNodes
+  getConnectionNodes: getConnectionNodes,
+  gender_decode: gender_decode,
+  gender_fromString: gender_fromString
 };
 
 var node = ((function(){
@@ -198,7 +211,14 @@ return {
                   "plural": false,
                   "selections": [
                     (v0/*: any*/),
-                    (v1/*: any*/)
+                    (v1/*: any*/),
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "gender",
+                      "storageKey": null
+                    }
                   ],
                   "storageKey": null
                 },

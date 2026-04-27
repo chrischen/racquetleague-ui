@@ -18,7 +18,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/ClubMembersPage.re/ja"),
       th: import("../../locales/src/components/pages/ClubMembersPage.re/th"),
       zhTW: import("../../locales/src/components/pages/ClubMembersPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/ClubMembersPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/ClubMembersPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/ClubMembersPage.re/ko"),
+      vi: import("../../locales/src/components/pages/ClubMembersPage.re/vi")
     });
 
 async function loader(param) {

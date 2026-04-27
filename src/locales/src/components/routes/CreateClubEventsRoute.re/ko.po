@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:311
+msgid "Badminton"
+msgstr "배드민턴"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:315
+msgid "Table Tennis"
+msgstr "탁구"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:319
+msgid "Pickleball"
+msgstr "피클볼"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:323
+msgid "Futsal"
+msgstr "풋살"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:327
+msgid "Basketball"
+msgstr "농구"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateClubEventsForm.re.mjs:331
+msgid "Volleyball"
+msgstr "배구"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:156
+msgid "{0} events created!"
+msgstr "{0}개 이벤트가 생성되었습니다!"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:115
+msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:116
+msgid ""
+"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
+"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr ""
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:253
+msgid "Activity"
+msgstr "종목"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:60
+msgid "activity is required"
+msgstr "종목이 필요합니다"
+
+#: src/components/pages/CreateClubEventsPage.re.mjs:65
+msgid "club doesn't exist."
+msgstr "클럽이 존재하지 않습니다."
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:211
+#: src/components/organisms/CreateClubEventsForm.re.mjs:295
+msgid "Create Events"
+msgstr "이벤트 만들기"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:215
+msgid "Create multiple events at once"
+msgstr "여러 이벤트를 한 번에 만들기"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:223
+msgid "Events"
+msgstr "이벤트"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:90
+msgid "events preview"
+msgstr "이벤트 미리보기"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:57
+msgid "input is required"
+msgstr "입력이 필요합니다"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:280
+msgid "List events publicly"
+msgstr "이벤트를 공개로 나열"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:245
+msgid "loading..."
+msgstr "로딩 중..."
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:230
+msgid "Preview events"
+msgstr "이벤트 미리보기"
+
+#: src/components/organisms/CreateClubEventsForm.re.mjs:285
+msgid ""
+"Show events on the home page. Otherwise only people with a direct link can "
+"find them."
+msgstr ""
+"홈페이지에 이벤트를 표시합니다. 그렇지 않으면 직접 링크가 있는 사람만 찾을 "
+"수 있습니다."

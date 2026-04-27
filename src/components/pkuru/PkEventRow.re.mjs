@@ -11,12 +11,11 @@ import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as SwipeAction from "../molecules/SwipeAction.re.mjs";
-import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as ProfileModal from "../organisms/ProfileModal.re.mjs";
 import * as LucideReact from "lucide-react";
-import * as Core$1 from "@linaria/core";
+import * as Core from "@linaria/core";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
@@ -134,10 +133,6 @@ var QueryFragment = {
   useOpt: useOpt$2
 };
 
-function td(prim) {
-  return Core.i18n._(prim);
-}
-
 function ts(prim0, prim1) {
   return Caml_splice_call.spliceApply(t, [
               prim0,
@@ -150,7 +145,10 @@ function PkEventRow$ProgressBar(props) {
   var filled = props.filled;
   if (total === undefined) {
     return JsxRuntime.jsx("span", {
-                children: filled.toString() + " " + t`players`,
+                children: filled.toString() + " " + plural(filled, {
+                      one: t`player`,
+                      other: t`players`
+                    }),
                 className: "font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap"
               });
   }
@@ -204,7 +202,10 @@ function PkEventRow$CapacityCount(props) {
     default:
       textColor = "text-emerald-500 dark:text-emerald-400";
   }
-  var label = total !== undefined ? filled.toString() + "/" + total.toString() : filled.toString() + " " + t`players`;
+  var label = total !== undefined ? filled.toString() + "/" + total.toString() : filled.toString() + " " + plural(filled, {
+          one: t`player`,
+          other: t`players`
+        });
   return JsxRuntime.jsx("span", {
               children: label,
               className: "font-mono text-sm font-medium whitespace-nowrap " + textColor
@@ -682,45 +683,18 @@ function PkEventRow(props) {
                                       JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
                                             children: JsxRuntime.jsxs("div", {
                                                   children: [
-                                                    secret ? JsxRuntime.jsx(ResponsiveTooltip.make, {
-                                                            children: JsxRuntime.jsxs("span", {
-                                                                  children: [
-                                                                    JsxRuntime.jsx(LucideReact.Lock, {
-                                                                          size: 10,
-                                                                          strokeWidth: 2.5
-                                                                        }),
-                                                                    JsxRuntime.jsx("span", {
-                                                                          children: t`Private`,
-                                                                          className: "hidden md:inline"
-                                                                        })
-                                                                  ],
-                                                                  className: "inline-flex items-center gap-1 px-1.5 md:px-2 py-0.5 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-[10px] font-medium whitespace-nowrap"
-                                                                }),
-                                                            content: EventTag.getTagTooltip("unlisted")
+                                                    secret ? JsxRuntime.jsx(EventTag.make, {
+                                                            tag: "unlisted",
+                                                            responsive: true
                                                           }) : null,
-                                                    hasComp ? JsxRuntime.jsx(ResponsiveTooltip.make, {
-                                                            children: JsxRuntime.jsxs("span", {
-                                                                  children: [
-                                                                    JsxRuntime.jsx(LucideReact.Trophy, {
-                                                                          size: 10,
-                                                                          strokeWidth: 2.5
-                                                                        }),
-                                                                    JsxRuntime.jsx("span", {
-                                                                          children: t`Rated`,
-                                                                          className: "hidden md:inline"
-                                                                        })
-                                                                  ],
-                                                                  className: "inline-flex items-center gap-1 px-1.5 md:px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap"
-                                                                }),
-                                                            content: EventTag.getTagTooltip("comp")
+                                                    hasComp ? JsxRuntime.jsx(EventTag.make, {
+                                                            tag: "comp",
+                                                            responsive: true
                                                           }) : null,
                                                     otherTags.map(function (tag, i) {
-                                                          return JsxRuntime.jsx(ResponsiveTooltip.make, {
-                                                                      children: JsxRuntime.jsx("span", {
-                                                                            children: tag,
-                                                                            className: "px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap"
-                                                                          }),
-                                                                      content: EventTag.getTagTooltip(tag)
+                                                          return JsxRuntime.jsx(EventTag.make, {
+                                                                      tag: tag,
+                                                                      responsive: true
                                                                     }, i.toString());
                                                         })
                                                   ],
@@ -886,7 +860,7 @@ function PkEventRow(props) {
                       query: queryData.fragmentRefs
                     })
               ],
-              className: Core$1.cx(isLastInGroup ? "relative overflow-hidden" : "relative overflow-hidden border-b border-gray-100 dark:border-[#2a2b30]", dimmed ? "opacity-30" : "", isCanceled ? "opacity-60" : ""),
+              className: Core.cx(isLastInGroup ? "relative overflow-hidden" : "relative overflow-hidden border-b border-gray-100 dark:border-[#2a2b30]", dimmed ? "opacity-30" : "", isCanceled ? "opacity-60" : ""),
               onMouseEnter: (function (param) {
                   if (!isTouchDevice) {
                     setHovered(function (param) {
@@ -923,7 +897,6 @@ export {
   JoinEventMutation ,
   LeaveEventMutation ,
   QueryFragment ,
-  td ,
   ts ,
   ProgressBar ,
   CapacityCount ,

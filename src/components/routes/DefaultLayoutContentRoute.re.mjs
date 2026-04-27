@@ -14,7 +14,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/ja"),
       th: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/th"),
       zhTW: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/ko"),
+      vi: import("../../locales/src/components/pages/DefaultLayoutContentPage.re/vi")
     });
 
 var Component = DefaultLayoutContentPage.make;

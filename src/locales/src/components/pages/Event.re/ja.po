@@ -15,45 +15,45 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:762
+#: src/components/pages/Event.re.mjs:764
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:765
+#: src/components/pages/Event.re.mjs:767
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:768
+#: src/components/pages/Event.re.mjs:770
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:771
+#: src/components/pages/Event.re.mjs:773
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:774
+#: src/components/pages/Event.re.mjs:776
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:777
+#: src/components/pages/Event.re.mjs:779
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:780
+#: src/components/pages/Event.re.mjs:782
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:783
+#: src/components/pages/Event.re.mjs:785
 msgid "all level"
 msgstr "全レベル"
 
@@ -78,7 +78,7 @@ msgstr "アクティビティ"
 msgid "Add Member"
 msgstr "メンバーを追加"
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
@@ -122,7 +122,7 @@ msgstr "イベント @"
 msgid "event doesn't exist"
 msgstr "イベントが存在しません"
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
 
@@ -142,7 +142,7 @@ msgstr "Google カレンダー"
 msgid "guest list"
 msgstr "ゲストリスト"
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
@@ -190,11 +190,11 @@ msgstr "ログインして参加"
 msgid "login to subscribe to {activityName} events"
 msgstr "ログインして{activityName}のイベントに登録"
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
 
@@ -215,7 +215,7 @@ msgstr "まだアクティビティがありません"
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
@@ -240,11 +240,21 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr "非公開"
+
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr "プロプレイヤー"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
+msgstr "レーティング戦"
+
+#: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
@@ -261,7 +271,7 @@ msgstr "このRSVPを削除"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
@@ -300,7 +310,7 @@ msgstr ""
 "許可なしで参加することは、ルールに従わなかったために禁止される可能性がありま"
 "す。"
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
@@ -331,7 +341,7 @@ msgstr ""
 "の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
 "本当にこのイベントを離れますか？"
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
@@ -371,7 +381,7 @@ msgstr "イベントをキャンセル解除"
 msgid "unsubscribe from {activityName} events"
 msgstr "{activityName} のイベントから登録解除"
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 

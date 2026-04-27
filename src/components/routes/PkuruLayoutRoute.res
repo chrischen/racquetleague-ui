@@ -10,6 +10,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/PkuruLayout.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/PkuruLayout.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/PkuruLayout.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/PkuruLayout.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/PkuruLayout.re/vi"),
 })
 
 type params = {activitySlug: string, lang: option<string>}

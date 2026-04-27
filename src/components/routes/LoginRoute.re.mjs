@@ -16,7 +16,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/LoginPage.re/ja"),
       th: import("../../locales/src/components/pages/LoginPage.re/th"),
       zhTW: import("../../locales/src/components/pages/LoginPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/LoginPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/LoginPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/LoginPage.re/ko"),
+      vi: import("../../locales/src/components/pages/LoginPage.re/vi")
     });
 
 async function loader(param) {

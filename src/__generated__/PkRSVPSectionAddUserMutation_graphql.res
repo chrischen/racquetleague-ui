@@ -12,6 +12,7 @@ module Types = {
   }
   @live
   and response_addRsvpToEvent_edge_node_user = {
+    gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
   }
@@ -96,6 +97,21 @@ module Internal = {
 module Utils = {
   @@warning("-33")
   open Types
+  @live
+  external gender_toString: RelaySchemaAssets_graphql.enum_Gender => string = "%identity"
+  @live
+  external gender_input_toString: RelaySchemaAssets_graphql.enum_Gender_input => string = "%identity"
+  @live
+  let gender_decode = (enum: RelaySchemaAssets_graphql.enum_Gender): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let gender_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    gender_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode
@@ -157,17 +173,24 @@ v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "ordinal",
+  "name": "gender",
   "storageKey": null
 },
 v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "mu",
+  "name": "ordinal",
   "storageKey": null
 },
 v7 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "mu",
+  "storageKey": null
+},
+v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -226,7 +249,8 @@ return {
                     "plural": false,
                     "selections": [
                       (v2/*: any*/),
-                      (v4/*: any*/)
+                      (v4/*: any*/),
+                      (v5/*: any*/)
                     ],
                     "storageKey": null
                   },
@@ -238,9 +262,9 @@ return {
                     "name": "rating",
                     "plural": false,
                     "selections": [
-                      (v5/*: any*/),
                       (v6/*: any*/),
-                      (v7/*: any*/)
+                      (v7/*: any*/),
+                      (v8/*: any*/)
                     ],
                     "storageKey": null
                   }
@@ -305,7 +329,8 @@ return {
                         "name": "picture",
                         "storageKey": null
                       },
-                      (v4/*: any*/)
+                      (v4/*: any*/),
+                      (v5/*: any*/)
                     ],
                     "storageKey": null
                   },
@@ -317,9 +342,9 @@ return {
                     "name": "rating",
                     "plural": false,
                     "selections": [
-                      (v5/*: any*/),
                       (v6/*: any*/),
                       (v7/*: any*/),
+                      (v8/*: any*/),
                       (v2/*: any*/)
                     ],
                     "storageKey": null
@@ -359,12 +384,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "371fb423c331a69f7271c338afc45ff1",
+    "cacheID": "d5e94d1e81d0c2cf23df8a47101a3f80",
     "id": null,
     "metadata": {},
     "name": "PkRSVPSectionAddUserMutation",
     "operationKind": "mutation",
-    "text": "mutation PkRSVPSectionAddUserMutation(\n  $eventId: ID!\n  $userId: ID!\n) {\n  addRsvpToEvent(eventId: $eventId, userId: $userId) {\n    edge {\n      node {\n        id\n        listType\n        ...PkEventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n  }\n}\n\nfragment MiniEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment PkEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  ...RsvpOptions_rsvp\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n"
+    "text": "mutation PkRSVPSectionAddUserMutation(\n  $eventId: ID!\n  $userId: ID!\n) {\n  addRsvpToEvent(eventId: $eventId, userId: $userId) {\n    edge {\n      node {\n        id\n        listType\n        ...PkEventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          lineUsername\n          gender\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n  }\n}\n\nfragment MiniEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment PkEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n    gender\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  ...RsvpOptions_rsvp\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n"
   }
 };
 })() `)

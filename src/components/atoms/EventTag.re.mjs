@@ -4,10 +4,6 @@ import * as Core from "@lingui/core";
 import * as LucideReact from "lucide-react";
 import * as ResponsiveTooltip from "../molecules/ResponsiveTooltip.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as Solid from "@heroicons/react/24/solid";
-
-import { css, cx } from '@linaria/core'
-;
 
 import { t } from '@lingui/macro'
 ;
@@ -62,35 +58,46 @@ function getTagTooltip(tag) {
 }
 
 function EventTag(props) {
-  var __size = props.size;
+  var __responsive = props.responsive;
   var tag = props.tag;
-  var size = __size !== undefined ? __size : "small";
-  var tagType = getTagType(tag);
-  var iconSize = size === "small" ? "h-4 w-4" : "h-5 w-5";
+  var responsive = __responsive !== undefined ? __responsive : false;
   var content;
-  var exit = 0;
-  if (tagType === "comp") {
-    content = JsxRuntime.jsx("span", {
-          children: JsxRuntime.jsx(LucideReact.Trophy, {
-                className: iconSize
-              }),
-          className: "inline-flex items-center text-yellow-500 cursor-help"
-        });
-  } else if (tagType === "other" && tag === "unlisted") {
-    content = JsxRuntime.jsx("span", {
-          children: JsxRuntime.jsx(Solid.LockClosedIcon, {
-                className: iconSize + " text-gray-600"
-              }),
-          className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
-        });
-  } else {
-    exit = 1;
-  }
-  if (exit === 1) {
-    content = JsxRuntime.jsx("span", {
-          children: Core.i18n._(tag),
-          className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
-        });
+  switch (tag) {
+    case "comp" :
+        content = JsxRuntime.jsxs("span", {
+              children: [
+                JsxRuntime.jsx(LucideReact.Trophy, {
+                      size: 10,
+                      strokeWidth: 2.5
+                    }),
+                responsive ? JsxRuntime.jsx("span", {
+                        children: t`Rated`,
+                        className: "hidden md:inline"
+                      }) : t`Rated`
+              ],
+              className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap"
+            });
+        break;
+    case "unlisted" :
+        content = JsxRuntime.jsxs("span", {
+              children: [
+                JsxRuntime.jsx(LucideReact.Lock, {
+                      size: 10,
+                      strokeWidth: 2.5
+                    }),
+                responsive ? JsxRuntime.jsx("span", {
+                        children: t`Private`,
+                        className: "hidden md:inline"
+                      }) : t`Private`
+              ],
+              className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-[10px] font-medium whitespace-nowrap"
+            });
+        break;
+    default:
+      content = JsxRuntime.jsx("span", {
+            children: Core.i18n._(tag),
+            className: "px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap"
+          });
   }
   return JsxRuntime.jsx(ResponsiveTooltip.make, {
               children: content,
@@ -100,38 +107,49 @@ function EventTag(props) {
 
 function EventTag$TagList(props) {
   var __className = props.className;
-  var __size = props.size;
-  var size = __size !== undefined ? __size : "small";
+  var __responsive = props.responsive;
+  var responsive = __responsive !== undefined ? __responsive : false;
   var className = __className !== undefined ? __className : "";
-  var iconSize = size === "small" ? "h-4 w-4" : "h-5 w-5";
   return JsxRuntime.jsx("div", {
               children: JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
                     children: props.tags.map(function (tag) {
-                          var tagType = getTagType(tag);
                           var content;
-                          var exit = 0;
-                          if (tagType === "comp") {
-                            content = JsxRuntime.jsx("span", {
-                                  children: JsxRuntime.jsx(LucideReact.Trophy, {
-                                        className: iconSize
-                                      }),
-                                  className: "inline-flex items-center text-yellow-500 cursor-help"
-                                });
-                          } else if (tagType === "other" && tag === "unlisted") {
-                            content = JsxRuntime.jsx("span", {
-                                  children: JsxRuntime.jsx(Solid.LockClosedIcon, {
-                                        className: iconSize + " text-gray-600"
-                                      }),
-                                  className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
-                                });
-                          } else {
-                            exit = 1;
-                          }
-                          if (exit === 1) {
-                            content = JsxRuntime.jsx("span", {
-                                  children: Core.i18n._(tag),
-                                  className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help"
-                                });
+                          switch (tag) {
+                            case "comp" :
+                                content = JsxRuntime.jsxs("span", {
+                                      children: [
+                                        JsxRuntime.jsx(LucideReact.Trophy, {
+                                              size: 10,
+                                              strokeWidth: 2.5
+                                            }),
+                                        responsive ? JsxRuntime.jsx("span", {
+                                                children: t`Rated`,
+                                                className: "hidden md:inline"
+                                              }) : t`Rated`
+                                      ],
+                                      className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap"
+                                    });
+                                break;
+                            case "unlisted" :
+                                content = JsxRuntime.jsxs("span", {
+                                      children: [
+                                        JsxRuntime.jsx(LucideReact.Lock, {
+                                              size: 10,
+                                              strokeWidth: 2.5
+                                            }),
+                                        responsive ? JsxRuntime.jsx("span", {
+                                                children: t`Private`,
+                                                className: "hidden md:inline"
+                                              }) : t`Private`
+                                      ],
+                                      className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-[10px] font-medium whitespace-nowrap"
+                                    });
+                                break;
+                            default:
+                              content = JsxRuntime.jsx("span", {
+                                    children: Core.i18n._(tag),
+                                    className: "px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap"
+                                  });
                           }
                           return JsxRuntime.jsx(ResponsiveTooltip.make, {
                                       children: content,
@@ -147,6 +165,33 @@ var TagList = {
   make: EventTag$TagList
 };
 
+function __unused() {
+  t({
+        id: "Badminton"
+      });
+  t({
+        id: "Table Tennis"
+      });
+  t({
+        id: "Pickleball"
+      });
+  t({
+        id: "Futsal"
+      });
+  t({
+        id: "drill"
+      });
+  t({
+        id: "comp"
+      });
+  t({
+        id: "rec"
+      });
+  t({
+        id: "all level"
+      });
+}
+
 var make = EventTag;
 
 export {
@@ -154,5 +199,6 @@ export {
   getTagTooltip ,
   make ,
   TagList ,
+  __unused ,
 }
 /*  Not a pure module */

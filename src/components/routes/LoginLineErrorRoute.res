@@ -16,6 +16,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/LoginLineErrorPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/LoginLineErrorPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/LoginLineErrorPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/LoginLineErrorPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/LoginLineErrorPage.re/vi"),
 })
 
 @genType

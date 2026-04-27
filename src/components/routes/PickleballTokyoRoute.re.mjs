@@ -13,7 +13,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/PickleballTokyoPage.re/ja"),
       th: import("../../locales/src/components/pages/PickleballTokyoPage.re/th"),
       zhTW: import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/PickleballTokyoPage.re/ko"),
+      vi: import("../../locales/src/components/pages/PickleballTokyoPage.re/vi")
     });
 
 async function loader(param) {

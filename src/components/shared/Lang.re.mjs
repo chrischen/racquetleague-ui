@@ -54,7 +54,9 @@ async function loader(param) {
     "ja",
     "th",
     "zh-TW",
-    "zh-CN"
+    "zh-CN",
+    "ko",
+    "vi"
   ];
   var lang = params.lang;
   if (lang !== undefined && !validLangs.includes(lang)) {
@@ -70,8 +72,14 @@ async function loader(param) {
     case "ja" :
         locale = "jp";
         break;
+    case "ko" :
+        locale = "kr";
+        break;
     case "th" :
         locale = "th";
+        break;
+    case "vi" :
+        locale = "vn";
         break;
     case "zh-CN" :
         locale = "cn";
@@ -89,8 +97,14 @@ async function loader(param) {
       case "ja" :
           tmp$1 = LocaleDetector.jaFallback;
           break;
+      case "ko" :
+          tmp$1 = LocaleDetector.koFallback;
+          break;
       case "th" :
           tmp$1 = LocaleDetector.thFallback;
+          break;
+      case "vi" :
+          tmp$1 = LocaleDetector.viFallback;
           break;
       case "zh-CN" :
           tmp$1 = LocaleDetector.zhCNFallback;
@@ -110,8 +124,14 @@ async function loader(param) {
       case "ja" :
           tmp$2 = LocaleDetector.jaFallback;
           break;
+      case "ko" :
+          tmp$2 = LocaleDetector.koFallback;
+          break;
       case "th" :
           tmp$2 = LocaleDetector.thFallback;
+          break;
+      case "vi" :
+          tmp$2 = LocaleDetector.viFallback;
           break;
       case "zh-CN" :
           tmp$2 = LocaleDetector.zhCNFallback;

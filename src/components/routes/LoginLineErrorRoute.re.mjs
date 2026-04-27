@@ -13,7 +13,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/LoginLineErrorPage.re/ja"),
       th: import("../../locales/src/components/pages/LoginLineErrorPage.re/th"),
       zhTW: import("../../locales/src/components/pages/LoginLineErrorPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/LoginLineErrorPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/LoginLineErrorPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/LoginLineErrorPage.re/ko"),
+      vi: import("../../locales/src/components/pages/LoginLineErrorPage.re/vi")
     });
 
 async function loader(param) {

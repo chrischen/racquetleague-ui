@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/EventItem.re.mjs:423
+msgid "[location missing]"
+msgstr "[thiếu địa điểm]"
+
+#: src/components/organisms/EventItem.re.mjs:365
+msgid "[missing title]"
+msgstr "[tiêu đề bị thiếu]"
+
+#: src/components/organisms/EventItem.re.mjs:215
+#: src/components/organisms/EventItem.re.mjs:222
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{0, plural, one {{1}} other {{2}}}"
+
+#: src/components/organisms/EventItem.re.mjs:216
+#: src/components/organisms/EventItem.re.mjs:223
+msgid "{0} hour"
+msgstr "{0} giờ"
+
+#: src/components/organisms/EventItem.re.mjs:217
+#: src/components/organisms/EventItem.re.mjs:224
+msgid "{0} hours"
+msgstr "{0} giờ"
+
+#: src/components/organisms/EventItem.re.mjs:228
+msgid "{0} minute"
+msgstr "{0} phút"
+
+#: src/components/organisms/EventItem.re.mjs:229
+msgid "{0} minutes"
+msgstr "{0} phút"
+
+#: src/components/organisms/EventItem.re.mjs:227
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{minutes, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventItem.re.mjs:296
+msgid "{playersCount, plural, one {player} other {players}}"
+msgstr "{playersCount, plural, one {người chơi} other {người chơi}}"
+
+#: src/components/organisms/EventItem.re.mjs:313
+msgid "join event"
+msgstr "tham gia sự kiện"
+
+#: src/components/organisms/EventItem.re.mjs:260
+msgid "joined"
+msgstr "đã tham gia"
+
+#: src/components/organisms/EventItem.re.mjs:307
+msgid "leave event"
+msgstr "rời sự kiện"
+
+#: src/components/organisms/EventItem.re.mjs:272
+msgid "pending"
+msgstr "đang chờ"
+
+#: src/components/organisms/EventItem.re.mjs:292
+msgid "players"
+msgstr "người chơi"
+
+#: src/components/organisms/EventItem.re.mjs:266
+msgid "waitlist"
+msgstr "danh sách chờ"

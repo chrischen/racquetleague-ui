@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"Z7ZXbT\":\"승인\",\"WmzGlG\":[[\"0\"],\"을(를) 클럽에서 제거하시겠습니까?\"],\"NbzQ8J\":\"클럽을 찾을 수 없습니다\",\"wlQNTg\":\"멤버\",\"FK5/sf\":\"멤버를 찾을 수 없습니다\",\"UbRKMZ\":\"대기 중\",\"t/YqKh\":\"제거\",\"hb5UGc\":\"멤버를 제거하시겠습니까?\"}");

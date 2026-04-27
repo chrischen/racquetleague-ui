@@ -514,7 +514,7 @@ let make = () => {
       <link rel="apple-touch-icon" href="/src/assets/apple-touch-icon.png" />
     </Util.Helmet>
     <Layout viewer>
-      <LangProvider.DetectedLang />
+      <GlobalQuery.DetectedLang />
       <Router.Outlet />
     </Layout>
   </>

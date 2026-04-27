@@ -106,6 +106,8 @@ var OverallAverageQualityDebug = {
   make: RoundRobin$OverallAverageQualityDebug
 };
 
+var isBrowserSupported = Rating.isSupported();
+
 function RoundRobin(props) {
   var __debug = props.debug;
   var debug = __debug !== undefined ? __debug : false;
@@ -666,6 +668,21 @@ function RoundRobin(props) {
                     })
               };
       });
+  if (!isBrowserSupported) {
+    return JsxRuntime.jsxs("div", {
+                children: [
+                  JsxRuntime.jsx("p", {
+                        children: t`Your browser is too old to use this feature.`,
+                        className: "text-lg font-semibold text-gray-700"
+                      }),
+                  JsxRuntime.jsx("p", {
+                        children: t`Please update to a recent version of Chrome, Firefox, or Safari.`,
+                        className: "mt-2 text-sm"
+                      })
+                ],
+                className: "p-8 text-center text-gray-500"
+              });
+  }
   var tmp;
   if (hasExistingDraws) {
     var adjustmentsForRound0 = ratingAdjustmentHistory.filter(function (adj) {
@@ -1095,6 +1112,7 @@ var make = RoundRobin;
 
 export {
   OverallAverageQualityDebug ,
+  isBrowserSupported ,
   make ,
 }
 /*  Not a pure module */

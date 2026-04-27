@@ -21,7 +21,7 @@ msgstr "{0} 小时"
 msgid "{0} hours and {1} minutes"
 msgstr "{0} 小时 {1} 分钟"
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "高级球员"
 
@@ -33,7 +33,7 @@ msgstr "Apple iCal"
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "活动标签：{tag}"
 
@@ -41,36 +41,46 @@ msgstr "活动标签：{tag}"
 msgid "Google Calendar"
 msgstr "谷歌日历"
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "高技能球员"
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "中级初级及以上"
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "比赛结果将提交至 DUPR。"
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "没有技能等级限制。对所有球员开放。"
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr "非公开"
+
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr "职业球员"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
+msgstr "计分赛"
+
+#: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能练习和专注于技术提高的训练"
 
@@ -78,7 +88,7 @@ msgstr "技能练习和专注于技术提高的训练"
 msgid "sync calendar"
 msgstr "同步日历"
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
@@ -92,6 +102,6 @@ msgstr "未知俱乐部"
 msgid "Unknown location"
 msgstr "未知地点"
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中高级及以上"

@@ -283,35 +283,14 @@ module Inner = {
           ->Option.getOr(React.null)}
           <ResponsiveTooltip.Provider>
             <div className="flex flex-wrap items-center gap-1.5 mt-2">
-              {secret
-                ? <ResponsiveTooltip content={EventTag.getTagTooltip("unlisted")}>
-                    <span
-                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-[10px] font-medium whitespace-nowrap">
-                      <Lucide.Lock size=10 strokeWidth={2.5} />
-                      {(ts`Private`)->React.string}
-                    </span>
-                  </ResponsiveTooltip>
-                : React.null}
+              {secret ? <EventTag tag="unlisted" /> : React.null}
               {event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
-                ? <ResponsiveTooltip content={EventTag.getTagTooltip("comp")}>
-                    <span
-                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap">
-                      <Lucide.Trophy size=10 strokeWidth={2.5} />
-                      {(ts`Rated`)->React.string}
-                    </span>
-                  </ResponsiveTooltip>
+                ? <EventTag tag="comp" />
                 : React.null}
               {event.tags
               ->Option.getOr([])
               ->Array.filter(t => t->String.toLowerCase != "comp")
-              ->Array.mapWithIndex((tag, i) =>
-                <ResponsiveTooltip key={Int.toString(i)} content={EventTag.getTagTooltip(tag)}>
-                  <span
-                    className="px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap">
-                    {tag->React.string}
-                  </span>
-                </ResponsiveTooltip>
-              )
+              ->Array.mapWithIndex((tag, i) => <EventTag key={Int.toString(i)} tag />)
               ->React.array}
               <span className="font-mono text-xs font-medium text-gray-700 dark:text-gray-300">
                 {event.price
@@ -688,21 +667,4 @@ let make = () => {
       ->Option.map(event => <Inner event viewer queryFragmentRefs />)
       ->Option.getOr(<div className="p-6 text-center text-gray-500"> {t`Event not found`} </div>)}
   </WaitForMessages>
-}
-
-// @NOTE Force lingui to include the potential dynamic values here
-let __unused = () => {
-  let td = Lingui.UtilString.td
-
-  @live (td({id: "Badminton"})->ignore)
-
-  @live (td({id: "Table Tennis"})->ignore)
-
-  @live (td({id: "Pickleball"})->ignore)
-
-  @live (td({id: "Futsal"})->ignore)
-  @live (td({id: "drill"})->ignore)
-  @live (td({id: "comp"})->ignore)
-  @live (td({id: "rec"})->ignore)
-  @live (td({id: "all level"})->ignore)
 }

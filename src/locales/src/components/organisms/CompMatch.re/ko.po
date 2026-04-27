@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/CompMatch.re.mjs:365
+msgid "Analyzed {0} matches."
+msgstr "{0}경기를 분석했습니다."
+
+#: src/components/organisms/CompMatch.re.mjs:230
+msgid "Competitive"
+msgstr "경쟁"
+
+#: src/components/organisms/CompMatch.re.mjs:359
+msgid "Gender Mixed Doubles"
+msgstr "혼합 복식"
+
+#: src/components/organisms/CompMatch.re.mjs:232
+msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
+msgstr "경기는 최대 ±1명의 실력 차이로 배정됩니다."
+
+#: src/components/organisms/CompMatch.re.mjs:237
+msgid "Matches are arranged by skill while mixing strong and weak players."
+msgstr "강한 플레이어와 약한 플레이어를 섞으면서 실력별로 경기를 배정합니다."
+
+#: src/components/organisms/CompMatch.re.mjs:235
+msgid "Mixed"
+msgstr "혼합"
+
+#: src/components/organisms/CompMatch.re.mjs:410
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr ""
+"대기열에 플레이어가 부족합니다. 대기열 탭에서 경기할 플레이어를 선택하세요."
+
+#: src/components/organisms/CompMatch.re.mjs:386
+msgid "Played last round"
+msgstr "지난 라운드 참여"
+
+#: src/components/organisms/CompMatch.re.mjs:240
+msgid "Random"
+msgstr "랜덤"
+
+#: src/components/organisms/CompMatch.re.mjs:498
+msgid "Recommended Match"
+msgstr "추천 경기"
+
+#: src/components/organisms/CompMatch.re.mjs:130
+msgid "Select"
+msgstr "선택"
+
+#: src/components/organisms/CompMatch.re.mjs:298
+msgid "Select a tab"
+msgstr "탭 선택"
+
+#: src/components/organisms/CompMatch.re.mjs:380
+msgid "This team has played before"
+msgstr "이 팀은 이전에 경기했습니다"
+
+#: src/components/organisms/CompMatch.re.mjs:242
+msgid "Totally random teams."
+msgstr "완전 랜덤 팀."

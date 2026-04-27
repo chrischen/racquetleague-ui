@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"PwrU1F\":\"조정 삭제\",\"O1VYeQ\":[\"레이팅 조정 - 라운드 \",[\"0\"],\" 전 적용\"]}");

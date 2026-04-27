@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"+rZFLM\":\"đang tìm đối tác đánh đôi\",\"hor1p7\":\"hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người biết bạn đang tìm đối tác\"}");

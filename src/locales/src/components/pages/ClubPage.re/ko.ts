@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"gnAR86\":\"요청 취소\",\"NbzQ8J\":\"클럽을 찾을 수 없습니다\",\"pYI0YI\":\"클럽 가입\",\"tHPbHS\":\"리더보드\",\"wbnAWn\":\"클럽 나가기\",\"T6YjCk\":\"멤버 관리\",\"boECs0\":\"아직 레이팅이 없습니다\",\"yM5c0q\":\"예정된 이벤트 없음\",\"3zzZ1f\":\"가입 요청\",\"TlEeFv\":\"예정된 이벤트\",\"p5nYkr\":\"전체 보기\"}");

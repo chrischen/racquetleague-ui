@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:407
+msgid "· {0} pending"
+msgstr "· {0} đang chờ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:405
+msgid "· +{0} waitlist"
+msgstr "· +{0} chờ đợi"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:402
+msgid "{0} joined"
+msgstr "{0} đã tham gia"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ KỸ NĂNG"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "Duyệt tham dự"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "cân bằng"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:552
+msgid "Confirmed · {0}"
+msgstr "Đã xác nhận · {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "đồng đều"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "TRUNG VỊ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "đa dạng"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "Chuyển vào danh sách chờ duyệt"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:385
+msgid "Participants"
+msgstr "Người tham gia"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:681
+msgid "Pending · {0}"
+msgstr "Đang chờ · {0}"
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "Xóa khỏi sự kiện"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "Xóa RSVP này"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:311
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "Yêu cầu: DUPR {minDuprStr}+"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:332
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "Cần DUPR {minDuprStr}+ để tham gia"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "ĐỘ PHÂN TÁN"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
+"nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "TB TOP 6"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "Xem hồ sơ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:617
+msgid "Waitlist · {0}"
+msgstr "Danh sách chờ · {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ."

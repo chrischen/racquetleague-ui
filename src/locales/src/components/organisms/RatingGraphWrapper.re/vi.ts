@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"IPmYm3\":\"Lịch sử xếp hạng\",\"56ttmm\":\"Vùng tô bóng thể hiện độ không chắc chắn của xếp hạng. Dải hẹp hơn cho thấy độ tin cậy cao hơn.\"}");

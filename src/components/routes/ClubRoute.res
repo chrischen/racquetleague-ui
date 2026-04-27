@@ -16,6 +16,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/ClubPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/ClubPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/ClubPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/ClubPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/ClubPage.re/vi"),
 })
 
 @genType

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YIAAQf\":\"Nhập điểm số trận đấu\",\"VIlNWA\":[\"Đội thua (Đội \",[\"0\"],\")\"],\"zCo4xa\":\"Không có điểm\",\"27SfGh\":\"Lưu điểm số\",\"yxTTJj\":[\"Đội thắng (Đội \",[\"0\"],\")\"]}");

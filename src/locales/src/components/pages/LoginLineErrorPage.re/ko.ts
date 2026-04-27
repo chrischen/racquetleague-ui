@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"lFnBmD\":\"비공개 브라우징 모드입니까?\",\"tC8E1T\":\"로그인 실패\",\"GCkpYm\":\"Line으로 로그인\",\"i3R0WM\":\"비공개 브라우징이 Line 로그인을 방해할 수 있으므로 비공개 브라우징 외부에서 다시 시도하세요. 문제가 계속되면 아래의 안전 모드 로그인 버튼을 사용해 보세요.\",\"ZjdhXc\":\"Line으로 안전 모드 로그인\"}");

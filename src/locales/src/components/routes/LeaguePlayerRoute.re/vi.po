@@ -1,0 +1,159 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:697
+msgid "...load previous matches"
+msgstr "...tải trận đấu trước"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
+msgid "All"
+msgstr "Tất cả"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:781
+msgid "All Clubs"
+msgstr "Tất cả câu lạc bộ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:761
+msgid "Back to league"
+msgstr "Quay lại giải đấu"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:412
+msgid "Balanced partner tendency"
+msgstr "Xu hướng đối tác cân bằng"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:458
+msgid "Best Doubles Partners"
+msgstr "Đối tác đôi tốt nhất"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:873
+msgid "Current Rating"
+msgstr "Xếp hạng hiện tại"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "DRAW"
+msgstr "HÒA"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:409
+msgid "Elevates weaker partners"
+msgstr "Nâng cao đối tác yếu hơn"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:388
+#: src/components/pages/LeaguePlayerPage.re.mjs:906
+#: src/components/pages/LeaguePlayerPage.re.mjs:957
+#: src/components/pages/LeaguePlayerPage.re.mjs:1008
+#: src/components/pages/LeaguePlayerPage.re.mjs:1111
+msgid "Estimated DUPR"
+msgstr "DUPR ước tính"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:659
+msgid "Even"
+msgstr "Đều"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1064
+msgid "Hard Court"
+msgstr "Sân cứng"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1092
+msgid "Indoor Court (Indoor Ball)"
+msgstr "Sân trong nhà (Bóng trong nhà)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1078
+msgid "Indoor Court (Outdoor Ball)"
+msgstr "Sân trong nhà (Bóng ngoài trời)"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:714
+msgid "Load more matches..."
+msgstr "Tải thêm trận đấu..."
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1184
+msgid "Loading..."
+msgstr "Đang tải..."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
+msgid "LOSS"
+msgstr "THUA"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:921
+msgid "Men's Doubles"
+msgstr "Đôi nam"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:972
+msgid "Mixed Doubles"
+msgstr "Đôi hỗn hợp"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:478
+#: src/components/pages/LeaguePlayerPage.re.mjs:552
+#: src/components/pages/LeaguePlayerPage.re.mjs:626
+#: src/components/pages/LeaguePlayerPage.re.mjs:700
+msgid "No data for this category"
+msgstr "Không có dữ liệu cho danh mục này"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:405
+msgid "Performs better with stronger partners"
+msgstr "Thực hiện tốt hơn với đối tác mạnh hơn"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:491
+#: src/components/pages/LeaguePlayerPage.re.mjs:565
+#: src/components/pages/LeaguePlayerPage.re.mjs:639
+#: src/components/pages/LeaguePlayerPage.re.mjs:713
+msgid "Predicted"
+msgstr "Dự đoán"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:176
+msgid "Rating History"
+msgstr "Lịch sử xếp hạng"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1175
+msgid "Recent Matches"
+msgstr "Trận đấu gần đây"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:825
+msgid "Showing stats from {selectedClubName} only"
+msgstr "Chỉ hiển thị thống kê từ {selectedClubName}"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:606
+msgid "Strong Against"
+msgstr "Mạnh chống lại"
+
+#: src/components/organisms/RatingGraphWrapper.re.mjs:180
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr ""
+"Vùng tô bóng thể hiện độ không chắc chắn của xếp hạng. Dải hẹp hơn cho thấy "
+"độ tin cậy cao hơn."
+
+#: src/components/organisms/MatchHistoryList.re.mjs:630
+msgid "Upset"
+msgstr "Bất ngờ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:680
+msgid "Weak Against"
+msgstr "Yếu chống lại"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:521
+#: src/components/organisms/MatchHistoryList.re.mjs:585
+msgid "WIN"
+msgstr "THẮNG"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1023
+msgid "Women's Doubles"
+msgstr "Đôi nữ"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:532
+msgid "Worst Doubles Partners"
+msgstr "Đối tác đôi tệ nhất"

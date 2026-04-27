@@ -51,7 +51,7 @@ let isInvalidLanguageError = (error: 'a): bool => {
 @genType
 let loader = async ({params}: LoaderArgs.t) => {
   // Validate lang parameter - only allow supported languages
-  let validLangs = ["en", "ja", "th", "zh-TW", "zh-CN"]
+  let validLangs = ["en", "ja", "th", "zh-TW", "zh-CN", "ko", "vi"]
   switch params.lang {
   | Some(lang) if !(validLangs->Array.includes(lang)) =>
     // Throw custom ReScript exception for invalid language
@@ -65,6 +65,8 @@ let loader = async ({params}: LoaderArgs.t) => {
   | "th" => "th"
   | "zh-TW" => "tw"
   | "zh-CN" => "cn"
+  | "ko" => "kr"
+  | "vi" => "vn"
   | _ => "us"
   }
 
@@ -77,6 +79,8 @@ let loader = async ({params}: LoaderArgs.t) => {
           | "th" => LocaleDetector.thFallback
           | "zh-TW" => LocaleDetector.zhTWFallback
           | "zh-CN" => LocaleDetector.zhCNFallback
+          | "ko" => LocaleDetector.koFallback
+          | "vi" => LocaleDetector.viFallback
           | _ => LocaleDetector.enFallback
           },
         ])
@@ -88,6 +92,8 @@ let loader = async ({params}: LoaderArgs.t) => {
             | "th" => LocaleDetector.thFallback
             | "zh-TW" => LocaleDetector.zhTWFallback
             | "zh-CN" => LocaleDetector.zhCNFallback
+            | "ko" => LocaleDetector.koFallback
+            | "vi" => LocaleDetector.viFallback
             | _ => LocaleDetector.enFallback
             },
           ])

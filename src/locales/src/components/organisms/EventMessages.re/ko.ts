@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OiNSxX\":\"대기자 명단에서 참가\",\"1Ogj4M\":\"이벤트에 참가했습니다\",\"FVnbiB\":\"이벤트에서 나갔습니다\",\"aXFOuf\":\"아직 활동이 없습니다\",\"JlFcis\":\"전송\",\"WRzDEM\":\"상태 메시지\",\"C/pi+J\":\"상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'\",\"mpnvQl\":\"관리자에 의해 이벤트에 추가되었습니다\",\"BQLZlU\":\"관리자에 의해 이벤트에서 제거되었습니다\"}");

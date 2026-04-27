@@ -1,11 +1,9 @@
-type detector;
+type detector
 type navigator = {
-	language?: string,
-	languages?: array<string>,
+  language?: string,
+  languages?: array<string>,
 }
-type window = {
-	navigator: navigator,
-}
+type window = {navigator: navigator}
 
 @module("@lingui/detect-locale") @variadic
 external detect: array<detector> => string = "detect"
@@ -19,8 +17,10 @@ external fromStorage: string => detector = "fromStorage"
 @module("@lingui/detect-locale")
 external fromNavigator: navigator => detector = "fromNavigator"
 
-let enFallback: detector = %raw("'en'");
-let jaFallback: detector = %raw("'ja'");
-let thFallback: detector = %raw("'th'");
-let zhTWFallback: detector = %raw("'zh-TW'");
-let zhCNFallback: detector = %raw("'zh-CN'");
+let enFallback: detector = %raw("'en'")
+let jaFallback: detector = %raw("'ja'")
+let thFallback: detector = %raw("'th'")
+let zhTWFallback: detector = %raw("'zh-TW'")
+let zhCNFallback: detector = %raw("'zh-CN'")
+let koFallback: detector = %raw("'ko'")
+let viFallback: detector = %raw("'vi'")

@@ -7,6 +7,7 @@ module Types = {
   type rec fragment_user = {
     @live id: string,
     lineUsername: option<string>,
+    locale: option<string>,
   }
   type fragment = {
     user: option<fragment_user>,
@@ -70,6 +71,13 @@ let node: operationType = %raw(json` {
           "args": null,
           "kind": "ScalarField",
           "name": "lineUsername",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "locale",
           "storageKey": null
         }
       ],

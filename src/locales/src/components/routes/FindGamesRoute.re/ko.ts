@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"DjiR74\":\"리그 게임 찾기\",\"BSnHsk\":\"리그에 참가하고 상을 받으려면 리그 이벤트에 참가하세요.\",\"8RB3JH\":\"어디서 플레이하나요\"}");

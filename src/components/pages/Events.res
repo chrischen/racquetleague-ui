@@ -114,11 +114,13 @@ let loadMessages = Lingui.loadMessages({
   en: Lingui.import("../../locales/src/components/pages/Events.re/en"),
   th: Lingui.import("../../locales/src/components/pages/Events.re/th"),
   zhCN: Lingui.import("../../locales/src/components/pages/Events.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/Events.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/Events.re/vi"),
   zhTW: Lingui.import("../../locales/src/components/pages/Events.re/zh-TW"),
 })
 
 let loader = async ({context, params, request}: LoaderArgs.t) => {
-  let validLangs = ["en", "ja", "th", "zh-TW", "zh-CN"]
+  let validLangs = ["en", "ja", "th", "zh-TW", "zh-CN", "ko", "vi"]
   switch params.lang {
   | Some(lang) if !(validLangs->Array.includes(lang)) =>
     // Throw custom ReScript exception for invalid language

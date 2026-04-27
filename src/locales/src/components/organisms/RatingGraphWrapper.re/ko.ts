@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"IPmYm3\":\"레이팅 기록\",\"56ttmm\":\"음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다.\"}");

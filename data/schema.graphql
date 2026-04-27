@@ -518,6 +518,7 @@ type Mutation {
   removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
   uncancelEvent(eventId: ID!): MutationResult2!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
+  updateLocale(input: UpdateLocaleInput!): UpdateLocaleResult!
   updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
   updateRsvpListType(input: UpdateRsvpListTypeInput!): UpdateRsvpListTypeResult!
@@ -663,6 +664,15 @@ enum T {
   Rejected
 }
 
+input UpdateLocaleInput {
+  locale: String!
+}
+
+type UpdateLocaleResult implements HasErrors {
+  errors: [Error!]
+  viewer: User
+}
+
 input UpdateMembershipStatusInput {
   membershipId: ID!
   status: T!
@@ -676,6 +686,7 @@ type UpdateMembershipStatusResult implements HasErrors {
 input UpdateProfileInput {
   biography: String!
   fullName: String!
+  gender: Gender
   username: String!
 }
 
@@ -724,6 +735,7 @@ type User implements Node {
   id: ID!
   leagueUserStats(activity: String!, clubId: ID, clubSlug: String, namespace: String!): LeagueUserStat
   lineUsername: String
+  locale: String
   picture: String
   rating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): Rating
 }

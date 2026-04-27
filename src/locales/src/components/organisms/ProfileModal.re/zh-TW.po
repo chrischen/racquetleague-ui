@@ -13,23 +13,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ProfileModal.re.mjs:260
+#: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "完善個人資料"
 
-#: src/components/organisms/ProfileModal.re.mjs:283
+#: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
 msgstr "顯示名稱"
 
-#: src/components/organisms/ProfileModal.re.mjs:73
+#: src/components/organisms/ProfileModal.re.mjs:106
 msgid "Display name is required"
 msgstr "請輸入顯示名稱"
 
-#: src/components/organisms/ProfileModal.re.mjs:300
+#: src/components/organisms/ProfileModal.re.mjs:375
 msgid "Email address"
 msgstr "電子郵件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:226
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -37,26 +37,42 @@ msgstr ""
 "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
 "件地址登入。"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "Email cannot be changed"
 msgstr "電子郵件不能更改"
 
-#: src/components/organisms/ProfileModal.re.mjs:76
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Email is required"
 msgstr "請輸入電子郵件"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "For event updates and notifications"
 msgstr "用於活動更新和通知"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "性別"
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "男性"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "不願透露"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
 msgid "Save & Join Event"
 msgstr "儲存並參加活動"
 
-#: src/components/organisms/ProfileModal.re.mjs:207
+#: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "這是其他人會看到的名字"
 
-#: src/components/organisms/ProfileModal.re.mjs:264
+#: src/components/organisms/ProfileModal.re.mjs:339
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"

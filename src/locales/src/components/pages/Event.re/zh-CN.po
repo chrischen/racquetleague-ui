@@ -15,45 +15,45 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
-#: src/components/pages/Event.re.mjs:762
+#: src/components/pages/Event.re.mjs:764
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:136
-#: src/components/pages/Event.re.mjs:765
+#: src/components/pages/Event.re.mjs:767
 msgid "Table Tennis"
 msgstr "乒乓球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:140
-#: src/components/pages/Event.re.mjs:768
+#: src/components/pages/Event.re.mjs:770
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:144
-#: src/components/pages/Event.re.mjs:771
+#: src/components/pages/Event.re.mjs:773
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:774
+#: src/components/pages/Event.re.mjs:776
 msgid "drill"
 msgstr "训练"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:777
+#: src/components/pages/Event.re.mjs:779
 msgid "comp"
 msgstr "竞赛"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:780
+#: src/components/pages/Event.re.mjs:782
 msgid "rec"
 msgstr "休闲"
 
 #. js-lingui-explicit-id
-#: src/components/pages/Event.re.mjs:783
+#: src/components/pages/Event.re.mjs:785
 msgid "all level"
 msgstr "所有级别"
 
@@ -78,7 +78,7 @@ msgstr "活动"
 msgid "Add Member"
 msgstr "添加成员"
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "高级球员"
 
@@ -122,7 +122,7 @@ msgstr "活动地点："
 msgid "event doesn't exist"
 msgstr "活动不存在"
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "活动标签：{tag}"
 
@@ -142,7 +142,7 @@ msgstr "谷歌日历"
 msgid "guest list"
 msgstr "客人列表"
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "高技能球员"
 
@@ -190,11 +190,11 @@ msgstr "登录加入"
 msgid "login to subscribe to {activityName} events"
 msgstr "登录以订阅 {activityName} 活动"
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "中级初级及以上"
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "比赛结果将提交至 DUPR。"
 
@@ -215,7 +215,7 @@ msgstr "尚无活动"
 msgid "no players yet"
 msgstr "还没有球员"
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "没有技能等级限制。对所有球员开放。"
 
@@ -240,11 +240,21 @@ msgstr "待审核"
 msgid "Player"
 msgstr "球员"
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr "非公开"
+
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr "职业球员"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
+msgstr "计分赛"
+
+#: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
@@ -261,7 +271,7 @@ msgstr "移除此 RSVP"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "最低评分要求：{0}（DUPR {1}）"
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
@@ -298,7 +308,7 @@ msgid ""
 "rules."
 msgstr "未经许可出现可能会因违反规则而被禁止。"
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能练习和专注于技术提高的训练"
 
@@ -328,7 +338,7 @@ msgstr ""
 "这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
 "加入等待列表。您确定要退出这个活动吗？"
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
@@ -366,7 +376,7 @@ msgstr "取消取消活动"
 msgid "unsubscribe from {activityName} events"
 msgstr "取消订阅 {activityName} 活动"
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中高级及以上"
 

@@ -13,16 +13,20 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:349
+#: src/components/organisms/PkRSVPSection.re.mjs:407
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:347
+#: src/components/organisms/PkRSVPSection.re.mjs:405
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:344
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "{0} joined"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:118
@@ -33,8 +37,29 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:552
 msgid "Confirmed · {0}"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:128
@@ -42,11 +67,11 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:327
+#: src/components/organisms/PkRSVPSection.re.mjs:385
 msgid "Participants"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:579
+#: src/components/organisms/PkRSVPSection.re.mjs:681
 msgid "Pending · {0}"
 msgstr ""
 
@@ -62,26 +87,34 @@ msgstr ""
 msgid "Remove this RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:253
+#: src/components/organisms/PkRSVPSection.re.mjs:311
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:197
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:167
 msgid "View Profile"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:515
+#: src/components/organisms/PkRSVPSection.re.mjs:617
 msgid "Waitlist · {0}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""

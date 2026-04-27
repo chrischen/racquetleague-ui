@@ -28,7 +28,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/SettingsProfilePage.re/ja"),
       th: import("../../locales/src/components/pages/SettingsProfilePage.re/th"),
       zhTW: import("../../locales/src/components/pages/SettingsProfilePage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/SettingsProfilePage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/SettingsProfilePage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/SettingsProfilePage.re/ko"),
+      vi: import("../../locales/src/components/pages/SettingsProfilePage.re/vi")
     });
 
 async function loader(param) {

@@ -4103,3 +4103,57 @@ msgstr ""
 #: src/components/pages/PkuruLayout.re.mjs:599
 msgid "New event"
 msgstr ""
+
+#: src/components/pkuru/PkEventRow.re.mjs:153
+#: src/components/pkuru/PkEventRow.re.mjs:210
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/pkuru/PkEventRow.re.mjs:154
+#: src/components/pkuru/PkEventRow.re.mjs:211
+msgid "player"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+msgid "gender"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:679
+msgid "Please update to a recent version of Chrome, Firefox, or Safari."
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:675
+msgid "Your browser is too old to use this feature."
+msgstr ""

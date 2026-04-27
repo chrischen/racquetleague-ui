@@ -1,0 +1,430 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:132
+#: src/components/pages/Event.re.mjs:764
+msgid "Badminton"
+msgstr "Cầu lông"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:136
+#: src/components/pages/Event.re.mjs:767
+msgid "Table Tennis"
+msgstr "Bóng bàn"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:140
+#: src/components/pages/Event.re.mjs:770
+msgid "Pickleball"
+msgstr "Pickleball"
+
+#. js-lingui-explicit-id
+#: src/components/molecules/SubscribeActivity.re.mjs:144
+#: src/components/pages/Event.re.mjs:773
+msgid "Futsal"
+msgstr "Futsal"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:776
+msgid "drill"
+msgstr "luyện tập"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:779
+msgid "comp"
+msgstr "thi đấu"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:782
+msgid "rec"
+msgstr "giải trí"
+
+#. js-lingui-explicit-id
+#: src/components/pages/Event.re.mjs:785
+msgid "all level"
+msgstr "mọi trình độ"
+
+#: src/components/pages/Event.re.mjs:238
+msgid "{0} hours"
+msgstr "{0} giờ"
+
+#: src/components/pages/Event.re.mjs:240
+msgid "{0} hours and {1} minutes"
+msgstr "{0} giờ {1} phút"
+
+#: src/components/organisms/GoingRsvps.re.mjs:105
+msgid "+{0} more"
+msgstr "+{0} nữa"
+
+#: src/components/pages/Event.re.mjs:672
+msgid "activity"
+msgstr "hoạt động"
+
+#: src/components/organisms/RSVPSection.re.mjs:673
+#: src/components/organisms/RSVPSection.re.mjs:765
+msgid "Add Member"
+msgstr "Thêm thành viên"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Advanced players"
+msgstr "Người chơi nâng cao"
+
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "Duyệt tham dự"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
+
+#: src/components/pages/Event.re.mjs:283
+msgid "cancel event"
+msgstr "hủy sự kiện"
+
+#: src/components/pages/Event.re.mjs:388
+msgid "CANCELED"
+msgstr "ĐÃ HỦY"
+
+#: src/components/organisms/RSVPSection.re.mjs:690
+msgid "Collapse"
+msgstr "Thu gọn"
+
+#: src/components/pages/Event.re.mjs:584
+msgid "details"
+msgstr "chi tiết"
+
+#: src/components/pages/Event.re.mjs:266
+msgid "edit event"
+msgstr "chỉnh sửa sự kiện"
+
+#: src/components/pages/Event.re.mjs:367
+msgid "event @"
+msgstr "sự kiện @"
+
+#: src/components/pages/Event.re.mjs:728
+msgid "event doesn't exist"
+msgstr "sự kiện không tồn tại"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Event tag: {tag}"
+msgstr "Thẻ sự kiện: {tag}"
+
+#: src/components/organisms/GoingRsvps.re.mjs:83
+msgid "Going"
+msgstr "Tham dự"
+
+#: src/components/pages/Event.re.mjs:642
+msgid "good luck, have fun"
+msgstr "chúc may mắn, chơi vui nhé"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: src/components/organisms/EventFullNames.re.mjs:78
+msgid "guest list"
+msgstr "danh sách khách"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Highly skilled players"
+msgstr "Người chơi trình độ cao"
+
+#: src/components/pages/Event.re.mjs:434
+msgid "hosted by {name}"
+msgstr "tổ chức bởi {name}"
+
+#: src/components/atoms/EventSignupButton.re.mjs:64
+msgid "Join Event"
+msgstr "Tham gia sự kiện"
+
+#: src/components/atoms/EventSignupButton.re.mjs:61
+msgid "Join Waitlist"
+msgstr "Vào danh sách chờ"
+
+#: src/components/organisms/EventMessages.re.mjs:283
+msgid "joined from waitlist"
+msgstr "tham gia từ danh sách chờ"
+
+#: src/components/organisms/EventMessages.re.mjs:277
+msgid "joined the event"
+msgstr "đã tham gia sự kiện"
+
+#: src/components/pages/Event.re.mjs:558
+msgid "league"
+msgstr "giải đấu"
+
+#: src/components/organisms/EventMessages.re.mjs:280
+msgid "left the event"
+msgstr "đã rời sự kiện"
+
+#: src/components/organisms/RSVPSection.re.mjs:781
+msgid "Load more"
+msgstr "Tải thêm"
+
+#: src/components/organisms/RSVPSection.re.mjs:778
+msgid "Loading..."
+msgstr "Đang tải..."
+
+#: src/components/atoms/EventSignupButton.re.mjs:67
+msgid "Login to Join"
+msgstr "Đăng nhập để tham gia"
+
+#: src/components/pages/Event.re.mjs:529
+msgid "login to subscribe to {activityName} events"
+msgstr "đăng nhập để đăng ký sự kiện {activityName}"
+
+#: src/components/atoms/EventTag.re.mjs:34
+msgid "Lower intermediate and above"
+msgstr "Trung cấp thấp trở lên"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Matches will be submitted to DUPR."
+msgstr "Kết quả trận đấu sẽ được gửi lên DUPR."
+
+#: src/components/pages/Event.re.mjs:703
+msgid "media"
+msgstr "phương tiện"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "Chuyển vào danh sách chờ duyệt"
+
+#: src/components/organisms/EventMessages.re.mjs:178
+msgid "No activity yet"
+msgstr "Chưa có hoạt động"
+
+#: src/components/organisms/EventFullNames.re.mjs:97
+msgid "no players yet"
+msgstr "chưa có người chơi"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "No restriction on skill level. Open to all players."
+msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi người."
+
+#: src/components/organisms/EventRsvp.re.mjs:110
+msgid "Not paid"
+msgstr "Chưa thanh toán"
+
+#: src/components/pages/Event.re.mjs:652
+msgid "notes"
+msgstr "ghi chú"
+
+#: src/components/organisms/EventRsvp.re.mjs:102
+msgid "Paid"
+msgstr "Đã thanh toán"
+
+#: src/components/organisms/PendingRsvps.re.mjs:58
+msgid "Pending"
+msgstr "Đang chờ"
+
+#: src/components/organisms/EventRsvp.re.mjs:61
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+msgid "Player"
+msgstr "Người chơi"
+
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr "Riêng tư"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Professional players"
+msgstr "Người chơi chuyên nghiệp"
+
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
+msgstr "Có xếp hạng"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "Xóa khỏi sự kiện"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "Xóa RSVP này"
+
+#: src/components/organisms/RSVPSection.re.mjs:431
+msgid "Required rating: {0} (DUPR {1})"
+msgstr "Xếp hạng yêu cầu: {0} (DUPR {1})"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr "Kết quả sẽ được tính vào xếp hạng thi đấu."
+
+#: src/components/organisms/RSVPSection.re.mjs:552
+#: src/components/organisms/RSVPSection.re.mjs:591
+#: src/components/organisms/RSVPSection.re.mjs:712
+msgid "RSVP"
+msgstr "RSVP"
+
+#: src/components/atoms/EventSignupButton.re.mjs:48
+msgid "RSVP Pending..."
+msgstr "Đang xử lý RSVP..."
+
+#: src/components/organisms/RSVPSection.re.mjs:260
+#: src/components/pages/Event.re.mjs:179
+msgid "Save"
+msgstr "Lưu"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+msgid "See all"
+msgstr "Xem tất cả"
+
+#: src/components/organisms/EventMessages.re.mjs:132
+msgid "Send"
+msgstr "Gửi"
+
+#: src/components/organisms/GoingRsvps.re.mjs:140
+msgid "Show less"
+msgstr "Thu gọn"
+
+#: src/components/pages/Event.re.mjs:312
+msgid ""
+"showing up without permission may result in a ban for failing to follow "
+"rules."
+msgstr "xuất hiện mà không có phép có thể dẫn đến lệnh cấm vì vi phạm quy tắc."
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "Luyện tập kỹ năng và bài tập kỹ thuật để cải thiện trình độ"
+
+#: src/components/organisms/EventMessages.re.mjs:118
+#: src/components/pages/Event.re.mjs:165
+msgid "Status message"
+msgstr "Tin nhắn trạng thái"
+
+#: src/components/pages/Event.re.mjs:563
+msgid "submit matches"
+msgstr "nộp kết quả trận đấu"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:112
+msgid "subscribe to all {activityName} events"
+msgstr "đăng ký tất cả sự kiện {activityName}"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "đồng bộ lịch"
+
+#: src/components/atoms/EventSignupButton.re.mjs:89
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"Sự kiện đã đầy, nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người trong "
+"danh sách chờ. Nếu tham gia lại, bạn sẽ vào danh sách chờ. Bạn có chắc muốn "
+"rời sự kiện không?"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
+"ban tổ chức."
+
+#: src/components/pages/Event.re.mjs:309
+msgid ""
+"this is a private event that requires membership with the club. To join this "
+"club, please join a Japan Pickleball League event first to get a referral."
+msgstr ""
+"đây là sự kiện riêng tư yêu cầu thành viên câu lạc bộ. Để gia nhập, hãy tham "
+"gia sự kiện Japan Pickleball League trước để được giới thiệu."
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
+"nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+
+#: src/components/organisms/RSVPSection.re.mjs:244
+#: src/components/organisms/RSVPSection.re.mjs:245
+#: src/components/organisms/EventMessages.re.mjs:125
+#: src/components/pages/Event.re.mjs:172
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "Nhập tin nhắn trạng thái... ví dụ: 'Tôi sẽ đến lúc 19:00.'"
+
+#: src/components/pages/Event.re.mjs:272
+msgid "uncancel event"
+msgstr "khôi phục sự kiện"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:91
+msgid "unsubscribe from {activityName} events"
+msgstr "hủy đăng ký sự kiện {activityName}"
+
+#: src/components/atoms/EventTag.re.mjs:36
+msgid "Upper intermediate and above"
+msgstr "Trung cấp cao trở lên"
+
+#: src/components/pages/Event.re.mjs:316
+msgid "view events"
+msgstr "xem sự kiện"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "Xem hồ sơ"
+
+#: src/components/organisms/RsvpWaitlist.re.mjs:60
+msgid "Waitlist"
+msgstr "Danh sách chờ"
+
+#: src/components/organisms/EventMessages.re.mjs:274
+msgid "was added to the event by admin"
+msgstr "đã được admin thêm vào sự kiện"
+
+#: src/components/organisms/EventMessages.re.mjs:286
+msgid "was removed from the event by admin"
+msgstr "đã bị admin xóa khỏi sự kiện"
+
+#: src/components/atoms/EventSignupButton.re.mjs:88
+msgid "You will lose your spot"
+msgstr "Bạn sẽ mất chỗ của mình"
+
+#: src/components/molecules/SubscribeActivity.re.mjs:104
+msgid "you will receive email notifications for new events"
+msgstr "bạn sẽ nhận thông báo email cho các sự kiện mới"
+
+#: src/components/atoms/EventSignupButton.re.mjs:51
+msgid "You're Going"
+msgstr "Bạn đang tham dự"
+
+#: src/components/atoms/EventSignupButton.re.mjs:54
+msgid "You're Waitlisted"
+msgstr "Bạn đang trong danh sách chờ"
+
+#: src/components/organisms/RSVPSection.re.mjs:433
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"Xếp hạng của bạn {0} ~ {1} (DUPR {2} ~ {3}) quá thấp. Bạn sẽ được đặt vào "
+"danh sách chờ cho đến khi giới hạn xếp hạng được hạ xuống. Hãy tham gia thêm "
+"sự kiện JPL có xếp hạng để nâng cao điểm."

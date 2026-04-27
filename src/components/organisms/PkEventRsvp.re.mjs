@@ -19,7 +19,13 @@ function useOpt(fRef) {
   return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, PkEventRsvp_rsvp_graphql.node, convertFragment);
 }
 
+var Fragment_gender_decode = PkEventRsvp_rsvp_graphql.Utils.gender_decode;
+
+var Fragment_gender_fromString = PkEventRsvp_rsvp_graphql.Utils.gender_fromString;
+
 var Fragment = {
+  gender_decode: Fragment_gender_decode,
+  gender_fromString: Fragment_gender_fromString,
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment,
@@ -52,17 +58,31 @@ function PkEventRsvp(props) {
                                   })), (function (mu) {
                                 return Rating.guessDupr(mu).toFixed(1);
                               })), "—");
-                    if (!isWaitlisted) {
+                    if (isWaitlisted) {
+                      var pos = Core__Option.getOr(waitlistPosition, 0);
+                      var match = user.gender;
+                      var tmp;
+                      tmp = match !== undefined && (match === "female" || match === "male") ? (
+                          match === "female" ? JsxRuntime.jsx("span", {
+                                  children: "♀",
+                                  className: "text-[9px] font-bold leading-none text-pink-400"
+                                }) : JsxRuntime.jsx("span", {
+                                  children: "♂",
+                                  className: "text-[9px] font-bold leading-none text-blue-400"
+                                })
+                        ) : null;
                       return JsxRuntime.jsxs(RsvpOptions.make, {
                                   rsvp: rsvp.fragmentRefs,
                                   eventId: eventId,
                                   eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
                                   isAdmin: isAdmin,
                                   connectionKey: connectionKey,
-                                  triggerClassName: "relative inline-flex items-center gap-1.5 pl-0.5 pr-2 py-0.5 rounded-full cursor-pointer hover:bg-gray-50 dark:hover:bg-[#26272b] transition-colors " + (
-                                    isPending ? "border border-dashed border-gray-300 dark:border-[#3a3b40] opacity-50 hover:opacity-70" : "border border-gray-200 dark:border-[#3a3b40]"
-                                  ),
+                                  triggerClassName: "relative flex items-center gap-2 pl-0.5 pr-2 py-1 rounded-md cursor-pointer hover:bg-gray-50 dark:hover:bg-[#26272b] transition-all text-left w-full",
                                   children: [
+                                    JsxRuntime.jsx("span", {
+                                          children: pos.toString(),
+                                          className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 w-4 text-right flex-shrink-0"
+                                        }),
                                     JsxRuntime.jsx(AvatarWithProgress.make, {
                                           src: Core__Option.getOr(user.picture, ""),
                                           alt: Core__Option.getOr(user.lineUsername, ""),
@@ -72,32 +92,37 @@ function PkEventRsvp(props) {
                                         }),
                                     JsxRuntime.jsx("span", {
                                           children: Core__Option.getOr(user.lineUsername, "?"),
-                                          className: "text-[11px] text-gray-900 dark:text-gray-100 leading-none"
+                                          className: "text-[11px] text-gray-700 dark:text-gray-400 leading-none flex-1"
                                         }),
+                                    tmp,
                                     JsxRuntime.jsx("span", {
                                           children: skillStr,
                                           className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none"
-                                        }),
-                                    isHost ? JsxRuntime.jsx("span", {
-                                            children: "★",
-                                            className: "text-[11px] font-mono text-gray-400 dark:text-gray-500 leading-none"
-                                          }) : null
+                                        })
                                   ]
                                 });
                     }
-                    var pos = Core__Option.getOr(waitlistPosition, 0);
+                    var match$1 = user.gender;
+                    var tmp$1;
+                    tmp$1 = match$1 !== undefined && (match$1 === "female" || match$1 === "male") ? (
+                        match$1 === "female" ? JsxRuntime.jsx("span", {
+                                children: "♀",
+                                className: "text-[9px] font-bold leading-none text-pink-400"
+                              }) : JsxRuntime.jsx("span", {
+                                children: "♂",
+                                className: "text-[9px] font-bold leading-none text-blue-400"
+                              })
+                      ) : null;
                     return JsxRuntime.jsxs(RsvpOptions.make, {
                                 rsvp: rsvp.fragmentRefs,
                                 eventId: eventId,
                                 eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
                                 isAdmin: isAdmin,
                                 connectionKey: connectionKey,
-                                triggerClassName: "relative flex items-center gap-2 pl-0.5 pr-2 py-1 rounded-md cursor-pointer hover:bg-gray-50 dark:hover:bg-[#26272b] transition-all text-left w-full",
+                                triggerClassName: "relative inline-flex items-center gap-1.5 pl-0.5 pr-2 py-0.5 rounded-full cursor-pointer hover:bg-gray-50 dark:hover:bg-[#26272b] transition-colors " + (
+                                  isPending ? "border border-dashed border-gray-300 dark:border-[#3a3b40] opacity-50 hover:opacity-70" : "border border-gray-200 dark:border-[#3a3b40]"
+                                ),
                                 children: [
-                                  JsxRuntime.jsx("span", {
-                                        children: pos.toString(),
-                                        className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 w-4 text-right flex-shrink-0"
-                                      }),
                                   JsxRuntime.jsx(AvatarWithProgress.make, {
                                         src: Core__Option.getOr(user.picture, ""),
                                         alt: Core__Option.getOr(user.lineUsername, ""),
@@ -107,12 +132,17 @@ function PkEventRsvp(props) {
                                       }),
                                   JsxRuntime.jsx("span", {
                                         children: Core__Option.getOr(user.lineUsername, "?"),
-                                        className: "text-[11px] text-gray-700 dark:text-gray-400 leading-none flex-1"
+                                        className: "text-[11px] text-gray-900 dark:text-gray-100 leading-none"
                                       }),
+                                  tmp$1,
                                   JsxRuntime.jsx("span", {
                                         children: skillStr,
                                         className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none"
-                                      })
+                                      }),
+                                  isHost ? JsxRuntime.jsx("span", {
+                                          children: "★",
+                                          className: "text-[11px] font-mono text-gray-400 dark:text-gray-500 leading-none"
+                                        }) : null
                                 ]
                               });
                   })), null);

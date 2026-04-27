@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:201
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
 msgid "biography"
 msgstr "ประวัติส่วนตัว"
 
@@ -21,19 +21,35 @@ msgstr "ประวัติส่วนตัว"
 msgid "cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:166
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
 msgid "details about yourself"
 msgstr "รายละเอียดเกี่ยวกับตัวคุณ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:178
+#: src/components/organisms/SettingsProfileForm.re.mjs:226
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:174
+#: src/components/organisms/SettingsProfileForm.re.mjs:260
+msgid "Female"
+msgstr "หญิง"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
 msgid "full name"
 msgstr "ชื่อเต็ม"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:165
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+msgid "gender"
+msgstr "เพศ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:256
+msgid "Male"
+msgstr "ชาย"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:252
+msgid "Prefer not to say"
+msgstr "ไม่ต้องการระบุ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
 msgid "profile"
 msgstr "โปรไฟล์"
 
@@ -51,10 +67,10 @@ msgid ""
 "for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:176
+#: src/components/organisms/SettingsProfileForm.re.mjs:224
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "กิจกรรมบางกิจกรรมต้องการชื่อจริงของคุณตามที่แสดงในบัตรประจำตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:204
+#: src/components/organisms/SettingsProfileForm.re.mjs:292
 msgid "tell us a little about yourself"
 msgstr "เล่าให้ฟังเกี่ยวกับตัวคุณสักนิด"

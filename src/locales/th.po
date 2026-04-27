@@ -3827,6 +3827,77 @@ msgstr ""
 msgid "New event"
 msgstr "กิจกรรมใหม่"
 
+#: src/components/pkuru/PkEventRow.re.mjs:153
+#: src/components/pkuru/PkEventRow.re.mjs:210
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/pkuru/PkEventRow.re.mjs:154
+#: src/components/pkuru/PkEventRow.re.mjs:211
+msgid "player"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/RoundRobin.re.mjs:610
+msgid "Check in at least 4 players to start generating matches"
+msgstr "เช็คอินผู้เล่นอย่างน้อย 4 คนเพื่อเริ่มสร้างแมตช์"
+
+#: src/components/organisms/RoundRobin.re.mjs:623
+msgid "Guest player addition UI to be implemented"
+msgstr "อยู่ระหว่างพัฒนาฟีเจอร์เพิ่มผู้เล่นรับเชิญ"
+
+#: src/components/organisms/RoundRobin.re.mjs:327
+msgid "Manage a round-robin tournament with guest players"
+msgstr "จัดการการแข่งขันแบบพบกันหมดกับผู้เล่นรับเชิญ"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "ไม่ต้องการระบุ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+msgid "gender"
+msgstr "เพศ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ ทักษะ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "สมดุล"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "เท่าเทียม"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "มัธยฐาน"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "หลากหลาย"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "การกระจาย"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "ค่าเฉลี่ย 6 อันดับ"
+
+#: src/components/organisms/RoundRobin.re.mjs:679
+msgid "Please update to a recent version of Chrome, Firefox, or Safari."
+msgstr "กรุณาอัปเดตเป็น Chrome, Firefox หรือ Safari เวอร์ชันล่าสุด"
+
+#: src/components/organisms/RoundRobin.re.mjs:675
+msgid "Your browser is too old to use this feature."
+msgstr "เบราว์เซอร์ของคุณเก่าเกินไปสำหรับฟีเจอร์นี้"
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"

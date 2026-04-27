@@ -29,6 +29,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/SettingsProfilePage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/SettingsProfilePage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/SettingsProfilePage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/SettingsProfilePage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/SettingsProfilePage.re/vi"),
 })
 
 @genType

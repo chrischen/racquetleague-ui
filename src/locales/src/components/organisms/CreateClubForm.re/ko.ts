@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"bElZHv\":\"클럽에 대한 간단한 설명...\",\"dEgA5A\":\"취소\",\"3lOEdC\":\"클럽 이름\",\"WjBnmk\":\"클럽 URL\",\"NCTY3+\":\"클럽명\",\"utwPWe\":\"클럽 만들기\",\"5Japp5\":\"기본 클럽 종목\",\"Nu4oKW\":\"설명\",\"c2pg9w\":\"예: City Ballers 클럽\"}");

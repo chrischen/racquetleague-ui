@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/LoginPage.re.mjs:107
+msgid "An error occurred during sign in. Please try again."
+msgstr "Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại."
+
+#: src/components/pages/LoginPage.re.mjs:53
+#: src/components/pages/LoginPage.re.mjs:85
+msgid "An error occurred: {message}"
+msgstr "Đã xảy ra lỗi: {message}"
+
+#: src/components/pages/LoginPage.re.mjs:131
+msgid "Back to events"
+msgstr "Quay lại sự kiện"
+
+#: src/components/pages/LoginPage.re.mjs:73
+#: src/components/pages/LoginPage.re.mjs:75
+msgid "Check your email for a magic link to sign in!"
+msgstr "Kiểm tra email của bạn để nhận liên kết ma thuật để đăng nhập!"
+
+#: src/components/pages/LoginPage.re.mjs:194
+msgid "Continue with LINE"
+msgstr "Tiếp tục với LINE"
+
+#: src/components/pages/LoginPage.re.mjs:226
+msgid "Email address"
+msgstr "Địa chỉ email"
+
+#: src/components/pages/LoginPage.re.mjs:71
+msgid "Failed to send magic link: {0}"
+msgstr "Không thể gửi liên kết ma thuật: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:40
+msgid "Login failed: {0}"
+msgstr "Đăng nhập thất bại: {0}"
+
+#: src/components/pages/LoginPage.re.mjs:175
+msgid "New users will be automatically registered"
+msgstr "Người dùng mới sẽ được đăng ký tự động"
+
+#: src/components/pages/LoginPage.re.mjs:213
+msgid "or continue with email"
+msgstr "hoặc tiếp tục bằng email"
+
+#: src/components/pages/LoginPage.re.mjs:267
+msgid "Send magic link"
+msgstr "Gửi liên kết ma thuật"
+
+#: src/components/pages/LoginPage.re.mjs:171
+msgid "Sign in to Pkuru.com"
+msgstr "Đăng nhập vào Pkuru.com"
+
+#: src/components/pages/LoginPage.re.mjs:103
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"Tài khoản LINE của bạn không có email liên kết. Vui lòng đặt địa chỉ email "
+"cho tài khoản của bạn từ ứng dụng LINE, sau đó thử lại."

@@ -1,0 +1,98 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:337
+msgid "Anti-Teams"
+msgstr "안티팀"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:152
+msgid "Cancel"
+msgstr "취소"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:302
+msgid "Create and manage player teams"
+msgstr "플레이어 팀 만들기 및 관리"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Anti-Team"
+msgstr "안티팀 만들기"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:435
+msgid "Create Team"
+msgstr "팀 만들기"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first anti-team to prevent players from pairing"
+msgstr "플레이어 페어링을 방지하기 위해 첫 번째 안티팀을 만드세요"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:361
+msgid "Create your first team to get started"
+msgstr "시작하려면 첫 번째 팀을 만드세요"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:402
+msgid "Delete team"
+msgstr "팀 삭제"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:390
+msgid "Edit team"
+msgstr "팀 편집"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:42
+msgid "Edit Team"
+msgstr "팀 편집"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:71
+msgid "Enter team name"
+msgstr "팀 이름 입력"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Anti-Team"
+msgstr "새 안티팀"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:212
+msgid "New Team"
+msgstr "새 팀"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No anti-teams yet"
+msgstr "아직 안티팀이 없습니다"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:357
+msgid "No teams yet"
+msgstr "아직 팀이 없습니다"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:443
+msgid "Save & Close"
+msgstr "저장 & 닫기"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:159
+msgid "Save Team"
+msgstr "팀 저장"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:298
+msgid "Team Management"
+msgstr "팀 관리"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:86
+msgid "Team Members ({0})"
+msgstr "팀 멤버 ({0})"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:66
+msgid "Team Name"
+msgstr "팀 이름"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:326
+msgid "Teams"
+msgstr "팀"

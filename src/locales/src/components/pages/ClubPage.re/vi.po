@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/ClubPage.re.mjs:178
+msgid "Cancel Request"
+msgstr "Hủy yêu cầu"
+
+#: src/components/pages/ClubPage.re.mjs:510
+msgid "club not found"
+msgstr "không tìm thấy câu lạc bộ"
+
+#: src/components/pages/ClubPage.re.mjs:207
+msgid "Join Club"
+msgstr "Gia nhập câu lạc bộ"
+
+#: src/components/pages/ClubPage.re.mjs:407
+msgid "Leaderboard"
+msgstr "Bảng xếp hạng"
+
+#: src/components/pages/ClubPage.re.mjs:168
+msgid "Leave club"
+msgstr "Rời câu lạc bộ"
+
+#: src/components/pages/ClubPage.re.mjs:266
+msgid "Manage Members"
+msgstr "Quản lý thành viên"
+
+#: src/components/pages/ClubPage.re.mjs:490
+msgid "No ratings yet"
+msgstr "Chưa có xếp hạng"
+
+#: src/components/pages/ClubPage.re.mjs:386
+msgid "No upcoming events"
+msgstr "Không có sự kiện sắp tới"
+
+#: src/components/pages/ClubPage.re.mjs:196
+msgid "Request to join"
+msgstr "Yêu cầu gia nhập"
+
+#: src/components/pages/ClubPage.re.mjs:291
+msgid "Upcoming Events"
+msgstr "Sự kiện sắp tới"
+
+#: src/components/pages/ClubPage.re.mjs:298
+#: src/components/pages/ClubPage.re.mjs:414
+msgid "View All"
+msgstr "Xem tất cả"

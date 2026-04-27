@@ -16,12 +16,14 @@ let loadMessages = Lingui.loadMessages({
   en: Lingui.import("../../locales/src/components/pages/EventsMapPage.re/en"),
   th: Lingui.import("../../locales/src/components/pages/EventsMapPage.re/th"),
   zhCN: Lingui.import("../../locales/src/components/pages/EventsMapPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/EventsMapPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/EventsMapPage.re/vi"),
   zhTW: Lingui.import("../../locales/src/components/pages/EventsMapPage.re/zh-TW"),
 })
 
 @genType
 let loader = async ({context, params, request}: LoaderArgs.t) => {
-  let validLangs = ["en", "ja", "th", "zh-TW", "zh-CN"]
+  let validLangs = ["en", "ja", "th", "zh-TW", "zh-CN", "ko", "vi"]
   switch params.lang {
   | Some(lang) if !(validLangs->Array.includes(lang)) => raise(Lang.InvalidLanguageException(lang))
   | _ => ()

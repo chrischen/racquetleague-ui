@@ -62,7 +62,7 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:785
+#: src/components/organisms/RoundRobin.re.mjs:802
 msgid "Advance to Round {0}"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "All checked-in players are already in this round"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:884
+#: src/components/organisms/RoundRobin.re.mjs:901
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -145,11 +145,11 @@ msgstr ""
 #~ msgid "Debug Mode"
 #~ msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1031
+#: src/components/organisms/RoundRobin.re.mjs:1048
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1031
+#: src/components/organisms/RoundRobin.re.mjs:1048
 msgid "Debug: ON"
 msgstr ""
 
@@ -226,7 +226,7 @@ msgstr ""
 #~ msgid "Guest player addition UI to be implemented"
 #~ msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1019
+#: src/components/organisms/RoundRobin.re.mjs:1036
 msgid "Help"
 msgstr ""
 
@@ -334,6 +334,10 @@ msgstr ""
 msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
 msgstr ""
 
+#: src/components/organisms/RoundRobin.re.mjs:679
+msgid "Please update to a recent version of Chrome, Firefox, or Safari."
+msgstr ""
+
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:97
 msgid "Preview ({0} guest{1})"
 msgstr ""
@@ -436,7 +440,7 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:663
+#: src/components/organisms/RoundRobin.re.mjs:665
 msgid "Team {0}"
 msgstr ""
 
@@ -489,4 +493,8 @@ msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:675
+msgid "Your browser is too old to use this feature."
 msgstr ""

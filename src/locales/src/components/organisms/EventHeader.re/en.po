@@ -21,7 +21,7 @@ msgstr ""
 msgid "{0} hours and {1} minutes"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "CANCELED"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr ""
 
@@ -41,35 +41,45 @@ msgstr ""
 msgid "Google Calendar"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:56
-msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
-msgstr ""
-
-#: src/components/atoms/EventTag.re.mjs:50
-msgid "Results will be submitted to competitive ratings."
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:52
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
@@ -77,7 +87,7 @@ msgstr ""
 msgid "sync calendar"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
 
@@ -93,6 +103,6 @@ msgstr ""
 #~ msgid "Untitled event"
 #~ msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr ""

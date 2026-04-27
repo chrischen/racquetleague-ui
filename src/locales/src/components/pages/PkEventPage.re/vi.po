@@ -1,0 +1,482 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/PkEventPage.re.mjs:602
+msgid "...more"
+msgstr "...thêm"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:407
+msgid "· {0} pending"
+msgstr "· {0} đang chờ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:405
+msgid "· +{0} waitlist"
+msgstr "· +{0} chờ đợi"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:402
+msgid "{0} joined"
+msgstr "{0} đã tham gia"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ KỸ NĂNG"
+
+#: src/components/organisms/PkEventMessages.re.mjs:146
+msgid "Activity"
+msgstr "Môn thể thao"
+
+#: src/components/organisms/PkEventMessages.re.mjs:433
+msgid "Add a message..."
+msgstr "Thêm tin nhắn..."
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Advanced players"
+msgstr "Người chơi nâng cao"
+
+#: src/components/organisms/RsvpOptions.re.mjs:118
+msgid "Approve RSVP"
+msgstr "Duyệt tham dự"
+
+#: src/components/organisms/RsvpOptions.re.mjs:181
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "cân bằng"
+
+#: src/components/pages/PkEventPage.re.mjs:274
+msgid "cancel event"
+msgstr "hủy sự kiện"
+
+#: src/components/pages/PkEventPage.re.mjs:519
+msgid "CANCELED"
+msgstr "ĐÃ HỦY"
+
+#: src/components/pages/PkEventPage.re.mjs:388
+#: src/components/pages/PkEventPage.re.mjs:462
+msgid "Claim spot"
+msgstr "Đặt chỗ"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+msgid "Complete your profile"
+msgstr "Hoàn thiện hồ sơ của bạn"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:552
+msgid "Confirmed · {0}"
+msgstr "Đã xác nhận · {0}"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "Sân {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "Sân {0} - Đang chỉnh sửa"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "Các sân:"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "Xóa trận đấu"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "Xóa trận đấu này?"
+
+#: src/components/organisms/ProfileModal.re.mjs:358
+msgid "Display name"
+msgstr "Tên hiển thị"
+
+#: src/components/organisms/ProfileModal.re.mjs:106
+msgid "Display name is required"
+msgstr "Cần có tên hiển thị"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/PkEventPage.re.mjs:257
+msgid "edit event"
+msgstr "chỉnh sửa sự kiện"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "Chỉnh sửa trận đấu"
+
+#: src/components/organisms/ProfileModal.re.mjs:375
+msgid "Email address"
+msgstr "Địa chỉ email"
+
+#: src/components/organisms/ProfileModal.re.mjs:226
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
+"bằng email bạn đang cố dùng ở đây."
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "Email cannot be changed"
+msgstr "Không thể thay đổi email"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Email is required"
+msgstr "Cần có email"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "Nhập điểm số trận đấu"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "đồng đều"
+
+#: src/components/pages/PkEventPage.re.mjs:728
+#: src/components/pages/PkEventPage.re.mjs:752
+msgid "Event not found"
+msgstr "Không tìm thấy sự kiện"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Event tag: {tag}"
+msgstr "Thẻ sự kiện: {tag}"
+
+#: src/components/organisms/PkEventMessages.re.mjs:294
+msgid "Event updated"
+msgstr "Sự kiện đã được cập nhật"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "Nữ"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "For event updates and notifications"
+msgstr "Để nhận cập nhật và thông báo về sự kiện"
+
+#: src/components/pages/PkEventPage.re.mjs:560
+msgid "Free"
+msgstr "Miễn phí"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "Giới tính"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Highly skilled players"
+msgstr "Người chơi trình độ cao"
+
+#: src/components/pages/PkEventPage.re.mjs:462
+msgid "Join waitlist"
+msgstr "Vào danh sách chờ"
+
+#: src/components/pages/PkEventPage.re.mjs:388
+msgid "Join waitlist (#{0})"
+msgstr "Vào danh sách chờ (#{0})"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "Vòng cuối"
+
+#: src/components/pages/PkEventPage.re.mjs:369
+msgid "Leave"
+msgstr "Rời"
+
+#: src/components/pages/PkEventPage.re.mjs:689
+msgid "Leave event"
+msgstr "Rời sự kiện"
+
+#: src/components/pages/PkEventPage.re.mjs:602
+msgid "less"
+msgstr "thu gọn"
+
+#: src/components/pages/PkEventPage.re.mjs:578
+msgid "Location"
+msgstr "Địa điểm"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "Đội thua (Đội {0})"
+
+#: src/components/atoms/EventTag.re.mjs:34
+msgid "Lower intermediate and above"
+msgstr "Trung cấp thấp trở lên"
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "Nam"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Matches will be submitted to DUPR."
+msgstr "Kết quả trận đấu sẽ được gửi lên DUPR."
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "TRUNG VỊ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "đa dạng"
+
+#: src/components/organisms/RsvpOptions.re.mjs:128
+#: src/components/organisms/RsvpOptions.re.mjs:196
+msgid "Move to Pending List"
+msgstr "Chuyển vào danh sách chờ duyệt"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "No restriction on skill level. Open to all players."
+msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi người."
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "Không có điểm"
+
+#: src/components/pages/PkEventPage.re.mjs:642
+msgid "Notes from the host"
+msgstr "Ghi chú từ người tổ chức"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:385
+msgid "Participants"
+msgstr "Người tham gia"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:681
+msgid "Pending · {0}"
+msgstr "Đang chờ · {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "Không muốn tiết lộ"
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
+msgid "Private"
+msgstr "Riêng tư"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Professional players"
+msgstr "Người chơi chuyên nghiệp"
+
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
+msgid "Rated"
+msgstr "Có xếp hạng"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "Cân bằng lại trận đấu"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
+
+#: src/components/organisms/RsvpOptions.re.mjs:141
+msgid "Remove from event"
+msgstr "Xóa khỏi sự kiện"
+
+#: src/components/organisms/RsvpOptions.re.mjs:180
+msgid "Remove this RSVP"
+msgstr "Xóa RSVP này"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "Lặp lại"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:311
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "Yêu cầu: DUPR {minDuprStr}+"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:332
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "Cần DUPR {minDuprStr}+ để tham gia"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr "Kết quả sẽ được tính vào xếp hạng thi đấu."
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "Vòng {0}"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "Bốc thăm Round Robin"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "Lưu"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+msgid "Save & Join Event"
+msgstr "Lưu & Tham gia sự kiện"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "Lưu điểm số"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "Điểm số"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show all {0} items"
+msgstr "Hiển thị tất cả {0} mục"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show less"
+msgstr "Thu gọn"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "Luyện tập kỹ năng và bài tập kỹ thuật để cải thiện trình độ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "ĐỘ PHÂN TÁN"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "ĐỘI 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "ĐỘI 2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
+"lịch ban đầu bằng biểu tượng đặt lại vòng."
+
+#: src/components/pages/PkEventPage.re.mjs:690
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr ""
+"Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho "
+"người tiếp theo. Bạn có chắc không?"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
+"ban tổ chức."
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+msgid "This is how others will see you"
+msgstr "Đây là cách người khác sẽ thấy bạn"
+
+#: src/components/organisms/RsvpOptions.re.mjs:197
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
+"nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "TB TOP 6"
+
+#: src/components/pages/PkEventPage.re.mjs:263
+msgid "uncancel event"
+msgstr "khôi phục sự kiện"
+
+#: src/components/atoms/EventTag.re.mjs:36
+msgid "Upper intermediate and above"
+msgstr "Trung cấp cao trở lên"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "Xem bốc thăm đầy đủ"
+
+#: src/components/organisms/RsvpOptions.re.mjs:167
+msgid "View Profile"
+msgstr "Xem hồ sơ"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:617
+msgid "Waitlist · {0}"
+msgstr "Danh sách chờ · {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:339
+msgid "We need a few details before you can join this event"
+msgstr ""
+"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "Đội thắng (Đội {0})"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+msgid ""
+"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ."
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:785
+#~ msgid "Badminton"
+#~ msgstr "Cầu lông"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:788
+#~ msgid "Table Tennis"
+#~ msgstr "Bóng bàn"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:791
+#~ msgid "Pickleball"
+#~ msgstr "Pickleball"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:794
+#~ msgid "Futsal"
+#~ msgstr "Futsal"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:797
+#~ msgid "drill"
+#~ msgstr "luyện tập"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:800
+#~ msgid "comp"
+#~ msgstr "thi đấu"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:803
+#~ msgid "rec"
+#~ msgstr "giải trí"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:806
+#~ msgid "all level"
+#~ msgstr "mọi trình độ"

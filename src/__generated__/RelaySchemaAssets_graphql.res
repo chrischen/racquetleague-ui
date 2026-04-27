@@ -338,6 +338,16 @@ and input_RemoveUserFromClubInput_nullable = {
 }
 
 @live
+and input_UpdateLocaleInput = {
+  locale: string,
+}
+
+@live
+and input_UpdateLocaleInput_nullable = {
+  locale: string,
+}
+
+@live
 and input_UpdateMembershipStatusInput = {
   membershipId: string,
   status: enum_T_input,
@@ -353,6 +363,7 @@ and input_UpdateMembershipStatusInput_nullable = {
 and input_UpdateProfileInput = {
   biography: string,
   fullName: string,
+  gender?: enum_Gender_input,
   username: string,
 }
 
@@ -360,6 +371,7 @@ and input_UpdateProfileInput = {
 and input_UpdateProfileInput_nullable = {
   biography: string,
   fullName: string,
+  gender?: Js.Null.t<enum_Gender_input>,
   username: string,
 }
 

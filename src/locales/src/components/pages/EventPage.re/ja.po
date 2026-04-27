@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:420
+#: src/components/pages/EventPage.re.mjs:422
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:423
+#: src/components/pages/EventPage.re.mjs:425
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:426
+#: src/components/pages/EventPage.re.mjs:428
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:429
+#: src/components/pages/EventPage.re.mjs:431
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:432
+#: src/components/pages/EventPage.re.mjs:434
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:435
+#: src/components/pages/EventPage.re.mjs:437
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:438
+#: src/components/pages/EventPage.re.mjs:440
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:441
+#: src/components/pages/EventPage.re.mjs:443
 msgid "all level"
 msgstr "全レベル"
 
@@ -70,7 +70,7 @@ msgstr "+{0}人他"
 msgid "Add Member"
 msgstr "メンバーを追加"
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
@@ -98,7 +98,7 @@ msgstr "キャンセル"
 msgid "Collapse"
 msgstr "折りたたむ"
 
-#: src/components/organisms/ProfileModal.re.mjs:260
+#: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "プロフィールを完成させる"
 
@@ -123,11 +123,11 @@ msgstr "試合を削除"
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
-#: src/components/organisms/ProfileModal.re.mjs:283
+#: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
 msgstr "表示名"
 
-#: src/components/organisms/ProfileModal.re.mjs:73
+#: src/components/organisms/ProfileModal.re.mjs:106
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
@@ -139,11 +139,11 @@ msgstr "イベントを編集"
 msgid "Edit match"
 msgstr "試合を編集"
 
-#: src/components/organisms/ProfileModal.re.mjs:300
+#: src/components/organisms/ProfileModal.re.mjs:375
 msgid "Email address"
 msgstr "メールアドレス"
 
-#: src/components/organisms/ProfileModal.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:226
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -151,11 +151,11 @@ msgstr ""
 "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
 "用しようとしているメールアドレスでログインしてください。"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "Email cannot be changed"
 msgstr "メールアドレスは変更できません"
 
-#: src/components/organisms/ProfileModal.re.mjs:76
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
 
@@ -167,13 +167,21 @@ msgstr "試合のスコアを入力"
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "性別"
 
 #: src/components/organisms/GoingRsvps.re.mjs:83
 msgid "Going"
@@ -183,7 +191,7 @@ msgstr "参加"
 msgid "Google Calendar"
 msgstr "Google カレンダー"
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
@@ -227,11 +235,15 @@ msgstr "ログインして参加"
 msgid "Losing Team (Team {0})"
 msgstr "敗北チーム（チーム{0}）"
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "男性"
+
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
 
@@ -244,7 +256,7 @@ msgstr "保留リストに移動"
 msgid "No activity yet"
 msgstr "まだアクティビティがありません"
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
@@ -269,20 +281,34 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "回答しない"
+
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr "非公開"
+
 #: src/components/pages/EventPage.re.mjs:254
 #: src/components/pages/EventPage.re.mjs:283
 msgid "Private Event"
 msgstr "プライベートイベント"
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr "プロプレイヤー"
+
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
+msgstr "レーティング戦"
 
 #: src/components/organisms/MatchCard.re.mjs:395
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
@@ -303,7 +329,7 @@ msgstr "繰り返し"
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
@@ -330,7 +356,7 @@ msgstr "参加申込 保留中..."
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:429
 msgid "Save & Join Event"
 msgstr "保存して参加する"
 
@@ -355,7 +381,7 @@ msgstr "送信"
 msgid "Show less"
 msgstr "折りたたむ"
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
@@ -402,13 +428,13 @@ msgstr ""
 "このイベントはプライベートイベントのため、Pkuru.comから参加することはできませ"
 "ん。許可なくイベントに参加しないでください。"
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
 
-#: src/components/organisms/ProfileModal.re.mjs:207
+#: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "他の人に表示される名前です"
 
@@ -441,7 +467,7 @@ msgstr "不明なクラブ"
 msgid "Unknown location"
 msgstr "不明な場所"
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 
@@ -471,7 +497,7 @@ msgstr "管理者によってイベントに追加されました"
 msgid "was removed from the event by admin"
 msgstr "管理者によってイベントから削除されました"
 
-#: src/components/organisms/ProfileModal.re.mjs:264
+#: src/components/organisms/ProfileModal.re.mjs:339
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 

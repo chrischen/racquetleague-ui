@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/CompMatch.re.mjs:365
+msgid "Analyzed {0} matches."
+msgstr "Đã phân tích {0} trận đấu."
+
+#: src/components/organisms/CompMatch.re.mjs:230
+msgid "Competitive"
+msgstr "Thi đấu"
+
+#: src/components/organisms/CompMatch.re.mjs:359
+msgid "Gender Mixed Doubles"
+msgstr "Đôi nam nữ hỗn hợp"
+
+#: src/components/organisms/CompMatch.re.mjs:232
+msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
+msgstr ""
+"Các trận đấu được sắp xếp với chênh lệch kỹ năng tối đa ± 1 người chơi."
+
+#: src/components/organisms/CompMatch.re.mjs:237
+msgid "Matches are arranged by skill while mixing strong and weak players."
+msgstr ""
+"Các trận đấu được sắp xếp theo kỹ năng trong khi trộn người chơi mạnh và yếu."
+
+#: src/components/organisms/CompMatch.re.mjs:235
+msgid "Mixed"
+msgstr "Hỗn hợp"
+
+#: src/components/organisms/CompMatch.re.mjs:410
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr ""
+"Không đủ người chơi trong hàng đợi. Chọn người chơi muốn thi đấu từ tab Hàng "
+"đợi."
+
+#: src/components/organisms/CompMatch.re.mjs:386
+msgid "Played last round"
+msgstr "Đã chơi vòng trước"
+
+#: src/components/organisms/CompMatch.re.mjs:240
+msgid "Random"
+msgstr "Ngẫu nhiên"
+
+#: src/components/organisms/CompMatch.re.mjs:498
+msgid "Recommended Match"
+msgstr "Trận đấu được đề xuất"
+
+#: src/components/organisms/CompMatch.re.mjs:130
+msgid "Select"
+msgstr "Chọn"
+
+#: src/components/organisms/CompMatch.re.mjs:298
+msgid "Select a tab"
+msgstr "Chọn một tab"
+
+#: src/components/organisms/CompMatch.re.mjs:380
+msgid "This team has played before"
+msgstr "Đội này đã chơi trước đây"
+
+#: src/components/organisms/CompMatch.re.mjs:242
+msgid "Totally random teams."
+msgstr "Đội hoàn toàn ngẫu nhiên."

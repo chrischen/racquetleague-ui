@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/EventHeader.re.mjs:54
+msgid "{0} hours"
+msgstr "{0} giờ"
+
+#: src/components/organisms/EventHeader.re.mjs:56
+msgid "{0} hours and {1} minutes"
+msgstr "{0} giờ {1} phút"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Advanced players"
+msgstr "Người chơi nâng cao"
+
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/EventHeader.re.mjs:79
+msgid "CANCELED"
+msgstr "ĐÃ HỦY"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Event tag: {tag}"
+msgstr "Thẻ sự kiện: {tag}"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Highly skilled players"
+msgstr "Người chơi trình độ cao"
+
+#: src/components/atoms/EventTag.re.mjs:34
+msgid "Lower intermediate and above"
+msgstr "Trung cấp thấp trở lên"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Matches will be submitted to DUPR."
+msgstr "Kết quả trận đấu sẽ được gửi lên DUPR."
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "No restriction on skill level. Open to all players."
+msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi người."
+
+#: src/components/atoms/EventTag.re.mjs:141
+#: src/components/atoms/EventTag.re.mjs:143
+msgid "Private"
+msgstr "Riêng tư"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Professional players"
+msgstr "Người chơi chuyên nghiệp"
+
+#: src/components/atoms/EventTag.re.mjs:126
+#: src/components/atoms/EventTag.re.mjs:128
+msgid "Rated"
+msgstr "Có xếp hạng"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr "Kết quả sẽ được tính vào xếp hạng thi đấu."
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "Luyện tập kỹ năng và bài tập kỹ thuật để cải thiện trình độ"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "đồng bộ lịch"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
+"ban tổ chức."
+
+#: src/components/organisms/EventHeader.re.mjs:117
+msgid "Unknown club"
+msgstr "Câu lạc bộ không xác định"
+
+#: src/components/organisms/EventHeader.re.mjs:247
+msgid "Unknown location"
+msgstr "Địa điểm không xác định"
+
+#: src/components/atoms/EventTag.re.mjs:36
+msgid "Upper intermediate and above"
+msgstr "Trung cấp cao trở lên"

@@ -54,7 +54,7 @@ msgstr "调整球员种子"
 msgid "Advance to Next Round"
 msgstr "前进至下一回合"
 
-#: src/components/organisms/RoundRobin.re.mjs:785
+#: src/components/organisms/RoundRobin.re.mjs:802
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 轮"
 
@@ -66,7 +66,7 @@ msgstr "亚历克斯·约翰逊"
 msgid "All checked-in players are already in this round"
 msgstr "所有已报到的球员都已在这个回合中"
 
-#: src/components/organisms/RoundRobin.re.mjs:884
+#: src/components/organisms/RoundRobin.re.mjs:901
 msgid "Anti-Team {0}"
 msgstr "反对队 {0}"
 
@@ -80,10 +80,6 @@ msgstr "反对队"
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
 msgid "Cancel"
 msgstr "取消"
-
-#: src/components/organisms/RoundRobin.re.mjs:610
-msgid "Check in at least 4 players to start generating matches"
-msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:76
 msgid "Classic round-robin draws"
@@ -133,11 +129,11 @@ msgstr "创建您的第一支队伍开始"
 msgid "Current Round:"
 msgstr "当前回合："
 
-#: src/components/organisms/RoundRobin.re.mjs:1031
+#: src/components/organisms/RoundRobin.re.mjs:1048
 msgid "Debug: OFF"
 msgstr "调试：关闭"
 
-#: src/components/organisms/RoundRobin.re.mjs:1031
+#: src/components/organisms/RoundRobin.re.mjs:1048
 msgid "Debug: ON"
 msgstr "调试：开启"
 
@@ -212,11 +208,7 @@ msgstr "生成对战表"
 msgid "Guest Names (one per line)"
 msgstr "访客姓名（每行一个）"
 
-#: src/components/organisms/RoundRobin.re.mjs:623
-msgid "Guest player addition UI to be implemented"
-msgstr ""
-
-#: src/components/organisms/RoundRobin.re.mjs:1019
+#: src/components/organisms/RoundRobin.re.mjs:1036
 msgid "Help"
 msgstr "帮助"
 
@@ -239,10 +231,6 @@ msgstr "输球队（队伍 {0}）"
 #: src/components/organisms/PlayerSettingsModal.re.mjs:126
 msgid "Male"
 msgstr "男性"
-
-#: src/components/organisms/RoundRobin.re.mjs:327
-msgid "Manage a round-robin tournament with guest players"
-msgstr ""
 
 #: src/components/organisms/RoundSection.re.mjs:175
 msgid "match"
@@ -317,6 +305,10 @@ msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
 msgstr "球员将被分为技能水平相似的组别，以技能平衡的队伍进行循环赛。"
+
+#: src/components/organisms/RoundRobin.re.mjs:679
+msgid "Please update to a recent version of Chrome, Firefox, or Safari."
+msgstr "请更新至最新版本的 Chrome、Firefox 或 Safari。"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:97
 msgid "Preview ({0} guest{1})"
@@ -416,7 +408,7 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/RoundRobin.re.mjs:663
+#: src/components/organisms/RoundRobin.re.mjs:665
 msgid "Team {0}"
 msgstr "第 {0} 队"
 
@@ -472,6 +464,10 @@ msgstr "VS"
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
+
+#: src/components/organisms/RoundRobin.re.mjs:675
+msgid "Your browser is too old to use this feature."
+msgstr "您的浏览器版本过低，无法使用此功能。"
 
 #: src/components/organisms/RoundRobin.re.mjs:463
 #~ msgid "{0, plural, one {player} other {players}}"

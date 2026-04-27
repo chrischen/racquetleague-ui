@@ -4,13 +4,16 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_viewer_user = {
+  type rec fragment_viewer_profile = {
+    biography: option<string>,
     email: option<string>,
+    fullName: option<string>,
+    gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
   }
   and fragment_viewer = {
-    user: option<fragment_viewer_user>,
+    profile: option<fragment_viewer_profile>,
   }
   type fragment = {
     viewer: option<fragment_viewer>,
@@ -42,6 +45,21 @@ external getFragmentRef:
 module Utils = {
   @@warning("-33")
   open Types
+  @live
+  external gender_toString: RelaySchemaAssets_graphql.enum_Gender => string = "%identity"
+  @live
+  external gender_input_toString: RelaySchemaAssets_graphql.enum_Gender_input => string = "%identity"
+  @live
+  let gender_decode = (enum: RelaySchemaAssets_graphql.enum_Gender): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let gender_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    gender_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode
@@ -67,7 +85,7 @@ let node: operationType = %raw(json` {
           "args": null,
           "concreteType": "User",
           "kind": "LinkedField",
-          "name": "user",
+          "name": "profile",
           "plural": false,
           "selections": [
             {
@@ -89,6 +107,27 @@ let node: operationType = %raw(json` {
               "args": null,
               "kind": "ScalarField",
               "name": "email",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "fullName",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "biography",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "gender",
               "storageKey": null
             }
           ],

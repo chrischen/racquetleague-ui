@@ -29,6 +29,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/th"),
   zhTW: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/ko"),
+  vi: Lingui.import("../../locales/src/components/organisms/CreateLocationForm.re/vi"),
 })
 
 @genType

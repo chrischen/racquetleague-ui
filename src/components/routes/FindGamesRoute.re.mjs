@@ -13,7 +13,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/FindGamesPage.re/ja"),
       th: import("../../locales/src/components/pages/FindGamesPage.re/th"),
       zhTW: import("../../locales/src/components/pages/FindGamesPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/FindGamesPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/FindGamesPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/FindGamesPage.re/ko"),
+      vi: import("../../locales/src/components/pages/FindGamesPage.re/vi")
     });
 
 async function loader(param) {

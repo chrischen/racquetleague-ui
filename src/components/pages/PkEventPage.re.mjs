@@ -13,7 +13,6 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as ProfileModal from "../organisms/ProfileModal.re.mjs";
-import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as PkRSVPSection from "../organisms/PkRSVPSection.re.mjs";
@@ -540,43 +539,19 @@ function PkEventPage$Inner(props) {
                                 JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
                                       children: JsxRuntime.jsxs("div", {
                                             children: [
-                                              secret ? JsxRuntime.jsx(ResponsiveTooltip.make, {
-                                                      children: JsxRuntime.jsxs("span", {
-                                                            children: [
-                                                              JsxRuntime.jsx(LucideReact.Lock, {
-                                                                    size: 10,
-                                                                    strokeWidth: 2.5
-                                                                  }),
-                                                              t`Private`
-                                                            ],
-                                                            className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-[10px] font-medium whitespace-nowrap"
-                                                          }),
-                                                      content: EventTag.getTagTooltip("unlisted")
+                                              secret ? JsxRuntime.jsx(EventTag.make, {
+                                                      tag: "unlisted"
                                                     }) : null,
                                               Core__Option.getOr($$event.tags, []).some(function (t) {
                                                     return t.toLowerCase() === "comp";
-                                                  }) ? JsxRuntime.jsx(ResponsiveTooltip.make, {
-                                                      children: JsxRuntime.jsxs("span", {
-                                                            children: [
-                                                              JsxRuntime.jsx(LucideReact.Trophy, {
-                                                                    size: 10,
-                                                                    strokeWidth: 2.5
-                                                                  }),
-                                                              t`Rated`
-                                                            ],
-                                                            className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap"
-                                                          }),
-                                                      content: EventTag.getTagTooltip("comp")
+                                                  }) ? JsxRuntime.jsx(EventTag.make, {
+                                                      tag: "comp"
                                                     }) : null,
                                               Core__Option.getOr($$event.tags, []).filter(function (t) {
                                                       return t.toLowerCase() !== "comp";
                                                     }).map(function (tag, i) {
-                                                    return JsxRuntime.jsx(ResponsiveTooltip.make, {
-                                                                children: JsxRuntime.jsx("span", {
-                                                                      children: tag,
-                                                                      className: "px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap"
-                                                                    }),
-                                                                content: EventTag.getTagTooltip(tag)
+                                                    return JsxRuntime.jsx(EventTag.make, {
+                                                                tag: tag
                                                               }, i.toString());
                                                   }),
                                               JsxRuntime.jsx("span", {
@@ -781,33 +756,6 @@ function PkEventPage(props) {
             });
 }
 
-function __unused() {
-  t({
-        id: "Badminton"
-      });
-  t({
-        id: "Table Tennis"
-      });
-  t({
-        id: "Pickleball"
-      });
-  t({
-        id: "Futsal"
-      });
-  t({
-        id: "drill"
-      });
-  t({
-        id: "comp"
-      });
-  t({
-        id: "rec"
-      });
-  t({
-        id: "all level"
-      });
-}
-
 var make = PkEventPage;
 
 export {
@@ -819,6 +767,5 @@ export {
   Inner ,
   Lazy ,
   make ,
-  __unused ,
 }
 /*  Not a pure module */

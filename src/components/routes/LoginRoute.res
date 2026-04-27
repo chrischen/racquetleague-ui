@@ -18,6 +18,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/LoginPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/LoginPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/LoginPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/LoginPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/LoginPage.re/vi"),
 })
 
 @genType

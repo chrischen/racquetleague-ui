@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(로그아웃)\",\"uyJsf6\":\"소개\",\"hOdM7G\":\"저작권 racquet league 기여자\",\"RU3RjI\":\"게임 찾기\",\"GCkpYm\":\"Line으로 로그인\",\"nOhz3x\":\"로그아웃\",\"Iz9LFJ\":\"메인 메뉴 열기\",\"qkEDpZ\":\"사용자 메뉴 열기\",\"4XF0BB\":\"프로필 사진\",\"W8fQRI\":\"순위\",\"zLGtMt\":\"알림 보기\",\"vqzVaW\":\"내 프로필\"}");

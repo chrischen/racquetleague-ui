@@ -1,17 +1,26 @@
 open Router
 
+module UpdateLocaleMutation = %relay(`
+  mutation LangSwitchUpdateLocaleMutation($input: UpdateLocaleInput!) {
+    updateLocale(input: $input) {
+      viewer {
+        locale
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
 type locale = {lang: string, display: string, flag: string}
 
 module LocaleButton = {
   @genType @react.component
-  let make = (~locale: locale, ~path, ~active) => {
-    let locPath = I18n.getLangPath(locale.lang)
+  let make = (~locale: locale, ~active) => {
     switch active {
     | true => <span className="font-semibold text-gray-900"> {React.string(locale.display)} </span>
-    | false =>
-      <Link to={locPath ++ path}>
-        <span className="text-gray-700"> {React.string(locale.display)} </span>
-      </Link>
+    | false => <span className="text-gray-700"> {React.string(locale.display)} </span>
     }
   }
 }
@@ -22,6 +31,8 @@ let locales = [
   {lang: "th", display: "ไทย", flag: "🇹🇭"},
   {lang: "zh-TW", display: "繁體中文", flag: "🇹🇼"},
   {lang: "zh-CN", display: "简体中文", flag: "🇨🇳"},
+  {lang: "ko", display: "한국어", flag: "🇰🇷"},
+  {lang: "vi", display: "Tiếng Việt", flag: "🇻🇳"},
 ]
 
 module Dropdown = HeadlessUi.Menu
@@ -61,6 +72,8 @@ module DropdownLabel = {
 let make = () => {
   let {i18n: {locale}} = Lingui.useLingui()
   let {pathname, search} = Router.useLocation()
+  let navigate = Router.useNavigate()
+  let (commitUpdateLocale, _) = UpdateLocaleMutation.use()
   let basePath = I18n.getBasePath(locale, pathname)
   // Preserve only the current query string (not the hash) when switching locales
   let basePathWithQuery = basePath ++ search
@@ -85,12 +98,21 @@ let make = () => {
       {locales
       ->Array.map(loc => {
         let isActive = loc.lang == locale
+        let locPath = I18n.getLangPath(loc.lang) ++ basePathWithQuery
 
-        <DropdownItem key={loc.lang} className={isActive ? "bg-gray-50" : ""}>
+        <DropdownItem
+          key={loc.lang}
+          onClick={_ => {
+            navigate(locPath, None)
+            commitUpdateLocale(
+              ~variables={input: {locale: loc.lang}},
+            )->RescriptRelay.Disposable.ignore
+          }}
+          className={isActive ? "bg-gray-50" : ""}>
           <div className="flex items-center gap-3">
             <span className="text-lg"> {loc.flag->React.string} </span>
             <DropdownLabel>
-              <LocaleButton locale={loc} path={basePathWithQuery} active={isActive} />
+              <LocaleButton locale={loc} active={isActive} />
             </DropdownLabel>
           </div>
         </DropdownItem>

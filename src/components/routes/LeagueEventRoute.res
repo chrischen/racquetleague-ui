@@ -20,6 +20,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/LeagueEventPage.re/vi"),
 })
 
 @genType

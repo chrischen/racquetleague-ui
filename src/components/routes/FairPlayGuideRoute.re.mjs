@@ -13,7 +13,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/FairPlayGuidePage.re/ja"),
       th: import("../../locales/src/components/pages/FairPlayGuidePage.re/th"),
       zhTW: import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/FairPlayGuidePage.re/ko"),
+      vi: import("../../locales/src/components/pages/FairPlayGuidePage.re/vi")
     });
 
 async function loader(param) {

@@ -27,6 +27,7 @@ module Fragment = %relay(`
           user {
             id
             lineUsername
+            gender
           }
           rating {
             ordinal
@@ -51,6 +52,7 @@ module PkRSVPSectionAddUserMutation = %relay(`
           user {
             id
             lineUsername
+            gender
           }
           rating {
             ordinal
@@ -127,19 +129,6 @@ let make = (
   let maxRating = mus->Array.reduce(0., (acc, mu) => mu > acc ? mu : acc)
   let maxRating = maxRating == 0. ? 1. : maxRating
 
-  let avgDuprStr = if mus->Array.length > 0 {
-    let sorted = mus->Array.toSorted((a, b) => a -. b)
-    let n = sorted->Array.length
-    let median = if mod(n, 2) == 1 {
-      sorted->Array.getUnsafe(n / 2)
-    } else {
-      (sorted->Array.getUnsafe(n / 2 - 1) +. sorted->Array.getUnsafe(n / 2)) /. 2.
-    }
-    median->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1)
-  } else {
-    "—"
-  }
-
   let (spreadStr, spreadQualifier, spreadQualifierClass) = if mus->Array.length >= 2 {
     let duprVals = mus->Array.map(Rating.guessDupr)
     let n = Float.fromInt(duprVals->Array.length)
@@ -147,11 +136,11 @@ let make = (
     let variance = duprVals->Array.reduce(0., (acc, v) => acc +. (v -. mean) *. (v -. mean)) /. n
     let stdDev = Math.sqrt(variance)
     let (label, cls) = if stdDev < 0.3 {
-      ("even", "text-emerald-500 dark:text-emerald-400")
+      (ts`even`, "text-emerald-500 dark:text-emerald-400")
     } else if stdDev < 0.6 {
-      ("balanced", "text-gray-400 dark:text-gray-500")
+      (ts`balanced`, "text-gray-400 dark:text-gray-500")
     } else {
-      ("mixed", "text-amber-500 dark:text-amber-400")
+      (ts`mixed`, "text-amber-500 dark:text-amber-400")
     }
     ("±" ++ stdDev->Js.Float.toFixedWithPrecision(~digits=1), label, cls)
   } else {
@@ -169,6 +158,23 @@ let make = (
     "—"
   }
 
+  let medianMu = arr => {
+    let sorted = arr->Array.toSorted((a, b) => a -. b)
+    let n = sorted->Array.length
+    if n == 0 {
+      None
+    } else if mod(n, 2) == 1 {
+      Some(sorted->Array.getUnsafe(n / 2))
+    } else {
+      Some((sorted->Array.getUnsafe(n / 2 - 1) +. sorted->Array.getUnsafe(n / 2)) /. 2.)
+    }
+  }
+
+  let overallMedianDuprStr =
+    medianMu(mus)
+    ->Option.map(mu => mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1))
+    ->Option.getOr("—")
+
   let isFull = maxRsvps > 0 && confirmedRsvps->Array.length >= maxRsvps
   let openSpots = maxRsvps > 0 ? Js.Math.max_int(0, maxRsvps - confirmedRsvps->Array.length) : 0
   let percentage =
@@ -179,6 +185,45 @@ let make = (
         )
       : 0.
   let colorClass = isFull ? "bg-[#ef4444]" : percentage >= 75. ? "bg-[#ffb042]" : "bg-[#4ade80]"
+
+  let maleMus = confirmedRsvps->Array.filterMap(node =>
+    node.user
+    ->Option.flatMap(u => u.gender)
+    ->Option.flatMap(g => g == Male ? node.rating->Option.flatMap(r => r.mu) : None)
+  )
+  let femaleMus = confirmedRsvps->Array.filterMap(node =>
+    node.user
+    ->Option.flatMap(u => u.gender)
+    ->Option.flatMap(g => g == Female ? node.rating->Option.flatMap(r => r.mu) : None)
+  )
+
+  let maleMedianMu = medianMu(maleMus)
+  let femaleMedianMu = medianMu(femaleMus)
+  let maleMedianDuprStr =
+    maleMedianMu
+    ->Option.map(mu => mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1))
+    ->Option.getOr("—")
+  let femaleMedianDuprStr =
+    femaleMedianMu
+    ->Option.map(mu => mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1))
+    ->Option.getOr("—")
+  let totalWithGender = maleMus->Array.length + femaleMus->Array.length
+  let malePct =
+    totalWithGender > 0
+      ? Js.Math.round(
+          Float.fromInt(maleMus->Array.length) /. Float.fromInt(totalWithGender) *. 100.,
+        )->Float.toInt
+      : 50
+  let genderGapStr = switch (maleMedianMu, femaleMedianMu) {
+  | (Some(m), Some(f)) =>
+    let gap = Js.Math.abs_float(m -. f)->Rating.guessDupr
+    if gap < 0.1 {
+      "even"
+    } else {
+      "Δ" ++ gap->Js.Float.toFixedWithPrecision(~digits=1)
+    }
+  | _ => "—"
+  }
 
   // Viewer rating check against minRating
   let viewerRating = viewerUser->Option.flatMap(v => v.eventRating)
@@ -290,28 +335,51 @@ let make = (
     </div>
     /* Stats grid */
     <div
-      className="grid grid-cols-3 border border-gray-200 dark:border-[#3a3b40] rounded-lg overflow-hidden mb-4">
-      <div className="px-3 py-2.5 border-r border-gray-200 dark:border-[#3a3b40]">
+      className="grid grid-cols-2 sm:grid-cols-4 border border-gray-200 dark:border-[#3a3b40] rounded-lg overflow-hidden mb-4">
+      <div
+        className="px-3 py-2.5 border-r border-b sm:border-b-0 border-gray-200 dark:border-[#3a3b40]">
         <div className="font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500">
-          {"TOP 6 AVG"->React.string}
+          {t`TOP 6 AVG`}
         </div>
         <div className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5">
           {top6AvgDuprStr->React.string}
         </div>
-        <div className="font-mono text-[11px] text-gray-400 mt-0.5"> {"DUPR"->React.string} </div>
+        <div className="font-mono text-[11px] text-gray-400 mt-0.5"> {t`DUPR`} </div>
+      </div>
+      <div
+        className="px-3 py-2.5 border-b sm:border-r sm:border-b-0 border-gray-200 dark:border-[#3a3b40]">
+        <div className="font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500">
+          {t`MEDIAN`}
+        </div>
+        <div className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5">
+          {overallMedianDuprStr->React.string}
+        </div>
+        <div className="font-mono text-[11px] text-gray-400 mt-0.5"> {t`DUPR`} </div>
       </div>
       <div className="px-3 py-2.5 border-r border-gray-200 dark:border-[#3a3b40]">
         <div className="font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500">
-          {"MEDIAN SKILL"->React.string}
+          {t`♂/♀ SKILL`}
         </div>
-        <div className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5">
-          {avgDuprStr->React.string}
+        <div
+          className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5 flex items-baseline gap-0.5">
+          <span className="text-blue-400"> {maleMedianDuprStr->React.string} </span>
+          <span className="text-gray-300 dark:text-gray-600 text-sm"> {"/"->React.string} </span>
+          <span className="text-pink-400"> {femaleMedianDuprStr->React.string} </span>
         </div>
-        <div className="font-mono text-[11px] text-gray-400 mt-0.5"> {"DUPR"->React.string} </div>
+        <div className="flex items-center gap-1.5 mt-1">
+          <div
+            className="flex-1 h-1 rounded-full bg-pink-300/40 dark:bg-pink-400/20 overflow-hidden">
+            <div
+              className="h-full rounded-full bg-blue-400"
+              style={ReactDOM.Style.make(~width=Int.toString(malePct) ++ "%", ())}
+            />
+          </div>
+          <span className="font-mono text-[9px] text-gray-400"> {genderGapStr->React.string} </span>
+        </div>
       </div>
       <div className="px-3 py-2.5">
         <div className="font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500">
-          {"SPREAD"->React.string}
+          {t`SPREAD`}
         </div>
         <div className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5">
           {spreadStr->React.string}

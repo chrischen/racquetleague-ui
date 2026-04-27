@@ -28,7 +28,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/CreateClubEventsPage.re/ja"),
       th: import("../../locales/src/components/pages/CreateClubEventsPage.re/th"),
       zhTW: import("../../locales/src/components/pages/CreateClubEventsPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/CreateClubEventsPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/CreateClubEventsPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/CreateClubEventsPage.re/ko"),
+      vi: import("../../locales/src/components/pages/CreateClubEventsPage.re/vi")
     });
 
 async function loader(param) {

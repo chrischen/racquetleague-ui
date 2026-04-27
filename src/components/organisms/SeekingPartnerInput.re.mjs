@@ -34,12 +34,12 @@ function SeekingPartnerInput(props) {
                                 children: [
                                   JsxRuntime.jsx("span", {
                                         children: t`seeking a doubles partner`,
-                                        className: "font-medium text-gray-900"
+                                        className: "font-medium text-gray-900 dark:text-gray-100"
                                       }),
                                   " ",
                                   JsxRuntime.jsx("span", {
                                         children: t`shows a badge next to your name in RSVP lists to tell people you are looking for a partner`,
-                                        className: "text-gray-500"
+                                        className: "text-gray-500 dark:text-gray-400"
                                       })
                                 ]
                               })

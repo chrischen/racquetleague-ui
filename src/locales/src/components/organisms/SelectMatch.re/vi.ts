@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"of+3Wd\":\"người chơi đội trái\",\"827u5r\":\"chưa có người chơi\",\"vRayGs\":\"Người chơi\",\"zE3EXc\":\"Xếp hàng trận đấu\",\"UD752P\":\"người chơi đội phải\"}");

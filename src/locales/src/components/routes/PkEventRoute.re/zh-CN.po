@@ -13,21 +13,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "...more"
 msgstr "...更多"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:349
+#: src/components/organisms/PkRSVPSection.re.mjs:407
 msgid "· {0} pending"
 msgstr "· {0} 待处理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:347
+#: src/components/organisms/PkRSVPSection.re.mjs:405
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候补"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:344
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "{0} joined"
 msgstr "{0} 已参加"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:468
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ 技术"
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
@@ -37,7 +41,7 @@ msgstr "活动"
 msgid "Add a message..."
 msgstr "添加消息..."
 
-#: src/components/atoms/EventTag.re.mjs:42
+#: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "高级球员"
 
@@ -49,24 +53,28 @@ msgstr "批准报名"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/organisms/PkRSVPSection.re.mjs:187
+msgid "balanced"
+msgstr "平衡"
+
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "cancel event"
 msgstr "取消活动"
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:388
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Claim spot"
 msgstr "报名参加"
 
-#: src/components/organisms/ProfileModal.re.mjs:260
+#: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "完善个人资料"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:552
 msgid "Confirmed · {0}"
 msgstr "已确认 · {0}"
 
@@ -91,15 +99,20 @@ msgstr "删除比赛"
 msgid "Delete this match?"
 msgstr "删除这场比赛？"
 
-#: src/components/organisms/ProfileModal.re.mjs:283
+#: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
 msgstr "显示名称"
 
-#: src/components/organisms/ProfileModal.re.mjs:73
+#: src/components/organisms/ProfileModal.re.mjs:106
 msgid "Display name is required"
 msgstr "请输入显示名称"
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:459
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/PkEventPage.re.mjs:257
 msgid "edit event"
 msgstr "编辑活动"
 
@@ -107,11 +120,11 @@ msgstr "编辑活动"
 msgid "Edit match"
 msgstr "编辑比赛"
 
-#: src/components/organisms/ProfileModal.re.mjs:300
+#: src/components/organisms/ProfileModal.re.mjs:375
 msgid "Email address"
 msgstr "电子邮件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:226
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -119,11 +132,11 @@ msgstr ""
 "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
 "件地址登录。"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "Email cannot be changed"
 msgstr "电子邮件不能更改"
 
-#: src/components/organisms/ProfileModal.re.mjs:76
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Email is required"
 msgstr "请输入电子邮件"
 
@@ -131,11 +144,15 @@ msgstr "请输入电子邮件"
 msgid "Enter Match Score"
 msgstr "输入比赛比分"
 
-#: src/components/pages/PkEventPage.re.mjs:777
+#: src/components/organisms/PkRSVPSection.re.mjs:183
+msgid "even"
+msgstr "均衡"
+
+#: src/components/pages/PkEventPage.re.mjs:752
 msgid "Event not found"
 msgstr "找不到活动"
 
-#: src/components/atoms/EventTag.re.mjs:60
+#: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "活动标签：{tag}"
 
@@ -143,23 +160,31 @@ msgstr "活动标签：{tag}"
 msgid "Event updated"
 msgstr "活动已更新"
 
-#: src/components/organisms/ProfileModal.re.mjs:232
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "For event updates and notifications"
 msgstr "用于活动更新和通知"
 
-#: src/components/pages/PkEventPage.re.mjs:585
+#: src/components/pages/PkEventPage.re.mjs:560
 msgid "Free"
 msgstr "免费"
 
-#: src/components/atoms/EventTag.re.mjs:44
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "性别"
+
+#: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "高技能球员"
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "Join waitlist"
 msgstr "加入候补名单"
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:388
 msgid "Join waitlist (#{0})"
 msgstr "加入候补名单 (#{0})"
 
@@ -167,19 +192,19 @@ msgstr "加入候补名单 (#{0})"
 msgid "Last Round"
 msgstr "上一轮"
 
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pages/PkEventPage.re.mjs:369
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/pages/PkEventPage.re.mjs:714
+#: src/components/pages/PkEventPage.re.mjs:689
 msgid "Leave event"
 msgstr "退出活动"
 
-#: src/components/pages/PkEventPage.re.mjs:627
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "less"
 msgstr "收起"
 
-#: src/components/pages/PkEventPage.re.mjs:603
+#: src/components/pages/PkEventPage.re.mjs:578
 msgid "Location"
 msgstr "地点"
 
@@ -187,20 +212,32 @@ msgstr "地点"
 msgid "Losing Team (Team {0})"
 msgstr "输球队（队伍 {0}）"
 
-#: src/components/atoms/EventTag.re.mjs:38
+#: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "中级初级及以上"
 
-#: src/components/atoms/EventTag.re.mjs:54
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "男性"
+
+#: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "比赛结果将提交至 DUPR。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:451
+msgid "MEDIAN"
+msgstr "中位数"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:190
+msgid "mixed"
+msgstr "混合"
 
 #: src/components/organisms/RsvpOptions.re.mjs:128
 #: src/components/organisms/RsvpOptions.re.mjs:196
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
-#: src/components/atoms/EventTag.re.mjs:48
+#: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "没有技能等级限制。对所有球员开放。"
 
@@ -208,27 +245,33 @@ msgstr "没有技能等级限制。对所有球员开放。"
 msgid "No Score"
 msgstr "无比分"
 
-#: src/components/pages/PkEventPage.re.mjs:667
+#: src/components/pages/PkEventPage.re.mjs:642
 msgid "Notes from the host"
 msgstr "主持人的备注"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:327
+#: src/components/organisms/PkRSVPSection.re.mjs:385
 msgid "Participants"
 msgstr "参与者"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:579
+#: src/components/organisms/PkRSVPSection.re.mjs:681
 msgid "Pending · {0}"
 msgstr "待处理 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:550
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "不愿透露"
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "非公开"
 
-#: src/components/atoms/EventTag.re.mjs:46
+#: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
 msgstr "职业球员"
 
-#: src/components/pages/PkEventPage.re.mjs:565
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
 msgstr "计分赛"
 
@@ -236,7 +279,7 @@ msgstr "计分赛"
 msgid "Rebalance match"
 msgstr "重新平衡比赛"
 
-#: src/components/atoms/EventTag.re.mjs:56
+#: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
@@ -253,15 +296,15 @@ msgstr "移除此 RSVP"
 msgid "Repeat"
 msgstr "重复"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:253
+#: src/components/organisms/PkRSVPSection.re.mjs:311
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加需要 DUPR {minDuprStr}以上"
 
-#: src/components/atoms/EventTag.re.mjs:50
+#: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
@@ -277,7 +320,7 @@ msgstr "循环赛抽签"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:429
 msgid "Save & Join Event"
 msgstr "保存并参加活动"
 
@@ -298,9 +341,13 @@ msgstr "显示全部 {0} 条"
 msgid "Show less"
 msgstr "收起"
 
-#: src/components/atoms/EventTag.re.mjs:52
+#: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能练习和专注于技术提高的训练"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:512
+msgid "SPREAD"
+msgstr "分布"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:173
 msgid "TEAM 1"
@@ -316,19 +363,19 @@ msgid ""
 "scheduled matches using the round reset icon."
 msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
 
-#: src/components/pages/PkEventPage.re.mjs:715
+#: src/components/pages/PkEventPage.re.mjs:690
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
 msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
 
-#: src/components/atoms/EventTag.re.mjs:58
+#: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
 
-#: src/components/organisms/ProfileModal.re.mjs:207
+#: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "这是其他人会看到的名字"
 
@@ -340,11 +387,15 @@ msgstr ""
 "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
 "制其报名吗？"
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/organisms/PkRSVPSection.re.mjs:434
+msgid "TOP 6 AVG"
+msgstr "前6均值"
+
+#: src/components/pages/PkEventPage.re.mjs:263
 msgid "uncancel event"
 msgstr "取消取消活动"
 
-#: src/components/atoms/EventTag.re.mjs:40
+#: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中高级及以上"
 
@@ -362,11 +413,11 @@ msgstr "查看资料"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:515
+#: src/components/organisms/PkRSVPSection.re.mjs:617
 msgid "Waitlist · {0}"
 msgstr "候补名单 · {0}"
 
-#: src/components/organisms/ProfileModal.re.mjs:264
+#: src/components/organisms/ProfileModal.re.mjs:339
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
 
@@ -374,7 +425,7 @@ msgstr "在您参加此活动之前，我们需要一些信息"
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:257
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid ""
 "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

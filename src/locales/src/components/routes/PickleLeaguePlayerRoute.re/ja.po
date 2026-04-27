@@ -102,10 +102,6 @@ msgstr "混合ダブルス"
 msgid "No data for this category"
 msgstr "このカテゴリのデータはありません"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:772
-msgid "only"
-msgstr ""
-
 #: src/components/pages/LeaguePlayerPage.re.mjs:405
 msgid "Performs better with stronger partners"
 msgstr "強いパートナーと組むと成績が上がる"

@@ -1,0 +1,281 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:210
+msgid ": Classic round-robin format where everyone plays with everyone."
+msgstr ": 모든 사람이 서로 경기하는 클래식 라운드 로빈 형식."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:194
+msgid ""
+": Players are divided into similar skill levels. Teams are balanced to "
+"create close matches."
+msgstr ""
+": 플레이어는 비슷한 실력 수준으로 나뉩니다. 팀은 치열한 경기를 위해 균형잡힙"
+"니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:202
+msgid ""
+": Teams are balanced by skill, but players are not strictly separated by "
+"level."
+msgstr ""
+": 팀은 실력으로 균형잡히지만, 플레이어가 수준에 따라 엄격히 분리되지는 않습니"
+"다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:141
+msgid "Adjust Seeds"
+msgstr "시드 조정"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:165
+msgid "Blue dot indicates the team that has service in the match."
+msgstr "파란 점은 경기에서 서비스권을 가진 팀을 나타냅니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:368
+msgid "button at the bottom of the page to submit all results to the server."
+msgstr "페이지 하단의 버튼으로 모든 결과를 서버에 제출합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:313
+msgid "Click a player's name to toggle check-in status."
+msgstr "플레이어 이름을 클릭하여 체크인 상태를 전환합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:192
+msgid "Competitive"
+msgstr "경쟁"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:412
+msgid "Complete guide to running events with the Event Manager."
+msgstr "이벤트 관리자로 이벤트를 진행하는 완전 가이드."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:105
+msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
+msgstr "고정 팀 또는 안티팀(함께 경기하면 안 되는 플레이어)을 만드세요."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:231
+msgid "Each round has several management options:"
+msgstr "각 라운드에는 여러 관리 옵션이 있습니다:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:125
+msgid "Edit player details like name, gender, or payment status."
+msgstr "이름, 성별 또는 결제 상태와 같은 플레이어 세부 정보를 편집합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:354
+msgid ""
+"Enter scores directly on the match cards. Tap to select a winner, or press "
+"and hold to input the score as well."
+msgstr ""
+"경기 카드에 직접 점수를 입력하세요. 탭하여 승자를 선택하거나, 길게 눌러 점수"
+"도 입력합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:350
+msgid "Entering Results & Syncing"
+msgstr "결과 입력 & 동기화"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:408
+msgid "Event Manager Guide"
+msgstr "이벤트 관리자 가이드"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:61
+msgid "Generate / Rebalance"
+msgstr "생성 / 재조정"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+msgid "Generate new draws or rebalance the round or match."
+msgstr "새 대진을 생성하거나 라운드 또는 경기를 재조정합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:181
+msgid "Generating Draws"
+msgstr "대진 생성 중"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:29
+msgid "Here is a guide to the icons used in the Event Manager:"
+msgstr "이벤트 관리자에서 사용되는 아이콘 가이드입니다:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:321
+msgid "icon to edit player details (Name, Gender, Paid status)."
+msgstr "플레이어 세부 정보(이름, 성별, 결제 상태) 편집 아이콘."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:25
+msgid "Icons Guide"
+msgstr "아이콘 가이드"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:217
+msgid ""
+"In Competitive or Mixed mode, the system will regenerate future matches when "
+"you select the winner of the matches in the current or past rounds. This is "
+"recommended in order to optimize future rounds based on the new data. In "
+"Round-Robin mode, the future rounds will not change unless you manually "
+"change them."
+msgstr ""
+"경쟁 또는 혼합 모드에서 현재 또는 이전 라운드의 경기 승자를 선택하면 시스템"
+"이 향후 경기를 재생성합니다. 새 데이터를 기반으로 향후 라운드를 최적화하기 위"
+"해 권장됩니다. 라운드 로빈 모드에서는 수동으로 변경하지 않는 한 향후 라운드"
+"가 변경되지 않습니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:308
+msgid "Manage players directly from the Check-in list:"
+msgstr "체크인 목록에서 직접 플레이어를 관리합니다:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:101
+msgid "Manage Teams"
+msgstr "팀 관리"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:145
+msgid "Manually adjust player ratings for the event."
+msgstr "이벤트를 위한 플레이어 레이팅을 수동으로 조정합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:200
+msgid "Mixed"
+msgstr "혼합"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:395
+msgid "Note: If you clear your browser data, local event data will be lost."
+msgstr "참고: 브라우저 데이터를 지우면 로컬 이벤트 데이터가 손실됩니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:385
+msgid "Offline Mode"
+msgstr "오프라인 모드"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:358
+msgid "Once matches are complete, use the"
+msgstr "경기가 완료되면"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:41
+msgid "Player Check-in"
+msgstr "플레이어 체크인"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:304
+msgid "Player Management"
+msgstr "플레이어 관리"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:121
+msgid "Player Settings"
+msgstr "플레이어 설정"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:241
+msgid "Rebalance"
+msgstr "재조정"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:248
+msgid ""
+"Regenerates the current round with the same players but moves players around "
+"to balance the skill level of each court. This will aggressively optimize "
+"each court to have the highest chance of having a tie, but may not divide "
+"the court by level groups. Useful if you replace a player and need the "
+"matches to be balanced again."
+msgstr ""
+"같은 플레이어로 현재 라운드를 재생성하되, 각 코트의 실력 수준을 균형잡기 위"
+"해 플레이어를 이동합니다. 각 코트의 무승부 가능성을 최대화하도록 적극적으로 "
+"최적화하지만, 수준 그룹으로 코트를 나누지 않을 수 있습니다. 플레이어를 교체하"
+"고 경기를 다시 균형잡아야 할 때 유용합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:81
+msgid "Reset"
+msgstr "초기화"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:286
+msgid "Reset (All)"
+msgstr "초기화 (전체)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:265
+msgid "Reset (Mixed)"
+msgstr "초기화 (혼합)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:85
+msgid "Reset a round to the original draw if you changed something."
+msgstr "변경한 경우 라운드를 원래 대진으로 초기화합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:272
+msgid "Resets the round and attempts to create mixed-gender pairs."
+msgstr "라운드를 초기화하고 혼합 성별 페어를 만들려고 시도합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:293
+msgid "Resets the round to the original matches."
+msgstr "라운드를 원래 경기로 초기화합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:227
+msgid "Round Management"
+msgstr "라운드 관리"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:208
+msgid "Round-Robin"
+msgstr "라운드 로빈"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:376
+msgid "Scores are not saved permanently until you Sync."
+msgstr "동기화하기 전까지 점수는 영구적으로 저장되지 않습니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:161
+msgid "Service Indicator"
+msgstr "서비스 표시"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:364
+msgid "Sync Scores"
+msgstr "점수 동기화"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:185
+msgid ""
+"The Draw Generator allows you to create matches based on different "
+"strategies:"
+msgstr "대진 생성기를 사용하면 다양한 전략을 기반으로 경기를 만들 수 있습니다:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:389
+msgid ""
+"The Event Manager works offline! All data is saved locally to your device."
+msgstr ""
+"이벤트 관리자는 오프라인에서 작동합니다! 모든 데이터가 기기에 로컬로 저장됩니"
+"다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:339
+msgid ""
+"to adjust player ratings (seeds) for the event. This affects matchmaking but "
+"not their permanent rating."
+msgstr ""
+"이벤트를 위한 플레이어 레이팅(시드)을 조정합니다. 이것은 매치메이킹에 영향을 "
+"주지만 영구 레이팅에는 영향을 주지 않습니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:330
+msgid ""
+"to create Teams (always play together) or Anti-Teams (never play together on "
+"the same court)."
+msgstr ""
+"팀(항상 함께 경기) 또는 안티팀(같은 코트에서 절대 함께 경기하지 않음)을 만들"
+"려면."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:45
+msgid "Toggle player attendance. Green means checked in."
+msgstr "플레이어 참석 여부를 전환합니다. 초록색은 체크인을 의미합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:326
+#: src/components/pages/EventManagerGuidePage.re.mjs:335
+msgid "Use"
+msgstr "사용"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:317
+msgid "Use the"
+msgstr "사용"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:220
+msgid ""
+"You can also adjust the number of courts. The system requires 4 players per "
+"court."
+msgstr ""
+"코트 수도 조정할 수 있습니다. 시스템은 코트당 4명의 플레이어가 필요합니다."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:392
+msgid ""
+"You can run an entire event without internet. Just make sure to Sync Scores "
+"when you have a connection again to save the results."
+msgstr ""
+"인터넷 없이 전체 이벤트를 진행할 수 있습니다. 결과를 저장하려면 연결이 다시 "
+"되면 점수를 동기화하세요."

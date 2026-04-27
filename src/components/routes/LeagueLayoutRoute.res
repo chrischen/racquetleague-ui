@@ -11,6 +11,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/LeagueLayout.re/vi"),
 })
 
 type params = {lang: option<string>}

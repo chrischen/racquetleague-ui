@@ -1,4 +1,3 @@
-%%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
 type tagType = [#comp | #recreational | #drill | #level | #other]
 
@@ -30,28 +29,30 @@ let getTagTooltip = tag => {
 }
 
 @react.component
-let make = (~tag: string, ~size: [#small | #medium]=#small) => {
+let make = (~tag: string, ~responsive: bool=false) => {
+  let ts = Lingui.UtilString.t
   let td = Lingui.UtilString.dynamic
-  let tagType = getTagType(tag)
 
-  let iconSize = switch size {
-  | #small => "h-4 w-4"
-  | #medium => "h-5 w-5"
-  }
-
-  let content = switch tagType {
-  | #comp =>
-    <span className="inline-flex items-center text-yellow-500 cursor-help">
-      <Lucide.Trophy className={iconSize} />
-    </span>
-  | #other if tag == "unlisted" =>
+  let content = switch tag {
+  | "unlisted" =>
     <span
-      className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
-      <HeroIcons.LockClosed className={`${iconSize} text-gray-600`} />
+      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-[10px] font-medium whitespace-nowrap">
+      <Lucide.Lock size=10 strokeWidth={2.5} />
+      {responsive
+        ? <span className="hidden md:inline"> {(ts`Private`)->React.string} </span>
+        : (ts`Private`)->React.string}
+    </span>
+  | "comp" =>
+    <span
+      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap">
+      <Lucide.Trophy size=10 strokeWidth={2.5} />
+      {responsive
+        ? <span className="hidden md:inline"> {(ts`Rated`)->React.string} </span>
+        : (ts`Rated`)->React.string}
     </span>
   | _ =>
     <span
-      className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
+      className="px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap">
       {td(tag)->React.string}
     </span>
   }
@@ -62,32 +63,34 @@ let make = (~tag: string, ~size: [#small | #medium]=#small) => {
 // Component for rendering a list of tags
 module TagList = {
   @react.component
-  let make = (~tags: array<string>, ~size: [#small | #medium]=#small, ~className: string="") => {
+  let make = (~tags: array<string>, ~responsive: bool=false, ~className: string="") => {
+    let ts = Lingui.UtilString.t
     let td = Lingui.UtilString.dynamic
-
-    let iconSize = switch size {
-    | #small => "h-4 w-4"
-    | #medium => "h-5 w-5"
-    }
 
     <div className={`flex gap-2 ${className}`}>
       <ResponsiveTooltip.Provider>
         {tags
         ->Array.map(tag => {
-          let tagType = getTagType(tag)
-          let content = switch tagType {
-          | #comp =>
-            <span className="inline-flex items-center text-yellow-500 cursor-help">
-              <Lucide.Trophy className={iconSize} />
-            </span>
-          | #other if tag == "unlisted" =>
+          let content = switch tag {
+          | "unlisted" =>
             <span
-              className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
-              <HeroIcons.LockClosed className={`${iconSize} text-gray-600`} />
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-[10px] font-medium whitespace-nowrap">
+              <Lucide.Lock size=10 strokeWidth={2.5} />
+              {responsive
+                ? <span className="hidden md:inline"> {(ts`Private`)->React.string} </span>
+                : (ts`Private`)->React.string}
+            </span>
+          | "comp" =>
+            <span
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap">
+              <Lucide.Trophy size=10 strokeWidth={2.5} />
+              {responsive
+                ? <span className="hidden md:inline"> {(ts`Rated`)->React.string} </span>
+                : (ts`Rated`)->React.string}
             </span>
           | _ =>
             <span
-              className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 cursor-help">
+              className="px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap">
               {td(tag)->React.string}
             </span>
           }
@@ -98,4 +101,21 @@ module TagList = {
       </ResponsiveTooltip.Provider>
     </div>
   }
+}
+
+// @NOTE Force lingui to include the potential dynamic values here
+let __unused = () => {
+  let td = Lingui.UtilString.td
+
+  @live (td({id: "Badminton"})->ignore)
+
+  @live (td({id: "Table Tennis"})->ignore)
+
+  @live (td({id: "Pickleball"})->ignore)
+
+  @live (td({id: "Futsal"})->ignore)
+  @live (td({id: "drill"})->ignore)
+  @live (td({id: "comp"})->ignore)
+  @live (td({id: "rec"})->ignore)
+  @live (td({id: "all level"})->ignore)
 }

@@ -1,0 +1,250 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:110
+msgid ""
+"By clicking on the Gear icon in the top left, you can go back to the start "
+"screen. At the bottom of this screen will be the match history."
+msgstr ""
+"Bằng cách nhấn vào biểu tượng Bánh răng ở góc trên bên trái, bạn có thể quay "
+"lại màn hình bắt đầu. Ở cuối màn hình này sẽ là lịch sử trận đấu."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:74
+msgid "Checkin Screen"
+msgstr "Màn hình Check-in"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:99
+msgid "Editing Matches"
+msgstr "Chỉnh sửa trận đấu"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:104
+msgid "Entering Results"
+msgstr "Nhập kết quả"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:120
+msgid ""
+"From the Queue screen you can select some players (highlighted in green) and "
+"take some special actions for them such as creating a team, anti-team, or "
+"setting their genders. The team feature is important if you have a group of "
+"players (2 minimum) who always want to play together, often called a 'fixed-"
+"pair.' The gender is important if you want to use the Gender-Mixed doubles "
+"option when choosing matches."
+msgstr ""
+"Từ màn hình Hàng đợi, bạn có thể chọn một số người chơi (được đánh dấu màu "
+"xanh) và thực hiện một số hành động đặc biệt cho họ như tạo đội, đội phản, "
+"hoặc đặt giới tính. Tính năng đội quan trọng nếu bạn có một nhóm người chơi "
+"(tối thiểu 2 người) luôn muốn chơi cùng nhau, thường được gọi là 'cặp cố "
+"định.' Giới tính quan trọng nếu bạn muốn sử dụng tùy chọn Đôi nam nữ hỗn hợp "
+"khi chọn trận đấu."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:89
+msgid "Generating Draws"
+msgstr "Đang tạo bốc thăm"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:132
+msgid "How to use FairPlay"
+msgstr "Cách sử dụng FairPlay"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:115
+msgid ""
+"If you enabled offline mode, you can go down this list and submit the "
+"results to Pkuru.com. Simply tap on the match, then click on the Submit "
+"button. Once the score shows 0 and 0 then it has successfully submitted. "
+"This step is not necessary if you did not enable offline mode. In normal "
+"Online Mode matches will be submitted as soon as you complete them from the "
+"Matches screen."
+msgstr ""
+"Nếu bạn đã bật chế độ ngoại tuyến, bạn có thể cuộn xuống danh sách này và "
+"nộp kết quả lên Pkuru.com. Chỉ cần nhấn vào trận đấu, sau đó nhấn nút Nộp. "
+"Khi điểm số hiển thị 0 và 0 thì đã nộp thành công. Bước này không cần thiết "
+"nếu bạn không bật chế độ ngoại tuyến. Trong chế độ Trực tuyến thông thường, "
+"các trận đấu sẽ được nộp ngay khi bạn hoàn thành từ màn hình Trận đấu."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:64
+msgid "Launching FairPlay"
+msgstr "Khởi chạy FairPlay"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:79
+msgid "Manage Courts and Player Breaks"
+msgstr "Quản lý sân và thời gian nghỉ của người chơi"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:109
+msgid "Match History"
+msgstr "Lịch sử trận đấu"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:94
+msgid "Matches Screen"
+msgstr "Màn hình Trận đấu"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:114
+msgid "Offline Mode"
+msgstr "Chế độ ngoại tuyến"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:80
+msgid ""
+"On the bottom left you can select the number of courts under management by "
+"the app. When it is set to a value greater than 0, the app will "
+"automatically track the number of times everyone has played and determine "
+"who should be taking a break. Players who should be taking a break will be "
+"highlighted in yellow. This is a suggestion, so you can still tap on them to "
+"select them for the next match."
+msgstr ""
+"Ở góc dưới bên trái, bạn có thể chọn số sân được quản lý bởi ứng dụng. Khi "
+"được đặt thành giá trị lớn hơn 0, ứng dụng sẽ tự động theo dõi số lần mọi "
+"người đã chơi và xác định ai nên nghỉ. Người chơi nên nghỉ sẽ được đánh dấu "
+"màu vàng. Đây là gợi ý, vì vậy bạn vẫn có thể nhấn vào họ để chọn cho trận "
+"đấu tiếp theo."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:90
+msgid ""
+"Once at least 4 players are selected (highlighted in green) from the Queue "
+"screen, you can generate draws with the blue button on the bottom right. The "
+"system will generate all possible combinations of matches for the given "
+"players based on the matchmaking strategy selected. Additionally it will "
+"show you the relative 'quality' of the matches and sort them from highest to "
+"lowest. Quality of the match means whether the match is going to be close or "
+"one-sided. The green highlighted match at the top is the 'recommended match' "
+"which uses some heuristics to select a match that balances quality while "
+"avoiding repeated teams or matches. The list of matches will also highlight "
+"previously played matches or pairs in yellow or red. This allows you as the "
+"organizer to determine whether to avoid repeated matches. Use the blue "
+"button to select a match which will then update the draws for the remaining "
+"players that were selected. Keep selecting matches until all players are in "
+"a match."
+msgstr ""
+"Khi đã chọn ít nhất 4 người chơi (được đánh dấu màu xanh) từ màn hình Hàng "
+"đợi, bạn có thể tạo bốc thăm bằng nút xanh ở góc dưới bên phải. Hệ thống sẽ "
+"tạo tất cả các tổ hợp trận đấu có thể cho những người chơi đã cho dựa trên "
+"chiến lược ghép đôi được chọn. Ngoài ra, nó sẽ hiển thị 'chất lượng' tương "
+"đối của các trận đấu và sắp xếp từ cao đến thấp. Chất lượng trận đấu có "
+"nghĩa là trận đấu có cân bằng hay không. Trận đấu được đánh dấu màu xanh ở "
+"đầu là 'trận đấu được đề xuất' sử dụng một số phương pháp để chọn trận đấu "
+"cân bằng chất lượng trong khi tránh các đội hoặc trận đấu lặp lại. Tiếp tục "
+"chọn trận đấu cho đến khi tất cả người chơi đều có trận đấu."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:119
+msgid "Player Options"
+msgstr "Tùy chọn người chơi"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:70
+msgid ""
+"Press the large blue button to launch the system. The 'Offline Mode' toggle "
+"should be used if there is no internet connection or if you want to test the "
+"system out without saving any results. In Offline mode, no submissions are "
+"made to Pkuru.com and if you delete the matches or close the web page there "
+"will be no permanent effects of your actions using the system. Additionally "
+"this screen shows the relative strengths of the players and at the bottom of "
+"the page there is a history of all the matches played."
+msgstr ""
+"Nhấn nút xanh lớn để khởi chạy hệ thống. Nút chuyển đổi 'Chế độ ngoại tuyến' "
+"nên được sử dụng nếu không có kết nối internet hoặc nếu bạn muốn kiểm tra hệ "
+"thống mà không lưu kết quả. Trong chế độ Ngoại tuyến, không có gì được nộp "
+"lên Pkuru.com và nếu bạn xóa các trận đấu hoặc đóng trang web thì sẽ không "
+"có tác động vĩnh viễn nào. Ngoài ra, màn hình này hiển thị sức mạnh tương "
+"đối của người chơi và ở cuối trang có lịch sử tất cả các trận đấu đã chơi."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:84
+msgid "Queue Screen"
+msgstr "Màn hình Hàng đợi"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:69
+msgid "Start Screen"
+msgstr "Màn hình Bắt đầu"
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:105
+msgid ""
+"Tapping on the names on the left side can select the winner without entering "
+"scores. Optionally, the exact score can be entered into the number field on "
+"the right side of each match. Once the green border is around the winner, "
+"the entry is complete and you can leave it as it is. Once results are "
+"entered for all matches, you can use the blue button on the bottom right to "
+"submit all the results at once.If you enabled offline mode, no results are "
+"submitted to Pkuru.com, but ratings will still be updated locally on your "
+"device. Additionally the predicted winner is shown in the red bar at the "
+"bottom."
+msgstr ""
+"Nhấn vào tên ở bên trái có thể chọn người chiến thắng mà không cần nhập điểm "
+"số. Tùy chọn, điểm số chính xác có thể được nhập vào ô số ở bên phải của mỗi "
+"trận đấu. Khi viền xanh bao quanh người chiến thắng, việc nhập liệu hoàn "
+"tất. Khi kết quả được nhập cho tất cả các trận đấu, bạn có thể sử dụng nút "
+"xanh ở góc dưới bên phải để nộp tất cả kết quả cùng một lúc. Nếu bạn bật chế "
+"độ ngoại tuyến, không có kết quả nào được nộp lên Pkuru.com, nhưng xếp hạng "
+"vẫn sẽ được cập nhật cục bộ trên thiết bị của bạn. Ngoài ra, người chiến "
+"thắng dự đoán được hiển thị trong thanh đỏ ở cuối."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:65
+msgid ""
+"The FairPlay system can be launched from any event page on Pkuru.com. The "
+"system will automatically load all signed up players, including those in the "
+"waitlist. Players who did not join the event can be added as a guest, but "
+"their ratings and results cannot be saved to Pkuru.com."
+msgstr ""
+"Hệ thống FairPlay có thể được khởi chạy từ bất kỳ trang sự kiện nào trên "
+"Pkuru.com. Hệ thống sẽ tự động tải tất cả người chơi đã đăng ký, bao gồm cả "
+"những người trong danh sách chờ. Người chơi không tham gia sự kiện có thể "
+"được thêm làm khách, nhưng xếp hạng và kết quả của họ không thể được lưu lên "
+"Pkuru.com."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:100
+msgid ""
+"The handlebars on the left side of each name can be used to drag and drop "
+"the players into a different match or re-arrange the teams. If you press the "
+"Enter Score button you can select the winner and/or enter the score. If you "
+"want to cancel the match you can press the '...' button."
+msgstr ""
+"Thanh kéo ở bên trái mỗi tên có thể được sử dụng để kéo và thả người chơi "
+"vào một trận đấu khác hoặc sắp xếp lại các đội. Nếu bạn nhấn nút Nhập điểm "
+"số, bạn có thể chọn người chiến thắng và/hoặc nhập điểm số. Nếu bạn muốn hủy "
+"trận đấu, bạn có thể nhấn nút '...'."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:85
+msgid ""
+"The second screen is the Queue screen. This is where you can select players "
+"who want to play a match. On the bottom is a button to queue all players. "
+"This button will automatically select everyone and exclude the players who "
+"should be on break (highlighted in yellow). If you play matches in timed "
+"rounds, this is an easy way to select everyone who should participate in the "
+"next round of matches."
+msgstr ""
+"Màn hình thứ hai là màn hình Hàng đợi. Đây là nơi bạn có thể chọn người chơi "
+"muốn thi đấu. Ở cuối có nút xếp hàng tất cả người chơi. Nút này sẽ tự động "
+"chọn tất cả mọi người và loại trừ những người chơi nên nghỉ (được đánh dấu "
+"màu vàng). Nếu bạn thi đấu theo vòng thời gian, đây là cách dễ để chọn tất "
+"cả người nên tham gia vào vòng trận đấu tiếp theo."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:75
+msgid ""
+"The system is composed of 3 main screns. The first is the checkin screen "
+"where you can enable/disable players for the session. Tap on a player's name "
+"to check them in. Green means the player is checked in. Check a player in if "
+"they are ready to play, and check them out if they are leaving early. If a "
+"player wants to take a break and it's not their turn yet, it's easiest to "
+"check them out and then check them back in next round."
+msgstr ""
+"Hệ thống gồm 3 màn hình chính. Đầu tiên là màn hình check-in, nơi bạn có thể "
+"bật/tắt người chơi cho phiên. Nhấn vào tên người chơi để check-in. Màu xanh "
+"có nghĩa là người chơi đã check-in. Check-in người chơi nếu họ sẵn sàng "
+"chơi, và check-out nếu họ ra về sớm. Nếu người chơi muốn nghỉ và chưa đến "
+"lượt, dễ nhất là check-out họ rồi check-in lại vào vòng tiếp theo."
+
+#: src/components/pages/FairPlayGuidePage.re.mjs:95
+msgid ""
+"The third and final screen shows the active matches that are being played. "
+"The ordering of the teams is randomized, so you can use this to determine "
+"the serving team (usually the team on top)."
+msgstr ""
+"Màn hình thứ ba và cuối cùng hiển thị các trận đấu đang diễn ra. Thứ tự của "
+"các đội là ngẫu nhiên, vì vậy bạn có thể sử dụng điều này để xác định đội "
+"phát bóng (thường là đội ở trên)."

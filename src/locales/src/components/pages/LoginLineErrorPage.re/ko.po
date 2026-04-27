@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:33
+msgid "are you in a private browsing mode?"
+msgstr "비공개 브라우징 모드입니까?"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:27
+msgid "login failed"
+msgstr "로그인 실패"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:23
+msgid "login with Line"
+msgstr "Line으로 로그인"
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:37
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem persists, you can try the safe-mode login button below."
+msgstr ""
+"비공개 브라우징이 Line 로그인을 방해할 수 있으므로 비공개 브라우징 외부에서 "
+"다시 시도하세요. 문제가 계속되면 아래의 안전 모드 로그인 버튼을 사용해 보세"
+"요."
+
+#: src/components/pages/LoginLineErrorPage.re.mjs:41
+msgid "safe-mode login with Line"
+msgstr "Line으로 안전 모드 로그인"

@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/MatchesView.re.mjs:232
+msgid "{0} player selected"
+msgstr "Đã chọn {0} người chơi"
+
+#: src/components/organisms/MatchesView.re.mjs:233
+msgid "{0} players selected"
+msgstr "Đã chọn {0} người chơi"
+
+#: src/components/organisms/MatchesView.re.mjs:231
+msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
+msgstr "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/MatchesView.re.mjs:257
+msgid "# of courts"
+msgstr "Số sân"
+
+#: src/components/organisms/MatchesView.re.mjs:656
+msgid "Actions"
+msgstr "Hành động"
+
+#: src/components/organisms/MatchesView.re.mjs:133
+msgid "Add/Remove Players"
+msgstr "Thêm/Xóa người chơi"
+
+#: src/components/organisms/MatchesView.re.mjs:622
+#: src/components/organisms/MatchesView.re.mjs:625
+msgid "and"
+msgstr "và"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:301
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/components/organisms/MatchesView.re.mjs:645
+msgid "Choose Match"
+msgstr "Chọn trận đấu"
+
+#: src/components/organisms/MatchesView.re.mjs:553
+msgid "CHOOSE MATCH"
+msgstr "CHỌN TRẬN ĐẤU"
+
+#: src/components/ui/ModalDrawer.re.mjs:43
+msgid "Close panel"
+msgstr "Đóng bảng"
+
+#: src/components/organisms/MatchesView.re.mjs:626
+msgid "Court {0}: {team1} versus {team2}"
+msgstr "Sân {0}: {team1} đấu với {team2}"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:319
+msgid "Enter Score"
+msgstr "Nhập điểm số"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:449
+msgid "Loading"
+msgstr "Đang tải"
+
+#: src/components/organisms/MatchesView.re.mjs:612
+msgid "Matches"
+msgstr "Trận đấu"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:353
+#: src/components/organisms/SortableSubmitMatch.re.mjs:403
+msgid "Points"
+msgstr "Điểm"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:57
+#: src/components/organisms/SortableSubmitMatch.re.mjs:69
+msgid "predicted winner"
+msgstr "người chiến thắng dự đoán"
+
+#: src/components/organisms/MatchesView.re.mjs:597
+msgid "Queue"
+msgstr "Hàng đợi"
+
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
+msgid "Queue All"
+msgstr "Xếp hàng tất cả"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+msgid "Save"
+msgstr "Lưu"
+
+#: src/components/organisms/MatchesView.re.mjs:500
+msgid "START SESSION"
+msgstr "BẮT ĐẦU PHIÊN"
+
+#: src/components/organisms/MatchesView.re.mjs:519
+msgid "SUBMIT RESULTS"
+msgstr "NỘP KẾT QUẢ"
+
+#: src/components/organisms/MatchesView.re.mjs:211
+#: src/components/organisms/MatchesView.re.mjs:290
+msgid "Unqueue All"
+msgstr "Hủy xếp hàng tất cả"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:368
+#: src/components/organisms/SortableSubmitMatch.re.mjs:418
+msgid "Winner"
+msgstr "Người chiến thắng"

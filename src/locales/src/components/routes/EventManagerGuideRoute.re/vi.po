@@ -1,0 +1,290 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:210
+msgid ": Classic round-robin format where everyone plays with everyone."
+msgstr ": Định dạng round-robin cổ điển trong đó mọi người đều chơi với nhau."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:194
+msgid ""
+": Players are divided into similar skill levels. Teams are balanced to "
+"create close matches."
+msgstr ""
+": Người chơi được chia theo trình độ tương tự. Các đội được cân bằng để tạo "
+"ra các trận đấu cân sức."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:202
+msgid ""
+": Teams are balanced by skill, but players are not strictly separated by "
+"level."
+msgstr ""
+": Các đội được cân bằng theo kỹ năng, nhưng người chơi không được phân chia "
+"nghiêm ngặt theo trình độ."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:141
+msgid "Adjust Seeds"
+msgstr "Điều chỉnh hạt giống"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:165
+msgid "Blue dot indicates the team that has service in the match."
+msgstr "Chấm xanh chỉ đội đang có quyền phát bóng trong trận đấu."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:368
+msgid "button at the bottom of the page to submit all results to the server."
+msgstr "nút ở cuối trang để gửi tất cả kết quả lên máy chủ."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:313
+msgid "Click a player's name to toggle check-in status."
+msgstr "Nhấn tên người chơi để chuyển đổi trạng thái check-in."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:192
+msgid "Competitive"
+msgstr "Thi đấu"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:412
+msgid "Complete guide to running events with the Event Manager."
+msgstr "Hướng dẫn đầy đủ để tổ chức sự kiện với Trình quản lý sự kiện."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:105
+msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
+msgstr "Tạo đội cố định hoặc đội phản (người chơi không nên chơi cùng nhau)."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:231
+msgid "Each round has several management options:"
+msgstr "Mỗi vòng có một số tùy chọn quản lý:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:125
+msgid "Edit player details like name, gender, or payment status."
+msgstr ""
+"Chỉnh sửa thông tin người chơi như tên, giới tính hoặc trạng thái thanh toán."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:354
+msgid ""
+"Enter scores directly on the match cards. Tap to select a winner, or press "
+"and hold to input the score as well."
+msgstr ""
+"Nhập điểm số trực tiếp trên thẻ trận đấu. Nhấn để chọn người chiến thắng, "
+"hoặc nhấn và giữ để nhập điểm số."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:350
+msgid "Entering Results & Syncing"
+msgstr "Nhập kết quả & Đồng bộ"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:408
+msgid "Event Manager Guide"
+msgstr "Hướng dẫn Trình quản lý sự kiện"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:61
+msgid "Generate / Rebalance"
+msgstr "Tạo / Cân bằng lại"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:65
+msgid "Generate new draws or rebalance the round or match."
+msgstr "Tạo bốc thăm mới hoặc cân bằng lại vòng hoặc trận đấu."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:181
+msgid "Generating Draws"
+msgstr "Đang tạo bốc thăm"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:29
+msgid "Here is a guide to the icons used in the Event Manager:"
+msgstr ""
+"Đây là hướng dẫn về các biểu tượng được sử dụng trong Trình quản lý sự kiện:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:321
+msgid "icon to edit player details (Name, Gender, Paid status)."
+msgstr ""
+"biểu tượng để chỉnh sửa thông tin người chơi (Tên, Giới tính, Trạng thái "
+"thanh toán)."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:25
+msgid "Icons Guide"
+msgstr "Hướng dẫn biểu tượng"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:217
+msgid ""
+"In Competitive or Mixed mode, the system will regenerate future matches when "
+"you select the winner of the matches in the current or past rounds. This is "
+"recommended in order to optimize future rounds based on the new data. In "
+"Round-Robin mode, the future rounds will not change unless you manually "
+"change them."
+msgstr ""
+"Trong chế độ Thi đấu hoặc Hỗn hợp, hệ thống sẽ tái tạo các trận đấu tiếp "
+"theo khi bạn chọn người chiến thắng của các trận đấu trong vòng hiện tại "
+"hoặc trước đó. Điều này được khuyến nghị để tối ưu hóa các vòng tiếp theo "
+"dựa trên dữ liệu mới. Trong chế độ Round-Robin, các vòng tiếp theo sẽ không "
+"thay đổi trừ khi bạn thay đổi thủ công."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:308
+msgid "Manage players directly from the Check-in list:"
+msgstr "Quản lý người chơi trực tiếp từ danh sách Check-in:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:101
+msgid "Manage Teams"
+msgstr "Quản lý đội"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:145
+msgid "Manually adjust player ratings for the event."
+msgstr "Điều chỉnh thủ công xếp hạng người chơi cho sự kiện."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:200
+msgid "Mixed"
+msgstr "Hỗn hợp"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:395
+msgid "Note: If you clear your browser data, local event data will be lost."
+msgstr ""
+"Lưu ý: Nếu bạn xóa dữ liệu trình duyệt, dữ liệu sự kiện cục bộ sẽ bị mất."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:385
+msgid "Offline Mode"
+msgstr "Chế độ ngoại tuyến"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:358
+msgid "Once matches are complete, use the"
+msgstr "Sau khi các trận đấu hoàn thành, hãy sử dụng"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:41
+msgid "Player Check-in"
+msgstr "Check-in người chơi"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:304
+msgid "Player Management"
+msgstr "Quản lý người chơi"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:121
+msgid "Player Settings"
+msgstr "Cài đặt người chơi"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:241
+msgid "Rebalance"
+msgstr "Cân bằng lại"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:248
+msgid ""
+"Regenerates the current round with the same players but moves players around "
+"to balance the skill level of each court. This will aggressively optimize "
+"each court to have the highest chance of having a tie, but may not divide "
+"the court by level groups. Useful if you replace a player and need the "
+"matches to be balanced again."
+msgstr ""
+"Tái tạo vòng hiện tại với cùng người chơi nhưng di chuyển người chơi xung "
+"quanh để cân bằng trình độ kỹ năng của mỗi sân. Điều này sẽ tích cực tối ưu "
+"hóa mỗi sân để có cơ hội cao nhất có trận hòa, nhưng có thể không chia sân "
+"theo nhóm trình độ. Hữu ích nếu bạn thay thế một người chơi và cần các trận "
+"đấu được cân bằng lại."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:81
+msgid "Reset"
+msgstr "Đặt lại"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:286
+msgid "Reset (All)"
+msgstr "Đặt lại (Tất cả)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:265
+msgid "Reset (Mixed)"
+msgstr "Đặt lại (Hỗn hợp)"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:85
+msgid "Reset a round to the original draw if you changed something."
+msgstr "Đặt lại vòng về bốc thăm ban đầu nếu bạn đã thay đổi gì đó."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:272
+msgid "Resets the round and attempts to create mixed-gender pairs."
+msgstr "Đặt lại vòng và cố gắng tạo các cặp nam nữ hỗn hợp."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:293
+msgid "Resets the round to the original matches."
+msgstr "Đặt lại vòng về các trận đấu ban đầu."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:227
+msgid "Round Management"
+msgstr "Quản lý vòng"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:208
+msgid "Round-Robin"
+msgstr "Round-Robin"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:376
+msgid "Scores are not saved permanently until you Sync."
+msgstr "Điểm số không được lưu vĩnh viễn cho đến khi bạn Đồng bộ."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:161
+msgid "Service Indicator"
+msgstr "Chỉ thị phát bóng"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:364
+msgid "Sync Scores"
+msgstr "Đồng bộ điểm số"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:185
+msgid ""
+"The Draw Generator allows you to create matches based on different "
+"strategies:"
+msgstr ""
+"Bộ tạo bốc thăm cho phép bạn tạo các trận đấu dựa trên các chiến lược khác "
+"nhau:"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:389
+msgid ""
+"The Event Manager works offline! All data is saved locally to your device."
+msgstr ""
+"Trình quản lý sự kiện hoạt động ngoại tuyến! Tất cả dữ liệu được lưu cục bộ "
+"trên thiết bị của bạn."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:339
+msgid ""
+"to adjust player ratings (seeds) for the event. This affects matchmaking but "
+"not their permanent rating."
+msgstr ""
+"để điều chỉnh xếp hạng người chơi (hạt giống) cho sự kiện. Điều này ảnh "
+"hưởng đến ghép đôi nhưng không phải xếp hạng vĩnh viễn của họ."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:330
+msgid ""
+"to create Teams (always play together) or Anti-Teams (never play together on "
+"the same court)."
+msgstr ""
+"để tạo Đội (luôn chơi cùng nhau) hoặc Đội phản (không bao giờ chơi cùng nhau "
+"trên cùng một sân)."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:45
+msgid "Toggle player attendance. Green means checked in."
+msgstr "Chuyển đổi sự có mặt của người chơi. Màu xanh có nghĩa là đã check-in."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:326
+#: src/components/pages/EventManagerGuidePage.re.mjs:335
+msgid "Use"
+msgstr "Sử dụng"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:317
+msgid "Use the"
+msgstr "Sử dụng"
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:220
+msgid ""
+"You can also adjust the number of courts. The system requires 4 players per "
+"court."
+msgstr ""
+"Bạn cũng có thể điều chỉnh số sân. Hệ thống yêu cầu 4 người chơi mỗi sân."
+
+#: src/components/pages/EventManagerGuidePage.re.mjs:392
+msgid ""
+"You can run an entire event without internet. Just make sure to Sync Scores "
+"when you have a connection again to save the results."
+msgstr ""
+"Bạn có thể tổ chức toàn bộ sự kiện mà không cần internet. Chỉ cần đảm bảo "
+"Đồng bộ điểm số khi bạn có kết nối lại để lưu kết quả."

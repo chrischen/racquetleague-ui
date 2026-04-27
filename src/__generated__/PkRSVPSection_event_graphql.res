@@ -19,6 +19,7 @@ module Types = {
     sigma: option<float>,
   }
   and fragment_rsvps_edges_node_user = {
+    gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
   }
@@ -104,6 +105,21 @@ module Utils = {
     }
 
 
+  @live
+  external gender_toString: RelaySchemaAssets_graphql.enum_Gender => string = "%identity"
+  @live
+  external gender_input_toString: RelaySchemaAssets_graphql.enum_Gender_input => string = "%identity"
+  @live
+  let gender_decode = (enum: RelaySchemaAssets_graphql.enum_Gender): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let gender_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_Gender_input> => {
+    gender_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode
@@ -264,7 +280,14 @@ return {
                   "plural": false,
                   "selections": [
                     (v0/*: any*/),
-                    (v1/*: any*/)
+                    (v1/*: any*/),
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "gender",
+                      "storageKey": null
+                    }
                   ],
                   "storageKey": null
                 },

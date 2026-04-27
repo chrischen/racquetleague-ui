@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/molecules/LogoutLink.re.mjs:10
+msgid "(logout)"
+msgstr "(로그아웃)"
+
+#: src/components/organisms/Footer.re.mjs:19
+msgid "copyright the racquet league contributors"
+msgstr "저작권 racquet league 기여자"
+
+#: src/components/molecules/LoginLink.re.mjs:28
+#: src/components/molecules/LoginLink.re.mjs:32
+msgid "login with Line"
+msgstr "Line으로 로그인"
+
+#: src/components/organisms/Nav.re.mjs:98
+msgid "racquet league"
+msgstr "라켓 리그"

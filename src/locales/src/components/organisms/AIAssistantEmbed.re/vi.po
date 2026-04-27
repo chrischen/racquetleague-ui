@@ -1,0 +1,121 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:113
+msgid "{0} events created!"
+msgstr "Đã tạo {0} sự kiện!"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:184
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "AI Assistant"
+msgstr "Trợ lý AI"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:149
+msgid "An error occurred. Please try again."
+msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid "Answer the questions or provide more details..."
+msgstr "Trả lời câu hỏi hoặc cung cấp thêm thông tin..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Continue the conversation"
+msgstr "Tiếp tục cuộc hội thoại"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create All Events"
+msgstr "Tạo tất cả sự kiện"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+msgid "Create This Event"
+msgstr "Tạo sự kiện này"
+
+#: src/components/molecules/AIResponseCard.re.mjs:58
+#: src/components/molecules/AIResponseCard.re.mjs:162
+msgid "Date:"
+msgstr "Ngày:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+msgid "Describe your event"
+msgstr "Mô tả sự kiện của bạn"
+
+#: src/components/molecules/AIResponseCard.re.mjs:105
+msgid "Description:"
+msgstr "Mô tả:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+"ví dụ: Buổi pickleball hàng tuần tại Central Park, thứ Năm lúc 18h, chơi thi "
+"đấu cho người chơi 3.5+..."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+msgid "Error creating events. Please try again."
+msgstr "Lỗi khi tạo sự kiện. Vui lòng thử lại."
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Event Details"
+msgstr "Chi tiết sự kiện"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+msgid "Fill with AI"
+msgstr "Điền bằng AI"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+msgid "Form filled • Click to expand"
+msgstr "Đã điền biểu mẫu • Nhấn để mở rộng"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+msgid "Generating..."
+msgstr "Đang tạo..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:137
+msgid "I couldn't process that request. Please try again."
+msgstr "Không thể xử lý yêu cầu đó. Vui lòng thử lại."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+msgid "Let AI help you fill out the details below"
+msgstr "Để AI giúp bạn điền các thông tin bên dưới"
+
+#: src/components/molecules/AIResponseCard.re.mjs:90
+#: src/components/molecules/AIResponseCard.re.mjs:194
+msgid "Location:"
+msgstr "Địa điểm:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to continue"
+msgstr "Nhấn ⌘+Enter để tiếp tục"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+msgid "Press ⌘+Enter to generate"
+msgstr "Nhấn ⌘+Enter để tạo"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:338
+msgid "Reset"
+msgstr "Đặt lại"
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+msgid "Suggested Events"
+msgstr "Sự kiện được đề xuất"
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+msgid "Title:"
+msgstr "Tiêu đề:"

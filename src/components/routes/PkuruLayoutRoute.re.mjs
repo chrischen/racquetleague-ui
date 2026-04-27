@@ -21,7 +21,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/PkuruLayout.re/ja"),
       th: import("../../locales/src/components/pages/PkuruLayout.re/th"),
       zhTW: import("../../locales/src/components/pages/PkuruLayout.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/PkuruLayout.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/PkuruLayout.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/PkuruLayout.re/ko"),
+      vi: import("../../locales/src/components/pages/PkuruLayout.re/vi")
     });
 
 var LoaderArgs = {};

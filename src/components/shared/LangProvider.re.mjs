@@ -148,7 +148,9 @@ function LangProvider$DetectedLang(props) {
                                       ja: import("../../locales/src/components/pages/DefaultLayoutMap.re/ja"),
                                       th: import("../../locales/src/components/pages/DefaultLayoutMap.re/th"),
                                       zhTW: import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-TW"),
-                                      zhCN: import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-CN")
+                                      zhCN: import("../../locales/src/components/pages/DefaultLayoutMap.re/zh-CN"),
+                                      ko: import("../../locales/src/components/pages/DefaultLayoutMap.re/ko"),
+                                      vi: import("../../locales/src/components/pages/DefaultLayoutMap.re/vi")
                                     })).then(function (param) {
                                 Lingui.detectedI18n.activate(detectedLang);
                                 setLangNotice(function (param) {

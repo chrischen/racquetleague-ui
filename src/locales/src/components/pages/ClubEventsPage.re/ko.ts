@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RHXPYf\":\"이벤트 추가\",\"L1a7FJ\":\"클럽을 찾을 수 없습니다\",\"PiH3UR\":\"복사됨!\",\"ARXLj+\":\"이벤트 로딩 중...\",\"uIZ2tg\":\"링크 공유\"}");

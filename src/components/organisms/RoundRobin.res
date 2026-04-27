@@ -106,6 +106,8 @@ module OverallAverageQualityDebug = {
   }
 }
 
+let isBrowserSupported = isSupported()
+
 @react.component
 let make = (~debug: bool=false) => {
   open Lingui.Util
@@ -827,203 +829,275 @@ let make = (~debug: bool=false) => {
 
   // === RENDER ===
 
-  <>
-    {teamManagementOpen
-      ? <TeamManagementModal
-          teams={teamsAsData}
-          antiTeams={antiTeams
-          ->NonEmptyArray.toArray
-          ->Array.mapWithIndex((team, index) => {
-            {
-              TeamManagementModal.id: index,
-              name: ts`Anti-Team ${(index + 1)->Int.toString}`,
-              playerIds: team->Array.map(p => p.id),
-            }
-          })}
-          players={playersWithCounts}
-          onSave={(updatedTeams, updatedAntiTeams) => {
-            // Handle Teams
-            let newTeams = updatedTeams->Array.filterMap(teamData => {
-              let teamPlayers =
-                teamData.playerIds->Array.filterMap(id =>
-                  playersWithCounts->Array.find(p => p.id == id)
-                )
-
-              if teamPlayers->Array.length > 0 {
-                Some(teamPlayers)
-              } else {
-                None
+  if !isBrowserSupported {
+    <div className="p-8 text-center text-gray-500">
+      <p className="text-lg font-semibold text-gray-700">
+        {t`Your browser is too old to use this feature.`}
+      </p>
+      <p className="mt-2 text-sm">
+        {t`Please update to a recent version of Chrome, Firefox, or Safari.`}
+      </p>
+    </div>
+  } else {
+    <>
+      {teamManagementOpen
+        ? <TeamManagementModal
+            teams={teamsAsData}
+            antiTeams={antiTeams
+            ->NonEmptyArray.toArray
+            ->Array.mapWithIndex((team, index) => {
+              {
+                TeamManagementModal.id: index,
+                name: ts`Anti-Team ${(index + 1)->Int.toString}`,
+                playerIds: team->Array.map(p => p.id),
               }
-            })
+            })}
+            players={playersWithCounts}
+            onSave={(updatedTeams, updatedAntiTeams) => {
+              // Handle Teams
+              let newTeams = updatedTeams->Array.filterMap(teamData => {
+                let teamPlayers =
+                  teamData.playerIds->Array.filterMap(id =>
+                    playersWithCounts->Array.find(p => p.id == id)
+                  )
 
-            setTeams(_ => newTeams->NonEmptyArray.fromArray)
+                if teamPlayers->Array.length > 0 {
+                  Some(teamPlayers)
+                } else {
+                  None
+                }
+              })
 
-            // Handle Anti-Teams
-            let newAntiTeams = updatedAntiTeams->Array.filterMap(teamData => {
-              let teamPlayers =
-                teamData.playerIds->Array.filterMap(id =>
-                  playersWithCounts->Array.find(p => p.id == id)
-                )
+              setTeams(_ => newTeams->NonEmptyArray.fromArray)
 
-              if teamPlayers->Array.length > 0 {
-                Some(teamPlayers)
-              } else {
-                None
-              }
-            })
+              // Handle Anti-Teams
+              let newAntiTeams = updatedAntiTeams->Array.filterMap(teamData => {
+                let teamPlayers =
+                  teamData.playerIds->Array.filterMap(id =>
+                    playersWithCounts->Array.find(p => p.id == id)
+                  )
 
-            setAntiTeams(_ => newAntiTeams->NonEmptyArray.fromArray)
+                if teamPlayers->Array.length > 0 {
+                  Some(teamPlayers)
+                } else {
+                  None
+                }
+              })
 
-            setTeamManagementOpen(_ => false)
-            setIsDirty(_ => true)
-          }}
-          onClose={() => setTeamManagementOpen(_ => false)}
-        />
-      : React.null}
-    {playerSettingsOpen
-    ->Option.map((player: Player.t<unit>) => {
-      // All players in RoundRobin are guests (data is unit)
-      <PlayerSettingsModal
-        player
-        onSave={handleUpdatePlayer}
-        onClose={() => setPlayerSettingsOpen(_ => None)}
-        onDelete={() => handleDeleteGuestPlayer(player.id)}
-      />
-    })
-    ->Option.getOr(React.null)}
-    {showAddGuestsModal
-      ? <AddGuestPlayersModal
-          onAdd={handleAddGuestPlayers} onClose={() => setShowAddGuestsModal(_ => false)}
-        />
-      : React.null}
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <div className="bg-slate-800 text-white px-6 py-4">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold"> {React.string("Round Robin Tournament")} </h1>
-          <div className="flex items-center gap-2">
-            <Link
-              to="/event-manager-guide"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors text-white no-underline">
-              <Lucide.CircleHelp className="w-5 h-5" />
-              <span className="text-sm font-medium"> {t`Help`} </span>
-            </Link>
-            <button
-              onClick={_ => setDebugMode(prev => !prev)}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors">
-              <Lucide.CircleHelp className="w-5 h-5" />
-              <span className="text-sm font-medium">
-                {debugMode ? t`Debug: ON` : t`Debug: OFF`}
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <PlayerCheckin
-        players={playersWithCounts}
-        checkedInPlayerIds
-        onToggleCheckin={handleToggleCheckin}
-        onTogglePaid={handleTogglePaid}
-        onAdjustSeeds={adjustPlayerSeeds}
-        onOpenTeamManagement={() => setTeamManagementOpen(_ => true)}
-        onOpenPlayerSettings={player => setPlayerSettingsOpen(_ => Some(player))}
-        onOpenAddGuests={() => setShowAddGuestsModal(_ => true)}
-        getUserFragmentRefs
-        initialPlayers={players}
-      />
-      {!hasExistingDraws
-        ? <DrawGenerator
-            courtCount
-            onCourtCountChange={handleCourtCountChange}
-            checkedInPlayerCount={checkedInPlayerIds->Set.size}
-            hasExistingDraws={false}
-            strategy
-            onStrategyChange={handleStrategyChange}
-            onGenerateDraws={handleGenerateDraws}
-            isInitiallyExpanded={true}
-            highlight={isDirty}
-            futureRoundsHaveScores
+              setAntiTeams(_ => newAntiTeams->NonEmptyArray.fromArray)
+
+              setTeamManagementOpen(_ => false)
+              setIsDirty(_ => true)
+            }}
+            onClose={() => setTeamManagementOpen(_ => false)}
           />
         : React.null}
-      {hasExistingDraws
-        ? <>
-            <RoundHeader
-              currentRound={currentRoundInt}
-              onAdvanceRound={handleAdvanceRound}
-              onPreviousRound={handlePreviousRound}
-              canAdvance
-              canGoBack
+      {playerSettingsOpen
+      ->Option.map((player: Player.t<unit>) => {
+        // All players in RoundRobin are guests (data is unit)
+        <PlayerSettingsModal
+          player
+          onSave={handleUpdatePlayer}
+          onClose={() => setPlayerSettingsOpen(_ => None)}
+          onDelete={() => handleDeleteGuestPlayer(player.id)}
+        />
+      })
+      ->Option.getOr(React.null)}
+      {showAddGuestsModal
+        ? <AddGuestPlayersModal
+            onAdd={handleAddGuestPlayers} onClose={() => setShowAddGuestsModal(_ => false)}
+          />
+        : React.null}
+      <div className="min-h-screen bg-slate-50 flex flex-col">
+        <div className="bg-slate-800 text-white px-6 py-4">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold"> {React.string("Round Robin Tournament")} </h1>
+            <div className="flex items-center gap-2">
+              <Link
+                to="/event-manager-guide"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors text-white no-underline">
+                <Lucide.CircleHelp className="w-5 h-5" />
+                <span className="text-sm font-medium"> {t`Help`} </span>
+              </Link>
+              <button
+                onClick={_ => setDebugMode(prev => !prev)}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors">
+                <Lucide.CircleHelp className="w-5 h-5" />
+                <span className="text-sm font-medium">
+                  {debugMode ? t`Debug: ON` : t`Debug: OFF`}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <PlayerCheckin
+          players={playersWithCounts}
+          checkedInPlayerIds
+          onToggleCheckin={handleToggleCheckin}
+          onTogglePaid={handleTogglePaid}
+          onAdjustSeeds={adjustPlayerSeeds}
+          onOpenTeamManagement={() => setTeamManagementOpen(_ => true)}
+          onOpenPlayerSettings={player => setPlayerSettingsOpen(_ => Some(player))}
+          onOpenAddGuests={() => setShowAddGuestsModal(_ => true)}
+          getUserFragmentRefs
+          initialPlayers={players}
+        />
+        {!hasExistingDraws
+          ? <DrawGenerator
+              courtCount
+              onCourtCountChange={handleCourtCountChange}
+              checkedInPlayerCount={checkedInPlayerIds->Set.size}
+              hasExistingDraws={false}
+              strategy
+              onStrategyChange={handleStrategyChange}
+              onGenerateDraws={handleGenerateDraws}
+              isInitiallyExpanded={true}
+              highlight={isDirty}
+              futureRoundsHaveScores
             />
-            <div className="flex-1 overflow-auto p-6">
-              {debugMode && rounds->Array.length > 0
-                ? <OverallAverageQualityDebug rounds />
-                : React.null}
-              {currentRoundInt == 0
-                ? <DrawGenerator
-                    courtCount
-                    onCourtCountChange={handleCourtCountChange}
-                    checkedInPlayerCount={checkedInPlayerIds->Set.size}
-                    hasExistingDraws={rounds->Array.length > 0}
-                    strategy
-                    onStrategyChange={handleStrategyChange}
-                    onGenerateDraws={handleGenerateDraws}
-                    isInitiallyExpanded={true}
-                    highlight={isDirty}
-                    futureRoundsHaveScores
-                  />
-                : React.null}
-              {
-                // Display rating adjustments for round 0 (appliedAtRound = -1)
-                // These are adjustments made before any rounds are generated
-                let adjustmentsForRound0 =
-                  ratingAdjustmentHistory->Array.filter(adj => adj.appliedAtRound == -1)
+          : React.null}
+        {hasExistingDraws
+          ? <>
+              <RoundHeader
+                currentRound={currentRoundInt}
+                onAdvanceRound={handleAdvanceRound}
+                onPreviousRound={handlePreviousRound}
+                canAdvance
+                canGoBack
+              />
+              <div className="flex-1 overflow-auto p-6">
+                {debugMode && rounds->Array.length > 0
+                  ? <OverallAverageQualityDebug rounds />
+                  : React.null}
+                {currentRoundInt == 0
+                  ? <DrawGenerator
+                      courtCount
+                      onCourtCountChange={handleCourtCountChange}
+                      checkedInPlayerCount={checkedInPlayerIds->Set.size}
+                      hasExistingDraws={rounds->Array.length > 0}
+                      strategy
+                      onStrategyChange={handleStrategyChange}
+                      onGenerateDraws={handleGenerateDraws}
+                      isInitiallyExpanded={true}
+                      highlight={isDirty}
+                      futureRoundsHaveScores
+                    />
+                  : React.null}
+                {
+                  // Display rating adjustments for round 0 (appliedAtRound = -1)
+                  // These are adjustments made before any rounds are generated
+                  let adjustmentsForRound0 =
+                    ratingAdjustmentHistory->Array.filter(adj => adj.appliedAtRound == -1)
 
-                if adjustmentsForRound0->Array.length > 0 {
-                  <SeedAdjustmentTimeline
-                    adjustments={adjustmentsForRound0}
-                    playersCache
-                    getUserFragmentRefs={_data => None}
-                    onDelete={() => {
-                      // Delete all adjustments with the same timestamp (same batch)
-                      adjustmentsForRound0
-                      ->Array.get(0)
-                      ->Option.forEach(adj => handleDeleteAdjustment(adj.timestamp))
-                    }}
-                  />
-                } else {
-                  React.null
-                }
-              }
-              {rounds
-              ->Array.mapWithIndex((roundMatches, roundIndex) => {
-                let roundNum = roundIndex + 1
-                let isCurrentRound = roundNum == currentRoundInt
-                let isPastRound = roundNum < currentRoundInt
-
-                // Get adjustments that should be applied before this round
-                // appliedAtRound is 0-indexed (matches roundIndex)
-                let adjustmentsForRound =
-                  ratingAdjustmentHistory->Array.filter(adj => adj.appliedAtRound == roundIndex)
-
-                <React.Fragment key={roundNum->Int.toString}>
-                  // Display rating adjustments that apply at this round (before the round)
-                  {if adjustmentsForRound->Array.length > 0 {
+                  if adjustmentsForRound0->Array.length > 0 {
                     <SeedAdjustmentTimeline
-                      adjustments={adjustmentsForRound}
+                      adjustments={adjustmentsForRound0}
                       playersCache
                       getUserFragmentRefs={_data => None}
                       onDelete={() => {
                         // Delete all adjustments with the same timestamp (same batch)
-                        adjustmentsForRound
+                        adjustmentsForRound0
                         ->Array.get(0)
                         ->Option.forEach(adj => handleDeleteAdjustment(adj.timestamp))
                       }}
                     />
                   } else {
                     React.null
-                  }}
-                  {isCurrentRound
-                    ? <div ref={currentRoundRef->ReactDOM.Ref.domRef}>
-                        <RoundSection
+                  }
+                }
+                {rounds
+                ->Array.mapWithIndex((roundMatches, roundIndex) => {
+                  let roundNum = roundIndex + 1
+                  let isCurrentRound = roundNum == currentRoundInt
+                  let isPastRound = roundNum < currentRoundInt
+
+                  // Get adjustments that should be applied before this round
+                  // appliedAtRound is 0-indexed (matches roundIndex)
+                  let adjustmentsForRound =
+                    ratingAdjustmentHistory->Array.filter(adj => adj.appliedAtRound == roundIndex)
+
+                  <React.Fragment key={roundNum->Int.toString}>
+                    // Display rating adjustments that apply at this round (before the round)
+                    {if adjustmentsForRound->Array.length > 0 {
+                      <SeedAdjustmentTimeline
+                        adjustments={adjustmentsForRound}
+                        playersCache
+                        getUserFragmentRefs={_data => None}
+                        onDelete={() => {
+                          // Delete all adjustments with the same timestamp (same batch)
+                          adjustmentsForRound
+                          ->Array.get(0)
+                          ->Option.forEach(adj => handleDeleteAdjustment(adj.timestamp))
+                        }}
+                      />
+                    } else {
+                      React.null
+                    }}
+                    {isCurrentRound
+                      ? <div ref={currentRoundRef->ReactDOM.Ref.domRef}>
+                          <RoundSection
+                            matches={roundMatches}
+                            roundNumber={roundNum}
+                            isCurrentRound
+                            isPastRound
+                            playersCache
+                            checkedInPlayerIds
+                            handleMatchCanceled={matchId => handleMatchCanceled(matchId)}
+                            handleMatchUpdated={(completedMatch, matchId) =>
+                              handleMatchCompleted(matchId, completedMatch)}
+                            setMatches={updateFn => {
+                              setRounds(rounds => {
+                                rounds->Array.mapWithIndex(
+                                  (round, idx) => {
+                                    if idx == roundIndex {
+                                      updateFn(round)
+                                    } else {
+                                      round
+                                    }
+                                  },
+                                )
+                              })
+                            }}
+                            setQueue={_ => ()}
+                            setRequiredPlayers={_ => ()}
+                            setShowMatchSelector={_ => ()}
+                            onRebalance={() => handleRebalanceRound(roundIndex)}
+                            onRebalanceMatch={matchId => handleRebalanceMatch(roundIndex, matchId)}
+                            onReset={genderMixed => handleResetRound(roundIndex, ~genderMixed)}
+                            getUserFragmentRefs
+                            debug={debugMode}
+                            allRounds={rounds}
+                          />
+                          // Advance Round Button - Below Current Round
+                          {canAdvance
+                            ? <div className="mt-6 flex justify-center">
+                                <button
+                                  onClick={_ => {
+                                    handleAdvanceRound()
+                                    // Small delay to ensure state updates before scrolling
+                                    let _ = setTimeout(() => {
+                                      currentRoundRef.current
+                                      ->Nullable.toOption
+                                      ->Option.forEach(
+                                        element => {
+                                          element->scrollIntoView({
+                                            "behavior": "smooth",
+                                            "block": "center",
+                                          })
+                                        },
+                                      )
+                                    }, 100)
+                                  }}
+                                  className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">
+                                  <span>
+                                    {t`Advance to Round ${(currentRoundInt + 1)->Int.toString}`}
+                                  </span>
+                                  <Lucide.ChevronRight className="w-6 h-6" />
+                                </button>
+                              </div>
+                            : React.null}
+                        </div>
+                      : <RoundSection
                           matches={roundMatches}
                           roundNumber={roundNum}
                           isCurrentRound
@@ -1055,89 +1129,28 @@ let make = (~debug: bool=false) => {
                           getUserFragmentRefs
                           debug={debugMode}
                           allRounds={rounds}
+                        />}
+                    {isCurrentRound
+                      ? <DrawGenerator
+                          courtCount
+                          onCourtCountChange={handleCourtCountChange}
+                          checkedInPlayerCount={checkedInPlayerIds->Set.size}
+                          hasExistingDraws={rounds->Array.length > roundNum}
+                          strategy
+                          onStrategyChange={handleStrategyChange}
+                          onGenerateDraws={handleGenerateDraws}
+                          isInitiallyExpanded={currentRoundInt == 0}
+                          highlight={isDirty}
+                          futureRoundsHaveScores
                         />
-                        // Advance Round Button - Below Current Round
-                        {canAdvance
-                          ? <div className="mt-6 flex justify-center">
-                              <button
-                                onClick={_ => {
-                                  handleAdvanceRound()
-                                  // Small delay to ensure state updates before scrolling
-                                  let _ = setTimeout(() => {
-                                    currentRoundRef.current
-                                    ->Nullable.toOption
-                                    ->Option.forEach(
-                                      element => {
-                                        element->scrollIntoView({
-                                          "behavior": "smooth",
-                                          "block": "center",
-                                        })
-                                      },
-                                    )
-                                  }, 100)
-                                }}
-                                className="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">
-                                <span>
-                                  {t`Advance to Round ${(currentRoundInt + 1)->Int.toString}`}
-                                </span>
-                                <Lucide.ChevronRight className="w-6 h-6" />
-                              </button>
-                            </div>
-                          : React.null}
-                      </div>
-                    : <RoundSection
-                        matches={roundMatches}
-                        roundNumber={roundNum}
-                        isCurrentRound
-                        isPastRound
-                        playersCache
-                        checkedInPlayerIds
-                        handleMatchCanceled={matchId => handleMatchCanceled(matchId)}
-                        handleMatchUpdated={(completedMatch, matchId) =>
-                          handleMatchCompleted(matchId, completedMatch)}
-                        setMatches={updateFn => {
-                          setRounds(rounds => {
-                            rounds->Array.mapWithIndex(
-                              (round, idx) => {
-                                if idx == roundIndex {
-                                  updateFn(round)
-                                } else {
-                                  round
-                                }
-                              },
-                            )
-                          })
-                        }}
-                        setQueue={_ => ()}
-                        setRequiredPlayers={_ => ()}
-                        setShowMatchSelector={_ => ()}
-                        onRebalance={() => handleRebalanceRound(roundIndex)}
-                        onRebalanceMatch={matchId => handleRebalanceMatch(roundIndex, matchId)}
-                        onReset={genderMixed => handleResetRound(roundIndex, ~genderMixed)}
-                        getUserFragmentRefs
-                        debug={debugMode}
-                        allRounds={rounds}
-                      />}
-                  {isCurrentRound
-                    ? <DrawGenerator
-                        courtCount
-                        onCourtCountChange={handleCourtCountChange}
-                        checkedInPlayerCount={checkedInPlayerIds->Set.size}
-                        hasExistingDraws={rounds->Array.length > roundNum}
-                        strategy
-                        onStrategyChange={handleStrategyChange}
-                        onGenerateDraws={handleGenerateDraws}
-                        isInitiallyExpanded={currentRoundInt == 0}
-                        highlight={isDirty}
-                        futureRoundsHaveScores
-                      />
-                    : React.null}
-                </React.Fragment>
-              })
-              ->React.array}
-            </div>
-          </>
-        : React.null}
-    </div>
-  </>
+                      : React.null}
+                  </React.Fragment>
+                })
+                ->React.array}
+              </div>
+            </>
+          : React.null}
+      </div>
+    </>
+  }
 }

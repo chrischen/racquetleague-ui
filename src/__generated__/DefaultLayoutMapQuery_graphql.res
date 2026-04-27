@@ -153,6 +153,13 @@ let node: operationType = %raw(json` {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
+                "name": "locale",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "picture",
                 "storageKey": null
               }
@@ -165,12 +172,12 @@ let node: operationType = %raw(json` {
     ]
   },
   "params": {
-    "cacheID": "df2dbb87519e58ba8a85a04d63e69266",
+    "cacheID": "6fec952bfc1601205c201a531e1bb47a",
     "id": null,
     "metadata": {},
     "name": "DefaultLayoutMapQuery",
     "operationKind": "query",
-    "text": "query DefaultLayoutMapQuery {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query DefaultLayoutMapQuery {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
 } `)
 

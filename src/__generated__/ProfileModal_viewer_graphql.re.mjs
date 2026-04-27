@@ -17,7 +17,21 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-var Utils = {};
+function gender_decode($$enum) {
+  if ($$enum === "female" || $$enum === "male") {
+    return $$enum;
+  }
+  
+}
+
+function gender_fromString(str) {
+  return gender_decode(str);
+}
+
+var Utils = {
+  gender_decode: gender_decode,
+  gender_fromString: gender_fromString
+};
 
 var node = {
   "argumentDefinitions": [],
@@ -38,7 +52,7 @@ var node = {
           "args": null,
           "concreteType": "User",
           "kind": "LinkedField",
-          "name": "user",
+          "name": "profile",
           "plural": false,
           "selections": [
             {
@@ -60,6 +74,27 @@ var node = {
               "args": null,
               "kind": "ScalarField",
               "name": "email",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "fullName",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "biography",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "gender",
               "storageKey": null
             }
           ],

@@ -133,6 +133,13 @@ return {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
+                "name": "locale",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "picture",
                 "storageKey": null
               }
@@ -145,12 +152,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "cd1446245aa396af559efbd0fbbfdba4",
+    "cacheID": "9e0cf239cf527193f0638366267d09ea",
     "id": null,
     "metadata": {},
     "name": "PkuruLayoutQuery",
     "operationKind": "query",
-    "text": "query PkuruLayoutQuery {\n  viewer {\n    user {\n      id\n    }\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query PkuruLayoutQuery {\n  viewer {\n    user {\n      id\n    }\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
 };
 })());

@@ -21,6 +21,15 @@ import * as KMeansClusteringJs from "k-means-clustering-js";
 import * as Json_Decode$JsonCombinators from "@glennsl/rescript-json-combinators/src/Json_Decode.re.mjs";
 import * as PlackettLuceTs from "../lib/rating/models/plackettLuce.ts";
 
+var isSupported = (function() {
+  return (
+    typeof Set.prototype.intersection === 'function' &&
+    typeof Array.prototype.toSorted === 'function' &&
+    typeof crypto !== 'undefined' &&
+    typeof crypto.randomUUID === 'function'
+  )
+});
+
 var plackettLuce = PlackettLuceTs.plackettLuce;
 
 var RatingModel = {
@@ -2493,6 +2502,7 @@ function generateSingleRound(roundIndex, rounds, availablePlayers, strategy, cou
 }
 
 export {
+  isSupported ,
   RatingModel ,
   Gender ,
   makeGuest ,

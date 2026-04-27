@@ -16,6 +16,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/FairPlayGuidePage.re/vi"),
 })
 
 @genType

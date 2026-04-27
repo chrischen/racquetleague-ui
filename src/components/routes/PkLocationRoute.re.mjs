@@ -18,7 +18,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/PkLocationPage.re/ja"),
       th: import("../../locales/src/components/pages/PkLocationPage.re/th"),
       zhTW: import("../../locales/src/components/pages/PkLocationPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/PkLocationPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/PkLocationPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/PkLocationPage.re/ko"),
+      vi: import("../../locales/src/components/pages/PkLocationPage.re/vi")
     });
 
 async function loader(param) {

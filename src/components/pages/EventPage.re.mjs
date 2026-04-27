@@ -394,7 +394,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/EventPage.re/ja"),
       th: import("../../locales/src/components/pages/EventPage.re/th"),
       zhTW: import("../../locales/src/components/pages/EventPage.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/EventPage.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/EventPage.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/EventPage.re/ko"),
+      vi: import("../../locales/src/components/pages/EventPage.re/vi")
     });
 
 async function loader(param) {

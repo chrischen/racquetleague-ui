@@ -21,7 +21,9 @@ var loadMessages = Lingui.loadMessages({
       ja: import("../../locales/src/components/pages/LeagueLayout.re/ja"),
       th: import("../../locales/src/components/pages/LeagueLayout.re/th"),
       zhTW: import("../../locales/src/components/pages/LeagueLayout.re/zh-TW"),
-      zhCN: import("../../locales/src/components/pages/LeagueLayout.re/zh-CN")
+      zhCN: import("../../locales/src/components/pages/LeagueLayout.re/zh-CN"),
+      ko: import("../../locales/src/components/pages/LeagueLayout.re/ko"),
+      vi: import("../../locales/src/components/pages/LeagueLayout.re/vi")
     });
 
 var LoaderArgs = {};

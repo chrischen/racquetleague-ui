@@ -4,6 +4,7 @@ module Fragment = %relay(`
       id
       picture
       lineUsername
+      gender
     }
     rating {
       ordinal
@@ -64,6 +65,17 @@ let make = (
         <span className="text-[11px] text-gray-700 dark:text-gray-400 leading-none flex-1">
           {user.lineUsername->Option.getOr("?")->React.string}
         </span>
+        {switch user.gender {
+        | Some(Male) =>
+          <span className="text-[9px] font-bold leading-none text-blue-400">
+            {"♂"->React.string}
+          </span>
+        | Some(Female) =>
+          <span className="text-[9px] font-bold leading-none text-pink-400">
+            {"♀"->React.string}
+          </span>
+        | _ => React.null
+        }}
         <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none">
           {skillStr->React.string}
         </span>
@@ -90,6 +102,17 @@ let make = (
         <span className="text-[11px] text-gray-900 dark:text-gray-100 leading-none">
           {user.lineUsername->Option.getOr("?")->React.string}
         </span>
+        {switch user.gender {
+        | Some(Male) =>
+          <span className="text-[9px] font-bold leading-none text-blue-400">
+            {"♂"->React.string}
+          </span>
+        | Some(Female) =>
+          <span className="text-[9px] font-bold leading-none text-pink-400">
+            {"♀"->React.string}
+          </span>
+        | _ => React.null
+        }}
         <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none">
           {skillStr->React.string}
         </span>

@@ -104,70 +104,74 @@ module Day = {
 
     let visibleEvents = events->Array.filter(edge => !hideCheck(edge, viewer) || showShadow)
 
-    <>
-      <div className="px-4 md:px-6 py-3 flex items-center justify-between">
-        <div className="flex items-baseline gap-3">
-          <h3 className="font-semibold text-gray-900 dark:text-gray-100"> {label->React.string} </h3>
-          <span className="font-mono text-xs text-gray-400 dark:text-gray-500">
-            {(dateDetails ++
-            " · " ++
-            Int.toString(events->Array.filter(e => e.deleted->Option.isNone)->Array.length) ++
-            " " ++
-            Lingui.UtilString.plural(
-              events->Array.filter(e => e.deleted->Option.isNone)->Array.length,
-              {one: ts`event`, other: ts`events`},
-            ))->React.string}
-          </span>
+    <WaitForMessages>
+      {() => <>
+        <div className="px-4 md:px-6 py-3 flex items-center justify-between">
+          <div className="flex items-baseline gap-3">
+            <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+              {label->React.string}
+            </h3>
+            <span className="font-mono text-xs text-gray-400 dark:text-gray-500">
+              {(dateDetails ++
+              " · " ++
+              Int.toString(events->Array.filter(e => e.deleted->Option.isNone)->Array.length) ++
+              " " ++
+              Lingui.UtilString.plural(
+                events->Array.filter(e => e.deleted->Option.isNone)->Array.length,
+                {one: ts`event`, other: ts`events`},
+              ))->React.string}
+            </span>
+          </div>
+          <LangProvider.Router.Link
+            to={"/events/create?date=" ++ isoDate}
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors">
+            <Lucide.Plus size=11 />
+            <span> {(ts`Add to ${label->String.toLowerCase}`)->React.string} </span>
+          </LangProvider.Router.Link>
         </div>
-        <LangProvider.Router.Link
-          to={"/events/create?date=" ++ isoDate}
-          className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors">
-          <Lucide.Plus size=11 />
-          <span> {ts`Add to ${label->String.toLowerCase}`->React.string} </span>
-        </LangProvider.Router.Link>
-      </div>
-      {visibleEvents
-      ->Array.mapWithIndex((edge, idx) => {
-        let waitlistCount = switch edge.maxRsvps {
-        | None => 0
-        | Some(max) =>
-          let mainList =
-            edge.rsvps
-            ->Option.flatMap(r => r.edges)
-            ->Option.getOr([])
-            ->Array.filterMap(e => e)
-            ->Array.filterMap(e => e.node)
-            ->Array.filter(n => n.listType == None || n.listType == Some(0))
-          Js.Math.max_int(0, mainList->Array.length - max)
-        }
-        <PkEventRow
-          key=edge.id
-          event=edge.fragmentRefs
-          user={viewer->Option.flatMap(v => v.user->Option.map(u => u.fragmentRefs))}
-          isLastInGroup={idx == Array.length(visibleEvents) - 1}
-          waitlistCount
-          query
-          ?onEventClick
-          ?onHoverLocation
-          dimmed={selectedLocationId
-          ->Option.map(selId =>
-            edge.location
-            ->Option.flatMap(l => Some(l.id))
-            ->Option.map(lid => lid != selId)
-            ->Option.getOr(false)
-          )
-          ->Option.getOr(false)}
-        />
-      })
-      ->React.array}
-      {totalHiddenCount > 0 && !showShadow
-        ? <button
-            className="w-full py-3 text-center text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors border-b border-gray-100 dark:border-[#2a2b30]"
-            onClick={_ => setShowShadow(_ => true)}>
-            {t`${totalHiddenCount->Int.toString} ${hiddenDesc} hidden — show`}
-          </button>
-        : React.null}
-    </>
+        {visibleEvents
+        ->Array.mapWithIndex((edge, idx) => {
+          let waitlistCount = switch edge.maxRsvps {
+          | None => 0
+          | Some(max) =>
+            let mainList =
+              edge.rsvps
+              ->Option.flatMap(r => r.edges)
+              ->Option.getOr([])
+              ->Array.filterMap(e => e)
+              ->Array.filterMap(e => e.node)
+              ->Array.filter(n => n.listType == None || n.listType == Some(0))
+            Js.Math.max_int(0, mainList->Array.length - max)
+          }
+          <PkEventRow
+            key=edge.id
+            event=edge.fragmentRefs
+            user={viewer->Option.flatMap(v => v.user->Option.map(u => u.fragmentRefs))}
+            isLastInGroup={idx == Array.length(visibleEvents) - 1}
+            waitlistCount
+            query
+            ?onEventClick
+            ?onHoverLocation
+            dimmed={selectedLocationId
+            ->Option.map(selId =>
+              edge.location
+              ->Option.flatMap(l => Some(l.id))
+              ->Option.map(lid => lid != selId)
+              ->Option.getOr(false)
+            )
+            ->Option.getOr(false)}
+          />
+        })
+        ->React.array}
+        {totalHiddenCount > 0 && !showShadow
+          ? <button
+              className="w-full py-3 text-center text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors border-b border-gray-100 dark:border-[#2a2b30]"
+              onClick={_ => setShowShadow(_ => true)}>
+              {t`${totalHiddenCount->Int.toString} ${hiddenDesc} hidden — show`}
+            </button>
+          : React.null}
+      </>}
+    </WaitForMessages>
   }
 }
 
@@ -217,8 +221,16 @@ let make = (
 
   let getBucketMeta = (key: string): (string, string, Js.Date.t) =>
     switch key {
-    | "today" => (ts`Today`, formatDate(bucketSetup.dateFromOffset(0.)), bucketSetup.dateFromOffset(0.))
-    | "tomorrow" => (ts`Tomorrow`, formatDate(bucketSetup.dateFromOffset(1.)), bucketSetup.dateFromOffset(1.))
+    | "today" => (
+        ts`Today`,
+        formatDate(bucketSetup.dateFromOffset(0.)),
+        bucketSetup.dateFromOffset(0.),
+      )
+    | "tomorrow" => (
+        ts`Tomorrow`,
+        formatDate(bucketSetup.dateFromOffset(1.)),
+        bucketSetup.dateFromOffset(1.),
+      )
     | _ =>
       let (isNextWeek, dayIndex, date) = EventsListUtils.getBucketDateDetails(
         ~setup=bucketSetup,

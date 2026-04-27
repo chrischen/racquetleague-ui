@@ -54,7 +54,7 @@ msgstr "ปรับซีดผู้เล่น"
 msgid "Advance to Next Round"
 msgstr "ไปยังรอบถัดไป"
 
-#: src/components/organisms/RoundRobin.re.mjs:785
+#: src/components/organisms/RoundRobin.re.mjs:802
 msgid "Advance to Round {0}"
 msgstr "ไปยังรอบ {0}"
 
@@ -66,7 +66,7 @@ msgstr "อเล็กซ์ จอห์นสัน"
 msgid "All checked-in players are already in this round"
 msgstr "ผู้เล่นที่เช็คอินแล้วมีอยู่ในรอบนี้ทั้งหมดแล้ว"
 
-#: src/components/organisms/RoundRobin.re.mjs:884
+#: src/components/organisms/RoundRobin.re.mjs:901
 msgid "Anti-Team {0}"
 msgstr "แอนตี้ทีม {0}"
 
@@ -80,10 +80,6 @@ msgstr "แอนตี้ทีม"
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
 msgid "Cancel"
 msgstr "ยกเลิก"
-
-#: src/components/organisms/RoundRobin.re.mjs:610
-msgid "Check in at least 4 players to start generating matches"
-msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:76
 msgid "Classic round-robin draws"
@@ -133,11 +129,11 @@ msgstr "สร้างทีมแรกของคุณเพื่อเร
 msgid "Current Round:"
 msgstr "รอบปัจจุบัน:"
 
-#: src/components/organisms/RoundRobin.re.mjs:1031
+#: src/components/organisms/RoundRobin.re.mjs:1048
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
 
-#: src/components/organisms/RoundRobin.re.mjs:1031
+#: src/components/organisms/RoundRobin.re.mjs:1048
 msgid "Debug: ON"
 msgstr "ดีบัก: เปิด"
 
@@ -212,11 +208,7 @@ msgstr "สร้างคู่แข่ง"
 msgid "Guest Names (one per line)"
 msgstr "ชื่อแขก (หนึ่งชื่อต่อบรรทัด)"
 
-#: src/components/organisms/RoundRobin.re.mjs:623
-msgid "Guest player addition UI to be implemented"
-msgstr ""
-
-#: src/components/organisms/RoundRobin.re.mjs:1019
+#: src/components/organisms/RoundRobin.re.mjs:1036
 msgid "Help"
 msgstr "ช่วยเหลือ"
 
@@ -239,10 +231,6 @@ msgstr "ทีมแพ้ (ทีม {0})"
 #: src/components/organisms/PlayerSettingsModal.re.mjs:126
 msgid "Male"
 msgstr "ชาย"
-
-#: src/components/organisms/RoundRobin.re.mjs:327
-msgid "Manage a round-robin tournament with guest players"
-msgstr ""
 
 #: src/components/organisms/RoundSection.re.mjs:175
 msgid "match"
@@ -317,6 +305,10 @@ msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
 msgstr "ผู้เล่นจะถูกแบ่งเป็นกลุ่มระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบรอบโรบินโดยทีมจะสมดุลตามทักษะ"
+
+#: src/components/organisms/RoundRobin.re.mjs:679
+msgid "Please update to a recent version of Chrome, Firefox, or Safari."
+msgstr "กรุณาอัปเดตเป็น Chrome, Firefox หรือ Safari เวอร์ชันล่าสุด"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:97
 msgid "Preview ({0} guest{1})"
@@ -416,7 +408,7 @@ msgstr "กลยุทธ์"
 msgid "Strategy:"
 msgstr "กลยุทธ์:"
 
-#: src/components/organisms/RoundRobin.re.mjs:663
+#: src/components/organisms/RoundRobin.re.mjs:665
 msgid "Team {0}"
 msgstr "ทีม {0}"
 
@@ -473,6 +465,10 @@ msgstr "VS"
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
+
+#: src/components/organisms/RoundRobin.re.mjs:675
+msgid "Your browser is too old to use this feature."
+msgstr "เบราว์เซอร์ของคุณเก่าเกินไปสำหรับฟีเจอร์นี้"
 
 #: src/components/organisms/RoundRobin.re.mjs:463
 #~ msgid "{0, plural, one {player} other {players}}"

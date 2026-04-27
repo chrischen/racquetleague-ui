@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"XJOV1Y\":\"종목\",\"sgRF0k\":\"메시지 추가...\",\"yF/hSW\":\"이벤트가 업데이트되었습니다\",\"0hnuz0\":[\"전체 \",[\"0\"],\"개 항목 보기\"],\"6lGV3K\":\"간략히 보기\"}");

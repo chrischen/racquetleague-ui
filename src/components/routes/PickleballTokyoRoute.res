@@ -16,6 +16,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/PickleballTokyoPage.re/vi"),
 })
 
 @genType

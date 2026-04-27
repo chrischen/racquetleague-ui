@@ -11,11 +11,17 @@ var zhTWFallback = 'zh-TW';
 
 var zhCNFallback = 'zh-CN';
 
+var koFallback = 'ko';
+
+var viFallback = 'vi';
+
 export {
   enFallback ,
   jaFallback ,
   thFallback ,
   zhTWFallback ,
   zhCNFallback ,
+  koFallback ,
+  viFallback ,
 }
 /* No side effect */

@@ -23,8 +23,14 @@ function loadMessages(src) {
       case "ja" :
           tmp = src.ja;
           break;
+      case "ko" :
+          tmp = src.ko;
+          break;
       case "th" :
           tmp = src.th;
+          break;
+      case "vi" :
+          tmp = src.vi;
           break;
       case "zh-CN" :
           tmp = src.zhCN;
@@ -50,8 +56,14 @@ function loadMessagesForDetected(src) {
       case "ja" :
           tmp = src.ja;
           break;
+      case "ko" :
+          tmp = src.ko;
+          break;
       case "th" :
           tmp = src.th;
+          break;
+      case "vi" :
+          tmp = src.vi;
           break;
       case "zh-CN" :
           tmp = src.zhCN;

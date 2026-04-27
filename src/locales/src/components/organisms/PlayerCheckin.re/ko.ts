@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"OvopWj\":[[\"0\"],\"/\",[\"1\"],\" 체크인\"],\"ubPOvH\":\"$\",\"7FUjUc\":\"게스트 플레이어 추가\",\"GsQP9B\":\"플레이어 시드 조정\",\"dEgA5A\":\"취소\",\"B2CXh/\":\"플레이어를 드래그하여 초기 시드를 재정렬하세요\",\"60TdtF\":\"뮤\",\"uPQbgo\":\"미납\",\"v4nCHK\":\"납부됨\",\"oGBvWN\":\"플레이어 체크인\",\"dQttgC\":\"시드 조정 저장\"}");

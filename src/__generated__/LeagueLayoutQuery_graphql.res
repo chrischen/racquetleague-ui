@@ -161,6 +161,13 @@ let node: operationType = %raw(json` {
                 "kind": "ScalarField",
                 "name": "picture",
                 "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "locale",
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -171,12 +178,12 @@ let node: operationType = %raw(json` {
     ]
   },
   "params": {
-    "cacheID": "bf6a803dfb815a0909315969b2615d81",
+    "cacheID": "21bdce6ef2440d325376d7504e32257d",
     "id": null,
     "metadata": {},
     "name": "LeagueLayoutQuery",
     "operationKind": "query",
-    "text": "query LeagueLayoutQuery {\n  ...LeagueNav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n  }\n}\n\nfragment LeagueNav_query on Query {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n    ...LeagueNav_viewer\n  }\n}\n\nfragment LeagueNav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query LeagueLayoutQuery {\n  ...LeagueNav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment LeagueNav_query on Query {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n    ...LeagueNav_viewer\n  }\n}\n\nfragment LeagueNav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
   }
 } `)
 

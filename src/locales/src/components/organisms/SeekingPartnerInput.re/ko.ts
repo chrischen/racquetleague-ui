@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"+rZFLM\":\"복식 파트너 구함\",\"hor1p7\":\"RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다\"}");

@@ -1,0 +1,272 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1272
+msgid "Badminton"
+msgstr "Cầu lông"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1276
+msgid "Table Tennis"
+msgstr "Bóng bàn"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1280
+msgid "Pickleball"
+msgstr "Pickleball"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1284
+msgid "Futsal"
+msgstr "Futsal"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1288
+msgid "Basketball"
+msgstr "Bóng rổ"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1292
+msgid "Volleyball"
+msgstr "Bóng chuyền"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1296
+msgid "Crossminton"
+msgstr "Crossminton"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1300
+msgid "Padel"
+msgstr "Padel"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1304
+msgid "drill"
+msgstr "luyện tập"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1308
+msgid "comp"
+msgstr "thi đấu"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1312
+msgid "rec"
+msgstr "giải trí"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1316
+msgid "all level"
+msgstr "mọi trình độ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:488
+msgid "{0} hours"
+msgstr "{0} giờ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:488
+msgid "{0} hours and {1} minutes"
+msgstr "{0} giờ {1} phút"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:490
+msgid "{0} minutes"
+msgstr "{0} phút"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:66
+msgid "activity is required"
+msgstr "cần có môn thể thao"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:715
+msgid "Add any additional information about the event..."
+msgstr "Thêm bất kỳ thông tin bổ sung nào về sự kiện..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:413
+msgid "at"
+msgstr "lúc"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1112
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr ""
+"Chơi giải trí tập trung vào vui vẻ và giao lưu xã hội. Phù hợp với tất cả "
+"trình độ."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:424
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1066
+msgid "Competitive"
+msgstr "Thi đấu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1256
+msgid "Create Event"
+msgstr "Tạo sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:432
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1149
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1179
+msgid "Drill session"
+msgstr "Buổi luyện tập"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:429
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1130
+msgid "DUPR rated"
+msgstr "Có xếp hạng DUPR"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:669
+msgid "End time"
+msgstr "Giờ kết thúc"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:78
+msgid "end time is required"
+msgstr "cần có giờ kết thúc"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:742
+msgid "Enter price"
+msgstr "Nhập giá"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:75
+msgid "event date is required"
+msgstr "cần có ngày sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:924
+msgid "Event Details"
+msgstr "Chi tiết sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:711
+msgid "Event details (optional)"
+msgstr "Chi tiết sự kiện (tùy chọn)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:559
+msgid "Event schedule"
+msgstr "Lịch trình sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:686
+msgid "Event title"
+msgstr "Tiêu đề sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1055
+msgid "Event type"
+msgstr "Loại sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1217
+msgid "Find Players"
+msgstr "Tìm người chơi"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:857
+msgid "Find players for your event?"
+msgstr "Tìm người chơi cho sự kiện của bạn?"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1017
+msgid "Format"
+msgstr "Định dạng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1123
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1174
+msgid "Format options"
+msgstr "Tùy chọn định dạng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:690
+msgid "Friday Night Pickleball"
+msgstr "Pickleball tối thứ Sáu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:862
+msgid "List your event publicly to help fill open spots"
+msgstr "Liệt kê sự kiện của bạn công khai để giúp lấp đầy chỗ trống"
+
+#: src/components/pages/CreateLocationEventPage.re.mjs:62
+msgid "location doesn't exist."
+msgstr "địa điểm không tồn tại."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:698
+msgid "Max RSVPs (optional)"
+msgstr "RSVP tối đa (tùy chọn)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Minimum rating (optional)"
+msgstr "Xếp hạng tối thiểu (tùy chọn)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:702
+msgid "No limit"
+msgstr "Không giới hạn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:830
+msgid "No minimum"
+msgstr "Không có tối thiểu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:418
+#: src/components/organisms/CreateLocationEventForm.re.mjs:437
+msgid "Not set"
+msgstr "Chưa đặt"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+msgid "Paid event"
+msgstr "Sự kiện có phí"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:732
+msgid "Price"
+msgstr "Giá"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:442
+msgid "Private event"
+msgstr "Sự kiện riêng tư"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:455
+msgid "Public"
+msgstr "Công khai"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:457
+msgid "Public event"
+msgstr "Sự kiện công khai"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:896
+msgid "Read more..."
+msgstr "Đọc thêm..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:426
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1062
+msgid "Recreational"
+msgstr "Giải trí"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:990
+msgid "Require payment from attendees"
+msgstr "Yêu cầu thanh toán từ người tham dự"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1112
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr ""
+"Chơi nghiêm túc với bảng xếp hạng và đánh giá. Các trận đấu có thể ảnh hưởng "
+"đến xếp hạng của bạn."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:896
+msgid "Show less"
+msgstr "Thu gọn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+msgid "Skill level"
+msgstr "Trình độ kỹ năng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:652
+msgid "Start date and time"
+msgstr "Ngày và giờ bắt đầu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:63
+msgid "title is required"
+msgstr "cần có tiêu đề"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1256
+msgid "Update Event"
+msgstr "Cập nhật sự kiện"

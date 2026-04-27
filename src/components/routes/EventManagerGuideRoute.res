@@ -16,6 +16,8 @@ let loadMessages = Lingui.loadMessages({
   th: Lingui.import("../../locales/src/components/pages/EventManagerGuidePage.re/th"),
   zhTW: Lingui.import("../../locales/src/components/pages/EventManagerGuidePage.re/zh-TW"),
   zhCN: Lingui.import("../../locales/src/components/pages/EventManagerGuidePage.re/zh-CN"),
+  ko: Lingui.import("../../locales/src/components/pages/EventManagerGuidePage.re/ko"),
+  vi: Lingui.import("../../locales/src/components/pages/EventManagerGuidePage.re/vi"),
 })
 
 @genType

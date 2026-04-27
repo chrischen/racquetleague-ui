@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 14:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/SubmitMatch.re.mjs:253
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/components/organisms/SubmitMatch.re.mjs:390
+msgid "Go Back"
+msgstr "Quay lại"
+
+#: src/components/organisms/SubmitMatch.re.mjs:409
+msgid "Loading"
+msgstr "Đang tải"
+
+#: src/components/organisms/SubmitMatch.re.mjs:311
+#: src/components/organisms/SubmitMatch.re.mjs:357
+msgid "Points"
+msgstr "Điểm"
+
+#: src/components/organisms/SubmitMatch.re.mjs:52
+#: src/components/organisms/SubmitMatch.re.mjs:64
+msgid "predicted winner"
+msgstr "người chiến thắng dự đoán"
+
+#: src/components/organisms/SubmitMatch.re.mjs:397
+msgid "Submit Rated"
+msgstr "Nộp có xếp hạng"
+
+#: src/components/organisms/SubmitMatch.re.mjs:323
+#: src/components/organisms/SubmitMatch.re.mjs:369
+msgid "Winner"
+msgstr "Người chiến thắng"

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:201
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
 msgid "biography"
 msgstr "個人簡介"
 
@@ -21,19 +21,35 @@ msgstr "個人簡介"
 msgid "cancel"
 msgstr "取消"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:166
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
 msgid "details about yourself"
 msgstr "關於您自己的詳細資料"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:178
+#: src/components/organisms/SettingsProfileForm.re.mjs:226
 msgid "Doe John"
 msgstr "李大明"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:174
+#: src/components/organisms/SettingsProfileForm.re.mjs:260
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
 msgid "full name"
 msgstr "全名"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:165
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+msgid "gender"
+msgstr "性別"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:256
+msgid "Male"
+msgstr "男性"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:252
+msgid "Prefer not to say"
+msgstr "不願透露"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
 msgid "profile"
 msgstr "個人資料"
 
@@ -51,10 +67,10 @@ msgid ""
 "for a partner"
 msgstr "在 RSVP 名單中在您的名字旁顯示徽章，告訴大家您正在尋找搭檔"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:176
+#: src/components/organisms/SettingsProfileForm.re.mjs:224
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "某些活動需要您在證件上顯示的法定姓名。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:204
+#: src/components/organisms/SettingsProfileForm.re.mjs:292
 msgid "tell us a little about yourself"
 msgstr "告訴我們一些關於您自己的事"
