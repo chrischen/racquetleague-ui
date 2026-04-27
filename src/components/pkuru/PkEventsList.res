@@ -72,7 +72,6 @@ module Day = {
     ~query: RescriptRelay.fragmentRefs<[> #PkEventRow_query]>,
     ~onEventClick: option<string => unit>=?,
     ~onHoverLocation: option<option<string> => unit>=?,
-    ~selectedLocationId: option<string>=?,
     ~shouldHideEvent: option<
       (
         PkEventsListFragment_graphql.Types.fragment_events_edges_node,
@@ -152,14 +151,6 @@ module Day = {
             query
             ?onEventClick
             ?onHoverLocation
-            dimmed={selectedLocationId
-            ->Option.map(selId =>
-              edge.location
-              ->Option.flatMap(l => Some(l.id))
-              ->Option.map(lid => lid != selId)
-              ->Option.getOr(false)
-            )
-            ->Option.getOr(false)}
           />
         })
         ->React.array}
@@ -271,23 +262,37 @@ let make = (
   )->Array.filterMap(key =>
     bucketEventsDict
     ->Js.Dict.get(key)
-    ->Option.map(bucketEvents => {
-      let (label, dateDetails, date) = getBucketMeta(key)
-      (
-        key,
-        <Day
-          label
-          dateDetails
-          date
-          events=bucketEvents
-          viewer
-          query=data.fragmentRefs
-          onEventClick={id => ctx.openDrawer(<PkEventDrawer eventId=id />, "/events/" ++ id)}
-          ?onHoverLocation
-          ?selectedLocationId
-          ?shouldHideEvent
-        />,
-      )
+    ->Option.flatMap(bucketEvents => {
+      let filteredEvents = switch selectedLocationId {
+      | Some(selId) =>
+        bucketEvents->Array.filter(
+          e =>
+            e.location
+            ->Option.flatMap(l => Some(l.id))
+            ->Option.map(lid => lid == selId)
+            ->Option.getOr(false),
+        )
+      | None => bucketEvents
+      }
+      if filteredEvents->Array.length == 0 {
+        None
+      } else {
+        let (label, dateDetails, date) = getBucketMeta(key)
+        Some((
+          key,
+          <Day
+            label
+            dateDetails
+            date
+            events=filteredEvents
+            viewer
+            query=data.fragmentRefs
+            onEventClick={id => ctx.openDrawer(<PkEventDrawer eventId=id />, "/events/" ++ id)}
+            ?onHoverLocation
+            ?shouldHideEvent
+          />,
+        ))
+      }
     })
   )
 

@@ -64,6 +64,8 @@ var Query = {
   retain: retain
 };
 
+var $$MediaQueryList = {};
+
 function PkuruLayout$SidebarContent(props) {
   var isLoggedIn = props.isLoggedIn;
   var $$location = ReactRouterDom.useLocation();
@@ -476,17 +478,22 @@ function PkuruLayout$Layout(props) {
           return v.fragmentRefs;
         }));
   React.useEffect((function () {
-          var h = new Date().getHours();
+          var mq = window.matchMedia("(prefers-color-scheme: dark)");
           setDarkMode(function (param) {
-                if (h >= 18) {
-                  return true;
-                } else {
-                  return h < 6;
-                }
+                return mq.matches;
               });
           setMounted(function (param) {
                 return true;
               });
+          var handleChange = function (e) {
+            setDarkMode(function (param) {
+                  return e.matches;
+                });
+          };
+          mq.addEventListener("change", handleChange);
+          return (function () {
+                    mq.removeEventListener("change", handleChange);
+                  });
         }), []);
   React.useEffect((function () {
           var handler = function () {
@@ -774,6 +781,7 @@ var make = PkuruLayout;
 
 export {
   Query ,
+  $$MediaQueryList ,
   SidebarContent ,
   BrandLogo ,
   Topbar ,

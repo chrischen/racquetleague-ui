@@ -192,7 +192,7 @@ function PkRSVPSection(props) {
           ]
       );
     match$2 = [
-      "±" + stdDev.toFixed(1),
+      "±" + stdDev.toFixed(2),
       match$3[0],
       match$3[1]
     ];
@@ -211,7 +211,7 @@ function PkRSVPSection(props) {
     var avg = Core__Array.reduce(top6, 0, (function (a, b) {
             return a + b;
           })) / top6.length;
-    top6AvgDuprStr = Rating.guessDupr(avg).toFixed(1);
+    top6AvgDuprStr = Rating.guessDupr(avg).toFixed(2);
   } else {
     top6AvgDuprStr = "—";
   }
@@ -229,7 +229,7 @@ function PkRSVPSection(props) {
     }
   };
   var overallMedianDuprStr = Core__Option.getOr(Core__Option.map(medianMu(mus), (function (mu) {
-              return Rating.guessDupr(mu).toFixed(1);
+              return Rating.guessDupr(mu).toFixed(2);
             })), "—");
   var isFull = maxRsvps > 0 && confirmedRsvps.length >= maxRsvps;
   if (maxRsvps > 0) {

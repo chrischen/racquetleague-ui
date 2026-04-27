@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as PinMap from "../organisms/PinMap.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as PkEventsList from "../pkuru/PkEventsList.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -77,10 +78,10 @@ function EventsMapPage(props) {
                                                       }
                                                     });
                                               }),
-                                            selected: hoveredLocationId,
+                                            selected: Core__Option.orElse(hoveredLocationId, selectedLocationId),
                                             navigateOnClick: false
                                           }),
-                                      className: "fixed bottom-[57px] left-0 right-0 h-[calc(50vh-57px)] z-30 lg:relative lg:z-auto lg:bottom-auto lg:left-auto lg:right-auto lg:flex-1 lg:sticky lg:top-0 lg:h-[calc(100vh-56px)]"
+                                      className: "fixed bottom-[57px] left-0 right-0 h-[calc(50vh-57px)] z-30 lg:z-auto lg:bottom-auto lg:left-auto lg:right-auto lg:flex-1 lg:sticky lg:top-0 lg:h-[calc(100vh-56px)]"
                                     })
                               ],
                               className: "flex flex-col lg:flex-row lg:items-start"

@@ -36,12 +36,12 @@ let make = () => {
           <PkEventsList events=fragmentRefs onHoverLocation ?selectedLocationId />
         </div>
         <div
-          className="fixed bottom-[57px] left-0 right-0 h-[calc(50vh-57px)] z-30 lg:relative lg:z-auto lg:bottom-auto lg:left-auto lg:right-auto lg:flex-1 lg:sticky lg:top-0 lg:h-[calc(100vh-56px)]">
+          className="fixed bottom-[57px] left-0 right-0 h-[calc(50vh-57px)] z-30 lg:z-auto lg:bottom-auto lg:left-auto lg:right-auto lg:flex-1 lg:sticky lg:top-0 lg:h-[calc(100vh-56px)]">
           <PinMap
             connection={events.fragmentRefs}
             onLocationClick={location =>
               setSelectedLocationId(prev => prev == Some(location.id) ? None : Some(location.id))}
-            selected=?hoveredLocationId
+            selected=?{hoveredLocationId->Option.orElse(selectedLocationId)}
             navigateOnClick=false
           />
         </div>

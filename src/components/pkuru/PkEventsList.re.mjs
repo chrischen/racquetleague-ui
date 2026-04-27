@@ -77,7 +77,6 @@ function ts(prim0, prim1) {
 }
 
 function PkEventsList$Day(props) {
-  var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
   var onEventClick = props.onEventClick;
   var query = props.query;
@@ -185,13 +184,6 @@ function PkEventsList$Day(props) {
                                                   isLastInGroup: idx === (visibleEvents.length - 1 | 0),
                                                   onEventClick: onEventClick,
                                                   onHoverLocation: onHoverLocation,
-                                                  dimmed: Core__Option.getOr(Core__Option.map(selectedLocationId, (function (selId) {
-                                                              return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(edge.location, (function (l) {
-                                                                                    return l.id;
-                                                                                  })), (function (lid) {
-                                                                                return lid !== selId;
-                                                                              })), false);
-                                                            })), false),
                                                   waitlistCount: waitlistCount,
                                                   query: query
                                                 }, edge.id);
@@ -304,7 +296,17 @@ function PkEventsList(props) {
           return e.startDate;
         }), filterByDate, events);
   var buckets = Core__Array.filterMap(EventsListUtils.sortBucketKeys(Object.keys(bucketEventsDict)), (function (key) {
-          return Core__Option.map(Js_dict.get(bucketEventsDict, key), (function (bucketEvents) {
+          return Core__Option.flatMap(Js_dict.get(bucketEventsDict, key), (function (bucketEvents) {
+                        var filteredEvents = selectedLocationId !== undefined ? bucketEvents.filter(function (e) {
+                                return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(e.location, (function (l) {
+                                                      return l.id;
+                                                    })), (function (lid) {
+                                                  return lid === selectedLocationId;
+                                                })), false);
+                              }) : bucketEvents;
+                        if (filteredEvents.length === 0) {
+                          return ;
+                        }
                         var match = getBucketMeta(key);
                         return [
                                 key,
@@ -312,7 +314,7 @@ function PkEventsList(props) {
                                       label: match[0],
                                       dateDetails: match[1],
                                       date: match[2],
-                                      events: bucketEvents,
+                                      events: filteredEvents,
                                       viewer: viewer,
                                       query: data.fragmentRefs,
                                       onEventClick: (function (id) {
@@ -321,7 +323,6 @@ function PkEventsList(props) {
                                                   }), "/events/" + id);
                                         }),
                                       onHoverLocation: onHoverLocation,
-                                      selectedLocationId: selectedLocationId,
                                       shouldHideEvent: shouldHideEvent
                                     })
                               ];

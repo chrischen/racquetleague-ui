@@ -142,7 +142,7 @@ let make = (
     } else {
       (ts`mixed`, "text-amber-500 dark:text-amber-400")
     }
-    ("±" ++ stdDev->Js.Float.toFixedWithPrecision(~digits=1), label, cls)
+    ("±" ++ stdDev->Js.Float.toFixedWithPrecision(~digits=2), label, cls)
   } else {
     ("—", "", "text-gray-400 dark:text-gray-500")
   }
@@ -153,7 +153,7 @@ let make = (
       ->Array.toSorted((a, b) => b -. a)
       ->Array.slice(~start=0, ~end=6)
     let avg = top6->Array.reduce(0., (a, b) => a +. b) /. Float.fromInt(top6->Array.length)
-    avg->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1)
+    avg->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
   } else {
     "—"
   }
@@ -172,7 +172,7 @@ let make = (
 
   let overallMedianDuprStr =
     medianMu(mus)
-    ->Option.map(mu => mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1))
+    ->Option.map(mu => mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2))
     ->Option.getOr("—")
 
   let isFull = maxRsvps > 0 && confirmedRsvps->Array.length >= maxRsvps

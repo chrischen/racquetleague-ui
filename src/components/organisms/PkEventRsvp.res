@@ -39,7 +39,7 @@ let make = (
     let skillStr =
       rsvp.rating
       ->Option.flatMap(r => r.mu)
-      ->Option.map(mu => Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=1))
+      ->Option.map(mu => Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2))
       ->Option.getOr("—")
 
     if isWaitlisted {

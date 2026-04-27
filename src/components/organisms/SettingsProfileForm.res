@@ -7,9 +7,9 @@ module Mutation = %relay(`
    updateProfile(input: $input) {
      viewer {
        id
-       lineUsername
        fullName
        biography
+       lineUsername
        gender
        email
      }
@@ -24,10 +24,12 @@ module QueryFragment = %relay(`
   fragment SettingsProfileForm_query on Query {
     viewer {
       profile {
+        id
         fullName
         biography
         lineUsername
         gender
+        email
       }
     }
   }

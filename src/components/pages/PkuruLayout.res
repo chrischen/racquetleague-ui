@@ -24,6 +24,15 @@ external addPopstateListener: (string, unit => unit) => unit = "addEventListener
 @val @scope("window")
 external removePopstateListener: (string, unit => unit) => unit = "removeEventListener"
 
+module MediaQueryList = {
+  type t
+  type event = {matches: bool}
+  @val external matchMedia: string => t = "window.matchMedia"
+  @get external matches: t => bool = "matches"
+  @send external addEventListener: (t, string, event => unit) => unit = "addEventListener"
+  @send external removeEventListener: (t, string, event => unit) => unit = "removeEventListener"
+}
+
 module SidebarContent = {
   @react.component
   let make = (~isLoggedIn: bool) => {
@@ -331,10 +340,14 @@ module Layout = {
     let gviewer = viewer->Option.map(v => v.fragmentRefs)
 
     React.useEffect0(() => {
-      let h = Js.Date.getHours(Js.Date.make())
-      setDarkMode(_ => h >= 18. || h < 6.)
+      let mq = MediaQueryList.matchMedia("(prefers-color-scheme: dark)")
+      setDarkMode(_ => mq->MediaQueryList.matches)
       setMounted(_ => true)
-      None
+      let handleChange = (e: MediaQueryList.event) => {
+        setDarkMode(_ => e.matches)
+      }
+      mq->MediaQueryList.addEventListener("change", handleChange)
+      Some(() => mq->MediaQueryList.removeEventListener("change", handleChange))
     })
 
     React.useEffect0(() => {

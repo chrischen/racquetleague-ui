@@ -56,7 +56,7 @@ function PkEventRsvp(props) {
                     var skillStr = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(rsvp.rating, (function (r) {
                                     return r.mu;
                                   })), (function (mu) {
-                                return Rating.guessDupr(mu).toFixed(1);
+                                return Rating.guessDupr(mu).toFixed(2);
                               })), "—");
                     if (isWaitlisted) {
                       var pos = Core__Option.getOr(waitlistPosition, 0);
