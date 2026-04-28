@@ -198,8 +198,8 @@ function SettingsProfileForm(props) {
               },
               children: Caml_option.some(JsxRuntime.jsx(WaitForMessages.make, {
                         children: (function () {
-                            var newrecord = Caml_obj.obj_dup(register("fullName", undefined));
-                            var match = formState.errors.fullName;
+                            var newrecord = Caml_obj.obj_dup(register("username", undefined));
+                            var match = formState.errors.username;
                             var tmp;
                             if (match !== undefined) {
                               var message = match.message;
@@ -210,21 +210,33 @@ function SettingsProfileForm(props) {
                             } else {
                               tmp = null;
                             }
+                            var newrecord$1 = Caml_obj.obj_dup(register("fullName", undefined));
+                            var match$1 = formState.errors.fullName;
                             var tmp$1;
-                            tmp$1 = gender !== undefined ? (
-                                gender === "female" ? "female" : "male"
-                              ) : "";
-                            var newrecord$1 = Caml_obj.obj_dup(register("biography", undefined));
-                            var match$1 = formState.errors.biography;
-                            var tmp$2;
                             if (match$1 !== undefined) {
                               var message$1 = match$1.message;
-                              tmp$2 = message$1 !== undefined ? JsxRuntime.jsx("p", {
+                              tmp$1 = message$1 !== undefined ? JsxRuntime.jsx("p", {
                                       children: message$1,
                                       className: "mt-1 text-sm text-red-600 dark:text-red-400"
                                     }) : null;
                             } else {
-                              tmp$2 = null;
+                              tmp$1 = null;
+                            }
+                            var tmp$2;
+                            tmp$2 = gender !== undefined ? (
+                                gender === "female" ? "female" : "male"
+                              ) : "";
+                            var newrecord$2 = Caml_obj.obj_dup(register("biography", undefined));
+                            var match$2 = formState.errors.biography;
+                            var tmp$3;
+                            if (match$2 !== undefined) {
+                              var message$2 = match$2.message;
+                              tmp$3 = message$2 !== undefined ? JsxRuntime.jsx("p", {
+                                      children: message$2,
+                                      className: "mt-1 text-sm text-red-600 dark:text-red-400"
+                                    }) : null;
+                            } else {
+                              tmp$3 = null;
                             }
                             return JsxRuntime.jsx(JsxRuntime.Fragment, {
                                         children: Caml_option.some(JsxRuntime.jsxs("form", {
@@ -234,18 +246,29 @@ function SettingsProfileForm(props) {
                                                                 children: [
                                                                   JsxRuntime.jsxs("div", {
                                                                         children: [
+                                                                          JsxRuntime.jsx("label", {
+                                                                                children: t`Display Name`,
+                                                                                className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
+                                                                                htmlFor: "displayName"
+                                                                              }),
+                                                                          JsxRuntime.jsx("input", (newrecord.type = "text", newrecord.placeholder = t`How you appear to other players`, newrecord.id = "displayName", newrecord.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord)),
+                                                                          tmp
+                                                                        ]
+                                                                      }),
+                                                                  JsxRuntime.jsxs("div", {
+                                                                        children: [
                                                                           JsxRuntime.jsxs("div", {
                                                                                 children: [
                                                                                   JsxRuntime.jsx("label", {
                                                                                         children: t`Full name`,
-                                                                                        className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
+                                                                                        className: "block text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2",
                                                                                         htmlFor: "fullName"
                                                                                       }),
-                                                                                  JsxRuntime.jsx("input", (newrecord.type = "text", newrecord.placeholder = t`Doe John`, newrecord.id = "fullName", newrecord.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord)),
-                                                                                  tmp,
+                                                                                  JsxRuntime.jsx("input", (newrecord$1.type = "text", newrecord$1.placeholder = t`Doe John`, newrecord$1.id = "fullName", newrecord$1.className = "block w-full px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-gray-50 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-400", newrecord$1)),
+                                                                                  tmp$1,
                                                                                   JsxRuntime.jsx("p", {
-                                                                                        children: t`Some events require your legal name as shown on an ID card.`,
-                                                                                        className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
+                                                                                        children: t`Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta`,
+                                                                                        className: "mt-2 text-xs text-gray-400 dark:text-gray-500"
                                                                                       })
                                                                                 ]
                                                                               }),
@@ -273,7 +296,7 @@ function SettingsProfileForm(props) {
                                                                                         ],
                                                                                         className: "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100",
                                                                                         id: "gender",
-                                                                                        value: tmp$1,
+                                                                                        value: tmp$2,
                                                                                         onChange: (function (e) {
                                                                                             var value = e.target.value;
                                                                                             setGender(function (param) {
@@ -300,12 +323,12 @@ function SettingsProfileForm(props) {
                                                                                 className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                                                 htmlFor: "biography"
                                                                               }),
-                                                                          JsxRuntime.jsx("textarea", (newrecord$1.rows = 6, newrecord$1.placeholder = t`Tell us a little about yourself...`, newrecord$1.id = "biography", newrecord$1.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$1)),
+                                                                          JsxRuntime.jsx("textarea", (newrecord$2.rows = 6, newrecord$2.placeholder = t`Tell us a little about yourself...`, newrecord$2.id = "biography", newrecord$2.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$2)),
                                                                           JsxRuntime.jsx("p", {
                                                                                 children: t`tell us a little about yourself`,
                                                                                 className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
                                                                               }),
-                                                                          tmp$2
+                                                                          tmp$3
                                                                         ]
                                                                       }),
                                                                   JsxRuntime.jsx("div", {

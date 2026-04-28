@@ -8,6 +8,7 @@ module Types = {
     @live id: string,
     mu: option<float>,
     ordinal: option<float>,
+    sigma: option<float>,
   }
   type fragment = {
     eventRating: option<fragment_eventRating>,
@@ -94,6 +95,13 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "mu",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "sigma",
           "storageKey": null
         }
       ],

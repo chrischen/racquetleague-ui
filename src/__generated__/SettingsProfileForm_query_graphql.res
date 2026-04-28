@@ -6,8 +6,10 @@ module Types = {
 
   type rec fragment_viewer_profile = {
     biography: option<string>,
+    email: option<string>,
     fullName: option<string>,
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
+    @live id: string,
     lineUsername: option<string>,
   }
   and fragment_viewer = {
@@ -90,6 +92,13 @@ let node: operationType = %raw(json` {
               "alias": null,
               "args": null,
               "kind": "ScalarField",
+              "name": "id",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
               "name": "fullName",
               "storageKey": null
             },
@@ -112,6 +121,13 @@ let node: operationType = %raw(json` {
               "args": null,
               "kind": "ScalarField",
               "name": "gender",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "email",
               "storageKey": null
             }
           ],

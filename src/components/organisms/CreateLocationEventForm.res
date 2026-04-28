@@ -381,14 +381,15 @@ let make = (
 
   // Autofill minRating based on selected level tags
   React.useEffect(() => {
-    // Map of level tags to rating values
+    // Map of level tags to mu values via inverse DUPR estimation
     let levelToRating = tag =>
       switch tag {
-      | "3.0+" => Some(11.0)
-      | "3.5+" => Some(17.0)
-      | "4.0+" => Some(21.0)
-      | "4.5+" => Some(25.0)
-      | "5.0+" => Some(30.0)
+      | "2.5+" => Some(Rating.duprToMu(2.5))
+      | "3.0+" => Some(Rating.duprToMu(3.0))
+      | "3.5+" => Some(Rating.duprToMu(3.5))
+      | "4.0+" => Some(Rating.duprToMu(4.0))
+      | "4.5+" => Some(Rating.duprToMu(4.5))
+      | "5.0+" => Some(Rating.duprToMu(5.0))
       | _ => None
       }
 
@@ -398,7 +399,7 @@ let make = (
       setValue(MinRating, Value(""))
     } else {
       // Get all specific level tags that have rating mappings
-      let specificLevels = ["3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
+      let specificLevels = ["2.5+", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
       let selectedSpecificLevels =
         selectedTags->Array.filter(tag => specificLevels->Array.includes(tag))
 
@@ -411,7 +412,7 @@ let make = (
         lowestLevel
         ->Option.flatMap(levelToRating)
         ->Option.forEach(rating => {
-          setValue(MinRating, Value(rating->Float.toString))
+          setValue(MinRating, Value(rating->Js.Float.toFixedWithPrecision(~digits=2)))
         })
       }
     }
@@ -542,7 +543,7 @@ let make = (
     if listed {
       let levelTags =
         selectedTags->Array.filter(tag =>
-          ["all level", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]->Array.includes(tag)
+          ["all level", "2.5+", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]->Array.includes(tag)
         )
       if levelTags->Array.length > 0 {
         (ts`Public`) ++ " • " ++ levelTags->Array.join(", ")
@@ -1139,7 +1140,7 @@ let make = (
                           {t`Skill level`}
                         </label>
                         <div className="flex flex-wrap gap-2">
-                          {["all level", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
+                          {["all level", "2.5+", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
                           ->Array.map(tag =>
                             <button
                               key={tag}
@@ -1185,7 +1186,7 @@ let make = (
                             {...register(MinRating, ~options={required: false})}
                             id="minRating"
                             type_="number"
-                            step=0.1
+                            step=0.01
                             placeholder={ts`No minimum`}
                             className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
                           />

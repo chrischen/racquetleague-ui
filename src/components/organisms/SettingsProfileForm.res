@@ -146,11 +146,32 @@ let make = (~query) => {
           <div
             className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
             <div className="px-4 pb-4 pt-6 space-y-6">
+              <div>
+                <label
+                  htmlFor="displayName"
+                  className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  {t`Display Name`}
+                </label>
+                <input
+                  {...register(Username)}
+                  id="displayName"
+                  type_="text"
+                  placeholder={ts`How you appear to other players`}
+                  className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100"
+                />
+                {switch formState.errors.username {
+                | Some({message: ?Some(message)}) =>
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                    {message->React.string}
+                  </p>
+                | _ => React.null
+                }}
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label
                     htmlFor="fullName"
-                    className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                    className="block text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">
                     {t`Full name`}
                   </label>
                   <input
@@ -158,7 +179,7 @@ let make = (~query) => {
                     id="fullName"
                     type_="text"
                     placeholder={ts`Doe John`}
-                    className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100"
+                    className="block w-full px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-gray-50 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-400"
                   />
                   {switch formState.errors.fullName {
                   | Some({message: ?Some(message)}) =>
@@ -167,8 +188,8 @@ let make = (~query) => {
                     </p>
                   | _ => React.null
                   }}
-                  <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                    {t`Some events require your legal name as shown on an ID card.`}
+                  <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">
+                    {t`Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta`}
                   </p>
                 </div>
                 <div>

@@ -120,6 +120,13 @@ let node: operationType = %raw(json` {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "fullName",
                 "storageKey": null
               },
@@ -148,7 +155,7 @@ let node: operationType = %raw(json` {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "id",
+                "name": "email",
                 "storageKey": null
               }
             ],
@@ -160,12 +167,12 @@ let node: operationType = %raw(json` {
     ]
   },
   "params": {
-    "cacheID": "9803ade62fbc7b26e4d3b0153d02eab2",
+    "cacheID": "30935d8f854cbcdd214ef3c84998190f",
     "id": null,
     "metadata": {},
     "name": "SettingsProfilePageQuery",
     "operationKind": "query",
-    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    profile {\n      fullName\n      biography\n      lineUsername\n      gender\n      id\n    }\n  }\n}\n"
+    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n  }\n}\n"
   }
 } `)
 

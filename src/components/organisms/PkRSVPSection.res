@@ -73,6 +73,7 @@ module UserFragment = %relay(`
       id
       ordinal
       mu
+      sigma
     }
   }
 `)
@@ -227,25 +228,25 @@ let make = (
 
   // Viewer rating check against minRating
   let viewerRating = viewerUser->Option.flatMap(v => v.eventRating)
-  let viewerOrdinal =
-    viewerRating
-    ->Option.flatMap(r => r.ordinal)
-    ->Option.getOr(Rating.Rating.makeDefault()->Rating.Rating.ordinal)
-  let viewerMu =
-    viewerRating
-    ->Option.flatMap(r => r.mu)
-    ->Option.getOr(Rating.Rating.makeDefault()->Rating.Rating.ordinal)
-  let viewerCanJoin = minRating->Option.map(min => viewerOrdinal >= min)
+  let viewerRatingVal = {
+    let d = Rating.Rating.makeDefault()
+    switch viewerRating {
+    | Some(r) => Rating.Rating.make(r.mu->Option.getOr(d.mu), r.sigma->Option.getOr(d.sigma))
+    | None => d
+    }
+  }
+  let viewerOrdinal2 = Rating.ordinal2(viewerRatingVal)
+  let viewerCanJoin = minRating->Option.map(min => viewerOrdinal2 >= min)
 
   let ratingWarning = switch minRating {
   | Some(min) =>
-    let minDuprStr = min->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1)
+    let minDuprStr = min->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
     switch (viewerUser, viewerCanJoin) {
     | (Some(_), Some(false)) =>
-      let viewerOrdinalStr = viewerOrdinal->Float.toFixed(~digits=2)
-      let viewerMuStr = viewerMu->Float.toFixed(~digits=2)
-      let viewerDuprLo = viewerOrdinal->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1)
-      let viewerDuprHi = viewerMu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=1)
+      let viewerOrdinal2Str = viewerOrdinal2->Float.toFixed(~digits=2)
+      let viewerMuStr = viewerRatingVal.mu->Float.toFixed(~digits=2)
+      let viewerDuprLo = viewerOrdinal2->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
+      let viewerDuprHi = viewerRatingVal.mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
       <div
         className="mb-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40">
         <div
@@ -256,7 +257,7 @@ let make = (
           {t`Required: DUPR ${minDuprStr}+`}
         </div>
         <div className="text-xs text-amber-700/80 dark:text-amber-400/80 mt-0.5">
-          {t`Your rating ${viewerOrdinalStr} ~ ${viewerMuStr} (DUPR ${viewerDuprLo} ~ ${viewerDuprHi}) is below the minimum. You will be placed in the pending list.`}
+          {t`Your rating ${viewerOrdinal2Str} ~ ${viewerMuStr} (DUPR ${viewerDuprLo} ~ ${viewerDuprHi}) is below the minimum. You will be placed in the pending list.`}
         </div>
       </div>
     | _ =>

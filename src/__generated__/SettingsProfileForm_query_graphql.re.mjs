@@ -59,6 +59,13 @@ var node = {
               "alias": null,
               "args": null,
               "kind": "ScalarField",
+              "name": "id",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
               "name": "fullName",
               "storageKey": null
             },
@@ -81,6 +88,13 @@ var node = {
               "args": null,
               "kind": "ScalarField",
               "name": "gender",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "email",
               "storageKey": null
             }
           ],

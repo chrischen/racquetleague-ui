@@ -3,6 +3,7 @@
 import * as Zod from "zod";
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
+import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as DateFns from "date-fns";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
@@ -292,16 +293,18 @@ function CreateLocationEventForm(props) {
   React.useEffect((function () {
           var levelToRating = function (tag) {
             switch (tag) {
+              case "2.5+" :
+                  return Rating.duprToMu(2.5);
               case "3.0+" :
-                  return 11.0;
+                  return Rating.duprToMu(3.0);
               case "3.5+" :
-                  return 17.0;
+                  return Rating.duprToMu(3.5);
               case "4.0+" :
-                  return 21.0;
+                  return Rating.duprToMu(4.0);
               case "4.5+" :
-                  return 25.0;
+                  return Rating.duprToMu(4.5);
               case "5.0+" :
-                  return 30.0;
+                  return Rating.duprToMu(5.0);
               default:
                 return ;
             }
@@ -310,6 +313,7 @@ function CreateLocationEventForm(props) {
             setValue("minRating", "", undefined);
           } else {
             var specificLevels = [
+              "2.5+",
               "3.0+",
               "3.5+",
               "4.0+",
@@ -324,7 +328,7 @@ function CreateLocationEventForm(props) {
                     return selectedSpecificLevels.includes(level);
                   });
               Core__Option.forEach(Core__Option.flatMap(lowestLevel, levelToRating), (function (rating) {
-                      setValue("minRating", rating.toString(), undefined);
+                      setValue("minRating", rating.toFixed(2), undefined);
                     }));
             }
             
@@ -444,6 +448,7 @@ function CreateLocationEventForm(props) {
     var levelTags = selectedTags.filter(function (tag) {
           return [
                     "all level",
+                    "2.5+",
                     "3.0+",
                     "3.5+",
                     "4.0+",
@@ -776,6 +781,7 @@ function CreateLocationEventForm(props) {
                                         JsxRuntime.jsx("div", {
                                               children: [
                                                   "all level",
+                                                  "2.5+",
                                                   "3.0+",
                                                   "3.5+",
                                                   "4.0+",
@@ -827,7 +833,7 @@ function CreateLocationEventForm(props) {
                                                       className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                       htmlFor: "minRating"
                                                     }),
-                                                JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.step = 0.1, newrecord$6.placeholder = t`No minimum`, newrecord$6.id = "minRating", newrecord$6.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$6)),
+                                                JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.step = 0.01, newrecord$6.placeholder = t`No minimum`, newrecord$6.id = "minRating", newrecord$6.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$6)),
                                                 tmp$8
                                               ],
                                               className: "mt-4"

@@ -2233,7 +2233,31 @@ var Matches = {
 };
 
 function guessDupr(ratingMu) {
-  return 0.05594 * (ratingMu - 25) + 3.5;
+  return 0.032610082623550245 * (ratingMu - 25) + 3.5121203871706075;
+}
+
+function guessDuprLo(mu, sigma) {
+  return guessDupr(mu - sigma);
+}
+
+function ordinal2(r) {
+  return r.mu - r.sigma;
+}
+
+function duprToMu(dupr) {
+  return (dupr - 3.5121203871706075) / 0.032610082623550245 + 25;
+}
+
+function duprToOrdinal(dupr) {
+  var mu = duprToMu(dupr);
+  var defaultSigma = Openskill.rating(undefined).sigma;
+  return Rating_ordinal(make(mu, defaultSigma));
+}
+
+function ordinalToDupr(ordinal) {
+  var defaultSigma = Openskill.rating(undefined).sigma;
+  var mu = ordinal + 3 * defaultSigma;
+  return guessDupr(mu);
 }
 
 function getDeprioritizedPlayers(rounds, players, $$break, strategy) {
@@ -2544,6 +2568,11 @@ export {
   PlayersCache ,
   Matches ,
   guessDupr ,
+  guessDuprLo ,
+  ordinal2 ,
+  duprToMu ,
+  duprToOrdinal ,
+  ordinalToDupr ,
   getDeprioritizedPlayers ,
   processTimelineEvent ,
   updatePlayerState ,

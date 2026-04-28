@@ -95,13 +95,6 @@ v1 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "lineUsername",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
             "name": "fullName",
             "storageKey": null
           },
@@ -110,6 +103,13 @@ v1 = [
             "args": null,
             "kind": "ScalarField",
             "name": "biography",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "lineUsername",
             "storageKey": null
           },
           {
@@ -169,12 +169,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "0ad82d0c3e8551a67d1fe2f9a29fb4b4",
+    "cacheID": "705cf6d4673c48a4c045b3a6c24a1654",
     "id": null,
     "metadata": {},
     "name": "SettingsProfileFormMutation",
     "operationKind": "mutation",
-    "text": "mutation SettingsProfileFormMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      id\n      lineUsername\n      fullName\n      biography\n      gender\n      email\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation SettingsProfileFormMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })());

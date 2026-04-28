@@ -2298,7 +2298,38 @@ module Matches = {
 }
 
 let guessDupr = (ratingMu: float): float => {
-  0.05594 *. (ratingMu -. 25.) +. 3.5
+  0.032610082623550245 *. (ratingMu -. 25.) +. 3.5121203871706075
+}
+
+// Returns the estimated DUPR lower bound using mu - 1*sigma
+let guessDuprLo = (mu: float, sigma: float): float => {
+  guessDupr(mu -. sigma)
+}
+
+// ordinal2: mu - 1*sigma (between standard ordinal mu-3σ and mu)
+let ordinal2 = (r: Rating.t): float => {
+  r.mu -. r.sigma
+}
+
+// Inverse of guessDupr: given a DUPR value, returns the corresponding mu
+let duprToMu = (dupr: float): float => {
+  (dupr -. 3.5121203871706075) /. 0.032610082623550245 +. 25.
+}
+
+// Given a DUPR value, returns the expected ordinal using the standard openskill
+// ordinal formula (mu - 3 * sigma) with default sigma
+let duprToOrdinal = (dupr: float): float => {
+  let mu = duprToMu(dupr)
+  let defaultSigma = Rating.makeDefault().sigma
+  Rating.make(mu, defaultSigma)->Rating.ordinal
+}
+
+// Given an ordinal value, returns the estimated DUPR by first recovering mu
+// (ordinal = mu - 3 * default_sigma, so mu = ordinal + 3 * default_sigma)
+let ordinalToDupr = (ordinal: float): float => {
+  let defaultSigma = Rating.makeDefault().sigma
+  let mu = ordinal +. 3. *. defaultSigma
+  guessDupr(mu)
 }
 
 // Calculate deprioritized players (those who should take a break)

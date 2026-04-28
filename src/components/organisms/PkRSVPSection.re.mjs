@@ -283,24 +283,21 @@ function PkRSVPSection(props) {
   var viewerRating = Core__Option.flatMap(viewerUser, (function (v) {
           return v.eventRating;
         }));
-  var viewerOrdinal = Core__Option.getOr(Core__Option.flatMap(viewerRating, (function (r) {
-              return r.ordinal;
-            })), Rating.Rating.ordinal(Rating.Rating.makeDefault()));
-  var viewerMu = Core__Option.getOr(Core__Option.flatMap(viewerRating, (function (r) {
-              return r.mu;
-            })), Rating.Rating.ordinal(Rating.Rating.makeDefault()));
+  var d = Rating.Rating.makeDefault();
+  var viewerRatingVal = viewerRating !== undefined ? Rating.Rating.make(Core__Option.getOr(viewerRating.mu, d.mu), Core__Option.getOr(viewerRating.sigma, d.sigma)) : d;
+  var viewerOrdinal2 = Rating.ordinal2(viewerRatingVal);
   var viewerCanJoin = Core__Option.map(minRating, (function (min) {
-          return viewerOrdinal >= min;
+          return viewerOrdinal2 >= min;
         }));
   var ratingWarning;
   if (minRating !== undefined) {
-    var minDuprStr = Rating.guessDupr(minRating).toFixed(1);
+    var minDuprStr = Rating.guessDupr(minRating).toFixed(2);
     var exit = 0;
     if (viewerUser !== undefined && viewerCanJoin !== undefined && !viewerCanJoin) {
-      var viewerOrdinalStr = viewerOrdinal.toFixed(2);
-      var viewerMuStr = viewerMu.toFixed(2);
-      var viewerDuprLo = Rating.guessDupr(viewerOrdinal).toFixed(1);
-      var viewerDuprHi = Rating.guessDupr(viewerMu).toFixed(1);
+      var viewerOrdinal2Str = viewerOrdinal2.toFixed(2);
+      var viewerMuStr = viewerRatingVal.mu.toFixed(2);
+      var viewerDuprLo = Rating.guessDupr(viewerOrdinal2).toFixed(2);
+      var viewerDuprHi = Rating.guessDupr(viewerRatingVal.mu).toFixed(2);
       ratingWarning = JsxRuntime.jsxs("div", {
             children: [
               JsxRuntime.jsx("div", {
@@ -312,7 +309,7 @@ function PkRSVPSection(props) {
                     className: "text-xs text-amber-800 dark:text-amber-300"
                   }),
               JsxRuntime.jsx("div", {
-                    children: t`Your rating ${viewerOrdinalStr} ~ ${viewerMuStr} (DUPR ${viewerDuprLo} ~ ${viewerDuprHi}) is below the minimum. You will be placed in the pending list.`,
+                    children: t`Your rating ${viewerOrdinal2Str} ~ ${viewerMuStr} (DUPR ${viewerDuprLo} ~ ${viewerDuprHi}) is below the minimum. You will be placed in the pending list.`,
                     className: "text-xs text-amber-700/80 dark:text-amber-400/80 mt-0.5"
                   })
             ],
