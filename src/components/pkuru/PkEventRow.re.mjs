@@ -343,10 +343,12 @@ function PkEventRow(props) {
   var rsvps = match.rsvps;
   var maxRsvps = match.maxRsvps;
   var $$location = match.location;
+  var listed = match.listed;
   var id = match.id;
   var endDate = match.endDate;
   var __id = match.__id;
   var secret = Core__Option.getOr(match.shadow, false);
+  var isUnlisted = listed !== undefined && !listed ? true : false;
   var playersCount = Core__Option.getOr(Core__Option.flatMap(rsvps, (function (rsvps) {
               return Core__Option.map(rsvps.edges, (function (edges) {
                             return edges.filter(function (edge) {
@@ -683,7 +685,7 @@ function PkEventRow(props) {
                                       JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
                                             children: JsxRuntime.jsxs("div", {
                                                   children: [
-                                                    secret ? JsxRuntime.jsx(EventTag.make, {
+                                                    isUnlisted ? JsxRuntime.jsx(EventTag.make, {
                                                             tag: "unlisted",
                                                             responsive: true
                                                           }) : null,

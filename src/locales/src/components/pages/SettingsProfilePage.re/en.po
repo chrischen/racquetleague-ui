@@ -18,51 +18,75 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:289
-msgid "biography"
+#~ msgid "biography"
+#~ msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:322
+msgid "Biography"
 msgstr ""
 
 #: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
-msgstr ""
+#~ msgid "cancel"
+#~ msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:214
-msgid "details about yourself"
+#~ msgid "details about yourself"
+#~ msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:250
+msgid "Display Name"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:226
+#: src/components/organisms/SettingsProfileForm.re.mjs:267
 msgid "Doe John"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:260
+#: src/components/organisms/SettingsProfileForm.re.mjs:293
 msgid "Female"
 msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:222
-msgid "full name"
+#~ msgid "full name"
+#~ msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:263
+msgid "Full name"
 msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:246
-msgid "gender"
+#~ msgid "gender"
+#~ msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:278
+msgid "Gender"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:254
+msgid "How you appear to other players"
 msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:56
 #~ msgid "input is required"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:256
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
 msgid "Male"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:252
+#: src/components/organisms/SettingsProfileForm.re.mjs:285
 msgid "Prefer not to say"
 msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:213
-msgid "profile"
-msgstr ""
+#~ msgid "profile"
+#~ msgstr ""
 
 #: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
+#~ msgid "save"
+#~ msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:349
+msgid "Save profile"
 msgstr ""
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
@@ -73,10 +97,18 @@ msgstr ""
 msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:224
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
 msgid "Some events require your legal name as shown on an ID card."
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:292
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:328
 msgid "tell us a little about yourself"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:326
+msgid "Tell us a little about yourself..."
 msgstr ""

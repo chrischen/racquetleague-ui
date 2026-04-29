@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as AddEventButton from "../organisms/AddEventButton.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -67,16 +68,17 @@ function ClubEventsPage(props) {
                                                 children: [
                                                   JsxRuntime.jsxs("div", {
                                                         children: [
-                                                          JsxRuntime.jsx("h1", {
-                                                                children: Core__Option.getOr(c.name, "?"),
-                                                                className: "text-lg font-semibold text-gray-900 dark:text-white"
+                                                          JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                to: "/clubs/" + urlParams.slug,
+                                                                children: JsxRuntime.jsx(LucideReact.ChevronLeft, {
+                                                                      className: "w-[18px] h-[18px]"
+                                                                    }),
+                                                                className: "p-1.5 -ml-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-[#2a2b30] transition-colors"
                                                               }),
-                                                          Core__Option.getOr(Core__Option.map(c.description, (function (d) {
-                                                                      return JsxRuntime.jsx("p", {
-                                                                                  children: d,
-                                                                                  className: "font-mono text-xs text-gray-500 dark:text-gray-400 mt-1"
-                                                                                });
-                                                                    })), null),
+                                                          JsxRuntime.jsx("h2", {
+                                                                children: Core__Option.getOr(c.name, "?"),
+                                                                className: "font-semibold text-gray-900 dark:text-gray-100 truncate flex-1 min-w-0"
+                                                              }),
                                                           JsxRuntime.jsxs("div", {
                                                                 children: [
                                                                   Core__Option.getOr(Core__Option.flatMap(c.viewerMembership, (function (m) {
@@ -108,10 +110,10 @@ function ClubEventsPage(props) {
                                                                                         });
                                                                             })), null)
                                                                 ],
-                                                                className: "flex items-center gap-2 mt-2"
+                                                                className: "flex items-center gap-2 flex-shrink-0"
                                                               })
                                                         ],
-                                                        className: "px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30]"
+                                                        className: "px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] bg-gray-50 dark:bg-[#1e1f23] flex items-center gap-3"
                                                       }),
                                                   JsxRuntime.jsx(React.Suspense, {
                                                         children: Caml_option.some(JsxRuntime.jsx(ReactRouterDom.Outlet, {})),

@@ -13,19 +13,19 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:602
+#: src/components/pages/PkEventPage.re.mjs:619
 msgid "...more"
 msgstr "...thêm"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:407
+#: src/components/organisms/PkRSVPSection.re.mjs:404
 msgid "· {0} pending"
 msgstr "· {0} đang chờ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:405
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "· +{0} waitlist"
 msgstr "· +{0} chờ đợi"
 
-#: src/components/pkuru/PkEventRow.re.mjs:650
+#: src/components/pkuru/PkEventRow.re.mjs:652
 msgid "[missing title]"
 msgstr "[tiêu đề bị thiếu]"
 
@@ -33,7 +33,7 @@ msgstr "[tiêu đề bị thiếu]"
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:402
+#: src/components/organisms/PkRSVPSection.re.mjs:399
 msgid "{0} joined"
 msgstr "{0} đã tham gia"
 
@@ -50,7 +50,7 @@ msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 msgid "← previous"
 msgstr "← trước"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:468
+#: src/components/organisms/PkRSVPSection.re.mjs:465
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ KỸ NĂNG"
 
@@ -86,20 +86,20 @@ msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
 msgid "balanced"
 msgstr "cân bằng"
 
-#: src/components/pages/PkEventPage.re.mjs:274
+#: src/components/pages/PkEventPage.re.mjs:275
 msgid "cancel event"
 msgstr "hủy sự kiện"
 
-#: src/components/pkuru/PkEventRow.re.mjs:709
+#: src/components/pkuru/PkEventRow.re.mjs:711
 msgid "Canceled"
 msgstr "Đã hủy"
 
-#: src/components/pages/PkEventPage.re.mjs:519
+#: src/components/pages/PkEventPage.re.mjs:520
 msgid "CANCELED"
 msgstr "ĐÃ HỦY"
 
-#: src/components/pages/PkEventPage.re.mjs:388
-#: src/components/pages/PkEventPage.re.mjs:462
+#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:463
 msgid "Claim spot"
 msgstr "Đặt chỗ"
 
@@ -107,7 +107,7 @@ msgstr "Đặt chỗ"
 msgid "Complete your profile"
 msgstr "Hoàn thiện hồ sơ của bạn"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:552
+#: src/components/organisms/PkRSVPSection.re.mjs:549
 msgid "Confirmed · {0}"
 msgstr "Đã xác nhận · {0}"
 
@@ -140,12 +140,12 @@ msgstr "Tên hiển thị"
 msgid "Display name is required"
 msgstr "Cần có tên hiển thị"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:442
-#: src/components/organisms/PkRSVPSection.re.mjs:459
+#: src/components/organisms/PkRSVPSection.re.mjs:439
+#: src/components/organisms/PkRSVPSection.re.mjs:456
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:257
+#: src/components/pages/PkEventPage.re.mjs:258
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
@@ -186,7 +186,7 @@ msgstr "đồng đều"
 msgid "event"
 msgstr "sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:728
+#: src/components/pages/PkEventPage.re.mjs:745
 msgid "Event not found"
 msgstr "Không tìm thấy sự kiện"
 
@@ -215,7 +215,7 @@ msgstr "Lọc theo ngày"
 msgid "For event updates and notifications"
 msgstr "Để nhận cập nhật và thông báo về sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:560
+#: src/components/pages/PkEventPage.re.mjs:577
 msgid "Free"
 msgstr "Miễn phí"
 
@@ -235,15 +235,15 @@ msgstr "Google Calendar"
 msgid "Highly skilled players"
 msgstr "Người chơi trình độ cao"
 
-#: src/components/pkuru/PkEventRow.re.mjs:579
+#: src/components/pkuru/PkEventRow.re.mjs:581
 msgid "Join"
 msgstr "Tham gia"
 
-#: src/components/pages/PkEventPage.re.mjs:462
+#: src/components/pages/PkEventPage.re.mjs:463
 msgid "Join waitlist"
 msgstr "Vào danh sách chờ"
 
-#: src/components/pages/PkEventPage.re.mjs:388
+#: src/components/pages/PkEventPage.re.mjs:389
 msgid "Join waitlist (#{0})"
 msgstr "Vào danh sách chờ (#{0})"
 
@@ -255,21 +255,21 @@ msgstr "Đã tham gia"
 msgid "Last Round"
 msgstr "Vòng cuối"
 
-#: src/components/pkuru/PkEventRow.re.mjs:578
-#: src/components/pages/PkEventPage.re.mjs:369
+#: src/components/pkuru/PkEventRow.re.mjs:580
+#: src/components/pages/PkEventPage.re.mjs:370
 msgid "Leave"
 msgstr "Rời"
 
-#: src/components/pkuru/PkEventRow.re.mjs:834
-#: src/components/pages/PkEventPage.re.mjs:689
+#: src/components/pkuru/PkEventRow.re.mjs:836
+#: src/components/pages/PkEventPage.re.mjs:706
 msgid "Leave event"
 msgstr "Rời sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:602
+#: src/components/pages/PkEventPage.re.mjs:619
 msgid "less"
 msgstr "thu gọn"
 
-#: src/components/pages/PkEventPage.re.mjs:578
+#: src/components/pages/PkEventPage.re.mjs:595
 msgid "Location"
 msgstr "Địa điểm"
 
@@ -289,7 +289,7 @@ msgstr "Nam"
 msgid "Matches will be submitted to DUPR."
 msgstr "Kết quả trận đấu sẽ được gửi lên DUPR."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:451
+#: src/components/organisms/PkRSVPSection.re.mjs:448
 msgid "MEDIAN"
 msgstr "TRUNG VỊ"
 
@@ -322,11 +322,11 @@ msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi ngư�
 msgid "No Score"
 msgstr "Không có điểm"
 
-#: src/components/pages/PkEventPage.re.mjs:642
+#: src/components/pages/PkEventPage.re.mjs:659
 msgid "Notes from the host"
 msgstr "Ghi chú từ người tổ chức"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:385
+#: src/components/organisms/PkRSVPSection.re.mjs:382
 msgid "Participants"
 msgstr "Người tham gia"
 
@@ -334,7 +334,7 @@ msgstr "Người tham gia"
 msgid "Pending"
 msgstr "Đang chờ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:681
+#: src/components/organisms/PkRSVPSection.re.mjs:678
 msgid "Pending · {0}"
 msgstr "Đang chờ · {0}"
 
@@ -387,11 +387,11 @@ msgstr "Xóa RSVP này"
 msgid "Repeat"
 msgstr "Lặp lại"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:311
+#: src/components/organisms/PkRSVPSection.re.mjs:308
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "Yêu cầu: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:332
+#: src/components/organisms/PkRSVPSection.re.mjs:329
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "Cần DUPR {minDuprStr}+ để tham gia"
 
@@ -444,7 +444,7 @@ msgstr "Luyện tập kỹ năng và bài tập kỹ thuật để cải thiện
 msgid "SORTED BY START TIME"
 msgstr "SẮP XẾP THEO GIỜ BẮT ĐẦU"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:512
+#: src/components/organisms/PkRSVPSection.re.mjs:509
 msgid "SPREAD"
 msgstr "ĐỘ PHÂN TÁN"
 
@@ -472,8 +472,8 @@ msgstr ""
 "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
 "lịch ban đầu bằng biểu tượng đặt lại vòng."
 
-#: src/components/pkuru/PkEventRow.re.mjs:835
-#: src/components/pages/PkEventPage.re.mjs:690
+#: src/components/pkuru/PkEventRow.re.mjs:837
+#: src/components/pages/PkEventPage.re.mjs:707
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -515,7 +515,7 @@ msgstr "Hôm nay"
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:434
+#: src/components/organisms/PkRSVPSection.re.mjs:431
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
@@ -523,7 +523,7 @@ msgstr "TB TOP 6"
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
-#: src/components/pages/PkEventPage.re.mjs:263
+#: src/components/pages/PkEventPage.re.mjs:264
 msgid "uncancel event"
 msgstr "khôi phục sự kiện"
 
@@ -545,11 +545,11 @@ msgstr "Xem hồ sơ"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:579
+#: src/components/pkuru/PkEventRow.re.mjs:581
 msgid "Waitlist"
 msgstr "Danh sách chờ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:617
+#: src/components/organisms/PkRSVPSection.re.mjs:614
 msgid "Waitlist · {0}"
 msgstr "Danh sách chờ · {0}"
 
@@ -578,10 +578,21 @@ msgstr "Đội thắng (Đội {0})"
 msgid "Yesterday"
 msgstr "Hôm qua"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:315
+#: src/components/organisms/PkRSVPSection.re.mjs:312
 msgid ""
-"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
-"Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ."
+"Xếp hạng của bạn {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ "
+"duyệt."
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+#~ msgid ""
+#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
+#~ "list."
+#~ msgstr ""
+#~ "Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} "
+#~ "~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách "
+#~ "chờ."

@@ -17,17 +17,17 @@ msgstr ""
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
-#: src/components/pages/PkuruLayout.re.mjs:146
-#: src/components/pages/PkuruLayout.re.mjs:176
+#: src/components/pages/PkuruLayout.re.mjs:152
+#: src/components/pages/PkuruLayout.re.mjs:182
 msgid "Badminton"
 msgstr "Cầu lông"
 
-#: src/components/pages/PkuruLayout.re.mjs:89
+#: src/components/pages/PkuruLayout.re.mjs:95
 msgid "Browse"
 msgstr "Duyệt"
 
-#: src/components/pages/PkuruLayout.re.mjs:99
-#: src/components/pages/PkuruLayout.re.mjs:372
+#: src/components/pages/PkuruLayout.re.mjs:105
+#: src/components/pages/PkuruLayout.re.mjs:378
 msgid "Discover"
 msgstr "Khám phá"
 
@@ -44,11 +44,11 @@ msgstr "Đang tải..."
 msgid "login with Line"
 msgstr "đăng nhập bằng Line"
 
-#: src/components/pages/PkuruLayout.re.mjs:382
+#: src/components/pages/PkuruLayout.re.mjs:388
 msgid "Map"
 msgstr "Bản đồ"
 
-#: src/components/pages/PkuruLayout.re.mjs:107
+#: src/components/pages/PkuruLayout.re.mjs:113
 msgid "Map view"
 msgstr "Xem bản đồ"
 
@@ -60,36 +60,36 @@ msgstr "Câu lạc bộ của tôi"
 msgid "My Clubs"
 msgstr "Câu lạc bộ của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:115
+#: src/components/pages/PkuruLayout.re.mjs:121
 msgid "My events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:409
+#: src/components/pages/PkuruLayout.re.mjs:415
 msgid "My Events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:397
+#: src/components/pages/PkuruLayout.re.mjs:403
 msgid "New"
 msgstr "Mới"
 
-#: src/components/pages/PkuruLayout.re.mjs:265
+#: src/components/pages/PkuruLayout.re.mjs:271
 msgid "New event"
 msgstr "Sự kiện mới"
 
-#: src/components/pages/PkuruLayout.re.mjs:140
-#: src/components/pages/PkuruLayout.re.mjs:168
+#: src/components/pages/PkuruLayout.re.mjs:146
+#: src/components/pages/PkuruLayout.re.mjs:174
 msgid "Pickleball"
 msgstr "Pickleball"
 
-#: src/components/pages/PkuruLayout.re.mjs:123
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:425
 msgid "Profile"
 msgstr "Hồ sơ"
 
-#: src/components/pages/PkuruLayout.re.mjs:159
+#: src/components/pages/PkuruLayout.re.mjs:165
 msgid "Rankings"
 msgstr "Bảng xếp hạng"
 
-#: src/components/pages/PkuruLayout.re.mjs:134
+#: src/components/pages/PkuruLayout.re.mjs:140
 msgid "Sports"
 msgstr "Thể thao"

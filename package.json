@@ -27,7 +27,8 @@
     "build-storybook": "storybook build",
     "lingui:update-compendium-experimental": "zsh update-compendium.sh",
     "lingui:update-compendium": "msgcat --use-first -o src/locales/ja.po src/locales/ja.po src/locales/ja/**/*.po",
-    "lingui:sync-translations": "sh sync-translations.sh"
+    "lingui:sync-translations": "sh sync-translations.sh",
+    "lingui:translate": "node scripts/translate-po.mjs"
   },
   "resolutions": {
     "@swc/core": "1.3.106"
@@ -107,6 +108,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.91.1",
     "@babel/preset-react": "^7.23.3",
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/schema-ast": "^4.0.0",
@@ -154,6 +156,8 @@
     "graphql": "alpha",
     "graphql-tag": "^2.12.6",
     "jsdom": "^22.1.0",
+    "po-parser": "^2.1.1",
+    "pofile": "^1.1.4",
     "postcss": "^8.4.32",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",

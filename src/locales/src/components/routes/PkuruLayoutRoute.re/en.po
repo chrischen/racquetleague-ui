@@ -17,17 +17,17 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:146
-#: src/components/pages/PkuruLayout.re.mjs:176
+#: src/components/pages/PkuruLayout.re.mjs:152
+#: src/components/pages/PkuruLayout.re.mjs:182
 msgid "Badminton"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:89
+#: src/components/pages/PkuruLayout.re.mjs:95
 msgid "Browse"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:99
-#: src/components/pages/PkuruLayout.re.mjs:372
+#: src/components/pages/PkuruLayout.re.mjs:105
+#: src/components/pages/PkuruLayout.re.mjs:378
 msgid "Discover"
 msgstr ""
 
@@ -52,11 +52,11 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:382
+#: src/components/pages/PkuruLayout.re.mjs:388
 msgid "Map"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:107
+#: src/components/pages/PkuruLayout.re.mjs:113
 msgid "Map view"
 msgstr ""
 
@@ -68,33 +68,33 @@ msgstr ""
 msgid "My Clubs"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:115
+#: src/components/pages/PkuruLayout.re.mjs:121
 msgid "My events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:409
+#: src/components/pages/PkuruLayout.re.mjs:415
 msgid "My Events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:397
+#: src/components/pages/PkuruLayout.re.mjs:403
 msgid "New"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:265
+#: src/components/pages/PkuruLayout.re.mjs:271
 msgid "New event"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:140
-#: src/components/pages/PkuruLayout.re.mjs:168
+#: src/components/pages/PkuruLayout.re.mjs:146
+#: src/components/pages/PkuruLayout.re.mjs:174
 msgid "Pickleball"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:123
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:425
 msgid "Profile"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:159
+#: src/components/pages/PkuruLayout.re.mjs:165
 msgid "Rankings"
 msgstr ""
 
@@ -106,6 +106,6 @@ msgstr ""
 #~ msgid "Settings"
 #~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:134
+#: src/components/pages/PkuruLayout.re.mjs:140
 msgid "Sports"
 msgstr ""

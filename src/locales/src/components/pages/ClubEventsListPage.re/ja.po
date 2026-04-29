@@ -13,19 +13,19 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:602
+#: src/components/pages/PkEventPage.re.mjs:619
 msgid "...more"
 msgstr "...もっと見る"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:407
+#: src/components/organisms/PkRSVPSection.re.mjs:404
 msgid "· {0} pending"
 msgstr "· {0} 保留中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:405
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
-#: src/components/pkuru/PkEventRow.re.mjs:650
+#: src/components/pkuru/PkEventRow.re.mjs:652
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
@@ -33,7 +33,7 @@ msgstr "[タイトルがありません]"
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:402
+#: src/components/organisms/PkRSVPSection.re.mjs:399
 msgid "{0} joined"
 msgstr "{0} 参加済み"
 
@@ -50,7 +50,7 @@ msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 msgid "← previous"
 msgstr "← 前へ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:468
+#: src/components/organisms/PkRSVPSection.re.mjs:465
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ スキル"
 
@@ -86,20 +86,20 @@ msgstr "この人をイベントから削除してもよろしいですか？"
 msgid "balanced"
 msgstr "バランス"
 
-#: src/components/pages/PkEventPage.re.mjs:274
+#: src/components/pages/PkEventPage.re.mjs:275
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
-#: src/components/pkuru/PkEventRow.re.mjs:709
+#: src/components/pkuru/PkEventRow.re.mjs:711
 msgid "Canceled"
 msgstr "キャンセル済み"
 
-#: src/components/pages/PkEventPage.re.mjs:519
+#: src/components/pages/PkEventPage.re.mjs:520
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:388
-#: src/components/pages/PkEventPage.re.mjs:462
+#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:463
 msgid "Claim spot"
 msgstr "参加する"
 
@@ -107,7 +107,7 @@ msgstr "参加する"
 msgid "Complete your profile"
 msgstr "プロフィールを完成させる"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:552
+#: src/components/organisms/PkRSVPSection.re.mjs:549
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
 
@@ -140,12 +140,12 @@ msgstr "表示名"
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:442
-#: src/components/organisms/PkRSVPSection.re.mjs:459
+#: src/components/organisms/PkRSVPSection.re.mjs:439
+#: src/components/organisms/PkRSVPSection.re.mjs:456
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:257
+#: src/components/pages/PkEventPage.re.mjs:258
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -186,7 +186,7 @@ msgstr "均等"
 msgid "event"
 msgstr "イベント"
 
-#: src/components/pages/PkEventPage.re.mjs:728
+#: src/components/pages/PkEventPage.re.mjs:745
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -215,7 +215,7 @@ msgstr "日付でフィルター中"
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
 
-#: src/components/pages/PkEventPage.re.mjs:560
+#: src/components/pages/PkEventPage.re.mjs:577
 msgid "Free"
 msgstr "無料"
 
@@ -235,15 +235,15 @@ msgstr "Google カレンダー"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/pkuru/PkEventRow.re.mjs:579
+#: src/components/pkuru/PkEventRow.re.mjs:581
 msgid "Join"
 msgstr "参加"
 
-#: src/components/pages/PkEventPage.re.mjs:462
+#: src/components/pages/PkEventPage.re.mjs:463
 msgid "Join waitlist"
 msgstr "キャンセル待ちに登録"
 
-#: src/components/pages/PkEventPage.re.mjs:388
+#: src/components/pages/PkEventPage.re.mjs:389
 msgid "Join waitlist (#{0})"
 msgstr "キャンセル待ちに参加 (#{0})"
 
@@ -255,21 +255,21 @@ msgstr "参加"
 msgid "Last Round"
 msgstr "前回のラウンド"
 
-#: src/components/pkuru/PkEventRow.re.mjs:578
-#: src/components/pages/PkEventPage.re.mjs:369
+#: src/components/pkuru/PkEventRow.re.mjs:580
+#: src/components/pages/PkEventPage.re.mjs:370
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/pkuru/PkEventRow.re.mjs:834
-#: src/components/pages/PkEventPage.re.mjs:689
+#: src/components/pkuru/PkEventRow.re.mjs:836
+#: src/components/pages/PkEventPage.re.mjs:706
 msgid "Leave event"
 msgstr "イベントを退出"
 
-#: src/components/pages/PkEventPage.re.mjs:602
+#: src/components/pages/PkEventPage.re.mjs:619
 msgid "less"
 msgstr "閉じる"
 
-#: src/components/pages/PkEventPage.re.mjs:578
+#: src/components/pages/PkEventPage.re.mjs:595
 msgid "Location"
 msgstr "場所"
 
@@ -289,7 +289,7 @@ msgstr "男性"
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:451
+#: src/components/organisms/PkRSVPSection.re.mjs:448
 msgid "MEDIAN"
 msgstr "中央値"
 
@@ -322,11 +322,11 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/pages/PkEventPage.re.mjs:642
+#: src/components/pages/PkEventPage.re.mjs:659
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:385
+#: src/components/organisms/PkRSVPSection.re.mjs:382
 msgid "Participants"
 msgstr "参加者"
 
@@ -334,7 +334,7 @@ msgstr "参加者"
 msgid "Pending"
 msgstr "保留中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:681
+#: src/components/organisms/PkRSVPSection.re.mjs:678
 msgid "Pending · {0}"
 msgstr "保留中 · {0}"
 
@@ -387,11 +387,11 @@ msgstr "このRSVPを削除"
 msgid "Repeat"
 msgstr "繰り返し"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:311
+#: src/components/organisms/PkRSVPSection.re.mjs:308
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "必要なDUPR: {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:332
+#: src/components/organisms/PkRSVPSection.re.mjs:329
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加にはDUPR {minDuprStr}以上が必要です"
 
@@ -444,7 +444,7 @@ msgstr "技術向上に焦点を当てたスキル練習とドリル"
 msgid "SORTED BY START TIME"
 msgstr "開始時間順"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:512
+#: src/components/organisms/PkRSVPSection.re.mjs:509
 msgid "SPREAD"
 msgstr "ばらつき"
 
@@ -472,8 +472,8 @@ msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
 
-#: src/components/pkuru/PkEventRow.re.mjs:835
-#: src/components/pages/PkEventPage.re.mjs:690
+#: src/components/pkuru/PkEventRow.re.mjs:837
+#: src/components/pages/PkEventPage.re.mjs:707
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -513,7 +513,7 @@ msgstr "今日"
 msgid "Tomorrow"
 msgstr "明日"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:434
+#: src/components/organisms/PkRSVPSection.re.mjs:431
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
@@ -521,7 +521,7 @@ msgstr "上位6平均"
 msgid "Tuesday"
 msgstr "火曜日"
 
-#: src/components/pages/PkEventPage.re.mjs:263
+#: src/components/pages/PkEventPage.re.mjs:264
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -543,11 +543,11 @@ msgstr "プロフィールを表示"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:579
+#: src/components/pkuru/PkEventRow.re.mjs:581
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:617
+#: src/components/organisms/PkRSVPSection.re.mjs:614
 msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
@@ -575,12 +575,12 @@ msgstr "勝利チーム（チーム{0}）"
 msgid "Yesterday"
 msgstr "昨日"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:315
+#: src/components/organisms/PkRSVPSection.re.mjs:312
 msgid ""
-"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
-"あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
+"あなたのレーティング {viewerOrdinal2Str} ～ {viewerMuStr}（DUPR "
 "{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追"
 "加されます。"
 
@@ -603,3 +603,13 @@ msgstr ""
 #: src/components/pkuru/PkEventRow.re.mjs:215
 #~ msgid "You're in"
 #~ msgstr "参加済み"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+#~ msgid ""
+#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
+#~ "list."
+#~ msgstr ""
+#~ "あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
+#~ "{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに"
+#~ "追加されます。"

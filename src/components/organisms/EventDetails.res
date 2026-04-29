@@ -4,7 +4,6 @@ module Fragment = %relay(`
 		shadow
 		club {
 			name
-			slug
 		}
 		location {
             id

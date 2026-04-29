@@ -867,6 +867,10 @@ function CreateLocationEventForm(props) {
                                                       JsxRuntime.jsx("p", {
                                                             children: t`List your event publicly to help fill open spots`,
                                                             className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
+                                                          }),
+                                                      JsxRuntime.jsx("p", {
+                                                            children: listed ? t`This event is public` : t`This event is private`,
+                                                            className: Core.cx("text-xs font-medium mt-2 inline-flex items-center gap-1 px-2 py-0.5 rounded", listed ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400" : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400")
                                                           })
                                                     ]
                                                   })

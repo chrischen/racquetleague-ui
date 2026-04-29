@@ -13,19 +13,19 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:407
+#: src/components/organisms/PkRSVPSection.re.mjs:404
 msgid "· {0} pending"
 msgstr "· {0} 대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:405
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "· +{0} waitlist"
 msgstr "· +{0} 대기자"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:402
+#: src/components/organisms/PkRSVPSection.re.mjs:399
 msgid "{0} joined"
 msgstr "{0} 참가함"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:468
+#: src/components/organisms/PkRSVPSection.re.mjs:465
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 스킬"
 
@@ -41,12 +41,12 @@ msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 msgid "balanced"
 msgstr "균형"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:552
+#: src/components/organisms/PkRSVPSection.re.mjs:549
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:442
-#: src/components/organisms/PkRSVPSection.re.mjs:459
+#: src/components/organisms/PkRSVPSection.re.mjs:439
+#: src/components/organisms/PkRSVPSection.re.mjs:456
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -54,7 +54,7 @@ msgstr "DUPR"
 msgid "even"
 msgstr "균등"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:451
+#: src/components/organisms/PkRSVPSection.re.mjs:448
 msgid "MEDIAN"
 msgstr "중간값"
 
@@ -67,11 +67,11 @@ msgstr "혼합"
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:385
+#: src/components/organisms/PkRSVPSection.re.mjs:382
 msgid "Participants"
 msgstr "참가자"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:681
+#: src/components/organisms/PkRSVPSection.re.mjs:678
 msgid "Pending · {0}"
 msgstr "대기 중 · {0}"
 
@@ -83,15 +83,15 @@ msgstr "이벤트에서 제거"
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:311
+#: src/components/organisms/PkRSVPSection.re.mjs:308
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "필수: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:332
+#: src/components/organisms/PkRSVPSection.re.mjs:329
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "참가하려면 DUPR {minDuprStr}+ 필요"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:512
+#: src/components/organisms/PkRSVPSection.re.mjs:509
 msgid "SPREAD"
 msgstr "분산"
 
@@ -103,7 +103,7 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:434
+#: src/components/organisms/PkRSVPSection.re.mjs:431
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
@@ -111,14 +111,23 @@ msgstr "상위6평균"
 msgid "View Profile"
 msgstr "프로필 보기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:617
+#: src/components/organisms/PkRSVPSection.re.mjs:614
 msgid "Waitlist · {0}"
 msgstr "대기자 명단 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:315
+#: src/components/organisms/PkRSVPSection.re.mjs:312
 msgid ""
-"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
-"레이팅 {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi})이 최소값보다 낮습니다. 대기 목록에 배치됩니다."
+"귀하의 레이팅 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}）이 최솟값보다 낮습니다. 대기 목록에 추가됩니다."
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+#~ msgid ""
+#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
+#~ "list."
+#~ msgstr ""
+#~ "레이팅 {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+#~ "{viewerDuprHi})이 최소값보다 낮습니다. 대기 목록에 배치됩니다."

@@ -152,7 +152,6 @@ let make = (
         <Lucide.Search className="h-5 w-5 text-gray-400 dark:text-gray-500" />
       </div>
       <GoogleMapsAutocomplete
-        apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk"
         onPlaceSelected=onSelect
         options={{
           types: ["establishment"],

@@ -135,7 +135,6 @@ function AutocompleteLocation(props) {
                               className: "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                             }),
                         JsxRuntime.jsx(ReactGoogleAutocomplete, {
-                              apiKey: "AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk",
                               onPlaceSelected: onSelect,
                               options: {
                                 types: ["establishment"],

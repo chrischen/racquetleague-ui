@@ -40,15 +40,10 @@ module SidebarContent = {
     let location = Router.useLocation()
     let pathname = location.pathname
     let params: {"activitySlug": option<string>} = Router.useParams()
-    let matches = Router.useMatches()
-    let lastHandle = matches->Array.get(Array.length(matches) - 1)->Option.flatMap(m => m.handle)
-    let isIndexRoute =
-      lastHandle == Some("src/components/pages/Events.gen.tsx") &&
-        params["activitySlug"]->Option.isNone
     let activeSlug = switch params["activitySlug"] {
     | Some("badminton") => "badminton"
-    | Some(_) => "pickleball"
-    | None => isIndexRoute ? "pickleball" : ""
+    | Some("pickleball") => "pickleball"
+    | Some(_) | None => ""
     }
     let mapSlug = if activeSlug == "" {
       "pickleball"
@@ -278,7 +273,7 @@ module MobileTabs = {
     }
 
     <nav
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex items-center justify-around px-2 touch-none"
+      className="md:hidden border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex items-center justify-around px-2 touch-none"
       style={ReactDOM.Style.make(~paddingBottom="env(safe-area-inset-bottom, 0)", ())}>
       <LangProvider.Router.Link className={tabClass(pathname == "/")} to="/">
         <Lucide.Home size=20 />
@@ -420,13 +415,6 @@ module Layout = {
                   <Topbar onToggleSidebar={() => setSidebarOpen(prev => !prev)} viewer />
                   <div className="flex-1 overflow-y-auto overscroll-contain">
                     <React.Suspense fallback={React.null}> {children} </React.Suspense>
-                    <div
-                      className="md:hidden"
-                      style={ReactDOM.Style.make(
-                        ~height="calc(4rem + env(safe-area-inset-bottom, 0px))",
-                        (),
-                      )}
-                    />
                   </div>
                   <MobileTabs hostHref />
                 </div>

@@ -10,10 +10,11 @@ import * as EventTag from "../atoms/EventTag.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as ProfileModal from "../organisms/ProfileModal.re.mjs";
-import * as Core from "@linaria/core";
+import * as Core$1 from "@linaria/core";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as PkRSVPSection from "../organisms/PkRSVPSection.re.mjs";
 import * as RelayRuntime from "relay-runtime";
@@ -386,7 +387,7 @@ function PkEventPage$Inner(props) {
                               })
                           }) : JsxRuntime.jsx("button", {
                             children: isFull ? t`Join waitlist (#${(waitlistPlayers.length + 1 | 0).toString()})` : t`Claim spot`,
-                            className: Core.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent"),
+                            className: Core$1.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent"),
                             disabled: match$8[1],
                             onClick: (function (param) {
                                 var proceed = function () {
@@ -460,7 +461,7 @@ function PkEventPage$Inner(props) {
                     children: JsxRuntime.jsx(ReactRouterDom.Link, {
                           to: "/oauth-login?return=" + I18n.getLangPath(locale.lang) + "/events/" + $$event.id,
                           children: isFull ? t`Join waitlist` : t`Claim spot`,
-                          className: Core.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent")
+                          className: Core$1.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent")
                         }),
                     className: "flex items-center gap-2.5"
                   })
@@ -520,12 +521,28 @@ function PkEventPage$Inner(props) {
                                                         className: "inline-flex mb-2 items-center px-2 py-0.5 rounded text-xs font-mono bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
                                                       });
                                           })), null),
-                                JsxRuntime.jsx("div", {
-                                      children: JsxRuntime.jsx("h1", {
-                                            children: secret ? "---" : Core__Option.getOr($$event.title, "Event"),
-                                            className: Core.cx("text-lg font-semibold leading-tight", Core__Option.isSome($$event.deleted) ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100")
-                                          }),
-                                      className: "flex items-center gap-2"
+                                JsxRuntime.jsxs("h1", {
+                                      children: [
+                                        Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (a) {
+                                                    return Core__Option.map(a.slug, (function (slug) {
+                                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                              children: [
+                                                                                JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                                      to: "/e/" + slug,
+                                                                                      children: Core.i18n._(Core__Option.getOr(a.name, slug)),
+                                                                                      className: "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal"
+                                                                                    }),
+                                                                                JsxRuntime.jsx("span", {
+                                                                                      children: "/",
+                                                                                      className: "text-gray-300 dark:text-gray-600 mx-1.5 font-normal"
+                                                                                    })
+                                                                              ]
+                                                                            });
+                                                                }));
+                                                  })), null),
+                                        secret ? "---" : Core__Option.getOr($$event.title, "Event")
+                                      ],
+                                      className: Core$1.cx("text-lg font-semibold leading-tight", Core__Option.isSome($$event.deleted) ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100")
                                     }),
                                 Core__Option.getOr(Core__Option.flatMap($$event.club, (function (club) {
                                             return Core__Option.map(club.slug, (function (slug) {
@@ -539,7 +556,7 @@ function PkEventPage$Inner(props) {
                                 JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
                                       children: JsxRuntime.jsxs("div", {
                                             children: [
-                                              secret ? JsxRuntime.jsx(EventTag.make, {
+                                              Caml_obj.equal($$event.listed, false) ? JsxRuntime.jsx(EventTag.make, {
                                                       tag: "unlisted"
                                                     }) : null,
                                               Core__Option.getOr($$event.tags, []).some(function (t) {

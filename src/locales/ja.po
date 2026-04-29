@@ -78,12 +78,8 @@ msgid "login to join the event"
 msgstr "イベントに参加するにはログインしてください"
 
 #: src/components/pages/CreateEvent.re.mjs:155
-msgid ""
-"Any details from the location will already be included. Mention any "
-"additional event-specific instructions, rules, or details."
-msgstr ""
-"ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
-"細」があれば記載してください。"
+msgid "Any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+msgstr "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳細」があれば記載してください。"
 
 #: src/components/molecules/forms/Form.re.mjs:172
 msgid "cancel"
@@ -124,9 +120,7 @@ msgid "Akabane Elementary School"
 msgstr "赤羽小学校"
 
 #: src/components/organisms/CreateLocation.re.mjs:169
-msgid ""
-"instructions or information that will apply to all events held at this "
-"location."
+msgid "instructions or information that will apply to all events held at this location."
 msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
 
 #: src/components/organisms/CreateLocation.re.mjs:156
@@ -290,12 +284,8 @@ msgid "page not found"
 msgstr "ページが見つかりません"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:263
-msgid ""
-"show your event publicly on our home page. Otherwise, only people with a "
-"link to your event will be able to find it."
-msgstr ""
-"ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを"
-"持っている人だけがイベントを見つけることができます。"
+msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+msgstr "ホームページでイベントを一般公開します。それ以外の場合、イベントへのリンクを持っている人だけがイベントを見つけることができます。"
 
 #: src/components/molecules/LoginLink.re.mjs:10
 msgid "login with Line"
@@ -323,8 +313,7 @@ msgstr "Lineアカウントから以下の情報を収集します"
 
 #: src/components/pages/LoginPage.re.mjs:84
 msgid "event organizers and other users cannot view your email"
-msgstr ""
-"イベント主催者や他のユーザーはあなたのメールアドレスを見ることはできません"
+msgstr "イベント主催者や他のユーザーはあなたのメールアドレスを見ることはできません"
 
 #: src/components/pages/LoginPage.re.mjs:61
 msgid "privacy disclosure"
@@ -394,9 +383,7 @@ msgid "safe-mode login with Line"
 msgstr "Lineでセーフモードログイン"
 
 #: src/components/organisms/CreateLocation.re.mjs:170
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
+msgid "Instructions or information that will apply to all events held at this location."
 msgstr "この場所で開催されるすべてのイベントに適用される指示または情報。"
 
 #: src/components/organisms/EventRsvps.re.mjs:212
@@ -412,12 +399,8 @@ msgid "{0} event details"
 msgstr "{0} イベント詳細"
 
 #: src/components/pages/CreateLocationEvent.re.mjs:272
-msgid ""
-"any details from the location will already be included. Mention any "
-"additional event-specific instructions, rules, or details."
-msgstr ""
-"ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳"
-"細」があれば記載してください。"
+msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+msgstr "ロケ地からの詳細はすでに含まれています。その他のイベント特有の指示、規則、詳細」があれば記載してください。"
 
 #: src/components/pages/CreateLocationEventPage.re.mjs:60
 msgid "Location doesn't exist."
@@ -440,13 +423,8 @@ msgid "login failed"
 msgstr "ログインに失敗しました"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:37
-msgid ""
-"please try again outside of private browsing as it can interfere with Line "
-"login. if the problem persists, you can try the safe-mode login button below."
-msgstr ""
-"Lineログインに影響を与える可能性があるため、プライベートブラウジング外で再試"
-"行してください。問題が解決しない場合は、下のセーフモードログインボタンを試し"
-"てみてください。"
+msgid "please try again outside of private browsing as it can interfere with Line login. if the problem persists, you can try the safe-mode login button below."
+msgstr "Lineログインに影響を与える可能性があるため、プライベートブラウジング外で再試行してください。問題が解決しない場合は、下のセーフモードログインボタンを試してみてください。"
 
 #: src/components/molecules/SubscribeActivity.re.mjs:112
 msgid "subscribe to all {activityName} events"
@@ -547,12 +525,8 @@ msgid "Male"
 msgstr "男性"
 
 #: src/components/pages/LeaguePage.re.mjs:147
-msgid ""
-"Currently the league is in testing mode. To participate, please join the "
-"Pickleball events here:"
-msgstr ""
-"現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに"
-"参加してください:"
+msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
+msgstr "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに参加してください:"
 
 #: src/components/pages/LeaguePage.re.mjs:81
 msgid "Hesacore Grip"
@@ -567,22 +541,16 @@ msgid "Next Prize: June 10"
 msgstr "次の賞品: 6月10日"
 
 #: src/components/pages/LeaguePage.re.mjs:142
-msgid ""
-"Play doubles games with different partners and receive an individual rating. "
-"Prizes are awarded monthly to top players."
-msgstr ""
-"異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は"
-"毎月トッププレイヤーに授与されます。"
+msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+msgstr "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は毎月トッププレイヤーに授与されます。"
 
 #: src/components/pages/LeaguePage.re.mjs:137
 msgid "Recreational Doubles Rankings"
 msgstr "レクリエーショナルダブルスランキング"
 
 #: src/components/pages/LeaguePage.re.mjs:58
-msgid ""
-"This prize will be awarded to the top male and female players on this day."
-msgstr ""
-"この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
+msgid "This prize will be awarded to the top male and female players on this day."
+msgstr "この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
 
 #: src/components/organisms/LeagueNav.re.mjs:128
 msgid "Logout"
@@ -601,22 +569,12 @@ msgid "About the League"
 msgstr "リーグについて"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:44
-msgid ""
-"Ratings are assigned to individual players just by playing doubles games, "
-"even with different partners each game. For doubles ratings we use OpenSkill "
-"(a derivative of TrueSkill), and for singles ratings we use Glicko2."
-msgstr ""
-"ダブルスゲームをプレイするだけで、異なるパートナーとのゲームごとに個別のプレ"
-"イヤーに評価が割り当てられます。ダブルスの評価にはOpenSkill（TrueSkillの派"
-"生）を使用し、シングルスの評価にはGlicko2を使用しています。"
+msgid "Ratings are assigned to individual players just by playing doubles games, even with different partners each game. For doubles ratings we use OpenSkill (a derivative of TrueSkill), and for singles ratings we use Glicko2."
+msgstr "ダブルスゲームをプレイするだけで、異なるパートナーとのゲームごとに個別のプレイヤーに評価が割り当てられます。ダブルスの評価にはOpenSkill（TrueSkillの派生）を使用し、シングルスの評価にはGlicko2を使用しています。"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:34
-msgid ""
-"The Japan Pickleball League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"日本ピクルボールリーグは、コミュニティのレクリエーショナルピクルボールゲーム"
-"とイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"
+msgid "The Japan Pickleball League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "日本ピクルボールリーグは、コミュニティのレクリエーショナルピクルボールゲームとイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"
 
 #: src/components/organisms/MatchList.re.mjs:352
 msgid "...load previous matches"
@@ -668,18 +626,12 @@ msgid "Find League Games"
 msgstr "リーグゲームを見つける"
 
 #: src/components/pages/FindGamesPage.re.mjs:30
-msgid ""
-"To participate in the league and win prizes, please join the league events."
-msgstr ""
-"リーグに参加して賞品を獲得するには、リーグのイベントに参加してください。"
+msgid "To participate in the league and win prizes, please join the league events."
+msgstr "リーグに参加して賞品を獲得するには、リーグのイベントに参加してください。"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:22
-msgid ""
-"The Tokyo Badminton League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"東京バドミントンリーグは、コミュニティのレクリエーショナルピクルボールゲーム"
-"とイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"
+msgid "The Tokyo Badminton League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "東京バドミントンリーグは、コミュニティのレクリエーショナルピクルボールゲームとイベントの品質を向上させるためのオープンソース非営利プロジェクトです。"
 
 #: src/components/pages/LeaguePage.re.mjs:32
 msgid "Tokyo Badminton League"
@@ -930,19 +882,15 @@ msgstr "競争力プラス"
 
 #: src/components/organisms/CompMatch.re.mjs:341
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-msgstr ""
-"マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
+msgstr "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:346
 msgid "Matches are arranged by a maximum skill-spread of +- 2 players."
-msgstr ""
-"マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
+msgstr "マッチは、最大スキルスプレッドが+-2プレイヤーになるように配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:351
 msgid "Matches are arranged by skill while mixing strong and weak players."
-msgstr ""
-"マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
-"す。"
+msgstr "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:349
 msgid "Mixed"
@@ -987,18 +935,11 @@ msgstr "参加するには、こちらのイベントに参加してください
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:38
 msgid "How many players should rest? (currently {0} players are resting)"
-msgstr ""
-"何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
+msgstr "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid ""
-"Set this to the number of players currently resting to enable even leveling "
-"of match counts. Set to 0 to disable and optimize match quality instead, but "
-"this may result in some players playing more matches than others."
-msgstr ""
-"これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にしま"
-"す。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部"
-"のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
+msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
+msgstr "これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にします。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
 
 #: src/components/organisms/SubmitMatch.re.mjs:292
 #: src/components/organisms/SubmitMatch.re.mjs:305
@@ -1018,8 +959,7 @@ msgid "Create Team"
 msgstr "チームを作成"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:468
-msgid ""
-"Players in teams will always be placed in a match together on the same side."
+msgid "Players in teams will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/organisms/AddLeagueMatch.re.mjs:92
@@ -1191,8 +1131,7 @@ msgstr "終了"
 
 #: src/components/organisms/CompMatch.re.mjs:437
 msgid "Optimized for DUPR. Teams created with similar skill level players."
-msgstr ""
-"DUPRに最適化されました。同じスキルレベルのプレイヤーでチームを作成します。"
+msgstr "DUPRに最適化されました。同じスキルレベルのプレイヤーでチームを作成します。"
 
 #: src/components/organisms/CompMatch.re.mjs:118
 msgid "Select"
@@ -1232,12 +1171,8 @@ msgid "seeking a doubles partner"
 msgstr "ダブルスパートナーを探しています"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
-msgstr ""
-"RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
-"す。"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
+msgstr "RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えます。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:194
 msgid "biography"
@@ -1268,8 +1203,7 @@ msgid "tell us a little about yourself"
 msgstr "自己紹介をしてください"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:88
-msgid ""
-"It looks like you may prefer English. Would you like to switch to English?"
+msgid "It looks like you may prefer English. Would you like to switch to English?"
 msgstr "日本語をご希望ですか？日本語に切り替えますか？"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:89
@@ -1297,12 +1231,8 @@ msgid "required rating: {0}"
 msgstr "必要な評価: {0}"
 
 #: src/components/organisms/EventRsvps.re.mjs:204
-msgid ""
-"your rating {0} is too low. please join a JPL open event to boost your "
-"rating. the fastest way is to play and beat Jai a couple of times"
-msgstr ""
-"あなたの評価{0}が低すぎます。評価を上げるためにJPLオープンイベントに参加して"
-"ください。最速の方法は、Jaiと何度かプレイして勝つことです"
+msgid "your rating {0} is too low. please join a JPL open event to boost your rating. the fastest way is to play and beat Jai a couple of times"
+msgstr "あなたの評価{0}が低すぎます。評価を上げるためにJPLオープンイベントに参加してください。最速の方法は、Jaiと何度かプレイして勝つことです"
 
 #: src/components/organisms/AiTetsu.re.mjs:1104
 msgid "Enable All"
@@ -1337,13 +1267,8 @@ msgid "Required rating: {0}"
 msgstr "必要な評価: {0}"
 
 #: src/components/organisms/EventRsvps.re.mjs:221
-msgid ""
-"Your rating {0} is too low. You will be placed in the waitlist until the "
-"rating limit is lowered. Please join a JPL open event to boost your rating."
-msgstr ""
-"あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイティ"
-"ングリストに登録されます。レーティングを上げるためにJPLのオープンイベントに参"
-"加してください。"
+msgid "Your rating {0} is too low. You will be placed in the waitlist until the rating limit is lowered. Please join a JPL open event to boost your rating."
+msgstr "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまでウェイティングリストに登録されます。レーティングを上げるためにJPLのオープンイベントに参加してください。"
 
 #: src/components/organisms/EventFullNames.re.mjs:78
 msgid "guest list"
@@ -1370,14 +1295,8 @@ msgid "pending"
 msgstr "保留中"
 
 #: src/components/organisms/EventRsvps.re.mjs:284
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリスト"
-"の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
-"本当にこのイベントを離れますか？"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "このイベントは満員です。イベントを離れると、あなたのスポットはウェイトリストの誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。本当にこのイベントを離れますか？"
 
 #: src/components/organisms/EventRsvps.re.mjs:283
 msgid "You will lose your spot"
@@ -1404,12 +1323,8 @@ msgid "Checkin All Players"
 msgstr "すべてのプレイヤーをチェックイン"
 
 #: src/components/organisms/CompMatch.re.mjs:371
-msgid ""
-"Not enough players in the queue. Select the players who want to play from "
-"the Queue tab."
-msgstr ""
-"キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選"
-"択してください。"
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
+msgstr "キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選択してください。"
 
 #: src/components/organisms/MatchesView.re.mjs:126
 msgid "Queue All"
@@ -1428,28 +1343,16 @@ msgid "Unqueue All"
 msgstr "すべてのキューを解除"
 
 #: src/components/organisms/EventRsvps.re.mjs:225
-msgid ""
-"Your rating {0} is too low. You will be placed in the pending list until the "
-"rating limit is lowered. Please join another JPL rated event to boost your "
-"rating."
-msgstr ""
-"あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リスト"
-"に登録されます。レーティングを上げるために別のJPL評価イベントに参加してくださ"
-"い。"
+msgid "Your rating {0} is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "あなたのレーティング{0}は低すぎます。レーティングの上限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
 
 #: src/components/organisms/EventRsvps.re.mjs:234
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
 #: src/components/organisms/EventRsvps.re.mjs:236
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上"
-"限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価"
-"イベントに参加してください。"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "あなたのレーティング{0} ~ {1} (DUPR {2} ~ {3})は低すぎます。レーティングの上限が下がるまで保留リストに登録されます。レーティングを上げるために別のJPL評価イベントに参加してください。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:352
 msgid "timezone"
@@ -1497,8 +1400,7 @@ msgid "Fixed Pair"
 msgstr "固定ペア"
 
 #: src/components/organisms/AiTetsu.re.mjs:1096
-msgid ""
-"Players in a team will always be placed in a match together on the same side."
+msgid "Players in a team will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1117
@@ -1522,20 +1424,12 @@ msgid "DUPR"
 msgstr "DUPR"
 
 #: src/components/pages/Event.re.mjs:234
-msgid ""
-"showing up without permission may result in a ban for failing to follow "
-"rules."
-msgstr ""
-"許可なしで参加することは、ルールに従わなかったために禁止される可能性がありま"
-"す。"
+msgid "showing up without permission may result in a ban for failing to follow rules."
+msgstr "許可なしで参加することは、ルールに従わなかったために禁止される可能性があります。"
 
 #: src/components/pages/Event.re.mjs:231
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first to get a referral."
-msgstr ""
-"これはサークルのメンバーシップが必要なプライベートイベントです。このサークル"
-"に参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
+msgstr "これはサークルのメンバーシップが必要なプライベートイベントです。このサークルに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/organisms/CompMatch.re.mjs:343
 msgid "Gender Mixed Doubles"
@@ -1571,11 +1465,8 @@ msgstr "保存"
 
 #: src/components/organisms/EventRsvps.re.mjs:123
 #: src/components/organisms/EventRsvps.re.mjs:124
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
-msgstr ""
-"「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
-"ださい。"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgstr "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してください。"
 
 #: src/components/organisms/NavViewer.re.mjs:71
 msgid "My Clubs"
@@ -1590,18 +1481,8 @@ msgid "How to Play Pickleball in Tokyo"
 msgstr "東京でピックルボールをプレイする方法"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:208
-msgid ""
-"As mentioned above, public games are not really a thing in Japan. However, "
-"you can find some public games on the home page of this website. They will "
-"tend to be full with a waitlist so just join the waitlist and cross your "
-"fingers. 5-6 spots tend to open up the day of the event as people cancel "
-"last minute."
-msgstr ""
-"前述の通り、日本では公開ゲームはあまり一般的ではありません。しかし、このウェ"
-"ブサイトのホームページでいくつかの公開ゲームを見つけることができます。これら"
-"は通常、ウェイティングリストで満員になる傾向があるので、ウェイティングリスト"
-"に参加して幸運を祈ってください。イベント当日になると、直前のキャンセルで5〜6"
-"人分の空きが出ることがよくあります。"
+msgid "As mentioned above, public games are not really a thing in Japan. However, you can find some public games on the home page of this website. They will tend to be full with a waitlist so just join the waitlist and cross your fingers. 5-6 spots tend to open up the day of the event as people cancel last minute."
+msgstr "前述の通り、日本では公開ゲームはあまり一般的ではありません。しかし、このウェブサイトのホームページでいくつかの公開ゲームを見つけることができます。これらは通常、ウェイティングリストで満員になる傾向があるので、ウェイティングリストに参加して幸運を祈ってください。イベント当日になると、直前のキャンセルで5〜6人分の空きが出ることがよくあります。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
 msgid "Book a court and find the players yourself."
@@ -1623,12 +1504,8 @@ msgid "Create an Event at KPI Park"
 msgstr "KPIパークでイベントを作成"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:176
-msgid ""
-"Create an event at one of the locations above (use the buttons above). Make "
-"the event public so people can join you."
-msgstr ""
-"上記の場所のいずれかでイベントを作成します（上記のボタンを使用）。イベントを"
-"公開して、他の人が参加できるようにします。"
+msgid "Create an event at one of the locations above (use the buttons above). Make the event public so people can join you."
+msgstr "上記の場所のいずれかでイベントを作成します（上記のボタンを使用）。イベントを公開して、他の人が参加できるようにします。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:91
 msgid "Create an Event at Pacific Pickle Club"
@@ -1651,28 +1528,12 @@ msgid "How to Find Public Games"
 msgstr "公開ゲームの見つけ方"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:23
-msgid ""
-"Japan does not really have public drop in courts or games. Most pickleball "
-"games happen indoors at community center and school gymnasiums (multi-use "
-"gyms) or on private tennis/pickleball courts and these all require "
-"reservations for court time, or reservations to join the events. Many of the "
-"public facilities do not allow groups to advertise to the public, which "
-"makes it difficult for new players or visitors to drop in on sessions."
-msgstr ""
-"日本では、一般の人が自由に利用できるコートやゲームはあまりありません。ほとん"
-"どのピックルボールの試合は、公民館や学校の体育館（多目的体育館）などの屋内、"
-"または民間のテニス/ピックルボールコートで行われ、これらはすべてコートの時間予"
-"約、またはイベントへの参加予約が必要です。多くの公共施設では、団体が一般に宣"
-"伝することを許可していないため、新しいプレイヤーや訪問者がセッションに飛び入"
-"り参加することが難しくなっています。"
+msgid "Japan does not really have public drop in courts or games. Most pickleball games happen indoors at community center and school gymnasiums (multi-use gyms) or on private tennis/pickleball courts and these all require reservations for court time, or reservations to join the events. Many of the public facilities do not allow groups to advertise to the public, which makes it difficult for new players or visitors to drop in on sessions."
+msgstr "日本では、一般の人が自由に利用できるコートやゲームはあまりありません。ほとんどのピックルボールの試合は、公民館や学校の体育館（多目的体育館）などの屋内、または民間のテニス/ピックルボールコートで行われ、これらはすべてコートの時間予約、またはイベントへの参加予約が必要です。多くの公共施設では、団体が一般に宣伝することを許可していないため、新しいプレイヤーや訪問者がセッションに飛び入り参加することが難しくなっています。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:33
-msgid ""
-"Join any public events on Pkuru.com (this website). If you find an event "
-"without the 'lock' icon and which has a join button, then you can join."
-msgstr ""
-"Pkuru.com（このウェブサイト）で公開イベントに参加してください。「ロック」アイ"
-"コンがなく、参加ボタンがあるイベントを見つけたら、参加できます。"
+msgid "Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and which has a join button, then you can join."
+msgstr "Pkuru.com（このウェブサイト）で公開イベントに参加してください。「ロック」アイコンがなく、参加ボタンがあるイベントを見つけたら、参加できます。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:52
 msgid "KPI Park in Kanagawa/Yokohama"
@@ -1680,22 +1541,15 @@ msgstr "神奈川/横浜のKPIパーク"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:39
 msgid "Message @japanpickle on Instagram for referrals or questions"
-msgstr ""
-"紹介や質問については、Instagramで@japanpickleにメッセージを送ってください"
+msgstr "紹介や質問については、Instagramで@japanpickleにメッセージを送ってください"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:81
 msgid "Pacific Pickle Club at Ariake"
 msgstr "有明のパシフィックピックルサークル"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:217
-msgid ""
-"Please do not show up to any events without permission and only if you are "
-"in the confirmed going list. Indoor events always require a set of clean "
-"indoor only court shoes. They are really serious about this stuff in Japan."
-msgstr ""
-"許可なくイベントに参加しないでください。参加が確定している方のみご参加いただ"
-"けます。屋内イベントでは、常に清潔な室内専用のコートシューズが必要です。日本"
-"ではこの点について非常に厳しいです。"
+msgid "Please do not show up to any events without permission and only if you are in the confirmed going list. Indoor events always require a set of clean indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr "許可なくイベントに参加しないでください。参加が確定している方のみご参加いただけます。屋内イベントでは、常に清潔な室内専用のコートシューズが必要です。日本ではこの点について非常に厳しいです。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:191
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
@@ -1703,42 +1557,23 @@ msgstr "FacebookのJPAAグループに投稿する（主に日本語）"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:180
 msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
-msgstr ""
-"Facebookの横須賀（米海軍基地）ピックルボールグループに投稿してください："
+msgstr "Facebookの横須賀（米海軍基地）ピックルボールグループに投稿してください："
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:27
-msgid ""
-"So, how can one play pickleball in Tokyo then as a tourist, recent "
-"transplant, or a beginner?"
-msgstr ""
-"では、観光客、最近移住してきた人、または初心者は、東京でどのようにピックル"
-"ボールをプレイできるのでしょうか？"
+msgid "So, how can one play pickleball in Tokyo then as a tourist, recent transplant, or a beginner?"
+msgstr "では、観光客、最近移住してきた人、または初心者は、東京でどのようにピックルボールをプレイできるのでしょうか？"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:212
-msgid ""
-"Some events are restricted by level. If you are restricted, just type in "
-"your DUPR rating as a comment with your RSVP."
-msgstr ""
-"一部のイベントはレベルによって制限されています。制限されている場合は、RSVPの"
-"コメントにDUPRレーティングを入力してください。"
+msgid "Some events are restricted by level. If you are restricted, just type in your DUPR rating as a comment with your RSVP."
+msgstr "一部のイベントはレベルによって制限されています。制限されている場合は、RSVPのコメントにDUPRレーティングを入力してください。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:54
-msgid ""
-"The courts require reservations but there are 10 courts and it's generally "
-"available last minute. Therefore you can book the courts just-in-time once "
-"you've already gathered the players."
-msgstr ""
-"コートは予約が必要ですが、10面あり、通常は直前でも予約可能です。そのため、プ"
-"レイヤーを集めてからジャストインタイムでコートを予約することができます。"
+msgid "The courts require reservations but there are 10 courts and it's generally available last minute. Therefore you can book the courts just-in-time once you've already gathered the players."
+msgstr "コートは予約が必要ですが、10面あり、通常は直前でも予約可能です。そのため、プレイヤーを集めてからジャストインタイムでコートを予約することができます。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:83
-msgid ""
-"The courts require reservations but there are only 2 courts so you will need "
-"to book in advance. They also hold open play sessions but the level may be "
-"low to complete beginner."
-msgstr ""
-"コートは予約が必要ですが、2面しかないので事前に予約する必要があります。オープ"
-"ンプレイセッションも開催していますが、レベルは初心者向けかもしれません。"
+msgid "The courts require reservations but there are only 2 courts so you will need to book in advance. They also hold open play sessions but the level may be low to complete beginner."
+msgstr "コートは予約が必要ですが、2面しかないので事前に予約する必要があります。オープンプレイセッションも開催していますが、レベルは初心者向けかもしれません。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:110
 msgid "Tokyo Tower Pickleball"
@@ -1749,9 +1584,7 @@ msgid "Two courts are available. Conditions may be windy."
 msgstr "コートは2面あります。風が強い場合があります。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"Two courts are available. More expensive than other courts and the "
-"conditions can be windy."
+msgid "Two courts are available. More expensive than other courts and the conditions can be windy."
 msgstr "コートは2面あります。他のコートよりも高価で、風が強い場合があります。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:45
@@ -1759,12 +1592,8 @@ msgid "Where to Book Courts in Tokyo"
 msgstr "東京でコートを予約できる場所"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:106
-msgid ""
-"By clicking on the Gear icon in the top left, you can go back to the start "
-"screen. At the bottom of this screen will be the match history."
-msgstr ""
-"左上の歯車アイコンをクリックすると、スタート画面に戻ることができます。この画"
-"面の下部には、試合の履歴が表示されます。"
+msgid "By clicking on the Gear icon in the top left, you can go back to the start screen. At the bottom of this screen will be the match history."
+msgstr "左上の歯車アイコンをクリックすると、スタート画面に戻ることができます。この画面の下部には、試合の履歴が表示されます。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:70
 msgid "Checkin Screen"
@@ -1779,19 +1608,8 @@ msgid "Entering Results"
 msgstr "結果の入力"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:116
-msgid ""
-"From the Queue screen you can select some players (highlighted in green) and "
-"take some special actions for them such as creating a team, anti-team, or "
-"setting their genders. The team feature is important if you have a group of "
-"players (2 minimum) who always want to play together, often called a 'fixed-"
-"pair.' The gender is important if you want to use the Gender-Mixed doubles "
-"option when choosing matches."
-msgstr ""
-"キュー画面から、いくつかのプレイヤー（緑色でハイライト）を選択し、チームの作"
-"成、アンチチームの設定、性別の設定などの特別なアクションを実行できます。チー"
-"ム機能は、常に一緒にプレイしたいプレイヤーのグループ（最低2人）がいる場合に重"
-"要です。これは「固定ペア」と呼ばれることもあります。性別は、男女混合ダブルス"
-"のオプションを選択する場合に重要です。"
+msgid "From the Queue screen you can select some players (highlighted in green) and take some special actions for them such as creating a team, anti-team, or setting their genders. The team feature is important if you have a group of players (2 minimum) who always want to play together, often called a 'fixed-pair.' The gender is important if you want to use the Gender-Mixed doubles option when choosing matches."
+msgstr "キュー画面から、いくつかのプレイヤー（緑色でハイライト）を選択し、チームの作成、アンチチームの設定、性別の設定などの特別なアクションを実行できます。チーム機能は、常に一緒にプレイしたいプレイヤーのグループ（最低2人）がいる場合に重要です。これは「固定ペア」と呼ばれることもあります。性別は、男女混合ダブルスのオプションを選択する場合に重要です。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:85
 msgid "Generating Draws"
@@ -1802,19 +1620,8 @@ msgid "How to use FairPlay"
 msgstr "FairPlayの使い方"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:111
-msgid ""
-"If you enabled offline mode, you can go down this list and submit the "
-"results to Pkuru.com. Simply tap on the match, then click on the Submit "
-"button. Once the score shows 0 and 0 then it has successfully submitted. "
-"This step is not necessary if you did not enable offline mode. In normal "
-"Online Mode matches will be submitted as soon as you complete them from the "
-"Matches screen."
-msgstr ""
-"オフラインモードを有効にした場合は、このリストを下にスクロールして結果を"
-"Pkuru.comに送信できます。試合をタップし、送信ボタンをクリックするだけです。ス"
-"コアが0と0で表示されたら、正常に送信されています。オフラインモードを有効にし"
-"ていない場合、この手順は必要ありません。通常のオンラインモードでは、試合画面"
-"で完了するとすぐに試合結果が送信されます。"
+msgid "If you enabled offline mode, you can go down this list and submit the results to Pkuru.com. Simply tap on the match, then click on the Submit button. Once the score shows 0 and 0 then it has successfully submitted. This step is not necessary if you did not enable offline mode. In normal Online Mode matches will be submitted as soon as you complete them from the Matches screen."
+msgstr "オフラインモードを有効にした場合は、このリストを下にスクロールして結果をPkuru.comに送信できます。試合をタップし、送信ボタンをクリックするだけです。スコアが0と0で表示されたら、正常に送信されています。オフラインモードを有効にしていない場合、この手順は必要ありません。通常のオンラインモードでは、試合画面で完了するとすぐに試合結果が送信されます。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:60
 msgid "Launching FairPlay"
@@ -1829,69 +1636,20 @@ msgid "Matches Screen"
 msgstr "試合画面"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:76
-msgid ""
-"On the bottom left you can select the number of courts under management by "
-"the app. When it is set to a value greater than 0, the app will "
-"automatically track the number of times everyone has played and determine "
-"who should be taking a break. Players who should be taking a break will be "
-"highlighted in yellow. This is a suggestion, so you can still tap on them to "
-"select them for the next match."
-msgstr ""
-"左下で、アプリで管理するコートの数を選択できます。0より大きい値に設定すると、"
-"アプリは全員がプレイした回数を自動的に追跡し、誰が休憩すべきかを判断します。"
-"休憩すべきプレイヤーは黄色でハイライトされます。これは提案なので、タップして"
-"次の試合に選択することもできます。"
+msgid "On the bottom left you can select the number of courts under management by the app. When it is set to a value greater than 0, the app will automatically track the number of times everyone has played and determine who should be taking a break. Players who should be taking a break will be highlighted in yellow. This is a suggestion, so you can still tap on them to select them for the next match."
+msgstr "左下で、アプリで管理するコートの数を選択できます。0より大きい値に設定すると、アプリは全員がプレイした回数を自動的に追跡し、誰が休憩すべきかを判断します。休憩すべきプレイヤーは黄色でハイライトされます。これは提案なので、タップして次の試合に選択することもできます。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:86
-msgid ""
-"Once at least 4 players are selected (highlighted in green) from the Queue "
-"screen, you can generate draws with the blue button on the bottom right. The "
-"system will generate all possible combinations of matches for the given "
-"players based on the matchmaking strategy selected. Additionally it will "
-"show you the relative 'quality' of the matches and sort them from highest to "
-"lowest. Quality of the match means whether the match is going to be close or "
-"one-sided. The green highlighted match at the top is the 'recommended match' "
-"which uses some heuristics to select a match that balances quality while "
-"avoiding repeated teams or matches. The list of matches will also highlight "
-"previously played matches or pairs in yellow or red. This allows you as the "
-"organizer to determine whether to avoid repeated matches. Use the blue "
-"button to select a match which will then update the draws for the remaining "
-"players that were selected. Keep selecting matches until all players are in "
-"a match."
-msgstr ""
-"キュー画面から少なくとも4人のプレイヤーが選択されると（緑色でハイライト）、右"
-"下の青いボタンでドローを生成できます。システムは、選択されたマッチメイキング"
-"戦略に基づいて、指定されたプレイヤーのすべての可能な試合の組み合わせを生成し"
-"ます。さらに、試合の相対的な「品質」を表示し、最高から最低まで並べ替えます。"
-"試合の品質とは、試合が接戦になるか一方的になるかを意味します。一番上の緑色で"
-"ハイライトされた試合は「推奨試合」であり、いくつかのヒューリスティックを使用"
-"して、繰り返しのチームや試合を避けながら品質のバランスをとる試合を選択しま"
-"す。試合のリストは、以前にプレイされた試合やペアを黄色または赤色でハイライト"
-"表示します。これにより、主催者は繰り返しの試合を避けるかどうかを判断できま"
-"す。青いボタンを使用して試合を選択すると、選択された残りのプレイヤーのドロー"
-"が更新されます。すべてのプレイヤーが試合に参加するまで、試合を選択し続けま"
-"す。"
+msgid "Once at least 4 players are selected (highlighted in green) from the Queue screen, you can generate draws with the blue button on the bottom right. The system will generate all possible combinations of matches for the given players based on the matchmaking strategy selected. Additionally it will show you the relative 'quality' of the matches and sort them from highest to lowest. Quality of the match means whether the match is going to be close or one-sided. The green highlighted match at the top is the 'recommended match' which uses some heuristics to select a match that balances quality while avoiding repeated teams or matches. The list of matches will also highlight previously played matches or pairs in yellow or red. This allows you as the organizer to determine whether to avoid repeated matches. Use the blue button to select a match which will then update the draws for the remaining players that were selected. Keep selecting matches until all players are in a match."
+msgstr "キュー画面から少なくとも4人のプレイヤーが選択されると（緑色でハイライト）、右下の青いボタンでドローを生成できます。システムは、選択されたマッチメイキング戦略に基づいて、指定されたプレイヤーのすべての可能な試合の組み合わせを生成します。さらに、試合の相対的な「品質」を表示し、最高から最低まで並べ替えます。試合の品質とは、試合が接戦になるか一方的になるかを意味します。一番上の緑色でハイライトされた試合は「推奨試合」であり、いくつかのヒューリスティックを使用して、繰り返しのチームや試合を避けながら品質のバランスをとる試合を選択します。試合のリストは、以前にプレイされた試合やペアを黄色または赤色でハイライト表示します。これにより、主催者は繰り返しの試合を避けるかどうかを判断できます。青いボタンを使用して試合を選択すると、選択された残りのプレイヤーのドローが更新されます。すべてのプレイヤーが試合に参加するまで、試合を選択し続けます。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:115
 msgid "Player Options"
 msgstr "プレイヤーオプション"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:66
-msgid ""
-"Press the large blue button to launch the system. The 'Offline Mode' toggle "
-"should be used if there is no internet connection or if you want to test the "
-"system out without saving any results. In Offline mode, no submissions are "
-"made to Pkuru.com and if you delete the matches or close the web page there "
-"will be no permanent effects of your actions using the system. Additionally "
-"this screen shows the relative strengths of the players and at the bottom of "
-"the page there is a history of all the matches played."
-msgstr ""
-"大きな青いボタンを押してシステムを起動します。「オフラインモード」トグルは、"
-"インターネット接続がない場合や、結果を保存せずにシステムをテストしたい場合に"
-"使用します。オフラインモードでは、Pkuru.comへの送信は行われず、試合を削除した"
-"りウェブページを閉じたりしても、システムを使用したアクションの永続的な影響は"
-"ありません。さらに、この画面にはプレイヤーの相対的な強さが表示され、ページの"
-"下部にはプレイされたすべての試合の履歴があります。"
+msgid "Press the large blue button to launch the system. The 'Offline Mode' toggle should be used if there is no internet connection or if you want to test the system out without saving any results. In Offline mode, no submissions are made to Pkuru.com and if you delete the matches or close the web page there will be no permanent effects of your actions using the system. Additionally this screen shows the relative strengths of the players and at the bottom of the page there is a history of all the matches played."
+msgstr "大きな青いボタンを押してシステムを起動します。「オフラインモード」トグルは、インターネット接続がない場合や、結果を保存せずにシステムをテストしたい場合に使用します。オフラインモードでは、Pkuru.comへの送信は行われず、試合を削除したりウェブページを閉じたりしても、システムを使用したアクションの永続的な影響はありません。さらに、この画面にはプレイヤーの相対的な強さが表示され、ページの下部にはプレイされたすべての試合の履歴があります。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:80
 msgid "Queue Screen"
@@ -1902,89 +1660,28 @@ msgid "Start Screen"
 msgstr "スタート画面"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:101
-msgid ""
-"Tapping on the names on the left side can select the winner without entering "
-"scores. Optionally, the exact score can be entered into the number field on "
-"the right side of each match. Once the green border is around the winner, "
-"the entry is complete and you can leave it as it is. Once results are "
-"entered for all matches, you can use the blue button on the bottom right to "
-"submit all the results at once.If you enabled offline mode, no results are "
-"submitted to Pkuru.com, but ratings will still be updated locally on your "
-"device. Additionally the predicted winner is shown in the red bar at the "
-"bottom."
-msgstr ""
-"左側の名前をタップすると、スコアを入力せずに勝者を選択できます。オプション"
-"で、各試合の右側にある数字フィールドに正確なスコアを入力できます。勝者の周り"
-"に緑色の境界線が表示されたら、入力は完了ですので、そのままにしておいてかまい"
-"ません。すべての試合の結果が入力されたら、右下の青いボタンを使用してすべての"
-"結果を一度に送信できます。オフラインモードを有効にした場合、結果はPkuru.comに"
-"送信されませんが、評価はデバイス上でローカルに更新されます。さらに、予測され"
-"る勝者が下部の赤いバーに表示されます。"
+msgid "Tapping on the names on the left side can select the winner without entering scores. Optionally, the exact score can be entered into the number field on the right side of each match. Once the green border is around the winner, the entry is complete and you can leave it as it is. Once results are entered for all matches, you can use the blue button on the bottom right to submit all the results at once.If you enabled offline mode, no results are submitted to Pkuru.com, but ratings will still be updated locally on your device. Additionally the predicted winner is shown in the red bar at the bottom."
+msgstr "左側の名前をタップすると、スコアを入力せずに勝者を選択できます。オプションで、各試合の右側にある数字フィールドに正確なスコアを入力できます。勝者の周りに緑色の境界線が表示されたら、入力は完了ですので、そのままにしておいてかまいません。すべての試合の結果が入力されたら、右下の青いボタンを使用してすべての結果を一度に送信できます。オフラインモードを有効にした場合、結果はPkuru.comに送信されませんが、評価はデバイス上でローカルに更新されます。さらに、予測される勝者が下部の赤いバーに表示されます。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:61
-msgid ""
-"The FairPlay system can be launched from any event page on Pkuru.com. The "
-"system will automatically load all signed up players, including those in the "
-"waitlist. Players who did not join the event can be added as a guest, but "
-"their ratings and results cannot be saved to Pkuru.com."
-msgstr ""
-"FairPlayシステムは、Pkuru.comのどのイベントページからでも起動できます。システ"
-"ムは、ウェイトリストにいるプレイヤーを含む、すべての登録済みプレイヤーを自動"
-"的に読み込みます。イベントに参加しなかったプレイヤーはゲストとして追加できま"
-"すが、その評価と結果はPkuru.comに保存できません。"
+msgid "The FairPlay system can be launched from any event page on Pkuru.com. The system will automatically load all signed up players, including those in the waitlist. Players who did not join the event can be added as a guest, but their ratings and results cannot be saved to Pkuru.com."
+msgstr "FairPlayシステムは、Pkuru.comのどのイベントページからでも起動できます。システムは、ウェイトリストにいるプレイヤーを含む、すべての登録済みプレイヤーを自動的に読み込みます。イベントに参加しなかったプレイヤーはゲストとして追加できますが、その評価と結果はPkuru.comに保存できません。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:96
-msgid ""
-"The handlebars on the left side of each name can be used to drag and drop "
-"the players into a different match or re-arrange the teams. If you press the "
-"Enter Score button you can select the winner and/or enter the score. If you "
-"want to cancel the match you can press the '...' button."
-msgstr ""
-"各名前の左側にあるハンドルバーを使用して、プレイヤーを別の試合にドラッグアン"
-"ドドロップしたり、チームを再編成したりできます。「スコアを入力」ボタンを押す"
-"と、勝者を選択したり、スコアを入力したりできます。試合をキャンセルしたい場合"
-"は、「...」ボタンを押します。"
+msgid "The handlebars on the left side of each name can be used to drag and drop the players into a different match or re-arrange the teams. If you press the Enter Score button you can select the winner and/or enter the score. If you want to cancel the match you can press the '...' button."
+msgstr "各名前の左側にあるハンドルバーを使用して、プレイヤーを別の試合にドラッグアンドドロップしたり、チームを再編成したりできます。「スコアを入力」ボタンを押すと、勝者を選択したり、スコアを入力したりできます。試合をキャンセルしたい場合は、「...」ボタンを押します。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:81
-msgid ""
-"The second screen is the Queue screen. This is where you can select players "
-"who want to play a match. On the bottom is a button to queue all players. "
-"This button will automatically select everyone and exclude the players who "
-"should be on break (highlighted in yellow). If you play matches in timed "
-"rounds, this is an easy way to select everyone who should participate in the "
-"next round of matches."
-msgstr ""
-"2番目の画面はキュー画面です。ここでは、試合をしたいプレイヤーを選択できます。"
-"下部には、すべてのプレイヤーをキューに入れるボタンがあります。このボタンは、"
-"休憩すべきプレイヤー（黄色でハイライト）を除いて、全員を自動的に選択します。"
-"時間制のラウンドで試合をする場合、これは次のラウンドに参加すべき全員を簡単に"
-"選択する方法です。"
+msgid "The second screen is the Queue screen. This is where you can select players who want to play a match. On the bottom is a button to queue all players. This button will automatically select everyone and exclude the players who should be on break (highlighted in yellow). If you play matches in timed rounds, this is an easy way to select everyone who should participate in the next round of matches."
+msgstr "2番目の画面はキュー画面です。ここでは、試合をしたいプレイヤーを選択できます。下部には、すべてのプレイヤーをキューに入れるボタンがあります。このボタンは、休憩すべきプレイヤー（黄色でハイライト）を除いて、全員を自動的に選択します。時間制のラウンドで試合をする場合、これは次のラウンドに参加すべき全員を簡単に選択する方法です。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:71
-msgid ""
-"The system is composed of 3 main screns. The first is the checkin screen "
-"where you can enable/disable players for the session. Tap on a player's name "
-"to check them in. Green means the player is checked in. Check a player in if "
-"they are ready to play, and check them out if they are leaving early. If a "
-"player wants to take a break and it's not their turn yet, it's easiest to "
-"check them out and then check them back in next round."
-msgstr ""
-"システムは3つの主要な画面で構成されています。最初の画面はチェックイン画面で、"
-"セッションのプレイヤーを有効/無効にできます。プレイヤーの名前をタップして"
-"チェックインします。緑色はプレイヤーがチェックインしたことを意味します。プレ"
-"イする準備ができている場合はプレイヤーをチェックインし、早く帰る場合はチェッ"
-"クアウトします。プレイヤーが休憩を取りたいが、まだ自分の番でない場合は、"
-"チェックアウトして次のラウンドで再度チェックインするのが最も簡単です。"
+msgid "The system is composed of 3 main screns. The first is the checkin screen where you can enable/disable players for the session. Tap on a player's name to check them in. Green means the player is checked in. Check a player in if they are ready to play, and check them out if they are leaving early. If a player wants to take a break and it's not their turn yet, it's easiest to check them out and then check them back in next round."
+msgstr "システムは3つの主要な画面で構成されています。最初の画面はチェックイン画面で、セッションのプレイヤーを有効/無効にできます。プレイヤーの名前をタップしてチェックインします。緑色はプレイヤーがチェックインしたことを意味します。プレイする準備ができている場合はプレイヤーをチェックインし、早く帰る場合はチェックアウトします。プレイヤーが休憩を取りたいが、まだ自分の番でない場合は、チェックアウトして次のラウンドで再度チェックインするのが最も簡単です。"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:91
-msgid ""
-"The third and final screen shows the active matches that are being played. "
-"The ordering of the teams is randomized, so you can use this to determine "
-"the serving team (usually the team on top)."
-msgstr ""
-"3番目の最後の画面には、現在プレイされているアクティブな試合が表示されます。"
-"チームの順序はランダム化されているため、これを使用してサーブするチーム（通常"
-"は一番上のチーム）を決定できます。"
+msgid "The third and final screen shows the active matches that are being played. The ordering of the teams is randomized, so you can use this to determine the serving team (usually the team on top)."
+msgstr "3番目の最後の画面には、現在プレイされているアクティブな試合が表示されます。チームの順序はランダム化されているため、これを使用してサーブするチーム（通常は一番上のチーム）を決定できます。"
 
 #: src/components/organisms/MatchesView.re.mjs:125
 msgid "Add/Remove Players"
@@ -2059,8 +1756,7 @@ msgid "all level"
 msgstr "全レベル"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:198
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:477
@@ -2139,9 +1835,7 @@ msgid "Leave club"
 msgstr "サークルを退会"
 
 #: src/components/atoms/EventTag.re.mjs:61
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
 
 #: src/components/pages/ClubPage.re.mjs:233
@@ -2303,12 +1997,8 @@ msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
-"失われます。本当にこのユーザーの参加申込を制限しますか？"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は失われます。本当にこのユーザーの参加申込を制限しますか？"
 
 #: src/components/organisms/RSVPSection.re.mjs:666
 #: src/components/organisms/RSVPSection.re.mjs:758
@@ -2398,13 +2088,8 @@ msgid "I couldn't process that request. Please try again."
 msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
-msgid ""
-"Let me know when and where you'd like to play, and I'll help you create an "
-"event. You can continue talking to me in a conversation to refine any "
-"details."
-msgstr ""
-"いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会"
-"話を続けて詳細を調整することもできます。"
+msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+msgstr "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会話を続けて詳細を調整することもできます。"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:278
 msgid "New"
@@ -2423,12 +2108,8 @@ msgid "I can create events for you. Just give me your schedule."
 msgstr "イベントを作成できます。スケジュールを教えてください。"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教え"
-"ていただければ、翻訳も追加できます。"
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教えていただければ、翻訳も追加できます。"
 
 #: src/components/pages/EventPage.re.mjs:219
 #: src/components/pages/EventPage.re.mjs:248
@@ -2437,12 +2118,8 @@ msgstr "プライベートイベント"
 
 #: src/components/pages/EventPage.re.mjs:223
 #: src/components/pages/EventPage.re.mjs:252
-msgid ""
-"This event is private and cannot be joined on Pkuru.com. Do not show up to "
-"the event without permission."
-msgstr ""
-"このイベントはプライベートイベントのため、Pkuru.comから参加することはできませ"
-"ん。許可なくイベントに参加しないでください。"
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
+msgstr "このイベントはプライベートイベントのため、Pkuru.comから参加することはできません。許可なくイベントに参加しないでください。"
 
 #: src/components/organisms/RoundSection.re.mjs:275
 msgid "{0} {matchText}"
@@ -2514,9 +2191,7 @@ msgstr "試合"
 
 #: src/components/molecules/DrawGenerator.re.mjs:120
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
-msgstr ""
-"{1}{courtText}には{0}人のプレイヤーが必要です。現在{2}人がチェックイン済みで"
-"す。"
+msgstr "{1}{courtText}には{0}人のプレイヤーが必要です。現在{2}人がチェックイン済みです。"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:119
 msgid "Player Check-in"
@@ -2614,12 +2289,8 @@ msgid "Losing Team (Team {0})"
 msgstr "敗北チーム（チーム{0}）"
 
 #: src/components/molecules/DrawGenerator.re.mjs:27
-msgid ""
-"Mix players of different levels in matches but still split stronger players "
-"to balance teams."
-msgstr ""
-"異なるレベルのプレイヤーをミックスしますが、強いプレイヤーを分散してチームの"
-"バランスを取ります。"
+msgid "Mix players of different levels in matches but still split stronger players to balance teams."
+msgstr "異なるレベルのプレイヤーをミックスしますが、強いプレイヤーを分散してチームのバランスを取ります。"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:99
 msgid "No available players"
@@ -2630,8 +2301,7 @@ msgid "No Score"
 msgstr "スコアなし"
 
 #: src/components/molecules/DrawGenerator.re.mjs:22
-msgid ""
-"Players will be divided into similar skill level groups that round-robin."
+msgid "Players will be divided into similar skill level groups that round-robin."
 msgstr "プレイヤーは同じレベルのグループに分けられ、総当たり戦を行います。"
 
 #: src/components/organisms/RoundSection.re.mjs:406
@@ -2843,12 +2513,8 @@ msgid "Last Round"
 msgstr "前回のラウンド"
 
 #: src/components/molecules/DrawGenerator.re.mjs:58
-msgid ""
-"Players will be divided into similar skill level groups that round-robin "
-"with teams balanced by skill."
-msgstr ""
-"プレイヤーは同じスキルレベルのグループに分けられ、スキルでバランスされたチー"
-"ムで総当たり戦を行います。"
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgstr "プレイヤーは同じスキルレベルのグループに分けられ、スキルでバランスされたチームで総当たり戦を行います。"
 
 #: src/components/organisms/MatchCard.re.mjs:395
 msgid "Repeat"
@@ -2867,14 +2533,8 @@ msgid "Round-Robin with teams balanced by skill."
 msgstr "スキルでバランスされたチームによる総当たり戦。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
-msgid ""
-"Book a court and post the event to Pkuru.com. Please mention the "
-"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
-"new to the community, we recommend you to offer the court for free."
-msgstr ""
-"コートを予約して、Pkuru.comにイベントを投稿してください。参加費と予想レベル"
-"（3.0、3.5、4.0など）を記載してください。コミュニティが初めての方は、無料で"
-"コートを提供することをお勧めします。"
+msgid "Book a court and post the event to Pkuru.com. Please mention the participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are new to the community, we recommend you to offer the court for free."
+msgstr "コートを予約して、Pkuru.comにイベントを投稿してください。参加費と予想レベル（3.0、3.5、4.0など）を記載してください。コミュニティが初めての方は、無料でコートを提供することをお勧めします。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:149
 msgid "Create an Event at Pickleball One"
@@ -2905,114 +2565,36 @@ msgid "How to use Event Manager"
 msgstr "イベントマネージャーの使い方"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:42
-msgid ""
-"In the **Matches** screen:\\n          \\n1. Tap a match to open the result "
-"entry view.\\n          \\n2. Select the winning team or enter the specific "
-"score.\\n          \\n3. Once a winner is selected (green border), the "
-"result is ready.\\n          \\n4. Click **Submit** to save the result and "
-"update ratings."
-msgstr ""
-"**マッチ**画面で:\\n          \\n1. マッチをタップして結果入力画面を開きま"
-"す。\\n          \\n2. 勝利チームを選択するか、具体的なスコアを入力します。"
-"\\n          \\n3. 勝者が選択されると（緑色の枠）、結果が準備されます。"
-"\\n          \\n4. **送信**をクリックして結果を保存し、評価を更新します。"
+msgid "In the **Matches** screen:\\n          \\n1. Tap a match to open the result entry view.\\n          \\n2. Select the winning team or enter the specific score.\\n          \\n3. Once a winner is selected (green border), the result is ready.\\n          \\n4. Click **Submit** to save the result and update ratings."
+msgstr "**マッチ**画面で:\\n          \\n1. マッチをタップして結果入力画面を開きます。\\n          \\n2. 勝利チームを選択するか、具体的なスコアを入力します。\\n          \\n3. 勝者が選択されると（緑色の枠）、結果が準備されます。\\n          \\n4. **送信**をクリックして結果を保存し、評価を更新します。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:50
-msgid ""
-"In the Queue screen, select players to access special options:\\n          "
-"\\n• **Create Team**: Link two players who always want to play together "
-"(Fixed Pair).\\n          \\n• **Anti-Team**: Prevent two players from being "
-"paired together.\\n          \\n• **Set Gender**: Override gender for Mixed "
-"Doubles matchmaking."
-msgstr ""
-"キュー画面でプレイヤーを選択すると、特別なオプションにアクセスできます:"
-"\\n          \\n• **チーム作成**: 常に一緒にプレイしたい2人のプレイヤーをリン"
-"クします（固定ペア）。\\n          \\n• **アンチチーム**: 2人のプレイヤーが一"
-"緒にペアにならないようにします。\\n          \\n• **性別設定**: 混合ダブルス"
-"のマッチメイキングのために性別を上書きします。"
+msgid "In the Queue screen, select players to access special options:\\n          \\n• **Create Team**: Link two players who always want to play together (Fixed Pair).\\n          \\n• **Anti-Team**: Prevent two players from being paired together.\\n          \\n• **Set Gender**: Override gender for Mixed Doubles matchmaking."
+msgstr "キュー画面でプレイヤーを選択すると、特別なオプションにアクセスできます:\\n          \\n• **チーム作成**: 常に一緒にプレイしたい2人のプレイヤーをリンクします（固定ペア）。\\n          \\n• **アンチチーム**: 2人のプレイヤーが一緒にペアにならないようにします。\\n          \\n• **性別設定**: 混合ダブルスのマッチメイキングのために性別を上書きします。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:49
 msgid "Player Options (Teams & Anti-Teams)"
 msgstr "プレイヤーオプション（チーム＆アンチチーム）"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:26
-msgid ""
-"The Event Manager uses several icons to help you navigate and manage your "
-"event:\\n          \\n• **Gear Icon**: Access settings to change the number "
-"of courts, match generation strategy, and view match history.\\n          "
-"\\n• **Checkmark/User Icon**: Used for checking players in and out of the "
-"session. Green indicates checked in.\\n          \\n• **List/Queue Icon**: "
-"View the list of available players and select them for the next round."
-"\\n          \\n• **Play/Matches Icon**: View active matches and enter "
-"results.\\n          \\n• **Trash Icon**: Delete a match (careful, this "
-"cannot be undone in some modes)."
-msgstr ""
-"イベントマネージャーは、イベントのナビゲートと管理を支援するためにいくつかの"
-"アイコンを使用します:\\n          \\n• **歯車アイコン**: コート数、マッチ生成"
-"戦略の変更、およびマッチ履歴の表示のための設定にアクセスします。\\n          "
-"\\n• **チェックマーク/ユーザーアイコン**: セッションのプレイヤーのチェックイ"
-"ンとチェックアウトに使用されます。緑色はチェックイン済みを示します。"
-"\\n          \\n• **リスト/キューアイコン**: 利用可能なプレイヤーのリストを表"
-"示し、次のラウンドのために選択します。\\n          \\n• **プレイ/マッチアイコ"
-"ン**: アクティブなマッチを表示し、結果を入力します。\\n          \\n• **ゴミ"
-"箱アイコン**: マッチを削除します（注意：一部のモードでは元に戻せません）。"
+msgid "The Event Manager uses several icons to help you navigate and manage your event:\\n          \\n• **Gear Icon**: Access settings to change the number of courts, match generation strategy, and view match history.\\n          \\n• **Checkmark/User Icon**: Used for checking players in and out of the session. Green indicates checked in.\\n          \\n• **List/Queue Icon**: View the list of available players and select them for the next round.\\n          \\n• **Play/Matches Icon**: View active matches and enter results.\\n          \\n• **Trash Icon**: Delete a match (careful, this cannot be undone in some modes)."
+msgstr "イベントマネージャーは、イベントのナビゲートと管理を支援するためにいくつかのアイコンを使用します:\\n          \\n• **歯車アイコン**: コート数、マッチ生成戦略の変更、およびマッチ履歴の表示のための設定にアクセスします。\\n          \\n• **チェックマーク/ユーザーアイコン**: セッションのプレイヤーのチェックインとチェックアウトに使用されます。緑色はチェックイン済みを示します。\\n          \\n• **リスト/キューアイコン**: 利用可能なプレイヤーのリストを表示し、次のラウンドのために選択します。\\n          \\n• **プレイ/マッチアイコン**: アクティブなマッチを表示し、結果を入力します。\\n          \\n• **ゴミ箱アイコン**: マッチを削除します（注意：一部のモードでは元に戻せません）。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:30
-msgid ""
-"To generate matches:\\n          \\n1. Go to the **Queue** screen."
-"\\n          \\n2. Select at least 4 players (highlighted in green). You can "
-"use the \\\"Queue All\\\" button to select everyone not on break."
-"\\n          \\n3. Click the **Generate Matches** button.\\n          \\n4. "
-"The system will propose matches based on the selected strategy (e.g., "
-"Competitive, Mixed).\\n          \\n5. You can accept the recommended "
-"matches or manually select from the list of possibilities.\\n          \\n6. "
-"Quality indicators show how balanced a match is expected to be."
-msgstr ""
-"マッチを生成するには:\\n          \\n1. **キュー**画面に移動します。"
-"\\n          \\n2. 少なくとも4人のプレイヤーを選択します（緑色でハイライト表"
-"示）。\"全員をキュー\"ボタンを使用して、休憩中でないすべての人を選択できま"
-"す。\\n          \\n3. **マッチを生成**ボタンをクリックします。\\n          "
-"\\n4. システムは選択した戦略（例：競技、混合）に基づいてマッチを提案します。"
-"\\n          \\n5. 推奨されるマッチを受け入れるか、可能性のリストから手動で選"
-"択できます。\\n          \\n6. 品質指標は、マッチがどれだけバランスが取れると"
-"予想されるかを示します。"
+msgid "To generate matches:\\n          \\n1. Go to the **Queue** screen.\\n          \\n2. Select at least 4 players (highlighted in green). You can use the \\\"Queue All\\\" button to select everyone not on break.\\n          \\n3. Click the **Generate Matches** button.\\n          \\n4. The system will propose matches based on the selected strategy (e.g., Competitive, Mixed).\\n          \\n5. You can accept the recommended matches or manually select from the list of possibilities.\\n          \\n6. Quality indicators show how balanced a match is expected to be."
+msgstr "マッチを生成するには:\\n          \\n1. **キュー**画面に移動します。\\n          \\n2. 少なくとも4人のプレイヤーを選択します（緑色でハイライト表示）。\"全員をキュー\"ボタンを使用して、休憩中でないすべての人を選択できます。\\n          \\n3. **マッチを生成**ボタンをクリックします。\\n          \\n4. システムは選択した戦略（例：競技、混合）に基づいてマッチを提案します。\\n          \\n5. 推奨されるマッチを受け入れるか、可能性のリストから手動で選択できます。\\n          \\n6. 品質指標は、マッチがどれだけバランスが取れると予想されるかを示します。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:46
-msgid ""
-"Toggle **Offline Mode** on the start screen if you don't have a stable "
-"internet connection or want to test without saving data to the server."
-"\\n          \\n• Results are stored locally on your device.\\n          "
-"\\n• You can sync them later when you're back online."
-msgstr ""
-"安定したインターネット接続がない場合、またはサーバーにデータを保存せずにテス"
-"トしたい場合は、スタート画面で**オフラインモード**を切り替えます。"
-"\\n          \\n• 結果はデバイスにローカルに保存されます。\\n          \\n• "
-"オンラインに戻ったときに後で同期できます。"
+msgid "Toggle **Offline Mode** on the start screen if you don't have a stable internet connection or want to test without saving data to the server.\\n          \\n• Results are stored locally on your device.\\n          \\n• You can sync them later when you're back online."
+msgstr "安定したインターネット接続がない場合、またはサーバーにデータを保存せずにテストしたい場合は、スタート画面で**オフラインモード**を切り替えます。\\n          \\n• 結果はデバイスにローカルに保存されます。\\n          \\n• オンラインに戻ったときに後で同期できます。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:34
-msgid ""
-"Use the **Check-in** screen to manage player attendance. Tap a player to "
-"toggle their status.\\n          \\n• **Green**: Player is here and ready to "
-"play.\\n          \\n• **Gray**: Player is checked out (not available for "
-"matches).\\n          \\n• Useful for players arriving late or leaving early."
-msgstr ""
-"**チェックイン**画面を使用してプレイヤーの出席を管理します。プレイヤーをタッ"
-"プしてステータスを切り替えます。\\n          \\n• **緑色**: プレイヤーはここ"
-"にいて、プレイする準備ができています。\\n          \\n• **灰色**: プレイヤー"
-"はチェックアウトされています（マッチには利用できません）。\\n          \\n• "
-"遅れて到着するプレイヤーや早退するプレイヤーに便利です。"
+msgid "Use the **Check-in** screen to manage player attendance. Tap a player to toggle their status.\\n          \\n• **Green**: Player is here and ready to play.\\n          \\n• **Gray**: Player is checked out (not available for matches).\\n          \\n• Useful for players arriving late or leaving early."
+msgstr "**チェックイン**画面を使用してプレイヤーの出席を管理します。プレイヤーをタップしてステータスを切り替えます。\\n          \\n• **緑色**: プレイヤーはここにいて、プレイする準備ができています。\\n          \\n• **灰色**: プレイヤーはチェックアウトされています（マッチには利用できません）。\\n          \\n• 遅れて到着するプレイヤーや早退するプレイヤーに便利です。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:38
-msgid ""
-"You can set the number of available courts in the settings. The system "
-"tracks play counts and suggests breaks for players who have played the most."
-"\\n          \\n• Players due for a break are highlighted in yellow in the "
-"Queue.\\n          \\n• This helps ensure equal playing time for everyone."
-msgstr ""
-"設定で利用可能なコート数を設定できます。システムはプレイ回数を追跡し、最も多"
-"くプレイしたプレイヤーの休憩を提案します。\\n          \\n• 休憩が必要なプレ"
-"イヤーは、キューで黄色でハイライト表示されます。\\n          \\n• これによ"
-"り、全員に平等なプレイ時間を確保できます。"
+msgid "You can set the number of available courts in the settings. The system tracks play counts and suggests breaks for players who have played the most.\\n          \\n• Players due for a break are highlighted in yellow in the Queue.\\n          \\n• This helps ensure equal playing time for everyone."
+msgstr "設定で利用可能なコート数を設定できます。システムはプレイ回数を追跡し、最も多くプレイしたプレイヤーの休憩を提案します。\\n          \\n• 休憩が必要なプレイヤーは、キューで黄色でハイライト表示されます。\\n          \\n• これにより、全員に平等なプレイ時間を確保できます。"
 
 msgid "Icons Guide"
 msgstr "アイコンガイド"
@@ -3039,9 +2621,7 @@ msgid "Manage Teams"
 msgstr "チーム管理"
 
 msgid "Create fixed teams or anti-teams (players who shouldn't play together)."
-msgstr ""
-"固定チームまたはアンチチーム（一緒にプレイすべきでないプレイヤー）を作成しま"
-"す。"
+msgstr "固定チームまたはアンチチーム（一緒にプレイすべきでないプレイヤー）を作成します。"
 
 msgid "Edit player details like name, gender, or payment status."
 msgstr "名前、性別、支払い状況などのプレイヤー詳細を編集します。"
@@ -3052,48 +2632,23 @@ msgstr "シード調整"
 msgid "Manually adjust player ratings for the event."
 msgstr "イベントのプレイヤーレーティングを手動で調整します。"
 
-msgid ""
-"The Draw Generator allows you to create matches based on different "
-"strategies:"
-msgstr ""
-"ドロージェネレーターを使用すると、さまざまな戦略に基づいてマッチを作成できま"
-"す："
+msgid "The Draw Generator allows you to create matches based on different strategies:"
+msgstr "ドロージェネレーターを使用すると、さまざまな戦略に基づいてマッチを作成できます："
 
-msgid ""
-": Players are divided into similar skill levels. Teams are balanced to "
-"create close matches."
-msgstr ""
-"：プレイヤーは同様のスキルレベルに分けられます。接戦になるようにチームバラン"
-"スが調整されます。"
+msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
+msgstr "：プレイヤーは同様のスキルレベルに分けられます。接戦になるようにチームバランスが調整されます。"
 
-msgid ""
-": Teams are balanced by skill, but players are not strictly separated by "
-"level."
-msgstr ""
-"：スキルによってチームバランスが調整されますが、プレイヤーはレベルによって厳"
-"密に分けられません。"
+msgid ": Teams are balanced by skill, but players are not strictly separated by level."
+msgstr "：スキルによってチームバランスが調整されますが、プレイヤーはレベルによって厳密に分けられません。"
 
 msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr "：全員が全員と対戦する古典的な総当たり形式です。"
 
-msgid ""
-"In Competitive or Mixed mode, the system will regenerate future matches when "
-"you select the winner of the matches in the current or past rounds. This is "
-"recommended in order to optimize future rounds based on the new data. In "
-"Round-Robin mode, the future rounds will not change unless you manually "
-"change them."
-msgstr ""
-"競技モードまたはミックスモードでは、現在または過去のラウンドのマッチの勝者を"
-"選択すると、システムが将来のマッチを再生成します。新しいデータに基づいて将来"
-"のラウンドを最適化するために、これをお勧めします。総当たり戦モードでは、手動"
-"で変更しない限り、将来のラウンドは変更されません。"
+msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
+msgstr "競技モードまたはミックスモードでは、現在または過去のラウンドのマッチの勝者を選択すると、システムが将来のマッチを再生成します。新しいデータに基づいて将来のラウンドを最適化するために、これをお勧めします。総当たり戦モードでは、手動で変更しない限り、将来のラウンドは変更されません。"
 
-msgid ""
-"You can also adjust the number of courts. The system requires 4 players per "
-"court."
-msgstr ""
-"コート数を調整することもできます。システムにはコートごとに4人のプレイヤーが必"
-"要です。"
+msgid "You can also adjust the number of courts. The system requires 4 players per court."
+msgstr "コート数を調整することもできます。システムにはコートごとに4人のプレイヤーが必要です。"
 
 msgid "Round Management"
 msgstr "ラウンド管理"
@@ -3104,18 +2659,8 @@ msgstr "各ラウンドにはいくつかの管理オプションがあります
 msgid "Rebalance"
 msgstr "再調整"
 
-msgid ""
-"Regenerates the current round with the same players but moves players around "
-"to balance the skill level of each court. This will aggressively optimize "
-"each court to have the highest chance of having a tie, but may not divide "
-"the court by level groups. Useful if you replace a player and need the "
-"matches to be balanced again."
-msgstr ""
-"同じプレイヤーで現在のラウンドを再生成しますが、各コートのスキルレベルのバラ"
-"ンスをとるためにプレイヤーを移動させます。これは、各コートが引き分けになる可"
-"能性が最も高くなるように積極的に最適化しますが、レベルグループごとにコートを"
-"分割しない場合があります。プレイヤーを交代させ、マッチのバランスを再度とる必"
-"要がある場合に便利です。"
+msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
+msgstr "同じプレイヤーで現在のラウンドを再生成しますが、各コートのスキルレベルのバランスをとるためにプレイヤーを移動させます。これは、各コートが引き分けになる可能性が最も高くなるように積極的に最適化しますが、レベルグループごとにコートを分割しない場合があります。プレイヤーを交代させ、マッチのバランスを再度とる必要がある場合に便利です。"
 
 msgid "Reset (Mixed)"
 msgstr "リセット（ミックス）"
@@ -3142,35 +2687,22 @@ msgid "Use the"
 msgstr "を使用"
 
 msgid "icon to edit player details (Name, Gender, Paid status)."
-msgstr ""
-"アイコンを使用して、プレイヤーの詳細（名前、性別、支払い状況）を編集します。"
+msgstr "アイコンを使用して、プレイヤーの詳細（名前、性別、支払い状況）を編集します。"
 
 msgid "Use"
 msgstr "を使用"
 
-msgid ""
-"to create Teams (always play together) or Anti-Teams (never play together on "
-"the same court)."
-msgstr ""
-"して、チーム（常に一緒にプレイ）またはアンチチーム（同じコートで一緒にプレイ"
-"しない）を作成します。"
+msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
+msgstr "して、チーム（常に一緒にプレイ）またはアンチチーム（同じコートで一緒にプレイしない）を作成します。"
 
-msgid ""
-"to adjust player ratings (seeds) for the event. This affects matchmaking but "
-"not their permanent rating."
-msgstr ""
-"して、イベントのプレイヤーレーティング（シード）を調整します。これはマッチメ"
-"イキングに影響しますが、恒久的なレーティングには影響しません。"
+msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
+msgstr "して、イベントのプレイヤーレーティング（シード）を調整します。これはマッチメイキングに影響しますが、恒久的なレーティングには影響しません。"
 
 msgid "Entering Results & Syncing"
 msgstr "結果の入力と同期"
 
-msgid ""
-"Enter scores directly on the match cards. Tap to select a winner, or press "
-"and hold to input the score as well."
-msgstr ""
-"マッチカードに直接スコアを入力します。タップして勝者を選択するか、長押しして"
-"スコアも入力します。"
+msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
+msgstr "マッチカードに直接スコアを入力します。タップして勝者を選択するか、長押ししてスコアも入力します。"
 
 msgid "Once matches are complete, use the"
 msgstr "マッチが完了したら、"
@@ -3181,18 +2713,11 @@ msgstr "ページ下部のボタンを使用して、すべての結果をサー
 msgid "Scores are not saved permanently until you Sync."
 msgstr "同期するまで、スコアは恒久的に保存されません。"
 
-msgid ""
-"The Event Manager works offline! All data is saved locally to your device."
-msgstr ""
-"イベントマネージャーはオフラインで動作します！すべてのデータはデバイスにロー"
-"カルに保存されます。"
+msgid "The Event Manager works offline! All data is saved locally to your device."
+msgstr "イベントマネージャーはオフラインで動作します！すべてのデータはデバイスにローカルに保存されます。"
 
-msgid ""
-"You can run an entire event without internet. Just make sure to Sync Scores "
-"when you have a connection again to save the results."
-msgstr ""
-"インターネットなしでイベント全体を実行できます。結果を保存するために、接続が"
-"復旧したら必ずスコアを同期してください。"
+msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
+msgstr "インターネットなしでイベント全体を実行できます。結果を保存するために、接続が復旧したら必ずスコアを同期してください。"
 
 msgid "Note: If you clear your browser data, local event data will be lost."
 msgstr "注：ブラウザデータを消去すると、ローカルイベントデータは失われます。"
@@ -3204,12 +2729,8 @@ msgid "Complete guide to running events with the Event Manager."
 msgstr "イベントマネージャーでイベントを実行するための完全なガイド。"
 
 #: src/components/molecules/DrawGenerator.re.mjs:271
-msgid ""
-"Future rounds have scores entered. Regenerating will delete these scores. "
-"Are you sure?"
-msgstr ""
-"将来のラウンドにスコアが入力されています。再生成するとこれらのスコアは削除さ"
-"れます。よろしいですか？"
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgstr "将来のラウンドにスコアが入力されています。再生成するとこれらのスコアは削除されます。よろしいですか？"
 
 #: src/components/molecules/DrawGenerator.re.mjs:270
 msgid "Regenerate Rounds?"
@@ -3272,12 +2793,8 @@ msgid "Rebalance match"
 msgstr "試合を再調整"
 
 #: src/components/organisms/MatchCard.re.mjs:433
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
-"元々予定されていた試合を復元できます。"
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、元々予定されていた試合を復元できます。"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:165
 msgid "Blue dot indicates the team that has service in the match."
@@ -3414,12 +2931,8 @@ msgid "Rating History"
 msgstr "レーティング履歴"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
-msgstr ""
-"網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くな"
-"ります。"
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr "網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くなります。"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:108
 msgid "Back to league"
@@ -3458,24 +2971,16 @@ msgid "Advance to Round {0}"
 msgstr "ラウンド{0}に進む"
 
 #: src/components/organisms/ProfileModal.re.mjs:153
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
-"用しようとしているメールアドレスでログインしてください。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使用しようとしているメールアドレスでログインしてください。"
 
 #: src/components/pages/LoginPage.re.mjs:101
 msgid "An error occurred during sign in. Please try again."
 msgstr "サインイン中にエラーが発生しました。もう一度お試しください。"
 
 #: src/components/pages/LoginPage.re.mjs:101
-msgid ""
-"Your LINE account does not have an email associated. Please set an email "
-"address for your account from the LINE app, and then try again."
-msgstr ""
-"LINEアカウントにメールアドレスが関連付けられていません。LINEアプリからアカウ"
-"ントのメールアドレスを設定してから、もう一度お試しください。"
+msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
+msgstr "LINEアカウントにメールアドレスが関連付けられていません。LINEアプリからアカウントのメールアドレスを設定してから、もう一度お試しください。"
 
 #: src/components/organisms/CreateClubForm.re.mjs:205
 msgid "Brief description of the club..."
@@ -3536,11 +3041,8 @@ msgid "at"
 msgstr "時"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1036
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
-msgstr ""
-"楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+msgstr "楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:476
 msgid "Club"
@@ -3653,11 +3155,8 @@ msgid "Recreational"
 msgstr "レクリエーション"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1036
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
-msgstr ""
-"ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティン"
-"グに影響する場合があります。"
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティングに影響する場合があります。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1203
 msgid "Skill level"
@@ -3692,12 +3191,8 @@ msgid "Describe your event"
 msgstr "イベントを説明してください"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:309
-msgid ""
-"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-"competitive play for 3.5+ players..."
-msgstr ""
-"例: セントラルパークで毎週木曜日午後6時にピックルボール、競技レベル3.5以上の"
-"プレイヤー向け..."
+msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
+msgstr "例: セントラルパークで毎週木曜日午後6時にピックルボール、競技レベル3.5以上のプレイヤー向け..."
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:361
 msgid "Fill with AI"
@@ -3934,12 +3429,8 @@ msgstr "開始時間順"
 
 #: src/components/pkuru/PkEventRow.re.mjs:611
 #: src/components/pages/PkEventPage.re.mjs:1013
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
-msgstr ""
-"キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されま"
-"す。よろしいですか？"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
+msgstr "キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されます。よろしいですか？"
 
 #: src/components/shared/EventsListView.re.mjs:48
 #: src/components/organisms/ClubEventsList.re.mjs:217
@@ -4086,13 +3577,8 @@ msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加にはDUPR {minDuprStr}以上が必要です"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:216
-msgid ""
-"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
-"{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追"
-"加されます。"
+msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR {viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追加されます。"
 
 #: src/components/pages/ClubEventsPage.re.mjs:119
 msgid "Loading events..."
@@ -4158,12 +3644,8 @@ msgid "Preview events"
 msgstr "イベントをプレビュー"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:273
-msgid ""
-"Show events on the home page. Otherwise only people with a direct link can "
-"find them."
-msgstr ""
-"ホームページにイベントを表示します。それ以外は、直接リンクを持つ人だけが見つ"
-"けられます。"
+msgid "Show events on the home page. Otherwise only people with a direct link can find them."
+msgstr "ホームページにイベントを表示します。それ以外は、直接リンクを持つ人だけが見つけられます。"
 
 #: src/components/pages/CreateEventPage.re.mjs:135
 msgid "Bulk create"
@@ -4178,12 +3660,8 @@ msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
 msgstr "{0}/{1} 10:00-12:00\\n会場\\nオープンプレー\\n最大18人"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:116
-msgid ""
-"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
-"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
-msgstr ""
-"3/2 10:00-12:00\\n会場\\nオープンプレー\\n最大18人\\n\\n3/5 10:00-12:00\\n会"
-"場\\nオープンプレー\\n最大18人"
+msgid "3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr "3/2 10:00-12:00\\n会場\\nオープンプレー\\n最大18人\\n\\n3/5 10:00-12:00\\n会場\\nオープンプレー\\n最大18人"
 
 #: src/components/pages/PkuruLayout.re.mjs:265
 #: src/components/pages/PkuruLayout.re.mjs:599
@@ -4265,12 +3743,44 @@ msgid "Your browser is too old to use this feature."
 msgstr "この機能を使用するには、ブラウザが古すぎます。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"One full court is available and one \\\"fun\\\" court (half-sized). The full "
-"court has narrow space on the sides."
-msgstr ""
-"フルコート1面と「ファン」コート（ハーフサイズ）1面が利用可能です。フルコート"
-"は両側のスペースが狭くなっています。"
+msgid "One full court is available and one \\\"fun\\\" court (half-sized). The full court has narrow space on the sides."
+msgstr "フルコート1面と「ファン」コート（ハーフサイズ）1面が利用可能です。フルコートは両側のスペースが狭くなっています。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:312
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "あなたのレーティング {viewerOrdinal2Str} ～ {viewerMuStr}（DUPR {viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追加されます。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:322
+msgid "Biography"
+msgstr "自己紹介"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:250
+msgid "Display Name"
+msgstr "表示名"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:263
+msgid "Full name"
+msgstr "フルネーム"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:254
+msgid "How you appear to other players"
+msgstr "他のプレイヤーへの表示方法"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:349
+msgid "Save profile"
+msgstr "プロフィールを保存"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:326
+msgid "Tell us a little about yourself..."
+msgstr "自己紹介を入力してください..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "This event is private"
+msgstr "このイベントは非公開です"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "This event is public"
+msgstr "このイベントは公開です"
 
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
@@ -4319,21 +3829,13 @@ msgstr ""
 
 #: src/components/pages/Event.re.mjs:234
 #, fuzzy
-#~ msgid ""
-#~ "showing up to a private event without permission may result in a ban for "
-#~ "failing to follow rules."
-#~ msgstr ""
-#~ "許可なしで参加することは、ルールに従わなかったために禁止される可能性があり"
-#~ "ます。"
+#~ msgid "showing up to a private event without permission may result in a ban for failing to follow rules."
+#~ msgstr "許可なしで参加することは、ルールに従わなかったために禁止される可能性があります。"
 
 #: src/components/pages/Event.re.mjs:229
 #, fuzzy
-#~ msgid ""
-#~ "this is a private event that requires membership with the club. To join "
-#~ "this club, please join a Japan Pickleball League event first."
-#~ msgstr ""
-#~ "これはサークルのメンバーシップが必要なプライベートイベントです。このサーク"
-#~ "ルに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
+#~ msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first."
+#~ msgstr "これはサークルのメンバーシップが必要なプライベートイベントです。このサークルに参加するには、まず日本ピクルボールリーグのイベントに参加してください。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
 #, fuzzy
@@ -4342,12 +3844,8 @@ msgstr ""
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:33
 #, fuzzy
-#~ msgid ""
-#~ "Join any public events on Pkuru.com (this website). If you find an event "
-#~ "without the 'lock' icon and and has a join button, then you can join."
-#~ msgstr ""
-#~ "Pkuru.com（このウェブサイト）で公開イベントに参加してください。「ロック」"
-#~ "アイコンがなく、参加ボタンがあるイベントを見つけたら、参加できます。"
+#~ msgid "Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and and has a join button, then you can join."
+#~ msgstr "Pkuru.com（このウェブサイト）で公開イベントに参加してください。「ロック」アイコンがなく、参加ボタンがあるイベントを見つけたら、参加できます。"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:42
 #, fuzzy
@@ -4383,3 +3881,8 @@ msgstr ""
 #, fuzzy
 #~ msgid "Showing stats from"
 #~ msgstr "{selectedClubName} のみの統計を表示中"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"

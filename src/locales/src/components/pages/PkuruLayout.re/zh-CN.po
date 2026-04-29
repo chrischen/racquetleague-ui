@@ -17,17 +17,17 @@ msgstr ""
 msgid "(logout)"
 msgstr "（退出登录）"
 
-#: src/components/pages/PkuruLayout.re.mjs:146
-#: src/components/pages/PkuruLayout.re.mjs:176
+#: src/components/pages/PkuruLayout.re.mjs:152
+#: src/components/pages/PkuruLayout.re.mjs:182
 msgid "Badminton"
 msgstr "羽毛球"
 
-#: src/components/pages/PkuruLayout.re.mjs:89
+#: src/components/pages/PkuruLayout.re.mjs:95
 msgid "Browse"
 msgstr "浏览"
 
-#: src/components/pages/PkuruLayout.re.mjs:99
-#: src/components/pages/PkuruLayout.re.mjs:372
+#: src/components/pages/PkuruLayout.re.mjs:105
+#: src/components/pages/PkuruLayout.re.mjs:378
 msgid "Discover"
 msgstr "发现"
 
@@ -44,11 +44,11 @@ msgstr "加载中..."
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
-#: src/components/pages/PkuruLayout.re.mjs:382
+#: src/components/pages/PkuruLayout.re.mjs:388
 msgid "Map"
 msgstr "地图"
 
-#: src/components/pages/PkuruLayout.re.mjs:107
+#: src/components/pages/PkuruLayout.re.mjs:113
 msgid "Map view"
 msgstr "地图视图"
 
@@ -60,37 +60,37 @@ msgstr "我的俧乐部"
 msgid "My Clubs"
 msgstr "我的俱乐部"
 
-#: src/components/pages/PkuruLayout.re.mjs:115
+#: src/components/pages/PkuruLayout.re.mjs:121
 msgid "My events"
 msgstr "我的活动"
 
-#: src/components/pages/PkuruLayout.re.mjs:409
+#: src/components/pages/PkuruLayout.re.mjs:415
 msgid "My Events"
 msgstr "我的活动"
 
-#: src/components/pages/PkuruLayout.re.mjs:397
+#: src/components/pages/PkuruLayout.re.mjs:403
 msgid "New"
 msgstr "新建"
 
-#: src/components/pages/PkuruLayout.re.mjs:265
+#: src/components/pages/PkuruLayout.re.mjs:271
 msgid "New event"
 msgstr "新建活动"
 
-#: src/components/pages/PkuruLayout.re.mjs:140
-#: src/components/pages/PkuruLayout.re.mjs:168
+#: src/components/pages/PkuruLayout.re.mjs:146
+#: src/components/pages/PkuruLayout.re.mjs:174
 msgid "Pickleball"
 msgstr "匹克球"
 
-#: src/components/pages/PkuruLayout.re.mjs:123
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:425
 msgid "Profile"
 msgstr "个人资料"
 
-#: src/components/pages/PkuruLayout.re.mjs:159
+#: src/components/pages/PkuruLayout.re.mjs:165
 msgid "Rankings"
 msgstr "排名"
 
-#: src/components/pages/PkuruLayout.re.mjs:134
+#: src/components/pages/PkuruLayout.re.mjs:140
 msgid "Sports"
 msgstr "运动"
 

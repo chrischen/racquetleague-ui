@@ -13,19 +13,19 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:407
+#: src/components/organisms/PkRSVPSection.re.mjs:404
 msgid "· {0} pending"
 msgstr "· {0} đang chờ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:405
+#: src/components/organisms/PkRSVPSection.re.mjs:402
 msgid "· +{0} waitlist"
 msgstr "· +{0} chờ đợi"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:402
+#: src/components/organisms/PkRSVPSection.re.mjs:399
 msgid "{0} joined"
 msgstr "{0} đã tham gia"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:468
+#: src/components/organisms/PkRSVPSection.re.mjs:465
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ KỸ NĂNG"
 
@@ -41,12 +41,12 @@ msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
 msgid "balanced"
 msgstr "cân bằng"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:552
+#: src/components/organisms/PkRSVPSection.re.mjs:549
 msgid "Confirmed · {0}"
 msgstr "Đã xác nhận · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:442
-#: src/components/organisms/PkRSVPSection.re.mjs:459
+#: src/components/organisms/PkRSVPSection.re.mjs:439
+#: src/components/organisms/PkRSVPSection.re.mjs:456
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -54,7 +54,7 @@ msgstr "DUPR"
 msgid "even"
 msgstr "đồng đều"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:451
+#: src/components/organisms/PkRSVPSection.re.mjs:448
 msgid "MEDIAN"
 msgstr "TRUNG VỊ"
 
@@ -67,11 +67,11 @@ msgstr "đa dạng"
 msgid "Move to Pending List"
 msgstr "Chuyển vào danh sách chờ duyệt"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:385
+#: src/components/organisms/PkRSVPSection.re.mjs:382
 msgid "Participants"
 msgstr "Người tham gia"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:681
+#: src/components/organisms/PkRSVPSection.re.mjs:678
 msgid "Pending · {0}"
 msgstr "Đang chờ · {0}"
 
@@ -83,15 +83,15 @@ msgstr "Xóa khỏi sự kiện"
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:311
+#: src/components/organisms/PkRSVPSection.re.mjs:308
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "Yêu cầu: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:332
+#: src/components/organisms/PkRSVPSection.re.mjs:329
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "Cần DUPR {minDuprStr}+ để tham gia"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:512
+#: src/components/organisms/PkRSVPSection.re.mjs:509
 msgid "SPREAD"
 msgstr "ĐỘ PHÂN TÁN"
 
@@ -103,7 +103,7 @@ msgstr ""
 "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
 "nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:434
+#: src/components/organisms/PkRSVPSection.re.mjs:431
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
@@ -111,14 +111,25 @@ msgstr "TB TOP 6"
 msgid "View Profile"
 msgstr "Xem hồ sơ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:617
+#: src/components/organisms/PkRSVPSection.re.mjs:614
 msgid "Waitlist · {0}"
 msgstr "Danh sách chờ · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:315
+#: src/components/organisms/PkRSVPSection.re.mjs:312
 msgid ""
-"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
-"Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ."
+"Xếp hạng của bạn {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ "
+"duyệt."
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+#~ msgid ""
+#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
+#~ "list."
+#~ msgstr ""
+#~ "Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} "
+#~ "~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách "
+#~ "chờ."

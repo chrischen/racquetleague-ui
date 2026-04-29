@@ -104,12 +104,8 @@ msgid "Description:"
 msgstr "Mô tả:"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:309
-msgid ""
-"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-"competitive play for 3.5+ players..."
-msgstr ""
-"ví dụ: Buổi pickleball hàng tuần tại Central Park, thứ Năm lúc 18h, chơi thi "
-"đấu cho người chơi 3.5+..."
+msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
+msgstr "ví dụ: Buổi pickleball hàng tuần tại Central Park, thứ Năm lúc 18h, chơi thi đấu cho người chơi 3.5+..."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 msgid "Error creating events. Please try again."
@@ -193,13 +189,8 @@ msgid "Reply"
 msgstr "Trả lời"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"Cho tôi biết thời gian và địa điểm sự kiện của bạn, hoặc bất kỳ thông tin "
-"nào khác. Bạn cũng có thể cho tôi biết các chi tiết cần bao gồm và tôi thậm "
-"chí có thể thêm bản dịch."
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "Cho tôi biết thời gian và địa điểm sự kiện của bạn, hoặc bất kỳ thông tin nào khác. Bạn cũng có thể cho tôi biết các chi tiết cần bao gồm và tôi thậm chí có thể thêm bản dịch."
 
 #: src/components/organisms/AiTetsu.re.mjs:1712
 msgid "{0} {breakPlayersDesc} are not playing"
@@ -360,13 +351,11 @@ msgstr "Trận đấu"
 
 #: src/components/organisms/CompMatch.re.mjs:232
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-msgstr ""
-"Các trận đấu được sắp xếp với chênh lệch kỹ năng tối đa ± 1 người chơi."
+msgstr "Các trận đấu được sắp xếp với chênh lệch kỹ năng tối đa ± 1 người chơi."
 
 #: src/components/organisms/CompMatch.re.mjs:237
 msgid "Matches are arranged by skill while mixing strong and weak players."
-msgstr ""
-"Các trận đấu được sắp xếp theo kỹ năng trong khi trộn người chơi mạnh và yếu."
+msgstr "Các trận đấu được sắp xếp theo kỹ năng trong khi trộn người chơi mạnh và yếu."
 
 #: src/components/organisms/CompMatch.re.mjs:235
 msgid "Mixed"
@@ -377,12 +366,8 @@ msgid "no players yet"
 msgstr "chưa có người chơi"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid ""
-"Not enough players in the queue. Select the players who want to play from "
-"the Queue tab."
-msgstr ""
-"Không đủ người chơi trong hàng đợi. Chọn người chơi muốn thi đấu từ tab Hàng "
-"đợi."
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
+msgstr "Không đủ người chơi trong hàng đợi. Chọn người chơi muốn thi đấu từ tab Hàng đợi."
 
 #: src/components/organisms/AiTetsu.re.mjs:1563
 #: src/components/organisms/AiTetsu.re.mjs:1585
@@ -403,24 +388,16 @@ msgid "Player Name"
 msgstr "Tên người chơi"
 
 #: src/components/organisms/AiTetsu.re.mjs:1359
-msgid ""
-"Players in a team will always be placed in a match together on the same side."
-msgstr ""
-"Người chơi trong một đội sẽ luôn được xếp vào một trận đấu cùng nhau ở cùng "
-"một phía."
+msgid "Players in a team will always be placed in a match together on the same side."
+msgstr "Người chơi trong một đội sẽ luôn được xếp vào một trận đấu cùng nhau ở cùng một phía."
 
 #: src/components/organisms/AiTetsu.re.mjs:1380
 msgid "Players in an anti-team will never be placed in a match together."
-msgstr ""
-"Người chơi trong một đội phản sẽ không bao giờ được xếp vào một trận đấu "
-"cùng nhau."
+msgstr "Người chơi trong một đội phản sẽ không bao giờ được xếp vào một trận đấu cùng nhau."
 
 #: src/components/organisms/AiTetsu.re.mjs:1438
-msgid ""
-"Players in teams will always be placed in a match together on the same side."
-msgstr ""
-"Người chơi trong các đội sẽ luôn được xếp vào một trận đấu cùng nhau ở cùng "
-"một phía."
+msgid "Players in teams will always be placed in a match together on the same side."
+msgstr "Người chơi trong các đội sẽ luôn được xếp vào một trận đấu cùng nhau ở cùng một phía."
 
 #: src/components/organisms/SubmitMatch.re.mjs:311
 #: src/components/organisms/SubmitMatch.re.mjs:357
@@ -491,14 +468,8 @@ msgid "Set as Male"
 msgstr "Đặt là Nam"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid ""
-"Set this to the number of players currently resting to enable even leveling "
-"of match counts. Set to 0 to disable and optimize match quality instead, but "
-"this may result in some players playing more matches than others."
-msgstr ""
-"Đặt số này bằng số người chơi đang nghỉ để cân bằng số lần thi đấu. Đặt 0 để "
-"tắt và tối ưu hóa chất lượng trận đấu thay thế, nhưng điều này có thể dẫn "
-"đến một số người chơi thi đấu nhiều hơn người khác."
+msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
+msgstr "Đặt số này bằng số người chơi đang nghỉ để cân bằng số lần thi đấu. Đặt 0 để tắt và tối ưu hóa chất lượng trận đấu thay thế, nhưng điều này có thể dẫn đến một số người chơi thi đấu nhiều hơn người khác."
 
 #: src/components/organisms/AiTetsu.re.mjs:1554
 msgid "Start Session"
@@ -728,12 +699,8 @@ msgid "Email address"
 msgstr "Địa chỉ email"
 
 #: src/components/organisms/ProfileModal.re.mjs:155
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
-"bằng email bạn đang cố dùng ở đây."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập bằng email bạn đang cố dùng ở đây."
 
 #: src/components/organisms/ProfileModal.re.mjs:232
 msgid "Email cannot be changed"
@@ -913,8 +880,7 @@ msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
 #: src/components/atoms/EventTag.re.mjs:56
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 
 #: src/components/organisms/RsvpOptions.re.mjs:141
@@ -999,41 +965,25 @@ msgid "TEAM 2"
 msgstr "ĐỘI 2"
 
 #: src/components/organisms/MatchCard.re.mjs:433
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
-"lịch ban đầu bằng biểu tượng đặt lại vòng."
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên lịch ban đầu bằng biểu tượng đặt lại vòng."
 
 #: src/components/pkuru/PkEventRow.re.mjs:867
 #: src/components/pages/PkEventPage.re.mjs:715
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
-msgstr ""
-"Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho "
-"người tiếp theo. Bạn có chắc không?"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
+msgstr "Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người tiếp theo. Bạn có chắc không?"
 
 #: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
-msgstr ""
-"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
-"ban tổ chức."
+msgid "This event is private. Please do not share this event without permission from the organizer."
+msgstr "Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của ban tổ chức."
 
 #: src/components/organisms/ProfileModal.re.mjs:207
 msgid "This is how others will see you"
 msgstr "Đây là cách người khác sẽ thấy bạn"
 
 #: src/components/organisms/RsvpOptions.re.mjs:197
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
-"nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
 #: src/components/organisms/ClubEventsList.re.mjs:242
 msgid "Thursday"
@@ -1089,8 +1039,7 @@ msgstr "Đã vào danh sách chờ"
 
 #: src/components/organisms/ProfileModal.re.mjs:264
 msgid "We need a few details before you can join this event"
-msgstr ""
-"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
+msgstr "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
 #: src/components/organisms/ClubEventsList.re.mjs:239
 msgid "Wednesday"
@@ -1109,12 +1058,8 @@ msgid "Yesterday"
 msgstr "Hôm qua"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:257
-msgid ""
-"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ."
+msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ."
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
@@ -1155,12 +1100,8 @@ msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
 msgstr "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:116
-msgid ""
-"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
-"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
-msgstr ""
-"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
-"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgid "3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr "3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:60
 msgid "activity is required"
@@ -1200,12 +1141,8 @@ msgid "Preview events"
 msgstr "Xem trước sự kiện"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:285
-msgid ""
-"Show events on the home page. Otherwise only people with a direct link can "
-"find them."
-msgstr ""
-"Hiển thị sự kiện trên trang chủ. Nếu không, chỉ những người có liên kết trực "
-"tiếp mới có thể tìm thấy."
+msgid "Show events on the home page. Otherwise only people with a direct link can find them."
+msgstr "Hiển thị sự kiện trên trang chủ. Nếu không, chỉ những người có liên kết trực tiếp mới có thể tìm thấy."
 
 #: src/components/organisms/CreateClubLocation.re.mjs:148
 msgid "address"
@@ -1224,11 +1161,8 @@ msgid "details"
 msgstr "chi tiết"
 
 #: src/components/organisms/CreateClubLocation.re.mjs:170
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
-msgstr ""
-"Hướng dẫn hoặc thông tin sẽ áp dụng cho tất cả sự kiện tại địa điểm này."
+msgid "Instructions or information that will apply to all events held at this location."
+msgstr "Hướng dẫn hoặc thông tin sẽ áp dụng cho tất cả sự kiện tại địa điểm này."
 
 #: src/components/organisms/CreateClubLocation.re.mjs:128
 msgid "location"
@@ -1297,12 +1231,8 @@ msgid "at"
 msgstr "lúc"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1112
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
-msgstr ""
-"Chơi giải trí tập trung vào vui vẻ và giao lưu xã hội. Phù hợp với tất cả "
-"trình độ."
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+msgstr "Chơi giải trí tập trung vào vui vẻ và giao lưu xã hội. Phù hợp với tất cả trình độ."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1256
 msgid "Create Event"
@@ -1431,11 +1361,8 @@ msgid "Require payment from attendees"
 msgstr "Yêu cầu thanh toán từ người tham dự"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1112
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
-msgstr ""
-"Chơi nghiêm túc với bảng xếp hạng và đánh giá. Các trận đấu có thể ảnh hưởng "
-"đến xếp hạng của bạn."
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "Chơi nghiêm túc với bảng xếp hạng và đánh giá. Các trận đấu có thể ảnh hưởng đến xếp hạng của bạn."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:773
 msgid "Skill level"
@@ -1612,12 +1539,8 @@ msgid "Female"
 msgstr "Nữ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:271
-msgid ""
-"Future rounds have scores entered. Regenerating will delete these scores. "
-"Are you sure?"
-msgstr ""
-"Các vòng tiếp theo đã có điểm số nhập vào. Tái tạo sẽ xóa những điểm số này. "
-"Bạn có chắc không?"
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgstr "Các vòng tiếp theo đã có điểm số nhập vào. Tái tạo sẽ xóa những điểm số này. Bạn có chắc không?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
 msgid "Gender"
@@ -1700,12 +1623,8 @@ msgid "Player Settings"
 msgstr "Cài đặt người chơi"
 
 #: src/components/molecules/DrawGenerator.re.mjs:66
-msgid ""
-"Players will be divided into similar skill level groups that round-robin "
-"with teams balanced by skill."
-msgstr ""
-"Người chơi sẽ được chia thành các nhóm trình độ tương tự theo hình thức "
-"round-robin với các đội cân bằng theo kỹ năng."
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgstr "Người chơi sẽ được chia thành các nhóm trình độ tương tự theo hình thức round-robin với các đội cân bằng theo kỹ năng."
 
 #: src/components/molecules/RoundHeader.re.mjs:35
 msgid "Previous Round"
@@ -1853,8 +1772,7 @@ msgstr "Tin nhắn trạng thái"
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "Nhập tin nhắn trạng thái... ví dụ: 'Tôi sẽ đến lúc 19:00.'"
 
 #: src/components/organisms/EventMessages.re.mjs:274
@@ -2020,12 +1938,8 @@ msgid "Rating History"
 msgstr "Lịch sử xếp hạng"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
-msgstr ""
-"Vùng tô bóng thể hiện độ không chắc chắn của xếp hạng. Dải hẹp hơn cho thấy "
-"độ tin cậy cao hơn."
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr "Vùng tô bóng thể hiện độ không chắc chắn của xếp hạng. Dải hẹp hơn cho thấy độ tin cậy cao hơn."
 
 #: src/components/organisms/RatingList.re.mjs:278
 msgid "...load higher rated players"
@@ -2075,14 +1989,8 @@ msgid "RSVP Pending..."
 msgstr "Đang xử lý RSVP..."
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"Sự kiện đã đầy, nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người trong "
-"danh sách chờ. Nếu tham gia lại, bạn sẽ vào danh sách chờ. Bạn có chắc muốn "
-"rời sự kiện không?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "Sự kiện đã đầy, nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người trong danh sách chờ. Nếu tham gia lại, bạn sẽ vào danh sách chờ. Bạn có chắc muốn rời sự kiện không?"
 
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"
@@ -2097,26 +2005,16 @@ msgid "You're Waitlisted"
 msgstr "Bạn đang trong danh sách chờ"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"Xếp hạng của bạn {0} ~ {1} (DUPR {2} ~ {3}) quá thấp. Bạn sẽ được đặt vào "
-"danh sách chờ cho đến khi giới hạn xếp hạng được hạ xuống. Hãy tham gia thêm "
-"sự kiện JPL có xếp hạng để nâng cao điểm."
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "Xếp hạng của bạn {0} ~ {1} (DUPR {2} ~ {3}) quá thấp. Bạn sẽ được đặt vào danh sách chờ cho đến khi giới hạn xếp hạng được hạ xuống. Hãy tham gia thêm sự kiện JPL có xếp hạng để nâng cao điểm."
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
 msgstr "đang tìm đối tác đánh đôi"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
-msgstr ""
-"hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người "
-"biết bạn đang tìm đối tác"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
+msgstr "hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người biết bạn đang tìm đối tác"
 
 #: src/components/organisms/SelectClub.re.mjs:83
 msgid "add new club"
@@ -2325,9 +2223,7 @@ msgid "notes"
 msgstr "ghi chú"
 
 #: src/components/pages/Event.re.mjs:312
-msgid ""
-"showing up without permission may result in a ban for failing to follow "
-"rules."
+msgid "showing up without permission may result in a ban for failing to follow rules."
 msgstr "xuất hiện mà không có phép có thể dẫn đến lệnh cấm vì vi phạm quy tắc."
 
 #: src/components/pages/Event.re.mjs:563
@@ -2339,12 +2235,8 @@ msgid "subscribe to all {activityName} events"
 msgstr "đăng ký tất cả sự kiện {activityName}"
 
 #: src/components/pages/Event.re.mjs:309
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first to get a referral."
-msgstr ""
-"đây là sự kiện riêng tư yêu cầu thành viên câu lạc bộ. Để gia nhập, hãy tham "
-"gia sự kiện Japan Pickleball League trước để được giới thiệu."
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
+msgstr "đây là sự kiện riêng tư yêu cầu thành viên câu lạc bộ. Để gia nhập, hãy tham gia sự kiện Japan Pickleball League trước để được giới thiệu."
 
 #: src/components/molecules/SubscribeActivity.re.mjs:91
 msgid "unsubscribe from {activityName} events"
@@ -2363,20 +2255,12 @@ msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr ": Định dạng round-robin cổ điển trong đó mọi người đều chơi với nhau."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:194
-msgid ""
-": Players are divided into similar skill levels. Teams are balanced to "
-"create close matches."
-msgstr ""
-": Người chơi được chia theo trình độ tương tự. Các đội được cân bằng để tạo "
-"ra các trận đấu cân sức."
+msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
+msgstr ": Người chơi được chia theo trình độ tương tự. Các đội được cân bằng để tạo ra các trận đấu cân sức."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:202
-msgid ""
-": Teams are balanced by skill, but players are not strictly separated by "
-"level."
-msgstr ""
-": Các đội được cân bằng theo kỹ năng, nhưng người chơi không được phân chia "
-"nghiêm ngặt theo trình độ."
+msgid ": Teams are balanced by skill, but players are not strictly separated by level."
+msgstr ": Các đội được cân bằng theo kỹ năng, nhưng người chơi không được phân chia nghiêm ngặt theo trình độ."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:141
 msgid "Adjust Seeds"
@@ -2408,16 +2292,11 @@ msgstr "Mỗi vòng có một số tùy chọn quản lý:"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:125
 msgid "Edit player details like name, gender, or payment status."
-msgstr ""
-"Chỉnh sửa thông tin người chơi như tên, giới tính hoặc trạng thái thanh toán."
+msgstr "Chỉnh sửa thông tin người chơi như tên, giới tính hoặc trạng thái thanh toán."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:354
-msgid ""
-"Enter scores directly on the match cards. Tap to select a winner, or press "
-"and hold to input the score as well."
-msgstr ""
-"Nhập điểm số trực tiếp trên thẻ trận đấu. Nhấn để chọn người chiến thắng, "
-"hoặc nhấn và giữ để nhập điểm số."
+msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
+msgstr "Nhập điểm số trực tiếp trên thẻ trận đấu. Nhấn để chọn người chiến thắng, hoặc nhấn và giữ để nhập điểm số."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:350
 msgid "Entering Results & Syncing"
@@ -2441,32 +2320,19 @@ msgstr "Đang tạo bốc thăm"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:29
 msgid "Here is a guide to the icons used in the Event Manager:"
-msgstr ""
-"Đây là hướng dẫn về các biểu tượng được sử dụng trong Trình quản lý sự kiện:"
+msgstr "Đây là hướng dẫn về các biểu tượng được sử dụng trong Trình quản lý sự kiện:"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:321
 msgid "icon to edit player details (Name, Gender, Paid status)."
-msgstr ""
-"biểu tượng để chỉnh sửa thông tin người chơi (Tên, Giới tính, Trạng thái "
-"thanh toán)."
+msgstr "biểu tượng để chỉnh sửa thông tin người chơi (Tên, Giới tính, Trạng thái thanh toán)."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:25
 msgid "Icons Guide"
 msgstr "Hướng dẫn biểu tượng"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:217
-msgid ""
-"In Competitive or Mixed mode, the system will regenerate future matches when "
-"you select the winner of the matches in the current or past rounds. This is "
-"recommended in order to optimize future rounds based on the new data. In "
-"Round-Robin mode, the future rounds will not change unless you manually "
-"change them."
-msgstr ""
-"Trong chế độ Thi đấu hoặc Hỗn hợp, hệ thống sẽ tái tạo các trận đấu tiếp "
-"theo khi bạn chọn người chiến thắng của các trận đấu trong vòng hiện tại "
-"hoặc trước đó. Điều này được khuyến nghị để tối ưu hóa các vòng tiếp theo "
-"dựa trên dữ liệu mới. Trong chế độ Round-Robin, các vòng tiếp theo sẽ không "
-"thay đổi trừ khi bạn thay đổi thủ công."
+msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
+msgstr "Trong chế độ Thi đấu hoặc Hỗn hợp, hệ thống sẽ tái tạo các trận đấu tiếp theo khi bạn chọn người chiến thắng của các trận đấu trong vòng hiện tại hoặc trước đó. Điều này được khuyến nghị để tối ưu hóa các vòng tiếp theo dựa trên dữ liệu mới. Trong chế độ Round-Robin, các vòng tiếp theo sẽ không thay đổi trừ khi bạn thay đổi thủ công."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:308
 msgid "Manage players directly from the Check-in list:"
@@ -2482,8 +2348,7 @@ msgstr "Điều chỉnh thủ công xếp hạng người chơi cho sự kiện.
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:395
 msgid "Note: If you clear your browser data, local event data will be lost."
-msgstr ""
-"Lưu ý: Nếu bạn xóa dữ liệu trình duyệt, dữ liệu sự kiện cục bộ sẽ bị mất."
+msgstr "Lưu ý: Nếu bạn xóa dữ liệu trình duyệt, dữ liệu sự kiện cục bộ sẽ bị mất."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:358
 msgid "Once matches are complete, use the"
@@ -2498,18 +2363,8 @@ msgid "Rebalance"
 msgstr "Cân bằng lại"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:248
-msgid ""
-"Regenerates the current round with the same players but moves players around "
-"to balance the skill level of each court. This will aggressively optimize "
-"each court to have the highest chance of having a tie, but may not divide "
-"the court by level groups. Useful if you replace a player and need the "
-"matches to be balanced again."
-msgstr ""
-"Tái tạo vòng hiện tại với cùng người chơi nhưng di chuyển người chơi xung "
-"quanh để cân bằng trình độ kỹ năng của mỗi sân. Điều này sẽ tích cực tối ưu "
-"hóa mỗi sân để có cơ hội cao nhất có trận hòa, nhưng có thể không chia sân "
-"theo nhóm trình độ. Hữu ích nếu bạn thay thế một người chơi và cần các trận "
-"đấu được cân bằng lại."
+msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
+msgstr "Tái tạo vòng hiện tại với cùng người chơi nhưng di chuyển người chơi xung quanh để cân bằng trình độ kỹ năng của mỗi sân. Điều này sẽ tích cực tối ưu hóa mỗi sân để có cơ hội cao nhất có trận hòa, nhưng có thể không chia sân theo nhóm trình độ. Hữu ích nếu bạn thay thế một người chơi và cần các trận đấu được cân bằng lại."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:286
 msgid "Reset (All)"
@@ -2544,35 +2399,20 @@ msgid "Service Indicator"
 msgstr "Chỉ thị phát bóng"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:185
-msgid ""
-"The Draw Generator allows you to create matches based on different "
-"strategies:"
-msgstr ""
-"Bộ tạo bốc thăm cho phép bạn tạo các trận đấu dựa trên các chiến lược khác "
-"nhau:"
+msgid "The Draw Generator allows you to create matches based on different strategies:"
+msgstr "Bộ tạo bốc thăm cho phép bạn tạo các trận đấu dựa trên các chiến lược khác nhau:"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:389
-msgid ""
-"The Event Manager works offline! All data is saved locally to your device."
-msgstr ""
-"Trình quản lý sự kiện hoạt động ngoại tuyến! Tất cả dữ liệu được lưu cục bộ "
-"trên thiết bị của bạn."
+msgid "The Event Manager works offline! All data is saved locally to your device."
+msgstr "Trình quản lý sự kiện hoạt động ngoại tuyến! Tất cả dữ liệu được lưu cục bộ trên thiết bị của bạn."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:339
-msgid ""
-"to adjust player ratings (seeds) for the event. This affects matchmaking but "
-"not their permanent rating."
-msgstr ""
-"để điều chỉnh xếp hạng người chơi (hạt giống) cho sự kiện. Điều này ảnh "
-"hưởng đến ghép đôi nhưng không phải xếp hạng vĩnh viễn của họ."
+msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
+msgstr "để điều chỉnh xếp hạng người chơi (hạt giống) cho sự kiện. Điều này ảnh hưởng đến ghép đôi nhưng không phải xếp hạng vĩnh viễn của họ."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:330
-msgid ""
-"to create Teams (always play together) or Anti-Teams (never play together on "
-"the same court)."
-msgstr ""
-"để tạo Đội (luôn chơi cùng nhau) hoặc Đội phản (không bao giờ chơi cùng nhau "
-"trên cùng một sân)."
+msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
+msgstr "để tạo Đội (luôn chơi cùng nhau) hoặc Đội phản (không bao giờ chơi cùng nhau trên cùng một sân)."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:45
 msgid "Toggle player attendance. Green means checked in."
@@ -2588,19 +2428,12 @@ msgid "Use the"
 msgstr "Sử dụng"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:220
-msgid ""
-"You can also adjust the number of courts. The system requires 4 players per "
-"court."
-msgstr ""
-"Bạn cũng có thể điều chỉnh số sân. Hệ thống yêu cầu 4 người chơi mỗi sân."
+msgid "You can also adjust the number of courts. The system requires 4 players per court."
+msgstr "Bạn cũng có thể điều chỉnh số sân. Hệ thống yêu cầu 4 người chơi mỗi sân."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:392
-msgid ""
-"You can run an entire event without internet. Just make sure to Sync Scores "
-"when you have a connection again to save the results."
-msgstr ""
-"Bạn có thể tổ chức toàn bộ sự kiện mà không cần internet. Chỉ cần đảm bảo "
-"Đồng bộ điểm số khi bạn có kết nối lại để lưu kết quả."
+msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
+msgstr "Bạn có thể tổ chức toàn bộ sự kiện mà không cần internet. Chỉ cần đảm bảo Đồng bộ điểm số khi bạn có kết nối lại để lưu kết quả."
 
 #: src/components/pages/EventManagerPage.re.mjs:85
 msgid "please login before managing the session"
@@ -2613,24 +2446,16 @@ msgstr "Sự kiện riêng tư"
 
 #: src/components/pages/EventPage.re.mjs:258
 #: src/components/pages/EventPage.re.mjs:287
-msgid ""
-"This event is private and cannot be joined on Pkuru.com. Do not show up to "
-"the event without permission."
-msgstr ""
-"Sự kiện này là riêng tư và không thể tham gia trên Pkuru.com. Không đến sự "
-"kiện mà không có sự cho phép."
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
+msgstr "Sự kiện này là riêng tư và không thể tham gia trên Pkuru.com. Không đến sự kiện mà không có sự cho phép."
 
 #: src/components/pkuru/PkEventsList.re.mjs:196
 msgid "{0} {hiddenDesc} hidden — show"
 msgstr "{0} {hiddenDesc} ẩn — hiển thị"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:110
-msgid ""
-"By clicking on the Gear icon in the top left, you can go back to the start "
-"screen. At the bottom of this screen will be the match history."
-msgstr ""
-"Bằng cách nhấn vào biểu tượng Bánh răng ở góc trên bên trái, bạn có thể quay "
-"lại màn hình bắt đầu. Ở cuối màn hình này sẽ là lịch sử trận đấu."
+msgid "By clicking on the Gear icon in the top left, you can go back to the start screen. At the bottom of this screen will be the match history."
+msgstr "Bằng cách nhấn vào biểu tượng Bánh răng ở góc trên bên trái, bạn có thể quay lại màn hình bắt đầu. Ở cuối màn hình này sẽ là lịch sử trận đấu."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:74
 msgid "Checkin Screen"
@@ -2645,39 +2470,16 @@ msgid "Entering Results"
 msgstr "Nhập kết quả"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:120
-msgid ""
-"From the Queue screen you can select some players (highlighted in green) and "
-"take some special actions for them such as creating a team, anti-team, or "
-"setting their genders. The team feature is important if you have a group of "
-"players (2 minimum) who always want to play together, often called a 'fixed-"
-"pair.' The gender is important if you want to use the Gender-Mixed doubles "
-"option when choosing matches."
-msgstr ""
-"Từ màn hình Hàng đợi, bạn có thể chọn một số người chơi (được đánh dấu màu "
-"xanh) và thực hiện một số hành động đặc biệt cho họ như tạo đội, đội phản, "
-"hoặc đặt giới tính. Tính năng đội quan trọng nếu bạn có một nhóm người chơi "
-"(tối thiểu 2 người) luôn muốn chơi cùng nhau, thường được gọi là 'cặp cố "
-"định.' Giới tính quan trọng nếu bạn muốn sử dụng tùy chọn Đôi nam nữ hỗn hợp "
-"khi chọn trận đấu."
+msgid "From the Queue screen you can select some players (highlighted in green) and take some special actions for them such as creating a team, anti-team, or setting their genders. The team feature is important if you have a group of players (2 minimum) who always want to play together, often called a 'fixed-pair.' The gender is important if you want to use the Gender-Mixed doubles option when choosing matches."
+msgstr "Từ màn hình Hàng đợi, bạn có thể chọn một số người chơi (được đánh dấu màu xanh) và thực hiện một số hành động đặc biệt cho họ như tạo đội, đội phản, hoặc đặt giới tính. Tính năng đội quan trọng nếu bạn có một nhóm người chơi (tối thiểu 2 người) luôn muốn chơi cùng nhau, thường được gọi là 'cặp cố định.' Giới tính quan trọng nếu bạn muốn sử dụng tùy chọn Đôi nam nữ hỗn hợp khi chọn trận đấu."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:132
 msgid "How to use FairPlay"
 msgstr "Cách sử dụng FairPlay"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:115
-msgid ""
-"If you enabled offline mode, you can go down this list and submit the "
-"results to Pkuru.com. Simply tap on the match, then click on the Submit "
-"button. Once the score shows 0 and 0 then it has successfully submitted. "
-"This step is not necessary if you did not enable offline mode. In normal "
-"Online Mode matches will be submitted as soon as you complete them from the "
-"Matches screen."
-msgstr ""
-"Nếu bạn đã bật chế độ ngoại tuyến, bạn có thể cuộn xuống danh sách này và "
-"nộp kết quả lên Pkuru.com. Chỉ cần nhấn vào trận đấu, sau đó nhấn nút Nộp. "
-"Khi điểm số hiển thị 0 và 0 thì đã nộp thành công. Bước này không cần thiết "
-"nếu bạn không bật chế độ ngoại tuyến. Trong chế độ Trực tuyến thông thường, "
-"các trận đấu sẽ được nộp ngay khi bạn hoàn thành từ màn hình Trận đấu."
+msgid "If you enabled offline mode, you can go down this list and submit the results to Pkuru.com. Simply tap on the match, then click on the Submit button. Once the score shows 0 and 0 then it has successfully submitted. This step is not necessary if you did not enable offline mode. In normal Online Mode matches will be submitted as soon as you complete them from the Matches screen."
+msgstr "Nếu bạn đã bật chế độ ngoại tuyến, bạn có thể cuộn xuống danh sách này và nộp kết quả lên Pkuru.com. Chỉ cần nhấn vào trận đấu, sau đó nhấn nút Nộp. Khi điểm số hiển thị 0 và 0 thì đã nộp thành công. Bước này không cần thiết nếu bạn không bật chế độ ngoại tuyến. Trong chế độ Trực tuyến thông thường, các trận đấu sẽ được nộp ngay khi bạn hoàn thành từ màn hình Trận đấu."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:64
 msgid "Launching FairPlay"
@@ -2692,67 +2494,20 @@ msgid "Matches Screen"
 msgstr "Màn hình Trận đấu"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:80
-msgid ""
-"On the bottom left you can select the number of courts under management by "
-"the app. When it is set to a value greater than 0, the app will "
-"automatically track the number of times everyone has played and determine "
-"who should be taking a break. Players who should be taking a break will be "
-"highlighted in yellow. This is a suggestion, so you can still tap on them to "
-"select them for the next match."
-msgstr ""
-"Ở góc dưới bên trái, bạn có thể chọn số sân được quản lý bởi ứng dụng. Khi "
-"được đặt thành giá trị lớn hơn 0, ứng dụng sẽ tự động theo dõi số lần mọi "
-"người đã chơi và xác định ai nên nghỉ. Người chơi nên nghỉ sẽ được đánh dấu "
-"màu vàng. Đây là gợi ý, vì vậy bạn vẫn có thể nhấn vào họ để chọn cho trận "
-"đấu tiếp theo."
+msgid "On the bottom left you can select the number of courts under management by the app. When it is set to a value greater than 0, the app will automatically track the number of times everyone has played and determine who should be taking a break. Players who should be taking a break will be highlighted in yellow. This is a suggestion, so you can still tap on them to select them for the next match."
+msgstr "Ở góc dưới bên trái, bạn có thể chọn số sân được quản lý bởi ứng dụng. Khi được đặt thành giá trị lớn hơn 0, ứng dụng sẽ tự động theo dõi số lần mọi người đã chơi và xác định ai nên nghỉ. Người chơi nên nghỉ sẽ được đánh dấu màu vàng. Đây là gợi ý, vì vậy bạn vẫn có thể nhấn vào họ để chọn cho trận đấu tiếp theo."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:90
-msgid ""
-"Once at least 4 players are selected (highlighted in green) from the Queue "
-"screen, you can generate draws with the blue button on the bottom right. The "
-"system will generate all possible combinations of matches for the given "
-"players based on the matchmaking strategy selected. Additionally it will "
-"show you the relative 'quality' of the matches and sort them from highest to "
-"lowest. Quality of the match means whether the match is going to be close or "
-"one-sided. The green highlighted match at the top is the 'recommended match' "
-"which uses some heuristics to select a match that balances quality while "
-"avoiding repeated teams or matches. The list of matches will also highlight "
-"previously played matches or pairs in yellow or red. This allows you as the "
-"organizer to determine whether to avoid repeated matches. Use the blue "
-"button to select a match which will then update the draws for the remaining "
-"players that were selected. Keep selecting matches until all players are in "
-"a match."
-msgstr ""
-"Khi đã chọn ít nhất 4 người chơi (được đánh dấu màu xanh) từ màn hình Hàng "
-"đợi, bạn có thể tạo bốc thăm bằng nút xanh ở góc dưới bên phải. Hệ thống sẽ "
-"tạo tất cả các tổ hợp trận đấu có thể cho những người chơi đã cho dựa trên "
-"chiến lược ghép đôi được chọn. Ngoài ra, nó sẽ hiển thị 'chất lượng' tương "
-"đối của các trận đấu và sắp xếp từ cao đến thấp. Chất lượng trận đấu có "
-"nghĩa là trận đấu có cân bằng hay không. Trận đấu được đánh dấu màu xanh ở "
-"đầu là 'trận đấu được đề xuất' sử dụng một số phương pháp để chọn trận đấu "
-"cân bằng chất lượng trong khi tránh các đội hoặc trận đấu lặp lại. Tiếp tục "
-"chọn trận đấu cho đến khi tất cả người chơi đều có trận đấu."
+msgid "Once at least 4 players are selected (highlighted in green) from the Queue screen, you can generate draws with the blue button on the bottom right. The system will generate all possible combinations of matches for the given players based on the matchmaking strategy selected. Additionally it will show you the relative 'quality' of the matches and sort them from highest to lowest. Quality of the match means whether the match is going to be close or one-sided. The green highlighted match at the top is the 'recommended match' which uses some heuristics to select a match that balances quality while avoiding repeated teams or matches. The list of matches will also highlight previously played matches or pairs in yellow or red. This allows you as the organizer to determine whether to avoid repeated matches. Use the blue button to select a match which will then update the draws for the remaining players that were selected. Keep selecting matches until all players are in a match."
+msgstr "Khi đã chọn ít nhất 4 người chơi (được đánh dấu màu xanh) từ màn hình Hàng đợi, bạn có thể tạo bốc thăm bằng nút xanh ở góc dưới bên phải. Hệ thống sẽ tạo tất cả các tổ hợp trận đấu có thể cho những người chơi đã cho dựa trên chiến lược ghép đôi được chọn. Ngoài ra, nó sẽ hiển thị 'chất lượng' tương đối của các trận đấu và sắp xếp từ cao đến thấp. Chất lượng trận đấu có nghĩa là trận đấu có cân bằng hay không. Trận đấu được đánh dấu màu xanh ở đầu là 'trận đấu được đề xuất' sử dụng một số phương pháp để chọn trận đấu cân bằng chất lượng trong khi tránh các đội hoặc trận đấu lặp lại. Tiếp tục chọn trận đấu cho đến khi tất cả người chơi đều có trận đấu."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:119
 msgid "Player Options"
 msgstr "Tùy chọn người chơi"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:70
-msgid ""
-"Press the large blue button to launch the system. The 'Offline Mode' toggle "
-"should be used if there is no internet connection or if you want to test the "
-"system out without saving any results. In Offline mode, no submissions are "
-"made to Pkuru.com and if you delete the matches or close the web page there "
-"will be no permanent effects of your actions using the system. Additionally "
-"this screen shows the relative strengths of the players and at the bottom of "
-"the page there is a history of all the matches played."
-msgstr ""
-"Nhấn nút xanh lớn để khởi chạy hệ thống. Nút chuyển đổi 'Chế độ ngoại tuyến' "
-"nên được sử dụng nếu không có kết nối internet hoặc nếu bạn muốn kiểm tra hệ "
-"thống mà không lưu kết quả. Trong chế độ Ngoại tuyến, không có gì được nộp "
-"lên Pkuru.com và nếu bạn xóa các trận đấu hoặc đóng trang web thì sẽ không "
-"có tác động vĩnh viễn nào. Ngoài ra, màn hình này hiển thị sức mạnh tương "
-"đối của người chơi và ở cuối trang có lịch sử tất cả các trận đấu đã chơi."
+msgid "Press the large blue button to launch the system. The 'Offline Mode' toggle should be used if there is no internet connection or if you want to test the system out without saving any results. In Offline mode, no submissions are made to Pkuru.com and if you delete the matches or close the web page there will be no permanent effects of your actions using the system. Additionally this screen shows the relative strengths of the players and at the bottom of the page there is a history of all the matches played."
+msgstr "Nhấn nút xanh lớn để khởi chạy hệ thống. Nút chuyển đổi 'Chế độ ngoại tuyến' nên được sử dụng nếu không có kết nối internet hoặc nếu bạn muốn kiểm tra hệ thống mà không lưu kết quả. Trong chế độ Ngoại tuyến, không có gì được nộp lên Pkuru.com và nếu bạn xóa các trận đấu hoặc đóng trang web thì sẽ không có tác động vĩnh viễn nào. Ngoài ra, màn hình này hiển thị sức mạnh tương đối của người chơi và ở cuối trang có lịch sử tất cả các trận đấu đã chơi."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:84
 msgid "Queue Screen"
@@ -2763,101 +2518,36 @@ msgid "Start Screen"
 msgstr "Màn hình Bắt đầu"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:105
-msgid ""
-"Tapping on the names on the left side can select the winner without entering "
-"scores. Optionally, the exact score can be entered into the number field on "
-"the right side of each match. Once the green border is around the winner, "
-"the entry is complete and you can leave it as it is. Once results are "
-"entered for all matches, you can use the blue button on the bottom right to "
-"submit all the results at once.If you enabled offline mode, no results are "
-"submitted to Pkuru.com, but ratings will still be updated locally on your "
-"device. Additionally the predicted winner is shown in the red bar at the "
-"bottom."
-msgstr ""
-"Nhấn vào tên ở bên trái có thể chọn người chiến thắng mà không cần nhập điểm "
-"số. Tùy chọn, điểm số chính xác có thể được nhập vào ô số ở bên phải của mỗi "
-"trận đấu. Khi viền xanh bao quanh người chiến thắng, việc nhập liệu hoàn "
-"tất. Khi kết quả được nhập cho tất cả các trận đấu, bạn có thể sử dụng nút "
-"xanh ở góc dưới bên phải để nộp tất cả kết quả cùng một lúc. Nếu bạn bật chế "
-"độ ngoại tuyến, không có kết quả nào được nộp lên Pkuru.com, nhưng xếp hạng "
-"vẫn sẽ được cập nhật cục bộ trên thiết bị của bạn. Ngoài ra, người chiến "
-"thắng dự đoán được hiển thị trong thanh đỏ ở cuối."
+msgid "Tapping on the names on the left side can select the winner without entering scores. Optionally, the exact score can be entered into the number field on the right side of each match. Once the green border is around the winner, the entry is complete and you can leave it as it is. Once results are entered for all matches, you can use the blue button on the bottom right to submit all the results at once.If you enabled offline mode, no results are submitted to Pkuru.com, but ratings will still be updated locally on your device. Additionally the predicted winner is shown in the red bar at the bottom."
+msgstr "Nhấn vào tên ở bên trái có thể chọn người chiến thắng mà không cần nhập điểm số. Tùy chọn, điểm số chính xác có thể được nhập vào ô số ở bên phải của mỗi trận đấu. Khi viền xanh bao quanh người chiến thắng, việc nhập liệu hoàn tất. Khi kết quả được nhập cho tất cả các trận đấu, bạn có thể sử dụng nút xanh ở góc dưới bên phải để nộp tất cả kết quả cùng một lúc. Nếu bạn bật chế độ ngoại tuyến, không có kết quả nào được nộp lên Pkuru.com, nhưng xếp hạng vẫn sẽ được cập nhật cục bộ trên thiết bị của bạn. Ngoài ra, người chiến thắng dự đoán được hiển thị trong thanh đỏ ở cuối."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:65
-msgid ""
-"The FairPlay system can be launched from any event page on Pkuru.com. The "
-"system will automatically load all signed up players, including those in the "
-"waitlist. Players who did not join the event can be added as a guest, but "
-"their ratings and results cannot be saved to Pkuru.com."
-msgstr ""
-"Hệ thống FairPlay có thể được khởi chạy từ bất kỳ trang sự kiện nào trên "
-"Pkuru.com. Hệ thống sẽ tự động tải tất cả người chơi đã đăng ký, bao gồm cả "
-"những người trong danh sách chờ. Người chơi không tham gia sự kiện có thể "
-"được thêm làm khách, nhưng xếp hạng và kết quả của họ không thể được lưu lên "
-"Pkuru.com."
+msgid "The FairPlay system can be launched from any event page on Pkuru.com. The system will automatically load all signed up players, including those in the waitlist. Players who did not join the event can be added as a guest, but their ratings and results cannot be saved to Pkuru.com."
+msgstr "Hệ thống FairPlay có thể được khởi chạy từ bất kỳ trang sự kiện nào trên Pkuru.com. Hệ thống sẽ tự động tải tất cả người chơi đã đăng ký, bao gồm cả những người trong danh sách chờ. Người chơi không tham gia sự kiện có thể được thêm làm khách, nhưng xếp hạng và kết quả của họ không thể được lưu lên Pkuru.com."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:100
-msgid ""
-"The handlebars on the left side of each name can be used to drag and drop "
-"the players into a different match or re-arrange the teams. If you press the "
-"Enter Score button you can select the winner and/or enter the score. If you "
-"want to cancel the match you can press the '...' button."
-msgstr ""
-"Thanh kéo ở bên trái mỗi tên có thể được sử dụng để kéo và thả người chơi "
-"vào một trận đấu khác hoặc sắp xếp lại các đội. Nếu bạn nhấn nút Nhập điểm "
-"số, bạn có thể chọn người chiến thắng và/hoặc nhập điểm số. Nếu bạn muốn hủy "
-"trận đấu, bạn có thể nhấn nút '...'."
+msgid "The handlebars on the left side of each name can be used to drag and drop the players into a different match or re-arrange the teams. If you press the Enter Score button you can select the winner and/or enter the score. If you want to cancel the match you can press the '...' button."
+msgstr "Thanh kéo ở bên trái mỗi tên có thể được sử dụng để kéo và thả người chơi vào một trận đấu khác hoặc sắp xếp lại các đội. Nếu bạn nhấn nút Nhập điểm số, bạn có thể chọn người chiến thắng và/hoặc nhập điểm số. Nếu bạn muốn hủy trận đấu, bạn có thể nhấn nút '...'."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:85
-msgid ""
-"The second screen is the Queue screen. This is where you can select players "
-"who want to play a match. On the bottom is a button to queue all players. "
-"This button will automatically select everyone and exclude the players who "
-"should be on break (highlighted in yellow). If you play matches in timed "
-"rounds, this is an easy way to select everyone who should participate in the "
-"next round of matches."
-msgstr ""
-"Màn hình thứ hai là màn hình Hàng đợi. Đây là nơi bạn có thể chọn người chơi "
-"muốn thi đấu. Ở cuối có nút xếp hàng tất cả người chơi. Nút này sẽ tự động "
-"chọn tất cả mọi người và loại trừ những người chơi nên nghỉ (được đánh dấu "
-"màu vàng). Nếu bạn thi đấu theo vòng thời gian, đây là cách dễ để chọn tất "
-"cả người nên tham gia vào vòng trận đấu tiếp theo."
+msgid "The second screen is the Queue screen. This is where you can select players who want to play a match. On the bottom is a button to queue all players. This button will automatically select everyone and exclude the players who should be on break (highlighted in yellow). If you play matches in timed rounds, this is an easy way to select everyone who should participate in the next round of matches."
+msgstr "Màn hình thứ hai là màn hình Hàng đợi. Đây là nơi bạn có thể chọn người chơi muốn thi đấu. Ở cuối có nút xếp hàng tất cả người chơi. Nút này sẽ tự động chọn tất cả mọi người và loại trừ những người chơi nên nghỉ (được đánh dấu màu vàng). Nếu bạn thi đấu theo vòng thời gian, đây là cách dễ để chọn tất cả người nên tham gia vào vòng trận đấu tiếp theo."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:75
-msgid ""
-"The system is composed of 3 main screns. The first is the checkin screen "
-"where you can enable/disable players for the session. Tap on a player's name "
-"to check them in. Green means the player is checked in. Check a player in if "
-"they are ready to play, and check them out if they are leaving early. If a "
-"player wants to take a break and it's not their turn yet, it's easiest to "
-"check them out and then check them back in next round."
-msgstr ""
-"Hệ thống gồm 3 màn hình chính. Đầu tiên là màn hình check-in, nơi bạn có thể "
-"bật/tắt người chơi cho phiên. Nhấn vào tên người chơi để check-in. Màu xanh "
-"có nghĩa là người chơi đã check-in. Check-in người chơi nếu họ sẵn sàng "
-"chơi, và check-out nếu họ ra về sớm. Nếu người chơi muốn nghỉ và chưa đến "
-"lượt, dễ nhất là check-out họ rồi check-in lại vào vòng tiếp theo."
+msgid "The system is composed of 3 main screns. The first is the checkin screen where you can enable/disable players for the session. Tap on a player's name to check them in. Green means the player is checked in. Check a player in if they are ready to play, and check them out if they are leaving early. If a player wants to take a break and it's not their turn yet, it's easiest to check them out and then check them back in next round."
+msgstr "Hệ thống gồm 3 màn hình chính. Đầu tiên là màn hình check-in, nơi bạn có thể bật/tắt người chơi cho phiên. Nhấn vào tên người chơi để check-in. Màu xanh có nghĩa là người chơi đã check-in. Check-in người chơi nếu họ sẵn sàng chơi, và check-out nếu họ ra về sớm. Nếu người chơi muốn nghỉ và chưa đến lượt, dễ nhất là check-out họ rồi check-in lại vào vòng tiếp theo."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:95
-msgid ""
-"The third and final screen shows the active matches that are being played. "
-"The ordering of the teams is randomized, so you can use this to determine "
-"the serving team (usually the team on top)."
-msgstr ""
-"Màn hình thứ ba và cuối cùng hiển thị các trận đấu đang diễn ra. Thứ tự của "
-"các đội là ngẫu nhiên, vì vậy bạn có thể sử dụng điều này để xác định đội "
-"phát bóng (thường là đội ở trên)."
+msgid "The third and final screen shows the active matches that are being played. The ordering of the teams is randomized, so you can use this to determine the serving team (usually the team on top)."
+msgstr "Màn hình thứ ba và cuối cùng hiển thị các trận đấu đang diễn ra. Thứ tự của các đội là ngẫu nhiên, vì vậy bạn có thể sử dụng điều này để xác định đội phát bóng (thường là đội ở trên)."
 
 #: src/components/pages/FindGamesPage.re.mjs:33
 msgid "Find League Games"
 msgstr "Tìm trận đấu giải"
 
 #: src/components/pages/FindGamesPage.re.mjs:30
-msgid ""
-"To participate in the league and win prizes, please join the league events."
-msgstr ""
-"Để tham gia giải đấu và giành giải thưởng, vui lòng tham gia các sự kiện "
-"giải đấu."
+msgid "To participate in the league and win prizes, please join the league events."
+msgstr "Để tham gia giải đấu và giành giải thưởng, vui lòng tham gia các sự kiện giải đấu."
 
 #: src/components/pages/FindGamesPage.re.mjs:24
 msgid "Where to Play"
@@ -2868,31 +2558,16 @@ msgid "About the League"
 msgstr "Giới thiệu giải đấu"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:51
-msgid ""
-"Ratings are assigned to individual players just by playing doubles games, "
-"even with different partners each game. For doubles ratings we use OpenSkill "
-"(a derivative of TrueSkill), and for singles ratings we use Glicko2."
-msgstr ""
-"Xếp hạng được gán cho từng người chơi chỉ bằng cách chơi các trận đôi, ngay "
-"cả với các đối tác khác nhau mỗi trận. Đối với xếp hạng đôi, chúng tôi sử "
-"dụng OpenSkill (dẫn xuất của TrueSkill), và đối với xếp hạng đơn, chúng tôi "
-"sử dụng Glicko2."
+msgid "Ratings are assigned to individual players just by playing doubles games, even with different partners each game. For doubles ratings we use OpenSkill (a derivative of TrueSkill), and for singles ratings we use Glicko2."
+msgstr "Xếp hạng được gán cho từng người chơi chỉ bằng cách chơi các trận đôi, ngay cả với các đối tác khác nhau mỗi trận. Đối với xếp hạng đôi, chúng tôi sử dụng OpenSkill (dẫn xuất của TrueSkill), và đối với xếp hạng đơn, chúng tôi sử dụng Glicko2."
 
 #: src/components/pages/LeagueAboutPage.re.mjs:29
-msgid ""
-"The Japan Pickleball League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"Japan Pickleball League là dự án mã nguồn mở phi lợi nhuận nhằm giúp nâng "
-"cao chất lượng các trận đấu và sự kiện pickleball cộng đồng."
+msgid "The Japan Pickleball League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "Japan Pickleball League là dự án mã nguồn mở phi lợi nhuận nhằm giúp nâng cao chất lượng các trận đấu và sự kiện pickleball cộng đồng."
 
 #: src/components/pages/LeagueAboutPage.re.mjs:22
-msgid ""
-"The Tokyo Badminton League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"Tokyo Badminton League là dự án mã nguồn mở phi lợi nhuận nhằm giúp nâng cao "
-"chất lượng các trận đấu và sự kiện cầu lông cộng đồng."
+msgid "The Tokyo Badminton League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "Tokyo Badminton League là dự án mã nguồn mở phi lợi nhuận nhằm giúp nâng cao chất lượng các trận đấu và sự kiện cầu lông cộng đồng."
 
 #: src/components/pages/LeagueEventPage.re.mjs:80
 msgid "Loading matches..."
@@ -3018,12 +2693,8 @@ msgid "Loading rankings..."
 msgstr "Đang tải bảng xếp hạng..."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:120
-msgid ""
-"Play doubles games with different partners and receive an individual rating. "
-"Prizes are awarded monthly to top players."
-msgstr ""
-"Chơi các trận đôi với các đối tác khác nhau và nhận xếp hạng cá nhân. Giải "
-"thưởng được trao hàng tháng cho các người chơi hàng đầu."
+msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+msgstr "Chơi các trận đôi với các đối tác khác nhau và nhận xếp hạng cá nhân. Giải thưởng được trao hàng tháng cho các người chơi hàng đầu."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:125
 msgid "To participate, please join the events here:"
@@ -3046,13 +2717,8 @@ msgid "login failed"
 msgstr "đăng nhập thất bại"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:37
-msgid ""
-"please try again outside of private browsing as it can interfere with Line "
-"login. if the problem persists, you can try the safe-mode login button below."
-msgstr ""
-"vui lòng thử lại bên ngoài chế độ duyệt web riêng tư vì nó có thể ảnh hưởng "
-"đến đăng nhập Line. nếu vấn đề vẫn tiếp tục, bạn có thể thử nút đăng nhập "
-"chế độ an toàn bên dưới."
+msgid "please try again outside of private browsing as it can interfere with Line login. if the problem persists, you can try the safe-mode login button below."
+msgstr "vui lòng thử lại bên ngoài chế độ duyệt web riêng tư vì nó có thể ảnh hưởng đến đăng nhập Line. nếu vấn đề vẫn tiếp tục, bạn có thể thử nút đăng nhập chế độ an toàn bên dưới."
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"
@@ -3105,40 +2771,20 @@ msgid "Sign in to Pkuru.com"
 msgstr "Đăng nhập vào Pkuru.com"
 
 #: src/components/pages/LoginPage.re.mjs:103
-msgid ""
-"Your LINE account does not have an email associated. Please set an email "
-"address for your account from the LINE app, and then try again."
-msgstr ""
-"Tài khoản LINE của bạn không có email liên kết. Vui lòng đặt địa chỉ email "
-"cho tài khoản của bạn từ ứng dụng LINE, sau đó thử lại."
+msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
+msgstr "Tài khoản LINE của bạn không có email liên kết. Vui lòng đặt địa chỉ email cho tài khoản của bạn từ ứng dụng LINE, sau đó thử lại."
 
 #: src/components/pages/NotFound.re.mjs:14
 msgid "page not found."
 msgstr "không tìm thấy trang."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:248
-msgid ""
-"As mentioned above, public games are not really a thing in Japan. However, "
-"you can find some public games on the home page of this website. They will "
-"tend to be full with a waitlist so just join the waitlist and cross your "
-"fingers. 5-6 spots tend to open up the day of the event as people cancel "
-"last minute."
-msgstr ""
-"Như đã đề cập ở trên, các trận đấu công khai không thực sự phổ biến ở Nhật "
-"Bản. Tuy nhiên, bạn có thể tìm thấy một số trận đấu công khai trên trang chủ "
-"của trang web này. Chúng thường sẽ đầy với danh sách chờ, vì vậy hãy tham "
-"gia danh sách chờ và hy vọng may mắn. 5-6 chỗ thường mở ra vào ngày sự kiện "
-"khi mọi người hủy vào phút cuối."
+msgid "As mentioned above, public games are not really a thing in Japan. However, you can find some public games on the home page of this website. They will tend to be full with a waitlist so just join the waitlist and cross your fingers. 5-6 spots tend to open up the day of the event as people cancel last minute."
+msgstr "Như đã đề cập ở trên, các trận đấu công khai không thực sự phổ biến ở Nhật Bản. Tuy nhiên, bạn có thể tìm thấy một số trận đấu công khai trên trang chủ của trang web này. Chúng thường sẽ đầy với danh sách chờ, vì vậy hãy tham gia danh sách chờ và hy vọng may mắn. 5-6 chỗ thường mở ra vào ngày sự kiện khi mọi người hủy vào phút cuối."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
-msgid ""
-"Book a court and post the event to Pkuru.com. Please mention the "
-"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
-"new to the community, we recommend you to offer the court for free."
-msgstr ""
-"Đặt sân và đăng sự kiện lên Pkuru.com. Vui lòng đề cập đến chi phí tham gia "
-"và trình độ dự kiến (3.0, 3.5, 4.0, v.v.). Nếu bạn mới tham gia cộng đồng, "
-"chúng tôi khuyến nghị bạn cung cấp sân miễn phí."
+msgid "Book a court and post the event to Pkuru.com. Please mention the participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are new to the community, we recommend you to offer the court for free."
+msgstr "Đặt sân và đăng sự kiện lên Pkuru.com. Vui lòng đề cập đến chi phí tham gia và trình độ dự kiến (3.0, 3.5, 4.0, v.v.). Nếu bạn mới tham gia cộng đồng, chúng tôi khuyến nghị bạn cung cấp sân miễn phí."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:69
 #: src/components/pages/PickleballTokyoPage.re.mjs:98
@@ -3157,12 +2803,8 @@ msgid "Create an Event at KPI Park"
 msgstr "Tạo sự kiện tại KPI Park"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:205
-msgid ""
-"Create an event at one of the locations above (use the buttons above). Make "
-"the event public so people can join you."
-msgstr ""
-"Tạo sự kiện tại một trong các địa điểm trên (sử dụng các nút ở trên). Đặt sự "
-"kiện ở chế độ công khai để mọi người có thể tham gia."
+msgid "Create an event at one of the locations above (use the buttons above). Make the event public so people can join you."
+msgstr "Tạo sự kiện tại một trong các địa điểm trên (sử dụng các nút ở trên). Đặt sự kiện ở chế độ công khai để mọi người có thể tham gia."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:91
 msgid "Create an Event at Pacific Pickle Club"
@@ -3193,29 +2835,12 @@ msgid "How to Play Pickleball in Tokyo"
 msgstr "Cách chơi Pickleball ở Tokyo"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:23
-msgid ""
-"Japan does not really have public drop in courts or games. Most pickleball "
-"games happen indoors at community center and school gymnasiums (multi-use "
-"gyms) or on private tennis/pickleball courts and these all require "
-"reservations for court time, or reservations to join the events. Many of the "
-"public facilities do not allow groups to advertise to the public, which "
-"makes it difficult for new players or visitors to drop in on sessions."
-msgstr ""
-"Nhật Bản không thực sự có sân công khai hoặc trận đấu tự do. Hầu hết các "
-"trận pickleball diễn ra trong nhà tại các trung tâm cộng đồng và nhà thể "
-"chất trường học hoặc trên sân tennis/pickleball tư nhân và tất cả đều yêu "
-"cầu đặt chỗ trước. Nhiều cơ sở công cộng không cho phép các nhóm quảng cáo "
-"ra ngoài, khiến người chơi mới hoặc du khách khó có thể tham gia các buổi "
-"tập."
+msgid "Japan does not really have public drop in courts or games. Most pickleball games happen indoors at community center and school gymnasiums (multi-use gyms) or on private tennis/pickleball courts and these all require reservations for court time, or reservations to join the events. Many of the public facilities do not allow groups to advertise to the public, which makes it difficult for new players or visitors to drop in on sessions."
+msgstr "Nhật Bản không thực sự có sân công khai hoặc trận đấu tự do. Hầu hết các trận pickleball diễn ra trong nhà tại các trung tâm cộng đồng và nhà thể chất trường học hoặc trên sân tennis/pickleball tư nhân và tất cả đều yêu cầu đặt chỗ trước. Nhiều cơ sở công cộng không cho phép các nhóm quảng cáo ra ngoài, khiến người chơi mới hoặc du khách khó có thể tham gia các buổi tập."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:33
-msgid ""
-"Join any public events on Pkuru.com (this website). If you find an event "
-"without the 'lock' icon and which has a join button, then you can join."
-msgstr ""
-"Tham gia bất kỳ sự kiện công khai nào trên Pkuru.com (trang web này). Nếu "
-"bạn tìm thấy sự kiện không có biểu tượng 'khóa' và có nút tham gia, thì bạn "
-"có thể tham gia."
+msgid "Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and which has a join button, then you can join."
+msgstr "Tham gia bất kỳ sự kiện công khai nào trên Pkuru.com (trang web này). Nếu bạn tìm thấy sự kiện không có biểu tượng 'khóa' và có nút tham gia, thì bạn có thể tham gia."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:52
 msgid "KPI Park in Kanagawa/Yokohama"
@@ -3223,16 +2848,11 @@ msgstr "KPI Park ở Kanagawa/Yokohama"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:39
 msgid "Message @japanpickle on Instagram for referrals or questions"
-msgstr ""
-"Nhắn tin @japanpickle trên Instagram để được giới thiệu hoặc đặt câu hỏi"
+msgstr "Nhắn tin @japanpickle trên Instagram để được giới thiệu hoặc đặt câu hỏi"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"One full court is available and one \"fun\" court (half-sized). The full "
-"court has narrow space on the sides."
-msgstr ""
-"Có một sân đầy đủ và một sân \"vui\" (nửa kích thước). Sân đầy đủ có không "
-"gian hẹp ở các cạnh."
+msgid "One full court is available and one \"fun\" court (half-sized). The full court has narrow space on the sides."
+msgstr "Có một sân đầy đủ và một sân \"vui\" (nửa kích thước). Sân đầy đủ có không gian hẹp ở các cạnh."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:81
 msgid "Pacific Pickle Club at Ariake"
@@ -3243,14 +2863,8 @@ msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
 msgstr "Pickleball One Ginza Shimbashi (sân cứng trong nhà)"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:257
-msgid ""
-"Please do not show up to any events without permission and only if you are "
-"in the confirmed going list. Indoor events always require a set of clean "
-"indoor only court shoes. They are really serious about this stuff in Japan."
-msgstr ""
-"Vui lòng không đến bất kỳ sự kiện nào mà không có sự cho phép và chỉ khi bạn "
-"trong danh sách xác nhận tham dự. Các sự kiện trong nhà luôn yêu cầu đôi "
-"giày sân trong nhà sạch. Họ rất nghiêm túc về điều này ở Nhật Bản."
+msgid "Please do not show up to any events without permission and only if you are in the confirmed going list. Indoor events always require a set of clean indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr "Vui lòng không đến bất kỳ sự kiện nào mà không có sự cho phép và chỉ khi bạn trong danh sách xác nhận tham dự. Các sự kiện trong nhà luôn yêu cầu đôi giày sân trong nhà sạch. Họ rất nghiêm túc về điều này ở Nhật Bản."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:231
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
@@ -3265,39 +2879,20 @@ msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr "Đăng lên nhóm pickleball Yokosuka (căn cứ hải quân Mỹ) trên Facebook:"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:27
-msgid ""
-"So, how can one play pickleball in Tokyo then as a tourist, recent "
-"transplant, or a beginner?"
-msgstr ""
-"Vậy, làm thế nào để chơi pickleball ở Tokyo với tư cách là khách du lịch, "
-"người mới đến, hoặc người mới bắt đầu?"
+msgid "So, how can one play pickleball in Tokyo then as a tourist, recent transplant, or a beginner?"
+msgstr "Vậy, làm thế nào để chơi pickleball ở Tokyo với tư cách là khách du lịch, người mới đến, hoặc người mới bắt đầu?"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:252
-msgid ""
-"Some events are restricted by level. If you are restricted, just type in "
-"your DUPR rating as a comment with your RSVP."
-msgstr ""
-"Một số sự kiện bị giới hạn theo trình độ. Nếu bạn bị giới hạn, chỉ cần nhập "
-"xếp hạng DUPR của bạn dưới dạng bình luận với RSVP của bạn."
+msgid "Some events are restricted by level. If you are restricted, just type in your DUPR rating as a comment with your RSVP."
+msgstr "Một số sự kiện bị giới hạn theo trình độ. Nếu bạn bị giới hạn, chỉ cần nhập xếp hạng DUPR của bạn dưới dạng bình luận với RSVP của bạn."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:54
-msgid ""
-"The courts require reservations but there are 10 courts and it's generally "
-"available last minute. Therefore you can book the courts just-in-time once "
-"you've already gathered the players."
-msgstr ""
-"Các sân yêu cầu đặt trước nhưng có 10 sân và thường có sẵn vào phút cuối. Vì "
-"vậy, bạn có thể đặt sân ngay khi đã tập hợp đủ người chơi."
+msgid "The courts require reservations but there are 10 courts and it's generally available last minute. Therefore you can book the courts just-in-time once you've already gathered the players."
+msgstr "Các sân yêu cầu đặt trước nhưng có 10 sân và thường có sẵn vào phút cuối. Vì vậy, bạn có thể đặt sân ngay khi đã tập hợp đủ người chơi."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:83
-msgid ""
-"The courts require reservations but there are only 2 courts so you will need "
-"to book in advance. They also hold open play sessions but the level may be "
-"low to complete beginner."
-msgstr ""
-"Các sân yêu cầu đặt trước nhưng chỉ có 2 sân, vì vậy bạn cần đặt trước. Họ "
-"cũng tổ chức các buổi chơi tự do nhưng trình độ có thể thấp đến người mới "
-"hoàn toàn."
+msgid "The courts require reservations but there are only 2 courts so you will need to book in advance. They also hold open play sessions but the level may be low to complete beginner."
+msgstr "Các sân yêu cầu đặt trước nhưng chỉ có 2 sân, vì vậy bạn cần đặt trước. Họ cũng tổ chức các buổi chơi tự do nhưng trình độ có thể thấp đến người mới hoàn toàn."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:110
 msgid "Tokyo Tower Pickleball"
@@ -3308,9 +2903,7 @@ msgid "Two courts are available. Conditions may be windy."
 msgstr "Có hai sân. Điều kiện có thể có gió."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:170
-msgid ""
-"Two courts are available. More expensive than other courts and the "
-"conditions can be windy."
+msgid "Two courts are available. More expensive than other courts and the conditions can be windy."
 msgstr "Có hai sân. Đắt hơn các sân khác và điều kiện có thể có gió."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:45
@@ -3430,9 +3023,46 @@ msgid "Your browser is too old to use this feature."
 msgstr "Trình duyệt của bạn quá cũ để sử dụng tính năng này."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"One full court is available and one \\\"fun\\\" court (half-sized). The full "
-"court has narrow space on the sides."
-msgstr ""
-"Có một sân đầy đủ và một sân \"vui\" (nửa kích thước). Sân đầy đủ có không "
-"gian hẹp ở các cạnh."
+msgid "One full court is available and one \\\"fun\\\" court (half-sized). The full court has narrow space on the sides."
+msgstr "Có một sân đầy đủ và một sân \"vui\" (nửa kích thước). Sân đầy đủ có không gian hẹp ở các cạnh."
+
+#: src/components/organisms/PkRSVPSection.re.mjs:312
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "Xếp hạng của bạn {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ duyệt."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:322
+msgid "Biography"
+msgstr "Tiểu sử"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:250
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:263
+msgid "Full name"
+msgstr "Họ và tên"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:254
+msgid "How you appear to other players"
+msgstr "Tên hiển thị với người chơi khác"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:349
+msgid "Save profile"
+msgstr "Lưu hồ sơ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:326
+msgid "Tell us a little about yourself..."
+msgstr "Hãy cho chúng tôi biết một chút về bạn..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "This event is private"
+msgstr "Sự kiện này ở chế độ riêng tư"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "This event is public"
+msgstr "Sự kiện này ở chế độ công khai"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."

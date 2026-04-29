@@ -4157,3 +4157,43 @@ msgstr ""
 #: src/components/organisms/RoundRobin.re.mjs:675
 msgid "Your browser is too old to use this feature."
 msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:312
+msgid ""
+"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:322
+msgid "Biography"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:263
+msgid "Full name"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:254
+msgid "How you appear to other players"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:349
+msgid "Save profile"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+msgid ""
+"Some events require your legal name as shown on an ID "
+"card.omeventsequoegashownour passporta"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:326
+msgid "Tell us a little about yourself..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "This event is private"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "This event is public"
+msgstr ""

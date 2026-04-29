@@ -13,49 +13,45 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-msgid "biography"
-msgstr "tiểu sử"
+#: src/components/organisms/SettingsProfileForm.re.mjs:322
+msgid "Biography"
+msgstr "Tiểu sử"
 
-#: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
-msgstr "hủy"
+#: src/components/organisms/SettingsProfileForm.re.mjs:250
+msgid "Display Name"
+msgstr "Tên hiển thị"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-msgid "details about yourself"
-msgstr "thông tin về bản thân"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:226
+#: src/components/organisms/SettingsProfileForm.re.mjs:267
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:260
+#: src/components/organisms/SettingsProfileForm.re.mjs:293
 msgid "Female"
 msgstr "Nữ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-msgid "full name"
-msgstr "tên đầy đủ"
+#: src/components/organisms/SettingsProfileForm.re.mjs:263
+msgid "Full name"
+msgstr "Họ và tên"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-msgid "gender"
-msgstr "giới tính"
+#: src/components/organisms/SettingsProfileForm.re.mjs:278
+msgid "Gender"
+msgstr "Giới tính"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:256
+#: src/components/organisms/SettingsProfileForm.re.mjs:254
+msgid "How you appear to other players"
+msgstr "Tên hiển thị với người chơi khác"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:252
+#: src/components/organisms/SettingsProfileForm.re.mjs:285
 msgid "Prefer not to say"
 msgstr "Không muốn tiết lộ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-msgid "profile"
-msgstr "hồ sơ"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr "lưu"
+#: src/components/organisms/SettingsProfileForm.re.mjs:349
+msgid "Save profile"
+msgstr "Lưu hồ sơ"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
@@ -69,10 +65,49 @@ msgstr ""
 "hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người "
 "biết bạn đang tìm đối tác"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:224
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:292
+#: src/components/organisms/SettingsProfileForm.re.mjs:328
 msgid "tell us a little about yourself"
 msgstr "hãy cho chúng tôi biết một chút về bản thân bạn"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:326
+msgid "Tell us a little about yourself..."
+msgstr "Hãy cho chúng tôi biết một chút về bạn..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "tiểu sử"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "hủy"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "thông tin về bản thân"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "tên đầy đủ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "giới tính"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "hồ sơ"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "lưu"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid ""
+#~ "Some events require your legal name as shown on an ID "
+#~ "card.omeventsequoegashownour passporta"
+#~ msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."

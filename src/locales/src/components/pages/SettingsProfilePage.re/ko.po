@@ -13,49 +13,45 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-msgid "biography"
+#: src/components/organisms/SettingsProfileForm.re.mjs:322
+msgid "Biography"
 msgstr "자기소개"
 
-#: src/components/molecules/forms/Form.re.mjs:304
-msgid "cancel"
-msgstr "취소"
+#: src/components/organisms/SettingsProfileForm.re.mjs:250
+msgid "Display Name"
+msgstr "표시 이름"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-msgid "details about yourself"
-msgstr "자신에 대한 세부 정보"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:226
+#: src/components/organisms/SettingsProfileForm.re.mjs:267
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:260
+#: src/components/organisms/SettingsProfileForm.re.mjs:293
 msgid "Female"
 msgstr "여성"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-msgid "full name"
-msgstr "성명"
+#: src/components/organisms/SettingsProfileForm.re.mjs:263
+msgid "Full name"
+msgstr "본명"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-msgid "gender"
+#: src/components/organisms/SettingsProfileForm.re.mjs:278
+msgid "Gender"
 msgstr "성별"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:256
+#: src/components/organisms/SettingsProfileForm.re.mjs:254
+msgid "How you appear to other players"
+msgstr "다른 플레이어에게 보이는 이름"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
 msgid "Male"
 msgstr "남성"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:252
+#: src/components/organisms/SettingsProfileForm.re.mjs:285
 msgid "Prefer not to say"
 msgstr "밝히지 않음"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-msgid "profile"
-msgstr "프로필"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-msgid "save"
-msgstr "저장"
+#: src/components/organisms/SettingsProfileForm.re.mjs:349
+msgid "Save profile"
+msgstr "프로필 저장"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
@@ -67,10 +63,49 @@ msgid ""
 "for a partner"
 msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:224
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:292
+#: src/components/organisms/SettingsProfileForm.re.mjs:328
 msgid "tell us a little about yourself"
 msgstr "자신에 대해 간단히 알려주세요"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:326
+msgid "Tell us a little about yourself..."
+msgstr "자신을 간략히 소개해 주세요..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "자기소개"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "취소"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "자신에 대한 세부 정보"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "성명"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "성별"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "프로필"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "저장"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid ""
+#~ "Some events require your legal name as shown on an ID "
+#~ "card.omeventsequoegashownour passporta"
+#~ msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."

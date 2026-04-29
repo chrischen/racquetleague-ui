@@ -104,11 +104,8 @@ msgid "Description:"
 msgstr "설명:"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:309
-msgid ""
-"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-"competitive play for 3.5+ players..."
-msgstr ""
-"예: 센트럴파크에서 매주 목요일 오후 6시 피클볼 모임, 3.5+ 플레이어 대상..."
+msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
+msgstr "예: 센트럴파크에서 매주 목요일 오후 6시 피클볼 모임, 3.5+ 플레이어 대상..."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 msgid "Error creating events. Please try again."
@@ -192,12 +189,8 @@ msgid "Reply"
 msgstr "답장"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"이벤트의 시간과 장소 또는 기타 세부 정보를 알려주세요. 포함할 세부 정보를 알"
-"려주시면 번역도 추가할 수 있습니다."
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "이벤트의 시간과 장소 또는 기타 세부 정보를 알려주세요. 포함할 세부 정보를 알려주시면 번역도 추가할 수 있습니다."
 
 #: src/components/organisms/AiTetsu.re.mjs:1712
 msgid "{0} {breakPlayersDesc} are not playing"
@@ -373,11 +366,8 @@ msgid "no players yet"
 msgstr "아직 플레이어가 없습니다"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid ""
-"Not enough players in the queue. Select the players who want to play from "
-"the Queue tab."
-msgstr ""
-"대기열에 플레이어가 부족합니다. 대기열 탭에서 경기할 플레이어를 선택하세요."
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
+msgstr "대기열에 플레이어가 부족합니다. 대기열 탭에서 경기할 플레이어를 선택하세요."
 
 #: src/components/organisms/AiTetsu.re.mjs:1563
 #: src/components/organisms/AiTetsu.re.mjs:1585
@@ -398,8 +388,7 @@ msgid "Player Name"
 msgstr "플레이어 이름"
 
 #: src/components/organisms/AiTetsu.re.mjs:1359
-msgid ""
-"Players in a team will always be placed in a match together on the same side."
+msgid "Players in a team will always be placed in a match together on the same side."
 msgstr "팀의 플레이어는 항상 같은 편으로 함께 경기에 배정됩니다."
 
 #: src/components/organisms/AiTetsu.re.mjs:1380
@@ -407,8 +396,7 @@ msgid "Players in an anti-team will never be placed in a match together."
 msgstr "안티팀의 플레이어는 절대 함께 경기에 배정되지 않습니다."
 
 #: src/components/organisms/AiTetsu.re.mjs:1438
-msgid ""
-"Players in teams will always be placed in a match together on the same side."
+msgid "Players in teams will always be placed in a match together on the same side."
 msgstr "팀의 플레이어는 항상 같은 편으로 함께 경기에 배정됩니다."
 
 #: src/components/organisms/SubmitMatch.re.mjs:311
@@ -480,14 +468,8 @@ msgid "Set as Male"
 msgstr "남성으로 설정"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid ""
-"Set this to the number of players currently resting to enable even leveling "
-"of match counts. Set to 0 to disable and optimize match quality instead, but "
-"this may result in some players playing more matches than others."
-msgstr ""
-"현재 쉬고 있는 플레이어 수로 설정하면 경기 횟수를 균등하게 조정합니다. 0으로 "
-"설정하면 비활성화하고 경기 품질을 최적화하지만, 일부 플레이어가 더 많은 경기"
-"를 할 수 있습니다."
+msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
+msgstr "현재 쉬고 있는 플레이어 수로 설정하면 경기 횟수를 균등하게 조정합니다. 0으로 설정하면 비활성화하고 경기 품질을 최적화하지만, 일부 플레이어가 더 많은 경기를 할 수 있습니다."
 
 #: src/components/organisms/AiTetsu.re.mjs:1554
 msgid "Start Session"
@@ -717,12 +699,8 @@ msgid "Email address"
 msgstr "이메일 주소"
 
 #: src/components/organisms/ProfileModal.re.mjs:155
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그"
-"인하세요."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그인하세요."
 
 #: src/components/organisms/ProfileModal.re.mjs:232
 msgid "Email cannot be changed"
@@ -902,8 +880,7 @@ msgid "Rebalance match"
 msgstr "경기 재조정"
 
 #: src/components/atoms/EventTag.re.mjs:56
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
 #: src/components/organisms/RsvpOptions.re.mjs:141
@@ -988,26 +965,16 @@ msgid "TEAM 2"
 msgstr "팀 2"
 
 #: src/components/organisms/MatchCard.re.mjs:433
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
-"복원할 수 있습니다."
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 복원할 수 있습니다."
 
 #: src/components/pkuru/PkEventRow.re.mjs:867
 #: src/components/pages/PkEventPage.re.mjs:715
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
-msgstr ""
-"대기자 명단에 플레이어가 있습니다. 나가면 자리가 다음 사람에게 넘어갑니다. 확"
-"실합니까?"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
+msgstr "대기자 명단에 플레이어가 있습니다. 나가면 자리가 다음 사람에게 넘어갑니다. 확실합니까?"
 
 #: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유하지 마세요."
 
 #: src/components/organisms/ProfileModal.re.mjs:207
@@ -1015,12 +982,8 @@ msgid "This is how others will see you"
 msgstr "다른 사람들에게 이렇게 보입니다"
 
 #: src/components/organisms/RsvpOptions.re.mjs:197
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
-"다. RSVP를 제한하시겠습니까?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니다. RSVP를 제한하시겠습니까?"
 
 #: src/components/organisms/ClubEventsList.re.mjs:242
 msgid "Thursday"
@@ -1095,12 +1058,8 @@ msgid "Yesterday"
 msgstr "어제"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:257
-msgid ""
-"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"레이팅 {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi})이 최소값보다 낮습니다. 대기 목록에 배치됩니다."
+msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "레이팅 {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi})이 최소값보다 낮습니다. 대기 목록에 배치됩니다."
 
 #. js-lingui-explicit-id
 #: src/components/molecules/SubscribeActivity.re.mjs:132
@@ -1138,13 +1097,11 @@ msgstr "배구"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:115
 msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
-msgstr ""
+msgstr "{0}/{1} 10:00-12:00\\n장소\\n오픈 플레이\\n최대 18명"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:116
-msgid ""
-"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
-"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
-msgstr ""
+msgid "3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr "3/2 10:00-12:00\\n장소\\n오픈 플레이\\n최대 18명\\n\\n3/5 10:00-12:00\\n장소\\n오픈 플레이\\n최대 18명"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:60
 msgid "activity is required"
@@ -1184,12 +1141,8 @@ msgid "Preview events"
 msgstr "이벤트 미리보기"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:285
-msgid ""
-"Show events on the home page. Otherwise only people with a direct link can "
-"find them."
-msgstr ""
-"홈페이지에 이벤트를 표시합니다. 그렇지 않으면 직접 링크가 있는 사람만 찾을 "
-"수 있습니다."
+msgid "Show events on the home page. Otherwise only people with a direct link can find them."
+msgstr "홈페이지에 이벤트를 표시합니다. 그렇지 않으면 직접 링크가 있는 사람만 찾을 수 있습니다."
 
 #: src/components/organisms/CreateClubLocation.re.mjs:148
 msgid "address"
@@ -1208,9 +1161,7 @@ msgid "details"
 msgstr "세부 정보"
 
 #: src/components/organisms/CreateClubLocation.re.mjs:170
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
+msgid "Instructions or information that will apply to all events held at this location."
 msgstr "이 장소에서 열리는 모든 이벤트에 적용될 지침 또는 정보."
 
 #: src/components/organisms/CreateClubLocation.re.mjs:128
@@ -1280,9 +1231,7 @@ msgid "at"
 msgstr "에"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1112
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
 msgstr "즐거움과 사교에 집중한 캐주얼 플레이. 모든 실력 수준에 적합합니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1256
@@ -1412,11 +1361,8 @@ msgid "Require payment from attendees"
 msgstr "참가자에게 결제 요구"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1112
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
-msgstr ""
-"순위와 레이팅이 있는 진지한 경기. 게임이 플레이어 레이팅에 영향을 줄 수 있습"
-"니다."
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "순위와 레이팅이 있는 진지한 경기. 게임이 플레이어 레이팅에 영향을 줄 수 있습니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:773
 msgid "Skill level"
@@ -1593,12 +1539,8 @@ msgid "Female"
 msgstr "여성"
 
 #: src/components/molecules/DrawGenerator.re.mjs:271
-msgid ""
-"Future rounds have scores entered. Regenerating will delete these scores. "
-"Are you sure?"
-msgstr ""
-"향후 라운드에 점수가 입력되어 있습니다. 재생성하면 이 점수가 삭제됩니다. 확실"
-"합니까?"
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgstr "향후 라운드에 점수가 입력되어 있습니다. 재생성하면 이 점수가 삭제됩니다. 확실합니까?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
 msgid "Gender"
@@ -1681,12 +1623,8 @@ msgid "Player Settings"
 msgstr "플레이어 설정"
 
 #: src/components/molecules/DrawGenerator.re.mjs:66
-msgid ""
-"Players will be divided into similar skill level groups that round-robin "
-"with teams balanced by skill."
-msgstr ""
-"플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 "
-"나뉩니다."
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgstr "플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 나뉩니다."
 
 #: src/components/molecules/RoundHeader.re.mjs:35
 msgid "Previous Round"
@@ -1834,8 +1772,7 @@ msgstr "상태 메시지"
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'"
 
 #: src/components/organisms/EventMessages.re.mjs:274
@@ -2001,11 +1938,8 @@ msgid "Rating History"
 msgstr "레이팅 기록"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
-msgstr ""
-"음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr "음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
 
 #: src/components/organisms/RatingList.re.mjs:278
 msgid "...load higher rated players"
@@ -2055,13 +1989,8 @@ msgid "RSVP Pending..."
 msgstr "RSVP 처리 중..."
 
 #: src/components/atoms/EventSignupButton.re.mjs:89
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기"
-"자 명단에 들어갑니다. 정말 나가시겠습니까?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기자 명단에 들어갑니다. 정말 나가시겠습니까?"
 
 #: src/components/atoms/EventSignupButton.re.mjs:88
 msgid "You will lose your spot"
@@ -2076,23 +2005,15 @@ msgid "You're Waitlisted"
 msgstr "대기 중"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"레이팅 {0} ~ {1} (DUPR {2} ~ {3})이(가) 너무 낮습니다. 레이팅 제한이 낮아질 "
-"때까지 대기 목록에 배치됩니다. JPL 레이팅 이벤트에 참가하여 레이팅을 높이세"
-"요."
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "레이팅 {0} ~ {1} (DUPR {2} ~ {3})이(가) 너무 낮습니다. 레이팅 제한이 낮아질 때까지 대기 목록에 배치됩니다. JPL 레이팅 이벤트에 참가하여 레이팅을 높이세요."
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
 msgstr "복식 파트너 구함"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
 
 #: src/components/organisms/SelectClub.re.mjs:83
@@ -2302,9 +2223,7 @@ msgid "notes"
 msgstr "메모"
 
 #: src/components/pages/Event.re.mjs:312
-msgid ""
-"showing up without permission may result in a ban for failing to follow "
-"rules."
+msgid "showing up without permission may result in a ban for failing to follow rules."
 msgstr "허가 없이 나타나면 규칙 위반으로 참가 금지될 수 있습니다."
 
 #: src/components/pages/Event.re.mjs:563
@@ -2316,12 +2235,8 @@ msgid "subscribe to all {activityName} events"
 msgstr "모든 {activityName} 이벤트 구독"
 
 #: src/components/pages/Event.re.mjs:309
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first to get a referral."
-msgstr ""
-"이 이벤트는 클럽 멤버십이 필요한 비공개 이벤트입니다. 클럽에 가입하려면 먼저 "
-"Japan Pickleball League 이벤트에 참가하여 추천을 받으세요."
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
+msgstr "이 이벤트는 클럽 멤버십이 필요한 비공개 이벤트입니다. 클럽에 가입하려면 먼저 Japan Pickleball League 이벤트에 참가하여 추천을 받으세요."
 
 #: src/components/molecules/SubscribeActivity.re.mjs:91
 msgid "unsubscribe from {activityName} events"
@@ -2340,20 +2255,12 @@ msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr ": 모든 사람이 서로 경기하는 클래식 라운드 로빈 형식."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:194
-msgid ""
-": Players are divided into similar skill levels. Teams are balanced to "
-"create close matches."
-msgstr ""
-": 플레이어는 비슷한 실력 수준으로 나뉩니다. 팀은 치열한 경기를 위해 균형잡힙"
-"니다."
+msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
+msgstr ": 플레이어는 비슷한 실력 수준으로 나뉩니다. 팀은 치열한 경기를 위해 균형잡힙니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:202
-msgid ""
-": Teams are balanced by skill, but players are not strictly separated by "
-"level."
-msgstr ""
-": 팀은 실력으로 균형잡히지만, 플레이어가 수준에 따라 엄격히 분리되지는 않습니"
-"다."
+msgid ": Teams are balanced by skill, but players are not strictly separated by level."
+msgstr ": 팀은 실력으로 균형잡히지만, 플레이어가 수준에 따라 엄격히 분리되지는 않습니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:141
 msgid "Adjust Seeds"
@@ -2388,12 +2295,8 @@ msgid "Edit player details like name, gender, or payment status."
 msgstr "이름, 성별 또는 결제 상태와 같은 플레이어 세부 정보를 편집합니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:354
-msgid ""
-"Enter scores directly on the match cards. Tap to select a winner, or press "
-"and hold to input the score as well."
-msgstr ""
-"경기 카드에 직접 점수를 입력하세요. 탭하여 승자를 선택하거나, 길게 눌러 점수"
-"도 입력합니다."
+msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
+msgstr "경기 카드에 직접 점수를 입력하세요. 탭하여 승자를 선택하거나, 길게 눌러 점수도 입력합니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:350
 msgid "Entering Results & Syncing"
@@ -2428,17 +2331,8 @@ msgid "Icons Guide"
 msgstr "아이콘 가이드"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:217
-msgid ""
-"In Competitive or Mixed mode, the system will regenerate future matches when "
-"you select the winner of the matches in the current or past rounds. This is "
-"recommended in order to optimize future rounds based on the new data. In "
-"Round-Robin mode, the future rounds will not change unless you manually "
-"change them."
-msgstr ""
-"경쟁 또는 혼합 모드에서 현재 또는 이전 라운드의 경기 승자를 선택하면 시스템"
-"이 향후 경기를 재생성합니다. 새 데이터를 기반으로 향후 라운드를 최적화하기 위"
-"해 권장됩니다. 라운드 로빈 모드에서는 수동으로 변경하지 않는 한 향후 라운드"
-"가 변경되지 않습니다."
+msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
+msgstr "경쟁 또는 혼합 모드에서 현재 또는 이전 라운드의 경기 승자를 선택하면 시스템이 향후 경기를 재생성합니다. 새 데이터를 기반으로 향후 라운드를 최적화하기 위해 권장됩니다. 라운드 로빈 모드에서는 수동으로 변경하지 않는 한 향후 라운드가 변경되지 않습니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:308
 msgid "Manage players directly from the Check-in list:"
@@ -2469,17 +2363,8 @@ msgid "Rebalance"
 msgstr "재조정"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:248
-msgid ""
-"Regenerates the current round with the same players but moves players around "
-"to balance the skill level of each court. This will aggressively optimize "
-"each court to have the highest chance of having a tie, but may not divide "
-"the court by level groups. Useful if you replace a player and need the "
-"matches to be balanced again."
-msgstr ""
-"같은 플레이어로 현재 라운드를 재생성하되, 각 코트의 실력 수준을 균형잡기 위"
-"해 플레이어를 이동합니다. 각 코트의 무승부 가능성을 최대화하도록 적극적으로 "
-"최적화하지만, 수준 그룹으로 코트를 나누지 않을 수 있습니다. 플레이어를 교체하"
-"고 경기를 다시 균형잡아야 할 때 유용합니다."
+msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
+msgstr "같은 플레이어로 현재 라운드를 재생성하되, 각 코트의 실력 수준을 균형잡기 위해 플레이어를 이동합니다. 각 코트의 무승부 가능성을 최대화하도록 적극적으로 최적화하지만, 수준 그룹으로 코트를 나누지 않을 수 있습니다. 플레이어를 교체하고 경기를 다시 균형잡아야 할 때 유용합니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:286
 msgid "Reset (All)"
@@ -2514,33 +2399,20 @@ msgid "Service Indicator"
 msgstr "서비스 표시"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:185
-msgid ""
-"The Draw Generator allows you to create matches based on different "
-"strategies:"
+msgid "The Draw Generator allows you to create matches based on different strategies:"
 msgstr "대진 생성기를 사용하면 다양한 전략을 기반으로 경기를 만들 수 있습니다:"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:389
-msgid ""
-"The Event Manager works offline! All data is saved locally to your device."
-msgstr ""
-"이벤트 관리자는 오프라인에서 작동합니다! 모든 데이터가 기기에 로컬로 저장됩니"
-"다."
+msgid "The Event Manager works offline! All data is saved locally to your device."
+msgstr "이벤트 관리자는 오프라인에서 작동합니다! 모든 데이터가 기기에 로컬로 저장됩니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:339
-msgid ""
-"to adjust player ratings (seeds) for the event. This affects matchmaking but "
-"not their permanent rating."
-msgstr ""
-"이벤트를 위한 플레이어 레이팅(시드)을 조정합니다. 이것은 매치메이킹에 영향을 "
-"주지만 영구 레이팅에는 영향을 주지 않습니다."
+msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
+msgstr "이벤트를 위한 플레이어 레이팅(시드)을 조정합니다. 이것은 매치메이킹에 영향을 주지만 영구 레이팅에는 영향을 주지 않습니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:330
-msgid ""
-"to create Teams (always play together) or Anti-Teams (never play together on "
-"the same court)."
-msgstr ""
-"팀(항상 함께 경기) 또는 안티팀(같은 코트에서 절대 함께 경기하지 않음)을 만들"
-"려면."
+msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
+msgstr "팀(항상 함께 경기) 또는 안티팀(같은 코트에서 절대 함께 경기하지 않음)을 만들려면."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:45
 msgid "Toggle player attendance. Green means checked in."
@@ -2556,19 +2428,12 @@ msgid "Use the"
 msgstr "사용"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:220
-msgid ""
-"You can also adjust the number of courts. The system requires 4 players per "
-"court."
-msgstr ""
-"코트 수도 조정할 수 있습니다. 시스템은 코트당 4명의 플레이어가 필요합니다."
+msgid "You can also adjust the number of courts. The system requires 4 players per court."
+msgstr "코트 수도 조정할 수 있습니다. 시스템은 코트당 4명의 플레이어가 필요합니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:392
-msgid ""
-"You can run an entire event without internet. Just make sure to Sync Scores "
-"when you have a connection again to save the results."
-msgstr ""
-"인터넷 없이 전체 이벤트를 진행할 수 있습니다. 결과를 저장하려면 연결이 다시 "
-"되면 점수를 동기화하세요."
+msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
+msgstr "인터넷 없이 전체 이벤트를 진행할 수 있습니다. 결과를 저장하려면 연결이 다시 되면 점수를 동기화하세요."
 
 #: src/components/pages/EventManagerPage.re.mjs:85
 msgid "please login before managing the session"
@@ -2581,24 +2446,16 @@ msgstr "비공개 이벤트"
 
 #: src/components/pages/EventPage.re.mjs:258
 #: src/components/pages/EventPage.re.mjs:287
-msgid ""
-"This event is private and cannot be joined on Pkuru.com. Do not show up to "
-"the event without permission."
-msgstr ""
-"이 이벤트는 비공개이며 Pkuru.com에서 참가할 수 없습니다. 허가 없이 이벤트에 "
-"나타나지 마세요."
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
+msgstr "이 이벤트는 비공개이며 Pkuru.com에서 참가할 수 없습니다. 허가 없이 이벤트에 나타나지 마세요."
 
 #: src/components/pkuru/PkEventsList.re.mjs:196
 msgid "{0} {hiddenDesc} hidden — show"
 msgstr "{0} {hiddenDesc} 숨김 — 표시"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:110
-msgid ""
-"By clicking on the Gear icon in the top left, you can go back to the start "
-"screen. At the bottom of this screen will be the match history."
-msgstr ""
-"왼쪽 상단의 기어 아이콘을 클릭하면 시작 화면으로 돌아갈 수 있습니다. 이 화면 "
-"하단에 경기 기록이 있습니다."
+msgid "By clicking on the Gear icon in the top left, you can go back to the start screen. At the bottom of this screen will be the match history."
+msgstr "왼쪽 상단의 기어 아이콘을 클릭하면 시작 화면으로 돌아갈 수 있습니다. 이 화면 하단에 경기 기록이 있습니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:74
 msgid "Checkin Screen"
@@ -2613,38 +2470,16 @@ msgid "Entering Results"
 msgstr "결과 입력"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:120
-msgid ""
-"From the Queue screen you can select some players (highlighted in green) and "
-"take some special actions for them such as creating a team, anti-team, or "
-"setting their genders. The team feature is important if you have a group of "
-"players (2 minimum) who always want to play together, often called a 'fixed-"
-"pair.' The gender is important if you want to use the Gender-Mixed doubles "
-"option when choosing matches."
-msgstr ""
-"대기열 화면에서 일부 플레이어(초록색으로 강조됨)를 선택하고 팀 만들기, 안티"
-"팀 만들기, 성별 설정 등의 특별 작업을 수행할 수 있습니다. 팀 기능은 항상 함"
-"께 경기하고 싶은 플레이어 그룹(최소 2명)이 있을 때 중요하며, 종종 '고정 페"
-"어'라고 합니다. 경기 선택 시 혼합 성별 복식 옵션을 사용하려면 성별이 중요합니"
-"다."
+msgid "From the Queue screen you can select some players (highlighted in green) and take some special actions for them such as creating a team, anti-team, or setting their genders. The team feature is important if you have a group of players (2 minimum) who always want to play together, often called a 'fixed-pair.' The gender is important if you want to use the Gender-Mixed doubles option when choosing matches."
+msgstr "대기열 화면에서 일부 플레이어(초록색으로 강조됨)를 선택하고 팀 만들기, 안티팀 만들기, 성별 설정 등의 특별 작업을 수행할 수 있습니다. 팀 기능은 항상 함께 경기하고 싶은 플레이어 그룹(최소 2명)이 있을 때 중요하며, 종종 '고정 페어'라고 합니다. 경기 선택 시 혼합 성별 복식 옵션을 사용하려면 성별이 중요합니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:132
 msgid "How to use FairPlay"
 msgstr "FairPlay 사용 방법"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:115
-msgid ""
-"If you enabled offline mode, you can go down this list and submit the "
-"results to Pkuru.com. Simply tap on the match, then click on the Submit "
-"button. Once the score shows 0 and 0 then it has successfully submitted. "
-"This step is not necessary if you did not enable offline mode. In normal "
-"Online Mode matches will be submitted as soon as you complete them from the "
-"Matches screen."
-msgstr ""
-"오프라인 모드를 활성화했다면 이 목록에서 결과를 Pkuru.com에 제출할 수 있습니"
-"다. 경기를 탭한 다음 제출 버튼을 클릭하세요. 점수가 0 대 0으로 표시되면 성공"
-"적으로 제출된 것입니다. 오프라인 모드를 활성화하지 않은 경우 이 단계는 필요하"
-"지 않습니다. 일반 온라인 모드에서는 경기 화면에서 완료하는 즉시 경기가 제출됩"
-"니다."
+msgid "If you enabled offline mode, you can go down this list and submit the results to Pkuru.com. Simply tap on the match, then click on the Submit button. Once the score shows 0 and 0 then it has successfully submitted. This step is not necessary if you did not enable offline mode. In normal Online Mode matches will be submitted as soon as you complete them from the Matches screen."
+msgstr "오프라인 모드를 활성화했다면 이 목록에서 결과를 Pkuru.com에 제출할 수 있습니다. 경기를 탭한 다음 제출 버튼을 클릭하세요. 점수가 0 대 0으로 표시되면 성공적으로 제출된 것입니다. 오프라인 모드를 활성화하지 않은 경우 이 단계는 필요하지 않습니다. 일반 온라인 모드에서는 경기 화면에서 완료하는 즉시 경기가 제출됩니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:64
 msgid "Launching FairPlay"
@@ -2659,67 +2494,20 @@ msgid "Matches Screen"
 msgstr "경기 화면"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:80
-msgid ""
-"On the bottom left you can select the number of courts under management by "
-"the app. When it is set to a value greater than 0, the app will "
-"automatically track the number of times everyone has played and determine "
-"who should be taking a break. Players who should be taking a break will be "
-"highlighted in yellow. This is a suggestion, so you can still tap on them to "
-"select them for the next match."
-msgstr ""
-"왼쪽 하단에서 앱이 관리하는 코트 수를 선택할 수 있습니다. 0보다 큰 값으로 설"
-"정하면 앱이 모든 사람이 플레이한 횟수를 자동으로 추적하고 누가 휴식을 취해야 "
-"하는지 결정합니다. 휴식을 취해야 하는 플레이어는 노란색으로 강조됩니다. 이것"
-"은 제안이므로 다음 경기를 위해 탭하여 선택할 수 있습니다."
+msgid "On the bottom left you can select the number of courts under management by the app. When it is set to a value greater than 0, the app will automatically track the number of times everyone has played and determine who should be taking a break. Players who should be taking a break will be highlighted in yellow. This is a suggestion, so you can still tap on them to select them for the next match."
+msgstr "왼쪽 하단에서 앱이 관리하는 코트 수를 선택할 수 있습니다. 0보다 큰 값으로 설정하면 앱이 모든 사람이 플레이한 횟수를 자동으로 추적하고 누가 휴식을 취해야 하는지 결정합니다. 휴식을 취해야 하는 플레이어는 노란색으로 강조됩니다. 이것은 제안이므로 다음 경기를 위해 탭하여 선택할 수 있습니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:90
-msgid ""
-"Once at least 4 players are selected (highlighted in green) from the Queue "
-"screen, you can generate draws with the blue button on the bottom right. The "
-"system will generate all possible combinations of matches for the given "
-"players based on the matchmaking strategy selected. Additionally it will "
-"show you the relative 'quality' of the matches and sort them from highest to "
-"lowest. Quality of the match means whether the match is going to be close or "
-"one-sided. The green highlighted match at the top is the 'recommended match' "
-"which uses some heuristics to select a match that balances quality while "
-"avoiding repeated teams or matches. The list of matches will also highlight "
-"previously played matches or pairs in yellow or red. This allows you as the "
-"organizer to determine whether to avoid repeated matches. Use the blue "
-"button to select a match which will then update the draws for the remaining "
-"players that were selected. Keep selecting matches until all players are in "
-"a match."
-msgstr ""
-"대기열 화면에서 최소 4명의 플레이어가 선택(초록색으로 강조)되면 오른쪽 하단"
-"의 파란 버튼으로 대진을 생성할 수 있습니다. 시스템은 선택된 매치메이킹 전략"
-"을 기반으로 주어진 플레이어에 대한 모든 가능한 경기 조합을 생성합니다. 또한 "
-"경기의 상대적인 '품질'을 표시하고 높은 순서에서 낮은 순서로 정렬합니다. 경기 "
-"품질은 경기가 치열할지 일방적일지를 의미합니다. 상단의 초록색 강조 경기는 반"
-"복되는 팀이나 경기를 피하면서 품질을 균형잡는 경기를 선택하기 위해 일부 휴리"
-"스틱을 사용하는 '추천 경기'입니다. 경기 목록은 이전에 플레이한 경기나 페어를 "
-"노란색 또는 빨간색으로 강조합니다. 이를 통해 주최자가 반복 경기를 피할지 여부"
-"를 결정할 수 있습니다. 파란 버튼을 사용하여 경기를 선택하면 선택된 나머지 플"
-"레이어의 대진이 업데이트됩니다. 모든 플레이어가 경기에 있을 때까지 경기를 계"
-"속 선택하세요."
+msgid "Once at least 4 players are selected (highlighted in green) from the Queue screen, you can generate draws with the blue button on the bottom right. The system will generate all possible combinations of matches for the given players based on the matchmaking strategy selected. Additionally it will show you the relative 'quality' of the matches and sort them from highest to lowest. Quality of the match means whether the match is going to be close or one-sided. The green highlighted match at the top is the 'recommended match' which uses some heuristics to select a match that balances quality while avoiding repeated teams or matches. The list of matches will also highlight previously played matches or pairs in yellow or red. This allows you as the organizer to determine whether to avoid repeated matches. Use the blue button to select a match which will then update the draws for the remaining players that were selected. Keep selecting matches until all players are in a match."
+msgstr "대기열 화면에서 최소 4명의 플레이어가 선택(초록색으로 강조)되면 오른쪽 하단의 파란 버튼으로 대진을 생성할 수 있습니다. 시스템은 선택된 매치메이킹 전략을 기반으로 주어진 플레이어에 대한 모든 가능한 경기 조합을 생성합니다. 또한 경기의 상대적인 '품질'을 표시하고 높은 순서에서 낮은 순서로 정렬합니다. 경기 품질은 경기가 치열할지 일방적일지를 의미합니다. 상단의 초록색 강조 경기는 반복되는 팀이나 경기를 피하면서 품질을 균형잡는 경기를 선택하기 위해 일부 휴리스틱을 사용하는 '추천 경기'입니다. 경기 목록은 이전에 플레이한 경기나 페어를 노란색 또는 빨간색으로 강조합니다. 이를 통해 주최자가 반복 경기를 피할지 여부를 결정할 수 있습니다. 파란 버튼을 사용하여 경기를 선택하면 선택된 나머지 플레이어의 대진이 업데이트됩니다. 모든 플레이어가 경기에 있을 때까지 경기를 계속 선택하세요."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:119
 msgid "Player Options"
 msgstr "플레이어 옵션"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:70
-msgid ""
-"Press the large blue button to launch the system. The 'Offline Mode' toggle "
-"should be used if there is no internet connection or if you want to test the "
-"system out without saving any results. In Offline mode, no submissions are "
-"made to Pkuru.com and if you delete the matches or close the web page there "
-"will be no permanent effects of your actions using the system. Additionally "
-"this screen shows the relative strengths of the players and at the bottom of "
-"the page there is a history of all the matches played."
-msgstr ""
-"큰 파란 버튼을 눌러 시스템을 시작합니다. '오프라인 모드' 토글은 인터넷 연결"
-"이 없거나 결과를 저장하지 않고 시스템을 테스트하려는 경우에 사용합니다. 오프"
-"라인 모드에서는 Pkuru.com에 제출이 이루어지지 않으며 경기를 삭제하거나 웹 페"
-"이지를 닫아도 영구적인 효과가 없습니다. 또한 이 화면은 플레이어의 상대적인 강"
-"도를 표시하며 페이지 하단에는 플레이한 모든 경기의 기록이 있습니다."
+msgid "Press the large blue button to launch the system. The 'Offline Mode' toggle should be used if there is no internet connection or if you want to test the system out without saving any results. In Offline mode, no submissions are made to Pkuru.com and if you delete the matches or close the web page there will be no permanent effects of your actions using the system. Additionally this screen shows the relative strengths of the players and at the bottom of the page there is a history of all the matches played."
+msgstr "큰 파란 버튼을 눌러 시스템을 시작합니다. '오프라인 모드' 토글은 인터넷 연결이 없거나 결과를 저장하지 않고 시스템을 테스트하려는 경우에 사용합니다. 오프라인 모드에서는 Pkuru.com에 제출이 이루어지지 않으며 경기를 삭제하거나 웹 페이지를 닫아도 영구적인 효과가 없습니다. 또한 이 화면은 플레이어의 상대적인 강도를 표시하며 페이지 하단에는 플레이한 모든 경기의 기록이 있습니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:84
 msgid "Queue Screen"
@@ -2730,94 +2518,35 @@ msgid "Start Screen"
 msgstr "시작 화면"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:105
-msgid ""
-"Tapping on the names on the left side can select the winner without entering "
-"scores. Optionally, the exact score can be entered into the number field on "
-"the right side of each match. Once the green border is around the winner, "
-"the entry is complete and you can leave it as it is. Once results are "
-"entered for all matches, you can use the blue button on the bottom right to "
-"submit all the results at once.If you enabled offline mode, no results are "
-"submitted to Pkuru.com, but ratings will still be updated locally on your "
-"device. Additionally the predicted winner is shown in the red bar at the "
-"bottom."
-msgstr ""
-"왼쪽 이름을 탭하면 점수를 입력하지 않고 승자를 선택할 수 있습니다. 선택적으"
-"로 각 경기 오른쪽의 숫자 필드에 정확한 점수를 입력할 수 있습니다. 승자 주위"
-"에 초록색 테두리가 생기면 입력이 완료된 것입니다. 모든 경기 결과가 입력되면 "
-"오른쪽 하단의 파란 버튼으로 모든 결과를 한 번에 제출할 수 있습니다. 오프라인 "
-"모드를 활성화한 경우 Pkuru.com에 결과가 제출되지 않지만 레이팅은 기기에 로컬"
-"로 업데이트됩니다. 또한 예상 승자가 하단의 빨간 막대에 표시됩니다."
+msgid "Tapping on the names on the left side can select the winner without entering scores. Optionally, the exact score can be entered into the number field on the right side of each match. Once the green border is around the winner, the entry is complete and you can leave it as it is. Once results are entered for all matches, you can use the blue button on the bottom right to submit all the results at once.If you enabled offline mode, no results are submitted to Pkuru.com, but ratings will still be updated locally on your device. Additionally the predicted winner is shown in the red bar at the bottom."
+msgstr "왼쪽 이름을 탭하면 점수를 입력하지 않고 승자를 선택할 수 있습니다. 선택적으로 각 경기 오른쪽의 숫자 필드에 정확한 점수를 입력할 수 있습니다. 승자 주위에 초록색 테두리가 생기면 입력이 완료된 것입니다. 모든 경기 결과가 입력되면 오른쪽 하단의 파란 버튼으로 모든 결과를 한 번에 제출할 수 있습니다. 오프라인 모드를 활성화한 경우 Pkuru.com에 결과가 제출되지 않지만 레이팅은 기기에 로컬로 업데이트됩니다. 또한 예상 승자가 하단의 빨간 막대에 표시됩니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:65
-msgid ""
-"The FairPlay system can be launched from any event page on Pkuru.com. The "
-"system will automatically load all signed up players, including those in the "
-"waitlist. Players who did not join the event can be added as a guest, but "
-"their ratings and results cannot be saved to Pkuru.com."
-msgstr ""
-"FairPlay 시스템은 Pkuru.com의 모든 이벤트 페이지에서 시작할 수 있습니다. 시스"
-"템은 대기자 명단에 있는 플레이어를 포함하여 등록된 모든 플레이어를 자동으로 "
-"로드합니다. 이벤트에 참가하지 않은 플레이어는 게스트로 추가할 수 있지만, 레이"
-"팅과 결과를 Pkuru.com에 저장할 수 없습니다."
+msgid "The FairPlay system can be launched from any event page on Pkuru.com. The system will automatically load all signed up players, including those in the waitlist. Players who did not join the event can be added as a guest, but their ratings and results cannot be saved to Pkuru.com."
+msgstr "FairPlay 시스템은 Pkuru.com의 모든 이벤트 페이지에서 시작할 수 있습니다. 시스템은 대기자 명단에 있는 플레이어를 포함하여 등록된 모든 플레이어를 자동으로 로드합니다. 이벤트에 참가하지 않은 플레이어는 게스트로 추가할 수 있지만, 레이팅과 결과를 Pkuru.com에 저장할 수 없습니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:100
-msgid ""
-"The handlebars on the left side of each name can be used to drag and drop "
-"the players into a different match or re-arrange the teams. If you press the "
-"Enter Score button you can select the winner and/or enter the score. If you "
-"want to cancel the match you can press the '...' button."
-msgstr ""
-"각 이름 왼쪽의 핸들을 사용하여 플레이어를 다른 경기로 드래그 앤 드롭하거나 팀"
-"을 재배치할 수 있습니다. 점수 입력 버튼을 누르면 승자를 선택하거나 점수를 입"
-"력할 수 있습니다. 경기를 취소하려면 '...' 버튼을 누르세요."
+msgid "The handlebars on the left side of each name can be used to drag and drop the players into a different match or re-arrange the teams. If you press the Enter Score button you can select the winner and/or enter the score. If you want to cancel the match you can press the '...' button."
+msgstr "각 이름 왼쪽의 핸들을 사용하여 플레이어를 다른 경기로 드래그 앤 드롭하거나 팀을 재배치할 수 있습니다. 점수 입력 버튼을 누르면 승자를 선택하거나 점수를 입력할 수 있습니다. 경기를 취소하려면 '...' 버튼을 누르세요."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:85
-msgid ""
-"The second screen is the Queue screen. This is where you can select players "
-"who want to play a match. On the bottom is a button to queue all players. "
-"This button will automatically select everyone and exclude the players who "
-"should be on break (highlighted in yellow). If you play matches in timed "
-"rounds, this is an easy way to select everyone who should participate in the "
-"next round of matches."
-msgstr ""
-"두 번째 화면은 대기열 화면입니다. 경기를 원하는 플레이어를 선택할 수 있는 곳"
-"입니다. 하단에는 모든 플레이어를 대기열에 추가하는 버튼이 있습니다. 이 버튼"
-"은 모든 사람을 자동으로 선택하고 휴식을 취해야 하는 플레이어(노란색으로 강조)"
-"를 제외합니다. 시간 제한 라운드로 경기를 진행하는 경우, 다음 라운드에 참여해"
-"야 하는 모든 사람을 쉽게 선택할 수 있습니다."
+msgid "The second screen is the Queue screen. This is where you can select players who want to play a match. On the bottom is a button to queue all players. This button will automatically select everyone and exclude the players who should be on break (highlighted in yellow). If you play matches in timed rounds, this is an easy way to select everyone who should participate in the next round of matches."
+msgstr "두 번째 화면은 대기열 화면입니다. 경기를 원하는 플레이어를 선택할 수 있는 곳입니다. 하단에는 모든 플레이어를 대기열에 추가하는 버튼이 있습니다. 이 버튼은 모든 사람을 자동으로 선택하고 휴식을 취해야 하는 플레이어(노란색으로 강조)를 제외합니다. 시간 제한 라운드로 경기를 진행하는 경우, 다음 라운드에 참여해야 하는 모든 사람을 쉽게 선택할 수 있습니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:75
-msgid ""
-"The system is composed of 3 main screns. The first is the checkin screen "
-"where you can enable/disable players for the session. Tap on a player's name "
-"to check them in. Green means the player is checked in. Check a player in if "
-"they are ready to play, and check them out if they are leaving early. If a "
-"player wants to take a break and it's not their turn yet, it's easiest to "
-"check them out and then check them back in next round."
-msgstr ""
-"시스템은 3개의 주요 화면으로 구성됩니다. 첫 번째는 세션에서 플레이어를 활성"
-"화/비활성화할 수 있는 체크인 화면입니다. 플레이어 이름을 탭하여 체크인합니"
-"다. 초록색은 플레이어가 체크인되었음을 의미합니다. 플레이할 준비가 된 경우 체"
-"크인하고, 일찍 떠나는 경우 체크아웃합니다. 플레이어가 휴식을 원하지만 아직 차"
-"례가 아닌 경우, 체크아웃한 다음 다음 라운드에 다시 체크인하는 것이 가장 쉽습"
-"니다."
+msgid "The system is composed of 3 main screns. The first is the checkin screen where you can enable/disable players for the session. Tap on a player's name to check them in. Green means the player is checked in. Check a player in if they are ready to play, and check them out if they are leaving early. If a player wants to take a break and it's not their turn yet, it's easiest to check them out and then check them back in next round."
+msgstr "시스템은 3개의 주요 화면으로 구성됩니다. 첫 번째는 세션에서 플레이어를 활성화/비활성화할 수 있는 체크인 화면입니다. 플레이어 이름을 탭하여 체크인합니다. 초록색은 플레이어가 체크인되었음을 의미합니다. 플레이할 준비가 된 경우 체크인하고, 일찍 떠나는 경우 체크아웃합니다. 플레이어가 휴식을 원하지만 아직 차례가 아닌 경우, 체크아웃한 다음 다음 라운드에 다시 체크인하는 것이 가장 쉽습니다."
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:95
-msgid ""
-"The third and final screen shows the active matches that are being played. "
-"The ordering of the teams is randomized, so you can use this to determine "
-"the serving team (usually the team on top)."
-msgstr ""
-"세 번째이자 마지막 화면은 진행 중인 활성 경기를 보여줍니다. 팀의 순서는 무작"
-"위이므로 서비스 팀(보통 상단 팀)을 결정하는 데 사용할 수 있습니다."
+msgid "The third and final screen shows the active matches that are being played. The ordering of the teams is randomized, so you can use this to determine the serving team (usually the team on top)."
+msgstr "세 번째이자 마지막 화면은 진행 중인 활성 경기를 보여줍니다. 팀의 순서는 무작위이므로 서비스 팀(보통 상단 팀)을 결정하는 데 사용할 수 있습니다."
 
 #: src/components/pages/FindGamesPage.re.mjs:33
 msgid "Find League Games"
 msgstr "리그 게임 찾기"
 
 #: src/components/pages/FindGamesPage.re.mjs:30
-msgid ""
-"To participate in the league and win prizes, please join the league events."
+msgid "To participate in the league and win prizes, please join the league events."
 msgstr "리그에 참가하고 상을 받으려면 리그 이벤트에 참가하세요."
 
 #: src/components/pages/FindGamesPage.re.mjs:24
@@ -2829,30 +2558,16 @@ msgid "About the League"
 msgstr "리그 소개"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:51
-msgid ""
-"Ratings are assigned to individual players just by playing doubles games, "
-"even with different partners each game. For doubles ratings we use OpenSkill "
-"(a derivative of TrueSkill), and for singles ratings we use Glicko2."
-msgstr ""
-"매 게임마다 다른 파트너와 함께하더라도 복식 게임을 플레이하는 것만으로 개별 "
-"플레이어에게 레이팅이 부여됩니다. 복식 레이팅에는 OpenSkill(TrueSkill 파생)"
-"을, 단식 레이팅에는 Glicko2를 사용합니다."
+msgid "Ratings are assigned to individual players just by playing doubles games, even with different partners each game. For doubles ratings we use OpenSkill (a derivative of TrueSkill), and for singles ratings we use Glicko2."
+msgstr "매 게임마다 다른 파트너와 함께하더라도 복식 게임을 플레이하는 것만으로 개별 플레이어에게 레이팅이 부여됩니다. 복식 레이팅에는 OpenSkill(TrueSkill 파생)을, 단식 레이팅에는 Glicko2를 사용합니다."
 
 #: src/components/pages/LeagueAboutPage.re.mjs:29
-msgid ""
-"The Japan Pickleball League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"Japan Pickleball League는 커뮤니티 레크리에이션 피클볼 게임과 이벤트의 품질"
-"을 향상시키기 위한 오픈 소스 비영리 프로젝트입니다."
+msgid "The Japan Pickleball League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "Japan Pickleball League는 커뮤니티 레크리에이션 피클볼 게임과 이벤트의 품질을 향상시키기 위한 오픈 소스 비영리 프로젝트입니다."
 
 #: src/components/pages/LeagueAboutPage.re.mjs:22
-msgid ""
-"The Tokyo Badminton League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"Tokyo Badminton League는 커뮤니티 레크리에이션 배드민턴 게임과 이벤트의 품질"
-"을 향상시키기 위한 오픈 소스 비영리 프로젝트입니다."
+msgid "The Tokyo Badminton League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "Tokyo Badminton League는 커뮤니티 레크리에이션 배드민턴 게임과 이벤트의 품질을 향상시키기 위한 오픈 소스 비영리 프로젝트입니다."
 
 #: src/components/pages/LeagueEventPage.re.mjs:80
 msgid "Loading matches..."
@@ -2978,12 +2693,8 @@ msgid "Loading rankings..."
 msgstr "순위 로딩 중..."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:120
-msgid ""
-"Play doubles games with different partners and receive an individual rating. "
-"Prizes are awarded monthly to top players."
-msgstr ""
-"다양한 파트너와 복식 게임을 플레이하고 개인 레이팅을 받으세요. 매월 상위 플레"
-"이어에게 상이 수여됩니다."
+msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+msgstr "다양한 파트너와 복식 게임을 플레이하고 개인 레이팅을 받으세요. 매월 상위 플레이어에게 상이 수여됩니다."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:125
 msgid "To participate, please join the events here:"
@@ -3006,13 +2717,8 @@ msgid "login failed"
 msgstr "로그인 실패"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:37
-msgid ""
-"please try again outside of private browsing as it can interfere with Line "
-"login. if the problem persists, you can try the safe-mode login button below."
-msgstr ""
-"비공개 브라우징이 Line 로그인을 방해할 수 있으므로 비공개 브라우징 외부에서 "
-"다시 시도하세요. 문제가 계속되면 아래의 안전 모드 로그인 버튼을 사용해 보세"
-"요."
+msgid "please try again outside of private browsing as it can interfere with Line login. if the problem persists, you can try the safe-mode login button below."
+msgstr "비공개 브라우징이 Line 로그인을 방해할 수 있으므로 비공개 브라우징 외부에서 다시 시도하세요. 문제가 계속되면 아래의 안전 모드 로그인 버튼을 사용해 보세요."
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"
@@ -3065,39 +2771,20 @@ msgid "Sign in to Pkuru.com"
 msgstr "Pkuru.com에 로그인"
 
 #: src/components/pages/LoginPage.re.mjs:103
-msgid ""
-"Your LINE account does not have an email associated. Please set an email "
-"address for your account from the LINE app, and then try again."
-msgstr ""
-"LINE 계정에 연결된 이메일이 없습니다. LINE 앱에서 계정의 이메일 주소를 설정"
-"한 다음 다시 시도하세요."
+msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
+msgstr "LINE 계정에 연결된 이메일이 없습니다. LINE 앱에서 계정의 이메일 주소를 설정한 다음 다시 시도하세요."
 
 #: src/components/pages/NotFound.re.mjs:14
 msgid "page not found."
 msgstr "페이지를 찾을 수 없습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:248
-msgid ""
-"As mentioned above, public games are not really a thing in Japan. However, "
-"you can find some public games on the home page of this website. They will "
-"tend to be full with a waitlist so just join the waitlist and cross your "
-"fingers. 5-6 spots tend to open up the day of the event as people cancel "
-"last minute."
-msgstr ""
-"위에서 언급했듯이, 일본에서는 공개 게임이 일반적이지 않습니다. 그러나 이 웹사"
-"이트 홈페이지에서 일부 공개 게임을 찾을 수 있습니다. 대기자 명단이 있을 정도"
-"로 꽉 찰 경향이 있으므로 대기자 명단에 등록하고 행운을 빌어보세요. 이벤트 당"
-"일에 사람들이 마지막 순간에 취소하면서 5-6자리가 열리는 경향이 있습니다."
+msgid "As mentioned above, public games are not really a thing in Japan. However, you can find some public games on the home page of this website. They will tend to be full with a waitlist so just join the waitlist and cross your fingers. 5-6 spots tend to open up the day of the event as people cancel last minute."
+msgstr "위에서 언급했듯이, 일본에서는 공개 게임이 일반적이지 않습니다. 그러나 이 웹사이트 홈페이지에서 일부 공개 게임을 찾을 수 있습니다. 대기자 명단이 있을 정도로 꽉 찰 경향이 있으므로 대기자 명단에 등록하고 행운을 빌어보세요. 이벤트 당일에 사람들이 마지막 순간에 취소하면서 5-6자리가 열리는 경향이 있습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
-msgid ""
-"Book a court and post the event to Pkuru.com. Please mention the "
-"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
-"new to the community, we recommend you to offer the court for free."
-msgstr ""
-"코트를 예약하고 Pkuru.com에 이벤트를 게시하세요. 참가 비용과 예상 수준(3.0, "
-"3.5, 4.0 등)을 언급해 주세요. 커뮤니티에 새로 온 경우 코트를 무료로 제공하는 "
-"것을 권장합니다."
+msgid "Book a court and post the event to Pkuru.com. Please mention the participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are new to the community, we recommend you to offer the court for free."
+msgstr "코트를 예약하고 Pkuru.com에 이벤트를 게시하세요. 참가 비용과 예상 수준(3.0, 3.5, 4.0 등)을 언급해 주세요. 커뮤니티에 새로 온 경우 코트를 무료로 제공하는 것을 권장합니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:69
 #: src/components/pages/PickleballTokyoPage.re.mjs:98
@@ -3116,12 +2803,8 @@ msgid "Create an Event at KPI Park"
 msgstr "KPI 파크에서 이벤트 만들기"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:205
-msgid ""
-"Create an event at one of the locations above (use the buttons above). Make "
-"the event public so people can join you."
-msgstr ""
-"위 장소 중 하나에서 이벤트를 만드세요 (위의 버튼 사용). 사람들이 참가할 수 있"
-"도록 이벤트를 공개로 설정하세요."
+msgid "Create an event at one of the locations above (use the buttons above). Make the event public so people can join you."
+msgstr "위 장소 중 하나에서 이벤트를 만드세요 (위의 버튼 사용). 사람들이 참가할 수 있도록 이벤트를 공개로 설정하세요."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:91
 msgid "Create an Event at Pacific Pickle Club"
@@ -3152,27 +2835,12 @@ msgid "How to Play Pickleball in Tokyo"
 msgstr "도쿄에서 피클볼 하는 방법"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:23
-msgid ""
-"Japan does not really have public drop in courts or games. Most pickleball "
-"games happen indoors at community center and school gymnasiums (multi-use "
-"gyms) or on private tennis/pickleball courts and these all require "
-"reservations for court time, or reservations to join the events. Many of the "
-"public facilities do not allow groups to advertise to the public, which "
-"makes it difficult for new players or visitors to drop in on sessions."
-msgstr ""
-"일본에는 공개 드롭인 코트나 게임이 거의 없습니다. 대부분의 피클볼 게임은 커뮤"
-"니티 센터나 학교 체육관(다목적 체육관) 또는 사설 테니스/피클볼 코트에서 실내"
-"로 진행되며, 모두 코트 시간 예약이나 이벤트 참가 예약이 필요합니다. 많은 공"
-"공 시설이 단체의 공개 광고를 허용하지 않아 새 플레이어나 방문자가 세션에 드롭"
-"인하기 어렵습니다."
+msgid "Japan does not really have public drop in courts or games. Most pickleball games happen indoors at community center and school gymnasiums (multi-use gyms) or on private tennis/pickleball courts and these all require reservations for court time, or reservations to join the events. Many of the public facilities do not allow groups to advertise to the public, which makes it difficult for new players or visitors to drop in on sessions."
+msgstr "일본에는 공개 드롭인 코트나 게임이 거의 없습니다. 대부분의 피클볼 게임은 커뮤니티 센터나 학교 체육관(다목적 체육관) 또는 사설 테니스/피클볼 코트에서 실내로 진행되며, 모두 코트 시간 예약이나 이벤트 참가 예약이 필요합니다. 많은 공공 시설이 단체의 공개 광고를 허용하지 않아 새 플레이어나 방문자가 세션에 드롭인하기 어렵습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:33
-msgid ""
-"Join any public events on Pkuru.com (this website). If you find an event "
-"without the 'lock' icon and which has a join button, then you can join."
-msgstr ""
-"Pkuru.com(이 웹사이트)의 모든 공개 이벤트에 참가하세요. '잠금' 아이콘이 없고 "
-"참가 버튼이 있는 이벤트를 찾으면 참가할 수 있습니다."
+msgid "Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and which has a join button, then you can join."
+msgstr "Pkuru.com(이 웹사이트)의 모든 공개 이벤트에 참가하세요. '잠금' 아이콘이 없고 참가 버튼이 있는 이벤트를 찾으면 참가할 수 있습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:52
 msgid "KPI Park in Kanagawa/Yokohama"
@@ -3183,12 +2851,8 @@ msgid "Message @japanpickle on Instagram for referrals or questions"
 msgstr "소개나 질문은 Instagram @japanpickle에 메시지 보내세요"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"One full court is available and one \"fun\" court (half-sized). The full "
-"court has narrow space on the sides."
-msgstr ""
-"풀 코트 1면과 \"펀\" 코트(절반 크기) 1면을 이용할 수 있습니다. 풀 코트는 양"
-"쪽 옆 공간이 좁습니다."
+msgid "One full court is available and one \"fun\" court (half-sized). The full court has narrow space on the sides."
+msgstr "풀 코트 1면과 \"펀\" 코트(절반 크기) 1면을 이용할 수 있습니다. 풀 코트는 양쪽 옆 공간이 좁습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:81
 msgid "Pacific Pickle Club at Ariake"
@@ -3199,14 +2863,8 @@ msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
 msgstr "Pickleball One 긴자 신바시 (실내 하드 코트)"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:257
-msgid ""
-"Please do not show up to any events without permission and only if you are "
-"in the confirmed going list. Indoor events always require a set of clean "
-"indoor only court shoes. They are really serious about this stuff in Japan."
-msgstr ""
-"허가 없이, 그리고 확인된 참가 목록에 있을 때만 이벤트에 참석하세요. 실내 이벤"
-"트에는 항상 깨끗한 실내 전용 코트 신발이 필요합니다. 일본에서는 이것에 대해 "
-"정말 엄격합니다."
+msgid "Please do not show up to any events without permission and only if you are in the confirmed going list. Indoor events always require a set of clean indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr "허가 없이, 그리고 확인된 참가 목록에 있을 때만 이벤트에 참석하세요. 실내 이벤트에는 항상 깨끗한 실내 전용 코트 신발이 필요합니다. 일본에서는 이것에 대해 정말 엄격합니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:231
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
@@ -3221,38 +2879,20 @@ msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr "Facebook의 요코스카(미 해군 기지) 피클볼 그룹에 게시하세요:"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:27
-msgid ""
-"So, how can one play pickleball in Tokyo then as a tourist, recent "
-"transplant, or a beginner?"
-msgstr ""
-"그렇다면 관광객, 이주민, 또는 초보자로서 도쿄에서 피클볼을 어떻게 할 수 있을"
-"까요?"
+msgid "So, how can one play pickleball in Tokyo then as a tourist, recent transplant, or a beginner?"
+msgstr "그렇다면 관광객, 이주민, 또는 초보자로서 도쿄에서 피클볼을 어떻게 할 수 있을까요?"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:252
-msgid ""
-"Some events are restricted by level. If you are restricted, just type in "
-"your DUPR rating as a comment with your RSVP."
-msgstr ""
-"일부 이벤트는 수준에 따라 제한됩니다. 제한이 있는 경우 RSVP와 함께 댓글로 "
-"DUPR 레이팅을 입력하세요."
+msgid "Some events are restricted by level. If you are restricted, just type in your DUPR rating as a comment with your RSVP."
+msgstr "일부 이벤트는 수준에 따라 제한됩니다. 제한이 있는 경우 RSVP와 함께 댓글로 DUPR 레이팅을 입력하세요."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:54
-msgid ""
-"The courts require reservations but there are 10 courts and it's generally "
-"available last minute. Therefore you can book the courts just-in-time once "
-"you've already gathered the players."
-msgstr ""
-"코트는 예약이 필요하지만 10개의 코트가 있어 일반적으로 마지막 순간에도 이용 "
-"가능합니다. 따라서 플레이어를 모은 후 적시에 코트를 예약할 수 있습니다."
+msgid "The courts require reservations but there are 10 courts and it's generally available last minute. Therefore you can book the courts just-in-time once you've already gathered the players."
+msgstr "코트는 예약이 필요하지만 10개의 코트가 있어 일반적으로 마지막 순간에도 이용 가능합니다. 따라서 플레이어를 모은 후 적시에 코트를 예약할 수 있습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:83
-msgid ""
-"The courts require reservations but there are only 2 courts so you will need "
-"to book in advance. They also hold open play sessions but the level may be "
-"low to complete beginner."
-msgstr ""
-"코트는 예약이 필요하지만 2개뿐이므로 미리 예약해야 합니다. 오픈 플레이 세션"
-"도 진행하지만 수준이 낮을 수 있습니다."
+msgid "The courts require reservations but there are only 2 courts so you will need to book in advance. They also hold open play sessions but the level may be low to complete beginner."
+msgstr "코트는 예약이 필요하지만 2개뿐이므로 미리 예약해야 합니다. 오픈 플레이 세션도 진행하지만 수준이 낮을 수 있습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:110
 msgid "Tokyo Tower Pickleball"
@@ -3263,12 +2903,8 @@ msgid "Two courts are available. Conditions may be windy."
 msgstr "두 개의 코트를 이용할 수 있습니다. 바람이 불 수 있습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:170
-msgid ""
-"Two courts are available. More expensive than other courts and the "
-"conditions can be windy."
-msgstr ""
-"두 개의 코트를 이용할 수 있습니다. 다른 코트보다 비싸며 바람이 불 수 있습니"
-"다."
+msgid "Two courts are available. More expensive than other courts and the conditions can be windy."
+msgstr "두 개의 코트를 이용할 수 있습니다. 다른 코트보다 비싸며 바람이 불 수 있습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:45
 msgid "Where to Book Courts in Tokyo"
@@ -3387,9 +3023,46 @@ msgid "Your browser is too old to use this feature."
 msgstr "이 기능을 사용하기에는 브라우저가 너무 오래되었습니다."
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"One full court is available and one \\\"fun\\\" court (half-sized). The full "
-"court has narrow space on the sides."
-msgstr ""
-"풀 코트 1면과 \"펀\" 코트(절반 크기) 1면을 이용할 수 있습니다. 풀 코트는 양"
-"쪽 옆 공간이 좁습니다."
+msgid "One full court is available and one \\\"fun\\\" court (half-sized). The full court has narrow space on the sides."
+msgstr "풀 코트 1면과 \"펀\" 코트(절반 크기) 1면을 이용할 수 있습니다. 풀 코트는 양쪽 옆 공간이 좁습니다."
+
+#: src/components/organisms/PkRSVPSection.re.mjs:312
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "귀하의 레이팅 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ {viewerDuprHi}）이 최솟값보다 낮습니다. 대기 목록에 추가됩니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:322
+msgid "Biography"
+msgstr "자기소개"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:250
+msgid "Display Name"
+msgstr "표시 이름"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:263
+msgid "Full name"
+msgstr "본명"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:254
+msgid "How you appear to other players"
+msgstr "다른 플레이어에게 보이는 이름"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:349
+msgid "Save profile"
+msgstr "프로필 저장"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:326
+msgid "Tell us a little about yourself..."
+msgstr "자신을 간략히 소개해 주세요..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "This event is private"
+msgstr "비공개 이벤트입니다"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "This event is public"
+msgstr "공개 이벤트입니다"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."

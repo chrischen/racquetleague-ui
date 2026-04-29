@@ -49,13 +49,15 @@ msgstr "{0}개 이벤트가 생성되었습니다!"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:115
 msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
-msgstr ""
+msgstr "{0}/{1} 10:00-12:00\\n장소\\n오픈 플레이\\n최대 18명"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:116
 msgid ""
 "3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
 "10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
 msgstr ""
+"3/2 10:00-12:00\\n장소\\n오픈 플레이\\n최대 18명\\n\\n3/5 10:00-12:00\\n장소"
+"\\n오픈 플레이\\n최대 18명"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:253
 msgid "Activity"

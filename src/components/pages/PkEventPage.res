@@ -147,6 +147,7 @@ module Inner = {
   ) => {
     let viewerUser = viewer->Option.flatMap(v => v.user)
     let ts = Lingui.UtilString.t
+    let td = Lingui.UtilString.dynamic
     let locale = React.useContext(LangProvider.LocaleContext.context)
 
     let (mounted, setMounted) = React.useState(() => false)
@@ -259,17 +260,29 @@ module Inner = {
             </span>
           )
           ->Option.getOr(React.null)}
-          <div className="flex items-center gap-2">
-            <h1
-              className={Util.cx([
-                "text-lg font-semibold leading-tight",
-                event.deleted->Option.isSome
-                  ? "line-through text-gray-400 dark:text-gray-500"
-                  : "text-gray-900 dark:text-gray-100",
-              ])}>
-              {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
-            </h1>
-          </div>
+          <h1
+            className={Util.cx([
+              "text-lg font-semibold leading-tight",
+              event.deleted->Option.isSome
+                ? "line-through text-gray-400 dark:text-gray-500"
+                : "text-gray-900 dark:text-gray-100",
+            ])}>
+            {event.activity
+            ->Option.flatMap(a =>
+              a.slug->Option.map(slug => <>
+                <Router.Link
+                  to={"/e/" ++ slug}
+                  className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal">
+                  {td(a.name->Option.getOr(slug))->React.string}
+                </Router.Link>
+                <span className="text-gray-300 dark:text-gray-600 mx-1.5 font-normal">
+                  {"/"->React.string}
+                </span>
+              </>)
+            )
+            ->Option.getOr(React.null)}
+            {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
+          </h1>
           {event.club
           ->Option.flatMap(club =>
             club.slug->Option.map(slug =>
@@ -283,7 +296,7 @@ module Inner = {
           ->Option.getOr(React.null)}
           <ResponsiveTooltip.Provider>
             <div className="flex flex-wrap items-center gap-1.5 mt-2">
-              {secret ? <EventTag tag="unlisted" /> : React.null}
+              {event.listed == Some(false) ? <EventTag tag="unlisted" /> : React.null}
               {event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
                 ? <EventTag tag="comp" />
                 : React.null}

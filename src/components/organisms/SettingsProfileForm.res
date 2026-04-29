@@ -189,7 +189,7 @@ let make = (~query) => {
                   | _ => React.null
                   }}
                   <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">
-                    {t`Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta`}
+                    {t`Some events require your legal name as shown on an ID card.`}
                   </p>
                 </div>
                 <div>

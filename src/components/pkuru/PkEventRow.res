@@ -241,7 +241,7 @@ let make = (
   } = ItemFragment.use(event)
 
   let secret = shadow->Option.getOr(false)
-  let _isUnlisted = switch listed {
+  let isUnlisted = switch listed {
   | Some(false) => true
   | _ => false
   }
@@ -600,7 +600,7 @@ let make = (
             let otherTags = tagsArr->Array.filter(t => t->String.toLowerCase != "comp")
             <ResponsiveTooltip.Provider>
               <div className="flex flex-wrap gap-1.5 mt-0.5">
-                {secret ? <EventTag tag="unlisted" responsive=true /> : React.null}
+                {isUnlisted ? <EventTag tag="unlisted" responsive=true /> : React.null}
                 {hasComp ? <EventTag tag="comp" responsive=true /> : React.null}
                 {otherTags
                 ->Array.mapWithIndex((tag, i) =>

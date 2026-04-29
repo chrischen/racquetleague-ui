@@ -267,7 +267,7 @@ function SettingsProfileForm(props) {
                                                                                   JsxRuntime.jsx("input", (newrecord$1.type = "text", newrecord$1.placeholder = t`Doe John`, newrecord$1.id = "fullName", newrecord$1.className = "block w-full px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-gray-50 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-400", newrecord$1)),
                                                                                   tmp$1,
                                                                                   JsxRuntime.jsx("p", {
-                                                                                        children: t`Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta`,
+                                                                                        children: t`Some events require your legal name as shown on an ID card.`,
                                                                                         className: "mt-2 text-xs text-gray-400 dark:text-gray-500"
                                                                                       })
                                                                                 ]

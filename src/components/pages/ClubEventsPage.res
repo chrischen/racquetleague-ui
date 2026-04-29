@@ -41,18 +41,17 @@ let make = () => {
       club
       ->Option.map(c =>
         <div>
-          <div className="px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30]">
-            <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <div
+            className="px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] bg-gray-50 dark:bg-[#1e1f23] flex items-center gap-3">
+            <Router.Link
+              to={"/clubs/" ++ urlParams.slug}
+              className="p-1.5 -ml-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-[#2a2b30] transition-colors">
+              <Lucide.ChevronLeft className="w-[18px] h-[18px]" />
+            </Router.Link>
+            <h2 className="font-semibold text-gray-900 dark:text-gray-100 truncate flex-1 min-w-0">
               {c.name->Option.getOr("?")->React.string}
-            </h1>
-            {c.description
-            ->Option.map(d =>
-              <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-1">
-                {d->React.string}
-              </p>
-            )
-            ->Option.getOr(React.null)}
-            <div className="flex items-center gap-2 mt-2">
+            </h2>
+            <div className="flex items-center gap-2 flex-shrink-0">
               {c.viewerMembership
               ->Option.flatMap(m => m.isAdmin)
               ->Option.getOr(false)
