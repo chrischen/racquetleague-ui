@@ -26,6 +26,7 @@ let make = (
   ~name: string,
   ~skillLevel: float,
   ~size: [#small | #medium | #large]=#medium,
+  ~containerClassName: string="",
 ) => {
   // Size configurations
   let (containerSize, avatarSize, radius) = switch size {
@@ -33,6 +34,17 @@ let make = (
   | #medium => ("w-10 h-10", "w-7 h-7", 18.)
   | #large => ("w-12 h-12", "w-9 h-9", 22.)
   }
+
+  // When a custom containerClassName is provided, use responsive layout
+  let useCustomSize = containerClassName != ""
+  let outerClass = useCustomSize ? containerClassName : containerSize
+  let svgClass = useCustomSize ? "w-full h-full -rotate-90" : `${containerSize} -rotate-90`
+  let imgClass = useCustomSize
+    ? "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 rounded-full object-cover"
+    : `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${avatarSize} rounded-full object-cover`
+  let fallbackClass = useCustomSize
+    ? "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-semibold text-xs"
+    : `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${avatarSize} rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-semibold text-xs`
 
   let skillColor = getSkillColor(skillLevel)
 
@@ -54,8 +66,8 @@ let make = (
   | #large => "24"
   }
 
-  <div className={`relative flex-shrink-0 ${containerSize}`}>
-    <svg className={`${containerSize} -rotate-90`} viewBox={svgViewBox}>
+  <div className={`relative flex-shrink-0 ${outerClass}`}>
+    <svg className={svgClass} viewBox={svgViewBox}>
       // Background circle
       <circle
         cx={center}
@@ -84,11 +96,11 @@ let make = (
       <img
         src={url}
         alt={name}
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${avatarSize} rounded-full object-cover`}
+        className={imgClass}
       />
     | None =>
       <div
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${avatarSize} rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-semibold text-xs`}>
+        className={fallbackClass}>
         {name->String.charAt(0)->String.toUpperCase->React.string}
       </div>
     }}

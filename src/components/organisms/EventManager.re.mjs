@@ -17,8 +17,10 @@ import * as LucideReact from "lucide-react";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as DrawGenerator from "../molecules/DrawGenerator.re.mjs";
 import * as PlayerCheckin from "./PlayerCheckin.re.mjs";
+import * as FramerMotion from "framer-motion";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
+import * as FullScreenRoundView from "./FullScreenRoundView.re.mjs";
 import * as PlayerSettingsModal from "./PlayerSettingsModal.re.mjs";
 import * as TeamManagementModal from "./TeamManagementModal.re.mjs";
 import * as AddGuestPlayersModal from "./AddGuestPlayersModal.re.mjs";
@@ -588,6 +590,10 @@ function EventManager(props) {
         
       });
   var setPlayerSettingsOpen = match$18[1];
+  var match$19 = React.useState(function () {
+        return false;
+      });
+  var setShowFullScreenRound = match$19[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -690,7 +696,8 @@ function EventManager(props) {
                             param[1],
                             param[2],
                             param[4],
-                            param[5]
+                            param[5],
+                            param[6]
                           ]]));
               });
           var maxRound = Core__Array.reduce(rawMatches, 0, (function (max, param) {
@@ -715,7 +722,8 @@ function EventManager(props) {
                                 team2Players
                               ],
                               score: param[3],
-                              createdAt: param[4]
+                              createdAt: param[4],
+                              synced: param[5]
                             };
                     }
                     
@@ -779,13 +787,13 @@ function EventManager(props) {
           }
           var shouldAutoRegenerate;
           switch (strategy) {
-            case "RoundRobin" :
-            case "Random" :
-            case "DUPR" :
-                shouldAutoRegenerate = false;
+            case "CompetitivePlus" :
+            case "Competitive" :
+            case "Mixed" :
+                shouldAutoRegenerate = true;
                 break;
             default:
-              shouldAutoRegenerate = true;
+              shouldAutoRegenerate = false;
           }
           if (shouldAutoRegenerate && !futureRoundsHaveScores) {
             console.log("Auto-regenerating future rounds after current round changes");
@@ -903,7 +911,8 @@ function EventManager(props) {
                                             id: m.id,
                                             match: match,
                                             score: score,
-                                            createdAt: updatedCreatedAt
+                                            createdAt: updatedCreatedAt,
+                                            synced: false
                                           };
                                   });
                       } else {
@@ -1002,7 +1011,8 @@ function EventManager(props) {
                                                                       id: matchEntity.id,
                                                                       match: newMatchEntity.match,
                                                                       score: matchEntity.score,
-                                                                      createdAt: matchEntity.createdAt
+                                                                      createdAt: matchEntity.createdAt,
+                                                                      synced: false
                                                                     };
                                                             } else {
                                                               return matchEntity;
@@ -1111,6 +1121,9 @@ function EventManager(props) {
       var matchesWithScores = Core__Array.filterMap(rounds.flatMap(function (round) {
                 return round;
               }), (function (param) {
+              if (param.synced) {
+                return ;
+              }
               var createdAt = param.createdAt;
               var match = param.match;
               var id = param.id;
@@ -1125,7 +1138,7 @@ function EventManager(props) {
             }));
       var totalMatches = matchesWithScores.length;
       if (totalMatches === 0) {
-        console.log("No scored matches to sync");
+        console.log("No unsynced scored matches to sync");
         return setSyncState(function (param) {
                     return "Success";
                   });
@@ -1167,6 +1180,25 @@ function EventManager(props) {
               return false;
             }
           });
+      if (allSucceeded) {
+        updateRounds(function (currentRounds) {
+              return currentRounds.map(function (round) {
+                          return round.map(function (m) {
+                                      if (Core__Option.isSome(m.score)) {
+                                        return {
+                                                id: m.id,
+                                                match: m.match,
+                                                score: m.score,
+                                                createdAt: m.createdAt,
+                                                synced: true
+                                              };
+                                      } else {
+                                        return m;
+                                      }
+                                    });
+                        });
+            });
+      }
       return setSyncState(function (param) {
                   if (allSucceeded) {
                     return "Success";
@@ -1331,16 +1363,49 @@ function EventManager(props) {
               };
       });
   var tmp;
+  if (match$19[0]) {
+    var currentRoundMatches = Core__Option.getOr(rounds[currentRoundInt - 1 | 0], []);
+    tmp = JsxRuntime.jsx(FullScreenRoundView.make, {
+          matches: currentRoundMatches,
+          roundNumber: currentRoundInt,
+          onClose: (function () {
+              setShowFullScreenRound(function (param) {
+                    return false;
+                  });
+            }),
+          getUserFragmentRefs: (function (data) {
+              return Core__Option.map(data.user, (function (u) {
+                            return u.fragmentRefs;
+                          }));
+            })
+        }, "fullscreen-round-view");
+  } else {
+    tmp = null;
+  }
+  var tmp$1;
   if (hasExistingDraws) {
     var adjustmentsForRound0 = ratingAdjustmentHistory.filter(function (adj) {
           return adj.appliedAtRound === -1;
         });
-    var tmp$1;
+    var tmp$2;
     if (rounds.length > 0) {
-      var tmp$2;
+      var allMatches = rounds.flatMap(function (r) {
+            return r;
+          });
+      var syncedCount = allMatches.filter(function (m) {
+            return m.synced;
+          }).length;
+      var unsyncedCount = allMatches.filter(function (m) {
+            if (Core__Option.isSome(m.score)) {
+              return !m.synced;
+            } else {
+              return false;
+            }
+          }).length;
+      var tmp$3;
       switch (syncState) {
         case "Idle" :
-            tmp$2 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+            tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                   children: [
                     JsxRuntime.jsx(LucideReact.RotateCcw, {
                           className: "w-5 h-5"
@@ -1352,7 +1417,7 @@ function EventManager(props) {
                 });
             break;
         case "Syncing" :
-            tmp$2 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+            tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                   children: [
                     JsxRuntime.jsx(LucideReact.RotateCcw, {
                           className: "w-5 h-5 animate-spin"
@@ -1364,7 +1429,7 @@ function EventManager(props) {
                 });
             break;
         case "Success" :
-            tmp$2 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+            tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                   children: [
                     JsxRuntime.jsx(LucideReact.Check, {
                           className: "w-5 h-5"
@@ -1376,7 +1441,7 @@ function EventManager(props) {
                 });
             break;
         case "Error" :
-            tmp$2 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+            tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                   children: [
                     JsxRuntime.jsx(LucideReact.AlertCircle, {
                           className: "w-5 h-5"
@@ -1389,37 +1454,58 @@ function EventManager(props) {
             break;
         
       }
-      var tmp$3;
+      var tmp$4;
       switch (syncState) {
         case "Idle" :
-            tmp$3 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl";
+            tmp$4 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl";
             break;
         case "Syncing" :
-            tmp$3 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-500 text-white cursor-wait";
+            tmp$4 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-500 text-white cursor-wait";
             break;
         case "Success" :
-            tmp$3 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-green-600 text-white";
+            tmp$4 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-green-600 text-white";
             break;
         case "Error" :
-            tmp$3 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-red-600 text-white";
+            tmp$4 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-red-600 text-white";
             break;
         
       }
-      tmp$1 = JsxRuntime.jsx("div", {
-            children: JsxRuntime.jsx("button", {
-                  children: tmp$2,
-                  className: tmp$3,
-                  disabled: syncState === "Syncing",
-                  onClick: (function (param) {
-                      handleSyncScores();
-                    })
-                }),
-            className: "mt-8 flex justify-center"
+      tmp$2 = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsx("button", {
+                    children: tmp$3,
+                    className: tmp$4,
+                    disabled: syncState === "Syncing",
+                    onClick: (function (param) {
+                        handleSyncScores();
+                      })
+                  }),
+              syncedCount > 0 || unsyncedCount > 0 ? JsxRuntime.jsxs("p", {
+                      children: [
+                        JsxRuntime.jsx("span", {
+                              children: syncedCount.toString(),
+                              className: "font-semibold text-green-600"
+                            }),
+                        " " + t`synced`,
+                        unsyncedCount > 0 ? JsxRuntime.jsx("span", {
+                                children: " · " + unsyncedCount.toString() + " " + t`to sync`,
+                                className: "text-amber-600 font-medium"
+                              }) : (
+                            syncedCount > 0 ? JsxRuntime.jsx("span", {
+                                    children: " · " + t`all up to date`,
+                                    className: "text-green-600 font-medium"
+                                  }) : null
+                          )
+                      ],
+                      className: "text-sm text-slate-500"
+                    }) : null
+            ],
+            className: "mt-8 flex flex-col items-center gap-2"
           });
     } else {
-      tmp$1 = null;
+      tmp$2 = null;
     }
-    tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+    tmp$1 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
           children: [
             JsxRuntime.jsx(RoundHeader.make, {
                   currentRound: currentRoundInt,
@@ -1526,6 +1612,11 @@ function EventManager(props) {
                                                         onReset: (function (genderMixed) {
                                                             handleResetRound(roundIndex, genderMixed);
                                                           }),
+                                                        onFullScreen: (function () {
+                                                            setShowFullScreenRound(function (param) {
+                                                                  return true;
+                                                                });
+                                                          }),
                                                         debug: debugMode,
                                                         getUserFragmentRefs: getUserFragmentRefs,
                                                         allRounds: rounds
@@ -1618,14 +1709,14 @@ function EventManager(props) {
                                       ]
                                     }, roundNum.toString());
                         }),
-                    tmp$1
+                    tmp$2
                   ],
                   className: "flex-1 overflow-auto p-6"
                 })
           ]
         });
   } else {
-    tmp = null;
+    tmp$1 = null;
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
@@ -1774,6 +1865,10 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
+                JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                      mode: "sync",
+                      children: tmp
+                    }),
                 JsxRuntime.jsx(EventManager$StorageLowWarning, {
                       onClearData: handleResetStorage
                     }),
@@ -1876,7 +1971,7 @@ function EventManager(props) {
                                           futureRoundsHaveScores: futureRoundsHaveScores
                                         }))
                               }),
-                        tmp
+                        tmp$1
                       ],
                       className: "min-h-screen bg-slate-50 flex flex-col"
                     })

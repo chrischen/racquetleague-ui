@@ -7,6 +7,7 @@ import * as React from "react";
 import * as Button from "../catalyst/Button.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as EventTag from "../atoms/EventTag.re.mjs";
+import * as DateFns from "date-fns";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
@@ -14,6 +15,7 @@ import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as ProfileModal from "../organisms/ProfileModal.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as PkRSVPSection from "../organisms/PkRSVPSection.re.mjs";
@@ -247,6 +249,12 @@ function PkEventPage$Inner(props) {
   var waitlistPlayers = maxRsvps > 0 ? confirmedPlayers.slice(maxRsvps, confirmedPlayers.length) : [];
   var isFull = maxRsvps > 0 && confirmedPlayers.length >= maxRsvps;
   var isJoined = localRsvpState !== undefined ? localRsvpState : Core__Option.getOr($$event.viewerHasRsvp, false);
+  if (Core__Option.getOr($$event.viewerIsBanned, false)) {
+    return JsxRuntime.jsx("div", {
+                children: t`Cannot access variable \"title\"`,
+                className: "p-6 text-center text-gray-500"
+              });
+  }
   var match$10 = $$event.viewerIsAdmin;
   var tmp;
   if (match$10 && viewerUser !== undefined) {
@@ -336,86 +344,134 @@ function PkEventPage$Inner(props) {
       exit$1 = 1;
     }
     if (exit$1 === 1) {
+      var cancelDeadlineDate = Core__Option.flatMap($$event.startDate, (function (sd) {
+              return Core__Option.map($$event.cancelDeadline, (function (ms) {
+                            return new Date(DateFns.getTime(Util.Datetime.toDate(sd)) - ms);
+                          }));
+            }));
+      var cancelMinutesLeft = Core__Option.map(cancelDeadlineDate, (function (d) {
+              return DifferenceInMinutes.differenceInMinutes(d, new Date());
+            }));
+      var showCancelNotice = isJoined && Core__Option.isSome(cancelDeadlineDate);
+      var deadlinePassed = Core__Option.isSome(cancelDeadlineDate) && Core__Option.getOr(Core__Option.map(cancelMinutesLeft, (function (m) {
+                  return m <= 0;
+                })), false);
+      var tmp$3;
+      if (showCancelNotice) {
+        var mins = Core__Option.filter(cancelMinutesLeft, (function (m) {
+                return m > 0;
+              }));
+        tmp$3 = JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx(LucideReact.AlertCircle, {
+                      className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
+                    }),
+                JsxRuntime.jsx("span", {
+                      children: mins !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                              children: [
+                                t`Cancellation deadline`,
+                                ": ",
+                                JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
+                                      value: mins,
+                                      unit: "minute",
+                                      updateIntervalInSeconds: 1
+                                    })
+                              ]
+                            }) : t`Cancellation deadline passed. Contact the organizer on this page to cancel.`,
+                      className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300"
+                    })
+              ],
+              className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2"
+            });
+      } else {
+        tmp$3 = null;
+      }
       tmp$2 = JsxRuntime.jsxs("div", {
             children: [
+              tmp$3,
               JsxRuntime.jsxs("div", {
                     children: [
-                      Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
-                                  return JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                              value: Util.Datetime.toDate(sd),
-                                              timeZone: tz,
-                                              weekday: "short",
-                                              month: "short",
-                                              day: "2-digit"
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
+                                          return JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                      value: Util.Datetime.toDate(sd),
+                                                      timeZone: tz,
+                                                      weekday: "short",
+                                                      month: "short",
+                                                      day: "2-digit"
+                                                    });
+                                        })), null),
+                              " ",
+                              Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
+                                          return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                      value: Util.Datetime.toDate(sd),
+                                                      timeZone: tz
+                                                    });
+                                        })), null),
+                              JsxRuntime.jsx("span", {
+                                    children: " \u00B7 " + confirmedPlayers.length.toString() + (
+                                      maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
+                                    ),
+                                    className: "text-gray-400 dark:text-gray-500 font-normal normal-case"
+                                  })
+                            ],
+                            className: "font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
+                          }),
+                      JsxRuntime.jsx("div", {
+                            children: isJoined ? JsxRuntime.jsx("button", {
+                                    children: t`Leave`,
+                                    className: Core$1.cx("px-4 py-2 text-sm font-medium rounded-md transition-colors border", deadlinePassed ? "text-gray-400 dark:text-gray-600 bg-gray-100 dark:bg-[#2a2b30] border-gray-200 dark:border-[#3a3b40] cursor-not-allowed" : "text-gray-700 dark:text-gray-300 bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] hover:bg-gray-50 dark:hover:bg-[#2a2b30]"),
+                                    disabled: match$9[1] || deadlinePassed,
+                                    onClick: (function (param) {
+                                        if (waitlistPlayers.length > 0) {
+                                          return setShowLeaveConfirm(function (param) {
+                                                      return true;
+                                                    });
+                                        }
+                                        var connectionId = RelayRuntime.ConnectionHandler.getConnectionID($$event.__id, "PkRSVPSection_event_rsvps", undefined);
+                                        leaveEvent({
+                                              connections: [connectionId],
+                                              eventId: $$event.id
+                                            }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                        setLocalRsvpState(function (param) {
+                                              return false;
                                             });
-                                })), null),
-                      " ",
-                      Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
-                                  return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                              value: Util.Datetime.toDate(sd),
-                                              timeZone: tz
-                                            });
-                                })), null),
-                      JsxRuntime.jsx("span", {
-                            children: " \u00B7 " + confirmedPlayers.length.toString() + (
-                              maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
-                            ),
-                            className: "text-gray-400 dark:text-gray-500 font-normal normal-case"
+                                      })
+                                  }) : JsxRuntime.jsx("button", {
+                                    children: isFull ? t`Join waitlist (#${(waitlistPlayers.length + 1 | 0).toString()})` : t`Claim spot`,
+                                    className: Core$1.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent"),
+                                    disabled: match$8[1],
+                                    onClick: (function (param) {
+                                        var proceed = function () {
+                                          var connectionId = RelayRuntime.ConnectionHandler.getConnectionID($$event.__id, "PkRSVPSection_event_rsvps", undefined);
+                                          joinEvent({
+                                                connections: [connectionId],
+                                                eventId: $$event.id
+                                              }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                          setLocalRsvpState(function (param) {
+                                                return true;
+                                              });
+                                        };
+                                        if (hasCompleteProfile()) {
+                                          return proceed();
+                                        } else {
+                                          setPendingJoinAction(function (param) {
+                                                return proceed;
+                                              });
+                                          return setIsProfileModalOpen(function (param) {
+                                                      return true;
+                                                    });
+                                        }
+                                      })
+                                  }),
+                            className: "flex items-center gap-2.5"
                           })
                     ],
-                    className: "font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
-                  }),
-              JsxRuntime.jsx("div", {
-                    children: isJoined ? JsxRuntime.jsx("button", {
-                            children: t`Leave`,
-                            className: "px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-transparent border border-gray-200 dark:border-[#3a3b40] rounded-md hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors",
-                            disabled: match$9[1],
-                            onClick: (function (param) {
-                                if (waitlistPlayers.length > 0) {
-                                  return setShowLeaveConfirm(function (param) {
-                                              return true;
-                                            });
-                                }
-                                var connectionId = RelayRuntime.ConnectionHandler.getConnectionID($$event.__id, "PkRSVPSection_event_rsvps", undefined);
-                                leaveEvent({
-                                      connections: [connectionId],
-                                      eventId: $$event.id
-                                    }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                setLocalRsvpState(function (param) {
-                                      return false;
-                                    });
-                              })
-                          }) : JsxRuntime.jsx("button", {
-                            children: isFull ? t`Join waitlist (#${(waitlistPlayers.length + 1 | 0).toString()})` : t`Claim spot`,
-                            className: Core$1.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent"),
-                            disabled: match$8[1],
-                            onClick: (function (param) {
-                                var proceed = function () {
-                                  var connectionId = RelayRuntime.ConnectionHandler.getConnectionID($$event.__id, "PkRSVPSection_event_rsvps", undefined);
-                                  joinEvent({
-                                        connections: [connectionId],
-                                        eventId: $$event.id
-                                      }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                  setLocalRsvpState(function (param) {
-                                        return true;
-                                      });
-                                };
-                                if (hasCompleteProfile()) {
-                                  return proceed();
-                                } else {
-                                  setPendingJoinAction(function (param) {
-                                        return proceed;
-                                      });
-                                  return setIsProfileModalOpen(function (param) {
-                                              return true;
-                                            });
-                                }
-                              })
-                          }),
-                    className: "flex items-center gap-2.5"
+                    className: "px-5 py-3 flex items-center justify-between"
                   })
             ],
-            className: "sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0"
+            className: "sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex flex-col flex-shrink-0"
           });
     }
     

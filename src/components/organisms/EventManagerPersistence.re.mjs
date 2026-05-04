@@ -83,6 +83,8 @@ function strategyToString(strategy) {
         return "random";
     case "DUPR" :
         return "dupr";
+    case "NoveltyRoundRobin" :
+        return "novelty-round-robin";
     
   }
 }
@@ -95,6 +97,8 @@ function stringToStrategy(str) {
         return "DUPR";
     case "mixed" :
         return "Mixed";
+    case "novelty-round-robin" :
+        return "NoveltyRoundRobin";
     case "random" :
         return "Random";
     case "round-robin" :
@@ -255,13 +259,15 @@ function loadMatchesFromDb(eventId, rsvpMap) {
                             return new Date(ts);
                           })), new Date());
                 console.log(createdAt);
+                var synced = Core__Option.getOr(Core__Option.flatMap(Js_dict.get(matchRow, "synced"), Js_json.decodeBoolean), false);
                 return [
                         matchId,
                         team1Players,
                         team2Players,
                         roundIndex,
                         score,
-                        createdAt
+                        createdAt,
+                        synced
                       ];
               }));
 }
@@ -558,6 +564,7 @@ function syncRoundsToDb(eventId, rounds) {
               } else {
                 matchRowData["hasScore"] = false;
               }
+              matchRowData["synced"] = matchEntity.synced;
               eventStore.setRow("matches", matchId, matchRowData);
             });
       });

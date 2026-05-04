@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:422
+#: src/components/pages/EventPage.re.mjs:431
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:425
+#: src/components/pages/EventPage.re.mjs:434
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:428
+#: src/components/pages/EventPage.re.mjs:437
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:431
+#: src/components/pages/EventPage.re.mjs:440
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:434
+#: src/components/pages/EventPage.re.mjs:443
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:437
+#: src/components/pages/EventPage.re.mjs:446
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:440
+#: src/components/pages/EventPage.re.mjs:449
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:443
+#: src/components/pages/EventPage.re.mjs:452
 msgid "all level"
 msgstr "全レベル"
 
@@ -86,13 +86,17 @@ msgstr "参加申込を承認"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
-#: src/components/pages/EventPage.re.mjs:183
+#: src/components/pages/EventPage.re.mjs:191
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
 #: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr "キャンセル"
+
+#: src/components/pages/EventPage.re.mjs:157
+msgid "Cannot access variable \\\"title\\\""
+msgstr "変数 \\\"title\\\" にアクセスできません"
 
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
@@ -131,7 +135,7 @@ msgstr "表示名"
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
-#: src/components/pages/EventPage.re.mjs:166
+#: src/components/pages/EventPage.re.mjs:174
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -163,7 +167,7 @@ msgstr "メールアドレスは必須です"
 msgid "Enter Match Score"
 msgstr "試合のスコアを入力"
 
-#: src/components/pages/EventPage.re.mjs:383
+#: src/components/pages/EventPage.re.mjs:391
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -290,8 +294,8 @@ msgstr "回答しない"
 msgid "Private"
 msgstr "非公開"
 
-#: src/components/pages/EventPage.re.mjs:254
-#: src/components/pages/EventPage.re.mjs:283
+#: src/components/pages/EventPage.re.mjs:262
+#: src/components/pages/EventPage.re.mjs:291
 msgid "Private Event"
 msgstr "プライベートイベント"
 
@@ -419,8 +423,8 @@ msgstr ""
 "の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
 "本当にこのイベントを離れますか？"
 
-#: src/components/pages/EventPage.re.mjs:258
-#: src/components/pages/EventPage.re.mjs:287
+#: src/components/pages/EventPage.re.mjs:266
+#: src/components/pages/EventPage.re.mjs:295
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -455,7 +459,7 @@ msgstr ""
 "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
 "ださい。"
 
-#: src/components/pages/EventPage.re.mjs:172
+#: src/components/pages/EventPage.re.mjs:180
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 

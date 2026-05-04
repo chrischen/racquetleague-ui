@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RQe+iX\":\"進行中的回合\",\"Kbi7Yx\":\"關閉全螢幕\",\"hlIKDQ\":[\"球場 \",[\"0\"]],\"xXKDhD\":[\"第 \",[\"0\"],\" 回合\"],\"FKn1hm\":\"本輪不上場\"}");

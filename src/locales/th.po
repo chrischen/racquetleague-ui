@@ -208,9 +208,7 @@ msgid "no players yet"
 msgstr "ยังไม่มีผู้เล่น"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid ""
-"Not enough players in the queue. Select the players who want to play from "
-"the Queue tab."
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
 msgstr "ผู้เล่นในคิวไม่เพียงพอ เลือกผู้เล่นที่ต้องการเล่นจาก แท็บคิว"
 
 #: src/components/organisms/AiTetsu.re.mjs:1370
@@ -231,8 +229,7 @@ msgid "Player Name"
 msgstr "ชื่อผู้เล่น"
 
 #: src/components/organisms/AiTetsu.re.mjs:1176
-msgid ""
-"Players in a team will always be placed in a match together on the same side."
+msgid "Players in a team will always be placed in a match together on the same side."
 msgstr "ผู้เล่นในทีมจะถูกจับคู่ในการแข่งขันด้วยกันเสมอในข้างเดียวกัน"
 
 #: src/components/organisms/AiTetsu.re.mjs:1197
@@ -240,8 +237,7 @@ msgid "Players in an anti-team will never be placed in a match together."
 msgstr "ผู้เล่นในแอนตี้-ทีมจะไม่ถูกจับคู่ในการแข่งขันด้วยกันเลย"
 
 #: src/components/organisms/AiTetsu.re.mjs:1251
-msgid ""
-"Players in teams will always be placed in a match together on the same side."
+msgid "Players in teams will always be placed in a match together on the same side."
 msgstr "ผู้เล่นในทีมจะถูกจับคู่ในการแข่งขันด้วยกันเสมอในข้างเดียวกัน"
 
 #: src/components/organisms/SubmitMatch.re.mjs:315
@@ -312,13 +308,8 @@ msgid "Set as Male"
 msgstr "ตั้งเป็นชาย"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid ""
-"Set this to the number of players currently resting to enable even leveling "
-"of match counts. Set to 0 to disable and optimize match quality instead, but "
-"this may result in some players playing more matches than others."
-msgstr ""
-"กำหนดจำนวนผู้เล่นที่กำลังพักเพื่อให้การแจกจับคู่เท่าๆ กัน ตั้งค่าเป็น 0 "
-"เพื่อปิดการใช้งานและปรับปรุงคุณภาพการแข่งขัน แต่ อาจทำให้ผู้เล่นบางคนเล่นมากกว่าคนอื่น"
+msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
+msgstr "กำหนดจำนวนผู้เล่นที่กำลังพักเพื่อให้การแจกจับคู่เท่าๆ กัน ตั้งค่าเป็น 0 เพื่อปิดการใช้งานและปรับปรุงคุณภาพการแข่งขัน แต่ อาจทำให้ผู้เล่นบางคนเล่นมากกว่าคนอื่น"
 
 #: src/components/organisms/AiTetsu.re.mjs:1361
 msgid "Start Session"
@@ -532,12 +523,8 @@ msgid "preview events"
 msgstr "ดูตัวอย่างกิจกรรม"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:279
-msgid ""
-"show your event publicly on our home page. Otherwise, only people with a "
-"link to your event will be able to find it."
-msgstr ""
-"แสดงกิจกรรมของคุณแบบสาธารณะในหน้าแรกของเรา มิฉะนั้นจะมีเพียงคนที่มี "
-"ลิงค์ไปยังกิจกรรมของคุณเท่านั้นที่จะสามารถค้นหาได้"
+msgid "show your event publicly on our home page. Otherwise, only people with a link to your event will be able to find it."
+msgstr "แสดงกิจกรรมของคุณแบบสาธารณะในหน้าแรกของเรา มิฉะนั้นจะมีเพียงคนที่มี ลิงค์ไปยังกิจกรรมของคุณเท่านั้นที่จะสามารถค้นหาได้"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:203
 msgid "type your events in the format above"
@@ -622,9 +609,7 @@ msgid "at"
 msgstr "เวลา"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1036
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
 msgstr "เล่นแบบสบายๆ เน้นความสนุกและการเข้าสังคม เหมาะกับทุกระดับทักษะ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:476
@@ -738,8 +723,7 @@ msgid "Recreational"
 msgstr "นันทนาการ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1036
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr "การเล่นจริงจังพร้อมอันดับและเรตติ้ง เกมอาจส่งผลต่อเรตติ้งผู้เล่นของคุณ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1203
@@ -779,9 +763,7 @@ msgid "Last Round"
 msgstr "รอบที่แล้ว"
 
 #: src/components/molecules/DrawGenerator.re.mjs:58
-msgid ""
-"Players will be divided into similar skill level groups that round-robin "
-"with teams balanced by skill."
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
 msgstr "ผู้เล่นจะถูกแบ่งเป็นกลุ่มระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบรอบโรบินโดยทีมจะสมดุลตามทักษะ"
 
 #: src/components/organisms/MatchCard.re.mjs:395
@@ -801,22 +783,15 @@ msgid "Round-Robin with teams balanced by skill."
 msgstr "รอบโรบินกับทีมที่สมดุลตามทักษะ"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
-msgid ""
-"Book a court and post the event to Pkuru.com. Please mention the "
-"participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are "
-"new to the community, we recommend you to offer the court for free."
-msgstr ""
-"จองคอร์ตและโพสต์กิจกรรมบน Pkuru.com โปรดระบุค่าใช้จ่ายในการเข้าร่วมและระดับที่คาดหวัง "
-"(3.0, 3.5, 4.0 เป็นต้น) หากคุณเป็นคนใหม่ในชุมชน เราแนะนำให้เสนอคอร์ตฟรี"
+msgid "Book a court and post the event to Pkuru.com. Please mention the participation cost and the expected level (3.0, 3.5, 4.0, etc). If you are new to the community, we recommend you to offer the court for free."
+msgstr "จองคอร์ตและโพสต์กิจกรรมบน Pkuru.com โปรดระบุค่าใช้จ่ายในการเข้าร่วมและระดับที่คาดหวัง (3.0, 3.5, 4.0 เป็นต้น) หากคุณเป็นคนใหม่ในชุมชน เราแนะนำให้เสนอคอร์ตฟรี"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:149
 msgid "Create an Event at Pickleball One"
 msgstr "สร้างกิจกรรมที่ Pickleball One"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"One full court is available and one \\\"fun\\\" court (half-sized). The full "
-"court has narrow space on the sides."
+msgid "One full court is available and one \\\"fun\\\" court (half-sized). The full court has narrow space on the sides."
 msgstr "มีคอร์ตเต็ม 1 คอร์ตและคอร์ต \"สนุก\" (ขนาดครึ่ง) 1 คอร์ต คอร์ตเต็มมีพื้นที่ด้านข้างแคบ"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:139
@@ -876,9 +851,7 @@ msgid "details"
 msgstr "รายละเอียด"
 
 #: src/components/organisms/CreateClubLocation.re.mjs:170
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
+msgid "Instructions or information that will apply to all events held at this location."
 msgstr "คำแนะนำหรือข้อมูลที่จะใช้กับกิจกรรมทั้งหมดที่จัดขึ้นใน สถานที่นี้"
 
 #: src/components/organisms/CreateClubLocation.re.mjs:128
@@ -922,12 +895,8 @@ msgid "All Level"
 msgstr "ทุกระดับ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:452
-msgid ""
-"any details from the location will already be included. Mention any "
-"additional event-specific instructions, rules, or details."
-msgstr ""
-"รายละเอียดใดๆ จากสถานที่จะถูกรวมไว้แล้ว ระบุ คำแนะนำ กฎ "
-"หรือรายละเอียดเพิ่มเติมเฉพาะกิจกรรม"
+msgid "any details from the location will already be included. Mention any additional event-specific instructions, rules, or details."
+msgstr "รายละเอียดใดๆ จากสถานที่จะถูกรวมไว้แล้ว ระบุ คำแนะนำ กฎ หรือรายละเอียดเพิ่มเติมเฉพาะกิจกรรม"
 
 #: src/components/organisms/SelectClubStateful.re.mjs:82
 msgid "choose the club where this event will be held."
@@ -1002,8 +971,7 @@ msgid "Professional players"
 msgstr "ผู้เล่นมืออาชีพ"
 
 #: src/components/atoms/EventTag.re.mjs:56
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
 
 #: src/components/atoms/EventTag.re.mjs:50
@@ -1023,9 +991,7 @@ msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
 #: src/components/atoms/EventTag.re.mjs:58
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:364
@@ -1089,8 +1055,7 @@ msgid "Status message"
 msgstr "ข้อความสถานะ"
 
 #: src/components/organisms/EventMessages.re.mjs:118
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
 #: src/components/organisms/EventRsvps.re.mjs:524
@@ -1152,13 +1117,8 @@ msgid "spots available"
 msgstr "ที่ว่าง"
 
 #: src/components/organisms/EventRsvps.re.mjs:391
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
-"คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
 #: src/components/organisms/EventRsvps.re.mjs:390
 msgid "You will lose your spot"
@@ -1173,14 +1133,8 @@ msgid "you're waitlisted :("
 msgstr "คุณอยู่ในรายชื่อคอย :("
 
 #: src/components/organisms/EventRsvps.re.mjs:334
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
-"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
-"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
 
 #: src/components/organisms/EventRsvps2.re.mjs:462
 msgid "Confirmed"
@@ -1361,9 +1315,7 @@ msgid "seeking a doubles partner"
 msgstr "กำลังมองหาคู่คู่"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
 #: src/components/organisms/SelectedLocation.re.mjs:69
@@ -1540,9 +1492,7 @@ msgid "notes"
 msgstr "หมายเหตุ"
 
 #: src/components/pages/Event.re.mjs:312
-msgid ""
-"showing up without permission may result in a ban for failing to follow "
-"rules."
+msgid "showing up without permission may result in a ban for failing to follow rules."
 msgstr "การมาโดยไม่ได้รับอนุญาตอาจส่งผลให้ถูกแบนเนื่องจากการไม่ปฏิบัติตาม กฎ"
 
 #: src/components/pages/Event.re.mjs:563
@@ -1558,12 +1508,8 @@ msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
 #: src/components/pages/Event.re.mjs:309
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first to get a referral."
-msgstr ""
-"นี่เป็นกิจกรรมส่วนตัวที่ต้องการสมาชิกภาพกับคลับ หากต้องการเข้าร่วม คลับนี้ กรุณาเข้าร่วมกิจกรรม "
-"Japan Pickleball League ก่อนเพื่อขอการแนะนำ"
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
+msgstr "นี่เป็นกิจกรรมส่วนตัวที่ต้องการสมาชิกภาพกับคลับ หากต้องการเข้าร่วม คลับนี้ กรุณาเข้าร่วมกิจกรรม Japan Pickleball League ก่อนเพื่อขอการแนะนำ"
 
 #: src/components/pages/Event.re.mjs:272
 msgid "uncancel event"
@@ -1611,12 +1557,8 @@ msgid "pickleball events"
 msgstr "กิจกรรมพิคเคิลบอล"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:110
-msgid ""
-"By clicking on the Gear icon in the top left, you can go back to the start "
-"screen. At the bottom of this screen will be the match history."
-msgstr ""
-"โดยการคลิกที่ไอคอนเกียร์ที่มุมซ้ายบน คุณสามารถกลับไปยัง หน้าจอเริ่มต้นได้ "
-"ที่ด้านล่างของหน้าจอนี้จะเป็นประวัติการแข่งขัน"
+msgid "By clicking on the Gear icon in the top left, you can go back to the start screen. At the bottom of this screen will be the match history."
+msgstr "โดยการคลิกที่ไอคอนเกียร์ที่มุมซ้ายบน คุณสามารถกลับไปยัง หน้าจอเริ่มต้นได้ ที่ด้านล่างของหน้าจอนี้จะเป็นประวัติการแข่งขัน"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:74
 msgid "Checkin Screen"
@@ -1631,18 +1573,8 @@ msgid "Entering Results"
 msgstr "การป้อนผลการแข่งขัน"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:120
-msgid ""
-"From the Queue screen you can select some players (highlighted in green) and "
-"take some special actions for them such as creating a team, anti-team, or "
-"setting their genders. The team feature is important if you have a group of "
-"players (2 minimum) who always want to play together, often called a 'fixed-"
-"pair.' The gender is important if you want to use the Gender-Mixed doubles "
-"option when choosing matches."
-msgstr ""
-"จากหน้าจอคิว คุณสามารถเลือกผู้เล่นบางคน (ไฮไลต์เป็นสีเขียว) และ ทำการกระทำพิเศษกับพวกเขา "
-"เช่น การสร้างทีม แอนตี้-ทีม หรือ ตั้งค่าเพศ คุณสมบัติทีมมีความสำคัญหากคุณมีกลุ่ม ผู้เล่น (อย่างน้อย 2 "
-"คน) ที่ต้องการเล่นด้วยกันเสมอ มักเรียกว่า 'คู่คงที่' "
-"เพศมีความสำคัญหากคุณต้องการใช้ตัวเลือกคู่ผสมเพศ เมื่อเลือกการแข่งขัน"
+msgid "From the Queue screen you can select some players (highlighted in green) and take some special actions for them such as creating a team, anti-team, or setting their genders. The team feature is important if you have a group of players (2 minimum) who always want to play together, often called a 'fixed-pair.' The gender is important if you want to use the Gender-Mixed doubles option when choosing matches."
+msgstr "จากหน้าจอคิว คุณสามารถเลือกผู้เล่นบางคน (ไฮไลต์เป็นสีเขียว) และ ทำการกระทำพิเศษกับพวกเขา เช่น การสร้างทีม แอนตี้-ทีม หรือ ตั้งค่าเพศ คุณสมบัติทีมมีความสำคัญหากคุณมีกลุ่ม ผู้เล่น (อย่างน้อย 2 คน) ที่ต้องการเล่นด้วยกันเสมอ มักเรียกว่า 'คู่คงที่' เพศมีความสำคัญหากคุณต้องการใช้ตัวเลือกคู่ผสมเพศ เมื่อเลือกการแข่งขัน"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:89
 msgid "Generating Draws"
@@ -1653,18 +1585,8 @@ msgid "How to use FairPlay"
 msgstr "วิธีการใช้ FairPlay"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:115
-msgid ""
-"If you enabled offline mode, you can go down this list and submit the "
-"results to Pkuru.com. Simply tap on the match, then click on the Submit "
-"button. Once the score shows 0 and 0 then it has successfully submitted. "
-"This step is not necessary if you did not enable offline mode. In normal "
-"Online Mode matches will be submitted as soon as you complete them from the "
-"Matches screen."
-msgstr ""
-"หากคุณเปิดใช้งานโหมดออฟไลน์ คุณสามารถดูรายการนี้และส่งผล ไปยัง Pkuru.com "
-"แค่แตะที่การแข่งขัน จากนั้นคลิกปุ่มส่ง เมื่อคะแนนแสดง 0 และ 0 แสดงว่าส่งสำเร็จแล้ว "
-"ขั้นตอนนี้ไม่จำเป็นหากคุณไม่ได้เปิดใช้งานโหมดออฟไลน์ ในโหมด ออนไลน์ปกติ "
-"การแข่งขันจะถูกส่งทันทีที่คุณเสร็จสิ้นจาก หน้าจอการแข่งขัน"
+msgid "If you enabled offline mode, you can go down this list and submit the results to Pkuru.com. Simply tap on the match, then click on the Submit button. Once the score shows 0 and 0 then it has successfully submitted. This step is not necessary if you did not enable offline mode. In normal Online Mode matches will be submitted as soon as you complete them from the Matches screen."
+msgstr "หากคุณเปิดใช้งานโหมดออฟไลน์ คุณสามารถดูรายการนี้และส่งผล ไปยัง Pkuru.com แค่แตะที่การแข่งขัน จากนั้นคลิกปุ่มส่ง เมื่อคะแนนแสดง 0 และ 0 แสดงว่าส่งสำเร็จแล้ว ขั้นตอนนี้ไม่จำเป็นหากคุณไม่ได้เปิดใช้งานโหมดออฟไลน์ ในโหมด ออนไลน์ปกติ การแข่งขันจะถูกส่งทันทีที่คุณเสร็จสิ้นจาก หน้าจอการแข่งขัน"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:64
 msgid "Launching FairPlay"
@@ -1679,67 +1601,20 @@ msgid "Matches Screen"
 msgstr "หน้าจอการแข่งขัน"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:80
-msgid ""
-"On the bottom left you can select the number of courts under management by "
-"the app. When it is set to a value greater than 0, the app will "
-"automatically track the number of times everyone has played and determine "
-"who should be taking a break. Players who should be taking a break will be "
-"highlighted in yellow. This is a suggestion, so you can still tap on them to "
-"select them for the next match."
-msgstr ""
-"ที่ด้านล่างซ้าย คุณสามารถเลือกจำนวนสนามที่อยู่ภายใต้การจัดการของ แอป เมื่อตั้งค่ามากกว่า 0 "
-"แอปจะ ติดตามจำนวนครั้งที่ทุกคนเล่นโดยอัตโนมัติและกำหนด ว่าใครควรพัก ผู้เล่นที่ควรพักจะ "
-"ถูกไฮไลต์เป็นสีเหลือง นี่เป็นข้อเสนอแนะ ดังนั้นคุณยังสามารถแตะพวกเขาเพื่อ "
-"เลือกสำหรับการแข่งขันครั้งต่อไป"
+msgid "On the bottom left you can select the number of courts under management by the app. When it is set to a value greater than 0, the app will automatically track the number of times everyone has played and determine who should be taking a break. Players who should be taking a break will be highlighted in yellow. This is a suggestion, so you can still tap on them to select them for the next match."
+msgstr "ที่ด้านล่างซ้าย คุณสามารถเลือกจำนวนสนามที่อยู่ภายใต้การจัดการของ แอป เมื่อตั้งค่ามากกว่า 0 แอปจะ ติดตามจำนวนครั้งที่ทุกคนเล่นโดยอัตโนมัติและกำหนด ว่าใครควรพัก ผู้เล่นที่ควรพักจะ ถูกไฮไลต์เป็นสีเหลือง นี่เป็นข้อเสนอแนะ ดังนั้นคุณยังสามารถแตะพวกเขาเพื่อ เลือกสำหรับการแข่งขันครั้งต่อไป"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:90
-msgid ""
-"Once at least 4 players are selected (highlighted in green) from the Queue "
-"screen, you can generate draws with the blue button on the bottom right. The "
-"system will generate all possible combinations of matches for the given "
-"players based on the matchmaking strategy selected. Additionally it will "
-"show you the relative 'quality' of the matches and sort them from highest to "
-"lowest. Quality of the match means whether the match is going to be close or "
-"one-sided. The green highlighted match at the top is the 'recommended match' "
-"which uses some heuristics to select a match that balances quality while "
-"avoiding repeated teams or matches. The list of matches will also highlight "
-"previously played matches or pairs in yellow or red. This allows you as the "
-"organizer to determine whether to avoid repeated matches. Use the blue "
-"button to select a match which will then update the draws for the remaining "
-"players that were selected. Keep selecting matches until all players are in "
-"a match."
-msgstr ""
-"เมื่อเลือกผู้เล่นอย่างน้อย 4 คน (ไฮไลต์เป็นสีเขียว) จากหน้าจอคิว "
-"คุณสามารถสร้างการจับคู่ด้วยปุ่มสีน้ำเงินที่มุมล่างขวา ระบบ "
-"จะสร้างการจับคู่ที่เป็นไปได้ทั้งหมดสำหรับผู้เล่นที่กำหนด ตามกลยุทธ์การจับคู่ที่เลือก นอกจากนี้จะ แสดง "
-"'คุณภาพ' สัมพัทธ์ของการแข่งขันและเรียงจากสูงสุดไปต่ำสุด "
-"คุณภาพของการแข่งขันหมายถึงการแข่งขันจะสนุกหรือ เอาชนะง่าย การแข่งขันที่ไฮไลต์สีเขียวที่ด้านบนคือ "
-"'การแข่งขันที่แนะนำ' ซึ่งใช้วิธีการคำนวณเพื่อเลือกการแข่งขันที่สมดุลคุณภาพขณะ "
-"หลีกเลี่ยงทีมหรือการแข่งขันซ้ำ รายการการแข่งขันจะไฮไลต์ "
-"การแข่งขันหรือคู่ที่เล่นมาแล้วเป็นสีเหลืองหรือแดง ทำให้คุณในฐานะ "
-"ผู้จัดงานกำหนดได้ว่าจะหลีกเลี่ยงการแข่งขันซ้ำหรือไม่ ใช้ปุ่ม "
-"สีน้ำเงินเพื่อเลือกการแข่งขันซึ่งจะอัปเดตการจับคู่สำหรับผู้เล่น ที่เหลือที่ถูกเลือก "
-"เลือกการแข่งขันต่อไปจนกว่าผู้เล่นทุกคนจะอยู่ใน การแข่งขัน"
+msgid "Once at least 4 players are selected (highlighted in green) from the Queue screen, you can generate draws with the blue button on the bottom right. The system will generate all possible combinations of matches for the given players based on the matchmaking strategy selected. Additionally it will show you the relative 'quality' of the matches and sort them from highest to lowest. Quality of the match means whether the match is going to be close or one-sided. The green highlighted match at the top is the 'recommended match' which uses some heuristics to select a match that balances quality while avoiding repeated teams or matches. The list of matches will also highlight previously played matches or pairs in yellow or red. This allows you as the organizer to determine whether to avoid repeated matches. Use the blue button to select a match which will then update the draws for the remaining players that were selected. Keep selecting matches until all players are in a match."
+msgstr "เมื่อเลือกผู้เล่นอย่างน้อย 4 คน (ไฮไลต์เป็นสีเขียว) จากหน้าจอคิว คุณสามารถสร้างการจับคู่ด้วยปุ่มสีน้ำเงินที่มุมล่างขวา ระบบ จะสร้างการจับคู่ที่เป็นไปได้ทั้งหมดสำหรับผู้เล่นที่กำหนด ตามกลยุทธ์การจับคู่ที่เลือก นอกจากนี้จะ แสดง 'คุณภาพ' สัมพัทธ์ของการแข่งขันและเรียงจากสูงสุดไปต่ำสุด คุณภาพของการแข่งขันหมายถึงการแข่งขันจะสนุกหรือ เอาชนะง่าย การแข่งขันที่ไฮไลต์สีเขียวที่ด้านบนคือ 'การแข่งขันที่แนะนำ' ซึ่งใช้วิธีการคำนวณเพื่อเลือกการแข่งขันที่สมดุลคุณภาพขณะ หลีกเลี่ยงทีมหรือการแข่งขันซ้ำ รายการการแข่งขันจะไฮไลต์ การแข่งขันหรือคู่ที่เล่นมาแล้วเป็นสีเหลืองหรือแดง ทำให้คุณในฐานะ ผู้จัดงานกำหนดได้ว่าจะหลีกเลี่ยงการแข่งขันซ้ำหรือไม่ ใช้ปุ่ม สีน้ำเงินเพื่อเลือกการแข่งขันซึ่งจะอัปเดตการจับคู่สำหรับผู้เล่น ที่เหลือที่ถูกเลือก เลือกการแข่งขันต่อไปจนกว่าผู้เล่นทุกคนจะอยู่ใน การแข่งขัน"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:119
 msgid "Player Options"
 msgstr "ตัวเลือกผู้เล่น"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:70
-msgid ""
-"Press the large blue button to launch the system. The 'Offline Mode' toggle "
-"should be used if there is no internet connection or if you want to test the "
-"system out without saving any results. In Offline mode, no submissions are "
-"made to Pkuru.com and if you delete the matches or close the web page there "
-"will be no permanent effects of your actions using the system. Additionally "
-"this screen shows the relative strengths of the players and at the bottom of "
-"the page there is a history of all the matches played."
-msgstr ""
-"กดปุ่มสีน้ำเงินขนาดใหญ่เพื่อเปิดระบบ ตัวเลือก 'โหมดออฟไลน์' "
-"ควรใช้หากไม่มีการเชื่อมต่ออินเทอร์เน็ตหรือหากคุณต้องการทดสอบ ระบบโดยไม่บันทึกผล "
-"ในโหมดออฟไลน์ จะไม่มีการส่ง ไปยัง Pkuru.com และหากคุณลบการแข่งขันหรือปิดหน้าเว็บ "
-"จะไม่มีผลกระทบถาวรจากการกระทำของคุณในระบบ นอกจากนี้ "
-"หน้าจอนี้แสดงความแข็งแกร่งของผู้เล่นและที่ด้านล่างของ หน้ามีประวัติการแข่งขันทั้งหมดที่เล่น"
+msgid "Press the large blue button to launch the system. The 'Offline Mode' toggle should be used if there is no internet connection or if you want to test the system out without saving any results. In Offline mode, no submissions are made to Pkuru.com and if you delete the matches or close the web page there will be no permanent effects of your actions using the system. Additionally this screen shows the relative strengths of the players and at the bottom of the page there is a history of all the matches played."
+msgstr "กดปุ่มสีน้ำเงินขนาดใหญ่เพื่อเปิดระบบ ตัวเลือก 'โหมดออฟไลน์' ควรใช้หากไม่มีการเชื่อมต่ออินเทอร์เน็ตหรือหากคุณต้องการทดสอบ ระบบโดยไม่บันทึกผล ในโหมดออฟไลน์ จะไม่มีการส่ง ไปยัง Pkuru.com และหากคุณลบการแข่งขันหรือปิดหน้าเว็บ จะไม่มีผลกระทบถาวรจากการกระทำของคุณในระบบ นอกจากนี้ หน้าจอนี้แสดงความแข็งแกร่งของผู้เล่นและที่ด้านล่างของ หน้ามีประวัติการแข่งขันทั้งหมดที่เล่น"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:84
 msgid "Queue Screen"
@@ -1750,91 +1625,35 @@ msgid "Start Screen"
 msgstr "หน้าจอเริ่มต้น"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:105
-msgid ""
-"Tapping on the names on the left side can select the winner without entering "
-"scores. Optionally, the exact score can be entered into the number field on "
-"the right side of each match. Once the green border is around the winner, "
-"the entry is complete and you can leave it as it is. Once results are "
-"entered for all matches, you can use the blue button on the bottom right to "
-"submit all the results at once.If you enabled offline mode, no results are "
-"submitted to Pkuru.com, but ratings will still be updated locally on your "
-"device. Additionally the predicted winner is shown in the red bar at the "
-"bottom."
-msgstr ""
-"การแตะชื่อที่ด้านซ้ายสามารถเลือกผู้ชนะได้โดยไม่ต้องป้อน คะแนน "
-"หรือสามารถป้อนคะแนนที่แน่นอนในช่องตัวเลขที่ ด้านขวาของแต่ละการแข่งขัน เมื่อมีขอบสีเขียวรอบผู้ชนะ "
-"การป้อนข้อมูลเสร็จสิ้นและคุณสามารถทิ้งไว้ได้ เมื่อป้อนผลสำหรับ การแข่งขันทั้งหมดแล้ว "
-"คุณสามารถใช้ปุ่มสีน้ำเงินที่มุมล่างขวาเพื่อ ส่งผลทั้งหมดพร้อมกัน หากคุณเปิดใช้งานโหมดออฟไลน์ "
-"จะไม่มีการส่งผล ไปยัง Pkuru.com แต่เรตติ้งจะยังคงถูกอัปเดตในเครื่องของคุณ นอกจากนี้ "
-"ผู้ชนะที่คาดการณ์จะแสดงในแถบสีแดงที่ ด้านล่าง"
+msgid "Tapping on the names on the left side can select the winner without entering scores. Optionally, the exact score can be entered into the number field on the right side of each match. Once the green border is around the winner, the entry is complete and you can leave it as it is. Once results are entered for all matches, you can use the blue button on the bottom right to submit all the results at once.If you enabled offline mode, no results are submitted to Pkuru.com, but ratings will still be updated locally on your device. Additionally the predicted winner is shown in the red bar at the bottom."
+msgstr "การแตะชื่อที่ด้านซ้ายสามารถเลือกผู้ชนะได้โดยไม่ต้องป้อน คะแนน หรือสามารถป้อนคะแนนที่แน่นอนในช่องตัวเลขที่ ด้านขวาของแต่ละการแข่งขัน เมื่อมีขอบสีเขียวรอบผู้ชนะ การป้อนข้อมูลเสร็จสิ้นและคุณสามารถทิ้งไว้ได้ เมื่อป้อนผลสำหรับ การแข่งขันทั้งหมดแล้ว คุณสามารถใช้ปุ่มสีน้ำเงินที่มุมล่างขวาเพื่อ ส่งผลทั้งหมดพร้อมกัน หากคุณเปิดใช้งานโหมดออฟไลน์ จะไม่มีการส่งผล ไปยัง Pkuru.com แต่เรตติ้งจะยังคงถูกอัปเดตในเครื่องของคุณ นอกจากนี้ ผู้ชนะที่คาดการณ์จะแสดงในแถบสีแดงที่ ด้านล่าง"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:65
-msgid ""
-"The FairPlay system can be launched from any event page on Pkuru.com. The "
-"system will automatically load all signed up players, including those in the "
-"waitlist. Players who did not join the event can be added as a guest, but "
-"their ratings and results cannot be saved to Pkuru.com."
-msgstr ""
-"ระบบ FairPlay สามารถเปิดได้จากหน้ากิจกรรมใดๆ ใน Pkuru.com "
-"ระบบจะโหลดผู้เล่นที่ลงทะเบียนทั้งหมดโดยอัตโนมัติ รวมถึงคนใน รายชื่อคอย "
-"ผู้เล่นที่ไม่ได้เข้าร่วมกิจกรรมสามารถเพิ่มเป็นแขก แต่ "
-"เรตติ้งและผลของพวกเขาจะไม่สามารถบันทึกไปยัง Pkuru.com ได้"
+msgid "The FairPlay system can be launched from any event page on Pkuru.com. The system will automatically load all signed up players, including those in the waitlist. Players who did not join the event can be added as a guest, but their ratings and results cannot be saved to Pkuru.com."
+msgstr "ระบบ FairPlay สามารถเปิดได้จากหน้ากิจกรรมใดๆ ใน Pkuru.com ระบบจะโหลดผู้เล่นที่ลงทะเบียนทั้งหมดโดยอัตโนมัติ รวมถึงคนใน รายชื่อคอย ผู้เล่นที่ไม่ได้เข้าร่วมกิจกรรมสามารถเพิ่มเป็นแขก แต่ เรตติ้งและผลของพวกเขาจะไม่สามารถบันทึกไปยัง Pkuru.com ได้"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:100
-msgid ""
-"The handlebars on the left side of each name can be used to drag and drop "
-"the players into a different match or re-arrange the teams. If you press the "
-"Enter Score button you can select the winner and/or enter the score. If you "
-"want to cancel the match you can press the '...' button."
-msgstr ""
-"บาร์ที่ด้านซ้ายของชื่อแต่ละคนสามารถใช้ลากและวาง ผู้เล่นไปยังการแข่งขันอื่นหรือจัดเรียงทีมใหม่ "
-"หากคุณกด ปุ่ม Enter Score คุณสามารถเลือกผู้ชนะและ/หรือป้อนคะแนน หากคุณ "
-"ต้องการยกเลิกการแข่งขัน คุณสามารถกดปุ่ม '...' ได้"
+msgid "The handlebars on the left side of each name can be used to drag and drop the players into a different match or re-arrange the teams. If you press the Enter Score button you can select the winner and/or enter the score. If you want to cancel the match you can press the '...' button."
+msgstr "บาร์ที่ด้านซ้ายของชื่อแต่ละคนสามารถใช้ลากและวาง ผู้เล่นไปยังการแข่งขันอื่นหรือจัดเรียงทีมใหม่ หากคุณกด ปุ่ม Enter Score คุณสามารถเลือกผู้ชนะและ/หรือป้อนคะแนน หากคุณ ต้องการยกเลิกการแข่งขัน คุณสามารถกดปุ่ม '...' ได้"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:85
-msgid ""
-"The second screen is the Queue screen. This is where you can select players "
-"who want to play a match. On the bottom is a button to queue all players. "
-"This button will automatically select everyone and exclude the players who "
-"should be on break (highlighted in yellow). If you play matches in timed "
-"rounds, this is an easy way to select everyone who should participate in the "
-"next round of matches."
-msgstr ""
-"หน้าจอที่สองคือหน้าจอคิว นี่คือที่ที่คุณสามารถเลือกผู้เล่น ที่ต้องการเล่นการแข่งขัน "
-"ที่ด้านล่างมีปุ่มสำหรับเข้าคิวผู้เล่นทั้งหมด ปุ่มนี้จะเลือกทุกคนโดยอัตโนมัติและไม่รวมผู้เล่นที่ ควรพัก "
-"(ไฮไลต์เป็นสีเหลือง) หากคุณเล่นการแข่งขันแบบรอบจับเวลา "
-"นี่เป็นวิธีง่ายในการเลือกทุกคนที่ควรเข้าร่วมใน รอบการแข่งขันถัดไป"
+msgid "The second screen is the Queue screen. This is where you can select players who want to play a match. On the bottom is a button to queue all players. This button will automatically select everyone and exclude the players who should be on break (highlighted in yellow). If you play matches in timed rounds, this is an easy way to select everyone who should participate in the next round of matches."
+msgstr "หน้าจอที่สองคือหน้าจอคิว นี่คือที่ที่คุณสามารถเลือกผู้เล่น ที่ต้องการเล่นการแข่งขัน ที่ด้านล่างมีปุ่มสำหรับเข้าคิวผู้เล่นทั้งหมด ปุ่มนี้จะเลือกทุกคนโดยอัตโนมัติและไม่รวมผู้เล่นที่ ควรพัก (ไฮไลต์เป็นสีเหลือง) หากคุณเล่นการแข่งขันแบบรอบจับเวลา นี่เป็นวิธีง่ายในการเลือกทุกคนที่ควรเข้าร่วมใน รอบการแข่งขันถัดไป"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:75
-msgid ""
-"The system is composed of 3 main screns. The first is the checkin screen "
-"where you can enable/disable players for the session. Tap on a player's name "
-"to check them in. Green means the player is checked in. Check a player in if "
-"they are ready to play, and check them out if they are leaving early. If a "
-"player wants to take a break and it's not their turn yet, it's easiest to "
-"check them out and then check them back in next round."
-msgstr ""
-"ระบบประกอบด้วยหน้าจอหลัก 3 หน้าจอ หน้าจอแรกคือหน้าจอเช็คอิน ที่คุณสามารถเปิด/"
-"ปิดผู้เล่นสำหรับเซสชั่น แตะชื่อผู้เล่น เพื่อเช็คอิน สีเขียวหมายถึงผู้เล่นเช็คอินแล้ว เช็คอินผู้เล่นหาก "
-"พวกเขาพร้อมเล่น และเช็คเอาท์หากพวกเขากลับเร็ว หาก ผู้เล่นต้องการพักและยังไม่ถึงเที่ยน "
-"ก็ง่ายที่สุดคือ เช็คเอาท์แล้วเช็คอินใหม่ในรอบต่อไป"
+msgid "The system is composed of 3 main screns. The first is the checkin screen where you can enable/disable players for the session. Tap on a player's name to check them in. Green means the player is checked in. Check a player in if they are ready to play, and check them out if they are leaving early. If a player wants to take a break and it's not their turn yet, it's easiest to check them out and then check them back in next round."
+msgstr "ระบบประกอบด้วยหน้าจอหลัก 3 หน้าจอ หน้าจอแรกคือหน้าจอเช็คอิน ที่คุณสามารถเปิด/ปิดผู้เล่นสำหรับเซสชั่น แตะชื่อผู้เล่น เพื่อเช็คอิน สีเขียวหมายถึงผู้เล่นเช็คอินแล้ว เช็คอินผู้เล่นหาก พวกเขาพร้อมเล่น และเช็คเอาท์หากพวกเขากลับเร็ว หาก ผู้เล่นต้องการพักและยังไม่ถึงเที่ยน ก็ง่ายที่สุดคือ เช็คเอาท์แล้วเช็คอินใหม่ในรอบต่อไป"
 
 #: src/components/pages/FairPlayGuidePage.re.mjs:95
-msgid ""
-"The third and final screen shows the active matches that are being played. "
-"The ordering of the teams is randomized, so you can use this to determine "
-"the serving team (usually the team on top)."
-msgstr ""
-"หน้าจอที่สามและสุดท้ายจะแสดงการแข่งขันที่กำลังเล่น ลำดับของทีมเป็นแบบสุ่ม "
-"ดังนั้นคุณสามารถใช้กำหนด ทีมเซิร์ฟได้ (โดยทั่วไปจะเป็นทีมที่อยู่ด้านบน)"
+msgid "The third and final screen shows the active matches that are being played. The ordering of the teams is randomized, so you can use this to determine the serving team (usually the team on top)."
+msgstr "หน้าจอที่สามและสุดท้ายจะแสดงการแข่งขันที่กำลังเล่น ลำดับของทีมเป็นแบบสุ่ม ดังนั้นคุณสามารถใช้กำหนด ทีมเซิร์ฟได้ (โดยทั่วไปจะเป็นทีมที่อยู่ด้านบน)"
 
 #: src/components/pages/FindGamesPage.re.mjs:33
 msgid "Find League Games"
 msgstr "ค้นหาเกมลีก"
 
 #: src/components/pages/FindGamesPage.re.mjs:30
-msgid ""
-"To participate in the league and win prizes, please join the league events."
+msgid "To participate in the league and win prizes, please join the league events."
 msgstr "เพื่อเข้าร่วมลีกและชนะรางวัล กรุณาเข้าร่วมกิจกรรมลีก"
 
 #: src/components/pages/FindGamesPage.re.mjs:24
@@ -1846,30 +1665,16 @@ msgid "About the League"
 msgstr "เกี่ยวกับลีก"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:51
-msgid ""
-"Ratings are assigned to individual players just by playing doubles games, "
-"even with different partners each game. For doubles ratings we use OpenSkill "
-"(a derivative of TrueSkill), and for singles ratings we use Glicko2."
-msgstr ""
-"เรตติ้งจะถูกกำหนดให้ผู้เล่นแต่ละคนโดยการเล่นเกมคู่ แม้แต่ละเกมจะมีคู่คนต่างกัน "
-"สำหรับเรตติ้งคู่เราใช้ OpenSkill (อนุพันธ์ของ TrueSkill) และสำหรับเรตติ้งเดี่ยวเราใช้ "
-"Glicko2"
+msgid "Ratings are assigned to individual players just by playing doubles games, even with different partners each game. For doubles ratings we use OpenSkill (a derivative of TrueSkill), and for singles ratings we use Glicko2."
+msgstr "เรตติ้งจะถูกกำหนดให้ผู้เล่นแต่ละคนโดยการเล่นเกมคู่ แม้แต่ละเกมจะมีคู่คนต่างกัน สำหรับเรตติ้งคู่เราใช้ OpenSkill (อนุพันธ์ของ TrueSkill) และสำหรับเรตติ้งเดี่ยวเราใช้ Glicko2"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:29
-msgid ""
-"The Japan Pickleball League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"Japan Pickleball League เป็นโครงการโอเพ่นซอร์สไม่หากำไรเพื่อช่วย "
-"ปรับปรุงคุณภาพของเกมและกิจกรรมพิคเกิลบอลเพื่อความบันเทิงในชุมชน"
+msgid "The Japan Pickleball League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "Japan Pickleball League เป็นโครงการโอเพ่นซอร์สไม่หากำไรเพื่อช่วย ปรับปรุงคุณภาพของเกมและกิจกรรมพิคเกิลบอลเพื่อความบันเทิงในชุมชน"
 
 #: src/components/pages/LeagueAboutPage.re.mjs:22
-msgid ""
-"The Tokyo Badminton League is an open-source non-profit project to help "
-"improve the quality of community recreational pickleball games and events."
-msgstr ""
-"Tokyo Badminton League เป็นโครงการโอเพ่นซอร์สไม่หากำไรเพื่อช่วย "
-"ปรับปรุงคุณภาพของเกมและกิจกรรมพิคเกิลบอลเพื่อความบันเทิงในชุมชน"
+msgid "The Tokyo Badminton League is an open-source non-profit project to help improve the quality of community recreational pickleball games and events."
+msgstr "Tokyo Badminton League เป็นโครงการโอเพ่นซอร์สไม่หากำไรเพื่อช่วย ปรับปรุงคุณภาพของเกมและกิจกรรมพิคเกิลบอลเพื่อความบันเทิงในชุมชน"
 
 #: src/components/pages/LeagueEventPage.re.mjs:80
 msgid "Loading matches..."
@@ -1896,8 +1701,7 @@ msgid "Next Prize: September 10"
 msgstr "รางวัลครั้งต่อไป: 10 กันยายน"
 
 #: src/components/pages/LeaguePage.re.mjs:35
-msgid ""
-"This prize will be awarded to the top male and female players on this day."
+msgid "This prize will be awarded to the top male and female players on this day."
 msgstr "รางวัลนี้จะมอบให้กับผู้เล่นชายและหญิงอันดับต้นในวันนี้"
 
 #: src/components/pages/LeaguePage.re.mjs:112
@@ -1932,9 +1736,7 @@ msgid "Competitive Doubles"
 msgstr "คู่แข่งขัน"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:112
-msgid ""
-"Play doubles games with different partners and receive an individual rating. "
-"Prizes are awarded monthly to top players."
+msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 msgstr "เล่นเกมคู่กับคู่คนต่างๆ และได้รับเรตติ้งส่วนบุคคล รางวัลจะมอบให้ผู้เล่นอันดับต้นทุกเดือน"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
@@ -1962,12 +1764,8 @@ msgid "login failed"
 msgstr "เข้าสู่ระบบไม่สำเร็จ"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:37
-msgid ""
-"please try again outside of private browsing as it can interfere with Line "
-"login. if the problem persists, you can try the safe-mode login button below."
-msgstr ""
-"กรุณาลองใหม่นอกโหมดการเรียกดูแบบส่วนตัว เนื่องจากอาจรบกวนการเข้าสู่ระบบ Line "
-"หากปัญหายังคงอยู่ คุณสามารถลองปุ่มเข้าสู่ระบบโหมดปลอดภัยด้านล่าง"
+msgid "please try again outside of private browsing as it can interfere with Line login. if the problem persists, you can try the safe-mode login button below."
+msgstr "กรุณาลองใหม่นอกโหมดการเรียกดูแบบส่วนตัว เนื่องจากอาจรบกวนการเข้าสู่ระบบ Line หากปัญหายังคงอยู่ คุณสามารถลองปุ่มเข้าสู่ระบบโหมดปลอดภัยด้านล่าง"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"
@@ -2015,17 +1813,8 @@ msgid "page not found."
 msgstr "ไม่พบหน้า"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:208
-msgid ""
-"As mentioned above, public games are not really a thing in Japan. However, "
-"you can find some public games on the home page of this website. They will "
-"tend to be full with a waitlist so just join the waitlist and cross your "
-"fingers. 5-6 spots tend to open up the day of the event as people cancel "
-"last minute."
-msgstr ""
-"ดังที่กล่าวไว้ข้างต้น เกมสาธารณะไม่ใช่เรื่องทั่วไปในญี่ปุ่น อย่างไรก็ตาม "
-"คุณสามารถหาเกมสาธารณะบางเกมได้ที่หน้าแรกของเว็บไซต์นี้ มักจะเต็มและมีรายชื่อคอย "
-"แค่เข้าร่วมรายชื่อคอยและข้ามนิ้ว โดยทั่วไปจะมีที่ว่าง 5-6 ที่นั่งในวันกิจกรรม "
-"เนื่องจากมีคนยกเลิกในนาทีสุดท้าย"
+msgid "As mentioned above, public games are not really a thing in Japan. However, you can find some public games on the home page of this website. They will tend to be full with a waitlist so just join the waitlist and cross your fingers. 5-6 spots tend to open up the day of the event as people cancel last minute."
+msgstr "ดังที่กล่าวไว้ข้างต้น เกมสาธารณะไม่ใช่เรื่องทั่วไปในญี่ปุ่น อย่างไรก็ตาม คุณสามารถหาเกมสาธารณะบางเกมได้ที่หน้าแรกของเว็บไซต์นี้ มักจะเต็มและมีรายชื่อคอย แค่เข้าร่วมรายชื่อคอยและข้ามนิ้ว โดยทั่วไปจะมีที่ว่าง 5-6 ที่นั่งในวันกิจกรรม เนื่องจากมีคนยกเลิกในนาทีสุดท้าย"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:36
 msgid "Book a court and find the players yourself."
@@ -2047,12 +1836,8 @@ msgid "Create an Event at KPI Park"
 msgstr "สร้างกิจกรรมที่ KPI Park"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:176
-msgid ""
-"Create an event at one of the locations above (use the buttons above). Make "
-"the event public so people can join you."
-msgstr ""
-"สร้างกิจกรรมที่หนึ่งในสถานที่ข้างต้น (ใช้ปุ่มข้างต้น) ทำให้ "
-"กิจกรรมเป็นสาธารณะเพื่อให้คนอื่นเข้าร่วมกับคุณได้"
+msgid "Create an event at one of the locations above (use the buttons above). Make the event public so people can join you."
+msgstr "สร้างกิจกรรมที่หนึ่งในสถานที่ข้างต้น (ใช้ปุ่มข้างต้น) ทำให้ กิจกรรมเป็นสาธารณะเพื่อให้คนอื่นเข้าร่วมกับคุณได้"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:91
 msgid "Create an Event at Pacific Pickle Club"
@@ -2079,27 +1864,12 @@ msgid "How to Play Pickleball in Tokyo"
 msgstr "วิธีเล่นพิคเกิลบอลในโตกยว"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:23
-msgid ""
-"Japan does not really have public drop in courts or games. Most pickleball "
-"games happen indoors at community center and school gymnasiums (multi-use "
-"gyms) or on private tennis/pickleball courts and these all require "
-"reservations for court time, or reservations to join the events. Many of the "
-"public facilities do not allow groups to advertise to the public, which "
-"makes it difficult for new players or visitors to drop in on sessions."
-msgstr ""
-"ญี่ปุ่นไม่ค่อยมีสนามหรือเกมสาธารณะที่สามารถเข้าไปเล่นได้ เกมพิคเกิลบอลส่วนใหญ่ "
-"เกิดขึ้นในอาคารภายในศูนย์ชุมชนและโรงยิมโรงเรียน (โรงยิมอเนกประสงค์) หรือในสนามเทนนิส/"
-"พิคเกิลบอลส่วนตัว และทั้งหมดต้อง จองล่วงหน้าสำหรับเวลาสนาม หรือจองล่วงหน้าเข้าร่วมกิจกรรม "
-"สถานที่สาธารณะหลายแห่งไม่อนุญาตให้กลุ่มโฆษณาสู่สาธารณะ "
-"ทำให้ผู้เล่นใหม่หรือนักท่องเที่ยวยากที่จะเข้าร่วมเซสชั่น"
+msgid "Japan does not really have public drop in courts or games. Most pickleball games happen indoors at community center and school gymnasiums (multi-use gyms) or on private tennis/pickleball courts and these all require reservations for court time, or reservations to join the events. Many of the public facilities do not allow groups to advertise to the public, which makes it difficult for new players or visitors to drop in on sessions."
+msgstr "ญี่ปุ่นไม่ค่อยมีสนามหรือเกมสาธารณะที่สามารถเข้าไปเล่นได้ เกมพิคเกิลบอลส่วนใหญ่ เกิดขึ้นในอาคารภายในศูนย์ชุมชนและโรงยิมโรงเรียน (โรงยิมอเนกประสงค์) หรือในสนามเทนนิส/พิคเกิลบอลส่วนตัว และทั้งหมดต้อง จองล่วงหน้าสำหรับเวลาสนาม หรือจองล่วงหน้าเข้าร่วมกิจกรรม สถานที่สาธารณะหลายแห่งไม่อนุญาตให้กลุ่มโฆษณาสู่สาธารณะ ทำให้ผู้เล่นใหม่หรือนักท่องเที่ยวยากที่จะเข้าร่วมเซสชั่น"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:33
-msgid ""
-"Join any public events on Pkuru.com (this website). If you find an event "
-"without the 'lock' icon and which has a join button, then you can join."
-msgstr ""
-"เข้าร่วมกิจกรรมสาธารณะใดๆ ใน Pkuru.com (เว็บไซต์นี้) หากคุณพบกิจกรรม ที่ไม่มีไอคอน 'กุญแจ' "
-"และมีปุ่มเข้าร่วม คุณก็สามารถเข้าร่วมได้"
+msgid "Join any public events on Pkuru.com (this website). If you find an event without the 'lock' icon and which has a join button, then you can join."
+msgstr "เข้าร่วมกิจกรรมสาธารณะใดๆ ใน Pkuru.com (เว็บไซต์นี้) หากคุณพบกิจกรรม ที่ไม่มีไอคอน 'กุญแจ' และมีปุ่มเข้าร่วม คุณก็สามารถเข้าร่วมได้"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:52
 msgid "KPI Park in Kanagawa/Yokohama"
@@ -2114,13 +1884,8 @@ msgid "Pacific Pickle Club at Ariake"
 msgstr "Pacific Pickle Club ที่ Ariake"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:217
-msgid ""
-"Please do not show up to any events without permission and only if you are "
-"in the confirmed going list. Indoor events always require a set of clean "
-"indoor only court shoes. They are really serious about this stuff in Japan."
-msgstr ""
-"กรุณาอย่าไปกิจกรรมใดๆ โดยไม่ได้รับอนุญาต และเฉพาะเมื่อคุณ อยู่ในรายชื่อยืนยันที่จะเข้าร่วม "
-"กิจกรรมภายในอาคารต้องใช้ รองเท้าสะอาดเฉพาะสนามในอาคารเท่านั้น พวกเขาจริงจังเรื่องนี้ในญี่ปุ่น"
+msgid "Please do not show up to any events without permission and only if you are in the confirmed going list. Indoor events always require a set of clean indoor only court shoes. They are really serious about this stuff in Japan."
+msgstr "กรุณาอย่าไปกิจกรรมใดๆ โดยไม่ได้รับอนุญาต และเฉพาะเมื่อคุณ อยู่ในรายชื่อยืนยันที่จะเข้าร่วม กิจกรรมภายในอาคารต้องใช้ รองเท้าสะอาดเฉพาะสนามในอาคารเท่านั้น พวกเขาจริงจังเรื่องนี้ในญี่ปุ่น"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:191
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
@@ -2131,37 +1896,20 @@ msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr "โพสต์ลงกลุ่มพิคเกิลบอล Yokosuka (ฐานทัพเรือสหรัฐฯ) ใน Facebook:"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:27
-msgid ""
-"So, how can one play pickleball in Tokyo then as a tourist, recent "
-"transplant, or a beginner?"
-msgstr ""
-"แล้วคนจะเล่นพิคเกิลบอลในโตกยวได้อย่างไร ในฐานะนักท่องเที่ยว คนย้ายมาใหม่ หรือผู้เริ่มต้น?"
+msgid "So, how can one play pickleball in Tokyo then as a tourist, recent transplant, or a beginner?"
+msgstr "แล้วคนจะเล่นพิคเกิลบอลในโตกยวได้อย่างไร ในฐานะนักท่องเที่ยว คนย้ายมาใหม่ หรือผู้เริ่มต้น?"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:212
-msgid ""
-"Some events are restricted by level. If you are restricted, just type in "
-"your DUPR rating as a comment with your RSVP."
-msgstr ""
-"กิจกรรมบางอย่างมีการจำกัดตามระดับ หากคุณถูกจำกัด ให้พิมพ์ เรตติ้ง DUPR "
-"ของคุณเป็นคำอธิบายในการ RSVP"
+msgid "Some events are restricted by level. If you are restricted, just type in your DUPR rating as a comment with your RSVP."
+msgstr "กิจกรรมบางอย่างมีการจำกัดตามระดับ หากคุณถูกจำกัด ให้พิมพ์ เรตติ้ง DUPR ของคุณเป็นคำอธิบายในการ RSVP"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:54
-msgid ""
-"The courts require reservations but there are 10 courts and it's generally "
-"available last minute. Therefore you can book the courts just-in-time once "
-"you've already gathered the players."
-msgstr ""
-"สนามต้องการจองล่วงหน้า แต่มี 10 สนามและโดยทั่วไปจะ มีให้ในนาทีสุดท้าย "
-"ดังนั้นคุณจึงสามารถจองสนามตอนที่ รวมตัวผู้เล่นแล้ว"
+msgid "The courts require reservations but there are 10 courts and it's generally available last minute. Therefore you can book the courts just-in-time once you've already gathered the players."
+msgstr "สนามต้องการจองล่วงหน้า แต่มี 10 สนามและโดยทั่วไปจะ มีให้ในนาทีสุดท้าย ดังนั้นคุณจึงสามารถจองสนามตอนที่ รวมตัวผู้เล่นแล้ว"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:83
-msgid ""
-"The courts require reservations but there are only 2 courts so you will need "
-"to book in advance. They also hold open play sessions but the level may be "
-"low to complete beginner."
-msgstr ""
-"สนามต้องการจองล่วงหน้า แต่มีเพียง 2 สนาม จึงต้องจองล่วงหน้า มีเซสชั่นเล่นเปิดด้วย "
-"แต่ระดับอาจต่ำถึงผู้เริ่มต้น"
+msgid "The courts require reservations but there are only 2 courts so you will need to book in advance. They also hold open play sessions but the level may be low to complete beginner."
+msgstr "สนามต้องการจองล่วงหน้า แต่มีเพียง 2 สนาม จึงต้องจองล่วงหน้า มีเซสชั่นเล่นเปิดด้วย แต่ระดับอาจต่ำถึงผู้เริ่มต้น"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:110
 msgid "Tokyo Tower Pickleball"
@@ -2172,9 +1920,7 @@ msgid "Two courts are available. Conditions may be windy."
 msgstr "มีสนาม 2 สนาม สภาพอาจมีลมแรง"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:141
-msgid ""
-"Two courts are available. More expensive than other courts and the "
-"conditions can be windy."
+msgid "Two courts are available. More expensive than other courts and the conditions can be windy."
 msgstr "มีสนาม 2 สนาม ราคาแพงกว่าสนามอื่น และ สภาพอาจมีลมแรง"
 
 #: src/components/pages/PickleballTokyoPage.re.mjs:45
@@ -2240,12 +1986,8 @@ msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
 
 #: src/components/organisms/RsvpOptions.re.mjs:193
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
-"หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
 #: src/components/organisms/RSVPSection.re.mjs:666
 #: src/components/organisms/RSVPSection.re.mjs:758
@@ -2335,13 +2077,8 @@ msgid "I couldn't process that request. Please try again."
 msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
-msgid ""
-"Let me know when and where you'd like to play, and I'll help you create an "
-"event. You can continue talking to me in a conversation to refine any "
-"details."
-msgstr ""
-"บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม "
-"คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
+msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+msgstr "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:278
 msgid "New"
@@ -2360,12 +2097,8 @@ msgid "I can create events for you. Just give me your schedule."
 msgstr "ฉันสามารถสร้างกิจกรรมให้คุณได้ เพียงแค่บอกตารางของคุณ"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
-"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
 
 #: src/components/pages/EventPage.re.mjs:219
 #: src/components/pages/EventPage.re.mjs:248
@@ -2374,12 +2107,8 @@ msgstr "กิจกรรมส่วนตัว"
 
 #: src/components/pages/EventPage.re.mjs:223
 #: src/components/pages/EventPage.re.mjs:252
-msgid ""
-"This event is private and cannot be joined on Pkuru.com. Do not show up to "
-"the event without permission."
-msgstr ""
-"กิจกรรมนี้เป็นกิจกรรมส่วนตัวและไม่สามารถเข้าร่วมผ่าน Pkuru.com ได้ "
-"ห้ามไปที่กิจกรรมโดยไม่ได้รับอนุญาต"
+msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
+msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัวและไม่สามารถเข้าร่วมผ่าน Pkuru.com ได้ ห้ามไปที่กิจกรรมโดยไม่ได้รับอนุญาต"
 
 #: src/components/organisms/RoundSection.re.mjs:275
 msgid "{0} {matchText}"
@@ -2549,9 +2278,7 @@ msgid "Losing Team (Team {0})"
 msgstr "ทีมแพ้ (ทีม {0})"
 
 #: src/components/molecules/DrawGenerator.re.mjs:27
-msgid ""
-"Mix players of different levels in matches but still split stronger players "
-"to balance teams."
+msgid "Mix players of different levels in matches but still split stronger players to balance teams."
 msgstr "ผสมผู้เล่นที่มีระดับต่างกัน แต่ยังแยกผู้เล่นที่แข็งกว่าเพื่อสมดุลทีม"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:99
@@ -2563,8 +2290,7 @@ msgid "No Score"
 msgstr "ไม่มีคะแนน"
 
 #: src/components/molecules/DrawGenerator.re.mjs:22
-msgid ""
-"Players will be divided into similar skill level groups that round-robin."
+msgid "Players will be divided into similar skill level groups that round-robin."
 msgstr "แบ่งผู้เล่นตามระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบราวน์โรบิน"
 
 #: src/components/organisms/RoundSection.re.mjs:406
@@ -2764,105 +2490,36 @@ msgid "How to use Event Manager"
 msgstr "วิธีใช้ตัวจัดการกิจกรรม"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:42
-msgid ""
-"In the **Matches** screen:\\n          \\n1. Tap a match to open the result "
-"entry view.\\n          \\n2. Select the winning team or enter the specific "
-"score.\\n          \\n3. Once a winner is selected (green border), the "
-"result is ready.\\n          \\n4. Click **Submit** to save the result and "
-"update ratings."
-msgstr ""
-"ในหน้าจอ **การแข่งขัน**:\\n          \\n1. "
-"แตะการแข่งขันเพื่อเปิดมุมมองป้อนผลลัพธ์\\n          \\n2. "
-"เลือกทีมที่ชนะหรือป้อนคะแนนที่แน่นอน\\n          \\n3. เมื่อเลือกผู้ชนะแล้ว (กรอบสีเขียว) "
-"ผลลัพธ์พร้อมแล้ว\\n          \\n4. คลิก **ส่ง** เพื่อบันทึกผลลัพธ์และอัปเดตคะแนน"
+msgid "In the **Matches** screen:\\n          \\n1. Tap a match to open the result entry view.\\n          \\n2. Select the winning team or enter the specific score.\\n          \\n3. Once a winner is selected (green border), the result is ready.\\n          \\n4. Click **Submit** to save the result and update ratings."
+msgstr "ในหน้าจอ **การแข่งขัน**:\\n          \\n1. แตะการแข่งขันเพื่อเปิดมุมมองป้อนผลลัพธ์\\n          \\n2. เลือกทีมที่ชนะหรือป้อนคะแนนที่แน่นอน\\n          \\n3. เมื่อเลือกผู้ชนะแล้ว (กรอบสีเขียว) ผลลัพธ์พร้อมแล้ว\\n          \\n4. คลิก **ส่ง** เพื่อบันทึกผลลัพธ์และอัปเดตคะแนน"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:50
-msgid ""
-"In the Queue screen, select players to access special options:\\n          "
-"\\n• **Create Team**: Link two players who always want to play together "
-"(Fixed Pair).\\n          \\n• **Anti-Team**: Prevent two players from being "
-"paired together.\\n          \\n• **Set Gender**: Override gender for Mixed "
-"Doubles matchmaking."
-msgstr ""
-"ในหน้าจอคิว เลือกผู้เล่นเพื่อเข้าถึงตัวเลือกพิเศษ:\\n          \\n• **สร้างทีม**: "
-"เชื่อมโยงผู้เล่นสองคนที่ต้องการเล่นด้วยกันเสมอ (คู่คงที่)\\n          \\n• **ทีมตรงข้าม**: "
-"ป้องกันไม่ให้ผู้เล่นสองคนถูกจับคู่เข้าด้วยกัน\\n          \\n• **ตั้งค่าเพศ**: "
-"แทนที่เพศสำหรับการจับคู่ผสมชายหญิง"
+msgid "In the Queue screen, select players to access special options:\\n          \\n• **Create Team**: Link two players who always want to play together (Fixed Pair).\\n          \\n• **Anti-Team**: Prevent two players from being paired together.\\n          \\n• **Set Gender**: Override gender for Mixed Doubles matchmaking."
+msgstr "ในหน้าจอคิว เลือกผู้เล่นเพื่อเข้าถึงตัวเลือกพิเศษ:\\n          \\n• **สร้างทีม**: เชื่อมโยงผู้เล่นสองคนที่ต้องการเล่นด้วยกันเสมอ (คู่คงที่)\\n          \\n• **ทีมตรงข้าม**: ป้องกันไม่ให้ผู้เล่นสองคนถูกจับคู่เข้าด้วยกัน\\n          \\n• **ตั้งค่าเพศ**: แทนที่เพศสำหรับการจับคู่ผสมชายหญิง"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:49
 msgid "Player Options (Teams & Anti-Teams)"
 msgstr "ตัวเลือกผู้เล่น (ทีมและทีมตรงข้าม)"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:26
-msgid ""
-"The Event Manager uses several icons to help you navigate and manage your "
-"event:\\n          \\n• **Gear Icon**: Access settings to change the number "
-"of courts, match generation strategy, and view match history.\\n          "
-"\\n• **Checkmark/User Icon**: Used for checking players in and out of the "
-"session. Green indicates checked in.\\n          \\n• **List/Queue Icon**: "
-"View the list of available players and select them for the next round."
-"\\n          \\n• **Play/Matches Icon**: View active matches and enter "
-"results.\\n          \\n• **Trash Icon**: Delete a match (careful, this "
-"cannot be undone in some modes)."
-msgstr ""
-"ตัวจัดการกิจกรรมใช้ไอคอนหลายตัวเพื่อช่วยคุณนำทางและจัดการกิจกรรม:\\n          \\n• "
-"**ไอคอนเกียร์**: เข้าถึงการตั้งค่าเพื่อเปลี่ยนจำนวนสนาม กลยุทธ์การสร้างการแข่งขัน "
-"และดูประวัติการแข่งขัน\\n          \\n• **ไอคอนเครื่องหมายถูก/ผู้ใช้**: "
-"ใช้สำหรับเช็คอินและเช็คเอาท์ผู้เล่นในเซสชั่น สีเขียวหมายถึงเช็คอินแล้ว\\n          \\n• "
-"**ไอคอนรายการ/คิว**: ดูรายชื่อผู้เล่นที่มีอยู่และเลือกพวกเขาสำหรับรอบถัดไป\\n          \\n• "
-"**ไอคอนเล่น/การแข่งขัน**: ดูการแข่งขันที่ใช้งานอยู่และป้อนผลลัพธ์\\n          \\n• "
-"**ไอคอนถังขยะ**: ลบการแข่งขัน (ระวัง สิ่งนี้ไม่สามารถยกเลิกได้ในบางโหมด)"
+msgid "The Event Manager uses several icons to help you navigate and manage your event:\\n          \\n• **Gear Icon**: Access settings to change the number of courts, match generation strategy, and view match history.\\n          \\n• **Checkmark/User Icon**: Used for checking players in and out of the session. Green indicates checked in.\\n          \\n• **List/Queue Icon**: View the list of available players and select them for the next round.\\n          \\n• **Play/Matches Icon**: View active matches and enter results.\\n          \\n• **Trash Icon**: Delete a match (careful, this cannot be undone in some modes)."
+msgstr "ตัวจัดการกิจกรรมใช้ไอคอนหลายตัวเพื่อช่วยคุณนำทางและจัดการกิจกรรม:\\n          \\n• **ไอคอนเกียร์**: เข้าถึงการตั้งค่าเพื่อเปลี่ยนจำนวนสนาม กลยุทธ์การสร้างการแข่งขัน และดูประวัติการแข่งขัน\\n          \\n• **ไอคอนเครื่องหมายถูก/ผู้ใช้**: ใช้สำหรับเช็คอินและเช็คเอาท์ผู้เล่นในเซสชั่น สีเขียวหมายถึงเช็คอินแล้ว\\n          \\n• **ไอคอนรายการ/คิว**: ดูรายชื่อผู้เล่นที่มีอยู่และเลือกพวกเขาสำหรับรอบถัดไป\\n          \\n• **ไอคอนเล่น/การแข่งขัน**: ดูการแข่งขันที่ใช้งานอยู่และป้อนผลลัพธ์\\n          \\n• **ไอคอนถังขยะ**: ลบการแข่งขัน (ระวัง สิ่งนี้ไม่สามารถยกเลิกได้ในบางโหมด)"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:30
-msgid ""
-"To generate matches:\\n          \\n1. Go to the **Queue** screen."
-"\\n          \\n2. Select at least 4 players (highlighted in green). You can "
-"use the \\\"Queue All\\\" button to select everyone not on break."
-"\\n          \\n3. Click the **Generate Matches** button.\\n          \\n4. "
-"The system will propose matches based on the selected strategy (e.g., "
-"Competitive, Mixed).\\n          \\n5. You can accept the recommended "
-"matches or manually select from the list of possibilities.\\n          \\n6. "
-"Quality indicators show how balanced a match is expected to be."
-msgstr ""
-"การสร้างการแข่งขัน:\\n          \\n1. ไปที่หน้าจอ **คิว**\\n          \\n2. "
-"เลือกผู้เล่นอย่างน้อย 4 คน (ไฮไลต์สีเขียว) คุณสามารถใช้ปุ่ม \\\"เข้าคิวทั้งหมด\\\" "
-"เพื่อเลือกทุกคนที่ไม่ได้พัก\\n          \\n3. คลิกปุ่ม **สร้างการแข่งขัน**\\n          "
-"\\n4. ระบบจะเสนอการแข่งขันตามกลยุทธ์ที่เลือก (เช่น แข่งขัน ผสม)\\n          \\n5. "
-"คุณสามารถยอมรับการแข่งขันที่แนะนำหรือเลือกด้วยตนเองจากรายการที่เป็นไปได้\\n          "
-"\\n6. ตัวบ่งชี้คุณภาพแสดงว่าการแข่งขันคาดว่าจะสมดุลเพียงใด"
+msgid "To generate matches:\\n          \\n1. Go to the **Queue** screen.\\n          \\n2. Select at least 4 players (highlighted in green). You can use the \\\"Queue All\\\" button to select everyone not on break.\\n          \\n3. Click the **Generate Matches** button.\\n          \\n4. The system will propose matches based on the selected strategy (e.g., Competitive, Mixed).\\n          \\n5. You can accept the recommended matches or manually select from the list of possibilities.\\n          \\n6. Quality indicators show how balanced a match is expected to be."
+msgstr "การสร้างการแข่งขัน:\\n          \\n1. ไปที่หน้าจอ **คิว**\\n          \\n2. เลือกผู้เล่นอย่างน้อย 4 คน (ไฮไลต์สีเขียว) คุณสามารถใช้ปุ่ม \\\"เข้าคิวทั้งหมด\\\" เพื่อเลือกทุกคนที่ไม่ได้พัก\\n          \\n3. คลิกปุ่ม **สร้างการแข่งขัน**\\n          \\n4. ระบบจะเสนอการแข่งขันตามกลยุทธ์ที่เลือก (เช่น แข่งขัน ผสม)\\n          \\n5. คุณสามารถยอมรับการแข่งขันที่แนะนำหรือเลือกด้วยตนเองจากรายการที่เป็นไปได้\\n          \\n6. ตัวบ่งชี้คุณภาพแสดงว่าการแข่งขันคาดว่าจะสมดุลเพียงใด"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:46
-msgid ""
-"Toggle **Offline Mode** on the start screen if you don't have a stable "
-"internet connection or want to test without saving data to the server."
-"\\n          \\n• Results are stored locally on your device.\\n          "
-"\\n• You can sync them later when you're back online."
-msgstr ""
-"เปิด **โหมดออฟไลน์** ในหน้าจอเริ่มต้นหากคุณไม่มีการเชื่อมต่ออินเทอร์เน็ตที่เสถียร "
-"หรือต้องการทดสอบโดยไม่บันทึกข้อมูลไปยังเซิร์ฟเวอร์\\n          \\n• "
-"ผลลัพธ์จะถูกเก็บไว้ในเครื่องของคุณ\\n          \\n• คุณสามารถซิงค์ภายหลังเมื่อคุณกลับมาออนไลน์"
+msgid "Toggle **Offline Mode** on the start screen if you don't have a stable internet connection or want to test without saving data to the server.\\n          \\n• Results are stored locally on your device.\\n          \\n• You can sync them later when you're back online."
+msgstr "เปิด **โหมดออฟไลน์** ในหน้าจอเริ่มต้นหากคุณไม่มีการเชื่อมต่ออินเทอร์เน็ตที่เสถียร หรือต้องการทดสอบโดยไม่บันทึกข้อมูลไปยังเซิร์ฟเวอร์\\n          \\n• ผลลัพธ์จะถูกเก็บไว้ในเครื่องของคุณ\\n          \\n• คุณสามารถซิงค์ภายหลังเมื่อคุณกลับมาออนไลน์"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:34
-msgid ""
-"Use the **Check-in** screen to manage player attendance. Tap a player to "
-"toggle their status.\\n          \\n• **Green**: Player is here and ready to "
-"play.\\n          \\n• **Gray**: Player is checked out (not available for "
-"matches).\\n          \\n• Useful for players arriving late or leaving early."
-msgstr ""
-"ใช้หน้าจอ **เช็คอิน** เพื่อจัดการการเข้าร่วมของผู้เล่น แตะผู้เล่นเพื่อสลับสถานะ\\n          "
-"\\n• **สีเขียว**: ผู้เล่นอยู่ที่นี่และพร้อมเล่น\\n          \\n• **สีเทา**: ผู้เล่นเช็คเอาท์แล้ว "
-"(ไม่พร้อมสำหรับการแข่งขัน)\\n          \\n• มีประโยชน์สำหรับผู้เล่นที่มาสายหรือกลับเร็ว"
+msgid "Use the **Check-in** screen to manage player attendance. Tap a player to toggle their status.\\n          \\n• **Green**: Player is here and ready to play.\\n          \\n• **Gray**: Player is checked out (not available for matches).\\n          \\n• Useful for players arriving late or leaving early."
+msgstr "ใช้หน้าจอ **เช็คอิน** เพื่อจัดการการเข้าร่วมของผู้เล่น แตะผู้เล่นเพื่อสลับสถานะ\\n          \\n• **สีเขียว**: ผู้เล่นอยู่ที่นี่และพร้อมเล่น\\n          \\n• **สีเทา**: ผู้เล่นเช็คเอาท์แล้ว (ไม่พร้อมสำหรับการแข่งขัน)\\n          \\n• มีประโยชน์สำหรับผู้เล่นที่มาสายหรือกลับเร็ว"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:38
-msgid ""
-"You can set the number of available courts in the settings. The system "
-"tracks play counts and suggests breaks for players who have played the most."
-"\\n          \\n• Players due for a break are highlighted in yellow in the "
-"Queue.\\n          \\n• This helps ensure equal playing time for everyone."
-msgstr ""
-"คุณสามารถตั้งจำนวนสนามที่พร้อมใช้งานในการตั้งค่า ระบบติดตามจำนวนครั้งที่เล่น "
-"และแนะนำให้ผู้เล่นที่เล่นมากที่สุดพัก\\n          \\n• "
-"ผู้เล่นที่ควรพักจะถูกไฮไลต์สีเหลืองในคิว\\n          \\n• สิ่งนี้ช่วยให้แน่ใจว่าทุกคนได้เล่นเท่าๆ กัน"
+msgid "You can set the number of available courts in the settings. The system tracks play counts and suggests breaks for players who have played the most.\\n          \\n• Players due for a break are highlighted in yellow in the Queue.\\n          \\n• This helps ensure equal playing time for everyone."
+msgstr "คุณสามารถตั้งจำนวนสนามที่พร้อมใช้งานในการตั้งค่า ระบบติดตามจำนวนครั้งที่เล่น และแนะนำให้ผู้เล่นที่เล่นมากที่สุดพัก\\n          \\n• ผู้เล่นที่ควรพักจะถูกไฮไลต์สีเหลืองในคิว\\n          \\n• สิ่งนี้ช่วยให้แน่ใจว่าทุกคนได้เล่นเท่าๆ กัน"
 
 msgid "Icons Guide"
 msgstr "คู่มือไอคอน"
@@ -2900,39 +2557,22 @@ msgstr "ปรับอันดับ"
 msgid "Manually adjust player ratings for the event."
 msgstr "ปรับคะแนนผู้เล่นสำหรับกิจกรรมด้วยตนเอง"
 
-msgid ""
-"The Draw Generator allows you to create matches based on different "
-"strategies:"
+msgid "The Draw Generator allows you to create matches based on different strategies:"
 msgstr "ตัวสร้างการจับคู่ช่วยให้คุณสร้างการแข่งขันตามกลยุทธ์ต่างๆ:"
 
-msgid ""
-": Players are divided into similar skill levels. Teams are balanced to "
-"create close matches."
+msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
 msgstr ": ผู้เล่นจะถูกแบ่งออกเป็นระดับทักษะที่ใกล้เคียงกัน ทีมจะมีความสมดุลเพื่อสร้างการแข่งขันที่สูสี"
 
-msgid ""
-": Teams are balanced by skill, but players are not strictly separated by "
-"level."
+msgid ": Teams are balanced by skill, but players are not strictly separated by level."
 msgstr ": ทีมมีความสมดุลตามทักษะ แต่ผู้เล่นไม่ได้ถูกแยกตามระดับอย่างเคร่งครัด"
 
 msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr ": รูปแบบพบกันหมดแบบคลาสสิกที่ทุกคนเล่นกับทุกคน"
 
-msgid ""
-"In Competitive or Mixed mode, the system will regenerate future matches when "
-"you select the winner of the matches in the current or past rounds. This is "
-"recommended in order to optimize future rounds based on the new data. In "
-"Round-Robin mode, the future rounds will not change unless you manually "
-"change them."
-msgstr ""
-"ในโหมดแข่งขันหรือผสม "
-"ระบบจะสร้างการแข่งขันในอนาคตใหม่เมื่อคุณเลือกผู้ชนะของการแข่งขันในรอบปัจจุบันหรือรอบที่ผ่านมา "
-"แนะนำให้ทำเช่นนี้เพื่อปรับปรุงรอบในอนาคตให้เหมาะสมตามข้อมูลใหม่ ในโหมดพบกันหมด "
-"รอบในอนาคตจะไม่เปลี่ยนแปลงเว้นแต่คุณจะเปลี่ยนด้วยตนเอง"
+msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
+msgstr "ในโหมดแข่งขันหรือผสม ระบบจะสร้างการแข่งขันในอนาคตใหม่เมื่อคุณเลือกผู้ชนะของการแข่งขันในรอบปัจจุบันหรือรอบที่ผ่านมา แนะนำให้ทำเช่นนี้เพื่อปรับปรุงรอบในอนาคตให้เหมาะสมตามข้อมูลใหม่ ในโหมดพบกันหมด รอบในอนาคตจะไม่เปลี่ยนแปลงเว้นแต่คุณจะเปลี่ยนด้วยตนเอง"
 
-msgid ""
-"You can also adjust the number of courts. The system requires 4 players per "
-"court."
+msgid "You can also adjust the number of courts. The system requires 4 players per court."
 msgstr "คุณยังสามารถปรับจำนวนสนามได้ ระบบต้องการผู้เล่น 4 คนต่อสนาม"
 
 msgid "Round Management"
@@ -2944,16 +2584,8 @@ msgstr "แต่ละรอบมีตัวเลือกการจัด
 msgid "Rebalance"
 msgstr "ปรับสมดุลใหม่"
 
-msgid ""
-"Regenerates the current round with the same players but moves players around "
-"to balance the skill level of each court. This will aggressively optimize "
-"each court to have the highest chance of having a tie, but may not divide "
-"the court by level groups. Useful if you replace a player and need the "
-"matches to be balanced again."
-msgstr ""
-"สร้างรอบปัจจุบันใหม่ด้วยผู้เล่นคนเดิม แต่ย้ายผู้เล่นไปรอบๆ เพื่อปรับสมดุลระดับทักษะของแต่ละสนาม "
-"สิ่งนี้จะปรับให้แต่ละสนามมีโอกาสเสมอสูงสุด แต่ไม่อาจแบ่งสนามตามกลุ่มระดับ "
-"มีประโยชน์หากคุณเปลี่ยนผู้เล่นและต้องการให้การแข่งขันสมดุลอีกครั้ง"
+msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
+msgstr "สร้างรอบปัจจุบันใหม่ด้วยผู้เล่นคนเดิม แต่ย้ายผู้เล่นไปรอบๆ เพื่อปรับสมดุลระดับทักษะของแต่ละสนาม สิ่งนี้จะปรับให้แต่ละสนามมีโอกาสเสมอสูงสุด แต่ไม่อาจแบ่งสนามตามกลุ่มระดับ มีประโยชน์หากคุณเปลี่ยนผู้เล่นและต้องการให้การแข่งขันสมดุลอีกครั้ง"
 
 msgid "Reset (Mixed)"
 msgstr "รีเซ็ต (ผสม)"
@@ -2985,24 +2617,16 @@ msgstr "ไอคอนเพื่อแก้ไขรายละเอีย
 msgid "Use"
 msgstr "ใช้"
 
-msgid ""
-"to create Teams (always play together) or Anti-Teams (never play together on "
-"the same court)."
+msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
 msgstr "เพื่อสร้างทีม (เล่นด้วยกันเสมอ) หรือทีมตรงข้าม (ไม่เล่นด้วยกันในสนามเดียวกัน)"
 
-msgid ""
-"to adjust player ratings (seeds) for the event. This affects matchmaking but "
-"not their permanent rating."
-msgstr ""
-"เพื่อปรับคะแนนผู้เล่น (อันดับ) สำหรับกิจกรรม "
-"สิ่งนี้ส่งผลต่อการจับคู่แต่ไม่ส่งผลต่อคะแนนถาวรของพวกเขา"
+msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
+msgstr "เพื่อปรับคะแนนผู้เล่น (อันดับ) สำหรับกิจกรรม สิ่งนี้ส่งผลต่อการจับคู่แต่ไม่ส่งผลต่อคะแนนถาวรของพวกเขา"
 
 msgid "Entering Results & Syncing"
 msgstr "การป้อนผลลัพธ์และการซิงค์"
 
-msgid ""
-"Enter scores directly on the match cards. Tap to select a winner, or press "
-"and hold to input the score as well."
+msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
 msgstr "ป้อนคะแนนโดยตรงบนการ์ดการแข่งขัน แตะเพื่อเลือกผู้ชนะ หรือกดค้างไว้เพื่อป้อนคะแนนด้วย"
 
 msgid "Once matches are complete, use the"
@@ -3014,16 +2638,11 @@ msgstr "ปุ่มที่ด้านล่างของหน้าเพ
 msgid "Scores are not saved permanently until you Sync."
 msgstr "คะแนนจะไม่ถูกบันทึกอย่างถาวรจนกว่าคุณจะซิงค์"
 
-msgid ""
-"The Event Manager works offline! All data is saved locally to your device."
+msgid "The Event Manager works offline! All data is saved locally to your device."
 msgstr "ตัวจัดการกิจกรรมทำงานแบบออฟไลน์! ข้อมูลทั้งหมดจะถูกบันทึกไว้ในอุปกรณ์ของคุณ"
 
-msgid ""
-"You can run an entire event without internet. Just make sure to Sync Scores "
-"when you have a connection again to save the results."
-msgstr ""
-"คุณสามารถจัดกิจกรรมทั้งหมดได้โดยไม่ต้องใช้อินเทอร์เน็ต "
-"เพียงตรวจสอบให้แน่ใจว่าได้ซิงค์คะแนนเมื่อคุณมีการเชื่อมต่ออีกครั้งเพื่อบันทึกผลลัพธ์"
+msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
+msgstr "คุณสามารถจัดกิจกรรมทั้งหมดได้โดยไม่ต้องใช้อินเทอร์เน็ต เพียงตรวจสอบให้แน่ใจว่าได้ซิงค์คะแนนเมื่อคุณมีการเชื่อมต่ออีกครั้งเพื่อบันทึกผลลัพธ์"
 
 msgid "Note: If you clear your browser data, local event data will be lost."
 msgstr "หมายเหตุ: หากคุณล้างข้อมูลเบราว์เซอร์ ข้อมูลกิจกรรมในเครื่องจะสูญหาย"
@@ -3035,9 +2654,7 @@ msgid "Complete guide to running events with the Event Manager."
 msgstr "คู่มือฉบับสมบูรณ์สำหรับการจัดกิจกรรมด้วยตัวจัดการกิจกรรม"
 
 #: src/components/molecules/DrawGenerator.re.mjs:271
-msgid ""
-"Future rounds have scores entered. Regenerating will delete these scores. "
-"Are you sure?"
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
 msgstr "รอบในอนาคตมีคะแนนที่ป้อนแล้ว การสร้างใหม่จะลบคะแนนเหล่านี้ คุณแน่ใจหรือไม่?"
 
 #: src/components/molecules/DrawGenerator.re.mjs:270
@@ -3101,11 +2718,8 @@ msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
 
 #: src/components/organisms/MatchCard.re.mjs:433
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:165
 msgid "Blue dot indicates the team that has service in the match."
@@ -3242,9 +2856,7 @@ msgid "Rating History"
 msgstr "ประวัติเรตติ้ง"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
 msgstr "พื้นที่แรเงาแสดงถึงความไม่แน่นอนของเรตติ้ง แถบที่แคบกว่าบ่งบอกถึงความมั่นใจที่สูงขึ้น"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:108
@@ -3284,9 +2896,7 @@ msgid "Advance to Round {0}"
 msgstr "ไปยังรอบ {0}"
 
 #: src/components/organisms/ProfileModal.re.mjs:153
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
 
 #: src/components/pages/LoginPage.re.mjs:101
@@ -3294,12 +2904,8 @@ msgid "An error occurred during sign in. Please try again."
 msgstr "เกิดข้อผิดพลาดในการเข้าสู่ระบบ กรุณาลองอีกครั้ง"
 
 #: src/components/pages/LoginPage.re.mjs:101
-msgid ""
-"Your LINE account does not have an email associated. Please set an email "
-"address for your account from the LINE app, and then try again."
-msgstr ""
-"บัชชี LINE ของคุณไม่มีอีเมลเชื่อมโยง กรุณาตั้งค่าที่อยู่อีเมลสำหรับบัชชีของคุณจากแอป LINE "
-"แล้วลองอีกครั้ง"
+msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
+msgstr "บัชชี LINE ของคุณไม่มีอีเมลเชื่อมโยง กรุณาตั้งค่าที่อยู่อีเมลสำหรับบัชชีของคุณจากแอป LINE แล้วลองอีกครั้ง"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:309
 msgid "Answer the questions or provide more details..."
@@ -3318,12 +2924,8 @@ msgid "Describe your event"
 msgstr "อธิบายกิจกรรมของคุณ"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:309
-msgid ""
-"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-"competitive play for 3.5+ players..."
-msgstr ""
-"เช่น การพบปะพิคเคิลบอลรายสัปดาห์ที่เซ็นทรัลพาร์ค วันพฤหัสบดีเวลา 18:00 น. "
-"เล่นแบบแข่งขันสำหรับผู้เล่นระดับ 3.5+..."
+msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
+msgstr "เช่น การพบปะพิคเคิลบอลรายสัปดาห์ที่เซ็นทรัลพาร์ค วันพฤหัสบดีเวลา 18:00 น. เล่นแบบแข่งขันสำหรับผู้เล่นระดับ 3.5+..."
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:361
 msgid "Fill with AI"
@@ -3568,9 +3170,7 @@ msgstr "เรียงตามเวลาเริ่มต้น"
 
 #: src/components/pkuru/PkEventRow.re.mjs:611
 #: src/components/pages/PkEventPage.re.mjs:1013
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr "มีผู้เล่นในรายชื่อคอย ถ้าคุณออก ที่ของคุณจะถูกให้กับคนถัดไป คุณแน่ใจหรือไม่?"
 
 #: src/components/shared/EventsListView.re.mjs:48
@@ -3726,12 +3326,8 @@ msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "ต้องมี DUPR {minDuprStr} ขึ้นไปจึงเข้าร่วมได้"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:216
-msgid ""
-"Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"คะแนนของคุณ {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) ต่ำกว่าเกณฑ์ขั้นต่ำสุด คุณจะถูกเพิ่มในรายชื่อรอดำเนินการ"
+msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "คะแนนของคุณ {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) ต่ำกว่าเกณฑ์ขั้นต่ำสุด คุณจะถูกเพิ่มในรายชื่อรอดำเนินการ"
 
 #: src/components/pages/ClubEventsPage.re.mjs:119
 msgid "Loading events..."
@@ -3797,9 +3393,7 @@ msgid "Preview events"
 msgstr "ดูตัวอย่างกิจกรรม"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:273
-msgid ""
-"Show events on the home page. Otherwise only people with a direct link can "
-"find them."
+msgid "Show events on the home page. Otherwise only people with a direct link can find them."
 msgstr "แสดงกิจกรรมบนหน้าหลัก หากไม่แสดง เฉพาะผู้ที่มีลิงก์โดยตรงเท่านั้นที่จะค้นหาได้"
 
 #: src/components/pages/CreateEventPage.re.mjs:135
@@ -3815,12 +3409,8 @@ msgid "{0}/{1} 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
 msgstr "{0}/{1} 10:00-12:00\\nสถานที่\\nเปิดเล่น\\nสูงสุด 18 คน"
 
 #: src/components/organisms/CreateClubEventsForm.re.mjs:116
-msgid ""
-"3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 "
-"10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
-msgstr ""
-"3/2 10:00-12:00\\nสถานที่\\nเปิดเล่น\\nสูงสุด 18 คน\\n\\n3/5 "
-"10:00-12:00\\nสถานที่\\nเปิดเล่น\\nสูงสุด 18 คน"
+msgid "3/2 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people\\n\\n3/5 10:00-12:00\\nVenue\\nOpen Play\\nMax 18 people"
+msgstr "3/2 10:00-12:00\\nสถานที่\\nเปิดเล่น\\nสูงสุด 18 คน\\n\\n3/5 10:00-12:00\\nสถานที่\\nเปิดเล่น\\nสูงสุด 18 คน"
 
 #: src/components/pages/PkuruLayout.re.mjs:265
 #: src/components/pages/PkuruLayout.re.mjs:599
@@ -3899,48 +3489,142 @@ msgid "Your browser is too old to use this feature."
 msgstr "เบราว์เซอร์ของคุณเก่าเกินไปสำหรับฟีเจอร์นี้"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:312
-msgid ""
-"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "เรตติ้งของคุณ {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) ต่ำกว่าขั้นต่ำ คุณจะถูกใส่ในรายชื่อรอดำเนินการ"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:322
 msgid "Biography"
-msgstr ""
+msgstr "ประวัติส่วนตัว"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:250
 msgid "Display Name"
-msgstr ""
+msgstr "ชื่อที่แสดง"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:263
 msgid "Full name"
-msgstr ""
+msgstr "ชื่อเต็ม"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:254
 msgid "How you appear to other players"
-msgstr ""
+msgstr "ชื่อที่ผู้เล่นคนอื่นจะเห็น"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:349
 msgid "Save profile"
-msgstr ""
+msgstr "บันทึกโปรไฟล์"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
-msgid ""
-"Some events require your legal name as shown on an ID "
-"card.omeventsequoegashownour passporta"
-msgstr ""
+msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+msgstr "บางกิจกรรมต้องการชื่อตามกฎหมายตามที่แสดงในบัตรประชาชน"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:326
 msgid "Tell us a little about yourself..."
-msgstr ""
+msgstr "บอกเราเกี่ยวกับตัวคุณสักหน่อย..."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:872
 msgid "This event is private"
-msgstr ""
+msgstr "กิจกรรมนี้เป็นแบบส่วนตัว"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:872
 msgid "This event is public"
-msgstr ""
+msgstr "กิจกรรมนี้เป็นแบบสาธารณะ"
+
+#: src/components/pages/PkEventPage.re.mjs:252
+msgid "Cannot access variable \\\"title\\\""
+msgstr "ไม่สามารถเข้าถึงตัวแปร \\\"title\\\""
+
+#: src/components/pages/PkEventPage.re.mjs:379
+msgid "{cancelTimeLeft} left to cancel"
+msgstr "เหลือเวลา {cancelTimeLeft} ในการยกเลิก"
+
+#: src/components/pages/PkEventPage.re.mjs:379
+msgid "Cancellation deadline passed"
+msgstr "เลยกำหนดเวลายกเลิกแล้ว"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+msgid "hr"
+msgstr "ชม."
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+msgid "min"
+msgstr "นาที"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:735
+msgid "1 hour before"
+msgstr "1 ชั่วโมงก่อน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:759
+msgid "1 week before"
+msgstr "1 สัปดาห์ก่อน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:747
+msgid "12 hours before"
+msgstr "12 ชั่วโมงก่อน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:739
+msgid "2 hours before"
+msgstr "2 ชั่วโมงก่อน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "24 hours before"
+msgstr "24 ชั่วโมงก่อน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:755
+msgid "48 hours before"
+msgstr "48 ชั่วโมงก่อน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:743
+msgid "6 hours before"
+msgstr "6 ชั่วโมงก่อน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:764
+msgid "Attendees cannot cancel their RSVP after this deadline"
+msgstr "ผู้เข้าร่วมไม่สามารถยกเลิกการตอบรับหลังจากกำหนดเวลานี้"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:725
+msgid "Cancel deadline (optional)"
+msgstr "กำหนดเวลายกเลิก (ไม่บังคับ)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:731
+msgid "No deadline"
+msgstr "ไม่มีกำหนดเวลา"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:49
+msgid "Close Full Screen"
+msgstr "ปิดโหมดเต็มจอ"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:71
+msgid "COURT {0}"
+msgstr "คอร์ต {0}"
+
+#: src/components/organisms/RoundSection.re.mjs:531
+msgid "Full Screen View"
+msgstr "โหมดเต็มจอ"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+msgid "Not Playing This Round"
+msgstr "ไม่ได้เล่นรอบนี้"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "เลยกำหนดเวลายกเลิกแล้ว ติดต่อผู้จัดงานที่หน้านี้เพื่อยกเลิก"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid "Cancellation deadline"
+msgstr "กำหนดเวลายกเลิก"
+
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr "ทุกอย่างเป็นปัจจุบัน"
+
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr "ซิงค์แล้ว"
+
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
+msgstr "ที่จะซิงค์"
 
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy

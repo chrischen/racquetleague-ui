@@ -71,6 +71,13 @@ let make = (
   ~error: option<string>=?,
   ~autoSearchAddress: option<string>=?,
 ) => {
+  let (mounted, setMounted) = React.useState(() => false)
+
+  React.useEffect(() => {
+    setMounted(_ => true)
+    None
+  }, [])
+
   let (commitMutationCreate, _) = AutocompleteLocationMutation.use()
 
   let onSelect = (place: GoogleMapsAutocomplete.place) => {
@@ -146,30 +153,35 @@ let make = (
     None
   }, [autoSearchAddress])
 
-  <div>
-    <div className="relative">
-      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <Lucide.Search className="h-5 w-5 text-gray-400 dark:text-gray-500" />
+  if not(mounted) {
+    React.null
+  } else {
+    <div>
+      <div className="relative">
+        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <Lucide.Search className="h-5 w-5 text-gray-400 dark:text-gray-500" />
+        </div>
+        <GoogleMapsAutocomplete
+          apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk"
+          onPlaceSelected=onSelect
+          options={{
+            types: ["establishment"],
+            fields: ["place_id", "geometry.location", "name", "formatted_address", "plus_code"],
+          }}
+          className={Util.cx([
+            "block w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500",
+            error->Option.isSome
+              ? "border-red-300 dark:border-red-700"
+              : "border-gray-300 dark:border-gray-700",
+          ])}
+          placeholder="Search for a location..."
+        />
       </div>
-      <GoogleMapsAutocomplete
-        onPlaceSelected=onSelect
-        options={{
-          types: ["establishment"],
-          fields: ["place_id", "geometry.location", "name", "formatted_address", "plus_code"],
-        }}
-        className={Util.cx([
-          "block w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500",
-          error->Option.isSome
-            ? "border-red-300 dark:border-red-700"
-            : "border-gray-300 dark:border-gray-700",
-        ])}
-        placeholder="Search for a location..."
-      />
+      {error
+      ->Option.map(errorMessage =>
+        <p className="mt-1 text-sm text-red-600 dark:text-red-400"> {errorMessage->React.string} </p>
+      )
+      ->Option.getOr(React.null)}
     </div>
-    {error
-    ->Option.map(errorMessage =>
-      <p className="mt-1 text-sm text-red-600 dark:text-red-400"> {errorMessage->React.string} </p>
-    )
-    ->Option.getOr(React.null)}
-  </div>
+  }
 }

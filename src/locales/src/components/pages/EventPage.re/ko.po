@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:422
+#: src/components/pages/EventPage.re.mjs:431
 msgid "Badminton"
 msgstr "배드민턴"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:425
+#: src/components/pages/EventPage.re.mjs:434
 msgid "Table Tennis"
 msgstr "탁구"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:428
+#: src/components/pages/EventPage.re.mjs:437
 msgid "Pickleball"
 msgstr "피클볼"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:431
+#: src/components/pages/EventPage.re.mjs:440
 msgid "Futsal"
 msgstr "풋살"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:434
+#: src/components/pages/EventPage.re.mjs:443
 msgid "drill"
 msgstr "훈련"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:437
+#: src/components/pages/EventPage.re.mjs:446
 msgid "comp"
 msgstr "경쟁"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:440
+#: src/components/pages/EventPage.re.mjs:449
 msgid "rec"
 msgstr "친선"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:443
+#: src/components/pages/EventPage.re.mjs:452
 msgid "all level"
 msgstr "모든 레벨"
 
@@ -86,13 +86,17 @@ msgstr "참가 승인"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
-#: src/components/pages/EventPage.re.mjs:183
+#: src/components/pages/EventPage.re.mjs:191
 msgid "cancel event"
 msgstr "이벤트 취소"
 
 #: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr "취소됨"
+
+#: src/components/pages/EventPage.re.mjs:157
+msgid "Cannot access variable \\\"title\\\""
+msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
 
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
@@ -131,7 +135,7 @@ msgstr "표시 이름"
 msgid "Display name is required"
 msgstr "표시 이름이 필요합니다"
 
-#: src/components/pages/EventPage.re.mjs:166
+#: src/components/pages/EventPage.re.mjs:174
 msgid "edit event"
 msgstr "이벤트 편집"
 
@@ -163,7 +167,7 @@ msgstr "이메일이 필요합니다"
 msgid "Enter Match Score"
 msgstr "경기 점수 입력"
 
-#: src/components/pages/EventPage.re.mjs:383
+#: src/components/pages/EventPage.re.mjs:391
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -290,8 +294,8 @@ msgstr "밝히지 않음"
 msgid "Private"
 msgstr "비공개"
 
-#: src/components/pages/EventPage.re.mjs:254
-#: src/components/pages/EventPage.re.mjs:283
+#: src/components/pages/EventPage.re.mjs:262
+#: src/components/pages/EventPage.re.mjs:291
 msgid "Private Event"
 msgstr "비공개 이벤트"
 
@@ -418,8 +422,8 @@ msgstr ""
 "이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기"
 "자 명단에 들어갑니다. 정말 나가시겠습니까?"
 
-#: src/components/pages/EventPage.re.mjs:258
-#: src/components/pages/EventPage.re.mjs:287
+#: src/components/pages/EventPage.re.mjs:266
+#: src/components/pages/EventPage.re.mjs:295
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -452,7 +456,7 @@ msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'"
 
-#: src/components/pages/EventPage.re.mjs:172
+#: src/components/pages/EventPage.re.mjs:180
 msgid "uncancel event"
 msgstr "이벤트 취소 해제"
 

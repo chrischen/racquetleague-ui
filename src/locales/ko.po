@@ -3062,6 +3062,104 @@ msgstr "비공개 이벤트입니다"
 msgid "This event is public"
 msgstr "공개 이벤트입니다"
 
+#: src/components/pages/PkEventPage.re.mjs:252
+msgid "Cannot access variable \\\"title\\\""
+msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
+
+#: src/components/pages/PkEventPage.re.mjs:379
+msgid "{cancelTimeLeft} left to cancel"
+msgstr "취소 가능 시간 {cancelTimeLeft} 남음"
+
+#: src/components/pages/PkEventPage.re.mjs:379
+msgid "Cancellation deadline passed"
+msgstr "취소 마감 시간 경과"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+msgid "hr"
+msgstr "시간"
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+msgid "min"
+msgstr "분"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:735
+msgid "1 hour before"
+msgstr "1시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:759
+msgid "1 week before"
+msgstr "1주일 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:747
+msgid "12 hours before"
+msgstr "12시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:739
+msgid "2 hours before"
+msgstr "2시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "24 hours before"
+msgstr "24시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:755
+msgid "48 hours before"
+msgstr "48시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:743
+msgid "6 hours before"
+msgstr "6시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:764
+msgid "Attendees cannot cancel their RSVP after this deadline"
+msgstr "이 마감 시간 이후에는 참석자가 RSVP를 취소할 수 없습니다"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:725
+msgid "Cancel deadline (optional)"
+msgstr "취소 마감 시간 (선택사항)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:731
+msgid "No deadline"
+msgstr "마감 시간 없음"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:49
+msgid "Close Full Screen"
+msgstr "전체 화면 닫기"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:71
+msgid "COURT {0}"
+msgstr "코트 {0}"
+
+#: src/components/organisms/RoundSection.re.mjs:531
+msgid "Full Screen View"
+msgstr "전체 화면 보기"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+msgid "Not Playing This Round"
+msgstr "이번 라운드 불참"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "취소 마감 시간이 지났습니다. 취소하려면 이 페이지에서 주최자에게 연락하세요."
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid "Cancellation deadline"
+msgstr "취소 마감일"
+
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr "모두 최신 상태"
+
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr "동기화됨"
+
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
+msgstr "동기화 필요"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

@@ -86,6 +86,7 @@ let strategyToString = (strategy: strategy): string => {
   | RoundRobin => "round-robin"
   | Random => "random"
   | DUPR => "dupr"
+  | NoveltyRoundRobin => "novelty-round-robin"
   }
 }
 
@@ -98,6 +99,7 @@ let stringToStrategy = (str: string): strategy => {
   | "round-robin" => RoundRobin
   | "random" => Random
   | "dupr" => DUPR
+  | "novelty-round-robin" => NoveltyRoundRobin
   | _ => CompetitivePlus // Default fallback
   }
 }
@@ -183,6 +185,7 @@ let loadMatchesFromDb = (eventId: string, rsvpMap: Js.Dict.t<'rsvpNode>): array<
   int,
   option<(float, float)>,
   Js.Date.t,
+  bool,
 )> => {
   let matchesTable = eventStore->TinyBase.getTable("matches")
 
@@ -322,7 +325,14 @@ let loadMatchesFromDb = (eventId: string, rsvpMap: Js.Dict.t<'rsvpNode>): array<
             ->Option.getOr(Js.Date.make())
           Js.log(createdAt)
 
-          Some((matchId, team1Players, team2Players, roundIndex, score, createdAt))
+          // Extract synced status
+          let synced =
+            matchRow
+            ->Js.Dict.get("synced")
+            ->Option.flatMap(v => v->Js.Json.decodeBoolean)
+            ->Option.getOr(false)
+
+          Some((matchId, team1Players, team2Players, roundIndex, score, createdAt, synced))
         }
       | _ => None
       }
@@ -723,6 +733,9 @@ let syncRoundsToDb = (eventId: string, rounds: array<array<completedMatchEntity<
         }
       | None => matchRowData->Js.Dict.set("hasScore", false->Js.Json.boolean)
       }
+
+      // Store synced status
+      matchRowData->Js.Dict.set("synced", matchEntity.synced->Js.Json.boolean)
 
       eventStore->TinyBase.setRow("matches", matchId, matchRowData)
     })

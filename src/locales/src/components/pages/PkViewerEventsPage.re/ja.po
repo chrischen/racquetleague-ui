@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "...more"
 msgstr "...もっと見る"
 
@@ -25,7 +25,7 @@ msgstr "· {0} 保留中"
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
-#: src/components/pkuru/PkEventRow.re.mjs:652
+#: src/components/pkuru/PkEventRow.re.mjs:672
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
@@ -41,8 +41,8 @@ msgstr "{0} {hiddenDesc} 件非表示 — 表示する"
 msgid "{0} joined"
 msgstr "{0} 参加済み"
 
-#: src/components/pkuru/PkEventRow.re.mjs:148
-#: src/components/pkuru/PkEventRow.re.mjs:205
+#: src/components/pkuru/PkEventRow.re.mjs:149
+#: src/components/pkuru/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -94,20 +94,35 @@ msgstr "この人をイベントから削除してもよろしいですか？"
 msgid "balanced"
 msgstr "バランス"
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/pages/PkEventPage.re.mjs:283
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
-#: src/components/pkuru/PkEventRow.re.mjs:711
+#: src/components/pkuru/PkEventRow.re.mjs:731
 msgid "Canceled"
 msgstr "キャンセル済み"
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:576
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:372
+msgid "Cancellation deadline"
+msgstr "キャンセル期限"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr ""
+"キャンセル期限を過ぎています。キャンセルするには、このページで主催者に連絡し"
+"てください。"
+
+#: src/components/pages/PkEventPage.re.mjs:254
+msgid "Cannot access variable \\\"title\\\""
+msgstr "変数 \\\"title\\\" にアクセスできません"
+
+#: src/components/pages/PkEventPage.re.mjs:442
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Claim spot"
 msgstr "参加する"
 
@@ -153,7 +168,7 @@ msgstr "表示名は必須です"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/pages/PkEventPage.re.mjs:266
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -194,7 +209,7 @@ msgstr "均等"
 msgid "event"
 msgstr "イベント"
 
-#: src/components/pages/PkEventPage.re.mjs:745
+#: src/components/pages/PkEventPage.re.mjs:801
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -223,7 +238,7 @@ msgstr "日付でフィルター中"
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
 
-#: src/components/pages/PkEventPage.re.mjs:577
+#: src/components/pages/PkEventPage.re.mjs:633
 msgid "Free"
 msgstr "無料"
 
@@ -243,19 +258,19 @@ msgstr "Google カレンダー"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/pkuru/PkEventRow.re.mjs:581
+#: src/components/pkuru/PkEventRow.re.mjs:601
 msgid "Join"
 msgstr "参加"
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Join waitlist"
 msgstr "キャンセル待ちに登録"
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:442
 msgid "Join waitlist (#{0})"
 msgstr "キャンセル待ちに参加 (#{0})"
 
-#: src/components/pkuru/PkEventRow.re.mjs:239
+#: src/components/pkuru/PkEventRow.re.mjs:240
 msgid "Joined"
 msgstr "参加"
 
@@ -263,21 +278,21 @@ msgstr "参加"
 msgid "Last Round"
 msgstr "前回のラウンド"
 
-#: src/components/pkuru/PkEventRow.re.mjs:580
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pages/PkEventPage.re.mjs:423
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/pkuru/PkEventRow.re.mjs:836
-#: src/components/pages/PkEventPage.re.mjs:706
+#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pages/PkEventPage.re.mjs:762
 msgid "Leave event"
 msgstr "イベントを退出"
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "less"
 msgstr "閉じる"
 
-#: src/components/pages/PkEventPage.re.mjs:595
+#: src/components/pages/PkEventPage.re.mjs:651
 msgid "Location"
 msgstr "場所"
 
@@ -330,7 +345,7 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/pages/PkEventPage.re.mjs:659
+#: src/components/pages/PkEventPage.re.mjs:715
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
@@ -338,7 +353,7 @@ msgstr "ホストからのメモ"
 msgid "Participants"
 msgstr "参加者"
 
-#: src/components/pkuru/PkEventRow.re.mjs:278
+#: src/components/pkuru/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr "保留中"
 
@@ -346,13 +361,13 @@ msgstr "保留中"
 msgid "Pending · {0}"
 msgstr "保留中 · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:149
-#: src/components/pkuru/PkEventRow.re.mjs:206
+#: src/components/pkuru/PkEventRow.re.mjs:150
+#: src/components/pkuru/PkEventRow.re.mjs:207
 msgid "player"
 msgstr "プレイヤー"
 
-#: src/components/pkuru/PkEventRow.re.mjs:150
-#: src/components/pkuru/PkEventRow.re.mjs:207
+#: src/components/pkuru/PkEventRow.re.mjs:151
+#: src/components/pkuru/PkEventRow.re.mjs:208
 msgid "players"
 msgstr "プレイヤー"
 
@@ -480,8 +495,8 @@ msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
 
-#: src/components/pkuru/PkEventRow.re.mjs:837
-#: src/components/pages/PkEventPage.re.mjs:707
+#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pages/PkEventPage.re.mjs:763
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -529,7 +544,7 @@ msgstr "上位6平均"
 msgid "Tuesday"
 msgstr "火曜日"
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/pages/PkEventPage.re.mjs:272
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -551,7 +566,7 @@ msgstr "プロフィールを表示"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:581
+#: src/components/pkuru/PkEventRow.re.mjs:601
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
@@ -559,7 +574,7 @@ msgstr "キャンセル待ち"
 msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:271
+#: src/components/pkuru/PkEventRow.re.mjs:272
 msgid "Waitlisted"
 msgstr "キャンセル待ち中"
 
@@ -591,6 +606,24 @@ msgstr ""
 "あなたのレーティング {viewerOrdinal2Str} ～ {viewerMuStr}（DUPR "
 "{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追"
 "加されます。"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+#~ msgid "{cancelTimeLeft} left to cancel"
+#~ msgstr "キャンセルまで残り{cancelTimeLeft}"
+
+#: src/components/pages/PkEventPage.re.mjs:379
+#~ msgid "Cancellation deadline passed"
+#~ msgstr "キャンセル期限を過ぎました"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+#~ msgid "hr"
+#~ msgstr "時間"
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+#~ msgid "min"
+#~ msgstr "分"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid ""

@@ -106,11 +106,11 @@ msgstr ""
 #~ msgid "club not found"
 #~ msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:126
+#: src/components/pages/ClubEventsPage.re.mjs:128
 msgid "Club not found"
 msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:86
+#: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Copied!"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 #~ msgid "leave event"
 #~ msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:119
+#: src/components/pages/ClubEventsPage.re.mjs:121
 msgid "Loading events..."
 msgstr ""
 
@@ -200,7 +200,7 @@ msgstr ""
 #~ msgid "share as text"
 #~ msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:86
+#: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Share link"
 msgstr ""
 

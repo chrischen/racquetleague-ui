@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "...more"
 msgstr "...더 보기"
 
@@ -57,16 +57,30 @@ msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 msgid "balanced"
 msgstr "균형"
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/pages/PkEventPage.re.mjs:283
 msgid "cancel event"
 msgstr "이벤트 취소"
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:576
 msgid "CANCELED"
 msgstr "취소됨"
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:372
+msgid "Cancellation deadline"
+msgstr "취소 마감일"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr ""
+"취소 마감 시간이 지났습니다. 취소하려면 이 페이지에서 주최자에게 연락하세요."
+
+#: src/components/pages/PkEventPage.re.mjs:254
+msgid "Cannot access variable \\\"title\\\""
+msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
+
+#: src/components/pages/PkEventPage.re.mjs:442
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Claim spot"
 msgstr "자리 확보"
 
@@ -112,7 +126,7 @@ msgstr "표시 이름이 필요합니다"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/pages/PkEventPage.re.mjs:266
 msgid "edit event"
 msgstr "이벤트 편집"
 
@@ -148,8 +162,8 @@ msgstr "경기 점수 입력"
 msgid "even"
 msgstr "균등"
 
-#: src/components/pages/PkEventPage.re.mjs:745
-#: src/components/pages/PkEventPage.re.mjs:769
+#: src/components/pages/PkEventPage.re.mjs:801
+#: src/components/pages/PkEventPage.re.mjs:825
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -169,7 +183,7 @@ msgstr "여성"
 msgid "For event updates and notifications"
 msgstr "이벤트 업데이트 및 알림용"
 
-#: src/components/pages/PkEventPage.re.mjs:577
+#: src/components/pages/PkEventPage.re.mjs:633
 msgid "Free"
 msgstr "무료"
 
@@ -181,11 +195,11 @@ msgstr "성별"
 msgid "Highly skilled players"
 msgstr "고급 플레이어"
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Join waitlist"
 msgstr "대기자 명단 등록"
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:442
 msgid "Join waitlist (#{0})"
 msgstr "대기자 명단 등록 (#{0})"
 
@@ -193,19 +207,19 @@ msgstr "대기자 명단 등록 (#{0})"
 msgid "Last Round"
 msgstr "지난 라운드"
 
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pages/PkEventPage.re.mjs:423
 msgid "Leave"
 msgstr "나가기"
 
-#: src/components/pages/PkEventPage.re.mjs:706
+#: src/components/pages/PkEventPage.re.mjs:762
 msgid "Leave event"
 msgstr "이벤트 나가기"
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "less"
 msgstr "간략히"
 
-#: src/components/pages/PkEventPage.re.mjs:595
+#: src/components/pages/PkEventPage.re.mjs:651
 msgid "Location"
 msgstr "장소"
 
@@ -246,7 +260,7 @@ msgstr "실력 제한 없음. 모든 플레이어 환영."
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/pages/PkEventPage.re.mjs:659
+#: src/components/pages/PkEventPage.re.mjs:715
 msgid "Notes from the host"
 msgstr "주최자 메모"
 
@@ -366,7 +380,7 @@ msgstr ""
 "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
 "복원할 수 있습니다."
 
-#: src/components/pages/PkEventPage.re.mjs:707
+#: src/components/pages/PkEventPage.re.mjs:763
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -396,7 +410,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/pages/PkEventPage.re.mjs:272
 msgid "uncancel event"
 msgstr "이벤트 취소 해제"
 
@@ -477,6 +491,24 @@ msgstr ""
 #: src/components/pages/PkEventPage.re.mjs:806
 #~ msgid "all level"
 #~ msgstr "모든 레벨"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+#~ msgid "{cancelTimeLeft} left to cancel"
+#~ msgstr "취소 가능 시간 {cancelTimeLeft} 남음"
+
+#: src/components/pages/PkEventPage.re.mjs:379
+#~ msgid "Cancellation deadline passed"
+#~ msgstr "취소 마감 시간 경과"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+#~ msgid "hr"
+#~ msgstr "시간"
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+#~ msgid "min"
+#~ msgstr "분"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid ""

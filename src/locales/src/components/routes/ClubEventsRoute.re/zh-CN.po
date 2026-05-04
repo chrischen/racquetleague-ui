@@ -17,19 +17,19 @@ msgstr ""
 msgid "Add an Event"
 msgstr "添加活动"
 
-#: src/components/pages/ClubEventsPage.re.mjs:126
+#: src/components/pages/ClubEventsPage.re.mjs:128
 msgid "Club not found"
 msgstr "找不到俧乐部"
 
-#: src/components/pages/ClubEventsPage.re.mjs:86
+#: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Copied!"
 msgstr "已复制！"
 
-#: src/components/pages/ClubEventsPage.re.mjs:119
+#: src/components/pages/ClubEventsPage.re.mjs:121
 msgid "Loading events..."
 msgstr "正在加载活动..."
 
-#: src/components/pages/ClubEventsPage.re.mjs:86
+#: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Share link"
 msgstr "分享链接"
 

@@ -15,11 +15,13 @@ function getSkillColor(skillLevel) {
 }
 
 function AvatarWithProgressBar(props) {
+  var __containerClassName = props.containerClassName;
   var __size = props.size;
   var skillLevel = props.skillLevel;
   var name = props.name;
   var pictureUrl = props.pictureUrl;
   var size = __size !== undefined ? __size : "medium";
+  var containerClassName = __containerClassName !== undefined ? __containerClassName : "";
   var match = size === "medium" ? [
       "w-10 h-10",
       "w-7 h-7",
@@ -38,6 +40,11 @@ function AvatarWithProgressBar(props) {
   var radius = match[2];
   var avatarSize = match[1];
   var containerSize = match[0];
+  var useCustomSize = containerClassName !== "";
+  var outerClass = useCustomSize ? containerClassName : containerSize;
+  var svgClass = useCustomSize ? "w-full h-full -rotate-90" : containerSize + " -rotate-90";
+  var imgClass = useCustomSize ? "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 rounded-full object-cover" : "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " + avatarSize + " rounded-full object-cover";
+  var fallbackClass = useCustomSize ? "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-semibold text-xs" : "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " + avatarSize + " rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-semibold text-xs";
   var skillColor = getSkillColor(skillLevel);
   var circumference = 2 * 3.14159265359 * radius;
   var progress = skillLevel / 100 * circumference;
@@ -73,19 +80,19 @@ function AvatarWithProgressBar(props) {
                               strokeWidth: "2"
                             })
                       ],
-                      className: containerSize + " -rotate-90",
+                      className: svgClass,
                       viewBox: svgViewBox
                     }),
                 pictureUrl !== undefined ? JsxRuntime.jsx("img", {
-                        className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " + avatarSize + " rounded-full object-cover",
+                        className: imgClass,
                         alt: name,
                         src: pictureUrl
                       }) : JsxRuntime.jsx("div", {
                         children: name.charAt(0).toUpperCase(),
-                        className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " + avatarSize + " rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-semibold text-xs"
+                        className: fallbackClass
                       })
               ],
-              className: "relative flex-shrink-0 " + containerSize
+              className: "relative flex-shrink-0 " + outerClass
             });
 }
 

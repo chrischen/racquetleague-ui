@@ -13,8 +13,8 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -22,7 +22,7 @@ msgstr "{0} {matchText}"
 msgid "{0} of {1} checked in"
 msgstr "{0}/{1} 체크인"
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
@@ -30,7 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/FullScreenRoundView.re.mjs:36
 msgid "ACTIVE ROUND"
 msgstr "진행 중 라운드"
 
@@ -54,7 +55,7 @@ msgstr "플레이어 시드 조정"
 msgid "Advance to Next Round"
 msgstr "다음 라운드로 진행"
 
-#: src/components/organisms/EventManager.re.mjs:1537
+#: src/components/organisms/EventManager.re.mjs:1628
 msgid "Advance to Round {0}"
 msgstr "라운드 {0}으로 진행"
 
@@ -66,7 +67,11 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "체크인한 모든 플레이어가 이미 이 라운드에 있습니다"
 
-#: src/components/organisms/EventManager.re.mjs:1637
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr "모두 최신 상태"
+
+#: src/components/organisms/EventManager.re.mjs:1728
 msgid "Anti-Team {0}"
 msgstr "안티팀 {0}"
 
@@ -89,12 +94,20 @@ msgstr "클래식 라운드 로빈 대진"
 msgid "Close"
 msgstr "닫기"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:47
+msgid "Close Full Screen"
+msgstr "전체 화면 닫기"
+
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
 msgstr "경쟁"
 
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
+msgstr "코트 {0}"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:63
+msgid "COURT {0}"
 msgstr "코트 {0}"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:132
@@ -129,11 +142,11 @@ msgstr "시작하려면 첫 번째 팀을 만드세요"
 msgid "Current Round:"
 msgstr "현재 라운드:"
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: OFF"
 msgstr "디버그: 끄기"
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: ON"
 msgstr "디버그: 켜기"
 
@@ -186,6 +199,10 @@ msgstr "팀 이름 입력"
 msgid "Female"
 msgstr "여성"
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr "전체 화면 보기"
+
 #: src/components/molecules/DrawGenerator.re.mjs:271
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
@@ -210,7 +227,7 @@ msgstr "대진 생성"
 msgid "Guest Names (one per line)"
 msgstr "게스트 이름 (줄당 하나)"
 
-#: src/components/organisms/EventManager.re.mjs:1810
+#: src/components/organisms/EventManager.re.mjs:1905
 msgid "Help"
 msgstr "도움말"
 
@@ -234,11 +251,11 @@ msgstr "패배 팀 (팀 {0})"
 msgid "Male"
 msgstr "남성"
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr "경기"
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr "경기"
 
@@ -322,7 +339,7 @@ msgstr "이전 라운드"
 msgid "Rebalance match"
 msgstr "경기 재조정"
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr "현재 플레이어로 이 라운드 재조정"
 
@@ -342,20 +359,21 @@ msgstr "플레이어 교체"
 msgid "Replacing:"
 msgstr "교체 중:"
 
-#: src/components/organisms/EventManager.re.mjs:1795
+#: src/components/organisms/EventManager.re.mjs:1890
 msgid "Reset Storage"
 msgstr "저장소 초기화"
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr "체크인한 모든 플레이어로 이 라운드 초기화"
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr "혼합 성별 페어로 이 라운드 초기화"
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "라운드 {0}"
 
@@ -396,7 +414,7 @@ msgstr "팀 저장"
 msgid "Score"
 msgstr "점수"
 
-#: src/components/organisms/EventManager.re.mjs:1373
+#: src/components/organisms/EventManager.re.mjs:1438
 msgid "Scores Synced!"
 msgstr "점수 동기화됨!"
 
@@ -416,19 +434,23 @@ msgstr "전략"
 msgid "Strategy:"
 msgstr "전략:"
 
-#: src/components/organisms/EventManager.re.mjs:1385
+#: src/components/organisms/EventManager.re.mjs:1450
 msgid "Sync Failed"
 msgstr "동기화 실패"
 
-#: src/components/organisms/EventManager.re.mjs:1349
+#: src/components/organisms/EventManager.re.mjs:1414
 msgid "Sync Scores"
 msgstr "점수 동기화"
 
-#: src/components/organisms/EventManager.re.mjs:1361
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr "동기화됨"
+
+#: src/components/organisms/EventManager.re.mjs:1426
 msgid "Syncing... {0}%"
 msgstr "동기화 중... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1327
+#: src/components/organisms/EventManager.re.mjs:1359
 msgid "Team {0}"
 msgstr "팀 {0}"
 
@@ -468,6 +490,10 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr "향후 모든 라운드가 삭제되고 새 경기가 생성됩니다"
 
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
+msgstr "동기화 필요"
+
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Update Future Rounds"
 msgstr "향후 라운드 업데이트"
@@ -486,3 +512,7 @@ msgstr "VS"
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
 msgstr "승리 팀 (팀 {0})"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "이번 라운드 불참"

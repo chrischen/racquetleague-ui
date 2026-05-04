@@ -14,42 +14,42 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:422
+#: src/components/pages/EventPage.re.mjs:431
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:425
+#: src/components/pages/EventPage.re.mjs:434
 msgid "Table Tennis"
 msgstr "乿乓球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:428
+#: src/components/pages/EventPage.re.mjs:437
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:431
+#: src/components/pages/EventPage.re.mjs:440
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:434
+#: src/components/pages/EventPage.re.mjs:443
 msgid "drill"
 msgstr "訓練"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:437
+#: src/components/pages/EventPage.re.mjs:446
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:440
+#: src/components/pages/EventPage.re.mjs:449
 msgid "rec"
 msgstr "休閒"
 
 #. js-lingui-explicit-id
-#: src/components/pages/EventPage.re.mjs:443
+#: src/components/pages/EventPage.re.mjs:452
 msgid "all level"
 msgstr "所有等級"
 
@@ -86,13 +86,17 @@ msgstr "批准報名"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您確定要將此人從活動中移除嗎？"
 
-#: src/components/pages/EventPage.re.mjs:183
+#: src/components/pages/EventPage.re.mjs:191
 msgid "cancel event"
 msgstr "取消活動"
 
 #: src/components/organisms/EventHeader.re.mjs:79
 msgid "CANCELED"
 msgstr "已取消"
+
+#: src/components/pages/EventPage.re.mjs:157
+msgid "Cannot access variable \\\"title\\\""
+msgstr "無法存取變數 \\\"title\\\""
 
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
@@ -131,7 +135,7 @@ msgstr "顯示名稱"
 msgid "Display name is required"
 msgstr "請輸入顯示名稱"
 
-#: src/components/pages/EventPage.re.mjs:166
+#: src/components/pages/EventPage.re.mjs:174
 msgid "edit event"
 msgstr "編輯活動"
 
@@ -163,7 +167,7 @@ msgstr "請輸入電子郵件"
 msgid "Enter Match Score"
 msgstr "輸入比賽比分"
 
-#: src/components/pages/EventPage.re.mjs:383
+#: src/components/pages/EventPage.re.mjs:391
 msgid "Event not found"
 msgstr "找不到活動"
 
@@ -290,8 +294,8 @@ msgstr "不願透露"
 msgid "Private"
 msgstr "非公開"
 
-#: src/components/pages/EventPage.re.mjs:254
-#: src/components/pages/EventPage.re.mjs:283
+#: src/components/pages/EventPage.re.mjs:262
+#: src/components/pages/EventPage.re.mjs:291
 msgid "Private Event"
 msgstr "私人活動"
 
@@ -416,8 +420,8 @@ msgstr ""
 "此活動已滿，所以退出活動將把您的名額給等待列表上的人。如果您重新加入，您將加"
 "入等待列表。您確定要退出此活動嗎？"
 
-#: src/components/pages/EventPage.re.mjs:258
-#: src/components/pages/EventPage.re.mjs:287
+#: src/components/pages/EventPage.re.mjs:266
+#: src/components/pages/EventPage.re.mjs:295
 msgid ""
 "This event is private and cannot be joined on Pkuru.com. Do not show up to "
 "the event without permission."
@@ -448,7 +452,7 @@ msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」。"
 
-#: src/components/pages/EventPage.re.mjs:172
+#: src/components/pages/EventPage.re.mjs:180
 msgid "uncancel event"
 msgstr "取消取消活動"
 

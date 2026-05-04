@@ -150,241 +150,250 @@ function EventPage(props) {
   var match$5 = use$2();
   var uncanceling = match$5[1];
   var uncancelEvent = match$5[0];
-  return JsxRuntime.jsx(WaitForMessages.make, {
-              children: (function () {
-                  return Core__Option.getOr(Core__Option.map($$event, (function ($$event) {
-                                    var startDateJs = Core__Option.getOr(Core__Option.map($$event.startDate, Util.Datetime.toDate), new Date());
-                                    var match = $$event.viewerIsAdmin;
-                                    var tmp;
-                                    if (match && viewerUser !== undefined) {
-                                      var match$1 = $$event.deleted;
-                                      tmp = JsxRuntime.jsx("div", {
-                                            children: JsxRuntime.jsx("div", {
-                                                  children: JsxRuntime.jsxs("div", {
-                                                        children: [
-                                                          JsxRuntime.jsx(Button.Button.make, {
-                                                                children: t`edit event`,
-                                                                href: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
-                                                                            return l.id;
-                                                                          })), "")
-                                                              }),
-                                                          match$1 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
-                                                                  children: t`uncancel event`,
-                                                                  onClick: (function (param) {
-                                                                      if (!uncanceling) {
-                                                                        uncancelEvent({
-                                                                              eventId: $$event.id
-                                                                            }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                                                        return ;
-                                                                      }
-                                                                      
-                                                                    })
-                                                                }) : JsxRuntime.jsx(Button.Button.make, {
-                                                                  children: t`cancel event`,
-                                                                  onClick: (function (param) {
-                                                                      if (!canceling) {
-                                                                        cancelEvent({
-                                                                              eventId: $$event.id
-                                                                            }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                                                        return ;
-                                                                      }
-                                                                      
-                                                                    })
-                                                                })
-                                                        ],
-                                                        className: "flex flex-row gap-2"
-                                                      }),
-                                                  className: "bg-gray-50 rounded-lg p-4 border"
-                                                }),
-                                            className: "px-4 md:px-6 lg:px-8 mb-6"
-                                          });
-                                    } else {
-                                      tmp = null;
-                                    }
-                                    var activity = $$event.activity;
-                                    var tmp$1;
-                                    if (activity !== undefined) {
-                                      var slug = activity.slug;
-                                      if (slug !== undefined) {
-                                        var exit = 0;
-                                        switch (slug) {
-                                          case "badminton" :
-                                          case "pickleball" :
-                                              exit = 1;
-                                              break;
-                                          default:
-                                            tmp$1 = null;
+  if (Core__Option.getOr(Core__Option.flatMap($$event, (function (e) {
+                return e.viewerIsBanned;
+              })), false)) {
+    return JsxRuntime.jsx("div", {
+                children: t`Cannot access variable \"title\"`,
+                className: "p-6 text-center text-gray-600"
+              });
+  } else {
+    return JsxRuntime.jsx(WaitForMessages.make, {
+                children: (function () {
+                    return Core__Option.getOr(Core__Option.map($$event, (function ($$event) {
+                                      var startDateJs = Core__Option.getOr(Core__Option.map($$event.startDate, Util.Datetime.toDate), new Date());
+                                      var match = $$event.viewerIsAdmin;
+                                      var tmp;
+                                      if (match && viewerUser !== undefined) {
+                                        var match$1 = $$event.deleted;
+                                        tmp = JsxRuntime.jsx("div", {
+                                              children: JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx(Button.Button.make, {
+                                                                  children: t`edit event`,
+                                                                  href: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
+                                                                              return l.id;
+                                                                            })), "")
+                                                                }),
+                                                            match$1 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
+                                                                    children: t`uncancel event`,
+                                                                    onClick: (function (param) {
+                                                                        if (!uncanceling) {
+                                                                          uncancelEvent({
+                                                                                eventId: $$event.id
+                                                                              }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                                                          return ;
+                                                                        }
+                                                                        
+                                                                      })
+                                                                  }) : JsxRuntime.jsx(Button.Button.make, {
+                                                                    children: t`cancel event`,
+                                                                    onClick: (function (param) {
+                                                                        if (!canceling) {
+                                                                          cancelEvent({
+                                                                                eventId: $$event.id
+                                                                              }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                                                          return ;
+                                                                        }
+                                                                        
+                                                                      })
+                                                                  })
+                                                          ],
+                                                          className: "flex flex-row gap-2"
+                                                        }),
+                                                    className: "bg-gray-50 rounded-lg p-4 border"
+                                                  }),
+                                              className: "px-4 md:px-6 lg:px-8 mb-6"
+                                            });
+                                      } else {
+                                        tmp = null;
+                                      }
+                                      var activity = $$event.activity;
+                                      var tmp$1;
+                                      if (activity !== undefined) {
+                                        var slug = activity.slug;
+                                        if (slug !== undefined) {
+                                          var exit = 0;
+                                          switch (slug) {
+                                            case "badminton" :
+                                            case "pickleball" :
+                                                exit = 1;
+                                                break;
+                                            default:
+                                              tmp$1 = null;
+                                          }
+                                          if (exit === 1) {
+                                            var managerHref = "/league/events/" + $$event.id + "/" + slug + "/manager";
+                                            tmp$1 = JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                                  children: Caml_option.some(mounted ? JsxRuntime.jsx(React.Suspense, {
+                                                              children: Caml_option.some(JsxRuntime.jsx(RoundRobinDrawsPreview.make, {
+                                                                        eventId: $$event.id,
+                                                                        managerHref: managerHref
+                                                                      })),
+                                                              fallback: Caml_option.some(null)
+                                                            }) : null)
+                                                });
+                                          }
+                                          
+                                        } else {
+                                          tmp$1 = null;
                                         }
-                                        if (exit === 1) {
-                                          var managerHref = "/league/events/" + $$event.id + "/" + slug + "/manager";
-                                          tmp$1 = JsxRuntime.jsx(JsxRuntime.Fragment, {
-                                                children: Caml_option.some(mounted ? JsxRuntime.jsx(React.Suspense, {
-                                                            children: Caml_option.some(JsxRuntime.jsx(RoundRobinDrawsPreview.make, {
-                                                                      eventId: $$event.id,
-                                                                      managerHref: managerHref
-                                                                    })),
-                                                            fallback: Caml_option.some(null)
-                                                          }) : null)
-                                              });
-                                        }
-                                        
                                       } else {
                                         tmp$1 = null;
                                       }
-                                    } else {
-                                      tmp$1 = null;
-                                    }
-                                    var match$2 = $$event.shadow;
-                                    var tmp$2;
-                                    var exit$1 = 0;
-                                    if (match$2 !== undefined && match$2) {
-                                      tmp$2 = JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx("div", {
-                                                                children: JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsx(LucideReact.Lock, {
-                                                                              className: "w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0"
-                                                                            }),
-                                                                        JsxRuntime.jsxs("div", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx("h3", {
-                                                                                      children: t`Private Event`,
-                                                                                      className: "font-semibold text-yellow-900 dark:text-yellow-100"
-                                                                                    }),
-                                                                                JsxRuntime.jsx("p", {
-                                                                                      children: t`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`,
-                                                                                      className: "text-sm text-yellow-800 dark:text-yellow-200"
-                                                                                    })
-                                                                              ],
-                                                                              className: "space-y-1"
-                                                                            })
-                                                                      ],
-                                                                      className: "flex items-start gap-3"
-                                                                    }),
-                                                                className: "bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 rounded-lg p-4"
-                                                              }),
-                                                          className: "p-4"
-                                                        }),
-                                                    className: "md:hidden"
-                                                  }),
-                                              JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsxs("div", {
-                                                                children: [
-                                                                  JsxRuntime.jsx(LucideReact.Lock, {
-                                                                        className: "w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0"
-                                                                      }),
-                                                                  JsxRuntime.jsxs("div", {
+                                      var match$2 = $$event.shadow;
+                                      var tmp$2;
+                                      var exit$1 = 0;
+                                      if (match$2 !== undefined && match$2) {
+                                        tmp$2 = JsxRuntime.jsxs("div", {
+                                              children: [
+                                                JsxRuntime.jsx("div", {
+                                                      children: JsxRuntime.jsx("div", {
+                                                            children: JsxRuntime.jsx("div", {
+                                                                  children: JsxRuntime.jsxs("div", {
                                                                         children: [
-                                                                          JsxRuntime.jsx("h3", {
-                                                                                children: t`Private Event`,
-                                                                                className: "font-semibold text-yellow-900 dark:text-yellow-100"
+                                                                          JsxRuntime.jsx(LucideReact.Lock, {
+                                                                                className: "w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0"
                                                                               }),
-                                                                          JsxRuntime.jsx("p", {
-                                                                                children: t`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`,
-                                                                                className: "text-sm text-yellow-800 dark:text-yellow-200"
+                                                                          JsxRuntime.jsxs("div", {
+                                                                                children: [
+                                                                                  JsxRuntime.jsx("h3", {
+                                                                                        children: t`Private Event`,
+                                                                                        className: "font-semibold text-yellow-900 dark:text-yellow-100"
+                                                                                      }),
+                                                                                  JsxRuntime.jsx("p", {
+                                                                                        children: t`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`,
+                                                                                        className: "text-sm text-yellow-800 dark:text-yellow-200"
+                                                                                      })
+                                                                                ],
+                                                                                className: "space-y-1"
                                                                               })
                                                                         ],
-                                                                        className: "space-y-1"
+                                                                        className: "flex items-start gap-3"
+                                                                      }),
+                                                                  className: "bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 rounded-lg p-4"
+                                                                }),
+                                                            className: "p-4"
+                                                          }),
+                                                      className: "md:hidden"
+                                                    }),
+                                                JsxRuntime.jsx("div", {
+                                                      children: JsxRuntime.jsx("div", {
+                                                            children: JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx(LucideReact.Lock, {
+                                                                          className: "w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0"
+                                                                        }),
+                                                                    JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("h3", {
+                                                                                  children: t`Private Event`,
+                                                                                  className: "font-semibold text-yellow-900 dark:text-yellow-100"
+                                                                                }),
+                                                                            JsxRuntime.jsx("p", {
+                                                                                  children: t`This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission.`,
+                                                                                  className: "text-sm text-yellow-800 dark:text-yellow-200"
+                                                                                })
+                                                                          ],
+                                                                          className: "space-y-1"
+                                                                        })
+                                                                  ],
+                                                                  className: "flex items-start gap-3"
+                                                                }),
+                                                            className: "bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 rounded-lg p-4"
+                                                          }),
+                                                      className: "hidden md:block"
+                                                    })
+                                              ],
+                                              className: "fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t md:border-t-0 md:rounded-lg md:shadow-sm md:p-6 md:mt-4 md:sticky md:top-4 z-10"
+                                            });
+                                      } else {
+                                        exit$1 = 1;
+                                      }
+                                      if (exit$1 === 1) {
+                                        tmp$2 = JsxRuntime.jsx(RSVPSection.make, {
+                                              event: $$event.fragmentRefs,
+                                              user: Core__Option.map(viewerUser, (function (v) {
+                                                      return v.fragmentRefs;
+                                                    })),
+                                              onBeforeJoin: (function (proceed) {
+                                                  if (hasCompleteProfile()) {
+                                                    return proceed();
+                                                  } else {
+                                                    setPendingJoinAction(function (param) {
+                                                          return proceed;
+                                                        });
+                                                    return setIsProfileModalOpen(function (param) {
+                                                                return true;
+                                                              });
+                                                  }
+                                                })
+                                            });
+                                      }
+                                      return JsxRuntime.jsxs("div", {
+                                                  children: [
+                                                    JsxRuntime.jsx(EventHeader.make, {
+                                                          event: $$event.fragmentRefs
+                                                        }),
+                                                    tmp,
+                                                    JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsxs("div", {
+                                                                children: [
+                                                                  JsxRuntime.jsxs("div", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx(EventDetails.make, {
+                                                                                event: $$event.fragmentRefs
+                                                                              }),
+                                                                          tmp$1,
+                                                                          JsxRuntime.jsx(EventMessages.make, {
+                                                                                queryRef: queryFragmentRefs,
+                                                                                eventStartDate: startDateJs,
+                                                                                eventId: $$event.id,
+                                                                                viewerHasRsvp: $$event.viewerHasRsvp
+                                                                              })
+                                                                        ],
+                                                                        className: "md:col-span-7 lg:col-span-8 pb-8 md:pb-0"
+                                                                      }),
+                                                                  JsxRuntime.jsx("div", {
+                                                                        children: tmp$2,
+                                                                        className: "md:col-span-5 lg:col-span-4"
                                                                       })
                                                                 ],
-                                                                className: "flex items-start gap-3"
+                                                                className: "md:grid md:grid-cols-12 md:gap-8"
                                                               }),
-                                                          className: "bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 rounded-lg p-4"
+                                                          className: "px-4 md:px-6 lg:px-8"
                                                         }),
-                                                    className: "hidden md:block"
-                                                  })
-                                            ],
-                                            className: "fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t md:border-t-0 md:rounded-lg md:shadow-sm md:p-6 md:mt-4 md:sticky md:top-4 z-10"
-                                          });
-                                    } else {
-                                      exit$1 = 1;
-                                    }
-                                    if (exit$1 === 1) {
-                                      tmp$2 = JsxRuntime.jsx(RSVPSection.make, {
-                                            event: $$event.fragmentRefs,
-                                            user: Core__Option.map(viewerUser, (function (v) {
-                                                    return v.fragmentRefs;
-                                                  })),
-                                            onBeforeJoin: (function (proceed) {
-                                                if (hasCompleteProfile()) {
-                                                  return proceed();
-                                                } else {
-                                                  setPendingJoinAction(function (param) {
-                                                        return proceed;
-                                                      });
-                                                  return setIsProfileModalOpen(function (param) {
-                                                              return true;
-                                                            });
-                                                }
-                                              })
-                                          });
-                                    }
-                                    return JsxRuntime.jsxs("div", {
-                                                children: [
-                                                  JsxRuntime.jsx(EventHeader.make, {
-                                                        event: $$event.fragmentRefs
-                                                      }),
-                                                  tmp,
-                                                  JsxRuntime.jsx("div", {
-                                                        children: JsxRuntime.jsxs("div", {
-                                                              children: [
-                                                                JsxRuntime.jsxs("div", {
-                                                                      children: [
-                                                                        JsxRuntime.jsx(EventDetails.make, {
-                                                                              event: $$event.fragmentRefs
-                                                                            }),
-                                                                        tmp$1,
-                                                                        JsxRuntime.jsx(EventMessages.make, {
-                                                                              queryRef: queryFragmentRefs,
-                                                                              eventStartDate: startDateJs,
-                                                                              eventId: $$event.id,
-                                                                              viewerHasRsvp: $$event.viewerHasRsvp
-                                                                            })
-                                                                      ],
-                                                                      className: "md:col-span-7 lg:col-span-8 pb-8 md:pb-0"
-                                                                    }),
-                                                                JsxRuntime.jsx("div", {
-                                                                      children: tmp$2,
-                                                                      className: "md:col-span-5 lg:col-span-4"
-                                                                    })
-                                                              ],
-                                                              className: "md:grid md:grid-cols-12 md:gap-8"
+                                                    JsxRuntime.jsx(ProfileModal.make, {
+                                                          isOpen: isProfileModalOpen,
+                                                          onClose: (function () {
+                                                              setIsProfileModalOpen(function (param) {
+                                                                    return false;
+                                                                  });
+                                                              setPendingJoinAction(function (param) {
+                                                                    
+                                                                  });
                                                             }),
-                                                        className: "px-4 md:px-6 lg:px-8"
-                                                      }),
-                                                  JsxRuntime.jsx(ProfileModal.make, {
-                                                        isOpen: isProfileModalOpen,
-                                                        onClose: (function () {
-                                                            setIsProfileModalOpen(function (param) {
-                                                                  return false;
-                                                                });
-                                                            setPendingJoinAction(function (param) {
-                                                                  
-                                                                });
-                                                          }),
-                                                        onProfileComplete: (function () {
-                                                            Core__Option.forEach(pendingJoinAction, (function (action) {
-                                                                    action();
-                                                                  }));
-                                                            setPendingJoinAction(function (param) {
-                                                                  
-                                                                });
-                                                          }),
-                                                        query: queryFragmentRefs
-                                                      })
-                                                ],
-                                                className: "w-full max-w-7xl mx-auto pb-16 md:pb-8"
-                                              });
-                                  })), JsxRuntime.jsx("div", {
-                                  children: t`Event not found`,
-                                  className: "p-6 text-center text-gray-600"
-                                }));
-                })
-            });
+                                                          onProfileComplete: (function () {
+                                                              Core__Option.forEach(pendingJoinAction, (function (action) {
+                                                                      action();
+                                                                    }));
+                                                              setPendingJoinAction(function (param) {
+                                                                    
+                                                                  });
+                                                            }),
+                                                          query: queryFragmentRefs
+                                                        })
+                                                  ],
+                                                  className: "w-full max-w-7xl mx-auto pb-16 md:pb-8"
+                                                });
+                                    })), JsxRuntime.jsx("div", {
+                                    children: t`Event not found`,
+                                    className: "p-6 text-center text-gray-600"
+                                  }));
+                  })
+              });
+  }
 }
 
 var LoaderArgs = {};

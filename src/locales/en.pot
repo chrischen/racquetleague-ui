@@ -4197,3 +4197,102 @@ msgstr ""
 #: src/components/organisms/CreateLocationEventForm.re.mjs:872
 msgid "This event is public"
 msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:252
+msgid "Cannot access variable \\\"title\\\""
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:379
+msgid "{cancelTimeLeft} left to cancel"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:379
+msgid "Cancellation deadline passed"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+msgid "hr"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+msgid "min"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:735
+msgid "1 hour before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:759
+msgid "1 week before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:747
+msgid "12 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:739
+msgid "2 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "24 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:755
+msgid "48 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:743
+msgid "6 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:764
+msgid "Attendees cannot cancel their RSVP after this deadline"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:725
+msgid "Cancel deadline (optional)"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:731
+msgid "No deadline"
+msgstr ""
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:49
+msgid "Close Full Screen"
+msgstr ""
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:71
+msgid "COURT {0}"
+msgstr ""
+
+#: src/components/organisms/RoundSection.re.mjs:531
+msgid "Full Screen View"
+msgstr ""
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+msgid "Not Playing This Round"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid "Cancellation deadline"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
+msgstr ""

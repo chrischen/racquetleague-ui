@@ -14,7 +14,9 @@ import * as RoundSection from "./RoundSection.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as DrawGenerator from "../molecules/DrawGenerator.re.mjs";
 import * as PlayerCheckin from "./PlayerCheckin.re.mjs";
+import * as FramerMotion from "framer-motion";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as FullScreenRoundView from "./FullScreenRoundView.re.mjs";
 import * as PlayerSettingsModal from "./PlayerSettingsModal.re.mjs";
 import * as TeamManagementModal from "./TeamManagementModal.re.mjs";
 import * as AddGuestPlayersModal from "./AddGuestPlayersModal.re.mjs";
@@ -207,6 +209,10 @@ function RoundRobin(props) {
         
       });
   var setPlayerSettingsOpen = match$14[1];
+  var match$15 = React.useState(function () {
+        return false;
+      });
+  var setShowFullScreenRound = match$15[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -352,16 +358,22 @@ function RoundRobin(props) {
     var score = completedMatch[1];
     var match = completedMatch[0];
     if (Core__Option.isSome(score)) {
+      var exit = 0;
       switch (strategy) {
-        case "RoundRobin" :
-        case "Random" :
-        case "DUPR" :
+        case "CompetitivePlus" :
+        case "Competitive" :
+        case "Mixed" :
+            exit = 1;
             break;
         default:
-          setIsDirty(function (param) {
-                return true;
-              });
+          
       }
+      if (exit === 1) {
+        setIsDirty(function (param) {
+              return true;
+            });
+      }
+      
     }
     setRounds(function (rounds) {
           return rounds.map(function (round) {
@@ -379,7 +391,8 @@ function RoundRobin(props) {
                                             id: m.id,
                                             match: match,
                                             score: score,
-                                            createdAt: updatedCreatedAt
+                                            createdAt: updatedCreatedAt,
+                                            synced: m.synced
                                           };
                                   });
                       } else {
@@ -476,7 +489,8 @@ function RoundRobin(props) {
                                                                       id: matchEntity.id,
                                                                       match: newMatchEntity.match,
                                                                       score: matchEntity.score,
-                                                                      createdAt: matchEntity.createdAt
+                                                                      createdAt: matchEntity.createdAt,
+                                                                      synced: matchEntity.synced
                                                                     };
                                                             } else {
                                                               return matchEntity;
@@ -684,11 +698,29 @@ function RoundRobin(props) {
               });
   }
   var tmp;
+  if (match$15[0]) {
+    var currentRoundMatches = Core__Option.getOr(rounds[currentRoundInt - 1 | 0], []);
+    tmp = JsxRuntime.jsx(FullScreenRoundView.make, {
+          matches: currentRoundMatches,
+          roundNumber: currentRoundInt,
+          onClose: (function () {
+              setShowFullScreenRound(function (param) {
+                    return false;
+                  });
+            }),
+          getUserFragmentRefs: (function (_data) {
+              
+            })
+        }, "fullscreen-round-view");
+  } else {
+    tmp = null;
+  }
+  var tmp$1;
   if (hasExistingDraws) {
     var adjustmentsForRound0 = ratingAdjustmentHistory.filter(function (adj) {
           return adj.appliedAtRound === -1;
         });
-    tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+    tmp$1 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
           children: [
             JsxRuntime.jsx(RoundHeader.make, {
                   currentRound: currentRoundInt,
@@ -791,6 +823,11 @@ function RoundRobin(props) {
                                                         onReset: (function (genderMixed) {
                                                             handleResetRound(roundIndex, genderMixed);
                                                           }),
+                                                        onFullScreen: (function () {
+                                                            setShowFullScreenRound(function (param) {
+                                                                  return true;
+                                                                });
+                                                          }),
                                                         debug: debugMode,
                                                         getUserFragmentRefs: getUserFragmentRefs,
                                                         allRounds: rounds
@@ -889,7 +926,7 @@ function RoundRobin(props) {
           ]
         });
   } else {
-    tmp = null;
+    tmp$1 = null;
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
@@ -1015,6 +1052,10 @@ function RoundRobin(props) {
                                 });
                           })
                       }) : null,
+                JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                      mode: "sync",
+                      children: tmp
+                    }),
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("div", {
@@ -1100,7 +1141,7 @@ function RoundRobin(props) {
                                 highlight: isDirty,
                                 futureRoundsHaveScores: futureRoundsHaveScores
                               }),
-                        tmp
+                        tmp$1
                       ],
                       className: "min-h-screen bg-slate-50 flex flex-col"
                     })

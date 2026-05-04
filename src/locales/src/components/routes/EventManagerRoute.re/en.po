@@ -17,8 +17,8 @@ msgstr ""
 #~ msgid "({0} players per round)"
 #~ msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgstr ""
 msgid "{0} of {1} checked in"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -34,7 +34,8 @@ msgstr ""
 msgid "$"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/FullScreenRoundView.re.mjs:36
 msgid "ACTIVE ROUND"
 msgstr ""
 
@@ -58,7 +59,7 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1537
+#: src/components/organisms/EventManager.re.mjs:1628
 msgid "Advance to Round {0}"
 msgstr ""
 
@@ -70,11 +71,15 @@ msgstr ""
 msgid "All checked-in players are already in this round"
 msgstr ""
 
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr ""
+
 #: src/components/molecules/DrawGenerator.re.mjs:109
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1637
+#: src/components/organisms/EventManager.re.mjs:1728
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -105,12 +110,20 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:47
+msgid "Close Full Screen"
+msgstr ""
+
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
+msgstr ""
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:63
+msgid "COURT {0}"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:132
@@ -149,11 +162,11 @@ msgstr ""
 #~ msgid "Current Round: {0}"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: ON"
 msgstr ""
 
@@ -214,6 +227,10 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr ""
+
 #: src/components/molecules/DrawGenerator.re.mjs:271
 msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
 msgstr ""
@@ -242,7 +259,7 @@ msgstr ""
 msgid "Guest Names (one per line)"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1810
+#: src/components/organisms/EventManager.re.mjs:1905
 msgid "Help"
 msgstr ""
 
@@ -266,11 +283,11 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr ""
 
@@ -322,6 +339,10 @@ msgstr ""
 msgid "Not paid"
 msgstr ""
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr ""
+
 #: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Paid"
 msgstr ""
@@ -370,7 +391,7 @@ msgstr ""
 msgid "Rebalance match"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr ""
 
@@ -398,20 +419,21 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1795
+#: src/components/organisms/EventManager.re.mjs:1890
 msgid "Reset Storage"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr ""
 
@@ -452,7 +474,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1373
+#: src/components/organisms/EventManager.re.mjs:1438
 msgid "Scores Synced!"
 msgstr ""
 
@@ -476,19 +498,23 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1385
+#: src/components/organisms/EventManager.re.mjs:1450
 msgid "Sync Failed"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1349
+#: src/components/organisms/EventManager.re.mjs:1414
 msgid "Sync Scores"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1361
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:1426
 msgid "Syncing... {0}%"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1327
+#: src/components/organisms/EventManager.re.mjs:1359
 msgid "Team {0}"
 msgstr ""
 
@@ -526,6 +552,10 @@ msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:292
 msgid "This will delete all future rounds and generate new matches"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
 msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:130

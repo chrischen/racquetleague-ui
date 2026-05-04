@@ -83,6 +83,9 @@ var schema = Zod.z.object({
       listed: Zod.z.boolean({}),
       price: Zod.z.preprocess((function (v) {
               return Core__Int.fromString(v, undefined);
+            }), Zod.z.number({}).optional()),
+      cancelDeadline: Zod.z.preprocess((function (v) {
+              return Core__Int.fromString(v, undefined);
             }), Zod.z.number({}).optional())
     });
 
@@ -118,7 +121,8 @@ function CreateLocationEventForm(props) {
         startDate: Core__Option.getOr(prefilledValues.startDate, ""),
         endTime: Core__Option.getOr(prefilledValues.endDate, ""),
         listed: Core__Option.getOr(prefilledValues.listed, false),
-        price: prefilledValues.price
+        price: prefilledValues.price,
+        cancelDeadline: prefilledValues.cancelDeadline
       }) : ({
         activity: Core__Option.getOr(selectedActivity, ""),
         listed: false
@@ -357,6 +361,7 @@ function CreateLocationEventForm(props) {
               eventId: eventId,
               input: {
                 activity: data.activity,
+                cancelDeadline: data.cancelDeadline,
                 clubId: Core__Option.getOr(selectedClub, ""),
                 details: Core__Option.getOr(data.details, ""),
                 endDate: Util.Datetime.fromDate(endDate),
@@ -383,6 +388,7 @@ function CreateLocationEventForm(props) {
           connections: [connectionId],
           input: {
             activity: data.activity,
+            cancelDeadline: data.cancelDeadline,
             clubId: Core__Option.getOr(selectedClub, ""),
             details: Core__Option.getOr(data.details, ""),
             endDate: Util.Datetime.fromDate(endDate),
@@ -644,7 +650,10 @@ function CreateLocationEventForm(props) {
                               var newrecord$3 = Caml_obj.obj_dup(register("maxRsvps", {
                                         required: false
                                       }));
-                              var newrecord$4 = Caml_obj.obj_dup(register("details", {
+                              var newrecord$4 = Caml_obj.obj_dup(register("cancelDeadline", {
+                                        required: false
+                                      }));
+                              var newrecord$5 = Caml_obj.obj_dup(register("details", {
                                         required: false
                                       }));
                               tmp = JsxRuntime.jsxs("div", {
@@ -713,11 +722,58 @@ function CreateLocationEventForm(props) {
                                       JsxRuntime.jsxs("div", {
                                             children: [
                                               JsxRuntime.jsx("label", {
+                                                    children: t`Cancel deadline (optional)`,
+                                                    className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
+                                                    htmlFor: "cancelDeadline"
+                                                  }),
+                                              JsxRuntime.jsxs("select", (newrecord$4.id = "cancelDeadline", newrecord$4.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$4.children = [
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`No deadline`,
+                                                            value: ""
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`1 hour before`,
+                                                            value: "3600000"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`2 hours before`,
+                                                            value: "7200000"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`6 hours before`,
+                                                            value: "21600000"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`12 hours before`,
+                                                            value: "43200000"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`24 hours before`,
+                                                            value: "86400000"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`48 hours before`,
+                                                            value: "172800000"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`1 week before`,
+                                                            value: "604800000"
+                                                          })
+                                                    ], newrecord$4)),
+                                              JsxRuntime.jsx("p", {
+                                                    children: t`Attendees cannot cancel their RSVP after this deadline`,
+                                                    className: "mt-1 text-xs text-gray-500 dark:text-gray-400"
+                                                  })
+                                            ]
+                                          }),
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("label", {
                                                     children: t`Event details (optional)`,
                                                     className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                     htmlFor: "details"
                                                   }),
-                                              JsxRuntime.jsx("textarea", (newrecord$4.rows = 3, newrecord$4.placeholder = t`Add any additional information about the event...`, newrecord$4.id = "details", newrecord$4.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$4.defaultValue = "", newrecord$4))
+                                              JsxRuntime.jsx("textarea", (newrecord$5.rows = 3, newrecord$5.placeholder = t`Add any additional information about the event...`, newrecord$5.id = "details", newrecord$5.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$5.defaultValue = "", newrecord$5))
                                             ]
                                           })
                                     ],
@@ -728,7 +784,7 @@ function CreateLocationEventForm(props) {
                             }
                             var tmp$5;
                             if (isPaidEvent) {
-                              var newrecord$5 = Caml_obj.obj_dup(register("price", {
+                              var newrecord$6 = Caml_obj.obj_dup(register("price", {
                                         required: false
                                       }));
                               tmp$5 = JsxRuntime.jsxs("div", {
@@ -744,7 +800,7 @@ function CreateLocationEventForm(props) {
                                                     children: "¥",
                                                     className: "absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-sm"
                                                   }),
-                                              JsxRuntime.jsx("input", (newrecord$5.type = "number", newrecord$5.placeholder = t`Enter price`, newrecord$5.min = "1", newrecord$5.id = "price", newrecord$5.className = "block w-full pl-8 pr-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$5))
+                                              JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.placeholder = t`Enter price`, newrecord$6.min = "1", newrecord$6.id = "price", newrecord$6.className = "block w-full pl-8 pr-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$6))
                                             ],
                                             className: "relative"
                                           })
@@ -758,7 +814,7 @@ function CreateLocationEventForm(props) {
                             if (findPlayersExpanded) {
                               var tmp$7;
                               if (listed) {
-                                var newrecord$6 = Caml_obj.obj_dup(register("minRating", {
+                                var newrecord$7 = Caml_obj.obj_dup(register("minRating", {
                                           required: false
                                         }));
                                 var match$3 = formState.errors.minRating;
@@ -833,7 +889,7 @@ function CreateLocationEventForm(props) {
                                                       className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
                                                       htmlFor: "minRating"
                                                     }),
-                                                JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.step = 0.01, newrecord$6.placeholder = t`No minimum`, newrecord$6.id = "minRating", newrecord$6.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$6)),
+                                                JsxRuntime.jsx("input", (newrecord$7.type = "number", newrecord$7.step = 0.01, newrecord$7.placeholder = t`No minimum`, newrecord$7.id = "minRating", newrecord$7.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$7)),
                                                 tmp$8
                                               ],
                                               className: "mt-4"

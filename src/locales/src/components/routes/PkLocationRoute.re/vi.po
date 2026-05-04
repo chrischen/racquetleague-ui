@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "...more"
 msgstr "...thêm"
 
@@ -25,7 +25,7 @@ msgstr "· {0} đang chờ"
 msgid "· +{0} waitlist"
 msgstr "· +{0} chờ đợi"
 
-#: src/components/pkuru/PkEventRow.re.mjs:652
+#: src/components/pkuru/PkEventRow.re.mjs:672
 msgid "[missing title]"
 msgstr "[tiêu đề bị thiếu]"
 
@@ -41,8 +41,8 @@ msgstr "{0} {hiddenDesc} ẩn — hiển thị"
 msgid "{0} joined"
 msgstr "{0} đã tham gia"
 
-#: src/components/pkuru/PkEventRow.re.mjs:148
-#: src/components/pkuru/PkEventRow.re.mjs:205
+#: src/components/pkuru/PkEventRow.re.mjs:149
+#: src/components/pkuru/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -94,20 +94,33 @@ msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
 msgid "balanced"
 msgstr "cân bằng"
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/pages/PkEventPage.re.mjs:283
 msgid "cancel event"
 msgstr "hủy sự kiện"
 
-#: src/components/pkuru/PkEventRow.re.mjs:711
+#: src/components/pkuru/PkEventRow.re.mjs:731
 msgid "Canceled"
 msgstr "Đã hủy"
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:576
 msgid "CANCELED"
 msgstr "ĐÃ HỦY"
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:372
+msgid "Cancellation deadline"
+msgstr "Hạn hủy"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để hủy."
+
+#: src/components/pages/PkEventPage.re.mjs:254
+msgid "Cannot access variable \\\"title\\\""
+msgstr "Không thể truy cập biến \\\"title\\\""
+
+#: src/components/pages/PkEventPage.re.mjs:442
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Claim spot"
 msgstr "Đặt chỗ"
 
@@ -153,7 +166,7 @@ msgstr "Cần có tên hiển thị"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/pages/PkEventPage.re.mjs:266
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
@@ -194,7 +207,7 @@ msgstr "đồng đều"
 msgid "event"
 msgstr "sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:745
+#: src/components/pages/PkEventPage.re.mjs:801
 msgid "Event not found"
 msgstr "Không tìm thấy sự kiện"
 
@@ -223,7 +236,7 @@ msgstr "Lọc theo ngày"
 msgid "For event updates and notifications"
 msgstr "Để nhận cập nhật và thông báo về sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:577
+#: src/components/pages/PkEventPage.re.mjs:633
 msgid "Free"
 msgstr "Miễn phí"
 
@@ -243,19 +256,19 @@ msgstr "Google Calendar"
 msgid "Highly skilled players"
 msgstr "Người chơi trình độ cao"
 
-#: src/components/pkuru/PkEventRow.re.mjs:581
+#: src/components/pkuru/PkEventRow.re.mjs:601
 msgid "Join"
 msgstr "Tham gia"
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Join waitlist"
 msgstr "Vào danh sách chờ"
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:442
 msgid "Join waitlist (#{0})"
 msgstr "Vào danh sách chờ (#{0})"
 
-#: src/components/pkuru/PkEventRow.re.mjs:239
+#: src/components/pkuru/PkEventRow.re.mjs:240
 msgid "Joined"
 msgstr "Đã tham gia"
 
@@ -263,21 +276,21 @@ msgstr "Đã tham gia"
 msgid "Last Round"
 msgstr "Vòng cuối"
 
-#: src/components/pkuru/PkEventRow.re.mjs:580
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pages/PkEventPage.re.mjs:423
 msgid "Leave"
 msgstr "Rời"
 
-#: src/components/pkuru/PkEventRow.re.mjs:836
-#: src/components/pages/PkEventPage.re.mjs:706
+#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pages/PkEventPage.re.mjs:762
 msgid "Leave event"
 msgstr "Rời sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "less"
 msgstr "thu gọn"
 
-#: src/components/pages/PkEventPage.re.mjs:595
+#: src/components/pages/PkEventPage.re.mjs:651
 msgid "Location"
 msgstr "Địa điểm"
 
@@ -334,7 +347,7 @@ msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi ngư�
 msgid "No Score"
 msgstr "Không có điểm"
 
-#: src/components/pages/PkEventPage.re.mjs:659
+#: src/components/pages/PkEventPage.re.mjs:715
 msgid "Notes from the host"
 msgstr "Ghi chú từ người tổ chức"
 
@@ -342,7 +355,7 @@ msgstr "Ghi chú từ người tổ chức"
 msgid "Participants"
 msgstr "Người tham gia"
 
-#: src/components/pkuru/PkEventRow.re.mjs:278
+#: src/components/pkuru/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr "Đang chờ"
 
@@ -350,13 +363,13 @@ msgstr "Đang chờ"
 msgid "Pending · {0}"
 msgstr "Đang chờ · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:149
-#: src/components/pkuru/PkEventRow.re.mjs:206
+#: src/components/pkuru/PkEventRow.re.mjs:150
+#: src/components/pkuru/PkEventRow.re.mjs:207
 msgid "player"
 msgstr "người chơi"
 
-#: src/components/pkuru/PkEventRow.re.mjs:150
-#: src/components/pkuru/PkEventRow.re.mjs:207
+#: src/components/pkuru/PkEventRow.re.mjs:151
+#: src/components/pkuru/PkEventRow.re.mjs:208
 msgid "players"
 msgstr "người chơi"
 
@@ -484,8 +497,8 @@ msgstr ""
 "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
 "lịch ban đầu bằng biểu tượng đặt lại vòng."
 
-#: src/components/pkuru/PkEventRow.re.mjs:837
-#: src/components/pages/PkEventPage.re.mjs:707
+#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pages/PkEventPage.re.mjs:763
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -535,7 +548,7 @@ msgstr "TB TOP 6"
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/pages/PkEventPage.re.mjs:272
 msgid "uncancel event"
 msgstr "khôi phục sự kiện"
 
@@ -557,7 +570,7 @@ msgstr "Xem hồ sơ"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:581
+#: src/components/pkuru/PkEventRow.re.mjs:601
 msgid "Waitlist"
 msgstr "Danh sách chờ"
 
@@ -565,7 +578,7 @@ msgstr "Danh sách chờ"
 msgid "Waitlist · {0}"
 msgstr "Danh sách chờ · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:271
+#: src/components/pkuru/PkEventRow.re.mjs:272
 msgid "Waitlisted"
 msgstr "Đã vào danh sách chờ"
 
@@ -598,6 +611,24 @@ msgstr ""
 "Xếp hạng của bạn {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ "
 "duyệt."
+
+#: src/components/pages/PkEventPage.re.mjs:380
+#~ msgid "{cancelTimeLeft} left to cancel"
+#~ msgstr "Còn {cancelTimeLeft} để hủy"
+
+#: src/components/pages/PkEventPage.re.mjs:379
+#~ msgid "Cancellation deadline passed"
+#~ msgstr "Đã hết hạn hủy"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+#~ msgid "hr"
+#~ msgstr "giờ"
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+#~ msgid "min"
+#~ msgstr "phút"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid ""

@@ -11,6 +11,7 @@ type prefilledValues = {
   timezone?: string,
   tags?: array<string>,
   price?: int,
+  cancelDeadline?: int,
 }
 
 @react.component

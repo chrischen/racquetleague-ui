@@ -191,6 +191,9 @@ let make = (~debug: bool=false) => {
   // Player settings modal state
   let (playerSettingsOpen, setPlayerSettingsOpen) = React.useState(() => None)
 
+  // Fullscreen round view state
+  let (showFullScreenRound, setShowFullScreenRound) = React.useState(() => false)
+
   // Convert teams to team constraints for match generation
   let teamConstraints = React.useMemo(() => {
     let teamsArray = teams->NonEmptyArray.toArray
@@ -251,7 +254,7 @@ let make = (~debug: bool=false) => {
       // Only auto-regenerate for competitive and mixed strategies
       let shouldAutoRegenerate = switch strategy {
       | CompetitivePlus | Competitive | Mixed => true
-      | RoundRobin | Random | DUPR => false
+      | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
       }
 
       // Check if any future rounds have scores recorded
@@ -908,6 +911,20 @@ let make = (~debug: bool=false) => {
             onAdd={handleAddGuestPlayers} onClose={() => setShowAddGuestsModal(_ => false)}
           />
         : React.null}
+      <FramerMotion.AnimatePresence mode="sync">
+        {showFullScreenRound
+          ? {
+              let currentRoundMatches = rounds->Array.get(currentRoundInt - 1)->Option.getOr([])
+              <FullScreenRoundView
+                key="fullscreen-round-view"
+                matches={currentRoundMatches}
+                roundNumber={currentRoundInt}
+                onClose={() => setShowFullScreenRound(_ => false)}
+                getUserFragmentRefs={_data => None}
+              />
+            }
+          : React.null}
+      </FramerMotion.AnimatePresence>
       <div className="min-h-screen bg-slate-50 flex flex-col">
         <div className="bg-slate-800 text-white px-6 py-4">
           <div className="flex items-center justify-between">
@@ -1064,6 +1081,7 @@ let make = (~debug: bool=false) => {
                             onRebalance={() => handleRebalanceRound(roundIndex)}
                             onRebalanceMatch={matchId => handleRebalanceMatch(roundIndex, matchId)}
                             onReset={genderMixed => handleResetRound(roundIndex, ~genderMixed)}
+                            onFullScreen={() => setShowFullScreenRound(_ => true)}
                             getUserFragmentRefs
                             debug={debugMode}
                             allRounds={rounds}

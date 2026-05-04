@@ -17,19 +17,19 @@ msgstr ""
 msgid "Add an Event"
 msgstr "イベントを追加"
 
-#: src/components/pages/ClubEventsPage.re.mjs:126
+#: src/components/pages/ClubEventsPage.re.mjs:128
 msgid "Club not found"
 msgstr "クラブが見つかりません"
 
-#: src/components/pages/ClubEventsPage.re.mjs:86
+#: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Copied!"
 msgstr "コピーしました！"
 
-#: src/components/pages/ClubEventsPage.re.mjs:119
+#: src/components/pages/ClubEventsPage.re.mjs:121
 msgid "Loading events..."
 msgstr "イベントを読み込んでいます..."
 
-#: src/components/pages/ClubEventsPage.re.mjs:86
+#: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Share link"
 msgstr "リンクを共有"
 

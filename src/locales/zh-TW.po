@@ -3528,6 +3528,104 @@ msgstr "此活動為私人活動"
 msgid "This event is public"
 msgstr "此活動為公開活動"
 
+#: src/components/pages/PkEventPage.re.mjs:252
+msgid "Cannot access variable \\\"title\\\""
+msgstr "無法存取變數 \\\"title\\\""
+
+#: src/components/pages/PkEventPage.re.mjs:379
+msgid "{cancelTimeLeft} left to cancel"
+msgstr "還剩 {cancelTimeLeft} 可取消"
+
+#: src/components/pages/PkEventPage.re.mjs:379
+msgid "Cancellation deadline passed"
+msgstr "取消期限已過"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+msgid "hr"
+msgstr "小時"
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+msgid "min"
+msgstr "分鐘"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:735
+msgid "1 hour before"
+msgstr "1 小時前"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:759
+msgid "1 week before"
+msgstr "1 週前"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:747
+msgid "12 hours before"
+msgstr "12 小時前"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:739
+msgid "2 hours before"
+msgstr "2 小時前"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "24 hours before"
+msgstr "24 小時前"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:755
+msgid "48 hours before"
+msgstr "48 小時前"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:743
+msgid "6 hours before"
+msgstr "6 小時前"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:764
+msgid "Attendees cannot cancel their RSVP after this deadline"
+msgstr "參加者在此期限後無法取消報名"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:725
+msgid "Cancel deadline (optional)"
+msgstr "取消期限(選填)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:731
+msgid "No deadline"
+msgstr "無期限"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:49
+msgid "Close Full Screen"
+msgstr "關閉全螢幕"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:71
+msgid "COURT {0}"
+msgstr "球場 {0}"
+
+#: src/components/organisms/RoundSection.re.mjs:531
+msgid "Full Screen View"
+msgstr "全螢幕檢視"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+msgid "Not Playing This Round"
+msgstr "本輪不上場"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "取消期限已過。請在此頁面聯絡主辦方以取消。"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid "Cancellation deadline"
+msgstr "取消截止日期"
+
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr "全部已更新"
+
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr "已同步"
+
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
+msgstr "待同步"
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"

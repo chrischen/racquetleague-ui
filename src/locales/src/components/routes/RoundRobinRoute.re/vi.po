@@ -13,8 +13,8 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -22,7 +22,7 @@ msgstr "{0} {matchText}"
 msgid "{0} of {1} checked in"
 msgstr "{0} trong {1} đã check-in"
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
@@ -30,7 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/FullScreenRoundView.re.mjs:36
 msgid "ACTIVE ROUND"
 msgstr "VÒNG ĐANG DIỄN RA"
 
@@ -54,7 +55,7 @@ msgstr "Điều chỉnh hạt giống người chơi"
 msgid "Advance to Next Round"
 msgstr "Tiến lên vòng tiếp theo"
 
-#: src/components/organisms/RoundRobin.re.mjs:802
+#: src/components/organisms/RoundRobin.re.mjs:839
 msgid "Advance to Round {0}"
 msgstr "Tiến lên vòng {0}"
 
@@ -66,7 +67,7 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "Tất cả người chơi đã check-in đều ở trong vòng này"
 
-#: src/components/organisms/RoundRobin.re.mjs:901
+#: src/components/organisms/RoundRobin.re.mjs:938
 msgid "Anti-Team {0}"
 msgstr "Đội phản {0}"
 
@@ -89,6 +90,10 @@ msgstr "Bốc thăm round-robin cổ điển"
 msgid "Close"
 msgstr "Đóng"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:47
+msgid "Close Full Screen"
+msgstr "Đóng Toàn Màn Hình"
+
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
 msgstr "Thi đấu"
@@ -96,6 +101,10 @@ msgstr "Thi đấu"
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
 msgstr "Sân {0}"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:63
+msgid "COURT {0}"
+msgstr "SÂN {0}"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:132
 msgid "Court {0} - Editing"
@@ -129,11 +138,11 @@ msgstr "Tạo đội đầu tiên của bạn để bắt đầu"
 msgid "Current Round:"
 msgstr "Vòng hiện tại:"
 
-#: src/components/organisms/RoundRobin.re.mjs:1048
+#: src/components/organisms/RoundRobin.re.mjs:1089
 msgid "Debug: OFF"
 msgstr "Gỡ lỗi: TẮT"
 
-#: src/components/organisms/RoundRobin.re.mjs:1048
+#: src/components/organisms/RoundRobin.re.mjs:1089
 msgid "Debug: ON"
 msgstr "Gỡ lỗi: BẬT"
 
@@ -186,6 +195,10 @@ msgstr "Nhập tên đội"
 msgid "Female"
 msgstr "Nữ"
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr "Xem Toàn Màn Hình"
+
 #: src/components/molecules/DrawGenerator.re.mjs:271
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
@@ -210,7 +223,7 @@ msgstr "Tạo bốc thăm"
 msgid "Guest Names (one per line)"
 msgstr "Tên khách (mỗi tên một dòng)"
 
-#: src/components/organisms/RoundRobin.re.mjs:1036
+#: src/components/organisms/RoundRobin.re.mjs:1077
 msgid "Help"
 msgstr "Trợ giúp"
 
@@ -234,11 +247,11 @@ msgstr "Đội thua (Đội {0})"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr "trận đấu"
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr "trận đấu"
 
@@ -310,7 +323,7 @@ msgstr ""
 "Người chơi sẽ được chia thành các nhóm trình độ tương tự theo hình thức "
 "round-robin với các đội cân bằng theo kỹ năng."
 
-#: src/components/organisms/RoundRobin.re.mjs:679
+#: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
 msgstr "Vui lòng cập nhật phiên bản mới nhất của Chrome, Firefox hoặc Safari."
 
@@ -326,7 +339,7 @@ msgstr "Vòng trước"
 msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr "Cân bằng lại vòng này với người chơi hiện tại"
 
@@ -346,16 +359,17 @@ msgstr "Thay thế người chơi"
 msgid "Replacing:"
 msgstr "Đang thay thế:"
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr "Đặt lại vòng này với tất cả người chơi đã check-in"
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr "Đặt lại vòng này với các cặp nam nữ hỗn hợp"
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "Vòng {0}"
 
@@ -412,7 +426,7 @@ msgstr "chiến lược"
 msgid "Strategy:"
 msgstr "Chiến lược:"
 
-#: src/components/organisms/RoundRobin.re.mjs:665
+#: src/components/organisms/RoundRobin.re.mjs:679
 msgid "Team {0}"
 msgstr "Đội {0}"
 
@@ -471,6 +485,10 @@ msgstr "VS"
 msgid "Winning Team (Team {0})"
 msgstr "Đội thắng (Đội {0})"
 
-#: src/components/organisms/RoundRobin.re.mjs:675
+#: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr "Trình duyệt của bạn quá cũ để sử dụng tính năng này."
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "Không Chơi Vòng Này"

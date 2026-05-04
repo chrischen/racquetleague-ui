@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RQe+iX\":\"VÒNG ĐANG DIỄN RA\",\"Kbi7Yx\":\"Đóng Toàn Màn Hình\",\"hlIKDQ\":[\"SÂN \",[\"0\"]],\"xXKDhD\":[\"Vòng \",[\"0\"]],\"FKn1hm\":\"Không Chơi Vòng Này\"}");

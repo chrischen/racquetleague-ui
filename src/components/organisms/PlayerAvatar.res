@@ -34,6 +34,6 @@ let make = (
   })
 
   <div className style=?style>
-    <AvatarWithProgressBar ?pictureUrl name skillLevel size />
+    <AvatarWithProgressBar ?pictureUrl name skillLevel size containerClassName=className />
   </div>
 }

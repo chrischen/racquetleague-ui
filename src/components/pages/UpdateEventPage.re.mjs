@@ -78,7 +78,7 @@ function UpdateEventPage(props) {
                                                                                     JsxRuntime.jsx(SelectedLocation.make, {
                                                                                           location: $$location.fragmentRefs,
                                                                                           onNewLocation: (function ($$location) {
-                                                                                              navigate("../update/" + $$event.id + "/" + $$location, undefined);
+                                                                                              navigate("/events/update/" + $$event.id + "/" + $$location, undefined);
                                                                                             })
                                                                                         }),
                                                                                     JsxRuntime.jsx(UpdateLocationEventForm.make, {

@@ -13,16 +13,16 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
 msgid "ACTIVE ROUND"
 msgstr ""
 
@@ -55,6 +55,10 @@ msgstr ""
 msgid "Enter Match Score"
 msgstr ""
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr ""
+
 #: src/components/organisms/MatchCard.re.mjs:408
 msgid "Last Round"
 msgstr ""
@@ -63,11 +67,11 @@ msgstr ""
 msgid "Losing Team (Team {0})"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr ""
 
@@ -83,7 +87,7 @@ msgstr ""
 msgid "Rebalance match"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr ""
 
@@ -99,16 +103,16 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
 msgid "Round {0}"
 msgstr ""
 

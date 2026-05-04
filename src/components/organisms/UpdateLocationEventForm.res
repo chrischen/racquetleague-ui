@@ -19,6 +19,7 @@ module EventFragment = %relay(`
     timezone
     tags
     price
+    cancelDeadline
   }
 `)
 
@@ -26,13 +27,11 @@ module EventFragment = %relay(`
 let make = (~event, ~location, ~query) => {
   let eventData = EventFragment.use(event)
 
-  let (clubSelection, setClubSelection) = React.useState(() =>
-    ({
-      clubId: eventData.club->Option.map(c => c.id),
-      activityId: eventData.activity->Option.map(a => a.id),
-      isAddingClub: false,
-    }: ClubActivitySelector.selection)
-  )
+  let (clubSelection, setClubSelection) = React.useState((): ClubActivitySelector.selection => {
+    clubId: eventData.club->Option.map(c => c.id),
+    activityId: eventData.activity->Option.map(a => a.id),
+    isAddingClub: false,
+  })
   let (shakeCounter, setShakeCounter) = React.useState(() => 0)
 
   // Convert event data to prefilled values for CreateLocationEventForm
@@ -53,6 +52,7 @@ let make = (~event, ~location, ~query) => {
     timezone: ?eventData.timezone,
     tags: ?eventData.tags,
     price: ?eventData.price,
+    cancelDeadline: ?eventData.cancelDeadline,
   }
 
   <>
@@ -74,4 +74,3 @@ let make = (~event, ~location, ~query) => {
     />
   </>
 }
-

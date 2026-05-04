@@ -25,6 +25,7 @@ module EventPageQuery = %relay(`
       startDate
       viewerIsAdmin
       viewerHasRsvp
+      viewerIsBanned
       deleted
       shadow
       activity {
@@ -113,6 +114,9 @@ let make = () => {
   let (cancelEvent, canceling) = EventCancelMutation.use()
   let (uncancelEvent, uncanceling) = EventUncancelMutation.use()
 
+  if event->Option.flatMap(e => e.viewerIsBanned)->Option.getOr(false) {
+    <div className="p-6 text-center text-gray-600"> {t`Cannot access variable "title"`} </div>
+  } else {
   <WaitForMessages>
     {() =>
       event
@@ -262,6 +266,7 @@ let make = () => {
       })
       ->Option.getOr(<div className="p-6 text-center text-gray-600"> {t`Event not found`} </div>)}
   </WaitForMessages>
+  }
 }
 
 @genType

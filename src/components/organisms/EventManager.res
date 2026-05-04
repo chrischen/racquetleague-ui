@@ -212,7 +212,8 @@ module StorageLowWarning = {
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
         <div className="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+            <div
+              className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
               <Lucide.AlertTriangle className="w-5 h-5 text-red-600" />
             </div>
             <h2 className="text-lg font-bold text-slate-900">
@@ -221,7 +222,9 @@ module StorageLowWarning = {
           </div>
           <p className="text-sm text-slate-600 mb-4">
             {React.string(
-              `Your browser storage is ${percentage->Float.toFixed(~digits=1)}% full. The app may lose data if storage runs out. Clear old event data to free up space.`,
+              `Your browser storage is ${percentage->Float.toFixed(
+                  ~digits=1,
+                )}% full. The app may lose data if storage runs out. Clear old event data to free up space.`,
             )}
           </p>
           <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden mb-5">
@@ -566,6 +569,9 @@ let make = (
   // Player settings modal state
   let (playerSettingsOpen, setPlayerSettingsOpen) = React.useState(() => None)
 
+  // Fullscreen round view state
+  let (showFullScreenRound, setShowFullScreenRound) = React.useState(() => false)
+
   // Convert teams to team constraints for match generation
   let teamConstraints = React.useMemo(() => {
     let teamsArray = teams->NonEmptyArray.toArray
@@ -667,17 +673,18 @@ let make = (
       roundIndex,
       score,
       createdAt,
+      synced,
     )) => {
       let roundMatches = roundsMap->Map.get(roundIndex)->Option.getOr([])
       roundsMap->Map.set(
         roundIndex,
-        roundMatches->Array.concat([(matchId, team1Players, team2Players, score, createdAt)]),
+        roundMatches->Array.concat([(matchId, team1Players, team2Players, score, createdAt, synced)]),
       )
     })
 
     // Convert to array of rounds (players already loaded with their ratings)
     let maxRound =
-      rawMatches->Array.reduce(0, (max, (_, _, _, roundIndex, _, _)) =>
+      rawMatches->Array.reduce(0, (max, (_, _, _, roundIndex, _, _, _)) =>
         roundIndex > max ? roundIndex : max
       )
 
@@ -691,6 +698,7 @@ let make = (
         team2Players,
         score,
         createdAt,
+        synced,
       )) => {
         // Only include match if both teams have players
         if team1Players->Array.length > 0 && team2Players->Array.length > 0 {
@@ -699,6 +707,7 @@ let make = (
             match: (team1Players, team2Players),
             score,
             createdAt,
+            synced,
           }
           Some(entity)
         } else {
@@ -772,7 +781,7 @@ let make = (
       // Only auto-regenerate for competitive and mixed strategies
       let shouldAutoRegenerate = switch strategy {
       | CompetitivePlus | Competitive | Mixed => true
-      | RoundRobin | Random | DUPR => false
+      | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
       }
 
       // Check if any future rounds have scores recorded
@@ -946,7 +955,7 @@ let make = (
                 let updatedCreatedAt = shouldUpdateCreatedAt ? Js.Date.make() : m.createdAt
                 Js.log("Setting createdAt")
                 Js.log(updatedCreatedAt)
-                {...m, match, score, createdAt: updatedCreatedAt}
+                {...m, match, score, createdAt: updatedCreatedAt, synced: false}
               } else {
                 m
               }
@@ -1098,7 +1107,7 @@ let make = (
                         matchEntity => {
                           if matchEntity.id == matchId {
                             // Keep the same ID and score, just update the match
-                            {...matchEntity, match: newMatchEntity.match}
+                            {...matchEntity, match: newMatchEntity.match, synced: false}
                           } else {
                             matchEntity
                           }
@@ -1235,18 +1244,22 @@ let make = (
         setSyncState(_ => Error)
       }
     | Some(slug) => {
-        // Collect all matches with scores from all rounds
+        // Collect only unsynced matches with scores from all rounds
         let matchesWithScores =
           rounds
           ->Array.flatMap(round => round)
-          ->Array.filterMap(({id, match, score, createdAt}) => {
-            score->Option.map(scoreValue => (id, match, scoreValue, createdAt))
+          ->Array.filterMap(({id, match, score, createdAt, synced}) => {
+            if synced {
+              None
+            } else {
+              score->Option.map(scoreValue => (id, match, scoreValue, createdAt))
+            }
           })
 
         let totalMatches = matchesWithScores->Array.length
 
         if totalMatches == 0 {
-          Js.log("No scored matches to sync")
+          Js.log("No unsynced scored matches to sync")
           setSyncState(_ => Success)
         } else {
           // Submit matches with 500ms delay between each
@@ -1278,6 +1291,21 @@ let make = (
             | Error() => false
             }
           )
+
+          if allSucceeded {
+            // Mark all scored matches as synced
+            updateRounds(currentRounds =>
+              currentRounds->Array.map(round =>
+                round->Array.map(m =>
+                  if m.score->Option.isSome {
+                    {...m, synced: true}
+                  } else {
+                    m
+                  }
+                )
+              )
+            )
+          }
 
           setSyncState(_ => allSucceeded ? Success : Error)
         }
@@ -1568,6 +1596,20 @@ let make = (
           onAdd={handleAddGuestPlayers} onClose={() => setShowAddGuestsModal(_ => false)}
         />
       : React.null}
+    <FramerMotion.AnimatePresence mode="sync">
+      {showFullScreenRound
+        ? {
+            let currentRoundMatches = rounds->Array.get(currentRoundInt - 1)->Option.getOr([])
+            <FullScreenRoundView
+              key="fullscreen-round-view"
+              matches={currentRoundMatches}
+              roundNumber={currentRoundInt}
+              onClose={() => setShowFullScreenRound(_ => false)}
+              getUserFragmentRefs={data => data.user->Option.map(u => u.fragmentRefs)}
+            />
+          }
+        : React.null}
+    </FramerMotion.AnimatePresence>
     <StorageLowWarning onClearData={handleResetStorage} />
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <div className="bg-slate-800 text-white px-6 py-4">
@@ -1737,6 +1779,7 @@ let make = (
                           onRebalance={() => handleRebalanceRound(roundIndex)}
                           onRebalanceMatch={matchId => handleRebalanceMatch(roundIndex, matchId)}
                           onReset={genderMixed => handleResetRound(roundIndex, ~genderMixed)}
+                          onFullScreen={() => setShowFullScreenRound(_ => true)}
                           getUserFragmentRefs
                           debug={debugMode}
                           allRounds={rounds}
@@ -1822,40 +1865,65 @@ let make = (
               ->React.array}
               // Sync Scores Button - At the end
               {rounds->Array.length > 0
-                ? <div className="mt-8 flex justify-center">
-                    <button
-                      onClick={_ => handleSyncScores()->ignore}
-                      disabled={syncState == Syncing}
-                      className={switch syncState {
-                      | Idle => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl"
-                      | Syncing => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-500 text-white cursor-wait"
-                      | Success => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-green-600 text-white"
-                      | Error => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-red-600 text-white"
-                      }}>
-                      {switch syncState {
-                      | Idle =>
-                        <>
-                          <Lucide.RotateCcw className="w-5 h-5" />
-                          <span> {t`Sync Scores`} </span>
-                        </>
-                      | Syncing =>
-                        <>
-                          <Lucide.RotateCcw className="w-5 h-5 animate-spin" />
-                          <span> {t`Syncing... ${syncProgress->Int.toString}%`} </span>
-                        </>
-                      | Success =>
-                        <>
-                          <Lucide.Check className="w-5 h-5" />
-                          <span> {t`Scores Synced!`} </span>
-                        </>
-                      | Error =>
-                        <>
-                          <Lucide.AlertCircle className="w-5 h-5" />
-                          <span> {t`Sync Failed`} </span>
-                        </>
-                      }}
-                    </button>
-                  </div>
+                ? {
+                    let allMatches = rounds->Array.flatMap(r => r)
+                    let syncedCount = allMatches->Array.filter(m => m.synced)->Array.length
+                    let unsyncedCount =
+                      allMatches->Array.filter(m => m.score->Option.isSome && !m.synced)->Array.length
+                    <div className="mt-8 flex flex-col items-center gap-2">
+                      <button
+                        onClick={_ => handleSyncScores()->ignore}
+                        disabled={syncState == Syncing}
+                        className={switch syncState {
+                        | Idle => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl"
+                        | Syncing => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-500 text-white cursor-wait"
+                        | Success => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-green-600 text-white"
+                        | Error => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-red-600 text-white"
+                        }}>
+                        {switch syncState {
+                        | Idle =>
+                          <>
+                            <Lucide.RotateCcw className="w-5 h-5" />
+                            <span> {t`Sync Scores`} </span>
+                          </>
+                        | Syncing =>
+                          <>
+                            <Lucide.RotateCcw className="w-5 h-5 animate-spin" />
+                            <span> {t`Syncing... ${syncProgress->Int.toString}%`} </span>
+                          </>
+                        | Success =>
+                          <>
+                            <Lucide.Check className="w-5 h-5" />
+                            <span> {t`Scores Synced!`} </span>
+                          </>
+                        | Error =>
+                          <>
+                            <Lucide.AlertCircle className="w-5 h-5" />
+                            <span> {t`Sync Failed`} </span>
+                          </>
+                        }}
+                      </button>
+                      {syncedCount > 0 || unsyncedCount > 0
+                        ? <p className="text-sm text-slate-500">
+                            <span className="font-semibold text-green-600">
+                              {React.string(syncedCount->Int.toString)}
+                            </span>
+                            {React.string(" " ++ ts`synced`)}
+                            {unsyncedCount > 0
+                              ? <span className="text-amber-600 font-medium">
+                                  {React.string(
+                                    " · " ++ unsyncedCount->Int.toString ++ " " ++ ts`to sync`,
+                                  )}
+                                </span>
+                              : syncedCount > 0
+                              ? <span className="text-green-600 font-medium">
+                                  {React.string(" · " ++ ts`all up to date`)}
+                                </span>
+                              : React.null}
+                          </p>
+                        : React.null}
+                    </div>
+                  }
                 : React.null}
             </div>
           </>

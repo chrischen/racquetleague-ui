@@ -31,6 +31,7 @@ module Types = {
   }
   type fragment = {
     @live __id: RescriptRelay.dataId,
+    cancelDeadline: option<int>,
     club: option<fragment_club>,
     deleted: option<Util.Datetime.t>,
     endDate: option<Util.Datetime.t>,
@@ -340,6 +341,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "tags",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "cancelDeadline",
       "storageKey": null
     },
     {

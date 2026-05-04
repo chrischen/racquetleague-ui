@@ -71,7 +71,7 @@ function DrawGenerator(props) {
       description: t`Round-Robin with teams balanced by skill.`
     },
     {
-      value: "Random",
+      value: "NoveltyRoundRobin",
       label: t`Round-Robin`,
       description: t`Classic round-robin draws`
     }

@@ -24,6 +24,7 @@ module ItemFragment = %relay(`
     listed
     deleted
     tags
+    cancelDeadline
   }
 `)
 
@@ -192,6 +193,7 @@ module DuprBadge = {
         className={"font-mono " ++
         textClass ++ " text-orange-500 dark:text-orange-400 whitespace-nowrap inline-flex items-center gap-0.5"}>
         <Lucide.ChevronsUp size=iconSize strokeWidth={2.5} />
+        {"~DUPR "->React.string}
         {valueStr->React.string}
       </span>
     } else if value >= 4.0 {
@@ -199,12 +201,14 @@ module DuprBadge = {
         className={"font-mono " ++
         textClass ++ " text-amber-500 dark:text-amber-400 whitespace-nowrap inline-flex items-center gap-0.5"}>
         <Lucide.ChevronUp size=iconSize strokeWidth={2.5} />
+        {"~DUPR "->React.string}
         {valueStr->React.string}
       </span>
     } else {
       <span
         className={"font-mono " ++
         textClass ++ " text-gray-400 dark:text-gray-500 whitespace-nowrap"}>
+        {"~DUPR "->React.string}
         {valueStr->React.string}
       </span>
     }
@@ -238,6 +242,7 @@ let make = (
     listed,
     deleted,
     tags,
+    cancelDeadline,
   } = ItemFragment.use(event)
 
   let secret = shadow->Option.getOr(false)
@@ -423,6 +428,16 @@ let make = (
     }
   }
 
+  let deadlinePassed =
+    startDate->Option.flatMap(sd =>
+      cancelDeadline->Option.map(ms =>
+        DateFns.differenceInMinutes(
+          Js.Date.fromFloat(sd->Util.Datetime.toDate->DateFns.getTime -. Int.toFloat(ms)),
+          Js.Date.make(),
+        ) <= 0.
+      )
+    )->Option.getOr(false)
+
   let isFull = maxRsvps->Option.map(max => playersCount >= max)->Option.getOr(false)
   let isAlmostFull =
     maxRsvps->Option.map(max => max - playersCount <= 2 && !isFull)->Option.getOr(false)
@@ -450,10 +465,12 @@ let make = (
   let handleActionClick = _ => {
     switch viewerRsvpStatus {
     | Some(Confirmed) | Some(Waitlist) | Some(Pending) =>
-      if waitlistCount > 0 {
-        setShowLeaveConfirm(_ => true)
-      } else {
-        onLeave()
+      if !deadlinePassed {
+        if waitlistCount > 0 {
+          setShowLeaveConfirm(_ => true)
+        } else {
+          onLeave()
+        }
       }
     | None =>
       switch viewer {
@@ -468,7 +485,9 @@ let make = (
   | None => false
   }
 
-  let actionBg = if isInEvent {
+  let actionBg = if isInEvent && deadlinePassed {
+    "bg-gray-200 dark:bg-[#3a3b40]"
+  } else if isInEvent {
     "bg-[#e8907e]"
   } else if isFull {
     "bg-gray-200 dark:bg-[#3a3b40]"
@@ -476,7 +495,9 @@ let make = (
     "bg-[#bdf25d]"
   }
 
-  let actionTextColor = if isInEvent {
+  let actionTextColor = if isInEvent && deadlinePassed {
+    "text-gray-400 dark:text-gray-500"
+  } else if isInEvent {
     "text-white"
   } else if isFull {
     "text-gray-600 dark:text-gray-300"

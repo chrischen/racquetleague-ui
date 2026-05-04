@@ -17,19 +17,19 @@ msgstr ""
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"
 
-#: src/components/pages/ClubEventsPage.re.mjs:126
+#: src/components/pages/ClubEventsPage.re.mjs:128
 msgid "Club not found"
 msgstr "ไม่พบคลับ"
 
-#: src/components/pages/ClubEventsPage.re.mjs:86
+#: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Copied!"
 msgstr "คัดลอกแล้ว!"
 
-#: src/components/pages/ClubEventsPage.re.mjs:119
+#: src/components/pages/ClubEventsPage.re.mjs:121
 msgid "Loading events..."
 msgstr "กำลังโหลดกิจกรรม..."
 
-#: src/components/pages/ClubEventsPage.re.mjs:86
+#: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Share link"
 msgstr "แชร์ลิงก์"
 

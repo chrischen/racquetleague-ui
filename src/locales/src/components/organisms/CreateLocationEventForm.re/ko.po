@@ -14,116 +14,152 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1282
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1338
 msgid "Badminton"
 msgstr "배드민턴"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1286
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1342
 msgid "Table Tennis"
 msgstr "탁구"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1290
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1346
 msgid "Pickleball"
 msgstr "피클볼"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1294
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1350
 msgid "Futsal"
 msgstr "풋살"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1298
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1354
 msgid "Basketball"
 msgstr "농구"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1302
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1358
 msgid "Volleyball"
 msgstr "배구"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1306
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1362
 msgid "Crossminton"
 msgstr "크로스민턴"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1310
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1366
 msgid "Padel"
 msgstr "파델"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1314
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
 msgid "drill"
 msgstr "훈련"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1318
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1374
 msgid "comp"
 msgstr "경쟁"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1322
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1378
 msgid "rec"
 msgstr "친선"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1326
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1382
 msgid "all level"
 msgstr "모든 레벨"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:493
+#: src/components/organisms/CreateLocationEventForm.re.mjs:499
 msgid "{0} hours"
 msgstr "{0}시간"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:493
+#: src/components/organisms/CreateLocationEventForm.re.mjs:499
 msgid "{0} hours and {1} minutes"
 msgstr "{0}시간 {1}분"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:495
+#: src/components/organisms/CreateLocationEventForm.re.mjs:501
 msgid "{0} minutes"
 msgstr "{0}분"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:735
+msgid "1 hour before"
+msgstr "1시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:759
+msgid "1 week before"
+msgstr "1주일 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:747
+msgid "12 hours before"
+msgstr "12시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:739
+msgid "2 hours before"
+msgstr "2시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "24 hours before"
+msgstr "24시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:755
+msgid "48 hours before"
+msgstr "48시간 전"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:743
+msgid "6 hours before"
+msgstr "6시간 전"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:67
 msgid "activity is required"
 msgstr "종목이 필요합니다"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:720
+#: src/components/organisms/CreateLocationEventForm.re.mjs:776
 msgid "Add any additional information about the event..."
 msgstr "이벤트에 대한 추가 정보를 입력하세요..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:417
+#: src/components/organisms/CreateLocationEventForm.re.mjs:423
 msgid "at"
 msgstr "에"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1122
+#: src/components/organisms/CreateLocationEventForm.re.mjs:764
+msgid "Attendees cannot cancel their RSVP after this deadline"
+msgstr "이 마감 시간 이후에는 참석자가 RSVP를 취소할 수 없습니다"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:725
+msgid "Cancel deadline (optional)"
+msgstr "취소 마감 시간 (선택사항)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1178
 msgid ""
 "Casual play focused on fun and social interaction. Perfect for all skill "
 "levels."
 msgstr "즐거움과 사교에 집중한 캐주얼 플레이. 모든 실력 수준에 적합합니다."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:428
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1076
+#: src/components/organisms/CreateLocationEventForm.re.mjs:434
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1132
 msgid "Competitive"
 msgstr "경쟁"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1266
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1322
 msgid "Create Event"
 msgstr "이벤트 만들기"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:436
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1159
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1189
+#: src/components/organisms/CreateLocationEventForm.re.mjs:442
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1215
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1245
 msgid "Drill session"
 msgstr "드릴 세션"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:433
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1140
+#: src/components/organisms/CreateLocationEventForm.re.mjs:439
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1196
 msgid "DUPR rated"
 msgstr "DUPR 레이팅"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:674
+#: src/components/organisms/CreateLocationEventForm.re.mjs:683
 msgid "End time"
 msgstr "종료 시간"
 
@@ -131,7 +167,7 @@ msgstr "종료 시간"
 msgid "end time is required"
 msgstr "종료 시간이 필요합니다"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:747
+#: src/components/organisms/CreateLocationEventForm.re.mjs:803
 msgid "Enter price"
 msgstr "가격 입력"
 
@@ -139,129 +175,133 @@ msgstr "가격 입력"
 msgid "event date is required"
 msgstr "이벤트 날짜가 필요합니다"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:934
+#: src/components/organisms/CreateLocationEventForm.re.mjs:990
 msgid "Event Details"
 msgstr "이벤트 세부 정보"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:716
+#: src/components/organisms/CreateLocationEventForm.re.mjs:772
 msgid "Event details (optional)"
 msgstr "이벤트 세부 정보 (선택 사항)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:564
+#: src/components/organisms/CreateLocationEventForm.re.mjs:570
 msgid "Event schedule"
 msgstr "이벤트 일정"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:691
+#: src/components/organisms/CreateLocationEventForm.re.mjs:700
 msgid "Event title"
 msgstr "이벤트 제목"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1065
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
 msgid "Event type"
 msgstr "이벤트 유형"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1227
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1283
 msgid "Find Players"
 msgstr "플레이어 찾기"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:863
+#: src/components/organisms/CreateLocationEventForm.re.mjs:919
 msgid "Find players for your event?"
 msgstr "이벤트를 위한 플레이어를 찾으시겠습니까?"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1027
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1083
 msgid "Format"
 msgstr "형식"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1133
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1184
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1189
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1240
 msgid "Format options"
 msgstr "형식 옵션"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:695
+#: src/components/organisms/CreateLocationEventForm.re.mjs:704
 msgid "Friday Night Pickleball"
 msgstr "금요일 밤 피클볼"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:868
+#: src/components/organisms/CreateLocationEventForm.re.mjs:924
 msgid "List your event publicly to help fill open spots"
 msgstr "빈 자리를 채우기 위해 이벤트를 공개로 나열하세요"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:703
+#: src/components/organisms/CreateLocationEventForm.re.mjs:712
 msgid "Max RSVPs (optional)"
 msgstr "최대 RSVP (선택 사항)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:832
+#: src/components/organisms/CreateLocationEventForm.re.mjs:888
 msgid "Minimum rating (optional)"
 msgstr "최소 레이팅 (선택 사항)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:707
+#: src/components/organisms/CreateLocationEventForm.re.mjs:731
+msgid "No deadline"
+msgstr "마감 시간 없음"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:716
 msgid "No limit"
 msgstr "제한 없음"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:836
+#: src/components/organisms/CreateLocationEventForm.re.mjs:892
 msgid "No minimum"
 msgstr "최소값 없음"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:422
-#: src/components/organisms/CreateLocationEventForm.re.mjs:441
+#: src/components/organisms/CreateLocationEventForm.re.mjs:428
+#: src/components/organisms/CreateLocationEventForm.re.mjs:447
 msgid "Not set"
 msgstr "설정 안 됨"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:995
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1051
 msgid "Paid event"
 msgstr "유료 이벤트"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:737
+#: src/components/organisms/CreateLocationEventForm.re.mjs:793
 msgid "Price"
 msgstr "가격"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:446
+#: src/components/organisms/CreateLocationEventForm.re.mjs:452
 msgid "Private event"
 msgstr "비공개 이벤트"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:460
+#: src/components/organisms/CreateLocationEventForm.re.mjs:466
 msgid "Public"
 msgstr "공개"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:462
+#: src/components/organisms/CreateLocationEventForm.re.mjs:468
 msgid "Public event"
 msgstr "공개 이벤트"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:906
+#: src/components/organisms/CreateLocationEventForm.re.mjs:962
 msgid "Read more..."
 msgstr "더 읽기..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:430
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1072
+#: src/components/organisms/CreateLocationEventForm.re.mjs:436
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1128
 msgid "Recreational"
 msgstr "레크리에이션"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1000
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1056
 msgid "Require payment from attendees"
 msgstr "참가자에게 결제 요구"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1122
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1178
 msgid ""
 "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr ""
 "순위와 레이팅이 있는 진지한 경기. 게임이 플레이어 레이팅에 영향을 줄 수 있습"
 "니다."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:906
+#: src/components/organisms/CreateLocationEventForm.re.mjs:962
 msgid "Show less"
 msgstr "간략히 보기"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:778
+#: src/components/organisms/CreateLocationEventForm.re.mjs:834
 msgid "Skill level"
 msgstr "실력 수준"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:657
+#: src/components/organisms/CreateLocationEventForm.re.mjs:666
 msgid "Start date and time"
 msgstr "시작 날짜 및 시간"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+#: src/components/organisms/CreateLocationEventForm.re.mjs:928
 msgid "This event is private"
 msgstr "비공개 이벤트입니다"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+#: src/components/organisms/CreateLocationEventForm.re.mjs:928
 msgid "This event is public"
 msgstr "공개 이벤트입니다"
 
@@ -269,6 +309,6 @@ msgstr "공개 이벤트입니다"
 msgid "title is required"
 msgstr "제목이 필요합니다"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1266
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1322
 msgid "Update Event"
 msgstr "이벤트 업데이트"

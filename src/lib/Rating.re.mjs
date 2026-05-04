@@ -438,9 +438,13 @@ function rate(param) {
 
 function toStableId$1(param) {
   return [
-              toStableId(param[0]),
-              toStableId(param[1])
-            ].toSorted(Core__String.compare).join("-");
+                  param[0],
+                  param[1]
+                ].flatMap(function (x) {
+                    return x;
+                  }).map(function (p) {
+                  return p.id;
+                }).toSorted(Core__String.compare).join("-");
 }
 
 function players(param) {
@@ -835,6 +839,7 @@ function toDb$3(entity) {
     row["hasScore"] = false;
   }
   row["createdAt"] = entity.createdAt.getTime();
+  row["synced"] = entity.synced;
   return row;
 }
 
@@ -872,6 +877,7 @@ function loadFromDb$1(row, playersTable) {
   } else {
     score = undefined;
   }
+  var synced = Core__Option.getOr(Core__Option.flatMap(Js_dict.get(row, "synced"), Js_json.decodeBoolean), false);
   return {
           id: match,
           match: [
@@ -881,7 +887,8 @@ function loadFromDb$1(row, playersTable) {
           score: score,
           createdAt: Core__Option.getOr(Core__Option.map(match$3, (function (ts) {
                       return new Date(ts);
-                    })), new Date())
+                    })), new Date()),
+          synced: synced
         };
 }
 
@@ -1737,6 +1744,10 @@ function strategy_by_dupr(availablePlayers, priorityPlayers, avoidAllPlayers, re
             });
 }
 
+function strategy_by_novelty(availablePlayers, avoidAllPlayers, teams, requiredPlayers) {
+  return find_all_match_combos(availablePlayers, [], avoidAllPlayers, teams, requiredPlayers);
+}
+
 function recommendMatch(matches, seenTeams, seenMatches, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraints, strategy, teamCountDict) {
   Util.NonEmptyArray.toArray(teamConstraints).map(function (constr) {
           return toStableId(constr);
@@ -1846,6 +1857,7 @@ var RankedMatches = {
   strategy_by_round_robin: strategy_by_round_robin,
   strategy_by_random: strategy_by_random,
   strategy_by_dupr: strategy_by_dupr,
+  strategy_by_novelty: strategy_by_novelty,
   recommendMatch: recommendMatch
 };
 
@@ -1863,8 +1875,110 @@ function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAl
         return strategy_by_random(players, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "DUPR" :
         return strategy_by_dupr(players, priorityPlayers, avoidAllPlayers, requiredPlayers);
+    case "NoveltyRoundRobin" :
+        return strategy_by_novelty(players, avoidAllPlayers, teamConstraints, requiredPlayers);
     
   }
+}
+
+function noveltyOpponentPairIds(param) {
+  var team2 = param[1];
+  return param[0].flatMap(function (p1) {
+              return team2.map(function (p2) {
+                          return toStableId([
+                                      p1,
+                                      p2
+                                    ]);
+                        });
+            });
+}
+
+function noveltyMatchPenalty(match, seenTeams, seenMatches, seenOpponentPairs) {
+  var repeatedTeams = (
+    seenTeams.has(toStableId(match[0])) ? 1 : 0
+  ) + (
+    seenTeams.has(toStableId(match[1])) ? 1 : 0
+  ) | 0;
+  var repeatedGroup = seenMatches.has(toStableId$1(match)) ? 1 : 0;
+  var repeatedOpponents = Core__Array.reduce(noveltyOpponentPairIds(match), 0, (function (acc, id) {
+          return acc + (
+                  seenOpponentPairs.has(id) ? 1 : 0
+                ) | 0;
+        }));
+  var gameImbalance = Core__Array.reduce(players(match), 0, (function (acc, p) {
+          return acc + p.count | 0;
+        }));
+  return ((Math.imul(repeatedTeams, 1000000) + Math.imul(repeatedGroup, 100000) | 0) + Math.imul(repeatedOpponents, 100) | 0) + Math.imul(gameImbalance, 10) | 0;
+}
+
+function noveltyRoundPenalty(round, players$1, seenTeams, seenMatches, seenOpponentPairs) {
+  var matchPenalty = Core__Array.reduce(round, 0, (function (acc, m) {
+          return acc + noveltyMatchPenalty(m, seenTeams, seenMatches, seenOpponentPairs) | 0;
+        }));
+  var n = players$1.length;
+  var avgCount = n === 0 ? 0 : Caml_int32.div(Core__Array.reduce(players$1, 0, (function (s, p) {
+                return s + p.count | 0;
+              })), n);
+  var playingIds = new Set(round.flatMap(players).map(function (p) {
+            return p.id;
+          }));
+  var byeImbalance = Core__Array.reduce(players$1.filter(function (p) {
+            return !playingIds.has(p.id);
+          }), 0, (function (acc, p) {
+          return acc + Math.max(0, avgCount - p.count | 0) | 0;
+        }));
+  return matchPenalty + Math.imul(byeImbalance, 10) | 0;
+}
+
+function generateOneNoveltyRound(players$1, numCourts, seenTeams, seenMatches, seenOpponentPairs, avoidAllPlayers, teamConstraints) {
+  var shuffledPlayers = shuffle(players$1);
+  var _remaining = numCourts;
+  var _consumed = new Set();
+  var _acc = [];
+  while(true) {
+    var acc = _acc;
+    var consumed = _consumed;
+    var remaining = _remaining;
+    if (remaining <= 0) {
+      return acc;
+    }
+    var available = shuffledPlayers.filter((function(consumed){
+        return function (p) {
+          return !consumed.has(p.id);
+        }
+        }(consumed)));
+    if (available.length < 4) {
+      return acc;
+    }
+    var constr = teamConstraints !== undefined ? teamConstraints : Util.NonEmptyArray.fromArray([new Set(available.map(function (p) {
+                      return p.id;
+                    }))]);
+    var candidates = find_all_match_combos(available, [], avoidAllPlayers, constr, undefined);
+    var sorted = candidates.map(function (param) {
+            var m = param[0];
+            return [
+                    m,
+                    noveltyMatchPenalty(m, seenTeams, seenMatches, seenOpponentPairs)
+                  ];
+          }).toSorted(function (param, param$1) {
+          return param[1] - param$1[1] | 0;
+        });
+    var topN = Math.min(3, sorted.length);
+    var idx = Math.floor(Math.random() * topN) | 0;
+    var match = sorted.at(idx);
+    if (match === undefined) {
+      return acc;
+    }
+    var m = match[0];
+    var newConsumed = Core__Array.reduce(players(m), consumed, (function (set, p) {
+            set.add(p.id);
+            return set;
+          }));
+    _acc = acc.concat([m]);
+    _consumed = newConsumed;
+    _remaining = remaining - 1 | 0;
+    continue ;
+  };
 }
 
 function generateMatches(players$1, history, strategy, numMatches, avoidAllPlayersOpt, teamConstraints, courtsOpt, genderMixedOpt, param) {
@@ -1884,8 +1998,10 @@ function generateMatches(players$1, history, strategy, numMatches, avoidAllPlaye
         new Set(),
         new Set(),
         new Set(),
+        new Set(),
         new Set()
       ], (function (param, completedMatch, index) {
+          var allOpponentPairs = param[4];
           var lastMatches = param[3];
           var lastTeams = param[2];
           var allMatches = param[1];
@@ -1897,6 +2013,9 @@ function generateMatches(players$1, history, strategy, numMatches, avoidAllPlaye
           allTeams.add(team1Id);
           allTeams.add(team2Id);
           allMatches.add(matchId);
+          noveltyOpponentPairIds(completedMatch.match).forEach(function (id) {
+                allOpponentPairs.add(id);
+              });
           if (index >= lastRoundStartIndex) {
             lastTeams.add(team1Id);
             lastTeams.add(team2Id);
@@ -1906,112 +2025,138 @@ function generateMatches(players$1, history, strategy, numMatches, avoidAllPlaye
                   allTeams,
                   allMatches,
                   lastTeams,
-                  lastMatches
+                  lastMatches,
+                  allOpponentPairs
                 ];
         }));
+  var seenOpponentPairsFromHistory = match[4];
   var lastRoundSeenMatches = match[3];
   var lastRoundSeenTeams = match[2];
   var seenMatchesFromHistory = match[1];
   var seenTeamsFromHistory = match[0];
-  var _consumedPlayers = new Set();
-  var _accumulated = [];
-  var _remaining = numMatches;
-  while(true) {
-    var remaining = _remaining;
-    var accumulated = _accumulated;
-    var consumedPlayers = _consumedPlayers;
-    if (remaining <= 0) {
-      return accumulated;
-    }
-    var availablePlayers = players$1.filter((function(consumedPlayers){
-        return function (p) {
-          return !consumedPlayers.has(p.id);
-        }
-        }(consumedPlayers)));
-    var availablePlayerIds = new Set(availablePlayers.map(function (p) {
-              return p.id;
+  if (strategy !== "NoveltyRoundRobin") {
+    var _consumedPlayers = new Set();
+    var _accumulated = [];
+    var _remaining = numMatches;
+    while(true) {
+      var remaining = _remaining;
+      var accumulated = _accumulated;
+      var consumedPlayers = _consumedPlayers;
+      if (remaining <= 0) {
+        return accumulated;
+      }
+      var availablePlayers = players$1.filter((function(consumedPlayers){
+          return function (p) {
+            return !consumedPlayers.has(p.id);
+          }
+          }(consumedPlayers)));
+      var availablePlayerIds = new Set(availablePlayers.map(function (p) {
+                return p.id;
+              }));
+      var filteredTeamConstraints = Core__Option.map(teamConstraints, (function(availablePlayerIds){
+          return function (constraints) {
+            return constraints.filter(function (constraintSet) {
+                        var constraintPlayerIds = Array.from(constraintSet.values());
+                        return constraintPlayerIds.every(function (playerId) {
+                                    return availablePlayerIds.has(playerId);
+                                  });
+                      });
+          }
+          }(availablePlayerIds)));
+      var teamConstraintsNonEmpty = Core__Option.flatMap(filteredTeamConstraints, (function (arr) {
+              if (arr.length > 0) {
+                return arr;
+              }
+              
             }));
-    var filteredTeamConstraints = Core__Option.map(teamConstraints, (function(availablePlayerIds){
-        return function (constraints) {
-          return constraints.filter(function (constraintSet) {
-                      var constraintPlayerIds = Array.from(constraintSet.values());
-                      return constraintPlayerIds.every(function (playerId) {
-                                  return availablePlayerIds.has(playerId);
-                                });
-                    });
+      var teamConstraintsAsTeams = teamConstraintsNonEmpty !== undefined ? Util.NonEmptyArray.fromArray(teamConstraintsNonEmpty.map(function (constraintSet) {
+                  return players$1.filter(function (p) {
+                              return constraintSet.has(p.id);
+                            });
+                })) : undefined;
+      var getCandidateMatches = (function(consumedPlayers,availablePlayers,teamConstraintsNonEmpty){
+      return function getCandidateMatches(useMixed) {
+        if (teamConstraintsNonEmpty === undefined) {
+          return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
         }
-        }(availablePlayerIds)));
-    var teamConstraintsNonEmpty = Core__Option.flatMap(filteredTeamConstraints, (function (arr) {
-            if (arr.length > 0) {
-              return arr;
-            }
-            
-          }));
-    var teamConstraintsAsTeams = teamConstraintsNonEmpty !== undefined ? Util.NonEmptyArray.fromArray(teamConstraintsNonEmpty.map(function (constraintSet) {
-                return players$1.filter(function (p) {
-                            return constraintSet.has(p.id);
-                          });
-              })) : undefined;
-    var getCandidateMatches = (function(consumedPlayers,availablePlayers,teamConstraintsNonEmpty){
-    return function getCandidateMatches(useMixed) {
-      if (teamConstraintsNonEmpty === undefined) {
-        return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
+        var matchesWithConstraints = getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, teamConstraintsNonEmpty, undefined, courts, useMixed);
+        if (matchesWithConstraints.length !== 0) {
+          return matchesWithConstraints;
+        }
+        var constraintPlayerIds = Core__Option.getOr(Core__Option.map(teamConstraintsNonEmpty, (function (constraints) {
+                    return Core__Array.reduce(constraints, new Set(), (function (acc, constraintSet) {
+                                  Array.from(constraintSet.values()).forEach(function (id) {
+                                        acc.add(id);
+                                      });
+                                  return acc;
+                                }));
+                  })), new Set());
+        var availablePlayersWithoutConstraints = availablePlayers.filter(function (p) {
+              return !constraintPlayerIds.has(p.id);
+            });
+        var matchesWithoutConstraintPlayers = getMatches(availablePlayersWithoutConstraints, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
+        if (matchesWithoutConstraintPlayers.length === 0) {
+          return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
+        } else {
+          return matchesWithoutConstraintPlayers;
+        }
       }
-      var matchesWithConstraints = getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, teamConstraintsNonEmpty, undefined, courts, useMixed);
-      if (matchesWithConstraints.length !== 0) {
-        return matchesWithConstraints;
-      }
-      var constraintPlayerIds = Core__Option.getOr(Core__Option.map(teamConstraintsNonEmpty, (function (constraints) {
-                  return Core__Array.reduce(constraints, new Set(), (function (acc, constraintSet) {
-                                Array.from(constraintSet.values()).forEach(function (id) {
-                                      acc.add(id);
-                                    });
-                                return acc;
-                              }));
-                })), new Set());
-      var availablePlayersWithoutConstraints = availablePlayers.filter(function (p) {
-            return !constraintPlayerIds.has(p.id);
-          });
-      var matchesWithoutConstraintPlayers = getMatches(availablePlayersWithoutConstraints, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
-      if (matchesWithoutConstraintPlayers.length === 0) {
-        return getMatches(availablePlayers, consumedPlayers, strategy, [], avoidAllPlayers, undefined, undefined, courts, useMixed);
+      }(consumedPlayers,availablePlayers,teamConstraintsNonEmpty));
+      var matches = getCandidateMatches(genderMixed);
+      var selectedMatch = recommendMatch(matches, seenTeamsFromHistory, seenMatchesFromHistory, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraintsAsTeams, strategy, teamCountDict);
+      var selectedMatch$1;
+      if (selectedMatch !== undefined || !genderMixed) {
+        selectedMatch$1 = selectedMatch;
       } else {
-        return matchesWithoutConstraintPlayers;
+        var matches$1 = getCandidateMatches(false);
+        selectedMatch$1 = recommendMatch(matches$1, seenTeamsFromHistory, seenMatchesFromHistory, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraintsAsTeams, strategy, teamCountDict);
       }
-    }
-    }(consumedPlayers,availablePlayers,teamConstraintsNonEmpty));
-    var matches = getCandidateMatches(genderMixed);
-    var selectedMatch = recommendMatch(matches, seenTeamsFromHistory, seenMatchesFromHistory, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraintsAsTeams, strategy, teamCountDict);
-    var selectedMatch$1;
-    if (selectedMatch !== undefined || !genderMixed) {
-      selectedMatch$1 = selectedMatch;
-    } else {
-      var matches$1 = getCandidateMatches(false);
-      selectedMatch$1 = recommendMatch(matches$1, seenTeamsFromHistory, seenMatchesFromHistory, lastRoundSeenTeams, lastRoundSeenMatches, teamConstraintsAsTeams, strategy, teamCountDict);
-    }
-    if (selectedMatch$1 === undefined) {
-      return accumulated;
-    }
-    var matchPlayers = players(selectedMatch$1);
-    var newConsumedPlayers = Core__Array.reduce(matchPlayers, consumedPlayers, (function (set, player) {
-            set.add(player.id);
-            return set;
-          }));
-    var updatedMatch = incrementPlayCounts(selectedMatch$1);
-    var randomizedMatch = Math.random() > 0.5 ? [
-        updatedMatch[1],
-        updatedMatch[0]
-      ] : updatedMatch;
-    var matchId = "match-" + (accumulated.length + 1 | 0).toString();
-    var matchEntity = {
-      id: matchId,
-      match: randomizedMatch
+      if (selectedMatch$1 === undefined) {
+        return accumulated;
+      }
+      var matchPlayers = players(selectedMatch$1);
+      var newConsumedPlayers = Core__Array.reduce(matchPlayers, consumedPlayers, (function (set, player) {
+              set.add(player.id);
+              return set;
+            }));
+      var updatedMatch = incrementPlayCounts(selectedMatch$1);
+      var randomizedMatch = Math.random() > 0.5 ? [
+          updatedMatch[1],
+          updatedMatch[0]
+        ] : updatedMatch;
+      var matchId = "match-" + (accumulated.length + 1 | 0).toString();
+      var matchEntity = {
+        id: matchId,
+        match: randomizedMatch
+      };
+      _remaining = remaining - 1 | 0;
+      _accumulated = accumulated.concat([matchEntity]);
+      _consumedPlayers = newConsumedPlayers;
+      continue ;
     };
-    _remaining = remaining - 1 | 0;
-    _accumulated = accumulated.concat([matchEntity]);
-    _consumedPlayers = newConsumedPlayers;
-    continue ;
-  };
+  }
+  var resolvedConstraints = Core__Option.flatMap(teamConstraints, (function (arr) {
+          return Util.NonEmptyArray.fromArray(arr);
+        }));
+  var attempts = Belt_Array.makeBy(50, (function (param) {
+          return generateOneNoveltyRound(players$1, numMatches, seenTeamsFromHistory, seenMatchesFromHistory, seenOpponentPairsFromHistory, avoidAllPlayers, resolvedConstraints);
+        }));
+  var best = Core__Option.getOr(attempts.toSorted(function (a, b) {
+              var scoreA = noveltyRoundPenalty(a, players$1, seenTeamsFromHistory, seenMatchesFromHistory, seenOpponentPairsFromHistory);
+              var scoreB = noveltyRoundPenalty(b, players$1, seenTeamsFromHistory, seenMatchesFromHistory, seenOpponentPairsFromHistory);
+              return scoreA - scoreB;
+            }).at(0), []);
+  return best.map(function (m, i) {
+              var updatedMatch = incrementPlayCounts(m);
+              var randomizedMatch = Math.random() > 0.5 ? [
+                  updatedMatch[1],
+                  updatedMatch[0]
+                ] : updatedMatch;
+              return {
+                      id: "match-" + (i + 1 | 0).toString(),
+                      match: randomizedMatch
+                    };
+            });
 }
 
 function addToQueue(queue, player) {
@@ -2232,8 +2377,8 @@ var Matches = {
   fromDndItems: fromDndItems
 };
 
-function guessDupr(ratingMu) {
-  return 0.032610082623550245 * (ratingMu - 25) + 3.5121203871706075;
+function guessDupr(mu) {
+  return 0.038187317186283626 * (mu - 25) + 3.539018142582235;
 }
 
 function guessDuprLo(mu, sigma) {
@@ -2245,7 +2390,7 @@ function ordinal2(r) {
 }
 
 function duprToMu(dupr) {
-  return (dupr - 3.5121203871706075) / 0.032610082623550245 + 25;
+  return (dupr - 3.539018142582235) / 0.038187317186283626 + 25;
 }
 
 function duprToOrdinal(dupr) {
@@ -2479,7 +2624,8 @@ function generateRoundsRec(_roundNumber, _roundsToGenerate, _availablePlayers, c
                   id: crypto.randomUUID(),
                   match: matchEntity.match,
                   score: undefined,
-                  createdAt: roundCreatedAt
+                  createdAt: roundCreatedAt,
+                  synced: false
                 };
         }
         }(roundCreatedAt)));
@@ -2562,6 +2708,10 @@ export {
   uniform_shuffle_array ,
   RankedMatches ,
   getMatches ,
+  noveltyOpponentPairIds ,
+  noveltyMatchPenalty ,
+  noveltyRoundPenalty ,
+  generateOneNoveltyRound ,
   generateMatches ,
   OrderedQueue ,
   UnorderedQueue ,

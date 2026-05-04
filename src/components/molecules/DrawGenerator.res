@@ -52,7 +52,7 @@ let make = (
       description: ts`Round-Robin with teams balanced by skill.`,
     },
     {
-      value: Rating.Random,
+      value: Rating.NoveltyRoundRobin,
       label: ts`Round-Robin`,
       description: ts`Classic round-robin draws`,
     },

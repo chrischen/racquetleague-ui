@@ -442,6 +442,13 @@ return {
                             "storageKey": null
                           },
                           {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "cancelDeadline",
+                            "storageKey": null
+                          },
+                          {
                             "kind": "ClientExtension",
                             "selections": [
                               {
@@ -513,12 +520,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c9c0bdbd1c0ef68566f10cba3b8b82c0",
+    "cacheID": "abdc5543b12852523edea91aeb424b6e",
     "id": null,
     "metadata": {},
     "name": "ClubEventsListRefetchQuery",
     "operationKind": "query",
-    "text": "query ClubEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $first: Int = 20\n  $token: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ClubEventsListFragment_1IpZ7U\n    id\n  }\n}\n\nfragment ClubEventsListFragment_1IpZ7U on Club {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        maxRsvps\n        listed\n        shadow\n        deleted\n        club {\n          id\n        }\n        location {\n          id\n        }\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n  id\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n}\n"
+    "text": "query ClubEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $first: Int = 20\n  $token: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ClubEventsListFragment_1IpZ7U\n    id\n  }\n}\n\nfragment ClubEventsListFragment_1IpZ7U on Club {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        maxRsvps\n        listed\n        shadow\n        deleted\n        club {\n          id\n        }\n        location {\n          id\n        }\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n  id\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n  cancelDeadline\n}\n"
   }
 };
 })());

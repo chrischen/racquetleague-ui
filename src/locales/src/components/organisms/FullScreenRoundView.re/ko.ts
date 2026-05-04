@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RQe+iX\":\"진행 중 라운드\",\"Kbi7Yx\":\"전체 화면 닫기\",\"hlIKDQ\":[\"코트 \",[\"0\"]],\"xXKDhD\":[\"라운드 \",[\"0\"]],\"FKn1hm\":\"이번 라운드 불참\"}");

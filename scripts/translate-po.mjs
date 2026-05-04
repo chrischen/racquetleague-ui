@@ -29,6 +29,7 @@ const LANGUAGE_NAMES = {
   'zh-CN': 'Simplified Chinese',
   'zh-TW': 'Traditional Chinese',
   vi: 'Vietnamese',
+  th: 'Thai',
 }
 
 const ALL_LOCALES = Object.keys(LANGUAGE_NAMES)
@@ -156,11 +157,9 @@ async function main() {
     process.exit(1)
   }
 
-  console.log(`Translating locales: ${locales.join(', ')}`)
+  console.log(`Translating locales: ${locales.join(', ')} (in parallel)`)
 
-  for (const locale of locales) {
-    await translateFile(locale)
-  }
+  await Promise.all(locales.map(locale => translateFile(locale)))
 
   console.log('\nDone.')
 }

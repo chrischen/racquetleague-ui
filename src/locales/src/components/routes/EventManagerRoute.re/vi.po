@@ -13,8 +13,8 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -22,7 +22,7 @@ msgstr "{0} {matchText}"
 msgid "{0} of {1} checked in"
 msgstr "{0} trong {1} đã check-in"
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
@@ -30,7 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/FullScreenRoundView.re.mjs:36
 msgid "ACTIVE ROUND"
 msgstr "VÒNG ĐANG DIỄN RA"
 
@@ -54,7 +55,7 @@ msgstr "Điều chỉnh hạt giống người chơi"
 msgid "Advance to Next Round"
 msgstr "Tiến lên vòng tiếp theo"
 
-#: src/components/organisms/EventManager.re.mjs:1537
+#: src/components/organisms/EventManager.re.mjs:1628
 msgid "Advance to Round {0}"
 msgstr "Tiến lên vòng {0}"
 
@@ -66,7 +67,11 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "Tất cả người chơi đã check-in đều ở trong vòng này"
 
-#: src/components/organisms/EventManager.re.mjs:1637
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr "đã cập nhật"
+
+#: src/components/organisms/EventManager.re.mjs:1728
 msgid "Anti-Team {0}"
 msgstr "Đội phản {0}"
 
@@ -89,6 +94,10 @@ msgstr "Bốc thăm round-robin cổ điển"
 msgid "Close"
 msgstr "Đóng"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:47
+msgid "Close Full Screen"
+msgstr "Đóng Toàn Màn Hình"
+
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
 msgstr "Thi đấu"
@@ -96,6 +105,10 @@ msgstr "Thi đấu"
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
 msgstr "Sân {0}"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:63
+msgid "COURT {0}"
+msgstr "SÂN {0}"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:132
 msgid "Court {0} - Editing"
@@ -129,11 +142,11 @@ msgstr "Tạo đội đầu tiên của bạn để bắt đầu"
 msgid "Current Round:"
 msgstr "Vòng hiện tại:"
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: OFF"
 msgstr "Gỡ lỗi: TẮT"
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: ON"
 msgstr "Gỡ lỗi: BẬT"
 
@@ -186,6 +199,10 @@ msgstr "Nhập tên đội"
 msgid "Female"
 msgstr "Nữ"
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr "Xem Toàn Màn Hình"
+
 #: src/components/molecules/DrawGenerator.re.mjs:271
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
@@ -210,7 +227,7 @@ msgstr "Tạo bốc thăm"
 msgid "Guest Names (one per line)"
 msgstr "Tên khách (mỗi tên một dòng)"
 
-#: src/components/organisms/EventManager.re.mjs:1810
+#: src/components/organisms/EventManager.re.mjs:1905
 msgid "Help"
 msgstr "Trợ giúp"
 
@@ -234,11 +251,11 @@ msgstr "Đội thua (Đội {0})"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr "trận đấu"
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr "trận đấu"
 
@@ -326,7 +343,7 @@ msgstr "Vòng trước"
 msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr "Cân bằng lại vòng này với người chơi hiện tại"
 
@@ -346,20 +363,21 @@ msgstr "Thay thế người chơi"
 msgid "Replacing:"
 msgstr "Đang thay thế:"
 
-#: src/components/organisms/EventManager.re.mjs:1795
+#: src/components/organisms/EventManager.re.mjs:1890
 msgid "Reset Storage"
 msgstr "Đặt lại bộ nhớ"
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr "Đặt lại vòng này với tất cả người chơi đã check-in"
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr "Đặt lại vòng này với các cặp nam nữ hỗn hợp"
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "Vòng {0}"
 
@@ -400,7 +418,7 @@ msgstr "Lưu đội"
 msgid "Score"
 msgstr "Điểm số"
 
-#: src/components/organisms/EventManager.re.mjs:1373
+#: src/components/organisms/EventManager.re.mjs:1438
 msgid "Scores Synced!"
 msgstr "Điểm số đã được đồng bộ!"
 
@@ -420,19 +438,23 @@ msgstr "chiến lược"
 msgid "Strategy:"
 msgstr "Chiến lược:"
 
-#: src/components/organisms/EventManager.re.mjs:1385
+#: src/components/organisms/EventManager.re.mjs:1450
 msgid "Sync Failed"
 msgstr "Đồng bộ thất bại"
 
-#: src/components/organisms/EventManager.re.mjs:1349
+#: src/components/organisms/EventManager.re.mjs:1414
 msgid "Sync Scores"
 msgstr "Đồng bộ điểm số"
 
-#: src/components/organisms/EventManager.re.mjs:1361
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr "đã đồng bộ"
+
+#: src/components/organisms/EventManager.re.mjs:1426
 msgid "Syncing... {0}%"
 msgstr "Đang đồng bộ... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1327
+#: src/components/organisms/EventManager.re.mjs:1359
 msgid "Team {0}"
 msgstr "Đội {0}"
 
@@ -472,6 +494,10 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr "Điều này sẽ xóa tất cả các vòng tiếp theo và tạo trận đấu mới"
 
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
+msgstr "cần đồng bộ"
+
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Update Future Rounds"
 msgstr "Cập nhật các vòng tiếp theo"
@@ -490,3 +516,7 @@ msgstr "VS"
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
 msgstr "Đội thắng (Đội {0})"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "Không Chơi Vòng Này"

@@ -17,8 +17,8 @@ msgstr ""
 #~ msgid "{0, plural, one {player} other {players}}"
 #~ msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgstr ""
 msgid "{0} of {1} checked in"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -34,7 +34,8 @@ msgstr ""
 msgid "$"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/FullScreenRoundView.re.mjs:36
 msgid "ACTIVE ROUND"
 msgstr ""
 
@@ -62,7 +63,7 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:802
+#: src/components/organisms/RoundRobin.re.mjs:839
 msgid "Advance to Round {0}"
 msgstr ""
 
@@ -74,7 +75,7 @@ msgstr ""
 msgid "All checked-in players are already in this round"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:901
+#: src/components/organisms/RoundRobin.re.mjs:938
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -101,12 +102,20 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:47
+msgid "Close Full Screen"
+msgstr ""
+
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
+msgstr ""
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:63
+msgid "COURT {0}"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:132
@@ -145,11 +154,11 @@ msgstr ""
 #~ msgid "Debug Mode"
 #~ msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1048
+#: src/components/organisms/RoundRobin.re.mjs:1089
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1048
+#: src/components/organisms/RoundRobin.re.mjs:1089
 msgid "Debug: ON"
 msgstr ""
 
@@ -202,6 +211,10 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr ""
+
 #: src/components/molecules/DrawGenerator.re.mjs:271
 msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
 msgstr ""
@@ -226,7 +239,7 @@ msgstr ""
 #~ msgid "Guest player addition UI to be implemented"
 #~ msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1036
+#: src/components/organisms/RoundRobin.re.mjs:1077
 msgid "Help"
 msgstr ""
 
@@ -254,11 +267,11 @@ msgstr ""
 #~ msgid "Manage a round-robin tournament with guest players"
 #~ msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr ""
 
@@ -310,6 +323,10 @@ msgstr ""
 msgid "Not paid"
 msgstr ""
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr ""
+
 #: src/components/organisms/PlayerCheckin.re.mjs:319
 msgid "Paid"
 msgstr ""
@@ -334,7 +351,7 @@ msgstr ""
 msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:679
+#: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
 msgstr ""
 
@@ -350,7 +367,7 @@ msgstr ""
 msgid "Rebalance match"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr ""
 
@@ -370,16 +387,17 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr ""
 
@@ -440,7 +458,7 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:665
+#: src/components/organisms/RoundRobin.re.mjs:679
 msgid "Team {0}"
 msgstr ""
 
@@ -495,6 +513,6 @@ msgstr ""
 msgid "Winning Team (Team {0})"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:675
+#: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr ""

@@ -26,6 +26,7 @@ module Mutation = %relay(`
        listed
        timezone
        tags
+       cancelDeadline
      }
    }
  }
@@ -60,6 +61,7 @@ module UpdateMutation = %relay(`
        endDate
        listed
        tags
+       cancelDeadline
      }
      rsvps {
        id
@@ -95,6 +97,7 @@ type inputs = {
   details: Zod.optional<Zod.string_>,
   listed: bool,
   price?: int,
+  cancelDeadline?: int,
 }
 
 let schema = Zod.z->Zod.object(
@@ -117,6 +120,10 @@ let schema = Zod.z->Zod.object(
       details: Zod.z->Zod.string({})->Zod.optional,
       listed: Zod.z->Zod.boolean({}),
       price: ?Zod.z->Zod.preprocess(v => Int.fromString(v), Zod.z->Zod.numberInt({})->Zod.optional),
+      cancelDeadline: ?Zod.z->Zod.preprocess(
+        v => Int.fromString(v),
+        Zod.z->Zod.numberInt({})->Zod.optional,
+      ),
     }: inputs
   ),
 )
@@ -136,6 +143,7 @@ type prefilledValues = {
   timezone?: string,
   tags?: array<string>,
   price?: int,
+  cancelDeadline?: int,
 }
 
 // Calculate duration in hours between start date and end time
@@ -177,6 +185,7 @@ let make = (
       endTime: pf.endDate->Option.getOr(""),
       listed: pf.listed->Option.getOr(false),
       price: ?pf.price,
+      cancelDeadline: ?pf.cancelDeadline,
     }
   | None => {
       listed: false,
@@ -460,6 +469,7 @@ let make = (
                 timezone: ?data.timezone,
                 tags: tagsToSubmit,
                 price: ?priceValue,
+                cancelDeadline: ?data.cancelDeadline,
               },
             },
             ~onCompleted=(_response, _errors) => {
@@ -492,6 +502,7 @@ let make = (
               timezone: ?data.timezone,
               tags: tagsToSubmit,
               price: ?priceValue,
+              cancelDeadline: ?data.cancelDeadline,
             },
             connections: [connectionId],
           },
@@ -823,6 +834,30 @@ let make = (
                         className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
                       />
                     </div>
+                  </div>
+                  // Cancel Deadline
+                  <div>
+                    <label
+                      htmlFor="cancelDeadline"
+                      className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                      {t`Cancel deadline (optional)`}
+                    </label>
+                    <select
+                      {...register(CancelDeadline, ~options={required: false})}
+                      id="cancelDeadline"
+                      className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100">
+                      <option value=""> {(ts`No deadline`)->React.string} </option>
+                      <option value="3600000"> {(ts`1 hour before`)->React.string} </option>
+                      <option value="7200000"> {(ts`2 hours before`)->React.string} </option>
+                      <option value="21600000"> {(ts`6 hours before`)->React.string} </option>
+                      <option value="43200000"> {(ts`12 hours before`)->React.string} </option>
+                      <option value="86400000"> {(ts`24 hours before`)->React.string} </option>
+                      <option value="172800000"> {(ts`48 hours before`)->React.string} </option>
+                      <option value="604800000"> {(ts`1 week before`)->React.string} </option>
+                    </select>
+                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                      {t`Attendees cannot cancel their RSVP after this deadline`}
+                    </p>
                   </div>
                   // Event Details
                   <div>

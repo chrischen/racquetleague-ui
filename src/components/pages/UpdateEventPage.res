@@ -47,7 +47,7 @@ let make = () => {
               <SelectedLocation
                 location={location.fragmentRefs}
                 onNewLocation={location =>
-                  navigate("../update/" ++ event.id ++ "/" ++ location, None)}
+                  navigate("/events/update/" ++ event.id ++ "/" ++ location, None)}
               />
               <UpdateLocationEventForm
                 event=event.fragmentRefs location=location.fragmentRefs query=query.fragmentRefs

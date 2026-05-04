@@ -142,6 +142,7 @@ and input_CreateClubInput_nullable = {
 @live
 and input_CreateEventInput = {
   activity: string,
+  cancelDeadline?: int,
   clubId?: string,
   details?: string,
   endDate: Util.Datetime.t,
@@ -159,6 +160,7 @@ and input_CreateEventInput = {
 @live
 and input_CreateEventInput_nullable = {
   activity: string,
+  cancelDeadline?: Js.Null.t<int>,
   clubId?: Js.Null.t<string>,
   details?: Js.Null.t<string>,
   endDate: Util.Datetime.t,
@@ -265,6 +267,18 @@ and input_GetUserClubMembershipInput = {
 
 @live
 and input_GetUserClubMembershipInput_nullable = {
+  clubId: string,
+  userId: string,
+}
+
+@live
+and input_IsUserBannedInput = {
+  clubId: string,
+  userId: string,
+}
+
+@live
+and input_IsUserBannedInput_nullable = {
   clubId: string,
   userId: string,
 }

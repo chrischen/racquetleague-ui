@@ -15,11 +15,11 @@ msgstr ""
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:322
 msgid "Biography"
-msgstr ""
+msgstr "ประวัติส่วนตัว"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:250
 msgid "Display Name"
-msgstr ""
+msgstr "ชื่อที่แสดง"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:267
 msgid "Doe John"
@@ -31,7 +31,7 @@ msgstr "หญิง"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:263
 msgid "Full name"
-msgstr ""
+msgstr "ชื่อเต็ม"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:278
 msgid "Gender"
@@ -39,7 +39,7 @@ msgstr "เพศ"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:254
 msgid "How you appear to other players"
-msgstr ""
+msgstr "ชื่อที่ผู้เล่นคนอื่นจะเห็น"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:289
 msgid "Male"
@@ -51,7 +51,7 @@ msgstr "ไม่ต้องการระบุ"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:349
 msgid "Save profile"
-msgstr ""
+msgstr "บันทึกโปรไฟล์"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
@@ -73,7 +73,7 @@ msgstr "เล่าให้ฟังเกี่ยวกับตัวคุ
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:326
 msgid "Tell us a little about yourself..."
-msgstr ""
+msgstr "บอกเราเกี่ยวกับตัวคุณสักหน่อย..."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:289
 #~ msgid "biography"

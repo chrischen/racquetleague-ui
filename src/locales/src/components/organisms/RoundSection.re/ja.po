@@ -13,16 +13,16 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
 msgid "ACTIVE ROUND"
 msgstr "進行中のラウンド"
 
@@ -55,6 +55,10 @@ msgstr "試合を編集"
 msgid "Enter Match Score"
 msgstr "試合のスコアを入力"
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr "全画面表示"
+
 #: src/components/organisms/MatchCard.re.mjs:408
 msgid "Last Round"
 msgstr "前回のラウンド"
@@ -63,11 +67,11 @@ msgstr "前回のラウンド"
 msgid "Losing Team (Team {0})"
 msgstr "敗北チーム（チーム{0}）"
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr "試合"
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr "試合"
 
@@ -83,7 +87,7 @@ msgstr "スコアなし"
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr "現在のプレイヤーでこのラウンドを再調整"
 
@@ -99,16 +103,16 @@ msgstr "プレイヤーを交代"
 msgid "Replacing:"
 msgstr "交代するプレイヤー："
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr "チェックイン済みの全プレイヤーでこのラウンドをリセット"
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr "混合ペアでこのラウンドをリセット"
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
 msgid "Round {0}"
 msgstr "ラウンド{0}"
 

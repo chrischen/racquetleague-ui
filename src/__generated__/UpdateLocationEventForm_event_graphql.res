@@ -14,6 +14,7 @@ module Types = {
   }
   type fragment = {
     activity: option<fragment_activity>,
+    cancelDeadline: option<int>,
     club: option<fragment_club>,
     details: option<string>,
     endDate: option<Util.Datetime.t>,
@@ -183,6 +184,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "price",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "cancelDeadline",
       "storageKey": null
     }
   ],

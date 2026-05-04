@@ -154,6 +154,7 @@ function RoundSection(props) {
   var allRounds = props.allRounds;
   var getUserFragmentRefs = props.getUserFragmentRefs;
   var __debug = props.debug;
+  var onFullScreen = props.onFullScreen;
   var onReset = props.onReset;
   var onRebalanceMatch = props.onRebalanceMatch;
   var onRebalance = props.onRebalance;
@@ -238,7 +239,8 @@ function RoundSection(props) {
                                         newTeam2
                                       ],
                                       score: matchEntity.score,
-                                      createdAt: matchEntity.createdAt
+                                      createdAt: matchEntity.createdAt,
+                                      synced: matchEntity.synced
                                     };
                             });
                 });
@@ -332,7 +334,8 @@ function RoundSection(props) {
                                                     id: entity.id,
                                                     match: newMatch,
                                                     score: entity.score,
-                                                    createdAt: entity.createdAt
+                                                    createdAt: entity.createdAt,
+                                                    synced: entity.synced
                                                   };
                                           });
                               });
@@ -522,6 +525,19 @@ function RoundSection(props) {
                                         children: t`ACTIVE ROUND`,
                                         className: "px-3 py-1 text-sm font-bold text-white bg-blue-600 rounded-full shadow-md"
                                       }),
+                                  Core__Option.isSome(onFullScreen) ? JsxRuntime.jsx("button", {
+                                          children: JsxRuntime.jsx(LucideReact.Maximize2, {
+                                                className: "w-5 h-5"
+                                              }),
+                                          className: "p-1.5 text-blue-700 hover:text-blue-900 hover:bg-blue-100 rounded-lg transition-colors",
+                                          title: t`Full Screen View`,
+                                          onClick: (function (e) {
+                                              e.stopPropagation();
+                                              Core__Option.forEach(onFullScreen, (function (fn) {
+                                                      fn();
+                                                    }));
+                                            })
+                                        }) : null,
                                   JsxRuntime.jsx("span", {
                                         children: t`${matchCount.toString()} ${matchText}`,
                                         className: "text-sm text-blue-700"

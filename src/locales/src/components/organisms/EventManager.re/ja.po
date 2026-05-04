@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -22,7 +22,7 @@ msgstr "{0} {matchText}"
 msgid "{0} of {1} checked in"
 msgstr "{1}人中{0}人がチェックイン済み"
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
@@ -30,7 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "¥"
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/FullScreenRoundView.re.mjs:36
 msgid "ACTIVE ROUND"
 msgstr "進行中のラウンド"
 
@@ -54,7 +55,7 @@ msgstr "プレイヤーシードを調整"
 msgid "Advance to Next Round"
 msgstr "次のラウンドへ進む"
 
-#: src/components/organisms/EventManager.re.mjs:1537
+#: src/components/organisms/EventManager.re.mjs:1628
 msgid "Advance to Round {0}"
 msgstr "ラウンド{0}に進む"
 
@@ -66,7 +67,11 @@ msgstr "アレックス・ジョンソン"
 msgid "All checked-in players are already in this round"
 msgstr "チェックイン済みのプレイヤーは全員このラウンドに参加しています"
 
-#: src/components/organisms/EventManager.re.mjs:1637
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr "すべて最新"
+
+#: src/components/organisms/EventManager.re.mjs:1728
 msgid "Anti-Team {0}"
 msgstr "アンチチーム {0}"
 
@@ -89,12 +94,20 @@ msgstr "クラシック総当たり抽選"
 msgid "Close"
 msgstr "閉じる"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:47
+msgid "Close Full Screen"
+msgstr "全画面表示を閉じる"
+
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
 msgstr "競争力"
 
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
+msgstr "コート{0}"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:63
+msgid "COURT {0}"
 msgstr "コート{0}"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:132
@@ -129,11 +142,11 @@ msgstr "最初のチームを作成して始めましょう"
 msgid "Current Round:"
 msgstr "現在のラウンド："
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: OFF"
 msgstr "デバッグ：オフ"
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: ON"
 msgstr "デバッグ：オン"
 
@@ -186,6 +199,10 @@ msgstr "チーム名を入力"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr "全画面表示"
+
 #: src/components/molecules/DrawGenerator.re.mjs:271
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
@@ -210,7 +227,7 @@ msgstr "組み合わせを生成"
 msgid "Guest Names (one per line)"
 msgstr "ゲスト名（1行に1名）"
 
-#: src/components/organisms/EventManager.re.mjs:1810
+#: src/components/organisms/EventManager.re.mjs:1905
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -234,11 +251,11 @@ msgstr "敗北チーム（チーム{0}）"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr "試合"
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr "試合"
 
@@ -324,7 +341,7 @@ msgstr "前のラウンド"
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr "現在のプレイヤーでこのラウンドを再調整"
 
@@ -344,20 +361,21 @@ msgstr "プレイヤーを交代"
 msgid "Replacing:"
 msgstr "交代するプレイヤー："
 
-#: src/components/organisms/EventManager.re.mjs:1795
+#: src/components/organisms/EventManager.re.mjs:1890
 msgid "Reset Storage"
 msgstr "ストレージをリセット"
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr "チェックイン済みの全プレイヤーでこのラウンドをリセット"
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr "混合ペアでこのラウンドをリセット"
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "ラウンド{0}"
 
@@ -398,7 +416,7 @@ msgstr "チームを保存"
 msgid "Score"
 msgstr "スコア"
 
-#: src/components/organisms/EventManager.re.mjs:1373
+#: src/components/organisms/EventManager.re.mjs:1438
 msgid "Scores Synced!"
 msgstr "スコアを同期しました！"
 
@@ -418,19 +436,23 @@ msgstr "戦略"
 msgid "Strategy:"
 msgstr "戦略："
 
-#: src/components/organisms/EventManager.re.mjs:1385
+#: src/components/organisms/EventManager.re.mjs:1450
 msgid "Sync Failed"
 msgstr "同期に失敗しました"
 
-#: src/components/organisms/EventManager.re.mjs:1349
+#: src/components/organisms/EventManager.re.mjs:1414
 msgid "Sync Scores"
 msgstr "スコアを同期"
 
-#: src/components/organisms/EventManager.re.mjs:1361
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr "同期済み"
+
+#: src/components/organisms/EventManager.re.mjs:1426
 msgid "Syncing... {0}%"
 msgstr "同期中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1327
+#: src/components/organisms/EventManager.re.mjs:1359
 msgid "Team {0}"
 msgstr "チーム {0}"
 
@@ -469,6 +491,10 @@ msgstr ""
 #: src/components/molecules/DrawGenerator.re.mjs:292
 msgid "This will delete all future rounds and generate new matches"
 msgstr "すべての今後のラウンドを削除して新しい試合を生成します"
+
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
+msgstr "同期する"
 
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Update Future Rounds"
@@ -534,6 +560,10 @@ msgstr "勝利チーム（チーム{0}）"
 #~ msgstr ""
 #~ "異なるレベルのプレイヤーをミックスしますが、強いプレイヤーを分散してチーム"
 #~ "のバランスを取ります。"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "このラウンドは不参加"
 
 #: src/components/organisms/EventManager.re.mjs:223
 #~ msgid "Players"

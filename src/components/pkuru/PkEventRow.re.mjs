@@ -6,6 +6,7 @@ import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as EventTag from "../atoms/EventTag.re.mjs";
+import * as DateFns from "date-fns";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -300,6 +301,7 @@ function PkEventRow$DuprBadge(props) {
                         size: iconSize,
                         strokeWidth: 2.5
                       }),
+                  "~DUPR ",
                   valueStr
                 ],
                 className: "font-mono " + textClass + " text-orange-500 dark:text-orange-400 whitespace-nowrap inline-flex items-center gap-0.5"
@@ -311,13 +313,17 @@ function PkEventRow$DuprBadge(props) {
                         size: iconSize,
                         strokeWidth: 2.5
                       }),
+                  "~DUPR ",
                   valueStr
                 ],
                 className: "font-mono " + textClass + " text-amber-500 dark:text-amber-400 whitespace-nowrap inline-flex items-center gap-0.5"
               });
   } else {
-    return JsxRuntime.jsx("span", {
-                children: valueStr,
+    return JsxRuntime.jsxs("span", {
+                children: [
+                  "~DUPR ",
+                  valueStr
+                ],
                 className: "font-mono " + textClass + " text-gray-400 dark:text-gray-500 whitespace-nowrap"
               });
   }
@@ -346,6 +352,7 @@ function PkEventRow(props) {
   var listed = match.listed;
   var id = match.id;
   var endDate = match.endDate;
+  var cancelDeadline = match.cancelDeadline;
   var __id = match.__id;
   var secret = Core__Option.getOr(match.shadow, false);
   var isUnlisted = listed !== undefined && !listed ? true : false;
@@ -534,6 +541,11 @@ function PkEventRow(props) {
           })) / mus.length;
     avgDupr = Rating.guessDupr(avg);
   }
+  var deadlinePassed = Core__Option.getOr(Core__Option.flatMap(startDate, (function (sd) {
+              return Core__Option.map(cancelDeadline, (function (ms) {
+                            return DifferenceInMinutes.differenceInMinutes(new Date(DateFns.getTime(Util.Datetime.toDate(sd)) - ms), new Date()) <= 0;
+                          }));
+            })), false);
   var isFull = Core__Option.getOr(Core__Option.map(maxRsvps, (function (max) {
               return playersCount >= max;
             })), false);
@@ -557,12 +569,16 @@ function PkEventRow(props) {
   }
   var handleActionClick = function (param) {
     if (viewerRsvpStatus !== undefined) {
-      if (waitlistCount > 0) {
-        return setShowLeaveConfirm(function (param) {
-                    return true;
-                  });
+      if (!deadlinePassed) {
+        if (waitlistCount > 0) {
+          return setShowLeaveConfirm(function (param) {
+                      return true;
+                    });
+        } else {
+          return onLeave();
+        }
       } else {
-        return onLeave();
+        return ;
       }
     } else if (viewer !== undefined) {
       return doJoinWithProfileCheck();
@@ -571,11 +587,15 @@ function PkEventRow(props) {
     }
   };
   var isInEvent = viewerRsvpStatus !== undefined;
-  var actionBg = isInEvent ? "bg-[#e8907e]" : (
-      isFull ? "bg-gray-200 dark:bg-[#3a3b40]" : "bg-[#bdf25d]"
+  var actionBg = isInEvent && deadlinePassed ? "bg-gray-200 dark:bg-[#3a3b40]" : (
+      isInEvent ? "bg-[#e8907e]" : (
+          isFull ? "bg-gray-200 dark:bg-[#3a3b40]" : "bg-[#bdf25d]"
+        )
     );
-  var actionTextColor = isInEvent ? "text-white" : (
-      isFull ? "text-gray-600 dark:text-gray-300" : "text-black"
+  var actionTextColor = isInEvent && deadlinePassed ? "text-gray-400 dark:text-gray-500" : (
+      isInEvent ? "text-white" : (
+          isFull ? "text-gray-600 dark:text-gray-300" : "text-black"
+        )
     );
   var actionLabel = isInEvent ? t`Leave` : (
       isFull ? t`Waitlist` : t`Join`

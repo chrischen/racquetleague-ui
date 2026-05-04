@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -22,7 +22,7 @@ msgstr "{0} {matchText}"
 msgid "{0} of {1} checked in"
 msgstr "{1} 人中有 {0} 人已报到"
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
@@ -30,7 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/FullScreenRoundView.re.mjs:36
 msgid "ACTIVE ROUND"
 msgstr "进行中的回合"
 
@@ -54,7 +55,7 @@ msgstr "调整球员种子"
 msgid "Advance to Next Round"
 msgstr "前进至下一回合"
 
-#: src/components/organisms/EventManager.re.mjs:1537
+#: src/components/organisms/EventManager.re.mjs:1628
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 轮"
 
@@ -66,7 +67,11 @@ msgstr "亚历克斯·约翰逊"
 msgid "All checked-in players are already in this round"
 msgstr "所有已报到的球员都已在这个回合中"
 
-#: src/components/organisms/EventManager.re.mjs:1637
+#: src/components/organisms/EventManager.re.mjs:1495
+msgid "all up to date"
+msgstr "全部已更新"
+
+#: src/components/organisms/EventManager.re.mjs:1728
 msgid "Anti-Team {0}"
 msgstr "反对队 {0}"
 
@@ -89,6 +94,10 @@ msgstr "经典循环赛抽签"
 msgid "Close"
 msgstr "关闭"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:47
+msgid "Close Full Screen"
+msgstr "退出全屏"
+
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
 msgstr "竞技模式"
@@ -96,6 +105,10 @@ msgstr "竞技模式"
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
 msgstr "场地 {0}"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:63
+msgid "COURT {0}"
+msgstr "球场 {0}"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:132
 msgid "Court {0} - Editing"
@@ -129,11 +142,11 @@ msgstr "创建您的第一支队伍开始"
 msgid "Current Round:"
 msgstr "当前回合："
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: OFF"
 msgstr "调试：关闭"
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1917
 msgid "Debug: ON"
 msgstr "调试：开启"
 
@@ -186,6 +199,10 @@ msgstr "输入队伍名称"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr "全屏查看"
+
 #: src/components/molecules/DrawGenerator.re.mjs:271
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
@@ -208,7 +225,7 @@ msgstr "生成对战表"
 msgid "Guest Names (one per line)"
 msgstr "访客姓名（每行一个）"
 
-#: src/components/organisms/EventManager.re.mjs:1810
+#: src/components/organisms/EventManager.re.mjs:1905
 msgid "Help"
 msgstr "帮助"
 
@@ -232,11 +249,11 @@ msgstr "输球队（队伍 {0}）"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr "场比赛"
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr "场比赛"
 
@@ -318,7 +335,7 @@ msgstr "上一回合"
 msgid "Rebalance match"
 msgstr "重新平衡比赛"
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr "用当前球员重新平衡这个回合"
 
@@ -338,20 +355,21 @@ msgstr "替换球员"
 msgid "Replacing:"
 msgstr "替换："
 
-#: src/components/organisms/EventManager.re.mjs:1795
+#: src/components/organisms/EventManager.re.mjs:1890
 msgid "Reset Storage"
 msgstr "重置存储"
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr "用所有已报到的球员重置这个回合"
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr "使用混合性别配对重置此轮"
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "第 {0} 回合"
 
@@ -392,7 +410,7 @@ msgstr "保存队伍"
 msgid "Score"
 msgstr "比分"
 
-#: src/components/organisms/EventManager.re.mjs:1373
+#: src/components/organisms/EventManager.re.mjs:1438
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
@@ -412,19 +430,23 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:1385
+#: src/components/organisms/EventManager.re.mjs:1450
 msgid "Sync Failed"
 msgstr "同步失败"
 
-#: src/components/organisms/EventManager.re.mjs:1349
+#: src/components/organisms/EventManager.re.mjs:1414
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:1361
+#: src/components/organisms/EventManager.re.mjs:1489
+msgid "synced"
+msgstr "已同步"
+
+#: src/components/organisms/EventManager.re.mjs:1426
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1327
+#: src/components/organisms/EventManager.re.mjs:1359
 msgid "Team {0}"
 msgstr "第 {0} 队"
 
@@ -461,6 +483,10 @@ msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢
 #: src/components/molecules/DrawGenerator.re.mjs:292
 msgid "This will delete all future rounds and generate new matches"
 msgstr "这将删除所有未来回合并生成新比赛"
+
+#: src/components/organisms/EventManager.re.mjs:1491
+msgid "to sync"
+msgstr "待同步"
 
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Update Future Rounds"
@@ -524,6 +550,10 @@ msgstr "获胜队（队伍 {0}）"
 #~ "Mix players of different levels in matches but still split stronger "
 #~ "players to balance teams."
 #~ msgstr "混合不同水平的球员，但仍然分散强队以平衡队伍。"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "本轮不参赛"
 
 #: src/components/organisms/EventManager.re.mjs:223
 #, fuzzy

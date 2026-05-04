@@ -387,9 +387,8 @@ module Match = {
     })
   }
 
-  let toStableId = ((t1, t2): t<'a>) => {
-    [t1->Team.toStableId, t2->Team.toStableId]->Array.toSorted(String.compare)->Array.join("-")
-  }
+  let toStableId = ((t1, t2): t<'a>): string =>
+    [t1, t2]->Array.flatMap(x => x)->Array.map(p => p.id)->Array.toSorted(String.compare)->Array.join("-")
 
   let players = ((t1, t2)) => [t1, t2]->Array.flatMap(x => x)
 
@@ -680,6 +679,7 @@ module CompletedMatchEntity = {
     match: match<'a>,
     score: option<(float, float)>, // Optional score (team1's score, team2's score)
     createdAt: Js.Date.t,
+    synced: bool, // Whether this match has been synced to the server
   }
 
   // Serialize completed match entity to TinyBase
@@ -708,6 +708,9 @@ module CompletedMatchEntity = {
 
     // Store createdAt timestamp
     row->Js.Dict.set("createdAt", entity.createdAt->Js.Date.getTime->Js.Json.number)
+
+    // Store synced status
+    row->Js.Dict.set("synced", entity.synced->Js.Json.boolean)
 
     row
   }
@@ -749,6 +752,11 @@ module CompletedMatchEntity = {
         }
 
         // Construct completed match entity
+        let synced =
+          row
+          ->Js.Dict.get("synced")
+          ->Option.flatMap(v => v->Js.Json.decodeBoolean)
+          ->Option.getOr(false)
         Some({
           id,
           match: (team1, team2),
@@ -756,6 +764,7 @@ module CompletedMatchEntity = {
           createdAt: createdAtOpt
           ->Option.map(ts => Js.Date.fromFloat(ts))
           ->Option.getOr(Js.Date.make()),
+          synced,
         })
       }
     | _ => None
@@ -1492,7 +1501,7 @@ let rec uniform_shuffle_array = (arr: array<'a>, n: int, offset: int) => {
   }
 }
 
-type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR
+type strategy = CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin
 
 module RankedMatches = {
   type t<'a> = array<(Match.t<'a>, float)>
@@ -1684,6 +1693,18 @@ module RankedMatches = {
       qualityA < qualityB ? 1. : -1.
     })
   }
+
+  // Returns all candidate matches without ordering — novelty scoring happens
+  // in recommendMatch / generateNoveltyRound
+  let strategy_by_novelty = (
+    availablePlayers,
+    avoidAllPlayers,
+    teams: NonEmptyArray.t<Set.t<string>>,
+    requiredPlayers: option<Set.t<string>>,
+  ) => {
+    find_all_match_combos(availablePlayers, [], avoidAllPlayers, teams, requiredPlayers)
+  }
+
   // Assumes matches are already sorted by quality descending
   let recommendMatch = (
     matches: t<'a>, // t is array<(Match.t<'a>, float)>
@@ -1890,6 +1911,8 @@ let getMatches = (
     )
   | DUPR =>
     RankedMatches.strategy_by_dupr(players, priorityPlayers, avoidAllPlayers, requiredPlayers)
+  | NoveltyRoundRobin =>
+    RankedMatches.strategy_by_novelty(players, avoidAllPlayers, teamConstraints, requiredPlayers)
   | Competitive =>
     RankedMatches.strategy_by_competitive(
       players,
@@ -1912,6 +1935,120 @@ let getMatches = (
     )
   }
   matches
+}
+
+// --- Novelty Round Robin helpers ---
+
+// All cross-team opponent pair IDs for a match
+let noveltyOpponentPairIds = ((team1, team2): Match.t<'a>): array<string> =>
+  team1->Array.flatMap(p1 =>
+    team2->Array.map(p2 => [p1, p2]->Team.toStableId)
+  )
+
+// Novelty penalty for a single match (lower = more novel):
+//   repeatedTeams * 1_000_000
+// + repeatedGroup * 100_000
+// + repeatedOpponentPairs * 100
+// + gameImbalance * 10
+let noveltyMatchPenalty = (
+  match: Match.t<'a>,
+  seenTeams: Set.t<string>,
+  seenMatches: Set.t<string>,
+  seenOpponentPairs: Set.t<string>,
+): int => {
+  let (team1, team2) = match
+  let repeatedTeams =
+    (seenTeams->Set.has(team1->Team.toStableId) ? 1 : 0) +
+    (seenTeams->Set.has(team2->Team.toStableId) ? 1 : 0)
+  let repeatedGroup = seenMatches->Set.has(Match.toStableId(match)) ? 1 : 0
+  let repeatedOpponents =
+    noveltyOpponentPairIds(match)->Array.reduce(0, (acc, id) =>
+      acc + (seenOpponentPairs->Set.has(id) ? 1 : 0)
+    )
+  let gameImbalance = Match.players(match)->Array.reduce(0, (acc, p) => acc + p.count)
+  repeatedTeams * 1_000_000 +
+  repeatedGroup * 100_000 +
+  repeatedOpponents * 100 +
+  gameImbalance * 10
+}
+
+// Score an entire round (lower = better). Adds bye-imbalance: penalises giving
+// byes to players who have played fewer games than average.
+let noveltyRoundPenalty = (
+  round: array<Match.t<'a>>,
+  players: array<Player.t<'a>>,
+  seenTeams: Set.t<string>,
+  seenMatches: Set.t<string>,
+  seenOpponentPairs: Set.t<string>,
+): int => {
+  let matchPenalty =
+    round->Array.reduce(0, (acc, m) =>
+      acc + noveltyMatchPenalty(m, seenTeams, seenMatches, seenOpponentPairs)
+    )
+  let n = players->Array.length
+  let avgCount =
+    n == 0
+      ? 0
+      : players->Array.reduce(0, (s, p) => s + p.count) / n
+  let playingIds = round->Array.flatMap(Match.players)->Array.map(p => p.id)->Set.fromArray
+  let byeImbalance =
+    players
+    ->Array.filter(p => !(playingIds->Set.has(p.id)))
+    ->Array.reduce(0, (acc, p) => acc + Js.Math.max_int(0, avgCount - p.count))
+  matchPenalty + byeImbalance * 10
+}
+
+// One greedy attempt at filling all courts using novelty scoring.
+// Players are shuffled before each attempt to get variety across runs.
+let generateOneNoveltyRound = (
+  players: array<Player.t<'a>>,
+  numCourts: int,
+  seenTeams: Set.t<string>,
+  seenMatches: Set.t<string>,
+  seenOpponentPairs: Set.t<string>,
+  avoidAllPlayers: array<array<Player.t<'a>>>,
+  teamConstraints: NonEmptyArray.t<Set.t<string>>,
+): array<Match.t<'a>> => {
+  let shuffledPlayers = players->shuffle
+
+  let rec fillCourts = (remaining, consumed, acc) => {
+    if remaining <= 0 {
+      acc
+    } else {
+      let available = shuffledPlayers->Array.filter(p => !(consumed->Set.has(p.id)))
+      if available->Array.length < 4 {
+        acc
+      } else {
+        // Use provided team constraints, or fall back to one group containing all available players
+        let constr = switch teamConstraints {
+        | None => [available->Array.map(p => p.id)->Set.fromArray]->NonEmptyArray.fromArray
+        | Some(_) => teamConstraints
+        }
+        let candidates = find_all_match_combos(available, [], avoidAllPlayers, constr, None)
+
+        // Score candidates by novelty penalty (lower = better)
+        let sorted =
+          candidates
+          ->Array.map(((m, _)) => (m, noveltyMatchPenalty(m, seenTeams, seenMatches, seenOpponentPairs)))
+          ->Array.toSorted(((_, a), (_, b)) => (a - b)->Int.toFloat)
+
+        // Pick randomly from top-3 best candidates for schedule diversity
+        let topN = Js.Math.min_int(3, sorted->Array.length)
+        let idx = (Math.random() *. topN->Int.toFloat)->Math.floor->Belt.Float.toInt
+        switch sorted->Array.at(idx) {
+        | None => acc
+        | Some((m, _)) =>
+          let newConsumed = Match.players(m)->Array.reduce(consumed, (set, p) => {
+            set->Set.add(p.id)
+            set
+          })
+          fillCourts(remaining - 1, newConsumed, acc->Array.concat([m]))
+        }
+      }
+    }
+  }
+
+  fillCourts(numCourts, Set.make(), [])
 }
 
 // Generate N matches recursively based on completed match history
@@ -1948,30 +2085,37 @@ let generateMatches = (
     seenMatchesFromHistory,
     lastRoundSeenTeams,
     lastRoundSeenMatches,
-  ) = history->Array.reduceWithIndex((Set.make(), Set.make(), Set.make(), Set.make()), (
-    (allTeams, allMatches, lastTeams, lastMatches),
-    completedMatch,
-    index,
-  ) => {
-    let (team1, team2) = completedMatch.match
-    let team1Id = team1->Team.toStableId
-    let team2Id = team2->Team.toStableId
-    let matchId = completedMatch.match->Match.toStableId
+    seenOpponentPairsFromHistory,
+  ) = history->Array.reduceWithIndex(
+    (Set.make(), Set.make(), Set.make(), Set.make(), Set.make()),
+    (
+      (allTeams, allMatches, lastTeams, lastMatches, allOpponentPairs),
+      completedMatch,
+      index,
+    ) => {
+      let (team1, team2) = completedMatch.match
+      let team1Id = team1->Team.toStableId
+      let team2Id = team2->Team.toStableId
+      let matchId = completedMatch.match->Match.toStableId
 
-    // Add to all history
-    allTeams->Set.add(team1Id)->ignore
-    allTeams->Set.add(team2Id)->ignore
-    allMatches->Set.add(matchId)->ignore
+      // Add to all history
+      allTeams->Set.add(team1Id)->ignore
+      allTeams->Set.add(team2Id)->ignore
+      allMatches->Set.add(matchId)->ignore
+      noveltyOpponentPairIds(completedMatch.match)->Array.forEach(id =>
+        allOpponentPairs->Set.add(id)->ignore
+      )
 
-    // Also add to last round if this match is in the last round
-    if index >= lastRoundStartIndex {
-      lastTeams->Set.add(team1Id)->ignore
-      lastTeams->Set.add(team2Id)->ignore
-      lastMatches->Set.add(matchId)->ignore
-    }
+      // Also add to last round if this match is in the last round
+      if index >= lastRoundStartIndex {
+        lastTeams->Set.add(team1Id)->ignore
+        lastTeams->Set.add(team2Id)->ignore
+        lastMatches->Set.add(matchId)->ignore
+      }
 
-    (allTeams, allMatches, lastTeams, lastMatches)
-  })
+      (allTeams, allMatches, lastTeams, lastMatches, allOpponentPairs)
+    },
+  )
 
   // Step 3: Recursive function to generate matches
   // Note: We only track consumedPlayers within a round - seenTeams/seenMatches come from history
@@ -2168,8 +2312,61 @@ let generateMatches = (
     }
   }
 
-  // Step 4: Start recursive generation
-  generateMatchesRec(Set.make(), [], numMatches)
+  // Step 4: Start recursive generation (or use novelty algorithm for NoveltyRoundRobin)
+  if strategy == NoveltyRoundRobin {
+    // Generate 50 complete round attempts and keep the one with the lowest total novelty penalty
+    let numAttempts = 50
+    let resolvedConstraints =
+      teamConstraints->Option.flatMap(arr => arr->NonEmptyArray.fromArray)
+    let attempts =
+      Belt.Array.makeBy(numAttempts, _ =>
+        generateOneNoveltyRound(
+          players,
+          numMatches,
+          seenTeamsFromHistory,
+          seenMatchesFromHistory,
+          seenOpponentPairsFromHistory,
+          avoidAllPlayers,
+          resolvedConstraints,
+        )
+      )
+    let best =
+      attempts
+      ->Array.toSorted((a, b) => {
+        let scoreA =
+          noveltyRoundPenalty(
+            a,
+            players,
+            seenTeamsFromHistory,
+            seenMatchesFromHistory,
+            seenOpponentPairsFromHistory,
+          )->Int.toFloat
+        let scoreB =
+          noveltyRoundPenalty(
+            b,
+            players,
+            seenTeamsFromHistory,
+            seenMatchesFromHistory,
+            seenOpponentPairsFromHistory,
+          )->Int.toFloat
+        scoreA -. scoreB
+      })
+      ->Array.at(0)
+      ->Option.getOr([])
+    best->Array.mapWithIndex((m, i) => {
+      let updatedMatch = Match.incrementPlayCounts(m)
+      let randomizedMatch = if Math.random() > 0.5 {
+        let (t1, t2) = updatedMatch
+        (t2, t1)
+      } else {
+        updatedMatch
+      }
+      {id: "match-" ++ Int.toString(i + 1), match: randomizedMatch}
+    })
+  } else {
+    // Step 4 (non-novelty): Start recursive generation
+    generateMatchesRec(Set.make(), [], numMatches)
+  }
 }
 
 module OrderedQueue = {
@@ -2297,8 +2494,8 @@ module Matches = {
   }
 }
 
-let guessDupr = (ratingMu: float): float => {
-  0.032610082623550245 *. (ratingMu -. 25.) +. 3.5121203871706075
+let guessDupr = (mu: float): float => {
+  0.038187317186283626 *. (mu -. 25.) +. 3.539018142582235
 }
 
 // Returns the estimated DUPR lower bound using mu - 1*sigma
@@ -2313,7 +2510,7 @@ let ordinal2 = (r: Rating.t): float => {
 
 // Inverse of guessDupr: given a DUPR value, returns the corresponding mu
 let duprToMu = (dupr: float): float => {
-  (dupr -. 3.5121203871706075) /. 0.032610082623550245 +. 25.
+  (dupr -. 3.539018142582235) /. 0.038187317186283626 +. 25.
 }
 
 // Given a DUPR value, returns the expected ordinal using the standard openskill
@@ -2394,7 +2591,7 @@ let getDeprioritizedPlayers = (
       | false => breakPlayers->Array.map(p => p.id)->Set.fromArray
       }
 
-    | Mixed | RoundRobin | Random | DUPR =>
+    | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin =>
       // Non-competitive strategy: prioritize players with most rounds since last break
       // Calculate rounds since last break for each player
       let playersWithRoundsSinceBreak = players->Array.map(player => {
@@ -2623,6 +2820,7 @@ let rec generateRoundsRec = (
         match: matchEntity.match,
         score: None,
         createdAt: roundCreatedAt,
+        synced: false,
       }
       entity
     })

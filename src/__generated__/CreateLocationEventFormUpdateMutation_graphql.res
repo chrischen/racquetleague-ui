@@ -23,6 +23,7 @@ module Types = {
   and response_updateEvent_event = {
     @live __typename: [ | #Event],
     activity: option<response_updateEvent_event_activity>,
+    cancelDeadline: option<int>,
     club: option<response_updateEvent_event_club>,
     details: option<string>,
     endDate: option<Util.Datetime.t>,
@@ -291,6 +292,13 @@ v3 = [
             "kind": "ScalarField",
             "name": "tags",
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "cancelDeadline",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -350,12 +358,12 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "3d184fcf51a0c2b202eaaccaf21784ea",
+    "cacheID": "6f7e9a5082483454b1c7eb4afd6f00b5",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormUpdateMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      timezone\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      tags\n    }\n    rsvps {\n      id\n      listType\n      joinTime\n      rsvpId\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      timezone\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      tags\n      cancelDeadline\n    }\n    rsvps {\n      id\n      listType\n      joinTime\n      rsvpId\n    }\n  }\n}\n"
   }
 };
 })() `)

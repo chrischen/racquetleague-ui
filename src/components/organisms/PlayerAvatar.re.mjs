@@ -38,7 +38,8 @@ function PlayerAvatar(props) {
                     pictureUrl: pictureUrl,
                     name: props.name,
                     skillLevel: props.skillLevel,
-                    size: size
+                    size: size,
+                    containerClassName: className
                   }),
               className: className,
               style: props.style

@@ -173,6 +173,7 @@ let make = (
   ~onRebalance: option<unit => unit>=?,
   ~onRebalanceMatch: option<string => unit>=?,
   ~onReset: option<bool => unit>=?,
+  ~onFullScreen: option<unit => unit>=?,
   ~debug: bool=false,
   ~getUserFragmentRefs: 'a => option<RescriptRelay.fragmentRefs<[> #MatchCard_user]>>,
   ~allRounds: array<array<completedMatchEntity<'a>>>,
@@ -518,6 +519,17 @@ let make = (
               className="px-3 py-1 text-sm font-bold text-white bg-blue-600 rounded-full shadow-md">
               {(t`ACTIVE ROUND`)->React.string}
             </span>
+            {onFullScreen->Option.isSome
+              ? <button
+                  onClick={e => {
+                    e->ReactEvent.Mouse.stopPropagation
+                    onFullScreen->Option.forEach(fn => fn())
+                  }}
+                  className="p-1.5 text-blue-700 hover:text-blue-900 hover:bg-blue-100 rounded-lg transition-colors"
+                  title={t`Full Screen View`}>
+                  <Lucide.Maximize2 className="w-5 h-5" />
+                </button>
+              : React.null}
             <span className="text-sm text-blue-700">
               {(t`${matchCount->Int.toString} ${matchText}`)->React.string}
             </span>

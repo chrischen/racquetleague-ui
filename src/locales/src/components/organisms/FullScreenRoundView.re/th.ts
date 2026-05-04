@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RQe+iX\":\"รอบปัจจุบัน\",\"Kbi7Yx\":\"ปิดโหมดเต็มจอ\",\"hlIKDQ\":[\"คอร์ต \",[\"0\"]],\"xXKDhD\":[\"รอบ \",[\"0\"]]}");

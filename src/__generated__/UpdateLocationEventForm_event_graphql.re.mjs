@@ -146,6 +146,13 @@ return {
       "kind": "ScalarField",
       "name": "price",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "cancelDeadline",
+      "storageKey": null
     }
   ],
   "type": "Event",

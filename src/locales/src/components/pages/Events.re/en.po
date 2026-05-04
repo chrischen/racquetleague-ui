@@ -27,7 +27,7 @@ msgstr ""
 #~ msgid "...load past events"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "...more"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgstr ""
 #~ msgid "[Location Missing]"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:652
+#: src/components/pkuru/PkEventRow.re.mjs:672
 msgid "[missing title]"
 msgstr ""
 
@@ -108,8 +108,12 @@ msgstr ""
 #~ msgid "{0} private {shadowCountDesc} hidden"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:148
-#: src/components/pkuru/PkEventRow.re.mjs:205
+#: src/components/pages/PkEventPage.re.mjs:380
+#~ msgid "{cancelTimeLeft} left to cancel"
+#~ msgstr ""
+
+#: src/components/pkuru/PkEventRow.re.mjs:149
+#: src/components/pkuru/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -226,24 +230,40 @@ msgstr ""
 msgid "balanced"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/pages/PkEventPage.re.mjs:283
 msgid "cancel event"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:711
+#: src/components/pkuru/PkEventRow.re.mjs:731
 msgid "Canceled"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:576
 msgid "CANCELED"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:372
+msgid "Cancellation deadline"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:379
+#~ msgid "Cancellation deadline passed"
+#~ msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:254
+msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:500
 #~ msgid "Casual"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:442
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Claim spot"
 msgstr ""
 
@@ -322,7 +342,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/pages/PkEventPage.re.mjs:266
 msgid "edit event"
 msgstr ""
 
@@ -367,7 +387,7 @@ msgstr ""
 #~ msgid "Event Details"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:745
+#: src/components/pages/PkEventPage.re.mjs:801
 msgid "Event not found"
 msgstr ""
 
@@ -400,7 +420,7 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:577
+#: src/components/pages/PkEventPage.re.mjs:633
 msgid "Free"
 msgstr ""
 
@@ -424,6 +444,11 @@ msgstr ""
 #~ msgid "Host"
 #~ msgstr ""
 
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+#~ msgid "hr"
+#~ msgstr ""
+
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid "I can create events for you. Just give me your schedule."
 #~ msgstr ""
@@ -436,7 +461,7 @@ msgstr ""
 #~ msgid "include private"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:581
+#: src/components/pkuru/PkEventRow.re.mjs:601
 msgid "Join"
 msgstr ""
 
@@ -444,11 +469,11 @@ msgstr ""
 #~ msgid "join event"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Join waitlist"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:442
 msgid "Join waitlist (#{0})"
 msgstr ""
 
@@ -456,7 +481,7 @@ msgstr ""
 #~ msgid "joined"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:239
+#: src/components/pkuru/PkEventRow.re.mjs:240
 msgid "Joined"
 msgstr ""
 
@@ -464,8 +489,8 @@ msgstr ""
 msgid "Last Round"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:580
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pages/PkEventPage.re.mjs:423
 msgid "Leave"
 msgstr ""
 
@@ -473,12 +498,12 @@ msgstr ""
 #~ msgid "leave event"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:836
-#: src/components/pages/PkEventPage.re.mjs:706
+#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pages/PkEventPage.re.mjs:762
 msgid "Leave event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "less"
 msgstr ""
 
@@ -498,7 +523,7 @@ msgstr ""
 #~ msgid "loading events..."
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:595
+#: src/components/pages/PkEventPage.re.mjs:651
 msgid "Location"
 msgstr ""
 
@@ -526,6 +551,11 @@ msgstr ""
 #: src/components/organisms/PkRSVPSection.re.mjs:448
 msgid "MEDIAN"
 msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+#~ msgid "min"
+#~ msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:190
 msgid "mixed"
@@ -572,7 +602,7 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:659
+#: src/components/pages/PkEventPage.re.mjs:715
 msgid "Notes from the host"
 msgstr ""
 
@@ -584,7 +614,7 @@ msgstr ""
 #~ msgid "pending"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:278
+#: src/components/pkuru/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr ""
 
@@ -604,8 +634,8 @@ msgstr ""
 #~ msgid "pickleball events"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:149
-#: src/components/pkuru/PkEventRow.re.mjs:206
+#: src/components/pkuru/PkEventRow.re.mjs:150
+#: src/components/pkuru/PkEventRow.re.mjs:207
 msgid "player"
 msgstr ""
 
@@ -613,8 +643,8 @@ msgstr ""
 #~ msgid "Player"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:150
-#: src/components/pkuru/PkEventRow.re.mjs:207
+#: src/components/pkuru/PkEventRow.re.mjs:151
+#: src/components/pkuru/PkEventRow.re.mjs:208
 msgid "players"
 msgstr ""
 
@@ -765,8 +795,8 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:837
-#: src/components/pages/PkEventPage.re.mjs:707
+#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pages/PkEventPage.re.mjs:763
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr ""
 
@@ -812,7 +842,7 @@ msgstr ""
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/pages/PkEventPage.re.mjs:272
 msgid "uncancel event"
 msgstr ""
 
@@ -838,7 +868,7 @@ msgstr ""
 #~ msgid "waitlist"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:581
+#: src/components/pkuru/PkEventRow.re.mjs:601
 msgid "Waitlist"
 msgstr ""
 
@@ -846,7 +876,7 @@ msgstr ""
 msgid "Waitlist · {0}"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:271
+#: src/components/pkuru/PkEventRow.re.mjs:272
 msgid "Waitlisted"
 msgstr ""
 

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "...more"
 msgstr "...更多"
 
@@ -25,7 +25,7 @@ msgstr "· {0} 待處理"
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候補"
 
-#: src/components/pkuru/PkEventRow.re.mjs:652
+#: src/components/pkuru/PkEventRow.re.mjs:672
 msgid "[missing title]"
 msgstr "[標題缺失]"
 
@@ -37,8 +37,8 @@ msgstr "{1}"
 msgid "{0} joined"
 msgstr "{0} 已參加"
 
-#: src/components/pkuru/PkEventRow.re.mjs:148
-#: src/components/pkuru/PkEventRow.re.mjs:205
+#: src/components/pkuru/PkEventRow.re.mjs:149
+#: src/components/pkuru/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -86,20 +86,33 @@ msgstr "您確定要將此人從活動中移除嗎？"
 msgid "balanced"
 msgstr "平衡"
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/pages/PkEventPage.re.mjs:283
 msgid "cancel event"
 msgstr "取消活動"
 
-#: src/components/pkuru/PkEventRow.re.mjs:711
+#: src/components/pkuru/PkEventRow.re.mjs:731
 msgid "Canceled"
 msgstr "已取消"
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:576
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/pages/PkEventPage.re.mjs:389
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:372
+msgid "Cancellation deadline"
+msgstr "取消截止日期"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "取消期限已過。請在此頁面聯絡主辦方以取消。"
+
+#: src/components/pages/PkEventPage.re.mjs:254
+msgid "Cannot access variable \\\"title\\\""
+msgstr "無法存取變數 \\\"title\\\""
+
+#: src/components/pages/PkEventPage.re.mjs:442
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Claim spot"
 msgstr "報名參加"
 
@@ -145,7 +158,7 @@ msgstr "請輸入顯示名稱"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:258
+#: src/components/pages/PkEventPage.re.mjs:266
 msgid "edit event"
 msgstr "編輯活動"
 
@@ -186,7 +199,7 @@ msgstr "均衡"
 msgid "event"
 msgstr "活動"
 
-#: src/components/pages/PkEventPage.re.mjs:745
+#: src/components/pages/PkEventPage.re.mjs:801
 msgid "Event not found"
 msgstr "找不到活動"
 
@@ -215,7 +228,7 @@ msgstr "按日期篩選"
 msgid "For event updates and notifications"
 msgstr "用於活動更新和通知"
 
-#: src/components/pages/PkEventPage.re.mjs:577
+#: src/components/pages/PkEventPage.re.mjs:633
 msgid "Free"
 msgstr "免費"
 
@@ -235,19 +248,19 @@ msgstr "Google 日曆"
 msgid "Highly skilled players"
 msgstr "高技能球員"
 
-#: src/components/pkuru/PkEventRow.re.mjs:581
+#: src/components/pkuru/PkEventRow.re.mjs:601
 msgid "Join"
 msgstr "加入"
 
-#: src/components/pages/PkEventPage.re.mjs:463
+#: src/components/pages/PkEventPage.re.mjs:519
 msgid "Join waitlist"
 msgstr "加入候補名單"
 
-#: src/components/pages/PkEventPage.re.mjs:389
+#: src/components/pages/PkEventPage.re.mjs:442
 msgid "Join waitlist (#{0})"
 msgstr "加入候補名單 (#{0})"
 
-#: src/components/pkuru/PkEventRow.re.mjs:239
+#: src/components/pkuru/PkEventRow.re.mjs:240
 msgid "Joined"
 msgstr "已加入"
 
@@ -255,21 +268,21 @@ msgstr "已加入"
 msgid "Last Round"
 msgstr "上一輪"
 
-#: src/components/pkuru/PkEventRow.re.mjs:580
-#: src/components/pages/PkEventPage.re.mjs:370
+#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pages/PkEventPage.re.mjs:423
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/pkuru/PkEventRow.re.mjs:836
-#: src/components/pages/PkEventPage.re.mjs:706
+#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pages/PkEventPage.re.mjs:762
 msgid "Leave event"
 msgstr "退出活動"
 
-#: src/components/pages/PkEventPage.re.mjs:619
+#: src/components/pages/PkEventPage.re.mjs:675
 msgid "less"
 msgstr "收起"
 
-#: src/components/pages/PkEventPage.re.mjs:595
+#: src/components/pages/PkEventPage.re.mjs:651
 msgid "Location"
 msgstr "地點"
 
@@ -322,7 +335,7 @@ msgstr "技能等級無限制。對所有球員開放。"
 msgid "No Score"
 msgstr "無比分"
 
-#: src/components/pages/PkEventPage.re.mjs:659
+#: src/components/pages/PkEventPage.re.mjs:715
 msgid "Notes from the host"
 msgstr "主持人的備註"
 
@@ -330,7 +343,7 @@ msgstr "主持人的備註"
 msgid "Participants"
 msgstr "參與者"
 
-#: src/components/pkuru/PkEventRow.re.mjs:278
+#: src/components/pkuru/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr "待審核"
 
@@ -338,13 +351,13 @@ msgstr "待審核"
 msgid "Pending · {0}"
 msgstr "待處理 · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:149
-#: src/components/pkuru/PkEventRow.re.mjs:206
+#: src/components/pkuru/PkEventRow.re.mjs:150
+#: src/components/pkuru/PkEventRow.re.mjs:207
 msgid "player"
 msgstr "玩家"
 
-#: src/components/pkuru/PkEventRow.re.mjs:150
-#: src/components/pkuru/PkEventRow.re.mjs:207
+#: src/components/pkuru/PkEventRow.re.mjs:151
+#: src/components/pkuru/PkEventRow.re.mjs:208
 msgid "players"
 msgstr "球員"
 
@@ -470,8 +483,8 @@ msgid ""
 "scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
-#: src/components/pkuru/PkEventRow.re.mjs:837
-#: src/components/pages/PkEventPage.re.mjs:707
+#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pages/PkEventPage.re.mjs:763
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -517,7 +530,7 @@ msgstr "前6均值"
 msgid "Tuesday"
 msgstr "星期二"
 
-#: src/components/pages/PkEventPage.re.mjs:264
+#: src/components/pages/PkEventPage.re.mjs:272
 msgid "uncancel event"
 msgstr "取消取消活動"
 
@@ -539,7 +552,7 @@ msgstr "查看個人資料"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:581
+#: src/components/pkuru/PkEventRow.re.mjs:601
 msgid "Waitlist"
 msgstr "等待列表"
 
@@ -547,7 +560,7 @@ msgstr "等待列表"
 msgid "Waitlist · {0}"
 msgstr "候補名單 · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:271
+#: src/components/pkuru/PkEventRow.re.mjs:272
 msgid "Waitlisted"
 msgstr "已在候補名單"
 
@@ -583,13 +596,31 @@ msgstr ""
 #~ msgid "{0} {hiddenDesc} hidden — show"
 #~ msgstr "{0} {hiddenDesc} 條已隱藏 — 顯示"
 
+#: src/components/pages/PkEventPage.re.mjs:380
+#~ msgid "{cancelTimeLeft} left to cancel"
+#~ msgstr "還剩 {cancelTimeLeft} 可取消"
+
 #: src/components/organisms/ClubEventsList.re.mjs:111
 #~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
 #~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
 
+#: src/components/pages/PkEventPage.re.mjs:379
+#~ msgid "Cancellation deadline passed"
+#~ msgstr "取消期限已過"
+
 #: src/components/pages/PkEventPage.re.mjs:691
 #~ msgid "Host"
 #~ msgstr "主持人"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+#~ msgid "hr"
+#~ msgstr "小時"
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+#~ msgid "min"
+#~ msgstr "分鐘"
 
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 #~ msgid "Player"

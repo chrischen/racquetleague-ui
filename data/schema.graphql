@@ -131,6 +131,7 @@ type CreateClubResult implements HasErrors {
 
 input CreateEventInput {
   activity: ID!
+  cancelDeadline: Int
   clubId: ID
   details: String
   endDate: Datetime!
@@ -203,6 +204,7 @@ type Error {
 
 type Event implements Node {
   activity: Activity
+  cancelDeadline: Int
   club: Club
   deleted: Datetime
   details: String
@@ -222,6 +224,7 @@ type Event implements Node {
   title: String
   viewerHasRsvp: Boolean
   viewerIsAdmin: Boolean!
+  viewerIsBanned: Boolean
 }
 
 """A connection to users."""
@@ -303,6 +306,11 @@ type GetUserClubMembershipResult implements HasErrors {
 
 interface HasErrors {
   errors: [Error!]
+}
+
+input IsUserBannedInput {
+  clubId: ID!
+  userId: ID!
 }
 
 input JoinClubInput {
@@ -586,6 +594,7 @@ type Query {
   event(id: ID!): Event
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
   getUserClubMembership(input: GetUserClubMembershipInput!): GetUserClubMembershipResult!
+  isUserBanned(input: IsUserBannedInput!): Boolean
   location(id: ID!): Location
   locations(after: String, before: String, first: Int): LocationConnection!
   matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!

@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundSection.re.mjs:526
-#: src/components/organisms/RoundSection.re.mjs:636
+#: src/components/organisms/RoundSection.re.mjs:542
+#: src/components/organisms/RoundSection.re.mjs:652
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -22,7 +22,7 @@ msgstr "{0} {matchText}"
 msgid "{0} of {1} checked in"
 msgstr "เช็คอินแล้ว {0} จาก {1} คน"
 
-#: src/components/organisms/RoundSection.re.mjs:174
+#: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
@@ -30,7 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "฿"
 
-#: src/components/organisms/RoundSection.re.mjs:522
+#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/FullScreenRoundView.re.mjs:36
 msgid "ACTIVE ROUND"
 msgstr "รอบปัจจุบัน"
 
@@ -54,7 +55,7 @@ msgstr "ปรับซีดผู้เล่น"
 msgid "Advance to Next Round"
 msgstr "ไปยังรอบถัดไป"
 
-#: src/components/organisms/RoundRobin.re.mjs:802
+#: src/components/organisms/RoundRobin.re.mjs:839
 msgid "Advance to Round {0}"
 msgstr "ไปยังรอบ {0}"
 
@@ -66,7 +67,7 @@ msgstr "อเล็กซ์ จอห์นสัน"
 msgid "All checked-in players are already in this round"
 msgstr "ผู้เล่นที่เช็คอินแล้วมีอยู่ในรอบนี้ทั้งหมดแล้ว"
 
-#: src/components/organisms/RoundRobin.re.mjs:901
+#: src/components/organisms/RoundRobin.re.mjs:938
 msgid "Anti-Team {0}"
 msgstr "แอนตี้ทีม {0}"
 
@@ -89,6 +90,10 @@ msgstr "การจับสลากแบบรอบโรบินคลา
 msgid "Close"
 msgstr "ปิด"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:47
+msgid "Close Full Screen"
+msgstr "ปิดโหมดเต็มจอ"
+
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
 msgstr "แข่งขัน"
@@ -96,6 +101,10 @@ msgstr "แข่งขัน"
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
 msgstr "สนาม {0}"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:63
+msgid "COURT {0}"
+msgstr "คอร์ต {0}"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:132
 msgid "Court {0} - Editing"
@@ -129,11 +138,11 @@ msgstr "สร้างทีมแรกของคุณเพื่อเร
 msgid "Current Round:"
 msgstr "รอบปัจจุบัน:"
 
-#: src/components/organisms/RoundRobin.re.mjs:1048
+#: src/components/organisms/RoundRobin.re.mjs:1089
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
 
-#: src/components/organisms/RoundRobin.re.mjs:1048
+#: src/components/organisms/RoundRobin.re.mjs:1089
 msgid "Debug: ON"
 msgstr "ดีบัก: เปิด"
 
@@ -186,6 +195,10 @@ msgstr "ป้อนชื่อทีม"
 msgid "Female"
 msgstr "หญิง"
 
+#: src/components/organisms/RoundSection.re.mjs:533
+msgid "Full Screen View"
+msgstr "โหมดเต็มจอ"
+
 #: src/components/molecules/DrawGenerator.re.mjs:271
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
@@ -208,7 +221,7 @@ msgstr "สร้างคู่แข่ง"
 msgid "Guest Names (one per line)"
 msgstr "ชื่อแขก (หนึ่งชื่อต่อบรรทัด)"
 
-#: src/components/organisms/RoundRobin.re.mjs:1036
+#: src/components/organisms/RoundRobin.re.mjs:1077
 msgid "Help"
 msgstr "ช่วยเหลือ"
 
@@ -232,11 +245,11 @@ msgstr "ทีมแพ้ (ทีม {0})"
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/RoundSection.re.mjs:175
+#: src/components/organisms/RoundSection.re.mjs:176
 msgid "match"
 msgstr "คู่แข่ง"
 
-#: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/RoundSection.re.mjs:177
 msgid "matches"
 msgstr "คู่แข่ง"
 
@@ -306,7 +319,7 @@ msgid ""
 "with teams balanced by skill."
 msgstr "ผู้เล่นจะถูกแบ่งเป็นกลุ่มระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบรอบโรบินโดยทีมจะสมดุลตามทักษะ"
 
-#: src/components/organisms/RoundRobin.re.mjs:679
+#: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
 msgstr "กรุณาอัปเดตเป็น Chrome, Firefox หรือ Safari เวอร์ชันล่าสุด"
 
@@ -322,7 +335,7 @@ msgstr "รอบก่อนหน้า"
 msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
 
-#: src/components/organisms/RoundSection.re.mjs:545
+#: src/components/organisms/RoundSection.re.mjs:561
 msgid "Rebalance this round with current players"
 msgstr "ปรับสมดุลรอบนี้ด้วยผู้เล่นปัจจุบัน"
 
@@ -342,16 +355,17 @@ msgstr "เปลี่ยนผู้เล่น"
 msgid "Replacing:"
 msgstr "กำลังเปลี่ยน:"
 
-#: src/components/organisms/RoundSection.re.mjs:602
+#: src/components/organisms/RoundSection.re.mjs:618
 msgid "Reset this round with all checked-in players"
 msgstr "รีเซ็ตรอบนี้ด้วยผู้เล่นที่เช็คอินทั้งหมด"
 
-#: src/components/organisms/RoundSection.re.mjs:577
+#: src/components/organisms/RoundSection.re.mjs:593
 msgid "Reset this round with mixed gender pairs"
 msgstr "รีเซ็ตรอบนี้ด้วยคู่ผสมเพศ"
 
-#: src/components/organisms/RoundSection.re.mjs:518
-#: src/components/organisms/RoundSection.re.mjs:632
+#: src/components/organisms/RoundSection.re.mjs:521
+#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "รอบ {0}"
 
@@ -408,7 +422,7 @@ msgstr "กลยุทธ์"
 msgid "Strategy:"
 msgstr "กลยุทธ์:"
 
-#: src/components/organisms/RoundRobin.re.mjs:665
+#: src/components/organisms/RoundRobin.re.mjs:679
 msgid "Team {0}"
 msgstr "ทีม {0}"
 
@@ -466,7 +480,7 @@ msgstr "VS"
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
 
-#: src/components/organisms/RoundRobin.re.mjs:675
+#: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr "เบราว์เซอร์ของคุณเก่าเกินไปสำหรับฟีเจอร์นี้"
 

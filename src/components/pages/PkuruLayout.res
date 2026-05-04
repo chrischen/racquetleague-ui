@@ -273,7 +273,7 @@ module MobileTabs = {
     }
 
     <nav
-      className="md:hidden border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex items-center justify-around px-2 touch-none"
+      className="md:hidden border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex items-center justify-around px-2 touch-none relative z-30"
       style={ReactDOM.Style.make(~paddingBottom="env(safe-area-inset-bottom, 0)", ())}>
       <LangProvider.Router.Link className={tabClass(pathname == "/")} to="/">
         <Lucide.Home size=20 />

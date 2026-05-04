@@ -285,6 +285,13 @@ return {
             "kind": "ScalarField",
             "name": "price",
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "cancelDeadline",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -418,12 +425,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "291124f1a4212dd08219403395d70509",
+    "cacheID": "581925f3faaf494640ee6c1465d2bf51",
     "id": null,
     "metadata": {},
     "name": "UpdateEventPageQuery",
     "operationKind": "query",
-    "text": "query UpdateEventPageQuery(\n  $eventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    ...SelectedLocation_location\n    id\n  }\n  event(id: $eventId) {\n    id\n    ...UpdateLocationEventForm_event\n  }\n  ...ClubActivitySelector_query\n}\n\nfragment ClubActivitySelector_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment SelectedLocation_location on Location {\n  id\n  name\n}\n\nfragment UpdateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  minRating\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n  timezone\n  tags\n  price\n}\n"
+    "text": "query UpdateEventPageQuery(\n  $eventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    ...SelectedLocation_location\n    id\n  }\n  event(id: $eventId) {\n    id\n    ...UpdateLocationEventForm_event\n  }\n  ...ClubActivitySelector_query\n}\n\nfragment ClubActivitySelector_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment SelectedLocation_location on Location {\n  id\n  name\n}\n\nfragment UpdateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  minRating\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n  timezone\n  tags\n  price\n  cancelDeadline\n}\n"
   }
 };
 })());

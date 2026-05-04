@@ -427,7 +427,7 @@ function PkuruLayout$MobileTabs(props) {
                       className: tabClass(pathname.includes("/profile") || pathname.includes("/settings"))
                     })
               ],
-              className: "md:hidden border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex items-center justify-around px-2 touch-none",
+              className: "md:hidden border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex items-center justify-around px-2 touch-none relative z-30",
               style: {
                 paddingBottom: "env(safe-area-inset-bottom, 0)"
               }
