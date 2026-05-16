@@ -228,6 +228,25 @@ return {
                           {
                             "alias": null,
                             "args": null,
+                            "concreteType": "Payment",
+                            "kind": "LinkedField",
+                            "name": "payment",
+                            "plural": false,
+                            "selections": [
+                              (v4/*: any*/),
+                              {
+                                "alias": null,
+                                "args": null,
+                                "kind": "ScalarField",
+                                "name": "status",
+                                "storageKey": null
+                              }
+                            ],
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
                             "concreteType": "Rating",
                             "kind": "LinkedField",
                             "name": "rating",
@@ -352,12 +371,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "aa4bf44a54e6be1cefa63377840ec703",
+    "cacheID": "f8c02e3d9c9a01b337c1d37c4a64c8b4",
     "id": null,
     "metadata": {},
     "name": "EventFullNamesRefetchQuery",
     "operationKind": "query",
-    "text": "query EventFullNamesRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 80\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...EventFullNames_event_4uAqg1\n    id\n  }\n}\n\nfragment EventFullNames_event_4uAqg1 on Event {\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        ...EventRsvp_rsvp\n        user {\n          id\n          fullName\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvp_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  ...RsvpOptions_rsvp\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  paid\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n}\n"
+    "text": "query EventFullNamesRefetchQuery(\n  $after: String\n  $before: String\n  $first: Int = 80\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...EventFullNames_event_4uAqg1\n    id\n  }\n}\n\nfragment EventFullNames_event_4uAqg1 on Event {\n  rsvps(after: $after, first: $first, before: $before) {\n    edges {\n      node {\n        ...EventRsvp_rsvp\n        user {\n          id\n          fullName\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment EventRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvp_rsvp on Rsvp {\n  user {\n    id\n    ...EventRsvpUser_user\n  }\n  ...RsvpOptions_rsvp\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  paid\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n  payment {\n    id\n    status\n  }\n}\n"
   }
 };
 })());

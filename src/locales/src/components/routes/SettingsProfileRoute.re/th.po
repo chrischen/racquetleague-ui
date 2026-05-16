@@ -13,43 +13,91 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:322
+#: src/components/organisms/SettingsProfileForm.re.mjs:314
+msgid "Active"
+msgstr "ใช้งานอยู่"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
+msgid "Australia"
+msgstr "ออสเตรเลีย"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:539
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:250
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
+msgid "Canada"
+msgstr "แคนาดา"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:334
+msgid "Connect a Stripe account to receive payments from events you organize."
+msgstr "เชื่อมต่อบัญชี Stripe เพื่อรับชำระเงินจากอีเวนต์ที่คุณจัด"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid "Connect Stripe account"
+msgstr "เชื่อมต่อบัญชี Stripe"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:359
+msgid "Connecting..."
+msgstr "กำลังเชื่อมต่อ..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:379
+msgid "Country"
+msgstr "ประเทศ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:467
 msgid "Display Name"
 msgstr "ชื่อที่แสดง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:267
+#: src/components/organisms/SettingsProfileForm.re.mjs:484
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:293
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:263
+#: src/components/organisms/SettingsProfileForm.re.mjs:480
 msgid "Full name"
 msgstr "ชื่อเต็ม"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:278
+#: src/components/organisms/SettingsProfileForm.re.mjs:495
 msgid "Gender"
 msgstr "เพศ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:254
+#: src/components/organisms/SettingsProfileForm.re.mjs:410
+msgid "Hong Kong"
+msgstr "ฮ่องกง"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:471
 msgid "How you appear to other players"
 msgstr "ชื่อที่ผู้เล่นคนอื่นจะเห็น"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#: src/components/organisms/SettingsProfileForm.re.mjs:386
+msgid "Japan"
+msgstr "ญี่ปุ่น"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:285
+#: src/components/organisms/SettingsProfileForm.re.mjs:308
+msgid "Not connected"
+msgstr "ยังไม่ได้เชื่อมต่อ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:311
+msgid "Pending"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:502
 msgid "Prefer not to say"
 msgstr "ไม่ต้องการระบุ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:349
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid "Resume onboarding"
+msgstr "ดำเนินการต่อ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:566
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
@@ -63,17 +111,49 @@ msgid ""
 "for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#: src/components/organisms/SettingsProfileForm.re.mjs:406
+msgid "Singapore"
+msgstr "สิงคโปร์"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:487
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "กิจกรรมบางกิจกรรมต้องการชื่อจริงของคุณตามที่แสดงในบัตรประจำตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:328
+#: src/components/organisms/SettingsProfileForm.re.mjs:418
+msgid "South Korea"
+msgstr "เกาหลีใต้"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:580
+msgid "Stripe Connect"
+msgstr "Stripe Connect"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
+msgid "Taiwan"
+msgstr "ไต้หวัน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "tell us a little about yourself"
 msgstr "เล่าให้ฟังเกี่ยวกับตัวคุณสักนิด"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:326
+#: src/components/organisms/SettingsProfileForm.re.mjs:543
 msgid "Tell us a little about yourself..."
 msgstr "บอกเราเกี่ยวกับตัวคุณสักหน่อย..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
+msgid "United Kingdom"
+msgstr "สหราชอาณาจักร"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:390
+msgid "United States"
+msgstr "สหรัฐอเมริกา"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:340
+msgid "Your Stripe account is connected and ready to accept payments."
+msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้วและพร้อมรับชำระเงิน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:337
+msgid "Your Stripe account is connected but onboarding is not yet complete."
+msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว แต่ยังดำเนินการไม่เสร็จสมบูรณ์"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:289
 #~ msgid "biography"

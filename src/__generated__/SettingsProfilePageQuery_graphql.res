@@ -111,6 +111,20 @@ let node: operationType = %raw(json` {
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "stripeAccountId",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "stripeChargesEnabled",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "User",
             "kind": "LinkedField",
             "name": "profile",
@@ -167,12 +181,12 @@ let node: operationType = %raw(json` {
     ]
   },
   "params": {
-    "cacheID": "30935d8f854cbcdd214ef3c84998190f",
+    "cacheID": "d810025288919633fa591ac6dc842b9e",
     "id": null,
     "metadata": {},
     "name": "SettingsProfilePageQuery",
     "operationKind": "query",
-    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n  }\n}\n"
+    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    stripeAccountId\n    stripeChargesEnabled\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n  }\n}\n"
   }
 } `)
 

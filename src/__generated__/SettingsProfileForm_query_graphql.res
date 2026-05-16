@@ -14,6 +14,8 @@ module Types = {
   }
   and fragment_viewer = {
     profile: option<fragment_viewer_profile>,
+    stripeAccountId: option<string>,
+    stripeChargesEnabled: option<bool>,
   }
   type fragment = {
     viewer: option<fragment_viewer>,
@@ -66,10 +68,18 @@ type relayOperationNode
 type operationType = RescriptRelay.fragmentNode<relayOperationNode>
 
 
-let node: operationType = %raw(json` {
+%%private(let makeNode = (rescript_graphql_node_SettingsProfileFormRefetchQuery): operationType => {
+  ignore(rescript_graphql_node_SettingsProfileFormRefetchQuery)
+  %raw(json`{
   "argumentDefinitions": [],
   "kind": "Fragment",
-  "metadata": null,
+  "metadata": {
+    "refetch": {
+      "connection": null,
+      "fragmentPathInResult": [],
+      "operation": rescript_graphql_node_SettingsProfileFormRefetchQuery
+    }
+  },
   "name": "SettingsProfileForm_query",
   "selections": [
     {
@@ -80,6 +90,20 @@ let node: operationType = %raw(json` {
       "name": "viewer",
       "plural": false,
       "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "stripeAccountId",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "stripeChargesEnabled",
+          "storageKey": null
+        },
         {
           "alias": null,
           "args": null,
@@ -139,5 +163,7 @@ let node: operationType = %raw(json` {
   ],
   "type": "Query",
   "abstractKey": null
-} `)
+}`)
+})
+let node: operationType = makeNode(SettingsProfileFormRefetchQuery_graphql.node)
 

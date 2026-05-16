@@ -139,6 +139,8 @@ var Crosshair = {};
 
 var ArrowLeft = {};
 
+var CreditCard = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -209,5 +211,6 @@ export {
   CalendarDays ,
   Crosshair ,
   ArrowLeft ,
+  CreditCard ,
 }
 /* No side effect */

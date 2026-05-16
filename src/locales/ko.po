@@ -3160,6 +3160,118 @@ msgstr "동기화됨"
 msgid "to sync"
 msgstr "동기화 필요"
 
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "결제 승인"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:322
+msgid "Claim spot · {0}"
+msgstr "참가 신청 · {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+msgid "Leaving..."
+msgstr "나가는 중..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Pay {0}"
+msgstr "{0} 결제"
+
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "결제 환불"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Release spot"
+msgstr "참가 취소"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Releasing..."
+msgstr "취소하는 중..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Spot held — pay to confirm"
+msgstr "자리 확보됨 — 결제하여 확정하세요"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:262
+msgid "You're in"
+msgstr "참가 완료"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:309
+msgid "Active"
+msgstr "활성"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:329
+msgid "Connect a Stripe account to receive payments from events you organize."
+msgstr "주최하는 이벤트의 결제를 받으려면 Stripe 계정을 연결하세요."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:358
+msgid "Connect Stripe account"
+msgstr "Stripe 계정 연결"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:354
+msgid "Connecting..."
+msgstr "연결 중..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:303
+msgid "Not connected"
+msgstr "연결 안 됨"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:361
+msgid "Resume onboarding"
+msgstr "등록 재개"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
+msgid "Stripe Connect"
+msgstr "Stripe Connect"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:335
+msgid "Your Stripe account is connected and ready to accept payments."
+msgstr "Stripe 계정이 연결되어 결제를 받을 준비가 완료되었습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:332
+msgid "Your Stripe account is connected but onboarding is not yet complete."
+msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
+msgid "Australia"
+msgstr "호주"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
+msgid "Canada"
+msgstr "캐나다"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:379
+msgid "Country"
+msgstr "국가"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:410
+msgid "Hong Kong"
+msgstr "홍콩"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:386
+msgid "Japan"
+msgstr "일본"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:406
+msgid "Singapore"
+msgstr "싱가포르"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:418
+msgid "South Korea"
+msgstr "한국"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
+msgid "Taiwan"
+msgstr "대만"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
+msgid "United Kingdom"
+msgstr "영국"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:390
+msgid "United States"
+msgstr "미국"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

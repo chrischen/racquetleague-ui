@@ -86,11 +86,11 @@ msgstr "상급자"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "참가 승인"
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
@@ -101,6 +101,10 @@ msgstr "이벤트 취소"
 #: src/components/pages/Event.re.mjs:388
 msgid "CANCELED"
 msgstr "취소됨"
+
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "결제 승인"
 
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
@@ -202,8 +206,8 @@ msgstr "경기 결과가 DUPR에 제출됩니다."
 msgid "media"
 msgstr "미디어"
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
@@ -259,11 +263,15 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "결제 환불"
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "이벤트에서 제거"
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
@@ -352,7 +360,7 @@ msgstr ""
 "이 이벤트는 클럽 멤버십이 필요한 비공개 이벤트입니다. 클럽에 가입하려면 먼저 "
 "Japan Pickleball League 이벤트에 참가하여 추천을 받으세요."
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -384,7 +392,7 @@ msgstr "중상급 이상"
 msgid "view events"
 msgstr "이벤트 보기"
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "프로필 보기"
 

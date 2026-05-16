@@ -71,12 +71,28 @@ ${numbered}
 Return format example: {"1": "translation one", "2": "translation two"}`
 
   const message = await client.messages.create({
-    model: 'claude-sonnet-4-5',
+    model: 'claude-sonnet-4-6',
     max_tokens: 4096,
     messages: [{ role: 'user', content: prompt }],
+    stream: false,
   })
 
-  const raw = message.content[0].text.trim()
+  // Parse response if it's a string
+  const response = typeof message === 'string' ? JSON.parse(message) : message
+
+  if (!response.content || response.content.length === 0) {
+    console.error('Unexpected API response:', JSON.stringify(response, null, 2))
+    throw new Error('Claude API returned unexpected response structure')
+  }
+
+  // Find the text content block (skip thinking blocks)
+  const textBlock = response.content.find(block => block.type === 'text')
+  if (!textBlock) {
+    console.error('No text block found in response:', JSON.stringify(response.content, null, 2))
+    throw new Error('Claude API response missing text content')
+  }
+
+  const raw = textBlock.text.trim()
   // Extract JSON from the response (handle potential markdown code fences)
   const jsonMatch = raw.match(/\{[\s\S]*\}/)
   if (!jsonMatch) throw new Error(`Claude returned unexpected format:\n${raw}`)

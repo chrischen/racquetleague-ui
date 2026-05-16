@@ -78,11 +78,11 @@ msgstr "進階球員"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "批准報名"
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您確定要將此人從活動中移除嗎？"
 
@@ -97,6 +97,10 @@ msgstr "已取消"
 #: src/components/pages/EventPage.re.mjs:157
 msgid "Cannot access variable \\\"title\\\""
 msgstr "無法存取變數 \\\"title\\\""
+
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "收取款項"
 
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
@@ -251,8 +255,8 @@ msgstr "男性"
 msgid "Matches will be submitted to DUPR."
 msgstr "比賽將提交至 DUPR。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "移至待審核名單"
 
@@ -317,11 +321,15 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "退款"
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "從活動中移除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
@@ -437,7 +445,7 @@ msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活
 msgid "This is how others will see you"
 msgstr "這是其他人會看到的名字"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -472,7 +480,7 @@ msgstr "中上等級及以上"
 msgid "View Full Draws"
 msgstr "查看完整抽籤"
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "查看個人資料"
 

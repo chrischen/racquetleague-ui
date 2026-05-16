@@ -136,7 +136,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "PkEventPageJoinMutation",
+    "name": "EventStickyFooterJoinMutation",
     "selections": [
       {
         "alias": null,
@@ -197,7 +197,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "PkEventPageJoinMutation",
+    "name": "EventStickyFooterJoinMutation",
     "selections": [
       {
         "alias": null,
@@ -270,12 +270,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "daf493e66161f372da156a08475e0f65",
+    "cacheID": "a1dae465310efdbb8d2e1a9b42c8c3b1",
     "id": null,
     "metadata": {},
-    "name": "PkEventPageJoinMutation",
+    "name": "EventStickyFooterJoinMutation",
     "operationKind": "mutation",
-    "text": "mutation PkEventPageJoinMutation(\n  $eventId: ID!\n) {\n  joinEvent(eventId: $eventId) {\n    edge {\n      node {\n        id\n        listType\n        user {\n          id\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation EventStickyFooterJoinMutation(\n  $eventId: ID!\n) {\n  joinEvent(eventId: $eventId) {\n    edge {\n      node {\n        id\n        listType\n        user {\n          id\n          lineUsername\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })());

@@ -1,4 +1,4 @@
-/* @sourceLoc PkEventPage.res */
+/* @sourceLoc EventStickyFooter.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -133,7 +133,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "PkEventPageLeaveMutation",
+    "name": "EventStickyFooterLeaveMutation",
     "selections": [
       {
         "alias": null,
@@ -156,7 +156,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "PkEventPageLeaveMutation",
+    "name": "EventStickyFooterLeaveMutation",
     "selections": [
       {
         "alias": null,
@@ -190,12 +190,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e755b59347148862de4c675058bc6e6d",
+    "cacheID": "8ed24dcbbfd5495f616e8e36245e70ef",
     "id": null,
     "metadata": {},
-    "name": "PkEventPageLeaveMutation",
+    "name": "EventStickyFooterLeaveMutation",
     "operationKind": "mutation",
-    "text": "mutation PkEventPageLeaveMutation(\n  $eventId: ID!\n) {\n  leaveEvent(eventId: $eventId) {\n    eventIds\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation EventStickyFooterLeaveMutation(\n  $eventId: ID!\n) {\n  leaveEvent(eventId: $eventId) {\n    eventIds\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -13,89 +13,97 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:404
+#: src/components/organisms/PkRSVPSection.re.mjs:441
 msgid "· {0} pending"
 msgstr "· {0} 保留中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:402
+#: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:399
+#: src/components/organisms/PkRSVPSection.re.mjs:436
 msgid "{0} joined"
 msgstr "{0} 参加済み"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:465
+#: src/components/organisms/PkRSVPSection.re.mjs:502
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ スキル"
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "参加申込を承認"
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:187
+#: src/components/organisms/PkRSVPSection.re.mjs:211
 msgid "balanced"
 msgstr "バランス"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:549
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "支払いを確定"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:586
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:439
-#: src/components/organisms/PkRSVPSection.re.mjs:456
+#: src/components/organisms/PkRSVPSection.re.mjs:476
+#: src/components/organisms/PkRSVPSection.re.mjs:493
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:183
+#: src/components/organisms/PkRSVPSection.re.mjs:207
 msgid "even"
 msgstr "均等"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:448
+#: src/components/organisms/PkRSVPSection.re.mjs:485
 msgid "MEDIAN"
 msgstr "中央値"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:190
+#: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:382
+#: src/components/organisms/PkRSVPSection.re.mjs:406
 msgid "Participants"
 msgstr "参加者"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:678
+#: src/components/organisms/PkRSVPSection.re.mjs:715
 msgid "Pending · {0}"
 msgstr "保留中 · {0}"
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "返金処理"
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "イベントから削除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:308
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "必要なDUPR: {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:329
+#: src/components/organisms/PkRSVPSection.re.mjs:353
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加にはDUPR {minDuprStr}以上が必要です"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:509
+#: src/components/organisms/PkRSVPSection.re.mjs:546
 msgid "SPREAD"
 msgstr "ばらつき"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -103,19 +111,19 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:431
+#: src/components/organisms/PkRSVPSection.re.mjs:468
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "プロフィールを表示"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:614
+#: src/components/organisms/PkRSVPSection.re.mjs:651
 msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:312
+#: src/components/organisms/PkRSVPSection.re.mjs:336
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

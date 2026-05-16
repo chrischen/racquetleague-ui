@@ -78,11 +78,11 @@ msgstr "상급자"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "참가 승인"
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
@@ -97,6 +97,10 @@ msgstr "취소됨"
 #: src/components/pages/EventPage.re.mjs:157
 msgid "Cannot access variable \\\"title\\\""
 msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
+
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "결제 승인"
 
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
@@ -251,8 +255,8 @@ msgstr "남성"
 msgid "Matches will be submitted to DUPR."
 msgstr "경기 결과가 DUPR에 제출됩니다."
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
@@ -317,11 +321,15 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "결제 환불"
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "이벤트에서 제거"
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
@@ -441,7 +449,7 @@ msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유�
 msgid "This is how others will see you"
 msgstr "다른 사람들에게 이렇게 보입니다"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -476,7 +484,7 @@ msgstr "중상급 이상"
 msgid "View Full Draws"
 msgstr "전체 대진 보기"
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "프로필 보기"
 

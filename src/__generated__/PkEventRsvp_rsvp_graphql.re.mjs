@@ -33,7 +33,15 @@ var Utils = {
   gender_fromString: gender_fromString
 };
 
-var node = {
+var node = ((function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -47,13 +55,7 @@ var node = {
       "name": "user",
       "plural": false,
       "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
+        (v0/*: any*/),
         {
           "alias": null,
           "args": null,
@@ -118,6 +120,46 @@ var node = {
       "storageKey": null
     },
     {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "paid",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Payment",
+      "kind": "LinkedField",
+      "name": "payment",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "status",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "currency",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "amount",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
       "args": null,
       "kind": "FragmentSpread",
       "name": "RsvpOptions_rsvp"
@@ -126,6 +168,7 @@ var node = {
   "type": "Rsvp",
   "abstractKey": null
 };
+})());
 
 export {
   Types ,
@@ -133,4 +176,4 @@ export {
   Utils ,
   node ,
 }
-/* RescriptRelay Not a pure module */
+/* node Not a pure module */

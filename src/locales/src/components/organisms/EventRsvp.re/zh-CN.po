@@ -13,16 +13,20 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "批准报名"
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "收取付款"
+
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
@@ -38,15 +42,19 @@ msgstr "已支付"
 msgid "Player"
 msgstr "球员"
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "退款"
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "从活动中移除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -54,6 +62,6 @@ msgstr ""
 "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
 "制其报名吗？"
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "查看资料"

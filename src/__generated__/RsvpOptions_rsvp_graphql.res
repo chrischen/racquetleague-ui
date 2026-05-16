@@ -4,12 +4,17 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_user = {
+  type rec fragment_payment = {
+    @live id: string,
+    status: int,
+  }
+  and fragment_user = {
     @live id: string,
   }
   type fragment = {
     @live id: string,
     listType: option<int>,
+    payment: option<fragment_payment>,
     user: option<fragment_user>,
   }
 }
@@ -76,6 +81,25 @@ return {
       "plural": false,
       "selections": [
         (v0/*: any*/)
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Payment",
+      "kind": "LinkedField",
+      "name": "payment",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "status",
+          "storageKey": null
+        }
       ],
       "storageKey": null
     }

@@ -28,7 +28,6 @@ module EventQuery = %relay(`
       tags
       listed
       viewerIsAdmin
-      viewerHasRsvp
       viewerIsBanned
       deleted
       shadow
@@ -61,13 +60,17 @@ module EventQuery = %relay(`
         lineUsername
         picture
       }
-      rsvps(first: 100) {
+      rsvps(first: 100) @connection(key: "PkRSVPSection_event_rsvps") {
         edges {
           node {
             id
             listType
             user {
               id
+            }
+            payment {
+              id
+              status
             }
           }
         }
@@ -78,37 +81,50 @@ module EventQuery = %relay(`
   }
 `)
 
-module JoinEventMutation = %relay(`
-  mutation PkEventPageJoinMutation($connections: [ID!]!, $eventId: ID!) {
-    joinEvent(eventId: $eventId) {
-      edge @appendEdge(connections: $connections) {
-        node {
+module ChargePaymentMutation = %relay(`
+  mutation PkEventPageChargePaymentMutation($rsvpId: ID!) {
+    chargeRsvpPayment(rsvpId: $rsvpId) {
+      clientSecret
+      connectedAccountId
+      errors { message }
+    }
+  }
+`)
+
+module AuthorizePlatformPaymentMutation = %relay(`
+  mutation PkEventPageAuthorizePlatformPaymentMutation($rsvpId: ID!) {
+    authorizePlatformRsvpPayment(rsvpId: $rsvpId) {
+      clientSecret
+      errors { message }
+    }
+  }
+`)
+
+module ConfirmPaymentMutation = %relay(`
+  mutation PkEventPageConfirmPaymentMutation($rsvpId: ID!, $paymentIntentId: String!) {
+    confirmRsvpPayment(rsvpId: $rsvpId, paymentIntentId: $paymentIntentId) {
+      rsvp {
+        id
+        payment {
           id
-          listType
-          user {
-            id
-            lineUsername
-          }
-          rating {
-            ordinal
-            mu
-            sigma
-          }
+          status
         }
+        listType
       }
       errors { message }
     }
   }
 `)
 
-module LeaveEventMutation = %relay(`
-  mutation PkEventPageLeaveMutation($connections: [ID!]!, $eventId: ID!) {
-    leaveEvent(eventId: $eventId) {
-      eventIds @deleteEdge(connections: $connections)
-      errors { message }
-    }
-  }
-`)
+module StripePaymentEmbed = {
+  @module("../organisms/StripePaymentEmbed") @react.component
+  external make: (
+    ~clientSecret: string,
+    ~stripeAccountId: string,
+    ~onSuccess: string => unit,
+    ~onClose: unit => unit,
+  ) => React.element = "StripePaymentEmbed"
+}
 
 module EventCancelMutation = %relay(`
   mutation PkEventPageCancelMutation($eventId: ID!) {
@@ -138,6 +154,148 @@ type loaderData = PkEventPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
+module EventTitleSection = {
+  @react.component
+  let make = (
+    ~event: PkEventPageQuery_graphql.Types.response_event,
+    ~secret: bool,
+    ~tz: string,
+  ) => {
+    let ts = Lingui.UtilString.t
+    let td = Lingui.UtilString.dynamic
+    <div className="px-5 pt-4 pb-3 border-b border-gray-100 dark:border-[#2a2b30]">
+      {event.deleted
+      ->Option.map(_ =>
+        <span
+          className="inline-flex mb-2 items-center px-2 py-0.5 rounded text-xs font-mono bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
+          {(ts`CANCELED`)->React.string}
+        </span>
+      )
+      ->Option.getOr(React.null)}
+      <h1
+        className={Util.cx([
+          "text-lg font-semibold leading-tight",
+          event.deleted->Option.isSome
+            ? "line-through text-gray-400 dark:text-gray-500"
+            : "text-gray-900 dark:text-gray-100",
+        ])}>
+        {event.activity
+        ->Option.flatMap(a =>
+          a.slug->Option.map(slug => <>
+            <Router.Link
+              to={"/e/" ++ slug}
+              className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal">
+              {td(a.name->Option.getOr(slug))->React.string}
+            </Router.Link>
+            <span className="text-gray-300 dark:text-gray-600 mx-1.5 font-normal">
+              {"/"->React.string}
+            </span>
+          </>)
+        )
+        ->Option.getOr(React.null)}
+        {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
+      </h1>
+      {event.club
+      ->Option.flatMap(club =>
+        club.slug->Option.map(slug =>
+          <Router.Link
+            to={"/clubs/" ++ slug}
+            className="text-xs text-gray-600 dark:text-gray-300 mt-1 block hover:underline">
+            {club.name->Option.getOr(slug)->React.string}
+          </Router.Link>
+        )
+      )
+      ->Option.getOr(React.null)}
+      <ResponsiveTooltip.Provider>
+        <div className="flex flex-wrap items-center gap-1.5 mt-2">
+          {event.listed == Some(false) ? <EventTag tag="unlisted" /> : React.null}
+          {event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
+            ? <EventTag tag="comp" />
+            : React.null}
+          {event.tags
+          ->Option.getOr([])
+          ->Array.filter(t => t->String.toLowerCase != "comp")
+          ->Array.mapWithIndex((tag, i) => <EventTag key={Int.toString(i)} tag />)
+          ->React.array}
+          <span className="font-mono text-xs font-medium text-gray-700 dark:text-gray-300">
+            {event.price
+            ->Option.map(p =>
+              if p == 0 {
+                ts`Free`
+              } else {
+                Int.toString(p) ++ "円"
+              }
+            )
+            ->Option.getOr("???円")
+            ->React.string}
+          </span>
+        </div>
+      </ResponsiveTooltip.Provider>
+    </div>
+  }
+}
+
+module EventLocationSection = {
+  @react.component
+  let make = (~loc: PkEventPageQuery_graphql.Types.response_event_location) => {
+    let ts = Lingui.UtilString.t
+    let (showFullDetails, setShowFullDetails) = React.useState(() => false)
+    <div className="px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]">
+      <h2
+        className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3">
+        {(ts`Location`)->React.string}
+      </h2>
+      <div
+        className="h-24 rounded-lg border border-gray-200 dark:border-[#3a3b40] mb-3 overflow-hidden">
+        <GMap location={loc.fragmentRefs} />
+      </div>
+      <p className="font-mono text-sm font-medium text-gray-900 dark:text-gray-100">
+        <Router.Link to={`/locations/${loc.id}`} className="hover:underline">
+          {loc.name->Option.getOr("?")->React.string}
+        </Router.Link>
+      </p>
+      {loc.details
+      ->Option.map(d => {
+        let limit = 100
+        let isTruncatable = String.length(d) > limit
+        let displayText =
+          !showFullDetails && isTruncatable ? String.slice(d, ~start=0, ~end=limit) : d
+        <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-1">
+          {displayText->React.string}
+          {isTruncatable
+            ? <button
+                onClick={_ => setShowFullDetails(v => !v)}
+                className="ml-1 text-blue-500 hover:underline font-mono text-xs">
+                {(showFullDetails ? ts`less` : ts`...more`)->React.string}
+              </button>
+            : React.null}
+        </p>
+      })
+      ->Option.getOr(React.null)}
+      {loc.address
+      ->Option.map(addr => {
+        let defaultLink = loc.links->Option.flatMap(links => links->Array.get(0))
+        let mapsUrl =
+          defaultLink
+          ->Option.orElse(
+            loc.coords->Option.map(c =>
+              `https://maps.google.com/?q=${Float.toString(c.lat)},${Float.toString(c.lng)}`
+            ),
+          )
+          ->Option.getOr(`https://maps.google.com/?q=${addr}`)
+        <a
+          href=mapsUrl
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-1 block hover:underline">
+          {addr->React.string}
+        </a>
+      })
+      ->Option.getOr(React.null)}
+    </div>
+  }
+}
+
 module Inner = {
   @react.component
   let make = (
@@ -149,7 +307,6 @@ module Inner = {
   ) => {
     let viewerUser = viewer->Option.flatMap(v => v.user)
     let ts = Lingui.UtilString.t
-    let td = Lingui.UtilString.dynamic
     let locale = React.useContext(LangProvider.LocaleContext.context)
 
     let (mounted, setMounted) = React.useState(() => false)
@@ -158,26 +315,12 @@ module Inner = {
       None
     })
 
-    let (isProfileModalOpen, setIsProfileModalOpen) = React.useState(() => false)
-    let (pendingJoinAction, setPendingJoinAction) = React.useState(() => None)
-    let (localRsvpState, setLocalRsvpState) = React.useState(() => None)
-
-    let (showFullDetails, setShowFullDetails) = React.useState(() => false)
-    let (showLeaveConfirm, setShowLeaveConfirm) = React.useState(() => false)
     let (cancelEvent, canceling) = EventCancelMutation.use()
     let (uncancelEvent, uncanceling) = EventUncancelMutation.use()
-    let (joinEvent, joining) = JoinEventMutation.use()
-    let (leaveEvent, leaving) = LeaveEventMutation.use()
-
-    let hasCompleteProfile = () =>
-      switch viewerUser {
-      | Some(user) =>
-        switch (user.lineUsername, user.email) {
-        | (Some(u), Some(e)) => u != "" && e != ""
-        | _ => false
-        }
-      | None => false
-      }
+    let (chargePayment, charging) = ChargePaymentMutation.use()
+    let (authorizePlatformPayment, authorizingPlatform) = AuthorizePlatformPaymentMutation.use()
+    let (confirmPayment, _confirming) = ConfirmPaymentMutation.use()
+    let (paymentClientSecret, setPaymentClientSecret) = React.useState(() => None)
 
     let secret = event.shadow->Option.getOr(false)
     let tz = event.timezone->Option.getOr("Asia/Tokyo")
@@ -214,10 +357,25 @@ module Inner = {
         ? confirmedPlayers->Array.slice(~start=maxRsvps, ~end=confirmedPlayers->Array.length)
         : []
     let isFull = maxRsvps > 0 && confirmedPlayers->Array.length >= maxRsvps
-    let isJoined = switch localRsvpState {
-    | Some(v) => v
-    | None => event.viewerHasRsvp->Option.getOr(false)
+
+    // Find the viewer's own RSVP node (for payment status)
+    let viewerRsvpNode =
+      viewerUser->Option.flatMap(vu =>
+        allRsvpNodes->Array.find(n => n.user->Option.map(u => u.id == vu.id)->Option.getOr(false))
+      )
+
+    // Unpaid: viewer is joined, event has a price, viewer is not in Going list, and has no payment
+    let isPaidEvent = event.price->Option.map(p => p > 0)->Option.getOr(false)
+    let isJoined = viewerRsvpNode->Option.isSome
+    let viewerIsInGoingList = switch viewerRsvpNode {
+    | Some({listType: None | Some(0)}) => true
+    | _ => false
     }
+    let viewerHasPayment = switch viewerRsvpNode {
+    | Some({payment: Some(_)}) => true
+    | _ => false
+    }
+    let isUnpaid = isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment
 
     if event.viewerIsBanned->Option.getOr(false) {
       <div className="p-6 text-center text-gray-500">
@@ -258,75 +416,7 @@ module Inner = {
         </div>
         <div className="flex-1 overflow-y-auto pb-24">
           /* Title */
-          <div className="px-5 pt-4 pb-3 border-b border-gray-100 dark:border-[#2a2b30]">
-            {event.deleted
-            ->Option.map(_ =>
-              <span
-                className="inline-flex mb-2 items-center px-2 py-0.5 rounded text-xs font-mono bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
-                {(ts`CANCELED`)->React.string}
-              </span>
-            )
-            ->Option.getOr(React.null)}
-            <h1
-              className={Util.cx([
-                "text-lg font-semibold leading-tight",
-                event.deleted->Option.isSome
-                  ? "line-through text-gray-400 dark:text-gray-500"
-                  : "text-gray-900 dark:text-gray-100",
-              ])}>
-              {event.activity
-              ->Option.flatMap(a =>
-                a.slug->Option.map(slug => <>
-                  <Router.Link
-                    to={"/e/" ++ slug}
-                    className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal">
-                    {td(a.name->Option.getOr(slug))->React.string}
-                  </Router.Link>
-                  <span className="text-gray-300 dark:text-gray-600 mx-1.5 font-normal">
-                    {"/"->React.string}
-                  </span>
-                </>)
-              )
-              ->Option.getOr(React.null)}
-              {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
-            </h1>
-            {event.club
-            ->Option.flatMap(club =>
-              club.slug->Option.map(slug =>
-                <Router.Link
-                  to={"/clubs/" ++ slug}
-                  className="text-xs text-gray-600 dark:text-gray-300 mt-1 block hover:underline">
-                  {club.name->Option.getOr(slug)->React.string}
-                </Router.Link>
-              )
-            )
-            ->Option.getOr(React.null)}
-            <ResponsiveTooltip.Provider>
-              <div className="flex flex-wrap items-center gap-1.5 mt-2">
-                {event.listed == Some(false) ? <EventTag tag="unlisted" /> : React.null}
-                {event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
-                  ? <EventTag tag="comp" />
-                  : React.null}
-                {event.tags
-                ->Option.getOr([])
-                ->Array.filter(t => t->String.toLowerCase != "comp")
-                ->Array.mapWithIndex((tag, i) => <EventTag key={Int.toString(i)} tag />)
-                ->React.array}
-                <span className="font-mono text-xs font-medium text-gray-700 dark:text-gray-300">
-                  {event.price
-                  ->Option.map(p =>
-                    if p == 0 {
-                      ts`Free`
-                    } else {
-                      Int.toString(p) ++ "円"
-                    }
-                  )
-                  ->Option.getOr("???円")
-                  ->React.string}
-                </span>
-              </div>
-            </ResponsiveTooltip.Provider>
-          </div>
+          <EventTitleSection event secret tz />
           /* Admin controls */
           {switch (event.viewerIsAdmin, viewerUser) {
           | (true, Some(_)) =>
@@ -359,60 +449,7 @@ module Inner = {
           }}
           /* Location */
           {switch (event.location, secret) {
-          | (Some(loc), false) =>
-            <div className="px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]">
-              <h2
-                className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3">
-                {(ts`Location`)->React.string}
-              </h2>
-              <div
-                className="h-24 rounded-lg border border-gray-200 dark:border-[#3a3b40] mb-3 overflow-hidden">
-                <GMap location={loc.fragmentRefs} />
-              </div>
-              <p className="font-mono text-sm font-medium text-gray-900 dark:text-gray-100">
-                <Router.Link to={`/locations/${loc.id}`} className="hover:underline">
-                  {loc.name->Option.getOr("?")->React.string}
-                </Router.Link>
-              </p>
-              {loc.details
-              ->Option.map(d => {
-                let limit = 100
-                let isTruncatable = String.length(d) > limit
-                let displayText =
-                  !showFullDetails && isTruncatable ? String.slice(d, ~start=0, ~end=limit) : d
-                <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-1">
-                  {displayText->React.string}
-                  {isTruncatable
-                    ? <button
-                        onClick={_ => setShowFullDetails(v => !v)}
-                        className="ml-1 text-blue-500 hover:underline font-mono text-xs">
-                        {(showFullDetails ? ts`less` : ts`...more`)->React.string}
-                      </button>
-                    : React.null}
-                </p>
-              })
-              ->Option.getOr(React.null)}
-              {loc.address
-              ->Option.map(addr => {
-                let defaultLink = loc.links->Option.flatMap(links => links->Array.get(0))
-                let mapsUrl =
-                  defaultLink
-                  ->Option.orElse(
-                    loc.coords->Option.map(c =>
-                      `https://maps.google.com/?q=${Float.toString(c.lat)},${Float.toString(c.lng)}`
-                    ),
-                  )
-                  ->Option.getOr(`https://maps.google.com/?q=${addr}`)
-                <a
-                  href=mapsUrl
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-1 block hover:underline">
-                  {addr->React.string}
-                </a>
-              })
-              ->Option.getOr(React.null)}
-            </div>
+          | (Some(loc), false) => <EventLocationSection loc />
           | _ => React.null
           }}
           /* Participants */
@@ -490,222 +527,76 @@ module Inner = {
           <PkEventMessages queryRef=queryFragmentRefs eventId=event.id isJoined />
         </div>
         /* Sticky footer */
-        {switch (event.deleted, viewerUser) {
-        | (None, Some(_)) =>
-          switch event.shadow {
-          | Some(true) => React.null
-          | _ => {
-              let cancelDeadlineDate =
-                event.startDate->Option.flatMap(sd =>
-                  event.cancelDeadline->Option.map(ms =>
-                    Js.Date.fromFloat(sd->Util.Datetime.toDate->DateFns.getTime -. Int.toFloat(ms))
-                  )
-                )
-              let cancelMinutesLeft =
-                cancelDeadlineDate->Option.map(d => DateFns.differenceInMinutes(d, Js.Date.make()))
-              let showCancelNotice = isJoined && cancelDeadlineDate->Option.isSome
-              let deadlinePassed =
-                cancelDeadlineDate->Option.isSome &&
-                  cancelMinutesLeft->Option.map(m => m <= 0.)->Option.getOr(false)
-              <div
-                className="sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex flex-col flex-shrink-0">
-                {showCancelNotice
-                  ? <div
-                      className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2">
-                      <Lucide.AlertCircle
-                        className="w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
-                      />
-                      <span
-                        className="font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300">
-                        {switch cancelMinutesLeft->Option.filter(m => m > 0.) {
-                        | Some(mins) =>
-                          <>
-                            {(ts`Cancellation deadline`)->React.string}
-                            {": "->React.string}
-                            <ReactIntl.FormattedRelativeTime
-                              value={mins} unit=#minute updateIntervalInSeconds=1.
-                            />
-                          </>
-                        | None =>
-                          (
-                            ts`Cancellation deadline passed. Contact the organizer on this page to cancel.`
-                          )->React.string
-                        }}
-                      </span>
-                    </div>
-                  : React.null}
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <div
-                    className="font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1">
-                    {event.startDate
-                    ->Option.map(sd =>
-                      <ReactIntl.FormattedDate
-                        weekday=#short
-                        day=#"2-digit"
-                        month=#short
-                        value={sd->Util.Datetime.toDate}
-                        timeZone=tz
-                      />
-                    )
-                    ->Option.getOr(React.null)}
-                    {" "->React.string}
-                    {event.startDate
-                    ->Option.map(sd =>
-                      <ReactIntl.FormattedTime value={sd->Util.Datetime.toDate} timeZone=tz />
-                    )
-                    ->Option.getOr(React.null)}
-                    <span className="text-gray-400 dark:text-gray-500 font-normal normal-case">
-                      {(" \u00B7 " ++
-                      Int.toString(confirmedPlayers->Array.length) ++ (
-                        maxRsvps > 0 ? "/" ++ Int.toString(maxRsvps) : ""
-                      ))->React.string}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    {isJoined
-                      ? <button
-                          className={Util.cx([
-                            "px-4 py-2 text-sm font-medium rounded-md transition-colors border",
-                            deadlinePassed
-                              ? "text-gray-400 dark:text-gray-600 bg-gray-100 dark:bg-[#2a2b30] border-gray-200 dark:border-[#3a3b40] cursor-not-allowed"
-                              : "text-gray-700 dark:text-gray-300 bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] hover:bg-gray-50 dark:hover:bg-[#2a2b30]",
-                          ])}
-                          disabled={leaving || deadlinePassed}
-                          onClick={_ => {
-                            if waitlistPlayers->Array.length > 0 {
-                              setShowLeaveConfirm(_ => true)
-                            } else {
-                              let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-                                event.__id,
-                                "PkRSVPSection_event_rsvps",
-                                (),
-                              )
-                              leaveEvent(
-                                ~variables={eventId: event.id, connections: [connectionId]},
-                              )->ignore
-                              setLocalRsvpState(_ => Some(false))
-                            }
-                          }}>
-                          {(ts`Leave`)->React.string}
-                        </button>
-                      : <button
-                          className={Util.cx([
-                            "px-4 py-2 text-sm font-semibold rounded-md transition-colors border",
-                            isFull
-                              ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]"
-                              : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent",
-                          ])}
-                          disabled={joining}
-                          onClick={_ => {
-                            let proceed = () => {
-                              let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-                                event.__id,
-                                "PkRSVPSection_event_rsvps",
-                                (),
-                              )
-                              joinEvent(
-                                ~variables={eventId: event.id, connections: [connectionId]},
-                              )->ignore
-                              setLocalRsvpState(_ => Some(true))
-                            }
-                            if hasCompleteProfile() {
-                              proceed()
-                            } else {
-                              setPendingJoinAction(_ => Some(proceed))
-                              setIsProfileModalOpen(_ => true)
-                            }
-                          }}>
-                          {(
-                            isFull
-                              ? ts`Join waitlist (#${Int.toString(
-                                  waitlistPlayers->Array.length + 1,
-                                )})`
-                              : ts`Claim spot`
-                          )->React.string}
-                        </button>}
-                  </div>
-                </div>
-              </div>
-            }
-          }
-        | (None, None) =>
-          switch event.shadow {
-          | Some(true) => React.null
-          | _ =>
-            <div
-              className="sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0">
-              <div
-                className="font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1">
-                {event.startDate
-                ->Option.map(sd =>
-                  <ReactIntl.FormattedDate
-                    weekday=#short
-                    day=#"2-digit"
-                    month=#short
-                    value={sd->Util.Datetime.toDate}
-                    timeZone=tz
-                  />
-                )
-                ->Option.getOr(React.null)}
-                {" "->React.string}
-                {event.startDate
-                ->Option.map(sd =>
-                  <ReactIntl.FormattedTime value={sd->Util.Datetime.toDate} timeZone=tz />
-                )
-                ->Option.getOr(React.null)}
-                <span className="text-gray-400 dark:text-gray-500 font-normal normal-case">
-                  {(" \u00B7 " ++
-                  Int.toString(confirmedPlayers->Array.length) ++ (
-                    maxRsvps > 0 ? "/" ++ Int.toString(maxRsvps) : ""
-                  ))->React.string}
-                </span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Router.Link
-                  to={"/oauth-login?return=" ++
-                  I18n.getLangPath(locale.lang) ++
-                  "/events/" ++
-                  event.id}
-                  className={Util.cx([
-                    "px-4 py-2 text-sm font-semibold rounded-md transition-colors border",
-                    isFull
-                      ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]"
-                      : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent",
-                  ])}>
-                  {(isFull ? ts`Join waitlist` : ts`Claim spot`)->React.string}
-                </Router.Link>
-              </div>
-            </div>
-          }
-        | _ => React.null
+        <EventStickyFooter
+          event={{
+            __id: event.__id,
+            id: event.id,
+            price: event.price,
+            startDate: event.startDate,
+            cancelDeadline: event.cancelDeadline,
+            shadow: event.shadow,
+            deleted: event.deleted,
+          }}
+          viewerUser={viewerUser->Option.map(u => {
+            EventStickyFooter.id: u.id,
+            lineUsername: u.lineUsername,
+            email: u.email,
+          })}
+          isJoined
+          isUnpaid
+          isPaidEvent
+          isFull
+          confirmedCount={confirmedPlayers->Array.length}
+          waitlistCount={waitlistPlayers->Array.length}
+          maxRsvps
+          tz
+          locale
+          queryFragmentRefs
+          charging={charging || authorizingPlatform}
+          onPayClick={() =>
+            viewerRsvpNode->Option.forEach(rsvp =>
+              chargePayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
+                switch (
+                  response.chargeRsvpPayment.clientSecret,
+                  response.chargeRsvpPayment.connectedAccountId,
+                ) {
+                | (Some(secret), Some(accountId)) =>
+                  // Connected account is enabled, use connected account flow
+                  setPaymentClientSecret(_ => Some((secret, accountId)))
+                | (None, None) | (Some(_), None) =>
+                  // No connected account or not enabled, use platform authorization
+                  authorizePlatformPayment(
+                    ~variables={rsvpId: rsvp.id},
+                    ~onCompleted=(platformResponse, _) =>
+                      switch platformResponse.authorizePlatformRsvpPayment.clientSecret {
+                      | Some(secret) =>
+                        // Use platform account (empty accountId)
+                        setPaymentClientSecret(_ => Some((secret, "")))
+                      | None => ()
+                      },
+                  )->RescriptRelay.Disposable.ignore
+                | _ => ()
+                }
+              )->RescriptRelay.Disposable.ignore
+            )}
+        />
+        {switch paymentClientSecret {
+        | Some((secret, accountId)) =>
+          <StripePaymentEmbed
+            clientSecret=secret
+            stripeAccountId=accountId
+            onSuccess={paymentIntentId => {
+              setPaymentClientSecret(_ => None)
+              viewerRsvpNode->Option.forEach(rsvp =>
+                confirmPayment(
+                  ~variables={rsvpId: rsvp.id, paymentIntentId},
+                )->RescriptRelay.Disposable.ignore
+              )
+            }}
+            onClose={() => setPaymentClientSecret(_ => None)}
+          />
+        | None => React.null
         }}
-        <ProfileModal
-          isOpen=isProfileModalOpen
-          onClose={_ => {
-            setIsProfileModalOpen(_ => false)
-            setPendingJoinAction(_ => None)
-          }}
-          onProfileComplete={() => {
-            pendingJoinAction->Option.forEach(action => action())
-            setPendingJoinAction(_ => None)
-          }}
-          query=queryFragmentRefs
-        />
-        <ConfirmDialog
-          title={t`Leave event`}
-          description={t`There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?`}
-          setIsOpen={setShowLeaveConfirm}
-          isOpen={showLeaveConfirm}
-          onConfirmed={_ => {
-            let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-              event.__id,
-              "PkRSVPSection_event_rsvps",
-              (),
-            )
-            leaveEvent(~variables={eventId: event.id, connections: [connectionId]})->ignore
-            setLocalRsvpState(_ => Some(false))
-          }}
-        />
       </div>
     }
   }

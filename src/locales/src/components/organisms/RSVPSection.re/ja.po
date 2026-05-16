@@ -22,13 +22,17 @@ msgstr "+{0}人他"
 msgid "Add Member"
 msgstr "メンバーを追加"
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "参加申込を承認"
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
+
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "支払いを確定"
 
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
@@ -58,8 +62,8 @@ msgstr "読み込み中..."
 msgid "Login to Join"
 msgstr "ログインして参加"
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
@@ -80,11 +84,15 @@ msgstr "保留中"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "返金処理"
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "イベントから削除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
@@ -124,7 +132,7 @@ msgstr ""
 "の誰かに譲られます。再参加する場合、ウェイトリストに参加することになります。"
 "本当にこのイベントを離れますか？"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -140,7 +148,7 @@ msgstr ""
 "「19:00に到着します」など、他の人が見るためのステータスメッセージを入力してく"
 "ださい。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "プロフィールを表示"
 

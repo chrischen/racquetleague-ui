@@ -65,6 +65,20 @@ module PkRSVPSectionAddUserMutation = %relay(`
   }
 `)
 
+module PkRSVPSectionCaptureAllPaymentsMutation = %relay(`
+  mutation PkRSVPSectionCaptureAllPaymentsMutation($eventId: ID!) {
+    captureEventRsvpPayments(eventId: $eventId) {
+      payments {
+        id
+        status
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
 module UserFragment = %relay(`
   fragment PkRSVPSection_user on User
   @argumentDefinitions(eventId: { type: "ID!" }) {
@@ -89,6 +103,7 @@ let make = (
 
   let (isAddingPlayer, setIsAddingPlayer) = React.useState(() => false)
   let (commitMutationAddUser, _addUserInFlight) = PkRSVPSectionAddUserMutation.use()
+  let (commitCaptureAll, isCaptureAllInFlight) = PkRSVPSectionCaptureAllPaymentsMutation.use()
 
   let handleAddUser = (user: AutocompleteUser.user) => {
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -106,6 +121,7 @@ let make = (
   }
 
   let rsvps = eventData.rsvps->Fragment.getConnectionNodes
+  Js.log(rsvps)
   let maxRsvps = eventData.maxRsvps->Option.getOr(0)
   let minRating = eventData.minRating
   let activitySlug = eventData.activity->Option.flatMap(a => a.slug)
@@ -246,7 +262,8 @@ let make = (
       let viewerOrdinal2Str = viewerOrdinal2->Float.toFixed(~digits=2)
       let viewerMuStr = viewerRatingVal.mu->Float.toFixed(~digits=2)
       let viewerDuprLo = viewerOrdinal2->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
-      let viewerDuprHi = viewerRatingVal.mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
+      let viewerDuprHi =
+        viewerRatingVal.mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
       <div
         className="mb-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40">
         <div
@@ -288,6 +305,18 @@ let make = (
               className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
               title="Add player">
               <Lucide.UserPlus className="w-3 h-3" />
+            </button>
+          : React.null}
+        {eventData.viewerIsAdmin
+          ? <button
+              onClick={_ =>
+                commitCaptureAll(
+                  ~variables={eventId: eventData.id},
+                )->RescriptRelay.Disposable.ignore}
+              disabled={isCaptureAllInFlight}
+              className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-40"
+              title="Capture all payments">
+              <Lucide.CreditCard className="w-3 h-3" />
             </button>
           : React.null}
       </h2>

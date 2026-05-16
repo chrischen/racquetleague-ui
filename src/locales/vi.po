@@ -3160,6 +3160,118 @@ msgstr "đã đồng bộ"
 msgid "to sync"
 msgstr "cần đồng bộ"
 
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "Thu tiền thanh toán"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:322
+msgid "Claim spot · {0}"
+msgstr "Đăng ký chỗ · {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+msgid "Leaving..."
+msgstr "Đang rời..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Pay {0}"
+msgstr "Thanh toán {0}"
+
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "Hoàn tiền"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Release spot"
+msgstr "Hủy chỗ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Releasing..."
+msgstr "Đang hủy..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Spot held — pay to confirm"
+msgstr "Đã giữ chỗ — thanh toán để xác nhận"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:262
+msgid "You're in"
+msgstr "Bạn đã tham gia"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:309
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:329
+msgid "Connect a Stripe account to receive payments from events you organize."
+msgstr "Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:358
+msgid "Connect Stripe account"
+msgstr "Kết nối tài khoản Stripe"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:354
+msgid "Connecting..."
+msgstr "Đang kết nối..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:303
+msgid "Not connected"
+msgstr "Chưa kết nối"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:361
+msgid "Resume onboarding"
+msgstr "Tiếp tục đăng ký"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
+msgid "Stripe Connect"
+msgstr "Stripe Connect"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:335
+msgid "Your Stripe account is connected and ready to accept payments."
+msgstr "Tài khoản Stripe của bạn đã được kết nối và sẵn sàng nhận thanh toán."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:332
+msgid "Your Stripe account is connected but onboarding is not yet complete."
+msgstr "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
+msgid "Australia"
+msgstr "Úc"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
+msgid "Canada"
+msgstr "Canada"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:379
+msgid "Country"
+msgstr "Quốc gia"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:410
+msgid "Hong Kong"
+msgstr "Hồng Kông"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:386
+msgid "Japan"
+msgstr "Nhật Bản"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:406
+msgid "Singapore"
+msgstr "Singapore"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:418
+msgid "South Korea"
+msgstr "Hàn Quốc"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
+msgid "Taiwan"
+msgstr "Đài Loan"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
+msgid "United Kingdom"
+msgstr "Anh"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:390
+msgid "United States"
+msgstr "Mỹ"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

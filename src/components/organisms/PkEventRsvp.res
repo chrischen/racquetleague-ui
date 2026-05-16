@@ -12,6 +12,13 @@ module Fragment = %relay(`
       sigma
     }
     message
+    paid
+    payment {
+      id
+      status
+      currency
+      amount
+    }
     ...RsvpOptions_rsvp
   }
 `)
@@ -41,6 +48,14 @@ let make = (
       ->Option.flatMap(r => r.mu)
       ->Option.map(mu => Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2))
       ->Option.getOr("—")
+
+    // Payment indicator
+    let paymentIndicator = switch rsvp.payment {
+    | Some({status: 1, currency}) => <PaymentIndicator status=Captured currency />
+    | Some({status: 0, currency}) => <PaymentIndicator status=Authorized currency />
+    | _ =>
+      rsvp.paid->Option.getOr(0) > 0 ? <PaymentIndicator status=Paid /> : React.null
+    }
 
     if isWaitlisted {
       let pos = waitlistPosition->Option.getOr(0)
@@ -79,6 +94,7 @@ let make = (
         <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none">
           {skillStr->React.string}
         </span>
+        {paymentIndicator}
       </RsvpOptions>
     } else {
       <RsvpOptions
@@ -116,6 +132,7 @@ let make = (
         <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none">
           {skillStr->React.string}
         </span>
+        {paymentIndicator}
         {isHost
           ? <span className="text-[11px] font-mono text-gray-400 dark:text-gray-500 leading-none">
               {"★"->React.string}

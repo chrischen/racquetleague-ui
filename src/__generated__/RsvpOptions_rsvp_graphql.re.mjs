@@ -52,6 +52,25 @@ return {
         (v0/*: any*/)
       ],
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Payment",
+      "kind": "LinkedField",
+      "name": "payment",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "status",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
     }
   ],
   "type": "Rsvp",

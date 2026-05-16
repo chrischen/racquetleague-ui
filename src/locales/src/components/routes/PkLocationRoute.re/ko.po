@@ -13,15 +13,15 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:675
+#: src/components/pages/PkEventPage.re.mjs:276
 msgid "...more"
 msgstr "...더 보기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:404
+#: src/components/organisms/PkRSVPSection.re.mjs:441
 msgid "· {0} pending"
 msgstr "· {0} 대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:402
+#: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "· +{0} waitlist"
 msgstr "· +{0} 대기자"
 
@@ -37,7 +37,7 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 msgid "{0} {hiddenDesc} hidden — show"
 msgstr "{0} {hiddenDesc} 숨김 — 표시"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:399
+#: src/components/organisms/PkRSVPSection.re.mjs:436
 msgid "{0} joined"
 msgstr "{0} 참가함"
 
@@ -58,7 +58,7 @@ msgstr "{totalHiddenCount, plural, one {이벤트} other {이벤트}}"
 msgid "← previous"
 msgstr "← 이전"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:465
+#: src/components/organisms/PkRSVPSection.re.mjs:502
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 스킬"
 
@@ -82,19 +82,19 @@ msgstr "상급자"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "참가 승인"
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:187
+#: src/components/organisms/PkRSVPSection.re.mjs:211
 msgid "balanced"
 msgstr "균형"
 
-#: src/components/pages/PkEventPage.re.mjs:283
+#: src/components/pages/PkEventPage.re.mjs:426
 msgid "cancel event"
 msgstr "이벤트 취소"
 
@@ -102,34 +102,42 @@ msgstr "이벤트 취소"
 msgid "Canceled"
 msgstr "취소됨"
 
-#: src/components/pages/PkEventPage.re.mjs:576
+#: src/components/pages/PkEventPage.re.mjs:165
 msgid "CANCELED"
 msgstr "취소됨"
 
-#: src/components/pages/PkEventPage.re.mjs:372
+#: src/components/organisms/EventStickyFooter.re.mjs:219
 msgid "Cancellation deadline"
 msgstr "취소 마감일"
 
-#: src/components/pages/PkEventPage.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:227
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr ""
 "취소 마감 시간이 지났습니다. 취소하려면 이 페이지에서 주최자에게 연락하세요."
 
-#: src/components/pages/PkEventPage.re.mjs:254
+#: src/components/pages/PkEventPage.re.mjs:397
 msgid "Cannot access variable \\\"title\\\""
 msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
 
-#: src/components/pages/PkEventPage.re.mjs:442
-#: src/components/pages/PkEventPage.re.mjs:519
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "결제 승인"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:324
+#: src/components/organisms/EventStickyFooter.re.mjs:410
 msgid "Claim spot"
 msgstr "자리 확보"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:322
+msgid "Claim spot · {0}"
+msgstr "참가 신청 · {0}"
 
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "프로필 완성하기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:549
+#: src/components/organisms/PkRSVPSection.re.mjs:586
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
 
@@ -162,12 +170,12 @@ msgstr "표시 이름"
 msgid "Display name is required"
 msgstr "표시 이름이 필요합니다"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:439
-#: src/components/organisms/PkRSVPSection.re.mjs:456
+#: src/components/organisms/PkRSVPSection.re.mjs:476
+#: src/components/organisms/PkRSVPSection.re.mjs:493
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:266
+#: src/components/pages/PkEventPage.re.mjs:409
 msgid "edit event"
 msgstr "이벤트 편집"
 
@@ -199,7 +207,7 @@ msgstr "이메일이 필요합니다"
 msgid "Enter Match Score"
 msgstr "경기 점수 입력"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:183
+#: src/components/organisms/PkRSVPSection.re.mjs:207
 msgid "even"
 msgstr "균등"
 
@@ -208,7 +216,7 @@ msgstr "균등"
 msgid "event"
 msgstr "이벤트"
 
-#: src/components/pages/PkEventPage.re.mjs:801
+#: src/components/pages/PkEventPage.re.mjs:655
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -237,7 +245,7 @@ msgstr "날짜별 필터"
 msgid "For event updates and notifications"
 msgstr "이벤트 업데이트 및 알림용"
 
-#: src/components/pages/PkEventPage.re.mjs:633
+#: src/components/pages/PkEventPage.re.mjs:222
 msgid "Free"
 msgstr "무료"
 
@@ -261,11 +269,11 @@ msgstr "고급 플레이어"
 msgid "Join"
 msgstr "참가"
 
-#: src/components/pages/PkEventPage.re.mjs:519
+#: src/components/organisms/EventStickyFooter.re.mjs:410
 msgid "Join waitlist"
 msgstr "대기자 명단 등록"
 
-#: src/components/pages/PkEventPage.re.mjs:442
+#: src/components/organisms/EventStickyFooter.re.mjs:321
 msgid "Join waitlist (#{0})"
 msgstr "대기자 명단 등록 (#{0})"
 
@@ -278,20 +286,28 @@ msgid "Last Round"
 msgstr "지난 라운드"
 
 #: src/components/pkuru/PkEventRow.re.mjs:600
-#: src/components/pages/PkEventPage.re.mjs:423
 msgid "Leave"
 msgstr "나가기"
 
 #: src/components/pkuru/PkEventRow.re.mjs:856
-#: src/components/pages/PkEventPage.re.mjs:762
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:363
 msgid "Leave event"
 msgstr "이벤트 나가기"
 
-#: src/components/pages/PkEventPage.re.mjs:675
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+msgid "Leaving..."
+msgstr "나가는 중..."
+
+#: src/components/pages/PkEventPage.re.mjs:276
 msgid "less"
 msgstr "간략히"
 
-#: src/components/pages/PkEventPage.re.mjs:651
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Loading..."
+msgstr "로딩 중..."
+
+#: src/components/pages/PkEventPage.re.mjs:252
 msgid "Location"
 msgstr "장소"
 
@@ -315,11 +331,11 @@ msgstr "남성"
 msgid "Matches will be submitted to DUPR."
 msgstr "경기 결과가 DUPR에 제출됩니다."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:448
+#: src/components/organisms/PkRSVPSection.re.mjs:485
 msgid "MEDIAN"
 msgstr "중간값"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:190
+#: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "mixed"
 msgstr "혼합"
 
@@ -331,8 +347,8 @@ msgstr "월요일"
 msgid "more →"
 msgstr "더 보기 →"
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
@@ -348,19 +364,23 @@ msgstr "실력 제한 없음. 모든 플레이어 환영."
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/pages/PkEventPage.re.mjs:715
+#: src/components/pages/PkEventPage.re.mjs:538
 msgid "Notes from the host"
 msgstr "주최자 메모"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:382
+#: src/components/organisms/PkRSVPSection.re.mjs:406
 msgid "Participants"
 msgstr "참가자"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Pay {0}"
+msgstr "{0} 결제"
 
 #: src/components/pkuru/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:678
+#: src/components/organisms/PkRSVPSection.re.mjs:715
 msgid "Pending · {0}"
 msgstr "대기 중 · {0}"
 
@@ -401,11 +421,23 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "결제 환불"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Release spot"
+msgstr "참가 취소"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Releasing..."
+msgstr "취소하는 중..."
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "이벤트에서 제거"
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
@@ -413,11 +445,11 @@ msgstr "이 RSVP 제거"
 msgid "Repeat"
 msgstr "반복"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:308
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "필수: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:329
+#: src/components/organisms/PkRSVPSection.re.mjs:353
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "참가하려면 DUPR {minDuprStr}+ 필요"
 
@@ -470,7 +502,11 @@ msgstr "기술 향상을 위한 스킬 연습 및 드릴"
 msgid "SORTED BY START TIME"
 msgstr "시작 시간 순 정렬"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:509
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Spot held — pay to confirm"
+msgstr "자리 확보됨 — 결제하여 확정하세요"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:546
 msgid "SPREAD"
 msgstr "분산"
 
@@ -499,7 +535,7 @@ msgstr ""
 "복원할 수 있습니다."
 
 #: src/components/pkuru/PkEventRow.re.mjs:857
-#: src/components/pages/PkEventPage.re.mjs:763
+#: src/components/organisms/EventStickyFooter.re.mjs:364
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -517,7 +553,7 @@ msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유�
 msgid "This is how others will see you"
 msgstr "다른 사람들에게 이렇게 보입니다"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -539,7 +575,7 @@ msgstr "오늘"
 msgid "Tomorrow"
 msgstr "내일"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:431
+#: src/components/organisms/PkRSVPSection.re.mjs:468
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
@@ -547,7 +583,7 @@ msgstr "상위6평균"
 msgid "Tuesday"
 msgstr "화요일"
 
-#: src/components/pages/PkEventPage.re.mjs:272
+#: src/components/pages/PkEventPage.re.mjs:415
 msgid "uncancel event"
 msgstr "이벤트 취소 해제"
 
@@ -559,7 +595,7 @@ msgstr "중상급 이상"
 msgid "View Full Draws"
 msgstr "전체 대진 보기"
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "프로필 보기"
 
@@ -573,7 +609,7 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "대기자 명단"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:614
+#: src/components/organisms/PkRSVPSection.re.mjs:651
 msgid "Waitlist · {0}"
 msgstr "대기자 명단 · {0}"
 
@@ -601,7 +637,11 @@ msgstr "승리 팀 (팀 {0})"
 msgid "Yesterday"
 msgstr "어제"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:312
+#: src/components/organisms/EventStickyFooter.re.mjs:262
+msgid "You're in"
+msgstr "참가 완료"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:336
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

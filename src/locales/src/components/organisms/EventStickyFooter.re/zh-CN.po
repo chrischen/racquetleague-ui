@@ -1,0 +1,143 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 18:20+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:219
+msgid "Cancellation deadline"
+msgstr "取消截止时间"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:227
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "取消截止日期已过。请在此页面联系组织者取消。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:324
+#: src/components/organisms/EventStickyFooter.re.mjs:410
+msgid "Claim spot"
+msgstr "报名参加"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:322
+msgid "Claim spot · {0}"
+msgstr "占位 · {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+msgid "Complete your profile"
+msgstr "完善个人资料"
+
+#: src/components/organisms/ProfileModal.re.mjs:358
+msgid "Display name"
+msgstr "显示名称"
+
+#: src/components/organisms/ProfileModal.re.mjs:106
+msgid "Display name is required"
+msgstr "请输入显示名称"
+
+#: src/components/organisms/ProfileModal.re.mjs:375
+msgid "Email address"
+msgstr "电子邮件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:226
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
+"件地址登录。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "Email cannot be changed"
+msgstr "电子邮件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Email is required"
+msgstr "请输入电子邮件"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "For event updates and notifications"
+msgstr "用于活动更新和通知"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "性别"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:410
+msgid "Join waitlist"
+msgstr "加入候补名单"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:321
+msgid "Join waitlist (#{0})"
+msgstr "加入候补名单 (#{0})"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:363
+msgid "Leave event"
+msgstr "退出活动"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+msgid "Leaving..."
+msgstr "离开中..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Loading..."
+msgstr "加载中..."
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "男性"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Pay {0}"
+msgstr "支付 {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "不愿透露"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Release spot"
+msgstr "释放位置"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Releasing..."
+msgstr "释放中..."
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+msgid "Save & Join Event"
+msgstr "保存并参加活动"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Spot held — pay to confirm"
+msgstr "位置已保留 — 付款确认"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:364
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+msgid "This is how others will see you"
+msgstr "这是其他人会看到的名字"
+
+#: src/components/organisms/ProfileModal.re.mjs:339
+msgid "We need a few details before you can join this event"
+msgstr "在您参加此活动之前，我们需要一些信息"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:262
+msgid "You're in"
+msgstr "已报名"

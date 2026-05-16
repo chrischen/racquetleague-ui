@@ -8,6 +8,11 @@ module Fragment = %relay(`
     user {
       id
     }
+    payment {
+      id
+      # Status values: 0 = Authorized, 1 = Captured, 2 = Refunded, 3 = Failed
+      status
+    }
   }
 `)
 
@@ -36,6 +41,34 @@ module RsvpOptionsUpdateListTypeMutation = %relay(`
  }
 `)
 
+module RsvpOptionsCapturePaymentMutation = %relay(`
+  mutation RsvpOptionsCapturePaymentMutation($paymentId: ID!) {
+    captureRsvpPayment(paymentId: $paymentId) {
+      payment {
+        id
+        status
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
+module RsvpOptionsRefundPaymentMutation = %relay(`
+  mutation RsvpOptionsRefundPaymentMutation($paymentId: ID!) {
+    refundRsvpPayment(paymentId: $paymentId) {
+      payment {
+        id
+        status
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
 @react.component
 let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~connectionKey="RSVPSection_event_rsvps", ~triggerClassName="w-full text-left", ~children) => {
   let (commitMutationDeleteRsvp, _isMutationInFlight) = RsvpOptionsDeleteMutation.use()
@@ -43,6 +76,8 @@ let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~connectionKey=
     commitMutationUpdateListType,
     _isUpdateMutationInFlight,
   ) = RsvpOptionsUpdateListTypeMutation.use()
+  let (commitCapturePayment, _) = RsvpOptionsCapturePaymentMutation.use()
+  let (commitRefundPayment, _) = RsvpOptionsRefundPaymentMutation.use()
   let rsvp = Fragment.use(rsvp)
   let nav = LangProvider.Router.useNavigate()
 
@@ -117,6 +152,25 @@ let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~connectionKey=
                 }}>
                 {t`Remove from event`}
               </DropdownItem>
+              {switch rsvp.payment {
+              | Some({id: paymentId, status: 0}) =>
+                <DropdownItem
+                  onClick={_ =>
+                    commitCapturePayment(
+                      ~variables={paymentId: paymentId},
+                    )->RescriptRelay.Disposable.ignore}>
+                  {t`Capture payment`}
+                </DropdownItem>
+              | Some({id: paymentId, status: 1}) =>
+                <DropdownItem
+                  onClick={_ =>
+                    commitRefundPayment(
+                      ~variables={paymentId: paymentId},
+                    )->RescriptRelay.Disposable.ignore}>
+                  {t`Refund payment`}
+                </DropdownItem>
+              | _ => React.null
+              }}
             </>
           : React.null}
       </DropdownMenu>

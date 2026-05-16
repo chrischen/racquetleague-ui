@@ -107,11 +107,11 @@ msgstr ""
 msgid "Apple iCal"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
@@ -129,6 +129,10 @@ msgstr ""
 
 #: src/components/pages/Event.re.mjs:388
 msgid "CANCELED"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
 msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:690
@@ -308,8 +312,8 @@ msgstr ""
 #~ msgid "more"
 #~ msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr ""
 
@@ -372,11 +376,15 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr ""
 
@@ -489,7 +497,7 @@ msgstr ""
 #~ msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first."
 #~ msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
@@ -516,7 +524,7 @@ msgstr ""
 msgid "view events"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr ""
 

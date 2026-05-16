@@ -3880,6 +3880,114 @@ msgstr "同期済み"
 msgid "to sync"
 msgstr "同期する"
 
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "支払いを確定"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:322
+msgid "Claim spot · {0}"
+msgstr "スポットを予約 · {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+msgid "Leaving..."
+msgstr "キャンセル中..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Pay {0}"
+msgstr "{0}を支払う"
+
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "返金処理"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Release spot"
+msgstr "スポットを解放"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Releasing..."
+msgstr "解放中..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Spot held — pay to confirm"
+msgstr "スポット確保済み — 支払いで確定"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:309
+msgid "Active"
+msgstr "有効"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:329
+msgid "Connect a Stripe account to receive payments from events you organize."
+msgstr "主催するイベントの支払いを受け取るには、Stripeアカウントを接続してください。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:358
+msgid "Connect Stripe account"
+msgstr "Stripeアカウントを接続"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:354
+msgid "Connecting..."
+msgstr "接続中..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:303
+msgid "Not connected"
+msgstr "未接続"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:361
+msgid "Resume onboarding"
+msgstr "登録を再開"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
+msgid "Stripe Connect"
+msgstr "Stripe Connect"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:335
+msgid "Your Stripe account is connected and ready to accept payments."
+msgstr "Stripeアカウントが接続され、支払いを受け取る準備が整いました。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:332
+msgid "Your Stripe account is connected but onboarding is not yet complete."
+msgstr "Stripeアカウントは接続されていますが、登録がまだ完了していません。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
+msgid "Australia"
+msgstr "オーストラリア"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
+msgid "Canada"
+msgstr "カナダ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:379
+msgid "Country"
+msgstr "国"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:410
+msgid "Hong Kong"
+msgstr "香港"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:386
+msgid "Japan"
+msgstr "日本"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:406
+msgid "Singapore"
+msgstr "シンガポール"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:418
+msgid "South Korea"
+msgstr "韓国"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
+msgid "Taiwan"
+msgstr "台湾"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
+msgid "United Kingdom"
+msgstr "イギリス"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:390
+msgid "United States"
+msgstr "アメリカ"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

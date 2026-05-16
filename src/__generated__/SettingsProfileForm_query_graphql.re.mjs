@@ -2,6 +2,7 @@
 /* @generated */
 
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
+import * as SettingsProfileFormRefetchQuery_graphql from "./SettingsProfileFormRefetchQuery_graphql.re.mjs";
 
 var Types = {};
 
@@ -33,10 +34,17 @@ var Utils = {
   gender_fromString: gender_fromString
 };
 
-var node = {
+function makeNode(rescript_graphql_node_SettingsProfileFormRefetchQuery) {
+  return ({
   "argumentDefinitions": [],
   "kind": "Fragment",
-  "metadata": null,
+  "metadata": {
+    "refetch": {
+      "connection": null,
+      "fragmentPathInResult": [],
+      "operation": rescript_graphql_node_SettingsProfileFormRefetchQuery
+    }
+  },
   "name": "SettingsProfileForm_query",
   "selections": [
     {
@@ -47,6 +55,20 @@ var node = {
       "name": "viewer",
       "plural": false,
       "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "stripeAccountId",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "stripeChargesEnabled",
+          "storageKey": null
+        },
         {
           "alias": null,
           "args": null,
@@ -106,7 +128,10 @@ var node = {
   ],
   "type": "Query",
   "abstractKey": null
-};
+});
+}
+
+var node = makeNode(SettingsProfileFormRefetchQuery_graphql.node);
 
 export {
   Types ,
@@ -114,4 +139,4 @@ export {
   Utils ,
   node ,
 }
-/* RescriptRelay Not a pure module */
+/* node Not a pure module */

@@ -18,6 +18,7 @@ import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutati
 import * as PkRSVPSection_user_graphql from "../../__generated__/PkRSVPSection_user_graphql.re.mjs";
 import * as PkRSVPSection_event_graphql from "../../__generated__/PkRSVPSection_event_graphql.re.mjs";
 import * as PkRSVPSectionAddUserMutation_graphql from "../../__generated__/PkRSVPSectionAddUserMutation_graphql.re.mjs";
+import * as PkRSVPSectionCaptureAllPaymentsMutation_graphql from "../../__generated__/PkRSVPSectionCaptureAllPaymentsMutation_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
@@ -75,9 +76,29 @@ var PkRSVPSectionAddUserMutation = {
   use: use$1
 };
 
+var convertVariables$1 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertVariables;
+
+var convertResponse$1 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var PkRSVPSectionCaptureAllPaymentsMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  commitMutation: commitMutation$1,
+  use: use$2
+};
+
 var convertFragment$1 = PkRSVPSection_user_graphql.Internal.convertFragment;
 
-function use$2(fRef) {
+function use$3(fRef) {
   return RescriptRelay_Fragment.useFragment(PkRSVPSection_user_graphql.node, convertFragment$1, fRef);
 }
 
@@ -89,14 +110,14 @@ var UserFragment = {
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment$1,
-  use: use$2,
+  use: use$3,
   useOpt: useOpt$1
 };
 
 function PkRSVPSection(props) {
   var eventData = use(props.event);
   var viewerUser = Core__Option.map(props.user, (function (u) {
-          return use$2(u);
+          return use$3(u);
         }));
   var match = React.useState(function () {
         return false;
@@ -104,6 +125,8 @@ function PkRSVPSection(props) {
   var setIsAddingPlayer = match[1];
   var match$1 = use$1();
   var commitMutationAddUser = match$1[0];
+  var match$2 = use$2();
+  var commitCaptureAll = match$2[0];
   var handleAddUser = function (user) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventData.id, "PkRSVPSection_event_rsvps", undefined);
     commitMutationAddUser({
@@ -113,6 +136,7 @@ function PkRSVPSection(props) {
         }, undefined, undefined, undefined, undefined, undefined, undefined);
   };
   var rsvps = getConnectionNodes(eventData.rsvps);
+  console.log(rsvps);
   var maxRsvps = Core__Option.getOr(eventData.maxRsvps, 0);
   var minRating = eventData.minRating;
   var activitySlug = Core__Option.flatMap(eventData.activity, (function (a) {
@@ -168,7 +192,7 @@ function PkRSVPSection(props) {
           }
         }));
   var maxRating$1 = maxRating === 0 ? 1 : maxRating;
-  var match$2;
+  var match$3;
   if (mus.length >= 2) {
     var duprVals = mus.map(Rating.guessDupr);
     var n = duprVals.length;
@@ -179,7 +203,7 @@ function PkRSVPSection(props) {
             return acc + (v - mean) * (v - mean);
           })) / n;
     var stdDev = Math.sqrt(variance);
-    var match$3 = stdDev < 0.3 ? [
+    var match$4 = stdDev < 0.3 ? [
         t`even`,
         "text-emerald-500 dark:text-emerald-400"
       ] : (
@@ -191,13 +215,13 @@ function PkRSVPSection(props) {
             "text-amber-500 dark:text-amber-400"
           ]
       );
-    match$2 = [
+    match$3 = [
       "±" + stdDev.toFixed(2),
-      match$3[0],
-      match$3[1]
+      match$4[0],
+      match$4[1]
     ];
   } else {
-    match$2 = [
+    match$3 = [
       "—",
       "",
       "text-gray-400 dark:text-gray-500"
@@ -391,6 +415,19 @@ function PkRSVPSection(props) {
                                                   return true;
                                                 });
                                           })
+                                      }) : null,
+                                eventData.viewerIsAdmin ? JsxRuntime.jsx("button", {
+                                        children: JsxRuntime.jsx(LucideReact.CreditCard, {
+                                              className: "w-3 h-3"
+                                            }),
+                                        className: "p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-40",
+                                        title: "Capture all payments",
+                                        disabled: match$2[1],
+                                        onClick: (function (param) {
+                                            commitCaptureAll({
+                                                  eventId: eventData.id
+                                                }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                          })
                                       }) : null
                               ],
                               className: "font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase flex items-center gap-2"
@@ -510,12 +547,12 @@ function PkRSVPSection(props) {
                                       className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: match$2[0],
+                                      children: match$3[0],
                                       className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: match$2[1],
-                                      className: "font-mono text-[11px] mt-0.5 " + match$2[2]
+                                      children: match$3[1],
+                                      className: "font-mono text-[11px] mt-0.5 " + match$3[2]
                                     })
                               ],
                               className: "px-3 py-2.5"
@@ -712,6 +749,7 @@ var make = PkRSVPSection;
 export {
   Fragment ,
   PkRSVPSectionAddUserMutation ,
+  PkRSVPSectionCaptureAllPaymentsMutation ,
   UserFragment ,
   make ,
 }

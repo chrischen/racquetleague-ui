@@ -15,9 +15,12 @@ import * as SeekingPartnerInput from "./SeekingPartnerInput.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as StripeOnboardingEmbed from "./StripeOnboardingEmbed";
 import * as Zod$1 from "@hookform/resolvers/zod";
 import * as SettingsProfileForm_query_graphql from "../../__generated__/SettingsProfileForm_query_graphql.re.mjs";
 import * as SettingsProfileFormMutation_graphql from "../../__generated__/SettingsProfileFormMutation_graphql.re.mjs";
+import * as SettingsProfileFormRefetchQuery_graphql from "../../__generated__/SettingsProfileFormRefetchQuery_graphql.re.mjs";
+import * as SettingsProfileFormStripeAccountSessionMutation_graphql from "../../__generated__/SettingsProfileFormStripeAccountSessionMutation_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -58,14 +61,42 @@ var Mutation = {
   use: use
 };
 
+var convertVariables$1 = SettingsProfileFormStripeAccountSessionMutation_graphql.Internal.convertVariables;
+
+var convertResponse$1 = SettingsProfileFormStripeAccountSessionMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = SettingsProfileFormStripeAccountSessionMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, SettingsProfileFormStripeAccountSessionMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, SettingsProfileFormStripeAccountSessionMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var StripeMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  commitMutation: commitMutation$1,
+  use: use$1
+};
+
 var convertFragment = SettingsProfileForm_query_graphql.Internal.convertFragment;
 
-function use$1(fRef) {
+function use$2(fRef) {
   return RescriptRelay_Fragment.useFragment(SettingsProfileForm_query_graphql.node, convertFragment, fRef);
 }
 
 function useOpt(fRef) {
   return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, SettingsProfileForm_query_graphql.node, convertFragment);
+}
+
+var makeRefetchVariables = SettingsProfileFormRefetchQuery_graphql.Types.makeRefetchVariables;
+
+var convertRefetchVariables = SettingsProfileFormRefetchQuery_graphql.Internal.convertVariables;
+
+function useRefetchable(fRef) {
+  return RescriptRelay_Fragment.useRefetchableFragment(SettingsProfileForm_query_graphql.node, convertFragment, convertRefetchVariables, fRef);
 }
 
 var QueryFragment_gender_decode = SettingsProfileForm_query_graphql.Utils.gender_decode;
@@ -78,8 +109,17 @@ var QueryFragment = {
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment,
-  use: use$1,
-  useOpt: useOpt
+  use: use$2,
+  useOpt: useOpt,
+  makeRefetchVariables: makeRefetchVariables,
+  convertRefetchVariables: convertRefetchVariables,
+  useRefetchable: useRefetchable
+};
+
+var make = StripeOnboardingEmbed.StripeOnboardingEmbed;
+
+var StripeOnboardingEmbed$1 = {
+  make: make
 };
 
 var sessionContext = AppContext.SessionContext;
@@ -94,10 +134,25 @@ var schema = Zod.z.object({
 
 function SettingsProfileForm(props) {
   var navigate = LangProvider.Router.useNavigate();
-  var query = use$1(props.query);
-  var match = use();
-  var commitMutation = match[0];
-  var match$1 = React.useState(function () {
+  var match = useRefetchable(props.query);
+  var refetchQuery = match[1];
+  var query = match[0];
+  var match$1 = use();
+  var commitMutation = match$1[0];
+  var match$2 = use$1();
+  var isStripePending = match$2[1];
+  var commitStripeMutation = match$2[0];
+  var match$3 = React.useState(function () {
+        
+      });
+  var setStripeClientSecret = match$3[1];
+  var stripeClientSecret = match$3[0];
+  var match$4 = React.useState(function () {
+        return "JP";
+      });
+  var setStripeCountry = match$4[1];
+  var stripeCountry = match$4[0];
+  var match$5 = React.useState(function () {
         return Core__Option.flatMap(Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (viewer) {
                               return viewer.profile;
                             })), (function (profile) {
@@ -113,9 +168,9 @@ function SettingsProfileForm(props) {
                       
                     }));
       });
-  var setGender = match$1[1];
-  var gender = match$1[0];
-  var match$2 = ReactHookForm.useForm({
+  var setGender = match$5[1];
+  var gender = match$5[0];
+  var match$6 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: {
           biography: Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
@@ -135,10 +190,10 @@ function SettingsProfileForm(props) {
                     })), "")
         }
       });
-  var setValue = match$2.setValue;
-  var formState = match$2.formState;
-  var handleSubmit = match$2.handleSubmit;
-  var register = match$2.register;
+  var setValue = match$6.setValue;
+  var formState = match$6.formState;
+  var handleSubmit = match$6.handleSubmit;
+  var register = match$6.register;
   React.useEffect((function () {
           Core__Option.forEach(query.viewer, (function (viewer) {
                   Core__Option.forEach(viewer.profile, (function (profile) {
@@ -238,139 +293,356 @@ function SettingsProfileForm(props) {
                             } else {
                               tmp$3 = null;
                             }
-                            return JsxRuntime.jsx(JsxRuntime.Fragment, {
-                                        children: Caml_option.some(JsxRuntime.jsxs("form", {
-                                                  children: [
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsxs("div", {
-                                                                children: [
-                                                                  JsxRuntime.jsxs("div", {
-                                                                        children: [
-                                                                          JsxRuntime.jsx("label", {
-                                                                                children: t`Display Name`,
-                                                                                className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                                                htmlFor: "displayName"
-                                                                              }),
-                                                                          JsxRuntime.jsx("input", (newrecord.type = "text", newrecord.placeholder = t`How you appear to other players`, newrecord.id = "displayName", newrecord.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord)),
-                                                                          tmp
-                                                                        ]
-                                                                      }),
-                                                                  JsxRuntime.jsxs("div", {
-                                                                        children: [
-                                                                          JsxRuntime.jsxs("div", {
-                                                                                children: [
-                                                                                  JsxRuntime.jsx("label", {
-                                                                                        children: t`Full name`,
-                                                                                        className: "block text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2",
-                                                                                        htmlFor: "fullName"
-                                                                                      }),
-                                                                                  JsxRuntime.jsx("input", (newrecord$1.type = "text", newrecord$1.placeholder = t`Doe John`, newrecord$1.id = "fullName", newrecord$1.className = "block w-full px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-gray-50 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-400", newrecord$1)),
-                                                                                  tmp$1,
-                                                                                  JsxRuntime.jsx("p", {
-                                                                                        children: t`Some events require your legal name as shown on an ID card.`,
-                                                                                        className: "mt-2 text-xs text-gray-400 dark:text-gray-500"
-                                                                                      })
-                                                                                ]
-                                                                              }),
-                                                                          JsxRuntime.jsxs("div", {
-                                                                                children: [
-                                                                                  JsxRuntime.jsx("label", {
-                                                                                        children: t`Gender`,
-                                                                                        className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                                                        htmlFor: "gender"
-                                                                                      }),
-                                                                                  JsxRuntime.jsxs("select", {
-                                                                                        children: [
-                                                                                          JsxRuntime.jsx("option", {
-                                                                                                children: t`Prefer not to say`,
-                                                                                                value: ""
-                                                                                              }),
-                                                                                          JsxRuntime.jsx("option", {
-                                                                                                children: t`Male`,
-                                                                                                value: "male"
-                                                                                              }),
-                                                                                          JsxRuntime.jsx("option", {
-                                                                                                children: t`Female`,
-                                                                                                value: "female"
-                                                                                              })
-                                                                                        ],
-                                                                                        className: "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100",
-                                                                                        id: "gender",
-                                                                                        value: tmp$2,
-                                                                                        onChange: (function (e) {
-                                                                                            var value = e.target.value;
-                                                                                            setGender(function (param) {
-                                                                                                  switch (value) {
-                                                                                                    case "female" :
-                                                                                                        return "female";
-                                                                                                    case "male" :
-                                                                                                        return "male";
-                                                                                                    default:
-                                                                                                      return ;
-                                                                                                  }
-                                                                                                });
-                                                                                          })
-                                                                                      })
-                                                                                ]
-                                                                              })
-                                                                        ],
-                                                                        className: "grid grid-cols-1 md:grid-cols-2 gap-6"
-                                                                      }),
-                                                                  JsxRuntime.jsxs("div", {
-                                                                        children: [
-                                                                          JsxRuntime.jsx("label", {
-                                                                                children: t`Biography`,
-                                                                                className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                                                htmlFor: "biography"
-                                                                              }),
-                                                                          JsxRuntime.jsx("textarea", (newrecord$2.rows = 6, newrecord$2.placeholder = t`Tell us a little about yourself...`, newrecord$2.id = "biography", newrecord$2.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$2)),
-                                                                          JsxRuntime.jsx("p", {
-                                                                                children: t`tell us a little about yourself`,
-                                                                                className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
-                                                                              }),
-                                                                          tmp$3
-                                                                        ]
-                                                                      }),
-                                                                  JsxRuntime.jsx("div", {
-                                                                        children: JsxRuntime.jsx(SeekingPartnerInput.make, {
-                                                                              seekingPartner: undefined,
-                                                                              onChange: (function (param) {
-                                                                                  
-                                                                                })
+                            var stripeAccountId = Core__Option.flatMap(query.viewer, (function (v) {
+                                    return v.stripeAccountId;
+                                  }));
+                            var chargesEnabled = Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (v) {
+                                        return v.stripeChargesEnabled;
+                                      })), false);
+                            var status = stripeAccountId !== undefined ? (
+                                chargesEnabled ? "Active" : "Pending"
+                              ) : "NotConnected";
+                            var tmp$4;
+                            switch (status) {
+                              case "NotConnected" :
+                                  tmp$4 = t`Not connected`;
+                                  break;
+                              case "Pending" :
+                                  tmp$4 = t`Pending`;
+                                  break;
+                              case "Active" :
+                                  tmp$4 = t`Active`;
+                                  break;
+                              
+                            }
+                            var tmp$5;
+                            switch (status) {
+                              case "NotConnected" :
+                                  tmp$5 = "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400";
+                                  break;
+                              case "Pending" :
+                                  tmp$5 = "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400";
+                                  break;
+                              case "Active" :
+                                  tmp$5 = "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400";
+                                  break;
+                              
+                            }
+                            var tmp$6;
+                            switch (status) {
+                              case "NotConnected" :
+                                  tmp$6 = t`Connect a Stripe account to receive payments from events you organize.`;
+                                  break;
+                              case "Pending" :
+                                  tmp$6 = t`Your Stripe account is connected but onboarding is not yet complete.`;
+                                  break;
+                              case "Active" :
+                                  tmp$6 = t`Your Stripe account is connected and ready to accept payments.`;
+                                  break;
+                              
+                            }
+                            var tmp$7;
+                            var exit = 0;
+                            switch (status) {
+                              case "NotConnected" :
+                              case "Pending" :
+                                  exit = 1;
+                                  break;
+                              case "Active" :
+                                  tmp$7 = null;
+                                  break;
+                              
+                            }
+                            if (exit === 1) {
+                              var tmp$8;
+                              if (isStripePending) {
+                                tmp$8 = t`Connecting...`;
+                              } else {
+                                switch (status) {
+                                  case "NotConnected" :
+                                      tmp$8 = t`Connect Stripe account`;
+                                      break;
+                                  case "Pending" :
+                                      tmp$8 = t`Resume onboarding`;
+                                      break;
+                                  case "Active" :
+                                      tmp$8 = "";
+                                      break;
+                                  
+                                }
+                              }
+                              tmp$7 = JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("label", {
+                                                    children: t`Country`,
+                                                    className: "block text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5",
+                                                    htmlFor: "stripeCountry"
+                                                  }),
+                                              JsxRuntime.jsxs("select", {
+                                                    children: [
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`Japan`,
+                                                            value: "JP"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`United States`,
+                                                            value: "US"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`Australia`,
+                                                            value: "AU"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`Canada`,
+                                                            value: "CA"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`United Kingdom`,
+                                                            value: "GB"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`Singapore`,
+                                                            value: "SG"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`Hong Kong`,
+                                                            value: "HK"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`Taiwan`,
+                                                            value: "TW"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
+                                                            children: t`South Korea`,
+                                                            value: "KR"
+                                                          })
+                                                    ],
+                                                    className: "block w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100",
+                                                    id: "stripeCountry",
+                                                    value: stripeCountry,
+                                                    onChange: (function (e) {
+                                                        var v = e.target.value;
+                                                        setStripeCountry(function (param) {
+                                                              return v;
+                                                            });
+                                                      })
+                                                  })
+                                            ]
+                                          }),
+                                      JsxRuntime.jsx("button", {
+                                            children: tmp$8,
+                                            className: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-gray-900 bg-[#a3e635] hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] disabled:opacity-50 transition-colors",
+                                            disabled: isStripePending,
+                                            type: "button",
+                                            onClick: (function (param) {
+                                                commitStripeMutation({
+                                                      country: stripeCountry
+                                                    }, undefined, undefined, undefined, (function (response, param) {
+                                                        var secret = response.createStripeAccountSession.clientSecret;
+                                                        if (secret !== undefined) {
+                                                          return setStripeClientSecret(function (param) {
+                                                                      return secret;
+                                                                    });
+                                                        }
+                                                        
+                                                      }), undefined, undefined);
+                                              })
+                                          })
+                                    ],
+                                    className: "space-y-3"
+                                  });
+                            }
+                            return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                        children: [
+                                          JsxRuntime.jsxs("form", {
+                                                children: [
+                                                  JsxRuntime.jsx("div", {
+                                                        children: JsxRuntime.jsxs("div", {
+                                                              children: [
+                                                                JsxRuntime.jsxs("div", {
+                                                                      children: [
+                                                                        JsxRuntime.jsx("label", {
+                                                                              children: t`Display Name`,
+                                                                              className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
+                                                                              htmlFor: "displayName"
+                                                                            }),
+                                                                        JsxRuntime.jsx("input", (newrecord.type = "text", newrecord.placeholder = t`How you appear to other players`, newrecord.id = "displayName", newrecord.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord)),
+                                                                        tmp
+                                                                      ]
+                                                                    }),
+                                                                JsxRuntime.jsxs("div", {
+                                                                      children: [
+                                                                        JsxRuntime.jsxs("div", {
+                                                                              children: [
+                                                                                JsxRuntime.jsx("label", {
+                                                                                      children: t`Full name`,
+                                                                                      className: "block text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2",
+                                                                                      htmlFor: "fullName"
+                                                                                    }),
+                                                                                JsxRuntime.jsx("input", (newrecord$1.type = "text", newrecord$1.placeholder = t`Doe John`, newrecord$1.id = "fullName", newrecord$1.className = "block w-full px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-gray-50 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-400", newrecord$1)),
+                                                                                tmp$1,
+                                                                                JsxRuntime.jsx("p", {
+                                                                                      children: t`Some events require your legal name as shown on an ID card.`,
+                                                                                      className: "mt-2 text-xs text-gray-400 dark:text-gray-500"
+                                                                                    })
+                                                                              ]
+                                                                            }),
+                                                                        JsxRuntime.jsxs("div", {
+                                                                              children: [
+                                                                                JsxRuntime.jsx("label", {
+                                                                                      children: t`Gender`,
+                                                                                      className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
+                                                                                      htmlFor: "gender"
+                                                                                    }),
+                                                                                JsxRuntime.jsxs("select", {
+                                                                                      children: [
+                                                                                        JsxRuntime.jsx("option", {
+                                                                                              children: t`Prefer not to say`,
+                                                                                              value: ""
+                                                                                            }),
+                                                                                        JsxRuntime.jsx("option", {
+                                                                                              children: t`Male`,
+                                                                                              value: "male"
+                                                                                            }),
+                                                                                        JsxRuntime.jsx("option", {
+                                                                                              children: t`Female`,
+                                                                                              value: "female"
+                                                                                            })
+                                                                                      ],
+                                                                                      className: "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100",
+                                                                                      id: "gender",
+                                                                                      value: tmp$2,
+                                                                                      onChange: (function (e) {
+                                                                                          var value = e.target.value;
+                                                                                          setGender(function (param) {
+                                                                                                switch (value) {
+                                                                                                  case "female" :
+                                                                                                      return "female";
+                                                                                                  case "male" :
+                                                                                                      return "male";
+                                                                                                  default:
+                                                                                                    return ;
+                                                                                                }
+                                                                                              });
+                                                                                        })
+                                                                                    })
+                                                                              ]
                                                                             })
+                                                                      ],
+                                                                      className: "grid grid-cols-1 md:grid-cols-2 gap-6"
+                                                                    }),
+                                                                JsxRuntime.jsxs("div", {
+                                                                      children: [
+                                                                        JsxRuntime.jsx("label", {
+                                                                              children: t`Biography`,
+                                                                              className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
+                                                                              htmlFor: "biography"
+                                                                            }),
+                                                                        JsxRuntime.jsx("textarea", (newrecord$2.rows = 6, newrecord$2.placeholder = t`Tell us a little about yourself...`, newrecord$2.id = "biography", newrecord$2.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$2)),
+                                                                        JsxRuntime.jsx("p", {
+                                                                              children: t`tell us a little about yourself`,
+                                                                              className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
+                                                                            }),
+                                                                        tmp$3
+                                                                      ]
+                                                                    }),
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsx(SeekingPartnerInput.make, {
+                                                                            seekingPartner: undefined,
+                                                                            onChange: (function (param) {
+                                                                                
+                                                                              })
+                                                                          })
+                                                                    })
+                                                              ],
+                                                              className: "px-4 pb-4 pt-6 space-y-6"
+                                                            }),
+                                                        className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
+                                                      }),
+                                                  JsxRuntime.jsx("div", {
+                                                        children: JsxRuntime.jsx("button", {
+                                                              children: t`Save profile`,
+                                                              className: "w-full bg-[#a3e635] text-gray-900 py-4 px-6 rounded-lg font-bold hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] transition-colors shadow-sm",
+                                                              type: "submit"
+                                                            }),
+                                                        className: "pt-2"
+                                                      })
+                                                ],
+                                                className: "space-y-6",
+                                                onSubmit: handleSubmit(onSubmit)
+                                              }),
+                                          JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsx("div", {
+                                                        children: JsxRuntime.jsx("h3", {
+                                                              children: t`Stripe Connect`,
+                                                              className: "text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400"
+                                                            }),
+                                                        className: "px-4 py-5 sm:px-6"
+                                                      }),
+                                                  JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsxs("div", {
+                                                                children: [
+                                                                  JsxRuntime.jsx("span", {
+                                                                        children: tmp$4,
+                                                                        className: "mt-0.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium shrink-0 " + tmp$5
+                                                                      }),
+                                                                  JsxRuntime.jsxs("div", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx("p", {
+                                                                                children: tmp$6,
+                                                                                className: "text-sm text-gray-700 dark:text-gray-300"
+                                                                              }),
+                                                                          stripeAccountId !== undefined ? JsxRuntime.jsx("p", {
+                                                                                  children: stripeAccountId,
+                                                                                  className: "text-xs text-gray-400 dark:text-gray-600 font-mono"
+                                                                                }) : null
+                                                                        ],
+                                                                        className: "space-y-1"
                                                                       })
                                                                 ],
-                                                                className: "px-4 pb-4 pt-6 space-y-6"
+                                                                className: "flex items-start gap-3"
                                                               }),
-                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
-                                                        }),
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx("button", {
-                                                                children: t`Save profile`,
-                                                                className: "w-full bg-[#a3e635] text-gray-900 py-4 px-6 rounded-lg font-bold hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] transition-colors shadow-sm",
-                                                                type: "submit"
-                                                              }),
-                                                          className: "pt-2"
-                                                        })
-                                                  ],
-                                                  className: "space-y-6",
-                                                  onSubmit: handleSubmit(onSubmit)
-                                                }))
+                                                          tmp$7,
+                                                          stripeClientSecret !== undefined ? JsxRuntime.jsx("div", {
+                                                                  children: JsxRuntime.jsx(make, {
+                                                                        clientSecret: stripeClientSecret,
+                                                                        onExit: (function () {
+                                                                            setStripeClientSecret(function (param) {
+                                                                                  
+                                                                                });
+                                                                            refetchQuery(makeRefetchVariables(), undefined, undefined);
+                                                                          })
+                                                                      }),
+                                                                  className: "mt-4"
+                                                                }) : null
+                                                        ],
+                                                        className: "px-4 pb-6 space-y-4"
+                                                      })
+                                                ],
+                                                className: "mt-8 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
+                                              })
+                                        ]
                                       });
                           })
                       }))
             });
 }
 
-var make = SettingsProfileForm;
+var make$1 = SettingsProfileForm;
 
 export {
   ts ,
   Mutation ,
+  StripeMutation ,
   QueryFragment ,
+  StripeOnboardingEmbed$1 as StripeOnboardingEmbed,
   sessionContext ,
   ControllerOfInputs ,
   schema ,
-  make ,
+  make$1 as make,
 }
 /*  Not a pure module */

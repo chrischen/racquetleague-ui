@@ -2,6 +2,7 @@
 %%raw("import { t } from '@lingui/macro'")
 
 let ts = Lingui.UtilString.t
+
 module Mutation = %relay(`
  mutation SettingsProfileFormMutation($input: UpdateProfileInput!) {
    updateProfile(input: $input) {
@@ -20,9 +21,24 @@ module Mutation = %relay(`
  }
 `)
 
+module StripeMutation = %relay(`
+  mutation SettingsProfileFormStripeAccountSessionMutation($country: String!) {
+    createStripeAccountSession(country: $country) {
+      accountId
+      clientSecret
+      errors {
+        message
+      }
+    }
+  }
+`)
+
 module QueryFragment = %relay(`
-  fragment SettingsProfileForm_query on Query {
+  fragment SettingsProfileForm_query on Query
+  @refetchable(queryName: "SettingsProfileFormRefetchQuery") {
     viewer {
+      stripeAccountId
+      stripeChargesEnabled
       profile {
         id
         fullName
@@ -34,6 +50,12 @@ module QueryFragment = %relay(`
     }
   }
 `)
+
+module StripeOnboardingEmbed = {
+  @module("./StripeOnboardingEmbed") @react.component
+  external make: (~clientSecret: string, ~onExit: unit => unit) => React.element =
+    "StripeOnboardingEmbed"
+}
 
 @module("../layouts/appContext")
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
@@ -56,13 +78,24 @@ let schema = Zod.z->Zod.object(
 )
 
 external alert: string => unit = "alert"
+
+// Stripe Connect onboarding lifecycle:
+//   NotConnected — no Express account created yet
+//   Pending      — account exists, onboarding in progress or under review
+//   Active       — charges_enabled = true
+type stripeStatus = NotConnected | Pending | Active
+
 @react.component
 let make = (~query) => {
   let navigate = LangProvider.Router.useNavigate()
   open Lingui.Util
-  let query = QueryFragment.use(query)
+  let (query, refetchQuery) = QueryFragment.useRefetchable(query)
 
   let (commitMutation, _) = Mutation.use()
+  let (commitStripeMutation, isStripePending) = StripeMutation.use()
+
+  let (stripeClientSecret, setStripeClientSecret) = React.useState(() => None)
+  let (stripeCountry, setStripeCountry) = React.useState(() => "JP")
 
   let (gender, setGender) = React.useState(() =>
     query.viewer
@@ -259,6 +292,137 @@ let make = (~query) => {
             </button>
           </div>
         </form>
+        {
+          let stripeAccountId = query.viewer->Option.flatMap(v => v.stripeAccountId)
+          let chargesEnabled =
+            query.viewer
+            ->Option.flatMap(v => v.stripeChargesEnabled)
+            ->Option.getOr(false)
+
+          let status = switch (stripeAccountId, chargesEnabled) {
+          | (None, _) => NotConnected
+          | (Some(_), false) => Pending
+          | (Some(_), true) => Active
+          }
+
+          <div
+            className="mt-8 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
+            <div className="px-4 py-5 sm:px-6">
+              <h3
+                className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                {t`Stripe Connect`}
+              </h3>
+            </div>
+            <div className="px-4 pb-6 space-y-4">
+              // ── Status row ────────────────────────────────────────────────
+              <div className="flex items-start gap-3">
+                <span
+                  className={"mt-0.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium shrink-0 " ++
+                  switch status {
+                  | Active => "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+                  | Pending => "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
+                  | NotConnected => "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
+                  }}>
+                  {switch status {
+                  | Active => t`Active`
+                  | Pending => t`Pending`
+                  | NotConnected => t`Not connected`
+                  }}
+                </span>
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    {switch status {
+                    | Active => t`Your Stripe account is connected and ready to accept payments.`
+                    | Pending =>
+                      t`Your Stripe account is connected but onboarding is not yet complete.`
+                    | NotConnected =>
+                      t`Connect a Stripe account to receive payments from events you organize.`
+                    }}
+                  </p>
+                  {switch stripeAccountId {
+                  | Some(accountId) =>
+                    <p className="text-xs text-gray-400 dark:text-gray-600 font-mono">
+                      {accountId->React.string}
+                    </p>
+                  | None => React.null
+                  }}
+                </div>
+              </div>
+              // ── Action button (hidden once fully active) ──────────────────
+              {switch status {
+              | Active => React.null
+              | _ =>
+                <div className="space-y-3">
+                  <div>
+                    <label
+                      htmlFor="stripeCountry"
+                      className="block text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">
+                      {t`Country`}
+                    </label>
+                    <select
+                      id="stripeCountry"
+                      value=stripeCountry
+                      onChange={e => {
+                        let v = (e->ReactEvent.Form.target)["value"]
+                        setStripeCountry(_ => v)
+                      }}
+                      className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100">
+                      <option value="JP"> {(ts`Japan`)->React.string} </option>
+                      <option value="US"> {(ts`United States`)->React.string} </option>
+                      <option value="AU"> {(ts`Australia`)->React.string} </option>
+                      <option value="CA"> {(ts`Canada`)->React.string} </option>
+                      <option value="GB"> {(ts`United Kingdom`)->React.string} </option>
+                      <option value="SG"> {(ts`Singapore`)->React.string} </option>
+                      <option value="HK"> {(ts`Hong Kong`)->React.string} </option>
+                      <option value="TW"> {(ts`Taiwan`)->React.string} </option>
+                      <option value="KR"> {(ts`South Korea`)->React.string} </option>
+                    </select>
+                  </div>
+                  <button
+                    type_="button"
+                    disabled={isStripePending}
+                    onClick={_ => {
+                      commitStripeMutation(
+                        ~variables={country: stripeCountry},
+                        ~onCompleted=(response, _) => {
+                          switch response.createStripeAccountSession.clientSecret {
+                          | Some(secret) => setStripeClientSecret(_ => Some(secret))
+                          | None => ()
+                          }
+                        },
+                      )->RescriptRelay.Disposable.ignore
+                    }}
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-gray-900 bg-[#a3e635] hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] disabled:opacity-50 transition-colors">
+                    {if isStripePending {
+                      t`Connecting...`
+                    } else {
+                      switch status {
+                      | NotConnected => t`Connect Stripe account`
+                      | Pending => t`Resume onboarding`
+                      | Active => React.string("")
+                      }
+                    }}
+                  </button>
+                </div>
+              }}
+              {switch stripeClientSecret {
+              | Some(secret) =>
+                <div className="mt-4">
+                  <StripeOnboardingEmbed
+                    clientSecret=secret
+                    onExit={() => {
+                      setStripeClientSecret(_ => None)
+                      refetchQuery(
+                        ~variables=QueryFragment.makeRefetchVariables(),
+                      )->RescriptRelay.Disposable.ignore
+                    }}
+                  />
+                </div>
+              | None => React.null
+              }}
+            </div>
+          </div>
+        }
       </>}
     </WaitForMessages>
   </FramerMotion.Div>

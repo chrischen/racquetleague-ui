@@ -404,3 +404,8 @@ module ArrowLeft = {
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "ArrowLeft"
 }
+
+module CreditCard = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CreditCard"
+}

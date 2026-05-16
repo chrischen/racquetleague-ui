@@ -4,7 +4,13 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_rating = {
+  type rec fragment_payment = {
+    amount: int,
+    currency: string,
+    @live id: string,
+    status: int,
+  }
+  and fragment_rating = {
     mu: option<float>,
     ordinal: option<float>,
     sigma: option<float>,
@@ -17,6 +23,8 @@ module Types = {
   }
   type fragment = {
     message: option<string>,
+    paid: option<int>,
+    payment: option<fragment_payment>,
     rating: option<fragment_rating>,
     user: option<fragment_user>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #RsvpOptions_rsvp]>,
@@ -69,7 +77,15 @@ type relayOperationNode
 type operationType = RescriptRelay.fragmentNode<relayOperationNode>
 
 
-let node: operationType = %raw(json` {
+let node: operationType = %raw(json` (function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -83,13 +99,7 @@ let node: operationType = %raw(json` {
       "name": "user",
       "plural": false,
       "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
+        (v0/*: any*/),
         {
           "alias": null,
           "args": null,
@@ -154,6 +164,46 @@ let node: operationType = %raw(json` {
       "storageKey": null
     },
     {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "paid",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Payment",
+      "kind": "LinkedField",
+      "name": "payment",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "status",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "currency",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "amount",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
       "args": null,
       "kind": "FragmentSpread",
       "name": "RsvpOptions_rsvp"
@@ -161,5 +211,6 @@ let node: operationType = %raw(json` {
   ],
   "type": "Rsvp",
   "abstractKey": null
-} `)
+};
+})() `)
 

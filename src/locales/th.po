@@ -3626,6 +3626,114 @@ msgstr "ซิงค์แล้ว"
 msgid "to sync"
 msgstr "ที่จะซิงค์"
 
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "รับชำระเงิน"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:322
+msgid "Claim spot · {0}"
+msgstr "จองสปอต · {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+msgid "Leaving..."
+msgstr "กำลังออก..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Pay {0}"
+msgstr "ชำระ {0}"
+
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "คืนเงิน"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Release spot"
+msgstr "ปล่อยสปอต"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Releasing..."
+msgstr "กำลังปล่อย..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Spot held — pay to confirm"
+msgstr "จองสปอตแล้ว — ชำระเงินเพื่อยืนยัน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:309
+msgid "Active"
+msgstr "ใช้งานอยู่"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:329
+msgid "Connect a Stripe account to receive payments from events you organize."
+msgstr "เชื่อมต่อบัญชี Stripe เพื่อรับชำระเงินจากอีเวนต์ที่คุณจัด"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:358
+msgid "Connect Stripe account"
+msgstr "เชื่อมต่อบัญชี Stripe"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:354
+msgid "Connecting..."
+msgstr "กำลังเชื่อมต่อ..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:303
+msgid "Not connected"
+msgstr "ยังไม่ได้เชื่อมต่อ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:361
+msgid "Resume onboarding"
+msgstr "ดำเนินการต่อ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
+msgid "Stripe Connect"
+msgstr "Stripe Connect"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:335
+msgid "Your Stripe account is connected and ready to accept payments."
+msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้วและพร้อมรับชำระเงิน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:332
+msgid "Your Stripe account is connected but onboarding is not yet complete."
+msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว แต่ยังดำเนินการไม่เสร็จสมบูรณ์"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
+msgid "Australia"
+msgstr "ออสเตรเลีย"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
+msgid "Canada"
+msgstr "แคนาดา"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:379
+msgid "Country"
+msgstr "ประเทศ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:410
+msgid "Hong Kong"
+msgstr "ฮ่องกง"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:386
+msgid "Japan"
+msgstr "ญี่ปุ่น"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:406
+msgid "Singapore"
+msgstr "สิงคโปร์"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:418
+msgid "South Korea"
+msgstr "เกาหลีใต้"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
+msgid "Taiwan"
+msgstr "ไต้หวัน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
+msgid "United Kingdom"
+msgstr "สหราชอาณาจักร"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:390
+msgid "United States"
+msgstr "สหรัฐอเมริกา"
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"

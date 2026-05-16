@@ -46,6 +46,13 @@ type AddUserToClubResult implements HasErrors {
   membership: Membership
 }
 
+type AuthorizePaymentResult implements HasErrors {
+  clientSecret: String
+  connectedAccountId: String
+  errors: [Error!]
+  payment: Payment
+}
+
 input AutocompleteLocationInput {
   formattedAddress: String!
   lat: Float!
@@ -53,6 +60,16 @@ input AutocompleteLocationInput {
   mapsId: String!
   name: String!
   plusCode: String
+}
+
+type CaptureEventPaymentsResult implements HasErrors {
+  errors: [Error!]
+  payments: [Payment!]
+}
+
+type CapturePaymentResult implements HasErrors {
+  errors: [Error!]
+  payment: Payment
 }
 
 input ChatInput {
@@ -172,6 +189,13 @@ type CreateMatchResponse implements HasErrors {
   errors: [Error!]
   match: Match
   ratings: [Rating!]
+}
+
+type CreatePaymentResult implements HasErrors {
+  clientSecret: String
+  connectedAccountId: String
+  errors: [Error!]
+  rsvp: Rsvp
 }
 
 type CreateRatingResponse implements HasErrors {
@@ -506,9 +530,50 @@ enum MessageType {
 type Mutation {
   addRsvpToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   addUserToClub(input: AddUserToClubInput!): AddUserToClubResult!
+
+  """
+  * Authorize a Stripe payment for an RSVP on the platform account.
+     * Use this when the event organizer does not have a connected Stripe account,
+     * or when funds should be collected by the platform directly.
+  """
+  authorizePlatformRsvpPayment(rsvpId: ID!): AuthorizePaymentResult!
+
+  """
+  * Authorize a Stripe payment for an RSVP.
+     * This creates a PaymentIntent in "manual" capture mode and records it in the DB.
+     * Returns the Stripe client secret for frontend payment confirmation.
+  """
+  authorizeRsvpPayment(rsvpId: ID!): AuthorizePaymentResult!
   autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
   cancelEvent(eventId: ID!): MutationResult2!
+
+  """
+  * Capture all authorized payments for confirmed-list RSVPs on an event.
+     * Skips waitlisted RSVPs (listType = 1). Only the event creator or club admin can run this.
+     * Returns the count of captured and failed payments.
+  """
+  captureEventRsvpPayments(eventId: ID!): CaptureEventPaymentsResult!
+
+  """
+  * Capture a previously authorized Stripe payment.
+     * Only club admins or the event creator can capture.
+  """
+  captureRsvpPayment(paymentId: ID!): CapturePaymentResult!
+
+  """
+  * Charge a Stripe payment for an RSVP immediately (no manual capture).
+     * Use this for payment methods that do not support manual capture (e.g. PayPay).
+     * Returns the Stripe client secret for frontend payment confirmation.
+  """
+  chargeRsvpPayment(rsvpId: ID!): AuthorizePaymentResult!
   chat(input: ChatInput!): ChatResponse!
+
+  """
+  * Confirm an RSVP payment after the customer completes the card flow.
+     * Call this from the frontend after stripe.confirmPayment() succeeds.
+     * Verifies the PaymentIntent succeeded server-side, then marks the payment Captured.
+  """
+  confirmRsvpPayment(paymentIntentId: String!, rsvpId: ID!): CreatePaymentResult!
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   createClub(input: CreateClubInput!): CreateClubResult!
   createEvent(input: CreateEventInput!): MutationResult2!
@@ -516,6 +581,20 @@ type Mutation {
   createLeagueRating(input: LeagueRatingInput!): CreateRatingResponse
   createLocation(input: CreateLocationInput!): MutationResult!
   createMatch(match: LeagueMatchInput!): CreateMatchResponse!
+
+  """
+  * Create a Stripe Connect account session for embedded onboarding.
+     * Creates a new connected account if the user doesn't have one yet.
+     * Returns a client_secret for use with @stripe/connect-js LoadConnectAndInitialize.
+  """
+  createStripeAccountSession(country: String!): StripeAccountSessionResult!
+
+  """
+  * Create a Stripe Connect onboarding link for the current user.
+     * Creates a new Express account if the user doesn't have one yet.
+     * Returns the onboarding URL to redirect the user to.
+  """
+  createStripeOnboardingLink(country: String!, refreshUrl: String!, returnUrl: String!): StripeOnboardingLinkResult!
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
@@ -523,6 +602,13 @@ type Mutation {
   leaveEvent(eventId: ID!): LeaveEventResult!
   markRsvpPaid(eventId: ID!, userId: ID!): MarkRsvpPaidResult!
   processEventPayment(eventId: ID!): ProcessEventPaymentResult!
+
+  """
+  * Refund a captured Stripe payment.
+     * Only club admins or the event creator can refund.
+     * An optional partial amount can be specified (in smallest currency unit).
+  """
+  refundRsvpPayment(amount: Int, paymentId: ID!): RefundPaymentResult!
   removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
   uncancelEvent(eventId: ID!): MutationResult2!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
@@ -562,6 +648,14 @@ type PageInfo {
 
   """When paginating backwards, the cursor to continue."""
   startCursor: String
+}
+
+type Payment {
+  amount: Int!
+  currency: String!
+  id: ID!
+  status: Int!
+  stripePaymentIntentId: String!
 }
 
 input PredictMatchInput {
@@ -635,6 +729,11 @@ type RatingEdge {
   node: Rating
 }
 
+type RefundPaymentResult implements HasErrors {
+  errors: [Error!]
+  payment: Payment
+}
+
 input RemoveUserFromClubInput {
   clubId: ID!
   userId: ID!
@@ -647,9 +746,22 @@ type Rsvp implements Node {
   listType: Int
   message: String
   paid: Int
+  payment: Payment
   rating: Rating
   rsvpId: Int
   user: User
+}
+
+type StripeAccountSessionResult implements HasErrors {
+  accountId: String
+  clientSecret: String
+  errors: [Error!]
+}
+
+type StripeOnboardingLinkResult implements HasErrors {
+  accountId: String
+  errors: [Error!]
+  url: String
 }
 
 type Subscription {
@@ -754,6 +866,8 @@ type Viewer {
   clubs(after: String, before: String, first: Int): ClubConnection!
   events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
   profile: User
+  stripeAccountId: String
+  stripeChargesEnabled: Boolean
   subscriptions: [Subscription!]!
   user: User
 }

@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 18:20+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:219
+msgid "Cancellation deadline"
+msgstr "กำหนดเวลายกเลิก"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:227
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "เลยกำหนดเวลายกเลิกแล้ว ติดต่อผู้จัดงานที่หน้านี้เพื่อยกเลิก"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:324
+#: src/components/organisms/EventStickyFooter.re.mjs:410
+msgid "Claim spot"
+msgstr "จองที่"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:322
+msgid "Claim spot · {0}"
+msgstr "จองสปอต · {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+msgid "Complete your profile"
+msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:358
+msgid "Display name"
+msgstr "ชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:106
+msgid "Display name is required"
+msgstr "ต้องกรอกชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:375
+msgid "Email address"
+msgstr "ที่อยู่อีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:226
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "Email cannot be changed"
+msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Email is required"
+msgstr "ต้องกรอกอีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "หญิง"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "For event updates and notifications"
+msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "เพศ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:410
+msgid "Join waitlist"
+msgstr "เข้าร่วมรายการรอ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:321
+msgid "Join waitlist (#{0})"
+msgstr "เข้าร่วมรายชื่อคอย (#{0})"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:363
+msgid "Leave event"
+msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+msgid "Leaving..."
+msgstr "กำลังออก..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "ชาย"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Pay {0}"
+msgstr "ชำระ {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "ไม่ต้องการระบุ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Release spot"
+msgstr "ปล่อยสปอต"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Releasing..."
+msgstr "กำลังปล่อย..."
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+msgid "Save & Join Event"
+msgstr "บันทึกและเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Spot held — pay to confirm"
+msgstr "จองสปอตแล้ว — ชำระเงินเพื่อยืนยัน"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:364
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr "มีผู้เล่นในรายชื่อคอย ถ้าคุณออก ที่ของคุณจะถูกให้กับคนถัดไป คุณแน่ใจหรือไม่?"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+msgid "This is how others will see you"
+msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:339
+msgid "We need a few details before you can join this event"
+msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:262
+msgid "You're in"
+msgstr "คุณเข้าร่วมแล้ว"

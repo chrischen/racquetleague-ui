@@ -13,23 +13,23 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:675
+#: src/components/pages/PkEventPage.re.mjs:276
 msgid "...more"
 msgstr "...thêm"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:404
+#: src/components/organisms/PkRSVPSection.re.mjs:441
 msgid "· {0} pending"
 msgstr "· {0} đang chờ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:402
+#: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "· +{0} waitlist"
 msgstr "· +{0} chờ đợi"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:399
+#: src/components/organisms/PkRSVPSection.re.mjs:436
 msgid "{0} joined"
 msgstr "{0} đã tham gia"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:465
+#: src/components/organisms/PkRSVPSection.re.mjs:502
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ KỸ NĂNG"
 
@@ -45,49 +45,57 @@ msgstr "Thêm tin nhắn..."
 msgid "Advanced players"
 msgstr "Người chơi nâng cao"
 
-#: src/components/organisms/RsvpOptions.re.mjs:118
+#: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "Duyệt tham dự"
 
-#: src/components/organisms/RsvpOptions.re.mjs:181
+#: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:187
+#: src/components/organisms/PkRSVPSection.re.mjs:211
 msgid "balanced"
 msgstr "cân bằng"
 
-#: src/components/pages/PkEventPage.re.mjs:283
+#: src/components/pages/PkEventPage.re.mjs:426
 msgid "cancel event"
 msgstr "hủy sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:576
+#: src/components/pages/PkEventPage.re.mjs:165
 msgid "CANCELED"
 msgstr "ĐÃ HỦY"
 
-#: src/components/pages/PkEventPage.re.mjs:372
+#: src/components/organisms/EventStickyFooter.re.mjs:219
 msgid "Cancellation deadline"
 msgstr "Hạn hủy"
 
-#: src/components/pages/PkEventPage.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:227
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để hủy."
 
-#: src/components/pages/PkEventPage.re.mjs:254
+#: src/components/pages/PkEventPage.re.mjs:397
 msgid "Cannot access variable \\\"title\\\""
 msgstr "Không thể truy cập biến \\\"title\\\""
 
-#: src/components/pages/PkEventPage.re.mjs:442
-#: src/components/pages/PkEventPage.re.mjs:519
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "Thu tiền thanh toán"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:324
+#: src/components/organisms/EventStickyFooter.re.mjs:410
 msgid "Claim spot"
 msgstr "Đặt chỗ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:322
+msgid "Claim spot · {0}"
+msgstr "Đăng ký chỗ · {0}"
 
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "Hoàn thiện hồ sơ của bạn"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:549
+#: src/components/organisms/PkRSVPSection.re.mjs:586
 msgid "Confirmed · {0}"
 msgstr "Đã xác nhận · {0}"
 
@@ -120,12 +128,12 @@ msgstr "Tên hiển thị"
 msgid "Display name is required"
 msgstr "Cần có tên hiển thị"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:439
-#: src/components/organisms/PkRSVPSection.re.mjs:456
+#: src/components/organisms/PkRSVPSection.re.mjs:476
+#: src/components/organisms/PkRSVPSection.re.mjs:493
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:266
+#: src/components/pages/PkEventPage.re.mjs:409
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
@@ -157,11 +165,11 @@ msgstr "Cần có email"
 msgid "Enter Match Score"
 msgstr "Nhập điểm số trận đấu"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:183
+#: src/components/organisms/PkRSVPSection.re.mjs:207
 msgid "even"
 msgstr "đồng đều"
 
-#: src/components/pages/PkEventPage.re.mjs:825
+#: src/components/pages/PkEventPage.re.mjs:679
 msgid "Event not found"
 msgstr "Không tìm thấy sự kiện"
 
@@ -181,7 +189,7 @@ msgstr "Nữ"
 msgid "For event updates and notifications"
 msgstr "Để nhận cập nhật và thông báo về sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:633
+#: src/components/pages/PkEventPage.re.mjs:222
 msgid "Free"
 msgstr "Miễn phí"
 
@@ -193,11 +201,11 @@ msgstr "Giới tính"
 msgid "Highly skilled players"
 msgstr "Người chơi trình độ cao"
 
-#: src/components/pages/PkEventPage.re.mjs:519
+#: src/components/organisms/EventStickyFooter.re.mjs:410
 msgid "Join waitlist"
 msgstr "Vào danh sách chờ"
 
-#: src/components/pages/PkEventPage.re.mjs:442
+#: src/components/organisms/EventStickyFooter.re.mjs:321
 msgid "Join waitlist (#{0})"
 msgstr "Vào danh sách chờ (#{0})"
 
@@ -205,19 +213,24 @@ msgstr "Vào danh sách chờ (#{0})"
 msgid "Last Round"
 msgstr "Vòng cuối"
 
-#: src/components/pages/PkEventPage.re.mjs:423
-msgid "Leave"
-msgstr "Rời"
-
-#: src/components/pages/PkEventPage.re.mjs:762
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:363
 msgid "Leave event"
 msgstr "Rời sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:675
+#: src/components/organisms/EventStickyFooter.re.mjs:278
+msgid "Leaving..."
+msgstr "Đang rời..."
+
+#: src/components/pages/PkEventPage.re.mjs:276
 msgid "less"
 msgstr "thu gọn"
 
-#: src/components/pages/PkEventPage.re.mjs:651
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Loading..."
+msgstr "Đang tải..."
+
+#: src/components/pages/PkEventPage.re.mjs:252
 msgid "Location"
 msgstr "Địa điểm"
 
@@ -237,16 +250,16 @@ msgstr "Nam"
 msgid "Matches will be submitted to DUPR."
 msgstr "Kết quả trận đấu sẽ được gửi lên DUPR."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:448
+#: src/components/organisms/PkRSVPSection.re.mjs:485
 msgid "MEDIAN"
 msgstr "TRUNG VỊ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:190
+#: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "mixed"
 msgstr "đa dạng"
 
-#: src/components/organisms/RsvpOptions.re.mjs:128
-#: src/components/organisms/RsvpOptions.re.mjs:196
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "Chuyển vào danh sách chờ duyệt"
 
@@ -258,15 +271,19 @@ msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi ngư�
 msgid "No Score"
 msgstr "Không có điểm"
 
-#: src/components/pages/PkEventPage.re.mjs:715
+#: src/components/pages/PkEventPage.re.mjs:538
 msgid "Notes from the host"
 msgstr "Ghi chú từ người tổ chức"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:382
+#: src/components/organisms/PkRSVPSection.re.mjs:406
 msgid "Participants"
 msgstr "Người tham gia"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:678
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Pay {0}"
+msgstr "Thanh toán {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:715
 msgid "Pending · {0}"
 msgstr "Đang chờ · {0}"
 
@@ -297,11 +314,23 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 
-#: src/components/organisms/RsvpOptions.re.mjs:141
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "Hoàn tiền"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Release spot"
+msgstr "Hủy chỗ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:178
+msgid "Releasing..."
+msgstr "Đang hủy..."
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "Xóa khỏi sự kiện"
 
-#: src/components/organisms/RsvpOptions.re.mjs:180
+#: src/components/organisms/RsvpOptions.re.mjs:252
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
@@ -309,11 +338,11 @@ msgstr "Xóa RSVP này"
 msgid "Repeat"
 msgstr "Lặp lại"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:308
+#: src/components/organisms/PkRSVPSection.re.mjs:332
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "Yêu cầu: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:329
+#: src/components/organisms/PkRSVPSection.re.mjs:353
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "Cần DUPR {minDuprStr}+ để tham gia"
 
@@ -358,7 +387,11 @@ msgstr "Thu gọn"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "Luyện tập kỹ năng và bài tập kỹ thuật để cải thiện trình độ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:509
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Spot held — pay to confirm"
+msgstr "Đã giữ chỗ — thanh toán để xác nhận"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:546
 msgid "SPREAD"
 msgstr "ĐỘ PHÂN TÁN"
 
@@ -378,7 +411,7 @@ msgstr ""
 "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
 "lịch ban đầu bằng biểu tượng đặt lại vòng."
 
-#: src/components/pages/PkEventPage.re.mjs:763
+#: src/components/organisms/EventStickyFooter.re.mjs:364
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -398,7 +431,7 @@ msgstr ""
 msgid "This is how others will see you"
 msgstr "Đây là cách người khác sẽ thấy bạn"
 
-#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -406,11 +439,11 @@ msgstr ""
 "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
 "nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:431
+#: src/components/organisms/PkRSVPSection.re.mjs:468
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
-#: src/components/pages/PkEventPage.re.mjs:272
+#: src/components/pages/PkEventPage.re.mjs:415
 msgid "uncancel event"
 msgstr "khôi phục sự kiện"
 
@@ -422,7 +455,7 @@ msgstr "Trung cấp cao trở lên"
 msgid "View Full Draws"
 msgstr "Xem bốc thăm đầy đủ"
 
-#: src/components/organisms/RsvpOptions.re.mjs:167
+#: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "Xem hồ sơ"
 
@@ -432,7 +465,7 @@ msgstr "Xem hồ sơ"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:614
+#: src/components/organisms/PkRSVPSection.re.mjs:651
 msgid "Waitlist · {0}"
 msgstr "Danh sách chờ · {0}"
 
@@ -445,7 +478,11 @@ msgstr ""
 msgid "Winning Team (Team {0})"
 msgstr "Đội thắng (Đội {0})"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:312
+#: src/components/organisms/EventStickyFooter.re.mjs:262
+msgid "You're in"
+msgstr "Bạn đã tham gia"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:336
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -466,6 +503,10 @@ msgstr ""
 #: src/components/pages/PkEventPage.re.mjs:368
 #~ msgid "hr"
 #~ msgstr "giờ"
+
+#: src/components/pages/PkEventPage.re.mjs:423
+#~ msgid "Leave"
+#~ msgstr "Rời"
 
 #: src/components/pages/PkEventPage.re.mjs:361
 #: src/components/pages/PkEventPage.re.mjs:366

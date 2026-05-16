@@ -13,6 +13,8 @@ import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragme
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as RsvpOptions_rsvp_graphql from "../../__generated__/RsvpOptions_rsvp_graphql.re.mjs";
 import * as RsvpOptionsDeleteMutation_graphql from "../../__generated__/RsvpOptionsDeleteMutation_graphql.re.mjs";
+import * as RsvpOptionsRefundPaymentMutation_graphql from "../../__generated__/RsvpOptionsRefundPaymentMutation_graphql.re.mjs";
+import * as RsvpOptionsCapturePaymentMutation_graphql from "../../__generated__/RsvpOptionsCapturePaymentMutation_graphql.re.mjs";
 import * as RsvpOptionsUpdateListTypeMutation_graphql from "../../__generated__/RsvpOptionsUpdateListTypeMutation_graphql.re.mjs";
 
 import { t, plural } from '@lingui/macro'
@@ -76,6 +78,46 @@ var RsvpOptionsUpdateListTypeMutation = {
   use: use$2
 };
 
+var convertVariables$2 = RsvpOptionsCapturePaymentMutation_graphql.Internal.convertVariables;
+
+var convertResponse$2 = RsvpOptionsCapturePaymentMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$2 = RsvpOptionsCapturePaymentMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2, RsvpOptionsCapturePaymentMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, RsvpOptionsCapturePaymentMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var RsvpOptionsCapturePaymentMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$2,
+  convertResponse: convertResponse$2,
+  convertWrapRawResponse: convertWrapRawResponse$2,
+  commitMutation: commitMutation$2,
+  use: use$3
+};
+
+var convertVariables$3 = RsvpOptionsRefundPaymentMutation_graphql.Internal.convertVariables;
+
+var convertResponse$3 = RsvpOptionsRefundPaymentMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$3 = RsvpOptionsRefundPaymentMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$3 = RescriptRelay_Mutation.commitMutation(convertVariables$3, RsvpOptionsRefundPaymentMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+
+var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$3, RsvpOptionsRefundPaymentMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+
+var RsvpOptionsRefundPaymentMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$3,
+  convertResponse: convertResponse$3,
+  convertWrapRawResponse: convertWrapRawResponse$3,
+  commitMutation: commitMutation$3,
+  use: use$4
+};
+
 function RsvpOptions(props) {
   var __triggerClassName = props.triggerClassName;
   var __connectionKey = props.connectionKey;
@@ -89,6 +131,10 @@ function RsvpOptions(props) {
   var commitMutationDeleteRsvp = match[0];
   var match$1 = use$2();
   var commitMutationUpdateListType = match$1[0];
+  var match$2 = use$3();
+  var commitCapturePayment = match$2[0];
+  var match$3 = use$4();
+  var commitRefundPayment = match$3[0];
   var rsvp = use(props.rsvp);
   var nav = LangProvider.Router.useNavigate();
   var onUpdateListType = function (rsvpId, listType) {
@@ -99,22 +145,22 @@ function RsvpOptions(props) {
           }
         }, undefined, undefined, undefined, undefined, undefined, undefined);
   };
-  var match$2 = React.useState(function () {
+  var match$4 = React.useState(function () {
         return false;
       });
-  var setIsOpen = match$2[1];
-  var isOpen = match$2[0];
-  var match$3 = React.useState(function () {
+  var setIsOpen = match$4[1];
+  var isOpen = match$4[0];
+  var match$5 = React.useState(function () {
         return false;
       });
-  var setIsUpdateDialogOpen = match$3[1];
+  var setIsUpdateDialogOpen = match$5[1];
   var tmp;
   if (isAdmin) {
-    var match$4 = rsvp.listType;
+    var match$6 = rsvp.listType;
     var tmp$1;
     var exit = 0;
-    if (match$4 !== undefined && match$4 !== 0) {
-      tmp$1 = match$4 !== 1 ? null : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+    if (match$6 !== undefined && match$6 !== 0) {
+      tmp$1 = match$6 !== 1 ? null : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
               children: t`Approve RSVP`,
               onClick: (function (param) {
                   onUpdateListType(rsvp.id, 0);
@@ -134,6 +180,31 @@ function RsvpOptions(props) {
               })
           });
     }
+    var match$7 = rsvp.payment;
+    var tmp$2;
+    if (match$7 !== undefined) {
+      var match$8 = match$7.status;
+      var paymentId = match$7.id;
+      tmp$2 = match$8 !== 0 ? (
+          match$8 !== 1 ? null : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                  children: t`Refund payment`,
+                  onClick: (function (param) {
+                      commitRefundPayment({
+                            paymentId: paymentId
+                          }, undefined, undefined, undefined, undefined, undefined, undefined);
+                    })
+                })
+        ) : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+              children: t`Capture payment`,
+              onClick: (function (param) {
+                  commitCapturePayment({
+                        paymentId: paymentId
+                      }, undefined, undefined, undefined, undefined, undefined, undefined);
+                })
+            });
+    } else {
+      tmp$2 = null;
+    }
     tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
           children: [
             tmp$1,
@@ -145,7 +216,8 @@ function RsvpOptions(props) {
                             return true;
                           });
                     })
-                })
+                }),
+            tmp$2
           ]
         });
   } else {
@@ -199,7 +271,7 @@ function RsvpOptions(props) {
                           onUpdateListType(rsvp.id, 1);
                         }),
                       setIsOpen: setIsUpdateDialogOpen,
-                      isOpen: match$3[0]
+                      isOpen: match$5[0]
                     })
               ]
             });
@@ -211,6 +283,8 @@ export {
   Fragment ,
   RsvpOptionsDeleteMutation ,
   RsvpOptionsUpdateListTypeMutation ,
+  RsvpOptionsCapturePaymentMutation ,
+  RsvpOptionsRefundPaymentMutation ,
   make ,
 }
 /*  Not a pure module */
