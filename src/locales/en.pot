@@ -4404,3 +4404,27 @@ msgstr ""
 #: src/components/organisms/SettingsProfileForm.re.mjs:390
 msgid "United States"
 msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr ""

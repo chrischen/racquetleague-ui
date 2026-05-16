@@ -3272,6 +3272,30 @@ msgstr "영국"
 msgid "United States"
 msgstr "미국"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr "대기 명단에서 나가기"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
+msgstr "대기 중"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
+msgstr "승인 대기 중"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr "참가 취소"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr "취소 중..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

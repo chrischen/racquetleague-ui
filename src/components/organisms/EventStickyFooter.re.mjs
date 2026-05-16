@@ -69,6 +69,7 @@ function EventStickyFooter(props) {
   var waitlistCount = props.waitlistCount;
   var confirmedCount = props.confirmedCount;
   var isFull = props.isFull;
+  var isWaitlisted = props.isWaitlisted;
   var viewerUser = props.viewerUser;
   var $$event = props.event;
   var match = use();
@@ -156,6 +157,9 @@ function EventStickyFooter(props) {
     var deadlinePassed = Core__Option.isSome(cancelDeadlineDate) && Core__Option.getOr(Core__Option.map(cancelMinutesLeft, (function (m) {
                 return m <= 0;
               })), false);
+    var isInGracePeriod = !isWaitlisted && Core__Option.getOr(Core__Option.map(props.viewerJoinTime, (function (jt) {
+                return DifferenceInMinutes.differenceInMinutes(new Date(), new Date(jt)) <= 30;
+              })), false);
     var tmp;
     if (props.isUnpaid) {
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -202,9 +206,64 @@ function EventStickyFooter(props) {
                   })
             ]
           });
+    } else if (props.isPending) {
+      tmp = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsxs("svg", {
+                                  children: [
+                                    JsxRuntime.jsx("path", {
+                                          d: "M7 4V7.5",
+                                          stroke: "#ea580c",
+                                          strokeLinecap: "round",
+                                          strokeWidth: "1.5"
+                                        }),
+                                    JsxRuntime.jsx("circle", {
+                                          cx: "7",
+                                          cy: "10",
+                                          fill: "#ea580c",
+                                          r: "0.75"
+                                        })
+                                  ],
+                                  height: "10",
+                                  width: "10",
+                                  fill: "none",
+                                  viewBox: "0 0 14 14"
+                                }),
+                            className: "w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 bg-orange-100 dark:bg-orange-900/30 border border-orange-400 dark:border-orange-500 border-dashed"
+                          }),
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx("span", {
+                                    children: t`Pending approval`,
+                                    className: "font-semibold uppercase tracking-wider text-orange-600 dark:text-orange-400"
+                                  }),
+                              JsxRuntime.jsx("span", {
+                                    children: t`Your RSVP is awaiting admin approval`,
+                                    className: "block text-[10px] text-gray-500 dark:text-gray-400 normal-case tracking-normal truncate"
+                                  })
+                            ],
+                            className: "font-mono text-xs min-w-0"
+                          })
+                    ],
+                    className: "flex items-center gap-2 min-w-0"
+                  }),
+              JsxRuntime.jsx("button", {
+                    children: leaving ? t`Withdrawing...` : t`Withdraw RSVP`,
+                    className: "px-4 py-2 text-sm font-medium rounded-md transition-colors border flex-shrink-0 text-gray-700 dark:text-gray-300 bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] hover:bg-red-50 dark:hover:bg-red-900/20 hover:border-red-200 dark:hover:border-red-800/40 hover:text-red-600 dark:hover:text-red-400",
+                    disabled: leaving,
+                    onClick: (function (param) {
+                        doLeave();
+                      })
+                  })
+            ],
+            className: "px-5 py-3 flex items-center justify-between"
+          });
     } else if (props.isJoined) {
       var tmp$1;
-      if (Core__Option.isSome(cancelDeadlineDate)) {
+      if (Core__Option.isSome(cancelDeadlineDate) && !isWaitlisted) {
         var mins = Core__Option.filter(cancelMinutesLeft, (function (m) {
                 return m > 0;
               }));
@@ -241,30 +300,53 @@ function EventStickyFooter(props) {
                       JsxRuntime.jsxs("div", {
                             children: [
                               JsxRuntime.jsx("div", {
-                                    children: JsxRuntime.jsx("svg", {
-                                          children: JsxRuntime.jsx("path", {
-                                                d: "M3 7.5L5.5 10L11 4",
-                                                stroke: "#65a30d",
-                                                strokeLinecap: "round",
-                                                strokeLinejoin: "round",
-                                                strokeWidth: "2"
-                                              }),
-                                          height: "10",
-                                          width: "10",
-                                          fill: "none",
-                                          viewBox: "0 0 14 14"
-                                        }),
-                                    className: "w-5 h-5 rounded-full bg-[#bdf25d]/20 border border-[#bdf25d] flex items-center justify-center flex-shrink-0"
+                                    children: isWaitlisted ? JsxRuntime.jsxs("svg", {
+                                            children: [
+                                              JsxRuntime.jsx("circle", {
+                                                    cx: "7",
+                                                    cy: "7",
+                                                    r: "5",
+                                                    stroke: "#d97706",
+                                                    strokeWidth: "1.5"
+                                                  }),
+                                              JsxRuntime.jsx("path", {
+                                                    d: "M7 4.5V7.5L9 9",
+                                                    stroke: "#d97706",
+                                                    strokeLinecap: "round",
+                                                    strokeLinejoin: "round",
+                                                    strokeWidth: "1.5"
+                                                  })
+                                            ],
+                                            height: "10",
+                                            width: "10",
+                                            fill: "none",
+                                            viewBox: "0 0 14 14"
+                                          }) : JsxRuntime.jsx("svg", {
+                                            children: JsxRuntime.jsx("path", {
+                                                  d: "M3 7.5L5.5 10L11 4",
+                                                  stroke: "#65a30d",
+                                                  strokeLinecap: "round",
+                                                  strokeLinejoin: "round",
+                                                  strokeWidth: "2"
+                                                }),
+                                            height: "10",
+                                            width: "10",
+                                            fill: "none",
+                                            viewBox: "0 0 14 14"
+                                          }),
+                                    className: Core.cx("w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0", isWaitlisted ? "bg-amber-100 dark:bg-amber-900/30 border border-amber-400 dark:border-amber-500" : "bg-[#bdf25d]/20 border border-[#bdf25d]")
                                   }),
                               JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsx("span", {
-                                            children: t`You're in`,
-                                            className: "font-semibold uppercase tracking-wider text-gray-900 dark:text-gray-100"
+                                            children: isWaitlisted ? t`On waitlist` : t`You're in`,
+                                            className: Core.cx("font-semibold uppercase tracking-wider", isWaitlisted ? "text-amber-600 dark:text-amber-400" : "text-gray-900 dark:text-gray-100")
                                           }),
                                       JsxRuntime.jsx("span", {
-                                            children: " \u00B7 " + confirmedCount.toString() + (
-                                              maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
+                                            children: " \u00B7 " + (
+                                              isWaitlisted ? "#" + waitlistCount.toString() + " in queue" : confirmedCount.toString() + (
+                                                  maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
+                                                )
                                             ),
                                             className: "text-gray-400 dark:text-gray-500"
                                           })
@@ -275,9 +357,11 @@ function EventStickyFooter(props) {
                             className: "flex items-center gap-2 min-w-0"
                           }),
                       JsxRuntime.jsx("button", {
-                            children: leaving ? t`Leaving...` : t`Leave event`,
-                            className: Core.cx("px-4 py-2 text-sm font-medium rounded-md transition-colors border flex-shrink-0", deadlinePassed ? "text-gray-400 dark:text-gray-600 bg-gray-100 dark:bg-[#2a2b30] border-gray-200 dark:border-[#3a3b40] cursor-not-allowed" : "text-gray-700 dark:text-gray-300 bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] hover:bg-red-50 dark:hover:bg-red-900/20 hover:border-red-200 dark:hover:border-red-800/40 hover:text-red-600 dark:hover:text-red-400"),
-                            disabled: leaving || deadlinePassed,
+                            children: leaving ? t`Leaving...` : (
+                                isWaitlisted ? t`Leave waitlist` : t`Leave event`
+                              ),
+                            className: Core.cx("px-4 py-2 text-sm font-medium rounded-md transition-colors border flex-shrink-0", deadlinePassed && !isWaitlisted && !isInGracePeriod ? "text-gray-400 dark:text-gray-600 bg-gray-100 dark:bg-[#2a2b30] border-gray-200 dark:border-[#3a3b40] cursor-not-allowed" : "text-gray-700 dark:text-gray-300 bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] hover:bg-red-50 dark:hover:bg-red-900/20 hover:border-red-200 dark:hover:border-red-800/40 hover:text-red-600 dark:hover:text-red-400"),
+                            disabled: leaving || deadlinePassed && !isWaitlisted && !isInGracePeriod,
                             onClick: (function (param) {
                                 doLeave();
                               })

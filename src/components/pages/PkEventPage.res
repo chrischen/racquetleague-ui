@@ -65,6 +65,7 @@ module EventQuery = %relay(`
           node {
             id
             listType
+            joinTime
             user {
               id
             }
@@ -367,6 +368,10 @@ module Inner = {
     // Unpaid: viewer is joined, event has a price, viewer is not in Going list, and has no payment
     let isPaidEvent = event.price->Option.map(p => p > 0)->Option.getOr(false)
     let isJoined = viewerRsvpNode->Option.isSome
+    let isViewerWaitlisted =
+      viewerRsvpNode
+      ->Option.map(node => waitlistPlayers->Array.some(wp => wp.id == node.id))
+      ->Option.getOr(false)
     let viewerIsInGoingList = switch viewerRsvpNode {
     | Some({listType: None | Some(0)}) => true
     | _ => false
@@ -375,7 +380,12 @@ module Inner = {
     | Some({payment: Some(_)}) => true
     | _ => false
     }
-    let isUnpaid = isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment
+    let isUnpaid = isJoined && isPaidEvent && !viewerHasPayment
+    let viewerJoinTime = viewerRsvpNode->Option.flatMap(n => n.joinTime)
+    let isViewerPending = switch viewerRsvpNode {
+    | Some({listType}) => listType != None && listType != Some(0)
+    | None => false
+    }
 
     if event.viewerIsBanned->Option.getOr(false) {
       <div className="p-6 text-center text-gray-500">
@@ -543,7 +553,10 @@ module Inner = {
             email: u.email,
           })}
           isJoined
+          isWaitlisted={isViewerWaitlisted}
+          isPending={isViewerPending}
           isUnpaid
+          viewerJoinTime
           isPaidEvent
           isFull
           confirmedCount={confirmedPlayers->Array.length}

@@ -3730,6 +3730,30 @@ msgstr "英国"
 msgid "United States"
 msgstr "美国"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr "退出候补名单"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
+msgstr "候补中"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
+msgstr "待审批"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr "撤回报名"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr "撤回中..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr "您的报名正在等待管理员审批"
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"

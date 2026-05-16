@@ -407,15 +407,31 @@ function PkEventPage$Inner(props) {
               return p > 0;
             })), false);
   var isJoined = Core__Option.isSome(viewerRsvpNode);
-  var viewerIsInGoingList;
+  var isViewerWaitlisted = Core__Option.getOr(Core__Option.map(viewerRsvpNode, (function (node) {
+              return waitlistPlayers.some(function (wp) {
+                          return wp.id === node.id;
+                        });
+            })), false);
   if (viewerRsvpNode !== undefined) {
     var match$7 = viewerRsvpNode.listType;
-    viewerIsInGoingList = match$7 !== undefined ? match$7 === 0 : true;
-  } else {
-    viewerIsInGoingList = false;
+    if (match$7 !== undefined) {
+      match$7 === 0;
+    } else {
+      true;
+    }
   }
   var viewerHasPayment = viewerRsvpNode !== undefined ? viewerRsvpNode.payment !== undefined : false;
-  var isUnpaid = isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment;
+  var isUnpaid = isJoined && isPaidEvent && !viewerHasPayment;
+  var viewerJoinTime = Core__Option.flatMap(viewerRsvpNode, (function (n) {
+          return n.joinTime;
+        }));
+  var isViewerPending;
+  if (viewerRsvpNode !== undefined) {
+    var listType = viewerRsvpNode.listType;
+    isViewerPending = listType !== undefined && Caml_obj.notequal(listType, 0);
+  } else {
+    isViewerPending = false;
+  }
   if (Core__Option.getOr($$event.viewerIsBanned, false)) {
     return JsxRuntime.jsx("div", {
                 children: t`Cannot access variable \"title\"`,
@@ -602,7 +618,10 @@ function PkEventPage$Inner(props) {
                                     };
                             })),
                       isJoined: isJoined,
+                      isWaitlisted: isViewerWaitlisted,
+                      isPending: isViewerPending,
                       isUnpaid: isUnpaid,
+                      viewerJoinTime: viewerJoinTime,
                       isPaidEvent: isPaidEvent,
                       isFull: isFull,
                       confirmedCount: confirmedPlayers.length,

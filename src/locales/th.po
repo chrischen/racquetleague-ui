@@ -3734,6 +3734,30 @@ msgstr "สหราชอาณาจักร"
 msgid "United States"
 msgstr "สหรัฐอเมริกา"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr "ออกจากรายชื่อรอ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
+msgstr "อยู่ในรายชื่อรอ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr "ยกเลิก RSVP"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr "กำลังยกเลิก..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"

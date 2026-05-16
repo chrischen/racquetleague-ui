@@ -13,21 +13,21 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:219
+#: src/components/organisms/EventStickyFooter.re.mjs:278
 msgid "Cancellation deadline"
 msgstr "Hạn hủy"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:227
+#: src/components/organisms/EventStickyFooter.re.mjs:286
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để hủy."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:324
-#: src/components/organisms/EventStickyFooter.re.mjs:410
+#: src/components/organisms/EventStickyFooter.re.mjs:408
+#: src/components/organisms/EventStickyFooter.re.mjs:494
 msgid "Claim spot"
 msgstr "Đặt chỗ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:322
+#: src/components/organisms/EventStickyFooter.re.mjs:406
 msgid "Claim spot · {0}"
 msgstr "Đăng ký chỗ · {0}"
 
@@ -75,24 +75,28 @@ msgstr "Để nhận cập nhật và thông báo về sự kiện"
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:410
+#: src/components/organisms/EventStickyFooter.re.mjs:494
 msgid "Join waitlist"
 msgstr "Vào danh sách chờ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:321
+#: src/components/organisms/EventStickyFooter.re.mjs:405
 msgid "Join waitlist (#{0})"
 msgstr "Vào danh sách chờ (#{0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
-#: src/components/organisms/EventStickyFooter.re.mjs:363
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:447
 msgid "Leave event"
 msgstr "Rời sự kiện"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr "Rời danh sách chờ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:360
 msgid "Leaving..."
 msgstr "Đang rời..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -100,19 +104,27 @@ msgstr "Đang tải..."
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
+msgstr "Đang trong danh sách chờ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Pay {0}"
 msgstr "Thanh toán {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
+msgstr "Chờ phê duyệt"
 
 #: src/components/organisms/ProfileModal.re.mjs:397
 msgid "Prefer not to say"
 msgstr "Không muốn tiết lộ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:178
+#: src/components/organisms/EventStickyFooter.re.mjs:182
 msgid "Release spot"
 msgstr "Hủy chỗ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:178
+#: src/components/organisms/EventStickyFooter.re.mjs:182
 msgid "Releasing..."
 msgstr "Đang hủy..."
 
@@ -120,11 +132,11 @@ msgstr "Đang hủy..."
 msgid "Save & Join Event"
 msgstr "Lưu & Tham gia sự kiện"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:169
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Spot held — pay to confirm"
 msgstr "Đã giữ chỗ — thanh toán để xác nhận"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:364
+#: src/components/organisms/EventStickyFooter.re.mjs:448
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -141,6 +153,18 @@ msgid "We need a few details before you can join this event"
 msgstr ""
 "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:262
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr "Hủy RSVP"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr "Đang hủy..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
 msgid "You're in"
 msgstr "Bạn đã tham gia"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"

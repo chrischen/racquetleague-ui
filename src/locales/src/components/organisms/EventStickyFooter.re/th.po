@@ -13,21 +13,21 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:219
+#: src/components/organisms/EventStickyFooter.re.mjs:278
 msgid "Cancellation deadline"
 msgstr "กำหนดเวลายกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:227
+#: src/components/organisms/EventStickyFooter.re.mjs:286
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "เลยกำหนดเวลายกเลิกแล้ว ติดต่อผู้จัดงานที่หน้านี้เพื่อยกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:324
-#: src/components/organisms/EventStickyFooter.re.mjs:410
+#: src/components/organisms/EventStickyFooter.re.mjs:408
+#: src/components/organisms/EventStickyFooter.re.mjs:494
 msgid "Claim spot"
 msgstr "จองที่"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:322
+#: src/components/organisms/EventStickyFooter.re.mjs:406
 msgid "Claim spot · {0}"
 msgstr "จองสปอต · {0}"
 
@@ -73,24 +73,28 @@ msgstr "สำหรับการอัปเดตและการแจ้
 msgid "Gender"
 msgstr "เพศ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:410
+#: src/components/organisms/EventStickyFooter.re.mjs:494
 msgid "Join waitlist"
 msgstr "เข้าร่วมรายการรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:321
+#: src/components/organisms/EventStickyFooter.re.mjs:405
 msgid "Join waitlist (#{0})"
 msgstr "เข้าร่วมรายชื่อคอย (#{0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
-#: src/components/organisms/EventStickyFooter.re.mjs:363
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:447
 msgid "Leave event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr "ออกจากรายชื่อรอ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:360
 msgid "Leaving..."
 msgstr "กำลังออก..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -98,19 +102,27 @@ msgstr "กำลังโหลด..."
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
+msgstr "อยู่ในรายชื่อรอ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Pay {0}"
 msgstr "ชำระ {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
+msgstr "รอการอนุมัติ"
 
 #: src/components/organisms/ProfileModal.re.mjs:397
 msgid "Prefer not to say"
 msgstr "ไม่ต้องการระบุ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:178
+#: src/components/organisms/EventStickyFooter.re.mjs:182
 msgid "Release spot"
 msgstr "ปล่อยสปอต"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:178
+#: src/components/organisms/EventStickyFooter.re.mjs:182
 msgid "Releasing..."
 msgstr "กำลังปล่อย..."
 
@@ -118,11 +130,11 @@ msgstr "กำลังปล่อย..."
 msgid "Save & Join Event"
 msgstr "บันทึกและเข้าร่วมกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:169
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Spot held — pay to confirm"
 msgstr "จองสปอตแล้ว — ชำระเงินเพื่อยืนยัน"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:364
+#: src/components/organisms/EventStickyFooter.re.mjs:448
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -136,6 +148,18 @@ msgstr "นี่คือสิ่งที่คนอื่นจะเห็
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:262
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr "ยกเลิก RSVP"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr "กำลังยกเลิก..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
 msgid "You're in"
 msgstr "คุณเข้าร่วมแล้ว"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"

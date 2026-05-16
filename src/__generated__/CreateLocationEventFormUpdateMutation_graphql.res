@@ -8,6 +8,8 @@ module Types = {
   @live
   type rec response_updateEvent_event_activity = {
     @live id: string,
+    name: option<string>,
+    slug: option<string>,
   }
   @live
   and response_updateEvent_event_club = {
@@ -32,6 +34,7 @@ module Types = {
     location: option<response_updateEvent_event_location>,
     maxRsvps: option<int>,
     minRating: option<float>,
+    price: option<int>,
     startDate: option<Util.Datetime.t>,
     tags: option<array<string>>,
     timezone: option<string>,
@@ -146,7 +149,21 @@ v1 = {
   "storageKey": null
 },
 v2 = [
-  (v1/*: any*/)
+  (v1/*: any*/),
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "name",
+    "storageKey": null
+  },
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "slug",
+    "storageKey": null
+  }
 ],
 v3 = [
   {
@@ -236,7 +253,9 @@ v3 = [
             "kind": "LinkedField",
             "name": "location",
             "plural": false,
-            "selections": (v2/*: any*/),
+            "selections": [
+              (v1/*: any*/)
+            ],
             "storageKey": null
           },
           {
@@ -246,23 +265,7 @@ v3 = [
             "kind": "LinkedField",
             "name": "club",
             "plural": false,
-            "selections": [
-              (v1/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "name",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "slug",
-                "storageKey": null
-              }
-            ],
+            "selections": (v2/*: any*/),
             "storageKey": null
           },
           {
@@ -298,6 +301,13 @@ v3 = [
             "args": null,
             "kind": "ScalarField",
             "name": "cancelDeadline",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "price",
             "storageKey": null
           }
         ],
@@ -358,12 +368,12 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "6f7e9a5082483454b1c7eb4afd6f00b5",
+    "cacheID": "96ee7c0d30694ce9becbd984f35f5189",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormUpdateMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      timezone\n      activity {\n        id\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      tags\n      cancelDeadline\n    }\n    rsvps {\n      id\n      listType\n      joinTime\n      rsvpId\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      timezone\n      activity {\n        id\n        name\n        slug\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      tags\n      cancelDeadline\n      price\n    }\n    rsvps {\n      id\n      listType\n      joinTime\n      rsvpId\n    }\n  }\n}\n"
   }
 };
 })() `)

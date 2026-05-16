@@ -13,21 +13,21 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:219
+#: src/components/organisms/EventStickyFooter.re.mjs:278
 msgid "Cancellation deadline"
 msgstr "取消截止时间"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:227
+#: src/components/organisms/EventStickyFooter.re.mjs:286
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "取消截止日期已过。请在此页面联系组织者取消。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:324
-#: src/components/organisms/EventStickyFooter.re.mjs:410
+#: src/components/organisms/EventStickyFooter.re.mjs:408
+#: src/components/organisms/EventStickyFooter.re.mjs:494
 msgid "Claim spot"
 msgstr "报名参加"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:322
+#: src/components/organisms/EventStickyFooter.re.mjs:406
 msgid "Claim spot · {0}"
 msgstr "占位 · {0}"
 
@@ -75,24 +75,28 @@ msgstr "用于活动更新和通知"
 msgid "Gender"
 msgstr "性别"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:410
+#: src/components/organisms/EventStickyFooter.re.mjs:494
 msgid "Join waitlist"
 msgstr "加入候补名单"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:321
+#: src/components/organisms/EventStickyFooter.re.mjs:405
 msgid "Join waitlist (#{0})"
 msgstr "加入候补名单 (#{0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
-#: src/components/organisms/EventStickyFooter.re.mjs:363
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:447
 msgid "Leave event"
 msgstr "退出活动"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr "退出候补名单"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:360
 msgid "Leaving..."
 msgstr "离开中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -100,19 +104,27 @@ msgstr "加载中..."
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
+msgstr "候补中"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Pay {0}"
 msgstr "支付 {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
+msgstr "待审批"
 
 #: src/components/organisms/ProfileModal.re.mjs:397
 msgid "Prefer not to say"
 msgstr "不愿透露"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:178
+#: src/components/organisms/EventStickyFooter.re.mjs:182
 msgid "Release spot"
 msgstr "释放位置"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:178
+#: src/components/organisms/EventStickyFooter.re.mjs:182
 msgid "Releasing..."
 msgstr "释放中..."
 
@@ -120,11 +132,11 @@ msgstr "释放中..."
 msgid "Save & Join Event"
 msgstr "保存并参加活动"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:169
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Spot held — pay to confirm"
 msgstr "位置已保留 — 付款确认"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:364
+#: src/components/organisms/EventStickyFooter.re.mjs:448
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -138,6 +150,18 @@ msgstr "这是其他人会看到的名字"
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:262
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr "撤回报名"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr "撤回中..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
 msgid "You're in"
 msgstr "已报名"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr "您的报名正在等待管理员审批"

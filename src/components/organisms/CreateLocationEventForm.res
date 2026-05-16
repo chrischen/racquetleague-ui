@@ -48,6 +48,8 @@ module UpdateMutation = %relay(`
        timezone
        activity {
          id
+         name
+         slug
        }
        location {
          id
@@ -62,6 +64,7 @@ module UpdateMutation = %relay(`
        listed
        tags
        cancelDeadline
+       price
      }
      rsvps {
        id

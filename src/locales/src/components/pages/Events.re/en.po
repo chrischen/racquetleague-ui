@@ -27,7 +27,7 @@ msgstr ""
 #~ msgid "...load past events"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:276
+#: src/components/pages/PkEventPage.re.mjs:297
 msgid "...more"
 msgstr ""
 
@@ -230,7 +230,7 @@ msgstr ""
 msgid "balanced"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:426
+#: src/components/pages/PkEventPage.re.mjs:466
 msgid "cancel event"
 msgstr ""
 
@@ -238,11 +238,11 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:165
+#: src/components/pages/PkEventPage.re.mjs:186
 msgid "CANCELED"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:219
+#: src/components/organisms/EventStickyFooter.re.mjs:278
 msgid "Cancellation deadline"
 msgstr ""
 
@@ -250,11 +250,11 @@ msgstr ""
 #~ msgid "Cancellation deadline passed"
 #~ msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:227
+#: src/components/organisms/EventStickyFooter.re.mjs:286
 msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:397
+#: src/components/pages/PkEventPage.re.mjs:437
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -266,12 +266,12 @@ msgstr ""
 #~ msgid "Casual"
 #~ msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:324
-#: src/components/organisms/EventStickyFooter.re.mjs:410
+#: src/components/organisms/EventStickyFooter.re.mjs:408
+#: src/components/organisms/EventStickyFooter.re.mjs:494
 msgid "Claim spot"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:322
+#: src/components/organisms/EventStickyFooter.re.mjs:406
 msgid "Claim spot · {0}"
 msgstr ""
 
@@ -350,7 +350,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:409
+#: src/components/pages/PkEventPage.re.mjs:449
 msgid "edit event"
 msgstr ""
 
@@ -395,7 +395,7 @@ msgstr ""
 #~ msgid "Event Details"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:655
+#: src/components/pages/PkEventPage.re.mjs:716
 msgid "Event not found"
 msgstr ""
 
@@ -428,7 +428,7 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:222
+#: src/components/pages/PkEventPage.re.mjs:243
 msgid "Free"
 msgstr ""
 
@@ -477,11 +477,11 @@ msgstr ""
 #~ msgid "join event"
 #~ msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:410
+#: src/components/organisms/EventStickyFooter.re.mjs:494
 msgid "Join waitlist"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:321
+#: src/components/organisms/EventStickyFooter.re.mjs:405
 msgid "Join waitlist (#{0})"
 msgstr ""
 
@@ -506,16 +506,20 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pkuru/PkEventRow.re.mjs:856
-#: src/components/organisms/EventStickyFooter.re.mjs:278
-#: src/components/organisms/EventStickyFooter.re.mjs:363
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:447
 msgid "Leave event"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:360
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:276
+#: src/components/pages/PkEventPage.re.mjs:297
 msgid "less"
 msgstr ""
 
@@ -535,11 +539,11 @@ msgstr ""
 #~ msgid "loading events..."
 #~ msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Loading..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:252
+#: src/components/pages/PkEventPage.re.mjs:273
 msgid "Location"
 msgstr ""
 
@@ -618,15 +622,19 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:538
+#: src/components/pages/PkEventPage.re.mjs:578
 msgid "Notes from the host"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:406
 msgid "Participants"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Pay {0}"
 msgstr ""
 
@@ -640,6 +648,10 @@ msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:715
 msgid "Pending · {0}"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
 msgstr ""
 
 #: src/components/pages/Events.re.mjs:115
@@ -706,11 +718,11 @@ msgstr ""
 msgid "Refund payment"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:178
+#: src/components/organisms/EventStickyFooter.re.mjs:182
 msgid "Release spot"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:178
+#: src/components/organisms/EventStickyFooter.re.mjs:182
 msgid "Releasing..."
 msgstr ""
 
@@ -795,7 +807,7 @@ msgstr ""
 msgid "SORTED BY START TIME"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:169
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Spot held — pay to confirm"
 msgstr ""
 
@@ -832,7 +844,7 @@ msgid "The match will be removed from this round. You can restore the originally
 msgstr ""
 
 #: src/components/pkuru/PkEventRow.re.mjs:857
-#: src/components/organisms/EventStickyFooter.re.mjs:364
+#: src/components/organisms/EventStickyFooter.re.mjs:448
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr ""
 
@@ -878,7 +890,7 @@ msgstr ""
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:415
+#: src/components/pages/PkEventPage.re.mjs:455
 msgid "uncancel event"
 msgstr ""
 
@@ -932,11 +944,19 @@ msgstr ""
 msgid "Winning Team (Team {0})"
 msgstr ""
 
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr ""
+
 #: src/components/pkuru/PkEventsList.re.mjs:285
 msgid "Yesterday"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:262
+#: src/components/organisms/EventStickyFooter.re.mjs:342
 msgid "You're in"
 msgstr ""
 
@@ -947,3 +967,7 @@ msgstr ""
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 #~ msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr ""

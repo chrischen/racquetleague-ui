@@ -57,7 +57,7 @@ v1 = [
         "variableName": "rsvpId"
       }
     ],
-    "concreteType": "CreatePaymentResult",
+    "concreteType": "AuthorizePaymentResult",
     "kind": "LinkedField",
     "name": "authorizePlatformRsvpPayment",
     "plural": false,

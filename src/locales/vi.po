@@ -3272,6 +3272,30 @@ msgstr "Anh"
 msgid "United States"
 msgstr "Mỹ"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "Leave waitlist"
+msgstr "Rời danh sách chờ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:342
+msgid "On waitlist"
+msgstr "Đang trong danh sách chờ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:240
+msgid "Pending approval"
+msgstr "Chờ phê duyệt"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdraw RSVP"
+msgstr "Hủy RSVP"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:254
+msgid "Withdrawing..."
+msgstr "Đang hủy..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:244
+msgid "Your RSVP is awaiting admin approval"
+msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
