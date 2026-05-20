@@ -23,13 +23,11 @@ let make = () => {
     },
   )
 
-  let (clubSelection, setClubSelection) = React.useState(() =>
-    ({
-      clubId: clubIdParam,
-      activityId: None,
-      isAddingClub: false,
-    }: ClubActivitySelector.selection)
-  )
+  let (clubSelection, setClubSelection) = React.useState((): ClubActivitySelector.selection => {
+    clubId: clubIdParam,
+    activityId: None,
+    isAddingClub: false,
+  })
   let (shakeCounter, setShakeCounter) = React.useState(() => 0)
 
   // State to hold prefilled event values from AI

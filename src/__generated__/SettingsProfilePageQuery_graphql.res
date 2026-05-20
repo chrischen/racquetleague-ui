@@ -78,7 +78,15 @@ type relayOperationNode
 type operationType = RescriptRelay.queryNode<relayOperationNode>
 
 
-let node: operationType = %raw(json` {
+let node: operationType = %raw(json` (function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -111,15 +119,27 @@ let node: operationType = %raw(json` {
           {
             "alias": null,
             "args": null,
-            "kind": "ScalarField",
-            "name": "stripeAccountId",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "stripeChargesEnabled",
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "stripeAccountId",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "stripeChargesEnabled",
+                "storageKey": null
+              },
+              (v0/*: any*/)
+            ],
             "storageKey": null
           },
           {
@@ -130,13 +150,7 @@ let node: operationType = %raw(json` {
             "name": "profile",
             "plural": false,
             "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
+              (v0/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -181,14 +195,15 @@ let node: operationType = %raw(json` {
     ]
   },
   "params": {
-    "cacheID": "d810025288919633fa591ac6dc842b9e",
+    "cacheID": "ded22b176b8f7794789e98ee11db23c9",
     "id": null,
     "metadata": {},
     "name": "SettingsProfilePageQuery",
     "operationKind": "query",
-    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    stripeAccountId\n    stripeChargesEnabled\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n  }\n}\n"
+    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n  }\n}\n"
   }
-} `)
+};
+})() `)
 
 let load: (
   ~environment: RescriptRelay.Environment.t,

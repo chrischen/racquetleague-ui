@@ -13,92 +13,92 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:314
+#: src/components/organisms/SettingsProfileForm.re.mjs:318
 msgid "Active"
 msgstr "Đang hoạt động"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:394
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
 msgid "Australia"
 msgstr "Úc"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:539
+#: src/components/organisms/SettingsProfileForm.re.mjs:543
 msgid "Biography"
 msgstr "Tiểu sử"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:398
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
 msgid "Canada"
 msgstr "Canada"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:334
+#: src/components/organisms/SettingsProfileForm.re.mjs:338
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr ""
 "Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:367
 msgid "Connect Stripe account"
 msgstr "Kết nối tài khoản Stripe"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:359
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
 msgid "Connecting..."
 msgstr "Đang kết nối..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:379
+#: src/components/organisms/SettingsProfileForm.re.mjs:383
 msgid "Country"
 msgstr "Quốc gia"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:467
+#: src/components/organisms/SettingsProfileForm.re.mjs:471
 msgid "Display Name"
 msgstr "Tên hiển thị"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:488
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/organisms/SettingsProfileForm.re.mjs:514
 msgid "Female"
 msgstr "Nữ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:480
+#: src/components/organisms/SettingsProfileForm.re.mjs:484
 msgid "Full name"
 msgstr "Họ và tên"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:495
+#: src/components/organisms/SettingsProfileForm.re.mjs:499
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:410
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
 msgid "Hong Kong"
 msgstr "Hồng Kông"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:471
+#: src/components/organisms/SettingsProfileForm.re.mjs:475
 msgid "How you appear to other players"
 msgstr "Tên hiển thị với người chơi khác"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:386
+#: src/components/organisms/SettingsProfileForm.re.mjs:390
 msgid "Japan"
 msgstr "Nhật Bản"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:308
+#: src/components/organisms/SettingsProfileForm.re.mjs:312
 msgid "Not connected"
 msgstr "Chưa kết nối"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:311
+#: src/components/organisms/SettingsProfileForm.re.mjs:315
 msgid "Pending"
 msgstr "Đang chờ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:502
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "Prefer not to say"
 msgstr "Không muốn tiết lộ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:366
+#: src/components/organisms/SettingsProfileForm.re.mjs:370
 msgid "Resume onboarding"
 msgstr "Tiếp tục đăng ký"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:566
+#: src/components/organisms/SettingsProfileForm.re.mjs:570
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
@@ -114,47 +114,47 @@ msgstr ""
 "hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người "
 "biết bạn đang tìm đối tác"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:406
+#: src/components/organisms/SettingsProfileForm.re.mjs:410
 msgid "Singapore"
 msgstr "Singapore"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:487
+#: src/components/organisms/SettingsProfileForm.re.mjs:491
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:418
+#: src/components/organisms/SettingsProfileForm.re.mjs:422
 msgid "South Korea"
 msgstr "Hàn Quốc"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:580
+#: src/components/organisms/SettingsProfileForm.re.mjs:584
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:414
+#: src/components/organisms/SettingsProfileForm.re.mjs:418
 msgid "Taiwan"
 msgstr "Đài Loan"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:545
+#: src/components/organisms/SettingsProfileForm.re.mjs:549
 msgid "tell us a little about yourself"
 msgstr "hãy cho chúng tôi biết một chút về bản thân bạn"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:543
+#: src/components/organisms/SettingsProfileForm.re.mjs:547
 msgid "Tell us a little about yourself..."
 msgstr "Hãy cho chúng tôi biết một chút về bạn..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:402
+#: src/components/organisms/SettingsProfileForm.re.mjs:406
 msgid "United Kingdom"
 msgstr "Anh"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:390
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
 msgid "United States"
 msgstr "Mỹ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:340
+#: src/components/organisms/SettingsProfileForm.re.mjs:344
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr "Tài khoản Stripe của bạn đã được kết nối và sẵn sàng nhận thanh toán."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:337
+#: src/components/organisms/SettingsProfileForm.re.mjs:341
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."
 

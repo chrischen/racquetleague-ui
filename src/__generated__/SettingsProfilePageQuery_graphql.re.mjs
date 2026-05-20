@@ -47,7 +47,15 @@ var Internal = {
 
 var Utils = {};
 
-var node = {
+var node = ((function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -80,15 +88,27 @@ var node = {
           {
             "alias": null,
             "args": null,
-            "kind": "ScalarField",
-            "name": "stripeAccountId",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "stripeChargesEnabled",
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "stripeAccountId",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "stripeChargesEnabled",
+                "storageKey": null
+              },
+              (v0/*: any*/)
+            ],
             "storageKey": null
           },
           {
@@ -99,13 +119,7 @@ var node = {
             "name": "profile",
             "plural": false,
             "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
+              (v0/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -150,14 +164,15 @@ var node = {
     ]
   },
   "params": {
-    "cacheID": "d810025288919633fa591ac6dc842b9e",
+    "cacheID": "ded22b176b8f7794789e98ee11db23c9",
     "id": null,
     "metadata": {},
     "name": "SettingsProfilePageQuery",
     "operationKind": "query",
-    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    stripeAccountId\n    stripeChargesEnabled\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n  }\n}\n"
+    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n  }\n}\n"
   }
 };
+})());
 
 function load(environment, variables, fetchPolicy, fetchKey, networkCacheConfig) {
   return ReactRelay.loadQuery(environment, node, convertVariables(variables), {
@@ -202,4 +217,4 @@ export {
   queryRefToObservable ,
   queryRefToPromise ,
 }
-/* react-relay Not a pure module */
+/* node Not a pure module */

@@ -5,7 +5,7 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"":{"f":""}}};
+var fragmentConverter = {"__root":{"payment":{"f":""},"":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -47,6 +47,7 @@ return {
   "metadata": null,
   "name": "PkEventRsvp_rsvp",
   "selections": [
+    (v0/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -136,25 +137,9 @@ return {
       "selections": [
         (v0/*: any*/),
         {
-          "alias": null,
           "args": null,
-          "kind": "ScalarField",
-          "name": "status",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "currency",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "amount",
-          "storageKey": null
+          "kind": "FragmentSpread",
+          "name": "PaymentIndicator_payment"
         }
       ],
       "storageKey": null

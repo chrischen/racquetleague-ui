@@ -4428,3 +4428,158 @@ msgstr ""
 #: src/components/organisms/EventStickyFooter.re.mjs:244
 msgid "Your RSVP is awaiting admin approval"
 msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"A small hold will be placed on your card and fully refunded after the event."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Authorize deposit"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancel RSVP"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:415
+msgid "Cancellation deadline passed."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancelling..."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:177
+msgid "Pay {priceStr}"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Payment required to confirm your spot"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+msgid ""
+"A deposit authorization is collected when someone joins. No money is "
+"actually charged and the authorization is removed automatically after your "
+"event. You should collect any participation fees manually in person. You can "
+"also manually approve attendees by clicking their name in the RSVP list."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:855
+msgid "Connect a Stripe account"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+msgid ""
+"The participation fee is charged immediately and transferred to your Stripe "
+"account."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:838
+msgid "With Stripe"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Without Stripe"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+msgid ""
+"A refundable deposit is collected when someone joins. You can manually "
+"approve attendees by clicking their name in the RSVP list."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+msgid ""
+"The participation fee is charged automatically and transferred to your "
+"Stripe account."
+msgstr ""
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
+msgstr ""
+
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:1488
+msgid "Print Draws"
+msgstr ""
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr ""
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
+msgstr ""
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr ""
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:249
+msgid "Added to Event"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+msgid "Event Update"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:246
+msgid "Host Message"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:437
+msgid "Inbox"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:255
+msgid "Left Event"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:243
+msgid "New Comment"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:388
+msgid "Nothing here yet"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:270
+msgid "Notification"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:441
+msgid "Notifications"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:258
+msgid "Off Waitlist"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:261
+msgid "Removed from Event"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+msgid "Status Update"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:392
+msgid "You're all caught up"
+msgstr ""
+
+#: src/components/molecules/NotificationsPreview.re.mjs:282
+msgid "No notifications"
+msgstr ""
+
+#: src/components/molecules/NotificationsPreview.re.mjs:406
+msgid "View all notifications"
+msgstr ""

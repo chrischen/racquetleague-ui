@@ -37,8 +37,10 @@ module QueryFragment = %relay(`
   fragment SettingsProfileForm_query on Query
   @refetchable(queryName: "SettingsProfileFormRefetchQuery") {
     viewer {
-      stripeAccountId
-      stripeChargesEnabled
+      user {
+        stripeAccountId
+        stripeChargesEnabled
+      }
       profile {
         id
         fullName
@@ -293,10 +295,11 @@ let make = (~query) => {
           </div>
         </form>
         {
-          let stripeAccountId = query.viewer->Option.flatMap(v => v.stripeAccountId)
+          let stripeAccountId = query.viewer->Option.flatMap(v => v.user)->Option.flatMap(u => u.stripeAccountId)
           let chargesEnabled =
             query.viewer
-            ->Option.flatMap(v => v.stripeChargesEnabled)
+            ->Option.flatMap(v => v.user)
+            ->Option.flatMap(u => u.stripeChargesEnabled)
             ->Option.getOr(false)
 
           let status = switch (stripeAccountId, chargesEnabled) {

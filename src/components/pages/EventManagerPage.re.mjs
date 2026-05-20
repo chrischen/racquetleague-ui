@@ -17,6 +17,9 @@ import { css, cx } from '@linaria/core'
 import { t } from '@lingui/macro'
 ;
 
+import '../../global/static.css'
+;
+
 var convertVariables = EventManagerPageQuery_graphql.Internal.convertVariables;
 
 var convertResponse = EventManagerPageQuery_graphql.Internal.convertResponse;

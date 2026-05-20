@@ -13,21 +13,43 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"A small hold will be placed on your card and fully refunded after the event."
+msgstr "จะมีการระงับเงินชั่วคราวในบัตรของคุณ และจะคืนเงินเต็มจำนวนหลังจากกิจกรรมสิ้นสุด"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Authorize deposit"
+msgstr "อนุมัติเงินมัดจำ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancel RSVP"
+msgstr "ยกเลิก RSVP"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:297
+#: src/components/organisms/EventStickyFooter.re.mjs:407
 msgid "Cancellation deadline"
 msgstr "กำหนดเวลายกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:286
+#: src/components/organisms/EventStickyFooter.re.mjs:415
+msgid "Cancellation deadline passed."
+msgstr "เลยกำหนดเวลายกเลิกแล้ว"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:305
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "เลยกำหนดเวลายกเลิกแล้ว ติดต่อผู้จัดงานที่หน้านี้เพื่อยกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:408
-#: src/components/organisms/EventStickyFooter.re.mjs:494
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancelling..."
+msgstr "กำลังยกเลิก..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:433
+#: src/components/organisms/EventStickyFooter.re.mjs:555
 msgid "Claim spot"
 msgstr "จองที่"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:406
+#: src/components/organisms/EventStickyFooter.re.mjs:429
 msgid "Claim spot · {0}"
 msgstr "จองสปอต · {0}"
 
@@ -73,28 +95,28 @@ msgstr "สำหรับการอัปเดตและการแจ้
 msgid "Gender"
 msgstr "เพศ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:494
+#: src/components/organisms/EventStickyFooter.re.mjs:555
 msgid "Join waitlist"
 msgstr "เข้าร่วมรายการรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:405
+#: src/components/organisms/EventStickyFooter.re.mjs:426
 msgid "Join waitlist (#{0})"
 msgstr "เข้าร่วมรายชื่อคอย (#{0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
-#: src/components/organisms/EventStickyFooter.re.mjs:447
+#: src/components/organisms/EventStickyFooter.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:380
 msgid "Leave waitlist"
 msgstr "ออกจากรายชื่อรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:360
+#: src/components/organisms/EventStickyFooter.re.mjs:379
 msgid "Leaving..."
 msgstr "กำลังออก..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:194
+#: src/components/organisms/EventStickyFooter.re.mjs:169
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -102,15 +124,19 @@ msgstr "กำลังโหลด..."
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:342
+#: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "On waitlist"
 msgstr "อยู่ในรายชื่อรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:194
-msgid "Pay {0}"
-msgstr "ชำระ {0}"
+#: src/components/organisms/EventStickyFooter.re.mjs:177
+msgid "Pay {priceStr}"
+msgstr "ชำระเงิน {priceStr}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:240
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Payment required to confirm your spot"
+msgstr "ต้องชำระเงินเพื่อยืนยันที่นั่งของคุณ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:259
 msgid "Pending approval"
 msgstr "รอการอนุมัติ"
 
@@ -118,23 +144,11 @@ msgstr "รอการอนุมัติ"
 msgid "Prefer not to say"
 msgstr "ไม่ต้องการระบุ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-msgid "Release spot"
-msgstr "ปล่อยสปอต"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-msgid "Releasing..."
-msgstr "กำลังปล่อย..."
-
 #: src/components/organisms/ProfileModal.re.mjs:429
 msgid "Save & Join Event"
 msgstr "บันทึกและเข้าร่วมกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:173
-msgid "Spot held — pay to confirm"
-msgstr "จองสปอตแล้ว — ชำระเงินเพื่อยืนยัน"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:448
+#: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -148,18 +162,35 @@ msgstr "นี่คือสิ่งที่คนอื่นจะเห็
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:254
+#: src/components/organisms/EventStickyFooter.re.mjs:273
 msgid "Withdraw RSVP"
 msgstr "ยกเลิก RSVP"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:254
+#: src/components/organisms/EventStickyFooter.re.mjs:273
 msgid "Withdrawing..."
 msgstr "กำลังยกเลิก..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:342
+#: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "You're in"
 msgstr "คุณเข้าร่วมแล้ว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:244
+#: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:432
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+#~ msgid "Pay {0}"
+#~ msgstr "ชำระ {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Release spot"
+#~ msgstr "ปล่อยสปอต"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Releasing..."
+#~ msgstr "กำลังปล่อย..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:173
+#~ msgid "Spot held — pay to confirm"
+#~ msgstr "จองสปอตแล้ว — ชำระเงินเพื่อยืนยัน"

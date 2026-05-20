@@ -104,7 +104,9 @@ function CreateLocationEventForm(props) {
   var selectedActivity = props.selectedActivity;
   var selectedClub = props.selectedClub;
   var prefilledValues = props.prefilledValues;
+  var __stripeChargesEnabled = props.stripeChargesEnabled;
   var eventId = props.eventId;
+  var stripeChargesEnabled = __stripeChargesEnabled !== undefined ? __stripeChargesEnabled : false;
   var isClubFormOpen = __isClubFormOpen !== undefined ? __isClubFormOpen : false;
   var $$location = use$2(props.location);
   var match = use();
@@ -803,6 +805,67 @@ function CreateLocationEventForm(props) {
                                               JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.placeholder = t`Enter price`, newrecord$6.min = "1", newrecord$6.id = "price", newrecord$6.className = "block w-full pl-8 pr-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$6))
                                             ],
                                             className: "relative"
+                                          }),
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsx("span", {
+                                                                    children: t`Without Stripe`,
+                                                                    className: "font-semibold text-gray-700 dark:text-gray-300"
+                                                                  }),
+                                                              stripeChargesEnabled ? null : JsxRuntime.jsx("span", {
+                                                                      children: t`Active`,
+                                                                      className: "text-xs font-medium text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/50 px-1.5 py-0.5 rounded"
+                                                                    })
+                                                            ],
+                                                            className: "flex items-center gap-1.5"
+                                                          }),
+                                                      JsxRuntime.jsx("p", {
+                                                            children: t`A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list.`,
+                                                            className: "text-gray-600 dark:text-gray-400 mt-0.5"
+                                                          })
+                                                    ],
+                                                    className: stripeChargesEnabled ? "rounded-lg border border-gray-200 dark:border-gray-700 p-3" : "rounded-lg border border-lime-400 dark:border-lime-500 bg-lime-50 dark:bg-lime-950/30 p-3"
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsx("span", {
+                                                                    children: t`With Stripe`,
+                                                                    className: "font-semibold text-gray-700 dark:text-gray-300"
+                                                                  }),
+                                                              stripeChargesEnabled ? JsxRuntime.jsx("span", {
+                                                                      children: t`Active`,
+                                                                      className: "text-xs font-medium text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/50 px-1.5 py-0.5 rounded"
+                                                                    }) : null
+                                                            ],
+                                                            className: "flex items-center gap-1.5"
+                                                          }),
+                                                      JsxRuntime.jsxs("p", {
+                                                            children: [
+                                                              t`The participation fee is charged automatically and transferred to your Stripe account.`,
+                                                              stripeChargesEnabled ? null : JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                      children: [
+                                                                        " ",
+                                                                        JsxRuntime.jsx("a", {
+                                                                              children: t`Connect a Stripe account`,
+                                                                              className: "text-blue-600 dark:text-blue-400 underline hover:opacity-80",
+                                                                              href: "/settings/profile"
+                                                                            })
+                                                                      ]
+                                                                    })
+                                                            ],
+                                                            className: "text-gray-600 dark:text-gray-400 mt-0.5"
+                                                          })
+                                                    ],
+                                                    className: stripeChargesEnabled ? "rounded-lg border border-lime-400 dark:border-lime-500 bg-lime-50 dark:bg-lime-950/30 p-3" : "rounded-lg border border-gray-200 dark:border-gray-700 p-3"
+                                                  })
+                                            ],
+                                            className: "mt-3 space-y-2 text-sm"
                                           })
                                     ],
                                     className: "mt-4 ml-8"

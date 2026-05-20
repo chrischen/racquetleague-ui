@@ -17,21 +17,26 @@ msgstr ""
 msgid "...more"
 msgstr "...更多"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:441
+#: src/components/organisms/PkRSVPSection.re.mjs:444
 msgid "· {0} pending"
 msgstr "· {0} 待处理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:439
+#: src/components/organisms/PkRSVPSection.re.mjs:442
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候补"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:436
+#: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "{0} joined"
 msgstr "{0} 已参加"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:502
+#: src/components/organisms/PkRSVPSection.re.mjs:505
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 技术"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"A small hold will be placed on your card and fully refunded after the event."
+msgstr "您的银行卡将被临时预授权扣款，活动结束后全额退还。"
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
@@ -53,28 +58,45 @@ msgstr "批准报名"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:211
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Authorize deposit"
+msgstr "授权押金"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
 msgstr "平衡"
 
-#: src/components/pages/PkEventPage.re.mjs:466
+#: src/components/pages/PkEventPage.re.mjs:479
 msgid "cancel event"
 msgstr "取消活动"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancel RSVP"
+msgstr "取消报名"
 
 #: src/components/pages/PkEventPage.re.mjs:186
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:278
+#: src/components/organisms/EventStickyFooter.re.mjs:297
+#: src/components/organisms/EventStickyFooter.re.mjs:407
 msgid "Cancellation deadline"
 msgstr "取消截止时间"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:286
+#: src/components/organisms/EventStickyFooter.re.mjs:415
+msgid "Cancellation deadline passed."
+msgstr "取消截止日期已过。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:305
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "取消截止日期已过。请在此页面联系组织者取消。"
 
-#: src/components/pages/PkEventPage.re.mjs:437
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancelling..."
+msgstr "取消中..."
+
+#: src/components/pages/PkEventPage.re.mjs:450
 msgid "Cannot access variable \\\"title\\\""
 msgstr "无法访问变量 \\\"title\\\""
 
@@ -82,12 +104,12 @@ msgstr "无法访问变量 \\\"title\\\""
 msgid "Capture payment"
 msgstr "收取付款"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:408
-#: src/components/organisms/EventStickyFooter.re.mjs:494
+#: src/components/organisms/EventStickyFooter.re.mjs:433
+#: src/components/organisms/EventStickyFooter.re.mjs:555
 msgid "Claim spot"
 msgstr "报名参加"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:406
+#: src/components/organisms/EventStickyFooter.re.mjs:429
 msgid "Claim spot · {0}"
 msgstr "占位 · {0}"
 
@@ -95,7 +117,7 @@ msgstr "占位 · {0}"
 msgid "Complete your profile"
 msgstr "完善个人资料"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:586
+#: src/components/organisms/PkRSVPSection.re.mjs:589
 msgid "Confirmed · {0}"
 msgstr "已确认 · {0}"
 
@@ -128,12 +150,12 @@ msgstr "显示名称"
 msgid "Display name is required"
 msgstr "请输入显示名称"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:476
-#: src/components/organisms/PkRSVPSection.re.mjs:493
+#: src/components/organisms/PkRSVPSection.re.mjs:479
+#: src/components/organisms/PkRSVPSection.re.mjs:496
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:449
+#: src/components/pages/PkEventPage.re.mjs:462
 msgid "edit event"
 msgstr "编辑活动"
 
@@ -165,12 +187,12 @@ msgstr "请输入电子邮件"
 msgid "Enter Match Score"
 msgstr "输入比赛比分"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:207
+#: src/components/organisms/PkRSVPSection.re.mjs:210
 msgid "even"
 msgstr "均衡"
 
-#: src/components/pages/PkEventPage.re.mjs:716
-#: src/components/pages/PkEventPage.re.mjs:740
+#: src/components/pages/PkEventPage.re.mjs:729
+#: src/components/pages/PkEventPage.re.mjs:753
 msgid "Event not found"
 msgstr "找不到活动"
 
@@ -202,11 +224,11 @@ msgstr "性别"
 msgid "Highly skilled players"
 msgstr "高技能球员"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:494
+#: src/components/organisms/EventStickyFooter.re.mjs:555
 msgid "Join waitlist"
 msgstr "加入候补名单"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:405
+#: src/components/organisms/EventStickyFooter.re.mjs:426
 msgid "Join waitlist (#{0})"
 msgstr "加入候补名单 (#{0})"
 
@@ -214,16 +236,16 @@ msgstr "加入候补名单 (#{0})"
 msgid "Last Round"
 msgstr "上一轮"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
-#: src/components/organisms/EventStickyFooter.re.mjs:447
+#: src/components/organisms/EventStickyFooter.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
 msgstr "退出活动"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:380
 msgid "Leave waitlist"
 msgstr "退出候补名单"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:360
+#: src/components/organisms/EventStickyFooter.re.mjs:379
 msgid "Leaving..."
 msgstr "离开中..."
 
@@ -231,7 +253,7 @@ msgstr "离开中..."
 msgid "less"
 msgstr "收起"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:194
+#: src/components/organisms/EventStickyFooter.re.mjs:169
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -255,11 +277,11 @@ msgstr "男性"
 msgid "Matches will be submitted to DUPR."
 msgstr "比赛结果将提交至 DUPR。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:485
+#: src/components/organisms/PkRSVPSection.re.mjs:488
 msgid "MEDIAN"
 msgstr "中位数"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:214
+#: src/components/organisms/PkRSVPSection.re.mjs:217
 msgid "mixed"
 msgstr "混合"
 
@@ -276,27 +298,39 @@ msgstr "没有技能等级限制。对所有球员开放。"
 msgid "No Score"
 msgstr "无比分"
 
-#: src/components/pages/PkEventPage.re.mjs:578
+#: src/components/pages/PkEventPage.re.mjs:591
 msgid "Notes from the host"
 msgstr "主持人的备注"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:342
+#: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "On waitlist"
 msgstr "候补中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:406
+#: src/components/organisms/PkRSVPSection.re.mjs:409
 msgid "Participants"
 msgstr "参与者"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:194
-msgid "Pay {0}"
-msgstr "支付 {0}"
+#: src/components/organisms/EventStickyFooter.re.mjs:177
+msgid "Pay {priceStr}"
+msgstr "支付 {priceStr}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:715
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "付款已授权"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "付款已完成"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Payment required to confirm your spot"
+msgstr "需完成付款以确认您的名额"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:720
 msgid "Pending · {0}"
 msgstr "待处理 · {0}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:240
+#: src/components/organisms/EventStickyFooter.re.mjs:259
 msgid "Pending approval"
 msgstr "待审批"
 
@@ -331,14 +365,6 @@ msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 msgid "Refund payment"
 msgstr "退款"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-msgid "Release spot"
-msgstr "释放位置"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-msgid "Releasing..."
-msgstr "释放中..."
-
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
 msgstr "从活动中移除"
@@ -351,11 +377,11 @@ msgstr "移除此 RSVP"
 msgid "Repeat"
 msgstr "重复"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:332
+#: src/components/organisms/PkRSVPSection.re.mjs:335
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:353
+#: src/components/organisms/PkRSVPSection.re.mjs:356
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加需要 DUPR {minDuprStr}以上"
 
@@ -400,11 +426,7 @@ msgstr "收起"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能练习和专注于技术提高的训练"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:173
-msgid "Spot held — pay to confirm"
-msgstr "位置已保留 — 付款确认"
-
-#: src/components/organisms/PkRSVPSection.re.mjs:546
+#: src/components/organisms/PkRSVPSection.re.mjs:549
 msgid "SPREAD"
 msgstr "分布"
 
@@ -422,7 +444,7 @@ msgid ""
 "scheduled matches using the round reset icon."
 msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:448
+#: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -446,11 +468,11 @@ msgstr ""
 "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
 "制其报名吗？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:468
+#: src/components/organisms/PkRSVPSection.re.mjs:471
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/pages/PkEventPage.re.mjs:455
+#: src/components/pages/PkEventPage.re.mjs:468
 msgid "uncancel event"
 msgstr "取消取消活动"
 
@@ -472,7 +494,7 @@ msgstr "查看资料"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:651
+#: src/components/organisms/PkRSVPSection.re.mjs:655
 msgid "Waitlist · {0}"
 msgstr "候补名单 · {0}"
 
@@ -484,19 +506,19 @@ msgstr "在您参加此活动之前，我们需要一些信息"
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:254
+#: src/components/organisms/EventStickyFooter.re.mjs:273
 msgid "Withdraw RSVP"
 msgstr "撤回报名"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:254
+#: src/components/organisms/EventStickyFooter.re.mjs:273
 msgid "Withdrawing..."
 msgstr "撤回中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:342
+#: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "You're in"
 msgstr "已报名"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:339
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -504,7 +526,7 @@ msgstr ""
 "您的评分 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}）低于最低标准。您将被放入待定名单。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:244
+#: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "您的报名正在等待管理员审批"
 
@@ -556,6 +578,7 @@ msgstr "您的报名正在等待管理员审批"
 #~ msgid "Cancellation deadline passed"
 #~ msgstr "取消截止时间已过"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:432
 #: src/components/pages/PkEventPage.re.mjs:691
 #~ msgid "Host"
 #~ msgstr "主持人"
@@ -574,9 +597,25 @@ msgstr "您的报名正在等待管理员审批"
 #~ msgid "min"
 #~ msgstr "分钟"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+#~ msgid "Pay {0}"
+#~ msgstr "支付 {0}"
+
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 #~ msgid "Player"
 #~ msgstr "球员"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Release spot"
+#~ msgstr "释放位置"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Releasing..."
+#~ msgstr "释放中..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:173
+#~ msgid "Spot held — pay to confirm"
+#~ msgstr "位置已保留 — 付款确认"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid ""

@@ -54,6 +54,25 @@ var v0 = {
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
+},
+v1 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "ViewerMetadata",
+  "kind": "LinkedField",
+  "name": "viewerMetadata",
+  "plural": false,
+  "selections": [
+    (v0/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "unreadInboxCount",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -82,6 +101,7 @@ return {
             ],
             "storageKey": null
           },
+          (v1/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -91,6 +111,11 @@ return {
             "args": null,
             "kind": "FragmentSpread",
             "name": "NavViewer_viewer"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "NotificationsPreview_viewer"
           }
         ],
         "storageKey": null
@@ -145,6 +170,75 @@ return {
               }
             ],
             "storageKey": null
+          },
+          (v1/*: any*/),
+          {
+            "alias": null,
+            "args": [
+              {
+                "kind": "Literal",
+                "name": "first",
+                "value": 5
+              }
+            ],
+            "concreteType": "EventMessageConnection",
+            "kind": "LinkedField",
+            "name": "inbox",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "EventMessageEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Message",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      (v0/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "topic",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "payload",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "createdAt",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "isRead",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": "inbox(first:5)"
           }
         ],
         "storageKey": null
@@ -152,12 +246,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "9e0cf239cf527193f0638366267d09ea",
+    "cacheID": "434ec98527a3df2e351d57332d79c200",
     "id": null,
     "metadata": {},
     "name": "PkuruLayoutQuery",
     "operationKind": "query",
-    "text": "query PkuruLayoutQuery {\n  viewer {\n    user {\n      id\n    }\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query PkuruLayoutQuery {\n  viewer {\n    user {\n      id\n    }\n    viewerMetadata {\n      id\n      unreadInboxCount\n    }\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    ...NotificationsPreview_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment NotificationsPreview_viewer on Viewer {\n  inbox(first: 5) {\n    edges {\n      node {\n        id\n        topic\n        payload\n        createdAt\n        isRead\n      }\n    }\n  }\n}\n"
   }
 };
 })());

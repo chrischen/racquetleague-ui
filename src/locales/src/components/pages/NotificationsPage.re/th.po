@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-19 20:18+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/NotificationsPage.re.mjs:249
+msgid "Added to Event"
+msgstr "เพิ่มเข้าสู่อีเวนต์"
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+msgid "Event Update"
+msgstr "อัปเดตอีเวนต์"
+
+#: src/components/pages/NotificationsPage.re.mjs:246
+msgid "Host Message"
+msgstr "ข้อความจากเจ้าภาพ"
+
+#: src/components/pages/NotificationsPage.re.mjs:437
+msgid "Inbox"
+msgstr "กล่องข้อความ"
+
+#: src/components/pages/NotificationsPage.re.mjs:252
+msgid "Joined"
+msgstr "เข้าร่วมแล้ว"
+
+#: src/components/pages/NotificationsPage.re.mjs:255
+msgid "Left Event"
+msgstr "ออกจากอีเวนต์"
+
+#: src/components/pages/NotificationsPage.re.mjs:243
+msgid "New Comment"
+msgstr "ความคิดเห็นใหม่"
+
+#: src/components/pages/NotificationsPage.re.mjs:388
+msgid "Nothing here yet"
+msgstr "ยังไม่มีอะไรที่นี่"
+
+#: src/components/pages/NotificationsPage.re.mjs:270
+msgid "Notification"
+msgstr "การแจ้งเตือน"
+
+#: src/components/pages/NotificationsPage.re.mjs:441
+msgid "Notifications"
+msgstr "การแจ้งเตือน"
+
+#: src/components/pages/NotificationsPage.re.mjs:258
+msgid "Off Waitlist"
+msgstr "ออกจากรายการรอ"
+
+#: src/components/pages/NotificationsPage.re.mjs:261
+msgid "Removed from Event"
+msgstr "ถูกนำออกจากอีเวนต์"
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+msgid "Status Update"
+msgstr "อัปเดตสถานะ"
+
+#: src/components/pages/NotificationsPage.re.mjs:392
+msgid "You're all caught up"
+msgstr "คุณอ่านทุกอย่างครบแล้ว"

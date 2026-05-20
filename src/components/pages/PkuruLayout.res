@@ -7,8 +7,13 @@ module Query = %relay(`
       user {
         id
       }
+      viewerMetadata {
+        id
+        unreadInboxCount
+      }
       ...GlobalQueryProvider_viewer
       ...NavViewer_viewer
+      ...NotificationsPreview_viewer
     }
   }
 `)
@@ -163,7 +168,9 @@ module Topbar = {
   @react.component
   let make = (~onToggleSidebar: unit => unit, ~viewer: option<Query.Types.response_viewer>) => {
     let ts = Lingui.UtilString.t
+    let navigate = LangProvider.Router.useNavigate()
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
+    let (showBell, setShowBell) = React.useState(() => false)
     let hostHref = if isLoggedIn {
       "/events/create"
     } else {
@@ -201,6 +208,36 @@ module Topbar = {
         <LangProvider.Router.Link to="/events" className="hover:text-black dark:hover:text-white">
           <Lucide.Calendar size=18 />
         </LangProvider.Router.Link>
+        {viewer
+        ->Option.map((v: Query.Types.response_viewer) =>
+          <div className="relative flex items-center">
+            <button
+              onMouseDown={e => e->ReactEvent.Mouse.stopPropagation}
+              onClick={_ => setShowBell(prev => !prev)}
+              title={ts`Notifications`}
+              className="relative flex items-center justify-center hover:text-black dark:hover:text-white">
+              <Lucide.Bell className="w-[18px] h-[18px]" />
+              {v.viewerMetadata->Option.map(m => m.unreadInboxCount)->Option.getOr(0) > 0
+                ? <span
+                    className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-[#1e1f23]"
+                  />
+                : React.null}
+            </button>
+            <FramerMotion.AnimatePresence>
+              {showBell
+                ? <NotificationsPreview
+                    viewer=v.fragmentRefs
+                    onClose={() => setShowBell(_ => false)}
+                    onViewAll={() => {
+                      setShowBell(_ => false)
+                      navigate("/notifications", None)
+                    }}
+                  />
+                : React.null}
+            </FramerMotion.AnimatePresence>
+          </div>
+        )
+        ->Option.getOr(React.null)}
         {isLoggedIn
           ? <LangProvider.Router.Link
               to="/settings/profile" className="hover:text-black dark:hover:text-white">
@@ -332,7 +369,7 @@ module Layout = {
     let navigate = Router.useNavigate()
     let location = Router.useLocation()
     let localePath = LangProvider.Router.useLocalePath()
-    let gviewer = viewer->Option.map(v => v.fragmentRefs)
+    let gviewer: GlobalQuery.query = viewer->Option.map(v => v.fragmentRefs)
 
     React.useEffect0(() => {
       let mq = MediaQueryList.matchMedia("(prefers-color-scheme: dark)")

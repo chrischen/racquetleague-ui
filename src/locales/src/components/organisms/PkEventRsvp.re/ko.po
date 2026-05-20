@@ -30,6 +30,14 @@ msgstr "결제 승인"
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "결제 승인됨"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "결제 완료됨"
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr "결제 환불"

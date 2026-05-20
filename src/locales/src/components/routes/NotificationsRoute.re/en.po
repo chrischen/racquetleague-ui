@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-05-19 20:18+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/pages/NotificationsPage.re.mjs:249
+msgid "Added to Event"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+msgid "Event Update"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:246
+msgid "Host Message"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:437
+msgid "Inbox"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:252
+msgid "Joined"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:255
+msgid "Left Event"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:243
+msgid "New Comment"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:388
+msgid "Nothing here yet"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:270
+msgid "Notification"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:441
+msgid "Notifications"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:258
+msgid "Off Waitlist"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:261
+msgid "Removed from Event"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+msgid "Status Update"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:392
+msgid "You're all caught up"
+msgstr ""

@@ -412,16 +412,21 @@ function PkEventPage$Inner(props) {
                           return wp.id === node.id;
                         });
             })), false);
+  var viewerIsInGoingList;
   if (viewerRsvpNode !== undefined) {
     var match$7 = viewerRsvpNode.listType;
-    if (match$7 !== undefined) {
-      match$7 === 0;
-    } else {
-      true;
-    }
+    viewerIsInGoingList = match$7 !== undefined ? match$7 === 0 : true;
+  } else {
+    viewerIsInGoingList = false;
   }
-  var viewerHasPayment = viewerRsvpNode !== undefined ? viewerRsvpNode.payment !== undefined : false;
-  var isUnpaid = isJoined && isPaidEvent && !viewerHasPayment;
+  var viewerHasPayment;
+  if (viewerRsvpNode !== undefined) {
+    var match$8 = viewerRsvpNode.payment;
+    viewerHasPayment = match$8 !== undefined ? (match$8.status >>> 0) <= 1 : false;
+  } else {
+    viewerHasPayment = false;
+  }
+  var isUnpaid = isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment;
   var viewerJoinTime = Core__Option.flatMap(viewerRsvpNode, (function (n) {
           return n.joinTime;
         }));
@@ -432,16 +437,24 @@ function PkEventPage$Inner(props) {
   } else {
     isViewerPending = false;
   }
+  var eventCurrency = Core__Array.findMap(allRsvpNodes, (function (n) {
+          return Core__Option.map(n.payment, (function (p) {
+                        return p.currency;
+                      }));
+        }));
+  var isPlatformPayment = !Core__Option.getOr(Core__Option.flatMap($$event.owner, (function (o) {
+              return o.stripeChargesEnabled;
+            })), false);
   if (Core__Option.getOr($$event.viewerIsBanned, false)) {
     return JsxRuntime.jsx("div", {
                 children: t`Cannot access variable \"title\"`,
                 className: "p-6 text-center text-gray-500"
               });
   }
-  var match$8 = $$event.viewerIsAdmin;
+  var match$9 = $$event.viewerIsAdmin;
   var tmp;
-  if (match$8 && viewerUser !== undefined) {
-    var match$9 = $$event.deleted;
+  if (match$9 && viewerUser !== undefined) {
+    var match$10 = $$event.deleted;
     tmp = JsxRuntime.jsx("div", {
           children: JsxRuntime.jsxs("div", {
                 children: [
@@ -451,7 +464,7 @@ function PkEventPage$Inner(props) {
                                     return l.id;
                                   })), "")
                       }),
-                  match$9 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
+                  match$10 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
                           children: t`uncancel event`,
                           onClick: (function (param) {
                               if (!uncanceling) {
@@ -482,7 +495,7 @@ function PkEventPage$Inner(props) {
   } else {
     tmp = null;
   }
-  var match$10 = $$event.location;
+  var match$11 = $$event.location;
   var activity = $$event.activity;
   var tmp$1;
   if (activity !== undefined) {
@@ -562,8 +575,8 @@ function PkEventPage$Inner(props) {
                               tz: tz
                             }),
                         tmp,
-                        match$10 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
-                                loc: match$10
+                        match$11 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
+                                loc: match$11
                               }) : null,
                         JsxRuntime.jsx(PkRSVPSection.make, {
                               event: $$event.fragmentRefs,
@@ -605,6 +618,7 @@ function PkEventPage$Inner(props) {
                         __id: $$event.__id,
                         id: $$event.id,
                         price: $$event.price,
+                        currency: eventCurrency,
                         startDate: $$event.startDate,
                         cancelDeadline: $$event.cancelDeadline,
                         shadow: $$event.shadow,
@@ -623,6 +637,7 @@ function PkEventPage$Inner(props) {
                       isUnpaid: isUnpaid,
                       viewerJoinTime: viewerJoinTime,
                       isPaidEvent: isPaidEvent,
+                      isPlatformPayment: isPlatformPayment,
                       isFull: isFull,
                       confirmedCount: confirmedPlayers.length,
                       waitlistCount: waitlistPlayers.length,
@@ -633,39 +648,37 @@ function PkEventPage$Inner(props) {
                       charging: match$3[1] || match$4[1],
                       onPayClick: (function () {
                           Core__Option.forEach(viewerRsvpNode, (function (rsvp) {
-                                  chargePayment({
-                                        rsvpId: rsvp.id
-                                      }, undefined, undefined, undefined, (function (response, param) {
-                                          var match = response.chargeRsvpPayment.clientSecret;
-                                          var match$1 = response.chargeRsvpPayment.connectedAccountId;
-                                          if (match !== undefined) {
-                                            if (match$1 !== undefined) {
+                                  if (isPlatformPayment) {
+                                    authorizePlatformPayment({
+                                          rsvpId: rsvp.id
+                                        }, undefined, undefined, undefined, (function (response, param) {
+                                            var secret = response.authorizePlatformRsvpPayment.clientSecret;
+                                            if (secret !== undefined) {
                                               return setPaymentClientSecret(function (param) {
                                                           return [
-                                                                  match,
-                                                                  match$1
+                                                                  secret,
+                                                                  ""
                                                                 ];
                                                         });
                                             }
                                             
-                                          } else if (match$1 !== undefined) {
-                                            return ;
-                                          }
-                                          authorizePlatformPayment({
-                                                rsvpId: rsvp.id
-                                              }, undefined, undefined, undefined, (function (platformResponse, param) {
-                                                  var secret = platformResponse.authorizePlatformRsvpPayment.clientSecret;
-                                                  if (secret !== undefined) {
-                                                    return setPaymentClientSecret(function (param) {
-                                                                return [
-                                                                        secret,
-                                                                        ""
-                                                                      ];
-                                                              });
-                                                  }
-                                                  
-                                                }), undefined, undefined);
-                                        }), undefined, undefined);
+                                          }), undefined, undefined);
+                                  } else {
+                                    chargePayment({
+                                          rsvpId: rsvp.id
+                                        }, undefined, undefined, undefined, (function (response, param) {
+                                            var secret = response.chargeRsvpPayment.clientSecret;
+                                            if (secret !== undefined) {
+                                              return setPaymentClientSecret(function (param) {
+                                                          return [
+                                                                  secret,
+                                                                  Core__Option.getOr(response.chargeRsvpPayment.connectedAccountId, "")
+                                                                ];
+                                                        });
+                                            }
+                                            
+                                          }), undefined, undefined);
+                                  }
                                 }));
                         })
                     }),

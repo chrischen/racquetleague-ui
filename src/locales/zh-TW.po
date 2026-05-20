@@ -3758,15 +3758,164 @@ msgstr "取消中..."
 msgid "Your RSVP is awaiting admin approval"
 msgstr "您的報名正在等待管理員審核"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "A small hold will be placed on your card and fully refunded after the event."
+msgstr "您的卡片將會有一筆小額暫扣款，活動結束後全額退還。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Authorize deposit"
+msgstr "授權押金"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancel RSVP"
+msgstr "取消報名"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:415
+msgid "Cancellation deadline passed."
+msgstr "已超過取消截止日期。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancelling..."
+msgstr "取消中…"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:177
+msgid "Pay {priceStr}"
+msgstr "支付 {priceStr}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Payment required to confirm your spot"
+msgstr "需完成付款以確認您的名額"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
+msgstr "當有人加入時，系統會收取訂金授權。實際上不會扣款，授權將在活動結束後自動解除。您應親自手動收取參加費用。您也可以在 RSVP 名單中點擊參加者姓名來手動審核。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:855
+msgid "Connect a Stripe account"
+msgstr "連結 Stripe 帳戶"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+msgid "The participation fee is charged immediately and transferred to your Stripe account."
+msgstr "參加費用將立即扣款並轉入您的 Stripe 帳戶。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:838
+msgid "With Stripe"
+msgstr "使用 Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Without Stripe"
+msgstr "不使用 Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "當有人加入時將收取可退還的押金。您可以在報名名單中點擊參與者姓名來手動審核。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
+msgstr "參與費用將自動收取並轉入您的 Stripe 帳戶。"
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
+msgstr "尚未生成賽程。"
+
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr "列印"
+
+#: src/components/organisms/EventManager.re.mjs:1488
+msgid "Print Draws"
+msgstr "列印賽程"
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr "列印預覽"
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
+msgstr "錦標賽賽程"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "付款已授權"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "付款已完成"
+
+#: src/components/pages/NotificationsPage.re.mjs:249
+msgid "Added to Event"
+msgstr "已加入活動"
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+msgid "Event Update"
+msgstr "活動更新"
+
+#: src/components/pages/NotificationsPage.re.mjs:246
+msgid "Host Message"
+msgstr "主辦人訊息"
+
+#: src/components/pages/NotificationsPage.re.mjs:437
+msgid "Inbox"
+msgstr "收件匣"
+
+#: src/components/pages/NotificationsPage.re.mjs:255
+msgid "Left Event"
+msgstr "已離開活動"
+
+#: src/components/pages/NotificationsPage.re.mjs:243
+msgid "New Comment"
+msgstr "新留言"
+
+#: src/components/pages/NotificationsPage.re.mjs:388
+msgid "Nothing here yet"
+msgstr "尚無內容"
+
+#: src/components/pages/NotificationsPage.re.mjs:270
+msgid "Notification"
+msgstr "通知"
+
+#: src/components/pages/NotificationsPage.re.mjs:441
+msgid "Notifications"
+msgstr "通知"
+
+#: src/components/pages/NotificationsPage.re.mjs:258
+msgid "Off Waitlist"
+msgstr "已離開候補"
+
+#: src/components/pages/NotificationsPage.re.mjs:261
+msgid "Removed from Event"
+msgstr "已從活動中移除"
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+msgid "Status Update"
+msgstr "狀態更新"
+
+#: src/components/pages/NotificationsPage.re.mjs:392
+msgid "You're all caught up"
+msgstr "您已全部看完"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:282
+msgid "No notifications"
+msgstr "沒有通知"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:406
+msgid "View all notifications"
+msgstr "查看所有通知"
+
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "當前回合："
+
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"
-#~ msgstr "活動標籤：{tag}"
+#~ msgstr "賽事管理器圖示"
 
 #: src/components/organisms/EventManager.re.mjs:223
 #, fuzzy
 #~ msgid "Players"
-#~ msgstr "新增球員"
+#~ msgstr "尋找球員"
 
 #: src/components/organisms/EventManager.re.mjs:208
 #, fuzzy
@@ -3801,12 +3950,7 @@ msgstr "您的報名正在等待管理員審核"
 #: src/components/organisms/RoundRobin.re.mjs:323
 #, fuzzy
 #~ msgid "Round Robin Tournament"
-#~ msgstr "輪次管理"
-
-#: src/components/organisms/EventManager.re.mjs:204
-#, fuzzy
-#~ msgid "Current Round: {0}"
-#~ msgstr "當前回合："
+#~ msgstr "循環賽抽籤"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy

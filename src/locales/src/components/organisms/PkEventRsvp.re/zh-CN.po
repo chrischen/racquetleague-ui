@@ -30,6 +30,14 @@ msgstr "收取付款"
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "付款已授权"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "付款已完成"
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr "退款"

@@ -153,6 +153,24 @@ return {
       "kind": "ScalarField",
       "name": "cancelDeadline",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "User",
+      "kind": "LinkedField",
+      "name": "owner",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "stripeChargesEnabled",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
     }
   ],
   "type": "Event",

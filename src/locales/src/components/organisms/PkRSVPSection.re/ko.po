@@ -13,19 +13,19 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:441
+#: src/components/organisms/PkRSVPSection.re.mjs:444
 msgid "· {0} pending"
 msgstr "· {0} 대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:439
+#: src/components/organisms/PkRSVPSection.re.mjs:442
 msgid "· +{0} waitlist"
 msgstr "· +{0} 대기자"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:436
+#: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "{0} joined"
 msgstr "{0} 참가함"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:502
+#: src/components/organisms/PkRSVPSection.re.mjs:505
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 스킬"
 
@@ -37,7 +37,7 @@ msgstr "참가 승인"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:211
+#: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
 msgstr "균형"
 
@@ -45,24 +45,24 @@ msgstr "균형"
 msgid "Capture payment"
 msgstr "결제 승인"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:586
+#: src/components/organisms/PkRSVPSection.re.mjs:589
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:476
-#: src/components/organisms/PkRSVPSection.re.mjs:493
+#: src/components/organisms/PkRSVPSection.re.mjs:479
+#: src/components/organisms/PkRSVPSection.re.mjs:496
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:207
+#: src/components/organisms/PkRSVPSection.re.mjs:210
 msgid "even"
 msgstr "균등"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:485
+#: src/components/organisms/PkRSVPSection.re.mjs:488
 msgid "MEDIAN"
 msgstr "중간값"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:214
+#: src/components/organisms/PkRSVPSection.re.mjs:217
 msgid "mixed"
 msgstr "혼합"
 
@@ -71,11 +71,19 @@ msgstr "혼합"
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:406
+#: src/components/organisms/PkRSVPSection.re.mjs:409
 msgid "Participants"
 msgstr "참가자"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:715
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "결제 승인됨"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "결제 완료됨"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:720
 msgid "Pending · {0}"
 msgstr "대기 중 · {0}"
 
@@ -91,15 +99,15 @@ msgstr "이벤트에서 제거"
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:332
+#: src/components/organisms/PkRSVPSection.re.mjs:335
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "필수: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:353
+#: src/components/organisms/PkRSVPSection.re.mjs:356
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "참가하려면 DUPR {minDuprStr}+ 필요"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:546
+#: src/components/organisms/PkRSVPSection.re.mjs:549
 msgid "SPREAD"
 msgstr "분산"
 
@@ -111,7 +119,7 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:468
+#: src/components/organisms/PkRSVPSection.re.mjs:471
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
@@ -119,11 +127,11 @@ msgstr "상위6평균"
 msgid "View Profile"
 msgstr "프로필 보기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:651
+#: src/components/organisms/PkRSVPSection.re.mjs:655
 msgid "Waitlist · {0}"
 msgstr "대기자 명단 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:339
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

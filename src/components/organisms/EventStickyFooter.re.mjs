@@ -11,6 +11,7 @@ import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as PaymentIndicator from "../atoms/PaymentIndicator.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
@@ -69,6 +70,7 @@ function EventStickyFooter(props) {
   var waitlistCount = props.waitlistCount;
   var confirmedCount = props.confirmedCount;
   var isFull = props.isFull;
+  var isPlatformPayment = props.isPlatformPayment;
   var isWaitlisted = props.isWaitlisted;
   var viewerUser = props.viewerUser;
   var $$event = props.event;
@@ -162,6 +164,18 @@ function EventStickyFooter(props) {
               })), false);
     var tmp;
     if (props.isUnpaid) {
+      var tmp$1;
+      if (charging) {
+        tmp$1 = t`Loading...`;
+      } else if (isPlatformPayment) {
+        tmp$1 = t`Authorize deposit`;
+      } else {
+        var currencyStr = Core__Option.getOr(Core__Option.map($$event.currency, PaymentIndicator.getCurrencySymbol), "¥");
+        var priceStr = Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
+                    return currencyStr + p.toString();
+                  })), "");
+        tmp$1 = t`Pay ${priceStr}`;
+      }
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
               JsxRuntime.jsxs("div", {
@@ -170,16 +184,23 @@ function EventStickyFooter(props) {
                             className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
                           }),
                       JsxRuntime.jsx("span", {
-                            children: t`Spot held — pay to confirm`,
+                            children: t`Payment required to confirm your spot`,
                             className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight"
                           })
                     ],
                     className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2"
                   }),
+              isPlatformPayment ? JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsx("span", {
+                            children: t`A small hold will be placed on your card and fully refunded after the event.`,
+                            className: "font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight"
+                          }),
+                      className: "bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-1.5"
+                    }) : null,
               JsxRuntime.jsxs("div", {
                     children: [
                       JsxRuntime.jsx("button", {
-                            children: leaving ? t`Releasing...` : t`Release spot`,
+                            children: leaving ? t`Cancelling...` : t`Cancel RSVP`,
                             className: "font-mono text-[11px] text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed",
                             disabled: leaving,
                             onClick: (function (param) {
@@ -191,9 +212,7 @@ function EventStickyFooter(props) {
                               JsxRuntime.jsx(LucideReact.CreditCard, {
                                     className: "w-3 h-3"
                                   }),
-                              charging ? t`Loading...` : t`Pay ${Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
-                                            return p.toString() + "円";
-                                          })), "")}`
+                              tmp$1
                             ],
                             className: "px-4 py-2 text-sm font-semibold rounded-md transition-colors flex-shrink-0 bg-amber-500 text-white hover:bg-amber-600 inline-flex items-center justify-center gap-1.5 disabled:opacity-60",
                             disabled: charging,
@@ -262,12 +281,12 @@ function EventStickyFooter(props) {
             className: "px-5 py-3 flex items-center justify-between"
           });
     } else if (props.isJoined) {
-      var tmp$1;
+      var tmp$2;
       if (Core__Option.isSome(cancelDeadlineDate) && !isWaitlisted) {
         var mins = Core__Option.filter(cancelMinutesLeft, (function (m) {
                 return m > 0;
               }));
-        tmp$1 = JsxRuntime.jsxs("div", {
+        tmp$2 = JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx(LucideReact.AlertCircle, {
                       className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
@@ -290,11 +309,11 @@ function EventStickyFooter(props) {
               className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2"
             });
       } else {
-        tmp$1 = null;
+        tmp$2 = null;
       }
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
-              tmp$1,
+              tmp$2,
               JsxRuntime.jsxs("div", {
                     children: [
                       JsxRuntime.jsxs("div", {
@@ -372,49 +391,91 @@ function EventStickyFooter(props) {
             ]
           });
     } else {
-      tmp = JsxRuntime.jsxs("div", {
+      var tmp$3;
+      if (Core__Option.isSome(cancelDeadlineDate)) {
+        var mins$1 = Core__Option.filter(cancelMinutesLeft, (function (m) {
+                return m > 0;
+              }));
+        tmp$3 = JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx(LucideReact.AlertCircle, {
+                      className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
+                    }),
+                JsxRuntime.jsx("span", {
+                      children: mins$1 !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                              children: [
+                                t`Cancellation deadline`,
+                                ": ",
+                                JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
+                                      value: mins$1,
+                                      unit: "minute",
+                                      updateIntervalInSeconds: 1
+                                    })
+                              ]
+                            }) : t`Cancellation deadline passed.`,
+                      className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300"
+                    })
+              ],
+              className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2"
+            });
+      } else {
+        tmp$3 = null;
+      }
+      var tmp$4;
+      if (isFull) {
+        tmp$4 = t`Join waitlist (#${(waitlistCount + 1 | 0).toString()})`;
+      } else if (props.isPaidEvent) {
+        var currencyStr$1 = Core__Option.getOr(Core__Option.map($$event.currency, PaymentIndicator.getCurrencySymbol), "¥");
+        tmp$4 = t`Claim spot · ${Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
+                    return currencyStr$1 + p.toString();
+                  })), "")}`;
+      } else {
+        tmp$4 = t`Claim spot`;
+      }
+      tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
+              tmp$3,
               JsxRuntime.jsxs("div", {
                     children: [
-                      Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
-                                  return JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                              value: Util.Datetime.toDate(sd),
-                                              timeZone: tz,
-                                              weekday: "short",
-                                              month: "short",
-                                              day: "2-digit"
-                                            });
-                                })), null),
-                      " ",
-                      Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
-                                  return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                              value: Util.Datetime.toDate(sd),
-                                              timeZone: tz
-                                            });
-                                })), null),
-                      JsxRuntime.jsx("span", {
-                            children: " \u00B7 " + confirmedCount.toString() + (
-                              maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
-                            ),
-                            className: "text-gray-400 dark:text-gray-500 font-normal normal-case"
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
+                                          return JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                      value: Util.Datetime.toDate(sd),
+                                                      timeZone: tz,
+                                                      weekday: "short",
+                                                      month: "short",
+                                                      day: "2-digit"
+                                                    });
+                                        })), null),
+                              " ",
+                              Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
+                                          return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                      value: Util.Datetime.toDate(sd),
+                                                      timeZone: tz
+                                                    });
+                                        })), null),
+                              JsxRuntime.jsx("span", {
+                                    children: " \u00B7 " + confirmedCount.toString() + (
+                                      maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
+                                    ),
+                                    className: "text-gray-400 dark:text-gray-500 font-normal normal-case"
+                                  })
+                            ],
+                            className: "font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
+                          }),
+                      JsxRuntime.jsx("button", {
+                            children: tmp$4,
+                            className: Core.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent"),
+                            disabled: match[1],
+                            onClick: (function (param) {
+                                doJoin();
+                              })
                           })
                     ],
-                    className: "font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
-                  }),
-              JsxRuntime.jsx("button", {
-                    children: isFull ? t`Join waitlist (#${(waitlistCount + 1 | 0).toString()})` : (
-                        props.isPaidEvent ? t`Claim spot · ${Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
-                                      return p.toString() + "円";
-                                    })), "")}` : t`Claim spot`
-                      ),
-                    className: Core.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent"),
-                    disabled: match[1],
-                    onClick: (function (param) {
-                        doJoin();
-                      })
+                    className: "px-5 py-3 flex items-center justify-between"
                   })
-            ],
-            className: "px-5 py-3 flex items-center justify-between"
+            ]
           });
     }
     return JsxRuntime.jsxs(JsxRuntime.Fragment, {

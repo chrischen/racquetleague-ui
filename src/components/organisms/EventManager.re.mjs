@@ -18,6 +18,7 @@ import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as DrawGenerator from "../molecules/DrawGenerator.re.mjs";
 import * as PlayerCheckin from "./PlayerCheckin.re.mjs";
 import * as FramerMotion from "framer-motion";
+import * as PrintableDraws from "./PrintableDraws.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as FullScreenRoundView from "./FullScreenRoundView.re.mjs";
@@ -594,6 +595,10 @@ function EventManager(props) {
         return false;
       });
   var setShowFullScreenRound = match$19[1];
+  var match$20 = React.useState(function () {
+        return false;
+      });
+  var setShowPrintableDraws = match$20[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -1472,13 +1477,34 @@ function EventManager(props) {
       }
       tmp$2 = JsxRuntime.jsxs("div", {
             children: [
-              JsxRuntime.jsx("button", {
-                    children: tmp$3,
-                    className: tmp$4,
-                    disabled: syncState === "Syncing",
-                    onClick: (function (param) {
-                        handleSyncScores();
-                      })
+              JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsxs("button", {
+                            children: [
+                              JsxRuntime.jsx(LucideReact.Printer, {
+                                    className: "w-5 h-5"
+                                  }),
+                              JsxRuntime.jsx("span", {
+                                    children: t`Print Draws`
+                                  })
+                            ],
+                            className: "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-slate-800 hover:bg-slate-900 text-white hover:shadow-xl",
+                            onClick: (function (param) {
+                                setShowPrintableDraws(function (param) {
+                                      return true;
+                                    });
+                              })
+                          }),
+                      JsxRuntime.jsx("button", {
+                            children: tmp$3,
+                            className: tmp$4,
+                            disabled: syncState === "Syncing",
+                            onClick: (function (param) {
+                                handleSyncScores();
+                              })
+                          })
+                    ],
+                    className: "flex items-center gap-3"
                   }),
               syncedCount > 0 || unsyncedCount > 0 ? JsxRuntime.jsxs("p", {
                       children: [
@@ -1974,7 +2000,44 @@ function EventManager(props) {
                         tmp$1
                       ],
                       className: "min-h-screen bg-slate-50 flex flex-col"
-                    })
+                    }),
+                match$20[0] ? JsxRuntime.jsx(PrintableDraws.make, {
+                        rounds: rounds.map(function (roundMatches, roundIdx) {
+                              return {
+                                      roundNumber: roundIdx + 1 | 0,
+                                      matches: roundMatches.map(function (entity, matchIdx) {
+                                            var match = entity.match;
+                                            return {
+                                                    id: entity.id,
+                                                    courtNumber: matchIdx + 1 | 0,
+                                                    team1: {
+                                                      players: match[0].map(function (p) {
+                                                            return {
+                                                                    id: p.id,
+                                                                    number: p.intId,
+                                                                    name: p.name
+                                                                  };
+                                                          })
+                                                    },
+                                                    team2: {
+                                                      players: match[1].map(function (p) {
+                                                            return {
+                                                                    id: p.id,
+                                                                    number: p.intId,
+                                                                    name: p.name
+                                                                  };
+                                                          })
+                                                    }
+                                                  };
+                                          })
+                                    };
+                            }),
+                        onClose: (function () {
+                            setShowPrintableDraws(function (param) {
+                                  return false;
+                                });
+                          })
+                      }) : null
               ]
             });
 }

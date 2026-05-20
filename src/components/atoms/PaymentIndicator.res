@@ -1,7 +1,11 @@
-type paymentStatus =
-  | Captured
-  | Authorized
-  | Paid
+%%raw("import { t } from '@lingui/macro'")
+
+module Fragment = %relay(`
+  fragment PaymentIndicator_payment on Payment {
+    status
+    currency
+  }
+`)
 
 let getCurrencySymbol = (currency: string) => {
   switch currency->String.toLowerCase {
@@ -23,20 +27,19 @@ let getCurrencySymbol = (currency: string) => {
 }
 
 @react.component
-let make = (~status: paymentStatus, ~currency: option<string>=?) => {
-  switch (status, currency) {
-  | (Captured, Some(currency)) | (Authorized, Some(currency)) =>
-    <span
-      title={status == Captured ? "Payment captured" : "Payment authorized"}
-      className="text-[10px] font-semibold text-green-500 dark:text-green-400 leading-none">
-      {getCurrencySymbol(currency)->React.string}
-    </span>
-  | (Paid, _) =>
-    <span
-      title="Paid"
-      className="text-[10px] font-semibold text-green-500 dark:text-green-400 leading-none">
-      {"✓"->React.string}
-    </span>
-  | (Captured | Authorized, None) => React.null
-  }
+let make = (~payment) => {
+  open Lingui.UtilString
+  let {status, currency} = Fragment.use(payment)
+  <WaitForMessages>
+    {() =>
+      switch status {
+      | 0 | 1 =>
+        <span
+          title={status == 1 ? t`Payment captured` : t`Payment authorized`}
+          className="text-[10px] font-semibold text-green-500 dark:text-green-400 leading-none">
+          {getCurrencySymbol(currency)->React.string}
+        </span>
+      | _ => React.null
+      }}
+  </WaitForMessages>
 }

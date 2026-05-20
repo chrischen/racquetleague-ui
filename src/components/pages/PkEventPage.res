@@ -59,6 +59,7 @@ module EventQuery = %relay(`
         id
         lineUsername
         picture
+        stripeChargesEnabled
       }
       rsvps(first: 100) @connection(key: "PkRSVPSection_event_rsvps") {
         edges {
@@ -72,6 +73,7 @@ module EventQuery = %relay(`
             payment {
               id
               status
+              currency
             }
           }
         }
@@ -108,7 +110,7 @@ module ConfirmPaymentMutation = %relay(`
         id
         payment {
           id
-          status
+          ...PaymentIndicator_payment
         }
         listType
       }
@@ -377,15 +379,19 @@ module Inner = {
     | _ => false
     }
     let viewerHasPayment = switch viewerRsvpNode {
-    | Some({payment: Some(_)}) => true
+    | Some({payment: Some({status: 0 | 1})}) => true
     | _ => false
     }
-    let isUnpaid = isJoined && isPaidEvent && !viewerHasPayment
+    let isUnpaid = isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment
     let viewerJoinTime = viewerRsvpNode->Option.flatMap(n => n.joinTime)
     let isViewerPending = switch viewerRsvpNode {
     | Some({listType}) => listType != None && listType != Some(0)
     | None => false
     }
+    let eventCurrency = allRsvpNodes->Array.findMap(n => n.payment->Option.map(p => p.currency))
+    let isPlatformPayment = !(
+      event.owner->Option.flatMap(o => o.stripeChargesEnabled)->Option.getOr(false)
+    )
 
     if event.viewerIsBanned->Option.getOr(false) {
       <div className="p-6 text-center text-gray-500">
@@ -542,6 +548,7 @@ module Inner = {
             __id: event.__id,
             id: event.id,
             price: event.price,
+            currency: eventCurrency,
             startDate: event.startDate,
             cancelDeadline: event.cancelDeadline,
             shadow: event.shadow,
@@ -566,31 +573,30 @@ module Inner = {
           locale
           queryFragmentRefs
           charging={charging || authorizingPlatform}
+          isPlatformPayment
           onPayClick={() =>
             viewerRsvpNode->Option.forEach(rsvp =>
-              chargePayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
-                switch (
-                  response.chargeRsvpPayment.clientSecret,
-                  response.chargeRsvpPayment.connectedAccountId,
-                ) {
-                | (Some(secret), Some(accountId)) =>
-                  // Connected account is enabled, use connected account flow
-                  setPaymentClientSecret(_ => Some((secret, accountId)))
-                | (None, None) | (Some(_), None) =>
-                  // No connected account or not enabled, use platform authorization
-                  authorizePlatformPayment(
-                    ~variables={rsvpId: rsvp.id},
-                    ~onCompleted=(platformResponse, _) =>
-                      switch platformResponse.authorizePlatformRsvpPayment.clientSecret {
-                      | Some(secret) =>
-                        // Use platform account (empty accountId)
-                        setPaymentClientSecret(_ => Some((secret, "")))
-                      | None => ()
-                      },
-                  )->RescriptRelay.Disposable.ignore
-                | _ => ()
-                }
-              )->RescriptRelay.Disposable.ignore
+              if isPlatformPayment {
+                authorizePlatformPayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
+                  switch response.authorizePlatformRsvpPayment.clientSecret {
+                  | Some(secret) => setPaymentClientSecret(_ => Some((secret, "")))
+                  | None => ()
+                  }
+                )->RescriptRelay.Disposable.ignore
+              } else {
+                chargePayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
+                  switch response.chargeRsvpPayment.clientSecret {
+                  | Some(secret) =>
+                    setPaymentClientSecret(
+                      _ => Some((
+                        secret,
+                        response.chargeRsvpPayment.connectedAccountId->Option.getOr(""),
+                      )),
+                    )
+                  | None => ()
+                  }
+                )->RescriptRelay.Disposable.ignore
+              }
             )}
         />
         {switch paymentClientSecret {

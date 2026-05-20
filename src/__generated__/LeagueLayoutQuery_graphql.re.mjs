@@ -47,7 +47,15 @@ var Internal = {
 
 var Utils = {};
 
-var node = {
+var node = ((function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -76,6 +84,11 @@ var node = {
             "args": null,
             "kind": "FragmentSpread",
             "name": "NavViewer_viewer"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "NotificationsPreview_viewer"
           }
         ],
         "storageKey": null
@@ -106,13 +119,7 @@ var node = {
             "name": "user",
             "plural": false,
             "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
+              (v0/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -136,6 +143,74 @@ var node = {
               }
             ],
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": [
+              {
+                "kind": "Literal",
+                "name": "first",
+                "value": 5
+              }
+            ],
+            "concreteType": "EventMessageConnection",
+            "kind": "LinkedField",
+            "name": "inbox",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "EventMessageEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Message",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      (v0/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "topic",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "payload",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "createdAt",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "isRead",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": "inbox(first:5)"
           }
         ],
         "storageKey": null
@@ -143,14 +218,15 @@ var node = {
     ]
   },
   "params": {
-    "cacheID": "21bdce6ef2440d325376d7504e32257d",
+    "cacheID": "0e6113107e57f4121960f041e77da323",
     "id": null,
     "metadata": {},
     "name": "LeagueLayoutQuery",
     "operationKind": "query",
-    "text": "query LeagueLayoutQuery {\n  ...LeagueNav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment LeagueNav_query on Query {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n    ...LeagueNav_viewer\n  }\n}\n\nfragment LeagueNav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query LeagueLayoutQuery {\n  ...LeagueNav_query\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    ...NotificationsPreview_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment LeagueNav_query on Query {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n    ...LeagueNav_viewer\n  }\n}\n\nfragment LeagueNav_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    picture\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment NotificationsPreview_viewer on Viewer {\n  inbox(first: 5) {\n    edges {\n      node {\n        id\n        topic\n        payload\n        createdAt\n        isRead\n      }\n    }\n  }\n}\n"
   }
 };
+})());
 
 function load(environment, variables, fetchPolicy, fetchKey, networkCacheConfig) {
   return ReactRelay.loadQuery(environment, node, convertVariables(variables), {
@@ -195,4 +271,4 @@ export {
   queryRefToObservable ,
   queryRefToPromise ,
 }
-/* react-relay Not a pure module */
+/* node Not a pure module */

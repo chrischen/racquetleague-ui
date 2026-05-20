@@ -45,6 +45,7 @@ module Types = {
     owner: option<fragment_owner>,
     price: option<int>,
     rsvps: option<fragment_rsvps>,
+    tags: option<array<string>>,
     viewerIsAdmin: bool,
   }
 }
@@ -185,6 +186,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "viewerIsAdmin",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "tags",
       "storageKey": null
     },
     {

@@ -55,7 +55,7 @@ msgstr "調整球員種子"
 msgid "Advance to Next Round"
 msgstr "前進至下一回合"
 
-#: src/components/organisms/EventManager.re.mjs:1628
+#: src/components/organisms/EventManager.re.mjs:1654
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 輪"
 
@@ -67,11 +67,11 @@ msgstr "亞歷克斯·約翰遜"
 msgid "All checked-in players are already in this round"
 msgstr "所有已報到的球員都已在這個回合中"
 
-#: src/components/organisms/EventManager.re.mjs:1495
+#: src/components/organisms/EventManager.re.mjs:1521
 msgid "all up to date"
 msgstr "全部已更新"
 
-#: src/components/organisms/EventManager.re.mjs:1728
+#: src/components/organisms/EventManager.re.mjs:1754
 msgid "Anti-Team {0}"
 msgstr "反對隊 {0}"
 
@@ -142,11 +142,11 @@ msgstr "建立您的第一支隊伍開始"
 msgid "Current Round:"
 msgstr "當前回合："
 
-#: src/components/organisms/EventManager.re.mjs:1917
+#: src/components/organisms/EventManager.re.mjs:1943
 msgid "Debug: OFF"
 msgstr "調試：關閉"
 
-#: src/components/organisms/EventManager.re.mjs:1917
+#: src/components/organisms/EventManager.re.mjs:1943
 msgid "Debug: ON"
 msgstr "調試：開啟"
 
@@ -225,7 +225,7 @@ msgstr "生成對戰表"
 msgid "Guest Names (one per line)"
 msgstr "訪客姓名（每行一個）"
 
-#: src/components/organisms/EventManager.re.mjs:1905
+#: src/components/organisms/EventManager.re.mjs:1931
 msgid "Help"
 msgstr "說明"
 
@@ -250,10 +250,12 @@ msgid "Male"
 msgstr "男性"
 
 #: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "match"
 msgstr "場比賽"
 
 #: src/components/organisms/RoundSection.re.mjs:177
+#: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "matches"
 msgstr "場比賽"
 
@@ -288,6 +290,10 @@ msgstr "尚無反對隊"
 #: src/components/molecules/PlayerReplaceModal.re.mjs:99
 msgid "No available players"
 msgstr "沒有可用的球員"
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
+msgstr "尚未生成賽程。"
 
 #: src/components/organisms/ScoreModal.re.mjs:236
 msgid "No Score"
@@ -331,6 +337,18 @@ msgstr "預覽（{0}位訪客{1}）"
 msgid "Previous Round"
 msgstr "上一回合"
 
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr "列印"
+
+#: src/components/organisms/EventManager.re.mjs:1488
+msgid "Print Draws"
+msgstr "列印賽程"
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr "列印預覽"
+
 #: src/components/organisms/MatchCard.re.mjs:395
 msgid "Rebalance match"
 msgstr "重新平衡比賽"
@@ -355,7 +373,7 @@ msgstr "替換球員"
 msgid "Replacing:"
 msgstr "替換："
 
-#: src/components/organisms/EventManager.re.mjs:1890
+#: src/components/organisms/EventManager.re.mjs:1916
 msgid "Reset Storage"
 msgstr "重置儲存空間"
 
@@ -369,6 +387,7 @@ msgstr "使用混合性別配對重置此輪"
 
 #: src/components/organisms/RoundSection.re.mjs:521
 #: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/PrintableDraws.re.mjs:84
 #: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "第 {0} 回合"
@@ -410,7 +429,7 @@ msgstr "儲存隊伍"
 msgid "Score"
 msgstr "比分"
 
-#: src/components/organisms/EventManager.re.mjs:1438
+#: src/components/organisms/EventManager.re.mjs:1443
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
@@ -430,23 +449,23 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:1450
+#: src/components/organisms/EventManager.re.mjs:1455
 msgid "Sync Failed"
 msgstr "同步失敗"
 
-#: src/components/organisms/EventManager.re.mjs:1414
+#: src/components/organisms/EventManager.re.mjs:1419
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:1489
+#: src/components/organisms/EventManager.re.mjs:1515
 msgid "synced"
 msgstr "已同步"
 
-#: src/components/organisms/EventManager.re.mjs:1426
+#: src/components/organisms/EventManager.re.mjs:1431
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1359
+#: src/components/organisms/EventManager.re.mjs:1364
 msgid "Team {0}"
 msgstr "第 {0} 隊"
 
@@ -484,9 +503,13 @@ msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢
 msgid "This will delete all future rounds and generate new matches"
 msgstr "這將刪除所有未來回合並生成新比賽"
 
-#: src/components/organisms/EventManager.re.mjs:1491
+#: src/components/organisms/EventManager.re.mjs:1517
 msgid "to sync"
 msgstr "待同步"
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
+msgstr "錦標賽賽程"
 
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Update Future Rounds"
@@ -535,7 +558,7 @@ msgstr "獲勝隊（隊伍 {0}）"
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
 #~ msgid "Event Manager"
-#~ msgstr "活動標籤：{tag}"
+#~ msgstr "賽事管理器圖示"
 
 #: src/components/molecules/DrawGenerator.re.mjs:62
 #~ msgid "Generate Initial Draws"
@@ -558,7 +581,7 @@ msgstr "獲勝隊（隊伍 {0}）"
 #: src/components/organisms/EventManager.re.mjs:223
 #, fuzzy
 #~ msgid "Players"
-#~ msgstr "新增球員"
+#~ msgstr "尋找球員"
 
 #: src/components/molecules/DrawGenerator.re.mjs:58
 #~ msgid ""

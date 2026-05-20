@@ -506,9 +506,9 @@ msgstr "เบราว์เซอร์ของคุณเก่าเกิ
 #: src/components/organisms/RoundRobin.re.mjs:359
 #, fuzzy
 #~ msgid "Players"
-#~ msgstr "เพิ่มผู้เล่น"
+#~ msgstr "หาผู้เล่น"
 
 #: src/components/organisms/RoundRobin.re.mjs:323
 #, fuzzy
 #~ msgid "Round Robin Tournament"
-#~ msgstr "การจัดการรอบ"
+#~ msgstr "จับคู่แบบพบกันหมด"

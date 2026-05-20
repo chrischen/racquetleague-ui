@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:314
+#: src/components/organisms/SettingsProfileForm.re.mjs:318
 msgid "Active"
 msgstr ""
 
@@ -21,7 +21,7 @@ msgstr ""
 #~ msgid "activity is required"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:394
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
 msgid "Australia"
 msgstr ""
 
@@ -29,11 +29,11 @@ msgstr ""
 #~ msgid "biography"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:539
+#: src/components/organisms/SettingsProfileForm.re.mjs:543
 msgid "Biography"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:398
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
 msgid "Canada"
 msgstr ""
 
@@ -41,19 +41,19 @@ msgstr ""
 #~ msgid "cancel"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:334
+#: src/components/organisms/SettingsProfileForm.re.mjs:338
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:367
 msgid "Connect Stripe account"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:359
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
 msgid "Connecting..."
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:379
+#: src/components/organisms/SettingsProfileForm.re.mjs:383
 msgid "Country"
 msgstr ""
 
@@ -61,15 +61,15 @@ msgstr ""
 #~ msgid "details about yourself"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:467
+#: src/components/organisms/SettingsProfileForm.re.mjs:471
 msgid "Display Name"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:488
 msgid "Doe John"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/organisms/SettingsProfileForm.re.mjs:514
 msgid "Female"
 msgstr ""
 
@@ -77,7 +77,7 @@ msgstr ""
 #~ msgid "full name"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:480
+#: src/components/organisms/SettingsProfileForm.re.mjs:484
 msgid "Full name"
 msgstr ""
 
@@ -85,15 +85,15 @@ msgstr ""
 #~ msgid "gender"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:495
+#: src/components/organisms/SettingsProfileForm.re.mjs:499
 msgid "Gender"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:410
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
 msgid "Hong Kong"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:471
+#: src/components/organisms/SettingsProfileForm.re.mjs:475
 msgid "How you appear to other players"
 msgstr ""
 
@@ -101,23 +101,23 @@ msgstr ""
 #~ msgid "input is required"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:386
+#: src/components/organisms/SettingsProfileForm.re.mjs:390
 msgid "Japan"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
 msgid "Male"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:308
+#: src/components/organisms/SettingsProfileForm.re.mjs:312
 msgid "Not connected"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:311
+#: src/components/organisms/SettingsProfileForm.re.mjs:315
 msgid "Pending"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:502
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "Prefer not to say"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 #~ msgid "profile"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:366
+#: src/components/organisms/SettingsProfileForm.re.mjs:370
 msgid "Resume onboarding"
 msgstr ""
 
@@ -133,7 +133,7 @@ msgstr ""
 #~ msgid "save"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:566
+#: src/components/organisms/SettingsProfileForm.re.mjs:570
 msgid "Save profile"
 msgstr ""
 
@@ -145,11 +145,11 @@ msgstr ""
 msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:406
+#: src/components/organisms/SettingsProfileForm.re.mjs:410
 msgid "Singapore"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:487
+#: src/components/organisms/SettingsProfileForm.re.mjs:491
 msgid "Some events require your legal name as shown on an ID card."
 msgstr ""
 
@@ -157,38 +157,38 @@ msgstr ""
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
 #~ msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:418
+#: src/components/organisms/SettingsProfileForm.re.mjs:422
 msgid "South Korea"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:580
+#: src/components/organisms/SettingsProfileForm.re.mjs:584
 msgid "Stripe Connect"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:414
+#: src/components/organisms/SettingsProfileForm.re.mjs:418
 msgid "Taiwan"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:545
+#: src/components/organisms/SettingsProfileForm.re.mjs:549
 msgid "tell us a little about yourself"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:543
+#: src/components/organisms/SettingsProfileForm.re.mjs:547
 msgid "Tell us a little about yourself..."
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:402
+#: src/components/organisms/SettingsProfileForm.re.mjs:406
 msgid "United Kingdom"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:390
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
 msgid "United States"
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:340
+#: src/components/organisms/SettingsProfileForm.re.mjs:344
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr ""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:337
+#: src/components/organisms/SettingsProfileForm.re.mjs:341
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr ""

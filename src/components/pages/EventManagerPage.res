@@ -1,5 +1,6 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
+%%raw("import '../../global/static.css'")
 
 module Query = %relay(`
   query EventManagerPageQuery($eventId: ID!, $after: String, $first: Int, $before: String, $activitySlug: String!) {

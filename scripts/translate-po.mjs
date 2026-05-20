@@ -8,7 +8,7 @@
  *   node scripts/translate-po.mjs                  # translate all locales
  *   node scripts/translate-po.mjs ja ko            # translate specific locales
  *
- * Requires ANTHROPIC_API_KEY env var.
+ * Reads ANTHROPIC_API_KEY from .env.development (or existing env var).
  */
 
 import { readFileSync, writeFileSync } from 'fs'
@@ -22,6 +22,14 @@ const Anthropic = require('@anthropic-ai/sdk')
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const LOCALES_DIR = path.join(__dirname, '../src/locales')
+
+// Load ANTHROPIC_API_KEY from .env.development if not already set
+if (!process.env.ANTHROPIC_API_KEY) {
+  const envPath = path.join(__dirname, '../.env.development')
+  const envContent = readFileSync(envPath, 'utf8')
+  const match = envContent.match(/^ANTHROPIC_API_KEY=(.+)$/m)
+  if (match) process.env.ANTHROPIC_API_KEY = match[1].trim()
+}
 
 const LANGUAGE_NAMES = {
   ja: 'Japanese',

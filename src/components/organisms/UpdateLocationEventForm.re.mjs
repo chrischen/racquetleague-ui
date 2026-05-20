@@ -104,6 +104,9 @@ function UpdateLocationEventForm(props) {
                 JsxRuntime.jsx(CreateLocationEventForm.make, {
                       eventId: eventData.id,
                       location: props.location,
+                      stripeChargesEnabled: Core__Option.getOr(Core__Option.flatMap(eventData.owner, (function (o) {
+                                  return o.stripeChargesEnabled;
+                                })), false),
                       prefilledValues: prefilledValues,
                       selectedClub: clubSelection.clubId,
                       selectedActivity: clubSelection.activityId,

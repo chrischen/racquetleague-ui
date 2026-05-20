@@ -58,15 +58,26 @@ function makeNode(rescript_graphql_node_SettingsProfileFormRefetchQuery) {
         {
           "alias": null,
           "args": null,
-          "kind": "ScalarField",
-          "name": "stripeAccountId",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "stripeChargesEnabled",
+          "concreteType": "User",
+          "kind": "LinkedField",
+          "name": "user",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "stripeAccountId",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "stripeChargesEnabled",
+              "storageKey": null
+            }
+          ],
           "storageKey": null
         },
         {

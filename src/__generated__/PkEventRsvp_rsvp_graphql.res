@@ -5,10 +5,8 @@ module Types = {
   @@warning("-30")
 
   type rec fragment_payment = {
-    amount: int,
-    currency: string,
     @live id: string,
-    status: int,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PaymentIndicator_payment]>,
   }
   and fragment_rating = {
     mu: option<float>,
@@ -22,6 +20,7 @@ module Types = {
     picture: option<string>,
   }
   type fragment = {
+    @live id: string,
     message: option<string>,
     paid: option<int>,
     payment: option<fragment_payment>,
@@ -36,7 +35,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"":{"f":""}}}`
+    json`{"__root":{"payment":{"f":""},"":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = ()
@@ -91,6 +90,7 @@ return {
   "metadata": null,
   "name": "PkEventRsvp_rsvp",
   "selections": [
+    (v0/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -180,25 +180,9 @@ return {
       "selections": [
         (v0/*: any*/),
         {
-          "alias": null,
           "args": null,
-          "kind": "ScalarField",
-          "name": "status",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "currency",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "amount",
-          "storageKey": null
+          "kind": "FragmentSpread",
+          "name": "PaymentIndicator_payment"
         }
       ],
       "storageKey": null

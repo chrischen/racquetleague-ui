@@ -440,6 +440,11 @@ type LocationEdge {
   node: Location
 }
 
+type MarkInboxReadResult implements HasErrors {
+  errors: [Error!]
+  viewerMetadata: ViewerMetadata
+}
+
 type MarkRsvpPaidResult implements HasErrors {
   errors: [Error!]
   rsvp: Rsvp
@@ -517,6 +522,7 @@ type MembershipEdge {
 type Message {
   createdAt: String!
   id: ID!
+  isRead: Boolean!
   payload: String
   topic: String!
 }
@@ -600,6 +606,8 @@ type Mutation {
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
+  markAllInboxRead: MarkInboxReadResult!
+  markInboxRead(lastReadMessageId: ID!): MarkInboxReadResult!
   markRsvpPaid(eventId: ID!, userId: ID!): MarkRsvpPaidResult!
   processEventPayment(eventId: ID!): ProcessEventPaymentResult!
 
@@ -859,15 +867,22 @@ type User implements Node {
   locale: String
   picture: String
   rating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): Rating
+  stripeAccountId: String
+  stripeChargesEnabled: Boolean
 }
 
 type Viewer {
   adminClubs(after: String, before: String, first: Int): ClubConnection!
   clubs(after: String, before: String, first: Int): ClubConnection!
   events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
+  inbox(after: String, before: String, first: Int): EventMessageConnection
   profile: User
-  stripeAccountId: String
-  stripeChargesEnabled: Boolean
   subscriptions: [Subscription!]!
   user: User
+  viewerMetadata: ViewerMetadata
+}
+
+type ViewerMetadata implements Node {
+  id: ID!
+  unreadInboxCount: Int!
 }

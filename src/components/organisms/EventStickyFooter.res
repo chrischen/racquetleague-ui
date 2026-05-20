@@ -37,6 +37,7 @@ type eventShape = {
   __id: RescriptRelay.dataId,
   id: string,
   price: option<int>,
+  currency: option<string>,
   startDate: option<Util.Datetime.t>,
   cancelDeadline: option<int>,
   shadow: option<bool>,
@@ -59,6 +60,7 @@ let make = (
   ~isUnpaid: bool,
   ~viewerJoinTime: option<float>,
   ~isPaidEvent: bool,
+  ~isPlatformPayment: bool,
   ~isFull: bool,
   ~confirmedCount: int,
   ~waitlistCount: int,
@@ -150,7 +152,7 @@ let make = (
           <div
             className="sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex flex-col flex-shrink-0">
             {if isUnpaid {
-              // State 2: Unpaid — spot held, needs payment
+              // State 2: Unpaid — payment required to confirm spot
               <>
                 <div
                   className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2">
@@ -159,16 +161,25 @@ let make = (
                   />
                   <span
                     className="font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight">
-                    {(ts`Spot held — pay to confirm`)->React.string}
+                    {t`Payment required to confirm your spot`}
                   </span>
                 </div>
+                {isPlatformPayment
+                  ? <div
+                      className="bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-1.5">
+                      <span
+                        className="font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight">
+                        {t`A small hold will be placed on your card and fully refunded after the event.`}
+                      </span>
+                    </div>
+                  : React.null}
                 <div
                   className="bg-white dark:bg-[#1e1f23] px-5 py-3 flex items-center justify-between gap-2">
                   <button
                     disabled={leaving}
                     onClick={_ => doLeave()}
                     className="font-mono text-[11px] text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed">
-                    {(leaving ? ts`Releasing...` : ts`Release spot`)->React.string}
+                    {(leaving ? ts`Cancelling...` : ts`Cancel RSVP`)->React.string}
                   </button>
                   <button
                     disabled={charging}
@@ -176,12 +187,20 @@ let make = (
                     className="px-4 py-2 text-sm font-semibold rounded-md transition-colors flex-shrink-0 bg-amber-500 text-white hover:bg-amber-600 inline-flex items-center justify-center gap-1.5 disabled:opacity-60">
                     <Lucide.CreditCard className="w-3 h-3" />
                     {if charging {
-                      ts`Loading...`
+                      (ts`Loading...`)->React.string
+                    } else if isPlatformPayment {
+                      t`Authorize deposit`
                     } else {
-                      ts`Pay ${event.price
-                      ->Option.map(p => Int.toString(p) ++ "円")
-                      ->Option.getOr("")}`
-                    }->React.string}
+                      let currencyStr =
+                        event.currency
+                        ->Option.map(PaymentIndicator.getCurrencySymbol)
+                        ->Option.getOr("¥")
+                      let priceStr =
+                        event.price
+                        ->Option.map(p => currencyStr ++ Int.toString(p))
+                        ->Option.getOr("")
+                      (ts`Pay ${priceStr}`)->React.string
+                    }}
                   </button>
                 </div>
               </>
@@ -310,53 +329,83 @@ let make = (
               </>
             } else {
               // State 1: Unjoined — claim spot
-              <div className="px-5 py-3 flex items-center justify-between">
-                <div
-                  className="font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1">
-                  {event.startDate
-                  ->Option.map(sd =>
-                    <ReactIntl.FormattedDate
-                      weekday=#short
-                      day=#"2-digit"
-                      month=#short
-                      value={sd->Util.Datetime.toDate}
-                      timeZone=tz
-                    />
-                  )
-                  ->Option.getOr(React.null)}
-                  {" "->React.string}
-                  {event.startDate
-                  ->Option.map(sd =>
-                    <ReactIntl.FormattedTime value={sd->Util.Datetime.toDate} timeZone=tz />
-                  )
-                  ->Option.getOr(React.null)}
-                  <span className="text-gray-400 dark:text-gray-500 font-normal normal-case">
-                    {(" \u00B7 " ++
-                    Int.toString(confirmedCount) ++ (
-                      maxRsvps > 0 ? "/" ++ Int.toString(maxRsvps) : ""
-                    ))->React.string}
-                  </span>
+              <>
+                {cancelDeadlineDate->Option.isSome
+                  ? <div
+                      className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2">
+                      <Lucide.AlertCircle
+                        className="w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
+                      />
+                      <span
+                        className="font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300">
+                        {switch cancelMinutesLeft->Option.filter(m => m > 0.) {
+                        | Some(mins) =>
+                          <>
+                            {(ts`Cancellation deadline`)->React.string}
+                            {": "->React.string}
+                            <ReactIntl.FormattedRelativeTime
+                              value={mins} unit=#minute updateIntervalInSeconds=1.
+                            />
+                          </>
+                        | None => (ts`Cancellation deadline passed.`)->React.string
+                        }}
+                      </span>
+                    </div>
+                  : React.null}
+                <div className="px-5 py-3 flex items-center justify-between">
+                  <div
+                    className="font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1">
+                    {event.startDate
+                    ->Option.map(sd =>
+                      <ReactIntl.FormattedDate
+                        weekday=#short
+                        day=#"2-digit"
+                        month=#short
+                        value={sd->Util.Datetime.toDate}
+                        timeZone=tz
+                      />
+                    )
+                    ->Option.getOr(React.null)}
+                    {" "->React.string}
+                    {event.startDate
+                    ->Option.map(sd =>
+                      <ReactIntl.FormattedTime value={sd->Util.Datetime.toDate} timeZone=tz />
+                    )
+                    ->Option.getOr(React.null)}
+                    <span className="text-gray-400 dark:text-gray-500 font-normal normal-case">
+                      {(" \u00B7 " ++
+                      Int.toString(confirmedCount) ++ (
+                        maxRsvps > 0 ? "/" ++ Int.toString(maxRsvps) : ""
+                      ))->React.string}
+                    </span>
+                  </div>
+                  <button
+                    className={Util.cx([
+                      "px-4 py-2 text-sm font-semibold rounded-md transition-colors border",
+                      isFull
+                        ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]"
+                        : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent",
+                    ])}
+                    disabled={joining}
+                    onClick={_ => doJoin()}>
+                    {(
+                      isFull
+                        ? ts`Join waitlist (#${Int.toString(waitlistCount + 1)})`
+                        : isPaidEvent
+                        ? {
+                          let currencyStr =
+                            event.currency
+                            ->Option.map(PaymentIndicator.getCurrencySymbol)
+                            ->Option.getOr("¥")
+                          ts`Claim spot · ${event.price
+                          ->Option.map(p => currencyStr ++ Int.toString(p))
+                          ->Option.getOr("")}`
+                        }
+                        : ts`Claim spot`
+                    )->React.string}
+                  </button>
                 </div>
-                <button
-                  className={Util.cx([
-                    "px-4 py-2 text-sm font-semibold rounded-md transition-colors border",
-                    isFull
-                      ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]"
-                      : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent",
-                  ])}
-                  disabled={joining}
-                  onClick={_ => doJoin()}>
-                  {(
-                    isFull
-                      ? ts`Join waitlist (#${Int.toString(waitlistCount + 1)})`
-                      : isPaidEvent
-                      ? ts`Claim spot · ${event.price
-                      ->Option.map(p => Int.toString(p) ++ "円")
-                      ->Option.getOr("")}`
-                      : ts`Claim spot`
-                  )->React.string}
-                </button>
-              </div>
+              </>
             }}
           </div>
           <ProfileModal

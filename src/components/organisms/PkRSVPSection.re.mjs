@@ -142,6 +142,9 @@ function PkRSVPSection(props) {
   var activitySlug = Core__Option.flatMap(eventData.activity, (function (a) {
           return a.slug;
         }));
+  var isCompetitive = Core__Option.getOr(eventData.tags, []).some(function (t) {
+        return t.toLowerCase() === "comp";
+      });
   var isWaitlist = function (count) {
     if (maxRsvps > 0) {
       return count >= maxRsvps;
@@ -609,6 +612,7 @@ function PkRSVPSection(props) {
                                                   eventId: eventData.id,
                                                   isAdmin: eventData.viewerIsAdmin,
                                                   isHost: isHost,
+                                                  showRating: isCompetitive,
                                                   connectionKey: "PkRSVPSection_event_rsvps"
                                                 }, edge.id);
                                     }),
@@ -667,6 +671,7 @@ function PkRSVPSection(props) {
                                                   eventId: eventData.id,
                                                   isAdmin: eventData.viewerIsAdmin,
                                                   waitlistPosition: i + 1 | 0,
+                                                  showRating: isCompetitive,
                                                   connectionKey: "PkRSVPSection_event_rsvps"
                                                 }, edge.id);
                                     }),
@@ -731,6 +736,7 @@ function PkRSVPSection(props) {
                                                   eventId: eventData.id,
                                                   isAdmin: eventData.viewerIsAdmin,
                                                   isPending: true,
+                                                  showRating: isCompetitive,
                                                   connectionKey: "PkRSVPSection_event_rsvps"
                                                 }, edge.id);
                                     }),

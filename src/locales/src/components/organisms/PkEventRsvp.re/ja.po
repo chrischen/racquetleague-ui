@@ -30,6 +30,14 @@ msgstr "支払いを確定"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "支払い承認済み"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "支払い確定済み"
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr "返金処理"

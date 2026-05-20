@@ -293,11 +293,15 @@ function SettingsProfileForm(props) {
                             } else {
                               tmp$3 = null;
                             }
-                            var stripeAccountId = Core__Option.flatMap(query.viewer, (function (v) {
-                                    return v.stripeAccountId;
+                            var stripeAccountId = Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (v) {
+                                        return v.user;
+                                      })), (function (u) {
+                                    return u.stripeAccountId;
                                   }));
-                            var chargesEnabled = Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (v) {
-                                        return v.stripeChargesEnabled;
+                            var chargesEnabled = Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (v) {
+                                            return v.user;
+                                          })), (function (u) {
+                                        return u.stripeChargesEnabled;
                                       })), false);
                             var status = stripeAccountId !== undefined ? (
                                 chargesEnabled ? "Active" : "Pending"

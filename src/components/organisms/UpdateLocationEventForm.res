@@ -20,6 +20,9 @@ module EventFragment = %relay(`
     tags
     price
     cancelDeadline
+    owner {
+      stripeChargesEnabled
+    }
   }
 `)
 
@@ -66,6 +69,9 @@ let make = (~event, ~location, ~query) => {
     <CreateLocationEventForm
       eventId=eventData.id
       location
+      stripeChargesEnabled={eventData.owner
+      ->Option.flatMap(o => o.stripeChargesEnabled)
+      ->Option.getOr(false)}
       prefilledValues
       selectedClub=?clubSelection.clubId
       selectedActivity=?clubSelection.activityId

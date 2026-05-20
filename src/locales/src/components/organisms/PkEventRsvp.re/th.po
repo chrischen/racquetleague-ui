@@ -30,6 +30,14 @@ msgstr "รับชำระเงิน"
 msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
 
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "ชำระเงินได้รับอนุมัติแล้ว"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "ชำระเงินสำเร็จแล้ว"
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr "คืนเงิน"

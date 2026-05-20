@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-17 14:25+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/PrintableDraws.re.mjs:89
+msgid "match"
+msgstr "trận đấu"
+
+#: src/components/organisms/PrintableDraws.re.mjs:89
+msgid "matches"
+msgstr "trận đấu"
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
+msgstr "Chưa có bảng đấu nào được tạo."
+
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr "In"
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr "Xem Trước Khi In"
+
+#: src/components/organisms/PrintableDraws.re.mjs:84
+msgid "Round {0}"
+msgstr "Vòng {0}"
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
+msgstr "Bảng Đấu Giải Đấu"

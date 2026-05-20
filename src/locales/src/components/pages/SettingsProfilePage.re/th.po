@@ -13,91 +13,91 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:314
+#: src/components/organisms/SettingsProfileForm.re.mjs:318
 msgid "Active"
 msgstr "ใช้งานอยู่"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:394
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
 msgid "Australia"
 msgstr "ออสเตรเลีย"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:539
+#: src/components/organisms/SettingsProfileForm.re.mjs:543
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:398
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
 msgid "Canada"
 msgstr "แคนาดา"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:334
+#: src/components/organisms/SettingsProfileForm.re.mjs:338
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr "เชื่อมต่อบัญชี Stripe เพื่อรับชำระเงินจากอีเวนต์ที่คุณจัด"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:367
 msgid "Connect Stripe account"
 msgstr "เชื่อมต่อบัญชี Stripe"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:359
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
 msgid "Connecting..."
 msgstr "กำลังเชื่อมต่อ..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:379
+#: src/components/organisms/SettingsProfileForm.re.mjs:383
 msgid "Country"
 msgstr "ประเทศ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:467
+#: src/components/organisms/SettingsProfileForm.re.mjs:471
 msgid "Display Name"
 msgstr "ชื่อที่แสดง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:488
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/organisms/SettingsProfileForm.re.mjs:514
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:480
+#: src/components/organisms/SettingsProfileForm.re.mjs:484
 msgid "Full name"
 msgstr "ชื่อเต็ม"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:495
+#: src/components/organisms/SettingsProfileForm.re.mjs:499
 msgid "Gender"
 msgstr "เพศ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:410
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
 msgid "Hong Kong"
 msgstr "ฮ่องกง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:471
+#: src/components/organisms/SettingsProfileForm.re.mjs:475
 msgid "How you appear to other players"
 msgstr "ชื่อที่ผู้เล่นคนอื่นจะเห็น"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:386
+#: src/components/organisms/SettingsProfileForm.re.mjs:390
 msgid "Japan"
 msgstr "ญี่ปุ่น"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:308
+#: src/components/organisms/SettingsProfileForm.re.mjs:312
 msgid "Not connected"
 msgstr "ยังไม่ได้เชื่อมต่อ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:311
+#: src/components/organisms/SettingsProfileForm.re.mjs:315
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:502
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "Prefer not to say"
 msgstr "ไม่ต้องการระบุ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:366
+#: src/components/organisms/SettingsProfileForm.re.mjs:370
 msgid "Resume onboarding"
 msgstr "ดำเนินการต่อ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:566
+#: src/components/organisms/SettingsProfileForm.re.mjs:570
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
@@ -111,47 +111,47 @@ msgid ""
 "for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:406
+#: src/components/organisms/SettingsProfileForm.re.mjs:410
 msgid "Singapore"
 msgstr "สิงคโปร์"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:487
+#: src/components/organisms/SettingsProfileForm.re.mjs:491
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "กิจกรรมบางกิจกรรมต้องการชื่อจริงของคุณตามที่แสดงในบัตรประจำตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:418
+#: src/components/organisms/SettingsProfileForm.re.mjs:422
 msgid "South Korea"
 msgstr "เกาหลีใต้"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:580
+#: src/components/organisms/SettingsProfileForm.re.mjs:584
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:414
+#: src/components/organisms/SettingsProfileForm.re.mjs:418
 msgid "Taiwan"
 msgstr "ไต้หวัน"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:545
+#: src/components/organisms/SettingsProfileForm.re.mjs:549
 msgid "tell us a little about yourself"
 msgstr "เล่าให้ฟังเกี่ยวกับตัวคุณสักนิด"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:543
+#: src/components/organisms/SettingsProfileForm.re.mjs:547
 msgid "Tell us a little about yourself..."
 msgstr "บอกเราเกี่ยวกับตัวคุณสักหน่อย..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:402
+#: src/components/organisms/SettingsProfileForm.re.mjs:406
 msgid "United Kingdom"
 msgstr "สหราชอาณาจักร"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:390
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
 msgid "United States"
 msgstr "สหรัฐอเมริกา"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:340
+#: src/components/organisms/SettingsProfileForm.re.mjs:344
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้วและพร้อมรับชำระเงิน"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:337
+#: src/components/organisms/SettingsProfileForm.re.mjs:341
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว แต่ยังดำเนินการไม่เสร็จสมบูรณ์"
 

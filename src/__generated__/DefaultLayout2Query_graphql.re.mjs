@@ -61,6 +61,13 @@ v1 = {
   "kind": "ScalarField",
   "name": "picture",
   "storageKey": null
+},
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -86,6 +93,11 @@ return {
             "args": null,
             "kind": "FragmentSpread",
             "name": "NavViewer_viewer"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "NotificationsPreview_viewer"
           },
           {
             "alias": null,
@@ -129,13 +141,7 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
+              (v2/*: any*/),
               (v0/*: any*/),
               {
                 "alias": null,
@@ -147,6 +153,74 @@ return {
               (v1/*: any*/)
             ],
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": [
+              {
+                "kind": "Literal",
+                "name": "first",
+                "value": 5
+              }
+            ],
+            "concreteType": "EventMessageConnection",
+            "kind": "LinkedField",
+            "name": "inbox",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "EventMessageEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Message",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      (v2/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "topic",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "payload",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "createdAt",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "isRead",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": "inbox(first:5)"
           }
         ],
         "storageKey": null
@@ -154,12 +228,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "9829981a4947279137a9f1a273276085",
+    "cacheID": "cc4f3a4ef9a08e718d6bd796a6ffbcc7",
     "id": null,
     "metadata": {},
     "name": "DefaultLayout2Query",
     "operationKind": "query",
-    "text": "query DefaultLayout2Query {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    user {\n      lineUsername\n      picture\n      id\n    }\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query DefaultLayout2Query {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    ...NotificationsPreview_viewer\n    user {\n      lineUsername\n      picture\n      id\n    }\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment NotificationsPreview_viewer on Viewer {\n  inbox(first: 5) {\n    edges {\n      node {\n        id\n        topic\n        payload\n        createdAt\n        isRead\n      }\n    }\n  }\n}\n"
   }
 };
 })());

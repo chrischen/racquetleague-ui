@@ -3296,6 +3296,150 @@ msgstr "Đang hủy..."
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "A small hold will be placed on your card and fully refunded after the event."
+msgstr "Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy đủ sau sự kiện."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Authorize deposit"
+msgstr "Ủy quyền đặt cọc"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancel RSVP"
+msgstr "Hủy đăng ký"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:415
+msgid "Cancellation deadline passed."
+msgstr "Đã quá hạn hủy."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancelling..."
+msgstr "Đang hủy..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:177
+msgid "Pay {priceStr}"
+msgstr "Thanh toán {priceStr}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Payment required to confirm your spot"
+msgstr "Cần thanh toán để xác nhận chỗ của bạn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
+msgstr "Một khoản ủy quyền đặt cọc sẽ được thu khi có người tham gia. Không có tiền thực sự bị trừ và ủy quyền sẽ tự động được hủy sau sự kiện của bạn. Bạn nên thu phí tham gia trực tiếp bằng tiền mặt. Bạn cũng có thể phê duyệt người tham dự thủ công bằng cách nhấp vào tên của họ trong danh sách RSVP."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:855
+msgid "Connect a Stripe account"
+msgstr "Kết nối tài khoản Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+msgid "The participation fee is charged immediately and transferred to your Stripe account."
+msgstr "Phí tham gia sẽ được tính ngay lập tức và chuyển vào tài khoản Stripe của bạn."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:838
+msgid "With Stripe"
+msgstr "Với Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Without Stripe"
+msgstr "Không có Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "Một khoản đặt cọc hoàn lại được thu khi có người tham gia. Bạn có thể chấp thuận người tham dự thủ công bằng cách nhấp vào tên của họ trong danh sách RSVP."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
+msgstr "Phí tham gia được tính tự động và chuyển vào tài khoản Stripe của bạn."
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
+msgstr "Chưa có bảng đấu nào được tạo."
+
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr "In"
+
+#: src/components/organisms/EventManager.re.mjs:1488
+msgid "Print Draws"
+msgstr "In Bảng Đấu"
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr "Xem Trước Khi In"
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
+msgstr "Bảng Đấu Giải Đấu"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "Thanh toán đã được ủy quyền"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "Thanh toán đã được thu"
+
+#: src/components/pages/NotificationsPage.re.mjs:249
+msgid "Added to Event"
+msgstr "Đã thêm vào Sự kiện"
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+msgid "Event Update"
+msgstr "Cập nhật Sự kiện"
+
+#: src/components/pages/NotificationsPage.re.mjs:246
+msgid "Host Message"
+msgstr "Tin nhắn từ Chủ nhà"
+
+#: src/components/pages/NotificationsPage.re.mjs:437
+msgid "Inbox"
+msgstr "Hộp thư"
+
+#: src/components/pages/NotificationsPage.re.mjs:255
+msgid "Left Event"
+msgstr "Đã rời Sự kiện"
+
+#: src/components/pages/NotificationsPage.re.mjs:243
+msgid "New Comment"
+msgstr "Bình luận mới"
+
+#: src/components/pages/NotificationsPage.re.mjs:388
+msgid "Nothing here yet"
+msgstr "Chưa có gì ở đây"
+
+#: src/components/pages/NotificationsPage.re.mjs:270
+msgid "Notification"
+msgstr "Thông báo"
+
+#: src/components/pages/NotificationsPage.re.mjs:441
+msgid "Notifications"
+msgstr "Thông báo"
+
+#: src/components/pages/NotificationsPage.re.mjs:258
+msgid "Off Waitlist"
+msgstr "Ra khỏi Danh sách chờ"
+
+#: src/components/pages/NotificationsPage.re.mjs:261
+msgid "Removed from Event"
+msgstr "Đã xóa khỏi Sự kiện"
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+msgid "Status Update"
+msgstr "Cập nhật Trạng thái"
+
+#: src/components/pages/NotificationsPage.re.mjs:392
+msgid "You're all caught up"
+msgstr "Bạn đã xem hết rồi"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:282
+msgid "No notifications"
+msgstr "Không có thông báo"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:406
+msgid "View all notifications"
+msgstr "Xem tất cả thông báo"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

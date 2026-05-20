@@ -139,7 +139,15 @@ var Crosshair = {};
 
 var ArrowLeft = {};
 
+var ArrowRight = {};
+
+var ArrowUpRight = {};
+
+var CheckCircle2 = {};
+
 var CreditCard = {};
+
+var Printer = {};
 
 export {
   CalendarClock ,
@@ -211,6 +219,10 @@ export {
   CalendarDays ,
   Crosshair ,
   ArrowLeft ,
+  ArrowRight ,
+  ArrowUpRight ,
+  CheckCircle2 ,
   CreditCard ,
+  Printer ,
 }
 /* No side effect */

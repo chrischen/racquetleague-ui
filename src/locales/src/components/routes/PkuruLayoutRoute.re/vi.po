@@ -17,19 +17,39 @@ msgstr ""
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
-#: src/components/pages/PkuruLayout.re.mjs:152
-#: src/components/pages/PkuruLayout.re.mjs:182
+#: src/components/molecules/NotificationsPreview.re.mjs:314
+msgid "Added to Event"
+msgstr "Đã thêm vào Sự kiện"
+
+#: src/components/pages/PkuruLayout.re.mjs:153
+#: src/components/pages/PkuruLayout.re.mjs:183
 msgid "Badminton"
 msgstr "Cầu lông"
 
-#: src/components/pages/PkuruLayout.re.mjs:95
+#: src/components/pages/PkuruLayout.re.mjs:96
 msgid "Browse"
 msgstr "Duyệt"
 
-#: src/components/pages/PkuruLayout.re.mjs:105
-#: src/components/pages/PkuruLayout.re.mjs:378
+#: src/components/pages/PkuruLayout.re.mjs:106
+#: src/components/pages/PkuruLayout.re.mjs:419
 msgid "Discover"
 msgstr "Khám phá"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+msgid "Event Update"
+msgstr "Cập nhật Sự kiện"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:311
+msgid "Host Message"
+msgstr "Tin nhắn từ Chủ nhà"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:317
+msgid "Joined"
+msgstr "Đã tham gia"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:320
+msgid "Left Event"
+msgstr "Đã rời Sự kiện"
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
@@ -44,11 +64,11 @@ msgstr "Đang tải..."
 msgid "login with Line"
 msgstr "đăng nhập bằng Line"
 
-#: src/components/pages/PkuruLayout.re.mjs:388
+#: src/components/pages/PkuruLayout.re.mjs:429
 msgid "Map"
 msgstr "Bản đồ"
 
-#: src/components/pages/PkuruLayout.re.mjs:113
+#: src/components/pages/PkuruLayout.re.mjs:114
 msgid "Map view"
 msgstr "Xem bản đồ"
 
@@ -60,36 +80,68 @@ msgstr "Câu lạc bộ của tôi"
 msgid "My Clubs"
 msgstr "Câu lạc bộ của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:121
+#: src/components/pages/PkuruLayout.re.mjs:122
 msgid "My events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:415
+#: src/components/pages/PkuruLayout.re.mjs:456
 msgid "My Events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:403
+#: src/components/pages/PkuruLayout.re.mjs:444
 msgid "New"
 msgstr "Mới"
 
-#: src/components/pages/PkuruLayout.re.mjs:271
+#: src/components/molecules/NotificationsPreview.re.mjs:308
+msgid "New Comment"
+msgstr "Bình luận mới"
+
+#: src/components/pages/PkuruLayout.re.mjs:278
 msgid "New event"
 msgstr "Sự kiện mới"
 
-#: src/components/pages/PkuruLayout.re.mjs:146
-#: src/components/pages/PkuruLayout.re.mjs:174
+#: src/components/molecules/NotificationsPreview.re.mjs:282
+msgid "No notifications"
+msgstr "Không có thông báo"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:335
+msgid "Notification"
+msgstr "Thông báo"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:267
+msgid "Notifications"
+msgstr "Thông báo"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:323
+msgid "Off Waitlist"
+msgstr "Ra khỏi Danh sách chờ"
+
+#: src/components/pages/PkuruLayout.re.mjs:147
+#: src/components/pages/PkuruLayout.re.mjs:175
 msgid "Pickleball"
 msgstr "Pickleball"
 
-#: src/components/pages/PkuruLayout.re.mjs:129
-#: src/components/pages/PkuruLayout.re.mjs:425
+#: src/components/pages/PkuruLayout.re.mjs:130
+#: src/components/pages/PkuruLayout.re.mjs:466
 msgid "Profile"
 msgstr "Hồ sơ"
 
-#: src/components/pages/PkuruLayout.re.mjs:165
+#: src/components/pages/PkuruLayout.re.mjs:166
 msgid "Rankings"
 msgstr "Bảng xếp hạng"
 
-#: src/components/pages/PkuruLayout.re.mjs:140
+#: src/components/molecules/NotificationsPreview.re.mjs:326
+msgid "Removed from Event"
+msgstr "Đã xóa khỏi Sự kiện"
+
+#: src/components/pages/PkuruLayout.re.mjs:141
 msgid "Sports"
 msgstr "Thể thao"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+msgid "Status Update"
+msgstr "Cập nhật Trạng thái"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:406
+msgid "View all notifications"
+msgstr "Xem tất cả thông báo"

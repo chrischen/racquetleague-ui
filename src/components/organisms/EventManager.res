@@ -572,6 +572,9 @@ let make = (
   // Fullscreen round view state
   let (showFullScreenRound, setShowFullScreenRound) = React.useState(() => false)
 
+  // Printable draws view state
+  let (showPrintableDraws, setShowPrintableDraws) = React.useState(() => false)
+
   // Convert teams to team constraints for match generation
   let teamConstraints = React.useMemo(() => {
     let teamsArray = teams->NonEmptyArray.toArray
@@ -678,7 +681,9 @@ let make = (
       let roundMatches = roundsMap->Map.get(roundIndex)->Option.getOr([])
       roundsMap->Map.set(
         roundIndex,
-        roundMatches->Array.concat([(matchId, team1Players, team2Players, score, createdAt, synced)]),
+        roundMatches->Array.concat([
+          (matchId, team1Players, team2Players, score, createdAt, synced),
+        ]),
       )
     })
 
@@ -1296,12 +1301,13 @@ let make = (
             // Mark all scored matches as synced
             updateRounds(currentRounds =>
               currentRounds->Array.map(round =>
-                round->Array.map(m =>
-                  if m.score->Option.isSome {
-                    {...m, synced: true}
-                  } else {
-                    m
-                  }
+                round->Array.map(
+                  m =>
+                    if m.score->Option.isSome {
+                      {...m, synced: true}
+                    } else {
+                      m
+                    },
                 )
               )
             )
@@ -1869,56 +1875,66 @@ let make = (
                     let allMatches = rounds->Array.flatMap(r => r)
                     let syncedCount = allMatches->Array.filter(m => m.synced)->Array.length
                     let unsyncedCount =
-                      allMatches->Array.filter(m => m.score->Option.isSome && !m.synced)->Array.length
+                      allMatches
+                      ->Array.filter(m => m.score->Option.isSome && !m.synced)
+                      ->Array.length
                     <div className="mt-8 flex flex-col items-center gap-2">
-                      <button
-                        onClick={_ => handleSyncScores()->ignore}
-                        disabled={syncState == Syncing}
-                        className={switch syncState {
-                        | Idle => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl"
-                        | Syncing => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-500 text-white cursor-wait"
-                        | Success => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-green-600 text-white"
-                        | Error => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-red-600 text-white"
-                        }}>
-                        {switch syncState {
-                        | Idle =>
-                          <>
-                            <Lucide.RotateCcw className="w-5 h-5" />
-                            <span> {t`Sync Scores`} </span>
-                          </>
-                        | Syncing =>
-                          <>
-                            <Lucide.RotateCcw className="w-5 h-5 animate-spin" />
-                            <span> {t`Syncing... ${syncProgress->Int.toString}%`} </span>
-                          </>
-                        | Success =>
-                          <>
-                            <Lucide.Check className="w-5 h-5" />
-                            <span> {t`Scores Synced!`} </span>
-                          </>
-                        | Error =>
-                          <>
-                            <Lucide.AlertCircle className="w-5 h-5" />
-                            <span> {t`Sync Failed`} </span>
-                          </>
-                        }}
-                      </button>
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={_ => setShowPrintableDraws(_ => true)}
+                          className="flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-slate-800 hover:bg-slate-900 text-white hover:shadow-xl">
+                          <Lucide.Printer className="w-5 h-5" />
+                          <span> {t`Print Draws`} </span>
+                        </button>
+                        <button
+                          onClick={_ => handleSyncScores()->ignore}
+                          disabled={syncState == Syncing}
+                          className={switch syncState {
+                          | Idle => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl"
+                          | Syncing => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-500 text-white cursor-wait"
+                          | Success => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-green-600 text-white"
+                          | Error => "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-red-600 text-white"
+                          }}>
+                          {switch syncState {
+                          | Idle =>
+                            <>
+                              <Lucide.RotateCcw className="w-5 h-5" />
+                              <span> {t`Sync Scores`} </span>
+                            </>
+                          | Syncing =>
+                            <>
+                              <Lucide.RotateCcw className="w-5 h-5 animate-spin" />
+                              <span> {t`Syncing... ${syncProgress->Int.toString}%`} </span>
+                            </>
+                          | Success =>
+                            <>
+                              <Lucide.Check className="w-5 h-5" />
+                              <span> {t`Scores Synced!`} </span>
+                            </>
+                          | Error =>
+                            <>
+                              <Lucide.AlertCircle className="w-5 h-5" />
+                              <span> {t`Sync Failed`} </span>
+                            </>
+                          }}
+                        </button>
+                      </div>
                       {syncedCount > 0 || unsyncedCount > 0
                         ? <p className="text-sm text-slate-500">
                             <span className="font-semibold text-green-600">
                               {React.string(syncedCount->Int.toString)}
                             </span>
-                            {React.string(" " ++ ts`synced`)}
+                            {React.string(" " ++ (ts`synced`))}
                             {unsyncedCount > 0
                               ? <span className="text-amber-600 font-medium">
                                   {React.string(
-                                    " · " ++ unsyncedCount->Int.toString ++ " " ++ ts`to sync`,
+                                    " · " ++ unsyncedCount->Int.toString ++ " " ++ (ts`to sync`),
                                   )}
                                 </span>
                               : syncedCount > 0
                               ? <span className="text-green-600 font-medium">
-                                  {React.string(" · " ++ ts`all up to date`)}
-                                </span>
+                                {React.string(" · " ++ (ts`all up to date`))}
+                              </span>
                               : React.null}
                           </p>
                         : React.null}
@@ -1929,5 +1945,40 @@ let make = (
           </>
         : React.null}
     </div>
+    {showPrintableDraws
+      ? <PrintableDraws
+          rounds={rounds->Array.mapWithIndex((roundMatches, roundIdx) => {
+            {
+              PrintableDraws.roundNumber: roundIdx + 1,
+              matches: roundMatches->Array.mapWithIndex((entity, matchIdx) => {
+                let (team1Players, team2Players) = entity.match
+                {
+                  PrintableDraws.id: entity.id,
+                  courtNumber: matchIdx + 1,
+                  team1: {
+                    players: team1Players->Array.map(
+                      p => {
+                        PrintableDraws.id: p.id,
+                        number: p.intId,
+                        name: p.name,
+                      },
+                    ),
+                  },
+                  team2: {
+                    players: team2Players->Array.map(
+                      p => {
+                        PrintableDraws.id: p.id,
+                        number: p.intId,
+                        name: p.name,
+                      },
+                    ),
+                  },
+                }
+              }),
+            }
+          })}
+          onClose={() => setShowPrintableDraws(_ => false)}
+        />
+      : React.null}
   </>
 }

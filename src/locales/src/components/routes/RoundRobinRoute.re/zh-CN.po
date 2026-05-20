@@ -509,9 +509,9 @@ msgstr "您的浏览器版本过低，无法使用此功能。"
 #: src/components/organisms/RoundRobin.re.mjs:359
 #, fuzzy
 #~ msgid "Players"
-#~ msgstr "添加球员"
+#~ msgstr "寻找球员"
 
 #: src/components/organisms/RoundRobin.re.mjs:323
 #, fuzzy
 #~ msgid "Round Robin Tournament"
-#~ msgstr "轮次管理"
+#~ msgstr "循环赛抽签"

@@ -55,7 +55,7 @@ msgstr "プレイヤーシードを調整"
 msgid "Advance to Next Round"
 msgstr "次のラウンドへ進む"
 
-#: src/components/organisms/EventManager.re.mjs:1628
+#: src/components/organisms/EventManager.re.mjs:1654
 msgid "Advance to Round {0}"
 msgstr "ラウンド{0}に進む"
 
@@ -67,11 +67,11 @@ msgstr "アレックス・ジョンソン"
 msgid "All checked-in players are already in this round"
 msgstr "チェックイン済みのプレイヤーは全員このラウンドに参加しています"
 
-#: src/components/organisms/EventManager.re.mjs:1495
+#: src/components/organisms/EventManager.re.mjs:1521
 msgid "all up to date"
 msgstr "すべて最新"
 
-#: src/components/organisms/EventManager.re.mjs:1728
+#: src/components/organisms/EventManager.re.mjs:1754
 msgid "Anti-Team {0}"
 msgstr "アンチチーム {0}"
 
@@ -142,11 +142,11 @@ msgstr "最初のチームを作成して始めましょう"
 msgid "Current Round:"
 msgstr "現在のラウンド："
 
-#: src/components/organisms/EventManager.re.mjs:1917
+#: src/components/organisms/EventManager.re.mjs:1943
 msgid "Debug: OFF"
 msgstr "デバッグ：オフ"
 
-#: src/components/organisms/EventManager.re.mjs:1917
+#: src/components/organisms/EventManager.re.mjs:1943
 msgid "Debug: ON"
 msgstr "デバッグ：オン"
 
@@ -227,7 +227,7 @@ msgstr "組み合わせを生成"
 msgid "Guest Names (one per line)"
 msgstr "ゲスト名（1行に1名）"
 
-#: src/components/organisms/EventManager.re.mjs:1905
+#: src/components/organisms/EventManager.re.mjs:1931
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -252,10 +252,12 @@ msgid "Male"
 msgstr "男性"
 
 #: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "match"
 msgstr "試合"
 
 #: src/components/organisms/RoundSection.re.mjs:177
+#: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "matches"
 msgstr "試合"
 
@@ -292,6 +294,10 @@ msgstr "アンチチームはまだありません"
 #: src/components/molecules/PlayerReplaceModal.re.mjs:99
 msgid "No available players"
 msgstr "利用可能なプレイヤーがいません"
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
+msgstr "まだトーナメント表が生成されていません。"
 
 #: src/components/organisms/ScoreModal.re.mjs:236
 msgid "No Score"
@@ -337,6 +343,18 @@ msgstr "プレビュー（{0}名のゲスト{1}）"
 msgid "Previous Round"
 msgstr "前のラウンド"
 
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr "印刷"
+
+#: src/components/organisms/EventManager.re.mjs:1488
+msgid "Print Draws"
+msgstr "トーナメント表を印刷"
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr "印刷プレビュー"
+
 #: src/components/organisms/MatchCard.re.mjs:395
 msgid "Rebalance match"
 msgstr "試合を再調整"
@@ -361,7 +379,7 @@ msgstr "プレイヤーを交代"
 msgid "Replacing:"
 msgstr "交代するプレイヤー："
 
-#: src/components/organisms/EventManager.re.mjs:1890
+#: src/components/organisms/EventManager.re.mjs:1916
 msgid "Reset Storage"
 msgstr "ストレージをリセット"
 
@@ -375,6 +393,7 @@ msgstr "混合ペアでこのラウンドをリセット"
 
 #: src/components/organisms/RoundSection.re.mjs:521
 #: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/PrintableDraws.re.mjs:84
 #: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "ラウンド{0}"
@@ -416,7 +435,7 @@ msgstr "チームを保存"
 msgid "Score"
 msgstr "スコア"
 
-#: src/components/organisms/EventManager.re.mjs:1438
+#: src/components/organisms/EventManager.re.mjs:1443
 msgid "Scores Synced!"
 msgstr "スコアを同期しました！"
 
@@ -436,23 +455,23 @@ msgstr "戦略"
 msgid "Strategy:"
 msgstr "戦略："
 
-#: src/components/organisms/EventManager.re.mjs:1450
+#: src/components/organisms/EventManager.re.mjs:1455
 msgid "Sync Failed"
 msgstr "同期に失敗しました"
 
-#: src/components/organisms/EventManager.re.mjs:1414
+#: src/components/organisms/EventManager.re.mjs:1419
 msgid "Sync Scores"
 msgstr "スコアを同期"
 
-#: src/components/organisms/EventManager.re.mjs:1489
+#: src/components/organisms/EventManager.re.mjs:1515
 msgid "synced"
 msgstr "同期済み"
 
-#: src/components/organisms/EventManager.re.mjs:1426
+#: src/components/organisms/EventManager.re.mjs:1431
 msgid "Syncing... {0}%"
 msgstr "同期中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1359
+#: src/components/organisms/EventManager.re.mjs:1364
 msgid "Team {0}"
 msgstr "チーム {0}"
 
@@ -492,9 +511,13 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr "すべての今後のラウンドを削除して新しい試合を生成します"
 
-#: src/components/organisms/EventManager.re.mjs:1491
+#: src/components/organisms/EventManager.re.mjs:1517
 msgid "to sync"
 msgstr "同期する"
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
+msgstr "トーナメント表"
 
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Update Future Rounds"

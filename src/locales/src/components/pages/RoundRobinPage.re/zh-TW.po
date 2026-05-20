@@ -509,9 +509,9 @@ msgstr "您的瀏覽器版本過舊，無法使用此功能。"
 #: src/components/organisms/RoundRobin.re.mjs:359
 #, fuzzy
 #~ msgid "Players"
-#~ msgstr "新增球員"
+#~ msgstr "尋找球員"
 
 #: src/components/organisms/RoundRobin.re.mjs:323
 #, fuzzy
 #~ msgid "Round Robin Tournament"
-#~ msgstr "輪次管理"
+#~ msgstr "循環賽抽籤"

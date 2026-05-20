@@ -160,6 +160,7 @@ let calculateDurationHours = (startDateTime: Js.Date.t, endDateTime: Js.Date.t):
 let make = (
   ~eventId: option<string>=?,
   ~location,
+  ~stripeChargesEnabled: bool=false,
   ~prefilledValues: option<prefilledValues>=?,
   ~selectedClub: option<string>=?,
   ~selectedActivity: option<string>=?,
@@ -929,6 +930,56 @@ let make = (
                         placeholder={ts`Enter price`}
                         className="block w-full pl-8 pr-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
                       />
+                    </div>
+                    <div className="mt-3 space-y-2 text-sm">
+                      <div
+                        className={!stripeChargesEnabled
+                          ? "rounded-lg border border-lime-400 dark:border-lime-500 bg-lime-50 dark:bg-lime-950/30 p-3"
+                          : "rounded-lg border border-gray-200 dark:border-gray-700 p-3"}>
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-semibold text-gray-700 dark:text-gray-300">
+                            {t`Without Stripe`}
+                          </span>
+                          {!stripeChargesEnabled
+                            ? <span
+                                className="text-xs font-medium text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/50 px-1.5 py-0.5 rounded">
+                                {t`Active`}
+                              </span>
+                            : React.null}
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-400 mt-0.5">
+                          {t`A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list.`}
+                        </p>
+                      </div>
+                      <div
+                        className={stripeChargesEnabled
+                          ? "rounded-lg border border-lime-400 dark:border-lime-500 bg-lime-50 dark:bg-lime-950/30 p-3"
+                          : "rounded-lg border border-gray-200 dark:border-gray-700 p-3"}>
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-semibold text-gray-700 dark:text-gray-300">
+                            {t`With Stripe`}
+                          </span>
+                          {stripeChargesEnabled
+                            ? <span
+                                className="text-xs font-medium text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/50 px-1.5 py-0.5 rounded">
+                                {t`Active`}
+                              </span>
+                            : React.null}
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-400 mt-0.5">
+                          {t`The participation fee is charged automatically and transferred to your Stripe account.`}
+                          {!stripeChargesEnabled
+                            ? <>
+                                {" "->React.string}
+                                <a
+                                  href="/settings/profile"
+                                  className="text-blue-600 dark:text-blue-400 underline hover:opacity-80">
+                                  {t`Connect a Stripe account`}
+                                </a>
+                              </>
+                            : React.null}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 : React.null}

@@ -405,7 +405,30 @@ module ArrowLeft = {
     "ArrowLeft"
 }
 
+module ArrowRight = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ArrowRight"
+}
+
+module ArrowUpRight = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ArrowUpRight"
+}
+
+module CheckCircle2 = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "CheckCircle2"
+}
+
 module CreditCard = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CreditCard"
+}
+
+module Printer = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Printer"
 }

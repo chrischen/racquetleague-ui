@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"ZQKmps\":\"경기\",\"8Ou0p0\":\"경기\",\"KkQRNO\":\"아직 생성된 대진표가 없습니다.\",\"BZz12Q\":\"인쇄\",\"ReihZ7\":\"인쇄 미리보기\",\"xXKDhD\":[\"라운드 \",[\"0\"]],\"E1/Qg+\":\"토너먼트 대진표\"}");

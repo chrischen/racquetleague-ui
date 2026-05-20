@@ -36,6 +36,7 @@ var Fragment = {
 
 function PkEventRsvp(props) {
   var __connectionKey = props.connectionKey;
+  var __showRating = props.showRating;
   var __isPending = props.isPending;
   var waitlistPosition = props.waitlistPosition;
   var __isHost = props.isHost;
@@ -46,6 +47,7 @@ function PkEventRsvp(props) {
   var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
   var isHost = __isHost !== undefined ? __isHost : false;
   var isPending = __isPending !== undefined ? __isPending : false;
+  var showRating = __showRating !== undefined ? __showRating : true;
   var connectionKey = __connectionKey !== undefined ? __connectionKey : "RSVPSection_event_rsvps";
   var rsvp = use(props.rsvp);
   var isWaitlisted = Core__Option.isSome(waitlistPosition);
@@ -59,41 +61,22 @@ function PkEventRsvp(props) {
                                   })), (function (mu) {
                                 return Rating.guessDupr(mu).toFixed(2);
                               })), "—");
-                    var match = rsvp.payment;
-                    var paymentIndicator;
-                    var exit = 0;
-                    if (match !== undefined) {
-                      var match$1 = match.status;
-                      var currency = match.currency;
-                      if (match$1 !== 0) {
-                        if (match$1 !== 1) {
-                          exit = 1;
-                        } else {
-                          paymentIndicator = JsxRuntime.jsx(PaymentIndicator.make, {
-                                status: "Captured",
-                                currency: currency
-                              });
-                        }
-                      } else {
-                        paymentIndicator = JsxRuntime.jsx(PaymentIndicator.make, {
-                              status: "Authorized",
-                              currency: currency
-                            });
-                      }
-                    } else {
-                      exit = 1;
-                    }
-                    if (exit === 1) {
-                      paymentIndicator = Core__Option.getOr(rsvp.paid, 0) > 0 ? JsxRuntime.jsx(PaymentIndicator.make, {
-                              status: "Paid"
-                            }) : null;
-                    }
+                    var payment = rsvp.payment;
+                    var paymentIndicator = payment !== undefined ? JsxRuntime.jsx(PaymentIndicator.make, {
+                            payment: payment.fragmentRefs
+                          }) : (
+                        Core__Option.getOr(rsvp.paid, 0) > 0 ? JsxRuntime.jsx("span", {
+                                children: "✓",
+                                className: "text-[10px] font-semibold text-green-500 dark:text-green-400 leading-none",
+                                title: "Paid"
+                              }) : null
+                      );
                     if (isWaitlisted) {
                       var pos = Core__Option.getOr(waitlistPosition, 0);
-                      var match$2 = user.gender;
+                      var match = user.gender;
                       var tmp;
-                      tmp = match$2 !== undefined && (match$2 === "female" || match$2 === "male") ? (
-                          match$2 === "female" ? JsxRuntime.jsx("span", {
+                      tmp = match !== undefined && (match === "female" || match === "male") ? (
+                          match === "female" ? JsxRuntime.jsx("span", {
                                   children: "♀",
                                   className: "text-[9px] font-bold leading-none text-pink-400"
                                 }) : JsxRuntime.jsx("span", {
@@ -125,18 +108,18 @@ function PkEventRsvp(props) {
                                           className: "text-[11px] text-gray-700 dark:text-gray-400 leading-none flex-1"
                                         }),
                                     tmp,
-                                    JsxRuntime.jsx("span", {
-                                          children: skillStr,
-                                          className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none"
-                                        }),
+                                    showRating ? JsxRuntime.jsx("span", {
+                                            children: skillStr,
+                                            className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none"
+                                          }) : null,
                                     paymentIndicator
                                   ]
                                 });
                     }
-                    var match$3 = user.gender;
+                    var match$1 = user.gender;
                     var tmp$1;
-                    tmp$1 = match$3 !== undefined && (match$3 === "female" || match$3 === "male") ? (
-                        match$3 === "female" ? JsxRuntime.jsx("span", {
+                    tmp$1 = match$1 !== undefined && (match$1 === "female" || match$1 === "male") ? (
+                        match$1 === "female" ? JsxRuntime.jsx("span", {
                                 children: "♀",
                                 className: "text-[9px] font-bold leading-none text-pink-400"
                               }) : JsxRuntime.jsx("span", {
@@ -166,10 +149,10 @@ function PkEventRsvp(props) {
                                         className: "text-[11px] text-gray-900 dark:text-gray-100 leading-none"
                                       }),
                                   tmp$1,
-                                  JsxRuntime.jsx("span", {
-                                        children: skillStr,
-                                        className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none"
-                                      }),
+                                  showRating ? JsxRuntime.jsx("span", {
+                                          children: skillStr,
+                                          className: "font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none"
+                                        }) : null,
                                   paymentIndicator,
                                   isHost ? JsxRuntime.jsx("span", {
                                           children: "★",

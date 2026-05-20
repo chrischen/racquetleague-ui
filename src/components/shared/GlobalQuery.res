@@ -13,7 +13,11 @@ module Fragment = %relay(`
   }
 `)
 
-type query = option<RescriptRelay.fragmentRefs<[#GlobalQueryProvider_viewer | #NavViewer_viewer]>>
+type query = option<
+  RescriptRelay.fragmentRefs<
+    [#GlobalQueryProvider_viewer | #NavViewer_viewer | #NotificationsPreview_viewer],
+  >,
+>
 let context: React.Context.t<query> = React.createContext(None)
 
 module ContextProvider = {

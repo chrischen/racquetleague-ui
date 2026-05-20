@@ -12,10 +12,13 @@ module Types = {
     @live id: string,
     lineUsername: option<string>,
   }
-  and fragment_viewer = {
-    profile: option<fragment_viewer_profile>,
+  and fragment_viewer_user = {
     stripeAccountId: option<string>,
     stripeChargesEnabled: option<bool>,
+  }
+  and fragment_viewer = {
+    profile: option<fragment_viewer_profile>,
+    user: option<fragment_viewer_user>,
   }
   type fragment = {
     viewer: option<fragment_viewer>,
@@ -93,15 +96,26 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
         {
           "alias": null,
           "args": null,
-          "kind": "ScalarField",
-          "name": "stripeAccountId",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "stripeChargesEnabled",
+          "concreteType": "User",
+          "kind": "LinkedField",
+          "name": "user",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "stripeAccountId",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "stripeChargesEnabled",
+              "storageKey": null
+            }
+          ],
           "storageKey": null
         },
         {

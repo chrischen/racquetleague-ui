@@ -19,6 +19,7 @@ import * as PkuruSidebarClubs from "./PkuruSidebarClubs.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as ReactHelmetAsync from "react-helmet-async";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as NotificationsPreview from "../molecules/NotificationsPreview.re.mjs";
 import * as PkuruLayoutQuery_graphql from "../../__generated__/PkuruLayoutQuery_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
@@ -236,9 +237,15 @@ var BrandLogo = {
 function PkuruLayout$Topbar(props) {
   var viewer = props.viewer;
   var onToggleSidebar = props.onToggleSidebar;
+  var navigate = LangProvider.Router.useNavigate();
   var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
               return v.user;
             })));
+  var match = React.useState(function () {
+        return false;
+      });
+  var setShowBell = match[1];
+  var showBell = match[0];
   var hostHref = isLoggedIn ? "/events/create" : "/oauth-login?return=/events/create";
   return JsxRuntime.jsxs("div", {
               children: [
@@ -280,6 +287,51 @@ function PkuruLayout$Topbar(props) {
                                   }),
                               className: "hover:text-black dark:hover:text-white"
                             }),
+                        Core__Option.getOr(Core__Option.map(viewer, (function (v) {
+                                    return JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsxs("button", {
+                                                        children: [
+                                                          JsxRuntime.jsx(LucideReact.Bell, {
+                                                                className: "w-[18px] h-[18px]"
+                                                              }),
+                                                          Core__Option.getOr(Core__Option.map(v.viewerMetadata, (function (m) {
+                                                                      return m.unreadInboxCount;
+                                                                    })), 0) > 0 ? JsxRuntime.jsx("span", {
+                                                                  className: "absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-[#1e1f23]"
+                                                                }) : null
+                                                        ],
+                                                        className: "relative flex items-center justify-center hover:text-black dark:hover:text-white",
+                                                        title: t`Notifications`,
+                                                        onClick: (function (param) {
+                                                            setShowBell(function (prev) {
+                                                                  return !prev;
+                                                                });
+                                                          }),
+                                                        onMouseDown: (function (e) {
+                                                            e.stopPropagation();
+                                                          })
+                                                      }),
+                                                  JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                                                        children: showBell ? JsxRuntime.jsx(NotificationsPreview.make, {
+                                                                viewer: v.fragmentRefs,
+                                                                onClose: (function () {
+                                                                    setShowBell(function (param) {
+                                                                          return false;
+                                                                        });
+                                                                  }),
+                                                                onViewAll: (function () {
+                                                                    setShowBell(function (param) {
+                                                                          return false;
+                                                                        });
+                                                                    navigate("/notifications", undefined);
+                                                                  })
+                                                              }) : null
+                                                      })
+                                                ],
+                                                className: "relative flex items-center"
+                                              });
+                                  })), null),
                         isLoggedIn ? JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                 to: "/settings/profile",
                                 children: JsxRuntime.jsx(LucideReact.Settings, {

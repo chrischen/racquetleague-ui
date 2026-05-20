@@ -8,6 +8,7 @@ module Fragment = %relay(`
     price
     minRating
     viewerIsAdmin
+    tags
     club {
       id
     }
@@ -125,6 +126,12 @@ let make = (
   let maxRsvps = eventData.maxRsvps->Option.getOr(0)
   let minRating = eventData.minRating
   let activitySlug = eventData.activity->Option.flatMap(a => a.slug)
+
+  // Check if event is competitive (has "comp" tag)
+  let isCompetitive =
+    eventData.tags
+    ->Option.getOr([])
+    ->Array.some(t => t->String.toLowerCase == "comp")
 
   let isWaitlist = count => maxRsvps > 0 && count >= maxRsvps
 
@@ -462,6 +469,7 @@ let make = (
                 maxRating
                 isAdmin=eventData.viewerIsAdmin
                 isHost
+                showRating=isCompetitive
                 connectionKey="PkRSVPSection_event_rsvps"
               />
             })
@@ -506,6 +514,7 @@ let make = (
                 maxRating
                 isAdmin=eventData.viewerIsAdmin
                 waitlistPosition={i + 1}
+                showRating=isCompetitive
                 connectionKey="PkRSVPSection_event_rsvps"
               />
             )
@@ -545,6 +554,7 @@ let make = (
                 maxRating
                 isAdmin=eventData.viewerIsAdmin
                 isPending=true
+                showRating=isCompetitive
                 connectionKey="PkRSVPSection_event_rsvps"
               />
             )

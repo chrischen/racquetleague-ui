@@ -18,6 +18,7 @@ type prefilledValues = {
 let make: (
   ~eventId: string=?,
   ~location: RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_location]>,
+  ~stripeChargesEnabled: bool=?,
   ~prefilledValues: prefilledValues=?,
   ~selectedClub: string=?,
   ~selectedActivity: string=?,

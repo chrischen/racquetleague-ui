@@ -59,7 +59,7 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1628
+#: src/components/organisms/EventManager.re.mjs:1654
 msgid "Advance to Round {0}"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "All checked-in players are already in this round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1495
+#: src/components/organisms/EventManager.re.mjs:1521
 msgid "all up to date"
 msgstr ""
 
@@ -79,7 +79,7 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1728
+#: src/components/organisms/EventManager.re.mjs:1754
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -162,11 +162,11 @@ msgstr ""
 #~ msgid "Current Round: {0}"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1917
+#: src/components/organisms/EventManager.re.mjs:1943
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1917
+#: src/components/organisms/EventManager.re.mjs:1943
 msgid "Debug: ON"
 msgstr ""
 
@@ -259,7 +259,7 @@ msgstr ""
 msgid "Guest Names (one per line)"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1905
+#: src/components/organisms/EventManager.re.mjs:1931
 msgid "Help"
 msgstr ""
 
@@ -284,10 +284,12 @@ msgid "Male"
 msgstr ""
 
 #: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "match"
 msgstr ""
 
 #: src/components/organisms/RoundSection.re.mjs:177
+#: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "matches"
 msgstr ""
 
@@ -325,6 +327,10 @@ msgstr ""
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:99
 msgid "No available players"
+msgstr ""
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
 msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:236
@@ -379,6 +385,18 @@ msgstr ""
 msgid "Previous Round"
 msgstr ""
 
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:1488
+msgid "Print Draws"
+msgstr ""
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr ""
+
 #: src/components/molecules/DrawGenerator.re.mjs:67
 #~ msgid "Random"
 #~ msgstr ""
@@ -415,7 +433,7 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1890
+#: src/components/organisms/EventManager.re.mjs:1916
 msgid "Reset Storage"
 msgstr ""
 
@@ -429,6 +447,7 @@ msgstr ""
 
 #: src/components/organisms/RoundSection.re.mjs:521
 #: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/PrintableDraws.re.mjs:84
 #: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr ""
@@ -470,7 +489,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1438
+#: src/components/organisms/EventManager.re.mjs:1443
 msgid "Scores Synced!"
 msgstr ""
 
@@ -494,23 +513,23 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1450
+#: src/components/organisms/EventManager.re.mjs:1455
 msgid "Sync Failed"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1414
+#: src/components/organisms/EventManager.re.mjs:1419
 msgid "Sync Scores"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1489
+#: src/components/organisms/EventManager.re.mjs:1515
 msgid "synced"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1426
+#: src/components/organisms/EventManager.re.mjs:1431
 msgid "Syncing... {0}%"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1359
+#: src/components/organisms/EventManager.re.mjs:1364
 msgid "Team {0}"
 msgstr ""
 
@@ -550,8 +569,12 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1491
+#: src/components/organisms/EventManager.re.mjs:1517
 msgid "to sync"
+msgstr ""
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
 msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:130

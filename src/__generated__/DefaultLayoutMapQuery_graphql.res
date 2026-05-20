@@ -5,7 +5,7 @@ module Types = {
   @@warning("-30")
 
   type rec response_viewer = {
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GlobalQueryProvider_viewer | #NavViewer_viewer]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #GlobalQueryProvider_viewer | #NavViewer_viewer | #NotificationsPreview_viewer]>,
   }
   type response = {
     viewer: option<response_viewer>,
@@ -81,7 +81,15 @@ type relayOperationNode
 type operationType = RescriptRelay.queryNode<relayOperationNode>
 
 
-let node: operationType = %raw(json` {
+let node: operationType = %raw(json` (function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
+return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -105,6 +113,11 @@ let node: operationType = %raw(json` {
             "args": null,
             "kind": "FragmentSpread",
             "name": "NavViewer_viewer"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "NotificationsPreview_viewer"
           }
         ],
         "storageKey": null
@@ -135,13 +148,7 @@ let node: operationType = %raw(json` {
             "name": "user",
             "plural": false,
             "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
+              (v0/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -165,6 +172,74 @@ let node: operationType = %raw(json` {
               }
             ],
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": [
+              {
+                "kind": "Literal",
+                "name": "first",
+                "value": 5
+              }
+            ],
+            "concreteType": "EventMessageConnection",
+            "kind": "LinkedField",
+            "name": "inbox",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "EventMessageEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Message",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      (v0/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "topic",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "payload",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "createdAt",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "isRead",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": "inbox(first:5)"
           }
         ],
         "storageKey": null
@@ -172,14 +247,15 @@ let node: operationType = %raw(json` {
     ]
   },
   "params": {
-    "cacheID": "6fec952bfc1601205c201a531e1bb47a",
+    "cacheID": "d55a0e6d0ac7185a93143cc4e81e11da",
     "id": null,
     "metadata": {},
     "name": "DefaultLayoutMapQuery",
     "operationKind": "query",
-    "text": "query DefaultLayoutMapQuery {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n"
+    "text": "query DefaultLayoutMapQuery {\n  viewer {\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    ...NotificationsPreview_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment NotificationsPreview_viewer on Viewer {\n  inbox(first: 5) {\n    edges {\n      node {\n        id\n        topic\n        payload\n        createdAt\n        isRead\n      }\n    }\n  }\n}\n"
   }
-} `)
+};
+})() `)
 
 let load: (
   ~environment: RescriptRelay.Environment.t,

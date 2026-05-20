@@ -1,5 +1,6 @@
 module Fragment = %relay(`
   fragment PkEventRsvp_rsvp on Rsvp {
+    id
     user {
       id
       picture
@@ -15,9 +16,7 @@ module Fragment = %relay(`
     paid
     payment {
       id
-      status
-      currency
-      amount
+      ...PaymentIndicator_payment
     }
     ...RsvpOptions_rsvp
   }
@@ -33,6 +32,7 @@ let make = (
   ~isHost: bool=false,
   ~waitlistPosition: option<int>=?,
   ~isPending: bool=false,
+  ~showRating: bool=true,
   ~connectionKey: string="RSVPSection_event_rsvps",
 ) => {
   let rsvp = Fragment.use(rsvp)
@@ -51,10 +51,15 @@ let make = (
 
     // Payment indicator
     let paymentIndicator = switch rsvp.payment {
-    | Some({status: 1, currency}) => <PaymentIndicator status=Captured currency />
-    | Some({status: 0, currency}) => <PaymentIndicator status=Authorized currency />
-    | _ =>
-      rsvp.paid->Option.getOr(0) > 0 ? <PaymentIndicator status=Paid /> : React.null
+    | Some(payment) => <PaymentIndicator payment={payment.fragmentRefs} />
+    | None =>
+      rsvp.paid->Option.getOr(0) > 0
+        ? <span
+            title="Paid"
+            className="text-[10px] font-semibold text-green-500 dark:text-green-400 leading-none">
+            {"✓"->React.string}
+          </span>
+        : React.null
     }
 
     if isWaitlisted {
@@ -91,9 +96,11 @@ let make = (
           </span>
         | _ => React.null
         }}
-        <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none">
-          {skillStr->React.string}
-        </span>
+        {showRating
+          ? <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none">
+              {skillStr->React.string}
+            </span>
+          : React.null}
         {paymentIndicator}
       </RsvpOptions>
     } else {
@@ -129,9 +136,11 @@ let make = (
           </span>
         | _ => React.null
         }}
-        <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none">
-          {skillStr->React.string}
-        </span>
+        {showRating
+          ? <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500 leading-none">
+              {skillStr->React.string}
+            </span>
+          : React.null}
         {paymentIndicator}
         {isHost
           ? <span className="text-[11px] font-mono text-gray-400 dark:text-gray-500 leading-none">

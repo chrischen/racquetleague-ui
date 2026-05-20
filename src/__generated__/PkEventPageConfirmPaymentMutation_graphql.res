@@ -11,7 +11,7 @@ module Types = {
   @live
   and response_confirmRsvpPayment_rsvp_payment = {
     @live id: string,
-    status: int,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PaymentIndicator_payment]>,
   }
   @live
   and response_confirmRsvpPayment_rsvp = {
@@ -54,7 +54,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{}`
+    json`{"__root":{"confirmRsvpPayment_rsvp_payment":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = ()
@@ -68,7 +68,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{}`
+    json`{"__root":{"confirmRsvpPayment_rsvp_payment":{"f":""}}}`
   )
   @live
   let responseConverterMap = ()
@@ -105,93 +105,50 @@ v1 = {
   "kind": "LocalArgument",
   "name": "rsvpId"
 },
-v2 = {
+v2 = [
+  {
+    "kind": "Variable",
+    "name": "paymentIntentId",
+    "variableName": "paymentIntentId"
+  },
+  {
+    "kind": "Variable",
+    "name": "rsvpId",
+    "variableName": "rsvpId"
+  }
+],
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v3 = [
-  {
-    "alias": null,
-    "args": [
-      {
-        "kind": "Variable",
-        "name": "paymentIntentId",
-        "variableName": "paymentIntentId"
-      },
-      {
-        "kind": "Variable",
-        "name": "rsvpId",
-        "variableName": "rsvpId"
-      }
-    ],
-    "concreteType": "CreatePaymentResult",
-    "kind": "LinkedField",
-    "name": "confirmRsvpPayment",
-    "plural": false,
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "Rsvp",
-        "kind": "LinkedField",
-        "name": "rsvp",
-        "plural": false,
-        "selections": [
-          (v2/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "Payment",
-            "kind": "LinkedField",
-            "name": "payment",
-            "plural": false,
-            "selections": [
-              (v2/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "status",
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "listType",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "Error",
-        "kind": "LinkedField",
-        "name": "errors",
-        "plural": true,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "message",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      }
-    ],
-    "storageKey": null
-  }
-];
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "listType",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "Error",
+  "kind": "LinkedField",
+  "name": "errors",
+  "plural": true,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "message",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": [
@@ -201,7 +158,50 @@ return {
     "kind": "Fragment",
     "metadata": null,
     "name": "PkEventPageConfirmPaymentMutation",
-    "selections": (v3/*: any*/),
+    "selections": [
+      {
+        "alias": null,
+        "args": (v2/*: any*/),
+        "concreteType": "CreatePaymentResult",
+        "kind": "LinkedField",
+        "name": "confirmRsvpPayment",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "Rsvp",
+            "kind": "LinkedField",
+            "name": "rsvp",
+            "plural": false,
+            "selections": [
+              (v3/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Payment",
+                "kind": "LinkedField",
+                "name": "payment",
+                "plural": false,
+                "selections": [
+                  (v3/*: any*/),
+                  {
+                    "args": null,
+                    "kind": "FragmentSpread",
+                    "name": "PaymentIndicator_payment"
+                  }
+                ],
+                "storageKey": null
+              },
+              (v4/*: any*/)
+            ],
+            "storageKey": null
+          },
+          (v5/*: any*/)
+        ],
+        "storageKey": null
+      }
+    ],
     "type": "Mutation",
     "abstractKey": null
   },
@@ -213,15 +213,67 @@ return {
     ],
     "kind": "Operation",
     "name": "PkEventPageConfirmPaymentMutation",
-    "selections": (v3/*: any*/)
+    "selections": [
+      {
+        "alias": null,
+        "args": (v2/*: any*/),
+        "concreteType": "CreatePaymentResult",
+        "kind": "LinkedField",
+        "name": "confirmRsvpPayment",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "Rsvp",
+            "kind": "LinkedField",
+            "name": "rsvp",
+            "plural": false,
+            "selections": [
+              (v3/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Payment",
+                "kind": "LinkedField",
+                "name": "payment",
+                "plural": false,
+                "selections": [
+                  (v3/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "status",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "currency",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              (v4/*: any*/)
+            ],
+            "storageKey": null
+          },
+          (v5/*: any*/)
+        ],
+        "storageKey": null
+      }
+    ]
   },
   "params": {
-    "cacheID": "4230a1e807e8a0e3cb61522c91351984",
+    "cacheID": "3ee98f14f77849c826f9a90c33323894",
     "id": null,
     "metadata": {},
     "name": "PkEventPageConfirmPaymentMutation",
     "operationKind": "mutation",
-    "text": "mutation PkEventPageConfirmPaymentMutation(\n  $rsvpId: ID!\n  $paymentIntentId: String!\n) {\n  confirmRsvpPayment(rsvpId: $rsvpId, paymentIntentId: $paymentIntentId) {\n    rsvp {\n      id\n      payment {\n        id\n        status\n      }\n      listType\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation PkEventPageConfirmPaymentMutation(\n  $rsvpId: ID!\n  $paymentIntentId: String!\n) {\n  confirmRsvpPayment(rsvpId: $rsvpId, paymentIntentId: $paymentIntentId) {\n    rsvp {\n      id\n      payment {\n        id\n        ...PaymentIndicator_payment\n      }\n      listType\n    }\n    errors {\n      message\n    }\n  }\n}\n\nfragment PaymentIndicator_payment on Payment {\n  status\n  currency\n}\n"
   }
 };
 })() `)

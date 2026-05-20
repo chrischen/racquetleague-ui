@@ -30,6 +30,14 @@ msgstr "Thu tiền thanh toán"
 msgid "Move to Pending List"
 msgstr "Chuyển vào danh sách chờ duyệt"
 
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "Thanh toán đã được ủy quyền"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "Thanh toán đã được thu"
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr "Hoàn tiền"

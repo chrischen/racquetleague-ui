@@ -17,19 +17,39 @@ msgstr ""
 msgid "(logout)"
 msgstr "(로그아웃)"
 
-#: src/components/pages/PkuruLayout.re.mjs:152
-#: src/components/pages/PkuruLayout.re.mjs:182
+#: src/components/molecules/NotificationsPreview.re.mjs:314
+msgid "Added to Event"
+msgstr "이벤트에 추가됨"
+
+#: src/components/pages/PkuruLayout.re.mjs:153
+#: src/components/pages/PkuruLayout.re.mjs:183
 msgid "Badminton"
 msgstr "배드민턴"
 
-#: src/components/pages/PkuruLayout.re.mjs:95
+#: src/components/pages/PkuruLayout.re.mjs:96
 msgid "Browse"
 msgstr "둘러보기"
 
-#: src/components/pages/PkuruLayout.re.mjs:105
-#: src/components/pages/PkuruLayout.re.mjs:378
+#: src/components/pages/PkuruLayout.re.mjs:106
+#: src/components/pages/PkuruLayout.re.mjs:419
 msgid "Discover"
 msgstr "탐색"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+msgid "Event Update"
+msgstr "이벤트 업데이트"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:311
+msgid "Host Message"
+msgstr "호스트 메시지"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:317
+msgid "Joined"
+msgstr "참가함"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:320
+msgid "Left Event"
+msgstr "이벤트 나감"
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
@@ -44,11 +64,11 @@ msgstr "로딩 중..."
 msgid "login with Line"
 msgstr "Line으로 로그인"
 
-#: src/components/pages/PkuruLayout.re.mjs:388
+#: src/components/pages/PkuruLayout.re.mjs:429
 msgid "Map"
 msgstr "지도"
 
-#: src/components/pages/PkuruLayout.re.mjs:113
+#: src/components/pages/PkuruLayout.re.mjs:114
 msgid "Map view"
 msgstr "지도 보기"
 
@@ -60,36 +80,68 @@ msgstr "내 클럽"
 msgid "My Clubs"
 msgstr "내 클럽"
 
-#: src/components/pages/PkuruLayout.re.mjs:121
+#: src/components/pages/PkuruLayout.re.mjs:122
 msgid "My events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:415
+#: src/components/pages/PkuruLayout.re.mjs:456
 msgid "My Events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:403
+#: src/components/pages/PkuruLayout.re.mjs:444
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/components/pages/PkuruLayout.re.mjs:271
+#: src/components/molecules/NotificationsPreview.re.mjs:308
+msgid "New Comment"
+msgstr "새 댓글"
+
+#: src/components/pages/PkuruLayout.re.mjs:278
 msgid "New event"
 msgstr "새 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:146
-#: src/components/pages/PkuruLayout.re.mjs:174
+#: src/components/molecules/NotificationsPreview.re.mjs:282
+msgid "No notifications"
+msgstr "알림 없음"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:335
+msgid "Notification"
+msgstr "알림"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:267
+msgid "Notifications"
+msgstr "알림"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:323
+msgid "Off Waitlist"
+msgstr "대기열 해제"
+
+#: src/components/pages/PkuruLayout.re.mjs:147
+#: src/components/pages/PkuruLayout.re.mjs:175
 msgid "Pickleball"
 msgstr "피클볼"
 
-#: src/components/pages/PkuruLayout.re.mjs:129
-#: src/components/pages/PkuruLayout.re.mjs:425
+#: src/components/pages/PkuruLayout.re.mjs:130
+#: src/components/pages/PkuruLayout.re.mjs:466
 msgid "Profile"
 msgstr "프로필"
 
-#: src/components/pages/PkuruLayout.re.mjs:165
+#: src/components/pages/PkuruLayout.re.mjs:166
 msgid "Rankings"
 msgstr "순위"
 
-#: src/components/pages/PkuruLayout.re.mjs:140
+#: src/components/molecules/NotificationsPreview.re.mjs:326
+msgid "Removed from Event"
+msgstr "이벤트에서 제거됨"
+
+#: src/components/pages/PkuruLayout.re.mjs:141
 msgid "Sports"
 msgstr "스포츠"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+msgid "Status Update"
+msgstr "상태 업데이트"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:406
+msgid "View all notifications"
+msgstr "모든 알림 보기"

@@ -15,6 +15,11 @@ const mainRoutes: RouteObject[] =
       handle: "src/components/routes/PkViewerEventsRoute.gen.tsx",
     },
     {
+      path: "notifications",
+      lazy: () => import("./components/routes/NotificationsRoute.gen"),
+      handle: "src/components/routes/NotificationsRoute.gen.tsx",
+    },
+    {
       path: "e/:activitySlug/map",
       lazy: () => import("./components/routes/EventsMapRoute.gen"),
       handle: "src/components/routes/EventsMapRoute.gen.tsx",
@@ -206,11 +211,6 @@ const mainRoutes: RouteObject[] =
           lazy: () => import("./components/routes/LeagueEventRoute.gen"),
           handle: "src/components/routes/LeagueEventRoute.gen.tsx",
         },
-        {
-          path: "events/:eventId/:activitySlug/manager",
-          lazy: () => import("./components/routes/EventManagerRoute.gen"),
-          handle: "src/components/routes/EventManagerRoute.gen.tsx",
-        },
       ]
     },
     {
@@ -275,6 +275,11 @@ export const routes: RouteObject[] = [
         path: "oauth-login",
         lazy: () => import("./components/routes/LoginRoute.gen"),
         handle: "src/components/routes/LoginRoute.gen.tsx",
+      },
+      {
+        path: "league/events/:eventId/:activitySlug/manager",
+        lazy: () => import("./components/routes/EventManagerRoute.gen"),
+        handle: "src/components/routes/EventManagerRoute.gen.tsx",
       },
       {
         path: "league",

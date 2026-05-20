@@ -106,3 +106,19 @@ body {
 #fairplay {
 	/* -webkit-touch-callout: none !important; */
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-root,
+  .print-root * {
+    visibility: visible;
+  }
+  .print-root {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}

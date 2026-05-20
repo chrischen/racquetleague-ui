@@ -4012,6 +4012,150 @@ msgstr "取り消し中..."
 msgid "Your RSVP is awaiting admin approval"
 msgstr "あなたの参加登録は管理者の承認待ちです"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "A small hold will be placed on your card and fully refunded after the event."
+msgstr "カードに少額の仮押さえが行われ、イベント後に全額返金されます。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Authorize deposit"
+msgstr "デポジットを承認する"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancel RSVP"
+msgstr "参加をキャンセルする"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:415
+msgid "Cancellation deadline passed."
+msgstr "キャンセル期限を過ぎています。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancelling..."
+msgstr "キャンセル中..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:177
+msgid "Pay {priceStr}"
+msgstr "{priceStr} を支払う"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Payment required to confirm your spot"
+msgstr "スポットを確定するには支払いが必要です"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
+msgstr "参加者が登録する際に、デポジットの承認が収集されます。実際には料金は請求されず、イベント終了後に承認は自動的に解除されます。参加費は現地で手動にて徴収してください。また、RSVPリストで参加者の名前をクリックすることで、手動承認することもできます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:855
+msgid "Connect a Stripe account"
+msgstr "Stripeアカウントを連携する"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+msgid "The participation fee is charged immediately and transferred to your Stripe account."
+msgstr "参加費は即時請求され、あなたのStripeアカウントに振り込まれます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:838
+msgid "With Stripe"
+msgstr "Stripeあり"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+msgid "Without Stripe"
+msgstr "Stripeなし"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をクリックすることで、手動で承認できます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
+msgstr "参加費は自動的に請求され、あなたのStripeアカウントに振り込まれます。"
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
+msgstr "まだトーナメント表が生成されていません。"
+
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr "印刷"
+
+#: src/components/organisms/EventManager.re.mjs:1488
+msgid "Print Draws"
+msgstr "トーナメント表を印刷"
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr "印刷プレビュー"
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
+msgstr "トーナメント表"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "支払い承認済み"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "支払い確定済み"
+
+#: src/components/pages/NotificationsPage.re.mjs:249
+msgid "Added to Event"
+msgstr "イベントに追加されました"
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+msgid "Event Update"
+msgstr "イベント更新"
+
+#: src/components/pages/NotificationsPage.re.mjs:246
+msgid "Host Message"
+msgstr "ホストメッセージ"
+
+#: src/components/pages/NotificationsPage.re.mjs:437
+msgid "Inbox"
+msgstr "受信トレイ"
+
+#: src/components/pages/NotificationsPage.re.mjs:255
+msgid "Left Event"
+msgstr "イベントを退出しました"
+
+#: src/components/pages/NotificationsPage.re.mjs:243
+msgid "New Comment"
+msgstr "新しいコメント"
+
+#: src/components/pages/NotificationsPage.re.mjs:388
+msgid "Nothing here yet"
+msgstr "まだ何もありません"
+
+#: src/components/pages/NotificationsPage.re.mjs:270
+msgid "Notification"
+msgstr "通知"
+
+#: src/components/pages/NotificationsPage.re.mjs:441
+msgid "Notifications"
+msgstr "通知"
+
+#: src/components/pages/NotificationsPage.re.mjs:258
+msgid "Off Waitlist"
+msgstr "キャンセル待ち解除"
+
+#: src/components/pages/NotificationsPage.re.mjs:261
+msgid "Removed from Event"
+msgstr "イベントから削除されました"
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+msgid "Status Update"
+msgstr "ステータス更新"
+
+#: src/components/pages/NotificationsPage.re.mjs:392
+msgid "You're all caught up"
+msgstr "すべて確認済みです"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:282
+msgid "No notifications"
+msgstr "通知はありません"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:406
+msgid "View all notifications"
+msgstr "すべての通知を見る"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -4037,6 +4181,31 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
 #~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
+#: src/components/organisms/RoundRobin.re.mjs:363
+#, fuzzy
+#~ msgid "Add Players"
+#~ msgstr "プレイヤーを追加"
+
+#: src/components/organisms/RoundRobin.re.mjs:346
+#, fuzzy
+#~ msgid "Debug Mode"
+#~ msgstr "デバッグ：オン"
+
+#: src/components/organisms/RoundRobin.re.mjs:451
+#, fuzzy
+#~ msgid "No players added yet"
+#~ msgstr "まだプレーヤーがいません"
+
+#: src/components/organisms/RoundRobin.re.mjs:323
+#, fuzzy
+#~ msgid "Round Robin Tournament"
+#~ msgstr "ラウンドロビン組み合わせ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
+
 #: src/components/pages/ClubMembersPage.re.mjs:179
 #, fuzzy
 #~ msgid "Are you sure you want to remove"
@@ -4045,7 +4214,7 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/pages/DefaultLayout2.re.mjs:144
 #, fuzzy
 #~ msgid "My Profile"
-#~ msgstr "私のプロフィールを見る"
+#~ msgstr "プロフィール"
 
 #: src/components/molecules/AddToCalendar.re.mjs:14
 #, fuzzy
@@ -4087,32 +4256,7 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgid "Where to find players in Tokyo"
 #~ msgstr "東京でプレイヤーを見つける方法"
 
-#: src/components/organisms/RoundRobin.re.mjs:363
-#, fuzzy
-#~ msgid "Add Players"
-#~ msgstr "プレイヤーを追加"
-
-#: src/components/organisms/RoundRobin.re.mjs:346
-#, fuzzy
-#~ msgid "Debug Mode"
-#~ msgstr "デバッグ：オン"
-
-#: src/components/organisms/RoundRobin.re.mjs:451
-#, fuzzy
-#~ msgid "No players added yet"
-#~ msgstr "まだプレーヤーがいません"
-
-#: src/components/organisms/RoundRobin.re.mjs:323
-#, fuzzy
-#~ msgid "Round Robin Tournament"
-#~ msgstr "総当たり戦"
-
 #: src/components/pages/LeaguePlayerPage.re.mjs:767
 #, fuzzy
 #~ msgid "Showing stats from"
 #~ msgstr "{selectedClubName} のみの統計を表示中"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
-#, fuzzy
-#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
-#~ msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"

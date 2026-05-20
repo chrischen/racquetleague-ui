@@ -55,7 +55,7 @@ msgstr "플레이어 시드 조정"
 msgid "Advance to Next Round"
 msgstr "다음 라운드로 진행"
 
-#: src/components/organisms/EventManager.re.mjs:1628
+#: src/components/organisms/EventManager.re.mjs:1654
 msgid "Advance to Round {0}"
 msgstr "라운드 {0}으로 진행"
 
@@ -67,11 +67,11 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "체크인한 모든 플레이어가 이미 이 라운드에 있습니다"
 
-#: src/components/organisms/EventManager.re.mjs:1495
+#: src/components/organisms/EventManager.re.mjs:1521
 msgid "all up to date"
 msgstr "모두 최신 상태"
 
-#: src/components/organisms/EventManager.re.mjs:1728
+#: src/components/organisms/EventManager.re.mjs:1754
 msgid "Anti-Team {0}"
 msgstr "안티팀 {0}"
 
@@ -142,11 +142,11 @@ msgstr "시작하려면 첫 번째 팀을 만드세요"
 msgid "Current Round:"
 msgstr "현재 라운드:"
 
-#: src/components/organisms/EventManager.re.mjs:1917
+#: src/components/organisms/EventManager.re.mjs:1943
 msgid "Debug: OFF"
 msgstr "디버그: 끄기"
 
-#: src/components/organisms/EventManager.re.mjs:1917
+#: src/components/organisms/EventManager.re.mjs:1943
 msgid "Debug: ON"
 msgstr "디버그: 켜기"
 
@@ -227,7 +227,7 @@ msgstr "대진 생성"
 msgid "Guest Names (one per line)"
 msgstr "게스트 이름 (줄당 하나)"
 
-#: src/components/organisms/EventManager.re.mjs:1905
+#: src/components/organisms/EventManager.re.mjs:1931
 msgid "Help"
 msgstr "도움말"
 
@@ -252,10 +252,12 @@ msgid "Male"
 msgstr "남성"
 
 #: src/components/organisms/RoundSection.re.mjs:176
+#: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "match"
 msgstr "경기"
 
 #: src/components/organisms/RoundSection.re.mjs:177
+#: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "matches"
 msgstr "경기"
 
@@ -290,6 +292,10 @@ msgstr "아직 안티팀이 없습니다"
 #: src/components/molecules/PlayerReplaceModal.re.mjs:99
 msgid "No available players"
 msgstr "가능한 플레이어 없음"
+
+#: src/components/organisms/PrintableDraws.re.mjs:169
+msgid "No draws generated yet."
+msgstr "아직 생성된 대진표가 없습니다."
 
 #: src/components/organisms/ScoreModal.re.mjs:236
 msgid "No Score"
@@ -327,7 +333,7 @@ msgstr ""
 "플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 "
 "나뉩니다."
 
-#: src/components/pages/EventManagerPage.re.mjs:85
+#: src/components/pages/EventManagerPage.re.mjs:88
 msgid "please login before managing the session"
 msgstr "세션을 관리하기 전에 로그인하세요"
 
@@ -338,6 +344,18 @@ msgstr "미리보기 ({0} 게스트{1})"
 #: src/components/molecules/RoundHeader.re.mjs:35
 msgid "Previous Round"
 msgstr "이전 라운드"
+
+#: src/components/organisms/PrintableDraws.re.mjs:39
+msgid "Print"
+msgstr "인쇄"
+
+#: src/components/organisms/EventManager.re.mjs:1488
+msgid "Print Draws"
+msgstr "대진표 인쇄"
+
+#: src/components/organisms/PrintableDraws.re.mjs:26
+msgid "Print Preview"
+msgstr "인쇄 미리보기"
 
 #: src/components/organisms/MatchCard.re.mjs:395
 msgid "Rebalance match"
@@ -363,7 +381,7 @@ msgstr "플레이어 교체"
 msgid "Replacing:"
 msgstr "교체 중:"
 
-#: src/components/organisms/EventManager.re.mjs:1890
+#: src/components/organisms/EventManager.re.mjs:1916
 msgid "Reset Storage"
 msgstr "저장소 초기화"
 
@@ -377,6 +395,7 @@ msgstr "혼합 성별 페어로 이 라운드 초기화"
 
 #: src/components/organisms/RoundSection.re.mjs:521
 #: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/PrintableDraws.re.mjs:84
 #: src/components/organisms/FullScreenRoundView.re.mjs:32
 msgid "Round {0}"
 msgstr "라운드 {0}"
@@ -418,7 +437,7 @@ msgstr "팀 저장"
 msgid "Score"
 msgstr "점수"
 
-#: src/components/organisms/EventManager.re.mjs:1438
+#: src/components/organisms/EventManager.re.mjs:1443
 msgid "Scores Synced!"
 msgstr "점수 동기화됨!"
 
@@ -438,23 +457,23 @@ msgstr "전략"
 msgid "Strategy:"
 msgstr "전략:"
 
-#: src/components/organisms/EventManager.re.mjs:1450
+#: src/components/organisms/EventManager.re.mjs:1455
 msgid "Sync Failed"
 msgstr "동기화 실패"
 
-#: src/components/organisms/EventManager.re.mjs:1414
+#: src/components/organisms/EventManager.re.mjs:1419
 msgid "Sync Scores"
 msgstr "점수 동기화"
 
-#: src/components/organisms/EventManager.re.mjs:1489
+#: src/components/organisms/EventManager.re.mjs:1515
 msgid "synced"
 msgstr "동기화됨"
 
-#: src/components/organisms/EventManager.re.mjs:1426
+#: src/components/organisms/EventManager.re.mjs:1431
 msgid "Syncing... {0}%"
 msgstr "동기화 중... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1359
+#: src/components/organisms/EventManager.re.mjs:1364
 msgid "Team {0}"
 msgstr "팀 {0}"
 
@@ -494,9 +513,13 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr "향후 모든 라운드가 삭제되고 새 경기가 생성됩니다"
 
-#: src/components/organisms/EventManager.re.mjs:1491
+#: src/components/organisms/EventManager.re.mjs:1517
 msgid "to sync"
 msgstr "동기화 필요"
+
+#: src/components/organisms/PrintableDraws.re.mjs:66
+msgid "Tournament Draws"
+msgstr "토너먼트 대진표"
 
 #: src/components/molecules/DrawGenerator.re.mjs:130
 msgid "Update Future Rounds"
