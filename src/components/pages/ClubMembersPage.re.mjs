@@ -149,50 +149,96 @@ var UpdateMembershipStatusMutation = {
 function ClubMembersPage$MemberItem(props) {
   var onApprove = props.onApprove;
   var onRemove = props.onRemove;
+  var viewerIsAdmin = props.viewerIsAdmin;
   var membership = props.membership;
   var isAdmin = Core__Option.getOr(membership.isAdmin, false);
   var isOwner = Core__Option.getOr(membership.isOwner, false);
+  var match = membership.status;
+  var isPending = match !== undefined && (match === "Pending" || match === "Active" || match === "Rejected") && match === "Pending" ? true : false;
   var member = membership.user;
   if (member === undefined) {
     return null;
   }
-  var tmp;
-  if (props.viewerIsAdmin && !isOwner) {
-    var match = membership.status;
-    var tmp$1;
-    tmp$1 = match !== undefined && (match === "Pending" || match === "Active" || match === "Rejected") && match === "Pending" ? JsxRuntime.jsx(Button.Button.make, {
-            color: "indigo",
-            children: t`Approve`,
-            onClick: (function (param) {
-                onApprove();
-              })
-          }) : null;
-    tmp = JsxRuntime.jsxs("div", {
-          children: [
-            tmp$1,
-            JsxRuntime.jsx(ConfirmButton.make, {
-                  button: JsxRuntime.jsx(Button.Button.make, {
-                        color: "red",
-                        children: t`Remove`
+  if (isPending) {
+    var username = member.lineUsername;
+    return JsxRuntime.jsxs("div", {
+                children: [
+                  JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsx("img", {
+                                className: "h-10 w-10 rounded-full",
+                                alt: Core__Option.getOr(member.fullName, "Member"),
+                                src: Core__Option.getOr(member.picture, "/default-avatar.png")
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("h3", {
+                                        children: Core__Option.getOr(member.fullName, "Unknown Member"),
+                                        className: "text-sm font-medium text-gray-900 dark:text-gray-100"
+                                      }),
+                                  username !== undefined ? JsxRuntime.jsx("p", {
+                                          children: "@" + username,
+                                          className: "text-sm text-gray-500 dark:text-gray-400"
+                                        }) : null
+                                ]
+                              })
+                        ],
+                        className: "flex items-center space-x-4"
                       }),
-                  title: t`Remove member?`,
-                  description: t`Are you sure you want to remove ${Core__Option.getOr(member.fullName, "this member")} from the club?`,
-                  onConfirmed: (function () {
-                      onRemove();
-                    })
-                })
-          ],
-          className: "flex gap-2"
-        });
-  } else {
-    tmp = null;
+                  JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsx("span", {
+                                children: "Pending",
+                                className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200"
+                              }),
+                          viewerIsAdmin ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                  children: [
+                                    JsxRuntime.jsx(Button.Button.make, {
+                                          color: "indigo",
+                                          children: t`Approve`,
+                                          onClick: (function (param) {
+                                              onApprove();
+                                            })
+                                        }),
+                                    JsxRuntime.jsx(ConfirmButton.make, {
+                                          button: JsxRuntime.jsx(Button.Button.make, {
+                                                color: "red",
+                                                children: t`Remove`
+                                              }),
+                                          title: t`Remove member?`,
+                                          description: t`Are you sure you want to remove ${Core__Option.getOr(member.fullName, "this member")} from the club?`,
+                                          onConfirmed: (function () {
+                                              onRemove();
+                                            })
+                                        })
+                                  ]
+                                }) : null
+                        ],
+                        className: "flex items-center gap-2"
+                      })
+                ],
+                className: "flex items-center justify-between py-4 px-6"
+              });
   }
-  var username = member.lineUsername;
+  var username$1 = member.lineUsername;
   return JsxRuntime.jsx(SwipeAction.make, {
-              rightActions: Caml_option.some(tmp),
+              rightActions: Caml_option.some(viewerIsAdmin && !isOwner ? JsxRuntime.jsx("div", {
+                          children: JsxRuntime.jsx(ConfirmButton.make, {
+                                button: JsxRuntime.jsx(Button.Button.make, {
+                                      color: "red",
+                                      children: t`Remove`
+                                    }),
+                                title: t`Remove member?`,
+                                description: t`Are you sure you want to remove ${Core__Option.getOr(member.fullName, "this member")} from the club?`,
+                                onConfirmed: (function () {
+                                    onRemove();
+                                  })
+                              }),
+                          className: "flex gap-2"
+                        }) : null),
               partialThreshold: 120,
               fullThreshold: 260,
-              className: "cursor-pointer border-b border-gray-200",
+              className: "border-b border-gray-200 dark:border-[#2a2b30]",
               hoverPartialSide: "right",
               children: JsxRuntime.jsxs("div", {
                     children: [
@@ -207,11 +253,11 @@ function ClubMembersPage$MemberItem(props) {
                                     children: [
                                       JsxRuntime.jsx("h3", {
                                             children: Core__Option.getOr(member.fullName, "Unknown Member"),
-                                            className: "text-sm font-medium text-gray-900"
+                                            className: "text-sm font-medium text-gray-900 dark:text-gray-100"
                                           }),
-                                      username !== undefined ? JsxRuntime.jsx("p", {
-                                              children: "@" + username,
-                                              className: "text-sm text-gray-500"
+                                      username$1 !== undefined ? JsxRuntime.jsx("p", {
+                                              children: "@" + username$1,
+                                              className: "text-sm text-gray-500 dark:text-gray-400"
                                             }) : null
                                     ]
                                   })
@@ -222,14 +268,14 @@ function ClubMembersPage$MemberItem(props) {
                             children: [
                               isOwner ? JsxRuntime.jsx("span", {
                                       children: "Owner",
-                                      className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800"
+                                      className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200"
                                     }) : null,
                               isAdmin && !isOwner ? JsxRuntime.jsx("span", {
                                       children: "Admin",
-                                      className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                                      className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200"
                                     }) : null
                             ],
-                            className: "flex items-center space-x-2"
+                            className: "flex items-center gap-2"
                           })
                     ],
                     className: "flex items-center justify-between py-4 px-6"
@@ -334,11 +380,11 @@ function ClubMembersPage$ClubMembersData(props) {
                     children: [
                       JsxRuntime.jsx("h4", {
                             children: t`Pending`,
-                            className: "text-sm font-semibold text-gray-700 mb-2"
+                            className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                           }),
                       JsxRuntime.jsx("div", {
                             children: renderMembers(pendingMembers),
-                            className: "divide-y divide-gray-200 rounded-md border border-gray-200 overflow-hidden"
+                            className: "divide-y divide-gray-200 dark:divide-[#2a2b30] rounded-md border border-gray-200 dark:border-[#2a2b30] overflow-hidden"
                           })
                     ],
                     className: "mb-6"
@@ -346,9 +392,9 @@ function ClubMembersPage$ClubMembersData(props) {
             otherMembers.length > 0 ? JsxRuntime.jsx("div", {
                     children: JsxRuntime.jsx("div", {
                           children: renderMembers(otherMembers),
-                          className: "divide-y divide-gray-200 rounded-md border border-gray-200 overflow-hidden"
+                          className: "divide-y divide-gray-200 dark:divide-[#2a2b30] rounded-md border border-gray-200 dark:border-[#2a2b30] overflow-hidden"
                         }),
-                    className: pendingMembers.length > 0 ? "pt-4 border-t border-gray-200" : ""
+                    className: pendingMembers.length > 0 ? "pt-4 border-t border-gray-200 dark:border-[#2a2b30]" : ""
                   }) : null
           ]
         });
@@ -361,7 +407,7 @@ function ClubMembersPage$ClubMembersData(props) {
                 children: t`No members found`,
                 className: "text-sm"
               }),
-          className: "py-8 text-center text-gray-500"
+          className: "py-8 text-center text-gray-500 dark:text-gray-400"
         });
   }
   return JsxRuntime.jsx("div", {
@@ -372,7 +418,7 @@ function ClubMembersPage$ClubMembersData(props) {
                         }),
                     className: "px-4 py-5 sm:p-6"
                   }),
-              className: "bg-white shadow overflow-hidden sm:rounded-md"
+              className: "bg-white dark:bg-[#1e1f23] shadow overflow-hidden sm:rounded-md"
             });
 }
 
@@ -406,11 +452,11 @@ function ClubMembersPage(props) {
                                                                       to: "/clubs/" + Core__Option.getOr(club.slug, ""),
                                                                       children: Core__Option.getOr(club.name, "?")
                                                                     }),
-                                                                className: "text-base leading-6 text-gray-500"
+                                                                className: "text-base leading-6 text-gray-500 dark:text-gray-400"
                                                               }),
                                                           JsxRuntime.jsx("div", {
                                                                 children: t`Members`,
-                                                                className: "mt-1 text-2xl font-semibold leading-6 text-gray-900"
+                                                                className: "mt-1 text-2xl font-semibold leading-6 text-gray-900 dark:text-white"
                                                               })
                                                         ]
                                                       }),

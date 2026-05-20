@@ -96,35 +96,14 @@ module MemberItem = {
     let ts = Lingui.UtilString.t
     let isAdmin = membership.isAdmin->Option.getOr(false)
     let isOwner = membership.isOwner->Option.getOr(false)
+    let isPending = switch membership.status {
+    | Some(Pending) => true
+    | _ => false
+    }
 
     switch membership.user {
     | Some(member) =>
-      <SwipeAction
-        className="cursor-pointer border-b border-gray-200"
-        rightActions={viewerIsAdmin && !isOwner
-          ? <div className="flex gap-2">
-              {switch membership.status {
-              | Some(Pending) =>
-                <Button.Button color=#indigo onClick={_ => onApprove()}>
-                  {t`Approve`}
-                </Button.Button>
-              | _ => React.null
-              }}
-              <ConfirmButton
-                button={<Button.Button color=#red> {t`Remove`} </Button.Button>}
-                title={t`Remove member?`}
-                description={(
-                  ts`Are you sure you want to remove ${member.fullName->Option.getOr(
-                    "this member",
-                  )} from the club?`
-                )->React.string}
-                onConfirmed={_ => onRemove()}
-              />
-            </div>
-          : React.null}
-        partialThreshold=120
-        fullThreshold=260
-        hoverPartialSide="right">
+      if isPending {
         <div className="flex items-center justify-between py-4 px-6">
           <div className="flex items-center space-x-4">
             <img
@@ -133,32 +112,99 @@ module MemberItem = {
               alt={member.fullName->Option.getOr("Member")}
             />
             <div>
-              <h3 className="text-sm font-medium text-gray-900">
+              <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">
                 {member.fullName->Option.getOr("Unknown Member")->React.string}
               </h3>
               {switch member.lineUsername {
               | Some(username) =>
-                <p className="text-sm text-gray-500"> {`@${username}`->React.string} </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {`@${username}`->React.string}
+                </p>
               | None => React.null
               }}
             </div>
           </div>
-          <div className="flex items-center space-x-2">
-            {isOwner
-              ? <span
-                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
-                  {"Owner"->React.string}
-                </span>
-              : React.null}
-            {isAdmin && !isOwner
-              ? <span
-                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                  {"Admin"->React.string}
-                </span>
+          <div className="flex items-center gap-2">
+            <span
+              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200">
+              {"Pending"->React.string}
+            </span>
+            {viewerIsAdmin
+              ? <>
+                  <Button.Button color=#indigo onClick={_ => onApprove()}>
+                    {t`Approve`}
+                  </Button.Button>
+                  <ConfirmButton
+                    button={<Button.Button color=#red> {t`Remove`} </Button.Button>}
+                    title={t`Remove member?`}
+                    description={(
+                      ts`Are you sure you want to remove ${member.fullName->Option.getOr(
+                        "this member",
+                      )} from the club?`
+                    )->React.string}
+                    onConfirmed={_ => onRemove()}
+                  />
+                </>
               : React.null}
           </div>
         </div>
-      </SwipeAction>
+      } else {
+        <SwipeAction
+          className="border-b border-gray-200 dark:border-[#2a2b30]"
+          rightActions={viewerIsAdmin && !isOwner
+            ? <div className="flex gap-2">
+                <ConfirmButton
+                  button={<Button.Button color=#red> {t`Remove`} </Button.Button>}
+                  title={t`Remove member?`}
+                  description={(
+                    ts`Are you sure you want to remove ${member.fullName->Option.getOr(
+                      "this member",
+                    )} from the club?`
+                  )->React.string}
+                  onConfirmed={_ => onRemove()}
+                />
+              </div>
+            : React.null}
+          partialThreshold=120
+          fullThreshold=260
+          hoverPartialSide="right">
+          <div className="flex items-center justify-between py-4 px-6">
+            <div className="flex items-center space-x-4">
+              <img
+                className="h-10 w-10 rounded-full"
+                src={member.picture->Option.getOr("/default-avatar.png")}
+                alt={member.fullName->Option.getOr("Member")}
+              />
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                  {member.fullName->Option.getOr("Unknown Member")->React.string}
+                </h3>
+                {switch member.lineUsername {
+                | Some(username) =>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {`@${username}`->React.string}
+                  </p>
+                | None => React.null
+                }}
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              {isOwner
+                ? <span
+                    className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200">
+                    {"Owner"->React.string}
+                  </span>
+                : React.null}
+              {isAdmin && !isOwner
+                ? <span
+                    className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200">
+                    {"Admin"->React.string}
+                  </span>
+                : React.null}
+            </div>
+          </div>
+        </SwipeAction>
+      }
     | None => React.null
     }
   }
@@ -223,12 +269,12 @@ module ClubMembersData = {
       )->RescriptRelay.Disposable.ignore
     }
 
-    <div className="bg-white shadow overflow-hidden sm:rounded-md">
+    <div className="bg-white dark:bg-[#1e1f23] shadow overflow-hidden sm:rounded-md">
       <div className="px-4 py-5 sm:p-6">
         <div className="">
           {switch data.clubMembers.edges {
           | None | Some([]) =>
-            <div className="py-8 text-center text-gray-500">
+            <div className="py-8 text-center text-gray-500 dark:text-gray-400">
               <p className="text-sm"> {t`No members found`} </p>
             </div>
           | Some(edges) => {
@@ -273,9 +319,9 @@ module ClubMembersData = {
               <>
                 {pendingMembers->Array.length > 0
                   ? <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-700 mb-2"> {t`Pending`} </h4>
+                      <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"> {t`Pending`} </h4>
                       <div
-                        className="divide-y divide-gray-200 rounded-md border border-gray-200 overflow-hidden">
+                        className="divide-y divide-gray-200 dark:divide-[#2a2b30] rounded-md border border-gray-200 dark:border-[#2a2b30] overflow-hidden">
                         {renderMembers(pendingMembers)}
                       </div>
                     </div>
@@ -283,10 +329,10 @@ module ClubMembersData = {
                 {otherMembers->Array.length > 0
                   ? <div
                       className={pendingMembers->Array.length > 0
-                        ? "pt-4 border-t border-gray-200"
+                        ? "pt-4 border-t border-gray-200 dark:border-[#2a2b30]"
                         : ""}>
                       <div
-                        className="divide-y divide-gray-200 rounded-md border border-gray-200 overflow-hidden">
+                        className="divide-y divide-gray-200 dark:divide-[#2a2b30] rounded-md border border-gray-200 dark:border-[#2a2b30] overflow-hidden">
                         {renderMembers(otherMembers)}
                       </div>
                     </div>
@@ -329,12 +375,12 @@ let make = () => {
 
         <Layout.Container>
           <h1>
-            <div className="text-base leading-6 text-gray-500">
+            <div className="text-base leading-6 text-gray-500 dark:text-gray-400">
               <LangProvider.Router.Link to={"/clubs/" ++ club.slug->Option.getOr("")}>
                 {club.name->Option.getOr("?")->React.string}
               </LangProvider.Router.Link>
             </div>
-            <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900">
+            <div className="mt-1 text-2xl font-semibold leading-6 text-gray-900 dark:text-white">
               {t`Members`}
             </div>
           </h1>

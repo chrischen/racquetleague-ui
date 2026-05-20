@@ -23,14 +23,26 @@ let relativeTimeStr = (dateStr: string): string => {
   }
 }
 
-type decodedPayload = {
-  actorUserName: option<string>,
-  activityType: option<string>,
-  details: option<string>,
+// Matches EventUpdated.re backend DTO
+type eventUpdatedNotification = {
   eventId: option<string>,
-  eventName: option<string>,
-  clubSlug: option<string>,
+  eventName: string,
+  activityType: string,
+  actorUserName: string,
+  details: option<string>,
 }
+
+// Matches UserJoinedClub.re backend DTO
+type userJoinedClubNotification = {
+  clubSlug: string,
+  clubName: string,
+  actorUserName: string,
+  membershipStatus: string,
+}
+
+type decodedNotification =
+  | EventUpdated(eventUpdatedNotification)
+  | UserJoinedClub(userJoinedClubNotification)
 
 let decodeId = (json: Js.Json.t): option<string> =>
   switch json->Js.Json.decodeArray {
@@ -45,18 +57,44 @@ let decodeId = (json: Js.Json.t): option<string> =>
   | None => None
   }
 
-let decodePayload = (s: string): option<decodedPayload> =>
+let decodeEventUpdated = (d: Js.Dict.t<Js.Json.t>): option<eventUpdatedNotification> =>
+  switch (
+    d->Js.Dict.get("activityType")->Option.flatMap(Js.Json.decodeString(_)),
+    d->Js.Dict.get("actorUserName")->Option.flatMap(Js.Json.decodeString(_)),
+    d->Js.Dict.get("eventName")->Option.flatMap(Js.Json.decodeString(_)),
+  ) {
+  | (Some(activityType), Some(actorUserName), Some(eventName)) =>
+    Some({
+      activityType,
+      actorUserName,
+      eventName,
+      eventId: d->Js.Dict.get("eventId")->Option.flatMap(decodeId),
+      details: d->Js.Dict.get("details")->Option.flatMap(Js.Json.decodeString(_)),
+    })
+  | _ => None
+  }
+
+let decodeUserJoinedClub = (d: Js.Dict.t<Js.Json.t>): option<userJoinedClubNotification> =>
+  switch (
+    d->Js.Dict.get("clubSlug")->Option.flatMap(Js.Json.decodeString(_)),
+    d->Js.Dict.get("clubName")->Option.flatMap(Js.Json.decodeString(_)),
+    d->Js.Dict.get("actorUserName")->Option.flatMap(Js.Json.decodeString(_)),
+    d->Js.Dict.get("membershipStatus")->Option.flatMap(Js.Json.decodeString(_)),
+  ) {
+  | (Some(clubSlug), Some(clubName), Some(actorUserName), Some(membershipStatus)) =>
+    Some({clubSlug, clubName, actorUserName, membershipStatus})
+  | _ => None
+  }
+
+let decodeNotification = (topic: string, payloadStr: string): option<decodedNotification> =>
   try {
-    switch s->Js.Json.parseExn->Js.Json.decodeObject {
+    switch payloadStr->Js.Json.parseExn->Js.Json.decodeObject {
     | Some(d) =>
-      Some({
-        actorUserName: d->Js.Dict.get("actorUserName")->Option.flatMap(Js.Json.decodeString(_)),
-        activityType: d->Js.Dict.get("activityType")->Option.flatMap(Js.Json.decodeString(_)),
-        details: d->Js.Dict.get("details")->Option.flatMap(Js.Json.decodeString(_)),
-        eventId: d->Js.Dict.get("eventId")->Option.flatMap(decodeId),
-        eventName: d->Js.Dict.get("eventName")->Option.flatMap(Js.Json.decodeString(_)),
-        clubSlug: d->Js.Dict.get("clubSlug")->Option.flatMap(Js.Json.decodeString(_)),
-      })
+      let parts = topic->Js.String2.split(".")
+      switch parts->Array.get(2) {
+      | Some("user_joined_club") => decodeUserJoinedClub(d)->Option.map(n => UserJoinedClub(n))
+      | _ => decodeEventUpdated(d)->Option.map(n => EventUpdated(n))
+      }
     | None => None
     }
   } catch {
@@ -65,15 +103,8 @@ let decodePayload = (s: string): option<decodedPayload> =>
 
 let activityTypeFromTopic = (topic: string): string => {
   let parts = topic->Js.String2.split(".")
-  parts->Array.get(1)->Option.getOr(topic)
+  parts->Array.get(2)->Option.getOr(topic)
 }
-
-let entityUrl = (activityType: string, decoded: option<decodedPayload>): option<string> =>
-  switch activityType {
-  | "user_joined_club" =>
-    decoded->Option.flatMap(p => p.clubSlug)->Option.map(slug => "/clubs/" ++ slug ++ "/members")
-  | _ => decoded->Option.flatMap(p => p.eventId)->Option.map(id => "/events/" ++ id)
-  }
 
 let synthesizeTitle = (activityType: string, ~details: option<string>): string => {
   let ts = Lingui.UtilString.t
@@ -180,17 +211,27 @@ let make = (
   ~onDismiss: unit => unit=?,
   ~onNavigate: string => unit=?,
 ) => {
-  let decoded = payload->Option.flatMap(decodePayload)
-  let actor = decoded->Option.flatMap(d => d.actorUserName)
-  let details = decoded->Option.flatMap(d => d.details)->Option.getOr("")
-  let eventName = decoded->Option.flatMap(d => d.eventName)
-  let activityType =
-    decoded
-    ->Option.flatMap(d => d.activityType)
-    ->Option.getOr(activityTypeFromTopic(topic))
-  let url = entityUrl(activityType, decoded)
-  let title = synthesizeTitle(activityType, ~details=decoded->Option.flatMap(d => d.details))
+  let notification = payload->Option.flatMap(s => decodeNotification(topic, s))
+  let (activityType, actor, detailsOpt, contextName, url) = switch notification {
+  | Some(EventUpdated(n)) => (
+      n.activityType,
+      Some(n.actorUserName),
+      n.details,
+      Some(n.eventName),
+      n.eventId->Option.map(id => "/events/" ++ id),
+    )
+  | Some(UserJoinedClub(n)) => (
+      "user_joined_club",
+      Some(n.actorUserName),
+      None,
+      Some(n.clubName),
+      Some("/clubs/" ++ n.clubSlug ++ "/members"),
+    )
+  | None => (activityTypeFromTopic(topic), None, None, None, None)
+  }
+  let title = synthesizeTitle(activityType, ~details=detailsOpt)
   let timeStr = relativeTimeStr(createdAt)
+  let detailsStr = detailsOpt->Option.getOr("")
 
   let subInfo =
     <>
@@ -204,7 +245,7 @@ let make = (
         </p>
       )
       ->Option.getOr(React.null)}
-      {eventName
+      {contextName
       ->Option.map(name =>
         <p
           className="font-mono text-[10px] text-gray-400 dark:text-gray-500 mt-0.5 inline-flex items-center gap-1">
@@ -213,12 +254,12 @@ let make = (
         </p>
       )
       ->Option.getOr(React.null)}
-      {details != ""
+      {detailsStr != ""
         ? <p
             className={compact
               ? "text-[11px] text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 leading-snug"
               : "text-xs text-gray-600 dark:text-gray-400 mt-0.5 leading-snug"}>
-            {details->React.string}
+            {detailsStr->React.string}
           </p>
         : React.null}
     </>
@@ -255,7 +296,7 @@ let make = (
 
   let content =
     <>
-      <Icon activityType details={decoded->Option.flatMap(d => d.details)} compact />
+      <Icon activityType details=detailsOpt compact />
       {info}
     </>
 
@@ -263,13 +304,8 @@ let make = (
     let baseClass = "relative flex items-start gap-2.5 px-4 py-3 transition-colors hover:bg-gray-50 dark:hover:bg-[#2a2b30]"
     switch (url, onNavigate) {
     | (Some(u), Some(nav)) =>
-      <div className={baseClass ++ " cursor-pointer"} onClick={_ => nav(u)}>
-        {content}
-      </div>
-    | _ =>
-      <div className=baseClass>
-        {content}
-      </div>
+      <div className={baseClass ++ " cursor-pointer"} onClick={_ => nav(u)}> {content} </div>
+    | _ => <div className=baseClass> {content} </div>
     }
   } else {
     <div

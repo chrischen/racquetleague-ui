@@ -46,21 +46,69 @@ function decodeId(json) {
   
 }
 
-function decodePayload(s) {
+function decodeEventUpdated(d) {
+  var match = Core__Option.flatMap(Js_dict.get(d, "activityType"), Js_json.decodeString);
+  var match$1 = Core__Option.flatMap(Js_dict.get(d, "actorUserName"), Js_json.decodeString);
+  var match$2 = Core__Option.flatMap(Js_dict.get(d, "eventName"), Js_json.decodeString);
+  if (match !== undefined && match$1 !== undefined && match$2 !== undefined) {
+    return {
+            eventId: Core__Option.flatMap(Js_dict.get(d, "eventId"), decodeId),
+            eventName: match$2,
+            activityType: match,
+            actorUserName: match$1,
+            details: Core__Option.flatMap(Js_dict.get(d, "details"), Js_json.decodeString)
+          };
+  }
+  
+}
+
+function decodeUserJoinedClub(d) {
+  var match = Core__Option.flatMap(Js_dict.get(d, "clubSlug"), Js_json.decodeString);
+  var match$1 = Core__Option.flatMap(Js_dict.get(d, "clubName"), Js_json.decodeString);
+  var match$2 = Core__Option.flatMap(Js_dict.get(d, "actorUserName"), Js_json.decodeString);
+  var match$3 = Core__Option.flatMap(Js_dict.get(d, "membershipStatus"), Js_json.decodeString);
+  if (match !== undefined && match$1 !== undefined && match$2 !== undefined && match$3 !== undefined) {
+    return {
+            clubSlug: match,
+            clubName: match$1,
+            actorUserName: match$2,
+            membershipStatus: match$3
+          };
+  }
+  
+}
+
+function decodeNotification(topic, payloadStr) {
   try {
-    var d = Js_json.decodeObject(JSON.parse(s));
-    if (d !== undefined) {
-      return {
-              actorUserName: Core__Option.flatMap(Js_dict.get(d, "actorUserName"), Js_json.decodeString),
-              activityType: Core__Option.flatMap(Js_dict.get(d, "activityType"), Js_json.decodeString),
-              details: Core__Option.flatMap(Js_dict.get(d, "details"), Js_json.decodeString),
-              eventId: Core__Option.flatMap(Js_dict.get(d, "eventId"), decodeId),
-              eventName: Core__Option.flatMap(Js_dict.get(d, "eventName"), Js_json.decodeString),
-              clubSlug: Core__Option.flatMap(Js_dict.get(d, "clubSlug"), Js_json.decodeString)
-            };
-    } else {
+    var d = Js_json.decodeObject(JSON.parse(payloadStr));
+    if (d === undefined) {
       return ;
     }
+    var parts = topic.split(".");
+    var match = parts[2];
+    var exit = 0;
+    if (match !== undefined) {
+      if (match === "user_joined_club") {
+        return Core__Option.map(decodeUserJoinedClub(d), (function (n) {
+                      return {
+                              TAG: "UserJoinedClub",
+                              _0: n
+                            };
+                    }));
+      }
+      exit = 1;
+    } else {
+      exit = 1;
+    }
+    if (exit === 1) {
+      return Core__Option.map(decodeEventUpdated(d), (function (n) {
+                    return {
+                            TAG: "EventUpdated",
+                            _0: n
+                          };
+                  }));
+    }
+    
   }
   catch (exn){
     return ;
@@ -69,23 +117,7 @@ function decodePayload(s) {
 
 function activityTypeFromTopic(topic) {
   var parts = topic.split(".");
-  return Core__Option.getOr(parts[1], topic);
-}
-
-function entityUrl(activityType, decoded) {
-  if (activityType === "user_joined_club") {
-    return Core__Option.map(Core__Option.flatMap(decoded, (function (p) {
-                      return p.clubSlug;
-                    })), (function (slug) {
-                  return "/clubs/" + slug + "/members";
-                }));
-  } else {
-    return Core__Option.map(Core__Option.flatMap(decoded, (function (p) {
-                      return p.eventId;
-                    })), (function (id) {
-                  return "/events/" + id;
-                }));
-  }
+  return Core__Option.getOr(parts[2], topic);
 }
 
 function synthesizeTitle(activityType, details) {
@@ -247,34 +279,58 @@ function NotificationRow(props) {
   var onNavigate = props.onNavigate;
   var onDismiss = props.onDismiss;
   var __compact = props.compact;
+  var topic = props.topic;
   var compact = __compact !== undefined ? __compact : false;
-  var decoded = Core__Option.flatMap(props.payload, decodePayload);
-  var actor = Core__Option.flatMap(decoded, (function (d) {
-          return d.actorUserName;
+  var notification = Core__Option.flatMap(props.payload, (function (s) {
+          return decodeNotification(topic, s);
         }));
-  var details = Core__Option.getOr(Core__Option.flatMap(decoded, (function (d) {
-              return d.details;
-            })), "");
-  var eventName = Core__Option.flatMap(decoded, (function (d) {
-          return d.eventName;
-        }));
-  var activityType = Core__Option.getOr(Core__Option.flatMap(decoded, (function (d) {
-              return d.activityType;
-            })), activityTypeFromTopic(props.topic));
-  var url = entityUrl(activityType, decoded);
-  var title = synthesizeTitle(activityType, Core__Option.flatMap(decoded, (function (d) {
-              return d.details;
-            })));
+  var match;
+  if (notification !== undefined) {
+    if (notification.TAG === "EventUpdated") {
+      var n = notification._0;
+      match = [
+        n.activityType,
+        n.actorUserName,
+        n.details,
+        n.eventName,
+        Core__Option.map(n.eventId, (function (id) {
+                return "/events/" + id;
+              }))
+      ];
+    } else {
+      var n$1 = notification._0;
+      match = [
+        "user_joined_club",
+        n$1.actorUserName,
+        undefined,
+        n$1.clubName,
+        "/clubs/" + n$1.clubSlug + "/members"
+      ];
+    }
+  } else {
+    match = [
+      activityTypeFromTopic(topic),
+      undefined,
+      undefined,
+      undefined,
+      undefined
+    ];
+  }
+  var url = match[4];
+  var detailsOpt = match[2];
+  var activityType = match[0];
+  var title = synthesizeTitle(activityType, detailsOpt);
   var timeStr = relativeTimeStr(props.createdAt);
+  var detailsStr = Core__Option.getOr(detailsOpt, "");
   var subInfo = JsxRuntime.jsxs(JsxRuntime.Fragment, {
         children: [
-          Core__Option.getOr(Core__Option.map(actor, (function (a) {
+          Core__Option.getOr(Core__Option.map(match[1], (function (a) {
                       return JsxRuntime.jsx("p", {
                                   children: a,
                                   className: compact ? "text-[11px] font-medium text-gray-700 dark:text-gray-300 mt-0.5 leading-snug" : "text-xs font-medium text-gray-700 dark:text-gray-300 mt-0.5"
                                 });
                     })), null),
-          Core__Option.getOr(Core__Option.map(eventName, (function (name) {
+          Core__Option.getOr(Core__Option.map(match[3], (function (name) {
                       return JsxRuntime.jsxs("p", {
                                   children: [
                                     JsxRuntime.jsx(LucideReact.Calendar, {
@@ -285,8 +341,8 @@ function NotificationRow(props) {
                                   className: "font-mono text-[10px] text-gray-400 dark:text-gray-500 mt-0.5 inline-flex items-center gap-1"
                                 });
                     })), null),
-          details !== "" ? JsxRuntime.jsx("p", {
-                  children: details,
+          detailsStr !== "" ? JsxRuntime.jsx("p", {
+                  children: detailsStr,
                   className: compact ? "text-[11px] text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 leading-snug" : "text-xs text-gray-600 dark:text-gray-400 mt-0.5 leading-snug"
                 }) : null
         ]
@@ -335,9 +391,7 @@ function NotificationRow(props) {
         children: [
           JsxRuntime.jsx(NotificationRow$Icon, {
                 activityType: activityType,
-                details: Core__Option.flatMap(decoded, (function (d) {
-                        return d.details;
-                      })),
+                details: detailsOpt,
                 compact: compact
               }),
           info
@@ -390,9 +444,10 @@ var make = NotificationRow;
 export {
   relativeTimeStr ,
   decodeId ,
-  decodePayload ,
+  decodeEventUpdated ,
+  decodeUserJoinedClub ,
+  decodeNotification ,
   activityTypeFromTopic ,
-  entityUrl ,
   synthesizeTitle ,
   Icon ,
   make ,
