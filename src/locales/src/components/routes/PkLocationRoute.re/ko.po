@@ -62,11 +62,6 @@ msgstr "← 이전"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 스킬"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr "카드에 소액이 임시 청구되며 이벤트 종료 후 전액 환불됩니다."
-
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
 msgstr "종목"
@@ -96,12 +91,17 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/StripePaymentEmbed.tsx:90
 msgid "Authorize deposit"
 msgstr "보증금 승인"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
 msgstr "균형"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:54
+msgid "Cancel"
+msgstr "취소"
 
 #: src/components/pages/PkEventPage.re.mjs:479
 msgid "cancel event"
@@ -155,6 +155,10 @@ msgstr "자리 확보"
 msgid "Claim spot · {0}"
 msgstr "참가 신청 · {0}"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:90
+msgid "Complete payment"
+msgstr "결제 완료"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "프로필 완성하기"
@@ -183,6 +187,10 @@ msgstr "경기 삭제"
 #: src/components/organisms/MatchCard.re.mjs:432
 msgid "Delete this match?"
 msgstr "이 경기를 삭제하시겠습니까?"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "자리 확정을 위해 보증금이 필요합니다"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -238,7 +246,7 @@ msgstr "균등"
 msgid "event"
 msgstr "이벤트"
 
-#: src/components/pages/PkEventPage.re.mjs:729
+#: src/components/pages/PkEventPage.re.mjs:730
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -406,6 +414,10 @@ msgstr "참가자"
 msgid "Pay {priceStr}"
 msgstr "{priceStr} 결제"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Pay now"
+msgstr "지금 결제"
+
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment authorized"
 msgstr "결제 승인됨"
@@ -413,6 +425,10 @@ msgstr "결제 승인됨"
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment captured"
 msgstr "결제 완료됨"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:34
+msgid "Payment failed"
+msgstr "결제 실패"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:187
 msgid "Payment required to confirm your spot"
@@ -448,6 +464,10 @@ msgstr "밝히지 않음"
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "비공개"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Processing…"
+msgstr "처리 중…"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -583,6 +603,22 @@ msgid ""
 "from the organizer."
 msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유하지 마세요."
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"이것은 보증금 예치만 해당됩니다 — 실제 결제는 이벤트 당일 주최자에게 해야 합"
+"니다. 예치금은 이벤트 종료 후 해제됩니다."
+
+#: src/components/organisms/StripePaymentEmbed.tsx:96
+msgid ""
+"This is a deposit hold only. You still need to pay the organizer in full at "
+"the event. The hold will be released after the event."
+msgstr ""
+"이것은 보증금 예치만 해당됩니다. 이벤트 당일 주최자에게 전액을 직접 결제하셔"
+"야 합니다. 예치금은 이벤트 종료 후 해제됩니다."
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "다른 사람들에게 이렇게 보입니다"
@@ -698,6 +734,12 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #: src/components/pages/PkEventPage.re.mjs:380
 #~ msgid "{cancelTimeLeft} left to cancel"
 #~ msgstr "취소 가능 시간 {cancelTimeLeft} 남음"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr "카드에 소액이 임시 청구되며 이벤트 종료 후 전액 환불됩니다."
 
 #: src/components/pages/PkEventPage.re.mjs:379
 #~ msgid "Cancellation deadline passed"

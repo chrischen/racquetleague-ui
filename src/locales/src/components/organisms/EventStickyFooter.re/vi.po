@@ -13,13 +13,6 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr ""
-"Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy đủ "
-"sau sự kiện."
-
 #: src/components/organisms/EventStickyFooter.re.mjs:171
 msgid "Authorize deposit"
 msgstr "Ủy quyền đặt cọc"
@@ -58,6 +51,10 @@ msgstr "Đăng ký chỗ · {0}"
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "Hoàn thiện hồ sơ của bạn"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "Yêu cầu đặt cọc để xác nhận chỗ của bạn"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -160,6 +157,14 @@ msgstr ""
 "Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho "
 "người tiếp theo. Bạn có chắc không?"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ "
+"chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "Đây là cách người khác sẽ thấy bạn"
@@ -184,3 +189,11 @@ msgstr "Bạn đã tham gia"
 #: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr ""
+#~ "Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy "
+#~ "đủ sau sự kiện."

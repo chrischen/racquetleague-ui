@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "（退出登录）"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:314
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "已加入活动"
 
@@ -31,23 +31,32 @@ msgid "Browse"
 msgstr "浏览"
 
 #: src/components/pages/PkuruLayout.re.mjs:106
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:430
 msgid "Discover"
 msgstr "发现"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:329
-msgid "Event Update"
-msgstr "活动更新"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
+msgstr "活动已取消"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:311
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr "活动已恢复"
+
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "主办方消息"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:317
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "已加入"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:320
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr "已加入俱乐部"
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "已退出活动"
 
@@ -64,7 +73,7 @@ msgstr "加载中..."
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
-#: src/components/pages/PkuruLayout.re.mjs:429
+#: src/components/pages/PkuruLayout.re.mjs:440
 msgid "Map"
 msgstr "地图"
 
@@ -84,15 +93,15 @@ msgstr "我的俱乐部"
 msgid "My events"
 msgstr "我的活动"
 
-#: src/components/pages/PkuruLayout.re.mjs:456
+#: src/components/pages/PkuruLayout.re.mjs:467
 msgid "My Events"
 msgstr "我的活动"
 
-#: src/components/pages/PkuruLayout.re.mjs:444
+#: src/components/pages/PkuruLayout.re.mjs:455
 msgid "New"
 msgstr "新建"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:308
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr "新评论"
 
@@ -100,19 +109,20 @@ msgstr "新评论"
 msgid "New event"
 msgstr "新建活动"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:282
+#: src/components/molecules/NotificationsPreview.re.mjs:140
 msgid "No notifications"
 msgstr "暂无通知"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:335
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr "通知"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:267
+#: src/components/molecules/NotificationsPreview.re.mjs:125
+#: src/components/pages/PkuruLayout.re.mjs:305
 msgid "Notifications"
 msgstr "通知"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:323
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr "已离开候补名单"
 
@@ -122,7 +132,7 @@ msgid "Pickleball"
 msgstr "匹克球"
 
 #: src/components/pages/PkuruLayout.re.mjs:130
-#: src/components/pages/PkuruLayout.re.mjs:466
+#: src/components/pages/PkuruLayout.re.mjs:477
 msgid "Profile"
 msgstr "个人资料"
 
@@ -130,7 +140,7 @@ msgstr "个人资料"
 msgid "Rankings"
 msgstr "排名"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:326
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr "已从活动中移除"
 
@@ -138,13 +148,13 @@ msgstr "已从活动中移除"
 msgid "Sports"
 msgstr "运动"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:332
-msgid "Status Update"
-msgstr "状态更新"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:406
+#: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "查看所有通知"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+#~ msgid "Event Update"
+#~ msgstr "活动更新"
 
 #: src/components/pages/PkuruLayout.re.mjs:353
 #~ msgid "Events"
@@ -161,3 +171,7 @@ msgstr "查看所有通知"
 #: src/components/organisms/NavViewer.re.mjs:77
 #~ msgid "Settings"
 #~ msgstr "设置"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+#~ msgid "Status Update"
+#~ msgstr "状态更新"

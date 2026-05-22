@@ -184,7 +184,7 @@ function EventStickyFooter(props) {
                             className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
                           }),
                       JsxRuntime.jsx("span", {
-                            children: t`Payment required to confirm your spot`,
+                            children: isPlatformPayment ? t`Deposit required to confirm your spot` : t`Payment required to confirm your spot`,
                             className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight"
                           })
                     ],
@@ -192,10 +192,10 @@ function EventStickyFooter(props) {
                   }),
               isPlatformPayment ? JsxRuntime.jsx("div", {
                       children: JsxRuntime.jsx("span", {
-                            children: t`A small hold will be placed on your card and fully refunded after the event.`,
+                            children: t`This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event.`,
                             className: "font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight"
                           }),
-                      className: "bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-1.5"
+                      className: "bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-2"
                     }) : null,
               JsxRuntime.jsxs("div", {
                     children: [

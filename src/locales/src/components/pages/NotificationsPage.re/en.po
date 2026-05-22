@@ -6,59 +6,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/components/pages/NotificationsPage.re.mjs:249
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:264
-msgid "Event Update"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:246
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr ""
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+#~ msgid "Event Update"
+#~ msgstr ""
+
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:437
+#: src/components/pages/NotificationsPage.re.mjs:163
 msgid "Inbox"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:252
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:255
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr ""
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:243
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:388
+#: src/components/pages/NotificationsPage.re.mjs:115
 msgid "Nothing here yet"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:270
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:441
+#: src/components/pages/NotificationsPage.re.mjs:167
 msgid "Notifications"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:258
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:261
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr ""
 
 #: src/components/pages/NotificationsPage.re.mjs:267
-msgid "Status Update"
-msgstr ""
+#~ msgid "Status Update"
+#~ msgstr ""
 
-#: src/components/pages/NotificationsPage.re.mjs:392
+#: src/components/pages/NotificationsPage.re.mjs:119
 msgid "You're all caught up"
 msgstr ""

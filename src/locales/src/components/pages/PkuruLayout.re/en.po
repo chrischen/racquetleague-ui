@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:314
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr ""
 
@@ -31,13 +31,22 @@ msgid "Browse"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:106
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:430
 msgid "Discover"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:329
-msgid "Event Update"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
 msgstr ""
+
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr ""
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+#~ msgid "Event Update"
+#~ msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:353
 #~ msgid "Events"
@@ -47,15 +56,19 @@ msgstr ""
 #~ msgid "Host"
 #~ msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:311
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:317
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:320
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr ""
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr ""
 
@@ -72,7 +85,7 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:429
+#: src/components/pages/PkuruLayout.re.mjs:440
 msgid "Map"
 msgstr ""
 
@@ -92,15 +105,15 @@ msgstr ""
 msgid "My events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:456
+#: src/components/pages/PkuruLayout.re.mjs:467
 msgid "My Events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:444
+#: src/components/pages/PkuruLayout.re.mjs:455
 msgid "New"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:308
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr ""
 
@@ -108,19 +121,20 @@ msgstr ""
 msgid "New event"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:282
+#: src/components/molecules/NotificationsPreview.re.mjs:140
 msgid "No notifications"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:335
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:267
+#: src/components/molecules/NotificationsPreview.re.mjs:125
+#: src/components/pages/PkuruLayout.re.mjs:305
 msgid "Notifications"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:323
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr ""
 
@@ -130,7 +144,7 @@ msgid "Pickleball"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:130
-#: src/components/pages/PkuruLayout.re.mjs:466
+#: src/components/pages/PkuruLayout.re.mjs:477
 msgid "Profile"
 msgstr ""
 
@@ -138,7 +152,7 @@ msgstr ""
 msgid "Rankings"
 msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:326
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr ""
 
@@ -155,9 +169,9 @@ msgid "Sports"
 msgstr ""
 
 #: src/components/molecules/NotificationsPreview.re.mjs:332
-msgid "Status Update"
-msgstr ""
+#~ msgid "Status Update"
+#~ msgstr ""
 
-#: src/components/molecules/NotificationsPreview.re.mjs:406
+#: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr ""

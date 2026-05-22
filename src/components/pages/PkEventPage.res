@@ -126,6 +126,7 @@ module StripePaymentEmbed = {
     ~stripeAccountId: string,
     ~onSuccess: string => unit,
     ~onClose: unit => unit,
+    ~isDepositOnly: bool=?,
   ) => React.element = "StripePaymentEmbed"
 }
 
@@ -604,6 +605,7 @@ module Inner = {
           <StripePaymentEmbed
             clientSecret=secret
             stripeAccountId=accountId
+            isDepositOnly={isPlatformPayment}
             onSuccess={paymentIntentId => {
               setPaymentClientSecret(_ => None)
               viewerRsvpNode->Option.forEach(rsvp =>

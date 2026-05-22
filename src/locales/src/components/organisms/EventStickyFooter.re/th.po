@@ -13,11 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr "จะมีการระงับเงินชั่วคราวในบัตรของคุณ และจะคืนเงินเต็มจำนวนหลังจากกิจกรรมสิ้นสุด"
-
 #: src/components/organisms/EventStickyFooter.re.mjs:171
 msgid "Authorize deposit"
 msgstr "อนุมัติเงินมัดจำ"
@@ -56,6 +51,10 @@ msgstr "จองสปอต · {0}"
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "ต้องวางเงินมัดจำเพื่อยืนยันที่นั่งของคุณ"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -154,6 +153,13 @@ msgid ""
 "the next person. Are you sure?"
 msgstr "มีผู้เล่นในรายชื่อคอย ถ้าคุณออก ที่ของคุณจะถูกให้กับคนถัดไป คุณแน่ใจหรือไม่?"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"นี่คือการระงับเงินมัดจำเท่านั้น — ชำระเงินให้กับผู้จัดในวันงาน การระงับจะถูกปล่อยหลังจากงานสิ้นสุด"
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
@@ -177,6 +183,12 @@ msgstr "คุณเข้าร่วมแล้ว"
 #: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr "จะมีการระงับเงินชั่วคราวในบัตรของคุณ และจะคืนเงินเต็มจำนวนหลังจากกิจกรรมสิ้นสุด"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:432
 #: src/components/organisms/EventStickyFooter.re.mjs:194

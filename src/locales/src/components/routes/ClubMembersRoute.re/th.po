@@ -13,34 +13,37 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/ClubMembersPage.re.mjs:165
+#: src/components/pages/ClubMembersPage.re.mjs:198
 msgid "Approve"
 msgstr "อนุมัติ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:179
+#: src/components/pages/ClubMembersPage.re.mjs:209
+#: src/components/pages/ClubMembersPage.re.mjs:232
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบ {0} ออกจากคลับ?"
 
-#: src/components/pages/ClubMembersPage.re.mjs:432
+#: src/components/pages/ClubMembersPage.re.mjs:478
 msgid "club not found"
 msgstr "ไม่พบคลับ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:412
+#: src/components/pages/ClubMembersPage.re.mjs:458
 msgid "Members"
 msgstr "สมาชิก"
 
-#: src/components/pages/ClubMembersPage.re.mjs:361
+#: src/components/pages/ClubMembersPage.re.mjs:407
 msgid "No members found"
 msgstr "ไม่พบสมาชิก"
 
-#: src/components/pages/ClubMembersPage.re.mjs:336
+#: src/components/pages/ClubMembersPage.re.mjs:382
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:176
+#: src/components/pages/ClubMembersPage.re.mjs:206
+#: src/components/pages/ClubMembersPage.re.mjs:229
 msgid "Remove"
 msgstr "ลบ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:178
+#: src/components/pages/ClubMembersPage.re.mjs:208
+#: src/components/pages/ClubMembersPage.re.mjs:231
 msgid "Remove member?"
 msgstr "ลบสมาชิกหรือไม่?"

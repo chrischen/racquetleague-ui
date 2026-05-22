@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "(로그아웃)"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:314
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "이벤트에 추가됨"
 
@@ -31,23 +31,32 @@ msgid "Browse"
 msgstr "둘러보기"
 
 #: src/components/pages/PkuruLayout.re.mjs:106
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:430
 msgid "Discover"
 msgstr "탐색"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:329
-msgid "Event Update"
-msgstr "이벤트 업데이트"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
+msgstr "이벤트 취소됨"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:311
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr "이벤트 취소 해제됨"
+
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "호스트 메시지"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:317
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "참가함"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:320
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr "클럽 가입됨"
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "이벤트 나감"
 
@@ -64,7 +73,7 @@ msgstr "로딩 중..."
 msgid "login with Line"
 msgstr "Line으로 로그인"
 
-#: src/components/pages/PkuruLayout.re.mjs:429
+#: src/components/pages/PkuruLayout.re.mjs:440
 msgid "Map"
 msgstr "지도"
 
@@ -84,15 +93,15 @@ msgstr "내 클럽"
 msgid "My events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:456
+#: src/components/pages/PkuruLayout.re.mjs:467
 msgid "My Events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:444
+#: src/components/pages/PkuruLayout.re.mjs:455
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:308
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr "새 댓글"
 
@@ -100,19 +109,20 @@ msgstr "새 댓글"
 msgid "New event"
 msgstr "새 이벤트"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:282
+#: src/components/molecules/NotificationsPreview.re.mjs:140
 msgid "No notifications"
 msgstr "알림 없음"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:335
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr "알림"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:267
+#: src/components/molecules/NotificationsPreview.re.mjs:125
+#: src/components/pages/PkuruLayout.re.mjs:305
 msgid "Notifications"
 msgstr "알림"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:323
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr "대기열 해제"
 
@@ -122,7 +132,7 @@ msgid "Pickleball"
 msgstr "피클볼"
 
 #: src/components/pages/PkuruLayout.re.mjs:130
-#: src/components/pages/PkuruLayout.re.mjs:466
+#: src/components/pages/PkuruLayout.re.mjs:477
 msgid "Profile"
 msgstr "프로필"
 
@@ -130,7 +140,7 @@ msgstr "프로필"
 msgid "Rankings"
 msgstr "순위"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:326
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr "이벤트에서 제거됨"
 
@@ -138,10 +148,14 @@ msgstr "이벤트에서 제거됨"
 msgid "Sports"
 msgstr "스포츠"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:332
-msgid "Status Update"
-msgstr "상태 업데이트"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:406
+#: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "모든 알림 보기"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+#~ msgid "Event Update"
+#~ msgstr "이벤트 업데이트"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+#~ msgid "Status Update"
+#~ msgstr "상태 업데이트"

@@ -3440,6 +3440,47 @@ msgstr "알림 없음"
 msgid "View all notifications"
 msgstr "모든 알림 보기"
 
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
+msgstr "이벤트 취소됨"
+
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr "이벤트 취소 해제됨"
+
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr "클럽 가입됨"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:90
+msgid "Complete payment"
+msgstr "결제 완료"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "자리 확정을 위해 보증금이 필요합니다"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Pay now"
+msgstr "지금 결제"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:34
+msgid "Payment failed"
+msgstr "결제 실패"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Processing…"
+msgstr "처리 중…"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
+msgstr "이것은 보증금 예치만 해당됩니다 — 실제 결제는 이벤트 당일 주최자에게 해야 합니다. 예치금은 이벤트 종료 후 해제됩니다."
+
+#: src/components/organisms/StripePaymentEmbed.tsx:96
+msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
+msgstr "이것은 보증금 예치만 해당됩니다. 이벤트 당일 주최자에게 전액을 직접 결제하셔야 합니다. 예치금은 이벤트 종료 후 해제됩니다."
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

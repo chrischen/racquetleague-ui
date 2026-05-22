@@ -700,7 +700,8 @@ function PkEventPage$Inner(props) {
                             setPaymentClientSecret(function (param) {
                                   
                                 });
-                          })
+                          }),
+                        isDepositOnly: isPlatformPayment
                       }) : null
               ],
               className: "relative w-full max-w-2xl mx-auto bg-white dark:bg-[#1e1f23]"

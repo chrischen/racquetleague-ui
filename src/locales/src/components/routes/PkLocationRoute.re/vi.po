@@ -62,13 +62,6 @@ msgstr "← trước"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ KỸ NĂNG"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr ""
-"Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy đủ "
-"sau sự kiện."
-
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
 msgstr "Môn thể thao"
@@ -98,12 +91,17 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/StripePaymentEmbed.tsx:90
 msgid "Authorize deposit"
 msgstr "Ủy quyền đặt cọc"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
 msgstr "cân bằng"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:54
+msgid "Cancel"
+msgstr "Hủy"
 
 #: src/components/pages/PkEventPage.re.mjs:479
 msgid "cancel event"
@@ -156,6 +154,10 @@ msgstr "Đặt chỗ"
 msgid "Claim spot · {0}"
 msgstr "Đăng ký chỗ · {0}"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:90
+msgid "Complete payment"
+msgstr "Hoàn tất thanh toán"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "Hoàn thiện hồ sơ của bạn"
@@ -184,6 +186,10 @@ msgstr "Xóa trận đấu"
 #: src/components/organisms/MatchCard.re.mjs:432
 msgid "Delete this match?"
 msgstr "Xóa trận đấu này?"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "Yêu cầu đặt cọc để xác nhận chỗ của bạn"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -239,7 +245,7 @@ msgstr "đồng đều"
 msgid "event"
 msgstr "sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:729
+#: src/components/pages/PkEventPage.re.mjs:730
 msgid "Event not found"
 msgstr "Không tìm thấy sự kiện"
 
@@ -407,6 +413,10 @@ msgstr "Người tham gia"
 msgid "Pay {priceStr}"
 msgstr "Thanh toán {priceStr}"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Pay now"
+msgstr "Thanh toán ngay"
+
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment authorized"
 msgstr "Thanh toán đã được ủy quyền"
@@ -414,6 +424,10 @@ msgstr "Thanh toán đã được ủy quyền"
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment captured"
 msgstr "Thanh toán đã được thu"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:34
+msgid "Payment failed"
+msgstr "Thanh toán thất bại"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:187
 msgid "Payment required to confirm your spot"
@@ -449,6 +463,10 @@ msgstr "Không muốn tiết lộ"
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "Riêng tư"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Processing…"
+msgstr "Đang xử lý…"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -586,6 +604,22 @@ msgstr ""
 "Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
 "ban tổ chức."
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ "
+"chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
+
+#: src/components/organisms/StripePaymentEmbed.tsx:96
+msgid ""
+"This is a deposit hold only. You still need to pay the organizer in full at "
+"the event. The hold will be released after the event."
+msgstr ""
+"Đây chỉ là khoản giữ chỗ đặt cọc. Bạn vẫn cần thanh toán toàn bộ cho ban tổ "
+"chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "Đây là cách người khác sẽ thấy bạn"
@@ -703,6 +737,14 @@ msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 #: src/components/pages/PkEventPage.re.mjs:380
 #~ msgid "{cancelTimeLeft} left to cancel"
 #~ msgstr "Còn {cancelTimeLeft} để hủy"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr ""
+#~ "Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy "
+#~ "đủ sau sự kiện."
 
 #: src/components/pages/PkEventPage.re.mjs:379
 #~ msgid "Cancellation deadline passed"

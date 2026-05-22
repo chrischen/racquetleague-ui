@@ -161,15 +161,17 @@ let make = (
                   />
                   <span
                     className="font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight">
-                    {t`Payment required to confirm your spot`}
+                    {isPlatformPayment
+                      ? t`Deposit required to confirm your spot`
+                      : t`Payment required to confirm your spot`}
                   </span>
                 </div>
                 {isPlatformPayment
                   ? <div
-                      className="bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-1.5">
+                      className="bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-2">
                       <span
                         className="font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight">
-                        {t`A small hold will be placed on your card and fully refunded after the event.`}
+                        {t`This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event.`}
                       </span>
                     </div>
                   : React.null}

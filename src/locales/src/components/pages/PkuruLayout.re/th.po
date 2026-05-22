@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "(ออกจากระบบ)"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:314
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "เพิ่มเข้าสู่อีเวนต์"
 
@@ -31,23 +31,32 @@ msgid "Browse"
 msgstr "เรียกดู"
 
 #: src/components/pages/PkuruLayout.re.mjs:106
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:430
 msgid "Discover"
 msgstr "ค้นพบ"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:329
-msgid "Event Update"
-msgstr "อัปเดตอีเวนต์"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
+msgstr "กิจกรรมถูกยกเลิก"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:311
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr "กิจกรรมได้รับการกู้คืน"
+
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "ข้อความจากเจ้าภาพ"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:317
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "เข้าร่วมแล้ว"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:320
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr "เข้าร่วมสโมสรแล้ว"
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "ออกจากอีเวนต์"
 
@@ -64,7 +73,7 @@ msgstr "กำลังโหลด..."
 msgid "login with Line"
 msgstr "เข้าสู่ระบบด้วย Line"
 
-#: src/components/pages/PkuruLayout.re.mjs:429
+#: src/components/pages/PkuruLayout.re.mjs:440
 msgid "Map"
 msgstr "แผนที่"
 
@@ -84,15 +93,15 @@ msgstr "คลับของฉัน"
 msgid "My events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/pages/PkuruLayout.re.mjs:456
+#: src/components/pages/PkuruLayout.re.mjs:467
 msgid "My Events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/pages/PkuruLayout.re.mjs:444
+#: src/components/pages/PkuruLayout.re.mjs:455
 msgid "New"
 msgstr "ใหม่"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:308
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr "ความคิดเห็นใหม่"
 
@@ -100,19 +109,20 @@ msgstr "ความคิดเห็นใหม่"
 msgid "New event"
 msgstr "กิจกรรมใหม่"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:282
+#: src/components/molecules/NotificationsPreview.re.mjs:140
 msgid "No notifications"
 msgstr "ไม่มีการแจ้งเตือน"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:335
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr "การแจ้งเตือน"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:267
+#: src/components/molecules/NotificationsPreview.re.mjs:125
+#: src/components/pages/PkuruLayout.re.mjs:305
 msgid "Notifications"
 msgstr "การแจ้งเตือน"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:323
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr "ออกจากรายการรอ"
 
@@ -122,7 +132,7 @@ msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
 #: src/components/pages/PkuruLayout.re.mjs:130
-#: src/components/pages/PkuruLayout.re.mjs:466
+#: src/components/pages/PkuruLayout.re.mjs:477
 msgid "Profile"
 msgstr "โปรไฟล์"
 
@@ -130,7 +140,7 @@ msgstr "โปรไฟล์"
 msgid "Rankings"
 msgstr "อันดับ"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:326
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr "ถูกนำออกจากอีเวนต์"
 
@@ -138,13 +148,13 @@ msgstr "ถูกนำออกจากอีเวนต์"
 msgid "Sports"
 msgstr "กีฬา"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:332
-msgid "Status Update"
-msgstr "อัปเดตสถานะ"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:406
+#: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "ดูการแจ้งเตือนทั้งหมด"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+#~ msgid "Event Update"
+#~ msgstr "อัปเดตอีเวนต์"
 
 #: src/components/pages/PkuruLayout.re.mjs:353
 #~ msgid "Events"
@@ -161,3 +171,7 @@ msgstr "ดูการแจ้งเตือนทั้งหมด"
 #: src/components/organisms/NavViewer.re.mjs:77
 #~ msgid "Settings"
 #~ msgstr "การตั้งค่า"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+#~ msgid "Status Update"
+#~ msgstr "อัปเดตสถานะ"

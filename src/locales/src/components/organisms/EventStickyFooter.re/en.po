@@ -14,8 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid "A small hold will be placed on your card and fully refunded after the event."
-msgstr ""
+#~ msgid "A small hold will be placed on your card and fully refunded after the event."
+#~ msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
 msgid "Authorize deposit"
@@ -53,6 +53,10 @@ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:358
@@ -162,6 +166,10 @@ msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:278

@@ -145,8 +145,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid "A small hold will be placed on your card and fully refunded after the event."
-msgstr ""
+#~ msgid "A small hold will be placed on your card and fully refunded after the event."
+#~ msgstr ""
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
@@ -193,6 +193,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/StripePaymentEmbed.tsx:90
 msgid "Authorize deposit"
 msgstr ""
 
@@ -202,6 +203,10 @@ msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.tsx:54
+msgid "Cancel"
 msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:479
@@ -271,6 +276,10 @@ msgstr ""
 #~ msgid "close"
 #~ msgstr ""
 
+#: src/components/organisms/StripePaymentEmbed.tsx:90
+msgid "Complete payment"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr ""
@@ -311,6 +320,10 @@ msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:432
 msgid "Delete this match?"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:229
@@ -383,7 +396,7 @@ msgstr ""
 #~ msgid "Event Details"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:729
+#: src/components/pages/PkEventPage.re.mjs:730
 msgid "Event not found"
 msgstr ""
 
@@ -606,12 +619,20 @@ msgstr ""
 msgid "Pay {priceStr}"
 msgstr ""
 
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Pay now"
+msgstr ""
+
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment authorized"
 msgstr ""
 
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment captured"
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.tsx:34
+msgid "Payment failed"
 msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:187
@@ -660,6 +681,10 @@ msgstr ""
 #: src/components/organisms/AIAssistantModal.re.mjs:265
 #~ msgid "Processing..."
 #~ msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Processing…"
+msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -814,6 +839,14 @@ msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid "This event is private. Please do not share this event without permission from the organizer."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.tsx:96
+msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:278

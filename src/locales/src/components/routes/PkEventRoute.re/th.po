@@ -33,11 +33,6 @@ msgstr "{0} เข้าร่วมแล้ว"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ ทักษะ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr "จะมีการระงับเงินชั่วคราวในบัตรของคุณ และจะคืนเงินเต็มจำนวนหลังจากกิจกรรมสิ้นสุด"
-
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
 msgstr "กิจกรรม"
@@ -59,12 +54,17 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/StripePaymentEmbed.tsx:90
 msgid "Authorize deposit"
 msgstr "อนุมัติเงินมัดจำ"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
 msgstr "สมดุล"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:54
+msgid "Cancel"
+msgstr "ยกเลิก"
 
 #: src/components/pages/PkEventPage.re.mjs:479
 msgid "cancel event"
@@ -113,6 +113,10 @@ msgstr "จองที่"
 msgid "Claim spot · {0}"
 msgstr "จองสปอต · {0}"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:90
+msgid "Complete payment"
+msgstr "ชำระเงินให้เสร็จสิ้น"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
@@ -141,6 +145,10 @@ msgstr "ลบการแข่งขัน"
 #: src/components/organisms/MatchCard.re.mjs:432
 msgid "Delete this match?"
 msgstr "ลบการแข่งขันนี้หรือไม่?"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "ต้องวางเงินมัดจำเพื่อยืนยันที่นั่งของคุณ"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -189,7 +197,7 @@ msgstr "ป้อนคะแนนแมตช์"
 msgid "even"
 msgstr "เท่าเทียม"
 
-#: src/components/pages/PkEventPage.re.mjs:753
+#: src/components/pages/PkEventPage.re.mjs:754
 msgid "Event not found"
 msgstr "ไม่พบกิจกรรม"
 
@@ -311,6 +319,10 @@ msgstr "ผู้เข้าร่วม"
 msgid "Pay {priceStr}"
 msgstr "ชำระเงิน {priceStr}"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Pay now"
+msgstr "ชำระเงินตอนนี้"
+
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment authorized"
 msgstr "ชำระเงินได้รับอนุมัติแล้ว"
@@ -318,6 +330,10 @@ msgstr "ชำระเงินได้รับอนุมัติแล้
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment captured"
 msgstr "ชำระเงินสำเร็จแล้ว"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:34
+msgid "Payment failed"
+msgstr "การชำระเงินล้มเหลว"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:187
 msgid "Payment required to confirm your spot"
@@ -339,6 +355,10 @@ msgstr "ไม่ต้องการระบุ"
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "ไม่เปิดเผย"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Processing…"
+msgstr "กำลังดำเนินการ…"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -454,6 +474,21 @@ msgid ""
 "from the organizer."
 msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"นี่คือการระงับเงินมัดจำเท่านั้น — ชำระเงินให้กับผู้จัดในวันงาน การระงับจะถูกปล่อยหลังจากงานสิ้นสุด"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:96
+msgid ""
+"This is a deposit hold only. You still need to pay the organizer in full at "
+"the event. The hold will be released after the event."
+msgstr ""
+"นี่คือการระงับเงินมัดจำเท่านั้น คุณยังต้องชำระเงินเต็มจำนวนให้กับผู้จัดในวันงาน "
+"การระงับจะถูกปล่อยหลังจากงานสิ้นสุด"
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
@@ -527,6 +562,12 @@ msgstr ""
 #: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr "จะมีการระงับเงินชั่วคราวในบัตรของคุณ และจะคืนเงินเต็มจำนวนหลังจากกิจกรรมสิ้นสุด"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:432
 #: src/components/pages/PkEventPage.re.mjs:691

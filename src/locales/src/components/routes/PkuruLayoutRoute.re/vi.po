@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:314
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "Đã thêm vào Sự kiện"
 
@@ -31,23 +31,32 @@ msgid "Browse"
 msgstr "Duyệt"
 
 #: src/components/pages/PkuruLayout.re.mjs:106
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:430
 msgid "Discover"
 msgstr "Khám phá"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:329
-msgid "Event Update"
-msgstr "Cập nhật Sự kiện"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
+msgstr "Sự Kiện Đã Bị Hủy"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:311
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr "Sự Kiện Đã Được Khôi Phục"
+
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "Tin nhắn từ Chủ nhà"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:317
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "Đã tham gia"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:320
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr "Đã Tham Gia Câu Lạc Bộ"
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "Đã rời Sự kiện"
 
@@ -64,7 +73,7 @@ msgstr "Đang tải..."
 msgid "login with Line"
 msgstr "đăng nhập bằng Line"
 
-#: src/components/pages/PkuruLayout.re.mjs:429
+#: src/components/pages/PkuruLayout.re.mjs:440
 msgid "Map"
 msgstr "Bản đồ"
 
@@ -84,15 +93,15 @@ msgstr "Câu lạc bộ của tôi"
 msgid "My events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:456
+#: src/components/pages/PkuruLayout.re.mjs:467
 msgid "My Events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:444
+#: src/components/pages/PkuruLayout.re.mjs:455
 msgid "New"
 msgstr "Mới"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:308
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr "Bình luận mới"
 
@@ -100,19 +109,20 @@ msgstr "Bình luận mới"
 msgid "New event"
 msgstr "Sự kiện mới"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:282
+#: src/components/molecules/NotificationsPreview.re.mjs:140
 msgid "No notifications"
 msgstr "Không có thông báo"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:335
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr "Thông báo"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:267
+#: src/components/molecules/NotificationsPreview.re.mjs:125
+#: src/components/pages/PkuruLayout.re.mjs:305
 msgid "Notifications"
 msgstr "Thông báo"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:323
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr "Ra khỏi Danh sách chờ"
 
@@ -122,7 +132,7 @@ msgid "Pickleball"
 msgstr "Pickleball"
 
 #: src/components/pages/PkuruLayout.re.mjs:130
-#: src/components/pages/PkuruLayout.re.mjs:466
+#: src/components/pages/PkuruLayout.re.mjs:477
 msgid "Profile"
 msgstr "Hồ sơ"
 
@@ -130,7 +140,7 @@ msgstr "Hồ sơ"
 msgid "Rankings"
 msgstr "Bảng xếp hạng"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:326
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr "Đã xóa khỏi Sự kiện"
 
@@ -138,10 +148,14 @@ msgstr "Đã xóa khỏi Sự kiện"
 msgid "Sports"
 msgstr "Thể thao"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:332
-msgid "Status Update"
-msgstr "Cập nhật Trạng thái"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:406
+#: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "Xem tất cả thông báo"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+#~ msgid "Event Update"
+#~ msgstr "Cập nhật Sự kiện"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+#~ msgid "Status Update"
+#~ msgstr "Cập nhật Trạng thái"

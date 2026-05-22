@@ -33,11 +33,6 @@ msgstr "{0} 参加済み"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ スキル"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr "カードに少額の仮押さえが行われ、イベント後に全額返金されます。"
-
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
 msgstr "アクティビティ"
@@ -59,12 +54,17 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/StripePaymentEmbed.tsx:90
 msgid "Authorize deposit"
 msgstr "デポジットを承認する"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
 msgstr "バランス"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:54
+msgid "Cancel"
+msgstr "キャンセル"
 
 #: src/components/pages/PkEventPage.re.mjs:479
 msgid "cancel event"
@@ -115,6 +115,10 @@ msgstr "参加する"
 msgid "Claim spot · {0}"
 msgstr "スポットを予約 · {0}"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:90
+msgid "Complete payment"
+msgstr "支払いを完了する"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "プロフィールを完成させる"
@@ -143,6 +147,10 @@ msgstr "試合を削除"
 #: src/components/organisms/MatchCard.re.mjs:432
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "スポットを確定するにはデポジットが必要です"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -193,8 +201,8 @@ msgstr "試合のスコアを入力"
 msgid "even"
 msgstr "均等"
 
-#: src/components/pages/PkEventPage.re.mjs:729
-#: src/components/pages/PkEventPage.re.mjs:753
+#: src/components/pages/PkEventPage.re.mjs:730
+#: src/components/pages/PkEventPage.re.mjs:754
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -316,6 +324,10 @@ msgstr "参加者"
 msgid "Pay {priceStr}"
 msgstr "{priceStr} を支払う"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Pay now"
+msgstr "今すぐ支払う"
+
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment authorized"
 msgstr "支払い承認済み"
@@ -323,6 +335,10 @@ msgstr "支払い承認済み"
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment captured"
 msgstr "支払い確定済み"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:34
+msgid "Payment failed"
+msgstr "支払いに失敗しました"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:187
 msgid "Payment required to confirm your spot"
@@ -344,6 +360,10 @@ msgstr "回答しない"
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "非公開"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Processing…"
+msgstr "処理中…"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -461,6 +481,22 @@ msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"これはデポジットの仮押さえのみです — 支払いはイベント当日に主催者へ行ってくだ"
+"さい。仮押さえはイベント終了後に解除されます。"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:96
+msgid ""
+"This is a deposit hold only. You still need to pay the organizer in full at "
+"the event. The hold will be released after the event."
+msgstr ""
+"これはデポジットの仮押さえのみです。イベント当日に主催者へ全額をお支払いくだ"
+"さい。仮押さえはイベント終了後に解除されます。"
 
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
@@ -580,6 +616,12 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/pages/PkEventPage.re.mjs:380
 #~ msgid "{cancelTimeLeft} left to cancel"
 #~ msgstr "キャンセルまで残り{cancelTimeLeft}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr "カードに少額の仮押さえが行われ、イベント後に全額返金されます。"
 
 #: src/components/pages/PkEventPage.re.mjs:379
 #~ msgid "Cancellation deadline passed"

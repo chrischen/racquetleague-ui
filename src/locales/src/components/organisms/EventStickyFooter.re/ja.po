@@ -13,11 +13,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr "カードに少額の仮押さえが行われ、イベント後に全額返金されます。"
-
 #: src/components/organisms/EventStickyFooter.re.mjs:171
 msgid "Authorize deposit"
 msgstr "デポジットを承認する"
@@ -58,6 +53,10 @@ msgstr "スポットを予約 · {0}"
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "プロフィールを完成させる"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "スポットを確定するにはデポジットが必要です"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -160,6 +159,14 @@ msgstr ""
 "キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されま"
 "す。よろしいですか？"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"これはデポジットの仮押さえのみです — 支払いはイベント当日に主催者へ行ってくだ"
+"さい。仮押さえはイベント終了後に解除されます。"
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "他の人に表示される名前です"
@@ -183,3 +190,9 @@ msgstr "参加済み"
 #: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "あなたの参加登録は管理者の承認待ちです"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr "カードに少額の仮押さえが行われ、イベント後に全額返金されます。"

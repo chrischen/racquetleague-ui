@@ -13,58 +13,71 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/NotificationsPage.re.mjs:249
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "已加入活动"
 
-#: src/components/pages/NotificationsPage.re.mjs:264
-msgid "Event Update"
-msgstr "活动更新"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
+msgstr "活动已取消"
 
-#: src/components/pages/NotificationsPage.re.mjs:246
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr "活动已恢复"
+
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "主办方消息"
 
-#: src/components/pages/NotificationsPage.re.mjs:437
+#: src/components/pages/NotificationsPage.re.mjs:163
 msgid "Inbox"
 msgstr "收件箱"
 
-#: src/components/pages/NotificationsPage.re.mjs:252
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "已加入"
 
-#: src/components/pages/NotificationsPage.re.mjs:255
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr "已加入俱乐部"
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "已退出活动"
 
-#: src/components/pages/NotificationsPage.re.mjs:243
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr "新评论"
 
-#: src/components/pages/NotificationsPage.re.mjs:388
+#: src/components/pages/NotificationsPage.re.mjs:115
 msgid "Nothing here yet"
 msgstr "暂无内容"
 
-#: src/components/pages/NotificationsPage.re.mjs:270
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr "通知"
 
-#: src/components/pages/NotificationsPage.re.mjs:441
+#: src/components/pages/NotificationsPage.re.mjs:167
 msgid "Notifications"
 msgstr "通知"
 
-#: src/components/pages/NotificationsPage.re.mjs:258
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr "已离开候补名单"
 
-#: src/components/pages/NotificationsPage.re.mjs:261
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr "已从活动中移除"
 
-#: src/components/pages/NotificationsPage.re.mjs:267
-msgid "Status Update"
-msgstr "状态更新"
-
-#: src/components/pages/NotificationsPage.re.mjs:392
+#: src/components/pages/NotificationsPage.re.mjs:119
 msgid "You're all caught up"
 msgstr "您已全部查看"
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+#~ msgid "Event Update"
+#~ msgstr "活动更新"
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+#~ msgid "Status Update"
+#~ msgstr "状态更新"

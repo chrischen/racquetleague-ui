@@ -62,11 +62,6 @@ msgstr "← 上一頁"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 技術"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr "您的卡片將會有一筆小額暫扣款，活動結束後全額退還。"
-
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
 msgstr "活動"
@@ -96,12 +91,17 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "您確定要將此人從活動中移除嗎？"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/StripePaymentEmbed.tsx:90
 msgid "Authorize deposit"
 msgstr "授權押金"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
 msgstr "平衡"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:54
+msgid "Cancel"
+msgstr "取消"
 
 #: src/components/pages/PkEventPage.re.mjs:479
 msgid "cancel event"
@@ -154,6 +154,10 @@ msgstr "報名參加"
 msgid "Claim spot · {0}"
 msgstr "預約名額 · {0}"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:90
+msgid "Complete payment"
+msgstr "完成付款"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "完善個人資料"
@@ -182,6 +186,10 @@ msgstr "刪除比賽"
 #: src/components/organisms/MatchCard.re.mjs:432
 msgid "Delete this match?"
 msgstr "刪除這場比賽？"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "需支付訂金以確認您的名額"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -237,7 +245,7 @@ msgstr "均衡"
 msgid "event"
 msgstr "活動"
 
-#: src/components/pages/PkEventPage.re.mjs:729
+#: src/components/pages/PkEventPage.re.mjs:730
 msgid "Event not found"
 msgstr "找不到活動"
 
@@ -405,6 +413,10 @@ msgstr "參與者"
 msgid "Pay {priceStr}"
 msgstr "支付 {priceStr}"
 
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Pay now"
+msgstr "立即付款"
+
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment authorized"
 msgstr "付款已授權"
@@ -412,6 +424,10 @@ msgstr "付款已授權"
 #: src/components/atoms/PaymentIndicator.re.mjs:73
 msgid "Payment captured"
 msgstr "付款已完成"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:34
+msgid "Payment failed"
+msgstr "付款失敗"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:187
 msgid "Payment required to confirm your spot"
@@ -447,6 +463,10 @@ msgstr "不願透露"
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "非公開"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:61
+msgid "Processing…"
+msgstr "處理中…"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -578,6 +598,21 @@ msgid ""
 "from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"此為僅供保留的訂金——款項須於活動現場支付給主辦方。保留款將於活動結束後解除。"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:96
+msgid ""
+"This is a deposit hold only. You still need to pay the organizer in full at "
+"the event. The hold will be released after the event."
+msgstr ""
+"此為僅供保留的訂金。您仍需於活動現場向主辦方全額付款。保留款將於活動結束後解"
+"除。"
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "這是其他人會看到的名字"
@@ -693,6 +728,12 @@ msgstr "您的報名正在等待管理員審核"
 #: src/components/pages/PkEventPage.re.mjs:380
 #~ msgid "{cancelTimeLeft} left to cancel"
 #~ msgstr "還剩 {cancelTimeLeft} 可取消"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr "您的卡片將會有一筆小額暫扣款，活動結束後全額退還。"
 
 #: src/components/pages/PkEventPage.re.mjs:379
 #~ msgid "Cancellation deadline passed"

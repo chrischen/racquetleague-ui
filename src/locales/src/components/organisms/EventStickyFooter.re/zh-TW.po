@@ -13,11 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr "您的卡片將會有一筆小額暫扣款，活動結束後全額退還。"
-
 #: src/components/organisms/EventStickyFooter.re.mjs:171
 msgid "Authorize deposit"
 msgstr "授權押金"
@@ -56,6 +51,10 @@ msgstr "預約名額 · {0}"
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "完善個人資料"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "需支付訂金以確認您的名額"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -156,6 +155,13 @@ msgid ""
 "the next person. Are you sure?"
 msgstr "候補名單中有球員。如果您退出，您的位置將會給下一位。確定嗎？"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"此為僅供保留的訂金——款項須於活動現場支付給主辦方。保留款將於活動結束後解除。"
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "這是其他人會看到的名字"
@@ -179,6 +185,12 @@ msgstr "已報名"
 #: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "您的報名正在等待管理員審核"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr "您的卡片將會有一筆小額暫扣款，活動結束後全額退還。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:432
 #: src/components/organisms/EventStickyFooter.re.mjs:194

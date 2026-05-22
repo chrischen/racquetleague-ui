@@ -13,11 +13,6 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-msgid ""
-"A small hold will be placed on your card and fully refunded after the event."
-msgstr "카드에 소액이 임시 청구되며 이벤트 종료 후 전액 환불됩니다."
-
 #: src/components/organisms/EventStickyFooter.re.mjs:171
 msgid "Authorize deposit"
 msgstr "보증금 승인"
@@ -57,6 +52,10 @@ msgstr "참가 신청 · {0}"
 #: src/components/organisms/ProfileModal.re.mjs:335
 msgid "Complete your profile"
 msgstr "프로필 완성하기"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "자리 확정을 위해 보증금이 필요합니다"
 
 #: src/components/organisms/ProfileModal.re.mjs:358
 msgid "Display name"
@@ -159,6 +158,14 @@ msgstr ""
 "대기자 명단에 플레이어가 있습니다. 나가면 자리가 다음 사람에게 넘어갑니다. 확"
 "실합니까?"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"이것은 보증금 예치만 해당됩니다 — 실제 결제는 이벤트 당일 주최자에게 해야 합"
+"니다. 예치금은 이벤트 종료 후 해제됩니다."
+
 #: src/components/organisms/ProfileModal.re.mjs:278
 msgid "This is how others will see you"
 msgstr "다른 사람들에게 이렇게 보입니다"
@@ -182,6 +189,12 @@ msgstr "참가 완료"
 #: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr "카드에 소액이 임시 청구되며 이벤트 종료 후 전액 환불됩니다."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:432
 #: src/components/organisms/EventStickyFooter.re.mjs:194

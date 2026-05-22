@@ -13,58 +13,71 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/NotificationsPage.re.mjs:249
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "Đã thêm vào Sự kiện"
 
-#: src/components/pages/NotificationsPage.re.mjs:264
-msgid "Event Update"
-msgstr "Cập nhật Sự kiện"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
+msgstr "Sự Kiện Đã Bị Hủy"
 
-#: src/components/pages/NotificationsPage.re.mjs:246
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr "Sự Kiện Đã Được Khôi Phục"
+
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "Tin nhắn từ Chủ nhà"
 
-#: src/components/pages/NotificationsPage.re.mjs:437
+#: src/components/pages/NotificationsPage.re.mjs:163
 msgid "Inbox"
 msgstr "Hộp thư"
 
-#: src/components/pages/NotificationsPage.re.mjs:252
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "Đã tham gia"
 
-#: src/components/pages/NotificationsPage.re.mjs:255
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr "Đã Tham Gia Câu Lạc Bộ"
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "Đã rời Sự kiện"
 
-#: src/components/pages/NotificationsPage.re.mjs:243
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr "Bình luận mới"
 
-#: src/components/pages/NotificationsPage.re.mjs:388
+#: src/components/pages/NotificationsPage.re.mjs:115
 msgid "Nothing here yet"
 msgstr "Chưa có gì ở đây"
 
-#: src/components/pages/NotificationsPage.re.mjs:270
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr "Thông báo"
 
-#: src/components/pages/NotificationsPage.re.mjs:441
+#: src/components/pages/NotificationsPage.re.mjs:167
 msgid "Notifications"
 msgstr "Thông báo"
 
-#: src/components/pages/NotificationsPage.re.mjs:258
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr "Ra khỏi Danh sách chờ"
 
-#: src/components/pages/NotificationsPage.re.mjs:261
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr "Đã xóa khỏi Sự kiện"
 
-#: src/components/pages/NotificationsPage.re.mjs:267
-msgid "Status Update"
-msgstr "Cập nhật Trạng thái"
-
-#: src/components/pages/NotificationsPage.re.mjs:392
+#: src/components/pages/NotificationsPage.re.mjs:119
 msgid "You're all caught up"
 msgstr "Bạn đã xem hết rồi"
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+#~ msgid "Event Update"
+#~ msgstr "Cập nhật Sự kiện"
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+#~ msgid "Status Update"
+#~ msgstr "Cập nhật Trạng thái"

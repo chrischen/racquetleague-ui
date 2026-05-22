@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "(サインアウト)"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:314
+#: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "イベントに追加されました"
 
@@ -31,23 +31,32 @@ msgid "Browse"
 msgstr "ブラウズ"
 
 #: src/components/pages/PkuruLayout.re.mjs:106
-#: src/components/pages/PkuruLayout.re.mjs:419
+#: src/components/pages/PkuruLayout.re.mjs:430
 msgid "Discover"
 msgstr "探す"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:329
-msgid "Event Update"
-msgstr "イベント更新"
+#: src/components/molecules/NotificationRow.re.mjs:130
+msgid "Event Canceled"
+msgstr "イベントキャンセル済み"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:311
+#: src/components/molecules/NotificationRow.re.mjs:132
+#: src/components/molecules/NotificationRow.re.mjs:135
+msgid "Event Uncanceled"
+msgstr "イベントキャンセル解除済み"
+
+#: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "ホストメッセージ"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:317
+#: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "参加"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:320
+#: src/components/molecules/NotificationRow.re.mjs:150
+msgid "Joined Club"
+msgstr "クラブに参加しました"
+
+#: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "イベントを退出しました"
 
@@ -64,7 +73,7 @@ msgstr "読み込み中..."
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/PkuruLayout.re.mjs:429
+#: src/components/pages/PkuruLayout.re.mjs:440
 msgid "Map"
 msgstr "マップ"
 
@@ -84,15 +93,15 @@ msgstr "私のサークル"
 msgid "My events"
 msgstr "マイイベント"
 
-#: src/components/pages/PkuruLayout.re.mjs:456
+#: src/components/pages/PkuruLayout.re.mjs:467
 msgid "My Events"
 msgstr "私のイベント"
 
-#: src/components/pages/PkuruLayout.re.mjs:444
+#: src/components/pages/PkuruLayout.re.mjs:455
 msgid "New"
 msgstr "新規"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:308
+#: src/components/molecules/NotificationRow.re.mjs:126
 msgid "New Comment"
 msgstr "新しいコメント"
 
@@ -100,19 +109,20 @@ msgstr "新しいコメント"
 msgid "New event"
 msgstr "新しいイベント"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:282
+#: src/components/molecules/NotificationsPreview.re.mjs:140
 msgid "No notifications"
 msgstr "通知はありません"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:335
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Notification"
 msgstr "通知"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:267
+#: src/components/molecules/NotificationsPreview.re.mjs:125
+#: src/components/pages/PkuruLayout.re.mjs:305
 msgid "Notifications"
 msgstr "通知"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:323
+#: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Off Waitlist"
 msgstr "キャンセル待ち解除"
 
@@ -122,7 +132,7 @@ msgid "Pickleball"
 msgstr "ピックルボール"
 
 #: src/components/pages/PkuruLayout.re.mjs:130
-#: src/components/pages/PkuruLayout.re.mjs:466
+#: src/components/pages/PkuruLayout.re.mjs:477
 msgid "Profile"
 msgstr "プロフィール"
 
@@ -130,7 +140,7 @@ msgstr "プロフィール"
 msgid "Rankings"
 msgstr "ランキング"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:326
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
 msgstr "イベントから削除されました"
 
@@ -138,13 +148,13 @@ msgstr "イベントから削除されました"
 msgid "Sports"
 msgstr "スポーツ"
 
-#: src/components/molecules/NotificationsPreview.re.mjs:332
-msgid "Status Update"
-msgstr "ステータス更新"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:406
+#: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "すべての通知を見る"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+#~ msgid "Event Update"
+#~ msgstr "イベント更新"
 
 #: src/components/pages/PkuruLayout.re.mjs:353
 #~ msgid "Events"
@@ -161,3 +171,7 @@ msgstr "すべての通知を見る"
 #: src/components/organisms/NavViewer.re.mjs:77
 #~ msgid "Settings"
 #~ msgstr "設定"
+
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+#~ msgid "Status Update"
+#~ msgstr "ステータス更新"
