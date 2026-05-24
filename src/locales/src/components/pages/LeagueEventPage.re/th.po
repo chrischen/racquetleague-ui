@@ -17,7 +17,7 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
-#: src/components/organisms/AiTetsu.re.mjs:1712
+#: src/components/organisms/AiTetsu.re.mjs:1713
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr "{0} {breakPlayersDesc} ไม่ได้เล่น"
 
@@ -29,7 +29,7 @@ msgstr "เลือกผู้เล่น {0} คน"
 msgid "{0} players selected"
 msgstr "เลือกผู้เล่น {0} คน"
 
-#: src/components/organisms/AiTetsu.re.mjs:1127
+#: src/components/organisms/AiTetsu.re.mjs:1128
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
 msgstr "ผู้เล่น"
 
@@ -38,7 +38,7 @@ msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr "{0}"
 
 #: src/components/organisms/MatchesView.re.mjs:257
-#: src/components/organisms/AiTetsu.re.mjs:352
+#: src/components/organisms/AiTetsu.re.mjs:353
 msgid "# of courts"
 msgstr "จำนวนคอร์ต"
 
@@ -46,7 +46,7 @@ msgstr "จำนวนคอร์ต"
 msgid "Actions"
 msgstr "การกระทำ"
 
-#: src/components/organisms/AiTetsu.re.mjs:1215
+#: src/components/organisms/AiTetsu.re.mjs:1216
 msgid "Add Guest"
 msgstr "เพิ่มแขก"
 
@@ -54,7 +54,7 @@ msgstr "เพิ่มแขก"
 msgid "Add Guest Player"
 msgstr "เพิ่มผู้เล่นแขก"
 
-#: src/components/organisms/AiTetsu.re.mjs:1234
+#: src/components/organisms/AiTetsu.re.mjs:1235
 msgid "Add Player"
 msgstr "เพิ่มผู้เล่น"
 
@@ -62,7 +62,7 @@ msgstr "เพิ่มผู้เล่น"
 msgid "Add/Remove Players"
 msgstr "เพิ่ม/ลบผู้เล่น"
 
-#: src/components/organisms/AiTetsu.re.mjs:1630
+#: src/components/organisms/AiTetsu.re.mjs:1631
 msgid "Advanced Options"
 msgstr "ตัวเลือกขั้นสูง"
 
@@ -84,7 +84,7 @@ msgstr "ยกเลิก"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/AiTetsu.re.mjs:1645
+#: src/components/organisms/AiTetsu.re.mjs:1646
 msgid "Checkin All Players"
 msgstr "เช็คอินผู้เล่นทั้งหมด"
 
@@ -96,7 +96,7 @@ msgstr "เลือกแมทช์"
 msgid "CHOOSE MATCH"
 msgstr "เลือกแมทช์"
 
-#: src/components/organisms/AiTetsu.re.mjs:1522
+#: src/components/organisms/AiTetsu.re.mjs:1523
 msgid "Clear Session (Ratings, Match Counts, and Guest Players)"
 msgstr "ล้างเซสชั่น (เรตติ้ง, จำนวนการแข่งขัน และผู้เล่นแขก)"
 
@@ -112,16 +112,16 @@ msgstr "แข่งขัน"
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "คอร์ต {0}: {team1} เทียบ {team2}"
 
-#: src/components/organisms/AiTetsu.re.mjs:1377
+#: src/components/organisms/AiTetsu.re.mjs:1378
 msgid "Create Anti-Team"
 msgstr "สร้างแอนตี้ทีม"
 
-#: src/components/organisms/AiTetsu.re.mjs:221
-#: src/components/organisms/AiTetsu.re.mjs:1353
+#: src/components/organisms/AiTetsu.re.mjs:222
+#: src/components/organisms/AiTetsu.re.mjs:1354
 msgid "Create Team"
 msgstr "สร้างทีม"
 
-#: src/components/organisms/AiTetsu.re.mjs:1260
+#: src/components/organisms/AiTetsu.re.mjs:1261
 msgid "Done"
 msgstr "เสร็จ"
 
@@ -138,7 +138,7 @@ msgstr "ป้อนคะแนน"
 msgid "Even"
 msgstr "สมดุล"
 
-#: src/components/organisms/AiTetsu.re.mjs:1355
+#: src/components/organisms/AiTetsu.re.mjs:1356
 msgid "Fixed Pair"
 msgstr "คู่ครอง"
 
@@ -154,11 +154,11 @@ msgstr "กลับ"
 msgid "How many players should rest? (currently {0} players are resting)"
 msgstr "ผู้เล่นกี่คนควรพัก? (ปัจจุบันมีผู้เล่น {0} คนกำลังพัก)"
 
-#: src/components/organisms/AiTetsu.re.mjs:1516
+#: src/components/organisms/AiTetsu.re.mjs:1517
 msgid "Initialize Ratings"
 msgstr "ตั้งค่าเรตติ้งเริ่มต้น"
 
-#: src/components/organisms/AiTetsu.re.mjs:1596
+#: src/components/organisms/AiTetsu.re.mjs:1597
 msgid "Leaderboard"
 msgstr "กระดานผู้นำ"
 
@@ -172,7 +172,7 @@ msgstr "โหลดแมทช์เพิ่มเติม..."
 
 #: src/components/organisms/SubmitMatch.re.mjs:409
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
-#: src/components/organisms/AiTetsu.re.mjs:1747
+#: src/components/organisms/AiTetsu.re.mjs:1748
 msgid "Loading"
 msgstr "กำลังโหลด"
 
@@ -180,7 +180,7 @@ msgstr "กำลังโหลด"
 msgid "Loading matches..."
 msgstr "กำลังโหลดแมทช์..."
 
-#: src/components/organisms/AiTetsu.re.mjs:1621
+#: src/components/organisms/AiTetsu.re.mjs:1622
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -189,11 +189,11 @@ msgstr "กำลังโหลด..."
 msgid "LOSS"
 msgstr "แพ้"
 
-#: src/components/organisms/AiTetsu.re.mjs:1727
+#: src/components/organisms/AiTetsu.re.mjs:1728
 msgid "manual team"
 msgstr "ทีมแมนนวล"
 
-#: src/components/organisms/AiTetsu.re.mjs:1764
+#: src/components/organisms/AiTetsu.re.mjs:1765
 msgid "Match History"
 msgstr "ประวัติแมทช์"
 
@@ -223,8 +223,8 @@ msgid ""
 "the Queue tab."
 msgstr "ผู้เล่นในคิวไม่เพียงพอ เลือกผู้เล่นที่ต้องการเล่นจาก แท็บคิว"
 
-#: src/components/organisms/AiTetsu.re.mjs:1563
-#: src/components/organisms/AiTetsu.re.mjs:1585
+#: src/components/organisms/AiTetsu.re.mjs:1564
+#: src/components/organisms/AiTetsu.re.mjs:1586
 msgid "Offline Mode"
 msgstr "โหมดออฟไลน์"
 
@@ -240,16 +240,16 @@ msgstr "ผู้เล่น"
 msgid "Player Name"
 msgstr "ชื่อผู้เล่น"
 
-#: src/components/organisms/AiTetsu.re.mjs:1359
+#: src/components/organisms/AiTetsu.re.mjs:1360
 msgid ""
 "Players in a team will always be placed in a match together on the same side."
 msgstr "ผู้เล่นในทีมจะถูกจับคู่ในการแข่งขันด้วยกันเสมอในข้างเดียวกัน"
 
-#: src/components/organisms/AiTetsu.re.mjs:1380
+#: src/components/organisms/AiTetsu.re.mjs:1381
 msgid "Players in an anti-team will never be placed in a match together."
 msgstr "ผู้เล่นในแอนตี้-ทีมจะไม่ถูกจับคู่ในการแข่งขันด้วยกันเลย"
 
-#: src/components/organisms/AiTetsu.re.mjs:1438
+#: src/components/organisms/AiTetsu.re.mjs:1439
 msgid ""
 "Players in teams will always be placed in a match together on the same side."
 msgstr "ผู้เล่นในทีมจะถูกจับคู่ในการแข่งขันด้วยกันเสมอในข้างเดียวกัน"
@@ -281,7 +281,7 @@ msgstr "คิว"
 msgid "Queue All"
 msgstr "จัดคิวทั้งหมด"
 
-#: src/components/organisms/AiTetsu.re.mjs:1638
+#: src/components/organisms/AiTetsu.re.mjs:1639
 msgid "Queue All Players"
 msgstr "จัดคิวผู้เล่นทั้งหมด"
 
@@ -317,11 +317,11 @@ msgstr "เลือก"
 msgid "Select a tab"
 msgstr "เลือกแท็บ"
 
-#: src/components/organisms/AiTetsu.re.mjs:1421
+#: src/components/organisms/AiTetsu.re.mjs:1422
 msgid "Set as Female"
 msgstr "ตั้งเป็นหญิง"
 
-#: src/components/organisms/AiTetsu.re.mjs:1401
+#: src/components/organisms/AiTetsu.re.mjs:1402
 msgid "Set as Male"
 msgstr "ตั้งเป็นชาย"
 
@@ -334,7 +334,7 @@ msgstr ""
 "กำหนดจำนวนผู้เล่นที่กำลังพักเพื่อให้การแจกจับคู่เท่าๆ กัน ตั้งค่าเป็น 0 "
 "เพื่อปิดการใช้งานและปรับปรุงคุณภาพการแข่งขัน แต่ อาจทำให้ผู้เล่นบางคนเล่นมากกว่าคนอื่น"
 
-#: src/components/organisms/AiTetsu.re.mjs:1554
+#: src/components/organisms/AiTetsu.re.mjs:1555
 msgid "Start Session"
 msgstr "เริ่มเซสชั่น"
 
@@ -350,11 +350,11 @@ msgstr "ส่งผลที่มีเรตติ้ง"
 msgid "SUBMIT RESULTS"
 msgstr "ส่งผลลัพธ์"
 
-#: src/components/organisms/AiTetsu.re.mjs:1755
+#: src/components/organisms/AiTetsu.re.mjs:1756
 msgid "Submitted Matches"
 msgstr "แมทช์ที่ส่งแล้ว"
 
-#: src/components/organisms/AiTetsu.re.mjs:111
+#: src/components/organisms/AiTetsu.re.mjs:112
 msgid "Team {0}"
 msgstr "ทีม {0}"
 

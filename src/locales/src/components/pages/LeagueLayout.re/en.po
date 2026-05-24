@@ -13,8 +13,24 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/shared/InstallPwa.re.mjs:394
+msgid "— add to your Home Screen for push notifications"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:351
+msgid "— enable push notifications for event reminders"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:466
+msgid "— for a faster, app-like experience"
+msgstr ""
+
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:443
+msgid "\\\"Add to Home Screen\\\""
 msgstr ""
 
 #: src/components/organisms/LeagueNav.re.mjs:114
@@ -25,8 +41,33 @@ msgstr ""
 msgid "copyright the racquet league contributors"
 msgstr ""
 
+#: src/components/shared/InstallPwa.re.mjs:360
+msgid "Enable now"
+msgstr ""
+
 #: src/components/organisms/LeagueNav.re.mjs:110
 msgid "Find Games"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "Hide"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "How to install"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:435
+msgid "in Safari's toolbar"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:475
+msgid "Install"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:462
+msgid "Install Racquet League"
 msgstr ""
 
 #: src/components/pages/LeagueLayout.re.mjs:91
@@ -61,6 +102,18 @@ msgstr ""
 
 #: src/components/organisms/LeagueNav.re.mjs:106
 msgid "Rankings"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:441
+msgid "Scroll down and tap"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:347
+msgid "Stay in the loop"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:433
+msgid "Tap the Share button"
 msgstr ""
 
 #: src/components/organisms/LeagueNav.re.mjs:175

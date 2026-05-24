@@ -294,6 +294,21 @@ let make = (~query) => {
             </button>
           </div>
         </form>
+        <div
+          className="mt-8 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
+          <div className="px-4 py-5 sm:px-6">
+            <h3
+              className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              {t`Notifications`}
+            </h3>
+          </div>
+          <div className="px-4 pb-6">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              {t`Receive push notifications for event reminders and updates.`}
+            </p>
+            <PushNotifications />
+          </div>
+        </div>
         {
           let stripeAccountId = query.viewer->Option.flatMap(v => v.user)->Option.flatMap(u => u.stripeAccountId)
           let chargesEnabled =

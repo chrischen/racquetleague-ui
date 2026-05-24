@@ -25,17 +25,14 @@ msgstr "· {0} 대기 중"
 msgid "· +{0} waitlist"
 msgstr "· +{0} 대기자"
 
-#: src/components/pkuru/PkEventRow.re.mjs:672
+#: src/components/pkuru/PkEventRow.re.mjs:738
+#: src/components/pkuru/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr "[제목 없음]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:130
+#: src/components/pkuru/PkEventsList.re.mjs:146
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
-
-#: src/components/pkuru/PkEventsList.re.mjs:192
-msgid "{0} {hiddenDesc} hidden — show"
-msgstr "{0} {hiddenDesc} 숨김 — 표시"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "{0} joined"
@@ -49,10 +46,6 @@ msgstr "{filled, plural, one {{0}} other {{1}}}"
 #: src/components/shared/EventsListView.re.mjs:106
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
-
-#: src/components/pkuru/PkEventsList.re.mjs:104
-msgid "{totalHiddenCount, plural, one {event} other {events}}"
-msgstr "{totalHiddenCount, plural, one {이벤트} other {이벤트}}"
 
 #: src/components/shared/EventsListView.re.mjs:119
 msgid "← previous"
@@ -70,7 +63,7 @@ msgstr "종목"
 msgid "Add a message..."
 msgstr "메시지 추가..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:148
+#: src/components/pkuru/PkEventsList.re.mjs:164
 msgid "Add to {0}"
 msgstr "{0}에 추가"
 
@@ -91,7 +84,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "보증금 승인"
 
@@ -99,7 +92,7 @@ msgstr "보증금 승인"
 msgid "balanced"
 msgstr "균형"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "취소"
 
@@ -111,7 +104,7 @@ msgstr "이벤트 취소"
 msgid "Cancel RSVP"
 msgstr "참가 취소"
 
-#: src/components/pkuru/PkEventRow.re.mjs:731
+#: src/components/pkuru/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr "취소됨"
 
@@ -155,7 +148,7 @@ msgstr "자리 확보"
 msgid "Claim spot · {0}"
 msgstr "참가 신청 · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "결제 완료"
 
@@ -242,7 +235,7 @@ msgid "even"
 msgstr "균등"
 
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:133
+#: src/components/pkuru/PkEventsList.re.mjs:149
 msgid "event"
 msgstr "이벤트"
 
@@ -259,7 +252,7 @@ msgid "Event updated"
 msgstr "이벤트가 업데이트되었습니다"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:134
+#: src/components/pkuru/PkEventsList.re.mjs:150
 msgid "events"
 msgstr "이벤트"
 
@@ -279,7 +272,7 @@ msgstr "이벤트 업데이트 및 알림용"
 msgid "Free"
 msgstr "무료"
 
-#: src/components/pkuru/PkEventsList.re.mjs:277
+#: src/components/pkuru/PkEventsList.re.mjs:305
 msgid "Friday"
 msgstr "금요일"
 
@@ -295,7 +288,7 @@ msgstr "Google 캘린더"
 msgid "Highly skilled players"
 msgstr "고급 플레이어"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr "참가"
 
@@ -315,11 +308,11 @@ msgstr "참가함"
 msgid "Last Round"
 msgstr "지난 라운드"
 
-#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pkuru/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr "나가기"
 
-#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pkuru/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -369,7 +362,7 @@ msgstr "중간값"
 msgid "mixed"
 msgstr "혼합"
 
-#: src/components/pkuru/PkEventsList.re.mjs:265
+#: src/components/pkuru/PkEventsList.re.mjs:293
 msgid "Monday"
 msgstr "월요일"
 
@@ -382,7 +375,7 @@ msgstr "더 보기 →"
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
-#: src/components/pkuru/PkEventsList.re.mjs:286
+#: src/components/pkuru/PkEventsList.re.mjs:314
 msgid "Next {dayName}"
 msgstr "다음 {dayName}"
 
@@ -410,7 +403,7 @@ msgstr "참가자"
 msgid "Pay {priceStr}"
 msgstr "{priceStr} 결제"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "지금 결제"
 
@@ -422,7 +415,7 @@ msgstr "결제 승인됨"
 msgid "Payment captured"
 msgstr "결제 완료됨"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "결제 실패"
 
@@ -461,7 +454,7 @@ msgstr "밝히지 않음"
 msgid "Private"
 msgstr "비공개"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "처리 중…"
 
@@ -519,7 +512,7 @@ msgstr "라운드 {0}"
 msgid "Round Robin Draws"
 msgstr "라운드 로빈 대진"
 
-#: src/components/pkuru/PkEventsList.re.mjs:280
+#: src/components/pkuru/PkEventsList.re.mjs:308
 msgid "Saturday"
 msgstr "토요일"
 
@@ -539,6 +532,10 @@ msgstr "점수 저장"
 #: src/components/organisms/MatchCardEdit.re.mjs:217
 msgid "Score"
 msgstr "점수"
+
+#: src/components/pkuru/PkEventsList.re.mjs:214
+msgid "Show {0} more"
+msgstr "{0}개 더 보기"
 
 #: src/components/organisms/PkEventMessages.re.mjs:421
 msgid "Show all {0} items"
@@ -560,7 +557,7 @@ msgstr "시작 시간 순 정렬"
 msgid "SPREAD"
 msgstr "분산"
 
-#: src/components/pkuru/PkEventsList.re.mjs:262
+#: src/components/pkuru/PkEventsList.re.mjs:290
 msgid "Sunday"
 msgstr "일요일"
 
@@ -584,7 +581,7 @@ msgstr ""
 "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
 "복원할 수 있습니다."
 
-#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pkuru/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
@@ -607,7 +604,7 @@ msgstr ""
 "이것은 보증금 예치만 해당됩니다 — 실제 결제는 이벤트 당일 주최자에게 해야 합"
 "니다. 예치금은 이벤트 종료 후 해제됩니다."
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."
@@ -627,17 +624,17 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/pkuru/PkEventsList.re.mjs:274
+#: src/components/pkuru/PkEventsList.re.mjs:302
 msgid "Thursday"
 msgstr "목요일"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:245
+#: src/components/pkuru/PkEventsList.re.mjs:273
 msgid "Today"
 msgstr "오늘"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:251
+#: src/components/pkuru/PkEventsList.re.mjs:279
 msgid "Tomorrow"
 msgstr "내일"
 
@@ -645,7 +642,7 @@ msgstr "내일"
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/pkuru/PkEventsList.re.mjs:268
+#: src/components/pkuru/PkEventsList.re.mjs:296
 msgid "Tuesday"
 msgstr "화요일"
 
@@ -671,7 +668,7 @@ msgstr "프로필 보기"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr "대기자 명단"
 
@@ -687,7 +684,7 @@ msgstr "대기자 명단 등록됨"
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
 
-#: src/components/pkuru/PkEventsList.re.mjs:271
+#: src/components/pkuru/PkEventsList.re.mjs:299
 msgid "Wednesday"
 msgstr "수요일"
 
@@ -707,7 +704,7 @@ msgstr "참가 취소"
 msgid "Withdrawing..."
 msgstr "취소 중..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:285
+#: src/components/pkuru/PkEventsList.re.mjs:313
 msgid "Yesterday"
 msgstr "어제"
 
@@ -727,9 +724,17 @@ msgstr ""
 msgid "Your RSVP is awaiting admin approval"
 msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 
+#: src/components/pkuru/PkEventsList.re.mjs:192
+#~ msgid "{0} {hiddenDesc} hidden — show"
+#~ msgstr "{0} {hiddenDesc} 숨김 — 표시"
+
 #: src/components/pages/PkEventPage.re.mjs:380
 #~ msgid "{cancelTimeLeft} left to cancel"
 #~ msgstr "취소 가능 시간 {cancelTimeLeft} 남음"
+
+#: src/components/pkuru/PkEventsList.re.mjs:104
+#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
+#~ msgstr "{totalHiddenCount, plural, one {이벤트} other {이벤트}}"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:195
 #~ msgid ""

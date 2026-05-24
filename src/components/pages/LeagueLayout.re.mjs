@@ -4,6 +4,7 @@ import * as Grid from "../vanillaui/atoms/Grid.re.mjs";
 import * as React from "react";
 import * as Footer from "../organisms/Footer.re.mjs";
 import * as LeagueNav from "../organisms/LeagueNav.re.mjs";
+import * as InstallPwa from "../shared/InstallPwa.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -80,6 +81,7 @@ function LeagueLayout$Layout(props) {
                                     })),
                             fallback: "..."
                           }),
+                      JsxRuntime.jsx(InstallPwa.make, {}),
                       props.children,
                       JsxRuntime.jsx(Footer.make, {})
                     ]

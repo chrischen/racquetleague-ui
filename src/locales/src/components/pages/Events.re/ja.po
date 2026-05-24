@@ -25,17 +25,14 @@ msgstr "· {0} 保留中"
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
-#: src/components/pkuru/PkEventRow.re.mjs:672
+#: src/components/pkuru/PkEventRow.re.mjs:738
+#: src/components/pkuru/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:130
+#: src/components/pkuru/PkEventsList.re.mjs:146
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
-
-#: src/components/pkuru/PkEventsList.re.mjs:192
-msgid "{0} {hiddenDesc} hidden — show"
-msgstr "{0} {hiddenDesc} 件非表示 — 表示する"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "{0} joined"
@@ -49,10 +46,6 @@ msgstr "{filled, plural, one {{0}} other {{1}}}"
 #: src/components/shared/EventsListView.re.mjs:106
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
-
-#: src/components/pkuru/PkEventsList.re.mjs:104
-msgid "{totalHiddenCount, plural, one {event} other {events}}"
-msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
 #: src/components/shared/EventsListView.re.mjs:119
 msgid "← previous"
@@ -70,7 +63,7 @@ msgstr "アクティビティ"
 msgid "Add a message..."
 msgstr "メッセージを追加..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:148
+#: src/components/pkuru/PkEventsList.re.mjs:164
 msgid "Add to {0}"
 msgstr "{0}に追加"
 
@@ -91,7 +84,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "デポジットを承認する"
 
@@ -99,7 +92,7 @@ msgstr "デポジットを承認する"
 msgid "balanced"
 msgstr "バランス"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -111,7 +104,7 @@ msgstr "イベントをキャンセル"
 msgid "Cancel RSVP"
 msgstr "参加をキャンセルする"
 
-#: src/components/pkuru/PkEventRow.re.mjs:731
+#: src/components/pkuru/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr "キャンセル済み"
 
@@ -156,7 +149,7 @@ msgstr "参加する"
 msgid "Claim spot · {0}"
 msgstr "スポットを予約 · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "支払いを完了する"
 
@@ -243,7 +236,7 @@ msgid "even"
 msgstr "均等"
 
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:133
+#: src/components/pkuru/PkEventsList.re.mjs:149
 msgid "event"
 msgstr "イベント"
 
@@ -260,7 +253,7 @@ msgid "Event updated"
 msgstr "イベントを更新しました"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:134
+#: src/components/pkuru/PkEventsList.re.mjs:150
 msgid "events"
 msgstr "イベント"
 
@@ -280,7 +273,7 @@ msgstr "イベントの更新と通知用"
 msgid "Free"
 msgstr "無料"
 
-#: src/components/pkuru/PkEventsList.re.mjs:277
+#: src/components/pkuru/PkEventsList.re.mjs:305
 msgid "Friday"
 msgstr "金曜日"
 
@@ -296,7 +289,7 @@ msgstr "Google カレンダー"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr "参加"
 
@@ -316,11 +309,11 @@ msgstr "参加"
 msgid "Last Round"
 msgstr "前回のラウンド"
 
-#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pkuru/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pkuru/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -370,7 +363,7 @@ msgstr "中央値"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/pkuru/PkEventsList.re.mjs:265
+#: src/components/pkuru/PkEventsList.re.mjs:293
 msgid "Monday"
 msgstr "月曜日"
 
@@ -383,7 +376,7 @@ msgstr "もっと見る →"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/pkuru/PkEventsList.re.mjs:286
+#: src/components/pkuru/PkEventsList.re.mjs:314
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
 
@@ -411,7 +404,7 @@ msgstr "参加者"
 msgid "Pay {priceStr}"
 msgstr "{priceStr} を支払う"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "今すぐ支払う"
 
@@ -423,7 +416,7 @@ msgstr "支払い承認済み"
 msgid "Payment captured"
 msgstr "支払い確定済み"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "支払いに失敗しました"
 
@@ -462,7 +455,7 @@ msgstr "回答しない"
 msgid "Private"
 msgstr "非公開"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "処理中…"
 
@@ -520,7 +513,7 @@ msgstr "ラウンド{0}"
 msgid "Round Robin Draws"
 msgstr "ラウンドロビン組み合わせ"
 
-#: src/components/pkuru/PkEventsList.re.mjs:280
+#: src/components/pkuru/PkEventsList.re.mjs:308
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -540,6 +533,10 @@ msgstr "スコアを保存"
 #: src/components/organisms/MatchCardEdit.re.mjs:217
 msgid "Score"
 msgstr "スコア"
+
+#: src/components/pkuru/PkEventsList.re.mjs:214
+msgid "Show {0} more"
+msgstr "{0}件をさらに表示"
 
 #: src/components/organisms/PkEventMessages.re.mjs:421
 msgid "Show all {0} items"
@@ -561,7 +558,7 @@ msgstr "開始時間順"
 msgid "SPREAD"
 msgstr "ばらつき"
 
-#: src/components/pkuru/PkEventsList.re.mjs:262
+#: src/components/pkuru/PkEventsList.re.mjs:290
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -585,7 +582,7 @@ msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
 
-#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pkuru/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
@@ -608,7 +605,7 @@ msgstr ""
 "これはデポジットの仮押さえのみです — 支払いはイベント当日に主催者へ行ってくだ"
 "さい。仮押さえはイベント終了後に解除されます。"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."
@@ -628,17 +625,17 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/pkuru/PkEventsList.re.mjs:274
+#: src/components/pkuru/PkEventsList.re.mjs:302
 msgid "Thursday"
 msgstr "木曜日"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:245
+#: src/components/pkuru/PkEventsList.re.mjs:273
 msgid "Today"
 msgstr "今日"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:251
+#: src/components/pkuru/PkEventsList.re.mjs:279
 msgid "Tomorrow"
 msgstr "明日"
 
@@ -646,7 +643,7 @@ msgstr "明日"
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/pkuru/PkEventsList.re.mjs:268
+#: src/components/pkuru/PkEventsList.re.mjs:296
 msgid "Tuesday"
 msgstr "火曜日"
 
@@ -672,7 +669,7 @@ msgstr "プロフィールを表示"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
@@ -688,7 +685,7 @@ msgstr "キャンセル待ち中"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/pkuru/PkEventsList.re.mjs:271
+#: src/components/pkuru/PkEventsList.re.mjs:299
 msgid "Wednesday"
 msgstr "水曜日"
 
@@ -708,7 +705,7 @@ msgstr "参加登録を取り消す"
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:285
+#: src/components/pkuru/PkEventsList.re.mjs:313
 msgid "Yesterday"
 msgstr "昨日"
 
@@ -746,6 +743,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/EventsList.re.mjs:263
 #~ msgid "{0} {hiddenCountDesc} hidden"
 #~ msgstr "{0}5件の{hiddenCountDesc}非表示"
+
+#: src/components/pkuru/PkEventsList.re.mjs:192
+#~ msgid "{0} {hiddenDesc} hidden — show"
+#~ msgstr "{0} {hiddenDesc} 件非表示 — 表示する"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:113
 #~ msgid "{0} events created!"
@@ -799,6 +800,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/EventsList.re.mjs:229
 #, fuzzy
 #~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/pkuru/PkEventsList.re.mjs:104
+#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
 #~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
 #: src/components/organisms/EventsList.re.mjs:121

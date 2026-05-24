@@ -13,9 +13,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/shared/InstallPwa.re.mjs:394
+msgid "— add to your Home Screen for push notifications"
+msgstr "— เพิ่มไปยังหน้าจอหลักเพื่อรับการแจ้งเตือนแบบพุช"
+
+#: src/components/shared/InstallPwa.re.mjs:351
+msgid "— enable push notifications for event reminders"
+msgstr "— เปิดใช้การแจ้งเตือนแบบพุชสำหรับการเตือนกิจกรรม"
+
+#: src/components/shared/InstallPwa.re.mjs:466
+msgid "— for a faster, app-like experience"
+msgstr "— เพื่อประสบการณ์ที่รวดเร็วเหมือนแอป"
+
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
 msgstr "(ออกจากระบบ)"
+
+#: src/components/shared/InstallPwa.re.mjs:443
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
 
 #: src/components/organisms/LeagueNav.re.mjs:114
 msgid "About"
@@ -25,9 +41,34 @@ msgstr "เกี่ยวกับ"
 msgid "copyright the racquet league contributors"
 msgstr "ลิขสิทธิ์โดยผู้ร่วมงาน the racquet league"
 
+#: src/components/shared/InstallPwa.re.mjs:360
+msgid "Enable now"
+msgstr "เปิดใช้งานเดี๋ยวนี้"
+
 #: src/components/organisms/LeagueNav.re.mjs:110
 msgid "Find Games"
 msgstr "ค้นหาเกม"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "Hide"
+msgstr "ซ่อน"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "How to install"
+msgstr "วิธีติดตั้ง"
+
+#: src/components/shared/InstallPwa.re.mjs:435
+msgid "in Safari's toolbar"
+msgstr "ในแถบเครื่องมือของ Safari"
+
+#: src/components/shared/InstallPwa.re.mjs:475
+msgid "Install"
+msgstr "ติดตั้ง"
+
+#: src/components/shared/InstallPwa.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:462
+msgid "Install Racquet League"
+msgstr "ติดตั้ง Racquet League"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
@@ -54,6 +95,18 @@ msgstr "รูปโปรไฟล์"
 #: src/components/organisms/LeagueNav.re.mjs:106
 msgid "Rankings"
 msgstr "อันดับ"
+
+#: src/components/shared/InstallPwa.re.mjs:441
+msgid "Scroll down and tap"
+msgstr "เลื่อนลงและแตะ"
+
+#: src/components/shared/InstallPwa.re.mjs:347
+msgid "Stay in the loop"
+msgstr "ติดตามทุกความเคลื่อนไหว"
+
+#: src/components/shared/InstallPwa.re.mjs:433
+msgid "Tap the Share button"
+msgstr "แตะปุ่มแชร์"
 
 #: src/components/organisms/LeagueNav.re.mjs:175
 #: src/components/organisms/LeagueNav.re.mjs:326

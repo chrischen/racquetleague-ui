@@ -11,8 +11,8 @@ let isSupported: unit => bool = %raw(`function() {
   )
 }`)
 
-// Generate UUID using Web Crypto API
-@val external randomUUID: unit => string = "crypto.randomUUID"
+// Generate UUID, with fallback for environments where crypto.randomUUID is unavailable
+@module("./uuid") external randomUUID: unit => string = "randomUUID"
 
 module RatingModel = {
   type t = string

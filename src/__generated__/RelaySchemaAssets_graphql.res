@@ -340,6 +340,22 @@ and input_PredictMatchInput_nullable = {
 }
 
 @live
+and input_RegisterPushSubscriptionInput = {
+  auth: string,
+  endpoint: string,
+  expirationTime?: float,
+  p256dh: string,
+}
+
+@live
+and input_RegisterPushSubscriptionInput_nullable = {
+  auth: string,
+  endpoint: string,
+  expirationTime?: Js.Null.t<float>,
+  p256dh: string,
+}
+
+@live
 and input_RemoveUserFromClubInput = {
   clubId: string,
   userId: string,

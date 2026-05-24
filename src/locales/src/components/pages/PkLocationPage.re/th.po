@@ -25,17 +25,14 @@ msgstr "· {0} รอดำเนินการ"
 msgid "· +{0} waitlist"
 msgstr "· +{0} รายชื่อคอย"
 
-#: src/components/pkuru/PkEventRow.re.mjs:672
+#: src/components/pkuru/PkEventRow.re.mjs:738
+#: src/components/pkuru/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr "[ไม่มีหัวข้อ]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:130
+#: src/components/pkuru/PkEventsList.re.mjs:146
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
-
-#: src/components/pkuru/PkEventsList.re.mjs:192
-msgid "{0} {hiddenDesc} hidden — show"
-msgstr "{0} {hiddenDesc} ซ่อนอยู่ — แสดง"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "{0} joined"
@@ -49,10 +46,6 @@ msgstr "{filled, plural, one {{0}} other {{1}}}"
 #: src/components/shared/EventsListView.re.mjs:106
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
-
-#: src/components/pkuru/PkEventsList.re.mjs:104
-msgid "{totalHiddenCount, plural, one {event} other {events}}"
-msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
 
 #: src/components/shared/EventsListView.re.mjs:119
 msgid "← previous"
@@ -70,7 +63,7 @@ msgstr "กิจกรรม"
 msgid "Add a message..."
 msgstr "เพิ่มข้อความ..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:148
+#: src/components/pkuru/PkEventsList.re.mjs:164
 msgid "Add to {0}"
 msgstr "เพิ่มไปยัง{0}"
 
@@ -91,7 +84,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "อนุมัติเงินมัดจำ"
 
@@ -99,7 +92,7 @@ msgstr "อนุมัติเงินมัดจำ"
 msgid "balanced"
 msgstr "สมดุล"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -111,7 +104,7 @@ msgstr "ยกเลิกกิจกรรม"
 msgid "Cancel RSVP"
 msgstr "ยกเลิก RSVP"
 
-#: src/components/pkuru/PkEventRow.re.mjs:731
+#: src/components/pkuru/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr "ยกเลิกแล้ว"
 
@@ -154,7 +147,7 @@ msgstr "จองที่"
 msgid "Claim spot · {0}"
 msgstr "จองสปอต · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "ชำระเงินให้เสร็จสิ้น"
 
@@ -239,7 +232,7 @@ msgid "even"
 msgstr "เท่าเทียม"
 
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:133
+#: src/components/pkuru/PkEventsList.re.mjs:149
 msgid "event"
 msgstr "กิจกรรม"
 
@@ -256,7 +249,7 @@ msgid "Event updated"
 msgstr "อัปเดตกิจกรรมแล้ว"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:134
+#: src/components/pkuru/PkEventsList.re.mjs:150
 msgid "events"
 msgstr "กิจกรรม"
 
@@ -276,7 +269,7 @@ msgstr "สำหรับการอัปเดตและการแจ้
 msgid "Free"
 msgstr "ฟรี"
 
-#: src/components/pkuru/PkEventsList.re.mjs:277
+#: src/components/pkuru/PkEventsList.re.mjs:305
 msgid "Friday"
 msgstr "วันศุกร์"
 
@@ -292,7 +285,7 @@ msgstr "Google Calendar"
 msgid "Highly skilled players"
 msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr "เข้าร่วม"
 
@@ -312,11 +305,11 @@ msgstr "เข้าร่วมแล้ว"
 msgid "Last Round"
 msgstr "รอบที่แล้ว"
 
-#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pkuru/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr "ออก"
 
-#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pkuru/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -370,7 +363,7 @@ msgstr "มัธยฐาน"
 msgid "mixed"
 msgstr "หลากหลาย"
 
-#: src/components/pkuru/PkEventsList.re.mjs:265
+#: src/components/pkuru/PkEventsList.re.mjs:293
 msgid "Monday"
 msgstr "วันจันทร์"
 
@@ -383,7 +376,7 @@ msgstr "เพิ่มเติม →"
 msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
 
-#: src/components/pkuru/PkEventsList.re.mjs:286
+#: src/components/pkuru/PkEventsList.re.mjs:314
 msgid "Next {dayName}"
 msgstr "สัปดาห์หน้า{dayName}"
 
@@ -411,7 +404,7 @@ msgstr "ผู้เข้าร่วม"
 msgid "Pay {priceStr}"
 msgstr "ชำระเงิน {priceStr}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "ชำระเงินตอนนี้"
 
@@ -423,7 +416,7 @@ msgstr "ชำระเงินได้รับอนุมัติแล้
 msgid "Payment captured"
 msgstr "ชำระเงินสำเร็จแล้ว"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "การชำระเงินล้มเหลว"
 
@@ -462,7 +455,7 @@ msgstr "ไม่ต้องการระบุ"
 msgid "Private"
 msgstr "ไม่เปิดเผย"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "กำลังดำเนินการ…"
 
@@ -520,7 +513,7 @@ msgstr "รอบ {0}"
 msgid "Round Robin Draws"
 msgstr "จับคู่แบบพบกันหมด"
 
-#: src/components/pkuru/PkEventsList.re.mjs:280
+#: src/components/pkuru/PkEventsList.re.mjs:308
 msgid "Saturday"
 msgstr "วันเสาร์"
 
@@ -540,6 +533,10 @@ msgstr "บันทึกคะแนน"
 #: src/components/organisms/MatchCardEdit.re.mjs:217
 msgid "Score"
 msgstr "คะแนน"
+
+#: src/components/pkuru/PkEventsList.re.mjs:214
+msgid "Show {0} more"
+msgstr "แสดงเพิ่มอีก {0} รายการ"
 
 #: src/components/organisms/PkEventMessages.re.mjs:421
 msgid "Show all {0} items"
@@ -561,7 +558,7 @@ msgstr "เรียงตามเวลาเริ่มต้น"
 msgid "SPREAD"
 msgstr "การกระจาย"
 
-#: src/components/pkuru/PkEventsList.re.mjs:262
+#: src/components/pkuru/PkEventsList.re.mjs:290
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
@@ -584,7 +581,7 @@ msgid ""
 msgstr ""
 "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
-#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pkuru/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
@@ -604,7 +601,7 @@ msgid ""
 msgstr ""
 "นี่คือการระงับเงินมัดจำเท่านั้น — ชำระเงินให้กับผู้จัดในวันงาน การระงับจะถูกปล่อยหลังจากงานสิ้นสุด"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."
@@ -624,17 +621,17 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/pkuru/PkEventsList.re.mjs:274
+#: src/components/pkuru/PkEventsList.re.mjs:302
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:245
+#: src/components/pkuru/PkEventsList.re.mjs:273
 msgid "Today"
 msgstr "วันนี้"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:251
+#: src/components/pkuru/PkEventsList.re.mjs:279
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
 
@@ -642,7 +639,7 @@ msgstr "พรุ่งนี้"
 msgid "TOP 6 AVG"
 msgstr "ค่าเฉลี่ย 6 อันดับ"
 
-#: src/components/pkuru/PkEventsList.re.mjs:268
+#: src/components/pkuru/PkEventsList.re.mjs:296
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
@@ -668,7 +665,7 @@ msgstr "ดูโปรไฟล์"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
@@ -684,7 +681,7 @@ msgstr "อยู่ในรายชื่อคอย"
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/pkuru/PkEventsList.re.mjs:271
+#: src/components/pkuru/PkEventsList.re.mjs:299
 msgid "Wednesday"
 msgstr "วันพุธ"
 
@@ -704,7 +701,7 @@ msgstr "ยกเลิก RSVP"
 msgid "Withdrawing..."
 msgstr "กำลังยกเลิก..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:285
+#: src/components/pkuru/PkEventsList.re.mjs:313
 msgid "Yesterday"
 msgstr "เมื่อวาน"
 
@@ -723,6 +720,14 @@ msgstr ""
 #: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"
+
+#: src/components/pkuru/PkEventsList.re.mjs:192
+#~ msgid "{0} {hiddenDesc} hidden — show"
+#~ msgstr "{0} {hiddenDesc} ซ่อนอยู่ — แสดง"
+
+#: src/components/pkuru/PkEventsList.re.mjs:104
+#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
+#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:195
 #~ msgid ""

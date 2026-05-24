@@ -13,94 +13,150 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:318
+#: src/components/shared/InstallPwa.re.mjs:271
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"ホーム画面に追加\\\""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:319
 msgid "Active"
 msgstr "有効"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:398
+#: src/components/shared/InstallPwa.re.mjs:253
+msgid "Add to Home Screen to enable notifications"
+msgstr "通知を有効にするにはホーム画面に追加してください"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Australia"
 msgstr "オーストラリア"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:543
+#: src/components/organisms/SettingsProfileForm.re.mjs:544
 msgid "Biography"
 msgstr "自己紹介"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:402
+#: src/components/organisms/SettingsProfileForm.re.mjs:403
 msgid "Canada"
 msgstr "カナダ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:338
+#: src/components/organisms/SettingsProfileForm.re.mjs:339
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr ""
 "主催するイベントの支払いを受け取るには、Stripeアカウントを接続してください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:367
+#: src/components/organisms/SettingsProfileForm.re.mjs:368
 msgid "Connect Stripe account"
 msgstr "Stripeアカウントを接続"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:364
 msgid "Connecting..."
 msgstr "接続中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:383
+#: src/components/organisms/SettingsProfileForm.re.mjs:384
 msgid "Country"
 msgstr "国"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:471
+#: src/components/shared/PushNotifications.re.mjs:402
+msgid "Disable notifications"
+msgstr "通知を無効にする"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:472
 msgid "Display Name"
 msgstr "表示名"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:488
+#: src/components/organisms/SettingsProfileForm.re.mjs:489
 msgid "Doe John"
 msgstr "ジョン・ドウ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:514
+#: src/components/shared/PushNotifications.re.mjs:414
+msgid "Enable notifications"
+msgstr "通知を有効にする"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:515
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:485
 msgid "Full name"
 msgstr "フルネーム"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:499
+#: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:414
+#: src/components/organisms/SettingsProfileForm.re.mjs:415
 msgid "Hong Kong"
 msgstr "香港"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:475
+#: src/components/organisms/SettingsProfileForm.re.mjs:476
 msgid "How you appear to other players"
 msgstr "他のプレイヤーへの表示方法"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:263
+msgid "in Safari's toolbar"
+msgstr "Safariのツールバー内"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:391
 msgid "Japan"
 msgstr "日本"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/shared/PushNotifications.re.mjs:395
+msgid "Loading..."
+msgstr "読み込み中..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:511
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:312
+#: src/components/organisms/SettingsProfileForm.re.mjs:313
 msgid "Not connected"
 msgstr "未接続"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:315
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
+msgid "Notifications"
+msgstr "通知"
+
+#: src/components/shared/PushNotifications.re.mjs:431
+msgid ""
+"Notifications are blocked. To enable them, go to your device or browser "
+"settings and allow notifications for this site."
+msgstr ""
+"通知がブロックされています。有効にするには、デバイスまたはブラウザの設定でこ"
+"のサイトの通知を許可してください。"
+
+#: src/components/shared/InstallPwa.re.mjs:278
+msgid "Open the app from your Home Screen and enable notifications"
+msgstr "ホーム画面からアプリを開き、通知を有効にしてください"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:316
 msgid "Pending"
 msgstr "保留中"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
 msgid "Prefer not to say"
 msgstr "回答しない"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:370
+#: src/components/shared/PushNotifications.re.mjs:302
+msgid ""
+"Push notifications are blocked. Check your browser or device notification "
+"settings for this site, then try again."
+msgstr ""
+"プッシュ通知がブロックされています。このサイトのブラウザまたはデバイスの通知"
+"設定を確認して、もう一度お試しください。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:593
+msgid "Receive push notifications for event reminders and updates."
+msgstr "イベントのリマインダーや更新情報をプッシュ通知で受け取る。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:371
 msgid "Resume onboarding"
 msgstr "登録を再開"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:570
+#: src/components/organisms/SettingsProfileForm.re.mjs:571
 msgid "Save profile"
 msgstr "プロフィールを保存"
+
+#: src/components/shared/InstallPwa.re.mjs:269
+msgid "Scroll down and tap"
+msgstr "下にスクロールしてタップ"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
@@ -114,47 +170,51 @@ msgstr ""
 "RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
 "す。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:410
+#: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Singapore"
 msgstr "シンガポール"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:491
+#: src/components/organisms/SettingsProfileForm.re.mjs:492
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:422
+#: src/components/organisms/SettingsProfileForm.re.mjs:423
 msgid "South Korea"
 msgstr "韓国"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:584
+#: src/components/organisms/SettingsProfileForm.re.mjs:607
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:418
+#: src/components/organisms/SettingsProfileForm.re.mjs:419
 msgid "Taiwan"
 msgstr "台湾"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:549
+#: src/components/shared/InstallPwa.re.mjs:261
+msgid "Tap the Share button"
+msgstr "共有ボタンをタップ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:550
 msgid "tell us a little about yourself"
 msgstr "自己紹介をしてください"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:547
+#: src/components/organisms/SettingsProfileForm.re.mjs:548
 msgid "Tell us a little about yourself..."
 msgstr "自己紹介を入力してください..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:406
+#: src/components/organisms/SettingsProfileForm.re.mjs:407
 msgid "United Kingdom"
 msgstr "イギリス"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:394
+#: src/components/organisms/SettingsProfileForm.re.mjs:395
 msgid "United States"
 msgstr "アメリカ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:344
+#: src/components/organisms/SettingsProfileForm.re.mjs:345
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr "Stripeアカウントが接続され、支払いを受け取る準備が整いました。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:341
+#: src/components/organisms/SettingsProfileForm.re.mjs:342
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "Stripeアカウントは接続されていますが、登録がまだ完了していません。"
 

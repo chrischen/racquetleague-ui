@@ -537,8 +537,8 @@ let _removeGuestPlayer = (sessionPlayers: array<Player.t<'a>>, player: Player.t<
 type playerSettings = TeamBuilder | AddPlayer | Settings
 type screen = Advanced | Matches
 
-// Generate UUID using Web Crypto API
-@val external randomUUID: unit => string = "crypto.randomUUID"
+// Generate UUID, with fallback for environments where crypto.randomUUID is unavailable
+@module("../../lib/uuid") external randomUUID: unit => string = "randomUUID"
 
 @react.component
 let make = (~event, ~children) => {

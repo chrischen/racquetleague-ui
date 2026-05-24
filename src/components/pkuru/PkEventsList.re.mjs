@@ -5,6 +5,7 @@ import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as PkEventRow from "./PkEventRow.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
@@ -98,20 +99,35 @@ function PkEventsList$Day(props) {
     return Core__Option.getOr(edge.shadow, false);
   };
   var hideCheck = Core__Option.getOr(props.shouldHideEvent, defaultHide);
-  var totalHiddenCount = events.filter(function (edge) {
+  var hiddenEvents = events.filter(function (edge) {
         return hideCheck(edge, viewer);
-      }).length;
-  var hiddenDesc = plural(totalHiddenCount, {
-        one: "event",
-        other: "events"
       });
-  var visibleEvents = events.filter(function (edge) {
-        if (hideCheck(edge, viewer)) {
-          return showShadow;
-        } else {
-          return true;
-        }
-      });
+  var totalHiddenCount = hiddenEvents.length;
+  var visibleEvents = showShadow ? events : events.filter(function (edge) {
+          return !hideCheck(edge, viewer);
+        });
+  var getWaitlistCount = function (edge) {
+    var max = edge.maxRsvps;
+    if (max === undefined) {
+      return 0;
+    }
+    var mainList = Core__Array.filterMap(Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(edge.rsvps, (function (r) {
+                          return r.edges;
+                        })), []), (function (e) {
+                  return e;
+                })), (function (e) {
+              return e.node;
+            })).filter(function (n) {
+          if (n.listType === undefined) {
+            return true;
+          } else {
+            return Caml_obj.equal(n.listType, 0);
+          }
+        });
+    return Math.max(0, mainList.length - max | 0);
+  };
+  var hasHiddenPreview = totalHiddenCount > 0 && !showShadow;
+  var previewHiddenEvent = Belt_Array.get(hiddenEvents, 0);
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -154,26 +170,7 @@ function PkEventsList$Day(props) {
                                       className: "px-4 md:px-6 py-3 flex items-center justify-between"
                                     }),
                                 visibleEvents.map(function (edge, idx) {
-                                      var max = edge.maxRsvps;
-                                      var waitlistCount;
-                                      if (max !== undefined) {
-                                        var mainList = Core__Array.filterMap(Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(edge.rsvps, (function (r) {
-                                                              return r.edges;
-                                                            })), []), (function (e) {
-                                                      return e;
-                                                    })), (function (e) {
-                                                  return e.node;
-                                                })).filter(function (n) {
-                                              if (n.listType === undefined) {
-                                                return true;
-                                              } else {
-                                                return Caml_obj.equal(n.listType, 0);
-                                              }
-                                            });
-                                        waitlistCount = Math.max(0, mainList.length - max | 0);
-                                      } else {
-                                        waitlistCount = 0;
-                                      }
+                                      var waitlistCount = getWaitlistCount(edge);
                                       return JsxRuntime.jsx(PkEventRow.make, {
                                                   event: edge.fragmentRefs,
                                                   user: Core__Option.flatMap(viewer, (function (v) {
@@ -181,22 +178,53 @@ function PkEventsList$Day(props) {
                                                                         return u.fragmentRefs;
                                                                       }));
                                                         })),
-                                                  isLastInGroup: idx === (visibleEvents.length - 1 | 0),
+                                                  isLastInGroup: idx === (visibleEvents.length - 1 | 0) && !hasHiddenPreview,
                                                   onEventClick: onEventClick,
                                                   onHoverLocation: onHoverLocation,
                                                   waitlistCount: waitlistCount,
                                                   query: query
                                                 }, edge.id);
                                     }),
-                                totalHiddenCount > 0 && !showShadow ? JsxRuntime.jsx("button", {
-                                        children: t`${totalHiddenCount.toString()} ${hiddenDesc} hidden — show`,
-                                        className: "w-full py-3 text-center text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors border-b border-gray-100 dark:border-[#2a2b30]",
-                                        onClick: (function (param) {
-                                            setShowShadow(function (param) {
-                                                  return true;
-                                                });
-                                          })
-                                      }) : null
+                                hasHiddenPreview ? Core__Option.getOr(Core__Option.map(previewHiddenEvent, (function (edge) {
+                                              var waitlistCount = getWaitlistCount(edge);
+                                              return JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("div", {
+                                                                  children: JsxRuntime.jsx(PkEventRow.make, {
+                                                                        event: edge.fragmentRefs,
+                                                                        user: Core__Option.flatMap(viewer, (function (v) {
+                                                                                return Core__Option.map(v.user, (function (u) {
+                                                                                              return u.fragmentRefs;
+                                                                                            }));
+                                                                              })),
+                                                                        isLastInGroup: true,
+                                                                        onEventClick: onEventClick,
+                                                                        onHoverLocation: onHoverLocation,
+                                                                        dimmed: true,
+                                                                        waitlistCount: waitlistCount,
+                                                                        query: query
+                                                                      }, edge.id + "-hidden-preview"),
+                                                                  className: "pointer-events-none"
+                                                                }),
+                                                            JsxRuntime.jsx("div", {
+                                                                  className: "absolute inset-0 bg-gradient-to-b from-transparent via-white/75 to-white dark:via-[#222326]/80 dark:to-[#222326]"
+                                                                }),
+                                                            JsxRuntime.jsx("div", {
+                                                                  children: JsxRuntime.jsx("button", {
+                                                                        children: t`Show ${totalHiddenCount.toString()} more`,
+                                                                        className: "px-3 py-1 rounded-full text-xs font-mono border border-gray-300 dark:border-[#3a3b40] bg-white/90 dark:bg-[#222326]/90 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors",
+                                                                        onClick: (function (param) {
+                                                                            setShowShadow(function (param) {
+                                                                                  return true;
+                                                                                });
+                                                                          })
+                                                                      }),
+                                                                  className: "absolute inset-0 flex items-end justify-center pb-2"
+                                                                })
+                                                          ],
+                                                          className: "relative h-[68px] overflow-hidden border-b border-gray-100 dark:border-[#2a2b30]"
+                                                        });
+                                            })), null) : null
                               ]
                             });
                 })

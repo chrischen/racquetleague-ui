@@ -24,6 +24,18 @@ export default defineConfig({
 }); */
 export default defineConfig({
   base: process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : "/",
+  server: {
+    proxy: {
+      "/graphql": {
+        target: process.env.API_PROXY_TARGET || "http://localhost:4555",
+        changeOrigin: true,
+      },
+      "/api/auth": {
+        target: process.env.API_PROXY_TARGET || "http://localhost:4555",
+        changeOrigin: true,
+      },
+    },
+  },
   ssr: {
     target: "node",
     noExternal: process.env.NODE_ENV === "production" ? ["react-relay", "react-imgix", "react-google-autocomplete", "k-means-clustering-js"] : ["k-means-clustering-js"], // @NOTE: This option breaks SSR dev server

@@ -24,6 +24,7 @@ import * as SubmitMatch from "./SubmitMatch.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as Uuid from "../../lib/uuid";
 import * as DialogUiAction from "../molecules/DialogUiAction.re.mjs";
 import * as SessionAddPlayer from "./SessionAddPlayer.re.mjs";
 import * as React$1 from "@headlessui/react";
@@ -942,7 +943,7 @@ function AiTetsu(props) {
       ];
     updateMatches(function (currentMatches) {
           return currentMatches.concat([{
-                        id: crypto.randomUUID(),
+                        id: Uuid.randomUUID(),
                         match: match$2
                       }]);
         });

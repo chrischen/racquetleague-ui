@@ -363,6 +363,7 @@ let make = (
   let (showLeaveConfirm, setShowLeaveConfirm) = React.useState(() => false)
   let (isProfileModalOpen, setIsProfileModalOpen) = React.useState(() => false)
   let (pendingJoinAction, setPendingJoinAction) = React.useState((): option<unit => unit> => None)
+  let (showCanceledDetails, setShowCanceledDetails) = React.useState(() => false)
 
   let getConnectionId = () =>
     RescriptRelay.ConnectionHandler.getConnectionID(__id, "PkEventRow_event_rsvps", ())
@@ -429,14 +430,16 @@ let make = (
   }
 
   let deadlinePassed =
-    startDate->Option.flatMap(sd =>
+    startDate
+    ->Option.flatMap(sd =>
       cancelDeadline->Option.map(ms =>
         DateFns.differenceInMinutes(
           Js.Date.fromFloat(sd->Util.Datetime.toDate->DateFns.getTime -. Int.toFloat(ms)),
           Js.Date.make(),
         ) <= 0.
       )
-    )->Option.getOr(false)
+    )
+    ->Option.getOr(false)
 
   let isFull = maxRsvps->Option.map(max => playersCount >= max)->Option.getOr(false)
   let isAlmostFull =
@@ -524,13 +527,18 @@ let make = (
         {actionLabel->React.string}
       </button>
 
+  let openEvent = () =>
+    switch onEventClick {
+    | Some(cb) => cb(id)
+    | None => navigate(eventPath, None)
+    }
+
   <div
     className={Util.cx([
       isLastInGroup
         ? "relative overflow-hidden"
         : "relative overflow-hidden border-b border-gray-100 dark:border-[#2a2b30]",
       dimmed ? "opacity-30" : "",
-      isCanceled ? "opacity-60" : "",
     ])}
     onMouseEnter={_ => {
       if !isTouchDevice {
@@ -544,101 +552,179 @@ let make = (
         onHoverLocation->Option.forEach(cb => cb(None))
       }
     }}>
-    <SwipeAction
-      rightActions={isTouchDevice ? actionButton : React.null}
-      disableDrag={!isTouchDevice}
-      onFullSwipeLeft={isTouchDevice
-        ? () => {
-            switch viewerRsvpStatus {
-            | Some(Confirmed) | Some(Waitlist) | Some(Pending) =>
-              if waitlistCount > 0 {
-                setShowLeaveConfirm(_ => true)
-              } else {
-                onLeave()
-              }
-            | None =>
-              switch viewer {
-              | None => navigate(loginHref, None)
-              | Some(_) => doJoinWithProfileCheck()
-              }
-            }
-          }
-        : () => ()}
-      onTapped={() =>
-        switch onEventClick {
-        | Some(cb) => cb(id)
-        | None => navigate(eventPath, None)
-        }}
-      className="bg-white dark:bg-[#222326]">
-      <div className="px-4 md:px-6 py-3 flex items-start gap-3 md:gap-6 cursor-pointer">
-        <div className="w-12 md:w-16 flex-shrink-0 flex flex-col items-start pt-0.5">
-          <span className="font-mono font-bold text-base dark:text-gray-100">
-            {startDate
-            ->Option.map(startDate =>
-              timezone
-              ->Option.map(tz =>
-                <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} timeZone={tz} />
-              )
-              ->Option.getOr(<ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
-            )
-            ->Option.getOr(React.null)}
-          </span>
-          <span className="font-mono text-[10px] text-gray-400 mt-1">
-            {durationStr->Option.getOr("")->React.string}
-          </span>
-        </div>
-        <div className="flex-1 min-w-0">
-          <h4
-            className={"font-medium truncate " ++ (
-              isCanceled
-                ? "line-through text-gray-400 dark:text-gray-500"
-                : "text-gray-900 dark:text-gray-100"
-            )}>
-            {title->Option.getOr(ts`[missing title]`)->React.string}
-          </h4>
+    {isCanceled
+      ? <div className="bg-white dark:bg-[#222326]">
           <div
-            className="flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-gray-600 dark:text-gray-400 mt-1">
-            {club
-            ->Option.flatMap(c => c.name)
-            ->Option.map(name => <>
-              <span className="font-medium text-gray-800 dark:text-gray-300">
-                {name->React.string}
-              </span>
-              <span> {"·"->React.string} </span>
-            </>)
-            ->Option.getOr(React.null)}
-            {secret
-              ? React.null
-              : <span className="truncate">
-                  {location
-                  ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-                  ->Option.getOr(React.null)}
-                </span>}
-          </div>
-          {
-            let tagsArr = tags->Option.getOr([])
-            let hasComp = tagsArr->Array.some(t => t->String.toLowerCase == "comp")
-            let otherTags = tagsArr->Array.filter(t => t->String.toLowerCase != "comp")
-            <ResponsiveTooltip.Provider>
-              <div className="flex flex-wrap gap-1.5 mt-0.5">
-                {isUnlisted ? <EventTag tag="unlisted" responsive=true /> : React.null}
-                {hasComp ? <EventTag tag="comp" responsive=true /> : React.null}
-                {otherTags
-                ->Array.mapWithIndex((tag, i) =>
-                  <EventTag key={Int.toString(i)} tag responsive=true />
+            className="px-4 md:px-6 py-2.5 flex items-center gap-3 md:gap-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#1e1f23] transition-colors"
+            onClick={_ => setShowCanceledDetails(prev => !prev)}>
+            <span
+              className="font-mono text-xs text-gray-400 dark:text-gray-500 flex-shrink-0 w-12 md:w-16">
+              {startDate
+              ->Option.map(startDate =>
+                timezone
+                ->Option.map(tz =>
+                  <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} timeZone={tz} />
                 )
-                ->React.array}
-              </div>
-            </ResponsiveTooltip.Provider>
-          }
+                ->Option.getOr(<ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
+              )
+              ->Option.getOr(React.null)}
+            </span>
+            <h4
+              className="flex-1 min-w-0 text-sm line-through text-gray-400 dark:text-gray-500 truncate">
+              {title->Option.getOr(ts`[missing title]`)->React.string}
+            </h4>
+            <span
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400 text-[11px] font-medium whitespace-nowrap flex-shrink-0">
+              {(ts`Canceled`)->React.string}
+            </span>
+            <Lucide.ChevronDown
+              size=14
+              className={"text-gray-300 dark:text-gray-600 flex-shrink-0 transition-transform " ++ (
+                showCanceledDetails ? "rotate-180" : ""
+              )}
+            />
+          </div>
+          <FramerMotion.AnimatePresence>
+            {showCanceledDetails
+              ? <FramerMotion.Div
+                  key="canceled-details"
+                  initial={FramerMotion.opacity: 0., y: -4.}
+                  animate={FramerMotion.opacity: 1., y: 0.}
+                  exit={FramerMotion.opacity: 0., y: -4.}
+                  className="overflow-hidden">
+                  <div
+                    className="px-4 md:px-6 pb-4 pt-1 flex items-start gap-3 md:gap-6 cursor-pointer opacity-70"
+                    onClick={_ => openEvent()}>
+                    <div className="w-12 md:w-16 flex-shrink-0 flex flex-col items-start pt-0.5">
+                      <span className="font-mono text-xs text-gray-400 dark:text-gray-500">
+                        {durationStr->Option.getOr("")->React.string}
+                      </span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div
+                        className="flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-gray-500 dark:text-gray-500">
+                        {club
+                        ->Option.flatMap(c => c.name)
+                        ->Option.map(name => <>
+                          <span> {name->React.string} </span>
+                          <span> {"·"->React.string} </span>
+                        </>)
+                        ->Option.getOr(React.null)}
+                        {secret
+                          ? React.null
+                          : <span className="truncate">
+                              {location
+                              ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
+                              ->Option.getOr(React.null)}
+                            </span>}
+                      </div>
+                      {
+                        let tagsArr = tags->Option.getOr([])
+                        let hasComp = tagsArr->Array.some(t => t->String.toLowerCase == "comp")
+                        let otherTags = tagsArr->Array.filter(t => t->String.toLowerCase != "comp")
+                        <ResponsiveTooltip.Provider>
+                          <div className="flex flex-wrap gap-1.5 mt-1">
+                            {isUnlisted ? <EventTag tag="unlisted" responsive=true /> : React.null}
+                            {hasComp ? <EventTag tag="comp" responsive=true /> : React.null}
+                            {otherTags
+                            ->Array.mapWithIndex((tag, i) =>
+                              <EventTag key={Int.toString(i)} tag responsive=true />
+                            )
+                            ->React.array}
+                          </div>
+                        </ResponsiveTooltip.Provider>
+                      }
+                    </div>
+                  </div>
+                </FramerMotion.Div>
+              : React.null}
+          </FramerMotion.AnimatePresence>
         </div>
-        <div className="w-20 md:w-44 flex-shrink-0 flex flex-col items-end gap-1.5 pt-1">
-          {isCanceled
-            ? <span
-                className="text-xs font-medium px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/20 text-red-500 dark:text-red-400">
-                {(ts`Canceled`)->React.string}
-              </span>
-            : <>
+      : <>
+          <SwipeAction
+            rightActions={isTouchDevice ? actionButton : React.null}
+            disableDrag={!isTouchDevice}
+            onFullSwipeLeft={isTouchDevice
+              ? () => {
+                  switch viewerRsvpStatus {
+                  | Some(Confirmed) | Some(Waitlist) | Some(Pending) =>
+                    if waitlistCount > 0 {
+                      setShowLeaveConfirm(_ => true)
+                    } else {
+                      onLeave()
+                    }
+                  | None =>
+                    switch viewer {
+                    | None => navigate(loginHref, None)
+                    | Some(_) => doJoinWithProfileCheck()
+                    }
+                  }
+                }
+              : () => ()}
+            onTapped={() => openEvent()}
+            className="bg-white dark:bg-[#222326]">
+            <div className="px-4 md:px-6 py-3 flex items-start gap-3 md:gap-6 cursor-pointer">
+              <div className="w-12 md:w-16 flex-shrink-0 flex flex-col items-start pt-0.5">
+                <span className="font-mono font-bold text-base dark:text-gray-100">
+                  {startDate
+                  ->Option.map(startDate =>
+                    timezone
+                    ->Option.map(tz =>
+                      <ReactIntl.FormattedTime
+                        value={startDate->Util.Datetime.toDate} timeZone={tz}
+                      />
+                    )
+                    ->Option.getOr(
+                      <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />,
+                    )
+                  )
+                  ->Option.getOr(React.null)}
+                </span>
+                <span className="font-mono text-[10px] text-gray-400 mt-1">
+                  {durationStr->Option.getOr("")->React.string}
+                </span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className="font-medium truncate text-gray-900 dark:text-gray-100">
+                  {title->Option.getOr(ts`[missing title]`)->React.string}
+                </h4>
+                <div
+                  className="flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-gray-600 dark:text-gray-400 mt-1">
+                  {club
+                  ->Option.flatMap(c => c.name)
+                  ->Option.map(name => <>
+                    <span className="font-medium text-gray-800 dark:text-gray-300">
+                      {name->React.string}
+                    </span>
+                    <span> {"·"->React.string} </span>
+                  </>)
+                  ->Option.getOr(React.null)}
+                  {secret
+                    ? React.null
+                    : <span className="truncate">
+                        {location
+                        ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
+                        ->Option.getOr(React.null)}
+                      </span>}
+                </div>
+                {
+                  let tagsArr = tags->Option.getOr([])
+                  let hasComp = tagsArr->Array.some(t => t->String.toLowerCase == "comp")
+                  let otherTags = tagsArr->Array.filter(t => t->String.toLowerCase != "comp")
+                  <ResponsiveTooltip.Provider>
+                    <div className="flex flex-wrap gap-1.5 mt-0.5">
+                      {isUnlisted ? <EventTag tag="unlisted" responsive=true /> : React.null}
+                      {hasComp ? <EventTag tag="comp" responsive=true /> : React.null}
+                      {otherTags
+                      ->Array.mapWithIndex((tag, i) =>
+                        <EventTag key={Int.toString(i)} tag responsive=true />
+                      )
+                      ->React.array}
+                    </div>
+                  </ResponsiveTooltip.Provider>
+                }
+              </div>
+              <div className="w-20 md:w-44 flex-shrink-0 flex flex-col items-end gap-1.5 pt-1">
                 {viewerRsvpStatus
                 ->Option.map(s =>
                   <div className="hidden md:block">
@@ -689,29 +775,29 @@ let make = (
                   ->Option.getOr(React.null)}
                   <ProgressBar filled=playersCount total=maxRsvps status />
                 </div>
-              </>}
-        </div>
-      </div>
-    </SwipeAction>
-    {isCanceled || isTouchDevice
-      ? React.null
-      : <FramerMotion.Div
-          className={"absolute right-0 top-0 bottom-0 w-[120px] flex items-center justify-center z-20 " ++
-          actionBg}
-          initial={x: 120.}
-          animate={{FramerMotion.x: hovered ? 0. : 120.}}
-          transition={{type_: "spring", stiffness: 900, damping: 35, mass: 0.4}}>
-          <button
-            onClick={e => {
-              ReactEvent.Mouse.stopPropagation(e)
-              handleActionClick(e)
-              setHovered(_ => false)
-            }}
-            className={"flex items-center gap-1.5 font-semibold text-sm " ++ actionTextColor}>
-            {actionLabel->React.string}
-            <Lucide.ChevronLeft size=16 />
-          </button>
-        </FramerMotion.Div>}
+              </div>
+            </div>
+          </SwipeAction>
+          {isTouchDevice
+            ? React.null
+            : <FramerMotion.Div
+                className={"absolute right-0 top-0 bottom-0 w-[120px] flex items-center justify-center z-20 " ++
+                actionBg}
+                initial={x: 120.}
+                animate={{FramerMotion.x: hovered ? 0. : 120.}}
+                transition={{type_: "spring", stiffness: 900, damping: 35, mass: 0.4}}>
+                <button
+                  onClick={e => {
+                    ReactEvent.Mouse.stopPropagation(e)
+                    handleActionClick(e)
+                    setHovered(_ => false)
+                  }}
+                  className={"flex items-center gap-1.5 font-semibold text-sm " ++ actionTextColor}>
+                  {actionLabel->React.string}
+                  <Lucide.ChevronLeft size=16 />
+                </button>
+              </FramerMotion.Div>}
+        </>}
     <ConfirmDialog
       title={t`Leave event`}
       description={t`There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?`}

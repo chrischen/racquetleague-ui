@@ -145,22 +145,13 @@ module SidebarContent = {
 }
 
 module BrandLogo = {
+  @module("/src/assets/pkuru.com.png") external pkuruLogo: string = "default"
+
   @react.component
-  let make = (~showBreadcrumb: bool=true) => {
-    <div className="flex items-center gap-2">
-      <div
-        className="w-6 h-6 bg-[#bdf25d] rounded flex items-center justify-center font-bold text-sm text-black">
-        {"P"->React.string}
-      </div>
-      <span className="font-semibold text-sm tracking-tight dark:text-gray-100">
-        {"Pkuru "->React.string}
-        {showBreadcrumb
-          ? <span className="text-gray-400 dark:text-gray-500 font-normal">
-              {"/ discover"->React.string}
-            </span>
-          : React.null}
-      </span>
-    </div>
+  let make = () => {
+    <LangProvider.Router.Link to="/">
+      <img src=pkuruLogo alt="Pkuru" className="h-6 w-auto dark:invert" />
+    </LangProvider.Router.Link>
   }
 }
 
@@ -186,7 +177,7 @@ module Topbar = {
           className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
           <Lucide.Menu size=20 />
         </button>
-        <BrandLogo showBreadcrumb=false />
+        <BrandLogo />
       </div>
       // Desktop: search (commented out - feature not yet available)
       /* <div className="hidden md:flex items-center gap-2 text-gray-400 dark:text-gray-500 flex-1">
@@ -369,7 +360,7 @@ module Layout = {
     let navigate = Router.useNavigate()
     let location = Router.useLocation()
     let localePath = LangProvider.Router.useLocalePath()
-    let gviewer: GlobalQuery.query = viewer->Option.map(v => v.fragmentRefs)
+    let gviewer = viewer->Option.map(v => v.fragmentRefs)
 
     React.useEffect0(() => {
       let mq = MediaQueryList.matchMedia("(prefers-color-scheme: dark)")
@@ -450,6 +441,7 @@ module Layout = {
                 <div
                   className="flex-1 flex flex-col min-w-0 overflow-hidden bg-white dark:bg-[#222326]">
                   <Topbar onToggleSidebar={() => setSidebarOpen(prev => !prev)} viewer />
+                  <InstallPwa />
                   <div className="flex-1 overflow-y-auto overscroll-contain">
                     <React.Suspense fallback={React.null}> {children} </React.Suspense>
                   </div>

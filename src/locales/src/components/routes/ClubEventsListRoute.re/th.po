@@ -25,7 +25,8 @@ msgstr "· {0} รอดำเนินการ"
 msgid "· +{0} waitlist"
 msgstr "· +{0} รายชื่อคอย"
 
-#: src/components/pkuru/PkEventRow.re.mjs:672
+#: src/components/pkuru/PkEventRow.re.mjs:738
+#: src/components/pkuru/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr "[ไม่มีหัวข้อ]"
 
@@ -83,7 +84,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "อนุมัติเงินมัดจำ"
 
@@ -91,7 +92,7 @@ msgstr "อนุมัติเงินมัดจำ"
 msgid "balanced"
 msgstr "สมดุล"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -103,7 +104,7 @@ msgstr "ยกเลิกกิจกรรม"
 msgid "Cancel RSVP"
 msgstr "ยกเลิก RSVP"
 
-#: src/components/pkuru/PkEventRow.re.mjs:731
+#: src/components/pkuru/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr "ยกเลิกแล้ว"
 
@@ -146,7 +147,7 @@ msgstr "จองที่"
 msgid "Claim spot · {0}"
 msgstr "จองสปอต · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "ชำระเงินให้เสร็จสิ้น"
 
@@ -284,7 +285,7 @@ msgstr "Google Calendar"
 msgid "Highly skilled players"
 msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr "เข้าร่วม"
 
@@ -304,11 +305,11 @@ msgstr "เข้าร่วมแล้ว"
 msgid "Last Round"
 msgstr "รอบที่แล้ว"
 
-#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pkuru/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr "ออก"
 
-#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pkuru/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -399,7 +400,7 @@ msgstr "ผู้เข้าร่วม"
 msgid "Pay {priceStr}"
 msgstr "ชำระเงิน {priceStr}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "ชำระเงินตอนนี้"
 
@@ -411,7 +412,7 @@ msgstr "ชำระเงินได้รับอนุมัติแล้
 msgid "Payment captured"
 msgstr "ชำระเงินสำเร็จแล้ว"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "การชำระเงินล้มเหลว"
 
@@ -450,7 +451,7 @@ msgstr "ไม่ต้องการระบุ"
 msgid "Private"
 msgstr "ไม่เปิดเผย"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "กำลังดำเนินการ…"
 
@@ -572,7 +573,7 @@ msgid ""
 msgstr ""
 "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
-#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pkuru/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
@@ -592,7 +593,7 @@ msgid ""
 msgstr ""
 "นี่คือการระงับเงินมัดจำเท่านั้น — ชำระเงินให้กับผู้จัดในวันงาน การระงับจะถูกปล่อยหลังจากงานสิ้นสุด"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."
@@ -656,7 +657,7 @@ msgstr "ดูโปรไฟล์"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 

@@ -3943,6 +3943,91 @@ msgstr "此為僅供保留的訂金——款項須於活動現場支付給主辦
 msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
 msgstr "此為僅供保留的訂金。您仍需於活動現場向主辦方全額付款。保留款將於活動結束後解除。"
 
+#: src/components/pkuru/PkEventsList.re.mjs:214
+msgid "Show {0} more"
+msgstr "顯示更多 {0} 筆"
+
+#: src/components/shared/InstallPwa.re.mjs:271
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"加入主畫面\\\""
+
+#: src/components/shared/InstallPwa.re.mjs:253
+msgid "Add to Home Screen to enable notifications"
+msgstr "加入主畫面以啟用通知"
+
+#: src/components/shared/PushNotifications.re.mjs:402
+msgid "Disable notifications"
+msgstr "停用通知"
+
+#: src/components/shared/PushNotifications.re.mjs:414
+msgid "Enable notifications"
+msgstr "啟用通知"
+
+#: src/components/shared/InstallPwa.re.mjs:263
+msgid "in Safari's toolbar"
+msgstr "在 Safari 的工具列中"
+
+#: src/components/shared/PushNotifications.re.mjs:431
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
+msgstr "通知已被封鎖。如需啟用，請前往裝置或瀏覽器設定，並允許此網站發送通知。"
+
+#: src/components/shared/InstallPwa.re.mjs:278
+msgid "Open the app from your Home Screen and enable notifications"
+msgstr "從主畫面開啟應用程式並啟用通知"
+
+#: src/components/shared/PushNotifications.re.mjs:302
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
+msgstr "推播通知已被封鎖。請檢查此網站的瀏覽器或裝置通知設定，然後再試一次。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:593
+msgid "Receive push notifications for event reminders and updates."
+msgstr "接收賽事提醒與更新的推播通知。"
+
+#: src/components/shared/InstallPwa.re.mjs:269
+msgid "Scroll down and tap"
+msgstr "向下捲動並點按"
+
+#: src/components/shared/InstallPwa.re.mjs:261
+msgid "Tap the Share button"
+msgstr "點按分享按鈕"
+
+#: src/components/shared/InstallPwa.re.mjs:394
+msgid "— add to your Home Screen for push notifications"
+msgstr "— 加入主畫面以接收推播通知"
+
+#: src/components/shared/InstallPwa.re.mjs:351
+msgid "— enable push notifications for event reminders"
+msgstr "— 啟用推播通知以獲取賽事提醒"
+
+#: src/components/shared/InstallPwa.re.mjs:466
+msgid "— for a faster, app-like experience"
+msgstr "— 享受更快速的類應用程式體驗"
+
+#: src/components/shared/InstallPwa.re.mjs:360
+msgid "Enable now"
+msgstr "立即啟用"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "Hide"
+msgstr "隱藏"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "How to install"
+msgstr "安裝說明"
+
+#: src/components/shared/InstallPwa.re.mjs:475
+msgid "Install"
+msgstr "安裝"
+
+#: src/components/shared/InstallPwa.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:462
+msgid "Install Racquet League"
+msgstr "安裝 Racquet League"
+
+#: src/components/shared/InstallPwa.re.mjs:347
+msgid "Stay in the loop"
+msgstr "掌握最新動態"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

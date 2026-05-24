@@ -25,17 +25,14 @@ msgstr "· {0} đang chờ"
 msgid "· +{0} waitlist"
 msgstr "· +{0} chờ đợi"
 
-#: src/components/pkuru/PkEventRow.re.mjs:672
+#: src/components/pkuru/PkEventRow.re.mjs:738
+#: src/components/pkuru/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr "[tiêu đề bị thiếu]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:130
+#: src/components/pkuru/PkEventsList.re.mjs:146
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
-
-#: src/components/pkuru/PkEventsList.re.mjs:192
-msgid "{0} {hiddenDesc} hidden — show"
-msgstr "{0} {hiddenDesc} ẩn — hiển thị"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "{0} joined"
@@ -49,10 +46,6 @@ msgstr "{filled, plural, one {{0}} other {{1}}}"
 #: src/components/shared/EventsListView.re.mjs:106
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
-
-#: src/components/pkuru/PkEventsList.re.mjs:104
-msgid "{totalHiddenCount, plural, one {event} other {events}}"
-msgstr "{totalHiddenCount, plural, one {sự kiện} other {sự kiện}}"
 
 #: src/components/shared/EventsListView.re.mjs:119
 msgid "← previous"
@@ -70,7 +63,7 @@ msgstr "Môn thể thao"
 msgid "Add a message..."
 msgstr "Thêm tin nhắn..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:148
+#: src/components/pkuru/PkEventsList.re.mjs:164
 msgid "Add to {0}"
 msgstr "Thêm vào {0}"
 
@@ -91,7 +84,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "Ủy quyền đặt cọc"
 
@@ -99,7 +92,7 @@ msgstr "Ủy quyền đặt cọc"
 msgid "balanced"
 msgstr "cân bằng"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -111,7 +104,7 @@ msgstr "hủy sự kiện"
 msgid "Cancel RSVP"
 msgstr "Hủy đăng ký"
 
-#: src/components/pkuru/PkEventRow.re.mjs:731
+#: src/components/pkuru/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr "Đã hủy"
 
@@ -154,7 +147,7 @@ msgstr "Đặt chỗ"
 msgid "Claim spot · {0}"
 msgstr "Đăng ký chỗ · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "Hoàn tất thanh toán"
 
@@ -241,7 +234,7 @@ msgid "even"
 msgstr "đồng đều"
 
 #: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:133
+#: src/components/pkuru/PkEventsList.re.mjs:149
 msgid "event"
 msgstr "sự kiện"
 
@@ -258,7 +251,7 @@ msgid "Event updated"
 msgstr "Sự kiện đã được cập nhật"
 
 #: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:134
+#: src/components/pkuru/PkEventsList.re.mjs:150
 msgid "events"
 msgstr "sự kiện"
 
@@ -278,7 +271,7 @@ msgstr "Để nhận cập nhật và thông báo về sự kiện"
 msgid "Free"
 msgstr "Miễn phí"
 
-#: src/components/pkuru/PkEventsList.re.mjs:277
+#: src/components/pkuru/PkEventsList.re.mjs:305
 msgid "Friday"
 msgstr "Thứ Sáu"
 
@@ -294,7 +287,7 @@ msgstr "Google Calendar"
 msgid "Highly skilled players"
 msgstr "Người chơi trình độ cao"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr "Tham gia"
 
@@ -314,11 +307,11 @@ msgstr "Đã tham gia"
 msgid "Last Round"
 msgstr "Vòng cuối"
 
-#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pkuru/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr "Rời"
 
-#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pkuru/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -372,7 +365,7 @@ msgstr "TRUNG VỊ"
 msgid "mixed"
 msgstr "đa dạng"
 
-#: src/components/pkuru/PkEventsList.re.mjs:265
+#: src/components/pkuru/PkEventsList.re.mjs:293
 msgid "Monday"
 msgstr "Thứ Hai"
 
@@ -385,7 +378,7 @@ msgstr "thêm →"
 msgid "Move to Pending List"
 msgstr "Chuyển vào danh sách chờ duyệt"
 
-#: src/components/pkuru/PkEventsList.re.mjs:286
+#: src/components/pkuru/PkEventsList.re.mjs:314
 msgid "Next {dayName}"
 msgstr "{dayName} tới"
 
@@ -413,7 +406,7 @@ msgstr "Người tham gia"
 msgid "Pay {priceStr}"
 msgstr "Thanh toán {priceStr}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "Thanh toán ngay"
 
@@ -425,7 +418,7 @@ msgstr "Thanh toán đã được ủy quyền"
 msgid "Payment captured"
 msgstr "Thanh toán đã được thu"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "Thanh toán thất bại"
 
@@ -464,7 +457,7 @@ msgstr "Không muốn tiết lộ"
 msgid "Private"
 msgstr "Riêng tư"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "Đang xử lý…"
 
@@ -522,7 +515,7 @@ msgstr "Vòng {0}"
 msgid "Round Robin Draws"
 msgstr "Bốc thăm Round Robin"
 
-#: src/components/pkuru/PkEventsList.re.mjs:280
+#: src/components/pkuru/PkEventsList.re.mjs:308
 msgid "Saturday"
 msgstr "Thứ Bảy"
 
@@ -542,6 +535,10 @@ msgstr "Lưu điểm số"
 #: src/components/organisms/MatchCardEdit.re.mjs:217
 msgid "Score"
 msgstr "Điểm số"
+
+#: src/components/pkuru/PkEventsList.re.mjs:214
+msgid "Show {0} more"
+msgstr "Hiển thị thêm {0}"
 
 #: src/components/organisms/PkEventMessages.re.mjs:421
 msgid "Show all {0} items"
@@ -563,7 +560,7 @@ msgstr "SẮP XẾP THEO GIỜ BẮT ĐẦU"
 msgid "SPREAD"
 msgstr "ĐỘ PHÂN TÁN"
 
-#: src/components/pkuru/PkEventsList.re.mjs:262
+#: src/components/pkuru/PkEventsList.re.mjs:290
 msgid "Sunday"
 msgstr "Chủ Nhật"
 
@@ -587,7 +584,7 @@ msgstr ""
 "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
 "lịch ban đầu bằng biểu tượng đặt lại vòng."
 
-#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pkuru/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
@@ -612,7 +609,7 @@ msgstr ""
 "Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ "
 "chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."
@@ -632,17 +629,17 @@ msgstr ""
 "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
 "nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
-#: src/components/pkuru/PkEventsList.re.mjs:274
+#: src/components/pkuru/PkEventsList.re.mjs:302
 msgid "Thursday"
 msgstr "Thứ Năm"
 
 #: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:245
+#: src/components/pkuru/PkEventsList.re.mjs:273
 msgid "Today"
 msgstr "Hôm nay"
 
 #: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:251
+#: src/components/pkuru/PkEventsList.re.mjs:279
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
@@ -650,7 +647,7 @@ msgstr "Ngày mai"
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
-#: src/components/pkuru/PkEventsList.re.mjs:268
+#: src/components/pkuru/PkEventsList.re.mjs:296
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
@@ -676,7 +673,7 @@ msgstr "Xem hồ sơ"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr "Danh sách chờ"
 
@@ -693,7 +690,7 @@ msgid "We need a few details before you can join this event"
 msgstr ""
 "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
-#: src/components/pkuru/PkEventsList.re.mjs:271
+#: src/components/pkuru/PkEventsList.re.mjs:299
 msgid "Wednesday"
 msgstr "Thứ Tư"
 
@@ -713,7 +710,7 @@ msgstr "Hủy RSVP"
 msgid "Withdrawing..."
 msgstr "Đang hủy..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:285
+#: src/components/pkuru/PkEventsList.re.mjs:313
 msgid "Yesterday"
 msgstr "Hôm qua"
 
@@ -734,9 +731,17 @@ msgstr ""
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 
+#: src/components/pkuru/PkEventsList.re.mjs:192
+#~ msgid "{0} {hiddenDesc} hidden — show"
+#~ msgstr "{0} {hiddenDesc} ẩn — hiển thị"
+
 #: src/components/pages/PkEventPage.re.mjs:380
 #~ msgid "{cancelTimeLeft} left to cancel"
 #~ msgstr "Còn {cancelTimeLeft} để hủy"
+
+#: src/components/pkuru/PkEventsList.re.mjs:104
+#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
+#~ msgstr "{totalHiddenCount, plural, one {sự kiện} other {sự kiện}}"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:195
 #~ msgid ""

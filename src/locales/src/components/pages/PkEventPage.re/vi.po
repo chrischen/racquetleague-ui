@@ -54,7 +54,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "Bạn có chắc muốn xóa người này khỏi sự kiện không?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "Ủy quyền đặt cọc"
 
@@ -62,7 +62,7 @@ msgstr "Ủy quyền đặt cọc"
 msgid "balanced"
 msgstr "cân bằng"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -113,7 +113,7 @@ msgstr "Đặt chỗ"
 msgid "Claim spot · {0}"
 msgstr "Đăng ký chỗ · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "Hoàn tất thanh toán"
 
@@ -322,7 +322,7 @@ msgstr "Người tham gia"
 msgid "Pay {priceStr}"
 msgstr "Thanh toán {priceStr}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "Thanh toán ngay"
 
@@ -334,7 +334,7 @@ msgstr "Thanh toán đã được ủy quyền"
 msgid "Payment captured"
 msgstr "Thanh toán đã được thu"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "Thanh toán thất bại"
 
@@ -359,7 +359,7 @@ msgstr "Không muốn tiết lộ"
 msgid "Private"
 msgstr "Riêng tư"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "Đang xử lý…"
 
@@ -490,7 +490,7 @@ msgstr ""
 "Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ "
 "chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."

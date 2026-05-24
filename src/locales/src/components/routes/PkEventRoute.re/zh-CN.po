@@ -54,7 +54,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "授权押金"
 
@@ -62,7 +62,7 @@ msgstr "授权押金"
 msgid "balanced"
 msgstr "平衡"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "取消"
 
@@ -113,7 +113,7 @@ msgstr "报名参加"
 msgid "Claim spot · {0}"
 msgstr "占位 · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "完成付款"
 
@@ -321,7 +321,7 @@ msgstr "参与者"
 msgid "Pay {priceStr}"
 msgstr "支付 {priceStr}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "立即付款"
 
@@ -333,7 +333,7 @@ msgstr "付款已授权"
 msgid "Payment captured"
 msgstr "付款已完成"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "付款失败"
 
@@ -358,7 +358,7 @@ msgstr "不愿透露"
 msgid "Private"
 msgstr "非公开"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "处理中…"
 
@@ -482,7 +482,7 @@ msgid ""
 msgstr ""
 "此为仅限定金预授权——款项须在活动现场支付给组织者。预授权将在活动结束后解除。"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."

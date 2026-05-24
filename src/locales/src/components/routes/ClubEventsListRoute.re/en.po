@@ -25,7 +25,8 @@ msgstr ""
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:672
+#: src/components/pkuru/PkEventRow.re.mjs:738
+#: src/components/pkuru/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr ""
 
@@ -99,7 +100,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr ""
 
@@ -107,7 +108,7 @@ msgstr ""
 msgid "balanced"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr ""
 
@@ -119,7 +120,7 @@ msgstr ""
 msgid "Cancel RSVP"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:731
+#: src/components/pkuru/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr ""
 
@@ -169,7 +170,7 @@ msgstr ""
 msgid "Claim spot · {0}"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr ""
 
@@ -314,7 +315,7 @@ msgstr ""
 #~ msgid "hr"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr ""
 
@@ -334,11 +335,11 @@ msgstr ""
 msgid "Last Round"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:600
+#: src/components/pkuru/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:856
+#: src/components/pkuru/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -438,7 +439,7 @@ msgstr ""
 msgid "Pay {priceStr}"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr ""
 
@@ -450,7 +451,7 @@ msgstr ""
 msgid "Payment captured"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr ""
 
@@ -493,7 +494,7 @@ msgstr ""
 msgid "Private"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr ""
 
@@ -623,7 +624,7 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:857
+#: src/components/pkuru/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr ""
@@ -636,7 +637,7 @@ msgstr ""
 msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
 msgstr ""
 
@@ -692,7 +693,7 @@ msgstr ""
 msgid "VS"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:601
+#: src/components/pkuru/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr ""
 

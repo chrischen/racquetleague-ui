@@ -94,14 +94,31 @@ module Day = {
 
     let hideCheck = shouldHideEvent->Option.getOr(defaultHide)
 
-    let totalHiddenCount =
+    let hiddenEvents = events->Array.filter(edge => hideCheck(edge, viewer))
+    let totalHiddenCount = hiddenEvents->Array.length
+
+    let visibleEvents = if showShadow {
       events
-      ->Array.filter(edge => hideCheck(edge, viewer))
-      ->Array.length
+    } else {
+      events->Array.filter(edge => !hideCheck(edge, viewer))
+    }
 
-    let hiddenDesc = Lingui.UtilString.plural(totalHiddenCount, {one: "event", other: "events"})
+    let getWaitlistCount = (edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node) =>
+      switch edge.maxRsvps {
+      | None => 0
+      | Some(max) =>
+        let mainList =
+          edge.rsvps
+          ->Option.flatMap(r => r.edges)
+          ->Option.getOr([])
+          ->Array.filterMap(e => e)
+          ->Array.filterMap(e => e.node)
+          ->Array.filter(n => n.listType == None || n.listType == Some(0))
+        Js.Math.max_int(0, mainList->Array.length - max)
+      }
 
-    let visibleEvents = events->Array.filter(edge => !hideCheck(edge, viewer) || showShadow)
+    let hasHiddenPreview = totalHiddenCount > 0 && !showShadow
+    let previewHiddenEvent = hiddenEvents->Belt.Array.get(0)
 
     <WaitForMessages>
       {() => <>
@@ -130,23 +147,12 @@ module Day = {
         </div>
         {visibleEvents
         ->Array.mapWithIndex((edge, idx) => {
-          let waitlistCount = switch edge.maxRsvps {
-          | None => 0
-          | Some(max) =>
-            let mainList =
-              edge.rsvps
-              ->Option.flatMap(r => r.edges)
-              ->Option.getOr([])
-              ->Array.filterMap(e => e)
-              ->Array.filterMap(e => e.node)
-              ->Array.filter(n => n.listType == None || n.listType == Some(0))
-            Js.Math.max_int(0, mainList->Array.length - max)
-          }
+          let waitlistCount = getWaitlistCount(edge)
           <PkEventRow
             key=edge.id
             event=edge.fragmentRefs
             user={viewer->Option.flatMap(v => v.user->Option.map(u => u.fragmentRefs))}
-            isLastInGroup={idx == Array.length(visibleEvents) - 1}
+            isLastInGroup={idx == Array.length(visibleEvents) - 1 && !hasHiddenPreview}
             waitlistCount
             query
             ?onEventClick
@@ -154,12 +160,38 @@ module Day = {
           />
         })
         ->React.array}
-        {totalHiddenCount > 0 && !showShadow
-          ? <button
-              className="w-full py-3 text-center text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors border-b border-gray-100 dark:border-[#2a2b30]"
-              onClick={_ => setShowShadow(_ => true)}>
-              {t`${totalHiddenCount->Int.toString} ${hiddenDesc} hidden — show`}
-            </button>
+        {hasHiddenPreview
+          ? previewHiddenEvent
+            ->Option.map(edge => {
+              let waitlistCount = getWaitlistCount(edge)
+              <div
+                className="relative h-[68px] overflow-hidden border-b border-gray-100 dark:border-[#2a2b30]">
+                <div className="pointer-events-none">
+                  <PkEventRow
+                    key={edge.id ++ "-hidden-preview"}
+                    event=edge.fragmentRefs
+                    user={viewer->Option.flatMap(v => v.user->Option.map(u => u.fragmentRefs))}
+                    isLastInGroup=true
+                    waitlistCount
+                    query
+                    ?onEventClick
+                    ?onHoverLocation
+                    dimmed=true
+                  />
+                </div>
+                <div
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-white/75 to-white dark:via-[#222326]/80 dark:to-[#222326]"
+                />
+                <div className="absolute inset-0 flex items-end justify-center pb-2">
+                  <button
+                    className="px-3 py-1 rounded-full text-xs font-mono border border-gray-300 dark:border-[#3a3b40] bg-white/90 dark:bg-[#222326]/90 text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors"
+                    onClick={_ => setShowShadow(_ => true)}>
+                    {t`Show ${totalHiddenCount->Int.toString} more`}
+                  </button>
+                </div>
+              </div>
+            })
+            ->Option.getOr(React.null)
           : React.null}
       </>}
     </WaitForMessages>

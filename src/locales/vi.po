@@ -3481,6 +3481,91 @@ msgstr "Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ đ
 msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
 msgstr "Đây chỉ là khoản giữ chỗ đặt cọc. Bạn vẫn cần thanh toán toàn bộ cho ban tổ chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
 
+#: src/components/pkuru/PkEventsList.re.mjs:214
+msgid "Show {0} more"
+msgstr "Hiển thị thêm {0}"
+
+#: src/components/shared/InstallPwa.re.mjs:271
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"Thêm vào Màn hình chính\\\""
+
+#: src/components/shared/InstallPwa.re.mjs:253
+msgid "Add to Home Screen to enable notifications"
+msgstr "Thêm vào Màn hình chính để bật thông báo"
+
+#: src/components/shared/PushNotifications.re.mjs:402
+msgid "Disable notifications"
+msgstr "Tắt thông báo"
+
+#: src/components/shared/PushNotifications.re.mjs:414
+msgid "Enable notifications"
+msgstr "Bật thông báo"
+
+#: src/components/shared/InstallPwa.re.mjs:263
+msgid "in Safari's toolbar"
+msgstr "trong thanh công cụ Safari"
+
+#: src/components/shared/PushNotifications.re.mjs:431
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
+msgstr "Thông báo đã bị chặn. Để bật, hãy vào cài đặt thiết bị hoặc trình duyệt và cho phép thông báo cho trang này."
+
+#: src/components/shared/InstallPwa.re.mjs:278
+msgid "Open the app from your Home Screen and enable notifications"
+msgstr "Mở ứng dụng từ Màn hình chính và bật thông báo"
+
+#: src/components/shared/PushNotifications.re.mjs:302
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
+msgstr "Thông báo đẩy đã bị chặn. Kiểm tra cài đặt thông báo trên trình duyệt hoặc thiết bị cho trang này, rồi thử lại."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:593
+msgid "Receive push notifications for event reminders and updates."
+msgstr "Nhận thông báo đẩy về nhắc nhở và cập nhật sự kiện."
+
+#: src/components/shared/InstallPwa.re.mjs:269
+msgid "Scroll down and tap"
+msgstr "Cuộn xuống và nhấn"
+
+#: src/components/shared/InstallPwa.re.mjs:261
+msgid "Tap the Share button"
+msgstr "Nhấn nút Chia sẻ"
+
+#: src/components/shared/InstallPwa.re.mjs:394
+msgid "— add to your Home Screen for push notifications"
+msgstr "— thêm vào Màn hình chính để nhận thông báo đẩy"
+
+#: src/components/shared/InstallPwa.re.mjs:351
+msgid "— enable push notifications for event reminders"
+msgstr "— bật thông báo đẩy để nhắc nhở sự kiện"
+
+#: src/components/shared/InstallPwa.re.mjs:466
+msgid "— for a faster, app-like experience"
+msgstr "— trải nghiệm nhanh hơn, giống như ứng dụng thực thụ"
+
+#: src/components/shared/InstallPwa.re.mjs:360
+msgid "Enable now"
+msgstr "Bật ngay"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "Hide"
+msgstr "Ẩn"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "How to install"
+msgstr "Cách cài đặt"
+
+#: src/components/shared/InstallPwa.re.mjs:475
+msgid "Install"
+msgstr "Cài đặt"
+
+#: src/components/shared/InstallPwa.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:462
+msgid "Install Racquet League"
+msgstr "Cài đặt Racquet League"
+
+#: src/components/shared/InstallPwa.re.mjs:347
+msgid "Stay in the loop"
+msgstr "Luôn cập nhật tin tức"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

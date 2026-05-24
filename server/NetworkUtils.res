@@ -1,6 +1,16 @@
 @val external dev: bool = "import.meta.env.DEV"
 @val external apiEndpoint: option<string> = "import.meta.env.VITE_API_ENDPOINT"
 
+// SSR runs in Node and cannot fetch a relative URL like "/graphql".
+// When VITE_API_ENDPOINT is relative (used to let the browser go through
+// the Vite proxy for HTTPS-tunnel / CORS reasons in dev), the SSR side
+// still needs an absolute URL to reach the backend directly.
+let serverApiEndpoint = () =>
+  switch apiEndpoint {
+  | Some(url) if !(url->String.startsWith("/")) => url
+  | _ => "http://localhost:4555/graphql"
+  }
+
 // This is a simple example of how one could leverage `preloadAsset` to preload
 // things from the GraphQL response. This should live inside of the
 // (comprehensive) example application we're going to build eventually.
@@ -222,7 +232,7 @@ RescriptRelay.Network.fetchFunctionObservable => {
     open RelayRouter.NetworkUtils
 
     fetchServer(
-      apiEndpoint->Option.getOr("http://localhost:4555/graphql"),
+      serverApiEndpoint(),
       {
         "mode": "no-cors",
         "method": "POST",

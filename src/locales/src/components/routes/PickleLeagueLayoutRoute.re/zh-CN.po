@@ -13,9 +13,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/shared/InstallPwa.re.mjs:394
+msgid "— add to your Home Screen for push notifications"
+msgstr "— 添加到主屏幕以接收推送通知"
+
+#: src/components/shared/InstallPwa.re.mjs:351
+msgid "— enable push notifications for event reminders"
+msgstr "— 启用推送通知以获取赛事提醒"
+
+#: src/components/shared/InstallPwa.re.mjs:466
+msgid "— for a faster, app-like experience"
+msgstr "— 享受更快速的类应用体验"
+
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
 msgstr "（退出登录）"
+
+#: src/components/shared/InstallPwa.re.mjs:443
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"添加到主屏幕\\\""
 
 #: src/components/organisms/LeagueNav.re.mjs:114
 msgid "About"
@@ -25,9 +41,34 @@ msgstr "关于"
 msgid "copyright the racquet league contributors"
 msgstr "版权所有 网球联盟贡献者"
 
+#: src/components/shared/InstallPwa.re.mjs:360
+msgid "Enable now"
+msgstr "立即启用"
+
 #: src/components/organisms/LeagueNav.re.mjs:110
 msgid "Find Games"
 msgstr "寻找比赛"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "Hide"
+msgstr "隐藏"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "How to install"
+msgstr "安装方法"
+
+#: src/components/shared/InstallPwa.re.mjs:435
+msgid "in Safari's toolbar"
+msgstr "在 Safari 工具栏中"
+
+#: src/components/shared/InstallPwa.re.mjs:475
+msgid "Install"
+msgstr "安装"
+
+#: src/components/shared/InstallPwa.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:462
+msgid "Install Racquet League"
+msgstr "安装 Racquet League"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
@@ -54,6 +95,18 @@ msgstr "头像"
 #: src/components/organisms/LeagueNav.re.mjs:106
 msgid "Rankings"
 msgstr "排名"
+
+#: src/components/shared/InstallPwa.re.mjs:441
+msgid "Scroll down and tap"
+msgstr "向下滚动并点击"
+
+#: src/components/shared/InstallPwa.re.mjs:347
+msgid "Stay in the loop"
+msgstr "保持关注"
+
+#: src/components/shared/InstallPwa.re.mjs:433
+msgid "Tap the Share button"
+msgstr "点击分享按钮"
 
 #: src/components/organisms/LeagueNav.re.mjs:175
 #: src/components/organisms/LeagueNav.re.mjs:326

@@ -54,7 +54,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "보증금 승인"
 
@@ -62,7 +62,7 @@ msgstr "보증금 승인"
 msgid "balanced"
 msgstr "균형"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "취소"
 
@@ -114,7 +114,7 @@ msgstr "자리 확보"
 msgid "Claim spot · {0}"
 msgstr "참가 신청 · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "결제 완료"
 
@@ -322,7 +322,7 @@ msgstr "참가자"
 msgid "Pay {priceStr}"
 msgstr "{priceStr} 결제"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "지금 결제"
 
@@ -334,7 +334,7 @@ msgstr "결제 승인됨"
 msgid "Payment captured"
 msgstr "결제 완료됨"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "결제 실패"
 
@@ -359,7 +359,7 @@ msgstr "밝히지 않음"
 msgid "Private"
 msgstr "비공개"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "처리 중…"
 
@@ -488,7 +488,7 @@ msgstr ""
 "이것은 보증금 예치만 해당됩니다 — 실제 결제는 이벤트 당일 주최자에게 해야 합"
 "니다. 예치금은 이벤트 종료 후 해제됩니다."
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."

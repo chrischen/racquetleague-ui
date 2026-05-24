@@ -54,7 +54,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "デポジットを承認する"
 
@@ -62,7 +62,7 @@ msgstr "デポジットを承認する"
 msgid "balanced"
 msgstr "バランス"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -115,7 +115,7 @@ msgstr "参加する"
 msgid "Claim spot · {0}"
 msgstr "スポットを予約 · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "支払いを完了する"
 
@@ -323,7 +323,7 @@ msgstr "参加者"
 msgid "Pay {priceStr}"
 msgstr "{priceStr} を支払う"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "今すぐ支払う"
 
@@ -335,7 +335,7 @@ msgstr "支払い承認済み"
 msgid "Payment captured"
 msgstr "支払い確定済み"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "支払いに失敗しました"
 
@@ -360,7 +360,7 @@ msgstr "回答しない"
 msgid "Private"
 msgstr "非公開"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "処理中…"
 
@@ -489,7 +489,7 @@ msgstr ""
 "これはデポジットの仮押さえのみです — 支払いはイベント当日に主催者へ行ってくだ"
 "さい。仮押さえはイベント終了後に解除されます。"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."

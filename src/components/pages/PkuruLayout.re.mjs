@@ -4,6 +4,7 @@ import * as React from "react";
 import * as LoginLink from "../molecules/LoginLink.re.mjs";
 import * as NavViewer from "../organisms/NavViewer.re.mjs";
 import * as ReactDom from "react-dom";
+import * as InstallPwa from "../shared/InstallPwa.re.mjs";
 import * as LangSwitch from "../molecules/LangSwitch.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
@@ -21,6 +22,7 @@ import * as ReactHelmetAsync from "react-helmet-async";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as NotificationsPreview from "../molecules/NotificationsPreview.re.mjs";
 import * as PkuruLayoutQuery_graphql from "../../__generated__/PkuruLayoutQuery_graphql.re.mjs";
+import PkuruComPng from "/src/assets/pkuru.com.png";
 
 import { t } from '@lingui/macro'
 ;
@@ -207,26 +209,13 @@ var SidebarContent = {
 };
 
 function PkuruLayout$BrandLogo(props) {
-  var __showBreadcrumb = props.showBreadcrumb;
-  var showBreadcrumb = __showBreadcrumb !== undefined ? __showBreadcrumb : true;
-  return JsxRuntime.jsxs("div", {
-              children: [
-                JsxRuntime.jsx("div", {
-                      children: "P",
-                      className: "w-6 h-6 bg-[#bdf25d] rounded flex items-center justify-center font-bold text-sm text-black"
-                    }),
-                JsxRuntime.jsxs("span", {
-                      children: [
-                        "Pkuru ",
-                        showBreadcrumb ? JsxRuntime.jsx("span", {
-                                children: "/ discover",
-                                className: "text-gray-400 dark:text-gray-500 font-normal"
-                              }) : null
-                      ],
-                      className: "font-semibold text-sm tracking-tight dark:text-gray-100"
-                    })
-              ],
-              className: "flex items-center gap-2"
+  return JsxRuntime.jsx(LangProvider.Router.Link.make, {
+              to: "/",
+              children: JsxRuntime.jsx("img", {
+                    className: "h-6 w-auto dark:invert",
+                    alt: "Pkuru",
+                    src: PkuruComPng
+                  })
             });
 }
 
@@ -260,9 +249,7 @@ function PkuruLayout$Topbar(props) {
                                   onToggleSidebar();
                                 })
                             }),
-                        JsxRuntime.jsx(PkuruLayout$BrandLogo, {
-                              showBreadcrumb: false
-                            })
+                        JsxRuntime.jsx(PkuruLayout$BrandLogo, {})
                       ],
                       className: "flex items-center gap-3 md:hidden"
                     }),
@@ -666,6 +653,7 @@ function PkuruLayout$Layout(props) {
                                                                   }),
                                                                 viewer: viewer
                                                               }),
+                                                          JsxRuntime.jsx(InstallPwa.make, {}),
                                                           JsxRuntime.jsx("div", {
                                                                 children: JsxRuntime.jsx(React.Suspense, {
                                                                       children: Caml_option.some(children),

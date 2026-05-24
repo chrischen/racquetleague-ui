@@ -344,7 +344,9 @@ function PkEventRow(props) {
   var waitlistCount = __waitlistCount !== undefined ? __waitlistCount : 0;
   var queryData = use$4(props.query);
   var match = use(props.event);
+  var title = match.title;
   var timezone = match.timezone;
+  var tags = match.tags;
   var startDate = match.startDate;
   var rsvps = match.rsvps;
   var maxRsvps = match.maxRsvps;
@@ -352,6 +354,7 @@ function PkEventRow(props) {
   var listed = match.listed;
   var id = match.id;
   var endDate = match.endDate;
+  var club = match.club;
   var cancelDeadline = match.cancelDeadline;
   var __id = match.__id;
   var secret = Core__Option.getOr(match.shadow, false);
@@ -476,6 +479,11 @@ function PkEventRow(props) {
       });
   var setPendingJoinAction = match$7[1];
   var pendingJoinAction = match$7[0];
+  var match$8 = React.useState(function () {
+        return false;
+      });
+  var setShowCanceledDetails = match$8[1];
+  var showCanceledDetails = match$8[0];
   var proceed = function () {
     commitJoin({
           connections: [RelayRuntime.ConnectionHandler.getConnectionID(__id, "PkEventRow_event_rsvps", undefined)],
@@ -605,253 +613,398 @@ function PkEventRow(props) {
           className: "flex items-center gap-1.5 font-semibold text-sm px-4 py-2 h-full " + actionTextColor + " " + actionBg,
           onClick: handleActionClick
         });
-  var tagsArr = Core__Option.getOr(match.tags, []);
-  var hasComp = tagsArr.some(function (t) {
-        return t.toLowerCase() === "comp";
-      });
-  var otherTags = tagsArr.filter(function (t) {
-        return t.toLowerCase() !== "comp";
-      });
+  var openEvent = function () {
+    if (onEventClick !== undefined) {
+      return onEventClick(id);
+    } else {
+      return navigate(eventPath, undefined);
+    }
+  };
+  var tmp;
+  if (isCanceled) {
+    var tmp$1;
+    if (showCanceledDetails) {
+      var tagsArr = Core__Option.getOr(tags, []);
+      var hasComp = tagsArr.some(function (t) {
+            return t.toLowerCase() === "comp";
+          });
+      var otherTags = tagsArr.filter(function (t) {
+            return t.toLowerCase() !== "comp";
+          });
+      tmp$1 = JsxRuntime.jsx(FramerMotion.motion.div, {
+            className: "overflow-hidden",
+            animate: {
+              opacity: 1,
+              y: 0
+            },
+            initial: {
+              opacity: 0,
+              y: -4
+            },
+            exit: {
+              opacity: 0,
+              y: -4
+            },
+            children: Caml_option.some(JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx("span", {
+                                    children: Core__Option.getOr(durationStr, ""),
+                                    className: "font-mono text-xs text-gray-400 dark:text-gray-500"
+                                  }),
+                              className: "w-12 md:w-16 flex-shrink-0 flex flex-col items-start pt-0.5"
+                            }),
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsxs("div", {
+                                      children: [
+                                        Core__Option.getOr(Core__Option.map(Core__Option.flatMap(club, (function (c) {
+                                                        return c.name;
+                                                      })), (function (name) {
+                                                    return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                children: [
+                                                                  JsxRuntime.jsx("span", {
+                                                                        children: name
+                                                                      }),
+                                                                  JsxRuntime.jsx("span", {
+                                                                        children: "·"
+                                                                      })
+                                                                ]
+                                                              });
+                                                  })), null),
+                                        secret ? null : JsxRuntime.jsx("span", {
+                                                children: Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                                                            return Core__Option.map(l.name, (function (name) {
+                                                                          return name;
+                                                                        }));
+                                                          })), null),
+                                                className: "truncate"
+                                              })
+                                      ],
+                                      className: "flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-gray-500 dark:text-gray-500"
+                                    }),
+                                JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
+                                      children: JsxRuntime.jsxs("div", {
+                                            children: [
+                                              isUnlisted ? JsxRuntime.jsx(EventTag.make, {
+                                                      tag: "unlisted",
+                                                      responsive: true
+                                                    }) : null,
+                                              hasComp ? JsxRuntime.jsx(EventTag.make, {
+                                                      tag: "comp",
+                                                      responsive: true
+                                                    }) : null,
+                                              otherTags.map(function (tag, i) {
+                                                    return JsxRuntime.jsx(EventTag.make, {
+                                                                tag: tag,
+                                                                responsive: true
+                                                              }, i.toString());
+                                                  })
+                                            ],
+                                            className: "flex flex-wrap gap-1.5 mt-1"
+                                          })
+                                    })
+                              ],
+                              className: "flex-1 min-w-0"
+                            })
+                      ],
+                      className: "px-4 md:px-6 pb-4 pt-1 flex items-start gap-3 md:gap-6 cursor-pointer opacity-70",
+                      onClick: (function (param) {
+                          openEvent();
+                        })
+                    }))
+          }, "canceled-details");
+    } else {
+      tmp$1 = null;
+    }
+    tmp = JsxRuntime.jsxs("div", {
+          children: [
+            JsxRuntime.jsxs("div", {
+                  children: [
+                    JsxRuntime.jsx("span", {
+                          children: Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
+                                      return Core__Option.getOr(Core__Option.map(timezone, (function (tz) {
+                                                        return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                    value: Util.Datetime.toDate(startDate),
+                                                                    timeZone: tz
+                                                                  });
+                                                      })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                      value: Util.Datetime.toDate(startDate)
+                                                    }));
+                                    })), null),
+                          className: "font-mono text-xs text-gray-400 dark:text-gray-500 flex-shrink-0 w-12 md:w-16"
+                        }),
+                    JsxRuntime.jsx("h4", {
+                          children: Core__Option.getOr(title, t`[missing title]`),
+                          className: "flex-1 min-w-0 text-sm line-through text-gray-400 dark:text-gray-500 truncate"
+                        }),
+                    JsxRuntime.jsx("span", {
+                          children: t`Canceled`,
+                          className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400 text-[11px] font-medium whitespace-nowrap flex-shrink-0"
+                        }),
+                    JsxRuntime.jsx(LucideReact.ChevronDown, {
+                          size: 14,
+                          className: "text-gray-300 dark:text-gray-600 flex-shrink-0 transition-transform " + (
+                            showCanceledDetails ? "rotate-180" : ""
+                          )
+                        })
+                  ],
+                  className: "px-4 md:px-6 py-2.5 flex items-center gap-3 md:gap-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#1e1f23] transition-colors",
+                  onClick: (function (param) {
+                      setShowCanceledDetails(function (prev) {
+                            return !prev;
+                          });
+                    })
+                }),
+            JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                  children: tmp$1
+                })
+          ],
+          className: "bg-white dark:bg-[#222326]"
+        });
+  } else {
+    var tagsArr$1 = Core__Option.getOr(tags, []);
+    var hasComp$1 = tagsArr$1.some(function (t) {
+          return t.toLowerCase() === "comp";
+        });
+    var otherTags$1 = tagsArr$1.filter(function (t) {
+          return t.toLowerCase() !== "comp";
+        });
+    tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+          children: [
+            JsxRuntime.jsx(SwipeAction.make, {
+                  rightActions: Caml_option.some(isTouchDevice ? actionButton : null),
+                  onFullSwipeLeft: isTouchDevice ? (function () {
+                        if (viewerRsvpStatus !== undefined) {
+                          if (waitlistCount > 0) {
+                            return setShowLeaveConfirm(function (param) {
+                                        return true;
+                                      });
+                          } else {
+                            return onLeave();
+                          }
+                        } else if (viewer !== undefined) {
+                          return doJoinWithProfileCheck();
+                        } else {
+                          return navigate(loginHref, undefined);
+                        }
+                      }) : (function () {
+                        
+                      }),
+                  className: "bg-white dark:bg-[#222326]",
+                  disableDrag: !isTouchDevice,
+                  onTapped: (function () {
+                      openEvent();
+                    }),
+                  children: JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("span", {
+                                        children: Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
+                                                    return Core__Option.getOr(Core__Option.map(timezone, (function (tz) {
+                                                                      return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                                  value: Util.Datetime.toDate(startDate),
+                                                                                  timeZone: tz
+                                                                                });
+                                                                    })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                    value: Util.Datetime.toDate(startDate)
+                                                                  }));
+                                                  })), null),
+                                        className: "font-mono font-bold text-base dark:text-gray-100"
+                                      }),
+                                  JsxRuntime.jsx("span", {
+                                        children: Core__Option.getOr(durationStr, ""),
+                                        className: "font-mono text-[10px] text-gray-400 mt-1"
+                                      })
+                                ],
+                                className: "w-12 md:w-16 flex-shrink-0 flex flex-col items-start pt-0.5"
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("h4", {
+                                        children: Core__Option.getOr(title, t`[missing title]`),
+                                        className: "font-medium truncate text-gray-900 dark:text-gray-100"
+                                      }),
+                                  JsxRuntime.jsxs("div", {
+                                        children: [
+                                          Core__Option.getOr(Core__Option.map(Core__Option.flatMap(club, (function (c) {
+                                                          return c.name;
+                                                        })), (function (name) {
+                                                      return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                  children: [
+                                                                    JsxRuntime.jsx("span", {
+                                                                          children: name,
+                                                                          className: "font-medium text-gray-800 dark:text-gray-300"
+                                                                        }),
+                                                                    JsxRuntime.jsx("span", {
+                                                                          children: "·"
+                                                                        })
+                                                                  ]
+                                                                });
+                                                    })), null),
+                                          secret ? null : JsxRuntime.jsx("span", {
+                                                  children: Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                                                              return Core__Option.map(l.name, (function (name) {
+                                                                            return name;
+                                                                          }));
+                                                            })), null),
+                                                  className: "truncate"
+                                                })
+                                        ],
+                                        className: "flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-gray-600 dark:text-gray-400 mt-1"
+                                      }),
+                                  JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
+                                        children: JsxRuntime.jsxs("div", {
+                                              children: [
+                                                isUnlisted ? JsxRuntime.jsx(EventTag.make, {
+                                                        tag: "unlisted",
+                                                        responsive: true
+                                                      }) : null,
+                                                hasComp$1 ? JsxRuntime.jsx(EventTag.make, {
+                                                        tag: "comp",
+                                                        responsive: true
+                                                      }) : null,
+                                                otherTags$1.map(function (tag, i) {
+                                                      return JsxRuntime.jsx(EventTag.make, {
+                                                                  tag: tag,
+                                                                  responsive: true
+                                                                }, i.toString());
+                                                    })
+                                              ],
+                                              className: "flex flex-wrap gap-1.5 mt-0.5"
+                                            })
+                                      })
+                                ],
+                                className: "flex-1 min-w-0"
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  Core__Option.getOr(Core__Option.map(viewerRsvpStatus, (function (s) {
+                                              return JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsx(PkEventRow$StatusBadge, {
+                                                                status: s
+                                                              }),
+                                                          className: "hidden md:block"
+                                                        });
+                                            })), null),
+                                  JsxRuntime.jsxs("div", {
+                                        children: [
+                                          Core__Option.getOr(Core__Option.map(viewerRsvpStatus, (function (s) {
+                                                      var isJoined = s === "Confirmed";
+                                                      var dotBg = isJoined ? "bg-[#bdf25d]/20 border border-[#bdf25d]" : "bg-[#ffb042]/20 border border-[#ffb042]";
+                                                      return JsxRuntime.jsx("div", {
+                                                                  children: isJoined ? JsxRuntime.jsx("svg", {
+                                                                          children: JsxRuntime.jsx("path", {
+                                                                                d: "M3 7.5L5.5 10L11 4",
+                                                                                stroke: "#65a30d",
+                                                                                strokeLinecap: "round",
+                                                                                strokeLinejoin: "round",
+                                                                                strokeWidth: "2"
+                                                                              }),
+                                                                          height: "10",
+                                                                          width: "10",
+                                                                          fill: "none",
+                                                                          viewBox: "0 0 14 14"
+                                                                        }) : JsxRuntime.jsxs("svg", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("circle", {
+                                                                                  cx: "7",
+                                                                                  cy: "7",
+                                                                                  r: "5",
+                                                                                  stroke: "#ffb042",
+                                                                                  strokeWidth: "1.5"
+                                                                                }),
+                                                                            JsxRuntime.jsx("path", {
+                                                                                  d: "M7 4.5V7.5L9 9",
+                                                                                  stroke: "#ffb042",
+                                                                                  strokeLinecap: "round",
+                                                                                  strokeLinejoin: "round",
+                                                                                  strokeWidth: "1.5"
+                                                                                })
+                                                                          ],
+                                                                          height: "10",
+                                                                          width: "10",
+                                                                          fill: "none",
+                                                                          viewBox: "0 0 14 14"
+                                                                        }),
+                                                                  className: "w-5 h-5 rounded-full flex items-center justify-center " + dotBg
+                                                                });
+                                                    })), null),
+                                          JsxRuntime.jsx(PkEventRow$CapacityCount, {
+                                                filled: playersCount,
+                                                total: maxRsvps,
+                                                status: status
+                                              }),
+                                          Core__Option.getOr(Core__Option.map(avgDupr, (function (v) {
+                                                      return JsxRuntime.jsx(PkEventRow$DuprBadge, {
+                                                                  value: v,
+                                                                  size: "sm"
+                                                                });
+                                                    })), null)
+                                        ],
+                                        className: "md:hidden flex flex-col items-end gap-1"
+                                      }),
+                                  JsxRuntime.jsxs("div", {
+                                        children: [
+                                          Core__Option.getOr(Core__Option.map(avgDupr, (function (v) {
+                                                      return JsxRuntime.jsx(PkEventRow$DuprBadge, {
+                                                                  value: v,
+                                                                  size: "md"
+                                                                });
+                                                    })), null),
+                                          JsxRuntime.jsx(PkEventRow$ProgressBar, {
+                                                filled: playersCount,
+                                                total: maxRsvps,
+                                                status: status
+                                              })
+                                        ],
+                                        className: "hidden md:flex items-center gap-3"
+                                      })
+                                ],
+                                className: "w-20 md:w-44 flex-shrink-0 flex flex-col items-end gap-1.5 pt-1"
+                              })
+                        ],
+                        className: "px-4 md:px-6 py-3 flex items-start gap-3 md:gap-6 cursor-pointer"
+                      })
+                }),
+            isTouchDevice ? null : JsxRuntime.jsx(FramerMotion.motion.div, {
+                    className: "absolute right-0 top-0 bottom-0 w-[120px] flex items-center justify-center z-20 " + actionBg,
+                    animate: {
+                      x: match$1[0] ? 0 : 120
+                    },
+                    initial: {
+                      x: 120
+                    },
+                    transition: {
+                      type: "spring",
+                      stiffness: 900,
+                      damping: 35,
+                      mass: 0.4
+                    },
+                    children: Caml_option.some(JsxRuntime.jsxs("button", {
+                              children: [
+                                actionLabel,
+                                JsxRuntime.jsx(LucideReact.ChevronLeft, {
+                                      size: 16
+                                    })
+                              ],
+                              className: "flex items-center gap-1.5 font-semibold text-sm " + actionTextColor,
+                              onClick: (function (e) {
+                                  e.stopPropagation();
+                                  handleActionClick(e);
+                                  setHovered(function (param) {
+                                        return false;
+                                      });
+                                })
+                            }))
+                  })
+          ]
+        });
+  }
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsx(SwipeAction.make, {
-                      rightActions: Caml_option.some(isTouchDevice ? actionButton : null),
-                      onFullSwipeLeft: isTouchDevice ? (function () {
-                            if (viewerRsvpStatus !== undefined) {
-                              if (waitlistCount > 0) {
-                                return setShowLeaveConfirm(function (param) {
-                                            return true;
-                                          });
-                              } else {
-                                return onLeave();
-                              }
-                            } else if (viewer !== undefined) {
-                              return doJoinWithProfileCheck();
-                            } else {
-                              return navigate(loginHref, undefined);
-                            }
-                          }) : (function () {
-                            
-                          }),
-                      className: "bg-white dark:bg-[#222326]",
-                      disableDrag: !isTouchDevice,
-                      onTapped: (function () {
-                          if (onEventClick !== undefined) {
-                            return onEventClick(id);
-                          } else {
-                            return navigate(eventPath, undefined);
-                          }
-                        }),
-                      children: JsxRuntime.jsxs("div", {
-                            children: [
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("span", {
-                                            children: Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                                                        return Core__Option.getOr(Core__Option.map(timezone, (function (tz) {
-                                                                          return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                      value: Util.Datetime.toDate(startDate),
-                                                                                      timeZone: tz
-                                                                                    });
-                                                                        })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                        value: Util.Datetime.toDate(startDate)
-                                                                      }));
-                                                      })), null),
-                                            className: "font-mono font-bold text-base dark:text-gray-100"
-                                          }),
-                                      JsxRuntime.jsx("span", {
-                                            children: Core__Option.getOr(durationStr, ""),
-                                            className: "font-mono text-[10px] text-gray-400 mt-1"
-                                          })
-                                    ],
-                                    className: "w-12 md:w-16 flex-shrink-0 flex flex-col items-start pt-0.5"
-                                  }),
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("h4", {
-                                            children: Core__Option.getOr(match.title, t`[missing title]`),
-                                            className: "font-medium truncate " + (
-                                              isCanceled ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"
-                                            )
-                                          }),
-                                      JsxRuntime.jsxs("div", {
-                                            children: [
-                                              Core__Option.getOr(Core__Option.map(Core__Option.flatMap(match.club, (function (c) {
-                                                              return c.name;
-                                                            })), (function (name) {
-                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                      children: [
-                                                                        JsxRuntime.jsx("span", {
-                                                                              children: name,
-                                                                              className: "font-medium text-gray-800 dark:text-gray-300"
-                                                                            }),
-                                                                        JsxRuntime.jsx("span", {
-                                                                              children: "·"
-                                                                            })
-                                                                      ]
-                                                                    });
-                                                        })), null),
-                                              secret ? null : JsxRuntime.jsx("span", {
-                                                      children: Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
-                                                                  return Core__Option.map(l.name, (function (name) {
-                                                                                return name;
-                                                                              }));
-                                                                })), null),
-                                                      className: "truncate"
-                                                    })
-                                            ],
-                                            className: "flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-gray-600 dark:text-gray-400 mt-1"
-                                          }),
-                                      JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
-                                            children: JsxRuntime.jsxs("div", {
-                                                  children: [
-                                                    isUnlisted ? JsxRuntime.jsx(EventTag.make, {
-                                                            tag: "unlisted",
-                                                            responsive: true
-                                                          }) : null,
-                                                    hasComp ? JsxRuntime.jsx(EventTag.make, {
-                                                            tag: "comp",
-                                                            responsive: true
-                                                          }) : null,
-                                                    otherTags.map(function (tag, i) {
-                                                          return JsxRuntime.jsx(EventTag.make, {
-                                                                      tag: tag,
-                                                                      responsive: true
-                                                                    }, i.toString());
-                                                        })
-                                                  ],
-                                                  className: "flex flex-wrap gap-1.5 mt-0.5"
-                                                })
-                                          })
-                                    ],
-                                    className: "flex-1 min-w-0"
-                                  }),
-                              JsxRuntime.jsx("div", {
-                                    children: isCanceled ? JsxRuntime.jsx("span", {
-                                            children: t`Canceled`,
-                                            className: "text-xs font-medium px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/20 text-red-500 dark:text-red-400"
-                                          }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                            children: [
-                                              Core__Option.getOr(Core__Option.map(viewerRsvpStatus, (function (s) {
-                                                          return JsxRuntime.jsx("div", {
-                                                                      children: JsxRuntime.jsx(PkEventRow$StatusBadge, {
-                                                                            status: s
-                                                                          }),
-                                                                      className: "hidden md:block"
-                                                                    });
-                                                        })), null),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      Core__Option.getOr(Core__Option.map(viewerRsvpStatus, (function (s) {
-                                                                  var isJoined = s === "Confirmed";
-                                                                  var dotBg = isJoined ? "bg-[#bdf25d]/20 border border-[#bdf25d]" : "bg-[#ffb042]/20 border border-[#ffb042]";
-                                                                  return JsxRuntime.jsx("div", {
-                                                                              children: isJoined ? JsxRuntime.jsx("svg", {
-                                                                                      children: JsxRuntime.jsx("path", {
-                                                                                            d: "M3 7.5L5.5 10L11 4",
-                                                                                            stroke: "#65a30d",
-                                                                                            strokeLinecap: "round",
-                                                                                            strokeLinejoin: "round",
-                                                                                            strokeWidth: "2"
-                                                                                          }),
-                                                                                      height: "10",
-                                                                                      width: "10",
-                                                                                      fill: "none",
-                                                                                      viewBox: "0 0 14 14"
-                                                                                    }) : JsxRuntime.jsxs("svg", {
-                                                                                      children: [
-                                                                                        JsxRuntime.jsx("circle", {
-                                                                                              cx: "7",
-                                                                                              cy: "7",
-                                                                                              r: "5",
-                                                                                              stroke: "#ffb042",
-                                                                                              strokeWidth: "1.5"
-                                                                                            }),
-                                                                                        JsxRuntime.jsx("path", {
-                                                                                              d: "M7 4.5V7.5L9 9",
-                                                                                              stroke: "#ffb042",
-                                                                                              strokeLinecap: "round",
-                                                                                              strokeLinejoin: "round",
-                                                                                              strokeWidth: "1.5"
-                                                                                            })
-                                                                                      ],
-                                                                                      height: "10",
-                                                                                      width: "10",
-                                                                                      fill: "none",
-                                                                                      viewBox: "0 0 14 14"
-                                                                                    }),
-                                                                              className: "w-5 h-5 rounded-full flex items-center justify-center " + dotBg
-                                                                            });
-                                                                })), null),
-                                                      JsxRuntime.jsx(PkEventRow$CapacityCount, {
-                                                            filled: playersCount,
-                                                            total: maxRsvps,
-                                                            status: status
-                                                          }),
-                                                      Core__Option.getOr(Core__Option.map(avgDupr, (function (v) {
-                                                                  return JsxRuntime.jsx(PkEventRow$DuprBadge, {
-                                                                              value: v,
-                                                                              size: "sm"
-                                                                            });
-                                                                })), null)
-                                                    ],
-                                                    className: "md:hidden flex flex-col items-end gap-1"
-                                                  }),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      Core__Option.getOr(Core__Option.map(avgDupr, (function (v) {
-                                                                  return JsxRuntime.jsx(PkEventRow$DuprBadge, {
-                                                                              value: v,
-                                                                              size: "md"
-                                                                            });
-                                                                })), null),
-                                                      JsxRuntime.jsx(PkEventRow$ProgressBar, {
-                                                            filled: playersCount,
-                                                            total: maxRsvps,
-                                                            status: status
-                                                          })
-                                                    ],
-                                                    className: "hidden md:flex items-center gap-3"
-                                                  })
-                                            ]
-                                          }),
-                                    className: "w-20 md:w-44 flex-shrink-0 flex flex-col items-end gap-1.5 pt-1"
-                                  })
-                            ],
-                            className: "px-4 md:px-6 py-3 flex items-start gap-3 md:gap-6 cursor-pointer"
-                          })
-                    }),
-                isCanceled || isTouchDevice ? null : JsxRuntime.jsx(FramerMotion.motion.div, {
-                        className: "absolute right-0 top-0 bottom-0 w-[120px] flex items-center justify-center z-20 " + actionBg,
-                        animate: {
-                          x: match$1[0] ? 0 : 120
-                        },
-                        initial: {
-                          x: 120
-                        },
-                        transition: {
-                          type: "spring",
-                          stiffness: 900,
-                          damping: 35,
-                          mass: 0.4
-                        },
-                        children: Caml_option.some(JsxRuntime.jsxs("button", {
-                                  children: [
-                                    actionLabel,
-                                    JsxRuntime.jsx(LucideReact.ChevronLeft, {
-                                          size: 16
-                                        })
-                                  ],
-                                  className: "flex items-center gap-1.5 font-semibold text-sm " + actionTextColor,
-                                  onClick: (function (e) {
-                                      e.stopPropagation();
-                                      handleActionClick(e);
-                                      setHovered(function (param) {
-                                            return false;
-                                          });
-                                    })
-                                }))
-                      }),
+                tmp,
                 JsxRuntime.jsx(ConfirmDialog.make, {
                       title: t`Leave event`,
                       description: t`There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?`,
@@ -882,7 +1035,7 @@ function PkEventRow(props) {
                       query: queryData.fragmentRefs
                     })
               ],
-              className: Core.cx(isLastInGroup ? "relative overflow-hidden" : "relative overflow-hidden border-b border-gray-100 dark:border-[#2a2b30]", dimmed ? "opacity-30" : "", isCanceled ? "opacity-60" : ""),
+              className: Core.cx(isLastInGroup ? "relative overflow-hidden" : "relative overflow-hidden border-b border-gray-100 dark:border-[#2a2b30]", dimmed ? "opacity-30" : ""),
               onMouseEnter: (function (param) {
                   if (!isTouchDevice) {
                     setHovered(function (param) {

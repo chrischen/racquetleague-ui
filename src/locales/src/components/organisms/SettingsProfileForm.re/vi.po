@@ -13,94 +13,150 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:318
+#: src/components/shared/InstallPwa.re.mjs:271
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"Thêm vào Màn hình chính\\\""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:319
 msgid "Active"
 msgstr "Đang hoạt động"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:398
+#: src/components/shared/InstallPwa.re.mjs:253
+msgid "Add to Home Screen to enable notifications"
+msgstr "Thêm vào Màn hình chính để bật thông báo"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Australia"
 msgstr "Úc"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:543
+#: src/components/organisms/SettingsProfileForm.re.mjs:544
 msgid "Biography"
 msgstr "Tiểu sử"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:402
+#: src/components/organisms/SettingsProfileForm.re.mjs:403
 msgid "Canada"
 msgstr "Canada"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:338
+#: src/components/organisms/SettingsProfileForm.re.mjs:339
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr ""
 "Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:367
+#: src/components/organisms/SettingsProfileForm.re.mjs:368
 msgid "Connect Stripe account"
 msgstr "Kết nối tài khoản Stripe"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:364
 msgid "Connecting..."
 msgstr "Đang kết nối..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:383
+#: src/components/organisms/SettingsProfileForm.re.mjs:384
 msgid "Country"
 msgstr "Quốc gia"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:471
+#: src/components/shared/PushNotifications.re.mjs:402
+msgid "Disable notifications"
+msgstr "Tắt thông báo"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:472
 msgid "Display Name"
 msgstr "Tên hiển thị"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:488
+#: src/components/organisms/SettingsProfileForm.re.mjs:489
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:514
+#: src/components/shared/PushNotifications.re.mjs:414
+msgid "Enable notifications"
+msgstr "Bật thông báo"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:515
 msgid "Female"
 msgstr "Nữ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:485
 msgid "Full name"
 msgstr "Họ và tên"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:499
+#: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:414
+#: src/components/organisms/SettingsProfileForm.re.mjs:415
 msgid "Hong Kong"
 msgstr "Hồng Kông"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:475
+#: src/components/organisms/SettingsProfileForm.re.mjs:476
 msgid "How you appear to other players"
 msgstr "Tên hiển thị với người chơi khác"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:263
+msgid "in Safari's toolbar"
+msgstr "trong thanh công cụ Safari"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:391
 msgid "Japan"
 msgstr "Nhật Bản"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/shared/PushNotifications.re.mjs:395
+msgid "Loading..."
+msgstr "Đang tải..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:511
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:312
+#: src/components/organisms/SettingsProfileForm.re.mjs:313
 msgid "Not connected"
 msgstr "Chưa kết nối"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:315
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
+msgid "Notifications"
+msgstr "Thông báo"
+
+#: src/components/shared/PushNotifications.re.mjs:431
+msgid ""
+"Notifications are blocked. To enable them, go to your device or browser "
+"settings and allow notifications for this site."
+msgstr ""
+"Thông báo đã bị chặn. Để bật, hãy vào cài đặt thiết bị hoặc trình duyệt và "
+"cho phép thông báo cho trang này."
+
+#: src/components/shared/InstallPwa.re.mjs:278
+msgid "Open the app from your Home Screen and enable notifications"
+msgstr "Mở ứng dụng từ Màn hình chính và bật thông báo"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:316
 msgid "Pending"
 msgstr "Đang chờ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
 msgid "Prefer not to say"
 msgstr "Không muốn tiết lộ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:370
+#: src/components/shared/PushNotifications.re.mjs:302
+msgid ""
+"Push notifications are blocked. Check your browser or device notification "
+"settings for this site, then try again."
+msgstr ""
+"Thông báo đẩy đã bị chặn. Kiểm tra cài đặt thông báo trên trình duyệt hoặc "
+"thiết bị cho trang này, rồi thử lại."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:593
+msgid "Receive push notifications for event reminders and updates."
+msgstr "Nhận thông báo đẩy về nhắc nhở và cập nhật sự kiện."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:371
 msgid "Resume onboarding"
 msgstr "Tiếp tục đăng ký"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:570
+#: src/components/organisms/SettingsProfileForm.re.mjs:571
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
+
+#: src/components/shared/InstallPwa.re.mjs:269
+msgid "Scroll down and tap"
+msgstr "Cuộn xuống và nhấn"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
@@ -114,47 +170,51 @@ msgstr ""
 "hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người "
 "biết bạn đang tìm đối tác"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:410
+#: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Singapore"
 msgstr "Singapore"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:491
+#: src/components/organisms/SettingsProfileForm.re.mjs:492
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:422
+#: src/components/organisms/SettingsProfileForm.re.mjs:423
 msgid "South Korea"
 msgstr "Hàn Quốc"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:584
+#: src/components/organisms/SettingsProfileForm.re.mjs:607
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:418
+#: src/components/organisms/SettingsProfileForm.re.mjs:419
 msgid "Taiwan"
 msgstr "Đài Loan"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:549
+#: src/components/shared/InstallPwa.re.mjs:261
+msgid "Tap the Share button"
+msgstr "Nhấn nút Chia sẻ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:550
 msgid "tell us a little about yourself"
 msgstr "hãy cho chúng tôi biết một chút về bản thân bạn"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:547
+#: src/components/organisms/SettingsProfileForm.re.mjs:548
 msgid "Tell us a little about yourself..."
 msgstr "Hãy cho chúng tôi biết một chút về bạn..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:406
+#: src/components/organisms/SettingsProfileForm.re.mjs:407
 msgid "United Kingdom"
 msgstr "Anh"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:394
+#: src/components/organisms/SettingsProfileForm.re.mjs:395
 msgid "United States"
 msgstr "Mỹ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:344
+#: src/components/organisms/SettingsProfileForm.re.mjs:345
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr "Tài khoản Stripe của bạn đã được kết nối và sẵn sàng nhận thanh toán."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:341
+#: src/components/organisms/SettingsProfileForm.re.mjs:342
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."
 

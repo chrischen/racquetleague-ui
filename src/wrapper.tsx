@@ -2,6 +2,16 @@ import type { StaticHandlerContext } from "react-router-dom/server";
 import type { Router } from "@remix-run/router";
 import { StaticRouterProvider } from "react-router-dom/server";
 import { RouterProvider } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+
+const pwaEarlyCaptureScript = `window.__pwaInstallPrompt=null;
+console.log('[PWA] Helmet-script running');
+window.addEventListener('beforeinstallprompt',function(e){
+  e.preventDefault();
+  window.__pwaInstallPrompt=e;
+  console.log('[PWA] beforeinstallprompt captured early',e);
+});`;
+
 export const Wrapper = ({
   router,
   context,
@@ -9,21 +19,20 @@ export const Wrapper = ({
   router: Router;
   context?: StaticHandlerContext;
 }) => {
-  if (import.meta.env.SSR)
-    return (
-      <StaticRouterProvider
-        router={router}
-        context={context as StaticHandlerContext}
-        // React Router automatic hydration is disabled because we are handling
-        // hydration via Relay manually
-        // This means Loader functions must be synchronous, because they will be
-        // called during hydration to to make sure the React tree matches the
-        // server render.
-        // This means no data can be passed from server to client except through
-        // Relay
-        hydrate={false}
-
-      />
-    );
-  else return <RouterProvider router={router} future={{ v7_startTransition: true }} />;
+  return (
+    <>
+      <Helmet>
+        <script type="text/javascript">{pwaEarlyCaptureScript}</script>
+      </Helmet>
+      {import.meta.env.SSR ? (
+        <StaticRouterProvider
+          router={router}
+          context={context as StaticHandlerContext}
+          hydrate={false}
+        />
+      ) : (
+        <RouterProvider router={router} future={{ v7_startTransition: true }} />
+      )}
+    </>
+  );
 };

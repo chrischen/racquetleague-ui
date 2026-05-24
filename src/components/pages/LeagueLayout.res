@@ -37,6 +37,7 @@ module Layout = {
         <React.Suspense fallback={"..."->React.string}>
           <LeagueNav query={query} />
         </React.Suspense>
+        <InstallPwa />
         {children}
         <Footer />
       </Grid>

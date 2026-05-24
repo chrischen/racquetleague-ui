@@ -11,6 +11,15 @@ import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as WebFetch from "@remix-run/web-fetch";
 import * as RelayRouter__NetworkUtils from "./RelayRouter__NetworkUtils.re.mjs";
 
+function serverApiEndpoint() {
+  var url = import.meta.env.VITE_API_ENDPOINT;
+  if (url !== undefined && !url.startsWith("/")) {
+    return url;
+  } else {
+    return "http://localhost:4555/graphql";
+  }
+}
+
 function preloadFromResponse(part, preloadAsset) {
   var obj = Js_json.decodeObject(part);
   if (obj === undefined) {
@@ -222,7 +231,7 @@ function makeFetchQuery() {
 
 function makeServerFetchQuery(onQuery, headers) {
   return RelaySSRUtils.makeServerFetchFunction(onQuery, (function (sink, operation, variables, _cacheConfig, _uploads) {
-                Core__Promise.$$catch(WebFetch.fetch(Core__Option.getOr(import.meta.env.VITE_API_ENDPOINT, "http://localhost:4555/graphql"), {
+                Core__Promise.$$catch(WebFetch.fetch(serverApiEndpoint(), {
                             mode: "no-cors",
                             method: "POST",
                             headers: Js_dict.fromArray(Js_dict.entries(headers).concat([[
@@ -248,6 +257,7 @@ function makeServerFetchQuery(onQuery, headers) {
 }
 
 export {
+  serverApiEndpoint ,
   preloadFromResponse ,
   OptionArray ,
   GraphQLIncrementalResponse ,

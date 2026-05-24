@@ -76,3 +76,15 @@ async function hydrate(app: HTMLElement) {
 if (app) {
   hydrate(app);
 }
+
+// Register the service worker on every page so Chrome considers the site
+// installable (required for beforeinstallprompt to fire) regardless of whether
+// the user has visited the Settings page.
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg => {
+      const state = reg.active?.state ?? (reg.installing ? 'installing' : reg.waiting ? 'waiting' : 'none');
+      console.log('[SW] registered — active state:', state);
+    })
+    .catch(err => console.error('[SW] registration failed:', err));
+}

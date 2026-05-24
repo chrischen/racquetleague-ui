@@ -13,93 +13,149 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:318
+#: src/components/shared/InstallPwa.re.mjs:271
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:319
 msgid "Active"
 msgstr "ใช้งานอยู่"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:398
+#: src/components/shared/InstallPwa.re.mjs:253
+msgid "Add to Home Screen to enable notifications"
+msgstr "เพิ่มไปยังหน้าจอหลักเพื่อเปิดใช้การแจ้งเตือน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Australia"
 msgstr "ออสเตรเลีย"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:543
+#: src/components/organisms/SettingsProfileForm.re.mjs:544
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:402
+#: src/components/organisms/SettingsProfileForm.re.mjs:403
 msgid "Canada"
 msgstr "แคนาดา"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:338
+#: src/components/organisms/SettingsProfileForm.re.mjs:339
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr "เชื่อมต่อบัญชี Stripe เพื่อรับชำระเงินจากอีเวนต์ที่คุณจัด"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:367
+#: src/components/organisms/SettingsProfileForm.re.mjs:368
 msgid "Connect Stripe account"
 msgstr "เชื่อมต่อบัญชี Stripe"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:364
 msgid "Connecting..."
 msgstr "กำลังเชื่อมต่อ..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:383
+#: src/components/organisms/SettingsProfileForm.re.mjs:384
 msgid "Country"
 msgstr "ประเทศ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:471
+#: src/components/shared/PushNotifications.re.mjs:402
+msgid "Disable notifications"
+msgstr "ปิดการแจ้งเตือน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:472
 msgid "Display Name"
 msgstr "ชื่อที่แสดง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:488
+#: src/components/organisms/SettingsProfileForm.re.mjs:489
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:514
+#: src/components/shared/PushNotifications.re.mjs:414
+msgid "Enable notifications"
+msgstr "เปิดการแจ้งเตือน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:515
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:485
 msgid "Full name"
 msgstr "ชื่อเต็ม"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:499
+#: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Gender"
 msgstr "เพศ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:414
+#: src/components/organisms/SettingsProfileForm.re.mjs:415
 msgid "Hong Kong"
 msgstr "ฮ่องกง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:475
+#: src/components/organisms/SettingsProfileForm.re.mjs:476
 msgid "How you appear to other players"
 msgstr "ชื่อที่ผู้เล่นคนอื่นจะเห็น"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:263
+msgid "in Safari's toolbar"
+msgstr "ในแถบเครื่องมือของ Safari"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:391
 msgid "Japan"
 msgstr "ญี่ปุ่น"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/shared/PushNotifications.re.mjs:395
+msgid "Loading..."
+msgstr "กำลังโหลด..."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:511
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:312
+#: src/components/organisms/SettingsProfileForm.re.mjs:313
 msgid "Not connected"
 msgstr "ยังไม่ได้เชื่อมต่อ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:315
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
+msgid "Notifications"
+msgstr "การแจ้งเตือน"
+
+#: src/components/shared/PushNotifications.re.mjs:431
+msgid ""
+"Notifications are blocked. To enable them, go to your device or browser "
+"settings and allow notifications for this site."
+msgstr ""
+"การแจ้งเตือนถูกบล็อก หากต้องการเปิดใช้งาน "
+"ให้ไปที่การตั้งค่าอุปกรณ์หรือเบราว์เซอร์และอนุญาตการแจ้งเตือนสำหรับเว็บไซต์นี้"
+
+#: src/components/shared/InstallPwa.re.mjs:278
+msgid "Open the app from your Home Screen and enable notifications"
+msgstr "เปิดแอปจากหน้าจอหลักและเปิดใช้การแจ้งเตือน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:316
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
 msgid "Prefer not to say"
 msgstr "ไม่ต้องการระบุ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:370
+#: src/components/shared/PushNotifications.re.mjs:302
+msgid ""
+"Push notifications are blocked. Check your browser or device notification "
+"settings for this site, then try again."
+msgstr ""
+"การแจ้งเตือนแบบพุชถูกบล็อก "
+"ตรวจสอบการตั้งค่าการแจ้งเตือนของเบราว์เซอร์หรืออุปกรณ์สำหรับเว็บไซต์นี้ แล้วลองอีกครั้ง"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:593
+msgid "Receive push notifications for event reminders and updates."
+msgstr "รับการแจ้งเตือนแบบพุชสำหรับการเตือนและอัปเดตกิจกรรม"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:371
 msgid "Resume onboarding"
 msgstr "ดำเนินการต่อ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:570
+#: src/components/organisms/SettingsProfileForm.re.mjs:571
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
+
+#: src/components/shared/InstallPwa.re.mjs:269
+msgid "Scroll down and tap"
+msgstr "เลื่อนลงและแตะ"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:36
 msgid "seeking a doubles partner"
@@ -111,47 +167,51 @@ msgid ""
 "for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:410
+#: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Singapore"
 msgstr "สิงคโปร์"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:491
+#: src/components/organisms/SettingsProfileForm.re.mjs:492
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "กิจกรรมบางกิจกรรมต้องการชื่อจริงของคุณตามที่แสดงในบัตรประจำตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:422
+#: src/components/organisms/SettingsProfileForm.re.mjs:423
 msgid "South Korea"
 msgstr "เกาหลีใต้"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:584
+#: src/components/organisms/SettingsProfileForm.re.mjs:607
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:418
+#: src/components/organisms/SettingsProfileForm.re.mjs:419
 msgid "Taiwan"
 msgstr "ไต้หวัน"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:549
+#: src/components/shared/InstallPwa.re.mjs:261
+msgid "Tap the Share button"
+msgstr "แตะปุ่มแชร์"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:550
 msgid "tell us a little about yourself"
 msgstr "เล่าให้ฟังเกี่ยวกับตัวคุณสักนิด"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:547
+#: src/components/organisms/SettingsProfileForm.re.mjs:548
 msgid "Tell us a little about yourself..."
 msgstr "บอกเราเกี่ยวกับตัวคุณสักหน่อย..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:406
+#: src/components/organisms/SettingsProfileForm.re.mjs:407
 msgid "United Kingdom"
 msgstr "สหราชอาณาจักร"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:394
+#: src/components/organisms/SettingsProfileForm.re.mjs:395
 msgid "United States"
 msgstr "สหรัฐอเมริกา"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:344
+#: src/components/organisms/SettingsProfileForm.re.mjs:345
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้วและพร้อมรับชำระเงิน"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:341
+#: src/components/organisms/SettingsProfileForm.re.mjs:342
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว แต่ยังดำเนินการไม่เสร็จสมบูรณ์"
 

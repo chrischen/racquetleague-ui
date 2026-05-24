@@ -3943,6 +3943,91 @@ msgstr "นี่คือการระงับเงินมัดจำเ
 msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
 msgstr "นี่คือการระงับเงินมัดจำเท่านั้น คุณยังต้องชำระเงินเต็มจำนวนให้กับผู้จัดในวันงาน การระงับจะถูกปล่อยหลังจากงานสิ้นสุด"
 
+#: src/components/pkuru/PkEventsList.re.mjs:214
+msgid "Show {0} more"
+msgstr "แสดงเพิ่มอีก {0} รายการ"
+
+#: src/components/shared/InstallPwa.re.mjs:271
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
+
+#: src/components/shared/InstallPwa.re.mjs:253
+msgid "Add to Home Screen to enable notifications"
+msgstr "เพิ่มไปยังหน้าจอหลักเพื่อเปิดใช้การแจ้งเตือน"
+
+#: src/components/shared/PushNotifications.re.mjs:402
+msgid "Disable notifications"
+msgstr "ปิดการแจ้งเตือน"
+
+#: src/components/shared/PushNotifications.re.mjs:414
+msgid "Enable notifications"
+msgstr "เปิดการแจ้งเตือน"
+
+#: src/components/shared/InstallPwa.re.mjs:263
+msgid "in Safari's toolbar"
+msgstr "ในแถบเครื่องมือของ Safari"
+
+#: src/components/shared/PushNotifications.re.mjs:431
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
+msgstr "การแจ้งเตือนถูกบล็อก หากต้องการเปิดใช้งาน ให้ไปที่การตั้งค่าอุปกรณ์หรือเบราว์เซอร์และอนุญาตการแจ้งเตือนสำหรับเว็บไซต์นี้"
+
+#: src/components/shared/InstallPwa.re.mjs:278
+msgid "Open the app from your Home Screen and enable notifications"
+msgstr "เปิดแอปจากหน้าจอหลักและเปิดใช้การแจ้งเตือน"
+
+#: src/components/shared/PushNotifications.re.mjs:302
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
+msgstr "การแจ้งเตือนแบบพุชถูกบล็อก ตรวจสอบการตั้งค่าการแจ้งเตือนของเบราว์เซอร์หรืออุปกรณ์สำหรับเว็บไซต์นี้ แล้วลองอีกครั้ง"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:593
+msgid "Receive push notifications for event reminders and updates."
+msgstr "รับการแจ้งเตือนแบบพุชสำหรับการเตือนและอัปเดตกิจกรรม"
+
+#: src/components/shared/InstallPwa.re.mjs:269
+msgid "Scroll down and tap"
+msgstr "เลื่อนลงและแตะ"
+
+#: src/components/shared/InstallPwa.re.mjs:261
+msgid "Tap the Share button"
+msgstr "แตะปุ่มแชร์"
+
+#: src/components/shared/InstallPwa.re.mjs:394
+msgid "— add to your Home Screen for push notifications"
+msgstr "— เพิ่มไปยังหน้าจอหลักเพื่อรับการแจ้งเตือนแบบพุช"
+
+#: src/components/shared/InstallPwa.re.mjs:351
+msgid "— enable push notifications for event reminders"
+msgstr "— เปิดใช้การแจ้งเตือนแบบพุชสำหรับการเตือนกิจกรรม"
+
+#: src/components/shared/InstallPwa.re.mjs:466
+msgid "— for a faster, app-like experience"
+msgstr "— เพื่อประสบการณ์ที่รวดเร็วเหมือนแอป"
+
+#: src/components/shared/InstallPwa.re.mjs:360
+msgid "Enable now"
+msgstr "เปิดใช้งานเดี๋ยวนี้"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "Hide"
+msgstr "ซ่อน"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "How to install"
+msgstr "วิธีติดตั้ง"
+
+#: src/components/shared/InstallPwa.re.mjs:475
+msgid "Install"
+msgstr "ติดตั้ง"
+
+#: src/components/shared/InstallPwa.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:462
+msgid "Install Racquet League"
+msgstr "ติดตั้ง Racquet League"
+
+#: src/components/shared/InstallPwa.re.mjs:347
+msgid "Stay in the loop"
+msgstr "ติดตามทุกความเคลื่อนไหว"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

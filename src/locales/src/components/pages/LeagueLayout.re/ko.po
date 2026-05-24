@@ -13,9 +13,25 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/shared/InstallPwa.re.mjs:394
+msgid "— add to your Home Screen for push notifications"
+msgstr "— 푸시 알림을 받으려면 홈 화면에 추가하세요"
+
+#: src/components/shared/InstallPwa.re.mjs:351
+msgid "— enable push notifications for event reminders"
+msgstr "— 이벤트 알림을 위한 푸시 알림 활성화"
+
+#: src/components/shared/InstallPwa.re.mjs:466
+msgid "— for a faster, app-like experience"
+msgstr "— 더 빠른 앱 같은 경험을 위해"
+
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
 msgstr "(로그아웃)"
+
+#: src/components/shared/InstallPwa.re.mjs:443
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"홈 화면에 추가\\\""
 
 #: src/components/organisms/LeagueNav.re.mjs:114
 msgid "About"
@@ -25,9 +41,34 @@ msgstr "소개"
 msgid "copyright the racquet league contributors"
 msgstr "저작권 racquet league 기여자"
 
+#: src/components/shared/InstallPwa.re.mjs:360
+msgid "Enable now"
+msgstr "지금 활성화"
+
 #: src/components/organisms/LeagueNav.re.mjs:110
 msgid "Find Games"
 msgstr "게임 찾기"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "Hide"
+msgstr "숨기기"
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "How to install"
+msgstr "설치 방법"
+
+#: src/components/shared/InstallPwa.re.mjs:435
+msgid "in Safari's toolbar"
+msgstr "Safari 툴바에서"
+
+#: src/components/shared/InstallPwa.re.mjs:475
+msgid "Install"
+msgstr "설치"
+
+#: src/components/shared/InstallPwa.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:462
+msgid "Install Racquet League"
+msgstr "Racquet League 설치"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
@@ -54,6 +95,18 @@ msgstr "프로필 사진"
 #: src/components/organisms/LeagueNav.re.mjs:106
 msgid "Rankings"
 msgstr "순위"
+
+#: src/components/shared/InstallPwa.re.mjs:441
+msgid "Scroll down and tap"
+msgstr "아래로 스크롤하고 탭하세요"
+
+#: src/components/shared/InstallPwa.re.mjs:347
+msgid "Stay in the loop"
+msgstr "최신 소식 받아보기"
+
+#: src/components/shared/InstallPwa.re.mjs:433
+msgid "Tap the Share button"
+msgstr "공유 버튼을 탭하세요"
 
 #: src/components/organisms/LeagueNav.re.mjs:175
 #: src/components/organisms/LeagueNav.re.mjs:326

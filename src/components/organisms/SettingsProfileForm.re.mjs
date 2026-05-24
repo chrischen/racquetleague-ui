@@ -10,6 +10,7 @@ import * as FramerMotion from "framer-motion";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
+import * as PushNotifications from "../shared/PushNotifications.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as SeekingPartnerInput from "./SeekingPartnerInput.re.mjs";
 import * as AppContext from "../layouts/appContext";
@@ -576,6 +577,28 @@ function SettingsProfileForm(props) {
                                                 ],
                                                 className: "space-y-6",
                                                 onSubmit: handleSubmit(onSubmit)
+                                              }),
+                                          JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsx("div", {
+                                                        children: JsxRuntime.jsx("h3", {
+                                                              children: t`Notifications`,
+                                                              className: "text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400"
+                                                            }),
+                                                        className: "px-4 py-5 sm:px-6"
+                                                      }),
+                                                  JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsx("p", {
+                                                                children: t`Receive push notifications for event reminders and updates.`,
+                                                                className: "text-sm text-gray-600 dark:text-gray-400 mb-4"
+                                                              }),
+                                                          JsxRuntime.jsx(PushNotifications.make, {})
+                                                        ],
+                                                        className: "px-4 pb-6"
+                                                      })
+                                                ],
+                                                className: "mt-8 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
                                               }),
                                           JsxRuntime.jsxs("div", {
                                                 children: [

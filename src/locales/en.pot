@@ -4628,3 +4628,92 @@ msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."
 msgstr ""
+
+#: src/components/pkuru/PkEventsList.re.mjs:214
+msgid "Show {0} more"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:271
+msgid "\\\"Add to Home Screen\\\""
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:253
+msgid "Add to Home Screen to enable notifications"
+msgstr ""
+
+#: src/components/shared/PushNotifications.re.mjs:402
+msgid "Disable notifications"
+msgstr ""
+
+#: src/components/shared/PushNotifications.re.mjs:414
+msgid "Enable notifications"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:263
+msgid "in Safari's toolbar"
+msgstr ""
+
+#: src/components/shared/PushNotifications.re.mjs:431
+msgid ""
+"Notifications are blocked. To enable them, go to your device or browser "
+"settings and allow notifications for this site."
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:278
+msgid "Open the app from your Home Screen and enable notifications"
+msgstr ""
+
+#: src/components/shared/PushNotifications.re.mjs:302
+msgid ""
+"Push notifications are blocked. Check your browser or device notification "
+"settings for this site, then try again."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:593
+msgid "Receive push notifications for event reminders and updates."
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:269
+msgid "Scroll down and tap"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:261
+msgid "Tap the Share button"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:394
+msgid "— add to your Home Screen for push notifications"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:351
+msgid "— enable push notifications for event reminders"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:466
+msgid "— for a faster, app-like experience"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:360
+msgid "Enable now"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "Hide"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:403
+msgid "How to install"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:475
+msgid "Install"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:390
+#: src/components/shared/InstallPwa.re.mjs:462
+msgid "Install Racquet League"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:347
+msgid "Stay in the loop"
+msgstr ""

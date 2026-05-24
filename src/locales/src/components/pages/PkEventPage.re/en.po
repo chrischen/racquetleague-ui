@@ -102,7 +102,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "balanced"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr ""
 
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Claim spot · {0}"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr ""
 
@@ -395,7 +395,7 @@ msgstr ""
 msgid "Pay {priceStr}"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr ""
 
@@ -407,7 +407,7 @@ msgstr ""
 msgid "Payment captured"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr ""
 
@@ -436,7 +436,7 @@ msgstr ""
 msgid "Private"
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr ""
 
@@ -562,7 +562,7 @@ msgstr ""
 msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
 msgstr ""
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
 msgstr ""
 

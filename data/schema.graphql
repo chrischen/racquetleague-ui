@@ -617,8 +617,19 @@ type Mutation {
      * An optional partial amount can be specified (in smallest currency unit).
   """
   refundRsvpPayment(amount: Int, paymentId: ID!): RefundPaymentResult!
+
+  """
+  Register a Web Push subscription for the current user.
+   * The client calls this after receiving a PushSubscription from the browser.
+  """
+  registerPushSubscription(input: RegisterPushSubscriptionInput!): PushSubscriptionResult!
   removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
   uncancelEvent(eventId: ID!): MutationResult2!
+
+  """
+  Remove a Web Push subscription (e.g. on logout or explicit unsubscribe).
+  """
+  unregisterPushSubscription(endpoint: String!): PushSubscriptionResult!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
   updateLocale(input: UpdateLocaleInput!): UpdateLocaleResult!
   updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
@@ -680,6 +691,12 @@ type ProcessEventPaymentResult implements HasErrors {
   errors: [Error!]
 }
 
+"""Mutation result for push subscription operations"""
+type PushSubscriptionResult implements HasErrors {
+  errors: [Error!]
+  success: Boolean
+}
+
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
@@ -706,6 +723,9 @@ type Query {
   predictMatchOutcome(input: PredictMatchInput!): PredictMatchOutcome
   ratings(activitySlug: String!, after: String, before: String, clubId: ID, clubSlug: String, first: Int, namespace: String!): RatingConnection!
   user(id: ID!): User
+
+  """Return the server's VAPID public key so the browser can subscribe."""
+  vapidPublicKey: String
   viewer: Viewer
 }
 
@@ -740,6 +760,13 @@ type RatingEdge {
 type RefundPaymentResult implements HasErrors {
   errors: [Error!]
   payment: Payment
+}
+
+input RegisterPushSubscriptionInput {
+  auth: String!
+  endpoint: String!
+  expirationTime: Float
+  p256dh: String!
 }
 
 input RemoveUserFromClubInput {

@@ -54,7 +54,7 @@ msgid "Are you sure you want to remove this person from the event?"
 msgstr "您確定要將此人從活動中移除嗎？"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:171
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "授權押金"
 
@@ -62,7 +62,7 @@ msgstr "授權押金"
 msgid "balanced"
 msgstr "平衡"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:54
+#: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr "取消"
 
@@ -113,7 +113,7 @@ msgstr "報名參加"
 msgid "Claim spot · {0}"
 msgstr "預約名額 · {0}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:90
+#: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "完成付款"
 
@@ -321,7 +321,7 @@ msgstr "參與者"
 msgid "Pay {priceStr}"
 msgstr "支付 {priceStr}"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Pay now"
 msgstr "立即付款"
 
@@ -333,7 +333,7 @@ msgstr "付款已授權"
 msgid "Payment captured"
 msgstr "付款已完成"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:34
+#: src/components/organisms/StripePaymentEmbed.tsx:35
 msgid "Payment failed"
 msgstr "付款失敗"
 
@@ -358,7 +358,7 @@ msgstr "不願透露"
 msgid "Private"
 msgstr "非公開"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:61
+#: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
 msgstr "處理中…"
 
@@ -482,7 +482,7 @@ msgid ""
 msgstr ""
 "此為僅供保留的訂金——款項須於活動現場支付給主辦方。保留款將於活動結束後解除。"
 
-#: src/components/organisms/StripePaymentEmbed.tsx:96
+#: src/components/organisms/StripePaymentEmbed.tsx:98
 msgid ""
 "This is a deposit hold only. You still need to pay the organizer in full at "
 "the event. The hold will be released after the event."
