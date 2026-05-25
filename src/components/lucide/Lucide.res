@@ -158,8 +158,8 @@ module Share = {
   external make: (
     ~className: string=?,
     ~\"aria-hidden": string=?,
-    ~color: string=?,
-  ) => React.element = "Share2"
+    ~color: string=?,    ~size: int=?,
+    ~strokeWidth: float=?,  ) => React.element = "Share2"
 }
 
 module Send = {

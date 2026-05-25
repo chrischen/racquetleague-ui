@@ -158,6 +158,9 @@ type loaderData = PkEventPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
+@val @scope(("navigator", "clipboard")) external writeToClipboard: string => Js.Promise.t<unit> = "writeText"
+@val @scope(("window", "location")) external locationHref: string = "href"
+
 module EventTitleSection = {
   @react.component
   let make = (
@@ -167,6 +170,7 @@ module EventTitleSection = {
   ) => {
     let ts = Lingui.UtilString.t
     let td = Lingui.UtilString.dynamic
+    let (urlCopied, setUrlCopied) = React.useState(() => false)
     <div className="px-5 pt-4 pb-3 border-b border-gray-100 dark:border-[#2a2b30]">
       {event.deleted
       ->Option.map(_ =>
@@ -176,29 +180,41 @@ module EventTitleSection = {
         </span>
       )
       ->Option.getOr(React.null)}
-      <h1
-        className={Util.cx([
-          "text-lg font-semibold leading-tight",
-          event.deleted->Option.isSome
-            ? "line-through text-gray-400 dark:text-gray-500"
-            : "text-gray-900 dark:text-gray-100",
-        ])}>
-        {event.activity
-        ->Option.flatMap(a =>
-          a.slug->Option.map(slug => <>
-            <Router.Link
-              to={"/e/" ++ slug}
-              className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal">
-              {td(a.name->Option.getOr(slug))->React.string}
-            </Router.Link>
-            <span className="text-gray-300 dark:text-gray-600 mx-1.5 font-normal">
-              {"/"->React.string}
-            </span>
-          </>)
-        )
-        ->Option.getOr(React.null)}
-        {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
-      </h1>
+      <div className="flex items-start justify-between gap-3">
+        <h1
+          className={Util.cx([
+            "text-lg font-semibold leading-tight flex-1 min-w-0",
+            event.deleted->Option.isSome
+              ? "line-through text-gray-400 dark:text-gray-500"
+              : "text-gray-900 dark:text-gray-100",
+          ])}>
+          {event.activity
+          ->Option.flatMap(a =>
+            a.slug->Option.map(slug => <>
+              <Router.Link
+                to={"/e/" ++ slug}
+                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal">
+                {td(a.name->Option.getOr(slug))->React.string}
+              </Router.Link>
+              <span className="text-gray-300 dark:text-gray-600 mx-1.5 font-normal">
+                {"/"->React.string}
+              </span>
+            </>)
+          )
+          ->Option.getOr(React.null)}
+          {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
+        </h1>
+        <button
+          onClick={_ => {
+            writeToClipboard(locationHref)->ignore
+            setUrlCopied(_ => true)
+            let _ = Js.Global.setTimeout(() => setUrlCopied(_ => false), 2000)
+          }}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black border border-[#a3d949] shadow-sm transition-colors flex-shrink-0">
+          <Lucide.Share size=13 strokeWidth={2.5} />
+          {(urlCopied ? ts`Copied!` : ts`Share`)->React.string}
+        </button>
+      </div>
       {event.club
       ->Option.flatMap(club =>
         club.slug->Option.map(slug =>

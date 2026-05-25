@@ -4717,3 +4717,7 @@ msgstr ""
 #: src/components/shared/InstallPwa.re.mjs:347
 msgid "Stay in the loop"
 msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:591
+msgid "Share"
+msgstr ""

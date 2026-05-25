@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:297
+#: src/components/pages/PkEventPage.re.mjs:328
 msgid "...more"
 msgstr "...もっと見る"
 
@@ -66,7 +66,7 @@ msgstr "バランス"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:479
+#: src/components/pages/PkEventPage.re.mjs:510
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -74,7 +74,7 @@ msgstr "イベントをキャンセル"
 msgid "Cancel RSVP"
 msgstr "参加をキャンセルする"
 
-#: src/components/pages/PkEventPage.re.mjs:186
+#: src/components/pages/PkEventPage.re.mjs:191
 msgid "CANCELED"
 msgstr "キャンセル"
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:450
+#: src/components/pages/PkEventPage.re.mjs:481
 msgid "Cannot access variable \\\"title\\\""
 msgstr "変数 \\\"title\\\" にアクセスできません"
 
@@ -126,6 +126,10 @@ msgstr "プロフィールを完成させる"
 #: src/components/organisms/PkRSVPSection.re.mjs:589
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
+
+#: src/components/pages/PkEventPage.re.mjs:226
+msgid "Copied!"
+msgstr "コピーしました！"
 
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
@@ -165,7 +169,7 @@ msgstr "表示名は必須です"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:462
+#: src/components/pages/PkEventPage.re.mjs:493
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -201,8 +205,8 @@ msgstr "試合のスコアを入力"
 msgid "even"
 msgstr "均等"
 
-#: src/components/pages/PkEventPage.re.mjs:730
-#: src/components/pages/PkEventPage.re.mjs:754
+#: src/components/pages/PkEventPage.re.mjs:761
+#: src/components/pages/PkEventPage.re.mjs:785
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -222,7 +226,7 @@ msgstr "女性"
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
 
-#: src/components/pages/PkEventPage.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "Free"
 msgstr "無料"
 
@@ -259,7 +263,7 @@ msgstr "キャンセル待ちを取り消す"
 msgid "Leaving..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:297
+#: src/components/pages/PkEventPage.re.mjs:328
 msgid "less"
 msgstr "閉じる"
 
@@ -267,7 +271,7 @@ msgstr "閉じる"
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/pages/PkEventPage.re.mjs:273
+#: src/components/pages/PkEventPage.re.mjs:304
 msgid "Location"
 msgstr "場所"
 
@@ -308,7 +312,7 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/pages/PkEventPage.re.mjs:591
+#: src/components/pages/PkEventPage.re.mjs:622
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
@@ -436,6 +440,10 @@ msgstr "スコアを保存"
 msgid "Score"
 msgstr "スコア"
 
+#: src/components/pages/PkEventPage.re.mjs:226
+msgid "Share"
+msgstr "共有"
+
 #: src/components/organisms/PkEventMessages.re.mjs:421
 msgid "Show all {0} items"
 msgstr "{0} 件すべて表示"
@@ -514,7 +522,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/pages/PkEventPage.re.mjs:468
+#: src/components/pages/PkEventPage.re.mjs:499
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 

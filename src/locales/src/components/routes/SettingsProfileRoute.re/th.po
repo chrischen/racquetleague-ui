@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:271
+#: src/components/shared/InstallPwa.re.mjs:270
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
 
@@ -21,7 +21,7 @@ msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
 msgid "Active"
 msgstr "ใช้งานอยู่"
 
-#: src/components/shared/InstallPwa.re.mjs:253
+#: src/components/shared/InstallPwa.re.mjs:252
 msgid "Add to Home Screen to enable notifications"
 msgstr "เพิ่มไปยังหน้าจอหลักเพื่อเปิดใช้การแจ้งเตือน"
 
@@ -89,7 +89,7 @@ msgstr "ฮ่องกง"
 msgid "How you appear to other players"
 msgstr "ชื่อที่ผู้เล่นคนอื่นจะเห็น"
 
-#: src/components/shared/InstallPwa.re.mjs:263
+#: src/components/shared/InstallPwa.re.mjs:262
 msgid "in Safari's toolbar"
 msgstr "ในแถบเครื่องมือของ Safari"
 
@@ -121,7 +121,7 @@ msgstr ""
 "การแจ้งเตือนถูกบล็อก หากต้องการเปิดใช้งาน "
 "ให้ไปที่การตั้งค่าอุปกรณ์หรือเบราว์เซอร์และอนุญาตการแจ้งเตือนสำหรับเว็บไซต์นี้"
 
-#: src/components/shared/InstallPwa.re.mjs:278
+#: src/components/shared/InstallPwa.re.mjs:277
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "เปิดแอปจากหน้าจอหลักและเปิดใช้การแจ้งเตือน"
 
@@ -153,7 +153,7 @@ msgstr "ดำเนินการต่อ"
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
-#: src/components/shared/InstallPwa.re.mjs:269
+#: src/components/shared/InstallPwa.re.mjs:268
 msgid "Scroll down and tap"
 msgstr "เลื่อนลงและแตะ"
 
@@ -187,7 +187,7 @@ msgstr "Stripe Connect"
 msgid "Taiwan"
 msgstr "ไต้หวัน"
 
-#: src/components/shared/InstallPwa.re.mjs:261
+#: src/components/shared/InstallPwa.re.mjs:260
 msgid "Tap the Share button"
 msgstr "แตะปุ่มแชร์"
 

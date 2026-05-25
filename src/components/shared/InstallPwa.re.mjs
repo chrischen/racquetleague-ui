@@ -4,7 +4,9 @@ import * as React from "react";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "./LangProvider.re.mjs";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
+import * as WaitForMessages from "./i18n/WaitForMessages.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { t } from '@lingui/macro'
@@ -162,9 +164,6 @@ function usePwaInstall() {
           var ios = isIosSafari();
           var stored = window.__pwaInstallPrompt;
           var dismissed_ = isBannerDismissed();
-          console.log("[PWA] detect: standalone=", standalone, "iosSafari=", ios);
-          console.log("[PWA] detect: bannerDismissed=", dismissed_);
-          console.log("[PWA] detect: storedPrompt=", stored);
           if (standalone) {
             setState(function (param) {
                   return "Standalone";
@@ -294,6 +293,8 @@ function InstallPwa(props) {
   var match = usePwaInstall();
   var triggerInstall = match.triggerInstall;
   var dismiss = match.dismiss;
+  var dismissed = match.dismissed;
+  var state = match.state;
   var match$1 = React.useState(function () {
         return false;
       });
@@ -303,10 +304,12 @@ function InstallPwa(props) {
         return true;
       });
   var setNudgeDismissed = match$2[1];
+  var nudgeDismissed = match$2[0];
   var match$3 = React.useState(function () {
         return true;
       });
   var setHasSubscription = match$3[1];
+  var hasSubscription = match$3[0];
   React.useEffect((function () {
           if (isStandalone() && isPushSupportedBrowser() && !isNudgeDismissed()) {
             Core__Promise.$$catch(getPushSubscription().then(function (sub) {
@@ -330,176 +333,180 @@ function InstallPwa(props) {
           return true;
         });
   };
-  if (match.dismissed) {
-    return null;
-  }
-  switch (match.state) {
-    case "Standalone" :
-        if (match$2[0] || match$3[0]) {
-          return null;
-        } else {
-          return JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsxs("div", {
-                            children: [
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("span", {
-                                            children: t`Stay in the loop`,
-                                            className: "text-green-900 dark:text-green-200 font-medium shrink-0"
-                                          }),
-                                      JsxRuntime.jsx("span", {
-                                            children: t`— enable push notifications for event reminders`,
-                                            className: "text-green-700 dark:text-green-400 hidden sm:inline truncate"
-                                          })
-                                    ],
-                                    className: "flex items-center gap-2 min-w-0"
-                                  }),
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("a", {
-                                            children: t`Enable now`,
-                                            className: "rounded-md bg-green-600 px-3 py-1 text-xs font-semibold text-white shadow-sm hover:bg-green-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-1",
-                                            href: "/settings/profile"
-                                          }),
-                                      JsxRuntime.jsx("button", {
-                                            children: "×",
-                                            "aria-label": "Dismiss",
-                                            className: "text-green-600 dark:text-green-400 hover:text-green-900 dark:hover:text-green-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-0.5",
-                                            type: "button",
-                                            onClick: (function (param) {
-                                                dismissNudge();
-                                              })
-                                          })
-                                    ],
-                                    className: "flex items-center gap-2 shrink-0"
-                                  })
-                            ],
-                            className: "flex items-center justify-between gap-3"
-                          }),
-                      className: "border-b border-green-200 dark:border-green-900 bg-green-50 dark:bg-green-950/40 px-4 py-2 text-sm"
-                    });
-        }
-    case "IosSafari" :
-        return JsxRuntime.jsxs("div", {
-                    children: [
-                      JsxRuntime.jsxs("div", {
-                            children: [
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("span", {
-                                            children: t`Install Racquet League`,
-                                            className: "text-amber-900 dark:text-amber-200 font-medium shrink-0"
-                                          }),
-                                      JsxRuntime.jsx("span", {
-                                            children: t`— add to your Home Screen for push notifications`,
-                                            className: "text-amber-700 dark:text-amber-400 hidden sm:inline truncate"
-                                          })
-                                    ],
-                                    className: "flex items-center gap-2 min-w-0"
-                                  }),
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("button", {
-                                            children: showIosInstructions ? t`Hide` : t`How to install`,
-                                            className: "text-amber-700 dark:text-amber-300 underline underline-offset-2 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded",
-                                            type: "button",
-                                            onClick: (function (param) {
-                                                setShowIosInstructions(function (v) {
-                                                      return !v;
-                                                    });
-                                              })
-                                          }),
-                                      JsxRuntime.jsx("button", {
-                                            children: "×",
-                                            "aria-label": "Dismiss",
-                                            className: "text-amber-600 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded p-0.5",
-                                            type: "button",
-                                            onClick: (function (param) {
-                                                dismiss();
-                                              })
-                                          })
-                                    ],
-                                    className: "flex items-center gap-2 shrink-0"
-                                  })
-                            ],
-                            className: "flex items-center justify-between gap-3"
-                          }),
-                      showIosInstructions ? JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsxs("ol", {
-                                    children: [
-                                      JsxRuntime.jsxs("li", {
+  return JsxRuntime.jsx(WaitForMessages.make, {
+              children: (function () {
+                  if (dismissed) {
+                    return null;
+                  }
+                  switch (state) {
+                    case "Standalone" :
+                        if (nudgeDismissed || hasSubscription) {
+                          return null;
+                        } else {
+                          return JsxRuntime.jsx("div", {
+                                      children: JsxRuntime.jsxs("div", {
                                             children: [
-                                              "1. ",
-                                              t`Tap the Share button`,
-                                              shareIconSvg,
-                                              t`in Safari's toolbar`
-                                            ]
-                                          }),
-                                      JsxRuntime.jsxs("li", {
-                                            children: [
-                                              "2. ",
-                                              t`Scroll down and tap `,
-                                              JsxRuntime.jsx("strong", {
-                                                    children: t`\"Add to Home Screen\"`
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`Stay in the loop`,
+                                                            className: "text-green-900 dark:text-green-200 font-medium shrink-0"
+                                                          }),
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`— enable push notifications for event reminders`,
+                                                            className: "text-green-700 dark:text-green-400 hidden sm:inline truncate"
+                                                          })
+                                                    ],
+                                                    className: "flex items-center gap-2 min-w-0"
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                            to: "/settings/profile",
+                                                            children: t`Enable now`,
+                                                            className: "rounded-md bg-green-600 px-3 py-1 text-xs font-semibold text-white shadow-sm hover:bg-green-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-1"
+                                                          }),
+                                                      JsxRuntime.jsx("button", {
+                                                            children: "×",
+                                                            "aria-label": "Dismiss",
+                                                            className: "text-green-600 dark:text-green-400 hover:text-green-900 dark:hover:text-green-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-0.5",
+                                                            type: "button",
+                                                            onClick: (function (param) {
+                                                                dismissNudge();
+                                                              })
+                                                          })
+                                                    ],
+                                                    className: "flex items-center gap-2 shrink-0"
                                                   })
-                                            ]
-                                          })
+                                            ],
+                                            className: "flex items-center justify-between gap-3"
+                                          }),
+                                      className: "border-b border-green-200 dark:border-green-900 bg-green-50 dark:bg-green-950/40 px-4 py-2 text-sm"
+                                    });
+                        }
+                    case "IosSafari" :
+                        return JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`Install Racquet League`,
+                                                            className: "text-amber-900 dark:text-amber-200 font-medium shrink-0"
+                                                          }),
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`— add to your Home Screen for push notifications`,
+                                                            className: "text-amber-700 dark:text-amber-400 hidden sm:inline truncate"
+                                                          })
+                                                    ],
+                                                    className: "flex items-center gap-2 min-w-0"
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx("button", {
+                                                            children: showIosInstructions ? t`Hide` : t`How to install`,
+                                                            className: "text-amber-700 dark:text-amber-300 underline underline-offset-2 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded",
+                                                            type: "button",
+                                                            onClick: (function (param) {
+                                                                setShowIosInstructions(function (v) {
+                                                                      return !v;
+                                                                    });
+                                                              })
+                                                          }),
+                                                      JsxRuntime.jsx("button", {
+                                                            children: "×",
+                                                            "aria-label": "Dismiss",
+                                                            className: "text-amber-600 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded p-0.5",
+                                                            type: "button",
+                                                            onClick: (function (param) {
+                                                                dismiss();
+                                                              })
+                                                          })
+                                                    ],
+                                                    className: "flex items-center gap-2 shrink-0"
+                                                  })
+                                            ],
+                                            className: "flex items-center justify-between gap-3"
+                                          }),
+                                      showIosInstructions ? JsxRuntime.jsx("div", {
+                                              children: JsxRuntime.jsxs("ol", {
+                                                    children: [
+                                                      JsxRuntime.jsxs("li", {
+                                                            children: [
+                                                              "1. ",
+                                                              t`Tap the Share button`,
+                                                              shareIconSvg,
+                                                              t`in Safari's toolbar`
+                                                            ]
+                                                          }),
+                                                      JsxRuntime.jsxs("li", {
+                                                            children: [
+                                                              "2. ",
+                                                              t`Scroll down and tap `,
+                                                              JsxRuntime.jsx("strong", {
+                                                                    children: t`\"Add to Home Screen\"`
+                                                                  })
+                                                            ]
+                                                          })
+                                                    ],
+                                                    className: "space-y-1 text-amber-800 dark:text-amber-300 list-none"
+                                                  }),
+                                              className: "mt-3 pb-1"
+                                            }) : null
                                     ],
-                                    className: "space-y-1 text-amber-800 dark:text-amber-300 list-none"
-                                  }),
-                              className: "mt-3 pb-1"
-                            }) : null
-                    ],
-                    className: "border-b border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 px-4 py-2 text-sm"
-                  });
-    case "Installable" :
-        return JsxRuntime.jsx("div", {
-                    children: JsxRuntime.jsxs("div", {
-                          children: [
-                            JsxRuntime.jsxs("div", {
-                                  children: [
-                                    JsxRuntime.jsx("span", {
-                                          children: t`Install Racquet League`,
-                                          className: "text-blue-900 dark:text-blue-200 font-medium shrink-0"
+                                    className: "border-b border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 px-4 py-2 text-sm"
+                                  });
+                    case "Installable" :
+                        return JsxRuntime.jsx("div", {
+                                    children: JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsxs("div", {
+                                                  children: [
+                                                    JsxRuntime.jsx("span", {
+                                                          children: t`Install Racquet League`,
+                                                          className: "text-blue-900 dark:text-blue-200 font-medium shrink-0"
+                                                        }),
+                                                    JsxRuntime.jsx("span", {
+                                                          children: t`— for a faster, app-like experience`,
+                                                          className: "text-blue-700 dark:text-blue-400 hidden sm:inline truncate"
+                                                        })
+                                                  ],
+                                                  className: "flex items-center gap-2 min-w-0"
+                                                }),
+                                            JsxRuntime.jsxs("div", {
+                                                  children: [
+                                                    JsxRuntime.jsx("button", {
+                                                          children: t`Install`,
+                                                          className: "rounded-md bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-sm hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1",
+                                                          type: "button",
+                                                          onClick: (function (param) {
+                                                              triggerInstall();
+                                                            })
+                                                        }),
+                                                    JsxRuntime.jsx("button", {
+                                                          children: "×",
+                                                          "aria-label": "Dismiss",
+                                                          className: "text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-0.5",
+                                                          type: "button",
+                                                          onClick: (function (param) {
+                                                              dismiss();
+                                                            })
+                                                        })
+                                                  ],
+                                                  className: "flex items-center gap-2 shrink-0"
+                                                })
+                                          ],
+                                          className: "flex items-center justify-between gap-3"
                                         }),
-                                    JsxRuntime.jsx("span", {
-                                          children: t`— for a faster, app-like experience`,
-                                          className: "text-blue-700 dark:text-blue-400 hidden sm:inline truncate"
-                                        })
-                                  ],
-                                  className: "flex items-center gap-2 min-w-0"
-                                }),
-                            JsxRuntime.jsxs("div", {
-                                  children: [
-                                    JsxRuntime.jsx("button", {
-                                          children: t`Install`,
-                                          className: "rounded-md bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-sm hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1",
-                                          type: "button",
-                                          onClick: (function (param) {
-                                              triggerInstall();
-                                            })
-                                        }),
-                                    JsxRuntime.jsx("button", {
-                                          children: "×",
-                                          "aria-label": "Dismiss",
-                                          className: "text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-0.5",
-                                          type: "button",
-                                          onClick: (function (param) {
-                                              dismiss();
-                                            })
-                                        })
-                                  ],
-                                  className: "flex items-center gap-2 shrink-0"
-                                })
-                          ],
-                          className: "flex items-center justify-between gap-3"
-                        }),
-                    className: "border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/40 px-4 py-2 text-sm"
-                  });
-    case "NotSupported" :
-        return null;
-    
-  }
+                                    className: "border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/40 px-4 py-2 text-sm"
+                                  });
+                    case "NotSupported" :
+                        return null;
+                    
+                  }
+                })
+            });
 }
 
 var make = InstallPwa;

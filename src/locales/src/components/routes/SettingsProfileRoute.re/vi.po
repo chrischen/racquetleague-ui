@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/shared/InstallPwa.re.mjs:271
+#: src/components/shared/InstallPwa.re.mjs:270
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"Thêm vào Màn hình chính\\\""
 
@@ -21,7 +21,7 @@ msgstr "\\\"Thêm vào Màn hình chính\\\""
 msgid "Active"
 msgstr "Đang hoạt động"
 
-#: src/components/shared/InstallPwa.re.mjs:253
+#: src/components/shared/InstallPwa.re.mjs:252
 msgid "Add to Home Screen to enable notifications"
 msgstr "Thêm vào Màn hình chính để bật thông báo"
 
@@ -90,7 +90,7 @@ msgstr "Hồng Kông"
 msgid "How you appear to other players"
 msgstr "Tên hiển thị với người chơi khác"
 
-#: src/components/shared/InstallPwa.re.mjs:263
+#: src/components/shared/InstallPwa.re.mjs:262
 msgid "in Safari's toolbar"
 msgstr "trong thanh công cụ Safari"
 
@@ -122,7 +122,7 @@ msgstr ""
 "Thông báo đã bị chặn. Để bật, hãy vào cài đặt thiết bị hoặc trình duyệt và "
 "cho phép thông báo cho trang này."
 
-#: src/components/shared/InstallPwa.re.mjs:278
+#: src/components/shared/InstallPwa.re.mjs:277
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "Mở ứng dụng từ Màn hình chính và bật thông báo"
 
@@ -154,7 +154,7 @@ msgstr "Tiếp tục đăng ký"
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
-#: src/components/shared/InstallPwa.re.mjs:269
+#: src/components/shared/InstallPwa.re.mjs:268
 msgid "Scroll down and tap"
 msgstr "Cuộn xuống và nhấn"
 
@@ -190,7 +190,7 @@ msgstr "Stripe Connect"
 msgid "Taiwan"
 msgstr "Đài Loan"
 
-#: src/components/shared/InstallPwa.re.mjs:261
+#: src/components/shared/InstallPwa.re.mjs:260
 msgid "Tap the Share button"
 msgstr "Nhấn nút Chia sẻ"
 

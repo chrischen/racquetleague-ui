@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:297
+#: src/components/pages/PkEventPage.re.mjs:328
 msgid "...more"
 msgstr "...thêm"
 
@@ -66,7 +66,7 @@ msgstr "cân bằng"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/pages/PkEventPage.re.mjs:479
+#: src/components/pages/PkEventPage.re.mjs:510
 msgid "cancel event"
 msgstr "hủy sự kiện"
 
@@ -74,7 +74,7 @@ msgstr "hủy sự kiện"
 msgid "Cancel RSVP"
 msgstr "Hủy đăng ký"
 
-#: src/components/pages/PkEventPage.re.mjs:186
+#: src/components/pages/PkEventPage.re.mjs:191
 msgid "CANCELED"
 msgstr "ĐÃ HỦY"
 
@@ -96,7 +96,7 @@ msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để
 msgid "Cancelling..."
 msgstr "Đang hủy..."
 
-#: src/components/pages/PkEventPage.re.mjs:450
+#: src/components/pages/PkEventPage.re.mjs:481
 msgid "Cannot access variable \\\"title\\\""
 msgstr "Không thể truy cập biến \\\"title\\\""
 
@@ -124,6 +124,10 @@ msgstr "Hoàn thiện hồ sơ của bạn"
 #: src/components/organisms/PkRSVPSection.re.mjs:589
 msgid "Confirmed · {0}"
 msgstr "Đã xác nhận · {0}"
+
+#: src/components/pages/PkEventPage.re.mjs:226
+msgid "Copied!"
+msgstr "Đã sao chép!"
 
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
@@ -163,7 +167,7 @@ msgstr "Cần có tên hiển thị"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:462
+#: src/components/pages/PkEventPage.re.mjs:493
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
@@ -199,8 +203,8 @@ msgstr "Nhập điểm số trận đấu"
 msgid "even"
 msgstr "đồng đều"
 
-#: src/components/pages/PkEventPage.re.mjs:730
-#: src/components/pages/PkEventPage.re.mjs:754
+#: src/components/pages/PkEventPage.re.mjs:761
+#: src/components/pages/PkEventPage.re.mjs:785
 msgid "Event not found"
 msgstr "Không tìm thấy sự kiện"
 
@@ -220,7 +224,7 @@ msgstr "Nữ"
 msgid "For event updates and notifications"
 msgstr "Để nhận cập nhật và thông báo về sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "Free"
 msgstr "Miễn phí"
 
@@ -257,7 +261,7 @@ msgstr "Rời danh sách chờ"
 msgid "Leaving..."
 msgstr "Đang rời..."
 
-#: src/components/pages/PkEventPage.re.mjs:297
+#: src/components/pages/PkEventPage.re.mjs:328
 msgid "less"
 msgstr "thu gọn"
 
@@ -265,7 +269,7 @@ msgstr "thu gọn"
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: src/components/pages/PkEventPage.re.mjs:273
+#: src/components/pages/PkEventPage.re.mjs:304
 msgid "Location"
 msgstr "Địa điểm"
 
@@ -306,7 +310,7 @@ msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi ngư�
 msgid "No Score"
 msgstr "Không có điểm"
 
-#: src/components/pages/PkEventPage.re.mjs:591
+#: src/components/pages/PkEventPage.re.mjs:622
 msgid "Notes from the host"
 msgstr "Ghi chú từ người tổ chức"
 
@@ -434,6 +438,10 @@ msgstr "Lưu điểm số"
 msgid "Score"
 msgstr "Điểm số"
 
+#: src/components/pages/PkEventPage.re.mjs:226
+msgid "Share"
+msgstr "Chia sẻ"
+
 #: src/components/organisms/PkEventMessages.re.mjs:421
 msgid "Show all {0} items"
 msgstr "Hiển thị tất cả {0} mục"
@@ -514,7 +522,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
-#: src/components/pages/PkEventPage.re.mjs:468
+#: src/components/pages/PkEventPage.re.mjs:499
 msgid "uncancel event"
 msgstr "khôi phục sự kiện"
 

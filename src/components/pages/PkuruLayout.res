@@ -24,8 +24,7 @@ external useLoaderData: unit => WaitForMessages.data<PkuruLayoutQuery_graphql.qu
 
 @val @scope(("window", "document")) external documentBody: Dom.element = "body"
 @val @scope(("window", "history")) external pushState: ('a, string, string) => unit = "pushState"
-@val @scope("window")
-external addPopstateListener: (string, unit => unit) => unit = "addEventListener"
+@val @scope("window") external addPopstateListener: (string, unit => unit) => unit = "addEventListener"
 @val @scope("window")
 external removePopstateListener: (string, unit => unit) => unit = "removeEventListener"
 

@@ -13,15 +13,15 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/shared/InstallPwa.re.mjs:394
+#: src/components/shared/InstallPwa.re.mjs:399
 msgid "— add to your Home Screen for push notifications"
 msgstr "— thêm vào Màn hình chính để nhận thông báo đẩy"
 
-#: src/components/shared/InstallPwa.re.mjs:351
+#: src/components/shared/InstallPwa.re.mjs:356
 msgid "— enable push notifications for event reminders"
 msgstr "— bật thông báo đẩy để nhắc nhở sự kiện"
 
-#: src/components/shared/InstallPwa.re.mjs:466
+#: src/components/shared/InstallPwa.re.mjs:471
 msgid "— for a faster, app-like experience"
 msgstr "— trải nghiệm nhanh hơn, giống như ứng dụng thực thụ"
 
@@ -29,7 +29,7 @@ msgstr "— trải nghiệm nhanh hơn, giống như ứng dụng thực thụ"
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
-#: src/components/shared/InstallPwa.re.mjs:443
+#: src/components/shared/InstallPwa.re.mjs:448
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"Thêm vào Màn hình chính\\\""
 
@@ -41,7 +41,7 @@ msgstr "Giới thiệu"
 msgid "copyright the racquet league contributors"
 msgstr "bản quyền thuộc về các cộng tác viên racquet league"
 
-#: src/components/shared/InstallPwa.re.mjs:360
+#: src/components/shared/InstallPwa.re.mjs:366
 msgid "Enable now"
 msgstr "Bật ngay"
 
@@ -49,24 +49,24 @@ msgstr "Bật ngay"
 msgid "Find Games"
 msgstr "Tìm trò chơi"
 
-#: src/components/shared/InstallPwa.re.mjs:403
+#: src/components/shared/InstallPwa.re.mjs:408
 msgid "Hide"
 msgstr "Ẩn"
 
-#: src/components/shared/InstallPwa.re.mjs:403
+#: src/components/shared/InstallPwa.re.mjs:408
 msgid "How to install"
 msgstr "Cách cài đặt"
 
-#: src/components/shared/InstallPwa.re.mjs:435
+#: src/components/shared/InstallPwa.re.mjs:440
 msgid "in Safari's toolbar"
 msgstr "trong thanh công cụ Safari"
 
-#: src/components/shared/InstallPwa.re.mjs:475
+#: src/components/shared/InstallPwa.re.mjs:480
 msgid "Install"
 msgstr "Cài đặt"
 
-#: src/components/shared/InstallPwa.re.mjs:390
-#: src/components/shared/InstallPwa.re.mjs:462
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
 msgid "Install Racquet League"
 msgstr "Cài đặt Racquet League"
 
@@ -96,15 +96,15 @@ msgstr "Ảnh hồ sơ"
 msgid "Rankings"
 msgstr "Bảng xếp hạng"
 
-#: src/components/shared/InstallPwa.re.mjs:441
+#: src/components/shared/InstallPwa.re.mjs:446
 msgid "Scroll down and tap"
 msgstr "Cuộn xuống và nhấn"
 
-#: src/components/shared/InstallPwa.re.mjs:347
+#: src/components/shared/InstallPwa.re.mjs:352
 msgid "Stay in the loop"
 msgstr "Luôn cập nhật tin tức"
 
-#: src/components/shared/InstallPwa.re.mjs:433
+#: src/components/shared/InstallPwa.re.mjs:438
 msgid "Tap the Share button"
 msgstr "Nhấn nút Chia sẻ"
 

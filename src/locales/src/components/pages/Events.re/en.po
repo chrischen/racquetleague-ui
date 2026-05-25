@@ -27,7 +27,7 @@ msgstr ""
 #~ msgid "...load past events"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:297
+#: src/components/pages/PkEventPage.re.mjs:328
 msgid "...more"
 msgstr ""
 
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:479
+#: src/components/pages/PkEventPage.re.mjs:510
 msgid "cancel event"
 msgstr ""
 
@@ -256,7 +256,7 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:186
+#: src/components/pages/PkEventPage.re.mjs:191
 msgid "CANCELED"
 msgstr ""
 
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:450
+#: src/components/pages/PkEventPage.re.mjs:481
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -321,6 +321,10 @@ msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:589
 msgid "Confirmed · {0}"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:226
+msgid "Copied!"
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:387
@@ -386,7 +390,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:462
+#: src/components/pages/PkEventPage.re.mjs:493
 msgid "edit event"
 msgstr ""
 
@@ -431,7 +435,7 @@ msgstr ""
 #~ msgid "Event Details"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:730
+#: src/components/pages/PkEventPage.re.mjs:761
 msgid "Event not found"
 msgstr ""
 
@@ -464,7 +468,7 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "Free"
 msgstr ""
 
@@ -555,7 +559,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:297
+#: src/components/pages/PkEventPage.re.mjs:328
 msgid "less"
 msgstr ""
 
@@ -579,7 +583,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:273
+#: src/components/pages/PkEventPage.re.mjs:304
 msgid "Location"
 msgstr ""
 
@@ -658,7 +662,7 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:591
+#: src/components/pages/PkEventPage.re.mjs:622
 msgid "Notes from the host"
 msgstr ""
 
@@ -847,6 +851,10 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
+#: src/components/pages/PkEventPage.re.mjs:226
+msgid "Share"
+msgstr ""
+
 #: src/components/organisms/EventsList.re.mjs:383
 #~ msgid "share as text"
 #~ msgstr ""
@@ -966,7 +974,7 @@ msgstr ""
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:468
+#: src/components/pages/PkEventPage.re.mjs:499
 msgid "uncancel event"
 msgstr ""
 

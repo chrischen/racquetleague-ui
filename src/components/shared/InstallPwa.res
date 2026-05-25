@@ -211,9 +211,6 @@ let usePwaInstall = (): hookResult => {
     let ios = isIosSafari()
     let stored = getStoredPwaPrompt
     let dismissed_ = isBannerDismissed()
-    Js.Console.log4("[PWA] detect: standalone=", standalone, "iosSafari=", ios)
-    Js.Console.log2("[PWA] detect: bannerDismissed=", dismissed_)
-    Js.Console.log2("[PWA] detect: storedPrompt=", stored)
     if standalone {
       setState(_ => Standalone)
     } else if ios {
@@ -348,122 +345,125 @@ let make = () => {
     setNudgeDismissed(_ => true)
   }
 
-  if dismissed {
-    React.null
-  } else {
-    switch state {
-    | Standalone =>
-      // Show a nudge when the app is running as a PWA but push isn't enabled yet
-      if nudgeDismissed || hasSubscription {
+  <WaitForMessages>
+    {() =>
+      if dismissed {
         React.null
       } else {
-        <div
-          className="border-b border-green-200 dark:border-green-900 bg-green-50 dark:bg-green-950/40 px-4 py-2 text-sm">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="text-green-900 dark:text-green-200 font-medium shrink-0">
-                {t`Stay in the loop`}
-              </span>
-              <span className="text-green-700 dark:text-green-400 hidden sm:inline truncate">
-                {t`— enable push notifications for event reminders`}
-              </span>
+        switch state {
+        | Standalone =>
+          // Show a nudge when the app is running as a PWA but push isn't enabled yet
+          if nudgeDismissed || hasSubscription {
+            React.null
+          } else {
+            <div
+              className="border-b border-green-200 dark:border-green-900 bg-green-50 dark:bg-green-950/40 px-4 py-2 text-sm">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="text-green-900 dark:text-green-200 font-medium shrink-0">
+                    {t`Stay in the loop`}
+                  </span>
+                  <span className="text-green-700 dark:text-green-400 hidden sm:inline truncate">
+                    {t`— enable push notifications for event reminders`}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <LangProvider.Router.Link
+                    to="/settings/profile"
+                    className="rounded-md bg-green-600 px-3 py-1 text-xs font-semibold text-white shadow-sm hover:bg-green-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-1">
+                    {t`Enable now`}
+                  </LangProvider.Router.Link>
+                  <button
+                    type_="button"
+                    onClick={_ => dismissNudge()}
+                    className="text-green-600 dark:text-green-400 hover:text-green-900 dark:hover:text-green-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-0.5"
+                    ariaLabel="Dismiss">
+                    {"×"->React.string}
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 shrink-0">
-              <a
-                href="/settings/profile"
-                className="rounded-md bg-green-600 px-3 py-1 text-xs font-semibold text-white shadow-sm hover:bg-green-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-1">
-                {t`Enable now`}
-              </a>
-              <button
-                type_="button"
-                onClick={_ => dismissNudge()}
-                className="text-green-600 dark:text-green-400 hover:text-green-900 dark:hover:text-green-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded p-0.5"
-                ariaLabel="Dismiss">
-                {"×"->React.string}
-              </button>
+          }
+
+        | NotSupported => React.null
+
+        | IosSafari =>
+          <div
+            className="border-b border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 px-4 py-2 text-sm">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-amber-900 dark:text-amber-200 font-medium shrink-0">
+                  {t`Install Racquet League`}
+                </span>
+                <span className="text-amber-700 dark:text-amber-400 hidden sm:inline truncate">
+                  {t`— add to your Home Screen for push notifications`}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type_="button"
+                  onClick={_ => setShowIosInstructions(v => !v)}
+                  className="text-amber-700 dark:text-amber-300 underline underline-offset-2 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded">
+                  {showIosInstructions ? t`Hide` : t`How to install`}
+                </button>
+                <button
+                  type_="button"
+                  onClick={_ => dismiss()}
+                  className="text-amber-600 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded p-0.5"
+                  ariaLabel="Dismiss">
+                  {"×"->React.string}
+                </button>
+              </div>
+            </div>
+            {showIosInstructions
+              ? <div className="mt-3 pb-1">
+                  <ol className="space-y-1 text-amber-800 dark:text-amber-300 list-none">
+                    <li>
+                      {"1. "->React.string}
+                      {t`Tap the Share button`}
+                      {shareIconSvg}
+                      {t`in Safari's toolbar`}
+                    </li>
+                    <li>
+                      {"2. "->React.string}
+                      {t`Scroll down and tap `}
+                      <strong> {t`"Add to Home Screen"`} </strong>
+                    </li>
+                  </ol>
+                </div>
+              : React.null}
+          </div>
+
+        | Installable =>
+          <div
+            className="border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/40 px-4 py-2 text-sm">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-blue-900 dark:text-blue-200 font-medium shrink-0">
+                  {t`Install Racquet League`}
+                </span>
+                <span className="text-blue-700 dark:text-blue-400 hidden sm:inline truncate">
+                  {t`— for a faster, app-like experience`}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type_="button"
+                  onClick={_ => triggerInstall()}
+                  className="rounded-md bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-sm hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1">
+                  {t`Install`}
+                </button>
+                <button
+                  type_="button"
+                  onClick={_ => dismiss()}
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-0.5"
+                  ariaLabel="Dismiss">
+                  {"×"->React.string}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      }
-
-    | NotSupported => React.null
-
-    | IosSafari =>
-      <div
-        className="border-b border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 px-4 py-2 text-sm">
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="text-amber-900 dark:text-amber-200 font-medium shrink-0">
-              {t`Install Racquet League`}
-            </span>
-            <span className="text-amber-700 dark:text-amber-400 hidden sm:inline truncate">
-              {t`— add to your Home Screen for push notifications`}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 shrink-0">
-            <button
-              type_="button"
-              onClick={_ => setShowIosInstructions(v => !v)}
-              className="text-amber-700 dark:text-amber-300 underline underline-offset-2 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded">
-              {showIosInstructions ? t`Hide` : t`How to install`}
-            </button>
-            <button
-              type_="button"
-              onClick={_ => dismiss()}
-              className="text-amber-600 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded p-0.5"
-              ariaLabel="Dismiss">
-              {"×"->React.string}
-            </button>
-          </div>
-        </div>
-        {showIosInstructions
-          ? <div className="mt-3 pb-1">
-              <ol className="space-y-1 text-amber-800 dark:text-amber-300 list-none">
-                <li>
-                  {"1. "->React.string}
-                  {t`Tap the Share button`}
-                  {shareIconSvg}
-                  {t`in Safari's toolbar`}
-                </li>
-                <li>
-                  {"2. "->React.string}
-                  {t`Scroll down and tap `}
-                  <strong> {t`"Add to Home Screen"`} </strong>
-                </li>
-              </ol>
-            </div>
-          : React.null}
-      </div>
-
-    | Installable =>
-      <div
-        className="border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/40 px-4 py-2 text-sm">
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="text-blue-900 dark:text-blue-200 font-medium shrink-0">
-              {t`Install Racquet League`}
-            </span>
-            <span className="text-blue-700 dark:text-blue-400 hidden sm:inline truncate">
-              {t`— for a faster, app-like experience`}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 shrink-0">
-            <button
-              type_="button"
-              onClick={_ => triggerInstall()}
-              className="rounded-md bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-sm hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1">
-              {t`Install`}
-            </button>
-            <button
-              type_="button"
-              onClick={_ => dismiss()}
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded p-0.5"
-              ariaLabel="Dismiss">
-              {"×"->React.string}
-            </button>
-          </div>
-        </div>
-      </div>
-    }
-  }
+        }
+      }}
+  </WaitForMessages>
 }

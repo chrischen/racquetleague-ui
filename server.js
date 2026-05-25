@@ -106,6 +106,14 @@ export async function createServer(
       res.type("text/css");
       res.end(cssCache[req.params.slug]);
     });
+
+    // Serve root-level public files (sw.js, manifest.webmanifest, icons/, etc.)
+    app.use(
+      requestPath,
+      express.static(resolve("dist/client"), {
+        index: false,
+      })
+    );
   }
   // loading render function needs to be moved out of the request handler due
   // to unknown bug with ssrLoadModule if it gets called again (such as on

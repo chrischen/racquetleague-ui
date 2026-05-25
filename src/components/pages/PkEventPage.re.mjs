@@ -12,6 +12,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as PkRSVPSection from "../organisms/PkRSVPSection.re.mjs";
 import * as PkEventMessages from "../organisms/PkEventMessages.re.mjs";
@@ -179,6 +180,10 @@ var EventUncancelMutation = {
 
 function PkEventPage$EventTitleSection(props) {
   var $$event = props.event;
+  var match = React.useState(function () {
+        return false;
+      });
+  var setUrlCopied = match[1];
   return JsxRuntime.jsxs("div", {
               children: [
                 Core__Option.getOr(Core__Option.map($$event.deleted, (function (param) {
@@ -187,28 +192,54 @@ function PkEventPage$EventTitleSection(props) {
                                         className: "inline-flex mb-2 items-center px-2 py-0.5 rounded text-xs font-mono bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
                                       });
                           })), null),
-                JsxRuntime.jsxs("h1", {
+                JsxRuntime.jsxs("div", {
                       children: [
-                        Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (a) {
-                                    return Core__Option.map(a.slug, (function (slug) {
-                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                              children: [
-                                                                JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                      to: "/e/" + slug,
-                                                                      children: Core.i18n._(Core__Option.getOr(a.name, slug)),
-                                                                      className: "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal"
-                                                                    }),
-                                                                JsxRuntime.jsx("span", {
-                                                                      children: "/",
-                                                                      className: "text-gray-300 dark:text-gray-600 mx-1.5 font-normal"
-                                                                    })
-                                                              ]
-                                                            });
-                                                }));
-                                  })), null),
-                        props.secret ? "---" : Core__Option.getOr($$event.title, "Event")
+                        JsxRuntime.jsxs("h1", {
+                              children: [
+                                Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (a) {
+                                            return Core__Option.map(a.slug, (function (slug) {
+                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                      children: [
+                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
+                                                                              to: "/e/" + slug,
+                                                                              children: Core.i18n._(Core__Option.getOr(a.name, slug)),
+                                                                              className: "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal"
+                                                                            }),
+                                                                        JsxRuntime.jsx("span", {
+                                                                              children: "/",
+                                                                              className: "text-gray-300 dark:text-gray-600 mx-1.5 font-normal"
+                                                                            })
+                                                                      ]
+                                                                    });
+                                                        }));
+                                          })), null),
+                                props.secret ? "---" : Core__Option.getOr($$event.title, "Event")
+                              ],
+                              className: Core$1.cx("text-lg font-semibold leading-tight flex-1 min-w-0", Core__Option.isSome($$event.deleted) ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100")
+                            }),
+                        JsxRuntime.jsxs("button", {
+                              children: [
+                                JsxRuntime.jsx(LucideReact.Share2, {
+                                      size: 13,
+                                      strokeWidth: 2.5
+                                    }),
+                                match[0] ? t`Copied!` : t`Share`
+                              ],
+                              className: "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black border border-[#a3d949] shadow-sm transition-colors flex-shrink-0",
+                              onClick: (function (param) {
+                                  navigator.clipboard.writeText(window.location.href);
+                                  setUrlCopied(function (param) {
+                                        return true;
+                                      });
+                                  setTimeout((function () {
+                                          setUrlCopied(function (param) {
+                                                return false;
+                                              });
+                                        }), 2000);
+                                })
+                            })
                       ],
-                      className: Core$1.cx("text-lg font-semibold leading-tight", Core__Option.isSome($$event.deleted) ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100")
+                      className: "flex items-start justify-between gap-3"
                     }),
                 Core__Option.getOr(Core__Option.flatMap($$event.club, (function (club) {
                             return Core__Option.map(club.slug, (function (slug) {

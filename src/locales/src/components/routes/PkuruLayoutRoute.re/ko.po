@@ -13,27 +13,47 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/shared/InstallPwa.re.mjs:399
+msgid "— add to your Home Screen for push notifications"
+msgstr "— 푸시 알림을 받으려면 홈 화면에 추가하세요"
+
+#: src/components/shared/InstallPwa.re.mjs:356
+msgid "— enable push notifications for event reminders"
+msgstr "— 이벤트 알림을 위한 푸시 알림 활성화"
+
+#: src/components/shared/InstallPwa.re.mjs:471
+msgid "— for a faster, app-like experience"
+msgstr "— 더 빠른 앱 같은 경험을 위해"
+
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
 msgstr "(로그아웃)"
+
+#: src/components/shared/InstallPwa.re.mjs:448
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"홈 화면에 추가\\\""
 
 #: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "이벤트에 추가됨"
 
-#: src/components/pages/PkuruLayout.re.mjs:153
-#: src/components/pages/PkuruLayout.re.mjs:183
+#: src/components/pages/PkuruLayout.re.mjs:155
+#: src/components/pages/PkuruLayout.re.mjs:185
 msgid "Badminton"
 msgstr "배드민턴"
 
-#: src/components/pages/PkuruLayout.re.mjs:96
+#: src/components/pages/PkuruLayout.re.mjs:98
 msgid "Browse"
 msgstr "둘러보기"
 
-#: src/components/pages/PkuruLayout.re.mjs:106
-#: src/components/pages/PkuruLayout.re.mjs:430
+#: src/components/pages/PkuruLayout.re.mjs:108
+#: src/components/pages/PkuruLayout.re.mjs:417
 msgid "Discover"
 msgstr "탐색"
+
+#: src/components/shared/InstallPwa.re.mjs:366
+msgid "Enable now"
+msgstr "지금 활성화"
 
 #: src/components/molecules/NotificationRow.re.mjs:130
 msgid "Event Canceled"
@@ -44,9 +64,30 @@ msgstr "이벤트 취소됨"
 msgid "Event Uncanceled"
 msgstr "이벤트 취소 해제됨"
 
+#: src/components/shared/InstallPwa.re.mjs:408
+msgid "Hide"
+msgstr "숨기기"
+
 #: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "호스트 메시지"
+
+#: src/components/shared/InstallPwa.re.mjs:408
+msgid "How to install"
+msgstr "설치 방법"
+
+#: src/components/shared/InstallPwa.re.mjs:440
+msgid "in Safari's toolbar"
+msgstr "Safari 툴바에서"
+
+#: src/components/shared/InstallPwa.re.mjs:480
+msgid "Install"
+msgstr "설치"
+
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+msgid "Install Racquet League"
+msgstr "Racquet League 설치"
 
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
@@ -73,11 +114,11 @@ msgstr "로딩 중..."
 msgid "login with Line"
 msgstr "Line으로 로그인"
 
-#: src/components/pages/PkuruLayout.re.mjs:440
+#: src/components/pages/PkuruLayout.re.mjs:427
 msgid "Map"
 msgstr "지도"
 
-#: src/components/pages/PkuruLayout.re.mjs:114
+#: src/components/pages/PkuruLayout.re.mjs:116
 msgid "Map view"
 msgstr "지도 보기"
 
@@ -89,15 +130,15 @@ msgstr "내 클럽"
 msgid "My Clubs"
 msgstr "내 클럽"
 
-#: src/components/pages/PkuruLayout.re.mjs:122
+#: src/components/pages/PkuruLayout.re.mjs:124
 msgid "My events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:467
+#: src/components/pages/PkuruLayout.re.mjs:454
 msgid "My Events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:455
+#: src/components/pages/PkuruLayout.re.mjs:442
 msgid "New"
 msgstr "새로 만들기"
 
@@ -105,7 +146,7 @@ msgstr "새로 만들기"
 msgid "New Comment"
 msgstr "새 댓글"
 
-#: src/components/pages/PkuruLayout.re.mjs:278
+#: src/components/pages/PkuruLayout.re.mjs:265
 msgid "New event"
 msgstr "새 이벤트"
 
@@ -118,7 +159,7 @@ msgid "Notification"
 msgstr "알림"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:305
+#: src/components/pages/PkuruLayout.re.mjs:292
 msgid "Notifications"
 msgstr "알림"
 
@@ -126,17 +167,17 @@ msgstr "알림"
 msgid "Off Waitlist"
 msgstr "대기열 해제"
 
-#: src/components/pages/PkuruLayout.re.mjs:147
-#: src/components/pages/PkuruLayout.re.mjs:175
+#: src/components/pages/PkuruLayout.re.mjs:149
+#: src/components/pages/PkuruLayout.re.mjs:177
 msgid "Pickleball"
 msgstr "피클볼"
 
-#: src/components/pages/PkuruLayout.re.mjs:130
-#: src/components/pages/PkuruLayout.re.mjs:477
+#: src/components/pages/PkuruLayout.re.mjs:132
+#: src/components/pages/PkuruLayout.re.mjs:464
 msgid "Profile"
 msgstr "프로필"
 
-#: src/components/pages/PkuruLayout.re.mjs:166
+#: src/components/pages/PkuruLayout.re.mjs:168
 msgid "Rankings"
 msgstr "순위"
 
@@ -144,9 +185,21 @@ msgstr "순위"
 msgid "Removed from Event"
 msgstr "이벤트에서 제거됨"
 
-#: src/components/pages/PkuruLayout.re.mjs:141
+#: src/components/shared/InstallPwa.re.mjs:446
+msgid "Scroll down and tap"
+msgstr "아래로 스크롤하고 탭하세요"
+
+#: src/components/pages/PkuruLayout.re.mjs:143
 msgid "Sports"
 msgstr "스포츠"
+
+#: src/components/shared/InstallPwa.re.mjs:352
+msgid "Stay in the loop"
+msgstr "최신 소식 받아보기"
+
+#: src/components/shared/InstallPwa.re.mjs:438
+msgid "Tap the Share button"
+msgstr "공유 버튼을 탭하세요"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"

@@ -13,27 +13,47 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/shared/InstallPwa.re.mjs:399
+msgid "— add to your Home Screen for push notifications"
+msgstr "— 加入主畫面以接收推播通知"
+
+#: src/components/shared/InstallPwa.re.mjs:356
+msgid "— enable push notifications for event reminders"
+msgstr "— 啟用推播通知以獲取賽事提醒"
+
+#: src/components/shared/InstallPwa.re.mjs:471
+msgid "— for a faster, app-like experience"
+msgstr "— 享受更快速的類應用程式體驗"
+
 #: src/components/molecules/LogoutLink.re.mjs:10
 msgid "(logout)"
 msgstr "（登出）"
+
+#: src/components/shared/InstallPwa.re.mjs:448
+msgid "\\\"Add to Home Screen\\\""
+msgstr "\\\"加入主畫面\\\""
 
 #: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "已加入活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:153
-#: src/components/pages/PkuruLayout.re.mjs:183
+#: src/components/pages/PkuruLayout.re.mjs:155
+#: src/components/pages/PkuruLayout.re.mjs:185
 msgid "Badminton"
 msgstr "羽毛球"
 
-#: src/components/pages/PkuruLayout.re.mjs:96
+#: src/components/pages/PkuruLayout.re.mjs:98
 msgid "Browse"
 msgstr "瀏覽"
 
-#: src/components/pages/PkuruLayout.re.mjs:106
-#: src/components/pages/PkuruLayout.re.mjs:430
+#: src/components/pages/PkuruLayout.re.mjs:108
+#: src/components/pages/PkuruLayout.re.mjs:417
 msgid "Discover"
 msgstr "探索"
+
+#: src/components/shared/InstallPwa.re.mjs:366
+msgid "Enable now"
+msgstr "立即啟用"
 
 #: src/components/molecules/NotificationRow.re.mjs:130
 msgid "Event Canceled"
@@ -44,9 +64,30 @@ msgstr "活動已取消"
 msgid "Event Uncanceled"
 msgstr "活動已恢復"
 
+#: src/components/shared/InstallPwa.re.mjs:408
+msgid "Hide"
+msgstr "隱藏"
+
 #: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "主辦人訊息"
+
+#: src/components/shared/InstallPwa.re.mjs:408
+msgid "How to install"
+msgstr "安裝說明"
+
+#: src/components/shared/InstallPwa.re.mjs:440
+msgid "in Safari's toolbar"
+msgstr "在 Safari 的工具列中"
+
+#: src/components/shared/InstallPwa.re.mjs:480
+msgid "Install"
+msgstr "安裝"
+
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+msgid "Install Racquet League"
+msgstr "安裝 Racquet League"
 
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
@@ -73,11 +114,11 @@ msgstr "載入中..."
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
-#: src/components/pages/PkuruLayout.re.mjs:440
+#: src/components/pages/PkuruLayout.re.mjs:427
 msgid "Map"
 msgstr "地圖"
 
-#: src/components/pages/PkuruLayout.re.mjs:114
+#: src/components/pages/PkuruLayout.re.mjs:116
 msgid "Map view"
 msgstr "地圖檢視"
 
@@ -89,15 +130,15 @@ msgstr "我的俱樂部"
 msgid "My Clubs"
 msgstr "我的俱樂部"
 
-#: src/components/pages/PkuruLayout.re.mjs:122
+#: src/components/pages/PkuruLayout.re.mjs:124
 msgid "My events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:467
+#: src/components/pages/PkuruLayout.re.mjs:454
 msgid "My Events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:455
+#: src/components/pages/PkuruLayout.re.mjs:442
 msgid "New"
 msgstr "新建"
 
@@ -105,7 +146,7 @@ msgstr "新建"
 msgid "New Comment"
 msgstr "新留言"
 
-#: src/components/pages/PkuruLayout.re.mjs:278
+#: src/components/pages/PkuruLayout.re.mjs:265
 msgid "New event"
 msgstr "新增活動"
 
@@ -118,7 +159,7 @@ msgid "Notification"
 msgstr "通知"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:305
+#: src/components/pages/PkuruLayout.re.mjs:292
 msgid "Notifications"
 msgstr "通知"
 
@@ -126,17 +167,17 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "已離開候補"
 
-#: src/components/pages/PkuruLayout.re.mjs:147
-#: src/components/pages/PkuruLayout.re.mjs:175
+#: src/components/pages/PkuruLayout.re.mjs:149
+#: src/components/pages/PkuruLayout.re.mjs:177
 msgid "Pickleball"
 msgstr "匹克球"
 
-#: src/components/pages/PkuruLayout.re.mjs:130
-#: src/components/pages/PkuruLayout.re.mjs:477
+#: src/components/pages/PkuruLayout.re.mjs:132
+#: src/components/pages/PkuruLayout.re.mjs:464
 msgid "Profile"
 msgstr "個人資料"
 
-#: src/components/pages/PkuruLayout.re.mjs:166
+#: src/components/pages/PkuruLayout.re.mjs:168
 msgid "Rankings"
 msgstr "排名"
 
@@ -144,9 +185,21 @@ msgstr "排名"
 msgid "Removed from Event"
 msgstr "已從活動中移除"
 
-#: src/components/pages/PkuruLayout.re.mjs:141
+#: src/components/shared/InstallPwa.re.mjs:446
+msgid "Scroll down and tap"
+msgstr "向下捲動並點按"
+
+#: src/components/pages/PkuruLayout.re.mjs:143
 msgid "Sports"
 msgstr "遐動"
+
+#: src/components/shared/InstallPwa.re.mjs:352
+msgid "Stay in the loop"
+msgstr "掌握最新動態"
+
+#: src/components/shared/InstallPwa.re.mjs:438
+msgid "Tap the Share button"
+msgstr "點按分享按鈕"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"

@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:297
+#: src/components/pages/PkEventPage.re.mjs:328
 msgid "...more"
 msgstr "...더 보기"
 
@@ -66,7 +66,7 @@ msgstr "균형"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/pages/PkEventPage.re.mjs:479
+#: src/components/pages/PkEventPage.re.mjs:510
 msgid "cancel event"
 msgstr "이벤트 취소"
 
@@ -74,7 +74,7 @@ msgstr "이벤트 취소"
 msgid "Cancel RSVP"
 msgstr "참가 취소"
 
-#: src/components/pages/PkEventPage.re.mjs:186
+#: src/components/pages/PkEventPage.re.mjs:191
 msgid "CANCELED"
 msgstr "취소됨"
 
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "취소 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:450
+#: src/components/pages/PkEventPage.re.mjs:481
 msgid "Cannot access variable \\\"title\\\""
 msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
 
@@ -125,6 +125,10 @@ msgstr "프로필 완성하기"
 #: src/components/organisms/PkRSVPSection.re.mjs:589
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
+
+#: src/components/pages/PkEventPage.re.mjs:226
+msgid "Copied!"
+msgstr "복사됨!"
 
 #: src/components/organisms/MatchCard.re.mjs:387
 msgid "Court {0}"
@@ -164,7 +168,7 @@ msgstr "표시 이름이 필요합니다"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:462
+#: src/components/pages/PkEventPage.re.mjs:493
 msgid "edit event"
 msgstr "이벤트 편집"
 
@@ -200,7 +204,7 @@ msgstr "경기 점수 입력"
 msgid "even"
 msgstr "균등"
 
-#: src/components/pages/PkEventPage.re.mjs:754
+#: src/components/pages/PkEventPage.re.mjs:785
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -220,7 +224,7 @@ msgstr "여성"
 msgid "For event updates and notifications"
 msgstr "이벤트 업데이트 및 알림용"
 
-#: src/components/pages/PkEventPage.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "Free"
 msgstr "무료"
 
@@ -257,7 +261,7 @@ msgstr "대기 명단에서 나가기"
 msgid "Leaving..."
 msgstr "나가는 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:297
+#: src/components/pages/PkEventPage.re.mjs:328
 msgid "less"
 msgstr "간략히"
 
@@ -265,7 +269,7 @@ msgstr "간략히"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:273
+#: src/components/pages/PkEventPage.re.mjs:304
 msgid "Location"
 msgstr "장소"
 
@@ -306,7 +310,7 @@ msgstr "실력 제한 없음. 모든 플레이어 환영."
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/pages/PkEventPage.re.mjs:591
+#: src/components/pages/PkEventPage.re.mjs:622
 msgid "Notes from the host"
 msgstr "주최자 메모"
 
@@ -434,6 +438,10 @@ msgstr "점수 저장"
 msgid "Score"
 msgstr "점수"
 
+#: src/components/pages/PkEventPage.re.mjs:226
+msgid "Share"
+msgstr "공유"
+
 #: src/components/organisms/PkEventMessages.re.mjs:421
 msgid "Show all {0} items"
 msgstr "전체 {0}개 항목 보기"
@@ -512,7 +520,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/pages/PkEventPage.re.mjs:468
+#: src/components/pages/PkEventPage.re.mjs:499
 msgid "uncancel event"
 msgstr "이벤트 취소 해제"
 

@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:394
+#: src/components/shared/InstallPwa.re.mjs:399
 msgid "— add to your Home Screen for push notifications"
 msgstr "— 加入主畫面以接收推播通知"
 
-#: src/components/shared/InstallPwa.re.mjs:351
+#: src/components/shared/InstallPwa.re.mjs:356
 msgid "— enable push notifications for event reminders"
 msgstr "— 啟用推播通知以獲取賽事提醒"
 
-#: src/components/shared/InstallPwa.re.mjs:466
+#: src/components/shared/InstallPwa.re.mjs:471
 msgid "— for a faster, app-like experience"
 msgstr "— 享受更快速的類應用程式體驗"
 
@@ -29,7 +29,7 @@ msgstr "— 享受更快速的類應用程式體驗"
 msgid "(logout)"
 msgstr "（登出）"
 
-#: src/components/shared/InstallPwa.re.mjs:443
+#: src/components/shared/InstallPwa.re.mjs:448
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"加入主畫面\\\""
 
@@ -41,7 +41,7 @@ msgstr "關於"
 msgid "copyright the racquet league contributors"
 msgstr "版權所有 球拍聯盟貢獻者"
 
-#: src/components/shared/InstallPwa.re.mjs:360
+#: src/components/shared/InstallPwa.re.mjs:366
 msgid "Enable now"
 msgstr "立即啟用"
 
@@ -49,24 +49,24 @@ msgstr "立即啟用"
 msgid "Find Games"
 msgstr "尋找比賽"
 
-#: src/components/shared/InstallPwa.re.mjs:403
+#: src/components/shared/InstallPwa.re.mjs:408
 msgid "Hide"
 msgstr "隱藏"
 
-#: src/components/shared/InstallPwa.re.mjs:403
+#: src/components/shared/InstallPwa.re.mjs:408
 msgid "How to install"
 msgstr "安裝說明"
 
-#: src/components/shared/InstallPwa.re.mjs:435
+#: src/components/shared/InstallPwa.re.mjs:440
 msgid "in Safari's toolbar"
 msgstr "在 Safari 的工具列中"
 
-#: src/components/shared/InstallPwa.re.mjs:475
+#: src/components/shared/InstallPwa.re.mjs:480
 msgid "Install"
 msgstr "安裝"
 
-#: src/components/shared/InstallPwa.re.mjs:390
-#: src/components/shared/InstallPwa.re.mjs:462
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
 msgid "Install Racquet League"
 msgstr "安裝 Racquet League"
 
@@ -96,15 +96,15 @@ msgstr "個人資料照片"
 msgid "Rankings"
 msgstr "排名"
 
-#: src/components/shared/InstallPwa.re.mjs:441
+#: src/components/shared/InstallPwa.re.mjs:446
 msgid "Scroll down and tap"
 msgstr "向下捲動並點按"
 
-#: src/components/shared/InstallPwa.re.mjs:347
+#: src/components/shared/InstallPwa.re.mjs:352
 msgid "Stay in the loop"
 msgstr "掌握最新動態"
 
-#: src/components/shared/InstallPwa.re.mjs:433
+#: src/components/shared/InstallPwa.re.mjs:438
 msgid "Tap the Share button"
 msgstr "點按分享按鈕"
 
