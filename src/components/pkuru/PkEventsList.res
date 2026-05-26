@@ -210,7 +210,7 @@ let make = (
     ) => bool,
   >=?,
 ) => {
-  let {data, hasNext, isLoadingNext: _, isLoadingPrevious} = Fragment.usePagination(events)
+  let {data, hasNext, isLoadingNext: _, isLoadingPrevious, refetch} = Fragment.usePagination(events)
   let viewer = data.viewer
   let events = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
@@ -337,6 +337,16 @@ let make = (
       ->Router.ImmSearchParams.toSearchParams
     }))
 
+  let onRefresh = () => {
+    Js.Promise.make((~resolve, ~reject as _) => {
+      let _ = refetch(
+        ~variables=Fragment.makeRefetchVariables(),
+        ~fetchPolicy=RescriptRelay.NetworkOnly,
+        ~onComplete=_err => resolve(),
+      )
+    })
+  }
+
   let onNext = pageInfo.endCursor->Option.map(endCursor => () =>
     setSearchParams(prevParams => {
       EventsListUtils.Filter.ByAfter(endCursor)
@@ -355,5 +365,6 @@ let make = (
     ?onPrevious
     hasNext
     ?onNext
+    onRefresh={onRefresh}
   />
 }

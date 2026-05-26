@@ -2,10 +2,12 @@
 
 import * as React from "react";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
+import * as PullToRefresh from "./PullToRefresh.re.mjs";
 import * as EventsListUtils from "./EventsListUtils.re.mjs";
 import * as WaitForMessages from "./i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
@@ -22,6 +24,7 @@ function ts(prim0, prim1) {
 }
 
 function EventsListView(props) {
+  var onRefresh = props.onRefresh;
   var onNext = props.onNext;
   var __hasNext = props.hasNext;
   var onPrevious = props.onPrevious;
@@ -40,10 +43,22 @@ function EventsListView(props) {
       });
   var setActivePill = match[1];
   var activePill = match[0];
+  var containerRef = React.useRef(null);
+  var match$1 = PullToRefresh.usePullToRefresh(containerRef, Core__Option.getOr(onRefresh, (function () {
+              return Promise.resolve();
+            })));
+  var triggerRefresh = match$1.triggerRefresh;
+  var isPullRefreshing = match$1.isPullRefreshing;
+  var isRefreshing = match$1.isRefreshing;
+  var pullDistance = match$1.pullDistance;
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsxs("div", {
                               children: [
+                                JsxRuntime.jsx(PullToRefresh.Indicator.make, {
+                                      pullDistance: pullDistance,
+                                      isRefreshing: isPullRefreshing
+                                    }),
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("div", {
@@ -109,7 +124,29 @@ function EventsListView(props) {
                                                     }).toUpperCase() + " · " + t`SORTED BY START TIME`,
                                               className: "text-[11px] font-mono text-gray-500 dark:text-gray-400 tracking-wider"
                                             }),
-                                        JsxRuntime.jsx(AddToCalendar.make, {})
+                                        JsxRuntime.jsxs("div", {
+                                              children: [
+                                                Core__Option.getOr(Core__Option.map(onRefresh, (function (param) {
+                                                            return JsxRuntime.jsxs("button", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx(LucideReact.RotateCcw, {
+                                                                                className: Core.cx("w-3 h-3", isRefreshing ? "animate-spin" : "")
+                                                                              }),
+                                                                          JsxRuntime.jsx("span", {
+                                                                                children: isRefreshing ? t`Refreshing…` : t`Refresh`
+                                                                              })
+                                                                        ],
+                                                                        className: Core.cx("hidden md:inline-flex items-center gap-1.5 text-[11px] font-mono transition-colors", "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300", "disabled:opacity-60 disabled:cursor-not-allowed"),
+                                                                        disabled: isRefreshing,
+                                                                        onClick: (function (param) {
+                                                                            triggerRefresh();
+                                                                          })
+                                                                      });
+                                                          })), null),
+                                                JsxRuntime.jsx(AddToCalendar.make, {})
+                                              ],
+                                              className: "flex items-center gap-3"
+                                            })
                                       ],
                                       className: "px-4 md:px-6 py-4 border-b border-gray-100 dark:border-[#2a2b30] flex items-center justify-between"
                                     }),
@@ -150,6 +187,7 @@ function EventsListView(props) {
                                       ]
                                     })
                               ],
+                              ref: Caml_option.some(containerRef),
                               className: "flex-1 min-w-0"
                             });
                 })

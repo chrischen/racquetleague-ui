@@ -158,8 +158,10 @@ module Share = {
   external make: (
     ~className: string=?,
     ~\"aria-hidden": string=?,
-    ~color: string=?,    ~size: int=?,
-    ~strokeWidth: float=?,  ) => React.element = "Share2"
+    ~color: string=?,
+    ~size: int=?,
+    ~strokeWidth: float=?,
+  ) => React.element = "Share2"
 }
 
 module Send = {
@@ -284,6 +286,12 @@ module Trash2 = {
 module RotateCcw = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "RotateCcw"
+}
+
+module Loader2 = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Loader2"
 }
 
 module MinusCircle = {

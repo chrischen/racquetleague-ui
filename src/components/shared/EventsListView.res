@@ -16,13 +16,20 @@ let make = (
   ~onPrevious: option<unit => unit>=?,
   ~hasNext: bool=false,
   ~onNext: option<unit => unit>=?,
+  ~onRefresh: option<unit => Promise.t<unit>>=?,
 ) => {
   open Lingui.Util
   let (activePill, setActivePill) = React.useState((): option<string> => None)
+  let containerRef: React.ref<Js.Nullable.t<Dom.element>> = React.useRef(Js.Nullable.null)
+  let {pullDistance, isRefreshing, isPullRefreshing, triggerRefresh} = PullToRefresh.usePullToRefresh(
+    containerRef,
+    onRefresh->Option.getOr(() => Js.Promise.resolve()),
+  )
 
   <WaitForMessages>
     {() =>
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0" ref={ReactDOM.Ref.domRef(containerRef)}>
+        <PullToRefresh.Indicator pullDistance isRefreshing={isPullRefreshing} />
         // Filters bar
         <div
           className="px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] flex items-center gap-3 overflow-x-auto">
@@ -75,11 +82,26 @@ let make = (
             " · " ++
             (ts`SORTED BY START TIME`))->React.string}
           </h2>
-          <AddToCalendar />
-          // <button
-          //   className="flex items-center gap-1.5 text-[11px] font-mono text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-          //   <AddToCalendar />
-          // </button>
+          <div className="flex items-center gap-3">
+            {onRefresh
+            ->Option.map(_ =>
+              <button
+                onClick={_ => triggerRefresh()}
+                disabled=isRefreshing
+                className={Util.cx([
+                  "hidden md:inline-flex items-center gap-1.5 text-[11px] font-mono transition-colors",
+                  "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300",
+                  "disabled:opacity-60 disabled:cursor-not-allowed",
+                ])}>
+                <Lucide.RotateCcw
+                  className={Util.cx(["w-3 h-3", isRefreshing ? "animate-spin" : ""])}
+                />
+                <span> {(isRefreshing ? ts`Refreshing…` : ts`Refresh`)->React.string} </span>
+              </button>
+            )
+            ->Option.getOr(React.null)}
+            <AddToCalendar />
+          </div>
         </div>
         // Events
         <div>

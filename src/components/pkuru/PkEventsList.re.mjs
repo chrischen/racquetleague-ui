@@ -240,6 +240,7 @@ function PkEventsList(props) {
   var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
   var match = usePagination(props.events);
+  var refetch = match.refetch;
   var data = match.data;
   var viewer = data.viewer;
   var events = getConnectionNodes(data.events);
@@ -367,6 +368,13 @@ function PkEventsList(props) {
                 });
           };
         }));
+  var onRefresh = function () {
+    return new Promise((function (resolve, param) {
+                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
+                          resolve();
+                        }));
+                }));
+  };
   var onNext = Core__Option.map(pageInfo.endCursor, (function (endCursor) {
           return function () {
             setSearchParams(function (prevParams) {
@@ -387,7 +395,8 @@ function PkEventsList(props) {
               isLoadingPrevious: match.isLoadingPrevious,
               onPrevious: onPrevious,
               hasNext: match.hasNext,
-              onNext: onNext
+              onNext: onNext,
+              onRefresh: onRefresh
             });
 }
 
