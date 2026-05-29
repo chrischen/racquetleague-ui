@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 20:13+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/DevicePage.re.mjs:178
+msgid "Approve"
+msgstr "批准"
+
+#: src/components/pages/DevicePage.re.mjs:246
+msgid "Approve sign-in"
+msgstr "批准登录"
+
+#: src/components/pages/DevicePage.re.mjs:194
+msgid "Code from your app"
+msgstr "来自应用的验证码"
+
+#: src/components/pages/DevicePage.re.mjs:250
+msgid "Confirm the code shown in your app to finish signing in."
+msgstr "确认应用中显示的验证码以完成登录。"
+
+#: src/components/pages/DevicePage.re.mjs:170
+msgid "Deny"
+msgstr "拒绝"
+
+#: src/components/pages/DevicePage.re.mjs:134
+msgid "Device approved! You can return to the app."
+msgstr "设备已批准！您可以返回应用。"
+
+#: src/components/pages/DevicePage.re.mjs:226
+msgid "Sign in"
+msgstr "登录"
+
+#: src/components/pages/DevicePage.re.mjs:140
+msgid "Sign-in request denied."
+msgstr "登录请求已被拒绝。"
+
+#: src/components/pages/DevicePage.re.mjs:178
+msgid "Working…"
+msgstr "处理中…"
+
+#: src/components/pages/DevicePage.re.mjs:222
+msgid ""
+"You need to sign in here first so we can link this device to your account."
+msgstr "请先在此处登录，以便我们将此设备关联到您的账户。"

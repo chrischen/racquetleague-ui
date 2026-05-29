@@ -13,57 +13,91 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/LoginPage.re.mjs:107
+#: src/components/pages/LoginPage.re.mjs:272
 msgid "An error occurred during sign in. Please try again."
 msgstr "Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại."
 
-#: src/components/pages/LoginPage.re.mjs:53
-#: src/components/pages/LoginPage.re.mjs:85
+#: src/components/pages/LoginPage.re.mjs:55
+#: src/components/pages/LoginPage.re.mjs:87
 msgid "An error occurred: {message}"
 msgstr "Đã xảy ra lỗi: {message}"
 
-#: src/components/pages/LoginPage.re.mjs:131
+#: src/components/pages/LoginPage.re.mjs:293
 msgid "Back to events"
 msgstr "Quay lại sự kiện"
 
-#: src/components/pages/LoginPage.re.mjs:73
 #: src/components/pages/LoginPage.re.mjs:75
+#: src/components/pages/LoginPage.re.mjs:77
 msgid "Check your email for a magic link to sign in!"
 msgstr "Kiểm tra email của bạn để nhận liên kết ma thuật để đăng nhập!"
 
-#: src/components/pages/LoginPage.re.mjs:194
+#: src/components/pages/LoginPage.re.mjs:419
 msgid "Continue with LINE"
 msgstr "Tiếp tục với LINE"
 
-#: src/components/pages/LoginPage.re.mjs:226
+#: src/components/pages/LoginPage.re.mjs:451
 msgid "Email address"
 msgstr "Địa chỉ email"
 
-#: src/components/pages/LoginPage.re.mjs:71
+#: src/components/pages/LoginPage.re.mjs:73
 msgid "Failed to send magic link: {0}"
 msgstr "Không thể gửi liên kết ma thuật: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:40
+#: src/components/pages/LoginPage.re.mjs:364
+msgid "If your browser didn't open, visit:"
+msgstr "Nếu trình duyệt của bạn không mở, hãy truy cập:"
+
+#: src/components/pages/LoginPage.re.mjs:42
 msgid "Login failed: {0}"
 msgstr "Đăng nhập thất bại: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:175
+#: src/components/pages/LoginPage.re.mjs:337
 msgid "New users will be automatically registered"
 msgstr "Người dùng mới sẽ được đăng ký tự động"
 
-#: src/components/pages/LoginPage.re.mjs:213
+#: src/components/pages/LoginPage.re.mjs:377
+msgid "Open browser to continue"
+msgstr "Mở trình duyệt để tiếp tục"
+
+#: src/components/pages/LoginPage.re.mjs:438
 msgid "or continue with email"
 msgstr "hoặc tiếp tục bằng email"
 
-#: src/components/pages/LoginPage.re.mjs:267
+#: src/components/pages/LoginPage.re.mjs:492
 msgid "Send magic link"
 msgstr "Gửi liên kết ma thuật"
 
-#: src/components/pages/LoginPage.re.mjs:171
+#: src/components/pages/LoginPage.re.mjs:333
 msgid "Sign in to Pkuru.com"
 msgstr "Đăng nhập vào Pkuru.com"
 
-#: src/components/pages/LoginPage.re.mjs:103
+#: src/components/pages/LoginPage.re.mjs:391
+msgid "Sign in via system browser"
+msgstr "Đăng nhập qua trình duyệt hệ thống"
+
+#: src/components/pages/LoginPage.re.mjs:391
+msgid "Starting…"
+msgstr "Đang khởi động…"
+
+#: src/components/pages/LoginPage.re.mjs:347
+msgid ""
+"The installed app uses a separate browser, so we'll complete sign-in in your "
+"system browser. Tap the button below, sign in there, and we'll automatically "
+"sign you in here."
+msgstr ""
+"Ứng dụng đã cài đặt sử dụng trình duyệt riêng, vì vậy chúng tôi sẽ hoàn tất "
+"đăng nhập trên trình duyệt hệ thống của bạn. Nhấn nút bên dưới, đăng nhập ở "
+"đó và chúng tôi sẽ tự động đăng nhập cho bạn tại đây."
+
+#: src/components/pages/LoginPage.re.mjs:385
+msgid "Waiting for sign-in to complete…"
+msgstr "Đang chờ đăng nhập hoàn tất…"
+
+#: src/components/pages/LoginPage.re.mjs:355
+msgid "Your code"
+msgstr "Mã của bạn"
+
+#: src/components/pages/LoginPage.re.mjs:272
 msgid ""
 "Your LINE account does not have an email associated. Please set an email "
 "address for your account from the LINE app, and then try again."

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"Z7ZXbT\":\"批准\",\"yaVgTB\":\"核准登入\",\"gxXCvI\":\"來自您應用程式的驗證碼\",\"MIfMzh\":\"確認應用程式中顯示的驗證碼以完成登入。\",\"cFCKYZ\":\"拒絕\",\"3jsMmi\":\"裝置已核准！您可以返回應用程式。\",\"5lWFkC\":\"登入\",\"i0bDTD\":\"登入請求已被拒絕。\",\"XklovM\":\"處理中…\",\"eYqbSA\":\"您需要先在此登入，以便我們將此裝置連結至您的帳號。\"}");

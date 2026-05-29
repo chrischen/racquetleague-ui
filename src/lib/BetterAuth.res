@@ -121,15 +121,51 @@ type signUp = {
   ) => promise<response<sessionData>>,
 }
 
-type authClient = {
+type rec authClient = {
   signIn: signIn,
   signUp: signUp,
   signOut: (~options: signOutOptions=?) => promise<response<unit>>,
   updateUser: (updateUserOptions, ~fetchOptions: fetchOptions<user>=?) => promise<response<user>>,
   useSession: unit => useSessionReturn,
+  device: device,
   @as("$ERROR_CODES")
   errorCodes: Js.Dict.t<string>,
 }
+
+// Device Authorization (RFC 8628) types
+// Used so the PWA can sign in via an external browser when its standalone
+// browser context can't complete OAuth/magic-link callbacks.
+and device = {
+  code: deviceCodeOptions => promise<response<deviceCodeData>>,
+  token: deviceTokenOptions => promise<response<deviceTokenData>>,
+  approve: deviceApprovalOptions => promise<response<unit>>,
+  deny: deviceApprovalOptions => promise<response<unit>>,
+}
+and deviceCodeOptions = {
+  client_id: string,
+  scope?: string,
+}
+and deviceCodeData = {
+  device_code: string,
+  user_code: string,
+  verification_uri: string,
+  verification_uri_complete: option<string>,
+  expires_in: int,
+  interval: int,
+}
+and deviceTokenOptions = {
+  grant_type: string,
+  device_code: string,
+  client_id: string,
+  fetchOptions?: fetchOptions<deviceTokenData>,
+}
+and deviceTokenData = {
+  access_token: string,
+  token_type: string,
+  expires_in: int,
+  scope: string,
+}
+and deviceApprovalOptions = {userCode: string}
 
 // Create auth client
 @module("better-auth/react")
@@ -138,3 +174,10 @@ external createAuthClient: (~config: clientConfig<'a>=?) => authClient = "create
 // Magic Link Plugin
 @module("better-auth/client/plugins")
 external magicLinkClient: unit => 'plugin = "magicLinkClient"
+
+// Device Authorization Plugin (client side). Adds `authClient.device.*` methods.
+@module("better-auth/client/plugins")
+external deviceAuthorizationClient: unit => 'plugin = "deviceAuthorizationClient"
+
+// Convenience: standardised grant_type for the device flow.
+let deviceGrantType = "urn:ietf:params:oauth:grant-type:device_code"

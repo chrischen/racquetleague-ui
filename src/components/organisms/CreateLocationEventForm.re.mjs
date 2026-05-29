@@ -758,6 +758,10 @@ function CreateLocationEventForm(props) {
                                                             value: "172800000"
                                                           }),
                                                       JsxRuntime.jsx("option", {
+                                                            children: t`72 hours before`,
+                                                            value: "259200000"
+                                                          }),
+                                                      JsxRuntime.jsx("option", {
                                                             children: t`1 week before`,
                                                             value: "604800000"
                                                           })

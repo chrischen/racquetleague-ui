@@ -857,6 +857,7 @@ let make = (
                       <option value="43200000"> {(ts`12 hours before`)->React.string} </option>
                       <option value="86400000"> {(ts`24 hours before`)->React.string} </option>
                       <option value="172800000"> {(ts`48 hours before`)->React.string} </option>
+                      <option value="259200000"> {(ts`72 hours before`)->React.string} </option>
                       <option value="604800000"> {(ts`1 week before`)->React.string} </option>
                     </select>
                     <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">

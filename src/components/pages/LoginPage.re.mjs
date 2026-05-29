@@ -2,6 +2,8 @@
 
 import * as React from "react";
 import * as Router from "../shared/Router.re.mjs";
+import * as BetterAuth from "../../lib/BetterAuth.re.mjs";
+import * as InstallPwa from "../shared/InstallPwa.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -87,6 +89,8 @@ async function handleMagicLinkLogin(email, returnUrl) {
   }
 }
 
+var pwaClientId = "pwa";
+
 function LoginPage(props) {
   var match = ReactRouterDom.useSearchParams();
   var params = match[0];
@@ -97,18 +101,176 @@ function LoginPage(props) {
       });
   var setEmail = match$1[1];
   var email = match$1[0];
-  var errorMessage;
-  if (errorParam !== undefined) {
-    if (errorParam === "email_not_found") {
-      errorMessage = Caml_option.some(t`Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again.`);
-    } else {
-      console.log("LOGIN ERROR");
-      console.log(errorParam);
-      errorMessage = Caml_option.some(t`An error occurred during sign in. Please try again.`);
+  var match$2 = Router.SearchParams.get(params, "device");
+  var forceDeviceFlow;
+  if (match$2 !== undefined) {
+    switch (match$2) {
+      case "1" :
+      case "true" :
+          forceDeviceFlow = true;
+          break;
+      default:
+        forceDeviceFlow = false;
     }
   } else {
-    errorMessage = undefined;
+    forceDeviceFlow = false;
   }
+  var match$3 = React.useState(function () {
+        return false;
+      });
+  var setIsStandalone = match$3[1];
+  var isStandalone = match$3[0];
+  React.useEffect((function () {
+          setIsStandalone(function (param) {
+                if (forceDeviceFlow) {
+                  return true;
+                } else {
+                  return InstallPwa.isStandalone();
+                }
+              });
+        }), []);
+  var match$4 = React.useState(function () {
+        
+      });
+  var setDeviceCode = match$4[1];
+  var deviceCode = match$4[0];
+  var match$5 = React.useState(function () {
+        
+      });
+  var setDeviceError = match$5[1];
+  var deviceError = match$5[0];
+  var match$6 = React.useState(function () {
+        return false;
+      });
+  var setDeviceStarting = match$6[1];
+  var deviceStarting = match$6[0];
+  var session = authClient.useSession();
+  React.useEffect((function () {
+          if (deviceCode === undefined) {
+            return ;
+          }
+          var cancelled = {
+            contents: false
+          };
+          var intervalMs = Math.imul(Math.max(deviceCode.interval, 1), 1000);
+          var poll = async function () {
+            if (cancelled.contents) {
+              return ;
+            }
+            var result = await authClient.device.token({
+                  grant_type: BetterAuth.deviceGrantType,
+                  device_code: deviceCode.device_code,
+                  client_id: pwaClientId
+                });
+            var data = result.data;
+            var error = result.error;
+            console.log("device.token poll:", data === null ? undefined : Caml_option.some(data), error === null ? undefined : Caml_option.some(error));
+            if (data !== null) {
+              session.refetch();
+              window.location.assign(Core__Option.getOr(returnUrl, "/"));
+              return ;
+            }
+            if (error !== null) {
+              var rfcCode = error.error;
+              if (rfcCode == null) {
+                if (error.status === 400) {
+                  setTimeout((function () {
+                          poll();
+                        }), intervalMs);
+                  return ;
+                } else {
+                  return setDeviceError(function (param) {
+                              return error.message;
+                            });
+                }
+              }
+              switch (rfcCode) {
+                case "access_denied" :
+                    return setDeviceError(function (param) {
+                                return "Sign-in was denied.";
+                              });
+                case "authorization_pending" :
+                    setTimeout((function () {
+                            poll();
+                          }), intervalMs);
+                    return ;
+                case "expired_token" :
+                    setDeviceError(function (param) {
+                          return "The code expired. Please try again.";
+                        });
+                    return setDeviceCode(function (param) {
+                                
+                              });
+                case "slow_down" :
+                    setTimeout((function () {
+                            poll();
+                          }), intervalMs + 5000 | 0);
+                    return ;
+                default:
+                  return setDeviceError(function (param) {
+                              return rfcCode;
+                            });
+              }
+            } else {
+              setTimeout((function () {
+                      poll();
+                    }), intervalMs);
+              return ;
+            }
+          };
+          poll();
+          return (function () {
+                    cancelled.contents = true;
+                  });
+        }), [
+        deviceCode,
+        returnUrl
+      ]);
+  var handleStartDeviceFlow = async function () {
+    setDeviceStarting(function (param) {
+          return true;
+        });
+    setDeviceError(function (param) {
+          
+        });
+    try {
+      var result = await authClient.device.code({
+            client_id: pwaClientId
+          });
+      var match = result.data;
+      var match$1 = result.error;
+      if (match !== null) {
+        setDeviceCode(function (param) {
+              return match;
+            });
+        var url = Core__Option.getOr(match.verification_uri_complete, match.verification_uri);
+        window.open(url, "_blank", "noopener,noreferrer");
+      } else if (match$1 !== null) {
+        setDeviceError(function (param) {
+              return match$1.message;
+            });
+      } else {
+        setDeviceError(function (param) {
+              return "Failed to start device authorization";
+            });
+      }
+    }
+    catch (raw_exn){
+      var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+      var message = Core__Option.getOr(Core__Option.flatMap(Caml_js_exceptions.as_js_exn(exn), (function (e) {
+                  return e.message;
+                })), "Unknown error");
+      setDeviceError(function (param) {
+            return message;
+          });
+    }
+    return setDeviceStarting(function (param) {
+                return false;
+              });
+  };
+  var errorMessage = errorParam !== undefined ? (
+      errorParam === "email_not_found" ? Caml_option.some(t`Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again.`) : Caml_option.some(t`An error occurred during sign in. Please try again.`)
+    ) : undefined;
   var handleSubmit = function (e) {
     e.preventDefault();
     if (email !== "") {
@@ -178,101 +340,165 @@ function LoginPage(props) {
                                               ],
                                               className: "text-center mb-8"
                                             }),
-                                        JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsxs("button", {
-                                                            children: [
-                                                              JsxRuntime.jsx("svg", {
-                                                                    children: JsxRuntime.jsx("path", {
-                                                                          d: "M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"
-                                                                        }),
-                                                                    className: "w-5 h-5",
-                                                                    fill: "currentColor",
-                                                                    viewBox: "0 0 24 24"
-                                                                  }),
-                                                              t`Continue with LINE`
-                                                            ],
-                                                            className: "w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium text-gray-700",
-                                                            onClick: (function (param) {
-                                                                handleSocialLogin(returnUrl);
-                                                              })
-                                                          }),
-                                                      className: "space-y-3 mb-6"
-                                                    }),
-                                                JsxRuntime.jsxs("div", {
+                                        JsxRuntime.jsx("div", {
+                                              children: isStandalone ? JsxRuntime.jsxs("div", {
                                                       children: [
-                                                        JsxRuntime.jsx("div", {
-                                                              children: JsxRuntime.jsx("div", {
-                                                                    className: "w-full border-t border-gray-300"
-                                                                  }),
-                                                              className: "absolute inset-0 flex items-center"
+                                                        JsxRuntime.jsx("p", {
+                                                              children: t`The installed app uses a separate browser, so we'll complete sign-in in your system browser. Tap the button below, sign in there, and we'll automatically sign you in here.`,
+                                                              className: "text-sm text-gray-600"
                                                             }),
-                                                        JsxRuntime.jsx("div", {
-                                                              children: JsxRuntime.jsx("span", {
-                                                                    children: t`or continue with email`,
-                                                                    className: "px-4 bg-white text-gray-500"
-                                                                  }),
-                                                              className: "relative flex justify-center text-sm"
-                                                            })
+                                                        deviceCode !== undefined ? JsxRuntime.jsxs("div", {
+                                                                children: [
+                                                                  JsxRuntime.jsxs("div", {
+                                                                        children: [
+                                                                          JsxRuntime.jsx("p", {
+                                                                                children: t`Your code`,
+                                                                                className: "text-xs uppercase tracking-wide text-blue-700 mb-1"
+                                                                              }),
+                                                                          JsxRuntime.jsx("p", {
+                                                                                children: deviceCode.user_code,
+                                                                                className: "text-2xl font-mono font-bold text-blue-900 tracking-widest"
+                                                                              }),
+                                                                          JsxRuntime.jsxs("p", {
+                                                                                children: [
+                                                                                  t`If your browser didn't open, visit:`,
+                                                                                  " ",
+                                                                                  JsxRuntime.jsx("span", {
+                                                                                        children: deviceCode.verification_uri,
+                                                                                        className: "font-mono break-all"
+                                                                                      })
+                                                                                ],
+                                                                                className: "text-xs text-blue-700 mt-2"
+                                                                              })
+                                                                        ],
+                                                                        className: "p-4 bg-blue-50 border border-blue-200 rounded-lg"
+                                                                      }),
+                                                                  JsxRuntime.jsx("button", {
+                                                                        children: t`Open browser to continue`,
+                                                                        className: "w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm",
+                                                                        onClick: (function (param) {
+                                                                            var url = Core__Option.getOr(deviceCode.verification_uri_complete, deviceCode.verification_uri);
+                                                                            window.open(url, "_blank", "noopener,noreferrer");
+                                                                          })
+                                                                      }),
+                                                                  JsxRuntime.jsx("p", {
+                                                                        children: t`Waiting for sign-in to complete…`,
+                                                                        className: "text-xs text-gray-500 text-center"
+                                                                      })
+                                                                ],
+                                                                className: "space-y-3"
+                                                              }) : JsxRuntime.jsx("button", {
+                                                                children: deviceStarting ? t`Starting…` : t`Sign in via system browser`,
+                                                                className: "w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 shadow-sm disabled:opacity-60",
+                                                                disabled: deviceStarting,
+                                                                onClick: (function (param) {
+                                                                    handleStartDeviceFlow();
+                                                                  })
+                                                              }),
+                                                        Core__Option.getOr(Core__Option.map(deviceError, (function (msg) {
+                                                                    return JsxRuntime.jsx("div", {
+                                                                                children: msg,
+                                                                                className: "p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-800"
+                                                                              });
+                                                                  })), null)
                                                       ],
-                                                      className: "relative my-6"
-                                                    }),
-                                                JsxRuntime.jsxs("form", {
+                                                      className: "space-y-4"
+                                                    }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                       children: [
+                                                        JsxRuntime.jsx("div", {
+                                                              children: JsxRuntime.jsxs("button", {
+                                                                    children: [
+                                                                      JsxRuntime.jsx("svg", {
+                                                                            children: JsxRuntime.jsx("path", {
+                                                                                  d: "M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"
+                                                                                }),
+                                                                            className: "w-5 h-5",
+                                                                            fill: "currentColor",
+                                                                            viewBox: "0 0 24 24"
+                                                                          }),
+                                                                      t`Continue with LINE`
+                                                                    ],
+                                                                    className: "w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium text-gray-700",
+                                                                    onClick: (function (param) {
+                                                                        handleSocialLogin(returnUrl);
+                                                                      })
+                                                                  }),
+                                                              className: "space-y-3 mb-6"
+                                                            }),
                                                         JsxRuntime.jsxs("div", {
                                                               children: [
-                                                                JsxRuntime.jsx("label", {
-                                                                      children: t`Email address`,
-                                                                      className: "block text-sm font-medium text-gray-700 mb-2",
-                                                                      htmlFor: "email"
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsx("div", {
+                                                                            className: "w-full border-t border-gray-300"
+                                                                          }),
+                                                                      className: "absolute inset-0 flex items-center"
                                                                     }),
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsx("span", {
+                                                                            children: t`or continue with email`,
+                                                                            className: "px-4 bg-white text-gray-500"
+                                                                          }),
+                                                                      className: "relative flex justify-center text-sm"
+                                                                    })
+                                                              ],
+                                                              className: "relative my-6"
+                                                            }),
+                                                        JsxRuntime.jsxs("form", {
+                                                              children: [
                                                                 JsxRuntime.jsxs("div", {
                                                                       children: [
-                                                                        JsxRuntime.jsx("div", {
-                                                                              children: JsxRuntime.jsx("svg", {
-                                                                                    children: JsxRuntime.jsx("path", {
-                                                                                          d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-                                                                                          strokeLinecap: "round",
-                                                                                          strokeLinejoin: "round",
-                                                                                          strokeWidth: "2"
-                                                                                        }),
-                                                                                    className: "w-4 h-4 text-gray-400",
-                                                                                    fill: "none",
-                                                                                    stroke: "currentColor",
-                                                                                    viewBox: "0 0 24 24"
-                                                                                  }),
-                                                                              className: "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                                                                        JsxRuntime.jsx("label", {
+                                                                              children: t`Email address`,
+                                                                              className: "block text-sm font-medium text-gray-700 mb-2",
+                                                                              htmlFor: "email"
                                                                             }),
-                                                                        JsxRuntime.jsx("input", {
-                                                                              className: "block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors",
-                                                                              id: "email",
-                                                                              placeholder: "you@example.com",
-                                                                              required: true,
-                                                                              type: "email",
-                                                                              value: email,
-                                                                              onChange: (function (e) {
-                                                                                  var value = e.target.value;
-                                                                                  setEmail(function (param) {
-                                                                                        return value;
-                                                                                      });
-                                                                                })
+                                                                        JsxRuntime.jsxs("div", {
+                                                                              children: [
+                                                                                JsxRuntime.jsx("div", {
+                                                                                      children: JsxRuntime.jsx("svg", {
+                                                                                            children: JsxRuntime.jsx("path", {
+                                                                                                  d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+                                                                                                  strokeLinecap: "round",
+                                                                                                  strokeLinejoin: "round",
+                                                                                                  strokeWidth: "2"
+                                                                                                }),
+                                                                                            className: "w-4 h-4 text-gray-400",
+                                                                                            fill: "none",
+                                                                                            stroke: "currentColor",
+                                                                                            viewBox: "0 0 24 24"
+                                                                                          }),
+                                                                                      className: "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                                                                                    }),
+                                                                                JsxRuntime.jsx("input", {
+                                                                                      className: "block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors",
+                                                                                      id: "email",
+                                                                                      placeholder: "you@example.com",
+                                                                                      required: true,
+                                                                                      type: "email",
+                                                                                      value: email,
+                                                                                      onChange: (function (e) {
+                                                                                          var value = e.target.value;
+                                                                                          setEmail(function (param) {
+                                                                                                return value;
+                                                                                              });
+                                                                                        })
+                                                                                    })
+                                                                              ],
+                                                                              className: "relative"
                                                                             })
-                                                                      ],
-                                                                      className: "relative"
+                                                                      ]
+                                                                    }),
+                                                                JsxRuntime.jsx("button", {
+                                                                      children: t`Send magic link`,
+                                                                      className: "w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 shadow-sm",
+                                                                      type: "submit"
                                                                     })
-                                                              ]
-                                                            }),
-                                                        JsxRuntime.jsx("button", {
-                                                              children: t`Send magic link`,
-                                                              className: "w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 shadow-sm",
-                                                              type: "submit"
+                                                              ],
+                                                              className: "space-y-4",
+                                                              onSubmit: handleSubmit
                                                             })
-                                                      ],
-                                                      className: "space-y-4",
-                                                      onSubmit: handleSubmit
-                                                    })
-                                              ],
+                                                      ]
+                                                    }),
                                               className: "bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
                                             })
                                       ],
@@ -291,6 +517,7 @@ export {
   authClient ,
   handleSocialLogin ,
   handleMagicLinkLogin ,
+  pwaClientId ,
   make ,
 }
 /*  Not a pure module */

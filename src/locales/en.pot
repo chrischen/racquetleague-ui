@@ -4743,3 +4743,75 @@ msgstr ""
 #: src/components/shared/PullToRefresh.re.mjs:244
 msgid "Release to refresh"
 msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:761
+msgid "72 hours before"
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:239
+msgid "Approve sign-in"
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:193
+msgid "Code from your app"
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:243
+msgid "Confirm the code shown in your app to finish signing in."
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:169
+msgid "Deny"
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:133
+msgid "Device approved! You can return to the app."
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:225
+msgid "Sign in"
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:139
+msgid "Sign-in request denied."
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:177
+msgid "Working…"
+msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:221
+msgid ""
+"You need to sign in here first so we can link this device to your account."
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:349
+msgid "If your browser didn't open, visit:"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:362
+msgid "Open browser to continue"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:376
+msgid "Sign in via system browser"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:376
+msgid "Starting…"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:332
+msgid ""
+"The installed app uses a separate browser, so we'll complete sign-in in your "
+"system browser. Tap the button below, sign in there, and we'll automatically "
+"sign you in here."
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:370
+msgid "Waiting for sign-in to complete…"
+msgstr ""
+
+#: src/components/pages/LoginPage.re.mjs:340
+msgid "Your code"
+msgstr ""

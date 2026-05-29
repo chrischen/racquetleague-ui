@@ -130,6 +130,12 @@ module Maximize2 = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Maximize2"
 }
 
+module Smartphone = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Smartphone"
+}
+
 module Calendar = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =

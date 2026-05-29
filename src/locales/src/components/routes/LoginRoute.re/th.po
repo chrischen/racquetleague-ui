@@ -13,57 +13,90 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LoginPage.re.mjs:107
+#: src/components/pages/LoginPage.re.mjs:272
 msgid "An error occurred during sign in. Please try again."
 msgstr "เกิดข้อผิดพลาดในการเข้าสู่ระบบ กรุณาลองอีกครั้ง"
 
-#: src/components/pages/LoginPage.re.mjs:53
-#: src/components/pages/LoginPage.re.mjs:85
+#: src/components/pages/LoginPage.re.mjs:55
+#: src/components/pages/LoginPage.re.mjs:87
 msgid "An error occurred: {message}"
 msgstr "เกิดข้อผิดพลาด: {message}"
 
-#: src/components/pages/LoginPage.re.mjs:131
+#: src/components/pages/LoginPage.re.mjs:293
 msgid "Back to events"
 msgstr "กลับไปที่กิจกรรม"
 
-#: src/components/pages/LoginPage.re.mjs:73
 #: src/components/pages/LoginPage.re.mjs:75
+#: src/components/pages/LoginPage.re.mjs:77
 msgid "Check your email for a magic link to sign in!"
 msgstr "ตรวจสอบอีเมลของคุณเพื่อรับลิงก์วิเศษสำหรับเข้าสู่ระบบ!"
 
-#: src/components/pages/LoginPage.re.mjs:194
+#: src/components/pages/LoginPage.re.mjs:419
 msgid "Continue with LINE"
 msgstr "ดำเนินการต่อด้วย LINE"
 
-#: src/components/pages/LoginPage.re.mjs:226
+#: src/components/pages/LoginPage.re.mjs:451
 msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
-#: src/components/pages/LoginPage.re.mjs:71
+#: src/components/pages/LoginPage.re.mjs:73
 msgid "Failed to send magic link: {0}"
 msgstr "การส่งลิงก์วิเศษล้มเหลว: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:40
+#: src/components/pages/LoginPage.re.mjs:364
+msgid "If your browser didn't open, visit:"
+msgstr "หากเบราว์เซอร์ของคุณไม่เปิด ให้ไปที่:"
+
+#: src/components/pages/LoginPage.re.mjs:42
 msgid "Login failed: {0}"
 msgstr "เข้าสู่ระบบล้มเหลว: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:175
+#: src/components/pages/LoginPage.re.mjs:337
 msgid "New users will be automatically registered"
 msgstr "ผู้ใช้ใหม่จะถูกลงทะเบียนโดยอัตโนมัติ"
 
-#: src/components/pages/LoginPage.re.mjs:213
+#: src/components/pages/LoginPage.re.mjs:377
+msgid "Open browser to continue"
+msgstr "เปิดเบราว์เซอร์เพื่อดำเนินการต่อ"
+
+#: src/components/pages/LoginPage.re.mjs:438
 msgid "or continue with email"
 msgstr "หรือดำเนินการต่อด้วยอีเมล"
 
-#: src/components/pages/LoginPage.re.mjs:267
+#: src/components/pages/LoginPage.re.mjs:492
 msgid "Send magic link"
 msgstr "ส่งลิงก์วิเศษ"
 
-#: src/components/pages/LoginPage.re.mjs:171
+#: src/components/pages/LoginPage.re.mjs:333
 msgid "Sign in to Pkuru.com"
 msgstr "ลงชื่อเข้าใช้ Pkuru.com"
 
-#: src/components/pages/LoginPage.re.mjs:103
+#: src/components/pages/LoginPage.re.mjs:391
+msgid "Sign in via system browser"
+msgstr "เข้าสู่ระบบผ่านเบราว์เซอร์ของระบบ"
+
+#: src/components/pages/LoginPage.re.mjs:391
+msgid "Starting…"
+msgstr "กำลังเริ่มต้น…"
+
+#: src/components/pages/LoginPage.re.mjs:347
+msgid ""
+"The installed app uses a separate browser, so we'll complete sign-in in your "
+"system browser. Tap the button below, sign in there, and we'll automatically "
+"sign you in here."
+msgstr ""
+"แอปที่ติดตั้งใช้เบราว์เซอร์แยกต่างหาก ดังนั้นเราจะดำเนินการเข้าสู่ระบบในเบราว์เซอร์ของระบบ "
+"แตะปุ่มด้านล่าง เข้าสู่ระบบที่นั่น แล้วเราจะเข้าสู่ระบบให้คุณโดยอัตโนมัติ"
+
+#: src/components/pages/LoginPage.re.mjs:385
+msgid "Waiting for sign-in to complete…"
+msgstr "กำลังรอการเข้าสู่ระบบให้เสร็จสมบูรณ์…"
+
+#: src/components/pages/LoginPage.re.mjs:355
+msgid "Your code"
+msgstr "รหัสของคุณ"
+
+#: src/components/pages/LoginPage.re.mjs:272
 msgid ""
 "Your LINE account does not have an email associated. Please set an email "
 "address for your account from the LINE app, and then try again."

@@ -13,57 +13,91 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LoginPage.re.mjs:107
+#: src/components/pages/LoginPage.re.mjs:272
 msgid "An error occurred during sign in. Please try again."
 msgstr "サインイン中にエラーが発生しました。もう一度お試しください。"
 
-#: src/components/pages/LoginPage.re.mjs:53
-#: src/components/pages/LoginPage.re.mjs:85
+#: src/components/pages/LoginPage.re.mjs:55
+#: src/components/pages/LoginPage.re.mjs:87
 msgid "An error occurred: {message}"
 msgstr "エラーが発生しました: {message}"
 
-#: src/components/pages/LoginPage.re.mjs:131
+#: src/components/pages/LoginPage.re.mjs:293
 msgid "Back to events"
 msgstr "イベントに戻る"
 
-#: src/components/pages/LoginPage.re.mjs:73
 #: src/components/pages/LoginPage.re.mjs:75
+#: src/components/pages/LoginPage.re.mjs:77
 msgid "Check your email for a magic link to sign in!"
 msgstr "メールでマジックリンクを確認してサインインしてください！"
 
-#: src/components/pages/LoginPage.re.mjs:194
+#: src/components/pages/LoginPage.re.mjs:419
 msgid "Continue with LINE"
 msgstr "LINEで続ける"
 
-#: src/components/pages/LoginPage.re.mjs:226
+#: src/components/pages/LoginPage.re.mjs:451
 msgid "Email address"
 msgstr "メールアドレス"
 
-#: src/components/pages/LoginPage.re.mjs:71
+#: src/components/pages/LoginPage.re.mjs:73
 msgid "Failed to send magic link: {0}"
 msgstr "マジックリンクの送信に失敗しました: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:40
+#: src/components/pages/LoginPage.re.mjs:364
+msgid "If your browser didn't open, visit:"
+msgstr "ブラウザが開かない場合は、こちらにアクセスしてください："
+
+#: src/components/pages/LoginPage.re.mjs:42
 msgid "Login failed: {0}"
 msgstr "ログインに失敗しました: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:175
+#: src/components/pages/LoginPage.re.mjs:337
 msgid "New users will be automatically registered"
 msgstr "新規ユーザーは自動的に登録されます"
 
-#: src/components/pages/LoginPage.re.mjs:213
+#: src/components/pages/LoginPage.re.mjs:377
+msgid "Open browser to continue"
+msgstr "ブラウザを開いて続行"
+
+#: src/components/pages/LoginPage.re.mjs:438
 msgid "or continue with email"
 msgstr "またはメールで続ける"
 
-#: src/components/pages/LoginPage.re.mjs:267
+#: src/components/pages/LoginPage.re.mjs:492
 msgid "Send magic link"
 msgstr "マジックリンクを送信"
 
-#: src/components/pages/LoginPage.re.mjs:171
+#: src/components/pages/LoginPage.re.mjs:333
 msgid "Sign in to Pkuru.com"
 msgstr "Pkuru.comにサインイン"
 
-#: src/components/pages/LoginPage.re.mjs:103
+#: src/components/pages/LoginPage.re.mjs:391
+msgid "Sign in via system browser"
+msgstr "システムブラウザでサインイン"
+
+#: src/components/pages/LoginPage.re.mjs:391
+msgid "Starting…"
+msgstr "起動中…"
+
+#: src/components/pages/LoginPage.re.mjs:347
+msgid ""
+"The installed app uses a separate browser, so we'll complete sign-in in your "
+"system browser. Tap the button below, sign in there, and we'll automatically "
+"sign you in here."
+msgstr ""
+"インストール済みのアプリは別のブラウザを使用しているため、システムブラウザで"
+"サインインを完了します。下のボタンをタップしてサインインすると、こちらでも自"
+"動的にサインインされます。"
+
+#: src/components/pages/LoginPage.re.mjs:385
+msgid "Waiting for sign-in to complete…"
+msgstr "サインインの完了を待機中…"
+
+#: src/components/pages/LoginPage.re.mjs:355
+msgid "Your code"
+msgstr "あなたのコード"
+
+#: src/components/pages/LoginPage.re.mjs:272
 msgid ""
 "Your LINE account does not have an email associated. Please set an email "
 "address for your account from the LINE app, and then try again."

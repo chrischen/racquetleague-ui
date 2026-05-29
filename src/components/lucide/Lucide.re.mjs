@@ -41,6 +41,8 @@ var List = {};
 
 var Maximize2 = {};
 
+var Smartphone = {};
+
 var Calendar = {};
 
 var Users = {};
@@ -174,6 +176,7 @@ export {
   User ,
   List ,
   Maximize2 ,
+  Smartphone ,
   Calendar ,
   Users ,
   Check ,

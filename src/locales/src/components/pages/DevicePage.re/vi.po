@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 20:13+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/pages/DevicePage.re.mjs:178
+msgid "Approve"
+msgstr "Chấp thuận"
+
+#: src/components/pages/DevicePage.re.mjs:246
+msgid "Approve sign-in"
+msgstr "Phê duyệt đăng nhập"
+
+#: src/components/pages/DevicePage.re.mjs:194
+msgid "Code from your app"
+msgstr "Mã từ ứng dụng của bạn"
+
+#: src/components/pages/DevicePage.re.mjs:250
+msgid "Confirm the code shown in your app to finish signing in."
+msgstr "Xác nhận mã hiển thị trong ứng dụng của bạn để hoàn tất đăng nhập."
+
+#: src/components/pages/DevicePage.re.mjs:170
+msgid "Deny"
+msgstr "Từ chối"
+
+#: src/components/pages/DevicePage.re.mjs:134
+msgid "Device approved! You can return to the app."
+msgstr "Thiết bị đã được phê duyệt! Bạn có thể quay lại ứng dụng."
+
+#: src/components/pages/DevicePage.re.mjs:226
+msgid "Sign in"
+msgstr "Đăng nhập"
+
+#: src/components/pages/DevicePage.re.mjs:140
+msgid "Sign-in request denied."
+msgstr "Yêu cầu đăng nhập đã bị từ chối."
+
+#: src/components/pages/DevicePage.re.mjs:178
+msgid "Working…"
+msgstr "Đang xử lý…"
+
+#: src/components/pages/DevicePage.re.mjs:222
+msgid ""
+"You need to sign in here first so we can link this device to your account."
+msgstr ""
+"Bạn cần đăng nhập tại đây trước để chúng tôi có thể liên kết thiết bị này "
+"với tài khoản của bạn."

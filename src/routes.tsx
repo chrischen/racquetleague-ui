@@ -20,6 +20,11 @@ const mainRoutes: RouteObject[] =
       handle: "src/components/routes/NotificationsRoute.gen.tsx",
     },
     {
+      path: "device",
+      lazy: () => import("./components/routes/DeviceRoute.gen"),
+      handle: "src/components/routes/DeviceRoute.gen.tsx",
+    },
+    {
       path: "e/:activitySlug/map",
       lazy: () => import("./components/routes/EventsMapRoute.gen"),
       handle: "src/components/routes/EventsMapRoute.gen.tsx",
