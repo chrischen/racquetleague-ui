@@ -1,7 +1,7 @@
 @genType
 let \"Component" = ClubEventsPage.make
 
-type params = {slug: string, lang: option<string>}
+type params = {slug: string, lang: option<string>, afterDate: option<string>}
 module LoaderArgs = {
   type t = {
     context: RelayEnv.context,
@@ -21,12 +21,19 @@ let loadMessages = Lingui.loadMessages({
 })
 
 @genType
-let loader = async ({context, params}: LoaderArgs.t) => {
+let loader = async ({context, params, request}: LoaderArgs.t) => {
+  let url = request.url->Router.URL.make
+
+  let afterDate =
+    url.searchParams
+    ->Router.SearchParams.get("afterDate")
+    ->Option.map(d => d->Js.Date.fromString->Util.Datetime.fromDate)
+
   let environment = RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)
 
   let query = ClubEventsPageQuery_graphql.load(
     ~environment,
-    ~variables={slug: params.slug},
+    ~variables={slug: params.slug, ?afterDate},
     ~fetchPolicy=RescriptRelay.StoreOrNetwork,
   )
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore

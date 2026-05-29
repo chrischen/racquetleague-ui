@@ -15,7 +15,11 @@ import type {queryRef as EventsQuery_graphql_queryRef} from '../../../src/__gene
 
 export type props = {};
 
-export type params = { readonly activitySlug: (undefined | string); readonly lang: (undefined | string) };
+export type params = {
+  readonly activitySlug: (undefined | string); 
+  readonly lang: (undefined | string); 
+  readonly afterDate: (undefined | string)
+};
 
 export type LoaderArgs_t = {
   readonly context: RelayEnv_context; 

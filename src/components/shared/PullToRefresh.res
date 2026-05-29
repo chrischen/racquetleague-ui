@@ -1,3 +1,5 @@
+%%raw("import { t } from '@lingui/macro'")
+
 // ─── DOM bindings ───────────────────────────────────────────────────────────
 
 @val @scope(("window", "document")) external documentBody: Dom.element = "body"
@@ -134,6 +136,7 @@ let usePullToRefresh = (
             refreshingRef.current = true
             pullTriggeredRef.current = true
             setIsRefreshing(_ => true)
+            setPullDistance(_ => indicatorRestHeight)
             onRefreshRef.current()
             ->Promise.then(() => {
               refreshingRef.current = false
@@ -200,36 +203,55 @@ let usePullToRefresh = (
 module Indicator = {
   @react.component
   let make = (~pullDistance: float, ~isRefreshing: bool) => {
-    let progress = min(1., pullDistance /. threshold)
-    let isVisible = pullDistance > 0. || isRefreshing
-    let indicatorHeight = isRefreshing ? indicatorRestHeight : pullDistance
-    let isPulling = pullDistance > 0. && !isRefreshing
+    let ts = Lingui.UtilString.t
+    let ready = pullDistance >= threshold
+    let rotate = min(pullDistance /. threshold *. 180., 180.)
+    let isResting = pullDistance == 0. && !isRefreshing
+    let transition = if isResting {
+      "height 280ms cubic-bezier(0.22, 1, 0.36, 1)"
+    } else if isRefreshing {
+      "height 200ms ease-out"
+    } else {
+      "none"
+    }
 
-    <div
-      style={ReactDOM.Style.make(
-        ~height=`${(isVisible ? indicatorHeight : 0.)->Float.toFixed(~digits=0)}px`,
-        (),
-      )}
-      className={"overflow-hidden flex items-center justify-center " ++ (
-        isPulling ? "transition-none" : "transition-[height] duration-200 ease-out"
-      )}>
-      <div
-        className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm"
-        style={ReactDOM.Style.make(~opacity=isVisible ? "1" : "0", ())}>
-        {isRefreshing
-          ? <Lucide.Loader2 className="w-[13px] h-[13px] animate-spin" />
-          : <span
-              style={ReactDOM.Style.make(
-                ~display="inline-flex",
-                ~transform=`rotate(${(progress *. 180.)->Float.toFixed(~digits=1)}deg)`,
-                (),
-              )}>
-              <Lucide.ChevronDown size=13 />
-            </span>}
-        <span className="text-xs font-mono">
-          {(isRefreshing ? "Refreshing\u2026" : "Pull to refresh")->React.string}
-        </span>
-      </div>
-    </div>
+    <WaitForMessages>
+      {() =>
+        <div
+          style={ReactDOM.Style.make(
+            ~height=`${pullDistance->Float.toFixed(~digits=0)}px`,
+            ~transition,
+            (),
+          )}
+          className="overflow-hidden flex items-end justify-center pointer-events-none">
+          <div
+            className="pb-3 flex items-center gap-1.5 text-[11px] font-mono text-gray-500 dark:text-gray-400 select-none">
+            {isRefreshing
+              ? <Lucide.Loader2
+                  size=13 className="animate-spin text-[#65a30d] dark:text-[#bdf25d]"
+                />
+              : <span
+                  style={ReactDOM.Style.make(
+                    ~display="inline-flex",
+                    ~transform=`rotate(${rotate->Float.toFixed(~digits=1)}deg)`,
+                    ~transition="transform 120ms ease-out",
+                    (),
+                  )}>
+                  <Lucide.ChevronDown
+                    size=13 className={ready ? "text-[#65a30d] dark:text-[#bdf25d]" : ""}
+                  />
+                </span>}
+            <span>
+              {(
+                isRefreshing
+                  ? ts`Refreshing…`
+                  : ready
+                  ? ts`Release to refresh`
+                  : ts`Pull to refresh`
+              )->React.string}
+            </span>
+          </div>
+        </div>}
+    </WaitForMessages>
   }
 }

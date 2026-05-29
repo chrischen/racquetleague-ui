@@ -2,10 +2,8 @@
 
 import * as Lang from "../shared/Lang.re.mjs";
 import * as Util from "../shared/Util.re.mjs";
-import * as Avatar from "../catalyst/Avatar.re.mjs";
 import * as Lingui from "../../locales/Lingui.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
-import * as Dropdown from "../catalyst/Dropdown.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";

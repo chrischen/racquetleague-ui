@@ -15,6 +15,7 @@ import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as PkRSVPSection from "../organisms/PkRSVPSection.re.mjs";
+import * as PullToRefresh from "../shared/PullToRefresh.re.mjs";
 import * as PkEventMessages from "../organisms/PkEventMessages.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -362,38 +363,45 @@ var EventLocationSection = {
 };
 
 function PkEventPage$Inner(props) {
+  var onRefresh = props.onRefresh;
   var queryFragmentRefs = props.queryFragmentRefs;
   var $$event = props.event;
   var viewerUser = Core__Option.flatMap(props.viewer, (function (v) {
           return v.user;
         }));
   var locale = React.useContext(LangProvider.LocaleContext.context);
-  var match = React.useState(function () {
+  var containerRef = React.useRef(null);
+  var match = PullToRefresh.usePullToRefresh(containerRef, Core__Option.getOr(onRefresh, (function () {
+              return Promise.resolve();
+            })));
+  var triggerRefresh = match.triggerRefresh;
+  var isRefreshing = match.isRefreshing;
+  var match$1 = React.useState(function () {
         return false;
       });
-  var setMounted = match[1];
+  var setMounted = match$1[1];
   React.useEffect((function () {
           setMounted(function (param) {
                 return true;
               });
         }), []);
-  var match$1 = use$4();
-  var canceling = match$1[1];
-  var cancelEvent = match$1[0];
-  var match$2 = use$5();
-  var uncanceling = match$2[1];
-  var uncancelEvent = match$2[0];
-  var match$3 = use$1();
-  var chargePayment = match$3[0];
-  var match$4 = use$2();
-  var authorizePlatformPayment = match$4[0];
-  var match$5 = use$3();
-  var confirmPayment = match$5[0];
-  var match$6 = React.useState(function () {
+  var match$2 = use$4();
+  var canceling = match$2[1];
+  var cancelEvent = match$2[0];
+  var match$3 = use$5();
+  var uncanceling = match$3[1];
+  var uncancelEvent = match$3[0];
+  var match$4 = use$1();
+  var chargePayment = match$4[0];
+  var match$5 = use$2();
+  var authorizePlatformPayment = match$5[0];
+  var match$6 = use$3();
+  var confirmPayment = match$6[0];
+  var match$7 = React.useState(function () {
         
       });
-  var setPaymentClientSecret = match$6[1];
-  var paymentClientSecret = match$6[0];
+  var setPaymentClientSecret = match$7[1];
+  var paymentClientSecret = match$7[0];
   var secret = Core__Option.getOr($$event.shadow, false);
   var tz = Core__Option.getOr($$event.timezone, "Asia/Tokyo");
   var maxRsvps = Core__Option.getOr($$event.maxRsvps, 0);
@@ -445,15 +453,15 @@ function PkEventPage$Inner(props) {
             })), false);
   var viewerIsInGoingList;
   if (viewerRsvpNode !== undefined) {
-    var match$7 = viewerRsvpNode.listType;
-    viewerIsInGoingList = match$7 !== undefined ? match$7 === 0 : true;
+    var match$8 = viewerRsvpNode.listType;
+    viewerIsInGoingList = match$8 !== undefined ? match$8 === 0 : true;
   } else {
     viewerIsInGoingList = false;
   }
   var viewerHasPayment;
   if (viewerRsvpNode !== undefined) {
-    var match$8 = viewerRsvpNode.payment;
-    viewerHasPayment = match$8 !== undefined ? (match$8.status >>> 0) <= 1 : false;
+    var match$9 = viewerRsvpNode.payment;
+    viewerHasPayment = match$9 !== undefined ? (match$9.status >>> 0) <= 1 : false;
   } else {
     viewerHasPayment = false;
   }
@@ -482,10 +490,10 @@ function PkEventPage$Inner(props) {
                 className: "p-6 text-center text-gray-500"
               });
   }
-  var match$9 = $$event.viewerIsAdmin;
+  var match$10 = $$event.viewerIsAdmin;
   var tmp;
-  if (match$9 && viewerUser !== undefined) {
-    var match$10 = $$event.deleted;
+  if (match$10 && viewerUser !== undefined) {
+    var match$11 = $$event.deleted;
     tmp = JsxRuntime.jsx("div", {
           children: JsxRuntime.jsxs("div", {
                 children: [
@@ -495,7 +503,7 @@ function PkEventPage$Inner(props) {
                                     return l.id;
                                   })), "")
                       }),
-                  match$10 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
+                  match$11 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
                           children: t`uncancel event`,
                           onClick: (function (param) {
                               if (!uncanceling) {
@@ -526,7 +534,7 @@ function PkEventPage$Inner(props) {
   } else {
     tmp = null;
   }
-  var match$11 = $$event.location;
+  var match$12 = $$event.location;
   var activity = $$event.activity;
   var tmp$1;
   if (activity !== undefined) {
@@ -543,7 +551,7 @@ function PkEventPage$Inner(props) {
       }
       if (exit === 1) {
         var managerHref = "/league/events/" + $$event.id + "/" + slug + "/manager";
-        tmp$1 = match[0] ? JsxRuntime.jsx(React.Suspense, {
+        tmp$1 = match$1[0] ? JsxRuntime.jsx(React.Suspense, {
                 children: Caml_option.some(JsxRuntime.jsx(RoundRobinDrawsPreview.make, {
                           eventId: $$event.id,
                           managerHref: managerHref
@@ -560,43 +568,63 @@ function PkEventPage$Inner(props) {
   }
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsxs("div", {
-                            children: [
-                              Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
-                                          return JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                      value: Util.Datetime.toDate(sd),
-                                                      timeZone: tz,
-                                                      weekday: "short",
-                                                      month: "short",
-                                                      day: "2-digit"
-                                                    });
-                                        })), null),
-                              " ",
-                              Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
-                                          return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                      value: Util.Datetime.toDate(sd),
-                                                      timeZone: tz
-                                                    });
-                                        })), null),
-                              Core__Option.getOr(Core__Option.map($$event.endDate, (function (ed) {
-                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                      children: [
-                                                        " - ",
-                                                        JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                              value: Util.Datetime.toDate(ed),
-                                                              timeZone: tz
-                                                            })
-                                                      ]
-                                                    });
-                                        })), null),
-                              Core__Option.getOr(Core__Option.map(durationStr, (function (d) {
-                                          return " · " + d;
-                                        })), null)
-                            ],
-                            className: "font-mono text-[11px] text-gray-500 dark:text-gray-400 flex items-center gap-1"
-                          }),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
+                                            return JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                        value: Util.Datetime.toDate(sd),
+                                                        timeZone: tz,
+                                                        weekday: "short",
+                                                        month: "short",
+                                                        day: "2-digit"
+                                                      });
+                                          })), null),
+                                " ",
+                                Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
+                                            return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                        value: Util.Datetime.toDate(sd),
+                                                        timeZone: tz
+                                                      });
+                                          })), null),
+                                Core__Option.getOr(Core__Option.map($$event.endDate, (function (ed) {
+                                            return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                        children: [
+                                                          " - ",
+                                                          JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                value: Util.Datetime.toDate(ed),
+                                                                timeZone: tz
+                                                              })
+                                                        ]
+                                                      });
+                                          })), null),
+                                Core__Option.getOr(Core__Option.map(durationStr, (function (d) {
+                                            return " · " + d;
+                                          })), null)
+                              ],
+                              className: "font-mono text-[11px] text-gray-500 dark:text-gray-400 flex items-center gap-1"
+                            }),
+                        Core__Option.getOr(Core__Option.map(onRefresh, (function (param) {
+                                    return JsxRuntime.jsx("button", {
+                                                children: JsxRuntime.jsx(LucideReact.RefreshCw, {
+                                                      size: 13,
+                                                      className: isRefreshing ? "animate-spin" : ""
+                                                    }),
+                                                className: "text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed",
+                                                title: isRefreshing ? t`Refreshing…` : t`Refresh event details`,
+                                                disabled: isRefreshing,
+                                                onClick: (function (param) {
+                                                    triggerRefresh();
+                                                  })
+                                              });
+                                  })), null)
+                      ],
                       className: "bg-white dark:bg-[#1e1f23] border-b border-gray-100 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0"
+                    }),
+                JsxRuntime.jsx(PullToRefresh.Indicator.make, {
+                      pullDistance: match.pullDistance,
+                      isRefreshing: match.isPullRefreshing
                     }),
                 JsxRuntime.jsxs("div", {
                       children: [
@@ -606,8 +634,8 @@ function PkEventPage$Inner(props) {
                               tz: tz
                             }),
                         tmp,
-                        match$11 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
-                                loc: match$11
+                        match$12 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
+                                loc: match$12
                               }) : null,
                         JsxRuntime.jsx(PkRSVPSection.make, {
                               event: $$event.fragmentRefs,
@@ -676,7 +704,7 @@ function PkEventPage$Inner(props) {
                       tz: tz,
                       locale: locale,
                       queryFragmentRefs: queryFragmentRefs,
-                      charging: match$3[1] || match$4[1],
+                      charging: match$4[1] || match$5[1],
                       onPayClick: (function () {
                           Core__Option.forEach(viewerRsvpNode, (function (rsvp) {
                                   if (isPlatformPayment) {
@@ -735,6 +763,7 @@ function PkEventPage$Inner(props) {
                         isDepositOnly: isPlatformPayment
                       }) : null
               ],
+              ref: Caml_option.some(containerRef),
               className: "relative w-full max-w-2xl mx-auto bg-white dark:bg-[#1e1f23]"
             });
 }
@@ -745,17 +774,34 @@ var Inner = {
 
 function PkEventPage$Lazy(props) {
   var eventId = props.eventId;
-  var match = use({
+  var match = React.useState(function () {
+        return 0;
+      });
+  var setFetchKey = match[1];
+  var fetchKey = match[0];
+  var fetchPolicy = fetchKey > 0 ? "store-and-network" : "store-or-network";
+  var match$1 = use({
         eventId: eventId,
         topic: eventId + ".updated"
-      }, undefined, undefined, undefined);
-  var queryFragmentRefs = match.fragmentRefs;
-  var viewer = match.viewer;
-  return Core__Option.getOr(Core__Option.map(match.event, (function ($$event) {
+      }, fetchPolicy, fetchKey.toString(), undefined);
+  var queryFragmentRefs = match$1.fragmentRefs;
+  var viewer = match$1.viewer;
+  var onRefresh = function () {
+    setFetchKey(function (k) {
+          return k + 1 | 0;
+        });
+    return new Promise((function (resolve, param) {
+                  setTimeout((function () {
+                          resolve();
+                        }), 1500);
+                }));
+  };
+  return Core__Option.getOr(Core__Option.map(match$1.event, (function ($$event) {
                     return JsxRuntime.jsx(PkEventPage$Inner, {
                                 event: $$event,
                                 viewer: viewer,
-                                queryFragmentRefs: queryFragmentRefs
+                                queryFragmentRefs: queryFragmentRefs,
+                                onRefresh: onRefresh
                               });
                   })), JsxRuntime.jsx("div", {
                   children: t`Event not found`,

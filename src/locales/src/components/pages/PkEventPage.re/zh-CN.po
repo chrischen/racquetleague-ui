@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:328
+#: src/components/pages/PkEventPage.re.mjs:329
 msgid "...more"
 msgstr "...更多"
 
@@ -66,7 +66,7 @@ msgstr "平衡"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/pages/PkEventPage.re.mjs:510
+#: src/components/pages/PkEventPage.re.mjs:518
 msgid "cancel event"
 msgstr "取消活动"
 
@@ -74,7 +74,7 @@ msgstr "取消活动"
 msgid "Cancel RSVP"
 msgstr "取消报名"
 
-#: src/components/pages/PkEventPage.re.mjs:191
+#: src/components/pages/PkEventPage.re.mjs:192
 msgid "CANCELED"
 msgstr "已取消"
 
@@ -96,7 +96,7 @@ msgstr "取消截止日期已过。请在此页面联系组织者取消。"
 msgid "Cancelling..."
 msgstr "取消中..."
 
-#: src/components/pages/PkEventPage.re.mjs:481
+#: src/components/pages/PkEventPage.re.mjs:489
 msgid "Cannot access variable \\\"title\\\""
 msgstr "无法访问变量 \\\"title\\\""
 
@@ -125,7 +125,7 @@ msgstr "完善个人资料"
 msgid "Confirmed · {0}"
 msgstr "已确认 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:226
+#: src/components/pages/PkEventPage.re.mjs:227
 msgid "Copied!"
 msgstr "已复制！"
 
@@ -167,7 +167,7 @@ msgstr "请输入显示名称"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:493
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "edit event"
 msgstr "编辑活动"
 
@@ -203,8 +203,8 @@ msgstr "输入比赛比分"
 msgid "even"
 msgstr "均衡"
 
-#: src/components/pages/PkEventPage.re.mjs:761
-#: src/components/pages/PkEventPage.re.mjs:785
+#: src/components/pages/PkEventPage.re.mjs:807
+#: src/components/pages/PkEventPage.re.mjs:831
 msgid "Event not found"
 msgstr "找不到活动"
 
@@ -224,7 +224,7 @@ msgstr "女性"
 msgid "For event updates and notifications"
 msgstr "用于活动更新和通知"
 
-#: src/components/pages/PkEventPage.re.mjs:274
+#: src/components/pages/PkEventPage.re.mjs:275
 msgid "Free"
 msgstr "免费"
 
@@ -261,7 +261,7 @@ msgstr "退出候补名单"
 msgid "Leaving..."
 msgstr "离开中..."
 
-#: src/components/pages/PkEventPage.re.mjs:328
+#: src/components/pages/PkEventPage.re.mjs:329
 msgid "less"
 msgstr "收起"
 
@@ -269,7 +269,7 @@ msgstr "收起"
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/pages/PkEventPage.re.mjs:304
+#: src/components/pages/PkEventPage.re.mjs:305
 msgid "Location"
 msgstr "地点"
 
@@ -310,7 +310,7 @@ msgstr "没有技能等级限制。对所有球员开放。"
 msgid "No Score"
 msgstr "无比分"
 
-#: src/components/pages/PkEventPage.re.mjs:622
+#: src/components/pages/PkEventPage.re.mjs:650
 msgid "Notes from the host"
 msgstr "主持人的备注"
 
@@ -371,6 +371,10 @@ msgstr "处理中…"
 msgid "Professional players"
 msgstr "职业球员"
 
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Pull to refresh"
+msgstr "下拉刷新"
+
 #: src/components/atoms/EventTag.re.mjs:74
 #: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
@@ -385,9 +389,22 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
+#: src/components/pages/PkEventPage.re.mjs:615
+msgid "Refresh event details"
+msgstr "刷新赛事详情"
+
+#: src/components/shared/PullToRefresh.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:615
+msgid "Refreshing…"
+msgstr "刷新中…"
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr "退款"
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Release to refresh"
+msgstr "释放即可刷新"
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -438,7 +455,7 @@ msgstr "保存比分"
 msgid "Score"
 msgstr "比分"
 
-#: src/components/pages/PkEventPage.re.mjs:226
+#: src/components/pages/PkEventPage.re.mjs:227
 msgid "Share"
 msgstr "分享"
 
@@ -515,7 +532,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/pages/PkEventPage.re.mjs:499
+#: src/components/pages/PkEventPage.re.mjs:507
 msgid "uncancel event"
 msgstr "取消取消活动"
 

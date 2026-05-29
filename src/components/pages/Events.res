@@ -1,6 +1,5 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
-open Lingui.Util
 
 module EventsQuery = %relay(`
   query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
@@ -26,41 +25,41 @@ module EventsQuery = %relay(`
 		}
   }
 `)*/
-module ActivityDropdownMenu = {
-  type navItem = {label: string, url: string, initials?: string}
-  let ts = Lingui.UtilString.t
-  @react.component
-  let make = () => {
-    open Dropdown
-    let activities = [
-      {label: ts`Pickleball`, url: "/e/pickleball", initials: "P"},
-      {label: ts`Badminton`, url: "/e/badminton", initials: "B"},
-    ]
-    <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
-      {activities
-      ->Array.map(a =>
-        <React.Fragment key={a.label}>
-          <DropdownItem href=a.url>
-            {a.initials
-            ->Option.map(initials =>
-              <Avatar slot="icon" initials className="bg-purple-500 text-white" />
-            )
-            ->Option.getOr(React.null)}
-            <DropdownLabel> {a.label->React.string} </DropdownLabel>
-          </DropdownItem>
-          <DropdownDivider />
-        </React.Fragment>
-      )
-      ->React.array}
-    </DropdownMenu>
-  }
-}
+// module ActivityDropdownMenu = {
+//   type navItem = {label: string, url: string, initials?: string}
+//   let ts = Lingui.UtilString.t
+//   @react.component
+//   let make = () => {
+//     open Dropdown
+//     let activities = [
+//       {label: ts`Pickleball`, url: "/e/pickleball", initials: "P"},
+//       {label: ts`Badminton`, url: "/e/badminton", initials: "B"},
+//     ]
+//     <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
+//       {activities
+//       ->Array.map(a =>
+//         <React.Fragment key={a.label}>
+//           <DropdownItem href=a.url>
+//             {a.initials
+//             ->Option.map(initials =>
+//               <Avatar slot="icon" initials className="bg-purple-500 text-white" />
+//             )
+//             ->Option.getOr(React.null)}
+//             <DropdownLabel> {a.label->React.string} </DropdownLabel>
+//           </DropdownItem>
+//           <DropdownDivider />
+//         </React.Fragment>
+//       )
+//       ->React.array}
+//     </DropdownMenu>
+//   }
+// }
 type loaderData = EventsQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
 // URL Params
-type params = {activitySlug: option<string>, lang: option<string>}
+type params = {activitySlug: option<string>, lang: option<string>, afterDate: option<string>}
 
 @react.component
 let make = () => {

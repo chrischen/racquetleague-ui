@@ -15,7 +15,11 @@ import type {props as ClubEventsPage_props} from '../../../src/components/pages/
 
 import type {queryRef as ClubEventsPageQuery_graphql_queryRef} from '../../../src/__generated__/ClubEventsPageQuery_graphql.gen';
 
-export type params = { readonly slug: string; readonly lang: (undefined | string) };
+export type params = {
+  readonly slug: string; 
+  readonly lang: (undefined | string); 
+  readonly afterDate: (undefined | string)
+};
 
 export type LoaderArgs_t = {
   readonly context: RelayEnv_context; 

@@ -6,7 +6,7 @@ external writeText: string => Js.Promise.t<unit> = "writeText"
 @val @scope(("window", "location")) external locationOrigin: string = "origin"
 
 module Query = %relay(`
-  query ClubEventsPageQuery($slug: String!) {
+  query ClubEventsPageQuery($slug: String!, $afterDate: Datetime) {
     club(slug: $slug) {
       id
       name
@@ -14,6 +14,7 @@ module Query = %relay(`
       shareLink
       viewerMembership { isAdmin }
       ...ClubDetails_club
+      ...ClubEventsListFragment @arguments(afterDate: $afterDate)
     }
     viewer {
       ...AddEventButton_viewer

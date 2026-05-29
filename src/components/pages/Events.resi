@@ -12,6 +12,7 @@ type params = {
   // first?: int,
   activitySlug: option<string>,
   lang: option<string>,
+  afterDate: option<string>,
 }
 
 module LoaderArgs: {

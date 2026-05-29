@@ -95,6 +95,8 @@ var Trash2 = {};
 
 var RotateCcw = {};
 
+var RefreshCw = {};
+
 var Loader2 = {};
 
 var MinusCircle = {};
@@ -199,6 +201,7 @@ export {
   ArrowDown ,
   Trash2 ,
   RotateCcw ,
+  RefreshCw ,
   Loader2 ,
   MinusCircle ,
   Minus ,

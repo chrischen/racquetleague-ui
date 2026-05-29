@@ -11,6 +11,10 @@ let make = (
   ~weekendBucketKey: string,
   ~filterByDate: option<Js.Date.t>=?,
   ~onClearFilter: option<unit => unit>=?,
+  ~selectedDate: option<Js.Date.t>=?,
+  ~onSelectDate: option<Js.Date.t => unit>=?,
+  ~onClearDate: option<unit => unit>=?,
+  ~eventDates: option<array<Js.Date.t>>=?,
   ~hasPrevious: bool=false,
   ~isLoadingPrevious: bool=false,
   ~onPrevious: option<unit => unit>=?,
@@ -30,45 +34,56 @@ let make = (
     {() =>
       <div className="flex-1 min-w-0" ref={ReactDOM.Ref.domRef(containerRef)}>
         <PullToRefresh.Indicator pullDistance isRefreshing={isPullRefreshing} />
-        // Filters bar
-        <div
-          className="px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] flex items-center gap-3 overflow-x-auto">
-          <div
-            className="flex items-center p-0.5 bg-white dark:bg-[#1e1f23] border border-gray-200 dark:border-[#3a3b40] rounded-lg flex-shrink-0">
-            {[("today", ts`Today`), ("tomorrow", ts`Tomorrow`), (weekendBucketKey, ts`Weekend`)]
-            ->Array.map(((key, label)) =>
-              <button
-                key=label
-                className={Util.cx([
-                  "px-3 py-1.5 text-sm rounded-md border whitespace-nowrap",
-                  activePill == Some(key)
-                    ? "bg-gray-100 dark:bg-[#2a2b30] border-gray-200 dark:border-[#3a3b40] font-medium dark:text-gray-100"
-                    : "bg-white dark:bg-transparent border-transparent hover:bg-gray-50 dark:hover:bg-[#2a2b30] text-gray-600 dark:text-gray-400",
-                ])}
-                onClick={_ => {
-                  setActivePill(_ => Some(key))
-                  EventsListUtils.scrollToGroup(key)
-                }}>
-                {label->React.string}
-              </button>
-            )
-            ->React.array}
+        {switch onSelectDate {
+        | Some(onSelectDate_) =>
+          <div className="px-4 py-2 border-b border-gray-200 dark:border-[#2a2b30]">
+            <CompactCalendar
+              selectedDate
+              onSelectDate=onSelectDate_
+              onClearDate={onClearDate->Option.getOr(() => ())}
+              eventDates={eventDates->Option.getOr([])}
+            />
           </div>
-          {filterByDate
-          ->Option.map(_ =>
+        | None =>
+          <div
+            className="px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] flex items-center gap-3 overflow-x-auto">
             <div
-              className="flex items-center gap-1 px-2.5 py-1 text-sm bg-white dark:bg-transparent border border-gray-800 dark:border-gray-400 rounded-md font-mono dark:text-gray-300 flex-shrink-0">
-              <span> {(ts`Filtered by date`)->React.string} </span>
-              <button onClick={_ => onClearFilter->Option.forEach(f => f())}>
-                <Lucide.X
-                  size=12
-                  className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
-                />
-              </button>
+              className="flex items-center p-0.5 bg-white dark:bg-[#1e1f23] border border-gray-200 dark:border-[#3a3b40] rounded-lg flex-shrink-0">
+              {[("today", ts`Today`), ("tomorrow", ts`Tomorrow`), (weekendBucketKey, ts`Weekend`)]
+              ->Array.map(((key, label)) =>
+                <button
+                  key=label
+                  className={Util.cx([
+                    "px-3 py-1.5 text-sm rounded-md border whitespace-nowrap",
+                    activePill == Some(key)
+                      ? "bg-gray-100 dark:bg-[#2a2b30] border-gray-200 dark:border-[#3a3b40] font-medium dark:text-gray-100"
+                      : "bg-white dark:bg-transparent border-transparent hover:bg-gray-50 dark:hover:bg-[#2a2b30] text-gray-600 dark:text-gray-400",
+                  ])}
+                  onClick={_ => {
+                    setActivePill(_ => Some(key))
+                    EventsListUtils.scrollToGroup(key)
+                  }}>
+                  {label->React.string}
+                </button>
+              )
+              ->React.array}
             </div>
-          )
-          ->Option.getOr(React.null)}
-        </div>
+            {filterByDate
+            ->Option.map(_ =>
+              <div
+                className="flex items-center gap-1 px-2.5 py-1 text-sm bg-white dark:bg-transparent border border-gray-800 dark:border-gray-400 rounded-md font-mono dark:text-gray-300 flex-shrink-0">
+                <span> {(ts`Filtered by date`)->React.string} </span>
+                <button onClick={_ => onClearFilter->Option.forEach(f => f())}>
+                  <Lucide.X
+                    size=12
+                    className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
+                  />
+                </button>
+              </div>
+            )
+            ->Option.getOr(React.null)}
+          </div>
+        }}
         // List header
         <div
           className="px-4 md:px-6 py-4 border-b border-gray-100 dark:border-[#2a2b30] flex items-center justify-between">

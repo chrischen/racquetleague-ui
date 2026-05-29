@@ -62,6 +62,41 @@ input AutocompleteLocationInput {
   plusCode: String
 }
 
+"""A user's declared availability for a single calendar day."""
+type AvailabilityDay implements Node {
+  id: ID!
+  intervals: [AvailabilityInterval!]!
+  localDate: String!
+  timeZone: String!
+  updatedAt: Datetime!
+  userId: ID!
+}
+
+"""Available-user count for a specific calendar day."""
+type AvailabilityDayCount {
+  count: Int!
+  localDate: String!
+}
+
+"""Available-user count for a specific hour slot (0–23)."""
+type AvailabilityHourCount {
+  count: Int!
+  hour: Int!
+}
+
+"""A half-open hourly time slot [startHour, endHour)."""
+type AvailabilityInterval {
+  endHour: Int!
+  startHour: Int!
+}
+
+"""A calendar day with overlapping availability intervals and user count."""
+type AvailabilityOverlapDay {
+  intervals: [AvailabilityInterval!]!
+  localDate: String!
+  userCount: Int!
+}
+
 type CaptureEventPaymentsResult implements HasErrors {
   errors: [Error!]
   payments: [Payment!]
@@ -330,6 +365,11 @@ type GetUserClubMembershipResult implements HasErrors {
 
 interface HasErrors {
   errors: [Error!]
+}
+
+input IntervalInput {
+  endHour: Int!
+  startHour: Int!
 }
 
 input IsUserBannedInput {
@@ -624,6 +664,8 @@ type Mutation {
   """
   registerPushSubscription(input: RegisterPushSubscriptionInput!): PushSubscriptionResult!
   removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
+  setAvailabilityDay(input: SetAvailabilityDayInput!): SetAvailabilityDayResult!
+  setAvailabilityDays(input: SetAvailabilityDaysInput!): SetAvailabilityDaysResult!
   uncancelEvent(eventId: ID!): MutationResult2!
 
   """
@@ -652,6 +694,12 @@ type MutationResult2 implements HasErrors {
 
 interface Node {
   id: ID!
+}
+
+input OverlapScopeInput {
+  clubId: ID
+  eventId: ID
+  userIds: [ID!]
 }
 
 """Information about pagination in a connection."""
@@ -700,6 +748,10 @@ type PushSubscriptionResult implements HasErrors {
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
+  availabilityCountForDay(activityId: ID, clubId: ID, localDate: String!, timeZone: String!): Int!
+  availabilityDailyCounts(fromDate: String!, toDate: String!, userIds: [ID!]!): [AvailabilityDayCount!]!
+  availabilityHourlyCounts(activityId: ID, clubId: ID, localDate: String!, timeZone: String!): [AvailabilityHourCount!]!
+  availabilityOverlap(fromDate: String!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityOverlapDay!]!
   chatMessages(limit: Int, sessionId: String!): [ChatMessage!]!
   club(id: ID, slug: String): Club
   clubMembers(after: String, first: Int, input: ClubMembersInput!): MembershipConnection!
@@ -785,6 +837,26 @@ type Rsvp implements Node {
   rating: Rating
   rsvpId: Int
   user: User
+}
+
+input SetAvailabilityDayInput {
+  intervals: [IntervalInput!]!
+  localDate: String!
+  timeZone: String!
+}
+
+type SetAvailabilityDayResult implements HasErrors {
+  day: AvailabilityDay
+  errors: [Error!]
+}
+
+input SetAvailabilityDaysInput {
+  days: [SetAvailabilityDayInput!]!
+}
+
+type SetAvailabilityDaysResult implements HasErrors {
+  days: [AvailabilityDay!]
+  errors: [Error!]
 }
 
 type StripeAccountSessionResult implements HasErrors {
@@ -900,6 +972,7 @@ type User implements Node {
 
 type Viewer {
   adminClubs(after: String, before: String, first: Int): ClubConnection!
+  availability(fromDate: String!, toDate: String!): [AvailabilityDay!]!
   clubs(after: String, before: String, first: Int): ClubConnection!
   events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
   inbox(after: String, before: String, first: Int): EventMessageConnection

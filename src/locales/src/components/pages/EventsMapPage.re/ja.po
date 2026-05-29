@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:328
+#: src/components/pages/PkEventPage.re.mjs:329
 msgid "...more"
 msgstr "...もっと見る"
 
@@ -30,7 +30,7 @@ msgstr "· +{0} 補欠"
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:146
+#: src/components/pkuru/PkEventsList.re.mjs:147
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
@@ -43,11 +43,11 @@ msgstr "{0} 参加済み"
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:106
+#: src/components/shared/EventsListView.re.mjs:136
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:119
+#: src/components/shared/EventsListView.re.mjs:171
 msgid "← previous"
 msgstr "← 前へ"
 
@@ -63,7 +63,7 @@ msgstr "アクティビティ"
 msgid "Add a message..."
 msgstr "メッセージを追加..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:164
+#: src/components/pkuru/PkEventsList.re.mjs:165
 msgid "Add to {0}"
 msgstr "{0}に追加"
 
@@ -96,7 +96,7 @@ msgstr "バランス"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:510
+#: src/components/pages/PkEventPage.re.mjs:518
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -108,7 +108,7 @@ msgstr "参加をキャンセルする"
 msgid "Canceled"
 msgstr "キャンセル済み"
 
-#: src/components/pages/PkEventPage.re.mjs:191
+#: src/components/pages/PkEventPage.re.mjs:192
 msgid "CANCELED"
 msgstr "キャンセル"
 
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:481
+#: src/components/pages/PkEventPage.re.mjs:489
 msgid "Cannot access variable \\\"title\\\""
 msgstr "変数 \\\"title\\\" にアクセスできません"
 
@@ -161,7 +161,7 @@ msgstr "プロフィールを完成させる"
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:226
+#: src/components/pages/PkEventPage.re.mjs:227
 msgid "Copied!"
 msgstr "コピーしました！"
 
@@ -203,7 +203,7 @@ msgstr "表示名は必須です"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:493
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -239,12 +239,12 @@ msgstr "試合のスコアを入力"
 msgid "even"
 msgstr "均等"
 
-#: src/components/shared/EventsListView.re.mjs:107
-#: src/components/pkuru/PkEventsList.re.mjs:149
+#: src/components/shared/EventsListView.re.mjs:137
+#: src/components/pkuru/PkEventsList.re.mjs:150
 msgid "event"
 msgstr "イベント"
 
-#: src/components/pages/PkEventPage.re.mjs:761
+#: src/components/pages/PkEventPage.re.mjs:807
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -256,8 +256,8 @@ msgstr "イベントタグ: {tag}"
 msgid "Event updated"
 msgstr "イベントを更新しました"
 
-#: src/components/shared/EventsListView.re.mjs:108
-#: src/components/pkuru/PkEventsList.re.mjs:150
+#: src/components/shared/EventsListView.re.mjs:138
+#: src/components/pkuru/PkEventsList.re.mjs:151
 msgid "events"
 msgstr "イベント"
 
@@ -265,7 +265,7 @@ msgstr "イベント"
 msgid "Female"
 msgstr "女性"
 
-#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/shared/EventsListView.re.mjs:113
 msgid "Filtered by date"
 msgstr "日付でフィルター中"
 
@@ -273,11 +273,11 @@ msgstr "日付でフィルター中"
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
 
-#: src/components/pages/PkEventPage.re.mjs:274
+#: src/components/pages/PkEventPage.re.mjs:275
 msgid "Free"
 msgstr "無料"
 
-#: src/components/pkuru/PkEventsList.re.mjs:305
+#: src/components/pkuru/PkEventsList.re.mjs:314
 msgid "Friday"
 msgstr "金曜日"
 
@@ -331,7 +331,7 @@ msgstr "キャンセル待ちを取り消す"
 msgid "Leaving..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:328
+#: src/components/pages/PkEventPage.re.mjs:329
 msgid "less"
 msgstr "閉じる"
 
@@ -339,7 +339,7 @@ msgstr "閉じる"
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/pages/PkEventPage.re.mjs:304
+#: src/components/pages/PkEventPage.re.mjs:305
 msgid "Location"
 msgstr "場所"
 
@@ -367,11 +367,11 @@ msgstr "中央値"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/pkuru/PkEventsList.re.mjs:293
+#: src/components/pkuru/PkEventsList.re.mjs:302
 msgid "Monday"
 msgstr "月曜日"
 
-#: src/components/shared/EventsListView.re.mjs:142
+#: src/components/shared/EventsListView.re.mjs:194
 msgid "more →"
 msgstr "もっと見る →"
 
@@ -380,7 +380,7 @@ msgstr "もっと見る →"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/pkuru/PkEventsList.re.mjs:314
+#: src/components/pkuru/PkEventsList.re.mjs:323
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
 
@@ -392,7 +392,7 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/pages/PkEventPage.re.mjs:622
+#: src/components/pages/PkEventPage.re.mjs:650
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
@@ -467,6 +467,10 @@ msgstr "処理中…"
 msgid "Professional players"
 msgstr "プロプレイヤー"
 
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Pull to refresh"
+msgstr "引っ張って更新"
+
 #: src/components/atoms/EventTag.re.mjs:74
 #: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
@@ -481,9 +485,27 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
+#: src/components/shared/EventsListView.re.mjs:151
+msgid "Refresh"
+msgstr "更新"
+
+#: src/components/pages/PkEventPage.re.mjs:615
+msgid "Refresh event details"
+msgstr "イベント詳細を更新"
+
+#: src/components/shared/PullToRefresh.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/shared/EventsListView.re.mjs:151
+msgid "Refreshing…"
+msgstr "更新中…"
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr "返金処理"
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Release to refresh"
+msgstr "離して更新"
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -517,7 +539,7 @@ msgstr "ラウンド{0}"
 msgid "Round Robin Draws"
 msgstr "ラウンドロビン組み合わせ"
 
-#: src/components/pkuru/PkEventsList.re.mjs:308
+#: src/components/pkuru/PkEventsList.re.mjs:317
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -538,11 +560,11 @@ msgstr "スコアを保存"
 msgid "Score"
 msgstr "スコア"
 
-#: src/components/pages/PkEventPage.re.mjs:226
+#: src/components/pages/PkEventPage.re.mjs:227
 msgid "Share"
 msgstr "共有"
 
-#: src/components/pkuru/PkEventsList.re.mjs:214
+#: src/components/pkuru/PkEventsList.re.mjs:215
 msgid "Show {0} more"
 msgstr "{0}件をさらに表示"
 
@@ -558,7 +580,7 @@ msgstr "折りたたむ"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
-#: src/components/shared/EventsListView.re.mjs:109
+#: src/components/shared/EventsListView.re.mjs:139
 msgid "SORTED BY START TIME"
 msgstr "開始時間順"
 
@@ -566,7 +588,7 @@ msgstr "開始時間順"
 msgid "SPREAD"
 msgstr "ばらつき"
 
-#: src/components/pkuru/PkEventsList.re.mjs:290
+#: src/components/pkuru/PkEventsList.re.mjs:299
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -633,17 +655,17 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/pkuru/PkEventsList.re.mjs:302
+#: src/components/pkuru/PkEventsList.re.mjs:311
 msgid "Thursday"
 msgstr "木曜日"
 
-#: src/components/shared/EventsListView.re.mjs:53
-#: src/components/pkuru/PkEventsList.re.mjs:273
+#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/pkuru/PkEventsList.re.mjs:282
 msgid "Today"
 msgstr "今日"
 
-#: src/components/shared/EventsListView.re.mjs:57
-#: src/components/pkuru/PkEventsList.re.mjs:279
+#: src/components/shared/EventsListView.re.mjs:87
+#: src/components/pkuru/PkEventsList.re.mjs:288
 msgid "Tomorrow"
 msgstr "明日"
 
@@ -651,11 +673,11 @@ msgstr "明日"
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/pkuru/PkEventsList.re.mjs:296
+#: src/components/pkuru/PkEventsList.re.mjs:305
 msgid "Tuesday"
 msgstr "火曜日"
 
-#: src/components/pages/PkEventPage.re.mjs:499
+#: src/components/pages/PkEventPage.re.mjs:507
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -693,11 +715,11 @@ msgstr "キャンセル待ち中"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/pkuru/PkEventsList.re.mjs:299
+#: src/components/pkuru/PkEventsList.re.mjs:308
 msgid "Wednesday"
 msgstr "水曜日"
 
-#: src/components/shared/EventsListView.re.mjs:61
+#: src/components/shared/EventsListView.re.mjs:91
 msgid "Weekend"
 msgstr "週末"
 
@@ -713,7 +735,7 @@ msgstr "参加登録を取り消す"
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:313
+#: src/components/pkuru/PkEventsList.re.mjs:322
 msgid "Yesterday"
 msgstr "昨日"
 

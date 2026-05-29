@@ -324,10 +324,18 @@ module Inner = {
     ~queryFragmentRefs: RescriptRelay.fragmentRefs<
       [> #ProfileModal_viewer | #PkEventMessages_query],
     >,
+    ~onRefresh: option<unit => Js.Promise.t<unit>>=?,
   ) => {
     let viewerUser = viewer->Option.flatMap(v => v.user)
     let ts = Lingui.UtilString.t
     let locale = React.useContext(LangProvider.LocaleContext.context)
+
+    let containerRef: React.ref<Js.Nullable.t<Dom.element>> = React.useRef(Js.Nullable.null)
+    let {pullDistance, isRefreshing, isPullRefreshing, triggerRefresh} =
+      PullToRefresh.usePullToRefresh(
+        containerRef,
+        onRefresh->Option.getOr(() => Js.Promise.resolve()),
+      )
 
     let (mounted, setMounted) = React.useState(() => false)
     React.useEffect0(() => {
@@ -416,7 +424,8 @@ module Inner = {
       </div>
     } else {
       /* Top Bar */
-      <div className="relative w-full max-w-2xl mx-auto bg-white dark:bg-[#1e1f23]">
+      <div className="relative w-full max-w-2xl mx-auto bg-white dark:bg-[#1e1f23]"
+        ref={ReactDOM.Ref.domRef(containerRef)}>
         <div
           className="bg-white dark:bg-[#1e1f23] border-b border-gray-100 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0">
           <div
@@ -446,7 +455,17 @@ module Inner = {
             ->Option.getOr(React.null)}
             {durationStr->Option.map(d => (" · " ++ d)->React.string)->Option.getOr(React.null)}
           </div>
+          {onRefresh->Option.map(_ =>
+            <button
+              onClick={_ => triggerRefresh()}
+              disabled=isRefreshing
+              className="text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              title={(isRefreshing ? ts`Refreshing…` : ts`Refresh event details`)}>
+              <Lucide.RefreshCw size=13 className={isRefreshing ? "animate-spin" : ""} />
+            </button>
+          )->Option.getOr(React.null)}
         </div>
+        <PullToRefresh.Indicator pullDistance isRefreshing={isPullRefreshing} />
         <div className="flex-1 overflow-y-auto pb-24">
           /* Title */
           <EventTitleSection event secret tz />
@@ -642,11 +661,21 @@ module Inner = {
 module Lazy = {
   @react.component
   let make = (~eventId: string) => {
+    let (fetchKey, setFetchKey) = React.useState(() => 0)
+    let fetchPolicy = fetchKey > 0 ? RescriptRelay.StoreAndNetwork : RescriptRelay.StoreOrNetwork
     let {event, viewer, fragmentRefs: queryFragmentRefs} = EventQuery.use(
       ~variables={eventId, topic: eventId ++ ".updated"},
+      ~fetchKey=Int.toString(fetchKey),
+      ~fetchPolicy,
     )
+    let onRefresh = () => {
+      setFetchKey(k => k + 1)
+      Js.Promise.make((~resolve, ~reject as _) => {
+        let _ = Js.Global.setTimeout(() => resolve(), 1500)
+      })
+    }
     event
-    ->Option.map(event => <Inner event viewer queryFragmentRefs />)
+    ->Option.map(event => <Inner event viewer queryFragmentRefs onRefresh />)
     ->Option.getOr(<div className="p-6 text-center text-gray-500"> {t`Event not found`} </div>)
   }
 }

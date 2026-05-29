@@ -139,16 +139,24 @@ let make = (
   let ctx = DrawerContext.use()
 
   let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
-  let searchParams = searchParams->Router.ImmSearchParams.fromSearchParams
 
-  let filterByDate =
+  let selectedDate =
     searchParams
-    ->Router.ImmSearchParams.get("selectedDate")
-    ->Option.map(date => Js.Date.fromString(date))
+    ->Router.ImmSearchParams.fromSearchParams
+    ->Router.ImmSearchParams.get("afterDate")
+    ->Option.map(d => Js.Date.fromString(d))
 
-  let clearFilterByDate = () => {
+  let onSelectDate = (date: Js.Date.t) => {
     setSearchParams(prevParams => {
-      prevParams->Router.SearchParams.delete("selectedDate")
+      EventsListUtils.Filter.ByAfterDate(date)
+      ->EventsListUtils.Filter.updateParams(prevParams->Router.ImmSearchParams.fromSearchParams)
+      ->Router.ImmSearchParams.toSearchParams
+    })
+  }
+
+  let onClearDate = () => {
+    setSearchParams(prevParams => {
+      prevParams->Router.SearchParams.delete("afterDate")
       prevParams
     })
   }
@@ -200,12 +208,16 @@ let make = (
       (label, formatDate(date), date)
     }
 
+  let eventDates = events->Array.filterMap(e =>
+    e.startDate->Option.map(d => d->Util.Datetime.toDate)
+  )
+
   let bucketEventsDict = EventsListUtils.bucketEvents(
     ~setup=bucketSetup,
     ~getStartDate={
       (e: ClubEventsListFragment_graphql.Types.fragment_events_edges_node) => e.startDate
     },
-    ~filterByDate,
+    ~filterByDate=None,
     events,
   )
 
@@ -255,8 +267,10 @@ let make = (
         totalEvents
         buckets
         weekendBucketKey=bucketSetup.weekendBucketKey
-        ?filterByDate
-        onClearFilter={clearFilterByDate}
+        ?selectedDate
+        onSelectDate={onSelectDate}
+        onClearDate={onClearDate}
+        eventDates={eventDates}
         hasPrevious
         isLoadingPrevious
         ?onPrevious

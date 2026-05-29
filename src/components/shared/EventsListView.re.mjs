@@ -8,6 +8,7 @@ import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as PullToRefresh from "./PullToRefresh.re.mjs";
+import * as CompactCalendar from "../pkuru/CompactCalendar.re.mjs";
 import * as EventsListUtils from "./EventsListUtils.re.mjs";
 import * as WaitForMessages from "./i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
@@ -30,6 +31,10 @@ function EventsListView(props) {
   var onPrevious = props.onPrevious;
   var __isLoadingPrevious = props.isLoadingPrevious;
   var __hasPrevious = props.hasPrevious;
+  var eventDates = props.eventDates;
+  var onClearDate = props.onClearDate;
+  var onSelectDate = props.onSelectDate;
+  var selectedDate = props.selectedDate;
   var onClearFilter = props.onClearFilter;
   var filterByDate = props.filterByDate;
   var weekendBucketKey = props.weekendBucketKey;
@@ -59,62 +64,72 @@ function EventsListView(props) {
                                       pullDistance: pullDistance,
                                       isRefreshing: isPullRefreshing
                                     }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("div", {
-                                              children: [
-                                                  [
-                                                    "today",
-                                                    t`Today`
-                                                  ],
-                                                  [
-                                                    "tomorrow",
-                                                    t`Tomorrow`
-                                                  ],
-                                                  [
-                                                    weekendBucketKey,
-                                                    t`Weekend`
-                                                  ]
-                                                ].map(function (param) {
-                                                    var label = param[1];
-                                                    var key = param[0];
-                                                    return JsxRuntime.jsx("button", {
-                                                                children: label,
-                                                                className: Core.cx("px-3 py-1.5 text-sm rounded-md border whitespace-nowrap", Caml_obj.equal(activePill, key) ? "bg-gray-100 dark:bg-[#2a2b30] border-gray-200 dark:border-[#3a3b40] font-medium dark:text-gray-100" : "bg-white dark:bg-transparent border-transparent hover:bg-gray-50 dark:hover:bg-[#2a2b30] text-gray-600 dark:text-gray-400"),
-                                                                onClick: (function (param) {
-                                                                    setActivePill(function (param) {
-                                                                          return key;
-                                                                        });
-                                                                    EventsListUtils.scrollToGroup(key);
-                                                                  })
-                                                              }, label);
-                                                  }),
-                                              className: "flex items-center p-0.5 bg-white dark:bg-[#1e1f23] border border-gray-200 dark:border-[#3a3b40] rounded-lg flex-shrink-0"
+                                onSelectDate !== undefined ? JsxRuntime.jsx("div", {
+                                        children: JsxRuntime.jsx(CompactCalendar.make, {
+                                              selectedDate: selectedDate,
+                                              onSelectDate: onSelectDate,
+                                              onClearDate: Core__Option.getOr(onClearDate, (function () {
+                                                      
+                                                    })),
+                                              eventDates: Core__Option.getOr(eventDates, [])
                                             }),
-                                        Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
-                                                    return JsxRuntime.jsxs("div", {
-                                                                children: [
-                                                                  JsxRuntime.jsx("span", {
-                                                                        children: t`Filtered by date`
-                                                                      }),
-                                                                  JsxRuntime.jsx("button", {
-                                                                        children: JsxRuntime.jsx(LucideReact.X, {
-                                                                              size: 12,
-                                                                              className: "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
-                                                                            }),
-                                                                        onClick: (function (param) {
-                                                                            Core__Option.forEach(onClearFilter, (function (f) {
-                                                                                    f();
-                                                                                  }));
-                                                                          })
-                                                                      })
-                                                                ],
-                                                                className: "flex items-center gap-1 px-2.5 py-1 text-sm bg-white dark:bg-transparent border border-gray-800 dark:border-gray-400 rounded-md font-mono dark:text-gray-300 flex-shrink-0"
-                                                              });
-                                                  })), null)
-                                      ],
-                                      className: "px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] flex items-center gap-3 overflow-x-auto"
-                                    }),
+                                        className: "px-4 py-2 border-b border-gray-200 dark:border-[#2a2b30]"
+                                      }) : JsxRuntime.jsxs("div", {
+                                        children: [
+                                          JsxRuntime.jsx("div", {
+                                                children: [
+                                                    [
+                                                      "today",
+                                                      t`Today`
+                                                    ],
+                                                    [
+                                                      "tomorrow",
+                                                      t`Tomorrow`
+                                                    ],
+                                                    [
+                                                      weekendBucketKey,
+                                                      t`Weekend`
+                                                    ]
+                                                  ].map(function (param) {
+                                                      var label = param[1];
+                                                      var key = param[0];
+                                                      return JsxRuntime.jsx("button", {
+                                                                  children: label,
+                                                                  className: Core.cx("px-3 py-1.5 text-sm rounded-md border whitespace-nowrap", Caml_obj.equal(activePill, key) ? "bg-gray-100 dark:bg-[#2a2b30] border-gray-200 dark:border-[#3a3b40] font-medium dark:text-gray-100" : "bg-white dark:bg-transparent border-transparent hover:bg-gray-50 dark:hover:bg-[#2a2b30] text-gray-600 dark:text-gray-400"),
+                                                                  onClick: (function (param) {
+                                                                      setActivePill(function (param) {
+                                                                            return key;
+                                                                          });
+                                                                      EventsListUtils.scrollToGroup(key);
+                                                                    })
+                                                                }, label);
+                                                    }),
+                                                className: "flex items-center p-0.5 bg-white dark:bg-[#1e1f23] border border-gray-200 dark:border-[#3a3b40] rounded-lg flex-shrink-0"
+                                              }),
+                                          Core__Option.getOr(Core__Option.map(filterByDate, (function (param) {
+                                                      return JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx("span", {
+                                                                          children: t`Filtered by date`
+                                                                        }),
+                                                                    JsxRuntime.jsx("button", {
+                                                                          children: JsxRuntime.jsx(LucideReact.X, {
+                                                                                size: 12,
+                                                                                className: "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
+                                                                              }),
+                                                                          onClick: (function (param) {
+                                                                              Core__Option.forEach(onClearFilter, (function (f) {
+                                                                                      f();
+                                                                                    }));
+                                                                            })
+                                                                        })
+                                                                  ],
+                                                                  className: "flex items-center gap-1 px-2.5 py-1 text-sm bg-white dark:bg-transparent border border-gray-800 dark:border-gray-400 rounded-md font-mono dark:text-gray-300 flex-shrink-0"
+                                                                });
+                                                    })), null)
+                                        ],
+                                        className: "px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] flex items-center gap-3 overflow-x-auto"
+                                      }),
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("h2", {

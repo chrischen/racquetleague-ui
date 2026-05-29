@@ -288,6 +288,12 @@ module RotateCcw = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "RotateCcw"
 }
 
+module RefreshCw = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "RefreshCw"
+}
+
 module Loader2 = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =

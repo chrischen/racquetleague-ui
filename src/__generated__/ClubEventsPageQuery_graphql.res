@@ -13,7 +13,7 @@ module Types = {
     name: option<string>,
     shareLink: option<string>,
     viewerMembership: option<response_club_viewerMembership>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #ClubDetails_club]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #ClubDetails_club | #ClubEventsListFragment]>,
   }
   and response_viewer = {
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #AddEventButton_viewer]>,
@@ -26,15 +26,19 @@ module Types = {
   type rawResponse = response
   @live
   type variables = {
+    afterDate?: Util.Datetime.t,
     slug: string,
   }
   @live
   type refetchVariables = {
+    afterDate: option<option<Util.Datetime.t>>,
     slug: option<string>,
   }
   @live let makeRefetchVariables = (
+    ~afterDate=?,
     ~slug=?,
   ): refetchVariables => {
+    afterDate: afterDate,
     slug: slug
   }
 
@@ -46,10 +50,12 @@ type queryRef
 module Internal = {
   @live
   let variablesConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{}`
+    json`{"__root":{"afterDate":{"c":"Util.Datetime"}}}`
   )
   @live
-  let variablesConverterMap = ()
+  let variablesConverterMap = {
+    "Util.Datetime": Util.Datetime.serialize,
+  }
   @live
   let convertVariables = v => v->RescriptRelay.convertObj(
     variablesConverter,
@@ -103,74 +109,144 @@ type operationType = RescriptRelay.queryNode<relayOperationNode>
 
 
 let node: operationType = %raw(json` (function(){
-var v0 = [
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "slug"
-  }
-],
-v1 = [
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "afterDate"
+},
+v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "slug"
+},
+v2 = [
   {
     "kind": "Variable",
     "name": "slug",
     "variableName": "slug"
   }
 ],
-v2 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v3 = {
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v4 = {
+v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "description",
   "storageKey": null
 },
-v5 = {
+v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "shareLink",
   "storageKey": null
 },
-v6 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "isAdmin",
   "storageKey": null
+},
+v8 = {
+  "kind": "Variable",
+  "name": "afterDate",
+  "variableName": "afterDate"
+},
+v9 = [
+  (v8/*: any*/),
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 20
+  }
+],
+v10 = [
+  (v3/*: any*/),
+  (v4/*: any*/)
+],
+v11 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 100
+  }
+],
+v12 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "User",
+  "kind": "LinkedField",
+  "name": "user",
+  "plural": false,
+  "selections": [
+    (v3/*: any*/)
+  ],
+  "storageKey": null
+},
+v13 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
+  "storageKey": null
+},
+v14 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "cursor",
+  "storageKey": null
+},
+v15 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "endCursor",
+  "storageKey": null
+},
+v16 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "hasNextPage",
+  "storageKey": null
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "ClubEventsPageQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v1/*: any*/),
+        "args": (v2/*: any*/),
         "concreteType": "Club",
         "kind": "LinkedField",
         "name": "club",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           (v3/*: any*/),
           (v4/*: any*/),
           (v5/*: any*/),
+          (v6/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -179,7 +255,7 @@ return {
             "name": "viewerMembership",
             "plural": false,
             "selections": [
-              (v6/*: any*/)
+              (v7/*: any*/)
             ],
             "storageKey": null
           },
@@ -187,6 +263,13 @@ return {
             "args": null,
             "kind": "FragmentSpread",
             "name": "ClubDetails_club"
+          },
+          {
+            "args": [
+              (v8/*: any*/)
+            ],
+            "kind": "FragmentSpread",
+            "name": "ClubEventsListFragment"
           }
         ],
         "storageKey": null
@@ -213,22 +296,25 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v1/*: any*/),
+      (v0/*: any*/)
+    ],
     "kind": "Operation",
     "name": "ClubEventsPageQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v1/*: any*/),
+        "args": (v2/*: any*/),
         "concreteType": "Club",
         "kind": "LinkedField",
         "name": "club",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           (v3/*: any*/),
           (v4/*: any*/),
           (v5/*: any*/),
+          (v6/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -237,10 +323,272 @@ return {
             "name": "viewerMembership",
             "plural": false,
             "selections": [
-              (v6/*: any*/),
-              (v2/*: any*/)
+              (v7/*: any*/),
+              (v3/*: any*/)
             ],
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": (v9/*: any*/),
+            "concreteType": "EventConnection",
+            "kind": "LinkedField",
+            "name": "events",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "EventEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Event",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      (v3/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "startDate",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "timezone",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "maxRsvps",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "listed",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "shadow",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "deleted",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "Club",
+                        "kind": "LinkedField",
+                        "name": "club",
+                        "plural": false,
+                        "selections": (v10/*: any*/),
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "Location",
+                        "kind": "LinkedField",
+                        "name": "location",
+                        "plural": false,
+                        "selections": (v10/*: any*/),
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": (v11/*: any*/),
+                        "concreteType": "EventRsvpConnection",
+                        "kind": "LinkedField",
+                        "name": "rsvps",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "concreteType": "EventRsvpEdge",
+                            "kind": "LinkedField",
+                            "name": "edges",
+                            "plural": true,
+                            "selections": [
+                              {
+                                "alias": null,
+                                "args": null,
+                                "concreteType": "Rsvp",
+                                "kind": "LinkedField",
+                                "name": "node",
+                                "plural": false,
+                                "selections": [
+                                  (v3/*: any*/),
+                                  {
+                                    "alias": null,
+                                    "args": null,
+                                    "kind": "ScalarField",
+                                    "name": "listType",
+                                    "storageKey": null
+                                  },
+                                  (v12/*: any*/),
+                                  {
+                                    "alias": null,
+                                    "args": null,
+                                    "concreteType": "Rating",
+                                    "kind": "LinkedField",
+                                    "name": "rating",
+                                    "plural": false,
+                                    "selections": [
+                                      {
+                                        "alias": null,
+                                        "args": null,
+                                        "kind": "ScalarField",
+                                        "name": "mu",
+                                        "storageKey": null
+                                      },
+                                      (v3/*: any*/)
+                                    ],
+                                    "storageKey": null
+                                  },
+                                  (v13/*: any*/)
+                                ],
+                                "storageKey": null
+                              },
+                              (v14/*: any*/)
+                            ],
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "concreteType": "PageInfo",
+                            "kind": "LinkedField",
+                            "name": "pageInfo",
+                            "plural": false,
+                            "selections": [
+                              (v15/*: any*/),
+                              (v16/*: any*/)
+                            ],
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": "rsvps(first:100)"
+                      },
+                      {
+                        "alias": null,
+                        "args": (v11/*: any*/),
+                        "filters": null,
+                        "handle": "connection",
+                        "key": "PkEventRow_event_rsvps",
+                        "kind": "LinkedHandle",
+                        "name": "rsvps"
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "title",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "endDate",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "tags",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "cancelDeadline",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ClientExtension",
+                        "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "__id",
+                            "storageKey": null
+                          }
+                        ]
+                      },
+                      (v13/*: any*/)
+                    ],
+                    "storageKey": null
+                  },
+                  (v14/*: any*/)
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "PageInfo",
+                "kind": "LinkedField",
+                "name": "pageInfo",
+                "plural": false,
+                "selections": [
+                  (v16/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "hasPreviousPage",
+                    "storageKey": null
+                  },
+                  (v15/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "startCursor",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": (v9/*: any*/),
+            "filters": [
+              "afterDate",
+              "token"
+            ],
+            "handle": "connection",
+            "key": "ClubEventsListFragment_events",
+            "kind": "LinkedHandle",
+            "name": "events"
           }
         ],
         "storageKey": null
@@ -253,30 +601,19 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
-            "name": "user",
-            "plural": false,
-            "selections": [
-              (v2/*: any*/)
-            ],
-            "storageKey": null
-          }
+          (v12/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "8ffb135f2fac34d484cc922587fead65",
+    "cacheID": "c83422acf8640d1c20fd99ad64825624",
     "id": null,
     "metadata": {},
     "name": "ClubEventsPageQuery",
     "operationKind": "query",
-    "text": "query ClubEventsPageQuery(\n  $slug: String!\n) {\n  club(slug: $slug) {\n    id\n    name\n    description\n    shareLink\n    viewerMembership {\n      isAdmin\n      id\n    }\n    ...ClubDetails_club\n  }\n  viewer {\n    ...AddEventButton_viewer\n  }\n}\n\nfragment AddEventButton_viewer on Viewer {\n  user {\n    id\n  }\n}\n\nfragment ClubDetails_club on Club {\n  name\n  description\n}\n"
+    "text": "query ClubEventsPageQuery(\n  $slug: String!\n  $afterDate: Datetime\n) {\n  club(slug: $slug) {\n    id\n    name\n    description\n    shareLink\n    viewerMembership {\n      isAdmin\n      id\n    }\n    ...ClubDetails_club\n    ...ClubEventsListFragment_3I6gVe\n  }\n  viewer {\n    ...AddEventButton_viewer\n  }\n}\n\nfragment AddEventButton_viewer on Viewer {\n  user {\n    id\n  }\n}\n\nfragment ClubDetails_club on Club {\n  name\n  description\n}\n\nfragment ClubEventsListFragment_3I6gVe on Club {\n  events(first: 20, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        maxRsvps\n        listed\n        shadow\n        deleted\n        club {\n          id\n        }\n        location {\n          id\n        }\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n  id\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n  cancelDeadline\n}\n"
   }
 };
 })() `)

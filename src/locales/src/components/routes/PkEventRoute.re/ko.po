@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:328
+#: src/components/pages/PkEventPage.re.mjs:329
 msgid "...more"
 msgstr "...더 보기"
 
@@ -66,7 +66,7 @@ msgstr "균형"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/pages/PkEventPage.re.mjs:510
+#: src/components/pages/PkEventPage.re.mjs:518
 msgid "cancel event"
 msgstr "이벤트 취소"
 
@@ -74,7 +74,7 @@ msgstr "이벤트 취소"
 msgid "Cancel RSVP"
 msgstr "참가 취소"
 
-#: src/components/pages/PkEventPage.re.mjs:191
+#: src/components/pages/PkEventPage.re.mjs:192
 msgid "CANCELED"
 msgstr "취소됨"
 
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "취소 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:481
+#: src/components/pages/PkEventPage.re.mjs:489
 msgid "Cannot access variable \\\"title\\\""
 msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
 
@@ -126,7 +126,7 @@ msgstr "프로필 완성하기"
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:226
+#: src/components/pages/PkEventPage.re.mjs:227
 msgid "Copied!"
 msgstr "복사됨!"
 
@@ -168,7 +168,7 @@ msgstr "표시 이름이 필요합니다"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:493
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "edit event"
 msgstr "이벤트 편집"
 
@@ -204,7 +204,7 @@ msgstr "경기 점수 입력"
 msgid "even"
 msgstr "균등"
 
-#: src/components/pages/PkEventPage.re.mjs:785
+#: src/components/pages/PkEventPage.re.mjs:831
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -224,7 +224,7 @@ msgstr "여성"
 msgid "For event updates and notifications"
 msgstr "이벤트 업데이트 및 알림용"
 
-#: src/components/pages/PkEventPage.re.mjs:274
+#: src/components/pages/PkEventPage.re.mjs:275
 msgid "Free"
 msgstr "무료"
 
@@ -261,7 +261,7 @@ msgstr "대기 명단에서 나가기"
 msgid "Leaving..."
 msgstr "나가는 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:328
+#: src/components/pages/PkEventPage.re.mjs:329
 msgid "less"
 msgstr "간략히"
 
@@ -269,7 +269,7 @@ msgstr "간략히"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:304
+#: src/components/pages/PkEventPage.re.mjs:305
 msgid "Location"
 msgstr "장소"
 
@@ -310,7 +310,7 @@ msgstr "실력 제한 없음. 모든 플레이어 환영."
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/pages/PkEventPage.re.mjs:622
+#: src/components/pages/PkEventPage.re.mjs:650
 msgid "Notes from the host"
 msgstr "주최자 메모"
 
@@ -371,6 +371,10 @@ msgstr "처리 중…"
 msgid "Professional players"
 msgstr "프로 플레이어"
 
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Pull to refresh"
+msgstr "당겨서 새로 고침"
+
 #: src/components/atoms/EventTag.re.mjs:74
 #: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
@@ -385,9 +389,22 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
+#: src/components/pages/PkEventPage.re.mjs:615
+msgid "Refresh event details"
+msgstr "이벤트 세부 정보 새로 고침"
+
+#: src/components/shared/PullToRefresh.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:615
+msgid "Refreshing…"
+msgstr "새로 고침 중…"
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr "결제 환불"
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Release to refresh"
+msgstr "놓아서 새로 고침"
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -438,7 +455,7 @@ msgstr "점수 저장"
 msgid "Score"
 msgstr "점수"
 
-#: src/components/pages/PkEventPage.re.mjs:226
+#: src/components/pages/PkEventPage.re.mjs:227
 msgid "Share"
 msgstr "공유"
 
@@ -520,7 +537,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/pages/PkEventPage.re.mjs:499
+#: src/components/pages/PkEventPage.re.mjs:507
 msgid "uncancel event"
 msgstr "이벤트 취소 해제"
 

@@ -6,7 +6,11 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
+import * as WaitForMessages from "./i18n/WaitForMessages.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+
+import { t } from '@lingui/macro'
+;
 
 function fallbackScrollEl() {
   return Core__Option.getOr(Caml_option.nullable_to_opt(window.document.scrollingElement), window.document.documentElement);
@@ -117,6 +121,9 @@ function usePullToRefresh(anchorRef, onRefresh) {
                   setIsRefreshing(function (param) {
                         return true;
                       });
+                  setPullDistance(function (param) {
+                        return 56;
+                      });
                   Core__Promise.$$catch(onRefreshRef.current().then(function () {
                             refreshingRef.current = false;
                             pullTriggeredRef.current = false;
@@ -207,42 +214,46 @@ function usePullToRefresh(anchorRef, onRefresh) {
 function PullToRefresh$Indicator(props) {
   var isRefreshing = props.isRefreshing;
   var pullDistance = props.pullDistance;
-  var progress = Caml.float_min(1, pullDistance / 70);
-  var isVisible = pullDistance > 0 || isRefreshing;
-  var indicatorHeight = isRefreshing ? 56 : pullDistance;
-  var isPulling = pullDistance > 0 && !isRefreshing;
-  return JsxRuntime.jsx("div", {
-              children: JsxRuntime.jsxs("div", {
-                    children: [
-                      isRefreshing ? JsxRuntime.jsx(LucideReact.Loader2, {
-                              className: "w-[13px] h-[13px] animate-spin"
-                            }) : JsxRuntime.jsx("span", {
-                              children: JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                    size: 13
+  var ready = pullDistance >= 70;
+  var rotate = Caml.float_min(pullDistance / 70 * 180, 180);
+  var isResting = pullDistance === 0 && !isRefreshing;
+  var transition = isResting ? "height 280ms cubic-bezier(0.22, 1, 0.36, 1)" : (
+      isRefreshing ? "height 200ms ease-out" : "none"
+    );
+  return JsxRuntime.jsx(WaitForMessages.make, {
+              children: (function () {
+                  return JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsxs("div", {
+                                    children: [
+                                      isRefreshing ? JsxRuntime.jsx(LucideReact.Loader2, {
+                                              size: 13,
+                                              className: "animate-spin text-[#65a30d] dark:text-[#bdf25d]"
+                                            }) : JsxRuntime.jsx("span", {
+                                              children: JsxRuntime.jsx(LucideReact.ChevronDown, {
+                                                    size: 13,
+                                                    className: ready ? "text-[#65a30d] dark:text-[#bdf25d]" : ""
+                                                  }),
+                                              style: {
+                                                display: "inline-flex",
+                                                transition: "transform 120ms ease-out",
+                                                transform: "rotate(" + rotate.toFixed(1) + "deg)"
+                                              }
+                                            }),
+                                      JsxRuntime.jsx("span", {
+                                            children: isRefreshing ? t`Refreshing…` : (
+                                                ready ? t`Release to refresh` : t`Pull to refresh`
+                                              )
+                                          })
+                                    ],
+                                    className: "pb-3 flex items-center gap-1.5 text-[11px] font-mono text-gray-500 dark:text-gray-400 select-none"
                                   }),
+                              className: "overflow-hidden flex items-end justify-center pointer-events-none",
                               style: {
-                                display: "inline-flex",
-                                transform: "rotate(" + (progress * 180).toFixed(1) + "deg)"
+                                height: pullDistance.toFixed(0) + "px",
+                                transition: transition
                               }
-                            }),
-                      JsxRuntime.jsx("span", {
-                            children: isRefreshing ? "Refreshing\u2026" : "Pull to refresh",
-                            className: "text-xs font-mono"
-                          })
-                    ],
-                    className: "flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm",
-                    style: {
-                      opacity: isVisible ? "1" : "0"
-                    }
-                  }),
-              className: "overflow-hidden flex items-center justify-center " + (
-                isPulling ? "transition-none" : "transition-[height] duration-200 ease-out"
-              ),
-              style: {
-                height: (
-                    isVisible ? indicatorHeight : 0
-                  ).toFixed(0) + "px"
-              }
+                            });
+                })
             });
 }
 
@@ -268,4 +279,4 @@ export {
   usePullToRefresh ,
   Indicator ,
 }
-/* react Not a pure module */
+/*  Not a pure module */

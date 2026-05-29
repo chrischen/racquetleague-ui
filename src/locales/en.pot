@@ -4721,3 +4721,25 @@ msgstr ""
 #: src/components/pages/PkEventPage.re.mjs:591
 msgid "Share"
 msgstr ""
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Pull to refresh"
+msgstr ""
+
+#: src/components/shared/EventsListView.re.mjs:151
+msgid "Refresh"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:615
+msgid "Refresh event details"
+msgstr ""
+
+#: src/components/shared/PullToRefresh.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/shared/EventsListView.re.mjs:151
+msgid "Refreshing…"
+msgstr ""
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Release to refresh"
+msgstr ""

@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:328
+#: src/components/pages/PkEventPage.re.mjs:329
 msgid "...more"
 msgstr ""
 
@@ -30,7 +30,7 @@ msgstr ""
 msgid "[missing title]"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:104
+#: src/components/organisms/ClubEventsList.re.mjs:105
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
@@ -51,7 +51,7 @@ msgstr ""
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:106
+#: src/components/shared/EventsListView.re.mjs:136
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 #~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
 #~ msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:119
+#: src/components/shared/EventsListView.re.mjs:171
 msgid "← previous"
 msgstr ""
 
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Add a message..."
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:122
+#: src/components/organisms/ClubEventsList.re.mjs:123
 msgid "Add to {0}"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:510
+#: src/components/pages/PkEventPage.re.mjs:518
 msgid "cancel event"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:191
+#: src/components/pages/PkEventPage.re.mjs:192
 msgid "CANCELED"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:481
+#: src/components/pages/PkEventPage.re.mjs:489
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "Confirmed · {0}"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:226
+#: src/components/pages/PkEventPage.re.mjs:227
 msgid "Copied!"
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:493
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "edit event"
 msgstr ""
 
@@ -256,12 +256,12 @@ msgstr ""
 msgid "even"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:107
-#: src/components/organisms/ClubEventsList.re.mjs:107
+#: src/components/shared/EventsListView.re.mjs:137
+#: src/components/organisms/ClubEventsList.re.mjs:108
 msgid "event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:761
+#: src/components/pages/PkEventPage.re.mjs:807
 msgid "Event not found"
 msgstr ""
 
@@ -273,8 +273,8 @@ msgstr ""
 msgid "Event updated"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:108
-#: src/components/organisms/ClubEventsList.re.mjs:108
+#: src/components/shared/EventsListView.re.mjs:138
+#: src/components/organisms/ClubEventsList.re.mjs:109
 msgid "events"
 msgstr ""
 
@@ -282,7 +282,7 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/shared/EventsListView.re.mjs:113
 msgid "Filtered by date"
 msgstr ""
 
@@ -290,11 +290,11 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:274
+#: src/components/pages/PkEventPage.re.mjs:275
 msgid "Free"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:245
+#: src/components/organisms/ClubEventsList.re.mjs:253
 msgid "Friday"
 msgstr ""
 
@@ -357,7 +357,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:328
+#: src/components/pages/PkEventPage.re.mjs:329
 msgid "less"
 msgstr ""
 
@@ -365,7 +365,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:304
+#: src/components/pages/PkEventPage.re.mjs:305
 msgid "Location"
 msgstr ""
 
@@ -398,11 +398,11 @@ msgstr ""
 msgid "mixed"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:233
+#: src/components/organisms/ClubEventsList.re.mjs:241
 msgid "Monday"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:142
+#: src/components/shared/EventsListView.re.mjs:194
 msgid "more →"
 msgstr ""
 
@@ -411,7 +411,7 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:254
+#: src/components/organisms/ClubEventsList.re.mjs:262
 msgid "Next {dayName}"
 msgstr ""
 
@@ -423,7 +423,7 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:622
+#: src/components/pages/PkEventPage.re.mjs:650
 msgid "Notes from the host"
 msgstr ""
 
@@ -506,6 +506,10 @@ msgstr ""
 msgid "Professional players"
 msgstr ""
 
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Pull to refresh"
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:74
 #: src/components/atoms/EventTag.re.mjs:76
 msgid "Rated"
@@ -519,6 +523,20 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
+#: src/components/shared/EventsListView.re.mjs:151
+msgid "Refresh"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:615
+msgid "Refresh event details"
+msgstr ""
+
+#: src/components/shared/PullToRefresh.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/shared/EventsListView.re.mjs:151
+msgid "Refreshing…"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr ""
@@ -526,6 +544,10 @@ msgstr ""
 #: src/components/organisms/EventStickyFooter.re.mjs:182
 #~ msgid "Release spot"
 #~ msgstr ""
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Release to refresh"
+msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:182
 #~ msgid "Releasing..."
@@ -563,7 +585,7 @@ msgstr ""
 msgid "Round Robin Draws"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:248
+#: src/components/organisms/ClubEventsList.re.mjs:256
 msgid "Saturday"
 msgstr ""
 
@@ -584,7 +606,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:226
+#: src/components/pages/PkEventPage.re.mjs:227
 msgid "Share"
 msgstr ""
 
@@ -600,7 +622,7 @@ msgstr ""
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:109
+#: src/components/shared/EventsListView.re.mjs:139
 msgid "SORTED BY START TIME"
 msgstr ""
 
@@ -612,7 +634,7 @@ msgstr ""
 msgid "SPREAD"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:230
+#: src/components/organisms/ClubEventsList.re.mjs:238
 msgid "Sunday"
 msgstr ""
 
@@ -657,17 +679,17 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:242
+#: src/components/organisms/ClubEventsList.re.mjs:250
 msgid "Thursday"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:53
-#: src/components/organisms/ClubEventsList.re.mjs:213
+#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/organisms/ClubEventsList.re.mjs:221
 msgid "Today"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:57
-#: src/components/organisms/ClubEventsList.re.mjs:219
+#: src/components/shared/EventsListView.re.mjs:87
+#: src/components/organisms/ClubEventsList.re.mjs:227
 msgid "Tomorrow"
 msgstr ""
 
@@ -675,11 +697,11 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:236
+#: src/components/organisms/ClubEventsList.re.mjs:244
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:499
+#: src/components/pages/PkEventPage.re.mjs:507
 msgid "uncancel event"
 msgstr ""
 
@@ -717,11 +739,11 @@ msgstr ""
 msgid "We need a few details before you can join this event"
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:239
+#: src/components/organisms/ClubEventsList.re.mjs:247
 msgid "Wednesday"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:61
+#: src/components/shared/EventsListView.re.mjs:91
 msgid "Weekend"
 msgstr ""
 
@@ -737,7 +759,7 @@ msgstr ""
 msgid "Withdrawing..."
 msgstr ""
 
-#: src/components/organisms/ClubEventsList.re.mjs:253
+#: src/components/organisms/ClubEventsList.re.mjs:261
 msgid "Yesterday"
 msgstr ""
 
